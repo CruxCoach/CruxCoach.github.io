@@ -1,0 +1,16 @@
+# Editor / OS noise
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Local preview artifacts
+.cache/
+node_modules/
+*.log
+
+# Image-conversion scratch
+*.psd
+*.xcf
+assets/raw/

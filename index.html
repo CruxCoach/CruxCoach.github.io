@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CruxCoach — Open-source Android app for the Kilter Board</title>
+<meta name="description" content="An open-source Android app for the Kilter Board. Browse climbs, light up holds, log ascents — without an account, without Google, without tracking.">
+<meta name="theme-color" content="#1a1a1a">
+<link rel="canonical" href="https://cruxcoach.org/">
+<meta property="og:title" content="CruxCoach — Open-source Android app for the Kilter Board">
+<meta property="og:description" content="Browse climbs, light up holds, log ascents — without an account, without Google, without tracking.">
+<meta property="og:url" content="https://cruxcoach.org/">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --bg: #fdfcf9;
+    --bg-soft: #f3f1ec;
+    --fg: #1a1a1a;
+    --fg-soft: #4a4a4a;
+    --fg-mute: #888;
+    --rule: #e2dfd7;
+    --accent: #c4502c;
+    --accent-soft: #f3e3d8;
+    --code-bg: #ebe7df;
+    --max: 64rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141312;
+      --bg-soft: #1f1d1a;
+      --fg: #f0ede6;
+      --fg-soft: #c0bcb2;
+      --fg-mute: #807a70;
+      --rule: #2c2925;
+      --accent: #e07a4f;
+      --accent-soft: #2a1d15;
+      --code-bg: #211e1a;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Helvetica Neue", sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--fg);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
+  a:hover, a:focus { border-bottom-color: var(--accent); }
+  h1, h2, h3 { font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 0.6em; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.02em; }
+  h2 { font-size: 1.6rem; margin-top: 0; }
+  h3 { font-size: 1.15rem; }
+  p { margin: 0 0 1em; }
+  code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; background: var(--code-bg); padding: 0.1em 0.4em; border-radius: 4px; }
+
+  .container { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Header */
+  header {
+    border-bottom: 1px solid var(--rule);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    backdrop-filter: blur(8px);
+    z-index: 10;
+  }
+  header .container { display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; color: var(--fg); border-bottom: 0; }
+  .brand:hover { border-bottom: 0; }
+  nav { display: flex; gap: 1.5rem; align-items: center; font-size: 0.95rem; }
+  nav a { color: var(--fg-soft); border-bottom: 0; }
+  nav a:hover { color: var(--accent); border-bottom: 0; }
+  .lang { color: var(--fg-mute); font-size: 0.85rem; }
+  .lang [aria-current="true"] { color: var(--fg); font-weight: 500; }
+
+  /* Hero */
+  .hero {
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 3rem 0 2.5rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  .hero h1 { margin-top: 0; }
+  .hero-lede { font-size: 1.2rem; color: var(--fg-soft); margin-bottom: 2rem; max-width: 32rem; }
+  .hero-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-size: 0.95rem;
+    color: var(--fg-soft);
+  }
+  .hero-bullets li::before { content: "›  "; color: var(--accent); font-weight: 700; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    transition: transform .1s, background .15s, border-color .15s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); color: white; }
+  .btn-primary:hover { background: var(--accent); border-bottom-color: transparent; opacity: 0.92; }
+  .btn-secondary { background: transparent; color: var(--fg); border-color: var(--rule); }
+  .btn-secondary:hover { border-color: var(--accent); }
+  .btn-disabled { background: transparent; color: var(--fg-mute); border-color: var(--rule); cursor: not-allowed; pointer-events: none; }
+  .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
+
+  /* Phone-mockup placeholder */
+  .phone-mock {
+    aspect-ratio: 9 / 19;
+    max-width: 22rem;
+    margin: 0 auto;
+    border: 1px solid var(--rule);
+    border-radius: 28px;
+    background: var(--bg-soft);
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+  }
+  .phone-bar { height: 0.4rem; border-radius: 4px; background: var(--rule); }
+  .phone-bar.long { width: 80%; background: var(--accent-soft); }
+  .phone-bar.short { width: 50%; }
+  .phone-bar.tall { height: 1.5rem; border-radius: 6px; }
+  .phone-board {
+    margin-top: 0.5rem;
+    flex: 1;
+    border-radius: 8px;
+    background:
+      radial-gradient(circle at 25% 30%, var(--accent) 4px, transparent 5px),
+      radial-gradient(circle at 60% 25%, var(--accent) 4px, transparent 5px),
+      radial-gradient(circle at 40% 50%, #4a90c4 4px, transparent 5px),
+      radial-gradient(circle at 70% 65%, #4a90c4 4px, transparent 5px),
+      radial-gradient(circle at 30% 80%, #6abf6a 4px, transparent 5px),
+      var(--rule);
+    background-size: cover;
+  }
+  .phone-caption { font-size: 0.8rem; color: var(--fg-mute); text-align: center; margin-top: 0.5rem; }
+
+  /* Sections */
+  section { padding: 4rem 0; border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: 0; }
+  .section-lede { font-size: 1.15rem; color: var(--fg-soft); max-width: 38rem; margin-bottom: 2.5rem; }
+
+  /* Features grid */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 2rem;
+  }
+  .feature h3 { color: var(--fg); }
+  .feature p { color: var(--fg-soft); margin: 0; }
+  .feature-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 0.75rem;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 6px;
+    text-align: center;
+    line-height: 2rem;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  /* Story */
+  .story {
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--rule);
+    padding: 4rem 0;
+  }
+  .story p { font-size: 1.05rem; max-width: 38rem; }
+  .story p:first-of-type::first-letter {
+    font-size: 3rem;
+    float: left;
+    line-height: 0.85;
+    padding: 0.2rem 0.6rem 0 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Privacy bullets */
+  .privacy-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1.25rem;
+    margin: 0;
+  }
+  .privacy-list li {
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--fg-soft);
+  }
+  .privacy-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .privacy-list strong { color: var(--fg); font-weight: 600; }
+
+  /* Install */
+  .install-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .install-card {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 1.5rem;
+    background: var(--bg);
+  }
+  .install-card.primary { border-color: var(--accent); background: var(--accent-soft); }
+  .install-card h3 { margin-top: 0; }
+  .install-card p { font-size: 0.95rem; color: var(--fg-soft); }
+  .install-card .btn { margin-top: 0.5rem; }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  .badge-soft { background: var(--rule); color: var(--fg-mute); }
+
+  /* Dev section */
+  .dev pre {
+    background: var(--code-bg);
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 0.85rem;
+  }
+  .dev-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; font-size: 0.95rem; }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 3rem 0 4rem;
+    color: var(--fg-mute);
+    font-size: 0.9rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .footer-grid h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--fg-soft); margin: 0 0 0.75rem; font-weight: 600; }
+  .footer-grid ul { list-style: none; padding: 0; margin: 0; }
+  .footer-grid li { margin-bottom: 0.4rem; }
+  .footer-grid a { color: var(--fg-soft); border-bottom-color: transparent; }
+  .footer-grid a:hover { color: var(--accent); }
+  .footer-bottom { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; padding-top: 1.5rem; border-top: 1px solid var(--rule); font-size: 0.8rem; }
+  .disambiguation { font-size: 0.75rem; color: var(--fg-mute); margin-top: 1.5rem; max-width: 38rem; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/" class="brand">CruxCoach</a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="#contribute">Contribute</a>
+      <span class="lang"><span aria-current="true">EN</span> · <a href="/de/">DE</a></span>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>An open-source Android app for the Kilter Board.</h1>
+      <p class="hero-lede">
+        Browse climbs, light up holds, log your sessions — without an account,
+        without Google services, without anyone tracking your training.
+      </p>
+      <ul class="hero-bullets">
+        <li>85,000+ climbs offline</li>
+        <li>Custom hold colors</li>
+        <li>Encrypted local logbook</li>
+        <li>German &amp; English UI</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Get on Zapstore</a>
+        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases">Download APK</a>
+      </div>
+      <p class="cta-foot">Free. No account. Verifiable signed builds. Android 9+.</p>
+    </div>
+    <div>
+      <div class="phone-mock" aria-hidden="true">
+        <div class="phone-bar tall"></div>
+        <div class="phone-bar long"></div>
+        <div class="phone-bar short"></div>
+        <div class="phone-board"></div>
+        <div class="phone-bar short"></div>
+        <div class="phone-bar long"></div>
+      </div>
+      <p class="phone-caption">Replace with real screenshot of the board browser.</p>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <h2>What it does</h2>
+    <p class="section-lede">Built around the things you actually do at the wall — not features the official app needed but you don't.</p>
+    <div class="features">
+      <div class="feature">
+        <span class="feature-icon">B</span>
+        <h3>Browse 85,000+ climbs</h3>
+        <p>Filter by grade, angle, quality, move count, setter. Works offline once the board database is synced.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">L</span>
+        <h3>Light up holds via Bluetooth</h3>
+        <p>Direct BLE to your Kilter Board. Pick custom colors per role: start, hand, foot, top.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">S</span>
+        <h3>Search by hold</h3>
+        <p>Tap holds on the board image. Find every climb that uses that exact combination.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">L</span>
+        <h3>Local, encrypted logbook</h3>
+        <p>Sends, attempts, opinions, sessions — all stored on your device in an SQLCipher database. Never leaves unless you ask.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">N</span>
+        <h3>Share with climbers nearby</h3>
+        <p>Send the climb you're projecting to a friend over Bluetooth. No internet needed. No account on either side.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">↻</span>
+        <h3>Import your old data</h3>
+        <p>Got a Kilter logbook export? CruxCoach reads it directly. Your training history doesn't have to die with the official app.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="why">
+  <div class="container">
+    <h2>Why this exists.</h2>
+    <p>
+      On 26 March 2026, Aurora's Kilter app was pulled from the App Store and Play Store
+      after a dispute between Aurora Climbing and Kilter, LLC. Tens of thousands of climbers
+      lost access to their playlists, logbooks, and draft climbs overnight. The new official
+      app shipped half-finished, and people started asking the obvious question: why does my
+      training data live on someone else's server in the first place?
+    </p>
+    <p>
+      CruxCoach is one answer to that question. Your training history sits encrypted on your
+      phone. Your identity is a Nostr keypair you control, not an account someone can revoke.
+      The board database is content-addressed and distributed peer-to-peer, so even the
+      maintainer of CruxCoach can't shut it down. And the whole thing is open source under
+      the GPL — fork it, audit it, run it forever.
+    </p>
+    <p>
+      It's narrower than the official app on purpose: Kilter only, Android only. But it's
+      yours.
+    </p>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="container">
+    <h2>Privacy by architecture, not by promise</h2>
+    <p class="section-lede">
+      Privacy claims are easy. CruxCoach is built so the privacy holds even if we're lying about it.
+    </p>
+    <ul class="privacy-list">
+      <li><strong>No accounts, no signup.</strong> Your identity is a Nostr keypair generated on first launch, stored in the Android Keystore.</li>
+      <li><strong>No Google Play Services.</strong> Works on de-Googled phones — GrapheneOS, /e/OS, LineageOS without GApps.</li>
+      <li><strong>Encrypted local storage.</strong> Personal data lives in an SQLCipher database. Encryption key never leaves your device.</li>
+      <li><strong>No telemetry, no analytics, no ads.</strong> The app makes no network calls except to the Bluetooth board, and to Nostr relays you choose.</li>
+      <li><strong>No central server.</strong> There's nothing for us to shut down — or be made to shut down.</li>
+      <li><strong>Verifiable open-source builds.</strong> Code on Codeberg, releases signed, auto-updater pins the developer key on first install.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="install">
+  <div class="container">
+    <h2>Install</h2>
+    <p class="section-lede">Two ways to install today. Two more coming.</p>
+    <div class="install-grid">
+      <div class="install-card primary">
+        <h3>Zapstore <span class="badge">recommended</span></h3>
+        <p>Privacy-respecting, Nostr-native Android store. Verifies developer signatures. Auto-updates.</p>
+        <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Open in Zapstore</a>
+      </div>
+      <div class="install-card">
+        <h3>Direct APK</h3>
+        <p>Download the signed APK directly from Codeberg releases and install manually. The in-app updater handles future updates.</p>
+        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases">Latest release</a>
+      </div>
+      <div class="install-card">
+        <h3>F-Droid <span class="badge badge-soft">soon</span></h3>
+        <p>Submission planned once the 0.1.3 release lands. Will be the slowest channel to update but the broadest reach in FOSS-Android.</p>
+        <span class="btn btn-disabled">Pending</span>
+      </div>
+      <div class="install-card">
+        <h3>IzzyOnDroid <span class="badge badge-soft">soon</span></h3>
+        <p>Third-party F-Droid-compatible repo, faster review, preserves the developer signature. Submission queued.</p>
+        <span class="btn btn-disabled">Pending</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contribute" class="dev">
+  <div class="container">
+    <h2>For developers</h2>
+    <p class="section-lede">CruxCoach is GPLv3, written in Kotlin Multiplatform with a Jetpack Compose Android frontend. Issues and PRs live on Codeberg.</p>
+    <pre>git clone https://codeberg.org/CruxCoach/CruxCoach.git
+cd CruxCoach
+bash scripts/setup_dev_env.sh
+./gradlew :androidApp:assembleDebug</pre>
+    <div class="dev-links">
+      <a href="https://codeberg.org/CruxCoach/CruxCoach">Source code</a>
+      <a href="https://codeberg.org/CruxCoach/CruxCoach/issues">Issue tracker</a>
+      <a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/CONTRIBUTING.md">Contributing guide</a>
+      <a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/SECURITY.md">Security policy</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>CruxCoach</h4>
+        <p style="color: var(--fg-soft); margin: 0;">
+          An open-source Android app for the Kilter Board.<br>
+          For the Kilter Board, not affiliated with Kilter, LLC.
+        </p>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="https://codeberg.org/CruxCoach/CruxCoach">Codeberg</a></li>
+          <li><a href="https://codeberg.org/CruxCoach/CruxCoach/releases">Releases</a></li>
+          <li><a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/CHANGELOG.md">Changelog</a></li>
+          <li><a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/SECURITY.md">Security</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://zapstore.dev/apps/com.cruxcoach.android">Zapstore</a></li>
+          <li><a href="https://fosstodon.org/@cruxcoach">Mastodon</a></li>
+          <li><a href="#">Nostr (npub coming)</a></li>
+          <li><a href="mailto:press@cruxcoach.org">press@cruxcoach.org</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025–2026 CruxCoach Contributors. Code GPL-3.0. Site hosted by Codeberg e.V.</span>
+      <span><a href="/imprint">Imprint</a> · <a href="/privacy">Privacy</a></span>
+    </div>
+    <p class="disambiguation">
+      "CruxCoach" on <strong>cruxcoach.org</strong> is the open-source Android app for the Kilter Board described above.
+      Not affiliated with cruxcoach.app, cruxcoach.com, or any other product using a similar name.
+      Kilter Board is a trademark of Kilter, LLC; CruxCoach uses the name descriptively to indicate
+      compatibility, with no affiliation or endorsement implied.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
