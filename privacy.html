@@ -29,13 +29,16 @@
   a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
   a:hover { border-bottom-color: var(--accent); }
   header { border-bottom: 1px solid var(--rule); padding: 1rem 0; }
-  header .container { display: flex; align-items: center; justify-content: space-between; }
+  header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; gap: 1rem; }
   .container { max-width: 44rem; margin: 0 auto; padding: 0 1.5rem; }
-  .brand { font-weight: 700; font-size: 1.1rem; color: var(--fg); border-bottom: 0; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .brand { font-weight: 700; font-size: 1.1rem; color: var(--fg); border-bottom: 0; display: inline-flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
   .brand:hover { border-bottom: 0; }
-  .brand svg { width: 1.6rem; height: 1.6rem; }
-  .lang { color: var(--fg-mute); font-size: 0.85rem; white-space: nowrap; }
+  .brand svg { width: 1.6rem; height: 1.6rem; flex-shrink: 0; }
+  .lang { color: var(--fg-mute); font-size: 0.85rem; white-space: nowrap; flex-shrink: 0; }
   .lang [aria-current="true"] { color: var(--fg); font-weight: 500; }
+  @media (max-width: 900px) {
+    .lang [aria-current="true"], .lang-sep { display: none; }
+  }
   @media (max-width: 360px) {
     .brand { font-size: 1rem; gap: 0.4rem; }
     .brand svg { width: 1.4rem; height: 1.4rem; }
@@ -71,7 +74,7 @@
       </svg>
       CruxCoach
     </a>
-    <span class="lang"><span aria-current="true">EN</span> · <a href="/de/privacy.html">DE</a></span>
+    <span class="lang"><span aria-current="true">EN</span><span class="lang-sep"> · </span><a href="/de/privacy.html">DE</a></span>
   </div>
 </header>
 
