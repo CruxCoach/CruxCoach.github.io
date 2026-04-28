@@ -1,0 +1,12 @@
+# CruxCoach landing page (cruxcoach.org)
+# Project repo: https://codeberg.org/CruxCoach/CruxCoach
+
+User-agent: *
+Allow: /
+Disallow: /imprint.html
+Disallow: /privacy.html
+Disallow: /de/imprint.html
+Disallow: /de/privacy.html
+Disallow: /404.html
+
+Sitemap: https://cruxcoach.org/sitemap.xml

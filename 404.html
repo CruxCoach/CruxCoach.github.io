@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — CruxCoach</title>
+<meta name="theme-color" content="#141312">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<style>
+  :root {
+    --bg: #141312;
+    --fg: #f0ede6;
+    --fg-soft: #c0bcb2;
+    --fg-mute: #807a70;
+    --accent: #e07a4f;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--fg); background: var(--bg); -webkit-font-smoothing: antialiased; text-align: center; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
+  a:hover { border-bottom-color: var(--accent); }
+  svg.logo { width: 5rem; height: 5rem; margin-bottom: 1.5rem; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3rem); margin: 0 0 0.4em; letter-spacing: -0.02em; }
+  p { font-size: 1.1rem; color: var(--fg-soft); max-width: 32rem; margin: 0 0 1em; }
+  .code { font-family: "SF Mono", Menlo, Consolas, monospace; color: var(--fg-mute); font-size: 0.9rem; margin-top: 2rem; }
+</style>
+</head>
+<body>
+  <svg class="logo" viewBox="0 0 512 512" aria-hidden="true">
+    <defs>
+      <radialGradient id="gL" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse"><stop offset="40%" stop-color="#FF8C2A"/><stop offset="100%" stop-color="#B84400"/></radialGradient>
+      <radialGradient id="gR" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse"><stop offset="40%" stop-color="#E05800"/><stop offset="100%" stop-color="#8C3000"/></radialGradient>
+      <radialGradient id="gX" cx="256" cy="256" r="80" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFD080"/><stop offset="100%" stop-color="#E08A00"/></radialGradient>
+    </defs>
+    <rect width="512" height="512" fill="#000"/>
+    <path d="M252,56 A200,200 0 1 0 248,456 L248,384 A128,128 0 1 1 252,128 Z" fill="url(#gL)"/>
+    <path d="M260,456 A200,200 0 1 0 264,56 L264,128 A128,128 0 1 1 260,384 Z" fill="url(#gR)"/>
+    <polygon points="192,214 214,192 256,234 298,192 320,214 274,256 320,298 298,320 256,278 214,320 192,298 238,256" fill="url(#gX)"/>
+  </svg>
+
+  <h1>Off route.</h1>
+  <p>That URL didn't match any climb on the wall. Probably an old link or a typo.</p>
+  <p><a href="/">Back to the start holds →</a></p>
+  <p class="code">404</p>
+</body>
+</html>

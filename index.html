@@ -25,6 +25,43 @@
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
 <link rel="apple-touch-icon" href="/assets/icon-512.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CruxCoach",
+  "alternateName": "CruxCoach for Kilter Board",
+  "url": "https://cruxcoach.org/",
+  "operatingSystem": "Android 9+",
+  "applicationCategory": "SportsApplication",
+  "applicationSubCategory": "Climbing training",
+  "description": "Open-source Android app for the Kilter Board. Browse climbs, light up holds, log ascents — without an account, without Google services, without tracking.",
+  "image": "https://cruxcoach.org/assets/icon-512.png",
+  "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "softwareVersion": "0.1.3",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "CruxCoach Contributors",
+    "url": "https://codeberg.org/CruxCoach/CruxCoach"
+  },
+  "downloadUrl": "https://codeberg.org/CruxCoach/CruxCoach/releases",
+  "installUrl": "https://zapstore.dev/apps/com.cruxcoach.android",
+  "inLanguage": ["en", "de"],
+  "screenshot": [
+    "https://cruxcoach.org/assets/screenshots/board-browser.png",
+    "https://cruxcoach.org/assets/screenshots/climb-detail.png",
+    "https://cruxcoach.org/assets/screenshots/logbook.png"
+  ],
+  "isAccessibleForFree": true,
+  "softwareRequirements": "Android 9 or later, Bluetooth LE"
+}
+</script>
 <style>
   :root {
     --bg: #141312;
@@ -548,7 +585,7 @@ bash scripts/setup_dev_env.sh
     </div>
     <div class="footer-bottom">
       <span>© 2026 CruxCoach Contributors. Code GPL-3.0. Site hosted by Codeberg e.V.</span>
-      <span><a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a></span>
+      <span><a href="/support.html">Support</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a></span>
     </div>
     <p class="disambiguation">
       "CruxCoach" on <strong>cruxcoach.org</strong> is the open-source Android app for the Kilter Board described above.

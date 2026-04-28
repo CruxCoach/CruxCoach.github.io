@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CruxCoach unterstützen — Spenden und Mitwirken</title>
+<meta name="description" content="Wege, das CruxCoach-Projekt zu unterstützen: Lightning-Spenden, Codeberg-Beiträge, Mund-zu-Mund-Propaganda.">
+<meta name="theme-color" content="#141312">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://cruxcoach.org/de/support.html">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
+<link rel="alternate" hreflang="en" href="https://cruxcoach.org/support.html">
+<link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/support.html">
+<style>
+  :root {
+    --bg: #141312;
+    --bg-soft: #1f1d1a;
+    --fg: #f0ede6;
+    --fg-soft: #c0bcb2;
+    --fg-mute: #807a70;
+    --rule: #2c2925;
+    --accent: #e07a4f;
+    --accent-soft: #2a1d15;
+    --code-bg: #211e1a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 17px; line-height: 1.6; color: var(--fg); background: var(--bg); -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
+  a:hover { border-bottom-color: var(--accent); }
+  header { border-bottom: 1px solid var(--rule); padding: 1rem 0; }
+  header .container { display: flex; align-items: center; justify-content: space-between; }
+  .container { max-width: 44rem; margin: 0 auto; padding: 0 1.5rem; }
+  .brand { font-weight: 700; font-size: 1.1rem; color: var(--fg); border-bottom: 0; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .brand svg { width: 1.6rem; height: 1.6rem; }
+  .lang { color: var(--fg-mute); font-size: 0.85rem; }
+  .lang [aria-current="true"] { color: var(--fg); font-weight: 500; }
+  main { padding: 3rem 0 4rem; }
+  h1 { font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 0.5em; }
+  h2 { font-size: 1.25rem; margin: 2.5rem 0 0.6em; }
+  p { margin: 0 0 1em; color: var(--fg-soft); }
+  p strong { color: var(--fg); }
+  ul { color: var(--fg-soft); padding-left: 1.5rem; }
+  ul li { margin-bottom: 0.4em; }
+  code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; background: var(--code-bg); padding: 0.1em 0.4em; border-radius: 4px; color: var(--fg); }
+  .qr-block { display: flex; gap: 2rem; align-items: center; padding: 1.5rem; background: var(--bg-soft); border: 1px solid var(--rule); border-radius: 12px; margin: 1.5rem 0; flex-wrap: wrap; }
+  .qr-block img { width: 180px; height: 180px; border-radius: 6px; background: white; padding: 8px; }
+  .qr-block .lnaddr { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 1.05rem; color: var(--accent); word-break: break-all; }
+  .qr-block .label { font-size: 0.85rem; color: var(--fg-mute); margin-bottom: 0.5em; }
+  footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; color: var(--fg-mute); font-size: 0.85rem; text-align: center; }
+  footer a { color: var(--fg-soft); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/de/" class="brand">
+      <svg viewBox="0 0 512 512" aria-hidden="true">
+        <defs>
+          <radialGradient id="gL" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse"><stop offset="40%" stop-color="#FF8C2A"/><stop offset="100%" stop-color="#B84400"/></radialGradient>
+          <radialGradient id="gR" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse"><stop offset="40%" stop-color="#E05800"/><stop offset="100%" stop-color="#8C3000"/></radialGradient>
+          <radialGradient id="gX" cx="256" cy="256" r="80" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFD080"/><stop offset="100%" stop-color="#E08A00"/></radialGradient>
+        </defs>
+        <rect width="512" height="512" fill="#000"/>
+        <path d="M252,56 A200,200 0 1 0 248,456 L248,384 A128,128 0 1 1 252,128 Z" fill="url(#gL)"/>
+        <path d="M260,456 A200,200 0 1 0 264,56 L264,128 A128,128 0 1 1 260,384 Z" fill="url(#gR)"/>
+        <polygon points="192,214 214,192 256,234 298,192 320,214 274,256 320,298 298,320 256,278 214,320 192,298 238,256" fill="url(#gX)"/>
+      </svg>
+      CruxCoach
+    </a>
+    <span class="lang"><a href="/support.html">EN</a> · <span aria-current="true">DE</span></span>
+  </div>
+</header>
+
+<main class="container">
+  <h1>CruxCoach unterstützen</h1>
+  <p>CruxCoach wird von einem Indie-Entwickler in Freizeit gebaut und gepflegt. Die App ist und bleibt kostenlos und werbefrei. Wenn sie dein Training voranbringt, hier sind die Wege, das Projekt am Laufen zu halten.</p>
+
+  <h2>Bitcoin Lightning</h2>
+  <p>Einfach, sofort, kein Empfänger-Account nötig. QR mit jeder Lightning-fähigen Wallet scannen — oder Adresse in Zeus, Phoenix, Alby, Wallet of Satoshi etc. einfügen.</p>
+  <div class="qr-block">
+    <img src="/assets/lightning-qr.png" alt="Lightning-QR für cruxcoach@npub.cash" loading="lazy">
+    <div>
+      <div class="label">Lightning Address</div>
+      <div class="lnaddr">cruxcoach@npub.cash</div>
+    </div>
+  </div>
+  <p>Jede Höhe willkommen — auch der eine "Send", den du gerade gemacht hast (paar Sats pro Session summieren sich). Zaps via Nostr landen ebenfalls hier.</p>
+
+  <h2>Mitmachen auf Codeberg</h2>
+  <p>Geld ist nicht das Einzige, was hilft. Der billigste Beitrag ist Feedback:</p>
+  <ul>
+    <li>Bug-Reports oder Feature-Wünsche im <a href="https://codeberg.org/CruxCoach/CruxCoach/issues">Issue-Tracker</a></li>
+    <li>Pull-Request schicken — Setup in <a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/CONTRIBUTING.md">CONTRIBUTING.md</a></li>
+    <li>Bei Übersetzungen jenseits von Englisch und Deutsch helfen</li>
+    <li>Sicherheitslücke gefunden? <a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/SECURITY.md">SECURITY.md</a> beschreibt Responsible Disclosure</li>
+  </ul>
+
+  <h2>Weitersagen</h2>
+  <p>Wenn du in einer Halle mit Kilter Board kletterst und die offizielle App dich nervt: anderen Climbern von CruxCoach erzählen ist tatsächlich der höchste Hebel, den du hast. Das Projekt wächst durch Mund-zu-Mund — es gibt kein Marketing-Budget.</p>
+
+  <h2>Was wir nicht nehmen</h2>
+  <p>Kein Abo, keine Premium-Stufe, keine wiederkehrende Abrechnung, keine "Pro"-Version. Das ganze Projekt ist GPL-3.0 und bleibt das. Falls es je eine strukturierte Finanzierungsform geben sollte (OpenCollective, Geyser etc.), wird das hier zuerst offengelegt — niemals via stiller Änderung.</p>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="/de/">← Zurück zu cruxcoach.org</a> · <a href="/de/imprint.html">Impressum</a> · <a href="/de/privacy.html">Datenschutz</a>
+  </div>
+</footer>
+
+</body>
+</html>

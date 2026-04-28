@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="gL" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse">
+      <stop offset="40%" stop-color="#FF8C2A"/><stop offset="100%" stop-color="#B84400"/>
+    </radialGradient>
+    <radialGradient id="gR" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse">
+      <stop offset="40%" stop-color="#E05800"/><stop offset="100%" stop-color="#8C3000"/>
+    </radialGradient>
+    <radialGradient id="gX" cx="256" cy="256" r="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFD080"/><stop offset="100%" stop-color="#E08A00"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1715"/>
+      <stop offset="100%" stop-color="#0a0908"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Logo (left side, scaled from 512×512 viewBox to 220×220 at offset 80,205) -->
+  <g transform="translate(80, 205) scale(0.43)">
+    <rect width="512" height="512" fill="#000" rx="60"/>
+    <path d="M252,56 A200,200 0 1 0 248,456 L248,384 A128,128 0 1 1 252,128 Z" fill="url(#gL)"/>
+    <path d="M260,456 A200,200 0 1 0 264,56 L264,128 A128,128 0 1 1 260,384 Z" fill="url(#gR)"/>
+    <polygon points="192,214 214,192 256,234 298,192 320,214 274,256 320,298 298,320 256,278 214,320 192,298 238,256" fill="url(#gX)"/>
+  </g>
+
+  <!-- Brand mark + headline (right of logo) -->
+  <text x="350" y="245" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="64" font-weight="700" fill="#f0ede6" letter-spacing="-1.5">CruxCoach</text>
+
+  <text x="350" y="320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="36" font-weight="500" fill="#e07a4f">Open-source Android app</text>
+  <text x="350" y="365" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="36" font-weight="500" fill="#e07a4f">for the Kilter Board</text>
+
+  <!-- Sub-bullets -->
+  <text x="350" y="450" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" fill="#c0bcb2">No accounts · No Google · No tracking</text>
+
+  <!-- URL bottom-right -->
+  <text x="1130" y="585" text-anchor="end" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="22" fill="#807a70">cruxcoach.org</text>
+</svg>

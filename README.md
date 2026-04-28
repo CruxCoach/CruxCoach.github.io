@@ -43,23 +43,35 @@ DNS at Njalla:
 
 ## Roadmap
 
-### Done in v0.2
+### Done
 - [x] Real logo (inline SVG from `assets/logo.svg`)
-- [x] Real hero screenshot (board-browser.png) replacing CSS phone-mockup
-- [x] Screenshot gallery with lazy-loading (climb-detail, hold-search, heatmap)
+- [x] Real hero screenshot replacing CSS phone-mockup
+- [x] Screenshot gallery with lazy-loading
 - [x] Favicon + apple-touch-icon
-- [x] OG / Twitter Card meta tags (using app icon as fallback image)
+- [x] OG / Twitter Card meta tags (using app icon)
+- [x] German variant at `/de/index.html` with `hreflang` alternates
+- [x] Dark-mode-only (color-scheme=dark in meta)
+- [x] PNG metadata stripped (tIME, tEXt date:create/modify)
+- [x] `/imprint.html` and `/de/imprint.html`
+- [x] `/privacy.html` and `/de/privacy.html`
+- [x] `/support.html` and `/de/support.html` with Lightning QR
+- [x] `/404.html` with brand-consistent error page
+- [x] `/.well-known/security.txt` (RFC 9116)
+- [x] `sitemap.xml` (includes hreflang alternates)
+- [x] `robots.txt` (sitemap reference, noindex on legal pages)
+- [x] `humans.txt` (FOSS-tradition colophon)
+- [x] JSON-LD `SoftwareApplication` schema in `<head>` (both languages)
+- [x] Real Nostr `npub` link via primal.net
+- [x] OG image SVG asset (`assets/og-image.svg`, 1200×630, not yet wired to og:image — needs PNG export)
 
 ### Open
-- [ ] **Image optimization** — current screenshots total ~2.5 MB. Resize to max 800 px wide, convert to WebP. Hero alone is 187 KB which is OK; gallery (~2.3 MB total) is heavy on mobile but lazy-loaded
-- [ ] **Dedicated 1200×630 OG image** — the app icon is square, social cards prefer landscape
-- [ ] **Add `/de/index.html`** German version
-- [ ] **Add `/imprint.html`** (minimal — Codeberg is the operator)
-- [ ] **Add `/privacy.html`** (one-page, no-data-collected statement)
-- [ ] **Add `/support.html`** with Lightning donation QR (`docs/lightning-qr.png` from main repo)
-- [ ] Replace Nostr placeholder with real npub once handle is claimed
-- [ ] Update Mastodon link once `@cruxcoach@fosstodon.org` is claimed
-- [ ] Once F-Droid / IzzyOnDroid listings land, update install cards from "soon" to actual links
+- [ ] **Image optimization** — gallery screenshots total ~700 KB. Resize to max 800 px wide, convert to WebP. Hero is 184 KB which is OK; gallery is lazy-loaded but heavy on mobile
+- [ ] **Render og-image.svg → og-image.png** (1200×630) and switch og:image / twitter:image meta-tags to it. Needs a tool (Inkscape, librsvg, or online converter)
+- [ ] **`/press.html`** press kit with high-res logo, screenshots, brief & long descriptions, story angles
+- [ ] **`/faq.html`** with anticipated normy questions
+- [ ] **Update Mastodon link** once `@cruxcoach@mastodon.social` is verified
+- [ ] **Once F-Droid / IzzyOnDroid listings land**, update install cards from "soon" to actual links
+- [ ] **Set Codeberg-Repo `Website` field** (manual UI step) to `https://cruxcoach.org`
 
 ## Image-optimization notes
 
