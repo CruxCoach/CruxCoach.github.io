@@ -43,14 +43,39 @@ DNS at Njalla:
 
 ## Roadmap
 
-- [ ] Replace phone-mockup placeholder with a real screenshot
-- [ ] Add `/de/index.html` German version
-- [ ] Add `/imprint.html` (minimal — Codeberg is the operator)
-- [ ] Add `/privacy.html` (one-page, no-data-collected statement)
-- [ ] Open Graph image for social-link previews
+### Done in v0.2
+- [x] Real logo (inline SVG from `assets/logo.svg`)
+- [x] Real hero screenshot (board-browser.png) replacing CSS phone-mockup
+- [x] Screenshot gallery with lazy-loading (climb-detail, hold-search, heatmap)
+- [x] Favicon + apple-touch-icon
+- [x] OG / Twitter Card meta tags (using app icon as fallback image)
+
+### Open
+- [ ] **Image optimization** — current screenshots total ~2.5 MB. Resize to max 800 px wide, convert to WebP. Hero alone is 187 KB which is OK; gallery (~2.3 MB total) is heavy on mobile but lazy-loaded
+- [ ] **Dedicated 1200×630 OG image** — the app icon is square, social cards prefer landscape
+- [ ] **Add `/de/index.html`** German version
+- [ ] **Add `/imprint.html`** (minimal — Codeberg is the operator)
+- [ ] **Add `/privacy.html`** (one-page, no-data-collected statement)
+- [ ] **Add `/support.html`** with Lightning donation QR (`docs/lightning-qr.png` from main repo)
 - [ ] Replace Nostr placeholder with real npub once handle is claimed
 - [ ] Update Mastodon link once `@cruxcoach@fosstodon.org` is claimed
 - [ ] Once F-Droid / IzzyOnDroid listings land, update install cards from "soon" to actual links
+
+## Image-optimization notes
+
+For when tools are available:
+
+```bash
+# Resize + WebP (need cwebp + ImageMagick)
+for f in assets/screenshots/*.png; do
+  convert "$f" -resize 800x "${f%.png}.tmp.png" \
+    && cwebp -q 85 "${f%.png}.tmp.png" -o "${f%.png}.webp" \
+    && rm "${f%.png}.tmp.png"
+done
+
+# Or with optipng (no resize, no WebP, just lossless squeeze)
+optipng -o5 assets/screenshots/*.png
+```
 
 ## License
 

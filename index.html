@@ -11,6 +11,16 @@
 <meta property="og:description" content="Browse climbs, light up holds, log ascents — without an account, without Google, without tracking.">
 <meta property="og:url" content="https://cruxcoach.org/">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://cruxcoach.org/assets/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CruxCoach — Open-source Android app for the Kilter Board">
+<meta name="twitter:description" content="Browse climbs, light up holds, log ascents — without an account, without Google, without tracking.">
+<meta name="twitter:image" content="https://cruxcoach.org/assets/icon-512.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
+<link rel="apple-touch-icon" href="/assets/icon-512.png">
 <style>
   :root {
     --bg: #fdfcf9;
@@ -70,8 +80,9 @@
     z-index: 10;
   }
   header .container { display: flex; align-items: center; justify-content: space-between; }
-  .brand { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; color: var(--fg); border-bottom: 0; }
+  .brand { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; color: var(--fg); border-bottom: 0; display: inline-flex; align-items: center; gap: 0.5rem; }
   .brand:hover { border-bottom: 0; }
+  .brand svg { width: 1.6rem; height: 1.6rem; }
   nav { display: flex; gap: 1.5rem; align-items: center; font-size: 0.95rem; }
   nav a { color: var(--fg-soft); border-bottom: 0; }
   nav a:hover { color: var(--accent); border-bottom: 0; }
@@ -127,38 +138,36 @@
   .btn-disabled { background: transparent; color: var(--fg-mute); border-color: var(--rule); cursor: not-allowed; pointer-events: none; }
   .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
 
-  /* Phone-mockup placeholder */
-  .phone-mock {
-    aspect-ratio: 9 / 19;
+  /* Hero screenshot */
+  .hero-shot {
     max-width: 22rem;
     margin: 0 auto;
-    border: 1px solid var(--rule);
-    border-radius: 28px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
     background: var(--bg-soft);
-    padding: 1.25rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.07);
   }
-  .phone-bar { height: 0.4rem; border-radius: 4px; background: var(--rule); }
-  .phone-bar.long { width: 80%; background: var(--accent-soft); }
-  .phone-bar.short { width: 50%; }
-  .phone-bar.tall { height: 1.5rem; border-radius: 6px; }
-  .phone-board {
-    margin-top: 0.5rem;
-    flex: 1;
-    border-radius: 8px;
-    background:
-      radial-gradient(circle at 25% 30%, var(--accent) 4px, transparent 5px),
-      radial-gradient(circle at 60% 25%, var(--accent) 4px, transparent 5px),
-      radial-gradient(circle at 40% 50%, #4a90c4 4px, transparent 5px),
-      radial-gradient(circle at 70% 65%, #4a90c4 4px, transparent 5px),
-      radial-gradient(circle at 30% 80%, #6abf6a 4px, transparent 5px),
-      var(--rule);
-    background-size: cover;
+  .hero-shot img { display: block; width: 100%; height: auto; }
+
+  /* Screenshot gallery (in features section) */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
   }
-  .phone-caption { font-size: 0.8rem; color: var(--fg-mute); text-align: center; margin-top: 0.5rem; }
+  .gallery figure { margin: 0; }
+  .gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    background: var(--bg-soft);
+    aspect-ratio: 9 / 19;
+    object-fit: cover;
+    object-position: top;
+  }
+  .gallery figcaption { font-size: 0.85rem; color: var(--fg-soft); margin-top: 0.6rem; text-align: center; }
 
   /* Sections */
   section { padding: 4rem 0; border-bottom: 1px solid var(--rule); }
@@ -194,14 +203,6 @@
     padding: 4rem 0;
   }
   .story p { font-size: 1.05rem; max-width: 38rem; }
-  .story p:first-of-type::first-letter {
-    font-size: 3rem;
-    float: left;
-    line-height: 0.85;
-    padding: 0.2rem 0.6rem 0 0;
-    color: var(--accent);
-    font-weight: 600;
-  }
 
   /* Privacy bullets */
   .privacy-list {
@@ -297,7 +298,26 @@
 
 <header>
   <div class="container">
-    <a href="/" class="brand">CruxCoach</a>
+    <a href="/" class="brand">
+      <svg viewBox="0 0 512 512" aria-hidden="true">
+        <defs>
+          <radialGradient id="gL" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse">
+            <stop offset="40%" stop-color="#FF8C2A"/><stop offset="100%" stop-color="#B84400"/>
+          </radialGradient>
+          <radialGradient id="gR" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse">
+            <stop offset="40%" stop-color="#E05800"/><stop offset="100%" stop-color="#8C3000"/>
+          </radialGradient>
+          <radialGradient id="gX" cx="256" cy="256" r="80" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFD080"/><stop offset="100%" stop-color="#E08A00"/>
+          </radialGradient>
+        </defs>
+        <rect width="512" height="512" fill="#000"/>
+        <path d="M252,56 A200,200 0 1 0 248,456 L248,384 A128,128 0 1 1 252,128 Z" fill="url(#gL)"/>
+        <path d="M260,456 A200,200 0 1 0 264,56 L264,128 A128,128 0 1 1 260,384 Z" fill="url(#gR)"/>
+        <polygon points="192,214 214,192 256,234 298,192 320,214 274,256 320,298 298,320 256,278 214,320 192,298 238,256" fill="url(#gX)"/>
+      </svg>
+      CruxCoach
+    </a>
     <nav>
       <a href="#features">Features</a>
       <a href="#install">Install</a>
@@ -327,16 +347,8 @@
       </div>
       <p class="cta-foot">Free. No account. Verifiable signed builds. Android 9+.</p>
     </div>
-    <div>
-      <div class="phone-mock" aria-hidden="true">
-        <div class="phone-bar tall"></div>
-        <div class="phone-bar long"></div>
-        <div class="phone-bar short"></div>
-        <div class="phone-board"></div>
-        <div class="phone-bar short"></div>
-        <div class="phone-bar long"></div>
-      </div>
-      <p class="phone-caption">Replace with real screenshot of the board browser.</p>
+    <div class="hero-shot">
+      <img src="/assets/screenshots/board-browser.png" alt="Browse climbs in CruxCoach — list of climbs filterable by grade, angle, and quality" width="1080" height="2280">
     </div>
   </div>
 </section>
@@ -376,6 +388,21 @@
         <h3>Import your old data</h3>
         <p>Got a Kilter logbook export? CruxCoach reads it directly. Your training history doesn't have to die with the official app.</p>
       </div>
+    </div>
+
+    <div class="gallery">
+      <figure>
+        <img src="/assets/screenshots/climb-detail.png" alt="Climb detail view showing route information and grade" loading="lazy" width="1080" height="2280">
+        <figcaption>Climb detail with grade, angle, and beta links</figcaption>
+      </figure>
+      <figure>
+        <img src="/assets/screenshots/hold-search.png" alt="Hold search — tap holds on the board to find climbs that use them" loading="lazy" width="1080" height="2280">
+        <figcaption>Hold search — tap a hold, find every climb that uses it</figcaption>
+      </figure>
+      <figure>
+        <img src="/assets/screenshots/heatmap.png" alt="Heatmap showing hold popularity across the board" loading="lazy" width="1080" height="2280">
+        <figcaption>Heatmap of hold popularity across all climbs or just your sends</figcaption>
+      </figure>
     </div>
   </div>
 </section>
