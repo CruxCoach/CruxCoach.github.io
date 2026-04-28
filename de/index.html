@@ -1,30 +1,31 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CruxCoach — Open-source Android app for the Kilter Board</title>
-<meta name="description" content="An open-source Android app for the Kilter Board. Browse climbs, light up holds, log ascents — without an account, without Google, without tracking.">
+<title>CruxCoach — Open-Source-Android-App für das Kilter Board</title>
+<meta name="description" content="Open-Source-Android-App für das Kilter Board. Climbs durchstöbern, Holds beleuchten, Sessions loggen — ohne Account, ohne Google, ohne Tracking.">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
-<link rel="canonical" href="https://cruxcoach.org/">
-<link rel="alternate" hreflang="en" href="https://cruxcoach.org/">
-<link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/">
-<link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/">
-<meta property="og:title" content="CruxCoach — Open-source Android app for the Kilter Board">
-<meta property="og:description" content="Browse climbs, light up holds, log ascents — without an account, without Google, without tracking.">
-<meta property="og:url" content="https://cruxcoach.org/">
+<link rel="canonical" href="https://cruxcoach.org/de/">
+<meta property="og:title" content="CruxCoach — Open-Source-Android-App für das Kilter Board">
+<meta property="og:description" content="Climbs durchstöbern, Holds beleuchten, Sessions loggen — ohne Account, ohne Google, ohne Tracking.">
+<meta property="og:url" content="https://cruxcoach.org/de/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://cruxcoach.org/assets/icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
+<meta property="og:locale" content="de_DE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CruxCoach — Open-source Android app for the Kilter Board">
-<meta name="twitter:description" content="Browse climbs, light up holds, log ascents — without an account, without Google, without tracking.">
+<meta name="twitter:title" content="CruxCoach — Open-Source-Android-App für das Kilter Board">
+<meta name="twitter:description" content="Climbs durchstöbern, Holds beleuchten, Sessions loggen — ohne Account, ohne Google, ohne Tracking.">
 <meta name="twitter:image" content="https://cruxcoach.org/assets/icon-512.png">
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
 <link rel="apple-touch-icon" href="/assets/icon-512.png">
+<link rel="alternate" hreflang="en" href="https://cruxcoach.org/">
+<link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/">
+<link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/">
 <style>
   :root {
     --bg: #141312;
@@ -60,7 +61,6 @@
 
   .container { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 
-  /* Header */
   header {
     border-bottom: 1px solid var(--rule);
     padding: 1rem 0;
@@ -80,7 +80,6 @@
   .lang { color: var(--fg-mute); font-size: 0.85rem; }
   .lang [aria-current="true"] { color: var(--fg); font-weight: 500; }
 
-  /* Hero */
   .hero {
     padding: 5rem 0 4rem;
     border-bottom: 1px solid var(--rule);
@@ -129,7 +128,6 @@
   .btn-disabled { background: transparent; color: var(--fg-mute); border-color: var(--rule); cursor: not-allowed; pointer-events: none; }
   .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
 
-  /* Hero screenshot */
   .hero-shot {
     max-width: 22rem;
     margin: 0 auto;
@@ -140,7 +138,6 @@
   }
   .hero-shot img { display: block; width: 100%; height: auto; }
 
-  /* Screenshot gallery (in features section) */
   .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -158,12 +155,10 @@
   }
   .gallery figcaption { font-size: 0.9rem; color: var(--fg-soft); margin-top: 0.75rem; text-align: center; }
 
-  /* Sections */
   section { padding: 4rem 0; border-bottom: 1px solid var(--rule); }
   section:last-of-type { border-bottom: 0; }
   .section-lede { font-size: 1.15rem; color: var(--fg-soft); max-width: 38rem; margin-bottom: 2.5rem; }
 
-  /* Features grid */
   .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
@@ -184,7 +179,6 @@
   }
   .feature-icon svg { width: 1.4rem; height: 1.4rem; }
 
-  /* Story */
   .story {
     background: var(--bg-soft);
     border-bottom: 1px solid var(--rule);
@@ -192,7 +186,6 @@
   }
   .story p { font-size: 1.05rem; max-width: 38rem; }
 
-  /* Privacy bullets */
   .privacy-list {
     list-style: none;
     padding: 0;
@@ -216,7 +209,6 @@
   }
   .privacy-list strong { color: var(--fg); font-weight: 600; }
 
-  /* Install */
   .install-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
@@ -247,7 +239,6 @@
   }
   .badge-soft { background: var(--rule); color: var(--fg-mute); }
 
-  /* Dev section */
   .dev pre {
     background: var(--code-bg);
     padding: 1rem;
@@ -257,7 +248,6 @@
   }
   .dev-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; font-size: 0.95rem; }
 
-  /* Footer */
   footer {
     border-top: 1px solid var(--rule);
     padding: 3rem 0 4rem;
@@ -286,7 +276,7 @@
 
 <header>
   <div class="container">
-    <a href="/" class="brand">
+    <a href="/de/" class="brand">
       <svg viewBox="0 0 512 512" aria-hidden="true">
         <defs>
           <radialGradient id="gL" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse">
@@ -307,10 +297,10 @@
       CruxCoach
     </a>
     <nav>
-      <a href="#features">Features</a>
-      <a href="#install">Install</a>
-      <a href="#contribute">Contribute</a>
-      <span class="lang"><span aria-current="true">EN</span> · <a href="/de/">DE</a></span>
+      <a href="#features">Funktionen</a>
+      <a href="#install">Installieren</a>
+      <a href="#contribute">Mitmachen</a>
+      <span class="lang"><a href="/">EN</a> · <span aria-current="true">DE</span></span>
     </nav>
   </div>
 </header>
@@ -318,33 +308,33 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <h1>An open-source Android app for the Kilter Board.</h1>
+      <h1>Open-Source-Android-App für das Kilter Board.</h1>
       <p class="hero-lede">
-        Browse climbs, light up holds, log your sessions — without an account,
-        without Google services, without anyone tracking your training.
+        Climbs durchstöbern, Holds beleuchten, deine Sessions loggen — ohne
+        Account, ohne Google-Dienste, ohne dass jemand dein Training trackt.
       </p>
       <ul class="hero-bullets">
-        <li>85,000+ climbs offline</li>
-        <li>Custom hold colors</li>
-        <li>Encrypted local logbook</li>
-        <li>German &amp; English UI</li>
+        <li>85.000+ Climbs offline</li>
+        <li>Eigene Hold-Farben</li>
+        <li>Verschlüsseltes Logbuch</li>
+        <li>Deutsche &amp; englische UI</li>
       </ul>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Get on Zapstore</a>
-        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases">Download APK</a>
+        <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Auf Zapstore holen</a>
+        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases">APK herunterladen</a>
       </div>
-      <p class="cta-foot">Free. No account. Verifiable signed builds. Android 9+.</p>
+      <p class="cta-foot">Kostenlos. Kein Account. Verifizierbar signierte Builds. Ab Android 9.</p>
     </div>
     <div class="hero-shot">
-      <img src="/assets/screenshots/board-browser.png" alt="Browse climbs in CruxCoach — list of climbs filterable by grade, angle, and quality" width="1080" height="2280">
+      <img src="/assets/screenshots/board-browser.png" alt="Climb-Browser in CruxCoach — Liste filterbar nach Grad, Winkel und Qualität" width="1080" height="2280">
     </div>
   </div>
 </section>
 
 <section id="features">
   <div class="container">
-    <h2>What CruxCoach does</h2>
-    <p class="section-lede">Built around the things you actually do at the wall — not features the official app needed but you don't.</p>
+    <h2>Was CruxCoach kann</h2>
+    <p class="section-lede">Gebaut um die Sachen, die du an der Wand wirklich machst — nicht um Funktionen, die die offizielle App brauchte und du nicht.</p>
     <div class="features">
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -357,8 +347,8 @@
             <circle cx="5" cy="18" r="1.4" fill="currentColor"/>
           </svg>
         </span>
-        <h3>Browse 85,000+ climbs</h3>
-        <p>Filter by grade, angle, quality, move count, setter. Works offline once the board database is synced.</p>
+        <h3>85.000+ Climbs durchstöbern</h3>
+        <p>Filtern nach Grad, Winkel, Qualität, Move-Anzahl, Setter. Funktioniert offline, sobald die Board-Datenbank synchronisiert ist.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -366,8 +356,8 @@
             <path d="M6.5 6.5 L17.5 17.5 L12 22 L12 2 L17.5 6.5 L6.5 17.5"/>
           </svg>
         </span>
-        <h3>Light up holds via Bluetooth</h3>
-        <p>Direct BLE to your Kilter Board. Pick custom colors per role: start, hand, foot, top.</p>
+        <h3>Holds via Bluetooth beleuchten</h3>
+        <p>Direkte BLE-Verbindung zum Kilter Board. Eigene Farben für Start-, Hand-, Fuß- und Top-Holds.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -380,8 +370,8 @@
             <line x1="20" y1="12" x2="22" y2="12"/>
           </svg>
         </span>
-        <h3>Search by hold</h3>
-        <p>Tap holds on the board image. Find every climb that uses that exact combination.</p>
+        <h3>Nach Hold suchen</h3>
+        <p>Tippe Holds auf dem Board-Bild an. Finde alle Climbs, die genau diese Kombination nutzen.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -390,8 +380,8 @@
             <path d="M8 11 V7 a4 4 0 0 1 8 0 V11"/>
           </svg>
         </span>
-        <h3>Local, encrypted logbook</h3>
-        <p>Sends, attempts, opinions, sessions — all stored on your device in an SQLCipher database. Never leaves unless you ask.</p>
+        <h3>Verschlüsseltes Logbuch, lokal</h3>
+        <p>Sends, Versuche, Bewertungen, Sessions — alles bleibt auf deinem Gerät, in einer SQLCipher-Datenbank. Verlässt es nur, wenn du es willst.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -401,8 +391,8 @@
             <path d="M5 11 A9.9 9.9 0 0 1 19 11"/>
           </svg>
         </span>
-        <h3>Share with climbers nearby</h3>
-        <p>Other CruxCoach users at the same board see your current climb over Bluetooth — and you see theirs. No internet, no accounts.</p>
+        <h3>Mit Climbern in der Nähe teilen</h3>
+        <p>Andere CruxCoach-User am selben Board sehen deinen aktuellen Climb per Bluetooth — und du siehst ihre. Kein Internet, kein Account.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -412,19 +402,19 @@
             <polyline points="8 7 3 12 8 17"/>
           </svg>
         </span>
-        <h3>Your training history, portable</h3>
-        <p>Sign in with your Kilter account and CruxCoach pulls your existing logbook over. From there your data stays portable: export to JSON, or turn on automatic encrypted backup that only you can restore.</p>
+        <h3>Deine Trainingshistorie, portabel</h3>
+        <p>Mit deinem Kilter-Account anmelden — CruxCoach holt dein bestehendes Logbuch rüber. Ab da bleiben deine Daten portabel: JSON-Export oder automatisches verschlüsseltes Backup, das nur du wiederherstellen kannst.</p>
       </div>
     </div>
 
     <div class="gallery">
       <figure>
-        <img src="/assets/screenshots/climb-detail.png" alt="CruxCoach climb detail screen showing climb name, grade, stats, and the holds marked on a board diagram" loading="lazy">
-        <figcaption>Climb detail — grade, stats, and the hold sequence at a glance</figcaption>
+        <img src="/assets/screenshots/climb-detail.png" alt="CruxCoach-Climb-Detail mit Routenname, Grad, Stats und den Holds markiert auf einer Board-Ansicht" loading="lazy">
+        <figcaption>Climb-Detail — Grad, Stats und Hold-Sequenz auf einen Blick</figcaption>
       </figure>
       <figure>
-        <img src="/assets/screenshots/logbook.png" alt="CruxCoach logbook view showing logged sends and attempts" loading="lazy">
-        <figcaption>Local logbook — every send and attempt stays on your device</figcaption>
+        <img src="/assets/screenshots/logbook.png" alt="CruxCoach-Logbuch mit eingetragenen Sends und Versuchen" loading="lazy">
+        <figcaption>Lokales Logbuch — jeder Send und Versuch bleibt auf deinem Gerät</figcaption>
       </figure>
     </div>
   </div>
@@ -432,69 +422,72 @@
 
 <section class="story" id="why">
   <div class="container">
-    <h2>Why CruxCoach exists.</h2>
+    <h2>Warum es CruxCoach gibt.</h2>
     <p>
-      On 26 March 2026, Aurora's Kilter app was pulled from the App Store and Play Store
-      after a dispute between Aurora Climbing and Kilter, LLC. Tens of thousands of climbers
-      lost access to their playlists, logbooks, and draft climbs overnight. The new official
-      app shipped half-finished, and people started asking the obvious question: why does my
-      training data live on someone else's server in the first place?
+      Am 26. März 2026 wurde Auroras Kilter-App nach einem Streit zwischen
+      Aurora Climbing und Kilter, LLC aus dem App Store und Play Store
+      genommen. Zehntausende Climber:innen verloren über Nacht den Zugriff
+      auf ihre Playlists, Logbücher und Climb-Drafts. Die neue offizielle
+      App kam halbfertig auf den Markt — und Leute fingen an, die offensichtliche
+      Frage zu stellen: warum lebt mein Trainings-Verlauf überhaupt auf einem
+      fremden Server?
     </p>
     <p>
-      CruxCoach is one answer to that question. Your training history sits encrypted on your
-      phone. Your identity is a Nostr keypair you control, not an account someone can revoke.
-      The board database is content-addressed and downloaded to your device on first sync —
-      once you have it, you have it. And the whole thing is open source under the GPL: anyone
-      can audit it, fork it, run it.
+      CruxCoach ist eine Antwort darauf. Deine Trainingshistorie liegt
+      verschlüsselt auf deinem Telefon. Deine Identität ist ein Nostr-Schlüsselpaar,
+      das du selbst kontrollierst — kein Account, den jemand wegnehmen kann.
+      Die Board-Datenbank ist content-addressed und wird beim ersten Sync auf
+      dein Gerät geladen — wenn du sie einmal hast, hast du sie. Und das Ganze
+      ist Open Source unter GPL: jede:r kann es auditen, forken, betreiben.
     </p>
     <p>
-      It's narrower than the official app on purpose: Kilter only, Android only. But it's
-      yours.
+      Bewusst enger im Umfang als die offizielle App: nur Kilter, nur Android.
+      Aber dafür gehört es dir.
     </p>
   </div>
 </section>
 
 <section id="privacy">
   <div class="container">
-    <h2>Privacy by architecture, not by promise</h2>
+    <h2>Privacy by Architecture, nicht by Promise</h2>
     <p class="section-lede">
-      Privacy claims are easy. CruxCoach is built so the privacy holds even if we're lying about it.
+      Privacy-Versprechen sind billig. CruxCoach ist so gebaut, dass Privacy auch dann hält, wenn wir lügen.
     </p>
     <ul class="privacy-list">
-      <li><strong>No accounts, no signup.</strong> Your identity is a Nostr keypair generated on first launch, stored in the Android Keystore.</li>
-      <li><strong>No Google Play Services.</strong> Works on de-Googled phones — GrapheneOS, /e/OS, LineageOS without GApps.</li>
-      <li><strong>Encrypted local storage.</strong> Personal data lives in an SQLCipher database. Encryption key never leaves your device.</li>
-      <li><strong>No telemetry, no analytics, no ads, no third-party SDKs.</strong> Outbound calls go to: Nostr relays you configure, Blossom servers for the board database, Codeberg for update checks, and the Kilter API only when you opt to import your logbook.</li>
-      <li><strong>No central server we operate.</strong> The app uses public Nostr relays and Blossom servers run by independent operators.</li>
-      <li><strong>Verifiable open-source builds.</strong> Code on Codeberg, releases signed, auto-updater pins the developer key on first install.</li>
+      <li><strong>Kein Account, keine Anmeldung.</strong> Deine Identität ist ein Nostr-Keypair, beim ersten Start erzeugt und im Android Keystore gespeichert.</li>
+      <li><strong>Keine Google Play Services.</strong> Läuft auf de-googelten Phones — GrapheneOS, /e/OS, LineageOS ohne GApps.</li>
+      <li><strong>Verschlüsselter lokaler Speicher.</strong> Persönliche Daten leben in einer SQLCipher-Datenbank. Der Schlüssel verlässt dein Gerät nicht.</li>
+      <li><strong>Keine Telemetrie, keine Analytics, keine Werbung, keine Third-Party-SDKs.</strong> Outbound-Calls gehen nur zu: Nostr-Relays nach deiner Wahl, Blossom-Servern für die Board-Datenbank, Codeberg für Update-Checks und der Kilter-API nur, wenn du dein Logbuch importieren möchtest.</li>
+      <li><strong>Kein zentraler Server, den wir betreiben.</strong> Die App nutzt öffentliche Nostr-Relays und Blossom-Server unabhängiger Betreiber.</li>
+      <li><strong>Verifizierbare Open-Source-Builds.</strong> Code auf Codeberg, Releases signiert, Auto-Updater pinnt den Entwickler-Schlüssel beim ersten Install.</li>
     </ul>
   </div>
 </section>
 
 <section id="install">
   <div class="container">
-    <h2>Install</h2>
-    <p class="section-lede">Two ways to install today. Two more coming.</p>
+    <h2>Installieren</h2>
+    <p class="section-lede">Zwei Wege heute. Zwei weitere demnächst.</p>
     <div class="install-grid">
       <div class="install-card primary">
-        <h3>Zapstore <span class="badge">recommended</span></h3>
-        <p>Privacy-respecting, Nostr-native Android store. Verifies developer signatures. Auto-updates.</p>
-        <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Open in Zapstore</a>
+        <h3>Zapstore <span class="badge">empfohlen</span></h3>
+        <p>Privacy-respektierender, Nostr-nativer Android-Store. Verifiziert Entwickler-Signaturen. Auto-Updates.</p>
+        <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">In Zapstore öffnen</a>
       </div>
       <div class="install-card">
-        <h3>Direct APK</h3>
-        <p>Download the signed APK directly from Codeberg releases and install manually. The in-app updater handles future updates.</p>
-        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases">Latest release</a>
+        <h3>Direkt-APK</h3>
+        <p>Lade die signierte APK direkt von Codeberg-Releases und installiere manuell. Der In-App-Updater übernimmt zukünftige Updates.</p>
+        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases">Aktuellster Release</a>
       </div>
       <div class="install-card">
-        <h3>F-Droid <span class="badge badge-soft">soon</span></h3>
-        <p>Submission planned once the 0.1.3 release lands. Will be the slowest channel to update but the broadest reach in FOSS-Android.</p>
-        <span class="btn btn-disabled">Pending</span>
+        <h3>F-Droid <span class="badge badge-soft">demnächst</span></h3>
+        <p>Einreichung geplant, sobald 0.1.3 live ist. Langsamster Update-Kanal, aber breiteste FOSS-Android-Reichweite.</p>
+        <span class="btn btn-disabled">In Vorbereitung</span>
       </div>
       <div class="install-card">
-        <h3>IzzyOnDroid <span class="badge badge-soft">soon</span></h3>
-        <p>Third-party F-Droid-compatible repo, faster review, preserves the developer signature. Submission queued.</p>
-        <span class="btn btn-disabled">Pending</span>
+        <h3>IzzyOnDroid <span class="badge badge-soft">demnächst</span></h3>
+        <p>Drittanbieter-F-Droid-kompatibles Repo, schnelleres Review, behält die Entwickler-Signatur. Einreichung in der Pipeline.</p>
+        <span class="btn btn-disabled">In Vorbereitung</span>
       </div>
     </div>
   </div>
@@ -502,17 +495,17 @@
 
 <section id="contribute" class="dev">
   <div class="container">
-    <h2>For developers</h2>
-    <p class="section-lede">CruxCoach is GPLv3, written in Kotlin Multiplatform with a Jetpack Compose Android frontend. Issues and PRs live on Codeberg.</p>
+    <h2>Für Entwickler:innen</h2>
+    <p class="section-lede">CruxCoach ist GPLv3, geschrieben in Kotlin Multiplatform mit Jetpack-Compose-Android-Frontend. Issues und PRs leben auf Codeberg.</p>
     <pre>git clone https://codeberg.org/CruxCoach/CruxCoach.git
 cd CruxCoach
 bash scripts/setup_dev_env.sh
 ./gradlew :androidApp:assembleDebug</pre>
     <div class="dev-links">
-      <a href="https://codeberg.org/CruxCoach/CruxCoach">Source code</a>
-      <a href="https://codeberg.org/CruxCoach/CruxCoach/issues">Issue tracker</a>
-      <a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/CONTRIBUTING.md">Contributing guide</a>
-      <a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/SECURITY.md">Security policy</a>
+      <a href="https://codeberg.org/CruxCoach/CruxCoach">Quellcode</a>
+      <a href="https://codeberg.org/CruxCoach/CruxCoach/issues">Issue-Tracker</a>
+      <a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/CONTRIBUTING.md">Contributing-Guide</a>
+      <a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/SECURITY.md">Security-Policy</a>
     </div>
   </div>
 </section>
@@ -523,12 +516,12 @@ bash scripts/setup_dev_env.sh
       <div>
         <h4>CruxCoach</h4>
         <p style="color: var(--fg-soft); margin: 0;">
-          An open-source Android app for the Kilter Board.<br>
-          For the Kilter Board, not affiliated with Kilter, LLC.
+          Open-Source-Android-App für das Kilter Board.<br>
+          Für das Kilter Board, nicht mit Kilter, LLC verbunden.
         </p>
       </div>
       <div>
-        <h4>Project</h4>
+        <h4>Projekt</h4>
         <ul>
           <li><a href="https://codeberg.org/CruxCoach/CruxCoach">Codeberg</a></li>
           <li><a href="https://codeberg.org/CruxCoach/CruxCoach/releases">Releases</a></li>
@@ -537,7 +530,7 @@ bash scripts/setup_dev_env.sh
         </ul>
       </div>
       <div>
-        <h4>Connect</h4>
+        <h4>Kontakt</h4>
         <ul>
           <li><a href="https://zapstore.dev/apps/com.cruxcoach.android">Zapstore</a></li>
           <li><a href="https://primal.net/p/npub1uadpshqpn5ysf82lev8zngkvn07szmkq7mvf9lyc7ml7qxq6fqxsmrqt2s">Nostr</a></li>
@@ -547,14 +540,15 @@ bash scripts/setup_dev_env.sh
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025–2026 CruxCoach Contributors. Code GPL-3.0. Site hosted by Codeberg e.V.</span>
-      <span><a href="/imprint">Imprint</a> · <a href="/privacy">Privacy</a></span>
+      <span>© 2025–2026 CruxCoach Contributors. Code GPL-3.0. Site gehostet bei Codeberg e.V.</span>
+      <span><a href="/de/imprint">Impressum</a> · <a href="/de/privacy">Datenschutz</a></span>
     </div>
     <p class="disambiguation">
-      "CruxCoach" on <strong>cruxcoach.org</strong> is the open-source Android app for the Kilter Board described above.
-      Not affiliated with cruxcoach.app, cruxcoach.com, or any other product using a similar name.
-      Kilter Board is a trademark of Kilter, LLC; CruxCoach uses the name descriptively to indicate
-      compatibility, with no affiliation or endorsement implied.
+      „CruxCoach" auf <strong>cruxcoach.org</strong> ist die oben beschriebene Open-Source-Android-App
+      für das Kilter Board. Nicht verbunden mit cruxcoach.app, cruxcoach.com oder anderen Produkten,
+      die einen ähnlichen Namen verwenden. Kilter Board ist eine Marke der Kilter, LLC; CruxCoach
+      verwendet den Namen beschreibend zur Anzeige der Kompatibilität, ohne Verbindung oder
+      Empfehlung zu implizieren.
     </p>
   </div>
 </footer>
