@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — CruxCoach</title>
+<meta name="description" content="Privacy practices for cruxcoach.org. The site itself collects no personal data.">
+<meta name="theme-color" content="#141312">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://cruxcoach.org/privacy.html">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
+<link rel="alternate" hreflang="en" href="https://cruxcoach.org/privacy.html">
+<link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/privacy.html">
+<style>
+  :root {
+    --bg: #141312;
+    --bg-soft: #1f1d1a;
+    --fg: #f0ede6;
+    --fg-soft: #c0bcb2;
+    --fg-mute: #807a70;
+    --rule: #2c2925;
+    --accent: #e07a4f;
+    --code-bg: #211e1a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 17px; line-height: 1.6; color: var(--fg); background: var(--bg); -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
+  a:hover { border-bottom-color: var(--accent); }
+  header { border-bottom: 1px solid var(--rule); padding: 1rem 0; }
+  header .container { display: flex; align-items: center; justify-content: space-between; }
+  .container { max-width: 44rem; margin: 0 auto; padding: 0 1.5rem; }
+  .brand { font-weight: 700; font-size: 1.1rem; color: var(--fg); border-bottom: 0; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .brand:hover { border-bottom: 0; }
+  .brand svg { width: 1.6rem; height: 1.6rem; }
+  .lang { color: var(--fg-mute); font-size: 0.85rem; }
+  .lang [aria-current="true"] { color: var(--fg); font-weight: 500; }
+  main { padding: 3rem 0 4rem; }
+  h1 { font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 0.5em; }
+  h2 { font-size: 1.25rem; margin: 2.5rem 0 0.6em; }
+  p { margin: 0 0 1em; color: var(--fg-soft); }
+  p strong { color: var(--fg); }
+  ul { color: var(--fg-soft); padding-left: 1.5rem; }
+  ul li { margin-bottom: 0.4em; }
+  code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; background: var(--code-bg); padding: 0.1em 0.4em; border-radius: 4px; color: var(--fg); }
+  .meta { font-size: 0.9rem; color: var(--fg-mute); margin-bottom: 2rem; }
+  footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; color: var(--fg-mute); font-size: 0.85rem; text-align: center; }
+  footer a { color: var(--fg-soft); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 512 512" aria-hidden="true">
+        <defs>
+          <radialGradient id="gL" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse"><stop offset="40%" stop-color="#FF8C2A"/><stop offset="100%" stop-color="#B84400"/></radialGradient>
+          <radialGradient id="gR" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse"><stop offset="40%" stop-color="#E05800"/><stop offset="100%" stop-color="#8C3000"/></radialGradient>
+          <radialGradient id="gX" cx="256" cy="256" r="80" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFD080"/><stop offset="100%" stop-color="#E08A00"/></radialGradient>
+        </defs>
+        <rect width="512" height="512" fill="#000"/>
+        <path d="M252,56 A200,200 0 1 0 248,456 L248,384 A128,128 0 1 1 252,128 Z" fill="url(#gL)"/>
+        <path d="M260,456 A200,200 0 1 0 264,56 L264,128 A128,128 0 1 1 260,384 Z" fill="url(#gR)"/>
+        <polygon points="192,214 214,192 256,234 298,192 320,214 274,256 320,298 298,320 256,278 214,320 192,298 238,256" fill="url(#gX)"/>
+      </svg>
+      CruxCoach
+    </a>
+    <span class="lang"><span aria-current="true">EN</span> · <a href="/de/privacy.html">DE</a></span>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Privacy</h1>
+  <p class="meta">How cruxcoach.org handles your data — short version: it doesn't.</p>
+
+  <h2>What this site does</h2>
+  <p>cruxcoach.org serves only static HTML, CSS, SVG, and PNG files. The pages contain no JavaScript, set no cookies, load no third-party scripts, embed no analytics, and do not use any external CDN or font service. The CSS is inline in each page; the only network requests your browser makes when loading a page are to <code>cruxcoach.org</code> itself.</p>
+
+  <h2>What Codeberg does</h2>
+  <p>This site is hosted by Codeberg e.V. on Codeberg Pages. Codeberg's web server records each request — typically the source IP, timestamp, requested path, response status, and user agent — for operational reasons such as abuse prevention and traffic visibility. We have no access to those logs. See <a href="https://docs.codeberg.org/improving-codeberg/privacy-policy/">Codeberg's privacy policy</a> for details.</p>
+
+  <h2>External links</h2>
+  <p>When you click a link to another site (Codeberg.org, Zapstore.dev, Mastodon.social, Primal.net, etc.), your browser connects directly to that operator. Those services have their own privacy practices, which apply at the moment you connect:</p>
+  <ul>
+    <li>Codeberg: <a href="https://docs.codeberg.org/improving-codeberg/privacy-policy/">docs.codeberg.org/improving-codeberg/privacy-policy/</a></li>
+    <li>Zapstore: <a href="https://zapstore.dev/docs/faq">zapstore.dev/docs/faq</a></li>
+    <li>Mastodon (mastodon.social): <a href="https://mastodon.social/privacy-policy">mastodon.social/privacy-policy</a></li>
+    <li>Primal: <a href="https://primal.net">primal.net</a></li>
+  </ul>
+
+  <h2>Email</h2>
+  <p>The address <a href="mailto:press@cruxcoach.org">press@cruxcoach.org</a> is forwarded to the project maintainer. Email content and routing metadata pass through the operator that provides the forwarding service. We retain no separate copy beyond what's needed to reply, and we don't use the address for any newsletter, marketing, or unsolicited contact.</p>
+
+  <h2>The CruxCoach Android app</h2>
+  <p>This page describes only the cruxcoach.org website. The <strong>CruxCoach Android app</strong> has its own data-handling model — local-only by default, no telemetry, no accounts, opt-in encrypted backup. The app's network behaviour is described on the <a href="/#privacy">main page</a> and in the source repository at <a href="https://codeberg.org/CruxCoach/CruxCoach">codeberg.org/CruxCoach/CruxCoach</a>.</p>
+
+  <h2>Updates</h2>
+  <p>If this policy changes, the new version will be at this URL. The <a href="https://codeberg.org/CruxCoach/cruxcoach-pages/commits/branch/main/privacy.html">Codeberg commit history</a> for this file shows every prior version.</p>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="/">Back to cruxcoach.org</a> · <a href="/imprint.html">Imprint</a>
+  </div>
+</footer>
+
+</body>
+</html>
