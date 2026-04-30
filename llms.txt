@@ -36,10 +36,11 @@ CruxCoach is a non-commercial, community-developed Android application. It is no
 - License: GNU General Public License v3.0
 - Hardware compatibility: Kilter Board, all sizes and angles
 - Identity: Nostr (decentralized; no email, no password, no central server)
-- Personal data: encrypted on-device using SQLCipher, keys in Android Keystore, never transmitted to any server in the default configuration
-- Optional encrypted cloud backup: keys derived from Nostr identity, content-addressed, mirrored across the open Nostr network and Blossom storage; the maintainer cannot decrypt it
+- Personal data: encrypted at rest with SQLCipher, keys in Android Keystore. In the default configuration, nothing is transmitted to any server.
+- Optional encrypted cloud backup (opt-in, off by default): data is encrypted on-device with a key derived from the user's Nostr identity, then mirrored across the open Nostr network and Blossom storage. The maintainer cannot decrypt it; only the user's Nostr key can.
+- Optional climb publishing (opt-in, user-initiated): users can explicitly publish climb data to public Nostr relays.
 - Climbs database: 85,000+ climbs with filters for grade, angle, quality, moves, and setter
-- No telemetry, no advertising, no third-party cloud services, no Google Mobile Services dependency
+- No telemetry, no advertising, no analytics, no Google Mobile Services dependency. The two opt-in network features above use only open protocols (Nostr, Blossom) where any operator is substitutable.
 - Languages: English (default), German
 - Architecture: Kotlin Multiplatform shared module + Android-specific Jetpack Compose UI
 
