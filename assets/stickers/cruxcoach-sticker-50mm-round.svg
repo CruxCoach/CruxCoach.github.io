@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   CruxCoach community sticker — round 50 mm with 3 mm bleed.
-  Print canvas: 56 mm × 56 mm  (560 × 560 SVG units; 1 unit = 0.1 mm)
+  Print canvas: 56 mm × 56 mm  (560 × 560 SVG units)
 
-  Composition (top to bottom):
-    1. Logo (CC + X mark)
-    2. QR code (encodes https://cruxcoach.org, V2/M, ~20 mm with built-in
-       4-module quiet zone, on cream rounded frame)
-    3. Tagline: "OPEN SOURCE  KILTER BOARD  APP" — single line, font 18,
-       "KILTER BOARD" highlighted in accent orange (hardware-context hook)
-    4. URL: cruxcoach.org — font 26 (large CTA anchor)
+  Layout (top to bottom):
+    1. Logo (CC + X)
+    2. QR code (encodes https://cruxcoach.org, V2/M, ~20 mm, on cream rounded frame)
+    3. "OPEN SOURCE"        — line 1, cream
+    4. "KILTER BOARD APP"   — line 2, "KILTER BOARD" in accent orange
+    5. cruxcoach.org        — URL CTA
 
-  Trademark posture: "Kilter Board" used descriptively (nominative
-  fair use), same posture as the website imprint.
+  Trademark: "Kilter Board" used descriptively (nominative fair use).
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -43,12 +41,12 @@
   <rect width="560" height="560" fill="#141312"/>
   <circle cx="280" cy="280" r="230" fill="none" stroke="#2c2925" stroke-width="1.5"/>
 
-  <use xlink:href="#cclogo" transform="translate(210.9, 60) scale(0.27)"/>
+  <use xlink:href="#cclogo" transform="translate(218.6, 60) scale(0.24)"/>
 
-  <rect x="172.0" y="199" width="216" height="216"
+  <rect x="172.0" y="187" width="216" height="216"
         rx="10" ry="10" fill="#f0ede6"/>
 
-  <g transform="translate(180.0, 207) scale(6.0606)">
+  <g transform="translate(180.0, 195) scale(6.0606)">
     <rect width="33" height="33" fill="#f0ede6"/>
     <g fill="#141312" shape-rendering="crispEdges">
       <rect x="4" y="4" width="1" height="1"/>
@@ -372,18 +370,27 @@
     </g>
   </g>
 
-  <!-- Tagline: single line, KILTER BOARD as the orange anchor -->
-  <text x="280" y="445"
+  <!-- Tagline line 1: OPEN SOURCE -->
+  <text x="280" y="422"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
         font-size="18"
         font-weight="500"
-        letter-spacing="3">
-    <tspan fill="#c0bcb2">OPEN SOURCE  </tspan><tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan fill="#c0bcb2">  APP</tspan>
+        fill="#c0bcb2"
+        letter-spacing="3.5">OPEN SOURCE</text>
+
+  <!-- Tagline line 2: KILTER BOARD APP (KILTER BOARD highlighted) -->
+  <text x="280" y="450"
+        text-anchor="middle"
+        font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
+        font-size="18"
+        font-weight="500"
+        letter-spacing="3.5">
+    <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan fill="#c0bcb2">  APP</tspan>
   </text>
 
-  <!-- URL: large CTA anchor -->
-  <text x="280" y="482"
+  <!-- URL: large CTA -->
+  <text x="280" y="488"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
         font-size="26"
