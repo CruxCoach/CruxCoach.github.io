@@ -29,6 +29,11 @@ cruxcoach-pages/
 - Prefer plain semantic HTML over div soup.
 - Light + dark mode via `prefers-color-scheme` — no JS toggle.
 - Accessibility: every link has discernible text; phone-mockup is `aria-hidden="true"`.
+- **JS exception**: `404.html` runs inline JavaScript on `/c/<naddr>` paths
+  to fetch climb metadata from public Nostr relays (`relay.damus.io`,
+  `nos.lol`, `relay.primal.net`) and render an install/landing view.
+  No external scripts, no analytics — just WebSocket calls. The rest of
+  the site stays JS-free.
 
 ## Deployment
 
