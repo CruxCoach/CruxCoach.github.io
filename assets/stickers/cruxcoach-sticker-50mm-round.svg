@@ -4,11 +4,11 @@
   Print canvas: 56 mm × 56 mm  (560 × 560 SVG units)
 
   Layout (top to bottom):
-    1. Logo (CC + X)
+    1. Logo
     2. QR code (encodes https://cruxcoach.org, V2/M, ~20 mm, on cream rounded frame)
-    3. "OPEN SOURCE"        — line 1, cream
-    4. "KILTER BOARD APP"   — line 2, "KILTER BOARD" in accent orange
-    5. cruxcoach.org        — URL CTA
+    3. "OPEN SOURCE · ANDROID"  — line 1, cream (qualifier list)
+    4. "KILTER BOARD APP"       — line 2, "KILTER BOARD" in accent orange
+    5. cruxcoach.org            — URL CTA
 
   Trademark: "Kilter Board" used descriptively (nominative fair use).
 -->
@@ -370,14 +370,14 @@
     </g>
   </g>
 
-  <!-- Tagline line 1: OPEN SOURCE -->
+  <!-- Tagline line 1: OPEN SOURCE · ANDROID -->
   <text x="280" y="422"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
         font-size="18"
         font-weight="500"
         fill="#c0bcb2"
-        letter-spacing="3.5">OPEN SOURCE</text>
+        letter-spacing="3.5">OPEN SOURCE  ·  ANDROID</text>
 
   <!-- Tagline line 2: KILTER BOARD APP (KILTER BOARD highlighted) -->
   <text x="280" y="450"
