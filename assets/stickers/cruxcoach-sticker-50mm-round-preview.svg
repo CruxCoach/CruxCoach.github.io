@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  CruxCoach community sticker — round 50 mm (PRINT: full bleed on rectangular canvas).
-  Print canvas: 56 mm × 56 mm  (560 × 560 SVG units; with 3 mm bleed on every side)
+  CruxCoach community sticker — round 50 mm (PREVIEW: circular clip applied, corners transparent — NOT for print).
+  Preview canvas: 56 mm × 56 mm — dark area is the 50 mm cut circle ONLY; corners are transparent (NOT for printing)
   Cut circle:   diameter 50 mm  (radius 250 from centre 280,280)
   Safe zone:    diameter 38 mm  (6 mm from cut)
 
@@ -44,7 +44,7 @@
     </g>
   </defs>
 
-  <rect width="560" height="560" fill="#141312"/>
+  <circle cx="280" cy="280" r="250" fill="#141312"/>
   <circle cx="280" cy="280" r="230" fill="none" stroke="#2c2925" stroke-width="1.50"/>
 
   <use xlink:href="#cclogo" transform="translate(218.56, 48.00) scale(0.2400)"/>

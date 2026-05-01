@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  CruxCoach community sticker — round 60 mm with 3 mm bleed.
-  Print canvas: 66 mm × 66 mm  (660 × 660 SVG units; 1 unit = 0.1 mm)
+  CruxCoach community sticker — round 60 mm (PRINT: full bleed on rectangular canvas).
+  Print canvas: 66 mm × 66 mm  (660 × 660 SVG units; with 3 mm bleed on every side)
   Cut circle:   diameter 60 mm  (radius 300 from centre 330,330)
   Safe zone:    diameter 48 mm  (6 mm from cut)
 
-  QR target:    https://cruxcoach.org  (V2/M, 33×33 modules with 4-module quiet zone)
-  QR module:    0.73 mm per module 
+  QR target:    https://cruxcoach.org
+  QR encoding:  V2/M, 33×33 modules with built-in 4-module quiet zone
+  QR module:    0.73 mm
 
-  Layout (proportional to size):
+  Layout (top to bottom):
     1. Logo (CC + X)
     2. QR code on cream rounded frame
     3. "OPEN SOURCE · ANDROID"  — line 1 (cream)
@@ -16,8 +17,6 @@
     5. cruxcoach.org            — URL CTA
 
   Trademark: "Kilter Board" used descriptively (nominative fair use).
-
-  Pre-print: open in Inkscape, Path → Object to Path, export PDF.
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -48,12 +47,12 @@
   <rect width="660" height="660" fill="#141312"/>
   <circle cx="330" cy="330" r="280" fill="none" stroke="#2c2925" stroke-width="1.80"/>
 
-  <use xlink:href="#cclogo" transform="translate(256.27, 72.00) scale(0.2880)"/>
+  <use xlink:href="#cclogo" transform="translate(256.27, 57.60) scale(0.2880)"/>
 
-  <rect x="200.40" y="224.40" width="259.20" height="259.20"
+  <rect x="200.40" y="210.00" width="259.20" height="259.20"
         rx="12.00" ry="12.00" fill="#f0ede6"/>
 
-  <g transform="translate(210.00, 234.00) scale(7.2727)">
+  <g transform="translate(210.00, 219.60) scale(7.2727)">
     <rect width="33" height="33" fill="#f0ede6"/>
     <g fill="#141312" shape-rendering="crispEdges">
       <rect x="4" y="4" width="1" height="1"/>
@@ -377,7 +376,7 @@
     </g>
   </g>
 
-  <text x="330" y="506.40"
+  <text x="330" y="492.00"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
         font-size="21.60"
@@ -385,7 +384,7 @@
         fill="#c0bcb2"
         letter-spacing="4.20">OPEN SOURCE  ·  ANDROID</text>
 
-  <text x="330" y="540.00"
+  <text x="330" y="525.60"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
         font-size="21.60"
@@ -394,7 +393,7 @@
     <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan fill="#c0bcb2">  APP</tspan>
   </text>
 
-  <text x="330" y="585.60"
+  <text x="330" y="571.20"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
         font-size="31.20"
