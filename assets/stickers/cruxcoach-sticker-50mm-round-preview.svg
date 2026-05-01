@@ -2,8 +2,8 @@
 <!--
   CruxCoach community sticker — round 50 mm (PREVIEW)
   Preview canvas: dark area = 50 mm cut circle ONLY (NOT for printing)
-  QR: V2/M, 29×29 visible (2-module quiet zone — minimal but reliable on modern phones)
-  QR module: 0.69 mm
+  QR: V2/M, 29×29 (border 2), module 0.69 mm
+  Tagline + URL both cream (#f0ede6) for max distance legibility.
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -368,7 +368,7 @@
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
         font-size="22.00"
         font-weight="500"
-        fill="#c0bcb2"
+        fill="#f0ede6"
         letter-spacing="3.50">OPEN SOURCE  ·  ANDROID</text>
 
   <text x="280" y="437.00"
@@ -377,7 +377,7 @@
         font-size="22.00"
         font-weight="500"
         letter-spacing="3.50">
-    <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan fill="#c0bcb2">  APP</tspan>
+    <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan fill="#f0ede6">  APP</tspan>
   </text>
 
   <text x="280" y="477.00"
