@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  CruxCoach community sticker — round 50 mm with 3 mm bleed.
-  Print canvas: 56 mm × 56 mm  (560 × 560 SVG units; 1 unit = 0.1 mm)
-  Cut circle:   diameter 50 mm  (radius 250 from centre 280,280)
-  Safe zone:    diameter 38 mm  (6 mm from cut)
+  CruxCoach community sticker — round 75 mm with 3 mm bleed.
+  Print canvas: 81 mm × 81 mm  (810 × 810 SVG units; 1 unit = 0.1 mm)
+  Cut circle:   diameter 75 mm  (radius 375 from centre 405,405)
+  Safe zone:    diameter 63 mm  (6 mm from cut)
 
   QR target:    https://cruxcoach.org  (V2/M, 33×33 modules with 4-module quiet zone)
-  QR module:    0.61 mm per module 
+  QR module:    0.91 mm per module 
 
   Layout (proportional to size):
     1. Logo (CC + X)
@@ -21,8 +21,8 @@
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="56mm" height="56mm"
-     viewBox="0 0 560 560">
+     width="81mm" height="81mm"
+     viewBox="0 0 810 810">
 
   <defs>
     <radialGradient id="gL" gradientUnits="userSpaceOnUse" cx="256" cy="256" r="210">
@@ -45,15 +45,15 @@
     </g>
   </defs>
 
-  <rect width="560" height="560" fill="#141312"/>
-  <circle cx="280" cy="280" r="230" fill="none" stroke="#2c2925" stroke-width="1.50"/>
+  <rect width="810" height="810" fill="#141312"/>
+  <circle cx="405" cy="405" r="355" fill="none" stroke="#2c2925" stroke-width="2.25"/>
 
-  <use xlink:href="#cclogo" transform="translate(218.56, 60.00) scale(0.2400)"/>
+  <use xlink:href="#cclogo" transform="translate(312.84, 90.00) scale(0.3600)"/>
 
-  <rect x="172.00" y="187.00" width="216.00" height="216.00"
-        rx="10.00" ry="10.00" fill="#f0ede6"/>
+  <rect x="243.00" y="280.50" width="324.00" height="324.00"
+        rx="15.00" ry="15.00" fill="#f0ede6"/>
 
-  <g transform="translate(180.00, 195.00) scale(6.0606)">
+  <g transform="translate(255.00, 292.50) scale(9.0909)">
     <rect width="33" height="33" fill="#f0ede6"/>
     <g fill="#141312" shape-rendering="crispEdges">
       <rect x="4" y="4" width="1" height="1"/>
@@ -377,29 +377,29 @@
     </g>
   </g>
 
-  <text x="280" y="422.00"
+  <text x="405" y="633.00"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
-        font-size="18.00"
+        font-size="27.00"
         font-weight="500"
         fill="#c0bcb2"
-        letter-spacing="3.50">OPEN SOURCE  ·  ANDROID</text>
+        letter-spacing="5.25">OPEN SOURCE  ·  ANDROID</text>
 
-  <text x="280" y="450.00"
+  <text x="405" y="675.00"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
-        font-size="18.00"
+        font-size="27.00"
         font-weight="500"
-        letter-spacing="3.50">
+        letter-spacing="5.25">
     <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan fill="#c0bcb2">  APP</tspan>
   </text>
 
-  <text x="280" y="488.00"
+  <text x="405" y="732.00"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
-        font-size="26.00"
+        font-size="39.00"
         font-weight="600"
         fill="#f0ede6"
-        letter-spacing="0.50">cruxcoach.org</text>
+        letter-spacing="0.75">cruxcoach.org</text>
 
 </svg>
