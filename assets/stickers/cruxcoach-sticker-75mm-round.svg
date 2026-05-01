@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  CruxCoach community sticker — round 75 mm (PRINT)
-  Print canvas: 81 mm × 81 mm  (with 3 mm bleed)
-  QR: V2/M, 29×29 (border 2), module 1.03 mm
-  Tagline + URL both cream (#f0ede6) for max distance legibility.
+  CruxCoach community sticker — round 75 mm (PRINT — rectangular canvas with bleed)
+  Cut: 75 mm  |  Bleed: 3 mm  |  Safe zone: 63 mm
+  QR: V2/M, 29x29 (border 2), 1.03 mm/module
+  Layout shifted up 1.2 mm vs previous version — better URL-corner margin to curved cut edge.
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -34,12 +34,12 @@
   <rect width="810" height="810" fill="#141312"/>
   <circle cx="405" cy="405" r="355" fill="none" stroke="#2c2925" stroke-width="2.25"/>
 
-  <use xlink:href="#cclogo" transform="translate(312.84, 72.00) scale(0.3600)"/>
+  <use xlink:href="#cclogo" transform="translate(312.84, 54.00) scale(0.3600)"/>
 
-  <rect x="252.00" y="259.50" width="306.00" height="306.00"
+  <rect x="252.00" y="241.50" width="306.00" height="306.00"
         rx="4.50" ry="4.50" fill="#f0ede6"/>
 
-  <g transform="translate(255.00, 262.50) scale(10.3448)">
+  <g transform="translate(255.00, 244.50) scale(10.3448)">
     <rect width="29" height="29" fill="#f0ede6"/>
     <g fill="#141312" shape-rendering="crispEdges">
       <rect x="2" y="2" width="1" height="1"/>
@@ -363,7 +363,7 @@
     </g>
   </g>
 
-  <text x="405" y="615.00"
+  <text x="405" y="597.00"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
         font-size="33.00"
@@ -371,7 +371,7 @@
         fill="#f0ede6"
         letter-spacing="5.25">OPEN SOURCE  ·  ANDROID</text>
 
-  <text x="405" y="655.50"
+  <text x="405" y="637.50"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
         font-size="33.00"
@@ -380,7 +380,7 @@
     <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan fill="#f0ede6">  APP</tspan>
   </text>
 
-  <text x="405" y="715.50"
+  <text x="405" y="697.50"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
         font-size="48.00"
