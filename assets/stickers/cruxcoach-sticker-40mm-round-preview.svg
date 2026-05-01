@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  CruxCoach community sticker — round 40 mm (PREVIEW: circular clip applied, corners transparent — NOT for print).
-  Preview canvas: 46 mm × 46 mm — dark area is the 40 mm cut circle ONLY; corners are transparent (NOT for printing)
-  Cut circle:   diameter 40 mm  (radius 200 from centre 230,230)
-  Safe zone:    diameter 28 mm  (6 mm from cut)
+  CruxCoach community sticker — round 40 mm (PREVIEW)
+  Preview canvas: dark area = 40 mm cut circle ONLY (NOT for printing)
+  Cut: 40 mm  |  Safe zone: 28 mm
+  QR: V2/M, ~16 mm,  0.48 mm/module
 
-  QR target:    https://cruxcoach.org
-  QR encoding:  V2/M, 33×33 modules with built-in 4-module quiet zone
-  QR module:    0.48 mm
-
-  Layout (top to bottom):
-    1. Logo (CC + X)
-    2. QR code on cream rounded frame
-    3. "OPEN SOURCE · ANDROID"  — line 1 (cream)
-    4. "KILTER BOARD APP"       — line 2 ("KILTER BOARD" in accent orange)
-    5. cruxcoach.org            — URL CTA
-
-  Trademark: "Kilter Board" used descriptively (nominative fair use).
+  Composition:
+    1. Logo
+    2. QR + thin cream frame (4-unit padding)
+    3. "OPEN SOURCE · ANDROID"  (font 22, line 1)
+    4. "KILTER BOARD APP"       (font 22, line 2)
+    5. cruxcoach.org            (font 32, URL CTA — bigger, prominent)
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -49,10 +43,10 @@
 
   <use xlink:href="#cclogo" transform="translate(180.85, 38.40) scale(0.1920)"/>
 
-  <rect x="143.60" y="140.00" width="172.80" height="172.80"
-        rx="8.00" ry="8.00" fill="#f0ede6"/>
+  <rect x="146.80" y="136.80" width="166.40" height="166.40"
+        rx="4.80" ry="4.80" fill="#f0ede6"/>
 
-  <g transform="translate(150.00, 146.40) scale(4.8485)">
+  <g transform="translate(150.00, 140.00) scale(4.8485)">
     <rect width="33" height="33" fill="#f0ede6"/>
     <g fill="#141312" shape-rendering="crispEdges">
       <rect x="4" y="4" width="1" height="1"/>
@@ -379,24 +373,24 @@
   <text x="230" y="328.00"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
-        font-size="14.40"
+        font-size="17.60"
         font-weight="500"
         fill="#c0bcb2"
         letter-spacing="2.80">OPEN SOURCE  ·  ANDROID</text>
 
-  <text x="230" y="350.40"
+  <text x="230" y="349.60"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
-        font-size="14.40"
+        font-size="17.60"
         font-weight="500"
         letter-spacing="2.80">
     <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan fill="#c0bcb2">  APP</tspan>
   </text>
 
-  <text x="230" y="380.80"
+  <text x="230" y="381.60"
         text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
-        font-size="20.80"
+        font-size="25.60"
         font-weight="600"
         fill="#f0ede6"
         letter-spacing="0.40">cruxcoach.org</text>
