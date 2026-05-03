@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  CruxCoach community sticker — round 50 mm (PRINT, 3 mm bleed)
-  QR: V2/M, 29×29 (border 2), 0.69 mm/module
-  Layout: top logo, QR mid, two-line tagline, URL.
+  CruxCoach community sticker — round 40 mm (PREVIEW)
+  Layout: logo-above
+  QR: V2/M, 29×29 (border 2), 0.55 mm/module
+  Print files for round and square share identical content — printer cuts to selected shape.
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="56mm" height="56mm"
-     viewBox="0 0 560 560">
+     width="46mm" height="46mm"
+     viewBox="0 0 460 460">
 
   <defs>
     <radialGradient id="gL" gradientUnits="userSpaceOnUse" cx="256" cy="256" r="210">
@@ -30,14 +31,14 @@
     </g>
   </defs>
 
-  <rect width="560" height="560" fill="#141312"/>
+  <circle cx="230" cy="230" r="200" fill="#141312"/>
 
-  <use xlink:href="#cclogo" transform="translate(218.56, 36.00) scale(0.2400)"/>
+  <use xlink:href="#cclogo" transform="translate(180.85, 28.80) scale(0.1920)"/>
 
-  <rect x="178.00" y="161.00" width="204.00" height="204.00"
-        rx="3.00" ry="3.00" fill="#f0ede6"/>
+  <rect x="148.40" y="128.80" width="163.20" height="163.20"
+        rx="2.40" ry="2.40" fill="#f0ede6"/>
 
-  <g transform="translate(180.00, 163.00) scale(6.8966)">
+  <g transform="translate(150.00, 130.40) scale(5.5172)">
     <rect width="29" height="29" fill="#f0ede6"/>
     <g fill="#141312" shape-rendering="crispEdges">
       <rect x="2" y="2" width="1" height="1"/>
@@ -361,29 +362,21 @@
     </g>
   </g>
 
-  <text x="280" y="398.00"
-        text-anchor="middle"
-        font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
-        font-size="22.00"
-        font-weight="500"
-        fill="#f0ede6"
-        letter-spacing="3.50">OPEN SOURCE  ·  ANDROID</text>
+  <text x="230" y="318.40" text-anchor="middle"
+        font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="17.60" font-weight="500" fill="#f0ede6"
+        letter-spacing="2.80">OPEN SOURCE  ·  ANDROID</text>
 
-  <text x="280" y="425.00"
-        text-anchor="middle"
-        font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
-        font-size="22.00"
-        font-weight="500"
-        letter-spacing="3.50">
+  <text x="230" y="340.00" text-anchor="middle"
+        font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="17.60" font-weight="500"
+        letter-spacing="2.80">
     <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan fill="#f0ede6">  APP</tspan>
   </text>
 
-  <text x="280" y="465.00"
-        text-anchor="middle"
-        font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif"
-        font-size="32.00"
-        font-weight="600"
-        fill="#f0ede6"
-        letter-spacing="0.50">cruxcoach.org</text>
+  <text x="230" y="372.00" text-anchor="middle"
+        font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="25.60" font-weight="600" fill="#f0ede6"
+        letter-spacing="0.40">cruxcoach.org</text>
 
 </svg>
