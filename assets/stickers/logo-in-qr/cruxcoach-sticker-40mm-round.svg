@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   CruxCoach community sticker — round 40 mm (PRINT, 3 mm bleed)
-  Layout: logo-in-qr — VISUAL equal gaps (all-caps text bottom = baseline)
+  Layout: logo-in-qr — OPTICALLY balanced (frame-top vs URL-baseline)
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -31,10 +31,10 @@
 
   <rect width="460" height="460" fill="#141312"/>
 
-  <rect x="140.40" y="56.80" width="179.20" height="179.20"
+  <rect x="140.40" y="61.60" width="179.20" height="179.20"
         rx="2.40" ry="2.40" fill="#f0ede6"/>
 
-  <g transform="translate(142.00, 58.40) scale(4.7568)">
+  <g transform="translate(142.00, 63.20) scale(4.7568)">
     <rect width="37" height="37" fill="#f0ede6"/>
     <g fill="#141312" shape-rendering="crispEdges">
       <rect x="2" y="2" width="1" height="1"/>
@@ -594,22 +594,22 @@
     </g>
   </g>
 
-  <circle cx="230.00" cy="146.40" r="27.91" fill="#141312"/>
-  <use xlink:href="#cclogo" transform="translate(194.80, 111.20) scale(0.1375)"/>
+  <circle cx="230.00" cy="151.20" r="27.91" fill="#141312"/>
+  <use xlink:href="#cclogo" transform="translate(194.80, 116.00) scale(0.1375)"/>
 
-  <text x="230" y="275.20" text-anchor="middle"
+  <text x="230" y="280.00" text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
         font-size="20.80" font-weight="500" fill="#f0ede6"
         letter-spacing="2.40">OPEN SOURCE  ·  ANDROID</text>
 
-  <text x="230" y="320.80" text-anchor="middle"
+  <text x="230" y="325.60" text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
         font-size="27.20" font-weight="500"
         letter-spacing="3.20">
     <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan dx="11.20" fill="#f0ede6">APP</tspan>
   </text>
 
-  <text x="230" y="372.80" text-anchor="middle"
+  <text x="230" y="377.60" text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
         font-size="36.80" font-weight="600" fill="#f0ede6"
         letter-spacing="0.40">cruxcoach.org</text>
