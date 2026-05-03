@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   CruxCoach community sticker — square 75 mm (PREVIEW)
-  Layout: logo-in-qr (logo embedded in QR centre on circular dark backdrop)
+  Layout: logo-in-qr
   QR: V4/H, 37×37 (border 2), 0.89 mm/module
-  Logo: 2× original, ~10% data masked (within H 30% budget)
-  Print files for round and square share identical content.
+  Logo: 2× original, ~10% data masked.
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -609,7 +608,7 @@
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
         font-size="45.00" font-weight="500"
         letter-spacing="6.00">
-    <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan fill="#f0ede6">  APP</tspan>
+    <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan dx="36.00" fill="#f0ede6">APP</tspan>
   </text>
 
   <text x="405" y="652.50" text-anchor="middle"
