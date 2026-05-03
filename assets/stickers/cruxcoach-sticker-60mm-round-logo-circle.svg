@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  CruxCoach community sticker — round 60 mm  (LOGO-CIRCLE variant, BIG logo)
-  PRINT — rectangular canvas with 3 mm bleed
+  CruxCoach community sticker — round 60 mm  (LOGO-CIRCLE variant, 2× logo)
 
-  Logo embedded large in QR centre, on a circular dark backdrop matching
-  the logo's outer C-arc. Outside the circle the QR pattern is intact.
-
-  QR encoding:  V4/H (alignment patterns only at corners — center clear)
+  QR encoding:  V4/H (alignment patterns only at corners — centre clear)
   QR module:    0.71 mm
-  Logo size:    visible content ~12.4 mm diameter
-  QR data masked: ~22% (within H 30% budget; safe scan margin)
+  Logo visible: ~8.2 mm diameter (2× original)
+  QR data masked: ~10% (well within H 30% budget — 20pp margin)
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -603,9 +599,8 @@
     </g>
   </g>
 
-  <!-- Embedded logo: BIG circular dark backdrop + CC+X on top -->
-  <circle cx="330.00" cy="228.00" r="62.80" fill="#141312"/>
-  <use xlink:href="#cclogo" transform="translate(250.80, 148.80) scale(0.3094)"/>
+  <circle cx="330.00" cy="228.00" r="41.87" fill="#141312"/>
+  <use xlink:href="#cclogo" transform="translate(277.20, 175.20) scale(0.2062)"/>
 
   <text x="330" y="415.20"
         text-anchor="middle"
