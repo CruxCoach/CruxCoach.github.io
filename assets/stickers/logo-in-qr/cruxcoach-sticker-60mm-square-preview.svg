@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   CruxCoach community sticker — square 60 mm (PREVIEW)
-  Layout: logo-in-qr, symmetric ~5.5mm margins (60mm baseline), equal gaps
+  Layout: logo-in-qr — VISUAL equal gaps (all-caps text bottom = baseline)
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -597,19 +597,19 @@
   <circle cx="330.00" cy="219.60" r="41.87" fill="#141312"/>
   <use xlink:href="#cclogo" transform="translate(277.20, 166.80) scale(0.2062)"/>
 
-  <text x="330" y="406.80" text-anchor="middle"
+  <text x="330" y="412.80" text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
         font-size="31.20" font-weight="500" fill="#f0ede6"
         letter-spacing="3.60">OPEN SOURCE  ·  ANDROID</text>
 
-  <text x="330" y="477.60" text-anchor="middle"
+  <text x="330" y="481.20" text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
         font-size="40.80" font-weight="500"
         letter-spacing="4.80">
     <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan dx="16.80" fill="#f0ede6">APP</tspan>
   </text>
 
-  <text x="330" y="560.40" text-anchor="middle"
+  <text x="330" y="559.20" text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
         font-size="55.20" font-weight="600" fill="#f0ede6"
         letter-spacing="0.60">cruxcoach.org</text>
