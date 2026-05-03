@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   CruxCoach community sticker — round 40 mm (PRINT, 3 mm bleed)
-  Layout: logo-in-qr
+  Layout: logo-in-qr (bigger fonts + tighter vertical balance)
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -31,10 +31,10 @@
 
   <rect width="460" height="460" fill="#141312"/>
 
-  <rect x="140.40" y="62.40" width="179.20" height="179.20"
+  <rect x="140.40" y="58.40" width="179.20" height="179.20"
         rx="2.40" ry="2.40" fill="#f0ede6"/>
 
-  <g transform="translate(142.00, 64.00) scale(4.7568)">
+  <g transform="translate(142.00, 60.00) scale(4.7568)">
     <rect width="37" height="37" fill="#f0ede6"/>
     <g fill="#141312" shape-rendering="crispEdges">
       <rect x="2" y="2" width="1" height="1"/>
@@ -594,24 +594,24 @@
     </g>
   </g>
 
-  <circle cx="230.00" cy="152.00" r="27.91" fill="#141312"/>
-  <use xlink:href="#cclogo" transform="translate(194.80, 116.80) scale(0.1375)"/>
+  <circle cx="230.00" cy="148.00" r="27.91" fill="#141312"/>
+  <use xlink:href="#cclogo" transform="translate(194.80, 112.80) scale(0.1375)"/>
 
-  <text x="230" y="276.80" text-anchor="middle"
+  <text x="230" y="268.00" text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-        font-size="24.00" font-weight="500" fill="#f0ede6"
+        font-size="27.20" font-weight="500" fill="#f0ede6"
         letter-spacing="3.20">OPEN SOURCE  ·  ANDROID</text>
 
-  <text x="230" y="308.80" text-anchor="middle"
+  <text x="230" y="302.40" text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-        font-size="24.00" font-weight="500"
+        font-size="27.20" font-weight="500"
         letter-spacing="3.20">
-    <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan dx="9.60" fill="#f0ede6">APP</tspan>
+    <tspan fill="#e07a4f" font-weight="700">KILTER BOARD</tspan><tspan dx="11.20" fill="#f0ede6">APP</tspan>
   </text>
 
-  <text x="230" y="348.00" text-anchor="middle"
+  <text x="230" y="364.00" text-anchor="middle"
         font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-        font-size="32.00" font-weight="600" fill="#f0ede6"
+        font-size="36.80" font-weight="600" fill="#f0ede6"
         letter-spacing="0.40">cruxcoach.org</text>
 
 </svg>
