@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  CruxCoach community sticker — round 60 mm (PRINT — rectangular canvas with bleed)
-  Cut: 60 mm  |  Bleed: 3 mm  |  Safe zone: 48 mm
-  QR: V2/M, 29x29 (border 2), 0.83 mm/module
-  Layout shifted up 1.2 mm vs previous version — better URL-corner margin to curved cut edge.
+  CruxCoach community sticker — round 60 mm (PRINT, 3 mm bleed)
+  QR: V2/M, 29×29 (border 2), 0.83 mm/module
+  Layout: top logo, QR mid, two-line tagline, URL.
 -->
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -32,7 +31,6 @@
   </defs>
 
   <rect width="660" height="660" fill="#141312"/>
-  <circle cx="330" cy="330" r="280" fill="none" stroke="#2c2925" stroke-width="1.80"/>
 
   <use xlink:href="#cclogo" transform="translate(256.27, 43.20) scale(0.2880)"/>
 
