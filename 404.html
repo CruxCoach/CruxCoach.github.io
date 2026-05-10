@@ -111,18 +111,18 @@
     <h1 id="cl-name">…</h1>
     <p class="by" id="cl-setter" hidden></p>
     <p class="description" id="cl-description" hidden></p>
-    <div class="tags" id="cl-tags">
-      <span class="tag">#kilterboard</span>
-      <span class="tag">#climbing</span>
-    </div>
+    <div class="tags" id="cl-tags" hidden></div>
     <p class="install-prompt" id="cl-install-prompt"></p>
     <div class="cta-row">
-      <!-- intent:// resolves to the app if installed; otherwise to the
-           browser_fallback_url (Zapstore). Single button, install-aware. -->
-      <a class="cta primary" id="cl-cta-app" href="">…</a>
-      <a class="cta" href="https://codeberg.org/CruxCoach/CruxCoach/releases" id="cl-cta-releases">…</a>
+      <!-- Two explicit install paths matching the main page's #install
+           section. Direct links — no install-detection magic, so the
+           label is honest about where the user lands. The Android
+           intent:// "open in app if installed" lives below as a small
+           link so it doesn't compete with the install CTAs. -->
+      <a class="cta primary" id="cl-cta-zapstore" href="https://zapstore.dev/apps/com.cruxcoach.android">…</a>
+      <a class="cta" id="cl-cta-releases" href="https://codeberg.org/CruxCoach/CruxCoach/releases">…</a>
     </div>
-    <p class="small" id="cl-already"></p>
+    <p class="small" id="cl-already"><span id="cl-already-text"></span> <a id="cl-cta-intent" href="">…</a></p>
   </div>
 
   <script>
@@ -139,22 +139,24 @@
       en: {
         loading: 'Loading climb…',
         unknown: 'CruxCoach climb',
-        notFound: "Couldn't fetch this climb's metadata from public Nostr relays right now — it may be very fresh, or the relays are unreachable. The link still works in the app.",
+        notFound: "Couldn't fetch this climb's metadata from public Nostr relays right now — it may be very fresh, or the relays are unreachable. The install + open-in-app links below still work.",
         by: 'by ',
-        installPrompt: 'Open this climb in CruxCoach.',
-        ctaApp: 'Open in app',
+        installPrompt: 'Install CruxCoach to open this climb.',
+        ctaZapstore: 'Get on Zapstore',
         ctaReleases: 'Codeberg releases',
-        already: "Already have CruxCoach installed? Tap the link in your Nostr client again — Android verifies new App Links a few minutes after install."
+        alreadyText: 'Already have CruxCoach installed?',
+        ctaIntent: 'Open in app'
       },
       de: {
         loading: 'Lade Climb…',
         unknown: 'CruxCoach-Climb',
-        notFound: 'Konnte die Climb-Metadaten gerade nicht von den öffentlichen Nostr-Relays laden — der Climb ist evtl. ganz frisch oder die Relays sind nicht erreichbar. Der Link funktioniert in der App trotzdem.',
+        notFound: 'Konnte die Climb-Metadaten gerade nicht von den öffentlichen Nostr-Relays laden — der Climb ist evtl. ganz frisch oder die Relays sind nicht erreichbar. Die Install- und In-App-Links unten funktionieren trotzdem.',
         by: 'von ',
-        installPrompt: 'Diesen Climb in CruxCoach öffnen.',
-        ctaApp: 'In App öffnen',
+        installPrompt: 'CruxCoach installieren, um diesen Climb zu öffnen.',
+        ctaZapstore: 'Auf Zapstore holen',
         ctaReleases: 'Codeberg-Releases',
-        already: 'CruxCoach schon installiert? Tippe den Link in deinem Nostr-Client nochmal an — Android verifiziert neue App-Links erst ein paar Minuten nach Installation.'
+        alreadyText: 'CruxCoach schon installiert?',
+        ctaIntent: 'In App öffnen'
       }
     };
     const t = (k) => (i18n[lang][k] != null ? i18n[lang][k] : i18n.en[k]);
@@ -165,26 +167,30 @@
     const elSetter = document.getElementById('cl-setter');
     const elDesc = document.getElementById('cl-description');
     const elPrompt = document.getElementById('cl-install-prompt');
-    const elCtaApp = document.getElementById('cl-cta-app');
+    const elCtaZapstore = document.getElementById('cl-cta-zapstore');
     const elCtaReleases = document.getElementById('cl-cta-releases');
     const elAlready = document.getElementById('cl-already');
+    const elAlreadyText = document.getElementById('cl-already-text');
+    const elCtaIntent = document.getElementById('cl-cta-intent');
     elName.textContent = t('loading');
     elPrompt.textContent = t('installPrompt');
+    elCtaZapstore.textContent = t('ctaZapstore');
     elCtaReleases.textContent = t('ctaReleases');
-    elAlready.textContent = t('already');
 
-    // ── intent:// for "open in app, fallback to Zapstore" — Android's
-    //    standard cross-app launch shape. Browsers that don't support
-    //    intent:// fall through to the href anchor click which is a
-    //    plain Zapstore URL on the JS path.
-    const ZAPSTORE = 'https://zapstore.dev/apps/com.cruxcoach.android';
-    const intentUrl =
-      'intent://cruxcoach.org' + path + '#Intent;' +
-      'scheme=https;package=com.cruxcoach.android;' +
-      'S.browser_fallback_url=' + encodeURIComponent(ZAPSTORE) + ';end';
+    // intent:// only resolves on Android — package= lookup. Hide the
+    // small "already installed?" line entirely on other platforms;
+    // there is no equivalent cross-app launch we could trigger.
     const isAndroid = /android/i.test(navigator.userAgent || '');
-    elCtaApp.href = isAndroid ? intentUrl : ZAPSTORE;
-    elCtaApp.textContent = t('ctaApp');
+    if (isAndroid) {
+      const intentUrl =
+        'intent://cruxcoach.org' + path + '#Intent;' +
+        'scheme=https;package=com.cruxcoach.android;end';
+      elCtaIntent.href = intentUrl;
+      elCtaIntent.textContent = t('ctaIntent');
+      elAlreadyText.textContent = t('alreadyText');
+    } else {
+      elAlready.hidden = true;
+    }
 
     // ─── bech32 / NIP-19 (naddr) decode ─────────────────────
     const CHARSET = 'qpzry9x8gf2tvdw0s3jn54khce6mua7l';
@@ -325,6 +331,24 @@
       if (description) {
         elDesc.textContent = description;
         elDesc.removeAttribute('hidden');
+      }
+
+      // NIP-12 t-tags from the climb event itself — show the real ones,
+      // not a static "kilterboard climbing" fallback that was misleading
+      // for setters who taggged the climb differently.
+      const ttags = (event.tags || [])
+        .filter(function(x) { return Array.isArray(x) && x[0] === 't' && x[1]; })
+        .map(function(x) { return String(x[1]); });
+      if (ttags.length) {
+        const elTags = document.getElementById('cl-tags');
+        elTags.innerHTML = '';
+        for (const tag of ttags) {
+          const span = document.createElement('span');
+          span.className = 'tag';
+          span.textContent = '#' + tag;
+          elTags.appendChild(span);
+        }
+        elTags.hidden = false;
       }
 
       // Best-effort Kind-0 lookup for setter display name. Quietly
