@@ -104,6 +104,7 @@
     <h1>Off route.</h1>
     <p>That URL didn't match any climb on the wall. Probably an old link or a typo.</p>
     <p><a href="/">Back to the start holds →</a></p>
+    <p class="small">If cruxcoach.org is ever unreachable, mirror copies are listed in <a href="/mirrors.json">/mirrors.json</a>.</p>
     <p class="code">404</p>
   </div>
 
@@ -376,5 +377,16 @@
     load();
   })();
   </script>
+
+<script>
+/* Progressive enhancement: register the resilience service worker.
+   Never blocks render; silently no-ops where unsupported. */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function () {});
+  });
+}
+</script>
+
 </body>
 </html>

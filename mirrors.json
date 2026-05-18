@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "updated": "2026-05-18",
+  "_comment": "Authoritative mirror list for the resilience service worker (sw.js). Only entries with enabled:true and a non-empty url are used. Canonical origin (cruxcoach.org) is intentionally NOT listed here. Fill url + flip enabled:true once each host actually serves the byte-identical site (task: finalize concrete mirror hosts).",
+  "mirrors": [
+    {
+      "id": "codeberg-pages",
+      "url": "",
+      "enabled": false,
+      "note": "Codeberg Pages legacy backend. Repo is 'cruxcoach-pages' (not 'pages') so the codeberg.page URL is likely https://cruxcoach.codeberg.page/cruxcoach-pages — VERIFY the exact reachable URL before enabling; do not guess."
+    },
+    {
+      "id": "github-pages",
+      "url": "",
+      "enabled": false,
+      "note": "Existing server-side GitHub mirror. Fill the github.io Pages URL once Pages is enabled on it (do not guess the URL)."
+    },
+    {
+      "id": "disroot-forgejo",
+      "url": "",
+      "enabled": false,
+      "note": "Planned free FOSS mirror (Disroot Forgejo Pages) — set up, then fill url."
+    },
+    {
+      "id": "nsite",
+      "url": "",
+      "enabled": false,
+      "note": "Planned nsite (Nostr+Blossom) gateway URL, e.g. https://<npub>.nsite.lol — fill once published via nsyte."
+    },
+    {
+      "id": "ipfs-dnslink",
+      "url": "",
+      "enabled": false,
+      "note": "Planned IPFS gateway URL for the pinned CID — fill once pinned (Filebase free tier) and _dnslink TXT is set."
+    }
+  ]
+}
