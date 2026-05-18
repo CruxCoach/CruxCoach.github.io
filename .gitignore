@@ -14,3 +14,17 @@ node_modules/
 *.psd
 *.xcf
 assets/raw/
+
+# nsite / Nostr deploy — key material & signer config. NEVER commit:
+# this is a PUBLIC repo; a leaked nsec or bunker secret is permanent
+# and unrecoverable. Any non-secret deploy config is force-added
+# deliberately, only after verifying it carries no secret.
+.nsite/
+.nsite-cli/
+*.nsec
+nostr-key*
+*nsec*
+*.bunker
+bunker*.json
+.env
+.env.*
