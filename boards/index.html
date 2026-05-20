@@ -190,6 +190,10 @@
     font-size: 11px; cursor: pointer; text-decoration: underline;
   }
   .legend .filter-reset:hover { color: var(--accent); }
+  /* Per-board detail sections collapse to nothing when their board is
+     unchecked in the top-level Board-type list. Chip state is preserved
+     in JS so re-checking the board brings the previous filter back. */
+  .legend .board-section.hidden { display: none; }
 
   /* Custom marker dot (single-board venue) */
   .marker-dot {
@@ -587,9 +591,17 @@
   }
 
   // ── Filter dimensions ─────────────────────────────────────────────
-  // Mirrors the app's MapFilterSheet sections (MapFilters.kt). All
-  // wall-level filters apply ONLY to Kilter venues. Non-Kilter boards
-  // bypass — hangtime doesn't carry walls/sizes/country for them.
+  // Three filter layers:
+  //   1. Board type (top-level OR) — which board types to include.
+  //   2. Universal filters (Country) — geo gate, applies to every venue.
+  //   3. Per-board detail filters — Kilter walls, MoonBoard setup. Only
+  //      visible when the corresponding board type is active in (1);
+  //      state survives toggling the board off and back on.
+  //
+  // A venue is visible iff Country gate passes AND at least one active
+  // board at the venue passes its own per-board constraints. Boards
+  // without per-board filters (Tension, Aurora, Decoy, Grasshopper, So
+  // iLL, Touchstone, 12climb) pass-through.
   var KILTER_LAYOUTS = [
     { key: 'Original', label: 'Original' },
     { key: 'Homewall', label: 'Homewall' },
@@ -599,38 +611,57 @@
     { key: 'fixed',      label: 'Fixed' },
     { key: 'unknown',    label: 'Unknown' },
   ];
+  var MOON_COMMERCIAL = [
+    { key: 'commercial', label: 'Commercial' },
+    { key: 'home',       label: 'Home setup' },
+    { key: 'unknown',    label: 'Unknown' },
+  ];
+  var MOON_LED = [
+    { key: 'led',     label: 'LED' },
+    { key: 'no-led',  label: 'No LEDs' },
+    { key: 'unknown', label: 'Unknown' },
+  ];
 
   function adjustabilityKey(w) {
     if (w.adjustable === true) return 'adjustable';
     if (w.adjustable === false) return 'fixed';
     return 'unknown';
   }
+  function moonCommercialKey(e) {
+    if (e.commercial === true) return 'commercial';
+    if (e.commercial === false) return 'home';
+    return 'unknown';
+  }
+  function moonLedKey(e) {
+    if (e.led === true) return 'led';
+    if (e.led === false) return 'no-led';
+    return 'unknown';
+  }
 
-  // Venue records track everything needed for filter evaluation. We pre-
-  // extract the Kilter walls + the venue country once so re-filtering is
-  // a cheap loop, not a per-render parse.
   var venueRecords = [];
-  // Active sets — start with everything selected, i.e. no constraint.
+  // Active sets — full set = "no constraint", same UX as the app's chips.
   var activeBoards = new Set(BOARDS.map(function (b) { return b.id; }));
   var activeLayouts = new Set(KILTER_LAYOUTS.map(function (l) { return l.key; }));
-  activeLayouts.add('other'); // unknown/legacy product_name
+  activeLayouts.add('other'); // unknown/legacy product_name bucket
   var activeAdj = new Set(ADJUSTABILITIES.map(function (a) { return a.key; }));
-  var activeSizes = null;     // null = no constraint; otherwise Set<string>
-  var activeCountries = null; // null = no constraint
+  var activeMoonCom = new Set(MOON_COMMERCIAL.map(function (a) { return a.key; }));
+  var activeMoonLed = new Set(MOON_LED.map(function (a) { return a.key; }));
+  // Sizes + Countries can have many options; null = "no constraint", any
+  // first toggle materialises the full set so the user removes from it.
+  var activeSizes = null;
+  var activeCountries = null;
 
-  function kilterMatches(rec) {
-    if (rec.country !== null && activeCountries && !activeCountries.has(rec.country)) return false;
-    if (!rec.kilterWalls.length) {
-      // Kilter listed without walls (rare). Pass only when no wall-level
-      // constraint is active; otherwise it's ambiguous.
-      var noWallConstraint =
-        activeSizes === null &&
-        activeLayouts.size === KILTER_LAYOUTS.length + 1 &&
-        activeAdj.size === ADJUSTABILITIES.length;
-      return noWallConstraint;
+  function kilterEntryMatches(entry) {
+    var walls = entry.walls || [];
+    if (!walls.length) {
+      // Kilter listed without walls is rare; only pass when nothing wall-
+      // level is constraining (otherwise we can't tell if it would match).
+      return activeSizes === null
+        && activeLayouts.size === KILTER_LAYOUTS.length + 1
+        && activeAdj.size === ADJUSTABILITIES.length;
     }
-    for (var i = 0; i < rec.kilterWalls.length; i++) {
-      var w = rec.kilterWalls[i];
+    for (var i = 0; i < walls.length; i++) {
+      var w = walls[i];
       var lkey = w.layout || 'other';
       if (!activeLayouts.has(lkey)) continue;
       if (!activeAdj.has(adjustabilityKey(w))) continue;
@@ -642,15 +673,26 @@
     return false;
   }
 
+  function moonboardEntryMatches(entry) {
+    if (!activeMoonCom.has(moonCommercialKey(entry))) return false;
+    if (!activeMoonLed.has(moonLedKey(entry))) return false;
+    return true;
+  }
+
+  function entryMatches(entry) {
+    if (entry.board === 'kilter') return kilterEntryMatches(entry);
+    if (entry.board === 'moonboard') return moonboardEntryMatches(entry);
+    return true; // other boards: no per-board filter dimensions
+  }
+
   function venueVisible(rec) {
+    // Universal: country gate first.
+    if (activeCountries && !activeCountries.has(rec.country || 'unknown')) return false;
+    // Then per-board OR: at least one active board with a matching entry.
     for (var i = 0; i < rec.boards.length; i++) {
-      var b = rec.boards[i].board;
-      if (!activeBoards.has(b)) continue;
-      if (b === 'kilter') {
-        if (kilterMatches(rec)) return true;
-      } else {
-        return true;
-      }
+      var b = rec.boards[i];
+      if (!activeBoards.has(b.board)) continue;
+      if (entryMatches(b)) return true;
     }
     return false;
   }
@@ -673,10 +715,19 @@
     el.textContent = shown.toLocaleString('en') + ' of ' + venueRecords.length.toLocaleString('en') + ' locations';
   }
 
-  function resetWallFilters() {
+  function updateSectionVisibility() {
+    document.querySelectorAll('.legend .board-section').forEach(function (el) {
+      var b = el.dataset.board;
+      el.classList.toggle('hidden', !activeBoards.has(b));
+    });
+  }
+
+  function resetDetailFilters() {
     activeLayouts = new Set(KILTER_LAYOUTS.map(function (l) { return l.key; }));
     activeLayouts.add('other');
     activeAdj = new Set(ADJUSTABILITIES.map(function (a) { return a.key; }));
+    activeMoonCom = new Set(MOON_COMMERCIAL.map(function (a) { return a.key; }));
+    activeMoonLed = new Set(MOON_LED.map(function (a) { return a.key; }));
     activeSizes = null;
     activeCountries = null;
     document.querySelectorAll('.legend .chip[data-dim]').forEach(function (el) { el.classList.add('selected'); });
@@ -692,36 +743,11 @@
       '</button>';
   }
 
-  function buildLegend(stats) {
-    var totalVenues = stats.totalVenues;
-    var perBoardCounts = stats.perBoardCounts;
-    var ctl = L.control({ position: 'topright' });
-    ctl.onAdd = function () {
-      var div = L.DomUtil.create('div', 'legend');
-      L.DomEvent.disableClickPropagation(div);
-      L.DomEvent.disableScrollPropagation(div);
-
-      var boardSection =
-        '<h3>Board type</h3>' +
-        BOARDS.map(function (b) {
-          return (
-            '<label>' +
-              '<input type="checkbox" checked data-board="' + b.id + '">' +
-              '<span class="swatch" style="background:' + b.color + '"></span>' +
-              '<span class="name">' + b.label + '</span>' +
-              '<span class="count">' + (perBoardCounts[b.id] || 0).toLocaleString('en') + '</span>' +
-            '</label>'
-          );
-        }).join('') +
-        '<div class="actions">' +
-          '<button type="button" data-action="all">All</button>' +
-          '<button type="button" data-action="none">None</button>' +
-        '</div>';
-
-      var kilterSection =
+  function renderKilterSection(stats) {
+    return (
+      '<div class="board-section" data-board="kilter">' +
         '<hr>' +
         '<div class="subhdr">Kilter walls</div>' +
-        '<div class="subnote">Applies to Kilter venues only.</div>' +
         '<div class="subhdr" style="margin-top:6px">Layout</div>' +
         '<div class="chips">' +
           KILTER_LAYOUTS.map(function (l) {
@@ -743,28 +769,88 @@
             }).join('') +
           '</div>' +
         '</details>' +
-        '<details class="subfilter">' +
-          '<summary>Country (' + stats.countryOptions.length + ')</summary>' +
-          '<div class="chips">' +
-            stats.countryOptions.map(function (c) {
-              return chip('country', c.code, c.code, c.count, true);
-            }).join('') +
-          '</div>' +
-        '</details>' +
-        '<button type="button" class="filter-reset">Reset wall filters</button>';
+      '</div>'
+    );
+  }
+
+  function renderMoonboardSection(stats) {
+    return (
+      '<div class="board-section" data-board="moonboard">' +
+        '<hr>' +
+        '<div class="subhdr">MoonBoard setup</div>' +
+        '<div class="subhdr" style="margin-top:6px">Type</div>' +
+        '<div class="chips">' +
+          MOON_COMMERCIAL.map(function (a) {
+            return chip('moonCom', a.key, a.label, stats.moonComCounts[a.key], true);
+          }).join('') +
+        '</div>' +
+        '<div class="subhdr">Hardware</div>' +
+        '<div class="chips">' +
+          MOON_LED.map(function (a) {
+            return chip('moonLed', a.key, a.label, stats.moonLedCounts[a.key], true);
+          }).join('') +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderCountrySection(stats) {
+    if (!stats.countryOptions.length) return '';
+    return (
+      '<hr>' +
+      '<details class="subfilter">' +
+        '<summary>Country (' + stats.countryOptions.length + ')</summary>' +
+        '<div class="subnote">Applies to every venue.</div>' +
+        '<div class="chips">' +
+          stats.countryOptions.map(function (c) {
+            return chip('country', c.code, c.code, c.count, true);
+          }).join('') +
+        '</div>' +
+      '</details>'
+    );
+  }
+
+  function buildLegend(stats) {
+    var ctl = L.control({ position: 'topright' });
+    ctl.onAdd = function () {
+      var div = L.DomUtil.create('div', 'legend');
+      L.DomEvent.disableClickPropagation(div);
+      L.DomEvent.disableScrollPropagation(div);
+
+      var boardTypeSection =
+        '<h3>Board type</h3>' +
+        BOARDS.map(function (b) {
+          return (
+            '<label>' +
+              '<input type="checkbox" checked data-board="' + b.id + '">' +
+              '<span class="swatch" style="background:' + b.color + '"></span>' +
+              '<span class="name">' + b.label + '</span>' +
+              '<span class="count">' + (stats.perBoardCounts[b.id] || 0).toLocaleString('en') + '</span>' +
+            '</label>'
+          );
+        }).join('') +
+        '<div class="actions">' +
+          '<button type="button" data-action="all">All</button>' +
+          '<button type="button" data-action="none">None</button>' +
+        '</div>';
 
       div.innerHTML =
-        boardSection +
-        kilterSection +
-        '<div class="status">' + totalVenues.toLocaleString('en') + ' locations</div>';
+        boardTypeSection +
+        renderKilterSection(stats) +
+        renderMoonboardSection(stats) +
+        renderCountrySection(stats) +
+        '<button type="button" class="filter-reset">Reset detail filters</button>' +
+        '<div class="status">' + stats.totalVenues.toLocaleString('en') + ' locations</div>';
       return div;
     };
     ctl.addTo(map);
 
+    // Board-type checkboxes drive both filter + section visibility.
     document.querySelectorAll('.legend input[type=checkbox]').forEach(function (cb) {
       cb.addEventListener('change', function () {
         if (cb.checked) activeBoards.add(cb.dataset.board);
         else activeBoards.delete(cb.dataset.board);
+        updateSectionVisibility();
         applyFilter();
       });
     });
@@ -777,21 +863,26 @@
       });
     });
 
+    // Detail-filter chips.
+    var SET_FOR_DIM = {
+      layout: function () { return activeLayouts; },
+      adj: function () { return activeAdj; },
+      moonCom: function () { return activeMoonCom; },
+      moonLed: function () { return activeMoonLed; },
+    };
     document.querySelectorAll('.legend .chip[data-dim]').forEach(function (el) {
       el.addEventListener('click', function () {
         var dim = el.dataset.dim;
         var key = el.dataset.key;
-        var set = ({ layout: activeLayouts, adj: activeAdj }[dim]);
-        // Sizes and country default to "no constraint" (null) — first toggle
-        // initialises the constraint Set to the full option list, then drops
-        // the deselected one. This mirrors the kotlin app's "empty filter
-        // set == no constraint" semantics from the user's point of view.
+        var set;
         if (dim === 'size') {
           if (activeSizes === null) activeSizes = new Set(stats.sizeOptions.map(function (s) { return String(s.id); }));
           set = activeSizes;
         } else if (dim === 'country') {
           if (activeCountries === null) activeCountries = new Set(stats.countryOptions.map(function (c) { return c.code; }));
           set = activeCountries;
+        } else {
+          set = SET_FOR_DIM[dim]();
         }
         if (set.has(key)) { set.delete(key); el.classList.remove('selected'); }
         else { set.add(key); el.classList.add('selected'); }
@@ -800,8 +891,10 @@
     });
 
     document.querySelectorAll('.legend .filter-reset').forEach(function (btn) {
-      btn.addEventListener('click', resetWallFilters);
+      btn.addEventListener('click', resetDetailFilters);
     });
+
+    updateSectionVisibility();
   }
 
   // ── Data load ─────────────────────────────────────────────────────
@@ -814,6 +907,8 @@
       var perBoardCounts = Object.fromEntries(BOARDS.map(function (b) { return [b.id, 0]; }));
       var layoutCounts = { Original: 0, Homewall: 0, other: 0 };
       var adjCounts = { adjustable: 0, fixed: 0, unknown: 0 };
+      var moonComCounts = { commercial: 0, home: 0, unknown: 0 };
+      var moonLedCounts = { led: 0, 'no-led': 0, unknown: 0 };
       var sizeMap = new Map();
       var countryMap = new Map();
 
@@ -825,7 +920,6 @@
         var lon = coords[0], lat = coords[1];
 
         var boardSeen = new Set();
-        var kilterWalls = [];
         for (var j = 0; j < props.boards.length; j++) {
           var bo = props.boards[j];
           if (!COLOR[bo.board]) continue;
@@ -834,21 +928,24 @@
             perBoardCounts[bo.board] += 1;
           }
           if (bo.board === 'kilter' && Array.isArray(bo.walls)) {
-            for (var k = 0; k < bo.walls.length; k++) kilterWalls.push(bo.walls[k]);
-          }
-        }
-        for (var w = 0; w < kilterWalls.length; w++) {
-          var wall = kilterWalls[w];
-          var lkey = wall.layout || 'other';
-          if (layoutCounts[lkey] != null) layoutCounts[lkey]++;
-          else layoutCounts.other++;
-          adjCounts[adjustabilityKey(wall)]++;
-          if (wall.size_id != null) {
-            var sid = String(wall.size_id);
-            if (!sizeMap.has(sid)) {
-              sizeMap.set(sid, { id: sid, label: wall.size_label || ('Size ' + sid), count: 0, sortKey: wall.size_label || ('zzz' + sid) });
+            for (var k = 0; k < bo.walls.length; k++) {
+              var wall = bo.walls[k];
+              var lkey = wall.layout || 'other';
+              if (layoutCounts[lkey] != null) layoutCounts[lkey]++;
+              else layoutCounts.other++;
+              adjCounts[adjustabilityKey(wall)]++;
+              if (wall.size_id != null) {
+                var sid = String(wall.size_id);
+                if (!sizeMap.has(sid)) {
+                  sizeMap.set(sid, { id: sid, label: wall.size_label || ('Size ' + sid), count: 0 });
+                }
+                sizeMap.get(sid).count++;
+              }
             }
-            sizeMap.get(sid).count++;
+          }
+          if (bo.board === 'moonboard') {
+            moonComCounts[moonCommercialKey(bo)]++;
+            moonLedCounts[moonLedKey(bo)]++;
           }
         }
         var country = props.country || null;
@@ -860,7 +957,6 @@
           marker: marker,
           visible: true,
           boards: props.boards,
-          kilterWalls: kilterWalls,
           country: country,
         });
       }
@@ -877,6 +973,8 @@
         perBoardCounts: perBoardCounts,
         layoutCounts: layoutCounts,
         adjCounts: adjCounts,
+        moonComCounts: moonComCounts,
+        moonLedCounts: moonLedCounts,
         sizeOptions: sizeOptions,
         countryOptions: countryOptions,
       });

@@ -9,9 +9,15 @@ this runs in the browser; the site itself stays build-step-free.
 node tools/build-boards-data.mjs
 ```
 
-Pulls the latest `@hangtime/climbing-boards` from npm, normalizes every
-feature, drops malformed/incomplete entries, deduplicates by
-`(board, lat, lon)` rounded to ~10 m, and rewrites:
+On first run the script installs `@rapideditor/country-coder` into a
+per-tmp cache (`$TMPDIR/cruxcoach-build-deps/`) so every venue gets an
+ISO-3166-1 alpha-2 country code regardless of which upstream source
+shipped it. Subsequent runs reuse that cache — no node_modules in the
+repo.
+
+The script then pulls the latest `@hangtime/climbing-boards` from npm,
+normalizes every feature, drops malformed/incomplete entries, groups
+into venues by `(lat, lon)` rounded to ~10 m, and rewrites:
 
 - `boards/data/boards.geojson` — what the page fetches
 - `boards/data/boards.meta.json` — build timestamp + per-board + per-source counts

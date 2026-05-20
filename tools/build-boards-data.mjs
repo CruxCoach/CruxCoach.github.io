@@ -17,11 +17,30 @@
 // then add it to the SOURCES array below. The frontend reads only the
 // merged GeoJSON and doesn't know which source a board came from.
 
-import { writeFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 
 import * as hangtime from './sources/hangtime.mjs';
+
+const COUNTRY_CODER_PACKAGE = '@rapideditor/country-coder';
+const COUNTRY_CACHE = join(tmpdir(), 'cruxcoach-build-deps');
+
+// Lazily install country-coder into a per-tmp prefix on first run so the
+// repo doesn't carry a node_modules. Returns the loaded iso1A2Code fn.
+async function loadCountryCoder() {
+  const moduleEntry = join(COUNTRY_CACHE, 'node_modules', '@rapideditor', 'country-coder', 'dist', 'country-coder.mjs');
+  if (!existsSync(moduleEntry)) {
+    process.stderr.write(`[build] installing ${COUNTRY_CODER_PACKAGE} into ${COUNTRY_CACHE}\n`);
+    mkdirSync(COUNTRY_CACHE, { recursive: true });
+    execFileSync('npm', ['install', '--silent', '--no-audit', '--no-fund', `${COUNTRY_CODER_PACKAGE}@latest`],
+      { cwd: COUNTRY_CACHE, stdio: ['ignore', 'ignore', 'inherit'] });
+  }
+  const mod = await import(pathToFileURL(moduleEntry).href);
+  return mod.iso1A2Code;
+}
 
 const SOURCES = [
   { id: 'hangtime', mod: hangtime },
@@ -61,6 +80,8 @@ async function main() {
   const allEntries = [];
   const sourceMeta = {};
 
+  const iso1A2Code = await loadCountryCoder();
+
   for (const { id, mod } of SOURCES) {
     process.stderr.write(`[build] loading source: ${id}\n`);
     const { entries, meta } = await mod.load();
@@ -90,25 +111,43 @@ async function main() {
   const perBoard = Object.fromEntries(BOARDS.map(b => [b, 0]));
   const perSource = Object.fromEntries(SOURCES.map(s => [s.id, 0]));
   let venuesWithMulti = 0;
+  let countryFromCoder = 0;
+  let countryFallback = 0;
 
   for (const venue of venues.values()) {
-    // Pick canonical name + city + country from the highest-priority
-    // entry. Higher-priority sources (Kilter > MoonBoard > Tension > …)
-    // tend to ship the richest metadata, so this also surfaces the most
-    // complete address text per venue.
+    // Pick canonical name + city from the highest-priority entry. Country
+    // comes from country-coder (lookup by venue coordinates) — that makes
+    // it universal across all board types and consistent ISO-3166-1
+    // alpha-2, regardless of whether the upstream source carried one.
     const ranked = [...venue.entries].sort(
       (a, b) => (NAME_PRIORITY[b.board] ?? 0) - (NAME_PRIORITY[a.board] ?? 0),
     );
     const lead = ranked[0];
-    const props = {
-      name: lead.name,
-    };
-    // city/country only come from Kilter today; fall through if absent.
+    const props = { name: lead.name };
+
     const kilterEntry = venue.entries.find(e => e.board === 'kilter');
     if (kilterEntry?.city) props.city = kilterEntry.city;
-    if (kilterEntry?.country) props.country = kilterEntry.country;
 
-    props.boards = venue.entries.map(stripInternal);
+    const lookedUp = iso1A2Code([venue.lon, venue.lat]);
+    if (lookedUp) {
+      props.country = lookedUp;
+      countryFromCoder++;
+    } else if (kilterEntry?.country) {
+      // Fallback for offshore / disputed regions country-coder doesn't
+      // resolve. Hangtime's Kilter `country` is the only upstream we
+      // have, and we accept its noisy values (USA/CAN/etc.) verbatim
+      // here — the coder normally beats this path to the punch.
+      props.country = kilterEntry.country;
+      countryFallback++;
+    }
+
+    // Strip per-board city/country since they now live at the venue level.
+    props.boards = venue.entries.map(e => {
+      const stripped = stripInternal(e);
+      delete stripped.city;
+      delete stripped.country;
+      return stripped;
+    });
 
     features.push({
       type: 'Feature',
@@ -133,6 +172,9 @@ async function main() {
     venue_features: features.length,
     raw_entries: allEntries.length,
     venues_with_multiple_boards: venuesWithMulti,
+    country_from_coder: countryFromCoder,
+    country_from_fallback: countryFallback,
+    country_missing: features.length - countryFromCoder - countryFallback,
     per_board: perBoard,
     per_source: perSource,
     sources: sourceMeta,
@@ -141,6 +183,7 @@ async function main() {
 
   process.stderr.write(`[build] wrote ${features.length} venues (from ${allEntries.length} raw entries) → ${OUT_GEOJSON}\n`);
   process.stderr.write(`[build]   ${venuesWithMulti} venues host more than one board type\n`);
+  process.stderr.write(`[build]   country resolved: ${countryFromCoder} via coder, ${countryFallback} via fallback, ${features.length - countryFromCoder - countryFallback} unresolved\n`);
   process.stderr.write(`[build]   meta → ${OUT_META}\n`);
   for (const [b, n] of Object.entries(perBoard)) {
     if (n > 0) process.stderr.write(`[build]   ${b.padEnd(12)} ${n}\n`);
