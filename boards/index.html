@@ -194,6 +194,10 @@
      unchecked in the top-level Board-type list. Chip state is preserved
      in JS so re-checking the board brings the previous filter back. */
   .legend .board-section.hidden { display: none; }
+  /* Bulk select-all/none row inside sub-sections with many chips. Lighter
+     than the top-level [All]/[None] divider (no border) since it sits
+     directly under a chip group. */
+  .legend .chip-bulk-row { display: flex; gap: 6px; margin: 6px 0 0; }
 
   /* Custom marker dot (single-board venue) */
   .marker-dot {
@@ -768,6 +772,10 @@
               return chip('size', s.id, s.label, s.count, true);
             }).join('') +
           '</div>' +
+          '<div class="chip-bulk-row">' +
+            '<button type="button" data-bulk="size" data-target="all">All</button>' +
+            '<button type="button" data-bulk="size" data-target="none">None</button>' +
+          '</div>' +
         '</details>' +
       '</div>'
     );
@@ -805,6 +813,10 @@
           stats.countryOptions.map(function (c) {
             return chip('country', c.code, c.code, c.count, true);
           }).join('') +
+        '</div>' +
+        '<div class="chip-bulk-row">' +
+          '<button type="button" data-bulk="country" data-target="all">All</button>' +
+          '<button type="button" data-bulk="country" data-target="none">None</button>' +
         '</div>' +
       '</details>'
     );
@@ -892,6 +904,23 @@
 
     document.querySelectorAll('.legend .filter-reset').forEach(function (btn) {
       btn.addEventListener('click', resetDetailFilters);
+    });
+
+    // Bulk All/None inside the many-option sub-sections (Country, Size).
+    // "All" resets state to null (no constraint, same as fresh-page state);
+    // "None" sets it to an empty Set (every venue fails the gate).
+    document.querySelectorAll('.legend [data-bulk]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var dim = btn.dataset.bulk;
+        var allOn = btn.dataset.target === 'all';
+        if (dim === 'country') activeCountries = allOn ? null : new Set();
+        else if (dim === 'size') activeSizes = allOn ? null : new Set();
+        else return;
+        document.querySelectorAll('.legend .chip[data-dim="' + dim + '"]').forEach(function (chipEl) {
+          chipEl.classList.toggle('selected', allOn);
+        });
+        applyFilter();
+      });
     });
 
     updateSectionVisibility();
