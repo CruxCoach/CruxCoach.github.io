@@ -338,7 +338,7 @@
     </a>
     <nav>
       <a href="/" >Home</a>
-      <a href="/boards/" aria-current="page">Boards</a>
+      <a href="/boards/" aria-current="page">Board Map</a>
       <span class="lang"><span aria-current="true">EN</span></span>
     </nav>
   </div>
@@ -416,6 +416,12 @@
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
+    maxNativeZoom: 19,
+    // On HiDPI displays Leaflet otherwise scales 256-px tiles to fill more
+    // CSS pixels, which reads as soft/blurry. detectRetina makes it request
+    // higher-zoom tiles for the same map zoom on those devices, doubling
+    // effective resolution at the cost of ~4× tile requests in those areas.
+    detectRetina: true,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · data <a href="https://github.com/Stevie-Ray/hangtime-climbing-boards">hangtime-climbing-boards</a>',
   }).addTo(map);
 
