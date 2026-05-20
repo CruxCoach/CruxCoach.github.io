@@ -122,6 +122,75 @@
   .legend button:hover { color: var(--accent); border-color: var(--accent); }
   .legend .status { color: #777; margin-top: 8px; font-size: 11px; }
 
+  /* Wall-level filter sections — mirror the app's MapFilterSheet chips
+     (Layout / Adjustability / Size / Country). All filters apply ONLY
+     to Kilter venues; other board types bypass these constraints. */
+  .legend hr {
+    border: 0;
+    border-top: 1px solid #e3e3e3;
+    margin: 10px 0 8px;
+  }
+  .legend .subhdr {
+    font-size: 0.83rem; font-weight: 600;
+    color: #1a1a1a; margin-top: 6px;
+  }
+  .legend .subnote {
+    color: #888; font-size: 10.5px;
+    margin: 1px 0 4px;
+  }
+  .legend .chips {
+    display: flex; flex-wrap: wrap; gap: 4px;
+    margin: 4px 0 6px;
+  }
+  .legend .chip {
+    display: inline-flex; align-items: center;
+    padding: 2px 8px;
+    border-radius: 11px;
+    font-size: 11.5px;
+    border: 1px solid #cdcdcd;
+    background: #fafafa;
+    color: #666;
+    cursor: pointer;
+    user-select: none;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .legend .chip:hover { border-color: #e07a4f; }
+  .legend .chip.selected {
+    background: rgba(224,122,79,0.10);
+    border-color: #e07a4f;
+    color: #1a1a1a;
+  }
+  .legend .chip-count {
+    color: #999;
+    margin-left: 5px;
+    font-variant-numeric: tabular-nums;
+  }
+  .legend .chip.selected .chip-count { color: #b85b35; }
+  .legend details.subfilter > summary {
+    cursor: pointer;
+    font-size: 0.83rem; font-weight: 600; color: #1a1a1a;
+    list-style: none;
+    display: flex; align-items: center; gap: 5px;
+    padding: 4px 0 3px;
+  }
+  .legend details.subfilter > summary::-webkit-details-marker { display: none; }
+  .legend details.subfilter > summary::before {
+    content: "▸";
+    color: #999;
+    transition: transform .15s;
+    font-weight: 400;
+    font-size: 10px;
+    display: inline-block;
+  }
+  .legend details.subfilter[open] > summary::before { transform: rotate(90deg); }
+  .legend .filter-reset {
+    background: transparent; color: #777;
+    border: 0; padding: 2px 0; margin-top: 4px;
+    font-size: 11px; cursor: pointer; text-decoration: underline;
+  }
+  .legend .filter-reset:hover { color: var(--accent); }
+
   /* Custom marker dot (single-board venue) */
   .marker-dot {
     width: 14px; height: 14px; border-radius: 50%;
@@ -517,31 +586,122 @@
       .bindPopup(buildPopupHtml(lat, lon, props), { maxWidth: 320 });
   }
 
-  // ── State for filtering ────────────────────────────────────────────
-  var venueRecords = []; // { marker, boards: Set, visible: bool }
-  var activeBoards = new Set(BOARDS.map(function (b) { return b.id; }));
+  // ── Filter dimensions ─────────────────────────────────────────────
+  // Mirrors the app's MapFilterSheet sections (MapFilters.kt). All
+  // wall-level filters apply ONLY to Kilter venues. Non-Kilter boards
+  // bypass — hangtime doesn't carry walls/sizes/country for them.
+  var KILTER_LAYOUTS = [
+    { key: 'Original', label: 'Original' },
+    { key: 'Homewall', label: 'Homewall' },
+  ];
+  var ADJUSTABILITIES = [
+    { key: 'adjustable', label: 'Adjustable' },
+    { key: 'fixed',      label: 'Fixed' },
+    { key: 'unknown',    label: 'Unknown' },
+  ];
 
-  function applyFilter() {
-    var added = 0, removed = 0;
-    for (var i = 0; i < venueRecords.length; i++) {
-      var rec = venueRecords[i];
-      var keep = false;
-      var it = rec.boards.values();
-      for (var step = it.next(); !step.done; step = it.next()) {
-        if (activeBoards.has(step.value)) { keep = true; break; }
-      }
-      if (keep && !rec.visible) { cluster.addLayer(rec.marker); rec.visible = true; added++; }
-      else if (!keep && rec.visible) { cluster.removeLayer(rec.marker); rec.visible = false; removed++; }
-    }
+  function adjustabilityKey(w) {
+    if (w.adjustable === true) return 'adjustable';
+    if (w.adjustable === false) return 'fixed';
+    return 'unknown';
   }
 
-  function buildLegend(perBoardCounts, totalVenues) {
+  // Venue records track everything needed for filter evaluation. We pre-
+  // extract the Kilter walls + the venue country once so re-filtering is
+  // a cheap loop, not a per-render parse.
+  var venueRecords = [];
+  // Active sets — start with everything selected, i.e. no constraint.
+  var activeBoards = new Set(BOARDS.map(function (b) { return b.id; }));
+  var activeLayouts = new Set(KILTER_LAYOUTS.map(function (l) { return l.key; }));
+  activeLayouts.add('other'); // unknown/legacy product_name
+  var activeAdj = new Set(ADJUSTABILITIES.map(function (a) { return a.key; }));
+  var activeSizes = null;     // null = no constraint; otherwise Set<string>
+  var activeCountries = null; // null = no constraint
+
+  function kilterMatches(rec) {
+    if (rec.country !== null && activeCountries && !activeCountries.has(rec.country)) return false;
+    if (!rec.kilterWalls.length) {
+      // Kilter listed without walls (rare). Pass only when no wall-level
+      // constraint is active; otherwise it's ambiguous.
+      var noWallConstraint =
+        activeSizes === null &&
+        activeLayouts.size === KILTER_LAYOUTS.length + 1 &&
+        activeAdj.size === ADJUSTABILITIES.length;
+      return noWallConstraint;
+    }
+    for (var i = 0; i < rec.kilterWalls.length; i++) {
+      var w = rec.kilterWalls[i];
+      var lkey = w.layout || 'other';
+      if (!activeLayouts.has(lkey)) continue;
+      if (!activeAdj.has(adjustabilityKey(w))) continue;
+      if (activeSizes !== null) {
+        if (w.size_id == null || !activeSizes.has(String(w.size_id))) continue;
+      }
+      return true;
+    }
+    return false;
+  }
+
+  function venueVisible(rec) {
+    for (var i = 0; i < rec.boards.length; i++) {
+      var b = rec.boards[i].board;
+      if (!activeBoards.has(b)) continue;
+      if (b === 'kilter') {
+        if (kilterMatches(rec)) return true;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function applyFilter() {
+    for (var i = 0; i < venueRecords.length; i++) {
+      var rec = venueRecords[i];
+      var keep = venueVisible(rec);
+      if (keep && !rec.visible) { cluster.addLayer(rec.marker); rec.visible = true; }
+      else if (!keep && rec.visible) { cluster.removeLayer(rec.marker); rec.visible = false; }
+    }
+    updateStatusLine();
+  }
+
+  function updateStatusLine() {
+    var el = document.querySelector('.legend .status');
+    if (!el) return;
+    var shown = 0;
+    for (var i = 0; i < venueRecords.length; i++) if (venueRecords[i].visible) shown++;
+    el.textContent = shown.toLocaleString('en') + ' of ' + venueRecords.length.toLocaleString('en') + ' locations';
+  }
+
+  function resetWallFilters() {
+    activeLayouts = new Set(KILTER_LAYOUTS.map(function (l) { return l.key; }));
+    activeLayouts.add('other');
+    activeAdj = new Set(ADJUSTABILITIES.map(function (a) { return a.key; }));
+    activeSizes = null;
+    activeCountries = null;
+    document.querySelectorAll('.legend .chip[data-dim]').forEach(function (el) { el.classList.add('selected'); });
+    applyFilter();
+  }
+
+  // ── Legend rendering ──────────────────────────────────────────────
+  function chip(dim, key, label, count, selected) {
+    return '<button type="button" class="chip' + (selected ? ' selected' : '') +
+      '" data-dim="' + dim + '" data-key="' + escapeHtml(String(key)) + '">' +
+      escapeHtml(label) +
+      (count != null ? '<span class="chip-count">' + count.toLocaleString('en') + '</span>' : '') +
+      '</button>';
+  }
+
+  function buildLegend(stats) {
+    var totalVenues = stats.totalVenues;
+    var perBoardCounts = stats.perBoardCounts;
     var ctl = L.control({ position: 'topright' });
     ctl.onAdd = function () {
       var div = L.DomUtil.create('div', 'legend');
       L.DomEvent.disableClickPropagation(div);
       L.DomEvent.disableScrollPropagation(div);
-      div.innerHTML =
+
+      var boardSection =
         '<h3>Board type</h3>' +
         BOARDS.map(function (b) {
           return (
@@ -556,7 +716,46 @@
         '<div class="actions">' +
           '<button type="button" data-action="all">All</button>' +
           '<button type="button" data-action="none">None</button>' +
+        '</div>';
+
+      var kilterSection =
+        '<hr>' +
+        '<div class="subhdr">Kilter walls</div>' +
+        '<div class="subnote">Applies to Kilter venues only.</div>' +
+        '<div class="subhdr" style="margin-top:6px">Layout</div>' +
+        '<div class="chips">' +
+          KILTER_LAYOUTS.map(function (l) {
+            return chip('layout', l.key, l.label, stats.layoutCounts[l.key], true);
+          }).join('') +
+          (stats.layoutCounts.other > 0 ? chip('layout', 'other', 'Other', stats.layoutCounts.other, true) : '') +
         '</div>' +
+        '<div class="subhdr">Angle</div>' +
+        '<div class="chips">' +
+          ADJUSTABILITIES.map(function (a) {
+            return chip('adj', a.key, a.label, stats.adjCounts[a.key], true);
+          }).join('') +
+        '</div>' +
+        '<details class="subfilter">' +
+          '<summary>Size (' + stats.sizeOptions.length + ')</summary>' +
+          '<div class="chips">' +
+            stats.sizeOptions.map(function (s) {
+              return chip('size', s.id, s.label, s.count, true);
+            }).join('') +
+          '</div>' +
+        '</details>' +
+        '<details class="subfilter">' +
+          '<summary>Country (' + stats.countryOptions.length + ')</summary>' +
+          '<div class="chips">' +
+            stats.countryOptions.map(function (c) {
+              return chip('country', c.code, c.code, c.count, true);
+            }).join('') +
+          '</div>' +
+        '</details>' +
+        '<button type="button" class="filter-reset">Reset wall filters</button>';
+
+      div.innerHTML =
+        boardSection +
+        kilterSection +
         '<div class="status">' + totalVenues.toLocaleString('en') + ' locations</div>';
       return div;
     };
@@ -569,7 +768,7 @@
         applyFilter();
       });
     });
-    document.querySelectorAll('.legend button').forEach(function (btn) {
+    document.querySelectorAll('.legend [data-action]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var target = btn.dataset.action === 'all';
         document.querySelectorAll('.legend input[type=checkbox]').forEach(function (cb) {
@@ -577,8 +776,35 @@
         });
       });
     });
+
+    document.querySelectorAll('.legend .chip[data-dim]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var dim = el.dataset.dim;
+        var key = el.dataset.key;
+        var set = ({ layout: activeLayouts, adj: activeAdj }[dim]);
+        // Sizes and country default to "no constraint" (null) — first toggle
+        // initialises the constraint Set to the full option list, then drops
+        // the deselected one. This mirrors the kotlin app's "empty filter
+        // set == no constraint" semantics from the user's point of view.
+        if (dim === 'size') {
+          if (activeSizes === null) activeSizes = new Set(stats.sizeOptions.map(function (s) { return String(s.id); }));
+          set = activeSizes;
+        } else if (dim === 'country') {
+          if (activeCountries === null) activeCountries = new Set(stats.countryOptions.map(function (c) { return c.code; }));
+          set = activeCountries;
+        }
+        if (set.has(key)) { set.delete(key); el.classList.remove('selected'); }
+        else { set.add(key); el.classList.add('selected'); }
+        applyFilter();
+      });
+    });
+
+    document.querySelectorAll('.legend .filter-reset').forEach(function (btn) {
+      btn.addEventListener('click', resetWallFilters);
+    });
   }
 
+  // ── Data load ─────────────────────────────────────────────────────
   fetch('/boards/data/boards.geojson')
     .then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -586,23 +812,75 @@
     })
     .then(function (data) {
       var perBoardCounts = Object.fromEntries(BOARDS.map(function (b) { return [b.id, 0]; }));
+      var layoutCounts = { Original: 0, Homewall: 0, other: 0 };
+      var adjCounts = { adjustable: 0, fixed: 0, unknown: 0 };
+      var sizeMap = new Map();
+      var countryMap = new Map();
+
       for (var i = 0; i < data.features.length; i++) {
         var f = data.features[i];
         var props = f.properties || {};
         var coords = f.geometry && f.geometry.coordinates;
         if (!coords || !Array.isArray(props.boards)) continue;
         var lon = coords[0], lat = coords[1];
-        var marker = buildMarker(lat, lon, props);
-        var boardSet = new Set();
+
+        var boardSeen = new Set();
+        var kilterWalls = [];
         for (var j = 0; j < props.boards.length; j++) {
-          var bid = props.boards[j].board;
-          if (COLOR[bid]) boardSet.add(bid);
+          var bo = props.boards[j];
+          if (!COLOR[bo.board]) continue;
+          if (!boardSeen.has(bo.board)) {
+            boardSeen.add(bo.board);
+            perBoardCounts[bo.board] += 1;
+          }
+          if (bo.board === 'kilter' && Array.isArray(bo.walls)) {
+            for (var k = 0; k < bo.walls.length; k++) kilterWalls.push(bo.walls[k]);
+          }
         }
-        boardSet.forEach(function (bid) { perBoardCounts[bid] += 1; });
+        for (var w = 0; w < kilterWalls.length; w++) {
+          var wall = kilterWalls[w];
+          var lkey = wall.layout || 'other';
+          if (layoutCounts[lkey] != null) layoutCounts[lkey]++;
+          else layoutCounts.other++;
+          adjCounts[adjustabilityKey(wall)]++;
+          if (wall.size_id != null) {
+            var sid = String(wall.size_id);
+            if (!sizeMap.has(sid)) {
+              sizeMap.set(sid, { id: sid, label: wall.size_label || ('Size ' + sid), count: 0, sortKey: wall.size_label || ('zzz' + sid) });
+            }
+            sizeMap.get(sid).count++;
+          }
+        }
+        var country = props.country || null;
+        if (country) countryMap.set(country, (countryMap.get(country) || 0) + 1);
+
+        var marker = buildMarker(lat, lon, props);
         cluster.addLayer(marker);
-        venueRecords.push({ marker: marker, boards: boardSet, visible: true });
+        venueRecords.push({
+          marker: marker,
+          visible: true,
+          boards: props.boards,
+          kilterWalls: kilterWalls,
+          country: country,
+        });
       }
-      buildLegend(perBoardCounts, venueRecords.length);
+
+      var sizeOptions = Array.from(sizeMap.values()).sort(function (a, b) {
+        return b.count - a.count || a.label.localeCompare(b.label);
+      });
+      var countryOptions = Array.from(countryMap.entries())
+        .map(function (e) { return { code: e[0], count: e[1] }; })
+        .sort(function (a, b) { return b.count - a.count || a.code.localeCompare(b.code); });
+
+      buildLegend({
+        totalVenues: venueRecords.length,
+        perBoardCounts: perBoardCounts,
+        layoutCounts: layoutCounts,
+        adjCounts: adjCounts,
+        sizeOptions: sizeOptions,
+        countryOptions: countryOptions,
+      });
+      updateStatusLine();
       var loading = document.getElementById('loading');
       if (loading) loading.remove();
     })
