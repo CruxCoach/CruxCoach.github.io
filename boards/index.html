@@ -98,6 +98,12 @@
     font-size: 13px;
     line-height: 1.5;
     max-width: 260px;
+    /* Leaflet's container clips overflow, so when the legend grows past
+       the viewport the bottom gets cut off. Constrain to viewport-height
+       minus the header+footer chrome and scroll internally. */
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
   .legend h3 { margin: 0 0 8px; font-size: 0.95rem; color: #1a1a1a; }
   .legend label {
@@ -310,6 +316,37 @@
     border-radius: 6px;
   }
   .loading.error { color: #b00020; }
+
+  /* Mobile + narrow viewports: tighten chrome, larger touch targets,
+     legend stays scroll-internal so it never blows past the screen. */
+  @media (max-width: 600px) {
+    header { padding: 0.6rem 0; }
+    .brand { font-size: 1rem; }
+    .brand svg { width: 1.4rem; height: 1.4rem; }
+    nav { font-size: 0.9rem; gap: 0.6rem; }
+    .legend {
+      max-width: min(260px, calc(100vw - 24px));
+      font-size: 12.5px;
+      padding: 8px 10px;
+      max-height: calc(100vh - 150px);
+    }
+    .legend h3 { font-size: 0.9rem; }
+    .legend label { padding: 3px 0; }
+    .legend .chip { padding: 3px 10px; font-size: 12px; }
+    .legend button[data-action], .legend button[data-bulk], .legend button[data-target] {
+      padding: 4px 12px;
+    }
+    .leaflet-popup-content { margin: 10px 12px; min-width: 0; }
+    .info-body { padding: 0 0 1rem; font-size: 0.92rem; }
+    footer { padding: 1rem 0; font-size: 0.8rem; }
+    footer .container { gap: 0.5rem; }
+  }
+  /* Landscape phones — much less vertical room. Cap legend further so it
+     doesn't dominate the map on short screens. */
+  @media (max-height: 500px) {
+    .legend { max-height: calc(100vh - 100px); }
+    #map { min-height: 50vh; }
+  }
 </style>
 </head>
 <body>
