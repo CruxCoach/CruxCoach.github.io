@@ -152,16 +152,37 @@
   .popup .meta { color: var(--fg-mute); font-size: 12px; }
   .popup a { font-size: 12px; }
 
-  /* About / attribution panel under the map */
+  /* About / attribution panel under the map — collapsed by default so the
+     map gets the vertical space; click the summary to expand. */
   .info {
     background: var(--bg-soft);
     border-top: 1px solid var(--rule);
-    padding: 2rem 0;
     font-size: 0.95rem;
     color: var(--fg-soft);
   }
-  .info h2 { color: var(--fg); }
-  .info ul { padding-left: 1.2em; }
+  .info summary {
+    cursor: pointer; user-select: none;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0.6rem 1.5rem;
+    color: var(--fg);
+    font-weight: 600;
+    list-style: none;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .info summary::-webkit-details-marker { display: none; }
+  .info summary::before {
+    content: "▸";
+    color: var(--fg-mute);
+    transition: transform .15s;
+    display: inline-block;
+    font-weight: 400;
+  }
+  .info[open] summary::before { transform: rotate(90deg); }
+  .info-body { padding-bottom: 1.5rem; }
+  .info-body p { margin: 0 0 0.8em; }
+  .info-body h3 { margin: 1.2em 0 0.3em; font-size: 1rem; color: var(--fg); }
+  .info-body ul { padding-left: 1.2em; margin: 0; }
 
   footer {
     background: var(--bg);
@@ -225,9 +246,9 @@
   </div>
 </main>
 
-<section class="info">
-  <div class="container">
-    <h2>About this map</h2>
+<details class="info">
+  <summary>About this map</summary>
+  <div class="container info-body">
     <p>
       Every dot is a climbing-board installation that someone published as
       "listed" in the upstream feed. <strong>Most are commercial climbing
@@ -239,27 +260,23 @@
     <ul>
       <li>
         <a href="https://github.com/Stevie-Ray/hangtime-climbing-boards">hangtime-climbing-boards</a>
-        — a daily-updated GeoJSON dataset of Aurora-board installations
+        — daily-updated GeoJSON dataset of Aurora-board installations
         (Kilter / Tension / Grasshopper / Decoy / So iLL / Touchstone / Aurora)
         plus MoonBoard and 12climb, released into the public domain.
       </li>
       <li>
-        Map tiles by <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>,
-        served from <code>tile.openstreetmap.org</code>. See our
-        <a href="/privacy.html">privacy page</a> for what that means for you.
+        Map tiles by <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.
+        Privacy implications on the <a href="/privacy.html">privacy page</a>.
       </li>
     </ul>
     <h3>Refresh cadence</h3>
     <p>
       We re-pull the upstream dataset periodically and commit the snapshot.
-      The build timestamp and per-board counts live in
+      Build timestamp + per-board counts:
       <a href="/boards/data/boards.meta.json"><code>boards.meta.json</code></a>.
     </p>
-    <p style="margin-top: 2rem;">
-      <a href="/">← Back to the CruxCoach app</a>
-    </p>
   </div>
-</section>
+</details>
 
 <footer>
   <div class="container">
