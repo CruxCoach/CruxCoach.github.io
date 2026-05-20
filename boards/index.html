@@ -90,7 +90,8 @@
      intentionally different from the host site's dark chrome (header/footer),
      because controls over a map need to read against a bright background. */
   .legend-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
-  .legend-toggle {
+  .panel-buttons { display: flex; gap: 6px; }
+  .panel-toggle {
     width: 38px; height: 38px;
     background: #fff;
     color: #333;
@@ -102,11 +103,11 @@
     padding: 0;
     transition: background .15s, color .15s;
   }
-  .legend-toggle:hover { color: var(--accent); }
-  .legend-toggle svg { width: 20px; height: 20px; display: block; }
-  .legend-wrap.open .legend-toggle { background: var(--accent); color: #fff; }
-  .legend-wrap.open .legend-toggle:hover { color: #fff; opacity: 0.95; }
-  .legend {
+  .panel-toggle:hover { color: var(--accent); }
+  .panel-toggle svg { width: 20px; height: 20px; display: block; }
+  .panel-toggle.active { background: var(--accent); color: #fff; }
+  .panel-toggle.active:hover { color: #fff; opacity: 0.95; }
+  .legend, .venue-list {
     background: #fff;
     color: #1a1a1a;
     padding: 10px 12px;
@@ -115,15 +116,47 @@
     font-size: 13px;
     line-height: 1.5;
     max-width: 260px;
-    /* Leaflet's container clips overflow, so when the legend grows past
-       the viewport the bottom gets cut off. Constrain to viewport-height
-       minus the header+footer chrome and scroll internally. */
+    /* Leaflet's container clips overflow when the panel grows past the
+       viewport — scroll internally instead. */
     max-height: calc(100vh - 220px);
     overflow-y: auto;
     overscroll-behavior: contain;
     display: none;
   }
-  .legend-wrap.open .legend { display: block; }
+  .legend-wrap.show-filter .legend { display: block; }
+  .legend-wrap.show-list .venue-list { display: block; }
+  /* Venue list (panel that lists everything currently visible in the
+     map viewport). Refreshes on map moveend; click jumps to + opens
+     the marker. */
+  .venue-list h4 { margin: 0 0 6px; font-size: 0.9rem; color: #1a1a1a; }
+  .venue-list-status { color: #888; font-size: 11px; margin-bottom: 4px; }
+  .venue-list-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 2px;
+    border-top: 1px solid #f1f1f1;
+    cursor: pointer;
+    font-size: 12.5px;
+    background: none;
+    border-left: 0; border-right: 0; border-bottom: 0;
+    text-align: left;
+    width: 100%;
+    color: inherit;
+    font-family: inherit;
+  }
+  .venue-list-item:hover { background: #fafafa; }
+  .venue-list-dots { display: inline-flex; gap: 2px; flex-shrink: 0; }
+  .venue-list-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.15);
+  }
+  .venue-list-info { flex: 1; min-width: 0; line-height: 1.3; }
+  .venue-list-name {
+    color: #1a1a1a; font-weight: 500;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    display: block;
+  }
+  .venue-list-meta { color: #888; font-size: 11px; }
+  .venue-list-empty { color: #888; padding: 10px 0; font-style: italic; }
   .legend h3 { margin: 0 0 8px; font-size: 0.95rem; color: #1a1a1a; }
   .legend label {
     display: flex; align-items: center; cursor: pointer; user-select: none;
@@ -791,6 +824,9 @@
       else if (!keep && rec.visible) { cluster.removeLayer(rec.marker); rec.visible = false; }
     }
     updateStatusLine();
+    // Filter changes can grow/shrink the in-view set; refresh the list if open.
+    var wrap = document.querySelector('.legend-wrap.show-list');
+    if (wrap) refreshVenueList(wrap.querySelector('.venue-list'));
   }
 
   function updateStatusLine() {
@@ -911,6 +947,55 @@
     );
   }
 
+  // Render the visible-venues list into the given element. Filters by
+  // current map bounds + each record's `visible` flag (set by applyFilter).
+  function refreshVenueList(target) {
+    if (!target) return;
+    var bounds = map.getBounds();
+    var visible = [];
+    var MAX = 100;
+    for (var i = 0; i < venueRecords.length; i++) {
+      var rec = venueRecords[i];
+      if (!rec.visible) continue;
+      if (!bounds.contains([rec.lat, rec.lon])) continue;
+      visible.push({ idx: i, rec: rec });
+      if (visible.length > MAX + 1) break;
+    }
+    visible.sort(function (a, b) { return a.rec.name.localeCompare(b.rec.name); });
+
+    var capped = visible.length > MAX;
+    var shown = capped ? visible.slice(0, MAX) : visible;
+
+    var html = '<h4>Boards in view</h4>';
+    if (!shown.length) {
+      html += '<div class="venue-list-empty">No matching boards in this map area. Try panning out or relaxing the filters.</div>';
+    } else {
+      html += '<div class="venue-list-status">' + visible.length.toLocaleString('en') +
+        (capped ? '+ in view (first ' + MAX + ' listed)' : ' in view') +
+        '</div>';
+      html += shown.map(function (v) {
+        var rec = v.rec;
+        var distinct = distinctBoards(rec.boards);
+        var dots = distinct.map(function (id) {
+          return '<span class="venue-list-dot" style="background:' + (COLOR[id] || '#888') + '"></span>';
+        }).join('');
+        var metaParts = [];
+        if (rec.city) metaParts.push(escapeHtml(rec.city));
+        if (rec.country) metaParts.push(escapeHtml(rec.country));
+        return (
+          '<button type="button" class="venue-list-item" data-idx="' + v.idx + '">' +
+            '<span class="venue-list-dots">' + dots + '</span>' +
+            '<span class="venue-list-info">' +
+              '<span class="venue-list-name">' + escapeHtml(rec.name) + '</span>' +
+              (metaParts.length ? '<span class="venue-list-meta">' + metaParts.join(', ') + '</span>' : '') +
+            '</span>' +
+          '</button>'
+        );
+      }).join('');
+    }
+    target.innerHTML = html;
+  }
+
   function buildLegend(stats) {
     var ctl = L.control({ position: 'topright' });
     ctl.onAdd = function () {
@@ -918,21 +1003,72 @@
       L.DomEvent.disableClickPropagation(wrap);
       L.DomEvent.disableScrollPropagation(wrap);
 
-      var toggle = L.DomUtil.create('button', 'legend-toggle', wrap);
-      toggle.setAttribute('type', 'button');
-      toggle.setAttribute('aria-label', 'Toggle filters');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.innerHTML =
+      var btnRow = L.DomUtil.create('div', 'panel-buttons', wrap);
+      var filterBtn = L.DomUtil.create('button', 'panel-toggle', btnRow);
+      filterBtn.setAttribute('type', 'button');
+      filterBtn.setAttribute('aria-label', 'Toggle filters');
+      filterBtn.setAttribute('aria-expanded', 'false');
+      filterBtn.dataset.panel = 'filter';
+      filterBtn.innerHTML =
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
         ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
         '<path d="M3 5h18l-7 8v6l-4 2v-8z"/>' +
         '</svg>';
 
-      var div = L.DomUtil.create('div', 'legend', wrap);
+      var listBtn = L.DomUtil.create('button', 'panel-toggle', btnRow);
+      listBtn.setAttribute('type', 'button');
+      listBtn.setAttribute('aria-label', 'Show boards in view');
+      listBtn.setAttribute('aria-expanded', 'false');
+      listBtn.dataset.panel = 'list';
+      listBtn.innerHTML =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+        ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<line x1="8" y1="6"  x2="20" y2="6"/>' +
+        '<line x1="8" y1="12" x2="20" y2="12"/>' +
+        '<line x1="8" y1="18" x2="20" y2="18"/>' +
+        '<circle cx="4" cy="6"  r="1"/>' +
+        '<circle cx="4" cy="12" r="1"/>' +
+        '<circle cx="4" cy="18" r="1"/>' +
+        '</svg>';
 
-      toggle.addEventListener('click', function () {
-        var open = wrap.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      var div = L.DomUtil.create('div', 'legend', wrap);
+      var listPanel = L.DomUtil.create('div', 'venue-list', wrap);
+
+      function setPanel(name) {
+        var same = wrap.classList.contains('show-' + name);
+        wrap.classList.remove('show-filter', 'show-list');
+        filterBtn.classList.remove('active');
+        listBtn.classList.remove('active');
+        filterBtn.setAttribute('aria-expanded', 'false');
+        listBtn.setAttribute('aria-expanded', 'false');
+        if (!same) {
+          wrap.classList.add('show-' + name);
+          var btn = name === 'filter' ? filterBtn : listBtn;
+          btn.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+          if (name === 'list') refreshVenueList(listPanel);
+        }
+      }
+      filterBtn.addEventListener('click', function () { setPanel('filter'); });
+      listBtn.addEventListener('click', function () { setPanel('list'); });
+
+      // Refresh the list when the map moves/zooms — only if the list
+      // panel is currently the open one (avoid DOM churn otherwise).
+      map.on('moveend', function () {
+        if (wrap.classList.contains('show-list')) refreshVenueList(listPanel);
+      });
+
+      // Item click → jump to the marker and open its popup. zoomToShowLayer
+      // breaks out of any cluster the marker is inside before opening.
+      listPanel.addEventListener('click', function (ev) {
+        var btn = ev.target.closest('.venue-list-item');
+        if (!btn) return;
+        var idx = +btn.dataset.idx;
+        var rec = venueRecords[idx];
+        if (!rec) return;
+        cluster.zoomToShowLayer(rec.marker, function () {
+          rec.marker.openPopup();
+        });
       });
 
       var boardTypeSection =
@@ -1094,6 +1230,10 @@
         venueRecords.push({
           marker: marker,
           visible: true,
+          lat: lat,
+          lon: lon,
+          name: props.name || '(unnamed)',
+          city: props.city || null,
           boards: props.boards,
           country: country,
         });
