@@ -123,7 +123,7 @@
   .lang [aria-current="true"] { color: var(--fg); font-weight: 500; }
   @media (max-width: 900px) {
     nav { gap: 0.75rem; }
-    nav > a { display: none; }
+    nav > a[href^="#"] { display: none; }
     .lang [aria-current="true"], .lang-sep { display: none; }
   }
   @media (max-width: 360px) {
