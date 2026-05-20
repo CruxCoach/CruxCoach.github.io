@@ -103,6 +103,32 @@ function kilterAddress(props) {
   return parts.length ? parts.join(', ') : null;
 }
 
+// Parse the canonical MoonBoard variant out of the user-submitted Description.
+// Order is significant: "school room" must beat "School Holds" (a hold-set
+// name for the 2016 board), "mini" must beat the bare year 2020 (since the
+// Mini variant launched in 2020), and otherwise more-specific year tokens
+// trump less-specific ones. About 37% of MoonBoard entries carry one of
+// these tokens; the rest stay null and surface as "Unknown" in the filter.
+function parseMoonboardVariant(desc) {
+  if (!desc) return null;
+  const s = String(desc).toLowerCase();
+  if (/\bschool[\s-]*room\b/.test(s)) return 'school-room';
+  if (/\bmini\b/.test(s)) return 'mini-2020';
+  if (/\b2024\b/.test(s)) return 'mb2024';
+  if (/\b2019\b/.test(s)) return 'mb2019-masters';
+  if (/\b2017\b/.test(s)) return 'mb2017-masters';
+  if (/\b2016\b/.test(s)) return 'mb2016';
+  return null;
+}
+
+// Wall angle in degrees if mentioned in the description. Accepts both "40°"
+// and "40 degree(s)" / "40 deg".
+function parseMoonboardAngle(desc) {
+  if (!desc) return null;
+  const m = String(desc).match(/\b(15|20|25|30|35|40|45|50)\s*(?:°|deg(?:ree)?s?)\b/i);
+  return m ? parseInt(m[1], 10) : null;
+}
+
 // Extract per-board richness. Returns a plain object that becomes one entry
 // in the venue's boards[] array. All fields are optional; downstream code
 // must tolerate missing values.
@@ -123,8 +149,9 @@ function extractBoardFields(board, props) {
     return {
       commercial: props.IsCommercial === true ? true : (props.IsCommercial === false ? false : null),
       led: props.IsLed === true ? true : (props.IsLed === false ? false : null),
-      // Description intentionally dropped: spam-prone user-submitted text
-      // (casino / SEO / homepage promo) seen in upstream samples.
+      variant: parseMoonboardVariant(props.Description),
+      angle: parseMoonboardAngle(props.Description),
+      // Raw Description otherwise dropped: spam-prone user-submitted text.
     };
   }
   // Aurora-style boards (tension, grasshopper, decoy, soill, touchstone, aurora)

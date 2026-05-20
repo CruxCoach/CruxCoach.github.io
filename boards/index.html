@@ -587,10 +587,12 @@
     }
     if (b === 'moonboard') {
       var tags = [];
+      if (boardObj.variant) tags.push(MOON_VARIANT_LABEL[boardObj.variant] || boardObj.variant);
       if (boardObj.commercial === true) tags.push('Commercial');
       else if (boardObj.commercial === false) tags.push('Home setup');
       if (boardObj.led === true) tags.push('LED');
       else if (boardObj.led === false) tags.push('No LEDs');
+      if (typeof boardObj.angle === 'number') tags.push(boardObj.angle + '°');
       return tags.length ? '<div class="popup-wall">' + tags.join(' · ') + '</div>' : '';
     }
     if (boardObj.username) {
@@ -687,6 +689,19 @@
     { key: 'no-led',  label: 'No LEDs' },
     { key: 'unknown', label: 'Unknown' },
   ];
+  // Canonical MoonBoard variants. Order matches the upstream timeline so the
+  // legend reads chronologically. ~35% of MoonBoard entries carry enough
+  // detail in their description to be classified; the rest stay "unknown".
+  var MOON_VARIANTS = [
+    { key: 'mb2016',          label: '2016' },
+    { key: 'mb2017-masters',  label: '2017 Masters' },
+    { key: 'mb2019-masters',  label: '2019 Masters' },
+    { key: 'mb2024',          label: '2024' },
+    { key: 'mini-2020',       label: 'Mini 2020' },
+    { key: 'school-room',     label: 'School Room' },
+    { key: 'unknown',         label: 'Unknown' },
+  ];
+  var MOON_VARIANT_LABEL = Object.fromEntries(MOON_VARIANTS.map(function (v) { return [v.key, v.label]; }));
 
   function adjustabilityKey(w) {
     if (w.adjustable === true) return 'adjustable';
@@ -703,6 +718,9 @@
     if (e.led === false) return 'no-led';
     return 'unknown';
   }
+  function moonVariantKey(e) {
+    return e.variant || 'unknown';
+  }
 
   var venueRecords = [];
   // Active sets — full set = "no constraint", same UX as the app's chips.
@@ -712,6 +730,7 @@
   var activeAdj = new Set(ADJUSTABILITIES.map(function (a) { return a.key; }));
   var activeMoonCom = new Set(MOON_COMMERCIAL.map(function (a) { return a.key; }));
   var activeMoonLed = new Set(MOON_LED.map(function (a) { return a.key; }));
+  var activeMoonVariants = new Set(MOON_VARIANTS.map(function (v) { return v.key; }));
   // Sizes + Countries can have many options; null = "no constraint", any
   // first toggle materialises the full set so the user removes from it.
   var activeSizes = null;
@@ -742,6 +761,7 @@
   function moonboardEntryMatches(entry) {
     if (!activeMoonCom.has(moonCommercialKey(entry))) return false;
     if (!activeMoonLed.has(moonLedKey(entry))) return false;
+    if (!activeMoonVariants.has(moonVariantKey(entry))) return false;
     return true;
   }
 
@@ -794,6 +814,7 @@
     activeAdj = new Set(ADJUSTABILITIES.map(function (a) { return a.key; }));
     activeMoonCom = new Set(MOON_COMMERCIAL.map(function (a) { return a.key; }));
     activeMoonLed = new Set(MOON_LED.map(function (a) { return a.key; }));
+    activeMoonVariants = new Set(MOON_VARIANTS.map(function (v) { return v.key; }));
     activeSizes = null;
     activeCountries = null;
     document.querySelectorAll('.legend .chip[data-dim]').forEach(function (el) { el.classList.add('selected'); });
@@ -848,7 +869,13 @@
       '<div class="board-section" data-board="moonboard">' +
         '<hr>' +
         '<div class="subhdr">MoonBoard setup</div>' +
-        '<div class="subhdr" style="margin-top:6px">Type</div>' +
+        '<div class="subhdr" style="margin-top:6px">Variant</div>' +
+        '<div class="chips">' +
+          MOON_VARIANTS.map(function (v) {
+            return chip('moonVar', v.key, v.label, stats.moonVariantCounts[v.key], true);
+          }).join('') +
+        '</div>' +
+        '<div class="subhdr">Type</div>' +
         '<div class="chips">' +
           MOON_COMMERCIAL.map(function (a) {
             return chip('moonCom', a.key, a.label, stats.moonComCounts[a.key], true);
@@ -960,6 +987,7 @@
       adj: function () { return activeAdj; },
       moonCom: function () { return activeMoonCom; },
       moonLed: function () { return activeMoonLed; },
+      moonVar: function () { return activeMoonVariants; },
     };
     document.querySelectorAll('.legend .chip[data-dim]').forEach(function (el) {
       el.addEventListener('click', function () {
@@ -1017,6 +1045,7 @@
       var adjCounts = { adjustable: 0, fixed: 0, unknown: 0 };
       var moonComCounts = { commercial: 0, home: 0, unknown: 0 };
       var moonLedCounts = { led: 0, 'no-led': 0, unknown: 0 };
+      var moonVariantCounts = Object.fromEntries(MOON_VARIANTS.map(function (v) { return [v.key, 0]; }));
       var sizeMap = new Map();
       var countryMap = new Map();
 
@@ -1054,6 +1083,7 @@
           if (bo.board === 'moonboard') {
             moonComCounts[moonCommercialKey(bo)]++;
             moonLedCounts[moonLedKey(bo)]++;
+            moonVariantCounts[moonVariantKey(bo)]++;
           }
         }
         var country = props.country || null;
@@ -1083,6 +1113,7 @@
         adjCounts: adjCounts,
         moonComCounts: moonComCounts,
         moonLedCounts: moonLedCounts,
+        moonVariantCounts: moonVariantCounts,
         sizeOptions: sizeOptions,
         countryOptions: countryOptions,
       });
