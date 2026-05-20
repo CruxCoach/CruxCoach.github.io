@@ -122,11 +122,19 @@
   .legend button:hover { color: var(--accent); border-color: var(--accent); }
   .legend .status { color: #777; margin-top: 8px; font-size: 11px; }
 
-  /* Custom marker dot */
+  /* Custom marker dot (single-board venue) */
   .marker-dot {
     width: 14px; height: 14px; border-radius: 50%;
     border: 2px solid #fff; box-shadow: 0 0 3px rgba(0,0,0,0.6);
   }
+  /* Pie marker (multi-board venue): SVG fills the wrapper */
+  .marker-pie {
+    width: 18px; height: 18px;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.55));
+  }
+  .marker-pie svg { display: block; }
+  /* Cluster icon: count over an accent-coloured circle (mixes all board
+     types in one cluster, since we group by venue not by board). */
   .marker-cluster-board {
     border-radius: 50%; color: #fff;
     display: flex; align-items: center; justify-content: center;
@@ -135,10 +143,40 @@
   }
 
   /* Popups: keep Leaflet's default light styling — only adjust spacing. */
-  .leaflet-popup-content { margin: 12px 14px; font-size: 13px; }
-  .popup h4 { margin: 0 0 4px; font-size: 14px; }
+  .leaflet-popup-content { margin: 12px 14px; font-size: 13px; min-width: 220px; }
+  .popup h4 { margin: 0 0 2px; font-size: 14px; }
   .popup .meta { color: #666; font-size: 12px; }
   .popup a { font-size: 12px; }
+  .popup-boards {
+    margin: 8px 0 6px;
+    border-top: 1px solid #eaeaea;
+    padding-top: 8px;
+  }
+  .popup-board {
+    padding: 5px 0;
+  }
+  .popup-board + .popup-board {
+    border-top: 1px solid #f1f1f1;
+  }
+  .popup-board-header {
+    display: flex; align-items: center;
+    font-weight: 600; font-size: 12.5px; color: #1a1a1a;
+    margin-bottom: 3px;
+  }
+  .popup-board-header .swatch {
+    width: 9px; height: 9px; border-radius: 50%; margin-right: 6px;
+    border: 1px solid rgba(0,0,0,0.15);
+    flex-shrink: 0;
+  }
+  .popup-wall {
+    color: #444; font-size: 12px; margin: 1px 0 1px 15px;
+  }
+  .popup-wall .label { color: #999; margin-right: 4px; }
+  .popup-foot {
+    margin-top: 6px; padding-top: 6px; border-top: 1px solid #eaeaea;
+    color: #888; font-size: 11px;
+  }
+  .popup-foot a { font-size: 11px; }
 
   /* About / attribution panel under the map — collapsed by default so the
      map gets the vertical space; click the summary to expand. */
@@ -277,11 +315,10 @@
 <script src="/assets/vendor/leaflet/leaflet.js"></script>
 <script src="/assets/vendor/leaflet/leaflet.markercluster.js"></script>
 <script>
-(function() {
+(function () {
   'use strict';
 
   // Keep colors in sync with tools/build-boards-data.mjs board list.
-  // Chosen for high contrast on the dark-toned tile layer.
   var BOARDS = [
     { id: 'kilter',      label: 'Kilter Board',  color: '#ed1d24' },
     { id: 'tension',     label: 'Tension Board', color: '#7d8590' },
@@ -295,35 +332,31 @@
   ];
   var COLOR = Object.fromEntries(BOARDS.map(function (b) { return [b.id, b.color]; }));
   var LABEL = Object.fromEntries(BOARDS.map(function (b) { return [b.id, b.label]; }));
+  var ACCENT = '#e07a4f';
 
-  var map = L.map('map', {
-    worldCopyJump: true,
-    zoomControl: true,
-  }).setView([47.5, 9.5], 4);
+  var map = L.map('map', { worldCopyJump: true, zoomControl: true })
+    .setView([47.5, 9.5], 4);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · data <a href="https://github.com/Stevie-Ray/hangtime-climbing-boards">hangtime-climbing-boards</a>',
   }).addTo(map);
 
-  var clusterByBoard = {};
-  var countByBoard = {};
-  BOARDS.forEach(function (b) {
-    countByBoard[b.id] = 0;
-    clusterByBoard[b.id] = L.markerClusterGroup({
-      showCoverageOnHover: false,
-      maxClusterRadius: 50,
-      iconCreateFunction: function (cluster) {
-        return L.divIcon({
-          html:
-            '<div class="marker-cluster-board" style="width:36px;height:36px;background:' +
-            b.color + 'd9">' + cluster.getChildCount() + '</div>',
-          className: '',
-          iconSize: [36, 36],
-        });
-      },
-    });
-  });
+  // One cluster for ALL venues. We group by (lat, lon) at the build step, so
+  // a multi-board gym is already a single feature here — no more random
+  // overlapping markers; clicks always hit the same composite marker.
+  var cluster = L.markerClusterGroup({
+    showCoverageOnHover: false,
+    maxClusterRadius: 50,
+    iconCreateFunction: function (c) {
+      return L.divIcon({
+        html: '<div class="marker-cluster-board" style="width:36px;height:36px;background:' +
+          ACCENT + 'd9">' + c.getChildCount() + '</div>',
+        className: '',
+        iconSize: [36, 36],
+      });
+    },
+  }).addTo(map);
 
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -331,30 +364,178 @@
     });
   }
 
-  function makeMarker(lat, lon, props) {
-    var board = props.board;
-    var color = COLOR[board] || '#888';
-    var icon = L.divIcon({
-      html: '<div class="marker-dot" style="background:' + color + '"></div>',
-      className: '',
-      iconSize: [14, 14],
-      iconAnchor: [7, 7],
-    });
-    var name = props.name || '(unnamed)';
-    var user = props.username ? '<div class="meta">@' + escapeHtml(props.username) + '</div>' : '';
-    var popup =
-      '<div class="popup">' +
-        '<h4>' + escapeHtml(name) + '</h4>' +
-        '<div class="meta">' + escapeHtml(LABEL[board] || board) + '</div>' +
-        user +
-        '<div class="meta">' + lat.toFixed(5) + ', ' + lon.toFixed(5) + '</div>' +
-        '<a href="https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lon +
-          '#map=17/' + lat + '/' + lon + '" target="_blank" rel="noopener">Open in OpenStreetMap →</a>' +
-      '</div>';
-    return L.marker([lat, lon], { icon: icon }).bindPopup(popup);
+  // Build an SVG pie marker for a venue with N≥2 distinct board types.
+  // Each segment occupies 360/N degrees starting at 12 o'clock.
+  function pieMarkerSvg(colors, size) {
+    var n = colors.length;
+    var r = size / 2;
+    var cx = r, cy = r;
+    if (n === 1) {
+      return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '">' +
+        '<circle cx="' + cx + '" cy="' + cy + '" r="' + (r - 1) + '" fill="' + colors[0] + '" stroke="#fff" stroke-width="2"/>' +
+        '</svg>';
+    }
+    var segments = '';
+    for (var i = 0; i < n; i++) {
+      var a0 = (i / n) * 2 * Math.PI - Math.PI / 2;
+      var a1 = ((i + 1) / n) * 2 * Math.PI - Math.PI / 2;
+      var x0 = cx + (r - 1) * Math.cos(a0);
+      var y0 = cy + (r - 1) * Math.sin(a0);
+      var x1 = cx + (r - 1) * Math.cos(a1);
+      var y1 = cy + (r - 1) * Math.sin(a1);
+      var large = (a1 - a0) > Math.PI ? 1 : 0;
+      segments +=
+        '<path d="M ' + cx + ' ' + cy +
+        ' L ' + x0.toFixed(2) + ' ' + y0.toFixed(2) +
+        ' A ' + (r - 1) + ' ' + (r - 1) + ' 0 ' + large + ' 1 ' +
+        x1.toFixed(2) + ' ' + y1.toFixed(2) + ' Z" fill="' + colors[i] + '"/>';
+    }
+    return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '">' +
+      segments +
+      '<circle cx="' + cx + '" cy="' + cy + '" r="' + (r - 1) + '" fill="none" stroke="#fff" stroke-width="2"/>' +
+      '</svg>';
   }
 
-  function buildLegend(total) {
+  // Distinct board ids present at a venue, in canonical order.
+  function distinctBoards(venueBoards) {
+    var seen = {};
+    var out = [];
+    for (var i = 0; i < venueBoards.length; i++) {
+      var b = venueBoards[i].board;
+      if (!seen[b]) { seen[b] = 1; out.push(b); }
+    }
+    out.sort(function (a, b) { return BOARDS.findIndex(x => x.id === a) - BOARDS.findIndex(x => x.id === b); });
+    return out;
+  }
+
+  function angleSummary(wall) {
+    if (wall.adjustable === true) {
+      if (wall.min_angle != null && wall.max_angle != null) {
+        var step = wall.angle_increments != null ? ' in ' + wall.angle_increments + '° steps' : '';
+        return 'adjustable ' + wall.min_angle + '–' + wall.max_angle + '°' + step;
+      }
+      return wall.angle != null ? 'adjustable, set to ' + wall.angle + '°' : 'adjustable';
+    }
+    if (wall.adjustable === false) {
+      return wall.angle != null ? 'fixed at ' + wall.angle + '°' : 'fixed angle';
+    }
+    return wall.angle != null ? 'angle ' + wall.angle + '°' : null;
+  }
+
+  function renderKilterWalls(walls) {
+    if (!walls || !walls.length) return '';
+    return walls.map(function (w) {
+      var parts = [];
+      if (w.size_label) parts.push(escapeHtml(w.size_label));
+      else if (w.layout) parts.push(escapeHtml(w.layout));
+      var ang = angleSummary(w);
+      if (ang) parts.push(escapeHtml(ang));
+      var line = parts.join(' · ');
+      var prefix = walls.length > 1 && w.wall_name ? '<span class="label">' + escapeHtml(w.wall_name) + ':</span> ' : '';
+      return '<div class="popup-wall">' + prefix + line + '</div>';
+    }).join('');
+  }
+
+  function renderBoardDetails(boardObj) {
+    var b = boardObj.board;
+    if (b === 'kilter') {
+      var bits = [];
+      if (boardObj.walls && boardObj.walls.length) bits.push(renderKilterWalls(boardObj.walls));
+      if (boardObj.address) bits.push('<div class="popup-wall"><span class="label">Address:</span> ' + escapeHtml(boardObj.address) + '</div>');
+      if (boardObj.instagram) bits.push('<div class="popup-wall"><span class="label">Instagram:</span> <a href="https://instagram.com/' +
+        encodeURIComponent(boardObj.instagram) + '" target="_blank" rel="noopener">@' + escapeHtml(boardObj.instagram) + '</a></div>');
+      return bits.join('');
+    }
+    if (b === 'moonboard') {
+      var tags = [];
+      if (boardObj.commercial === true) tags.push('Commercial');
+      else if (boardObj.commercial === false) tags.push('Home setup');
+      if (boardObj.led === true) tags.push('LED');
+      else if (boardObj.led === false) tags.push('No LEDs');
+      return tags.length ? '<div class="popup-wall">' + tags.join(' · ') + '</div>' : '';
+    }
+    if (boardObj.username) {
+      return '<div class="popup-wall"><span class="label">User:</span> @' + escapeHtml(boardObj.username) + '</div>';
+    }
+    return '';
+  }
+
+  function buildPopupHtml(lat, lon, props) {
+    var subtitleParts = [];
+    if (props.city) subtitleParts.push(escapeHtml(props.city));
+    if (props.country) subtitleParts.push(escapeHtml(props.country));
+    var subtitle = subtitleParts.length
+      ? '<div class="meta">' + subtitleParts.join(', ') + '</div>'
+      : '';
+    var sections = (props.boards || []).map(function (b) {
+      var color = COLOR[b.board] || '#888';
+      var detail = renderBoardDetails(b);
+      return (
+        '<div class="popup-board">' +
+          '<div class="popup-board-header">' +
+            '<span class="swatch" style="background:' + color + '"></span>' +
+            (LABEL[b.board] || b.board) +
+          '</div>' +
+          detail +
+        '</div>'
+      );
+    }).join('');
+    return (
+      '<div class="popup">' +
+        '<h4>' + escapeHtml(props.name || '(unnamed)') + '</h4>' +
+        subtitle +
+        '<div class="popup-boards">' + sections + '</div>' +
+        '<div class="popup-foot">' +
+          '<a href="https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lon +
+            '#map=17/' + lat + '/' + lon + '" target="_blank" rel="noopener">Open in OpenStreetMap →</a>' +
+          ' · ' + lat.toFixed(5) + ', ' + lon.toFixed(5) +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function buildMarker(lat, lon, props) {
+    var distinct = distinctBoards(props.boards || []);
+    var colors = distinct.map(function (id) { return COLOR[id] || '#888'; });
+    var icon;
+    if (colors.length <= 1) {
+      icon = L.divIcon({
+        html: '<div class="marker-dot" style="background:' + (colors[0] || '#888') + '"></div>',
+        className: '',
+        iconSize: [14, 14],
+        iconAnchor: [7, 7],
+      });
+    } else {
+      icon = L.divIcon({
+        html: '<div class="marker-pie">' + pieMarkerSvg(colors, 18) + '</div>',
+        className: '',
+        iconSize: [18, 18],
+        iconAnchor: [9, 9],
+      });
+    }
+    return L.marker([lat, lon], { icon: icon })
+      .bindPopup(buildPopupHtml(lat, lon, props), { maxWidth: 320 });
+  }
+
+  // ── State for filtering ────────────────────────────────────────────
+  var venueRecords = []; // { marker, boards: Set, visible: bool }
+  var activeBoards = new Set(BOARDS.map(function (b) { return b.id; }));
+
+  function applyFilter() {
+    var added = 0, removed = 0;
+    for (var i = 0; i < venueRecords.length; i++) {
+      var rec = venueRecords[i];
+      var keep = false;
+      var it = rec.boards.values();
+      for (var step = it.next(); !step.done; step = it.next()) {
+        if (activeBoards.has(step.value)) { keep = true; break; }
+      }
+      if (keep && !rec.visible) { cluster.addLayer(rec.marker); rec.visible = true; added++; }
+      else if (!keep && rec.visible) { cluster.removeLayer(rec.marker); rec.visible = false; removed++; }
+    }
+  }
+
+  function buildLegend(perBoardCounts, totalVenues) {
     var ctl = L.control({ position: 'topright' });
     ctl.onAdd = function () {
       var div = L.DomUtil.create('div', 'legend');
@@ -368,7 +549,7 @@
               '<input type="checkbox" checked data-board="' + b.id + '">' +
               '<span class="swatch" style="background:' + b.color + '"></span>' +
               '<span class="name">' + b.label + '</span>' +
-              '<span class="count">' + countByBoard[b.id].toLocaleString('en') + '</span>' +
+              '<span class="count">' + (perBoardCounts[b.id] || 0).toLocaleString('en') + '</span>' +
             '</label>'
           );
         }).join('') +
@@ -376,16 +557,16 @@
           '<button type="button" data-action="all">All</button>' +
           '<button type="button" data-action="none">None</button>' +
         '</div>' +
-        '<div class="status">' + total.toLocaleString('en') + ' locations</div>';
+        '<div class="status">' + totalVenues.toLocaleString('en') + ' locations</div>';
       return div;
     };
     ctl.addTo(map);
 
     document.querySelectorAll('.legend input[type=checkbox]').forEach(function (cb) {
       cb.addEventListener('change', function () {
-        var board = cb.dataset.board;
-        if (cb.checked) map.addLayer(clusterByBoard[board]);
-        else map.removeLayer(clusterByBoard[board]);
+        if (cb.checked) activeBoards.add(cb.dataset.board);
+        else activeBoards.delete(cb.dataset.board);
+        applyFilter();
       });
     });
     document.querySelectorAll('.legend button').forEach(function (btn) {
@@ -404,18 +585,24 @@
       return res.json();
     })
     .then(function (data) {
-      var skipped = 0;
+      var perBoardCounts = Object.fromEntries(BOARDS.map(function (b) { return [b.id, 0]; }));
       for (var i = 0; i < data.features.length; i++) {
         var f = data.features[i];
         var props = f.properties || {};
         var coords = f.geometry && f.geometry.coordinates;
-        if (!coords || !COLOR[props.board]) { skipped++; continue; }
-        var marker = makeMarker(coords[1], coords[0], props);
-        clusterByBoard[props.board].addLayer(marker);
-        countByBoard[props.board]++;
+        if (!coords || !Array.isArray(props.boards)) continue;
+        var lon = coords[0], lat = coords[1];
+        var marker = buildMarker(lat, lon, props);
+        var boardSet = new Set();
+        for (var j = 0; j < props.boards.length; j++) {
+          var bid = props.boards[j].board;
+          if (COLOR[bid]) boardSet.add(bid);
+        }
+        boardSet.forEach(function (bid) { perBoardCounts[bid] += 1; });
+        cluster.addLayer(marker);
+        venueRecords.push({ marker: marker, boards: boardSet, visible: true });
       }
-      BOARDS.forEach(function (b) { map.addLayer(clusterByBoard[b.id]); });
-      buildLegend(data.features.length - skipped);
+      buildLegend(perBoardCounts, venueRecords.length);
       var loading = document.getElementById('loading');
       if (loading) loading.remove();
     })

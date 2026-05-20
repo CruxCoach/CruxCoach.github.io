@@ -5,11 +5,17 @@
 // { entries: NormalizedEntry[], meta: object }. NormalizedEntry shape:
 //
 //   { source: string, board: BoardId, name: string, lat: number, lon: number,
-//     username?: string }
+//     // plus board-specific richness — Kilter has walls[]+address+instagram,
+//     // MoonBoard has commercial/led, others have username. }
+//
+// We group entries by (lat, lon) rounded to ~10 m into a single venue
+// feature so multi-board gyms render as one composite marker instead of
+// overlapping single-board markers. The boards[] array on each venue
+// preserves the per-board richness.
 //
 // To add a new source: write tools/sources/<name>.mjs with the same shape,
-// then add it to the SOURCES array below. The frontend only sees the merged
-// GeoJSON and never knows which source a feature came from.
+// then add it to the SOURCES array below. The frontend reads only the
+// merged GeoJSON and doesn't know which source a board came from.
 
 import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -26,14 +32,29 @@ const BOARDS = [
   'touchstone', 'aurora', 'moonboard', '12climb',
 ];
 
+// Priority when picking the venue's canonical name + city/country from
+// among its boards. Higher = preferred. Kilter wins because it ships the
+// most complete metadata (address/city/country/instagram) of any source.
+const NAME_PRIORITY = {
+  kilter: 100, moonboard: 50, tension: 40, grasshopper: 30,
+  decoy: 30, soill: 30, touchstone: 30, aurora: 30, '12climb': 10,
+};
+
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_GEOJSON = join(REPO_ROOT, 'boards', 'data', 'boards.geojson');
 const OUT_META = join(REPO_ROOT, 'boards', 'data', 'boards.meta.json');
 
-function dedupKey(e) {
-  // Round to ~10m precision (4 decimals) so coincident installations from
-  // different sources collapse without losing distinct city-level locations.
-  return `${e.board}|${e.lat.toFixed(4)}|${e.lon.toFixed(4)}`;
+// 4-decimal precision ≈ 11 m at the equator. Tight enough to keep
+// neighbouring gyms separate, loose enough to collapse multi-board
+// installations that almost always share coordinates.
+function venueKey(lat, lon) {
+  return `${lat.toFixed(4)}|${lon.toFixed(4)}`;
+}
+
+function stripInternal(entry) {
+  const { source: _s, board: _b, lat: _lt, lon: _ln, name: _n, ...rest } = entry;
+  // Keep board on the per-board object so the frontend can colour-code it.
+  return { board: entry.board, ...rest };
 }
 
 async function main() {
@@ -55,47 +76,72 @@ async function main() {
     }
   }
 
-  const byKey = new Map();
+  // Group into venues.
+  const venues = new Map();
   for (const e of allEntries) {
-    const k = dedupKey(e);
-    if (!byKey.has(k)) byKey.set(k, e);
-    // First-source-wins; later sources will need a richer merge policy if and
-    // when we have richer data (city/country/url). Keeping the policy explicit
-    // and centralized so future sources don't silently shadow hangtime data.
+    const k = venueKey(e.lat, e.lon);
+    if (!venues.has(k)) {
+      venues.set(k, { lat: e.lat, lon: e.lon, entries: [] });
+    }
+    venues.get(k).entries.push(e);
   }
-  const merged = [...byKey.values()];
 
-  const features = merged.map(e => ({
-    type: 'Feature',
-    geometry: { type: 'Point', coordinates: [e.lon, e.lat] },
-    properties: {
-      board: e.board,
-      name: e.name,
-      ...(e.username ? { username: e.username } : {}),
-      src: e._source,
-    },
-  }));
+  const features = [];
+  const perBoard = Object.fromEntries(BOARDS.map(b => [b, 0]));
+  const perSource = Object.fromEntries(SOURCES.map(s => [s.id, 0]));
+  let venuesWithMulti = 0;
+
+  for (const venue of venues.values()) {
+    // Pick canonical name + city + country from the highest-priority
+    // entry. Higher-priority sources (Kilter > MoonBoard > Tension > …)
+    // tend to ship the richest metadata, so this also surfaces the most
+    // complete address text per venue.
+    const ranked = [...venue.entries].sort(
+      (a, b) => (NAME_PRIORITY[b.board] ?? 0) - (NAME_PRIORITY[a.board] ?? 0),
+    );
+    const lead = ranked[0];
+    const props = {
+      name: lead.name,
+    };
+    // city/country only come from Kilter today; fall through if absent.
+    const kilterEntry = venue.entries.find(e => e.board === 'kilter');
+    if (kilterEntry?.city) props.city = kilterEntry.city;
+    if (kilterEntry?.country) props.country = kilterEntry.country;
+
+    props.boards = venue.entries.map(stripInternal);
+
+    features.push({
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: [venue.lon, venue.lat] },
+      properties: props,
+    });
+
+    const seenBoards = new Set();
+    for (const e of venue.entries) {
+      seenBoards.add(e.board);
+      perBoard[e.board]++;
+      perSource[e._source]++;
+    }
+    if (seenBoards.size > 1) venuesWithMulti++;
+  }
 
   const collection = { type: 'FeatureCollection', features };
   writeFileSync(OUT_GEOJSON, JSON.stringify(collection) + '\n');
 
-  const perBoard = Object.fromEntries(BOARDS.map(b => [b, 0]));
-  const perSource = Object.fromEntries(SOURCES.map(s => [s.id, 0]));
-  for (const e of merged) { perBoard[e.board]++; perSource[e._source]++; }
-
   const meta = {
     generated_at: new Date().toISOString(),
-    total_features: features.length,
+    venue_features: features.length,
     raw_entries: allEntries.length,
-    deduped: allEntries.length - features.length,
+    venues_with_multiple_boards: venuesWithMulti,
     per_board: perBoard,
     per_source: perSource,
     sources: sourceMeta,
   };
   writeFileSync(OUT_META, JSON.stringify(meta, null, 2) + '\n');
 
-  process.stderr.write(`[build] wrote ${features.length} features → ${OUT_GEOJSON}\n`);
-  process.stderr.write(`[build] meta → ${OUT_META}\n`);
+  process.stderr.write(`[build] wrote ${features.length} venues (from ${allEntries.length} raw entries) → ${OUT_GEOJSON}\n`);
+  process.stderr.write(`[build]   ${venuesWithMulti} venues host more than one board type\n`);
+  process.stderr.write(`[build]   meta → ${OUT_META}\n`);
   for (const [b, n] of Object.entries(perBoard)) {
     if (n > 0) process.stderr.write(`[build]   ${b.padEnd(12)} ${n}\n`);
   }

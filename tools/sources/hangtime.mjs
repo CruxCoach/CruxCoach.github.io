@@ -25,6 +25,38 @@ const FILE_TO_BOARD = {
   '12climb.geojson':             '12climb',
 };
 
+// Kilter wall.product_name → friendly layout label.
+const KILTER_LAYOUT = {
+  'Kilter Board Original': 'Original',
+  'Kilter Board Homewall': 'Homewall',
+};
+
+// Kilter product_layout_uuid → official Kilter-app size label. Source of
+// truth: androidApp/.../data/BoardConstants.kt::KILTER_SIZE_LABELS — kept
+// verbatim so the website shows the same wording users see in the in-app
+// board picker. Aurora's product_sizes catalog is frozen, so this map is
+// stable; unmapped ids fall through to the raw upstream name.
+const KILTER_SIZE_LABEL = {
+  // Original (product_id=1)
+  14: '10x7, no Kickboard',
+  8: '12x8, with Kickboard',
+  10: '12x12, with Kickboard',
+  27: '12x12, no Kickboard',
+  7: '14x12 Super Tall, with Kickboard',
+  28: '12x16 Super Wide, with Kickboard',
+  // Homewall (product_id=7) — naming reflects the LED kit
+  17: 'Homewall 10x7 — Full Ride',
+  18: 'Homewall 10x7 — Mainline',
+  19: 'Homewall 10x7 — Auxiliary',
+  21: 'Homewall 10x10 — Full Ride',
+  22: 'Homewall 10x10 — Mainline',
+  29: 'Homewall 10x10 — Auxiliary',
+  23: 'Homewall 12x8 — Full Ride',
+  24: 'Homewall 12x8 — Mainline',
+  25: 'Homewall 10x12 — Full Ride',
+  26: 'Homewall 10x12 — Mainline',
+};
+
 function pickCoord(props, geom) {
   const lat = props.latitude ?? props.Latitude ?? geom?.coordinates?.[1];
   const lon = props.longitude ?? props.Longitude ?? geom?.coordinates?.[0];
@@ -33,6 +65,91 @@ function pickCoord(props, geom) {
 
 function pickName(props) {
   return (props.name ?? props.Name ?? props.title ?? '').toString().trim();
+}
+
+function emptyToNull(v) {
+  if (v == null) return null;
+  const s = String(v).trim();
+  return s ? s : null;
+}
+
+function toInt(v) {
+  if (v == null) return null;
+  const n = Number(v);
+  return Number.isFinite(n) ? Math.trunc(n) : null;
+}
+
+function kilterWall(w) {
+  const sizeId = toInt(w.product_layout_uuid);
+  const isAdjustable = w.is_adjustable === 1 || w.is_adjustable === true;
+  return {
+    wall_name: emptyToNull(w.name),
+    layout: KILTER_LAYOUT[w.product_name] ?? emptyToNull(w.product_name),
+    size_id: sizeId,
+    size_label: sizeId != null ? KILTER_SIZE_LABEL[sizeId] ?? null : null,
+    adjustable: isAdjustable ? true : (w.is_adjustable === 0 || w.is_adjustable === false ? false : null),
+    angle: toInt(w.angle),
+    min_angle: toInt(w.min_angle),
+    max_angle: toInt(w.max_angle),
+    angle_increments: toInt(w.angle_increments),
+    hold_set: toInt(w.accumulated_hold_set_value),
+  };
+}
+
+function kilterAddress(props) {
+  const parts = [props.address, props.postal_code, props.city]
+    .map(p => (p == null ? '' : String(p).trim()))
+    .filter(Boolean);
+  return parts.length ? parts.join(', ') : null;
+}
+
+// Extract per-board richness. Returns a plain object that becomes one entry
+// in the venue's boards[] array. All fields are optional; downstream code
+// must tolerate missing values.
+function extractBoardFields(board, props) {
+  if (board === 'kilter') {
+    const walls = Array.isArray(props.walls)
+      ? props.walls.filter(w => w && w.is_listed !== 0).map(kilterWall)
+      : [];
+    return {
+      address: kilterAddress(props),
+      city: emptyToNull(props.city),
+      country: emptyToNull(props.country),
+      instagram: emptyToNull(props.instagram_username),
+      walls,
+    };
+  }
+  if (board === 'moonboard') {
+    return {
+      commercial: props.IsCommercial === true ? true : (props.IsCommercial === false ? false : null),
+      led: props.IsLed === true ? true : (props.IsLed === false ? false : null),
+      // Description intentionally dropped: spam-prone user-submitted text
+      // (casino / SEO / homepage promo) seen in upstream samples.
+    };
+  }
+  // Aurora-style boards (tension, grasshopper, decoy, soill, touchstone, aurora)
+  // and 12climb: only `username` carries useful extra signal beyond name+coords.
+  if (typeof props.username === 'string' && props.username.trim()) {
+    return { username: props.username.trim() };
+  }
+  return {};
+}
+
+function extractEntry(file, board, feat) {
+  const props = feat.properties ?? {};
+  const [lat, lon] = pickCoord(props, feat.geometry);
+  const name = pickName(props);
+  if (lat === null || lon === null) return null;
+  if (lat < -90 || lat > 90 || lon < -180 || lon > 180) return null;
+  if (!name) return null;
+  return {
+    source: 'hangtime',
+    board,
+    name,
+    lat,
+    lon,
+    ...extractBoardFields(board, props),
+  };
 }
 
 function extractTarball() {
@@ -57,21 +174,8 @@ export async function load() {
     const fc = JSON.parse(raw);
     let kept = 0, dropped = 0;
     for (const feat of fc.features) {
-      const props = feat.properties ?? {};
-      const [lat, lon] = pickCoord(props, feat.geometry);
-      const name = pickName(props);
-      if (lat === null || lon === null) { dropped++; continue; }
-      if (lat < -90 || lat > 90 || lon < -180 || lon > 180) { dropped++; continue; }
-      if (!name) { dropped++; continue; }
-      out.push({
-        source: 'hangtime',
-        board,
-        name,
-        lat,
-        lon,
-        username: typeof props.username === 'string' ? props.username : undefined,
-      });
-      kept++;
+      const e = extractEntry(file, board, feat);
+      if (e) { out.push(e); kept++; } else { dropped++; }
     }
     counts[board] = { kept, dropped };
   }
