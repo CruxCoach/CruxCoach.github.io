@@ -123,7 +123,11 @@
   .lang [aria-current="true"] { color: var(--fg); font-weight: 500; }
   @media (max-width: 900px) {
     nav { gap: 0.75rem; }
-    nav > a[href^="#"] { display: none; }
+    /* Hide all top-bar links by default on small screens, then re-enable
+       any link explicitly marked as a cross-page CTA. More defensive than
+       relying on attribute selectors. */
+    nav > a { display: none; }
+    nav > a.nav-cta { display: inline-flex; align-items: center; }
     .lang [aria-current="true"], .lang-sep { display: none; }
   }
   @media (max-width: 360px) {
@@ -361,7 +365,7 @@
       <a href="#features">Features</a>
       <a href="#install">Install</a>
       <a href="#contribute">Contribute</a>
-      <a href="/boards/">Board Map</a>
+      <a href="/boards/" class="nav-cta">Board Map</a>
       <span class="lang"><span aria-current="true">EN</span><span class="lang-sep"> · </span><a href="/de/">DE</a></span>
     </nav>
   </div>
@@ -582,6 +586,7 @@ bash scripts/setup_dev_env.sh
       <div>
         <h4>Project</h4>
         <ul>
+          <li><a href="/boards/">Board Map</a></li>
           <li><a href="https://codeberg.org/CruxCoach/CruxCoach">Codeberg</a></li>
           <li><a href="https://github.com/CruxCoach/CruxCoach">GitHub mirror</a></li>
           <li><a href="https://codeberg.org/CruxCoach/CruxCoach/releases">Releases</a></li>
