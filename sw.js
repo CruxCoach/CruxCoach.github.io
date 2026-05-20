@@ -43,6 +43,8 @@ var CORE = [
   '/de/privacy.html',
   '/de/support.html',
   '/404.html',
+  '/boards/',
+  '/boards/index.html',
   '/assets/logo.svg',
   '/assets/icon-512.png',
   '/mirrors.json'

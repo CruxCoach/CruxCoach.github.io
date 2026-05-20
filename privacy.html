@@ -83,7 +83,15 @@
   <p class="meta">How cruxcoach.org handles your data — short version: it doesn't.</p>
 
   <h2>What this site does</h2>
-  <p>cruxcoach.org serves only static HTML, CSS, SVG, and PNG files. The pages contain no JavaScript, set no cookies, load no third-party scripts, embed no analytics, and do not use any external CDN or font service. The CSS is inline in each page; the only network requests your browser makes when loading a page are to <code>cruxcoach.org</code> itself.</p>
+  <p>cruxcoach.org serves static HTML, CSS, SVG, and PNG files. The pages set no cookies, embed no analytics, and load no third-party scripts or fonts. All JavaScript, CSS, and library code that the site uses is served from <code>cruxcoach.org</code> itself — there are no CDN-hosted dependencies.</p>
+  <p>Two pages contain JavaScript, and only for the feature each one needs:</p>
+  <ul>
+    <li><strong>/boards/</strong> renders an interactive map of climbing-board locations. It uses a locally-hosted copy of the open-source <a href="https://leafletjs.com/">Leaflet</a> library, and loads its dataset (<code>/boards/data/boards.geojson</code>) from this site. The map tiles, however, are fetched from a third-party tile server — see the next section.</li>
+    <li><strong>/404.html</strong>, when reached via a <code>/c/&lt;naddr&gt;</code> URL, opens WebSocket connections to public Nostr relays (<code>relay.damus.io</code>, <code>nos.lol</code>, <code>relay.primal.net</code>) to fetch the metadata for a shared climb. No data is sent except the standard Nostr query.</li>
+  </ul>
+
+  <h2>Map tiles on /boards/</h2>
+  <p>The map background on <a href="/boards/">/boards/</a> is rendered from OpenStreetMap raster tiles served by <code>tile.openstreetmap.org</code>. While you are viewing that page, your browser sends requests directly to that host for every tile it needs to draw. Those requests are subject to OpenStreetMap's <a href="https://wiki.openstreetmap.org/wiki/Tile_Usage_Policy">tile-usage policy</a> and the OpenStreetMap Foundation's <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">privacy policy</a>. We have no insight into those requests; the only way to avoid them is to not load the map.</p>
 
   <h2>What Codeberg does</h2>
   <p>This site is hosted by Codeberg e.V. on Codeberg Pages. Codeberg's web server records each request — typically the source IP, timestamp, requested path, response status, and user agent — for operational reasons such as abuse prevention and traffic visibility. We have no access to those logs. See <a href="https://docs.codeberg.org/improving-codeberg/privacy-policy/">Codeberg's privacy policy</a> for details.</p>

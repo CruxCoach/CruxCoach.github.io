@@ -83,7 +83,15 @@
   <p class="meta">Wie cruxcoach.org mit deinen Daten umgeht — Kurzfassung: gar nicht.</p>
 
   <h2>Was diese Site macht</h2>
-  <p>cruxcoach.org liefert ausschließlich statische HTML-, CSS-, SVG- und PNG-Dateien aus. Die Seiten enthalten kein JavaScript, setzen keine Cookies, laden keine Drittanbieter-Skripte, binden kein Analytics ein und nutzen weder externe CDN noch externe Schriften. Das CSS ist inline in jeder Seite enthalten; beim Laden einer Seite ruft dein Browser nur Ressourcen von <code>cruxcoach.org</code> ab.</p>
+  <p>cruxcoach.org liefert statische HTML-, CSS-, SVG- und PNG-Dateien aus. Die Seiten setzen keine Cookies, binden kein Analytics ein und laden keine Drittanbieter-Skripte oder -Schriften. Das gesamte JavaScript, CSS und Bibliotheks-Material wird von <code>cruxcoach.org</code> selbst ausgeliefert — keinerlei CDN-Abhängigkeiten.</p>
+  <p>Zwei Seiten enthalten JavaScript, jeweils nur für das, was die Seite konkret braucht:</p>
+  <ul>
+    <li><strong>/boards/</strong> rendert eine interaktive Karte von Climbing-Board-Standorten. Genutzt wird eine lokal gehostete Kopie der Open-Source-Bibliothek <a href="https://leafletjs.com/">Leaflet</a>; der Datensatz (<code>/boards/data/boards.geojson</code>) liegt ebenfalls auf dieser Site. Die Karten-Kacheln (Tiles) kommen jedoch von einem Drittanbieter — siehe nächster Abschnitt.</li>
+    <li><strong>/404.html</strong> öffnet bei Aufruf einer <code>/c/&lt;naddr&gt;</code>-URL WebSocket-Verbindungen zu öffentlichen Nostr-Relays (<code>relay.damus.io</code>, <code>nos.lol</code>, <code>relay.primal.net</code>), um Metadaten zu einem geteilten Climb abzurufen. Es werden keine Daten gesendet außer der Standard-Nostr-Query.</li>
+  </ul>
+
+  <h2>Karten-Kacheln auf /boards/</h2>
+  <p>Der Karten-Hintergrund auf <a href="/boards/">/boards/</a> wird aus OpenStreetMap-Raster-Tiles gerendert, die von <code>tile.openstreetmap.org</code> ausgeliefert werden. Solange diese Seite geöffnet ist, sendet dein Browser direkt Anfragen an diesen Host für jede benötigte Kachel. Diese Anfragen unterliegen der <a href="https://wiki.openstreetmap.org/wiki/Tile_Usage_Policy">Tile-Usage-Policy</a> sowie der <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">Datenschutzerklärung</a> der OpenStreetMap Foundation. Wir haben keinen Einblick in diese Anfragen; die einzige Möglichkeit, sie zu vermeiden, ist, die Karte nicht zu laden.</p>
 
   <h2>Was Codeberg macht</h2>
   <p>Diese Website wird von Codeberg e.V. über Codeberg Pages gehostet. Der Webserver von Codeberg protokolliert jede Anfrage — typischerweise Quell-IP, Zeitstempel, angefragter Pfad, Antwort-Status und User-Agent — aus operativen Gründen wie Missbrauchsabwehr und Lasteinsicht. Wir haben keinen Zugriff auf diese Logs. Details siehe <a href="https://docs.codeberg.org/improving-codeberg/privacy-policy/">Datenschutzerklärung von Codeberg</a>.</p>

@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-05-20T10:31:10.735Z",
+  "total_features": 2877,
+  "raw_entries": 3015,
+  "deduped": 138,
+  "per_board": {
+    "kilter": 1082,
+    "tension": 333,
+    "grasshopper": 41,
+    "decoy": 23,
+    "soill": 9,
+    "touchstone": 5,
+    "aurora": 3,
+    "moonboard": 1377,
+    "12climb": 4
+  },
+  "per_source": {
+    "hangtime": 2877
+  },
+  "sources": {
+    "hangtime": {
+      "package": "@hangtime/climbing-boards",
+      "version": "1.0.39",
+      "counts": {
+        "kilter": {
+          "kept": 1083,
+          "dropped": 0
+        },
+        "tension": {
+          "kept": 333,
+          "dropped": 0
+        },
+        "grasshopper": {
+          "kept": 41,
+          "dropped": 0
+        },
+        "decoy": {
+          "kept": 23,
+          "dropped": 0
+        },
+        "soill": {
+          "kept": 9,
+          "dropped": 0
+        },
+        "touchstone": {
+          "kept": 5,
+          "dropped": 0
+        },
+        "aurora": {
+          "kept": 3,
+          "dropped": 0
+        },
+        "moonboard": {
+          "kept": 1514,
+          "dropped": 0
+        },
+        "12climb": {
+          "kept": 4,
+          "dropped": 31
+        }
+      }
+    }
+  }
+}

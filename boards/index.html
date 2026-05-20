@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Climbing Board Locations Worldwide — CruxCoach</title>
+<meta name="description" content="An interactive map of Kilter, Tension, MoonBoard, Grasshopper, Decoy, So iLL, Touchstone, Aurora and 12climb installations worldwide. Filter by board type.">
+<meta name="theme-color" content="#141312">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://cruxcoach.org/boards/">
+<meta property="og:title" content="Climbing Board Locations Worldwide — CruxCoach">
+<meta property="og:description" content="Interactive map of Kilter, Tension, MoonBoard and five more board systems worldwide. Filter by board type.">
+<meta property="og:url" content="https://cruxcoach.org/boards/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://cruxcoach.org/assets/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Climbing Board Locations Worldwide — CruxCoach">
+<meta name="twitter:description" content="Interactive map of Kilter, Tension, MoonBoard and five more board systems worldwide.">
+<meta name="twitter:image" content="https://cruxcoach.org/assets/icon-512.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
+<link rel="apple-touch-icon" href="/assets/icon-512.png">
+
+<link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="/assets/vendor/leaflet/MarkerCluster.css">
+<link rel="stylesheet" href="/assets/vendor/leaflet/MarkerCluster.Default.css">
+
+<style>
+  :root {
+    --bg: #141312;
+    --bg-soft: #1f1d1a;
+    --fg: #f0ede6;
+    --fg-soft: #c0bcb2;
+    --fg-mute: #807a70;
+    --rule: #2c2925;
+    --accent: #e07a4f;
+    --max: 64rem;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Helvetica Neue", sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--fg);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
+  a:hover, a:focus { border-bottom-color: var(--accent); }
+  h1, h2, h3 { font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 0.6em; }
+  h2 { font-size: 1.4rem; margin-top: 2rem; }
+  h3 { font-size: 1.1rem; }
+  p { margin: 0 0 1em; }
+
+  .container { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+
+  header {
+    border-bottom: 1px solid var(--rule);
+    padding: 1rem 0;
+    background: var(--bg);
+    z-index: 10;
+  }
+  header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; gap: 1rem; }
+  .brand { font-weight: 700; font-size: 1.1rem; color: var(--fg); border-bottom: 0; display: inline-flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+  .brand svg { width: 1.6rem; height: 1.6rem; flex-shrink: 0; }
+  nav { display: flex; gap: 1.5rem; align-items: center; font-size: 0.95rem; }
+  nav a { color: var(--fg-soft); border-bottom: 0; }
+  nav a:hover { color: var(--accent); border-bottom: 0; }
+  nav a[aria-current="page"] { color: var(--fg); }
+  .lang { color: var(--fg-mute); font-size: 0.85rem; }
+  .lang [aria-current="true"] { color: var(--fg); font-weight: 500; }
+  @media (max-width: 600px) {
+    nav { gap: 0.75rem; }
+  }
+
+  main.map-wrap { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+  #map { flex: 1; min-height: 60vh; background: var(--bg-soft); }
+
+  /* Tone the OSM tiles to match the dark theme without hosting our own. */
+  .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(0.9) saturate(0.7);
+  }
+  .leaflet-marker-pane, .leaflet-overlay-pane, .leaflet-popup-pane, .leaflet-tooltip-pane {
+    filter: none;
+  }
+  .leaflet-container { background: #15161a; }
+  .leaflet-control-attribution {
+    background: rgba(20,19,18,0.85) !important;
+    color: var(--fg-mute) !important;
+    font-size: 11px;
+  }
+  .leaflet-control-attribution a { color: var(--fg-soft) !important; }
+
+  /* Filter legend */
+  .legend {
+    background: var(--bg);
+    color: var(--fg);
+    padding: 12px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 260px;
+  }
+  .legend h3 { margin: 0 0 8px; font-size: 0.95rem; }
+  .legend label {
+    display: flex; align-items: center; cursor: pointer; user-select: none;
+    padding: 1px 0;
+  }
+  .legend label input { margin: 0 8px 0 0; accent-color: var(--accent); }
+  .swatch {
+    display: inline-block; width: 11px; height: 11px; border-radius: 50%;
+    margin-right: 8px; border: 1px solid rgba(255,255,255,0.15);
+    flex-shrink: 0;
+  }
+  .legend .name { flex: 1; }
+  .legend .count { color: var(--fg-mute); margin-left: 8px; font-variant-numeric: tabular-nums; }
+  .legend .actions { display: flex; gap: 6px; margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--rule); }
+  .legend button {
+    background: transparent; color: var(--fg-soft);
+    border: 1px solid var(--rule); border-radius: 4px;
+    padding: 3px 10px; font-size: 12px; cursor: pointer;
+    font-family: inherit;
+  }
+  .legend button:hover { color: var(--accent); border-color: var(--accent); }
+  .legend .status { color: var(--fg-mute); margin-top: 8px; font-size: 11px; }
+
+  /* Custom marker dot */
+  .marker-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 2px solid #fff; box-shadow: 0 0 3px rgba(0,0,0,0.6);
+  }
+  .marker-cluster-board {
+    border-radius: 50%; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 12px;
+    border: 2px solid #fff; box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  }
+
+  .leaflet-popup-content-wrapper {
+    background: var(--bg-soft); color: var(--fg);
+    border-radius: 6px; border: 1px solid var(--rule);
+  }
+  .leaflet-popup-tip { background: var(--bg-soft); }
+  .leaflet-popup-content { margin: 12px 14px; font-size: 13px; }
+  .popup h4 { margin: 0 0 4px; font-size: 14px; color: var(--fg); }
+  .popup .meta { color: var(--fg-mute); font-size: 12px; }
+  .popup a { font-size: 12px; }
+
+  /* About / attribution panel under the map */
+  .info {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--rule);
+    padding: 2rem 0;
+    font-size: 0.95rem;
+    color: var(--fg-soft);
+  }
+  .info h2 { color: var(--fg); }
+  .info ul { padding-left: 1.2em; }
+
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 0;
+    color: var(--fg-mute);
+    font-size: 0.85rem;
+  }
+  footer .container {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;
+  }
+  footer a { color: var(--fg-soft); border-bottom: 0; }
+  footer a:hover { color: var(--accent); }
+
+  /* Loading state */
+  .loading {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--fg-soft); font-size: 0.9rem;
+    background: var(--bg); padding: 10px 16px;
+    border: 1px solid var(--rule); border-radius: 6px;
+  }
+  .loading.error { color: #ff8a7a; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 512 512" aria-hidden="true">
+        <defs>
+          <radialGradient id="gL" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse">
+            <stop offset="40%" stop-color="#FF8C2A"/><stop offset="100%" stop-color="#B84400"/>
+          </radialGradient>
+          <radialGradient id="gR" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse">
+            <stop offset="40%" stop-color="#E05800"/><stop offset="100%" stop-color="#8C3000"/>
+          </radialGradient>
+          <radialGradient id="gX" cx="256" cy="256" r="80" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FFD080"/><stop offset="100%" stop-color="#E08A00"/>
+          </radialGradient>
+        </defs>
+        <rect width="512" height="512" fill="#000"/>
+        <path d="M252,56 A200,200 0 1 0 248,456 L248,384 A128,128 0 1 1 252,128 Z" fill="url(#gL)"/>
+        <path d="M260,456 A200,200 0 1 0 264,56 L264,128 A128,128 0 1 1 260,384 Z" fill="url(#gR)"/>
+        <polygon points="192,214 214,192 256,234 298,192 320,214 274,256 320,298 298,320 256,278 214,320 192,298 238,256" fill="url(#gX)"/>
+      </svg>
+      CruxCoach
+    </a>
+    <nav>
+      <a href="/" >Home</a>
+      <a href="/boards/" aria-current="page">Boards</a>
+      <span class="lang"><span aria-current="true">EN</span></span>
+    </nav>
+  </div>
+</header>
+
+<main class="map-wrap">
+  <div id="map" role="application" aria-label="Map of climbing-board locations">
+    <div class="loading" id="loading">Loading map data…</div>
+  </div>
+</main>
+
+<section class="info">
+  <div class="container">
+    <h2>About this map</h2>
+    <p>
+      Every dot is a climbing-board installation that someone published as
+      "listed" in the upstream feed. <strong>Most are commercial climbing
+      gyms; some are home setups</strong> whose owner chose to share the
+      location. Coverage is best for Kilter and MoonBoard; smaller systems
+      (Touchstone, Aurora, So iLL) only show the few publicly-listed walls.
+    </p>
+    <h3>Data sources</h3>
+    <ul>
+      <li>
+        <a href="https://github.com/Stevie-Ray/hangtime-climbing-boards">hangtime-climbing-boards</a>
+        — a daily-updated GeoJSON dataset of Aurora-board installations
+        (Kilter / Tension / Grasshopper / Decoy / So iLL / Touchstone / Aurora)
+        plus MoonBoard and 12climb, released into the public domain.
+      </li>
+      <li>
+        Map tiles by <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>,
+        served from <code>tile.openstreetmap.org</code>. See our
+        <a href="/privacy.html">privacy page</a> for what that means for you.
+      </li>
+    </ul>
+    <h3>Refresh cadence</h3>
+    <p>
+      We re-pull the upstream dataset periodically and commit the snapshot.
+      The build timestamp and per-board counts live in
+      <a href="/boards/data/boards.meta.json"><code>boards.meta.json</code></a>.
+    </p>
+    <p style="margin-top: 2rem;">
+      <a href="/">← Back to the CruxCoach app</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>© 2026 CruxCoach Contributors. Site CC-BY-4.0. Hosted by Codeberg e.V.</span>
+    <span><a href="/support.html">Support</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a></span>
+  </div>
+</footer>
+
+<script src="/assets/vendor/leaflet/leaflet.js"></script>
+<script src="/assets/vendor/leaflet/leaflet.markercluster.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  // Keep colors in sync with tools/build-boards-data.mjs board list.
+  // Chosen for high contrast on the dark-toned tile layer.
+  var BOARDS = [
+    { id: 'kilter',      label: 'Kilter Board',  color: '#ed1d24' },
+    { id: 'tension',     label: 'Tension Board', color: '#7d8590' },
+    { id: 'moonboard',   label: 'MoonBoard',     color: '#feb91e' },
+    { id: 'grasshopper', label: 'Grasshopper',   color: '#00eaff' },
+    { id: 'decoy',       label: 'Decoy',         color: '#c256c8' },
+    { id: 'soill',       label: 'So iLL',        color: '#8bb297' },
+    { id: 'touchstone',  label: 'Touchstone',    color: '#5b9bd5' },
+    { id: 'aurora',      label: 'Aurora',        color: '#b93655' },
+    { id: '12climb',     label: '12climb',       color: '#ed1667' },
+  ];
+  var COLOR = Object.fromEntries(BOARDS.map(function (b) { return [b.id, b.color]; }));
+  var LABEL = Object.fromEntries(BOARDS.map(function (b) { return [b.id, b.label]; }));
+
+  var map = L.map('map', {
+    worldCopyJump: true,
+    zoomControl: true,
+  }).setView([47.5, 9.5], 4);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · data <a href="https://github.com/Stevie-Ray/hangtime-climbing-boards">hangtime-climbing-boards</a>',
+  }).addTo(map);
+
+  var clusterByBoard = {};
+  var countByBoard = {};
+  BOARDS.forEach(function (b) {
+    countByBoard[b.id] = 0;
+    clusterByBoard[b.id] = L.markerClusterGroup({
+      showCoverageOnHover: false,
+      maxClusterRadius: 50,
+      iconCreateFunction: function (cluster) {
+        return L.divIcon({
+          html:
+            '<div class="marker-cluster-board" style="width:36px;height:36px;background:' +
+            b.color + 'd9">' + cluster.getChildCount() + '</div>',
+          className: '',
+          iconSize: [36, 36],
+        });
+      },
+    });
+  });
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
+    });
+  }
+
+  function makeMarker(lat, lon, props) {
+    var board = props.board;
+    var color = COLOR[board] || '#888';
+    var icon = L.divIcon({
+      html: '<div class="marker-dot" style="background:' + color + '"></div>',
+      className: '',
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+    });
+    var name = props.name || '(unnamed)';
+    var user = props.username ? '<div class="meta">@' + escapeHtml(props.username) + '</div>' : '';
+    var popup =
+      '<div class="popup">' +
+        '<h4>' + escapeHtml(name) + '</h4>' +
+        '<div class="meta">' + escapeHtml(LABEL[board] || board) + '</div>' +
+        user +
+        '<div class="meta">' + lat.toFixed(5) + ', ' + lon.toFixed(5) + '</div>' +
+        '<a href="https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lon +
+          '#map=17/' + lat + '/' + lon + '" target="_blank" rel="noopener">Open in OpenStreetMap →</a>' +
+      '</div>';
+    return L.marker([lat, lon], { icon: icon }).bindPopup(popup);
+  }
+
+  function buildLegend(total) {
+    var ctl = L.control({ position: 'topright' });
+    ctl.onAdd = function () {
+      var div = L.DomUtil.create('div', 'legend');
+      L.DomEvent.disableClickPropagation(div);
+      L.DomEvent.disableScrollPropagation(div);
+      div.innerHTML =
+        '<h3>Board type</h3>' +
+        BOARDS.map(function (b) {
+          return (
+            '<label>' +
+              '<input type="checkbox" checked data-board="' + b.id + '">' +
+              '<span class="swatch" style="background:' + b.color + '"></span>' +
+              '<span class="name">' + b.label + '</span>' +
+              '<span class="count">' + countByBoard[b.id].toLocaleString('en') + '</span>' +
+            '</label>'
+          );
+        }).join('') +
+        '<div class="actions">' +
+          '<button type="button" data-action="all">All</button>' +
+          '<button type="button" data-action="none">None</button>' +
+        '</div>' +
+        '<div class="status">' + total.toLocaleString('en') + ' locations</div>';
+      return div;
+    };
+    ctl.addTo(map);
+
+    document.querySelectorAll('.legend input[type=checkbox]').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        var board = cb.dataset.board;
+        if (cb.checked) map.addLayer(clusterByBoard[board]);
+        else map.removeLayer(clusterByBoard[board]);
+      });
+    });
+    document.querySelectorAll('.legend button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = btn.dataset.action === 'all';
+        document.querySelectorAll('.legend input[type=checkbox]').forEach(function (cb) {
+          if (cb.checked !== target) { cb.checked = target; cb.dispatchEvent(new Event('change')); }
+        });
+      });
+    });
+  }
+
+  fetch('/boards/data/boards.geojson')
+    .then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function (data) {
+      var skipped = 0;
+      for (var i = 0; i < data.features.length; i++) {
+        var f = data.features[i];
+        var props = f.properties || {};
+        var coords = f.geometry && f.geometry.coordinates;
+        if (!coords || !COLOR[props.board]) { skipped++; continue; }
+        var marker = makeMarker(coords[1], coords[0], props);
+        clusterByBoard[props.board].addLayer(marker);
+        countByBoard[props.board]++;
+      }
+      BOARDS.forEach(function (b) { map.addLayer(clusterByBoard[b.id]); });
+      buildLegend(data.features.length - skipped);
+      var loading = document.getElementById('loading');
+      if (loading) loading.remove();
+    })
+    .catch(function (err) {
+      var loading = document.getElementById('loading');
+      if (loading) {
+        loading.className = 'loading error';
+        loading.textContent = 'Could not load map data (' + err.message + ').';
+      }
+    });
+})();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function () {});
+  });
+}
+</script>
+
+</body>
+</html>
