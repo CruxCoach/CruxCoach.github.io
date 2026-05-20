@@ -89,6 +89,23 @@
   /* Map widgets: light/standard styling on top of the colorful OSM tiles —
      intentionally different from the host site's dark chrome (header/footer),
      because controls over a map need to read against a bright background. */
+  .legend-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .legend-toggle {
+    width: 38px; height: 38px;
+    background: #fff;
+    color: #333;
+    border: 0;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0;
+    transition: background .15s, color .15s;
+  }
+  .legend-toggle:hover { color: var(--accent); }
+  .legend-toggle svg { width: 20px; height: 20px; display: block; }
+  .legend-wrap.open .legend-toggle { background: var(--accent); color: #fff; }
+  .legend-wrap.open .legend-toggle:hover { color: #fff; opacity: 0.95; }
   .legend {
     background: #fff;
     color: #1a1a1a;
@@ -101,10 +118,12 @@
     /* Leaflet's container clips overflow, so when the legend grows past
        the viewport the bottom gets cut off. Constrain to viewport-height
        minus the header+footer chrome and scroll internally. */
-    max-height: calc(100vh - 180px);
+    max-height: calc(100vh - 220px);
     overflow-y: auto;
     overscroll-behavior: contain;
+    display: none;
   }
+  .legend-wrap.open .legend { display: block; }
   .legend h3 { margin: 0 0 8px; font-size: 0.95rem; color: #1a1a1a; }
   .legend label {
     display: flex; align-items: center; cursor: pointer; user-select: none;
@@ -868,9 +887,26 @@
   function buildLegend(stats) {
     var ctl = L.control({ position: 'topright' });
     ctl.onAdd = function () {
-      var div = L.DomUtil.create('div', 'legend');
-      L.DomEvent.disableClickPropagation(div);
-      L.DomEvent.disableScrollPropagation(div);
+      var wrap = L.DomUtil.create('div', 'legend-wrap');
+      L.DomEvent.disableClickPropagation(wrap);
+      L.DomEvent.disableScrollPropagation(wrap);
+
+      var toggle = L.DomUtil.create('button', 'legend-toggle', wrap);
+      toggle.setAttribute('type', 'button');
+      toggle.setAttribute('aria-label', 'Toggle filters');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.innerHTML =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+        ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<path d="M3 5h18l-7 8v6l-4 2v-8z"/>' +
+        '</svg>';
+
+      var div = L.DomUtil.create('div', 'legend', wrap);
+
+      toggle.addEventListener('click', function () {
+        var open = wrap.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
 
       var boardTypeSection =
         '<h3>Board type</h3>' +
@@ -896,7 +932,7 @@
         renderCountrySection(stats) +
         '<button type="button" class="filter-reset">Reset detail filters</button>' +
         '<div class="status">' + stats.totalVenues.toLocaleString('en') + ' locations</div>';
-      return div;
+      return wrap;
     };
     ctl.addTo(map);
 
