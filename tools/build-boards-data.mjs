@@ -18,7 +18,7 @@
 // merged GeoJSON and doesn't know which source a board came from.
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -62,6 +62,7 @@ const NAME_PRIORITY = {
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_GEOJSON = join(REPO_ROOT, 'boards', 'data', 'boards.geojson');
 const OUT_META = join(REPO_ROOT, 'boards', 'data', 'boards.meta.json');
+const OVERRIDES_FILE = join(REPO_ROOT, 'tools', 'overrides.json');
 
 // 4-decimal precision ≈ 11 m at the equator. Tight enough to keep
 // neighbouring gyms separate, loose enough to collapse multi-board
@@ -74,6 +75,82 @@ function stripInternal(entry) {
   const { source: _s, board: _b, lat: _lt, lon: _ln, name: _n, ...rest } = entry;
   // Keep board on the per-board object so the frontend can colour-code it.
   return { board: entry.board, ...rest };
+}
+
+// Apply hand-curated corrections from tools/overrides.json onto the loaded
+// entries, before venue grouping. Overrides win over upstream values — a
+// conflict (replacing a non-null upstream value) is logged so a stale
+// override stays visible. An entry matches by board + (lat, lon) at
+// venueKey precision (~11 m), so the hand-edited file may carry coordinates
+// at any precision. Returns counts recorded in boards.meta.json.
+function applyOverrides(entries) {
+  const stats = { defined: 0, applied: 0, unmatched: 0, conflicts: 0 };
+  if (!existsSync(OVERRIDES_FILE)) return stats;
+
+  let overrides;
+  try {
+    overrides = JSON.parse(readFileSync(OVERRIDES_FILE, 'utf-8'));
+  } catch (err) {
+    throw new Error(`tools/overrides.json is not valid JSON: ${err.message}`);
+  }
+  if (!Array.isArray(overrides)) {
+    throw new Error('tools/overrides.json must be a JSON array of override objects');
+  }
+  stats.defined = overrides.length;
+
+  const byKey = new Map();
+  for (const e of entries) {
+    const k = `${e.board}|${venueKey(e.lat, e.lon)}`;
+    let list = byKey.get(k);
+    if (!list) { list = []; byKey.set(k, list); }
+    list.push(e);
+  }
+
+  overrides.forEach((ov, i) => {
+    const where = `overrides[${i}]${ov && ov.name ? ` "${ov.name}"` : ''}`;
+    if (!ov || typeof ov !== 'object' || Array.isArray(ov)) {
+      process.stderr.write(`[build]   WARN ${where}: not an object — skipped\n`);
+      return;
+    }
+    if (typeof ov.board !== 'string' || typeof ov.lat !== 'number' || typeof ov.lon !== 'number') {
+      process.stderr.write(`[build]   WARN ${where}: needs string "board" and numeric "lat"/"lon" — skipped\n`);
+      return;
+    }
+    if (!BOARDS.includes(ov.board)) {
+      process.stderr.write(`[build]   WARN ${where}: unknown board "${ov.board}" — skipped\n`);
+      return;
+    }
+    if (!ov.set || typeof ov.set !== 'object' || Array.isArray(ov.set) || Object.keys(ov.set).length === 0) {
+      process.stderr.write(`[build]   WARN ${where}: missing non-empty "set" object — skipped\n`);
+      return;
+    }
+
+    const matches = byKey.get(`${ov.board}|${venueKey(ov.lat, ov.lon)}`) ?? [];
+    if (matches.length === 0) {
+      stats.unmatched++;
+      process.stderr.write(`[build]   WARN ${where}: no ${ov.board} entry near ${ov.lat}, ${ov.lon} — stale override?\n`);
+      return;
+    }
+    if (matches.length > 1) {
+      process.stderr.write(`[build]   WARN ${where}: ${matches.length} ${ov.board} entries share this coordinate — applied to all\n`);
+    }
+
+    for (const e of matches) {
+      if (ov.name && e.name && ov.name.trim().toLowerCase() !== e.name.trim().toLowerCase()) {
+        process.stderr.write(`[build]   WARN ${where}: name mismatch — matched entry is named "${e.name}"\n`);
+      }
+      for (const [field, value] of Object.entries(ov.set)) {
+        if (e[field] != null && e[field] !== value) {
+          stats.conflicts++;
+          process.stderr.write(`[build]   WARN ${where}: ${field} "${e[field]}" → "${value}" — override replaces upstream value\n`);
+        }
+        e[field] = value;
+      }
+      stats.applied++;
+    }
+  });
+
+  return stats;
 }
 
 async function main() {
@@ -96,6 +173,12 @@ async function main() {
       allEntries.push(e);
     }
   }
+
+  const overrideStats = applyOverrides(allEntries);
+  process.stderr.write(
+    `[build] overrides: ${overrideStats.applied} applied, ` +
+    `${overrideStats.unmatched} unmatched, ${overrideStats.conflicts} conflicts\n`,
+  );
 
   // Group into venues.
   const venues = new Map();
@@ -175,6 +258,7 @@ async function main() {
     country_from_coder: countryFromCoder,
     country_from_fallback: countryFallback,
     country_missing: features.length - countryFromCoder - countryFallback,
+    overrides: overrideStats,
     per_board: perBoard,
     per_source: perSource,
     sources: sourceMeta,

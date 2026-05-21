@@ -61,6 +61,41 @@ The merge policy is **first-source-wins by `(board, lat, lon)`**: existing
 hangtime entries shadow later sources at the same coordinate. Change this
 in `build-boards-data.mjs` if you need richer merging.
 
+## Manual overrides
+
+`tools/overrides.json` hand-corrects fields the upstream sources leave blank
+or get wrong — e.g. a MoonBoard whose variant can't be parsed from its
+free-form description. It's a committed, hand-edited JSON array;
+`build-boards-data.mjs` applies it after loading every source and before
+venue grouping, so the correction survives every rebuild (including the
+nightly `cron-refresh.sh`).
+
+```json
+[
+  {
+    "board": "moonboard",
+    "lat": 48.3896024, "lon": 10.8874895,
+    "name": "Bloc-Hütte Augsburg",
+    "note": "free-form, humans only — the build ignores this field",
+    "set": { "variant": "mb2016" }
+  }
+]
+```
+
+- **Matching**: by `board` + `(lat, lon)` rounded to 4 decimals (~11 m — the
+  same precision as venue grouping), so the file may carry coordinates at any
+  precision. `name` is a human label only; the build warns if it doesn't
+  match the entry that was matched on, which catches coordinate typos.
+- **Semantics**: every key under `set` is written onto the matched per-board
+  object and wins over the upstream value. Replacing a non-null upstream
+  value is logged and counted as a conflict, so a stale override stays
+  visible.
+- **MoonBoard `variant`** accepts: `mb2016`, `mb2017-masters`,
+  `mb2019-masters`, `mb2024`, `mini-2020`, `school-room`.
+- After editing, rebuild (`node tools/build-boards-data.mjs`) and commit the
+  regenerated `boards/data/` files alongside `overrides.json`. Counts land in
+  `boards.meta.json` under `overrides`.
+
 ## Data-source guidelines
 
 - Prefer sources with explicit public-domain or permissive licensing.
