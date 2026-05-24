@@ -63,6 +63,7 @@ const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_GEOJSON = join(REPO_ROOT, 'boards', 'data', 'boards.geojson');
 const OUT_META = join(REPO_ROOT, 'boards', 'data', 'boards.meta.json');
 const OVERRIDES_FILE = join(REPO_ROOT, 'tools', 'overrides.json');
+const WELLPASS_FILE = join(REPO_ROOT, 'tools', 'wellpass.json');
 
 // 4-decimal precision ≈ 11 m at the equator. Tight enough to keep
 // neighbouring gyms separate, loose enough to collapse multi-board
@@ -148,6 +149,63 @@ function applyOverrides(entries) {
       }
       stats.applied++;
     }
+  });
+
+  return stats;
+}
+
+// Apply curated egym Wellpass status (tools/wellpass.json) onto the
+// assembled venue features. Each entry { lat, lon, [name], wellpass: true|
+// false } sets the `wellpass` property on the matched feature; venues not
+// listed simply stay undefined ("unknown") in the output. The file is a
+// committed, hand-edited array — the personal scrape and matcher that
+// seed it stay out of this repo (see .gitignore).
+function applyWellpass(features) {
+  const stats = { defined: 0, applied: 0, unmatched: 0 };
+  if (!existsSync(WELLPASS_FILE)) return stats;
+
+  let entries;
+  try {
+    entries = JSON.parse(readFileSync(WELLPASS_FILE, 'utf-8'));
+  } catch (err) {
+    throw new Error(`tools/wellpass.json is not valid JSON: ${err.message}`);
+  }
+  if (!Array.isArray(entries)) {
+    throw new Error('tools/wellpass.json must be a JSON array of venue objects');
+  }
+  stats.defined = entries.length;
+
+  const byKey = new Map();
+  for (const f of features) {
+    const [lon, lat] = f.geometry.coordinates;
+    byKey.set(venueKey(lat, lon), f);
+  }
+
+  entries.forEach((e, i) => {
+    const where = `wellpass[${i}]${e && e.name ? ` "${e.name}"` : ''}`;
+    if (!e || typeof e !== 'object' || Array.isArray(e)) {
+      process.stderr.write(`[build]   WARN ${where}: not an object — skipped\n`);
+      return;
+    }
+    if (typeof e.lat !== 'number' || typeof e.lon !== 'number') {
+      process.stderr.write(`[build]   WARN ${where}: needs numeric "lat"/"lon" — skipped\n`);
+      return;
+    }
+    if (e.wellpass !== true && e.wellpass !== false) {
+      process.stderr.write(`[build]   WARN ${where}: "wellpass" must be true or false — skipped\n`);
+      return;
+    }
+    const f = byKey.get(venueKey(e.lat, e.lon));
+    if (!f) {
+      stats.unmatched++;
+      process.stderr.write(`[build]   WARN ${where}: no venue near ${e.lat}, ${e.lon} — stale entry?\n`);
+      return;
+    }
+    if (e.name && f.properties.name && e.name.trim().toLowerCase() !== f.properties.name.trim().toLowerCase()) {
+      process.stderr.write(`[build]   WARN ${where}: name mismatch — venue is named "${f.properties.name}"\n`);
+    }
+    f.properties.wellpass = e.wellpass;
+    stats.applied++;
   });
 
   return stats;
@@ -247,6 +305,12 @@ async function main() {
     if (seenBoards.size > 1) venuesWithMulti++;
   }
 
+  const wellpassStats = applyWellpass(features);
+  process.stderr.write(
+    `[build] wellpass: ${wellpassStats.applied} applied, ` +
+    `${wellpassStats.unmatched} unmatched (of ${wellpassStats.defined} defined)\n`,
+  );
+
   const collection = { type: 'FeatureCollection', features };
   writeFileSync(OUT_GEOJSON, JSON.stringify(collection) + '\n');
 
@@ -259,6 +323,7 @@ async function main() {
     country_from_fallback: countryFallback,
     country_missing: features.length - countryFromCoder - countryFallback,
     overrides: overrideStats,
+    wellpass: wellpassStats,
     per_board: perBoard,
     per_source: perSource,
     sources: sourceMeta,

@@ -28,3 +28,16 @@ nostr-key*
 bunker*.json
 .env
 .env.*
+
+# Personal egym Wellpass tooling — the scrape source and the HTML parser
+# stay strictly off the remote. Only the curated, anonymised match
+# results (tools/wellpass.json) are committed. Patterns cover both
+# accidental placement inside the repo and common artifact names.
+/wellpass-matcher/
+wellpass-matcher/
+wellpass-latest.html
+wellpass-*.html
+wellpass-names-*.json
+wellpass-vs-boards.md
+wellpass-vs-boards-*.json
+wellpass-match.mjs

@@ -96,6 +96,38 @@ nightly `cron-refresh.sh`).
   regenerated `boards/data/` files alongside `overrides.json`. Counts land in
   `boards.meta.json` under `overrides`.
 
+## egym Wellpass curation
+
+`tools/wellpass.json` flags which DACH venues are part of the egym Wellpass
+corporate-fitness network, so the map can offer a "In Wellpass / Unknown /
+Not in Wellpass" filter. It is a committed, hand-edited JSON array; the
+seed list was produced by an out-of-repo matcher that compares a Wellpass
+gym-list scrape against the venue names in `boards.geojson`. The matcher
+itself and the raw scrape are deliberately gitignored — only the
+curated venue identifiers (name + coordinates + boolean) live in this repo.
+
+```json
+[
+  {
+    "lat": 48.3896024, "lon": 10.8874895,
+    "name": "Bloc-Hütte Augsburg",
+    "wellpass": true,
+    "_source": "auto-match J=100% ovl=100% via \"Bloc-Hütte Augsburg\""
+  }
+]
+```
+
+- **Matching**: same `(board)? + (lat, lon)` rounding as `overrides.json`
+  (4 decimals, ≈ 11 m), via `venueKey()`. The `name` is a sanity check —
+  the build warns on mismatches.
+- **Semantics**: `wellpass: true` marks a venue as confirmed in Wellpass,
+  `wellpass: false` as confirmed not in Wellpass. Venues not listed stay
+  undefined ("unknown") in the output.
+- **Workflow**: when the Wellpass roster changes, regenerate the seed
+  outside the repo with the personal matcher, manually verify, then drop
+  the resulting JSON onto `tools/wellpass.json`.
+- Stats land in `boards.meta.json` under `wellpass`.
+
 ## Data-source guidelines
 
 - Prefer sources with explicit public-domain or permissive licensing.

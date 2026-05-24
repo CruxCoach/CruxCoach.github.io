@@ -677,6 +677,7 @@
           moonCom:   Array.from(activeMoonCom),
           moonLed:   Array.from(activeMoonLed),
           moonVar:   Array.from(activeMoonVariants),
+          wellpass:  Array.from(activeWellpass),
           sizes:     activeSizes === null ? null : Array.from(activeSizes),
           countries: activeCountries === null ? null : Array.from(activeCountries),
         },
@@ -695,6 +696,7 @@
     if (Array.isArray(f.moonCom)) activeMoonCom      = new Set(f.moonCom);
     if (Array.isArray(f.moonLed)) activeMoonLed      = new Set(f.moonLed);
     if (Array.isArray(f.moonVar)) activeMoonVariants = new Set(f.moonVar);
+    if (Array.isArray(f.wellpass)) activeWellpass    = new Set(f.wellpass);
     activeSizes     = Array.isArray(f.sizes)     ? new Set(f.sizes)     : null;
     activeCountries = Array.isArray(f.countries) ? new Set(f.countries) : null;
   }
@@ -962,6 +964,20 @@
     return e.variant || 'unknown';
   }
 
+  // egym Wellpass status (venue-level). Source: tools/wellpass.json baked
+  // into the geojson by build-boards-data.mjs; unmarked venues fall through
+  // to "unknown" so the filter degrades gracefully where coverage is unknown.
+  var WELLPASS_STATES = [
+    { key: 'yes',     label: 'In Wellpass' },
+    { key: 'unknown', label: 'Unknown' },
+    { key: 'no',      label: 'Not in Wellpass' },
+  ];
+  function wellpassKey(rec) {
+    if (rec.wellpass === true) return 'yes';
+    if (rec.wellpass === false) return 'no';
+    return 'unknown';
+  }
+
   var venueRecords = [];
   // Active sets — full set = "no constraint", same UX as the app's chips.
   var activeBoards = new Set(BOARDS.map(function (b) { return b.id; }));
@@ -971,6 +987,7 @@
   var activeMoonCom = new Set(MOON_COMMERCIAL.map(function (a) { return a.key; }));
   var activeMoonLed = new Set(MOON_LED.map(function (a) { return a.key; }));
   var activeMoonVariants = new Set(MOON_VARIANTS.map(function (v) { return v.key; }));
+  var activeWellpass = new Set(WELLPASS_STATES.map(function (w) { return w.key; }));
   // Sizes + Countries can have many options; null = "no constraint", any
   // first toggle materialises the full set so the user removes from it.
   var activeSizes = null;
@@ -1017,8 +1034,9 @@
   }
 
   function venueVisible(rec) {
-    // Universal: country gate first.
+    // Universal gates first (cheap, reject quickly).
     if (activeCountries && !activeCountries.has(rec.country || 'unknown')) return false;
+    if (!activeWellpass.has(wellpassKey(rec))) return false;
     // Then per-board OR: at least one active board with a matching entry.
     for (var i = 0; i < rec.boards.length; i++) {
       var b = rec.boards[i];
@@ -1064,6 +1082,7 @@
     activeMoonCom = new Set(MOON_COMMERCIAL.map(function (a) { return a.key; }));
     activeMoonLed = new Set(MOON_LED.map(function (a) { return a.key; }));
     activeMoonVariants = new Set(MOON_VARIANTS.map(function (v) { return v.key; }));
+    activeWellpass = new Set(WELLPASS_STATES.map(function (w) { return w.key; }));
     activeSizes = null;
     activeCountries = null;
     document.querySelectorAll('.legend .chip[data-dim]').forEach(function (el) { el.classList.add('selected'); });
@@ -1136,6 +1155,19 @@
             return chip('moonLed', a.key, a.label, stats.moonLedCounts[a.key], activeMoonLed.has(a.key));
           }).join('') +
         '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderWellpassSection(stats) {
+    return (
+      '<hr>' +
+      '<div class="subhdr">Wellpass</div>' +
+      '<div class="subnote">egym Wellpass coverage (DACH, manually curated).</div>' +
+      '<div class="chips">' +
+        WELLPASS_STATES.map(function (w) {
+          return chip('wellpass', w.key, w.label, stats.wellpassCounts[w.key], activeWellpass.has(w.key));
+        }).join('') +
       '</div>'
     );
   }
@@ -1303,6 +1335,7 @@
 
       div.innerHTML =
         boardTypeSection +
+        renderWellpassSection(stats) +
         renderKilterSection(stats) +
         renderMoonboardSection(stats) +
         renderCountrySection(stats) +
@@ -1337,6 +1370,7 @@
       moonCom: function () { return activeMoonCom; },
       moonLed: function () { return activeMoonLed; },
       moonVar: function () { return activeMoonVariants; },
+      wellpass: function () { return activeWellpass; },
     };
     document.querySelectorAll('.legend .chip[data-dim]').forEach(function (el) {
       el.addEventListener('click', function () {
@@ -1395,6 +1429,7 @@
       var moonComCounts = { commercial: 0, home: 0, unknown: 0 };
       var moonLedCounts = { led: 0, 'no-led': 0, unknown: 0 };
       var moonVariantCounts = Object.fromEntries(MOON_VARIANTS.map(function (v) { return [v.key, 0]; }));
+      var wellpassCounts = { yes: 0, no: 0, unknown: 0 };
       var sizeMap = new Map();
       var countryMap = new Map();
 
@@ -1437,6 +1472,8 @@
         }
         var country = props.country || null;
         if (country) countryMap.set(country, (countryMap.get(country) || 0) + 1);
+        var wellpass = (props.wellpass === true || props.wellpass === false) ? props.wellpass : null;
+        wellpassCounts[wellpass === true ? 'yes' : wellpass === false ? 'no' : 'unknown']++;
 
         var marker = buildMarker(lat, lon, props);
         cluster.addLayer(marker);
@@ -1449,6 +1486,7 @@
           city: props.city || null,
           boards: props.boards,
           country: country,
+          wellpass: wellpass,
         });
       }
 
@@ -1467,6 +1505,7 @@
         moonComCounts: moonComCounts,
         moonLedCounts: moonLedCounts,
         moonVariantCounts: moonVariantCounts,
+        wellpassCounts: wellpassCounts,
         sizeOptions: sizeOptions,
         countryOptions: countryOptions,
       });
