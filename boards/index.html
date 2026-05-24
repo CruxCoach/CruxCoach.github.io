@@ -408,6 +408,13 @@
     color: #888; font-size: 11px;
   }
   .popup-foot a { font-size: 11px; }
+  .popup-wellpass {
+    margin: 2px 0 6px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .popup-wellpass-yes { color: #2a8e3d; }
+  .popup-wellpass-no  { color: #999; font-weight: 500; }
 
   /* About / attribution panel under the map — collapsed by default so the
      map gets the vertical space; click the summary to expand. */
@@ -850,6 +857,12 @@
     var subtitle = subtitleParts.length
       ? '<div class="meta">' + subtitleParts.join(', ') + '</div>'
       : '';
+    var wellpassLine = '';
+    if (props.wellpass === true) {
+      wellpassLine = '<div class="popup-wellpass popup-wellpass-yes">✓ egym Wellpass</div>';
+    } else if (props.wellpass === false) {
+      wellpassLine = '<div class="popup-wellpass popup-wellpass-no">Not on egym Wellpass</div>';
+    }
     var sections = (props.boards || []).map(function (b) {
       var color = COLOR[b.board] || '#888';
       var detail = renderBoardDetails(b);
@@ -867,6 +880,7 @@
       '<div class="popup">' +
         '<h4>' + escapeHtml(props.name || '(unnamed)') + '</h4>' +
         subtitle +
+        wellpassLine +
         '<div class="popup-boards">' + sections + '</div>' +
         '<div class="popup-foot">' +
           '<a href="https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lon +
