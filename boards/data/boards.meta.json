@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-24T09:47:05.924Z",
-  "venue_features": 2774,
-  "raw_entries": 3021,
+  "generated_at": "2026-05-26T03:30:11.761Z",
+  "venue_features": 2773,
+  "raw_entries": 3020,
   "venues_with_multiple_boards": 101,
-  "country_from_coder": 2773,
+  "country_from_coder": 2772,
   "country_from_fallback": 0,
   "country_missing": 1,
   "overrides": {
@@ -19,7 +19,7 @@
   },
   "per_board": {
     "kilter": 1086,
-    "tension": 335,
+    "tension": 334,
     "grasshopper": 42,
     "decoy": 23,
     "soill": 9,
@@ -29,19 +29,19 @@
     "12climb": 4
   },
   "per_source": {
-    "hangtime": 3021
+    "hangtime": 3020
   },
   "sources": {
     "hangtime": {
       "package": "@hangtime/climbing-boards",
-      "version": "1.0.42",
+      "version": "1.0.43",
       "counts": {
         "kilter": {
           "kept": 1086,
           "dropped": 0
         },
         "tension": {
-          "kept": 335,
+          "kept": 334,
           "dropped": 0
         },
         "grasshopper": {
