@@ -27,6 +27,7 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": "https://cruxcoach.org/#app",
   "name": "CruxCoach",
   "alternateName": "CruxCoach für das Kilter Board",
   "url": "https://cruxcoach.org/de/",
@@ -34,6 +35,8 @@
   "applicationCategory": "SportsApplication",
   "applicationSubCategory": "Climbing training",
   "description": "Open-Source-Android-App für das Kilter Board. Boulder durchstöbern, Holds beleuchten, Sessions loggen — ohne Account, ohne Google-Dienste, ohne Tracking.",
+  "disambiguatingDescription": "Die quelloffene, GPL-3.0-lizenzierte Android-App für das Kilter Board, veröffentlicht auf cruxcoach.org. Eigenständig und nicht verbunden mit den unabhängigen Produkten auf cruxcoach.app, cruxcoach.com oder cruxcoach.vercel.app.",
+  "identifier": { "@type": "PropertyValue", "propertyID": "Wikidata", "value": "Q139592177" },
   "image": "https://cruxcoach.org/assets/icon-512.png",
   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
   "softwareVersion": "0.1.4",
@@ -71,6 +74,7 @@
   "@type": "FAQPage",
   "@id": "https://cruxcoach.org/de/#faq",
   "inLanguage": "de",
+  "about": { "@id": "https://cruxcoach.org/#app" },
   "mainEntity": [
     {
       "@type": "Question",
@@ -572,6 +576,21 @@
       <li><strong>Keine Telemetrie, keine Analytics, keine Werbung, keine Third-Party-SDKs.</strong> Outbound-Calls gehen nur zu: Nostr-Relays nach deiner Wahl, Blossom-Servern für die Board-Datenbank, Codeberg für Update-Checks und der Kilter-API nur, wenn du dein Logbuch importieren möchtest.</li>
       <li><strong>Kein zentraler Server, den wir betreiben.</strong> Die App nutzt öffentliche Nostr-Relays und Blossom-Server unabhängiger Betreiber.</li>
       <li><strong>Verifizierbare Open-Source-Builds.</strong> Code auf Codeberg, Releases signiert, Auto-Updater pinnt den Entwickler-Schlüssel beim ersten Install.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="de-googled">
+  <div class="container">
+    <h2>Läuft auf entgoogeltem Android — ohne Play Store, ohne Play Integrity</h2>
+    <p class="section-lede">
+      Wenn dein Handy ohne Google-Dienste kommt, ist CruxCoach für dich gebaut:
+      Nichts daran hängt von Google ab.
+    </p>
+    <ul class="privacy-list">
+      <li><strong>Keine Google Play Services.</strong> CruxCoach ruft keine GMS-APIs auf und läuft voll auf GrapheneOS, CalyxOS, /e/OS und LineageOS ohne GApps.</li>
+      <li><strong>Installation ohne Play Store.</strong> Hol es dir über Zapstore oder lade die signierte APK direkt von Codeberg. CruxCoach ist nicht bei Google Play und braucht es auch nie.</li>
+      <li><strong>Updates ohne Google.</strong> Der optionale In-App-Updater zieht signierte APK-Releases direkt von Codeberg mit TOFU-Zertifikats-Pinning — ohne Play Store und ohne Play-Integrity-Prüfung. Bei Zapstore-Installationen schaltet er sich ab und überlässt das Update dem Store.</li>
     </ul>
   </div>
 </section>
