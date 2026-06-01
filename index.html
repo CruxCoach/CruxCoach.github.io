@@ -67,6 +67,71 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://cruxcoach.org/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is CruxCoach free and open source?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. CruxCoach is licensed under the GNU General Public License v3.0 and costs nothing — no ads, no paid tiers, no in-app purchases. The full source code is on Codeberg, with a read-only mirror on GitHub, so anyone can audit, fork, or build it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CruxCoach work without a Google account or Google services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. CruxCoach needs no account and no Google Mobile Services. Your identity is a Nostr keypair generated on first launch and stored in the Android Keystore. It runs on de-Googled phones such as GrapheneOS, /e/OS and LineageOS without GApps, on Android 9 or later with Bluetooth LE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Kilter Board sizes and angles does it support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All of them. CruxCoach works with every Kilter Board size and adjustable angle, and ships a database of 85,000+ climbs you can filter by grade, angle, quality, move count and setter. It connects directly to the board over Bluetooth LE to light up the holds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I install CruxCoach?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two ways today: install from Zapstore (recommended — it verifies developer signatures and auto-updates), or download the signed APK directly from Codeberg releases and sideload it. F-Droid and IzzyOnDroid are planned. CruxCoach is not on Google Play."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I import my existing Kilter logbook?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Sign in with your Kilter account once and CruxCoach pulls your existing logbook over. After that your data stays portable and on-device: export it to JSON, or turn on optional encrypted backup that only your Nostr key can restore."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my training data private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, by architecture. Personal data lives in an SQLCipher-encrypted database on your device, with the key held in the Android Keystore. There is no telemetry, no analytics and no third-party SDKs. Nothing is uploaded unless you opt in to encrypted backup over the open Nostr and Blossom networks, which only you can decrypt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I find a Kilter Board or MoonBoard near me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CruxCoach publishes a free interactive board map covering 2,700+ venues across nine board systems in 80+ countries — Kilter Board, Tension Board, MoonBoard and six more — filterable by board type, country and wall details."
+      }
+    }
+  ]
+}
+</script>
 <style>
   :root {
     --bg: #141312;
@@ -312,6 +377,11 @@
   }
   .dev-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; font-size: 0.95rem; }
 
+  /* FAQ */
+  .faq-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: 1.5rem 2.5rem; }
+  .faq-item h3 { color: var(--fg); margin-bottom: 0.4rem; }
+  .faq-item p { color: var(--fg-soft); margin: 0; }
+
   /* Footer */
   footer {
     border-top: 1px solid var(--rule);
@@ -364,6 +434,7 @@
     <nav>
       <a href="#features">Features</a>
       <a href="#install">Install</a>
+      <a href="#faq">FAQ</a>
       <a href="#contribute">Contribute</a>
       <a href="/boards/" class="nav-cta">Board Map</a>
       <span class="lang"><span aria-current="true">EN</span><span class="lang-sep"> · </span><a href="/de/">DE</a></span>
@@ -551,6 +622,43 @@
         <h3>IzzyOnDroid <span class="badge badge-soft">coming soon</span></h3>
         <p>Third-party F-Droid-compatible repo. Preserves the developer signature. Planned future channel.</p>
         <span class="btn btn-disabled">Pending</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <h2>Frequently asked questions</h2>
+    <p class="section-lede">The questions people actually ask before installing.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Is CruxCoach free and open source?</h3>
+        <p>Yes. CruxCoach is licensed under the GNU General Public License v3.0 and costs nothing — no ads, no paid tiers, no in-app purchases. The full source code is on Codeberg, with a read-only mirror on GitHub, so anyone can audit, fork, or build it.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does it work without a Google account or Google services?</h3>
+        <p>Yes. CruxCoach needs no account and no Google Mobile Services. Your identity is a Nostr keypair generated on first launch and stored in the Android Keystore. It runs on de-Googled phones such as GrapheneOS, /e/OS and LineageOS without GApps, on Android 9 or later with Bluetooth LE.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Which Kilter Board sizes and angles does it support?</h3>
+        <p>All of them. CruxCoach works with every Kilter Board size and adjustable angle, and ships a database of 85,000+ climbs you can filter by grade, angle, quality, move count and setter. It connects directly to the board over Bluetooth LE to light up the holds.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I install CruxCoach?</h3>
+        <p>Two ways today: install from <a href="https://zapstore.dev/apps/com.cruxcoach.android">Zapstore</a> (recommended — it verifies developer signatures and auto-updates), or download the signed APK directly from <a href="https://codeberg.org/CruxCoach/CruxCoach/releases">Codeberg releases</a> and sideload it. F-Droid and IzzyOnDroid are planned. CruxCoach is not on Google Play.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I import my existing Kilter logbook?</h3>
+        <p>Yes. Sign in with your Kilter account once and CruxCoach pulls your existing logbook over. After that your data stays portable and on-device: export it to JSON, or turn on optional encrypted backup that only your Nostr key can restore.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is my training data private?</h3>
+        <p>Yes, by architecture. Personal data lives in an SQLCipher-encrypted database on your device, with the key held in the Android Keystore. There is no telemetry, no analytics and no third-party SDKs. Nothing is uploaded unless you opt in to encrypted backup over the open Nostr and Blossom networks, which only you can decrypt.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Where can I find a Kilter Board or MoonBoard near me?</h3>
+        <p>CruxCoach publishes a free interactive <a href="/boards/">board map</a> covering 2,700+ venues across nine board systems in 80+ countries — Kilter Board, Tension Board, MoonBoard and six more — filterable by board type, country and wall details.</p>
       </div>
     </div>
   </div>

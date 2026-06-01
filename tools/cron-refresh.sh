@@ -68,10 +68,13 @@ run() {
 
   # Only the data file is load-bearing for change detection — meta.json
   # has a fresh `generated_at` every build, so checking both would
-  # produce a daily no-op commit even when upstream is unchanged.
+  # produce a daily no-op commit even when upstream is unchanged. The
+  # generated HTML (boards/list.html + the injected block in
+  # boards/index.html) is a pure function of the data with no timestamp,
+  # so it changes if and only if boards.geojson does.
   if git diff --quiet boards/data/boards.geojson; then
-    echo "no dataset change; restoring meta.json + exiting"
-    git checkout -- boards/data/boards.meta.json
+    echo "no dataset change; restoring generated files + exiting"
+    git checkout -- boards/data/boards.meta.json boards/list.html boards/index.html
     return 0
   fi
 
@@ -79,7 +82,7 @@ run() {
   summary="$(/usr/bin/jq -r '"v" + .sources.hangtime.version + ", " + (.venue_features|tostring) + " venues (" + (.venues_with_multiple_boards|tostring) + " multi-board)"' boards/data/boards.meta.json)"
 
   echo "-- dataset changed: $summary"
-  git add boards/data/boards.geojson boards/data/boards.meta.json
+  git add boards/data/boards.geojson boards/data/boards.meta.json boards/list.html boards/index.html
   git -c user.name=CruxCoach -c user.email=dev@cruxcoach.de \
       commit -m "data(boards): daily refresh — $summary" \
     || { echo "commit failed"; return 3; }

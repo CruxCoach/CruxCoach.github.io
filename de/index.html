@@ -65,6 +65,72 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://cruxcoach.org/de/#faq",
+  "inLanguage": "de",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ist CruxCoach kostenlos und quelloffen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. CruxCoach steht unter der GNU General Public License v3.0 und kostet nichts — keine Werbung, keine Bezahlstufen, keine In-App-Käufe. Der gesamte Quellcode liegt auf Codeberg, mit einem schreibgeschützten Spiegel auf GitHub, sodass jede:r ihn prüfen, forken oder selbst bauen kann."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Funktioniert CruxCoach ohne Google-Konto oder Google-Dienste?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 9 mit Bluetooth LE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Kilter-Board-Größen und -Winkel werden unterstützt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alle. CruxCoach funktioniert mit jeder Kilter-Board-Größe und jedem verstellbaren Winkel und bringt eine Datenbank mit über 85.000 Bouldern mit, filterbar nach Grad, Winkel, Qualität, Zuganzahl und Setter. Die App verbindet sich direkt per Bluetooth LE mit dem Board, um die Griffe zu beleuchten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie installiere ich CruxCoach?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Heute auf zwei Wegen: über Zapstore (empfohlen — prüft Entwicklersignaturen und aktualisiert automatisch) oder durch direkten Download der signierten APK aus den Codeberg-Releases und manuelles Sideloading. F-Droid und IzzyOnDroid sind geplant. CruxCoach ist nicht bei Google Play."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich mein bestehendes Kilter-Logbuch importieren?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Melde dich einmal mit deinem Kilter-Konto an, und CruxCoach holt dein bestehendes Logbuch herüber. Danach bleiben deine Daten portabel und auf dem Gerät: Export als JSON oder optionales verschlüsseltes Backup, das nur dein Nostr-Schlüssel wiederherstellen kann."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sind meine Trainingsdaten privat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, durch die Architektur. Persönliche Daten liegen in einer mit SQLCipher verschlüsselten Datenbank auf deinem Gerät, der Schlüssel im Android-Keystore. Es gibt keine Telemetrie, keine Analyse und keine Dritt-SDKs. Nichts wird hochgeladen, außer du aktivierst das verschlüsselte Backup über die offenen Netze Nostr und Blossom, das nur du entschlüsseln kannst."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wo finde ich ein Kilter Board oder MoonBoard in meiner Nähe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CruxCoach veröffentlicht eine kostenlose interaktive Board-Karte mit über 2.700 Standorten über neun Board-Systeme in über 80 Ländern — Kilter Board, Tension Board, MoonBoard und sechs weitere — filterbar nach Board-Typ, Land und Wand-Details."
+      }
+    }
+  ]
+}
+</script>
 <link rel="alternate" hreflang="en" href="https://cruxcoach.org/">
 <link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/">
 <link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/">
@@ -303,6 +369,11 @@
   }
   .dev-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; font-size: 0.95rem; }
 
+  /* FAQ */
+  .faq-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: 1.5rem 2.5rem; }
+  .faq-item h3 { color: var(--fg); margin-bottom: 0.4rem; }
+  .faq-item p { color: var(--fg-soft); margin: 0; }
+
   footer {
     border-top: 1px solid var(--rule);
     padding: 3rem 0 4rem;
@@ -354,6 +425,7 @@
     <nav>
       <a href="#features">Funktionen</a>
       <a href="#install">Installieren</a>
+      <a href="#faq">FAQ</a>
       <a href="#contribute">Mitmachen</a>
       <a href="/boards/" class="nav-cta">Board Map</a>
       <span class="lang"><a href="/">EN</a><span class="lang-sep"> · </span><span aria-current="true">DE</span></span>
@@ -544,6 +616,43 @@
         <h3>IzzyOnDroid <span class="badge badge-soft">demnächst</span></h3>
         <p>Drittanbieter-F-Droid-kompatibles Repo. Behält die Entwickler-Signatur. Geplanter zukünftiger Kanal.</p>
         <span class="btn btn-disabled">In Vorbereitung</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <h2>Häufige Fragen</h2>
+    <p class="section-lede">Die Fragen, die Leute vor dem Installieren wirklich stellen.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Ist CruxCoach kostenlos und quelloffen?</h3>
+        <p>Ja. CruxCoach steht unter der GNU General Public License v3.0 und kostet nichts — keine Werbung, keine Bezahlstufen, keine In-App-Käufe. Der gesamte Quellcode liegt auf Codeberg, mit einem schreibgeschützten Spiegel auf GitHub, sodass jede:r ihn prüfen, forken oder selbst bauen kann.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Funktioniert es ohne Google-Konto oder Google-Dienste?</h3>
+        <p>Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 9 mit Bluetooth LE.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Welche Kilter-Board-Größen und -Winkel werden unterstützt?</h3>
+        <p>Alle. CruxCoach funktioniert mit jeder Kilter-Board-Größe und jedem verstellbaren Winkel und bringt eine Datenbank mit über 85.000 Bouldern mit, filterbar nach Grad, Winkel, Qualität, Zuganzahl und Setter. Die App verbindet sich direkt per Bluetooth LE mit dem Board, um die Griffe zu beleuchten.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Wie installiere ich CruxCoach?</h3>
+        <p>Heute auf zwei Wegen: über <a href="https://zapstore.dev/apps/com.cruxcoach.android">Zapstore</a> (empfohlen — prüft Entwicklersignaturen und aktualisiert automatisch) oder durch direkten Download der signierten APK aus den <a href="https://codeberg.org/CruxCoach/CruxCoach/releases">Codeberg-Releases</a> und manuelles Sideloading. F-Droid und IzzyOnDroid sind geplant. CruxCoach ist nicht bei Google Play.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Kann ich mein bestehendes Kilter-Logbuch importieren?</h3>
+        <p>Ja. Melde dich einmal mit deinem Kilter-Konto an, und CruxCoach holt dein bestehendes Logbuch herüber. Danach bleiben deine Daten portabel und auf dem Gerät: Export als JSON oder optionales verschlüsseltes Backup, das nur dein Nostr-Schlüssel wiederherstellen kann.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Sind meine Trainingsdaten privat?</h3>
+        <p>Ja, durch die Architektur. Persönliche Daten liegen in einer mit SQLCipher verschlüsselten Datenbank auf deinem Gerät, der Schlüssel im Android-Keystore. Es gibt keine Telemetrie, keine Analyse und keine Dritt-SDKs. Nichts wird hochgeladen, außer du aktivierst das verschlüsselte Backup über die offenen Netze Nostr und Blossom, das nur du entschlüsseln kannst.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Wo finde ich ein Kilter Board oder MoonBoard in meiner Nähe?</h3>
+        <p>CruxCoach veröffentlicht eine kostenlose interaktive <a href="/boards/">Board-Karte</a> mit über 2.700 Standorten über neun Board-Systeme in über 80 Ländern — Kilter Board, Tension Board, MoonBoard und sechs weitere — filterbar nach Board-Typ, Land und Wand-Details.</p>
       </div>
     </div>
   </div>

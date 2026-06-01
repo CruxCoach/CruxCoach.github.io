@@ -450,6 +450,11 @@
   .info-body dl { margin: 0; }
   .info-body dt { font-weight: 600; color: var(--fg); margin-top: 0.9em; }
   .info-body dd { margin: 0.2em 0 0; }
+  .info-body .muted { color: var(--fg-mute); }
+  .info-body table.board-counts { border-collapse: collapse; margin: 0.8em 0; font-size: 0.95rem; }
+  .info-body table.board-counts th, .info-body table.board-counts td { text-align: left; padding: 0.3rem 1.5rem 0.3rem 0; border-bottom: 1px solid var(--rule); }
+  .info-body table.board-counts td:last-child, .info-body table.board-counts th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  .info-body table.board-counts tfoot td { font-weight: 600; color: var(--fg); border-bottom: 0; border-top: 2px solid var(--rule); }
 
   footer {
     background: var(--bg);
@@ -560,6 +565,33 @@
       some are home or garage setups whose owner chose to list the location
       publicly.
     </p>
+
+    <!-- GENERATED:board-stats START — produced by tools/build-boards-data.mjs; do not hand-edit between these markers, rebuild instead -->
+    <p>
+      The map currently plots <strong>2,774 venues</strong>
+      across <strong>nine board systems</strong> in <strong>84 countries</strong>.
+      Counts per system (a gym with two boards is counted once per system):
+    </p>
+    <table class="board-counts">
+    <thead><tr><th scope="col">Board system</th><th scope="col">Venues</th></tr></thead>
+    <tbody>
+      <tr><td>MoonBoard</td><td>1,514</td></tr>
+      <tr><td>Kilter Board</td><td>1,088</td></tr>
+      <tr><td>Tension Board</td><td>334</td></tr>
+      <tr><td>Grasshopper</td><td>42</td></tr>
+      <tr><td>Decoy</td><td>23</td></tr>
+      <tr><td>So iLL</td><td>9</td></tr>
+      <tr><td>Touchstone</td><td>5</td></tr>
+      <tr><td>12climb</td><td>4</td></tr>
+      <tr><td>Aurora</td><td>3</td></tr>
+    </tbody>
+    <tfoot><tr><td>Distinct venues</td><td>2,774</td></tr></tfoot>
+  </table>
+    <p>
+      Prefer a plain list? <a href="/boards/list.html">Browse the full directory of
+      all 2,774 venues, grouped by country →</a>
+    </p>
+    <!-- GENERATED:board-stats END -->
 
     <h3>How to use the map</h3>
     <ul>

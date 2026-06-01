@@ -19,12 +19,41 @@ The script then pulls the latest `@hangtime/climbing-boards` from npm,
 normalizes every feature, drops malformed/incomplete entries, groups
 into venues by `(lat, lon)` rounded to ~10 m, and rewrites:
 
-- `boards/data/boards.geojson` — what the page fetches
+- `boards/data/boards.geojson` — what the map page fetches at runtime
 - `boards/data/boards.meta.json` — build timestamp + per-board + per-source counts
+- `boards/list.html` — a full **static** directory of every venue grouped by
+  country (see "Static HTML" below)
+- `boards/index.html` — the per-board counts table between its
+  `<!-- GENERATED:board-stats -->` markers is re-injected
 
 Then commit the regenerated files. The cadence is "whenever you remember"
 for now; if the dataset starts mattering for users, automate via a cron
 that runs the script and commits/pushes on diff.
+
+## Static HTML (`render-static.mjs`)
+
+The map renders entirely in client-side JavaScript, fetching
+`boards/data/boards.geojson` at runtime. Crawlers that don't execute JS —
+which includes the AI assistants (ChatGPT, Claude, Perplexity all read HTML
+snapshots only) — therefore can't see a single venue, city or country. So
+`build-boards-data.mjs` also emits static HTML via `tools/render-static.mjs`:
+
+- **`renderListPage()`** → `boards/list.html`: a full text directory of every
+  venue, grouped by country, with a per-board counts table and a country
+  table-of-contents. This is the crawlable, citable artifact; it's linked
+  from the map page and listed in `sitemap.xml`.
+- **`renderStatsBlock()`** → the inner HTML between the
+  `<!-- GENERATED:board-stats START … END -->` markers in `boards/index.html`.
+  Editing inside those markers by hand is pointless — the next build
+  overwrites it. Edit the prose *outside* the markers freely; if you ever
+  remove the markers, the build warns and skips injection rather than
+  crashing.
+
+**Both outputs are a pure function of the venue data — deliberately no build
+timestamp.** Re-running on an unchanged dataset produces byte-identical HTML,
+so the nightly `cron-refresh.sh` (which keys change-detection on
+`boards.geojson`) never makes a no-op commit. Volatile metadata like the build
+time stays in `boards.meta.json`, which the pages link to.
 
 ## Adding a new source
 
