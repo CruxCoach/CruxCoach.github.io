@@ -74,10 +74,18 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Ist CruxCoach kostenlos und quelloffen?",
+      "name": "Ist CruxCoach eine Alternative zur offiziellen Kilter-Board-App?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. CruxCoach steht unter der GNU General Public License v3.0 und kostet nichts — keine Werbung, keine Bezahlstufen, keine In-App-Käufe. Der gesamte Quellcode liegt auf Codeberg, mit einem schreibgeschützten Spiegel auf GitHub, sodass jede:r ihn prüfen, forken oder selbst bauen kann."
+        "text": "Ja. CruxCoach ist eine unabhängige, quelloffene Android-App für das Kilter Board — nicht verbunden mit Kilter, LLC oder Aurora Climbing. Sie zeigt Climbs an, beleuchtet die Griffe per Bluetooth und loggt deine Begehungen auf deinem eigenen Gerät, ohne Konto und ohne Google-Dienste. Sie steht unter der GPL-3.0 und konzentriert sich auf das Kilter Board unter Android, statt jedes Board auf jeder Plattform abdecken zu wollen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bekomme ich meine alten Kilter-Board-Daten zurück, nachdem die App abgeschaltet wurde?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Fordere bei Aurora, dem Betreiber der alten App, einen Datenexport an — du erhältst per E-Mail eine JSON-Datei. Öffne in CruxCoach Einstellungen → Von Aurora migrieren, um sie zu importieren: deine Begehungen, Versuche, Circuits und Bid-History landen in deinem lokalen Logbuch, und ein erneuter Import derselben Datei ist gefahrlos. Wenn du noch ein funktionierendes Kilter-Konto hast, kannst du dich stattdessen einmal anmelden und dein Logbuch direkt importieren. So oder so liegen die Daten danach verschlüsselt auf deinem Gerät."
       }
     },
     {
@@ -85,39 +93,15 @@
       "name": "Funktioniert CruxCoach ohne Google-Konto oder Google-Dienste?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 9 mit Bluetooth LE."
+        "text": "Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 9 mit Bluetooth LE. Es gibt keine Telemetrie, keine Analyse und keine Dritt-SDKs."
       }
     },
     {
       "@type": "Question",
-      "name": "Welche Kilter-Board-Größen und -Winkel werden unterstützt?",
+      "name": "Welche Boards und Android-Versionen unterstützt CruxCoach?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Alle. CruxCoach funktioniert mit jeder Kilter-Board-Größe und jedem verstellbaren Winkel und bringt eine Datenbank mit über 85.000 Bouldern mit, filterbar nach Grad, Winkel, Qualität, Zuganzahl und Setter. Die App verbindet sich direkt per Bluetooth LE mit dem Board, um die Griffe zu beleuchten."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wie installiere ich CruxCoach?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Heute auf zwei Wegen: über Zapstore (empfohlen — prüft Entwicklersignaturen und aktualisiert automatisch) oder durch direkten Download der signierten APK aus den Codeberg-Releases und manuelles Sideloading. F-Droid und IzzyOnDroid sind geplant. CruxCoach ist nicht bei Google Play."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kann ich mein bestehendes Kilter-Logbuch importieren?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Melde dich einmal mit deinem Kilter-Konto an, und CruxCoach holt dein bestehendes Logbuch herüber. Danach bleiben deine Daten portabel und auf dem Gerät: Export als JSON oder optionales verschlüsseltes Backup, das nur dein Nostr-Schlüssel wiederherstellen kann."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Sind meine Trainingsdaten privat?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, durch die Architektur. Persönliche Daten liegen in einer mit SQLCipher verschlüsselten Datenbank auf deinem Gerät, der Schlüssel im Android-Keystore. Es gibt keine Telemetrie, keine Analyse und keine Dritt-SDKs. Nichts wird hochgeladen, außer du aktivierst das verschlüsselte Backup über die offenen Netze Nostr und Blossom, das nur du entschlüsseln kannst."
+        "text": "Die App ist für das Kilter Board gebaut — alle Größen und verstellbaren Winkel — ab Android 9 mit Bluetooth LE, und bringt eine Datenbank mit über 85.000 Bouldern mit, filterbar nach Grad, Winkel, Qualität, Zuganzahl und Setter. Die separate Board-Karte ist breiter: Sie listet Standorte für neun Board-Systeme, darunter das Tension Board und MoonBoard."
       }
     },
     {
@@ -627,28 +611,20 @@
     <p class="section-lede">Die Fragen, die Leute vor dem Installieren wirklich stellen.</p>
     <div class="faq-list">
       <div class="faq-item">
-        <h3>Ist CruxCoach kostenlos und quelloffen?</h3>
-        <p>Ja. CruxCoach steht unter der GNU General Public License v3.0 und kostet nichts — keine Werbung, keine Bezahlstufen, keine In-App-Käufe. Der gesamte Quellcode liegt auf Codeberg, mit einem schreibgeschützten Spiegel auf GitHub, sodass jede:r ihn prüfen, forken oder selbst bauen kann.</p>
+        <h3>Ist CruxCoach eine Alternative zur offiziellen Kilter-Board-App?</h3>
+        <p>Ja. CruxCoach ist eine unabhängige, quelloffene Android-App für das Kilter Board — nicht verbunden mit Kilter, LLC oder Aurora Climbing. Sie zeigt Climbs an, beleuchtet die Griffe per Bluetooth und loggt deine Begehungen auf deinem eigenen Gerät, ohne Konto und ohne Google-Dienste. Sie steht unter der GPL-3.0 und konzentriert sich auf das Kilter Board unter Android, statt jedes Board auf jeder Plattform abdecken zu wollen.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Bekomme ich meine alten Kilter-Board-Daten zurück, nachdem die App abgeschaltet wurde?</h3>
+        <p>Ja. Fordere bei Aurora, dem Betreiber der alten App, einen Datenexport an — du erhältst per E-Mail eine JSON-Datei. Öffne in CruxCoach Einstellungen → Von Aurora migrieren, um sie zu importieren: deine Begehungen, Versuche, Circuits und Bid-History landen in deinem lokalen Logbuch, und ein erneuter Import derselben Datei ist gefahrlos. Wenn du noch ein funktionierendes Kilter-Konto hast, kannst du dich stattdessen einmal anmelden und dein Logbuch direkt importieren. So oder so liegen die Daten danach verschlüsselt auf deinem Gerät.</p>
       </div>
       <div class="faq-item">
         <h3>Funktioniert es ohne Google-Konto oder Google-Dienste?</h3>
-        <p>Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 9 mit Bluetooth LE.</p>
+        <p>Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 9 mit Bluetooth LE. Es gibt keine Telemetrie, keine Analyse und keine Dritt-SDKs.</p>
       </div>
       <div class="faq-item">
-        <h3>Welche Kilter-Board-Größen und -Winkel werden unterstützt?</h3>
-        <p>Alle. CruxCoach funktioniert mit jeder Kilter-Board-Größe und jedem verstellbaren Winkel und bringt eine Datenbank mit über 85.000 Bouldern mit, filterbar nach Grad, Winkel, Qualität, Zuganzahl und Setter. Die App verbindet sich direkt per Bluetooth LE mit dem Board, um die Griffe zu beleuchten.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Wie installiere ich CruxCoach?</h3>
-        <p>Heute auf zwei Wegen: über <a href="https://zapstore.dev/apps/com.cruxcoach.android">Zapstore</a> (empfohlen — prüft Entwicklersignaturen und aktualisiert automatisch) oder durch direkten Download der signierten APK aus den <a href="https://codeberg.org/CruxCoach/CruxCoach/releases">Codeberg-Releases</a> und manuelles Sideloading. F-Droid und IzzyOnDroid sind geplant. CruxCoach ist nicht bei Google Play.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Kann ich mein bestehendes Kilter-Logbuch importieren?</h3>
-        <p>Ja. Melde dich einmal mit deinem Kilter-Konto an, und CruxCoach holt dein bestehendes Logbuch herüber. Danach bleiben deine Daten portabel und auf dem Gerät: Export als JSON oder optionales verschlüsseltes Backup, das nur dein Nostr-Schlüssel wiederherstellen kann.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Sind meine Trainingsdaten privat?</h3>
-        <p>Ja, durch die Architektur. Persönliche Daten liegen in einer mit SQLCipher verschlüsselten Datenbank auf deinem Gerät, der Schlüssel im Android-Keystore. Es gibt keine Telemetrie, keine Analyse und keine Dritt-SDKs. Nichts wird hochgeladen, außer du aktivierst das verschlüsselte Backup über die offenen Netze Nostr und Blossom, das nur du entschlüsseln kannst.</p>
+        <h3>Welche Boards und Android-Versionen unterstützt CruxCoach?</h3>
+        <p>Die App ist für das Kilter Board gebaut — alle Größen und verstellbaren Winkel — ab Android 9 mit Bluetooth LE, und bringt eine Datenbank mit über 85.000 Bouldern mit, filterbar nach Grad, Winkel, Qualität, Zuganzahl und Setter. Die separate <a href="/boards/">Board-Karte</a> ist breiter: Sie listet Standorte für neun Board-Systeme, darunter das Tension Board und MoonBoard.</p>
       </div>
       <div class="faq-item">
         <h3>Wo finde ich ein Kilter Board oder MoonBoard in meiner Nähe?</h3>
