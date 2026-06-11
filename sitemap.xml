@@ -22,12 +22,36 @@
 
   <url>
     <loc>https://cruxcoach.org/boards/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cruxcoach.org/boards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/boards/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/boards/"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://cruxcoach.org/de/boards/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cruxcoach.org/boards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/boards/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/boards/"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://cruxcoach.org/boards/list.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cruxcoach.org/boards/list.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/boards/list.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/boards/list.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://cruxcoach.org/de/boards/list.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cruxcoach.org/boards/list.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/boards/list.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/boards/list.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

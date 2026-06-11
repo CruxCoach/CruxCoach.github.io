@@ -47,6 +47,10 @@ var CORE = [
   '/boards/',
   '/boards/index.html',
   '/boards/list.html',
+  '/boards/map.js',
+  '/de/boards/',
+  '/de/boards/index.html',
+  '/de/boards/list.html',
   '/assets/logo.svg',
   '/assets/icon-512.png',
   '/mirrors.json'
