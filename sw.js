@@ -26,7 +26,7 @@
 
 'use strict';
 
-var VERSION = 'cc-v13';
+var VERSION = 'cc-v14';
 var CACHE = 'cruxcoach-' + VERSION;
 var MIRRORS_KEY = '/__mirrors__';
 
@@ -40,11 +40,13 @@ var CORE = [
   '/imprint.html',
   '/privacy.html',
   '/support.html',
+  '/de/imprint.html',
   '/de/privacy.html',
   '/de/support.html',
   '/404.html',
   '/boards/',
   '/boards/index.html',
+  '/boards/list.html',
   '/assets/logo.svg',
   '/assets/icon-512.png',
   '/mirrors.json'
