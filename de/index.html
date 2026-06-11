@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CruxCoach — Open-Source-Android-App für Kilter Board, MoonBoard &amp; Tension Board</title>
-<meta name="description" content="Open-Source-Android-App für das Kilter Board, MoonBoard, Tension Board und vier weitere Trainingsboards. Boulder durchstöbern, Holds beleuchten, Sessions loggen — ohne Account, ohne Google, ohne Tracking.">
+<meta name="description" content="Open-Source-Android-App für das Kilter Board, MoonBoard, Tension Board und vier weitere Trainingsboards. Boulder durchstöbern, Griffe beleuchten, Sessions loggen — ohne Account, ohne Google, ohne Tracking.">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://cruxcoach.org/de/">
 <meta property="og:title" content="CruxCoach — Open-Source-Android-App für Kilter Board, MoonBoard &amp; Tension Board">
-<meta property="og:description" content="Boulder auf Kilter, MoonBoard, Tension und mehr durchstöbern — Holds beleuchten, Sessions loggen, ohne Account, ohne Google, ohne Tracking.">
+<meta property="og:description" content="Boulder auf Kilter, MoonBoard, Tension und mehr durchstöbern — Griffe beleuchten, Sessions loggen, ohne Account, ohne Google, ohne Tracking.">
 <meta property="og:url" content="https://cruxcoach.org/de/">
 <meta property="og:site_name" content="CruxCoach">
 <meta property="og:locale:alternate" content="en_US">
@@ -20,7 +20,7 @@
 <meta property="og:locale" content="de_DE">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CruxCoach — Open-Source-Android-App für Kilter Board, MoonBoard &amp; Tension Board">
-<meta name="twitter:description" content="Boulder auf Kilter, MoonBoard, Tension und mehr durchstöbern — Holds beleuchten, Sessions loggen, ohne Account, ohne Google, ohne Tracking.">
+<meta name="twitter:description" content="Boulder auf Kilter, MoonBoard, Tension und mehr durchstöbern — Griffe beleuchten, Sessions loggen, ohne Account, ohne Google, ohne Tracking.">
 <meta name="twitter:image" content="https://cruxcoach.org/assets/icon-512.png">
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
@@ -36,7 +36,7 @@
   "operatingSystem": "Android 9+",
   "applicationCategory": "SportsApplication",
   "applicationSubCategory": "Climbing training",
-  "description": "Open-Source-Android-App für das Kilter Board, MoonBoard und fünf weitere Trainingsboards (Tension, Grasshopper, Decoy, So iLL, Touchstone). Boulder durchstöbern, Holds beleuchten, Sessions loggen — ohne Account, ohne Google-Dienste, ohne Tracking.",
+  "description": "Open-Source-Android-App für das Kilter Board, MoonBoard und fünf weitere Trainingsboards (Tension, Grasshopper, Decoy, So iLL, Touchstone). Boulder durchstöbern, Griffe beleuchten, Sessions loggen — ohne Account, ohne Google-Dienste, ohne Tracking.",
   "disambiguatingDescription": "Die quelloffene, GPL-3.0-lizenzierte Android-App für das Kilter Board, MoonBoard und weitere standardisierte Trainingsboards, veröffentlicht auf cruxcoach.org. Eigenständig und nicht verbunden mit den unabhängigen Produkten auf cruxcoach.app, cruxcoach.com oder cruxcoach.vercel.app.",
   "identifier": { "@type": "PropertyValue", "propertyID": "Wikidata", "value": "Q139592177" },
   "image": "https://cruxcoach.org/assets/icon-512.png",
@@ -65,9 +65,9 @@
   "softwareRequirements": "Android 9 oder neuer, Bluetooth LE",
   "featureList": [
     "Boulder für Kilter, MoonBoard, Tension, Grasshopper, Decoy, So iLL und Touchstone durchstöbern",
-    "Holds am physischen Board per Bluetooth LE beleuchten",
+    "Griffe am physischen Board per Bluetooth LE aufleuchten lassen",
     "Filtern nach Grad, Winkel, Qualität, Zuganzahl und Setter",
-    "Boulder nach Hold-Kombination suchen",
+    "Boulder nach Griff-Kombination suchen",
     "Verschlüsseltes lokales Logbuch (SQLCipher)",
     "Eigene Boulder setzen und über Nostr mit der Community teilen",
     "Offline-Board-Standortkarte mit Hallensuche",
@@ -446,13 +446,13 @@
     <div>
       <h1>Eine Open-Source-Android-App für dein Board.</h1>
       <p class="hero-lede">
-        Kilter, MoonBoard, Tension und mehr — Boulder durchstöbern, Holds
-        beleuchten, deine Sessions loggen, ohne Account, ohne Google-Dienste,
-        ohne dass jemand dein Training trackt.
+        Kilter, MoonBoard, Tension und mehr — Boulder durchstöbern, Griffe am
+        Board aufleuchten lassen, deine Sessions loggen, ohne Account, ohne
+        Google-Dienste, ohne dass jemand dein Training mitschreibt.
       </p>
       <ul class="hero-bullets">
         <li>7 Board-Systeme, eine App</li>
-        <li>Eigene Hold-Farben</li>
+        <li>Eigene Griff-Farben</li>
         <li>Verschlüsseltes Logbuch</li>
         <li>Deutsche &amp; englische UI</li>
       </ul>
@@ -485,7 +485,7 @@
           </svg>
         </span>
         <h3>Den Katalog jedes Boards durchstöbern</h3>
-        <p>Kilter, MoonBoard und fünf weitere Boards. Filtern nach Grad, Winkel, Qualität, Move-Anzahl, Setter. Funktioniert offline, sobald die Board-Datenbank synchronisiert ist.</p>
+        <p>Kilter, MoonBoard und fünf weitere Boards — über 490.000 Boulder insgesamt. Filtern nach Grad, Winkel, Qualität, Zuganzahl, Setter. Funktioniert offline, sobald die Board-Datenbank synchronisiert ist.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -493,8 +493,8 @@
             <path d="M6.5 6.5 L17.5 17.5 L12 22 L12 2 L17.5 6.5 L6.5 17.5"/>
           </svg>
         </span>
-        <h3>Holds via Bluetooth beleuchten</h3>
-        <p>Direkte BLE-Verbindung zu Kilter Board, MoonBoard, Tension Board und mehr. Eigene Farben für Start-, Hand-, Fuß- und Finish-Holds.</p>
+        <h3>Griffe per Bluetooth aufleuchten lassen</h3>
+        <p>Direkte BLE-Verbindung zu Kilter Board, MoonBoard, Tension Board und mehr. Eigene Farben pro Rolle: Start-, Hand-, Fuß- und Top-Griffe.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -507,8 +507,8 @@
             <line x1="20" y1="12" x2="22" y2="12"/>
           </svg>
         </span>
-        <h3>Nach Hold suchen</h3>
-        <p>Tippe Holds auf dem Board-Bild an. Finde alle Boulder, die genau diese Kombination nutzen.</p>
+        <h3>Nach Griff suchen</h3>
+        <p>Tippe Griffe auf dem Board-Bild an. Finde alle Boulder, die genau diese Kombination nutzen.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -529,7 +529,7 @@
           </svg>
         </span>
         <h3>Mit Kletterern in der Nähe teilen</h3>
-        <p>Andere CruxCoach-User am selben Board sehen deinen aktuellen Boulder per Bluetooth — und du siehst ihre. Kein Internet, kein Account.</p>
+        <p>Andere CruxCoach-Nutzer am selben Board sehen deinen aktuellen Boulder per Bluetooth — und du ihren. Kein Internet, kein Account.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -546,8 +546,8 @@
 
     <div class="gallery">
       <figure>
-        <img src="/assets/screenshots/climb-detail.png" alt="CruxCoach-Boulder-Detail mit Routenname, Grad, Stats und den Holds markiert auf einer Board-Ansicht" loading="lazy">
-        <figcaption>Boulder-Detail — Grad, Stats und Hold-Sequenz auf einen Blick</figcaption>
+        <img src="/assets/screenshots/climb-detail.png" alt="CruxCoach-Boulder-Detail mit Routenname, Grad, Stats und den Griffen markiert auf einer Board-Ansicht" loading="lazy">
+        <figcaption>Boulder-Detail — Grad, Stats und Griff-Sequenz auf einen Blick</figcaption>
       </figure>
       <figure>
         <img src="/assets/screenshots/logbook.png" alt="CruxCoach-Logbuch mit eingetragenen Sends und Versuchen" loading="lazy">
@@ -587,13 +587,13 @@
 
 <section id="privacy">
   <div class="container">
-    <h2>Privacy by Architecture, nicht by Promise</h2>
+    <h2>Privatsphäre durch Architektur, nicht durch Versprechen</h2>
     <p class="section-lede">
-      Privacy-Versprechen sind billig. CruxCoach ist so gebaut, dass Privacy auch dann hält, wenn wir lügen.
+      Versprechen zur Privatsphäre sind billig. CruxCoach ist so gebaut, dass sie auch dann hält, wenn wir lügen.
     </p>
     <ul class="privacy-list">
       <li><strong>Kein Account, keine Anmeldung.</strong> Deine Identität ist ein Nostr-Keypair, beim ersten Start erzeugt und im Android Keystore gespeichert.</li>
-      <li><strong>Keine Google Play Services.</strong> Läuft auf de-googelten Phones — GrapheneOS, /e/OS, LineageOS ohne GApps.</li>
+      <li><strong>Keine Google Play Services.</strong> Läuft auf entgoogelten Handys — GrapheneOS, /e/OS, LineageOS ohne GApps.</li>
       <li><strong>Verschlüsselter lokaler Speicher.</strong> Persönliche Daten leben in einer SQLCipher-Datenbank. Der Schlüssel verlässt dein Gerät nicht.</li>
       <li><strong>Keine Telemetrie, keine Analytics, keine Werbung, keine Third-Party-SDKs.</strong> Outbound-Calls gehen nur zu: Nostr-Relays nach deiner Wahl, Blossom-Servern für die Board-Datenbank, Codeberg für Update-Checks und der Kilter-API nur, wenn du dein Logbuch importieren möchtest.</li>
       <li><strong>Kein zentraler Server, den wir betreiben.</strong> Die App nutzt öffentliche Nostr-Relays und Blossom-Server unabhängiger Betreiber.</li>
