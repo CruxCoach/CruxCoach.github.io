@@ -1,24 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Climbing Board Map: Kilter, Tension &amp; MoonBoard Locations — CruxCoach</title>
-<meta name="description" content="Interactive world map of climbing training boards — Kilter Board, Tension Board, MoonBoard and six more systems. Filter by board type, country, MoonBoard variant and Kilter wall size.">
+<title>Kletterboard-Karte: Kilter-, Tension- &amp; MoonBoard-Standorte — CruxCoach</title>
+<meta name="description" content="Interaktive Weltkarte der Kletter-Trainingsboards — Kilter Board, Tension Board, MoonBoard und sechs weitere Systeme. Filterbar nach Board-Typ, Land, MoonBoard-Variante und Kilter-Wandgröße.">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
-<link rel="canonical" href="https://cruxcoach.org/boards/">
+<link rel="canonical" href="https://cruxcoach.org/de/boards/">
 <link rel="alternate" hreflang="en" href="https://cruxcoach.org/boards/">
 <link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/boards/">
 <link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/boards/">
-<meta property="og:title" content="Climbing Board Locations Worldwide — CruxCoach">
-<meta property="og:description" content="Find climbing training boards worldwide — Kilter, Tension, MoonBoard and six more systems — on one interactive, filterable map.">
-<meta property="og:url" content="https://cruxcoach.org/boards/">
+<meta property="og:title" content="Kletterboard-Standorte weltweit — CruxCoach">
+<meta property="og:description" content="Finde Kletter-Trainingsboards weltweit — Kilter, Tension, MoonBoard und sechs weitere Systeme — auf einer interaktiven, filterbaren Karte.">
+<meta property="og:url" content="https://cruxcoach.org/de/boards/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://cruxcoach.org/assets/icon-512.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Climbing Board Locations Worldwide — CruxCoach">
-<meta name="twitter:description" content="Find climbing training boards worldwide — Kilter, Tension, MoonBoard and six more systems — on one interactive, filterable map.">
+<meta name="twitter:title" content="Kletterboard-Standorte weltweit — CruxCoach">
+<meta name="twitter:description" content="Finde Kletter-Trainingsboards weltweit — Kilter, Tension, MoonBoard und sechs weitere Systeme — auf einer interaktiven, filterbaren Karte.">
 <meta name="twitter:image" content="https://cruxcoach.org/assets/icon-512.png">
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
@@ -30,10 +30,11 @@
   "@graph": [
     {
       "@type": "WebApplication",
-      "@id": "https://cruxcoach.org/boards/#app",
-      "name": "Climbing Board Map",
-      "url": "https://cruxcoach.org/boards/",
-      "description": "Interactive world map of climbing training boards — Kilter Board, Tension Board, MoonBoard and six more systems — filterable by board type, country, MoonBoard variant and Kilter wall size.",
+      "@id": "https://cruxcoach.org/de/boards/#app",
+      "name": "Kletterboard-Karte",
+      "url": "https://cruxcoach.org/de/boards/",
+      "inLanguage": "de",
+      "description": "Interaktive Weltkarte der Kletter-Trainingsboards — Kilter Board, Tension Board, MoonBoard und sechs weitere Systeme — filterbar nach Board-Typ, Land, MoonBoard-Variante und Kilter-Wandgröße.",
       "applicationCategory": "Sports",
       "operatingSystem": "All",
       "browserRequirements": "Requires JavaScript",
@@ -43,10 +44,11 @@
     },
     {
       "@type": "Dataset",
-      "@id": "https://cruxcoach.org/boards/#dataset",
-      "name": "Climbing Board Locations Worldwide",
-      "description": "Geocoded locations of Kilter Board, Tension Board, MoonBoard, Grasshopper, Decoy, So iLL, Touchstone, Aurora and 12climb training boards worldwide, with per-venue board details.",
-      "url": "https://cruxcoach.org/boards/",
+      "@id": "https://cruxcoach.org/de/boards/#dataset",
+      "name": "Kletterboard-Standorte weltweit",
+      "inLanguage": "de",
+      "description": "Geokodierte Standorte von Kilter-Board-, Tension-Board-, MoonBoard-, Grasshopper-, Decoy-, So-iLL-, Touchstone-, Aurora- und 12climb-Trainingsboards weltweit, mit Board-Details pro Standort.",
+      "url": "https://cruxcoach.org/de/boards/",
       "license": "https://creativecommons.org/licenses/by/4.0/",
       "isAccessibleForFree": true,
       "creator": { "@type": "Organization", "name": "CruxCoach", "url": "https://cruxcoach.org/" },
@@ -58,46 +60,47 @@
     },
     {
       "@type": "FAQPage",
-      "@id": "https://cruxcoach.org/boards/#faq",
+      "@id": "https://cruxcoach.org/de/boards/#faq",
+      "inLanguage": "de",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How do I find a Kilter Board or MoonBoard near me?",
+          "name": "Wie finde ich ein Kilter Board oder MoonBoard in meiner Nähe?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Zoom the map to your area and switch off the board types you do not climb on. The \"Boards in view\" list then names every matching venue currently on screen."
+            "text": "Zoome die Karte auf deine Gegend und schalte die Board-Typen ab, auf denen du nicht kletterst. Die Liste „Boards in der Ansicht“ nennt dann jeden passenden Standort, der gerade auf dem Bildschirm zu sehen ist."
           }
         },
         {
           "@type": "Question",
-          "name": "What is the difference between the Kilter Board, Tension Board and MoonBoard?",
+          "name": "Was ist der Unterschied zwischen Kilter Board, Tension Board und MoonBoard?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Kilter and Tension boards use the Aurora Climbing system: LED-lit holds and, usually, an adjustable wall angle. The MoonBoard uses a fixed grid of holds at a set angle with its own app and benchmark problems. The systems are not compatible — a problem set on one will not transfer to another."
+            "text": "Kilter Board und Tension Board nutzen das Aurora-Climbing-System: LED-beleuchtete Griffe und meist ein verstellbarer Wandwinkel. Das MoonBoard setzt auf ein festes Griffraster in festem Winkel, mit eigener App und eigenen Benchmark-Bouldern. Die Systeme sind nicht kompatibel — ein Boulder von einem Board lässt sich nicht auf ein anderes übertragen."
           }
         },
         {
           "@type": "Question",
-          "name": "Why is my local gym's board missing from the map?",
+          "name": "Warum fehlt das Board meiner Halle auf der Karte?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The map only shows boards that an owner has publicly listed in the upstream data feed. If a venue never registered its board, or marked it private, it will not appear. The dataset is refreshed daily as more listings are added."
+            "text": "Die Karte zeigt nur Boards, die ein Betreiber öffentlich im Upstream-Datenfeed gelistet hat. Hat eine Halle ihr Board nie registriert oder als privat markiert, taucht es nicht auf. Der Datensatz wird täglich aktualisiert, sobald neue Einträge dazukommen."
           }
         },
         {
           "@type": "Question",
-          "name": "How accurate are the board locations and details?",
+          "name": "Wie genau sind die Board-Standorte und -Details?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Coordinates and board metadata come from the public dataset, with a small set of hand-verified corrections such as MoonBoard hardware year. Details like wall angle reflect what owners submitted and can lag behind real-world changes."
+            "text": "Koordinaten und Board-Metadaten stammen aus dem öffentlichen Datensatz, ergänzt um eine kleine Zahl handverifizierter Korrekturen wie das MoonBoard-Hardware-Jahr. Angaben wie der Wandwinkel geben wieder, was Betreiber eingetragen haben, und können der Realität hinterherhinken."
           }
         },
         {
           "@type": "Question",
-          "name": "Is the climbing board map free to use?",
+          "name": "Ist die Kletterboard-Karte kostenlos?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. The map is part of CruxCoach, an open-source, ad-free project. It needs no account and costs nothing to use."
+            "text": "Ja. Die Karte ist Teil von CruxCoach, einem quelloffenen, werbefreien Projekt. Sie braucht kein Konto und kostet nichts."
           }
         }
       ]
@@ -105,8 +108,8 @@
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cruxcoach.org/" },
-        { "@type": "ListItem", "position": 2, "name": "Board Map", "item": "https://cruxcoach.org/boards/" }
+        { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://cruxcoach.org/de/" },
+        { "@type": "ListItem", "position": 2, "name": "Board-Karte", "item": "https://cruxcoach.org/de/boards/" }
       ]
     }
   ]
@@ -540,53 +543,53 @@
       CruxCoach
     </a>
     <nav>
-      <a href="/" >Home</a>
-      <a href="/boards/" aria-current="page">Board Map</a>
-      <span class="lang"><span aria-current="true">EN</span><span class="lang-sep"> · </span><a href="/de/boards/">DE</a></span>
+      <a href="/de/">Start</a>
+      <a href="/de/boards/" aria-current="page">Board-Karte</a>
+      <span class="lang"><a href="/boards/">EN</a><span class="lang-sep"> · </span><span aria-current="true">DE</span></span>
     </nav>
   </div>
 </header>
 
 <main class="map-wrap">
-  <h1 class="sr-only">Climbing Board Map — Kilter, Tension and MoonBoard Locations Worldwide</h1>
-  <div id="map" role="application" aria-label="Map of climbing-board locations">
-    <div class="loading" id="loading">Loading map data…</div>
+  <h1 class="sr-only">Kletterboard-Karte — Kilter-, Tension- und MoonBoard-Standorte weltweit</h1>
+  <div id="map" role="application" aria-label="Karte der Kletterboard-Standorte">
+    <div class="loading" id="loading">Kartendaten werden geladen …</div>
   </div>
   <noscript>
     <p class="container" style="padding:1.25rem 1.5rem;">
-      This interactive map needs JavaScript. You can browse the same data as a
-      plain <a href="/boards/list.html">text directory of all 2,774 venues,
-      grouped by country</a> — no scripts required.
+      Diese interaktive Karte benötigt JavaScript. Dieselben Daten gibt es als
+      <a href="/de/boards/list.html">einfaches Textverzeichnis aller 2.774 Standorte,
+      nach Land gruppiert</a> — ganz ohne Skripte.
     </p>
   </noscript>
 </main>
 
 <details class="info">
-  <summary>About this climbing board map</summary>
+  <summary>Über diese Kletterboard-Karte</summary>
   <div class="container info-body">
     <p>
-      This is an interactive world map of <strong>climbing training
-      boards</strong> — the standardised, app-controlled bouldering walls
-      used for strength training and shared benchmark problems. It plots
-      more than 2,700 venues across nine board systems: the
-      <strong>Kilter Board</strong>, <strong>Tension Board</strong> and
-      <strong>MoonBoard</strong>, plus Grasshopper, Decoy, So iLL,
-      Touchstone, Aurora and 12climb. Most are commercial climbing gyms;
-      some are home or garage setups whose owner chose to list the location
-      publicly.
+      Dies ist eine interaktive Weltkarte der <strong>Kletter-Trainingsboards</strong>
+      — der standardisierten, app-gesteuerten Boulderwände für Krafttraining
+      und weltweit geteilte Benchmark-Boulder. Sie verzeichnet mehr als 2.700
+      Standorte über neun Board-Systeme: das <strong>Kilter Board</strong>,
+      <strong>Tension Board</strong> und <strong>MoonBoard</strong>, dazu
+      Grasshopper, Decoy, So iLL, Touchstone, Aurora und 12climb. Die meisten
+      sind kommerzielle Kletter- und Boulderhallen; einige sind private
+      Homewall- oder Garagen-Setups, deren Besitzer den Standort öffentlich
+      gelistet haben.
     </p>
 
     <!-- GENERATED:board-stats START — produced by tools/build-boards-data.mjs; do not hand-edit between these markers, rebuild instead -->
     <p>
-      The map currently plots <strong>2,780 venues</strong>
-      across <strong>nine board systems</strong> in <strong>84 countries</strong>.
-      Counts per system (a gym with two boards is counted once per system):
+      Die Karte verzeichnet derzeit <strong>2.780 Standorte</strong>
+      über <strong>neun Board-Systeme</strong> in <strong>84 Ländern</strong>.
+      Zähler pro System (eine Halle mit zwei Boards zählt einmal pro System):
     </p>
     <table class="board-counts">
-    <thead><tr><th scope="col">Board system</th><th scope="col">Venues</th></tr></thead>
+    <thead><tr><th scope="col">Board-System</th><th scope="col">Standorte</th></tr></thead>
     <tbody>
-      <tr><td>MoonBoard</td><td>1,514</td></tr>
-      <tr><td>Kilter Board</td><td>1,090</td></tr>
+      <tr><td>MoonBoard</td><td>1.514</td></tr>
+      <tr><td>Kilter Board</td><td>1.090</td></tr>
       <tr><td>Tension Board</td><td>338</td></tr>
       <tr><td>Grasshopper</td><td>42</td></tr>
       <tr><td>Decoy</td><td>23</td></tr>
@@ -595,92 +598,94 @@
       <tr><td>12climb</td><td>4</td></tr>
       <tr><td>Aurora</td><td>3</td></tr>
     </tbody>
-    <tfoot><tr><td>Distinct venues</td><td>2,780</td></tr></tfoot>
+    <tfoot><tr><td>Standorte gesamt</td><td>2.780</td></tr></tfoot>
   </table>
     <p>
-      Prefer a plain list? <a href="/boards/list.html">Browse the full directory of
-      all 2,780 venues, grouped by country →</a>
+      Lieber eine einfache Liste? <a href="/de/boards/list.html">Zum vollständigen Verzeichnis
+      aller 2.780 Standorte, nach Land gruppiert →</a>
     </p>
     <!-- GENERATED:board-stats END -->
 
-    <h3>How to use the map</h3>
+    <h3>So nutzt du die Karte</h3>
     <ul>
-      <li><strong>Filter by board type</strong> to show only the systems you climb on.</li>
-      <li><strong>Narrow it down:</strong> filter Kilter venues by wall layout, angle and size; filter MoonBoard venues by setup year (2016, 2017 / 2019 Masters, 2024, Mini, School Room), commercial vs. home, and LED vs. non-LED.</li>
-      <li><strong>Filter by country</strong> to check coverage in a specific region.</li>
-      <li><strong>"Boards in view"</strong> lists every venue currently on screen — click an entry to jump straight to it.</li>
-      <li><strong>Click any marker</strong> for that venue's boards, wall details and a link to open the spot in OpenStreetMap.</li>
+      <li><strong>Nach Board-Typ filtern</strong>, um nur die Systeme zu sehen, auf denen du kletterst.</li>
+      <li><strong>Eingrenzen:</strong> Kilter-Standorte nach Wand-Layout, Winkel und Größe filtern; MoonBoard-Standorte nach Setup-Jahr (2016, 2017 / 2019 Masters, 2024, Mini, School Room), kommerziell vs. privat sowie LED vs. ohne LED.</li>
+      <li><strong>Nach Land filtern</strong>, um die Abdeckung in einer bestimmten Region zu prüfen.</li>
+      <li><strong>„Boards in der Ansicht“</strong> listet jeden gerade sichtbaren Standort — ein Klick auf einen Eintrag springt direkt dorthin.</li>
+      <li><strong>Beliebigen Marker anklicken</strong> für die Boards des Standorts, Wand-Details und einen Link, der den Spot in OpenStreetMap öffnet.</li>
     </ul>
-    <p>Your map position and filter choices are saved in your browser, so reloading the page returns you to the same view.</p>
+    <p>Kartenposition und Filterauswahl werden im Browser gespeichert — nach einem Neuladen der Seite landest du wieder in derselben Ansicht.</p>
 
-    <h3>Board systems on the map</h3>
+    <h3>Board-Systeme auf der Karte</h3>
     <p>
-      The <strong>Kilter Board</strong> and <strong>Tension Board</strong> —
-      along with Grasshopper, Decoy, So iLL, Touchstone and Aurora — run on
-      the Aurora Climbing system: an LED-lit, usually angle-adjustable wall
-      where an app lights up the holds for each problem. The
-      <strong>MoonBoard</strong> is a separate standard — a fixed grid of
-      holds at a set angle (commonly 40°) with its own app and worldwide
-      benchmark problems. Its hardware generations (2016, 2017 Masters, 2019
-      Masters, 2024, Mini and School Room) are not interchangeable, which is
-      why the map lets you filter MoonBoard venues by variant. Coverage is
-      most complete for the Kilter Board and MoonBoard; the smaller systems
-      list only their few publicly-registered walls.
+      Das <strong>Kilter Board</strong> und das <strong>Tension Board</strong>
+      — ebenso wie Grasshopper, Decoy, So iLL, Touchstone und Aurora — laufen
+      auf dem Aurora-Climbing-System: einer LED-beleuchteten, meist
+      winkelverstellbaren Wand, bei der eine App die Griffe jedes Boulders
+      aufleuchten lässt. Das <strong>MoonBoard</strong> ist ein eigener
+      Standard — ein festes Griffraster in festem Winkel (meist 40°) mit
+      eigener App und weltweiten Benchmark-Bouldern. Seine
+      Hardware-Generationen (2016, 2017 Masters, 2019 Masters, 2024, Mini und
+      School Room) sind untereinander nicht austauschbar — deshalb lässt sich
+      die Karte nach MoonBoard-Variante filtern. Am vollständigsten ist die
+      Abdeckung beim Kilter Board und MoonBoard; die kleineren Systeme listen
+      nur ihre wenigen öffentlich registrierten Wände.
     </p>
     <p>
-      The free, open-source <a href="/">CruxCoach Android app</a> drives seven
-      of these systems directly — browse the catalogue and light up the holds
-      over Bluetooth on the Kilter Board, MoonBoard, Tension, Grasshopper,
-      Decoy, So iLL and Touchstone. Aurora and 12climb appear on this map as
-      location-only layers.
+      Die kostenlose, quelloffene <a href="/de/">CruxCoach-Android-App</a>
+      steuert sieben dieser Systeme direkt — durchstöbere den Katalog und lass
+      die Griffe per Bluetooth aufleuchten: auf dem Kilter Board, MoonBoard,
+      Tension, Grasshopper, Decoy, So iLL und Touchstone. Aurora und 12climb
+      erscheinen nur als Standort-Ebenen.
     </p>
 
-    <h3>Data sources</h3>
+    <h3>Datenquellen</h3>
     <ul>
       <li>
         <a href="https://github.com/Stevie-Ray/hangtime-climbing-boards">hangtime-climbing-boards</a>
-        — a daily-updated, public-domain GeoJSON dataset of Aurora-system
-        boards (Kilter, Tension, Grasshopper, Decoy, So iLL, Touchstone,
-        Aurora) plus MoonBoard and 12climb.
+        — ein täglich aktualisierter, gemeinfreier GeoJSON-Datensatz von
+        Aurora-System-Boards (Kilter, Tension, Grasshopper, Decoy, So iLL,
+        Touchstone, Aurora) plus MoonBoard und 12climb.
       </li>
       <li>
-        Map tiles by <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.
-        Privacy implications are described on the <a href="/privacy.html">privacy page</a>.
+        Kartenkacheln von <a href="https://www.openstreetmap.org/copyright">OpenStreetMap-Mitwirkenden</a>.
+        Was das für den Datenschutz bedeutet, steht auf der
+        <a href="/de/privacy.html">Datenschutzseite</a>.
       </li>
     </ul>
 
-    <h3>Refresh cadence</h3>
+    <h3>Aktualisierungsrhythmus</h3>
     <p>
-      The upstream dataset is re-pulled daily and the snapshot committed, on
-      top of a small set of hand-verified corrections. Build timestamp and
-      per-board counts:
+      Der Upstream-Datensatz wird täglich neu abgerufen und der Snapshot
+      committet, ergänzt um eine kleine Zahl handverifizierter Korrekturen.
+      Build-Zeitstempel und Zähler pro Board:
       <a href="/boards/data/boards.meta.json"><code>boards.meta.json</code></a>.
     </p>
 
-    <h3>Frequently asked questions</h3>
+    <h3>Häufige Fragen</h3>
     <dl>
-      <dt>How do I find a Kilter Board or MoonBoard near me?</dt>
-      <dd>Zoom the map to your area and switch off the board types you do not climb on. The "Boards in view" list then names every matching venue currently on screen.</dd>
+      <dt>Wie finde ich ein Kilter Board oder MoonBoard in meiner Nähe?</dt>
+      <dd>Zoome die Karte auf deine Gegend und schalte die Board-Typen ab, auf denen du nicht kletterst. Die Liste „Boards in der Ansicht“ nennt dann jeden passenden Standort, der gerade auf dem Bildschirm zu sehen ist.</dd>
 
-      <dt>What is the difference between the Kilter Board, Tension Board and MoonBoard?</dt>
-      <dd>The Kilter and Tension boards use the Aurora Climbing system: LED-lit holds and, usually, an adjustable wall angle. The MoonBoard uses a fixed grid of holds at a set angle with its own app and benchmark problems. The systems are not compatible — a problem set on one will not transfer to another.</dd>
+      <dt>Was ist der Unterschied zwischen Kilter Board, Tension Board und MoonBoard?</dt>
+      <dd>Kilter Board und Tension Board nutzen das Aurora-Climbing-System: LED-beleuchtete Griffe und meist ein verstellbarer Wandwinkel. Das MoonBoard setzt auf ein festes Griffraster in festem Winkel, mit eigener App und eigenen Benchmark-Bouldern. Die Systeme sind nicht kompatibel — ein Boulder von einem Board lässt sich nicht auf ein anderes übertragen.</dd>
 
-      <dt>Why is my local gym's board missing from the map?</dt>
-      <dd>The map only shows boards that an owner has publicly listed in the upstream data feed. If a venue never registered its board, or marked it private, it will not appear. The dataset is refreshed daily as more listings are added.</dd>
+      <dt>Warum fehlt das Board meiner Halle auf der Karte?</dt>
+      <dd>Die Karte zeigt nur Boards, die ein Betreiber öffentlich im Upstream-Datenfeed gelistet hat. Hat eine Halle ihr Board nie registriert oder als privat markiert, taucht es nicht auf. Der Datensatz wird täglich aktualisiert, sobald neue Einträge dazukommen.</dd>
 
-      <dt>How accurate are the board locations and details?</dt>
-      <dd>Coordinates and board metadata come from the public dataset, with a small set of hand-verified corrections such as MoonBoard hardware year. Details like wall angle reflect what owners submitted and can lag behind real-world changes.</dd>
+      <dt>Wie genau sind die Board-Standorte und -Details?</dt>
+      <dd>Koordinaten und Board-Metadaten stammen aus dem öffentlichen Datensatz, ergänzt um eine kleine Zahl handverifizierter Korrekturen wie das MoonBoard-Hardware-Jahr. Angaben wie der Wandwinkel geben wieder, was Betreiber eingetragen haben, und können der Realität hinterherhinken.</dd>
 
-      <dt>Is the climbing board map free to use?</dt>
-      <dd>Yes. The map is part of CruxCoach, an open-source, ad-free project. It needs no account and costs nothing to use.</dd>
+      <dt>Ist die Kletterboard-Karte kostenlos?</dt>
+      <dd>Ja. Die Karte ist Teil von CruxCoach, einem quelloffenen, werbefreien Projekt. Sie braucht kein Konto und kostet nichts.</dd>
     </dl>
   </div>
 </details>
 
 <footer>
   <div class="container">
-    <span>© 2026 CruxCoach Contributors. Site CC-BY-4.0. Hosted by Codeberg e.V.</span>
-    <span><a href="/support.html">Support</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a></span>
+    <span>© 2026 CruxCoach Contributors. Site CC-BY-4.0. Gehostet bei Codeberg e.V.</span>
+    <span><a href="/de/support.html">Unterstützen</a> · <a href="/de/imprint.html">Impressum</a> · <a href="/de/privacy.html">Datenschutz</a></span>
   </div>
 </footer>
 

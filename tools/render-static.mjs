@@ -3,11 +3,16 @@
 // read HTML snapshots only). build-boards-data.mjs calls these after writing
 // boards.geojson:
 //
-//   - renderListPage()  → boards/list.html, a full static directory of every
-//                         venue grouped by country.
+//   - renderListPage()  → boards/list.html (en) and de/boards/list.html (de),
+//                         a full static directory of every venue grouped by
+//                         country.
 //   - renderStatsBlock() → the inner HTML injected between the
 //                          <!-- GENERATED:board-stats --> markers in
-//                          boards/index.html.
+//                          boards/index.html and de/boards/index.html.
+//
+// Both take a `lang` ('en' | 'de') and read every user-facing string from the
+// STRINGS table below, so the nightly rebuild keeps both language versions
+// fresh from the same data.
 //
 // Output is a pure function of the venue data only — NO build timestamp — so
 // re-running on an unchanged dataset produces byte-identical HTML and the
@@ -27,12 +32,111 @@ export const BOARD_LABELS = {
   '12climb': '12climb',
 };
 
-const COUNTRY_NAMES = new Intl.DisplayNames(['en'], { type: 'region' });
+// All user-facing text per language. Board names, layout names and brand
+// words (Wellpass, OpenStreetMap) stay untranslated by design.
+const STRINGS = {
+  en: {
+    unknownLocation: 'Unknown location',
+    thBoardSystem: 'Board system',
+    thVenues: 'Venues',
+    tfootDistinct: 'Distinct venues',
+    statsIntro: (total, countries) => `The map currently plots <strong>${total} venues</strong>
+      across <strong>nine board systems</strong> in <strong>${countries} countries</strong>.
+      Counts per system (a gym with two boards is counted once per system):`,
+    listTeaser: (listHref, total) => `Prefer a plain list? <a href="${listHref}">Browse the full directory of
+      all ${total} venues, grouped by country →</a>`,
+    listTitle: 'All Climbing Board Locations Worldwide — Full Directory | CruxCoach',
+    listMetaDesc: (total, countries) => `A complete, text-based directory of every Kilter Board, Tension Board and MoonBoard location on the CruxCoach map — ${total} venues across ${countries} countries, listed by country.`,
+    listOgTitle: 'All Climbing Board Locations Worldwide — Full Directory',
+    listOgDesc: (total, countries) => `${total} Kilter Board, Tension Board and MoonBoard venues across ${countries} countries, listed by country.`,
+    listPageDesc: (total, countries) => `Complete text directory of ${total} Kilter Board, Tension Board, MoonBoard and other training-board venues across ${countries} countries.`,
+    bcHome: 'Home',
+    bcMap: 'Board Map',
+    bcList: 'Full Directory',
+    navMap: 'Interactive map',
+    navHome: 'Home',
+    h1: 'All climbing board locations worldwide',
+    lede: (mapHref, total, countries, perBoardSentence) => `A complete, text-based directory of every venue on the
+      <a href="${mapHref}">CruxCoach climbing board map</a>: <strong>${total} venues</strong>
+      across <strong>${countries} countries</strong> and nine board systems
+      (${perBoardSentence}). Use the <a href="${mapHref}">interactive map</a> to
+      search by location and filter; this page lists everything as plain text.`,
+    jumpToCountry: 'Jump to a country',
+    backToMap: '← Back to the interactive map',
+    footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Data CC-BY-4.0. Hosted by Codeberg e.V.',
+    footerLinks: '<a href="/support.html">Support</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a>',
+  },
+  de: {
+    unknownLocation: 'Unbekannter Ort',
+    thBoardSystem: 'Board-System',
+    thVenues: 'Standorte',
+    tfootDistinct: 'Standorte gesamt',
+    statsIntro: (total, countries) => `Die Karte verzeichnet derzeit <strong>${total} Standorte</strong>
+      über <strong>neun Board-Systeme</strong> in <strong>${countries} Ländern</strong>.
+      Zähler pro System (eine Halle mit zwei Boards zählt einmal pro System):`,
+    listTeaser: (listHref, total) => `Lieber eine einfache Liste? <a href="${listHref}">Zum vollständigen Verzeichnis
+      aller ${total} Standorte, nach Land gruppiert →</a>`,
+    listTitle: 'Alle Kletterboard-Standorte weltweit — Gesamtverzeichnis | CruxCoach',
+    listMetaDesc: (total, countries) => `Ein vollständiges, textbasiertes Verzeichnis aller Kilter-Board-, Tension-Board- und MoonBoard-Standorte auf der CruxCoach-Karte — ${total} Standorte in ${countries} Ländern, nach Land gelistet.`,
+    listOgTitle: 'Alle Kletterboard-Standorte weltweit — Gesamtverzeichnis',
+    listOgDesc: (total, countries) => `${total} Kilter-Board-, Tension-Board- und MoonBoard-Standorte in ${countries} Ländern, nach Land gelistet.`,
+    listPageDesc: (total, countries) => `Vollständiges Textverzeichnis von ${total} Kilter-Board-, Tension-Board-, MoonBoard- und weiteren Trainingsboard-Standorten in ${countries} Ländern.`,
+    bcHome: 'Start',
+    bcMap: 'Board-Karte',
+    bcList: 'Gesamtverzeichnis',
+    navMap: 'Interaktive Karte',
+    navHome: 'Start',
+    h1: 'Alle Kletterboard-Standorte weltweit',
+    lede: (mapHref, total, countries, perBoardSentence) => `Ein vollständiges, textbasiertes Verzeichnis aller Standorte auf der
+      <a href="${mapHref}">CruxCoach-Kletterboard-Karte</a>: <strong>${total} Standorte</strong>
+      in <strong>${countries} Ländern</strong> und neun Board-Systemen
+      (${perBoardSentence}). Nutze die <a href="${mapHref}">interaktive Karte</a>, um
+      nach Ort zu suchen und zu filtern; diese Seite listet alles als reinen Text.`,
+    jumpToCountry: 'Zum Land springen',
+    backToMap: '← Zurück zur interaktiven Karte',
+    footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Daten CC-BY-4.0. Gehostet bei Codeberg e.V.',
+    footerLinks: '<a href="/de/support.html">Unterstützen</a> · <a href="/de/imprint.html">Impressum</a> · <a href="/de/privacy.html">Datenschutz</a>',
+  },
+};
 
-function countryName(code) {
-  if (!code) return 'Unknown location';
+// Per-language page URLs. The geojson download stays language-neutral.
+const PAGES = {
+  en: {
+    htmlLang: 'en',
+    homeHref: '/',
+    mapHref: '/boards/',
+    listHref: '/boards/list.html',
+    homeUrl: 'https://cruxcoach.org/',
+    mapUrl: 'https://cruxcoach.org/boards/',
+    listUrl: 'https://cruxcoach.org/boards/list.html',
+    datasetId: 'https://cruxcoach.org/boards/#dataset',
+  },
+  de: {
+    htmlLang: 'de',
+    homeHref: '/de/',
+    mapHref: '/de/boards/',
+    listHref: '/de/boards/list.html',
+    homeUrl: 'https://cruxcoach.org/de/',
+    mapUrl: 'https://cruxcoach.org/de/boards/',
+    listUrl: 'https://cruxcoach.org/de/boards/list.html',
+    datasetId: 'https://cruxcoach.org/de/boards/#dataset',
+  },
+};
+
+// Both list pages carry the full hreflang cluster (x-default → en).
+const LIST_HREFLANG = `<link rel="alternate" hreflang="en" href="${PAGES.en.listUrl}">
+<link rel="alternate" hreflang="de" href="${PAGES.de.listUrl}">
+<link rel="alternate" hreflang="x-default" href="${PAGES.en.listUrl}">`;
+
+const DISPLAY_NAMES = {
+  en: new Intl.DisplayNames(['en'], { type: 'region' }),
+  de: new Intl.DisplayNames(['de'], { type: 'region' }),
+};
+
+function countryName(code, lang) {
+  if (!code) return STRINGS[lang].unknownLocation;
   try {
-    return COUNTRY_NAMES.of(code) || code;
+    return DISPLAY_NAMES[lang].of(code) || code;
   } catch {
     return code; // non-ISO / unresolved codes (e.g. user-region edge cases)
   }
@@ -46,13 +150,16 @@ function esc(s) {
     .replace(/"/g, '&quot;');
 }
 
-function fmt(n) {
-  return n.toLocaleString('en');
+function fmt(n, lang) {
+  return n.toLocaleString(lang);
 }
 
-// Stable, locale-aware comparator so output is deterministic regardless of the
-// order features arrive in.
-const collator = new Intl.Collator('en', { sensitivity: 'base', numeric: true });
+// Stable, locale-aware comparators so output is deterministic regardless of
+// the order features arrive in.
+const COLLATORS = {
+  en: new Intl.Collator('en', { sensitivity: 'base', numeric: true }),
+  de: new Intl.Collator('de', { sensitivity: 'base', numeric: true }),
+};
 
 // Per-board venue counts (>0 only), highest first. Sums exceed the venue total
 // because a multi-board gym is counted once per board it hosts.
@@ -72,31 +179,32 @@ function countryCodes(features) {
   return set;
 }
 
-function boardCountsTable(meta) {
+function boardCountsTable(meta, lang) {
+  const S = STRINGS[lang];
   const rows = boardCounts(meta)
-    .map(({ label, count }) => `      <tr><td>${esc(label)}</td><td>${fmt(count)}</td></tr>`)
+    .map(({ label, count }) => `      <tr><td>${esc(label)}</td><td>${fmt(count, lang)}</td></tr>`)
     .join('\n');
   return `<table class="board-counts">
-    <thead><tr><th scope="col">Board system</th><th scope="col">Venues</th></tr></thead>
+    <thead><tr><th scope="col">${S.thBoardSystem}</th><th scope="col">${S.thVenues}</th></tr></thead>
     <tbody>
 ${rows}
     </tbody>
-    <tfoot><tr><td>Distinct venues</td><td>${fmt(meta.venue_features)}</td></tr></tfoot>
+    <tfoot><tr><td>${S.tfootDistinct}</td><td>${fmt(meta.venue_features, lang)}</td></tr></tfoot>
   </table>`;
 }
 
-// Inner HTML for the <!-- GENERATED:board-stats --> region in boards/index.html.
-export function renderStatsBlock(features, meta) {
+// Inner HTML for the <!-- GENERATED:board-stats --> region in the map page
+// of the given language.
+export function renderStatsBlock(features, meta, lang = 'en') {
+  const S = STRINGS[lang];
+  const P = PAGES[lang];
   const nCountries = countryCodes(features).size;
   return `<p>
-      The map currently plots <strong>${fmt(meta.venue_features)} venues</strong>
-      across <strong>nine board systems</strong> in <strong>${fmt(nCountries)} countries</strong>.
-      Counts per system (a gym with two boards is counted once per system):
+      ${S.statsIntro(fmt(meta.venue_features, lang), fmt(nCountries, lang))}
     </p>
-    ${boardCountsTable(meta)}
+    ${boardCountsTable(meta, lang)}
     <p>
-      Prefer a plain list? <a href="/boards/list.html">Browse the full directory of
-      all ${fmt(meta.venue_features)} venues, grouped by country →</a>
+      ${S.listTeaser(P.listHref, fmt(meta.venue_features, lang))}
     </p>`;
 }
 
@@ -112,7 +220,8 @@ function venueBoards(props) {
 
 // Group features by country, returning [{ code, name, venues[] }] sorted by
 // venue count (desc) then country name; venues within a country sorted by name.
-function groupByCountry(features) {
+function groupByCountry(features, lang) {
+  const collator = COLLATORS[lang];
   const groups = new Map();
   for (const f of features) {
     const code = f.properties.country || '';
@@ -122,7 +231,7 @@ function groupByCountry(features) {
   const out = [];
   for (const [code, venues] of groups) {
     venues.sort((a, b) => collator.compare(a.properties.name, b.properties.name));
-    out.push({ code, name: countryName(code), venues });
+    out.push({ code, name: countryName(code, lang), venues });
   }
   out.sort((a, b) => b.venues.length - a.venues.length || collator.compare(a.name, b.name));
   return out;
@@ -132,13 +241,15 @@ function anchorFor(code) {
   return 'c-' + (code || 'unknown').toLowerCase();
 }
 
-export function renderListPage(features, meta) {
-  const groups = groupByCountry(features);
-  const nCountries = countryCodes(features).size;
-  const total = fmt(meta.venue_features);
+export function renderListPage(features, meta, lang = 'en') {
+  const S = STRINGS[lang];
+  const P = PAGES[lang];
+  const groups = groupByCountry(features, lang);
+  const nCountries = fmt(countryCodes(features).size, lang);
+  const total = fmt(meta.venue_features, lang);
 
   const toc = groups
-    .map(g => `<li><a href="#${anchorFor(g.code)}">${esc(g.name)}</a> <span class="muted">(${fmt(g.venues.length)})</span></li>`)
+    .map(g => `<li><a href="#${anchorFor(g.code)}">${esc(g.name)}</a> <span class="muted">(${fmt(g.venues.length, lang)})</span></li>`)
     .join('\n        ');
 
   const sections = groups.map(g => {
@@ -151,7 +262,7 @@ export function renderListPage(features, meta) {
       return `        <li><strong>${esc(p.name)}</strong>${city} ${boards}</li>`;
     }).join('\n');
     return `    <section aria-labelledby="${anchorFor(g.code)}">
-      <h2 id="${anchorFor(g.code)}">${esc(g.name)} <span class="muted">(${fmt(g.venues.length)})</span></h2>
+      <h2 id="${anchorFor(g.code)}">${esc(g.name)} <span class="muted">(${fmt(g.venues.length, lang)})</span></h2>
       <ul class="venues">
 ${items}
       </ul>
@@ -161,22 +272,26 @@ ${items}
   // Per-board sentence for the intro — concrete statistics are the strongest
   // evidence-backed lever for getting cited by generative engines.
   const perBoardSentence = boardCounts(meta)
-    .map(({ label, count }) => `${label} (${fmt(count)})`)
+    .map(({ label, count }) => `${label} (${fmt(count, lang)})`)
     .join(', ');
 
+  const inLanguage = lang === 'en' ? '' : `
+      "inLanguage": "${lang}",`;
+
   return `<!doctype html>
-<html lang="en">
+<html lang="${P.htmlLang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>All Climbing Board Locations Worldwide — Full Directory | CruxCoach</title>
-<meta name="description" content="A complete, text-based directory of every Kilter Board, Tension Board and MoonBoard location on the CruxCoach map — ${total} venues across ${fmt(nCountries)} countries, listed by country.">
+<title>${S.listTitle}</title>
+<meta name="description" content="${S.listMetaDesc(total, nCountries)}">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
-<link rel="canonical" href="https://cruxcoach.org/boards/list.html">
-<meta property="og:title" content="All Climbing Board Locations Worldwide — Full Directory">
-<meta property="og:description" content="${total} Kilter Board, Tension Board and MoonBoard venues across ${fmt(nCountries)} countries, listed by country.">
-<meta property="og:url" content="https://cruxcoach.org/boards/list.html">
+<link rel="canonical" href="${P.listUrl}">
+${LIST_HREFLANG}
+<meta property="og:title" content="${S.listOgTitle}">
+<meta property="og:description" content="${S.listOgDesc(total, nCountries)}">
+<meta property="og:url" content="${P.listUrl}">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://cruxcoach.org/assets/icon-512.png">
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
@@ -187,19 +302,19 @@ ${items}
   "@graph": [
     {
       "@type": "CollectionPage",
-      "@id": "https://cruxcoach.org/boards/list.html#page",
-      "name": "All Climbing Board Locations Worldwide — Full Directory",
-      "url": "https://cruxcoach.org/boards/list.html",
-      "description": "Complete text directory of ${total} Kilter Board, Tension Board, MoonBoard and other training-board venues across ${fmt(nCountries)} countries.",
+      "@id": "${P.listUrl}#page",
+      "name": "${S.listOgTitle}",
+      "url": "${P.listUrl}",${inLanguage}
+      "description": "${S.listPageDesc(total, nCountries)}",
       "isPartOf": { "@type": "WebSite", "name": "CruxCoach", "url": "https://cruxcoach.org/" },
-      "about": { "@id": "https://cruxcoach.org/boards/#dataset" }
+      "about": { "@id": "${P.datasetId}" }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cruxcoach.org/" },
-        { "@type": "ListItem", "position": 2, "name": "Board Map", "item": "https://cruxcoach.org/boards/" },
-        { "@type": "ListItem", "position": 3, "name": "Full Directory", "item": "https://cruxcoach.org/boards/list.html" }
+        { "@type": "ListItem", "position": 1, "name": "${S.bcHome}", "item": "${P.homeUrl}" },
+        { "@type": "ListItem", "position": 2, "name": "${S.bcMap}", "item": "${P.mapUrl}" },
+        { "@type": "ListItem", "position": 3, "name": "${S.bcList}", "item": "${P.listUrl}" }
       ]
     }
   ]
@@ -253,42 +368,38 @@ ${items}
 
 <header>
   <div class="container">
-    <a href="/" class="brand">CruxCoach</a>
+    <a href="${P.homeHref}" class="brand">CruxCoach</a>
     <nav>
-      <a href="/boards/">Interactive map</a>
-      <a href="/">Home</a>
+      <a href="${P.mapHref}">${S.navMap}</a>
+      <a href="${P.homeHref}">${S.navHome}</a>
     </nav>
   </div>
 </header>
 
 <main>
   <div class="container">
-    <h1>All climbing board locations worldwide</h1>
+    <h1>${S.h1}</h1>
     <p class="lede">
-      A complete, text-based directory of every venue on the
-      <a href="/boards/">CruxCoach climbing board map</a>: <strong>${total} venues</strong>
-      across <strong>${fmt(nCountries)} countries</strong> and nine board systems
-      (${esc(perBoardSentence)}). Use the <a href="/boards/">interactive map</a> to
-      search by location and filter; this page lists everything as plain text.
+      ${S.lede(P.mapHref, total, nCountries, esc(perBoardSentence))}
     </p>
 
-    ${boardCountsTable(meta)}
+    ${boardCountsTable(meta, lang)}
 
-    <h2 style="border-top:0;margin-top:1.5rem;padding-top:0">Jump to a country</h2>
+    <h2 style="border-top:0;margin-top:1.5rem;padding-top:0">${S.jumpToCountry}</h2>
     <ul class="toc">
         ${toc}
     </ul>
 
 ${sections}
 
-    <p class="backlink"><a href="/boards/">← Back to the interactive map</a></p>
+    <p class="backlink"><a href="${P.mapHref}">${S.backToMap}</a></p>
   </div>
 </main>
 
 <footer>
   <div class="container">
-    <span>© 2026 CruxCoach Contributors. Site CC-BY-4.0. Data CC-BY-4.0. Hosted by Codeberg e.V.</span>
-    <span><a href="/support.html">Support</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a></span>
+    <span>${S.footerCopyright}</span>
+    <span>${S.footerLinks}</span>
   </div>
 </footer>
 

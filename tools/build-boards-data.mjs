@@ -64,7 +64,9 @@ const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_GEOJSON = join(REPO_ROOT, 'boards', 'data', 'boards.geojson');
 const OUT_META = join(REPO_ROOT, 'boards', 'data', 'boards.meta.json');
 const OUT_LIST = join(REPO_ROOT, 'boards', 'list.html');
+const OUT_LIST_DE = join(REPO_ROOT, 'de', 'boards', 'list.html');
 const BOARDS_INDEX = join(REPO_ROOT, 'boards', 'index.html');
+const BOARDS_INDEX_DE = join(REPO_ROOT, 'de', 'boards', 'index.html');
 const OVERRIDES_FILE = join(REPO_ROOT, 'tools', 'overrides.json');
 const WELLPASS_FILE = join(REPO_ROOT, 'tools', 'wellpass.json');
 
@@ -336,18 +338,25 @@ async function main() {
   // Static HTML so non-JS crawlers (AI assistants read HTML snapshots, not the
   // runtime-fetched geojson) can see the venues. Pure function of the data —
   // no timestamp — so an unchanged dataset yields byte-identical output and the
-  // nightly cron makes no no-op commit.
-  writeFileSync(OUT_LIST, renderListPage(features, meta));
-  process.stderr.write(`[build]   directory → ${OUT_LIST}\n`);
+  // nightly cron makes no no-op commit. Rendered once per language; the
+  // geojson + meta above stay language-neutral and are written only once.
+  const RENDER_TARGETS = [
+    { lang: 'en', list: OUT_LIST, index: BOARDS_INDEX },
+    { lang: 'de', list: OUT_LIST_DE, index: BOARDS_INDEX_DE },
+  ];
+  for (const { lang, list, index } of RENDER_TARGETS) {
+    writeFileSync(list, renderListPage(features, meta, lang));
+    process.stderr.write(`[build]   directory (${lang}) → ${list}\n`);
 
-  const statsBlock = renderStatsBlock(features, meta);
-  const indexHtml = readFileSync(BOARDS_INDEX, 'utf-8');
-  const { html: injected, replaced } = injectBetweenMarkers(indexHtml, 'board-stats', statsBlock);
-  if (replaced) {
-    if (injected !== indexHtml) writeFileSync(BOARDS_INDEX, injected);
-    process.stderr.write(`[build]   stats block → ${BOARDS_INDEX}\n`);
-  } else {
-    process.stderr.write(`[build]   WARN ${BOARDS_INDEX}: GENERATED:board-stats markers not found — stats block NOT injected\n`);
+    const statsBlock = renderStatsBlock(features, meta, lang);
+    const indexHtml = readFileSync(index, 'utf-8');
+    const { html: injected, replaced } = injectBetweenMarkers(indexHtml, 'board-stats', statsBlock);
+    if (replaced) {
+      if (injected !== indexHtml) writeFileSync(index, injected);
+      process.stderr.write(`[build]   stats block (${lang}) → ${index}\n`);
+    } else {
+      process.stderr.write(`[build]   WARN ${index}: GENERATED:board-stats markers not found — stats block NOT injected\n`);
+    }
   }
 
   process.stderr.write(`[build] wrote ${features.length} venues (from ${allEntries.length} raw entries) → ${OUT_GEOJSON}\n`);
