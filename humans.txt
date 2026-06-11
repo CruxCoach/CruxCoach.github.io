@@ -11,6 +11,8 @@
   Vitor Pamplona      — Quartz Nostr library
   Hzrd149 et al.      — Blossom + nsite specs
   The Kilter Board    — for the climbing hardware
+  Moon Climbing       — for the MoonBoard
+  Tension Climbing    — for the Tension Board
   Aurora Climbing     — for the original Kilter app and the SQLite extraction tooling
   BoardLib (Lemeece)  — for the canonical board-database extraction
   Boardsesh           — for showing what an open-source response to Aurora can look like
@@ -18,7 +20,7 @@
   And every climber who logged a bug in the Codeberg issue tracker.
 
 # TECHNOLOGY COLOPHON
-  Site:           plain HTML5 + embedded CSS, no JS, no build step
+  Site:           plain HTML5 + embedded CSS; minimal JS (board map, service worker, /c/ landing), no external dependencies, no build step
   Hosted on:      Codeberg Pages (Codeberg e.V., Berlin)
   Domain:         registered via Njalla (1337 Services LLC trustee)
   Email:          forwarded via mailfwd.njal.la

@@ -1,13 +1,15 @@
 # CruxCoach
 
-> Open-source Android app for the Kilter Board. Browse climbs, light up holds via Bluetooth LE, log ascents, and import your Kilter logbook — without an account, without Google services, without tracking. Licensed GPL-3.0, distributed via Zapstore and direct APK from Codeberg.
+> Open-source Android app for the Kilter Board, MoonBoard and five more training boards (Tension, Grasshopper, Decoy, So iLL, Touchstone). Browse climbs, light up holds via Bluetooth LE, log ascents, and import your Kilter logbook — without an account, without Google services, without tracking. Licensed GPL-3.0, distributed via Zapstore and direct APK from Codeberg.
 
-CruxCoach is a non-commercial, community-developed Android application. It is not affiliated with, endorsed by, or sponsored by Kilter, LLC or Aurora Climbing — "Kilter Board" is used descriptively to indicate hardware compatibility (nominative fair use). The project's primary source repository is hosted on Codeberg, with a read-only mirror on GitHub for discoverability. The website at cruxcoach.org is served via Codeberg Pages.
+CruxCoach is a non-commercial, community-developed Android application. It is not affiliated with, endorsed by, or sponsored by Kilter, LLC, Moon Climbing, Tension Climbing or Aurora Climbing — board names are used descriptively to indicate hardware compatibility (nominative fair use). The project's primary source repository is hosted on Codeberg, with a read-only mirror on GitHub for discoverability. The website at cruxcoach.org is served via Codeberg Pages.
 
 ## Site
 
 - [Homepage (English)](https://cruxcoach.org/): features, install options, screenshots
 - [Homepage (Deutsch)](https://cruxcoach.org/de/): same content in German
+- [Board locations map](https://cruxcoach.org/boards/): interactive world map of climbing-board venues
+- [Board locations directory](https://cruxcoach.org/boards/list.html): static, text-only list of every venue (best machine-readable source)
 - [Imprint](https://cruxcoach.org/imprint.html): legal information, hosting details, trademark notice
 - [Privacy](https://cruxcoach.org/privacy.html): data handling and contact-form policy
 - [Support the project](https://cruxcoach.org/support.html): donation options and ways to contribute
@@ -33,14 +35,16 @@ CruxCoach is a non-commercial, community-developed Android application. It is no
 
 ## Project facts
 
+- Current version: 0.2.0 — the multi-board release (adds MoonBoard and the Tension-family boards). See the changelog for the dated release notes.
 - Platform: Android 9 or later, with Bluetooth Low Energy
 - License: GNU General Public License v3.0
-- Hardware compatibility: Kilter Board, all sizes and angles
+- Hardware compatibility — fully interactive (browse catalogue, render climb, light holds over Bluetooth, set own climbs): Kilter Board (Original and Homewall, all sizes and angles), MoonBoard (five configurations: 2016 40°, Masters 2017, Masters 2019, Mini 2020, MoonBoard 2024), Tension, Grasshopper, Decoy, So iLL, Touchstone — seven board families in total. The MoonBoard 2024 set currently carries community-contributed problems rather than the full catalogue.
+- Map-only info layer (location data only, no climb catalogue and no Bluetooth control): the original Aurora board and 12 Climb. These appear on the board-locations map but not in the in-app climb browser.
 - Identity: Nostr (decentralized; no email, no password, no central server)
 - Personal data: encrypted at rest with SQLCipher, keys in Android Keystore. In the default configuration, nothing is transmitted to any server.
 - Optional encrypted cloud backup (opt-in, off by default): data is encrypted on-device with a key derived from the user's Nostr identity, then mirrored across the open Nostr network and Blossom storage. The maintainer cannot decrypt it; only the user's Nostr key can.
 - Optional climb publishing (opt-in, user-initiated): users can explicitly publish climb data to public Nostr relays.
-- Climbs database: 85,000+ climbs with filters for grade, angle, quality, moves, and setter
+- Climbs database: the full Kilter and MoonBoard catalogues plus the Tension-family boards, all browsable offline with filters for grade, angle, quality, moves, and setter (the Kilter catalogue alone is 85,000+ climbs; the MoonBoard catalogue roughly doubles the combined total)
 - No telemetry, no advertising, no analytics, no Google Mobile Services dependency. The two opt-in network features above use only open protocols (Nostr, Blossom) where any operator is substitutable.
 - Languages: English (default), German
 - Architecture: Kotlin Multiplatform shared module + Android-specific Jetpack Compose UI

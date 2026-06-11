@@ -3,24 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CruxCoach — Open-source Android app for the Kilter Board</title>
-<meta name="description" content="An open-source Android app for the Kilter Board. Browse climbs, light up holds, log ascents — without an account, without Google, without tracking.">
+<title>CruxCoach — Open-source Android app for Kilter Board, MoonBoard &amp; Tension Board</title>
+<meta name="description" content="An open-source Android app for the Kilter Board, MoonBoard, Tension Board and four more training boards. Browse climbs, light up holds, log ascents — without an account, without Google, without tracking.">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://cruxcoach.org/">
 <link rel="alternate" hreflang="en" href="https://cruxcoach.org/">
 <link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/">
 <link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/">
-<meta property="og:title" content="CruxCoach — Open-source Android app for the Kilter Board">
-<meta property="og:description" content="Browse climbs, light up holds, log ascents — without an account, without Google, without tracking.">
+<meta property="og:title" content="CruxCoach — Open-source Android app for Kilter Board, MoonBoard &amp; Tension Board">
+<meta property="og:description" content="Browse climbs on Kilter, MoonBoard, Tension and more — light up holds, log ascents, without an account, without Google, without tracking.">
 <meta property="og:url" content="https://cruxcoach.org/">
+<meta property="og:site_name" content="CruxCoach">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://cruxcoach.org/assets/icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CruxCoach — Open-source Android app for the Kilter Board">
-<meta name="twitter:description" content="Browse climbs, light up holds, log ascents — without an account, without Google, without tracking.">
+<meta name="twitter:title" content="CruxCoach — Open-source Android app for Kilter Board, MoonBoard &amp; Tension Board">
+<meta name="twitter:description" content="Browse climbs on Kilter, MoonBoard, Tension and more — light up holds, log ascents, without an account, without Google, without tracking.">
 <meta name="twitter:image" content="https://cruxcoach.org/assets/icon-512.png">
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
@@ -31,17 +34,17 @@
   "@type": "SoftwareApplication",
   "@id": "https://cruxcoach.org/#app",
   "name": "CruxCoach",
-  "alternateName": "CruxCoach for Kilter Board",
+  "alternateName": ["CruxCoach for Kilter Board", "CruxCoach for MoonBoard", "CruxCoach for Tension Board"],
   "url": "https://cruxcoach.org/",
   "operatingSystem": "Android 9+",
   "applicationCategory": "SportsApplication",
   "applicationSubCategory": "Climbing training",
-  "description": "Open-source Android app for the Kilter Board. Browse climbs, light up holds, log ascents — without an account, without Google services, without tracking.",
-  "disambiguatingDescription": "The open-source, GPL-3.0 Android app for the Kilter Board, published at cruxcoach.org. Distinct from and not affiliated with the unrelated products at cruxcoach.app, cruxcoach.com or cruxcoach.vercel.app.",
+  "description": "Open-source Android app for the Kilter Board, MoonBoard and five more training boards (Tension, Grasshopper, Decoy, So iLL, Touchstone). Browse climbs, light up holds, log ascents — without an account, without Google services, without tracking.",
+  "disambiguatingDescription": "The open-source, GPL-3.0 Android app for the Kilter Board, MoonBoard and other standardised training boards, published at cruxcoach.org. Distinct from and not affiliated with the unrelated products at cruxcoach.app, cruxcoach.com or cruxcoach.vercel.app.",
   "identifier": { "@type": "PropertyValue", "propertyID": "Wikidata", "value": "Q139592177" },
   "image": "https://cruxcoach.org/assets/icon-512.png",
   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
-  "softwareVersion": "0.1.4",
+  "softwareVersion": "0.2.0",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -63,6 +66,16 @@
   ],
   "isAccessibleForFree": true,
   "softwareRequirements": "Android 9 or later, Bluetooth LE",
+  "featureList": [
+    "Browse climbs for Kilter, MoonBoard, Tension, Grasshopper, Decoy, So iLL and Touchstone boards",
+    "Light up holds on the physical board over Bluetooth LE",
+    "Filter climbs by grade, angle, quality, move count and setter",
+    "Search climbs by hold combination",
+    "Encrypted local logbook (SQLCipher)",
+    "Set your own climbs and share them with the community over Nostr",
+    "Offline board-locations world map with gym search",
+    "No account, no Google services, no tracking"
+  ],
   "sameAs": [
     "https://www.wikidata.org/wiki/Q139592177",
     "https://codeberg.org/CruxCoach/CruxCoach",
@@ -82,7 +95,7 @@
       "name": "Is CruxCoach an alternative to the official Kilter Board app?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. CruxCoach is an independent, open-source Android app for the Kilter Board — not affiliated with Kilter, LLC or Aurora Climbing. It browses climbs, lights up the holds over Bluetooth and logs your ascents on your own device, with no account and no Google services required. It is licensed under the GPL-3.0 and focuses on the Kilter Board on Android, rather than trying to cover every board on every platform."
+        "text": "Yes. CruxCoach is an independent, open-source Android app for app-controlled training boards — Kilter, MoonBoard, Tension and more — not affiliated with Kilter, LLC, Moon Climbing or Aurora Climbing. It browses climbs, lights up the holds over Bluetooth and logs your ascents on your own device, with no account and no Google services required. It is licensed under the GPL-3.0 and focuses on Android, rather than trying to cover every platform."
       }
     },
     {
@@ -106,7 +119,15 @@
       "name": "Which boards and Android versions does CruxCoach support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The app is built for the Kilter Board — all sizes and adjustable angles — on Android 9 or later with Bluetooth LE, and ships a database of 85,000+ climbs you can filter by grade, angle, quality, move count and setter. The separate board map is broader: it lists venues for nine board systems, including the Tension Board and MoonBoard."
+        "text": "CruxCoach drives seven board systems interactively on Android 9 or later with Bluetooth LE: the Kilter Board (all sizes and adjustable angles), the MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 and 2024 — the 2024 set currently carries community-contributed problems), and the Tension, Grasshopper, Decoy, So iLL and Touchstone boards. Browse each board's catalogue, filter by grade, angle, quality, move count and setter, then light it up over Bluetooth. The separate board map is broader still: it also plots Aurora and 12 Climb installations as location-only layers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CruxCoach work with the MoonBoard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. CruxCoach is a free, open-source MoonBoard app for Android: browse the MoonBoard problem catalogue with the same filters as the Kilter catalogue, open a problem and light up the holds on your physical board over Bluetooth. Five configurations are supported — MoonBoard 2016 (40°), Masters 2017, Masters 2019 (25° and 40°), Mini 2020 and MoonBoard 2024. It needs no account and no Google services. The MoonBoard 2024 set currently ships community-contributed problems rather than the full catalogue."
       }
     },
     {
@@ -433,13 +454,14 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <h1>An open-source Android app for the Kilter Board.</h1>
+      <h1>One open-source Android app for your board.</h1>
       <p class="hero-lede">
-        Browse climbs, light up holds, log your sessions — without an account,
-        without Google services, without anyone tracking your training.
+        Kilter, MoonBoard, Tension and more — browse climbs, light up holds, log
+        your sessions, without an account, without Google services, without
+        anyone tracking your training.
       </p>
       <ul class="hero-bullets">
-        <li>85,000+ climbs offline</li>
+        <li>7 board systems, one app</li>
         <li>Custom hold colors</li>
         <li>Encrypted local logbook</li>
         <li>German &amp; English UI</li>
@@ -472,8 +494,8 @@
             <circle cx="5" cy="18" r="1.4" fill="currentColor"/>
           </svg>
         </span>
-        <h3>Browse 85,000+ climbs</h3>
-        <p>Filter by grade, angle, quality, move count, setter. Works offline once the board database is synced.</p>
+        <h3>Browse every board's catalogue</h3>
+        <p>Kilter, MoonBoard and five more boards. Filter by grade, angle, quality, move count, setter. Works offline once the board database is synced.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -482,7 +504,7 @@
           </svg>
         </span>
         <h3>Light up holds via Bluetooth</h3>
-        <p>Direct BLE to your Kilter Board. Pick custom colors per role: start, hand, foot, top.</p>
+        <p>Direct BLE to your Kilter Board, MoonBoard, Tension Board and more. Pick custom colors per role: start, hand, foot, finish.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -563,8 +585,9 @@
       can audit it, fork it, run it.
     </p>
     <p>
-      It's narrower than the official app on purpose: Kilter only, Android only. But it's
-      yours.
+      It started narrow on purpose: Kilter only, Android only. With 0.2.0 it speaks the whole
+      family — Kilter, MoonBoard, Tension, Grasshopper, Decoy, So iLL and Touchstone. Still
+      Android only, still yours.
     </p>
   </div>
 </section>
@@ -637,7 +660,7 @@
     <div class="faq-list">
       <div class="faq-item">
         <h3>Is CruxCoach an alternative to the official Kilter Board app?</h3>
-        <p>Yes. CruxCoach is an independent, open-source Android app for the Kilter Board — not affiliated with Kilter, LLC or Aurora Climbing. It browses climbs, lights up the holds over Bluetooth and logs your ascents on your own device, with no account and no Google services required. It is licensed under the GPL-3.0 and focuses on the Kilter Board on Android, rather than trying to cover every board on every platform.</p>
+        <p>Yes. CruxCoach is an independent, open-source Android app for app-controlled training boards — Kilter, MoonBoard, Tension and more — not affiliated with Kilter, LLC, Moon Climbing or Aurora Climbing. It browses climbs, lights up the holds over Bluetooth and logs your ascents on your own device, with no account and no Google services required. It is licensed under the GPL-3.0 and focuses on Android, rather than trying to cover every platform.</p>
       </div>
       <div class="faq-item">
         <h3>Can I get my old Kilter Board data back after the app was taken down?</h3>
@@ -649,7 +672,11 @@
       </div>
       <div class="faq-item">
         <h3>Which boards and Android versions does CruxCoach support?</h3>
-        <p>The app is built for the Kilter Board — all sizes and adjustable angles — on Android 9 or later with Bluetooth LE, and ships a database of 85,000+ climbs you can filter by grade, angle, quality, move count and setter. The separate <a href="/boards/">board map</a> is broader: it lists venues for nine board systems, including the Tension Board and MoonBoard.</p>
+        <p>CruxCoach drives seven board systems interactively on Android 9 or later with Bluetooth LE: the Kilter Board (all sizes and adjustable angles), the MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 and 2024 — the 2024 set currently carries community-contributed problems), and the Tension, Grasshopper, Decoy, So iLL and Touchstone boards. Browse each board's catalogue, filter by grade, angle, quality, move count and setter, then light it up over Bluetooth. The separate <a href="/boards/">board map</a> is broader still: it also plots Aurora and 12 Climb installations as location-only layers.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does CruxCoach work with the MoonBoard?</h3>
+        <p>Yes. CruxCoach is a free, open-source MoonBoard app for Android: browse the MoonBoard problem catalogue with the same filters as the Kilter catalogue, open a problem and light up the holds on your physical board over Bluetooth. Five configurations are supported — MoonBoard 2016 (40°), Masters 2017, Masters 2019 (25° and 40°), Mini 2020 and MoonBoard 2024. It needs no account and no Google services. The MoonBoard 2024 set currently ships community-contributed problems rather than the full catalogue.</p>
       </div>
       <div class="faq-item">
         <h3>Where can I find a Kilter Board or MoonBoard near me?</h3>
@@ -682,14 +709,15 @@ bash scripts/setup_dev_env.sh
       <div>
         <h4>CruxCoach</h4>
         <p style="color: var(--fg-soft); margin: 0;">
-          An open-source Android app for the Kilter Board.<br>
-          For the Kilter Board, not affiliated with Kilter, LLC.
+          An open-source Android app for the Kilter Board, MoonBoard and more.<br>
+          Not affiliated with Kilter, LLC, Moon Climbing or Aurora Climbing.
         </p>
       </div>
       <div>
         <h4>Project</h4>
         <ul>
           <li><a href="/boards/">Board Map</a></li>
+          <li><a href="/boards/list.html">All board locations</a></li>
           <li><a href="https://codeberg.org/CruxCoach/CruxCoach">Codeberg</a></li>
           <li><a href="https://github.com/CruxCoach/CruxCoach">GitHub mirror</a></li>
           <li><a href="https://codeberg.org/CruxCoach/CruxCoach/releases">Releases</a></li>
@@ -712,10 +740,10 @@ bash scripts/setup_dev_env.sh
       <span><a href="/support.html">Support</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a></span>
     </div>
     <p class="disambiguation">
-      "CruxCoach" on <strong>cruxcoach.org</strong> is the open-source Android app for the Kilter Board described above.
+      "CruxCoach" on <strong>cruxcoach.org</strong> is the open-source Android app for the Kilter Board, MoonBoard and other training boards described above.
       Not affiliated with cruxcoach.app, cruxcoach.com, or any other product using a similar name.
-      Kilter Board is a trademark of Kilter, LLC; CruxCoach uses the name descriptively to indicate
-      compatibility, with no affiliation or endorsement implied.
+      Kilter Board is a trademark of Kilter, LLC; MoonBoard of Moon Climbing Ltd; Tension Board of Tension Climbing.
+      CruxCoach uses these names descriptively to indicate compatibility, with no affiliation or endorsement implied.
     </p>
   </div>
 </footer>
