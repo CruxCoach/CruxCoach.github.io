@@ -55,6 +55,14 @@
       fixedAt: 'fixed at {angle}°',
       fixedAngle: 'fixed angle',
       angleAt: 'angle {angle}°',
+      searchAria: 'Search venues',
+      searchPlaceholder: 'Search gym, city or country',
+      searchHint: 'Search the listed boards by gym name, city or country.',
+      searchNoResults: 'No venues match “{q}”.',
+      searchMatchOne: '1 match',
+      searchMatchMany: '{n} matches',
+      searchCapped: ' (first {max} shown)',
+      searchResultsLabel: 'Search results',
     },
     de: {
       boardType: 'Board-Typ',
@@ -104,6 +112,14 @@
       fixedAt: 'fest auf {angle}°',
       fixedAngle: 'fester Winkel',
       angleAt: 'Winkel {angle}°',
+      searchAria: 'Standorte suchen',
+      searchPlaceholder: 'Gym, Stadt oder Land suchen',
+      searchHint: 'Durchsuche die gelisteten Boards nach Gym-Name, Stadt oder Land.',
+      searchNoResults: 'Keine Standorte passen zu „{q}“.',
+      searchMatchOne: '1 Treffer',
+      searchMatchMany: '{n} Treffer',
+      searchCapped: ' (erste {max} gezeigt)',
+      searchResultsLabel: 'Suchergebnisse',
     },
   }[LANG];
 
@@ -383,6 +399,88 @@
     }
     return L.marker([lat, lon], { icon: icon })
       .bindPopup(buildPopupHtml(lat, lon, props), { maxWidth: 320 });
+  }
+
+  // ── Local venue search ────────────────────────────────────────────
+  // A fully client-side search over the venues already in memory — gym
+  // name, city and (localized) country. No geocoder and no third-party
+  // request: it just filters the same dataset the markers come from, so
+  // it works offline and keeps the site's "only OSM tiles" privacy rule.
+  var SEARCH_MIN = 2;   // ignore 0–1 char queries (too noisy)
+  var SEARCH_MAX = 50;  // cap rendered rows; the true total is reported
+
+  // Localized country names (e.g. DE → "Germany"/"Deutschland") via the
+  // built-in Intl API, so "germany"/"frankreich" reach venues whose data
+  // only carries an ISO code. Falls back to the raw code where Intl or a
+  // given code is unavailable.
+  var REGION = null;
+  try {
+    if (typeof Intl !== 'undefined' && Intl.DisplayNames) {
+      REGION = new Intl.DisplayNames([LANG], { type: 'region' });
+    }
+  } catch (e) { REGION = null; }
+  function countryName(code) {
+    if (!code) return '';
+    if (REGION) { try { return REGION.of(code) || code; } catch (e) { return code; } }
+    return code;
+  }
+
+  // Lowercase + strip diacritics + ß→ss so "Münster"/"munster" and
+  // "Straße"/"strasse" match regardless of how either side is typed.
+  function normalizeText(s) {
+    return String(s)
+      .toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/ß/g, 'ss');
+  }
+
+  // Sort key for a matched venue (lower = more relevant): name-prefix
+  // beats name-substring beats city beats country.
+  function scoreRecord(rec, q) {
+    var i = rec.nName.indexOf(q);
+    if (i === 0) return 0;
+    if (i > 0) return 1;
+    if (rec.nCity) { var c = rec.nCity.indexOf(q); if (c === 0) return 2; if (c > 0) return 3; }
+    if (rec.nCountry && rec.nCountry.indexOf(q) >= 0) return 4;
+    return 5; // matched only via scattered terms / board labels
+  }
+
+  // Shared inner markup for a venue row (dots + name + "city, country"),
+  // used by both the in-view list and the search results. The country
+  // text is passed in so each caller picks code vs. localized name.
+  function venueRowInner(rec, countryText) {
+    var distinct = distinctBoards(rec.boards);
+    var dots = distinct.map(function (id) {
+      return '<span class="venue-list-dot" style="background:' + (COLOR[id] || '#888') + '"></span>';
+    }).join('');
+    var metaParts = [];
+    if (rec.city) metaParts.push(escapeHtml(rec.city));
+    if (countryText) metaParts.push(escapeHtml(countryText));
+    return '<span class="venue-list-dots">' + dots + '</span>' +
+      '<span class="venue-list-info">' +
+        '<span class="venue-list-name">' + escapeHtml(rec.name) + '</span>' +
+        (metaParts.length ? '<span class="venue-list-meta">' + metaParts.join(', ') + '</span>' : '') +
+      '</span>';
+  }
+
+  // Reveal a venue. If it passes the current filters it lives in the
+  // cluster, so break it out of any cluster blob and open its marker
+  // popup; if it's filtered out, fly there and open an equivalent popup
+  // at its coordinates so search still reaches it across active filters.
+  function flyToRecord(rec) {
+    if (!rec) return;
+    if (rec.visible) {
+      cluster.zoomToShowLayer(rec.marker, function () { rec.marker.openPopup(); });
+    } else {
+      map.setView([rec.lat, rec.lon], Math.max(map.getZoom(), 14));
+      L.popup({ maxWidth: 320 })
+        .setLatLng([rec.lat, rec.lon])
+        .setContent(buildPopupHtml(rec.lat, rec.lon, {
+          name: rec.name, city: rec.city, country: rec.country,
+          wellpass: rec.wellpass, boards: rec.boards,
+        }))
+        .openOn(map);
+    }
   }
 
   // ── Filter dimensions ─────────────────────────────────────────────
@@ -707,23 +805,8 @@
         (capped ? tf(T.inViewCapped, { max: MAX }) : T.inView) +
         '</div>';
       html += shown.map(function (v) {
-        var rec = v.rec;
-        var distinct = distinctBoards(rec.boards);
-        var dots = distinct.map(function (id) {
-          return '<span class="venue-list-dot" style="background:' + (COLOR[id] || '#888') + '"></span>';
-        }).join('');
-        var metaParts = [];
-        if (rec.city) metaParts.push(escapeHtml(rec.city));
-        if (rec.country) metaParts.push(escapeHtml(rec.country));
-        return (
-          '<button type="button" class="venue-list-item" data-idx="' + v.idx + '">' +
-            '<span class="venue-list-dots">' + dots + '</span>' +
-            '<span class="venue-list-info">' +
-              '<span class="venue-list-name">' + escapeHtml(rec.name) + '</span>' +
-              (metaParts.length ? '<span class="venue-list-meta">' + metaParts.join(', ') + '</span>' : '') +
-            '</span>' +
-          '</button>'
-        );
+        return '<button type="button" class="venue-list-item" data-idx="' + v.idx + '">' +
+          venueRowInner(v.rec, v.rec.country) + '</button>';
       }).join('');
     }
     target.innerHTML = html;
@@ -737,6 +820,18 @@
       L.DomEvent.disableScrollPropagation(wrap);
 
       var btnRow = L.DomUtil.create('div', 'panel-buttons', wrap);
+
+      var searchBtn = L.DomUtil.create('button', 'panel-toggle', btnRow);
+      searchBtn.setAttribute('type', 'button');
+      searchBtn.setAttribute('aria-label', T.searchAria);
+      searchBtn.setAttribute('aria-expanded', 'false');
+      searchBtn.dataset.panel = 'search';
+      searchBtn.innerHTML =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+        ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.2" y2="16.2"/>' +
+        '</svg>';
+
       var filterBtn = L.DomUtil.create('button', 'panel-toggle', btnRow);
       filterBtn.setAttribute('type', 'button');
       filterBtn.setAttribute('aria-label', T.toggleFilters);
@@ -767,21 +862,141 @@
       var div = L.DomUtil.create('div', 'legend', wrap);
       var listPanel = L.DomUtil.create('div', 'venue-list', wrap);
 
+      // ── Search panel ──────────────────────────────────────────────
+      var searchPanel = L.DomUtil.create('div', 'search-panel', wrap);
+      searchPanel.innerHTML =
+        '<div class="search-box">' +
+          '<svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"' +
+          ' stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+          '<circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.2" y2="16.2"/></svg>' +
+          '<input type="search" class="search-input" role="combobox" aria-autocomplete="list"' +
+          ' aria-expanded="false" aria-controls="cc-search-results"' +
+          ' autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"' +
+          ' placeholder="' + escapeHtml(T.searchPlaceholder) + '"' +
+          ' aria-label="' + escapeHtml(T.searchPlaceholder) + '">' +
+        '</div>' +
+        '<div class="search-results" id="cc-search-results" role="listbox"' +
+        ' aria-label="' + escapeHtml(T.searchResultsLabel) + '"></div>';
+      var searchInput = searchPanel.querySelector('.search-input');
+      var searchResults = searchPanel.querySelector('.search-results');
+      var searchData = [];     // currently rendered results: [{ rec, score }]
+      var searchActive = -1;   // index of the keyboard-highlighted result
+
+      function highlightActive() {
+        var opts = searchResults.querySelectorAll('.venue-list-item');
+        for (var i = 0; i < opts.length; i++) {
+          var on = (i === searchActive);
+          opts[i].classList.toggle('active', on);
+          opts[i].setAttribute('aria-selected', on ? 'true' : 'false');
+          if (on) {
+            searchInput.setAttribute('aria-activedescendant', opts[i].id);
+            opts[i].scrollIntoView({ block: 'nearest' });
+          }
+        }
+        if (searchActive < 0) searchInput.removeAttribute('aria-activedescendant');
+      }
+
+      function runSearch() {
+        var raw = searchInput.value.trim();
+        var q = normalizeText(raw);
+        searchActive = -1;
+        searchInput.removeAttribute('aria-activedescendant');
+        if (q.length < SEARCH_MIN) {
+          searchData = [];
+          searchInput.setAttribute('aria-expanded', 'false');
+          searchResults.innerHTML = '<div class="search-hint">' + escapeHtml(T.searchHint) + '</div>';
+          return;
+        }
+        var terms = q.split(/\s+/);
+        var matches = [];
+        for (var i = 0; i < venueRecords.length; i++) {
+          var rec = venueRecords[i];
+          var hay = rec.nHay;
+          var ok = true;
+          for (var t = 0; t < terms.length; t++) {
+            if (hay.indexOf(terms[t]) < 0) { ok = false; break; }
+          }
+          if (ok) matches.push({ rec: rec, score: scoreRecord(rec, q) });
+        }
+        matches.sort(function (a, b) {
+          return a.score - b.score || a.rec.name.localeCompare(b.rec.name);
+        });
+        var total = matches.length;
+        if (!total) {
+          searchData = [];
+          searchInput.setAttribute('aria-expanded', 'false');
+          searchResults.innerHTML = '<div class="venue-list-empty">' +
+            tf(T.searchNoResults, { q: escapeHtml(raw) }) + '</div>';
+          return;
+        }
+        var capped = total > SEARCH_MAX;
+        searchData = capped ? matches.slice(0, SEARCH_MAX) : matches;
+        var countStr = (total === 1
+          ? T.searchMatchOne
+          : tf(T.searchMatchMany, { n: total.toLocaleString(LANG) })) +
+          (capped ? tf(T.searchCapped, { max: SEARCH_MAX }) : '');
+        var html = '<div class="venue-list-status">' + escapeHtml(countStr) + '</div>';
+        html += searchData.map(function (v, n) {
+          return '<button type="button" class="venue-list-item" role="option"' +
+            ' id="cc-search-opt-' + n + '" aria-selected="false" data-pos="' + n + '">' +
+            venueRowInner(v.rec, v.rec.countryName || v.rec.country) + '</button>';
+        }).join('');
+        searchResults.innerHTML = html;
+        searchInput.setAttribute('aria-expanded', 'true');
+      }
+
+      searchInput.addEventListener('input', runSearch);
+      searchInput.addEventListener('keydown', function (ev) {
+        // Keep keystrokes from reaching Leaflet's map keyboard handler
+        // (arrows would pan the map, +/- would zoom it while typing).
+        ev.stopPropagation();
+        if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
+          if (!searchData.length) return;
+          ev.preventDefault();
+          var n = searchData.length;
+          if (searchActive < 0) searchActive = (ev.key === 'ArrowDown') ? 0 : n - 1;
+          else searchActive = (ev.key === 'ArrowDown')
+            ? Math.min(searchActive + 1, n - 1)
+            : Math.max(searchActive - 1, 0);
+          highlightActive();
+        } else if (ev.key === 'Enter') {
+          ev.preventDefault();
+          var pick = searchActive >= 0 ? searchActive : 0;
+          if (searchData[pick]) flyToRecord(searchData[pick].rec);
+        } else if (ev.key === 'Escape' && searchInput.value) {
+          ev.preventDefault();
+          searchInput.value = '';
+          runSearch();
+        }
+      });
+      searchResults.addEventListener('click', function (ev) {
+        var btn = ev.target.closest('.venue-list-item');
+        if (!btn) return;
+        var entry = searchData[+btn.dataset.pos];
+        if (entry) flyToRecord(entry.rec);
+      });
+
+      var panelBtns = { search: searchBtn, filter: filterBtn, list: listBtn };
       function setPanel(name) {
         var same = wrap.classList.contains('show-' + name);
-        wrap.classList.remove('show-filter', 'show-list');
-        filterBtn.classList.remove('active');
-        listBtn.classList.remove('active');
-        filterBtn.setAttribute('aria-expanded', 'false');
-        listBtn.setAttribute('aria-expanded', 'false');
+        wrap.classList.remove('show-search', 'show-filter', 'show-list');
+        Object.keys(panelBtns).forEach(function (k) {
+          panelBtns[k].classList.remove('active');
+          panelBtns[k].setAttribute('aria-expanded', 'false');
+        });
         if (!same) {
           wrap.classList.add('show-' + name);
-          var btn = name === 'filter' ? filterBtn : listBtn;
-          btn.classList.add('active');
-          btn.setAttribute('aria-expanded', 'true');
+          panelBtns[name].classList.add('active');
+          panelBtns[name].setAttribute('aria-expanded', 'true');
           if (name === 'list') refreshVenueList(listPanel);
+          if (name === 'search') {
+            runSearch();
+            // Focus after the panel becomes visible so mobile keyboards open.
+            setTimeout(function () { searchInput.focus(); }, 0);
+          }
         }
       }
+      searchBtn.addEventListener('click', function () { setPanel('search'); });
       filterBtn.addEventListener('click', function () { setPanel('filter'); });
       listBtn.addEventListener('click', function () { setPanel('list'); });
 
@@ -791,17 +1006,12 @@
         if (wrap.classList.contains('show-list')) refreshVenueList(listPanel);
       });
 
-      // Item click → jump to the marker and open its popup. zoomToShowLayer
-      // breaks out of any cluster the marker is inside before opening.
+      // Item click → jump to the marker and open its popup (flyToRecord
+      // breaks out of any cluster the marker is inside before opening).
       listPanel.addEventListener('click', function (ev) {
         var btn = ev.target.closest('.venue-list-item');
         if (!btn) return;
-        var idx = +btn.dataset.idx;
-        var rec = venueRecords[idx];
-        if (!rec) return;
-        cluster.zoomToShowLayer(rec.marker, function () {
-          rec.marker.openPopup();
-        });
+        flyToRecord(venueRecords[+btn.dataset.idx]);
       });
 
       var boardTypeSection =
@@ -965,16 +1175,26 @@
 
         var marker = buildMarker(lat, lon, props);
         cluster.addLayer(marker);
+        // Precompute the normalized search fields once per venue so each
+        // keystroke is a handful of indexOf() calls, not a re-normalize.
+        var venueName = props.name || T.unnamed;
+        var cName = countryName(country);
+        var boardLabels = distinctBoards(props.boards).map(function (id) { return LABEL[id] || id; }).join(' ');
         venueRecords.push({
           marker: marker,
           visible: true,
           lat: lat,
           lon: lon,
-          name: props.name || T.unnamed,
+          name: venueName,
           city: props.city || null,
           boards: props.boards,
-          country: country,
+          country: country,            // ISO code — drives the country filter
+          countryName: cName,          // localized name — for search + display
           wellpass: wellpass,
+          nName: normalizeText(venueName),
+          nCity: props.city ? normalizeText(props.city) : '',
+          nCountry: cName ? normalizeText(cName) : '',
+          nHay: normalizeText([venueName, props.city, cName, boardLabels].filter(Boolean).join(' ')),
         });
       }
 

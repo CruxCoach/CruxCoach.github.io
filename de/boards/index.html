@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kletterboard-Karte: Kilter-, Tension- &amp; MoonBoard-Standorte — CruxCoach</title>
-<meta name="description" content="Interaktive Weltkarte der Kletter-Trainingsboards — Kilter Board, Tension Board, MoonBoard und sechs weitere Systeme. Filterbar nach Board-Typ, Land, MoonBoard-Variante und Kilter-Wandgröße.">
+<meta name="description" content="Interaktive Weltkarte der Kletterboards — Kilter, Tension, MoonBoard und sechs weitere Systeme, 2.700+ Standorte. Filterbar nach Typ, Land und Wand-Details.">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://cruxcoach.org/de/boards/">
@@ -68,7 +68,7 @@
           "name": "Wie finde ich ein Kilter Board oder MoonBoard in meiner Nähe?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Zoome die Karte auf deine Gegend und schalte die Board-Typen ab, auf denen du nicht kletterst. Die Liste „Boards in der Ansicht“ nennt dann jeden passenden Standort, der gerade auf dem Bildschirm zu sehen ist."
+            "text": "Nutze das Suchfeld, um direkt zu einem Gym, einer Stadt oder einem Land zu springen, oder zoome die Karte auf deine Gegend und schalte die Board-Typen ab, auf denen du nicht kletterst. Die Liste „Boards in der Ansicht“ nennt dann jeden passenden Standort, der gerade auf dem Bildschirm zu sehen ist."
           }
         },
         {
@@ -209,7 +209,7 @@
   .panel-toggle svg { width: 20px; height: 20px; display: block; }
   .panel-toggle.active { background: var(--accent); color: #fff; }
   .panel-toggle.active:hover { color: #fff; opacity: 0.95; }
-  .legend, .venue-list {
+  .legend, .venue-list, .search-panel {
     background: #fff;
     color: #1a1a1a;
     padding: 10px 12px;
@@ -227,6 +227,7 @@
   }
   .legend-wrap.show-filter .legend { display: block; }
   .legend-wrap.show-list .venue-list { display: block; }
+  .legend-wrap.show-search .search-panel { display: block; }
   /* Venue list (panel that lists everything currently visible in the
      map viewport). Refreshes on map moveend; click jumps to + opens
      the marker. */
@@ -259,6 +260,30 @@
   }
   .venue-list-meta { color: #888; font-size: 11px; }
   .venue-list-empty { color: #888; padding: 10px 0; font-style: italic; }
+  /* Search panel — local incremental search over the loaded venues
+     (gym name / city / country). No geocoder, no third-party request:
+     it filters the same client-side dataset the markers come from. */
+  .search-box { position: relative; margin-bottom: 8px; }
+  .search-box .search-icon {
+    position: absolute; left: 8px; top: 50%; transform: translateY(-50%);
+    width: 15px; height: 15px; color: #999; pointer-events: none;
+  }
+  .search-input {
+    width: 100%;
+    padding: 7px 9px 7px 30px;
+    font-size: 16px;            /* >=16px stops iOS zooming in on focus */
+    font-family: inherit;
+    color: #1a1a1a; background: #fff;
+    border: 1px solid #cdcdcd; border-radius: 6px;
+    outline: none;
+  }
+  .search-input::placeholder { color: #999; }
+  .search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(224,122,79,0.18);
+  }
+  .search-hint { color: #888; font-size: 11.5px; padding: 2px 0 4px; }
+  .search-results .venue-list-item.active { background: rgba(224,122,79,0.12); }
   .legend h3 { margin: 0 0 8px; font-size: 0.95rem; color: #1a1a1a; }
   .legend label {
     display: flex; align-items: center; cursor: pointer; user-select: none;
@@ -608,6 +633,7 @@
 
     <h3>So nutzt du die Karte</h3>
     <ul>
+      <li><strong>Suchen</strong> nach Gym-Name, Stadt oder Land, um direkt zu einem Standort zu springen.</li>
       <li><strong>Nach Board-Typ filtern</strong>, um nur die Systeme zu sehen, auf denen du kletterst.</li>
       <li><strong>Eingrenzen:</strong> Kilter-Standorte nach Wand-Layout, Winkel und Größe filtern; MoonBoard-Standorte nach Setup-Jahr (2016, 2017 / 2019 Masters, 2024, Mini, School Room), kommerziell vs. privat sowie LED vs. ohne LED.</li>
       <li><strong>Nach Land filtern</strong>, um die Abdeckung in einer bestimmten Region zu prüfen.</li>
@@ -627,7 +653,7 @@
       eigener App und weltweiten Benchmark-Bouldern. Seine
       Hardware-Generationen (2016, 2017 Masters, 2019 Masters, 2024, Mini und
       School Room) sind untereinander nicht austauschbar — deshalb lässt sich
-      die Karte nach MoonBoard-Variante filtern. Am vollständigsten ist die
+      die Karte nach MoonBoard-Variante filtern. Die App selbst steuert fünf dieser MoonBoard-Konfigurationen — 2016, Masters 2017, Masters 2019, Mini 2020 und 2024 — während die Karte zusätzlich von Betreibern getaggte Setups wie School Room zeigt. Am vollständigsten ist die
       Abdeckung beim Kilter Board und MoonBoard; die kleineren Systeme listen
       nur ihre wenigen öffentlich registrierten Wände.
     </p>
@@ -665,7 +691,7 @@
     <h3>Häufige Fragen</h3>
     <dl>
       <dt>Wie finde ich ein Kilter Board oder MoonBoard in meiner Nähe?</dt>
-      <dd>Zoome die Karte auf deine Gegend und schalte die Board-Typen ab, auf denen du nicht kletterst. Die Liste „Boards in der Ansicht“ nennt dann jeden passenden Standort, der gerade auf dem Bildschirm zu sehen ist.</dd>
+      <dd>Nutze das Suchfeld, um direkt zu einem Gym, einer Stadt oder einem Land zu springen, oder zoome die Karte auf deine Gegend und schalte die Board-Typen ab, auf denen du nicht kletterst. Die Liste „Boards in der Ansicht“ nennt dann jeden passenden Standort, der gerade auf dem Bildschirm zu sehen ist.</dd>
 
       <dt>Was ist der Unterschied zwischen Kilter Board, Tension Board und MoonBoard?</dt>
       <dd>Kilter Board und Tension Board nutzen das Aurora-Climbing-System: LED-beleuchtete Griffe und meist ein verstellbarer Wandwinkel. Das MoonBoard setzt auf ein festes Griffraster in festem Winkel, mit eigener App und eigenen Benchmark-Bouldern. Die Systeme sind nicht kompatibel — ein Boulder von einem Board lässt sich nicht auf ein anderes übertragen.</dd>
