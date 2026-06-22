@@ -258,6 +258,14 @@
   .btn-disabled { background: transparent; color: var(--fg-mute); border-color: var(--rule); cursor: not-allowed; pointer-events: none; }
   .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
 
+  /* Supported-boards band under the hero — names every board the app drives;
+     the two map-only layers are noted as such. */
+  .boards-band { background: var(--bg-soft); border-bottom: 1px solid var(--rule); padding: 1.75rem 0; }
+  .boards-band-label { color: var(--fg-soft); font-size: 0.95rem; margin: 0 0 0.85rem; }
+  .board-list { list-style: none; margin: 0 0 0.75rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 0.6rem; }
+  .board-list li { border: 1px solid var(--rule); border-radius: 6px; padding: 0.35rem 0.8rem; font-size: 0.95rem; font-weight: 500; color: var(--fg); background: var(--bg); }
+  .boards-band-note { color: var(--fg-mute); font-size: 0.85rem; margin: 0; }
+
   /* Hero screenshot */
   .hero-shot {
     max-width: 22rem;
@@ -387,9 +395,71 @@
   .dev-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; font-size: 0.95rem; }
 
   /* FAQ */
-  .faq-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: 1.5rem 2.5rem; }
-  .faq-item h3 { color: var(--fg); margin-bottom: 0.4rem; }
-  .faq-item p { color: var(--fg-soft); margin: 0; }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 52rem;
+    counter-reset: faq;
+  }
+  .faq-item {
+    background: var(--bg-soft);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color .15s;
+  }
+  .faq-item:hover { border-color: var(--fg-mute); }
+  .faq-item[open] { border-color: var(--accent); }
+  .faq-item > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.05rem 1.4rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--fg);
+    line-height: 1.35;
+  }
+  .faq-item > summary:hover { color: var(--accent); }
+  .faq-item > summary::-webkit-details-marker { display: none; }
+  .faq-item > summary::before {
+    counter-increment: faq;
+    content: counter(faq);
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .faq-item > summary::after {
+    content: "";
+    margin-left: auto;
+    flex-shrink: 0;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-right: 2px solid var(--fg-mute);
+    border-bottom: 2px solid var(--fg-mute);
+    transform: rotate(45deg);
+    transition: transform .2s, border-color .2s;
+  }
+  .faq-item[open] > summary { color: var(--accent); }
+  .faq-item[open] > summary::after { transform: rotate(-135deg); border-color: var(--accent); }
+  .faq-item > p {
+    margin: 0;
+    padding: 0.1rem 1.4rem 1.25rem;
+    color: var(--fg-soft);
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
 
   /* Footer */
   footer {
@@ -461,7 +531,7 @@
         anyone tracking your training.
       </p>
       <ul class="hero-bullets">
-        <li>7 board systems, one app</li>
+        <li>7 boards, one app</li>
         <li>Custom hold colors</li>
         <li>Encrypted local logbook</li>
         <li>German &amp; English UI</li>
@@ -478,10 +548,26 @@
   </div>
 </section>
 
+<section class="boards-band" aria-label="Supported boards">
+  <div class="container">
+    <p class="boards-band-label">Existing catalogue and Bluetooth hold-lighting on all seven boards:</p>
+    <ul class="board-list">
+      <li>Kilter Board</li>
+      <li>MoonBoard</li>
+      <li>Tension Board</li>
+      <li>Grasshopper</li>
+      <li>Decoy</li>
+      <li>So iLL</li>
+      <li>Touchstone</li>
+    </ul>
+    <p class="boards-band-note">Aurora and 12 Climb also appear on the <a href="/boards/">board map</a> as location-only layers.</p>
+  </div>
+</section>
+
 <section id="features">
   <div class="container">
     <h2>What CruxCoach does</h2>
-    <p class="section-lede">Built around the things you actually do at the wall — not features the official app needed but you don't.</p>
+    <p class="section-lede">One app for every board you climb — open source, no account, no tracking, and your data never leaves your device unless you say so.</p>
     <div class="features">
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -509,16 +595,12 @@
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3" fill="currentColor"/>
-            <circle cx="12" cy="12" r="7"/>
-            <line x1="12" y1="2" x2="12" y2="4"/>
-            <line x1="12" y1="20" x2="12" y2="22"/>
-            <line x1="2" y1="12" x2="4" y2="12"/>
-            <line x1="20" y1="12" x2="22" y2="12"/>
+            <path d="M12 20h9"/>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
           </svg>
         </span>
-        <h3>Search by hold</h3>
-        <p>Tap holds on the board image. Find every climb that uses that exact combination.</p>
+        <h3>Set and share your own climbs</h3>
+        <p>Create your own problems on any of the seven boards and publish them to the CruxCoach community over Nostr — no central server holding them, no gatekeeper.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -658,30 +740,30 @@
     <h2>Frequently asked questions</h2>
     <p class="section-lede">The questions people actually ask before installing.</p>
     <div class="faq-list">
-      <div class="faq-item">
-        <h3>Is CruxCoach an alternative to the official Kilter Board app?</h3>
+      <details class="faq-item">
+        <summary>Is CruxCoach an alternative to the official Kilter Board app?</summary>
         <p>Yes. CruxCoach is an independent, open-source Android app for app-controlled training boards — Kilter, MoonBoard, Tension and more — not affiliated with Kilter, LLC, Moon Climbing or Aurora Climbing. It browses climbs, lights up the holds over Bluetooth and logs your ascents on your own device, with no account and no Google services required. It is licensed under the GPL-3.0 and focuses on Android, rather than trying to cover every platform.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Can I get my old Kilter Board data back after the app was taken down?</h3>
+      </details>
+      <details class="faq-item">
+        <summary>Can I get my old Kilter Board data back after the app was taken down?</summary>
         <p>Yes. Request a data export from Aurora, the operator of the old app, and they email you a JSON file. In CruxCoach, open Settings → Migrate from Aurora to import it: your ascents, attempts, circuits and bid history land in your local logbook, and re-importing the same file is safe. If you still have a working Kilter account, you can instead sign in once to import your logbook directly. Either way the data then lives encrypted on your device.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Does it work without a Google account or Google services?</h3>
+      </details>
+      <details class="faq-item">
+        <summary>Does it work without a Google account or Google services?</summary>
         <p>Yes. CruxCoach needs no account and no Google Mobile Services. Your identity is a Nostr keypair generated on first launch and stored in the Android Keystore. It runs on de-Googled phones such as GrapheneOS, /e/OS and LineageOS without GApps, on Android 8.0 or later with Bluetooth LE. There is no telemetry, no analytics and no third-party SDKs.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Which boards and Android versions does CruxCoach support?</h3>
+      </details>
+      <details class="faq-item">
+        <summary>Which boards and Android versions does CruxCoach support?</summary>
         <p>CruxCoach drives seven board systems interactively on Android 8.0 or later with Bluetooth LE: the Kilter Board (all sizes and adjustable angles), the MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 and 2024 — the 2024 set currently carries community-contributed problems), and the Tension, Grasshopper, Decoy, So iLL and Touchstone boards. Browse each board's catalogue, filter by grade, angle, quality, move count and setter, then light it up over Bluetooth. The separate <a href="/boards/">board map</a> is broader still: it also plots Aurora and 12 Climb installations as location-only layers.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Does CruxCoach work with the MoonBoard?</h3>
+      </details>
+      <details class="faq-item">
+        <summary>Does CruxCoach work with the MoonBoard?</summary>
         <p>Yes. CruxCoach is a free, open-source MoonBoard app for Android: browse the MoonBoard problem catalogue with the same filters as the Kilter catalogue, open a problem and light up the holds on your physical board over Bluetooth. Five configurations are supported — MoonBoard 2016 (40°), Masters 2017, Masters 2019 (25° and 40°), Mini 2020 and MoonBoard 2024. It needs no account and no Google services. The MoonBoard 2024 set currently ships community-contributed problems rather than the full catalogue.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Where can I find a Kilter Board or MoonBoard near me?</h3>
+      </details>
+      <details class="faq-item">
+        <summary>Where can I find a Kilter Board or MoonBoard near me?</summary>
         <p>CruxCoach publishes a free interactive <a href="/boards/">board map</a> covering 2,700+ venues across nine board systems in 80+ countries — Kilter Board, Tension Board, MoonBoard and six more — filterable by board type, country and wall details.</p>
-      </div>
+      </details>
     </div>
   </div>
 </section>

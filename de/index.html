@@ -106,7 +106,7 @@
     },
     {
       "@type": "Question",
-      "name": "Funktioniert CruxCoach ohne Google-Konto oder Google-Dienste?",
+      "name": "Funktioniert es ohne Google-Konto oder Google-Dienste?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 8.0 mit Bluetooth LE. Es gibt keine Telemetrie, keine Analyse und keine Dritt-SDKs."
@@ -257,6 +257,14 @@
   .btn-disabled { background: transparent; color: var(--fg-mute); border-color: var(--rule); cursor: not-allowed; pointer-events: none; }
   .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
 
+  /* Supported-boards band under the hero — names every board the app drives;
+     the two map-only layers are noted as such. */
+  .boards-band { background: var(--bg-soft); border-bottom: 1px solid var(--rule); padding: 1.75rem 0; }
+  .boards-band-label { color: var(--fg-soft); font-size: 0.95rem; margin: 0 0 0.85rem; }
+  .board-list { list-style: none; margin: 0 0 0.75rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 0.6rem; }
+  .board-list li { border: 1px solid var(--rule); border-radius: 6px; padding: 0.35rem 0.8rem; font-size: 0.95rem; font-weight: 500; color: var(--fg); background: var(--bg); }
+  .boards-band-note { color: var(--fg-mute); font-size: 0.85rem; margin: 0; }
+
   .hero-shot {
     max-width: 22rem;
     margin: 0 auto;
@@ -378,9 +386,71 @@
   .dev-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; font-size: 0.95rem; }
 
   /* FAQ */
-  .faq-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: 1.5rem 2.5rem; }
-  .faq-item h3 { color: var(--fg); margin-bottom: 0.4rem; }
-  .faq-item p { color: var(--fg-soft); margin: 0; }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 52rem;
+    counter-reset: faq;
+  }
+  .faq-item {
+    background: var(--bg-soft);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color .15s;
+  }
+  .faq-item:hover { border-color: var(--fg-mute); }
+  .faq-item[open] { border-color: var(--accent); }
+  .faq-item > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.05rem 1.4rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--fg);
+    line-height: 1.35;
+  }
+  .faq-item > summary:hover { color: var(--accent); }
+  .faq-item > summary::-webkit-details-marker { display: none; }
+  .faq-item > summary::before {
+    counter-increment: faq;
+    content: counter(faq);
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .faq-item > summary::after {
+    content: "";
+    margin-left: auto;
+    flex-shrink: 0;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-right: 2px solid var(--fg-mute);
+    border-bottom: 2px solid var(--fg-mute);
+    transform: rotate(45deg);
+    transition: transform .2s, border-color .2s;
+  }
+  .faq-item[open] > summary { color: var(--accent); }
+  .faq-item[open] > summary::after { transform: rotate(-135deg); border-color: var(--accent); }
+  .faq-item > p {
+    margin: 0;
+    padding: 0.1rem 1.4rem 1.25rem;
+    color: var(--fg-soft);
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
 
   footer {
     border-top: 1px solid var(--rule);
@@ -451,7 +521,7 @@
         Google-Dienste, ohne dass jemand dein Training mitschreibt.
       </p>
       <ul class="hero-bullets">
-        <li>7 Board-Systeme, eine App</li>
+        <li>7 Boards, eine App</li>
         <li>Eigene Griff-Farben</li>
         <li>Verschlüsseltes Logbuch</li>
         <li>Deutsche &amp; englische UI</li>
@@ -468,10 +538,26 @@
   </div>
 </section>
 
+<section class="boards-band" aria-label="Unterstützte Boards">
+  <div class="container">
+    <p class="boards-band-label">Vorhandener Katalog und Griff-Beleuchtung per Bluetooth auf allen sieben Boards:</p>
+    <ul class="board-list">
+      <li>Kilter Board</li>
+      <li>MoonBoard</li>
+      <li>Tension Board</li>
+      <li>Grasshopper</li>
+      <li>Decoy</li>
+      <li>So iLL</li>
+      <li>Touchstone</li>
+    </ul>
+    <p class="boards-band-note">Aurora und 12 Climb erscheinen außerdem auf der <a href="/de/boards/">Board-Karte</a> als reine Standort-Ebenen.</p>
+  </div>
+</section>
+
 <section id="features">
   <div class="container">
     <h2>Was CruxCoach kann</h2>
-    <p class="section-lede">Gebaut um die Sachen, die du an der Wand wirklich machst — nicht um Funktionen, die die offizielle App brauchte und du nicht.</p>
+    <p class="section-lede">Eine App für jedes Board, auf dem du kletterst — quelloffen, ohne Konto, ohne Tracking, und deine Daten verlassen dein Gerät nur, wenn du es willst.</p>
     <div class="features">
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -499,16 +585,12 @@
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3" fill="currentColor"/>
-            <circle cx="12" cy="12" r="7"/>
-            <line x1="12" y1="2" x2="12" y2="4"/>
-            <line x1="12" y1="20" x2="12" y2="22"/>
-            <line x1="2" y1="12" x2="4" y2="12"/>
-            <line x1="20" y1="12" x2="22" y2="12"/>
+            <path d="M12 20h9"/>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
           </svg>
         </span>
-        <h3>Nach Griff suchen</h3>
-        <p>Tippe Griffe auf dem Board-Bild an. Finde alle Boulder, die genau diese Kombination nutzen.</p>
+        <h3>Eigene Boulder setzen und teilen</h3>
+        <p>Erstelle eigene Boulder auf jedem der sieben Boards und teile sie über Nostr mit der CruxCoach-Community — kein zentraler Server, keine Freigabe-Instanz.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -651,30 +733,30 @@
     <h2>Häufige Fragen</h2>
     <p class="section-lede">Die Fragen, die Leute vor dem Installieren wirklich stellen.</p>
     <div class="faq-list">
-      <div class="faq-item">
-        <h3>Ist CruxCoach eine Alternative zur offiziellen Kilter-Board-App?</h3>
+      <details class="faq-item">
+        <summary>Ist CruxCoach eine Alternative zur offiziellen Kilter-Board-App?</summary>
         <p>Ja. CruxCoach ist eine unabhängige, quelloffene Android-App für app-gesteuerte Trainingsboards — Kilter, MoonBoard, Tension und mehr — nicht verbunden mit Kilter, LLC, Moon Climbing oder Aurora Climbing. Sie zeigt Climbs an, beleuchtet die Griffe per Bluetooth und loggt deine Begehungen auf deinem eigenen Gerät, ohne Konto und ohne Google-Dienste. Sie steht unter der GPL-3.0 und konzentriert sich auf Android, statt jede Plattform abdecken zu wollen.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Bekomme ich meine alten Kilter-Board-Daten zurück, nachdem die App abgeschaltet wurde?</h3>
+      </details>
+      <details class="faq-item">
+        <summary>Bekomme ich meine alten Kilter-Board-Daten zurück, nachdem die App abgeschaltet wurde?</summary>
         <p>Ja. Fordere bei Aurora, dem Betreiber der alten App, einen Datenexport an — du erhältst per E-Mail eine JSON-Datei. Öffne in CruxCoach Einstellungen → Von Aurora migrieren, um sie zu importieren: deine Begehungen, Versuche, Circuits und Bid-History landen in deinem lokalen Logbuch, und ein erneuter Import derselben Datei ist gefahrlos. Wenn du noch ein funktionierendes Kilter-Konto hast, kannst du dich stattdessen einmal anmelden und dein Logbuch direkt importieren. So oder so liegen die Daten danach verschlüsselt auf deinem Gerät.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Funktioniert es ohne Google-Konto oder Google-Dienste?</h3>
+      </details>
+      <details class="faq-item">
+        <summary>Funktioniert es ohne Google-Konto oder Google-Dienste?</summary>
         <p>Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 8.0 mit Bluetooth LE. Es gibt keine Telemetrie, keine Analyse und keine Dritt-SDKs.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Welche Boards und Android-Versionen unterstützt CruxCoach?</h3>
+      </details>
+      <details class="faq-item">
+        <summary>Welche Boards und Android-Versionen unterstützt CruxCoach?</summary>
         <p>CruxCoach steuert sieben Board-Systeme interaktiv, ab Android 8.0 mit Bluetooth LE: das Kilter Board (alle Größen und verstellbaren Winkel), das MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 und 2024 — der 2024er-Satz enthält vorerst Community-Boulder) sowie die Boards Tension, Grasshopper, Decoy, So iLL und Touchstone. Durchstöbere den Katalog jedes Boards, filtere nach Grad, Winkel, Qualität, Zuganzahl und Setter und beleuchte es per Bluetooth. Die separate <a href="/boards/">Board-Karte</a> ist noch breiter: Sie zeigt zusätzlich Aurora- und 12-Climb-Standorte als reine Standort-Ebenen.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Funktioniert CruxCoach mit dem MoonBoard?</h3>
+      </details>
+      <details class="faq-item">
+        <summary>Funktioniert CruxCoach mit dem MoonBoard?</summary>
         <p>Ja. CruxCoach ist eine kostenlose, quelloffene MoonBoard-App für Android: Durchstöbere den MoonBoard-Boulderkatalog mit denselben Filtern wie den Kilter-Katalog, öffne einen Boulder und beleuchte die Griffe an deinem physischen Board per Bluetooth. Fünf Konfigurationen werden unterstützt — MoonBoard 2016 (40°), Masters 2017, Masters 2019 (25° und 40°), Mini 2020 und MoonBoard 2024. Es braucht weder ein Konto noch Google-Dienste. Der MoonBoard-2024-Satz enthält vorerst Community-Boulder statt des vollständigen Katalogs.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Wo finde ich ein Kilter Board oder MoonBoard in meiner Nähe?</h3>
+      </details>
+      <details class="faq-item">
+        <summary>Wo finde ich ein Kilter Board oder MoonBoard in meiner Nähe?</summary>
         <p>CruxCoach veröffentlicht eine kostenlose interaktive <a href="/boards/">Board-Karte</a> mit über 2.700 Standorten über neun Board-Systeme in über 80 Ländern — Kilter Board, Tension Board, MoonBoard und sechs weitere — filterbar nach Board-Typ, Land und Wand-Details.</p>
-      </div>
+      </details>
     </div>
   </div>
 </section>
