@@ -12,15 +12,17 @@
   This file does double duty:
 
   (1) Plain 404 page for any URL that doesn't match a static file.
-  (2) App-link landing for /c/ and /l/ paths — Codeberg Pages serves
-      this file as the catch-all, and the inline script below detects
-      the link shape and swaps to the landing view:
-        /c/<naddr>   community climb — metadata fetched from Nostr
-                     relays (Kind 30078 has no static representation)
+  (2) App-link fallback for /c/ and /l/ paths — Codeberg Pages serves
+      this file as the catch-all. When the app is installed, Android
+      App Links open these URLs in the app and this page never loads.
+      Without the app:
+        /c/<naddr>   community climb — landing view with metadata
+                     fetched from Nostr relays (Kind 30078 has no
+                     static representation)
         /c/<uuid>    catalogue climb — no public metadata source,
-                     generic landing
-        /l/<payload> shared playlist — name + climb count decoded
-                     straight from the base64url payload, no network
+                     immediate redirect to the main site
+        /l/<payload> shared playlist — immediate redirect to the
+                     main site
       JS is intentionally limited to these paths (the rest of the site
       stays JS-free per README style guidelines).
 -->
@@ -84,15 +86,16 @@
   .small { font-size: 0.9rem; color: var(--fg-mute); margin-top: 1.75rem; max-width: 30rem; }
 </style>
 <script>
-  // Bootstrap: tag the document early so the right view paints first.
-  // No DOM-touch beyond <html>'s class — body isn't parsed yet here.
-  // Three app-link shapes share the landing view:
-  //   /c/<naddr>   community climb (metadata via Nostr relays)
-  //   /c/<uuid>    catalogue climb (no public metadata source)
-  //   /l/<payload> shared playlist (name + count decoded from the payload)
-  if (/^\/c\/(naddr1[a-z0-9]+|[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{32})\/?$/i.test(location.pathname) ||
-      /^\/l\/[A-Za-z0-9_-]{5,}\/?$/.test(location.pathname)) {
+  // Bootstrap: route the URL before the body paints.
+  // /c/<naddr> gets the climb-landing view (Nostr metadata below);
+  // /c/<uuid> and /l/<payload> have nothing useful to show without the
+  // app — send them straight to the main site (replace() keeps the
+  // dead-end URL out of the back-button history).
+  if (/^\/c\/naddr1[a-z0-9]+\/?$/i.test(location.pathname)) {
     document.documentElement.classList.add('climb-page');
+  } else if (/^\/c\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{32})\/?$/i.test(location.pathname) ||
+             /^\/l\/[A-Za-z0-9_-]{5,}\/?$/.test(location.pathname)) {
+    location.replace('/');
   }
 </script>
 </head>
@@ -138,11 +141,9 @@
   <script>
   (function() {
     const path = location.pathname;
-    const mNaddr = path.match(/^\/c\/(naddr1[a-z0-9]+)\/?$/i);
-    const mUuid = path.match(/^\/c\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{32})\/?$/i);
-    const mList = path.match(/^\/l\/([A-Za-z0-9_-]{5,})\/?$/);
-    if (!mNaddr && !mUuid && !mList) return;  // plain 404 stays as-is
-    const naddr = mNaddr ? mNaddr[1].toLowerCase() : null;
+    const m = path.match(/^\/c\/(naddr1[a-z0-9]+)\/?$/i);
+    if (!m) return;  // plain 404 stays as-is (uuid/list redirect in <head>)
+    const naddr = m[1].toLowerCase();
 
     // ─── i18n ───────────────────────────────────────────────
     const lang = (navigator.language || 'en').toLowerCase().startsWith('de') ? 'de' : 'en';
@@ -151,14 +152,9 @@
       en: {
         loading: 'Loading climb…',
         unknown: 'CruxCoach climb',
-        unknownPlaylist: 'Shared playlist',
         notFound: "Couldn't fetch this climb's metadata from public Nostr relays right now — it may be very fresh, or the relays are unreachable. The install + open-in-app links below still work.",
-        catalogueInfo: 'A climb from the board catalogue — open it in the app to see the holds, grade and stats.',
         by: 'by ',
-        climbsOne: '1 climb',
-        climbsMany: '{n} climbs',
         installPrompt: 'Install CruxCoach to open this climb.',
-        installPromptPlaylist: 'Install CruxCoach to import this playlist.',
         ctaZapstore: 'Get on Zapstore',
         ctaReleases: 'Codeberg releases',
         alreadyText: 'Already have CruxCoach installed?',
@@ -167,14 +163,9 @@
       de: {
         loading: 'Lade Climb…',
         unknown: 'CruxCoach-Climb',
-        unknownPlaylist: 'Geteilte Playlist',
         notFound: 'Konnte die Climb-Metadaten gerade nicht von den öffentlichen Nostr-Relays laden — der Climb ist evtl. ganz frisch oder die Relays sind nicht erreichbar. Die Install- und In-App-Links unten funktionieren trotzdem.',
-        catalogueInfo: 'Ein Climb aus dem Board-Katalog — öffne ihn in der App für Griffe, Grad und Statistiken.',
         by: 'von ',
-        climbsOne: '1 Climb',
-        climbsMany: '{n} Climbs',
         installPrompt: 'CruxCoach installieren, um diesen Climb zu öffnen.',
-        installPromptPlaylist: 'CruxCoach installieren, um diese Playlist zu importieren.',
         ctaZapstore: 'Auf Zapstore holen',
         ctaReleases: 'Codeberg-Releases',
         alreadyText: 'CruxCoach schon installiert?',
@@ -195,7 +186,7 @@
     const elAlreadyText = document.getElementById('cl-already-text');
     const elCtaIntent = document.getElementById('cl-cta-intent');
     elName.textContent = t('loading');
-    elPrompt.textContent = mList ? t('installPromptPlaylist') : t('installPrompt');
+    elPrompt.textContent = t('installPrompt');
     elCtaZapstore.textContent = t('ctaZapstore');
     elCtaReleases.textContent = t('ctaReleases');
 
@@ -212,46 +203,6 @@
       elAlreadyText.textContent = t('alreadyText');
     } else {
       elAlready.hidden = true;
-    }
-
-    // ─── /c/<uuid>: catalogue climb, no public metadata ─────
-    // Catalogue climbs (Kilter/Aurora/MoonBoard) have no Nostr event and
-    // no public API we could query — render an honest generic landing.
-    if (mUuid) {
-      elName.textContent = t('unknown');
-      document.title = t('unknown') + ' — CruxCoach';
-      elDesc.textContent = t('catalogueInfo');
-      elDesc.removeAttribute('hidden');
-      return;
-    }
-
-    // ─── /l/<payload>: shared playlist ──────────────────────
-    // Payload (built by the app's PlaylistShareLink): base64url over
-    // [version:1=1][nameLen:1][name utf8][count:1][(angle:1)(uuid:16)×count]
-    // Name + climb count are right in the payload — no network needed.
-    if (mList) {
-      let name = null, count = null;
-      try {
-        const b64 = mList[1].replace(/-/g, '+').replace(/_/g, '/');
-        const raw = atob(b64 + '='.repeat((4 - b64.length % 4) % 4));
-        const bytes = new Uint8Array(raw.length);
-        for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
-        if (bytes.length >= 3 && bytes[0] === 1) {
-          const nameLen = bytes[1];
-          const c = bytes[2 + nameLen];
-          if (nameLen <= 60 && bytes.length === 3 + nameLen + c * 17 && c >= 1 && c <= 100) {
-            name = new TextDecoder('utf-8').decode(bytes.subarray(2, 2 + nameLen)).trim();
-            count = c;
-          }
-        }
-      } catch (e) { /* malformed → generic playlist landing */ }
-      elName.textContent = name || t('unknownPlaylist');
-      document.title = (name || t('unknownPlaylist')) + ' — CruxCoach';
-      if (count !== null) {
-        elSetter.textContent = count === 1 ? t('climbsOne') : t('climbsMany').replace('{n}', String(count));
-        elSetter.removeAttribute('hidden');
-      }
-      return;
     }
 
     // ─── bech32 / NIP-19 (naddr) decode ─────────────────────
