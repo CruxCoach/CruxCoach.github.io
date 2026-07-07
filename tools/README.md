@@ -1,7 +1,25 @@
 # tools/
 
-Scripts that regenerate static data committed under `boards/data/`. None of
+Scripts that regenerate static content committed to the repo. None of
 this runs in the browser; the site itself stays build-step-free.
+
+## Direct APK download links (`update-download-link.mjs`)
+
+```
+node tools/update-download-link.mjs
+```
+
+Every download button/link on the site points at the current release's
+versioned direct APK URL (`…/releases/download/vX.Y.Z/CruxCoach-vX.Y.Z.apk`)
+instead of the releases page. Codeberg offers no stable "always newest" URL
+for versioned asset names, so this script asks the Codeberg API for the
+latest full release (prereleases/drafts excluded), takes the URL of its
+actual `.apk` asset, and rewrites all matching download URLs in
+`index.html`, `de/index.html`, `404.html` and `llms.txt`. It is a no-op when
+the links are already current, and it never rewrites anything if the release
+has no `.apk` asset yet (half-published release). Runs nightly via
+`cron-refresh.sh`, which commits the rewrite as
+`chore(download): bump direct APK link to vX.Y.Z`.
 
 ## Refresh boards.geojson
 

@@ -1,8 +1,10 @@
 #!/bin/bash
-# Daily refresh of boards/data/boards.geojson from the upstream
-# @hangtime/climbing-boards npm package. Commits + pushes if the dataset
-# changed; logs to $HOME/.cache/cruxcoach-pages-cron/. Designed to be
-# idempotent — re-running on an already-current dataset is a no-op.
+# Daily refresh of (1) the site's direct APK download links against the
+# newest Codeberg release (tools/update-download-link.mjs) and (2)
+# boards/data/boards.geojson from the upstream @hangtime/climbing-boards
+# npm package. Commits + pushes each change independently; logs to
+# $HOME/.cache/cruxcoach-pages-cron/. Designed to be idempotent —
+# re-running on an already-current state is a no-op.
 #
 # Crontab entry (the script picks its own log file by date):
 #   30 3 * * * /home/<user>/cruxcoach-pages/tools/cron-refresh.sh
@@ -61,6 +63,28 @@ run() {
   if [ "$(git rev-list origin/main..HEAD --count)" -gt 0 ]; then
     echo "-- local is ahead of origin/main; attempting push"
     if ! try_push; then return 4; fi
+  fi
+
+  # Direct-download links first (independent of the boards dataset): a new
+  # app release moves the versioned APK URL, and the site must follow. On
+  # API failure the old links are kept — they stay valid because old
+  # release assets remain downloadable.
+  echo "-- checking direct APK download links"
+  local link_files="index.html de/index.html 404.html llms.txt"
+  if /usr/bin/node tools/update-download-link.mjs; then
+    if ! git diff --quiet -- $link_files; then
+      local apk_tag
+      apk_tag="$(grep -oE 'releases/download/[^/]+/' index.html | head -1 | cut -d/ -f3)"
+      echo "-- download links moved to ${apk_tag}"
+      git add $link_files
+      git -c user.name=CruxCoach -c user.email=dev@cruxcoach.de \
+          commit -m "chore(download): bump direct APK link to ${apk_tag}" \
+        || { echo "link commit failed"; return 3; }
+      if ! try_push; then return 4; fi
+    fi
+  else
+    echo "-- download-link check failed; restoring links + continuing"
+    git checkout -- $link_files
   fi
 
   echo "-- running build-boards-data.mjs"

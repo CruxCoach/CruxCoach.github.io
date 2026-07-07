@@ -53,8 +53,19 @@ into a per-`$TMPDIR` cache on first run, never into the repo.
 ## SEO / AI-search surface
 
 These files are load-bearing for discoverability and are maintained by hand — keep
-them current when site facts change (especially on app releases):
+them current when site facts change (especially on app releases; that includes
+`softwareVersion` in both homepages' JSON-LD):
 
+- **Direct APK download links**: every download button/link (hero, install card,
+  404 climb landing, JSON-LD `downloadUrl`, llms.txt) points at the current
+  release's **versioned** direct URL
+  (`…/releases/download/vX.Y.Z/CruxCoach-vX.Y.Z.apk`) — never at the releases
+  page. Codeberg has no "always newest" URL for versioned asset names, so
+  `tools/update-download-link.mjs` (run by the nightly cron) rewrites these URLs
+  in `index.html`, `de/index.html`, `404.html` and `llms.txt` when a new full
+  release appears. Hand-editing is fine — the cron self-heals. A new page with a
+  download link must be added to the `FILES` list in that script (and to
+  `link_files` in `cron-refresh.sh`).
 - `llms.txt` — structured project summary for LLM crawlers (distribution channels,
   privacy model, Wikidata ID Q139592177, disambiguation vs. other "cruxcoach" sites).
 - `sitemap.xml` — includes `hreflang` alternates; add new indexable pages here.
@@ -104,7 +115,9 @@ for the full contract; the essentials:
 
 ## Daily refresh automation
 
-`tools/cron-refresh.sh` runs `build-boards-data.mjs` nightly (crontab ~03:30),
+`tools/cron-refresh.sh` runs nightly (crontab ~03:30). It first runs
+`update-download-link.mjs` and commits `chore(download): bump direct APK link …`
+if a new app release moved the APK URL, then runs `build-boards-data.mjs` and
 commits + pushes to Codeberg only when `boards/data/boards.geojson` actually changes
 (it deliberately ignores `boards.meta.json`, whose `generated_at` changes every
 build, to avoid daily no-op commits). It is `flock`-guarded, fast-forward-only on
