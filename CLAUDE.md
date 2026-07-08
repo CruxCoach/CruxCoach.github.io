@@ -67,7 +67,9 @@ them current when site facts change (especially on app releases; that includes
   download link must be added to the `FILES` list in that script (and to
   `link_files` in `cron-refresh.sh`).
 - `llms.txt` — structured project summary for LLM crawlers (distribution channels,
-  privacy model, Wikidata ID Q139592177, disambiguation vs. other "cruxcoach" sites).
+  privacy model, disambiguation vs. other "cruxcoach" sites). No Wikidata ID —
+  the former item (Q139592177) was deleted 2026-05-01 as non-notable; don't
+  re-add one until a new item with independent references exists.
 - `sitemap.xml` — includes `hreflang` alternates; add new indexable pages here.
 - `robots.txt` — sitemap reference + `noindex` on legal pages.
 - JSON-LD in `index.html` — `SoftwareApplication` + `Offer` + `Organization`,
