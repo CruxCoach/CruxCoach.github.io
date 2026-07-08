@@ -115,8 +115,27 @@ run() {
   echo "=== done $(date -Is) ==="
 }
 
+sync_mirror() {
+  # Keep the GitHub Pages mirror (CruxCoach/CruxCoach.github.io →
+  # https://cruxcoach.github.io, listed in mirrors.json) in sync.
+  # Non-fatal by design: a dead mirror must never block the main refresh.
+  cd "$REPO_ROOT" || return 0
+  echo "-- syncing GitHub Pages mirror"
+  # run() exports GIT_SSH_COMMAND with the Codeberg key — override with
+  # the GitHub deploy key for this push.
+  export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_ed25519_github_pages -o StrictHostKeyChecking=accept-new -o BatchMode=yes"
+  local attempt
+  for attempt in 1 2 3; do
+    if git push github main; then return 0; fi
+    echo "-- mirror push attempt $attempt failed; retrying"
+    sleep $((attempt * 10))
+  done
+  echo "-- mirror push failed after 3 attempts (non-fatal)"
+}
+
 run >> "$LOG_FILE" 2>&1
 rc=$?
+sync_mirror >> "$LOG_FILE" 2>&1
 echo "[exit rc=$rc]" >> "$LOG_FILE"
 
 # Keep last 30 days of logs.

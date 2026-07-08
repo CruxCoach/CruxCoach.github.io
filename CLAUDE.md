@@ -123,3 +123,6 @@ commits + pushes to Codeberg only when `boards/data/boards.geojson` actually cha
 build, to avoid daily no-op commits). It is `flock`-guarded, fast-forward-only on
 `main`, and retries the push 3× because Codeberg occasionally drops SSH. The
 `data(boards): daily refresh — …` commits on `main` come from this script.
+After the refresh it also syncs the GitHub Pages fallback mirror
+(`git push github main` → https://cruxcoach.github.io, deploy key
+`~/.ssh/id_ed25519_github_pages`; listed in `mirrors.json`, non-fatal on failure).

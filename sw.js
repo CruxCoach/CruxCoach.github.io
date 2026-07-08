@@ -127,12 +127,20 @@ function tryMirrors(pathWithQuery) {
     function next() {
       if (i >= origins.length) return Promise.reject();
       var url = origins[i++] + pathWithQuery;
-      return fetch(url, { mode: 'cors', cache: 'no-store' })
+      /* Per-mirror timeout: a hanging mirror must not stall the whole
+       * chain until the browser's own network timeout. */
+      var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      var timer = ctrl && setTimeout(function () { ctrl.abort(); }, 4000);
+      return fetch(url, { mode: 'cors', cache: 'no-store', signal: ctrl && ctrl.signal })
         .then(function (res) {
+          if (timer) clearTimeout(timer);
           if (res && res.ok) return res;
           return next();
         })
-        .catch(function () { return next(); });
+        .catch(function () {
+          if (timer) clearTimeout(timer);
+          return next();
+        });
     }
     return next();
   });
@@ -191,7 +199,13 @@ self.addEventListener('fetch', function (event) {
         // Cold cache: need the network, with mirror + offline fallback.
         return network.then(function (res) {
           if (res && res.ok) return res;
-          return tryMirrors(pathWithQuery).catch(function () {
+          return tryMirrors(pathWithQuery).then(function (mres) {
+            /* Cache the mirror hit under the canonical request so the
+             * next request for this path is served warm instead of
+             * walking the whole cold path again. */
+            if (mres && mres.ok) cache.put(req, mres.clone());
+            return mres;
+          }).catch(function () {
             return cache.match('/404.html').then(function (nf) {
               return nf || offlinePage();
             });
