@@ -29,12 +29,14 @@ if ! flock -n 200; then
   exit 0
 fi
 
+PUSHED=0
+
 try_push() {
   # Codeberg occasionally drops SSH on the first attempt. Three tries with
   # backoff smooths over that without blocking the cron slot for too long.
   local attempt
   for attempt in 1 2 3; do
-    if git push origin main; then return 0; fi
+    if git push origin main; then PUSHED=1; return 0; fi
     echo "-- push attempt $attempt failed; sleeping then retrying"
     sleep $((attempt * 10))
   done
@@ -136,6 +138,13 @@ sync_mirror() {
 run >> "$LOG_FILE" 2>&1
 rc=$?
 sync_mirror >> "$LOG_FILE" 2>&1
+
+# Content actually left this machine → nudge search engines to re-crawl.
+# Non-fatal like the mirror sync: a missed ping only delays re-crawling.
+if [ "$PUSHED" -eq 1 ]; then
+  "$REPO_ROOT/tools/indexnow-ping.sh" >> "$LOG_FILE" 2>&1 || true
+fi
+
 echo "[exit rc=$rc]" >> "$LOG_FILE"
 
 # Keep last 30 days of logs.
