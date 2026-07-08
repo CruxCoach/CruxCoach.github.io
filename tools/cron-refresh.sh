@@ -30,6 +30,7 @@ if ! flock -n 200; then
 fi
 
 PUSHED=0
+RELEASE_TAG=""
 
 try_push() {
   # Codeberg occasionally drops SSH on the first attempt. Three tries with
@@ -83,6 +84,7 @@ run() {
           commit -m "chore(download): bump direct APK link to ${apk_tag}" \
         || { echo "link commit failed"; return 3; }
       if ! try_push; then return 4; fi
+      RELEASE_TAG="$apk_tag"
     fi
   else
     echo "-- download-link check failed; restoring links + continuing"
@@ -143,6 +145,14 @@ sync_mirror >> "$LOG_FILE" 2>&1
 # Non-fatal like the mirror sync: a missed ping only delays re-crawling.
 if [ "$PUSHED" -eq 1 ]; then
   "$REPO_ROOT/tools/indexnow-ping.sh" >> "$LOG_FILE" 2>&1 || true
+fi
+
+# A new app release moved the download links → archive the whole site in
+# the Wayback Machine, once per release only (anonymous SPN is rate-limited
+# and the site barely changes in between). The script waits until the new
+# tag is actually live on Pages before capturing. Non-fatal.
+if [ -n "$RELEASE_TAG" ]; then
+  "$REPO_ROOT/tools/wayback-save.sh" "$RELEASE_TAG" >> "$LOG_FILE" 2>&1 || true
 fi
 
 echo "[exit rc=$rc]" >> "$LOG_FILE"
