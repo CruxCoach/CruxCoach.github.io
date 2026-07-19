@@ -11,14 +11,23 @@ node tools/update-download-link.mjs
 
 Every download button/link on the site points at the current release's
 versioned direct APK URL (`…/releases/download/vX.Y.Z/CruxCoach-vX.Y.Z.apk`)
-instead of the releases page. Codeberg offers no stable "always newest" URL
-for versioned asset names, so this script asks the Codeberg API for the
-latest full release (prereleases/drafts excluded), takes the URL of its
-actual `.apk` asset, and rewrites all matching download URLs in
-`index.html`, `de/index.html`, `404.html` and `llms.txt`. It is a no-op when
-the links are already current, and it never rewrites anything if the release
-has no `.apk` asset yet (half-published release). Runs nightly via
-`cron-refresh.sh`, which commits the rewrite as
+instead of the releases page. Each interactive button also carries the
+content-addressed Zapstore CDN URL for the exact same APK. The small
+`assets/apk-download.js` enhancement probes Codeberg for up to 2.5 seconds
+and transparently changes that same button to Zapstore on a network failure
+or timeout. Codeberg's asset endpoint does not expose CORS status headers, so
+a fast opaque response counts as reachable; the nightly byte verification
+already guarantees that the versioned URL is valid. Without JavaScript, the
+ordinary Codeberg link remains usable.
+
+Codeberg offers no stable "always newest" URL for versioned asset names, so
+this script asks its API for the latest full release (prereleases/drafts
+excluded), takes the URL of the actual `.apk` asset, and reads its SHA-256
+sidecar. It streams the corresponding Zapstore object and requires matching
+size and SHA-256 before atomically rewriting both URLs in `index.html`,
+`de/index.html`, `404.html` and `llms.txt`. It is a no-op when the links are
+already current, and it never publishes a half-mirrored release. Runs nightly
+via `cron-refresh.sh`, which commits the rewrite as
 `chore(download): bump direct APK link to vX.Y.Z`.
 
 ## Refresh boards.geojson
