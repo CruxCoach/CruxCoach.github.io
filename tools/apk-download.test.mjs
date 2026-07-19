@@ -1,8 +1,15 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { chooseApkUrl, probeApkUrl } from '../assets/apk-download.js';
+import {
+  chooseApkUrl,
+  parseCodebergReleaseUrl,
+  probeApkUrl,
+  resolveCodebergApkUrl,
+} from '../assets/apk-download.js';
 
-const primary = 'https://codeberg.example/app.apk';
+const primary = 'https://codeberg.example/CruxCoach/CruxCoach/releases/download/v1.2.3/CruxCoach-v1.2.3.apk';
+const apiUrl = 'https://codeberg.example/api/v1/repos/CruxCoach/CruxCoach/releases/tags/v1.2.3';
+const attachment = 'https://codeberg.example/attachments/12345678-abcd-efab-cdef-123456789abc';
 const fallback = `https://cdn.example/${'a'.repeat(64)}`;
 
 function response({ ok = true, contentType = 'application/vnd.android.package-archive' } = {}) {
@@ -12,48 +19,62 @@ function response({ ok = true, contentType = 'application/vnd.android.package-ar
   };
 }
 
-test('accepts an opaque Codeberg HEAD response as network-reachable', async () => {
-  const fetchImpl = async () => ({
-    type: 'opaque',
-    ok: false,
-    headers: new Headers(),
-  });
+function releaseResponse() {
+  return {
+    ok: true,
+    json: async () => ({
+      assets: [{
+        name: 'CruxCoach-v1.2.3.apk',
+        uuid: '12345678-abcd-efab-cdef-123456789abc',
+        size: 1234,
+      }],
+    }),
+  };
+}
 
-  assert.equal(
-    await probeApkUrl(primary, { fetchImpl, allowOpaque: true }),
-    true,
-  );
+test('derives the CORS release API from a direct Codeberg URL', () => {
+  assert.deepEqual(parseCodebergReleaseUrl(primary), {
+    apiUrl,
+    filename: 'CruxCoach-v1.2.3.apk',
+    origin: 'https://codeberg.example',
+  });
 });
 
-test('keeps the direct Codeberg APK when its probe succeeds', async () => {
+test('selects the fully verified Codeberg attachment URL', async () => {
   const calls = [];
-  const fetchImpl = async (url) => {
-    calls.push(url);
-    return response();
+  const fetchImpl = async (url, options) => {
+    calls.push([url, options.method]);
+    if (url === apiUrl) return releaseResponse();
+    if (url === attachment) return response();
+    throw new Error(`unexpected URL ${url}`);
   };
 
-  assert.equal(await chooseApkUrl(primary, fallback, { fetchImpl }), primary);
-  assert.deepEqual(calls, [primary]);
+  assert.equal(await chooseApkUrl(primary, fallback, { fetchImpl }), attachment);
+  assert.deepEqual(calls, [[apiUrl, 'GET'], [attachment, 'HEAD']]);
 });
 
-test('uses the direct Zapstore APK after a Codeberg network failure', async () => {
+test('uses the direct Zapstore APK after a Codeberg API failure', async () => {
   const fetchImpl = async (url) => {
-    if (url === primary) throw new TypeError('network unavailable');
-    return response();
+    if (url === apiUrl) throw new TypeError('network unavailable');
+    if (url === fallback) return response();
+    throw new Error(`unexpected URL ${url}`);
   };
 
   assert.equal(await chooseApkUrl(primary, fallback, { fetchImpl }), fallback);
 });
 
-test('rejects a successful HTML response as an APK source', async () => {
-  const fetchImpl = async (url) => response({
-    contentType: url === primary ? 'text/html' : 'application/octet-stream',
-  });
+test('uses Zapstore when the Codeberg attachment is not an APK', async () => {
+  const fetchImpl = async (url) => {
+    if (url === apiUrl) return releaseResponse();
+    if (url === attachment) return response({ contentType: 'text/html' });
+    if (url === fallback) return response();
+    throw new Error(`unexpected URL ${url}`);
+  };
 
   assert.equal(await chooseApkUrl(primary, fallback, { fetchImpl }), fallback);
 });
 
-test('falls back after the primary probe times out', async () => {
+test('falls back after the Codeberg API probe times out', async () => {
   const fetchImpl = (url, { signal }) => {
     if (url === fallback) return Promise.resolve(response());
     return new Promise((_, reject) => {
@@ -67,20 +88,29 @@ test('falls back after the primary probe times out', async () => {
   );
 });
 
-test('keeps progressive-enhancement primary when neither probe is conclusive', async () => {
+test('keeps the progressive primary when neither source can be verified', async () => {
   const fetchImpl = async () => response({ ok: false });
 
   assert.equal(await chooseApkUrl(primary, fallback, { fetchImpl }), primary);
 });
 
-test('probe sends HEAD and accepts only an APK response', async () => {
+test('rejects incomplete Codeberg asset metadata', async () => {
+  const fetchImpl = async () => ({
+    ok: true,
+    json: async () => ({ assets: [{ name: 'CruxCoach-v1.2.3.apk', size: 1234 }] }),
+  });
+
+  assert.equal(await resolveCodebergApkUrl(primary, { fetchImpl }), null);
+});
+
+test('APK probe sends a CORS HEAD and validates the MIME type', async () => {
   let options;
   const fetchImpl = async (_url, receivedOptions) => {
     options = receivedOptions;
     return response();
   };
 
-  assert.equal(await probeApkUrl(primary, { fetchImpl }), true);
+  assert.equal(await probeApkUrl(attachment, { fetchImpl }), true);
   assert.equal(options.method, 'HEAD');
   assert.equal(options.cache, 'no-store');
   assert.equal(options.mode, 'cors');

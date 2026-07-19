@@ -13,12 +13,12 @@ Every download button/link on the site points at the current release's
 versioned direct APK URL (`…/releases/download/vX.Y.Z/CruxCoach-vX.Y.Z.apk`)
 instead of the releases page. Each interactive button also carries the
 content-addressed Zapstore CDN URL for the exact same APK. The small
-`assets/apk-download.js` enhancement probes Codeberg for up to 2.5 seconds
-and transparently changes that same button to Zapstore on a network failure
-or timeout. Codeberg's asset endpoint does not expose CORS status headers, so
-a fast opaque response counts as reachable; the nightly byte verification
-already guarantees that the versioned URL is valid. Without JavaScript, the
-ordinary Codeberg link remains usable.
+`assets/apk-download.js` enhancement resolves the CORS-enabled canonical
+Codeberg attachment through the public release API, verifies its HTTP status
+and APK MIME type for up to 2.5 seconds, and transparently changes that same
+button to Zapstore on any failure or timeout. The nightly job also verifies
+both full payloads byte-for-byte. Without JavaScript, the ordinary Codeberg
+link remains usable.
 
 Codeberg offers no stable "always newest" URL for versioned asset names, so
 this script asks its API for the latest full release (prereleases/drafts
