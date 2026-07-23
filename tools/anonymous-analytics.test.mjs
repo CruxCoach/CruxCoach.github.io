@@ -94,3 +94,30 @@ test('the two install targets are labeled on every requested surface', () => {
     }
   }
 });
+
+test('website copy distinguishes current app behavior from the 0.2.2 plan', () => {
+  for (const page of ['index.html', 'privacy.html', 'de/index.html', 'de/privacy.html']) {
+    const html = fs.readFileSync(path.join(repoRoot, page), 'utf8');
+    assert.match(html, /0\.2\.1/, `${page}: current release`);
+    assert.match(html, /0\.2\.2/, `${page}: upcoming release`);
+  }
+  const llms = fs.readFileSync(path.join(repoRoot, 'llms.txt'), 'utf8');
+  assert.match(llms, /Current app release 0\.2\.1 sends no analytics event/);
+  assert.match(llms, /upcoming 0\.2\.2 release/);
+});
+
+test('privacy notices disclose the collector host and current Codeberg policy', () => {
+  for (const page of ['privacy.html', 'de/privacy.html']) {
+    const html = fs.readFileSync(path.join(repoRoot, page), 'utf8');
+    assert.match(html, /Hetzner Online GmbH/, page);
+    assert.match(html, /Art(?:icle|\.) 6(?:\(1\)| Abs\. 1)\(?f\)?|Art\. 6 Abs\. 1 lit\. f/, page);
+    assert.match(html, /codeberg\.org\/Codeberg\/org\/src\/branch\/main\/PrivacyPolicy\.md/, page);
+    assert.doesNotMatch(html, /docs\.codeberg\.org\/improving-codeberg\/privacy-policy/, page);
+  }
+});
+
+test('service worker uses a fresh cache and precaches the analytics client once', () => {
+  const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
+  assert.match(source, /var VERSION = 'cc-v18';/);
+  assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
+});

@@ -109,7 +109,7 @@
       "name": "Does it work without a Google account or Google services?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. CruxCoach needs no account and no Google Mobile Services. Your identity is a Nostr keypair generated on first launch and stored in the Android Keystore. It runs on de-Googled phones such as GrapheneOS, /e/OS and LineageOS without GApps, on Android 8.0 or later with Bluetooth LE. There is no user tracking or third-party analytics SDK. The optional in-app updater sends one identifier-free aggregate increment only after a downloaded APK passes its SHA-256 and signing-certificate checks."
+        "text": "Yes. CruxCoach needs no account and no Google Mobile Services. Your identity is a Nostr keypair generated on first launch and stored in the Android Keystore. It runs on de-Googled phones such as GrapheneOS, /e/OS and LineageOS without GApps, on Android 8.0 or later with Bluetooth LE. There is no user tracking or third-party analytics SDK. Current release 0.2.1 sends no app-analytics event. The upcoming 0.2.2 release will add one identifier-free aggregate event, sent only after the optional in-app updater has fully downloaded an APK and verified its SHA-256 and signing certificate."
       }
     },
     {
@@ -687,8 +687,8 @@
       <li><strong>No accounts, no signup.</strong> Your identity is a Nostr keypair generated on first launch, stored in the Android Keystore.</li>
       <li><strong>No Google Play Services.</strong> Works on de-Googled phones — GrapheneOS, /e/OS, LineageOS without GApps.</li>
       <li><strong>Encrypted local storage.</strong> Personal data lives in an SQLCipher database. Encryption key never leaves your device.</li>
-      <li><strong>No user tracking, ads, or third-party analytics SDKs.</strong> Personal and training data is never sent to analytics. After a fully downloaded in-app update passes its SHA-256 and signer checks, a first-party counter receives only the target version and source — no device, installation, account, Nostr, or user identifier.</li>
-      <li><strong>No central account or training-data server.</strong> The app uses public Nostr relays and Blossom servers run by independent operators; the tiny first-party counter stores daily aggregate increments only.</li>
+      <li><strong>No user tracking, ads, or third-party analytics SDKs.</strong> Personal and training data is never sent to analytics. Current release 0.2.1 sends no app-analytics event. The upcoming 0.2.2 release will add a first-party count only after an updater download passes its SHA-256 and signer checks; it contains only target version and source, never a device, installation, account, Nostr, or user identifier.</li>
+      <li><strong>No central account or training-data server.</strong> The app uses public Nostr relays and Blossom servers run by independent operators. The website's separate first-party counter stores only daily page-view and install-click aggregates.</li>
       <li><strong>Verifiable open-source builds.</strong> Code on Codeberg, releases signed, auto-updater pins the developer key on first install.</li>
     </ul>
   </div>
@@ -756,7 +756,7 @@
       </details>
       <details class="faq-item">
         <summary>Does it work without a Google account or Google services?</summary>
-        <p>Yes. CruxCoach needs no account and no Google Mobile Services. Your identity is a Nostr keypair generated on first launch and stored in the Android Keystore. It runs on de-Googled phones such as GrapheneOS, /e/OS and LineageOS without GApps, on Android 8.0 or later with Bluetooth LE. There is no user tracking or third-party analytics SDK. The optional in-app updater sends one identifier-free aggregate increment only after a downloaded APK passes its SHA-256 and signing-certificate checks.</p>
+        <p>Yes. CruxCoach needs no account and no Google Mobile Services. Your identity is a Nostr keypair generated on first launch and stored in the Android Keystore. It runs on de-Googled phones such as GrapheneOS, /e/OS and LineageOS without GApps, on Android 8.0 or later with Bluetooth LE. There is no user tracking or third-party analytics SDK. Current release 0.2.1 sends no app-analytics event. The upcoming 0.2.2 release will add one identifier-free aggregate event, sent only after the optional in-app updater has fully downloaded an APK and verified its SHA-256 and signing certificate.</p>
       </details>
       <details class="faq-item">
         <summary>Which boards and Android versions does CruxCoach support?</summary>

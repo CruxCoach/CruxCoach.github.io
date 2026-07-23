@@ -107,7 +107,7 @@
       "name": "Funktioniert es ohne Google-Konto oder Google-Dienste?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 8.0 mit Bluetooth LE. Es gibt kein Nutzer-Tracking und kein Drittanbieter-Analytics-SDK. Der optionale In-App-Updater sendet erst dann einen kennungsfreien Aggregat-Inkrement, wenn eine geladene APK ihre SHA-256- und Signaturzertifikatsprüfung bestanden hat."
+        "text": "Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 8.0 mit Bluetooth LE. Es gibt kein Nutzer-Tracking und kein Drittanbieter-Analytics-SDK. Die aktuelle Version 0.2.1 sendet kein App-Analytics-Ereignis. Für Version 0.2.2 ist ein kennungsfreies Aggregat-Ereignis vorgesehen, das erst gesendet wird, nachdem der optionale In-App-Updater eine APK vollständig geladen und deren SHA-256 sowie Signaturzertifikat geprüft hat."
       }
     },
     {
@@ -679,8 +679,8 @@
       <li><strong>Kein Account, keine Anmeldung.</strong> Deine Identität ist ein Nostr-Keypair, beim ersten Start erzeugt und im Android Keystore gespeichert.</li>
       <li><strong>Keine Google Play Services.</strong> Läuft auf entgoogelten Handys — GrapheneOS, /e/OS, LineageOS ohne GApps.</li>
       <li><strong>Verschlüsselter lokaler Speicher.</strong> Persönliche Daten leben in einer SQLCipher-Datenbank. Der Schlüssel verlässt dein Gerät nicht.</li>
-      <li><strong>Kein Nutzer-Tracking, keine Werbung und keine Drittanbieter-Analytics-SDKs.</strong> Persönliche und Trainingsdaten gehen nie an Analytics. Erst wenn ein vollständig geladenes In-App-Update seine SHA-256- und Signaturprüfung bestanden hat, erhält ein First-Party-Zähler nur Zielversion und Quelle — keine Geräte-, Installations-, Account-, Nostr- oder Nutzerkennung.</li>
-      <li><strong>Kein zentraler Account- oder Trainingsdaten-Server.</strong> Die App nutzt öffentliche Nostr-Relays und Blossom-Server unabhängiger Betreiber; der kleine First-Party-Zähler speichert ausschließlich tägliche Aggregat-Inkremente.</li>
+      <li><strong>Kein Nutzer-Tracking, keine Werbung und keine Drittanbieter-Analytics-SDKs.</strong> Persönliche und Trainingsdaten gehen nie an Analytics. Die aktuelle Version 0.2.1 sendet kein App-Analytics-Ereignis. Für Version 0.2.2 ist ein First-Party-Zähler vorgesehen, der erst nach bestandener SHA-256- und Signaturprüfung eines Updater-Downloads sendet; enthalten sind nur Zielversion und Quelle, nie eine Geräte-, Installations-, Account-, Nostr- oder Nutzerkennung.</li>
+      <li><strong>Kein zentraler Account- oder Trainingsdaten-Server.</strong> Die App nutzt öffentliche Nostr-Relays und Blossom-Server unabhängiger Betreiber. Der separate First-Party-Zähler der Website speichert nur tägliche Aggregate für Seitenaufrufe und Installationsklicks.</li>
       <li><strong>Verifizierbare Open-Source-Builds.</strong> Code auf Codeberg, Releases signiert, Auto-Updater pinnt den Entwickler-Schlüssel beim ersten Install.</li>
     </ul>
   </div>
@@ -748,7 +748,7 @@
       </details>
       <details class="faq-item">
         <summary>Funktioniert es ohne Google-Konto oder Google-Dienste?</summary>
-        <p>Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 8.0 mit Bluetooth LE. Es gibt kein Nutzer-Tracking und kein Drittanbieter-Analytics-SDK. Der optionale In-App-Updater sendet erst dann einen kennungsfreien Aggregat-Inkrement, wenn eine geladene APK ihre SHA-256- und Signaturzertifikatsprüfung bestanden hat.</p>
+        <p>Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 8.0 mit Bluetooth LE. Es gibt kein Nutzer-Tracking und kein Drittanbieter-Analytics-SDK. Die aktuelle Version 0.2.1 sendet kein App-Analytics-Ereignis. Für Version 0.2.2 ist ein kennungsfreies Aggregat-Ereignis vorgesehen, das erst gesendet wird, nachdem der optionale In-App-Updater eine APK vollständig geladen und deren SHA-256 sowie Signaturzertifikat geprüft hat.</p>
       </details>
       <details class="faq-item">
         <summary>Welche Boards und Android-Versionen unterstützt CruxCoach?</summary>
