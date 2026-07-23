@@ -1,5 +1,8 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
 import test from 'node:test';
+import { fileURLToPath } from 'node:url';
 import {
   chooseApkUrl,
   parseCodebergReleaseUrl,
@@ -11,6 +14,7 @@ const primary = 'https://codeberg.example/CruxCoach/CruxCoach/releases/download/
 const apiUrl = 'https://codeberg.example/api/v1/repos/CruxCoach/CruxCoach/releases/tags/v1.2.3';
 const attachment = 'https://codeberg.example/attachments/12345678-abcd-efab-cdef-123456789abc';
 const fallback = `https://cdn.example/${'a'.repeat(64)}`;
+const repoRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 function response({ ok = true, contentType = 'application/vnd.android.package-archive' } = {}) {
   return {
@@ -31,6 +35,21 @@ function releaseResponse() {
     }),
   };
 }
+
+test('keeps Codeberg as the single canonical JSON-LD download URL', () => {
+  for (const filename of ['index.html', 'de/index.html']) {
+    const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
+    const match = /<script type="application\/ld\+json">\s*([\s\S]*?)<\/script>/.exec(html);
+    assert.ok(match, `${filename} has SoftwareApplication JSON-LD`);
+    const application = JSON.parse(match[1]);
+    assert.equal(typeof application.downloadUrl, 'string', filename);
+    assert.match(
+      application.downloadUrl,
+      /^https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\//,
+      filename,
+    );
+  }
+});
 
 test('derives the CORS release API from a direct Codeberg URL', () => {
   assert.deepEqual(parseCodebergReleaseUrl(primary), {
