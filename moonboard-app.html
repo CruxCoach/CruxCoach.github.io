@@ -145,12 +145,12 @@
     Free, no strings attached. The recommended route is Zapstore, a privacy-respecting
     Android store that verifies developer signatures and auto-updates; the signed APK
     from Codeberg works just as well, with the in-app updater handling future releases.
-    If Codeberg is unavailable, the same button switches to the verified,
-    content-addressed Zapstore copy.
+    A separately published, content-addressed Zapstore copy is available as a
+    preverified fallback without any availability probe from your browser.
   </p>
   <div class="cta-row">
-    <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Get on Zapstore</a>
-    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Download APK</a>
+    <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android" data-analytics-install-target="zapstore" data-analytics-surface="hero">Get on Zapstore</a>
+    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4" data-analytics-install-target="direct_apk" data-analytics-surface="hero">Download APK</a>
     <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternate APK source</a></noscript>
   </div>
   <p class="cta-foot">Free. No account. Verifiable signed builds. Android 8.0+.</p>
@@ -176,7 +176,8 @@
     /e/OS or LineageOS without GApps. It installs from
     <a href="https://zapstore.dev/apps/com.cruxcoach.android">Zapstore</a> or a signed
     APK, and updates without the Play Store or Play Integrity. No account, no Google
-    Mobile Services, no telemetry.
+    Mobile Services, and no user tracking; only the identifier-free aggregate counters
+    described in the <a href="/privacy.html">privacy notice</a>.
   </p>
 
   <h2>Supported MoonBoard configurations</h2>
@@ -219,6 +220,7 @@
 </footer>
 
 <script type="module" src="/assets/apk-download.js"></script>
+<script type="module" src="/assets/anonymous-analytics.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.
    Never blocks render; silently no-ops where unsupported. */

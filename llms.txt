@@ -1,6 +1,6 @@
 # CruxCoach
 
-> Open-source Android app for the Kilter Board, MoonBoard and five more training boards (Tension, Grasshopper, Decoy, So iLL, Touchstone). Browse climbs, light up holds via Bluetooth LE, log ascents, and import your Kilter logbook — without an account, without Google services, without tracking. Licensed GPL-3.0, distributed via Zapstore and direct APK from Codeberg.
+> Open-source Android app for the Kilter Board, MoonBoard and five more training boards (Tension, Grasshopper, Decoy, So iLL, Touchstone). Browse climbs, light up holds via Bluetooth LE, log ascents, and import your Kilter logbook — without an account, without Google services, without user tracking. Licensed GPL-3.0, distributed via Zapstore and direct APK from Codeberg.
 
 CruxCoach is a non-commercial, community-developed Android application. It is not affiliated with, endorsed by, or sponsored by Kilter, LLC, Moon Climbing, Tension Climbing or Aurora Climbing — board names are used descriptively to indicate hardware compatibility (nominative fair use). The project's primary source repository is hosted on Codeberg, with a read-only mirror on GitHub for discoverability. The website at cruxcoach.org is served via Codeberg Pages.
 
@@ -45,11 +45,11 @@ CruxCoach is a non-commercial, community-developed Android application. It is no
 - Hardware compatibility — fully interactive (browse catalogue, render climb, light holds over Bluetooth, set own climbs): Kilter Board (Original and Homewall, all sizes and angles), MoonBoard (five configurations: 2016, Masters 2017, Masters 2019 and MoonBoard 2024 each at 25° and 40°, Mini 2020 at 40°), Tension, Grasshopper, Decoy, So iLL, Touchstone — seven board families in total.
 - Map-only info layer (location data only, no climb catalogue and no Bluetooth control): the original Aurora board and 12 Climb. These appear on the board-locations map but not in the in-app climb browser.
 - Identity: Nostr (decentralized; no email, no password, no central server)
-- Personal data: encrypted at rest with SQLCipher, keys in Android Keystore. In the default configuration, nothing is transmitted to any server.
+- Personal data: encrypted at rest with SQLCipher, keys in Android Keystore. Personal and training data is not sent to analytics; optional network features are described below.
 - Optional encrypted cloud backup (opt-in, off by default): data is encrypted on-device with a key derived from the user's Nostr identity, then mirrored across the open Nostr network and Blossom storage. The maintainer cannot decrypt it; only the user's Nostr key can.
 - Optional climb publishing (opt-in, user-initiated): users can explicitly publish climb data to public Nostr relays.
 - Climbs database (as of July 2026): ~652,000 listed climbs across the seven interactive boards, all browsable offline with filters for grade, angle, quality, moves, and setter. Per board: Kilter ~217,300; MoonBoard ~272,750 (the full official catalogue across all five supported configurations); Tension ~132,200; Grasshopper ~20,000; Decoy ~7,500; So iLL ~1,500; Touchstone ~1,400. Counts grow as setters publish new climbs.
-- No telemetry, no advertising, no analytics, no Google Mobile Services dependency. The two opt-in network features above use only open protocols (Nostr, Blossom) where any operator is substitutable.
+- No user tracking, advertising, third-party analytics SDK, or Google Mobile Services dependency. The website keeps only immediate daily page/click aggregates; after a verified in-app updater download, the app sends only target version and source. Neither path sends or stores a user, device, account, session, or installation identifier.
 - Languages: English (default), German
 - Architecture: Kotlin Multiplatform shared module + Android-specific Jetpack Compose UI
 

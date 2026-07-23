@@ -1,59 +1,12 @@
-const APK_CONTENT_TYPES = [
-  'application/vnd.android.package-archive',
-  'application/octet-stream',
-];
-
-async function fetchWithTimeout(
-  url,
-  init,
-  { fetchImpl = (...args) => fetch(...args), timeoutMs = 2500 } = {},
-) {
-  const controller = typeof AbortController === 'function' ? new AbortController() : null;
-  const timedOut = {};
-  let timeout;
-  try {
-    const request = fetchImpl(url, {
-      ...init,
-      signal: controller ? controller.signal : undefined,
-    });
-    const response = await Promise.race([
-      request,
-      new Promise((resolve) => {
-        timeout = setTimeout(() => resolve(timedOut), timeoutMs);
-      }),
-    ]);
-    if (response === timedOut) {
-      if (controller) controller.abort();
-      return null;
-    }
-    return response;
-  } catch (error) {
-    return null;
-  } finally {
-    clearTimeout(timeout);
-  }
-}
-
-export async function probeApkUrl(url, options = {}) {
-  const response = await fetchWithTimeout(
-    url,
-    {
-      method: 'HEAD',
-      cache: 'no-store',
-      mode: 'cors',
-      redirect: 'follow',
-    },
-    options,
-  );
-  if (!response || !response.ok) return false;
-  const rawContentType = response.headers && response.headers.get
-    ? response.headers.get('content-type')
-    : null;
-  const contentType = rawContentType
-    ? rawContentType.split(';', 1)[0].trim().toLowerCase()
-    : null;
-  return APK_CONTENT_TYPES.includes(contentType);
-}
+/**
+ * Keep direct APK links usable without making any pre-click request.
+ *
+ * The nightly release job already validates and rewrites both the versioned
+ * Codeberg URL and the content-addressed Zapstore mirror. Probing either URL in
+ * a visitor's browser disclosed connection metadata and Codeberg counted a
+ * HEAD against the attachment as a download. Runtime selection therefore does
+ * no network I/O; the canonical direct link is followed only on user action.
+ */
 
 export function parseCodebergReleaseUrl(url) {
   let parsed;
@@ -68,97 +21,28 @@ export function parseCodebergReleaseUrl(url) {
   }
   const [owner, repo, , , tag, filename] = parts;
   if (!owner || !repo || !tag || !filename) return null;
-  return {
-    apiUrl: `${parsed.origin}/api/v1/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`
-      + `/releases/tags/${encodeURIComponent(tag)}`,
-    filename,
-    origin: parsed.origin,
-  };
+  return { owner, repo, tag, filename, origin: parsed.origin };
 }
 
-/** Resolve Codeberg's CORS-enabled canonical attachment URL and verify it. */
-export async function resolveCodebergApkUrl(releaseUrl, options = {}) {
-  const release = parseCodebergReleaseUrl(releaseUrl);
-  if (!release) return null;
-  const response = await fetchWithTimeout(
-    release.apiUrl,
-    {
-      method: 'GET',
-      cache: 'no-store',
-      mode: 'cors',
-      redirect: 'follow',
-      headers: { accept: 'application/json' },
-    },
-    options,
-  );
-  if (!response || !response.ok || typeof response.json !== 'function') return null;
-
-  let payload;
+export function chooseApkUrl(primaryUrl, fallbackUrl) {
+  if (parseCodebergReleaseUrl(primaryUrl)) return primaryUrl;
   try {
-    payload = await response.json();
+    const fallback = new URL(fallbackUrl);
+    if (fallback.protocol === 'https:') return fallback.href;
   } catch (error) {
-    return null;
+    // Progressive enhancement: leave the authored href untouched.
   }
-  const assets = payload && Array.isArray(payload.assets) ? payload.assets : [];
-  const asset = assets.find((candidate) =>
-    candidate && candidate.name === release.filename
-      && typeof candidate.uuid === 'string'
-      && /^[a-zA-Z0-9-]{8,128}$/.test(candidate.uuid)
-      && Number.isFinite(candidate.size)
-      && candidate.size > 0);
-  if (!asset) return null;
-
-  const attachmentUrl = `${release.origin}/attachments/${encodeURIComponent(asset.uuid)}`;
-  return await probeApkUrl(attachmentUrl, options) ? attachmentUrl : null;
-}
-
-export async function chooseApkUrl(primaryUrl, fallbackUrl, options = {}) {
-  const codebergUrl = await resolveCodebergApkUrl(primaryUrl, options);
-  if (codebergUrl) return codebergUrl;
-  if (await probeApkUrl(fallbackUrl, options)) return fallbackUrl;
-
-  // Preserve progressive enhancement when both live checks are inconclusive.
   return primaryUrl;
 }
 
-export function enhanceApkDownloadLinks(root = document, options = {}) {
-  const links = [...root.querySelectorAll('a[data-apk-fallback]')]
-    .filter((link) => typeof link.getClientRects !== 'function' || link.getClientRects().length > 0);
-  const choices = new Map();
-
+export function enhanceApkDownloadLinks(root = document) {
+  const links = [...root.querySelectorAll('a[data-apk-fallback]')];
   for (const link of links) {
-    const primaryUrl = link.href;
-    const fallbackUrl = link.dataset.apkFallback;
-    if (!fallbackUrl) continue;
-
-    const key = `${primaryUrl}\n${fallbackUrl}`;
-    let choice = choices.get(key);
-    if (!choice) {
-      choice = chooseApkUrl(primaryUrl, fallbackUrl, options);
-      choices.set(key, choice);
-    }
-
-    let selectedUrl = null;
-    choice.then((url) => {
-      selectedUrl = url;
-      link.href = url;
-      link.dataset.apkSource = url === fallbackUrl ? 'zapstore' : 'codeberg';
-    });
-
-    link.addEventListener('click', async (event) => {
-      if (selectedUrl || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) {
-        return;
-      }
-      event.preventDefault();
-      link.setAttribute('aria-busy', 'true');
-      try {
-        selectedUrl = await choice;
-        link.href = selectedUrl;
-        window.location.assign(selectedUrl);
-      } finally {
-        link.removeAttribute('aria-busy');
-      }
-    });
+    const selectedUrl = chooseApkUrl(link.href, link.dataset.apkFallback);
+    link.href = selectedUrl;
+    link.dataset.apkSource = selectedUrl === link.dataset.apkFallback
+      ? 'zapstore'
+      : 'codeberg';
   }
 }
 

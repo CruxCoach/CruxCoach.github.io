@@ -145,12 +145,13 @@
     Kostenlos, ohne Haken. Der empfohlene Weg ist Zapstore, ein datenschutzfreundlicher
     Android-Store, der Entwickler-Signaturen verifiziert und automatisch aktualisiert;
     die signierte APK von Codeberg funktioniert genauso gut — künftige Updates übernimmt
-    der In-App-Updater. Ist Codeberg nicht erreichbar, wechselt derselbe Button zur
-    verifizierten, content-adressierten Zapstore-Kopie.
+    der In-App-Updater. Eine separat veröffentlichte, content-adressierte Zapstore-Kopie
+    steht als vorab verifizierter Fallback bereit, ohne dass dein Browser dafür eine
+    Verfügbarkeitsanfrage sendet.
   </p>
   <div class="cta-row">
-    <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Bei Zapstore laden</a>
-    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">APK herunterladen</a>
+    <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android" data-analytics-install-target="zapstore" data-analytics-surface="hero">Bei Zapstore laden</a>
+    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4" data-analytics-install-target="direct_apk" data-analytics-surface="hero">APK herunterladen</a>
     <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternative APK-Quelle</a></noscript>
   </div>
   <p class="cta-foot">Kostenlos. Kein Konto. Verifizierbar signierte Builds. Android 8.0+.</p>
@@ -176,7 +177,8 @@
     CalyxOS, /e/OS oder LineageOS ohne GApps. Sie installiert aus
     <a href="https://zapstore.dev/apps/com.cruxcoach.android">Zapstore</a> oder als
     signierte APK und aktualisiert sich ohne Play Store oder Play Integrity. Kein Konto,
-    keine Google Mobile Services, keine Telemetrie.
+    keine Google Mobile Services und kein Nutzer-Tracking; ausschließlich die kennungsfreien
+    Aggregatzähler aus der <a href="/de/privacy.html">Datenschutzerklärung</a>.
   </p>
 
   <h2>Unterstützte MoonBoard-Konfigurationen</h2>
@@ -218,6 +220,7 @@
 </footer>
 
 <script type="module" src="/assets/apk-download.js"></script>
+<script type="module" src="/assets/anonymous-analytics.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.
    Never blocks render; silently no-ops where unsupported. */

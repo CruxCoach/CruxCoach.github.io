@@ -403,6 +403,7 @@ ${sections}
   </div>
 </footer>
 
+<script type="module" src="/assets/anonymous-analytics.js"></script>
 </body>
 </html>
 `;

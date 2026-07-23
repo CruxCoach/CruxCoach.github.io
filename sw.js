@@ -58,6 +58,7 @@ var CORE = [
   '/assets/logo.svg',
   '/assets/icon-512.png',
   '/assets/apk-download.js',
+  '/assets/anonymous-analytics.js',
   '/mirrors.json'
 ];
 

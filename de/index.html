@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CruxCoach — Open-Source-Android-App für Kilter Board, MoonBoard &amp; Tension Board</title>
-<meta name="description" content="Open-Source-Android-App für Kilter Board, MoonBoard, Tension Board &amp; mehr — Boulder finden, Griffe beleuchten, loggen. Ohne Konto, ohne Google, ohne Tracking.">
+<meta name="description" content="Open-Source-Android-App für Kilter Board, MoonBoard, Tension Board &amp; mehr — Boulder finden, Griffe beleuchten, loggen. Ohne Konto, ohne Google, ohne Nutzer-Tracking.">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://cruxcoach.org/de/">
 <meta property="og:title" content="CruxCoach — Open-Source-Android-App für Kilter Board, MoonBoard &amp; Tension Board">
-<meta property="og:description" content="Boulder auf Kilter, MoonBoard, Tension und mehr durchstöbern — Griffe beleuchten, Sessions loggen, ohne Account, ohne Google, ohne Tracking.">
+<meta property="og:description" content="Boulder auf Kilter, MoonBoard, Tension und mehr durchstöbern — Griffe beleuchten, Sessions loggen, ohne Account, ohne Google, ohne Nutzer-Tracking.">
 <meta property="og:url" content="https://cruxcoach.org/de/">
 <meta property="og:site_name" content="CruxCoach">
 <meta property="og:locale:alternate" content="en_US">
@@ -20,7 +20,7 @@
 <meta property="og:locale" content="de_DE">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CruxCoach — Open-Source-Android-App für Kilter Board, MoonBoard &amp; Tension Board">
-<meta name="twitter:description" content="Boulder auf Kilter, MoonBoard, Tension und mehr durchstöbern — Griffe beleuchten, Sessions loggen, ohne Account, ohne Google, ohne Tracking.">
+<meta name="twitter:description" content="Boulder auf Kilter, MoonBoard, Tension und mehr durchstöbern — Griffe beleuchten, Sessions loggen, ohne Account, ohne Google, ohne Nutzer-Tracking.">
 <meta name="twitter:image" content="https://cruxcoach.org/assets/icon-512.png">
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
@@ -36,7 +36,7 @@
   "operatingSystem": "Android 8.0+",
   "applicationCategory": "SportsApplication",
   "applicationSubCategory": "Climbing training",
-  "description": "Open-Source-Android-App für das Kilter Board, MoonBoard und fünf weitere Trainingsboards (Tension, Grasshopper, Decoy, So iLL, Touchstone). Boulder durchstöbern, Griffe beleuchten, Sessions loggen — ohne Account, ohne Google-Dienste, ohne Tracking.",
+  "description": "Open-Source-Android-App für das Kilter Board, MoonBoard und fünf weitere Trainingsboards (Tension, Grasshopper, Decoy, So iLL, Touchstone). Boulder durchstöbern, Griffe beleuchten, Sessions loggen — ohne Account, ohne Google-Dienste, ohne Nutzer-Tracking.",
   "disambiguatingDescription": "Die quelloffene, GPL-3.0-lizenzierte Android-App für das Kilter Board, MoonBoard und weitere standardisierte Trainingsboards, veröffentlicht auf cruxcoach.org. Eigenständig und nicht verbunden mit den unabhängigen Produkten auf cruxcoach.app, cruxcoach.com oder cruxcoach.vercel.app.",
   "image": "https://cruxcoach.org/assets/icon-512.png",
   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
@@ -70,7 +70,7 @@
     "Verschlüsseltes lokales Logbuch (SQLCipher)",
     "Eigene Boulder setzen und über Nostr mit der Community teilen",
     "Offline-Board-Standortkarte mit Hallensuche",
-    "Kein Account, keine Google-Dienste, kein Tracking"
+    "Kein Account, keine Google-Dienste, kein Nutzer-Tracking"
   ],
   "sameAs": [
     "https://codeberg.org/CruxCoach/CruxCoach",
@@ -107,7 +107,7 @@
       "name": "Funktioniert es ohne Google-Konto oder Google-Dienste?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 8.0 mit Bluetooth LE. Es gibt keine Telemetrie, keine Analyse und keine Dritt-SDKs."
+        "text": "Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 8.0 mit Bluetooth LE. Es gibt kein Nutzer-Tracking und kein Drittanbieter-Analytics-SDK. Der optionale In-App-Updater sendet erst dann einen kennungsfreien Aggregat-Inkrement, wenn eine geladene APK ihre SHA-256- und Signaturzertifikatsprüfung bestanden hat."
       }
     },
     {
@@ -526,8 +526,8 @@
         <li>Deutsche &amp; englische UI</li>
       </ul>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Auf Zapstore holen</a>
-        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">APK herunterladen</a>
+        <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android" data-analytics-install-target="zapstore" data-analytics-surface="hero">Auf Zapstore holen</a>
+        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4" data-analytics-install-target="direct_apk" data-analytics-surface="hero">APK herunterladen</a>
         <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternative APK-Quelle</a></noscript>
       </div>
       <p class="cta-foot">Kostenlos. Kein Account. Verifizierbar signierte Builds. Ab Android 8.0.</p>
@@ -557,7 +557,7 @@
 <section id="features">
   <div class="container">
     <h2>Was CruxCoach kann</h2>
-    <p class="section-lede">Eine App für jedes Board, auf dem du kletterst — quelloffen, ohne Konto, ohne Tracking, und deine Daten verlassen dein Gerät nur, wenn du es willst.</p>
+    <p class="section-lede">Eine App für jedes Board, auf dem du kletterst — quelloffen, ohne Konto, ohne Nutzer-Tracking, und deine persönlichen Daten verlassen dein Gerät nur, wenn du es willst.</p>
     <div class="features">
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -679,8 +679,8 @@
       <li><strong>Kein Account, keine Anmeldung.</strong> Deine Identität ist ein Nostr-Keypair, beim ersten Start erzeugt und im Android Keystore gespeichert.</li>
       <li><strong>Keine Google Play Services.</strong> Läuft auf entgoogelten Handys — GrapheneOS, /e/OS, LineageOS ohne GApps.</li>
       <li><strong>Verschlüsselter lokaler Speicher.</strong> Persönliche Daten leben in einer SQLCipher-Datenbank. Der Schlüssel verlässt dein Gerät nicht.</li>
-      <li><strong>Keine Telemetrie, keine Analytics, keine Werbung, keine Third-Party-SDKs.</strong> Outbound-Calls gehen nur zu: Nostr-Relays nach deiner Wahl, Blossom-Servern für die Board-Datenbank, Codeberg für Update-Checks und der Kilter-API nur, wenn du dein Logbuch importieren möchtest.</li>
-      <li><strong>Kein zentraler Server, den wir betreiben.</strong> Die App nutzt öffentliche Nostr-Relays und Blossom-Server unabhängiger Betreiber.</li>
+      <li><strong>Kein Nutzer-Tracking, keine Werbung und keine Drittanbieter-Analytics-SDKs.</strong> Persönliche und Trainingsdaten gehen nie an Analytics. Erst wenn ein vollständig geladenes In-App-Update seine SHA-256- und Signaturprüfung bestanden hat, erhält ein First-Party-Zähler nur Zielversion und Quelle — keine Geräte-, Installations-, Account-, Nostr- oder Nutzerkennung.</li>
+      <li><strong>Kein zentraler Account- oder Trainingsdaten-Server.</strong> Die App nutzt öffentliche Nostr-Relays und Blossom-Server unabhängiger Betreiber; der kleine First-Party-Zähler speichert ausschließlich tägliche Aggregat-Inkremente.</li>
       <li><strong>Verifizierbare Open-Source-Builds.</strong> Code auf Codeberg, Releases signiert, Auto-Updater pinnt den Entwickler-Schlüssel beim ersten Install.</li>
     </ul>
   </div>
@@ -709,13 +709,13 @@
       <div class="install-card primary">
         <h3>Zapstore <span class="badge">empfohlen</span></h3>
         <p>Privacy-respektierender, Nostr-nativer Android-Store. Verifiziert Entwickler-Signaturen. Auto-Updates.</p>
-        <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">In Zapstore öffnen</a>
+        <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android" data-analytics-install-target="zapstore" data-analytics-surface="install">In Zapstore öffnen</a>
       </div>
       <div class="install-card">
         <h3>Direkt-APK</h3>
-        <p>Lade die signierte APK direkt herunter. Falls Codeberg nicht erreichbar ist, nutzt derselbe Button automatisch die unabhängig gehostete, content-adressierte Zapstore-Kopie.</p>
+        <p>Lade die signierte APK direkt von Codeberg. Eine identische content-adressierte Zapstore-Kopie wird jede Nacht als unabhängiger Fallback verifiziert.</p>
         <div class="cta-row">
-          <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">APK herunterladen</a>
+          <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4" data-analytics-install-target="direct_apk" data-analytics-surface="install">APK herunterladen</a>
           <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternative APK-Quelle</a></noscript>
         </div>
       </div>
@@ -748,7 +748,7 @@
       </details>
       <details class="faq-item">
         <summary>Funktioniert es ohne Google-Konto oder Google-Dienste?</summary>
-        <p>Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 8.0 mit Bluetooth LE. Es gibt keine Telemetrie, keine Analyse und keine Dritt-SDKs.</p>
+        <p>Ja. CruxCoach braucht weder ein Konto noch Google Mobile Services. Deine Identität ist ein Nostr-Schlüsselpaar, das beim ersten Start erzeugt und im Android-Keystore gespeichert wird. Die App läuft auf entgoogelten Geräten wie GrapheneOS, /e/OS und LineageOS ohne GApps, ab Android 8.0 mit Bluetooth LE. Es gibt kein Nutzer-Tracking und kein Drittanbieter-Analytics-SDK. Der optionale In-App-Updater sendet erst dann einen kennungsfreien Aggregat-Inkrement, wenn eine geladene APK ihre SHA-256- und Signaturzertifikatsprüfung bestanden hat.</p>
       </details>
       <details class="faq-item">
         <summary>Welche Boards und Android-Versionen unterstützt CruxCoach?</summary>
@@ -833,6 +833,7 @@ bash scripts/setup_dev_env.sh
 </footer>
 
 <script type="module" src="/assets/apk-download.js"></script>
+<script type="module" src="/assets/anonymous-analytics.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.
    Never blocks render; silently no-ops where unsupported. */

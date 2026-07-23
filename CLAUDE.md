@@ -29,12 +29,13 @@ the repo.
 ## Hard constraints (these are the rules people get wrong)
 
 - **No external dependencies at runtime.** No CDN-hosted CSS, fonts, or JS; no
-  analytics; no cookies; no third-party embeds. System font stack only. Leaflet is
+  user tracking, cookies, or third-party embeds. A local first-party script sends
+  only allowlisted dimensions to an immediate daily aggregate counter. Leaflet is
   **vendored** under `assets/vendor/leaflet/`. Deliberate third-party requests are
-  limited to OSM map tiles, the APK availability probes to Codeberg and Zapstore,
-  and the Nostr WebSocket calls in `404.html`; all are disclosed on the privacy
+  limited to OSM map tiles and the Nostr WebSocket calls in `404.html`; install
+  destinations are contacted only after a click. All are disclosed on the privacy
   page.
-- **The site is JS-free except for four deliberate exceptions:**
+- **The site is JS-free except for five deliberate exceptions:**
   1. `404.html` runs inline JS on `/c/<naddr>` paths to fetch climb metadata from
      public Nostr relays (`relay.damus.io`, `nos.lol`, `relay.primal.net`) over
      WebSocket and render an install/landing view.
@@ -42,9 +43,12 @@ the repo.
   3. `sw.js` is a resilience service worker (stale-while-revalidate + mirror
      fallback from `mirrors.json`) so returning visitors survive an origin outage.
   4. `index.html`, `de/index.html`, the four board-specific landing pages, and the
-     shared-climb view in `404.html` load `assets/apk-download.js` to select the
-     verified Codeberg APK or its identical, content-addressed Zapstore fallback
-     before a download.
+     shared-climb view in `404.html` load
+     `assets/apk-download.js` to validate authored static URLs without making any
+     visitor-side availability request.
+  5. Every HTML page loads `assets/anonymous-analytics.js`. It sends only a
+     canonical page label and explicit install-button dimensions, uses
+     `credentials: omit` + `no-referrer`, honours DNT/GPC, and never handles IDs.
 - **Dark-mode-only**: `color-scheme=dark` in meta; no JS theme toggle.
 - **Accessibility**: every link has discernible text; decorative elements are
   `aria-hidden="true"`. Prefer plain semantic HTML over div soup.

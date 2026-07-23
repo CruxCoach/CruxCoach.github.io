@@ -128,11 +128,10 @@
     <div class="tags" id="cl-tags" hidden></div>
     <p class="install-prompt" id="cl-install-prompt"></p>
     <div class="cta-row">
-      <!-- The direct APK button keeps Codeberg as its no-JavaScript href;
-           JavaScript verifies its canonical attachment and switches to the
-           Zapstore object when Codeberg is unavailable. -->
-      <a class="cta primary" id="cl-cta-zapstore" href="https://zapstore.dev/apps/com.cruxcoach.android">…</a>
-      <a class="cta" id="cl-cta-releases" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">…</a>
+      <!-- Both URLs are preverified by the nightly release job. No visitor-side
+           availability probe runs before an explicit click. -->
+      <a class="cta primary" id="cl-cta-zapstore" href="https://zapstore.dev/apps/com.cruxcoach.android" data-analytics-install-target="zapstore" data-analytics-surface="shared_climb">…</a>
+      <a class="cta" id="cl-cta-releases" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4" data-analytics-install-target="direct_apk" data-analytics-surface="shared_climb">…</a>
       <noscript><a class="cta" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternate APK source</a></noscript>
     </div>
     <p class="small" id="cl-already"><span id="cl-already-text"></span> <a id="cl-cta-intent" href="">…</a></p>
@@ -391,6 +390,7 @@
   </script>
 
 <script type="module" src="/assets/apk-download.js"></script>
+<script type="module" src="/assets/anonymous-analytics.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.
    Never blocks render; silently no-ops where unsupported. */

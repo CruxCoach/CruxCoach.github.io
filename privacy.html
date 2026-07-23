@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy — CruxCoach</title>
-<meta name="description" content="Privacy practices for cruxcoach.org. The site itself collects no personal data.">
+<meta name="description" content="Privacy practices for cruxcoach.org: no user tracking, cookies, profiles, or identifiers; only immediate aggregate counters.">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
 <meta name="robots" content="noindex">
@@ -80,16 +80,25 @@
 
 <main class="container">
   <h1>Privacy</h1>
-  <p class="meta">How cruxcoach.org handles your data — short version: it doesn't.</p>
+  <p class="meta">No user tracking, cookies, profiles, or identifiers. Only coarse daily event counters.</p>
 
   <h2>What this site does</h2>
-  <p>cruxcoach.org serves static HTML, CSS, SVG, and PNG files. The pages set no cookies, embed no analytics, and load no third-party scripts or fonts. All JavaScript, CSS, and library code that the site uses is served from <code>cruxcoach.org</code> itself — there are no CDN-hosted dependencies.</p>
+  <p>cruxcoach.org serves static HTML, CSS, SVG, and PNG files. The pages set no cookies, load no third-party analytics, and load no third-party scripts or fonts. All JavaScript, CSS, and library code that the site uses is served from <code>cruxcoach.org</code> itself — there are no CDN-hosted dependencies. A small first-party script sends only the anonymous aggregate events described below.</p>
   <p>Some pages contain JavaScript, and only for the feature each one needs:</p>
   <ul>
-    <li><strong>The homepages, board-specific install pages and the shared-climb install view</strong> read the public Codeberg release metadata and send a short <code>HEAD</code> availability request to its canonical APK attachment before you click Download. The browser requires a successful APK response within 2.5 seconds; otherwise it checks the identical content-addressed APK on <code>cdn.zapstore.dev</code> and points the same button there. No APK body, cookie, account identifier, or training data is sent; the operators still receive ordinary connection metadata such as your IP address and user agent.</li>
+    <li><strong>The homepages, board-specific install pages and the shared-climb install view</strong> contain preverified, versioned links to the Codeberg APK and its identical content-addressed Zapstore mirror. A nightly server-side job checks and updates those links. Your browser makes no release/API/<code>HEAD</code> availability request before you explicitly activate a download link.</li>
     <li><strong>/boards/</strong> renders an interactive map of climbing-board locations. It uses a locally-hosted copy of the open-source <a href="https://leafletjs.com/">Leaflet</a> library, and loads its dataset (<code>/boards/data/boards.geojson</code>) from this site. It also saves your last map position and filter selections in your browser's <code>localStorage</code> so a page reload restores your view — that data stays on your device and is never transmitted. The map tiles, however, are fetched from a third-party tile server — see the next section.</li>
     <li><strong>/404.html</strong>, when reached via a <code>/c/&lt;naddr&gt;</code> URL, opens WebSocket connections to public Nostr relays (<code>relay.damus.io</code>, <code>nos.lol</code>, <code>relay.primal.net</code>) to fetch the metadata for a shared climb. No data is sent except the standard Nostr query.</li>
   </ul>
+
+  <h2>Anonymous aggregate counters</h2>
+  <p>On a page load, the local <code>/assets/anonymous-analytics.js</code> script sends one first-party counter request to <code>stats.cruxcoach.org</code>. It also sends a counter when you activate one of the two install choices (Zapstore or direct APK). If your browser has Do Not Track or Global Privacy Control enabled, it sends nothing.</p>
+  <ul>
+    <li>A page view contains only a canonical page name such as <code>/</code>, <code>/boards/</code>, or <code>/privacy.html</code>. Query strings, fragments, referrers, and full URLs are not sent. Every <code>/c/&lt;naddr&gt;</code> share is reduced to the same <code>/c/:share</code> label; the share identifier never reaches the counter.</li>
+    <li>An install click contains only the target (<code>direct_apk</code> or <code>zapstore</code>), placement (<code>hero</code>, <code>install</code>, or <code>shared_climb</code>), and page language (<code>en</code>/<code>de</code>).</li>
+    <li>The request explicitly omits credentials and the referrer. No cookie, local-storage ID, account/Nostr key, device ID, fingerprint, screen data, IP hash, or session/visitor identifier is created or transmitted by the script.</li>
+  </ul>
+  <p>The collector immediately increments an allowlisted <strong>UTC-day aggregate</strong> and retains no raw event, exact timestamp, request header, IP address, user agent, or referrer. Its own request logging and the dedicated reverse proxy's access logging are disabled. An IP address is necessarily handled transiently to deliver any Internet packet, but it is not read into, written to, hashed into, or otherwise retained by this analytics system. The resulting numbers are page views and clicks — never people, sessions, or unique visitors — and can be incomplete because of privacy signals, blockers, outages, or bots. The collector and dashboard source are published in the <a href="https://codeberg.org/CruxCoach/cruxcoach-dlstats">cruxcoach-dlstats repository</a>.</p>
 
   <h2>Map tiles on /boards/</h2>
   <p>The map background on <a href="/boards/">/boards/</a> is rendered from OpenStreetMap raster tiles served by <code>tile.openstreetmap.org</code>. While you are viewing that page, your browser sends requests directly to that host for every tile it needs to draw. Those requests are subject to OpenStreetMap's <a href="https://wiki.openstreetmap.org/wiki/Tile_Usage_Policy">tile-usage policy</a> and the OpenStreetMap Foundation's <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">privacy policy</a>. We have no insight into those requests; the only way to avoid them is to not load the map.</p>
@@ -98,7 +107,7 @@
   <p>This site is hosted by Codeberg e.V. on Codeberg Pages. Codeberg's web server records each request — typically the source IP, timestamp, requested path, response status, and user agent — for operational reasons such as abuse prevention and traffic visibility. We have no access to those logs. See <a href="https://docs.codeberg.org/improving-codeberg/privacy-policy/">Codeberg's privacy policy</a> for details.</p>
 
   <h2>External links</h2>
-  <p>During the APK availability check described above, or when you click a link to another site (Codeberg.org, Zapstore.dev, Mastodon.social, Primal.net, etc.), your browser connects directly to that operator. Those services have their own privacy practices, which apply at the moment you connect:</p>
+  <p>When you click a link to another site (Codeberg.org, Zapstore.dev, Mastodon.social, Primal.net, etc.), your browser connects directly to that operator. There is no pre-click APK availability probe. Those services have their own privacy practices, which apply at the moment you connect:</p>
   <ul>
     <li>Codeberg: <a href="https://docs.codeberg.org/improving-codeberg/privacy-policy/">docs.codeberg.org/improving-codeberg/privacy-policy/</a></li>
     <li>Zapstore: <a href="https://zapstore.dev/docs/faq">zapstore.dev/docs/faq</a></li>
@@ -110,7 +119,7 @@
   <p>The address <a href="mailto:press@cruxcoach.org">press@cruxcoach.org</a> is forwarded to the project maintainer. Email content and routing metadata pass through the operator that provides the forwarding service. We retain no separate copy beyond what's needed to reply, and we don't use the address for any newsletter, marketing, or unsolicited contact.</p>
 
   <h2>The CruxCoach Android app</h2>
-  <p>This page describes only the cruxcoach.org website. The <strong>CruxCoach Android app</strong> has its own data-handling model — local-only by default, no telemetry, no accounts, opt-in encrypted backup. The app's network behaviour is described on the <a href="/#privacy">main page</a> and in the source repository at <a href="https://codeberg.org/CruxCoach/CruxCoach">codeberg.org/CruxCoach/CruxCoach</a>.</p>
+  <p>This page primarily describes cruxcoach.org. The <strong>CruxCoach Android app</strong> keeps personal data local by default, has no user tracking or accounts, and offers opt-in encrypted backup. After the optional in-app updater fully downloads an update and verifies its SHA-256 and signing certificate, it sends one aggregate increment containing only the target version and source (<code>codeberg</code>/<code>zapstore</code>) to the same collector. It sends no device, installation, account, Nostr, advertising, or user identifier, and a failed counter request never affects update checking or installation. This counts verified updater downloads, not people or successful installs. The app's complete network behaviour is described on the <a href="/#privacy">main page</a> and in the source repository at <a href="https://codeberg.org/CruxCoach/CruxCoach">codeberg.org/CruxCoach/CruxCoach</a>.</p>
 
   <h2>Updates</h2>
   <p>If this policy changes, the new version will be at this URL. The <a href="https://codeberg.org/CruxCoach/cruxcoach-pages/commits/branch/main/privacy.html">Codeberg commit history</a> for this file shows every prior version.</p>
@@ -132,6 +141,7 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 
+<script type="module" src="/assets/anonymous-analytics.js"></script>
 
 </body>
 </html>
