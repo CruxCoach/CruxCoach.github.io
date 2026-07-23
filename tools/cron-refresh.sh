@@ -73,7 +73,7 @@ run() {
   # API failure the old links are kept — they stay valid because old
   # release assets remain downloadable.
   echo "-- checking direct APK download links"
-  local link_files="index.html de/index.html 404.html llms.txt"
+  local link_files="index.html de/index.html 404.html llms.txt kilter-board-app-alternative.html de/kilter-board-app-alternative.html moonboard-app.html de/moonboard-app.html"
   if /usr/bin/node tools/update-download-link.mjs; then
     if ! git diff --quiet -- $link_files; then
       local apk_tag

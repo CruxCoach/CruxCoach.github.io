@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoonBoard App for Android — Free, Open Source, No Google | CruxCoach</title>
+<meta name="description" content="CruxCoach is a free, open-source MoonBoard app for Android. Browse the full problem catalogue and light holds over Bluetooth — no account or Google services required.">
+<meta name="theme-color" content="#141312">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://cruxcoach.org/moonboard-app.html">
+<link rel="alternate" hreflang="en" href="https://cruxcoach.org/moonboard-app.html">
+<link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/moonboard-app.html">
+<link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/moonboard-app.html">
+<meta property="og:title" content="MoonBoard App for Android — Free, Open Source, No Google | CruxCoach">
+<meta property="og:description" content="Browse the full MoonBoard catalogue and light up holds over Bluetooth — no account or Google services required. Runs on GrapheneOS and other de-Googled phones.">
+<meta property="og:url" content="https://cruxcoach.org/moonboard-app.html">
+<meta property="og:site_name" content="CruxCoach">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://cruxcoach.org/assets/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MoonBoard App for Android — Free, Open Source, No Google | CruxCoach">
+<meta name="twitter:description" content="Browse the full MoonBoard catalogue and light up holds over Bluetooth — no account or Google services required. Runs on GrapheneOS and other de-Googled phones.">
+<meta name="twitter:image" content="https://cruxcoach.org/assets/icon-512.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://cruxcoach.org/moonboard-app.html",
+      "url": "https://cruxcoach.org/moonboard-app.html",
+      "name": "MoonBoard App for Android — Free, Open Source, No Google",
+      "description": "CruxCoach is a free, open-source MoonBoard app for Android: browse the full problem catalogue, light up holds over Bluetooth, and run without an account or Google services, including on de-Googled phones.",
+      "inLanguage": "en",
+      "about": { "@id": "https://cruxcoach.org/#app" },
+      "isPartOf": { "@type": "WebSite", "url": "https://cruxcoach.org/", "name": "CruxCoach" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "CruxCoach", "item": "https://cruxcoach.org/" },
+        { "@type": "ListItem", "position": 2, "name": "MoonBoard app", "item": "https://cruxcoach.org/moonboard-app.html" }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --bg: #141312;
+    --bg-soft: #1f1d1a;
+    --fg: #f0ede6;
+    --fg-soft: #c0bcb2;
+    --fg-mute: #807a70;
+    --rule: #2c2925;
+    --accent: #e07a4f;
+    --accent-soft: #2a1d15;
+    --code-bg: #211e1a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 17px; line-height: 1.6; color: var(--fg); background: var(--bg); -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
+  a:hover { border-bottom-color: var(--accent); }
+  header { border-bottom: 1px solid var(--rule); padding: 1rem 0; }
+  header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; gap: 1rem; }
+  .container { max-width: 44rem; margin: 0 auto; padding: 0 1.5rem; }
+  .brand { font-weight: 700; font-size: 1.1rem; color: var(--fg); border-bottom: 0; display: inline-flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+  .brand svg { width: 1.6rem; height: 1.6rem; flex-shrink: 0; }
+  .lang { color: var(--fg-mute); font-size: 0.85rem; white-space: nowrap; flex-shrink: 0; }
+  .lang [aria-current="true"] { color: var(--fg); font-weight: 500; }
+  @media (max-width: 900px) {
+    .lang [aria-current="true"], .lang-sep { display: none; }
+  }
+  @media (max-width: 360px) {
+    .brand { font-size: 1rem; gap: 0.4rem; }
+    .brand svg { width: 1.4rem; height: 1.4rem; }
+  }
+  main { padding: 3rem 0 4rem; }
+  h1 { font-size: clamp(1.8rem, 4.5vw, 2.4rem); line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 0.5em; }
+  h2 { font-size: 1.35rem; margin: 2.5rem 0 0.6em; }
+  p { margin: 0 0 1em; color: var(--fg-soft); }
+  p strong, li strong { color: var(--fg); }
+  ul { color: var(--fg-soft); padding-left: 1.5rem; }
+  ul li { margin-bottom: 0.4em; }
+  code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; background: var(--code-bg); padding: 0.1em 0.4em; border-radius: 4px; color: var(--fg); }
+  .lede { font-size: 1.15rem; color: var(--fg-soft); }
+  .check-list { list-style: none; padding: 0; }
+  .check-list li { padding-left: 1.5rem; position: relative; margin-bottom: 0.6em; }
+  .check-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 700; }
+  .config-list { list-style: none; padding: 0; }
+  .config-list li { padding-left: 1.5rem; position: relative; margin-bottom: 0.4em; }
+  .config-list li::before { content: "▸"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 700; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0 0.75rem; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border-radius: 6px; font-weight: 500; font-size: 0.95rem; border: 1px solid transparent; transition: transform .1s, background .15s, border-color .15s; }
+  .btn:hover { transform: translateY(-1px); border-bottom-color: transparent; }
+  .btn-primary { background: var(--accent); color: white; }
+  .btn-primary:hover { opacity: 0.92; }
+  .btn-secondary { background: transparent; color: var(--fg); border-color: var(--rule); }
+  .btn-secondary:hover { border-color: var(--accent); }
+  [data-apk-fallback][aria-busy="true"] { cursor: progress; opacity: 0.7; }
+  .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
+  footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; color: var(--fg-mute); font-size: 0.85rem; text-align: center; }
+  footer a { color: var(--fg-soft); }
+  .disambiguation { font-size: 0.75rem; color: var(--fg-mute); margin-top: 1.5rem; line-height: 1.5; text-align: left; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/" class="brand">
+      <svg viewBox="0 0 512 512" aria-hidden="true">
+        <defs>
+          <radialGradient id="gL" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse"><stop offset="40%" stop-color="#FF8C2A"/><stop offset="100%" stop-color="#B84400"/></radialGradient>
+          <radialGradient id="gR" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse"><stop offset="40%" stop-color="#E05800"/><stop offset="100%" stop-color="#8C3000"/></radialGradient>
+          <radialGradient id="gX" cx="256" cy="256" r="80" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFD080"/><stop offset="100%" stop-color="#E08A00"/></radialGradient>
+        </defs>
+        <rect width="512" height="512" fill="#000"/>
+        <path d="M252,56 A200,200 0 1 0 248,456 L248,384 A128,128 0 1 1 252,128 Z" fill="url(#gL)"/>
+        <path d="M260,456 A200,200 0 1 0 264,56 L264,128 A128,128 0 1 1 260,384 Z" fill="url(#gR)"/>
+        <polygon points="192,214 214,192 256,234 298,192 320,214 274,256 320,298 298,320 256,278 214,320 192,298 238,256" fill="url(#gX)"/>
+      </svg>
+      CruxCoach
+    </a>
+    <span class="lang"><span aria-current="true">EN</span><span class="lang-sep"> · </span><a href="/de/moonboard-app.html">DE</a></span>
+  </div>
+</header>
+
+<main class="container">
+  <h1>A free, open-source MoonBoard app for Android</h1>
+  <p class="lede">
+    CruxCoach browses the full MoonBoard problem catalogue and lights up the holds
+    on your physical board over Bluetooth — with no account, no Google services, and
+    the same app that also drives your Kilter and Tension boards.
+  </p>
+
+  <h2>Install CruxCoach</h2>
+  <p>
+    Free, no strings attached. The recommended route is Zapstore, a privacy-respecting
+    Android store that verifies developer signatures and auto-updates; the signed APK
+    from Codeberg works just as well, with the in-app updater handling future releases.
+    If Codeberg is unavailable, the same button switches to the verified,
+    content-addressed Zapstore copy.
+  </p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Get on Zapstore</a>
+    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Download APK</a>
+    <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternate APK source</a></noscript>
+  </div>
+  <p class="cta-foot">Free. No account. Verifiable signed builds. Android 8.0+.</p>
+
+  <h2>What CruxCoach does with the MoonBoard</h2>
+  <ul class="check-list">
+    <li><strong>Browse the problem catalogue offline.</strong> The full official catalogue contains about 272,750 problems across five configurations. Sync the catalogues you need, then filter them offline by grade, angle, quality, move count and setter.</li>
+    <li><strong>Light up the holds over Bluetooth LE.</strong> Open a problem and send it directly to the board. Start, hand and top holds use the fixed role colours supported by the MoonBoard LED kit.</li>
+    <li><strong>Set and share your own problems</strong> over Nostr, with no central server holding them.</li>
+    <li><strong>One app for every board.</strong> The same install also drives Kilter, Tension, Grasshopper, Decoy, So iLL and Touchstone.</li>
+    <li><strong>Encrypted local logbook.</strong> Your sends, attempts and sessions stay on your device in an SQLCipher database.</li>
+  </ul>
+
+  <h2>No Google account or services required</h2>
+  <p>
+    The <a href="https://play.google.com/store/apps/details?id=com.trainingboard.moon">current
+    official MoonBoard app</a> offers sign-in with Apple or Google. CruxCoach takes a
+    different route: it creates no conventional account and has no Google Mobile
+    Services dependency.
+  </p>
+  <p>
+    That makes it suitable for de-Googled Android setups such as GrapheneOS, CalyxOS,
+    /e/OS or LineageOS without GApps. It installs from
+    <a href="https://zapstore.dev/apps/com.cruxcoach.android">Zapstore</a> or a signed
+    APK, and updates without the Play Store or Play Integrity. No account, no Google
+    Mobile Services, no telemetry.
+  </p>
+
+  <h2>Supported MoonBoard configurations</h2>
+  <ul class="config-list">
+    <li>MoonBoard 2016 (25° and 40°)</li>
+    <li>Masters 2017 (25° and 40°)</li>
+    <li>Masters 2019 (25° and 40°)</li>
+    <li>Mini 2020 (40°)</li>
+    <li>MoonBoard 2024 (25° and 40°)</li>
+  </ul>
+
+  <h2>What CruxCoach is — and isn't</h2>
+  <p>
+    CruxCoach is a community project, <strong>not affiliated with Moon Climbing</strong>;
+    "MoonBoard" is used only to describe hardware compatibility. It is
+    <strong>Android-only</strong> (8.0 or later, with Bluetooth LE) and open source under
+    the GPL-3.0 — anyone can audit, fork and build it from
+    <a href="https://codeberg.org/CruxCoach/CruxCoach">Codeberg</a>. If you need an iOS
+    app, this isn't it.
+  </p>
+
+  <h2>More on CruxCoach</h2>
+  <ul>
+    <li><a href="/">Everything the app does</a> — all seven boards, screenshots, privacy architecture</li>
+    <li><a href="/boards/">Board locations map</a> — find a MoonBoard, Kilter or Tension venue near you</li>
+    <li><a href="/kilter-board-app-alternative.html">Coming from the Kilter app?</a> — the migration &amp; alternative guide</li>
+  </ul>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="/">← Back to cruxcoach.org</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a>
+    <p class="disambiguation">
+      "CruxCoach" on <strong>cruxcoach.org</strong> is the open-source Android app for the Kilter Board, MoonBoard and other training boards.
+      Not affiliated with cruxcoach.app, cruxcoach.com, or any other product using a similar name.
+      Kilter Board is a trademark of Kilter, LLC; MoonBoard of Moon Climbing Ltd; Tension Board of Tension Climbing.
+      CruxCoach uses these names descriptively to indicate compatibility, with no affiliation or endorsement implied.
+    </p>
+  </div>
+</footer>
+
+<script type="module" src="/assets/apk-download.js"></script>
+<script>
+/* Progressive enhancement: register the resilience service worker.
+   Never blocks render; silently no-ops where unsupported. */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function () {});
+  });
+}
+</script>
+
+</body>
+</html>

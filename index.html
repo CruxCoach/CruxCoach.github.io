@@ -98,10 +98,10 @@
     },
     {
       "@type": "Question",
-      "name": "Can I get my old Kilter Board data back after the app was taken down?",
+      "name": "How do I import data from the old and current Kilter apps?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Request a data export from Aurora, the operator of the old app, and they email you a JSON file. In CruxCoach, open Settings → Migrate from Aurora to import it: your ascents, attempts, circuits and bid history land in your local logbook, and re-importing the same file is safe. If you still have a working Kilter account, you can instead sign in once to import your logbook directly. Either way the data then lives encrypted on your device."
+        "text": "Use the route that matches the app holding your history. For the old Aurora-operated app before its 26 March 2026 shutdown, request a personal data export from Aurora, then open Settings → Migrate from Aurora / old Kilter app and import the JSON file. For the current official Kilter app since March 2026, open Settings → Kilter Board Account → Connect Kilter Account, sign in and choose Import once or Sync continuously; no Aurora export is needed. Imported data stays encrypted on your device."
       }
     },
     {
@@ -117,7 +117,7 @@
       "name": "Which boards and Android versions does CruxCoach support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CruxCoach drives seven board systems interactively on Android 8.0 or later with Bluetooth LE: the Kilter Board (all sizes and adjustable angles), the MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 and 2024 — the 2024 set currently carries community-contributed problems), and the Tension, Grasshopper, Decoy, So iLL and Touchstone boards. Browse each board's catalogue, filter by grade, angle, quality, move count and setter, then light it up over Bluetooth. The separate board map is broader still: it also plots Aurora and 12 Climb installations as location-only layers."
+        "text": "CruxCoach drives seven board systems interactively on Android 8.0 or later with Bluetooth LE: the Kilter Board (all sizes and adjustable angles), the MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 and 2024), and the Tension, Grasshopper, Decoy, So iLL and Touchstone boards. Browse each board's catalogue, filter by grade, angle, quality, move count and setter, then light it up over Bluetooth. The separate board map is broader still: it also plots Aurora and 12 Climb installations as location-only layers."
       }
     },
     {
@@ -125,7 +125,7 @@
       "name": "Does CruxCoach work with the MoonBoard?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. CruxCoach is a free, open-source MoonBoard app for Android: browse the MoonBoard problem catalogue with the same filters as the Kilter catalogue, open a problem and light up the holds on your physical board over Bluetooth. Five configurations are supported — MoonBoard 2016 (40°), Masters 2017, Masters 2019 (25° and 40°), Mini 2020 and MoonBoard 2024. It needs no account and no Google services. The MoonBoard 2024 set currently ships community-contributed problems rather than the full catalogue."
+        "text": "Yes. CruxCoach is a free, open-source MoonBoard app for Android: browse the MoonBoard problem catalogue with the same filters as the Kilter catalogue, open a problem and light up the holds on your physical board over Bluetooth. Five configurations are supported — MoonBoard 2016, Masters 2017, Masters 2019 and MoonBoard 2024 (each at 25° and 40°), plus Mini 2020 (40°). It needs no account and no Google services."
       }
     },
     {
@@ -590,7 +590,7 @@
           </svg>
         </span>
         <h3>Light up holds via Bluetooth</h3>
-        <p>Direct BLE to your Kilter Board, MoonBoard, Tension Board and more. Pick custom colors per role: start, hand, foot, top.</p>
+        <p>Direct BLE to your Kilter Board, MoonBoard, Tension Board and more. Pick custom colors per role — start, hand, foot, top — on every board except the MoonBoard, whose LED kit has fixed colors.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -632,7 +632,7 @@
           </svg>
         </span>
         <h3>Your training history, portable</h3>
-        <p>Bring your history with you — import an Aurora data export (ascents, attempts, circuits), or sign in once with your Kilter account to pull your logbook directly. From there your data stays portable: export to JSON, or turn on automatic encrypted backup only you can restore.</p>
+        <p>Bring your history with you — for the old Aurora app before its March 2026 shutdown, import the JSON export requested from Aurora; for the current official app, connect your Kilter account directly in CruxCoach. From there your data stays portable: export to JSON, or turn on automatic encrypted backup only you can restore.</p>
       </div>
     </div>
 
@@ -653,23 +653,26 @@
   <div class="container">
     <h2>Why CruxCoach exists.</h2>
     <p>
-      On 26 March 2026, Aurora's Kilter app was pulled from the App Store and Play Store
-      after a dispute between Aurora Climbing and Kilter, LLC. Tens of thousands of climbers
-      lost access to their playlists, logbooks, and draft climbs overnight. The new official
-      app shipped half-finished, and people started asking the obvious question: why does my
-      training data live on someone else's server in the first place?
+      On 26 March 2026, Aurora's previous Kilter app was removed from the app stores,
+      temporarily cutting climbers off from playlists, logbooks and draft climbs. A current
+      official Kilter Board app is available again, but the interruption prompted an important
+      question: why does my training data live only on someone else's server in the first place?
     </p>
     <p>
       CruxCoach is one answer to that question. Your training history sits encrypted on your
       phone. Your identity is a Nostr keypair you control, not an account someone can revoke.
-      The board database is content-addressed and downloaded to your device on first sync —
-      once you have it, you have it. And the whole thing is open source under the GPL: anyone
-      can audit it, fork it, run it.
+      Choose the board catalogues you need and sync their content-addressed data to your device —
+      once you have them, you have them. And the whole thing is open source under the GPL:
+      anyone can audit it, fork it, run it.
     </p>
     <p>
       It started narrow on purpose: Kilter only, Android only. With 0.2.0 it speaks the whole
       family — Kilter, MoonBoard, Tension, Grasshopper, Decoy, So iLL and Touchstone. Still
       Android only, still yours.
+    </p>
+    <p>
+      Coming from the old app? The <a href="/kilter-board-app-alternative.html">Kilter app
+      alternative &amp; migration guide</a> walks you through getting your logbook back.
     </p>
   </div>
 </section>
@@ -748,8 +751,8 @@
         <p>Yes. CruxCoach is an independent, open-source Android app for app-controlled training boards — Kilter, MoonBoard, Tension and more — not affiliated with Kilter, LLC, Moon Climbing or Aurora Climbing. It browses climbs, lights up the holds over Bluetooth and logs your ascents on your own device, with no account and no Google services required. It is licensed under the GPL-3.0 and focuses on Android, rather than trying to cover every platform.</p>
       </details>
       <details class="faq-item">
-        <summary>Can I get my old Kilter Board data back after the app was taken down?</summary>
-        <p>Yes. Request a data export from Aurora, the operator of the old app, and they email you a JSON file. In CruxCoach, open Settings → Migrate from Aurora to import it: your ascents, attempts, circuits and bid history land in your local logbook, and re-importing the same file is safe. If you still have a working Kilter account, you can instead sign in once to import your logbook directly. Either way the data then lives encrypted on your device.</p>
+        <summary>How do I import data from the old and current Kilter apps?</summary>
+        <p>Use the route that matches the app holding your history. For the old Aurora-operated app before its 26 March 2026 shutdown, request a personal data export from Aurora, then open Settings → Migrate from Aurora / old Kilter app and import the JSON file. For the current official Kilter app since March 2026, open Settings → Kilter Board Account → Connect Kilter Account, sign in and choose Import once or Sync continuously; no Aurora export is needed. Imported data stays encrypted on your device.</p>
       </details>
       <details class="faq-item">
         <summary>Does it work without a Google account or Google services?</summary>
@@ -757,11 +760,11 @@
       </details>
       <details class="faq-item">
         <summary>Which boards and Android versions does CruxCoach support?</summary>
-        <p>CruxCoach drives seven board systems interactively on Android 8.0 or later with Bluetooth LE: the Kilter Board (all sizes and adjustable angles), the MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 and 2024 — the 2024 set currently carries community-contributed problems), and the Tension, Grasshopper, Decoy, So iLL and Touchstone boards. Browse each board's catalogue, filter by grade, angle, quality, move count and setter, then light it up over Bluetooth. The separate <a href="/boards/">board map</a> is broader still: it also plots Aurora and 12 Climb installations as location-only layers.</p>
+        <p>CruxCoach drives seven board systems interactively on Android 8.0 or later with Bluetooth LE: the Kilter Board (all sizes and adjustable angles), the MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 and 2024), and the Tension, Grasshopper, Decoy, So iLL and Touchstone boards. Browse each board's catalogue, filter by grade, angle, quality, move count and setter, then light it up over Bluetooth. The separate <a href="/boards/">board map</a> is broader still: it also plots Aurora and 12 Climb installations as location-only layers.</p>
       </details>
       <details class="faq-item">
         <summary>Does CruxCoach work with the MoonBoard?</summary>
-        <p>Yes. CruxCoach is a free, open-source MoonBoard app for Android: browse the MoonBoard problem catalogue with the same filters as the Kilter catalogue, open a problem and light up the holds on your physical board over Bluetooth. Five configurations are supported — MoonBoard 2016 (40°), Masters 2017, Masters 2019 (25° and 40°), Mini 2020 and MoonBoard 2024. It needs no account and no Google services. The MoonBoard 2024 set currently ships community-contributed problems rather than the full catalogue.</p>
+        <p>Yes. CruxCoach is a <a href="/moonboard-app.html">free, open-source MoonBoard app for Android</a>: browse the MoonBoard problem catalogue with the same filters as the Kilter catalogue, open a problem and light up the holds on your physical board over Bluetooth. Five configurations are supported — MoonBoard 2016, Masters 2017, Masters 2019 and MoonBoard 2024 (each at 25° and 40°), plus Mini 2020 (40°). It needs no account and no Google services.</p>
       </details>
       <details class="faq-item">
         <summary>Where can I find a Kilter Board or MoonBoard near me?</summary>
@@ -801,6 +804,8 @@ bash scripts/setup_dev_env.sh
       <div>
         <h4>Project</h4>
         <ul>
+          <li><a href="/kilter-board-app-alternative.html">Kilter app alternative</a></li>
+          <li><a href="/moonboard-app.html">MoonBoard app</a></li>
           <li><a href="/boards/">Board Map</a></li>
           <li><a href="/boards/list.html">All board locations</a></li>
           <li><a href="https://codeberg.org/CruxCoach/CruxCoach">Codeberg</a></li>

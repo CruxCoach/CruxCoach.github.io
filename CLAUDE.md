@@ -41,9 +41,10 @@ the repo.
   2. `boards/index.html` uses vendored Leaflet + markercluster to render the map.
   3. `sw.js` is a resilience service worker (stale-while-revalidate + mirror
      fallback from `mirrors.json`) so returning visitors survive an origin outage.
-  4. `index.html`, `de/index.html`, and the shared-climb view in `404.html` load
-     `assets/apk-download.js` to select the verified Codeberg APK or its identical,
-     content-addressed Zapstore fallback before a download.
+  4. `index.html`, `de/index.html`, the four board-specific landing pages, and the
+     shared-climb view in `404.html` load `assets/apk-download.js` to select the
+     verified Codeberg APK or its identical, content-addressed Zapstore fallback
+     before a download.
 - **Dark-mode-only**: `color-scheme=dark` in meta; no JS theme toggle.
 - **Accessibility**: every link has discernible text; decorative elements are
   `aria-hidden="true"`. Prefer plain semantic HTML over div soup.
@@ -68,11 +69,12 @@ them current when site facts change (especially on app releases; that includes
   page. JSON-LD keeps Codeberg as its canonical `downloadUrl`. Codeberg has no
   "always newest" URL for versioned asset names, so
   `tools/update-download-link.mjs` (run by the nightly cron) rewrites these URLs
-  in `index.html`, `de/index.html`, `404.html` and `llms.txt` when a new full
-  release appears. It derives the Zapstore URL from the Codeberg SHA-256 sidecar
-  and verifies the CDN object before updating either source. Hand-editing is fine
-  — the cron self-heals. A new page with a download link must be added to the
-  `FILES` list in that script (and to `link_files` in `cron-refresh.sh`).
+  in `index.html`, `de/index.html`, `404.html`, the four board-specific landing
+  pages and `llms.txt` when a new full release appears. It derives the Zapstore URL
+  from the Codeberg SHA-256 sidecar and verifies the CDN object before updating
+  either source. Hand-editing is fine — the cron self-heals. A new page with a
+  download link must be added to the `FILES` list in that script (and to
+  `link_files` in `cron-refresh.sh`).
 - `llms.txt` — structured project summary for LLM crawlers (distribution channels,
   privacy model, disambiguation vs. other "cruxcoach" sites). No Wikidata ID —
   the former item (Q139592177) was deleted 2026-05-01 as non-notable; don't
