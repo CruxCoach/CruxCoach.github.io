@@ -252,6 +252,7 @@
   .btn-primary:hover { background: var(--accent); border-bottom-color: transparent; opacity: 0.92; }
   .btn-secondary { background: transparent; color: var(--fg); border-color: var(--rule); }
   .btn-secondary:hover { border-color: var(--accent); }
+  [data-apk-fallback][aria-busy="true"] { cursor: progress; opacity: 0.7; }
   .btn-disabled { background: transparent; color: var(--fg-mute); border-color: var(--rule); cursor: not-allowed; pointer-events: none; }
   .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
 
@@ -526,7 +527,8 @@
       </ul>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Auf Zapstore holen</a>
-        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk">APK herunterladen</a>
+        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">APK herunterladen</a>
+        <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternative APK-Quelle</a></noscript>
       </div>
       <p class="cta-foot">Kostenlos. Kein Account. Verifizierbar signierte Builds. Ab Android 8.0.</p>
     </div>
@@ -709,8 +711,11 @@
       </div>
       <div class="install-card">
         <h3>Direkt-APK</h3>
-        <p>Lade die signierte APK des aktuellen Release direkt von Codeberg und installiere manuell. Der In-App-Updater übernimmt zukünftige Updates.</p>
-        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk">Neueste APK laden</a>
+        <p>Lade die signierte APK direkt herunter. Falls Codeberg nicht erreichbar ist, nutzt derselbe Button automatisch die unabhängig gehostete, content-adressierte Zapstore-Kopie.</p>
+        <div class="cta-row">
+          <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">APK herunterladen</a>
+          <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternative APK-Quelle</a></noscript>
+        </div>
       </div>
       <div class="install-card">
         <h3>F-Droid <span class="badge badge-soft">demnächst</span></h3>
@@ -823,6 +828,7 @@ bash scripts/setup_dev_env.sh
   </div>
 </footer>
 
+<script type="module" src="/assets/apk-download.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.
    Never blocks render; silently no-ops where unsupported. */

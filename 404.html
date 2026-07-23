@@ -83,6 +83,7 @@
   .cta:hover { border-color: var(--accent); border-bottom-color: var(--accent); }
   .cta.primary { background: var(--accent); color: #141312; border-color: var(--accent); border-bottom-color: var(--accent); }
   .cta.primary:hover { background: #d36c40; border-color: #d36c40; border-bottom-color: #d36c40; }
+  [data-apk-fallback][aria-busy="true"] { cursor: progress; opacity: 0.7; }
   .small { font-size: 0.9rem; color: var(--fg-mute); margin-top: 1.75rem; max-width: 30rem; }
 </style>
 <script>
@@ -127,13 +128,12 @@
     <div class="tags" id="cl-tags" hidden></div>
     <p class="install-prompt" id="cl-install-prompt"></p>
     <div class="cta-row">
-      <!-- Two explicit install paths matching the main page's #install
-           section. Direct links — no install-detection magic, so the
-           label is honest about where the user lands. The Android
-           intent:// "open in app if installed" lives below as a small
-           link so it doesn't compete with the install CTAs. -->
+      <!-- The direct APK button keeps Codeberg as its no-JavaScript href;
+           JavaScript verifies its canonical attachment and switches to the
+           Zapstore object when Codeberg is unavailable. -->
       <a class="cta primary" id="cl-cta-zapstore" href="https://zapstore.dev/apps/com.cruxcoach.android">…</a>
-      <a class="cta" id="cl-cta-releases" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk">…</a>
+      <a class="cta" id="cl-cta-releases" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">…</a>
+      <noscript><a class="cta" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternate APK source</a></noscript>
     </div>
     <p class="small" id="cl-already"><span id="cl-already-text"></span> <a id="cl-cta-intent" href="">…</a></p>
   </div>
@@ -156,7 +156,7 @@
         by: 'by ',
         installPrompt: 'Install CruxCoach to open this climb.',
         ctaZapstore: 'Get on Zapstore',
-        ctaReleases: 'Download APK (Codeberg)',
+        ctaReleases: 'Download APK',
         alreadyText: 'Already have CruxCoach installed?',
         ctaIntent: 'Open in app'
       },
@@ -167,7 +167,7 @@
         by: 'von ',
         installPrompt: 'CruxCoach installieren, um diesen Climb zu öffnen.',
         ctaZapstore: 'Auf Zapstore holen',
-        ctaReleases: 'APK herunterladen (Codeberg)',
+        ctaReleases: 'APK herunterladen',
         alreadyText: 'CruxCoach schon installiert?',
         ctaIntent: 'In App öffnen'
       }
@@ -390,6 +390,7 @@
   })();
   </script>
 
+<script type="module" src="/assets/apk-download.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.
    Never blocks render; silently no-ops where unsupported. */

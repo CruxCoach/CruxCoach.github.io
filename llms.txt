@@ -30,6 +30,7 @@ CruxCoach is a non-commercial, community-developed Android application. It is no
 
 - [Zapstore](https://zapstore.dev/apps/com.cruxcoach.android) — recommended, auto-updates, Nostr-native verifiable builds
 - [Direct APK download from Codeberg](https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk) — direct link to the current release, kept up to date automatically; manual sideload, `.apk.sha256` integrity sidecar at the same URL + `.sha256`
+- [Direct APK fallback on Zapstore CDN](https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4) — content-addressed mirror of the exact same APK, kept in lockstep with the Codeberg link
 - Source build — clone the Codeberg repo and run `./gradlew :androidApp:assembleDebug`
 - Planned future channels (no specific timeline): F-Droid main, IzzyOnDroid
 - Not on Google Play
