@@ -95,8 +95,6 @@
   .config-list { list-style: none; padding: 0; }
   .config-list li { padding-left: 1.5rem; position: relative; margin-bottom: 0.4em; }
   .config-list li::before { content: "▸"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 700; }
-  .note { background: var(--bg-soft); border: 1px solid var(--rule); border-radius: 10px; padding: 1rem 1.25rem; font-size: 0.95rem; margin: 1.5rem 0; }
-  .note p { margin: 0; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0 0.75rem; }
   .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border-radius: 6px; font-weight: 500; font-size: 0.95rem; border: 1px solid transparent; transition: transform .1s, background .15s, border-color .15s; }
   .btn:hover { transform: translateY(-1px); border-bottom-color: transparent; }
@@ -140,10 +138,22 @@
     the same app that also drives your Kilter and Tension boards.
   </p>
 
+  <h2>Install CruxCoach</h2>
+  <p>
+    Free, no strings attached. The recommended route is Zapstore, a privacy-respecting
+    Android store that verifies developer signatures and auto-updates; the signed APK
+    from Codeberg works just as well, with the in-app updater handling future releases.
+  </p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Get on Zapstore</a>
+    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.0/CruxCoach-v0.2.0.apk">Download APK</a>
+  </div>
+  <p class="cta-foot">Free. No account. Verifiable signed builds. Android 8.0+.</p>
+
   <h2>What CruxCoach does with the MoonBoard</h2>
   <ul class="check-list">
     <li><strong>Browse the problem catalogue offline.</strong> ~142,000 MoonBoard problems, downloaded to your device on first sync. Filter by grade, angle, quality, move count and setter.</li>
-    <li><strong>Light up the holds over Bluetooth LE.</strong> Open a problem and send it to your board's LED kit directly — pick custom colours per role: start, hand, foot, top.</li>
+    <li><strong>Light up the holds over Bluetooth LE.</strong> Open a problem and send it to your board's LED kit directly — start, hand and top holds light up in your kit's colours.</li>
     <li><strong>Set and share your own problems</strong> over Nostr, with no central server holding them.</li>
     <li><strong>One app for every board.</strong> The same install also drives Kilter, Tension, Grasshopper, Decoy, So iLL and Touchstone.</li>
     <li><strong>Encrypted local logbook.</strong> Your sends, attempts and sessions stay on your device in an SQLCipher database.</li>
@@ -166,19 +176,12 @@
 
   <h2>Supported MoonBoard configurations</h2>
   <ul class="config-list">
-    <li>MoonBoard 2016 (40°)</li>
-    <li>Masters 2017</li>
+    <li>MoonBoard 2016 (25° and 40°)</li>
+    <li>Masters 2017 (25° and 40°)</li>
     <li>Masters 2019 (25° and 40°)</li>
-    <li>Mini 2020</li>
-    <li>MoonBoard 2024</li>
+    <li>Mini 2020 (40°)</li>
+    <li>MoonBoard 2024 (25° and 40°)</li>
   </ul>
-  <div class="note">
-    <p>
-      <strong>Honest note on the 2024 set:</strong> the MoonBoard 2024 configuration
-      currently carries community-contributed problems rather than the full official
-      catalogue. The other four configurations browse the complete problem set.
-    </p>
-  </div>
 
   <h2>What CruxCoach is — and isn't</h2>
   <p>
@@ -189,18 +192,6 @@
     <a href="https://codeberg.org/CruxCoach/CruxCoach">Codeberg</a>. If you need an iOS
     app, this isn't it.
   </p>
-
-  <h2>Install CruxCoach</h2>
-  <p>
-    Free, no strings attached. The recommended route is Zapstore, a privacy-respecting
-    Android store that verifies developer signatures and auto-updates; the signed APK
-    from Codeberg works just as well, with the in-app updater handling future releases.
-  </p>
-  <div class="cta-row">
-    <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Get on Zapstore</a>
-    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.0/CruxCoach-v0.2.0.apk">Download APK</a>
-  </div>
-  <p class="cta-foot">Free. No account. Verifiable signed builds. Android 8.0+.</p>
 
   <h2>More on CruxCoach</h2>
   <ul>

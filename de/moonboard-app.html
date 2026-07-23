@@ -95,8 +95,6 @@
   .config-list { list-style: none; padding: 0; }
   .config-list li { padding-left: 1.5rem; position: relative; margin-bottom: 0.4em; }
   .config-list li::before { content: "▸"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 700; }
-  .note { background: var(--bg-soft); border: 1px solid var(--rule); border-radius: 10px; padding: 1rem 1.25rem; font-size: 0.95rem; margin: 1.5rem 0; }
-  .note p { margin: 0; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0 0.75rem; }
   .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border-radius: 6px; font-weight: 500; font-size: 0.95rem; border: 1px solid transparent; transition: transform .1s, background .15s, border-color .15s; }
   .btn:hover { transform: translateY(-1px); border-bottom-color: transparent; }
@@ -140,10 +138,23 @@
     und mit derselben App, die auch dein Kilter- und Tension-Board steuert.
   </p>
 
+  <h2>CruxCoach installieren</h2>
+  <p>
+    Kostenlos, ohne Haken. Der empfohlene Weg ist Zapstore, ein datenschutzfreundlicher
+    Android-Store, der Entwickler-Signaturen verifiziert und automatisch aktualisiert;
+    die signierte APK von Codeberg funktioniert genauso gut — künftige Updates übernimmt
+    der In-App-Updater.
+  </p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Bei Zapstore laden</a>
+    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.0/CruxCoach-v0.2.0.apk">APK herunterladen</a>
+  </div>
+  <p class="cta-foot">Kostenlos. Kein Konto. Verifizierbar signierte Builds. Android 8.0+.</p>
+
   <h2>Was CruxCoach mit dem MoonBoard macht</h2>
   <ul class="check-list">
     <li><strong>Boulderkatalog offline durchstöbern.</strong> Rund 142.000 MoonBoard-Boulder, beim ersten Sync auf dein Gerät geladen. Filtere nach Grad, Winkel, Qualität, Zuganzahl und Setter.</li>
-    <li><strong>Griffe per Bluetooth LE beleuchten.</strong> Öffne einen Boulder und schicke ihn direkt an das LED-Kit deines Boards — mit eigenen Farben je Rolle: Start, Hand, Fuß, Top.</li>
+    <li><strong>Griffe per Bluetooth LE beleuchten.</strong> Öffne einen Boulder und schicke ihn direkt an das LED-Kit deines Boards — Start-, Hand- und Top-Griffe leuchten in den Farben deines Kits.</li>
     <li><strong>Eigene Boulder setzen und teilen</strong> über Nostr, ohne zentralen Server, der sie hält.</li>
     <li><strong>Eine App für jedes Board.</strong> Dieselbe Installation steuert auch Kilter, Tension, Grasshopper, Decoy, So iLL und Touchstone.</li>
     <li><strong>Verschlüsseltes lokales Logbuch.</strong> Deine Begehungen, Versuche und Sessions bleiben in einer SQLCipher-Datenbank auf deinem Gerät.</li>
@@ -167,19 +178,12 @@
 
   <h2>Unterstützte MoonBoard-Konfigurationen</h2>
   <ul class="config-list">
-    <li>MoonBoard 2016 (40°)</li>
-    <li>Masters 2017</li>
+    <li>MoonBoard 2016 (25° und 40°)</li>
+    <li>Masters 2017 (25° und 40°)</li>
     <li>Masters 2019 (25° und 40°)</li>
-    <li>Mini 2020</li>
-    <li>MoonBoard 2024</li>
+    <li>Mini 2020 (40°)</li>
+    <li>MoonBoard 2024 (25° und 40°)</li>
   </ul>
-  <div class="note">
-    <p>
-      <strong>Ehrlicher Hinweis zum 2024er-Satz:</strong> Die Konfiguration MoonBoard
-      2024 enthält vorerst Community-Boulder statt des vollständigen offiziellen
-      Katalogs. Die anderen vier Konfigurationen durchstöbern den kompletten Bouldersatz.
-    </p>
-  </div>
 
   <h2>Was CruxCoach ist — und was nicht</h2>
   <p>
@@ -189,19 +193,6 @@
     jede:r kann sie von <a href="https://codeberg.org/CruxCoach/CruxCoach">Codeberg</a> auditen,
     forken und bauen. Wer eine iOS-App braucht, wird hier nicht fündig.
   </p>
-
-  <h2>CruxCoach installieren</h2>
-  <p>
-    Kostenlos, ohne Haken. Der empfohlene Weg ist Zapstore, ein datenschutzfreundlicher
-    Android-Store, der Entwickler-Signaturen verifiziert und automatisch aktualisiert;
-    die signierte APK von Codeberg funktioniert genauso gut — künftige Updates übernimmt
-    der In-App-Updater.
-  </p>
-  <div class="cta-row">
-    <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Bei Zapstore laden</a>
-    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.0/CruxCoach-v0.2.0.apk">APK herunterladen</a>
-  </div>
-  <p class="cta-foot">Kostenlos. Kein Konto. Verifizierbar signierte Builds. Android 8.0+.</p>
 
   <h2>Mehr zu CruxCoach</h2>
   <ul>
