@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_root"
+while IFS= read -r -d '' file; do node --check "$file"; done \
+    < <(find . -path './node_modules' -prune -o \( -name '*.js' -o -name '*.mjs' \) -type f -print0)
+while IFS= read -r -d '' file; do python3 -m json.tool "$file" >/dev/null; done \
+    < <(find . -path './node_modules' -prune -o -name '*.json' -type f -print0)
+python3 -c 'import xml.etree.ElementTree as ET; ET.parse("sitemap.xml")'
+shopt -s nullglob
+test_files=(tools/*.test.mjs)
+if ((${#test_files[@]})); then
+  node --test "${test_files[@]}"
+fi
+echo "Static site checks and unit tests passed."

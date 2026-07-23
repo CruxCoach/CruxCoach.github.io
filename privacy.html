@@ -84,8 +84,9 @@
 
   <h2>What this site does</h2>
   <p>cruxcoach.org serves static HTML, CSS, SVG, and PNG files. The pages set no cookies, embed no analytics, and load no third-party scripts or fonts. All JavaScript, CSS, and library code that the site uses is served from <code>cruxcoach.org</code> itself — there are no CDN-hosted dependencies.</p>
-  <p>Two pages contain JavaScript, and only for the feature each one needs:</p>
+  <p>Some pages contain JavaScript, and only for the feature each one needs:</p>
   <ul>
+    <li><strong>The homepages and the shared-climb install view</strong> read the public Codeberg release metadata and send a short <code>HEAD</code> availability request to its canonical APK attachment before you click Download. The browser requires a successful APK response within 2.5 seconds; otherwise it checks the identical content-addressed APK on <code>cdn.zapstore.dev</code> and points the same button there. No APK body, cookie, account identifier, or training data is sent; the operators still receive ordinary connection metadata such as your IP address and user agent.</li>
     <li><strong>/boards/</strong> renders an interactive map of climbing-board locations. It uses a locally-hosted copy of the open-source <a href="https://leafletjs.com/">Leaflet</a> library, and loads its dataset (<code>/boards/data/boards.geojson</code>) from this site. It also saves your last map position and filter selections in your browser's <code>localStorage</code> so a page reload restores your view — that data stays on your device and is never transmitted. The map tiles, however, are fetched from a third-party tile server — see the next section.</li>
     <li><strong>/404.html</strong>, when reached via a <code>/c/&lt;naddr&gt;</code> URL, opens WebSocket connections to public Nostr relays (<code>relay.damus.io</code>, <code>nos.lol</code>, <code>relay.primal.net</code>) to fetch the metadata for a shared climb. No data is sent except the standard Nostr query.</li>
   </ul>
@@ -97,7 +98,7 @@
   <p>This site is hosted by Codeberg e.V. on Codeberg Pages. Codeberg's web server records each request — typically the source IP, timestamp, requested path, response status, and user agent — for operational reasons such as abuse prevention and traffic visibility. We have no access to those logs. See <a href="https://docs.codeberg.org/improving-codeberg/privacy-policy/">Codeberg's privacy policy</a> for details.</p>
 
   <h2>External links</h2>
-  <p>When you click a link to another site (Codeberg.org, Zapstore.dev, Mastodon.social, Primal.net, etc.), your browser connects directly to that operator. Those services have their own privacy practices, which apply at the moment you connect:</p>
+  <p>During the APK availability check described above, or when you click a link to another site (Codeberg.org, Zapstore.dev, Mastodon.social, Primal.net, etc.), your browser connects directly to that operator. Those services have their own privacy practices, which apply at the moment you connect:</p>
   <ul>
     <li>Codeberg: <a href="https://docs.codeberg.org/improving-codeberg/privacy-policy/">docs.codeberg.org/improving-codeberg/privacy-policy/</a></li>
     <li>Zapstore: <a href="https://zapstore.dev/docs/faq">zapstore.dev/docs/faq</a></li>

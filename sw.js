@@ -26,7 +26,7 @@
 
 'use strict';
 
-var VERSION = 'cc-v15';
+var VERSION = 'cc-v17';
 var CACHE = 'cruxcoach-' + VERSION;
 var MIRRORS_KEY = '/__mirrors__';
 
@@ -57,6 +57,7 @@ var CORE = [
   '/de/boards/list.html',
   '/assets/logo.svg',
   '/assets/icon-512.png',
+  '/assets/apk-download.js',
   '/mirrors.json'
 ];
 

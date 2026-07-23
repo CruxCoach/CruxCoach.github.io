@@ -31,7 +31,8 @@ CruxCoach is a non-commercial, community-developed Android application. It is no
 ## Distribution channels
 
 - [Zapstore](https://zapstore.dev/apps/com.cruxcoach.android) — recommended, auto-updates, Nostr-native verifiable builds
-- [Direct APK download from Codeberg](https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.0/CruxCoach-v0.2.0.apk) — direct link to the current release, kept up to date automatically; manual sideload, `.apk.sha256` integrity sidecar at the same URL + `.sha256`
+- [Direct APK download from Codeberg](https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk) — direct link to the current release, kept up to date automatically; manual sideload, `.apk.sha256` integrity sidecar at the same URL + `.sha256`
+- [Direct APK fallback on Zapstore CDN](https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4) — content-addressed mirror of the exact same APK, kept in lockstep with the Codeberg link
 - Source build — clone the Codeberg repo and run `./gradlew :androidApp:assembleDebug`
 - Planned future channels (no specific timeline): F-Droid main, IzzyOnDroid
 - Not on Google Play
@@ -47,7 +48,7 @@ CruxCoach is a non-commercial, community-developed Android application. It is no
 - Personal data: encrypted at rest with SQLCipher, keys in Android Keystore. In the default configuration, nothing is transmitted to any server.
 - Optional encrypted cloud backup (opt-in, off by default): data is encrypted on-device with a key derived from the user's Nostr identity, then mirrored across the open Nostr network and Blossom storage. The maintainer cannot decrypt it; only the user's Nostr key can.
 - Optional climb publishing (opt-in, user-initiated): users can explicitly publish climb data to public Nostr relays.
-- Climbs database (as of June 2026): ~496,000 listed climbs across the seven interactive boards, all browsable offline with filters for grade, angle, quality, moves, and setter. Per board: Kilter ~190,900; MoonBoard ~142,600; Tension ~132,200; Grasshopper ~20,000; Decoy ~7,500; So iLL ~1,500; Touchstone ~1,400. Counts grow as setters publish new climbs.
+- Climbs database (as of July 2026): ~652,000 listed climbs across the seven interactive boards, all browsable offline with filters for grade, angle, quality, moves, and setter. Per board: Kilter ~217,300; MoonBoard ~272,750 (the full official catalogue across all five supported configurations); Tension ~132,200; Grasshopper ~20,000; Decoy ~7,500; So iLL ~1,500; Touchstone ~1,400. Counts grow as setters publish new climbs.
 - No telemetry, no advertising, no analytics, no Google Mobile Services dependency. The two opt-in network features above use only open protocols (Nostr, Blossom) where any operator is substitutable.
 - Languages: English (default), German
 - Architecture: Kotlin Multiplatform shared module + Android-specific Jetpack Compose UI

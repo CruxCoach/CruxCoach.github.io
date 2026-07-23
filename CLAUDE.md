@@ -20,24 +20,30 @@ node tools/build-boards-data.mjs
 # → rewrites boards/data/boards.geojson + boards.meta.json; commit both after.
 ```
 
-There are no tests, no linter, and no package.json. `node_modules/` is gitignored;
-`build-boards-data.mjs` installs its one dependency (`@rapideditor/country-coder`)
-into a per-`$TMPDIR` cache on first run, never into the repo.
+The lightweight `scripts/check` validates JavaScript, JSON, and the sitemap and
+runs the Node unit tests; there is no package.json or browser test suite.
+`node_modules/` is gitignored; `build-boards-data.mjs` installs its one dependency
+(`@rapideditor/country-coder`) into a per-`$TMPDIR` cache on first run, never into
+the repo.
 
 ## Hard constraints (these are the rules people get wrong)
 
 - **No external dependencies at runtime.** No CDN-hosted CSS, fonts, or JS; no
   analytics; no cookies; no third-party embeds. System font stack only. Leaflet is
-  **vendored** under `assets/vendor/leaflet/`. The *only* third-party request the
-  site makes is OSM map tiles from `tile.openstreetmap.org` (disclosed on the
-  privacy page) — plus the Nostr WebSocket calls in `404.html` (see below).
-- **The site is JS-free except for three deliberate exceptions:**
+  **vendored** under `assets/vendor/leaflet/`. Deliberate third-party requests are
+  limited to OSM map tiles, the APK availability probes to Codeberg and Zapstore,
+  and the Nostr WebSocket calls in `404.html`; all are disclosed on the privacy
+  page.
+- **The site is JS-free except for four deliberate exceptions:**
   1. `404.html` runs inline JS on `/c/<naddr>` paths to fetch climb metadata from
      public Nostr relays (`relay.damus.io`, `nos.lol`, `relay.primal.net`) over
      WebSocket and render an install/landing view.
   2. `boards/index.html` uses vendored Leaflet + markercluster to render the map.
   3. `sw.js` is a resilience service worker (stale-while-revalidate + mirror
      fallback from `mirrors.json`) so returning visitors survive an origin outage.
+  4. `index.html`, `de/index.html`, and the shared-climb view in `404.html` load
+     `assets/apk-download.js` to select the verified Codeberg APK or its identical,
+     content-addressed Zapstore fallback before a download.
 - **Dark-mode-only**: `color-scheme=dark` in meta; no JS theme toggle.
 - **Accessibility**: every link has discernible text; decorative elements are
   `aria-hidden="true"`. Prefer plain semantic HTML over div soup.
@@ -56,16 +62,17 @@ These files are load-bearing for discoverability and are maintained by hand — 
 them current when site facts change (especially on app releases; that includes
 `softwareVersion` in both homepages' JSON-LD):
 
-- **Direct APK download links**: every download button/link (hero, install card,
-  404 climb landing, JSON-LD `downloadUrl`, llms.txt) points at the current
-  release's **versioned** direct URL
-  (`…/releases/download/vX.Y.Z/CruxCoach-vX.Y.Z.apk`) — never at the releases
-  page. Codeberg has no "always newest" URL for versioned asset names, so
+- **Direct APK download links**: every download surface (hero, install card,
+  404 climb landing, llms.txt) offers both the current release's **versioned**
+  Codeberg URL and its content-addressed Zapstore CDN fallback — never the releases
+  page. JSON-LD keeps Codeberg as its canonical `downloadUrl`. Codeberg has no
+  "always newest" URL for versioned asset names, so
   `tools/update-download-link.mjs` (run by the nightly cron) rewrites these URLs
   in `index.html`, `de/index.html`, `404.html` and `llms.txt` when a new full
-  release appears. Hand-editing is fine — the cron self-heals. A new page with a
-  download link must be added to the `FILES` list in that script (and to
-  `link_files` in `cron-refresh.sh`).
+  release appears. It derives the Zapstore URL from the Codeberg SHA-256 sidecar
+  and verifies the CDN object before updating either source. Hand-editing is fine
+  — the cron self-heals. A new page with a download link must be added to the
+  `FILES` list in that script (and to `link_files` in `cron-refresh.sh`).
 - `llms.txt` — structured project summary for LLM crawlers (distribution channels,
   privacy model, disambiguation vs. other "cruxcoach" sites). No Wikidata ID —
   the former item (Q139592177) was deleted 2026-05-01 as non-notable; don't
@@ -128,3 +135,14 @@ build, to avoid daily no-op commits). It is `flock`-guarded, fast-forward-only o
 After the refresh it also syncs the GitHub Pages fallback mirror
 (`git push github main` → https://cruxcoach.github.io, deploy key
 `~/.ssh/id_ed25519_github_pages`; listed in `mirrors.json`, non-fatal on failure).
+If anything was pushed to origin, it finally runs `tools/indexnow-ping.sh`
+(non-fatal), which submits every sitemap URL to api.indexnow.org so Bing/Yandex &
+co. re-crawl promptly. IndexNow needs no account: ownership is proven by the
+32-hex key file at the repo root (currently `31ad8e39….txt`; the script locates
+it by pattern, so rotating the key means replacing that file, nothing else).
+Run the script manually after hand-pushed content changes.
+On a release (i.e. the download-link commit fired), it additionally runs
+`tools/wayback-save.sh <tag>` (non-fatal): waits until the new tag is live on
+Pages, then archives every sitemap URL + llms.txt via the Wayback Machine's
+anonymous Save Page Now. Once per release only — do NOT wire it into the
+nightly path; anonymous SPN is tightly rate-limited.
