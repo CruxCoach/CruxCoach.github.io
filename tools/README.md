@@ -30,6 +30,50 @@ already current, and it never publishes a half-mirrored release. Runs nightly
 via `cron-refresh.sh`, which commits the rewrite as
 `chore(download): bump direct APK link to vX.Y.Z`.
 
+## Sitemap `lastmod` and IndexNow
+
+Keep sitemap modification dates tied to the actual page files instead of editing
+them by hand:
+
+```bash
+# Refresh every sitemap entry.
+node tools/update-sitemap-lastmod.mjs
+
+# Refresh only entries backed by these changed pages.
+node tools/update-sitemap-lastmod.mjs index.html de/index.html
+```
+
+For committed files, the updater uses the date of the newest Git commit that
+touched that file. A locally modified page receives today's UTC date. Every
+`<loc>` must resolve to a real page inside the repository; invalid or missing
+mappings make the command fail rather than write a misleading sitemap.
+
+The nightly `cron-refresh.sh` refreshes and commits the relevant `lastmod`
+entries whenever it changes APK links or generated board pages. It also records
+the last successfully submitted deployed `origin/main` commit in
+`~/.cache/cruxcoach-pages-cron/indexnow-main-head`. Comparing that state after
+every run catches deployments merged through the Codeberg UI as well as commits
+pushed by the cron itself. A failed IndexNow request does not advance the state,
+so the next run retries it.
+
+Submit the full sitemap after a broad deployment, or pass only the canonical
+URLs that actually changed:
+
+```bash
+tools/indexnow-ping.sh
+tools/indexnow-ping.sh \
+  https://cruxcoach.org/kilter-board-app-alternative.html \
+  https://cruxcoach.org/de/kilter-board-app-alternative.html
+
+# Validate the key and URL selection without making a network request.
+tools/indexnow-ping.sh --dry-run https://cruxcoach.org/moonboard-app.html
+```
+
+The script rejects foreign origins, removes duplicate URLs, and enforces
+IndexNow's 10,000-URL request limit. With no URL arguments it reads every
+`<loc>` from `sitemap.xml`. Ownership is proven by the 32-hex key file at the
+site root; replacing that file is enough to rotate the key.
+
 ## Refresh boards.geojson
 
 ```

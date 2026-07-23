@@ -19,6 +19,7 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 LOG_DIR="$HOME/.cache/cruxcoach-pages-cron"
 LOG_FILE="$LOG_DIR/refresh-$(date +%Y-%m-%d).log"
 LOCK_FILE="$LOG_DIR/refresh.lock"
+INDEXNOW_STATE_FILE="$LOG_DIR/indexnow-main-head"
 
 mkdir -p "$LOG_DIR"
 
@@ -29,7 +30,6 @@ if ! flock -n 200; then
   exit 0
 fi
 
-PUSHED=0
 RELEASE_TAG=""
 
 try_push() {
@@ -37,7 +37,7 @@ try_push() {
   # backoff smooths over that without blocking the cron slot for too long.
   local attempt
   for attempt in 1 2 3; do
-    if git push origin main; then PUSHED=1; return 0; fi
+    if git push origin main; then return 0; fi
     echo "-- push attempt $attempt failed; sleeping then retrying"
     sleep $((attempt * 10))
   done
@@ -73,13 +73,22 @@ run() {
   # API failure the old links are kept — they stay valid because old
   # release assets remain downloadable.
   echo "-- checking direct APK download links"
-  local link_files="index.html de/index.html 404.html llms.txt kilter-board-app-alternative.html de/kilter-board-app-alternative.html moonboard-app.html de/moonboard-app.html"
+  local link_files=(
+    index.html de/index.html 404.html llms.txt
+    kilter-board-app-alternative.html de/kilter-board-app-alternative.html
+    moonboard-app.html de/moonboard-app.html
+  )
   if /usr/bin/node tools/update-download-link.mjs; then
-    if ! git diff --quiet -- $link_files; then
+    if ! git diff --quiet -- "${link_files[@]}"; then
       local apk_tag
       apk_tag="$(grep -oE 'releases/download/[^/]+/' index.html | head -1 | cut -d/ -f3)"
       echo "-- download links moved to ${apk_tag}"
-      git add $link_files
+      /usr/bin/node tools/update-sitemap-lastmod.mjs \
+        index.html de/index.html \
+        kilter-board-app-alternative.html de/kilter-board-app-alternative.html \
+        moonboard-app.html de/moonboard-app.html \
+        || { echo "sitemap lastmod update failed"; return 3; }
+      git add "${link_files[@]}" sitemap.xml
       git -c user.name=CruxCoach -c user.email=dev@cruxcoach.de \
           commit -m "chore(download): bump direct APK link to ${apk_tag}" \
         || { echo "link commit failed"; return 3; }
@@ -88,7 +97,7 @@ run() {
     fi
   else
     echo "-- download-link check failed; restoring links + continuing"
-    git checkout -- $link_files
+    git checkout -- "${link_files[@]}"
   fi
 
   echo "-- running build-boards-data.mjs"
@@ -110,7 +119,10 @@ run() {
   summary="$(/usr/bin/jq -r '"v" + .sources.hangtime.version + ", " + (.venue_features|tostring) + " venues (" + (.venues_with_multiple_boards|tostring) + " multi-board)"' boards/data/boards.meta.json)"
 
   echo "-- dataset changed: $summary"
-  git add boards/data/boards.geojson boards/data/boards.meta.json boards/list.html boards/index.html
+  /usr/bin/node tools/update-sitemap-lastmod.mjs boards/index.html boards/list.html \
+    || { echo "sitemap lastmod update failed"; return 3; }
+  git add boards/data/boards.geojson boards/data/boards.meta.json \
+    boards/list.html boards/index.html sitemap.xml
   git -c user.name=CruxCoach -c user.email=dev@cruxcoach.de \
       commit -m "data(boards): daily refresh — $summary" \
     || { echo "commit failed"; return 3; }
@@ -137,15 +149,49 @@ sync_mirror() {
   echo "-- mirror push failed after 3 attempts (non-fatal)"
 }
 
+notify_indexnow() {
+  # Track the deployed main commit independently from this process's pushes.
+  # This catches Codeberg UI merges and other external deployments on the next
+  # nightly run, while a failed submission remains pending for retry.
+  cd "$REPO_ROOT" || return 1
+  local deployed_head local_head recorded_head state_tmp
+  deployed_head="$(git rev-parse --verify refs/remotes/origin/main 2>/dev/null)" \
+    || { echo "-- indexnow: origin/main unavailable; deferring"; return 1; }
+  local_head="$(git rev-parse --verify HEAD 2>/dev/null)" \
+    || { echo "-- indexnow: local HEAD unavailable; deferring"; return 1; }
+  if [ "$local_head" != "$deployed_head" ]; then
+    echo "-- indexnow: local main does not match origin/main; deferring"
+    return 1
+  fi
+  if ! git diff --quiet HEAD -- sitemap.xml; then
+    echo "-- indexnow: sitemap.xml has local changes; deferring"
+    return 1
+  fi
+
+  recorded_head=""
+  if [ -f "$INDEXNOW_STATE_FILE" ]; then
+    IFS= read -r recorded_head < "$INDEXNOW_STATE_FILE" || true
+  fi
+  if [ "$recorded_head" = "$deployed_head" ]; then
+    echo "-- indexnow: deployed main already submitted (${deployed_head:0:12})"
+    return 0
+  fi
+
+  echo "-- indexnow: new deployed main ${recorded_head:0:12} → ${deployed_head:0:12}"
+  "$REPO_ROOT/tools/indexnow-ping.sh" || return 1
+  state_tmp="$(mktemp "${INDEXNOW_STATE_FILE}.tmp.XXXXXX")" || return 1
+  printf '%s\n' "$deployed_head" > "$state_tmp"
+  mv "$state_tmp" "$INDEXNOW_STATE_FILE"
+  echo "-- indexnow: recorded deployed main ${deployed_head:0:12}"
+}
+
 run >> "$LOG_FILE" 2>&1
 rc=$?
 sync_mirror >> "$LOG_FILE" 2>&1
 
-# Content actually left this machine → nudge search engines to re-crawl.
-# Non-fatal like the mirror sync: a missed ping only delays re-crawling.
-if [ "$PUSHED" -eq 1 ]; then
-  "$REPO_ROOT/tools/indexnow-ping.sh" >> "$LOG_FILE" 2>&1 || true
-fi
+# Nudge search engines after any new deployed main commit, including changes
+# merged outside this cron process. Non-fatal; failures retry on the next run.
+notify_indexnow >> "$LOG_FILE" 2>&1 || true
 
 # A new app release moved the download links → archive the whole site in
 # the Wayback Machine, once per release only (anonymous SPN is rate-limited

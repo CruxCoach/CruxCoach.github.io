@@ -3,6 +3,8 @@ set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$repo_root"
+while IFS= read -r -d '' file; do bash -n "$file"; done \
+    < <(find . -path './node_modules' -prune -o -name '*.sh' -type f -print0)
 while IFS= read -r -d '' file; do node --check "$file"; done \
     < <(find . -path './node_modules' -prune -o \( -name '*.js' -o -name '*.mjs' \) -type f -print0)
 while IFS= read -r -d '' file; do python3 -m json.tool "$file" >/dev/null; done \
