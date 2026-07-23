@@ -51,14 +51,14 @@
     {
       "@type": "HowTo",
       "@id": "https://cruxcoach.org/de/kilter-board-app-alternative.html#migrate",
-      "name": "Altes Kilter-Board-Logbuch zurückholen und in CruxCoach importieren",
-      "description": "Importiere Begehungen, Versuche, Circuits und Bid-History aus einem Aurora-Datenexport in ein verschlüsseltes lokales Logbuch auf deinem eigenen Gerät.",
+      "name": "Daten aus der alten, von Aurora betriebenen Kilter-App in CruxCoach importieren",
+      "description": "Fordere für Logbuch-Einträge aus der Zeit vor der Abschaltung der alten App am 26. März 2026 einen Aurora-JSON-Export an und importiere ihn in ein verschlüsseltes lokales Logbuch auf deinem Gerät.",
       "totalTime": "PT15M",
       "step": [
         {
           "@type": "HowToStep",
-          "name": "Datenexport bei Aurora anfordern",
-          "text": "Fordere bei Aurora, dem Betreiber der früheren Kilter-App, einen Export deiner persönlichen Daten an. Speichere die erhaltene JSON-Datei; sie kann deine Begehungen, Versuche, Circuits und Bid-History enthalten."
+          "name": "Export der alten App bei Aurora anfordern",
+          "text": "Fordere bei Aurora einen persönlichen Datenexport für das Konto an, das du vor der Abschaltung am 26. März 2026 mit der alten, von Aurora betriebenen Kilter-App genutzt hast. Speichere die erhaltene JSON-Datei; sie kann deine Begehungen, Versuche, Circuits und Bid-History enthalten."
         },
         {
           "@type": "HowToStep",
@@ -68,7 +68,7 @@
         {
           "@type": "HowToStep",
           "name": "Export-Datei importieren",
-          "text": "Öffne in CruxCoach Einstellungen → Von Aurora migrieren und wähle die JSON-Datei aus. Deine Historie landet in deinem lokalen, verschlüsselten Logbuch. Ein erneuter Import derselben Datei ist gefahrlos — nichts wird doppelt angelegt."
+          "text": "Öffne in CruxCoach Einstellungen → Migration aus Aurora / alter Kilter-App und wähle die JSON-Datei aus. Deine Historie landet in deinem lokalen, verschlüsselten Logbuch. Ein erneuter Import derselben Datei ist gefahrlos — nichts wird doppelt angelegt."
         }
       ]
     }
@@ -129,8 +129,7 @@
   }
   .steps h3 { margin: 0 0 0.3em; font-size: 1.05rem; color: var(--fg); }
   .steps p { margin: 0; font-size: 0.97rem; }
-  .note { background: var(--bg-soft); border: 1px solid var(--rule); border-radius: 10px; padding: 1rem 1.25rem; font-size: 0.95rem; margin: 1.5rem 0; }
-  .note p { margin: 0; }
+  .migration-heading { margin: 1.75rem 0 0.5rem; font-size: 1.05rem; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0 0.75rem; }
   .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border-radius: 6px; font-weight: 500; font-size: 0.95rem; border: 1px solid transparent; transition: transform .1s, background .15s, border-color .15s; }
   .btn:hover { transform: translateY(-1px); border-bottom-color: transparent; }
@@ -218,15 +217,19 @@
     oder Aurora Climbing. Wer eine iOS-App braucht, wird hier nicht fündig.
   </p>
 
-  <h2 id="migrate">Hol deine alten Kilter-Daten zurück</h2>
+  <h2 id="migrate">Kilter-Logbuch importieren: alte oder neue App?</h2>
   <p>
-    Wenn du einen persönlichen Datenexport von Aurora erhältst, kann CruxCoach dessen
-    JSON direkt in dein lokales Logbuch importieren:
+    Dafür gibt es zwei unterschiedliche Wege. Für Daten aus der alten, von Aurora
+    betriebenen App vor ihrer Abschaltung am 26. März 2026 brauchst du einen
+    JSON-Export. Für Daten aus der aktuellen offiziellen Kilter-App seit dem Wechsel
+    im März 2026 meldest du dich direkt in CruxCoach bei Kilter an — ohne JSON-Export.
   </p>
+
+  <h3 class="migration-heading">Alte Aurora-App, vor dem 26. März 2026: JSON-Export importieren</h3>
   <ol class="steps">
     <li>
-      <h3>Datenexport bei Aurora anfordern</h3>
-      <p>Fordere bei Aurora, dem Betreiber der früheren Kilter-App, einen Export deiner persönlichen Daten an. Speichere die erhaltene JSON-Datei; sie kann deine Begehungen, Versuche, Circuits und Bid-History enthalten.</p>
+      <h3>Export der alten App bei Aurora anfordern</h3>
+      <p>Fordere bei Aurora einen persönlichen Datenexport für das Konto an, das du vor der Abschaltung mit der alten, von Aurora betriebenen Kilter-App genutzt hast. Speichere die erhaltene JSON-Datei; sie kann deine Begehungen, Versuche, Circuits und Bid-History enthalten.</p>
     </li>
     <li>
       <h3>CruxCoach installieren</h3>
@@ -234,17 +237,18 @@
     </li>
     <li>
       <h3>Export-Datei importieren</h3>
-      <p>Öffne in CruxCoach <strong>Einstellungen → Von Aurora migrieren</strong> und wähle die JSON-Datei aus. Deine Historie landet in deinem lokalen, verschlüsselten Logbuch. Ein erneuter Import derselben Datei ist gefahrlos — nichts wird doppelt angelegt.</p>
+      <p>Öffne in CruxCoach <strong>Einstellungen → Migration aus Aurora / alter Kilter-App</strong> und wähle die JSON-Datei aus. Deine Historie landet in deinem lokalen, verschlüsselten Logbuch. Ein erneuter Import derselben Datei ist gefahrlos — nichts wird doppelt angelegt.</p>
     </li>
   </ol>
-  <div class="note">
-    <p>
-      <strong>Du hast noch ein funktionierendes Kilter-Konto?</strong> Dann kannst du
-      dir den Export sparen: Melde dich einmal in CruxCoach an, und dein Logbuch wird
-      direkt importiert. So oder so liegen deine Daten danach verschlüsselt auf deinem
-      Gerät — und bleiben als JSON exportierbar.
-    </p>
-  </div>
+
+  <h3 class="migration-heading">Aktuelle offizielle Kilter-App, seit März 2026: direkt anmelden</h3>
+  <p>
+    Fordere für diesen Weg keinen Aurora-Export an. Öffne in CruxCoach
+    <strong>Einstellungen → Kilter Board Account → Kilter Account verbinden</strong>,
+    melde dich mit den Zugangsdaten der aktuellen App an und wähle anschließend
+    <strong>Einmalig importieren</strong> oder <strong>Dauerhaft synchronisieren</strong>.
+    CruxCoach importiert Begehungen und Projekte direkt; dein Passwort wird nicht gespeichert.
+  </p>
 
   <h2>Mehr zu CruxCoach</h2>
   <ul>
