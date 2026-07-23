@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MoonBoard-App für Android — kostenlos, Open Source, ohne Google | CruxCoach</title>
-<meta name="description" content="CruxCoach ist eine kostenlose, quelloffene MoonBoard-App für Android. Boulderkatalog durchstöbern, Griffe per Bluetooth beleuchten — ohne Konto, ohne Google-Dienste, läuft auf entgoogelten Geräten, wo die offizielle App nicht funktioniert.">
+<meta name="description" content="CruxCoach ist eine kostenlose, quelloffene MoonBoard-App für Android. Vollständigen Boulderkatalog durchsuchen und Griffe per Bluetooth beleuchten — ohne Pflichtkonto oder Google-Dienste.">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://cruxcoach.org/de/moonboard-app.html">
 <link rel="alternate" hreflang="en" href="https://cruxcoach.org/moonboard-app.html">
 <link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/moonboard-app.html">
+<link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/moonboard-app.html">
 <meta property="og:title" content="MoonBoard-App für Android — kostenlos, Open Source, ohne Google | CruxCoach">
-<meta property="og:description" content="Boulderkatalog durchstöbern und Griffe per Bluetooth beleuchten — ohne Konto, ohne Google-Dienste. Läuft auf GrapheneOS und anderen entgoogelten Geräten, wo die offizielle App nicht funktioniert.">
+<meta property="og:description" content="Vollständigen MoonBoard-Katalog durchsuchen und Griffe per Bluetooth beleuchten — ohne Pflichtkonto oder Google-Dienste. Läuft auf GrapheneOS und anderen entgoogelten Geräten.">
 <meta property="og:url" content="https://cruxcoach.org/de/moonboard-app.html">
 <meta property="og:site_name" content="CruxCoach">
 <meta property="og:locale" content="de_DE">
@@ -22,7 +23,7 @@
 <meta property="og:image:height" content="512">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MoonBoard-App für Android — kostenlos, Open Source, ohne Google | CruxCoach">
-<meta name="twitter:description" content="Boulderkatalog durchstöbern und Griffe per Bluetooth beleuchten — ohne Konto, ohne Google-Dienste. Läuft auf GrapheneOS und anderen entgoogelten Geräten, wo die offizielle App nicht funktioniert.">
+<meta name="twitter:description" content="Vollständigen MoonBoard-Katalog durchsuchen und Griffe per Bluetooth beleuchten — ohne Pflichtkonto oder Google-Dienste. Läuft auf GrapheneOS und anderen entgoogelten Geräten.">
 <meta name="twitter:image" content="https://cruxcoach.org/assets/icon-512.png">
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
@@ -35,7 +36,7 @@
       "@id": "https://cruxcoach.org/de/moonboard-app.html",
       "url": "https://cruxcoach.org/de/moonboard-app.html",
       "name": "MoonBoard-App für Android — kostenlos, Open Source, ohne Google",
-      "description": "CruxCoach ist eine kostenlose, quelloffene MoonBoard-App für Android: Boulderkatalog durchstöbern, Griffe per Bluetooth beleuchten, ohne Konto und ohne Google-Dienste — sie läuft sogar auf entgoogelten Geräten, wo die offizielle App nicht funktioniert.",
+      "description": "CruxCoach ist eine kostenlose, quelloffene MoonBoard-App für Android: den vollständigen Boulderkatalog durchsuchen, Griffe per Bluetooth beleuchten und ohne Pflichtkonto oder Google-Dienste laufen — auch auf entgoogelten Geräten.",
       "inLanguage": "de",
       "about": { "@id": "https://cruxcoach.org/#app" },
       "isPartOf": { "@type": "WebSite", "url": "https://cruxcoach.org/", "name": "CruxCoach" }
@@ -102,6 +103,7 @@
   .btn-primary:hover { opacity: 0.92; }
   .btn-secondary { background: transparent; color: var(--fg); border-color: var(--rule); }
   .btn-secondary:hover { border-color: var(--accent); }
+  [data-apk-fallback][aria-busy="true"] { cursor: progress; opacity: 0.7; }
   .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
   footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; color: var(--fg-mute); font-size: 0.85rem; text-align: center; }
   footer a { color: var(--fg-soft); }
@@ -143,34 +145,35 @@
     Kostenlos, ohne Haken. Der empfohlene Weg ist Zapstore, ein datenschutzfreundlicher
     Android-Store, der Entwickler-Signaturen verifiziert und automatisch aktualisiert;
     die signierte APK von Codeberg funktioniert genauso gut — künftige Updates übernimmt
-    der In-App-Updater.
+    der In-App-Updater. Ist Codeberg nicht erreichbar, wechselt derselbe Button zur
+    verifizierten, content-adressierten Zapstore-Kopie.
   </p>
   <div class="cta-row">
     <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Bei Zapstore laden</a>
-    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.0/CruxCoach-v0.2.0.apk">APK herunterladen</a>
+    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">APK herunterladen</a>
+    <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternative APK-Quelle</a></noscript>
   </div>
   <p class="cta-foot">Kostenlos. Kein Konto. Verifizierbar signierte Builds. Android 8.0+.</p>
 
   <h2>Was CruxCoach mit dem MoonBoard macht</h2>
   <ul class="check-list">
-    <li><strong>Boulderkatalog offline durchstöbern.</strong> Rund 142.000 MoonBoard-Boulder, beim ersten Sync auf dein Gerät geladen. Filtere nach Grad, Winkel, Qualität, Zuganzahl und Setter.</li>
-    <li><strong>Griffe per Bluetooth LE beleuchten.</strong> Öffne einen Boulder und schicke ihn direkt an das LED-Kit deines Boards — Start-, Hand- und Top-Griffe leuchten in den Farben deines Kits.</li>
+    <li><strong>Boulderkatalog offline durchstöbern.</strong> Der vollständige offizielle Katalog enthält rund 272.750 Boulder über fünf Konfigurationen. Synchronisiere die benötigten Kataloge und filtere sie anschließend offline nach Grad, Winkel, Qualität, Zuganzahl und Setter.</li>
+    <li><strong>Griffe per Bluetooth LE beleuchten.</strong> Öffne einen Boulder und schicke ihn direkt an das Board. Start-, Hand- und Top-Griffe nutzen die festen Rollenfarben des MoonBoard-LED-Kits.</li>
     <li><strong>Eigene Boulder setzen und teilen</strong> über Nostr, ohne zentralen Server, der sie hält.</li>
     <li><strong>Eine App für jedes Board.</strong> Dieselbe Installation steuert auch Kilter, Tension, Grasshopper, Decoy, So iLL und Touchstone.</li>
     <li><strong>Verschlüsseltes lokales Logbuch.</strong> Deine Begehungen, Versuche und Sessions bleiben in einer SQLCipher-Datenbank auf deinem Gerät.</li>
   </ul>
 
-  <h2>Läuft, wo die offizielle MoonBoard-App nicht läuft: entgoogeltes Android</h2>
+  <h2>Kein Google-Konto und keine Google-Dienste nötig</h2>
   <p>
-    Das ist der schärfste Unterschied. Die offizielle MoonBoard-App hängt an
-    Google-Diensten — und auf einem entgoogelten Gerät funktioniert sie
-    <strong>nicht</strong>, nicht einmal mit einer microG-artigen
-    Google-Services-Kompatibilitätsschicht. Wer GrapheneOS, CalyxOS, /e/OS oder
-    LineageOS ohne GApps nutzt, steht mit dieser App vor einer Sackgasse.
+    Die <a href="https://play.google.com/store/apps/details?id=com.trainingboard.moon">aktuelle
+    offizielle MoonBoard-App</a> bietet die Anmeldung mit Apple oder Google an.
+    CruxCoach geht einen anderen Weg: Es legt kein klassisches Konto an und hat keine
+    Abhängigkeit von Google Mobile Services.
   </p>
   <p>
-    CruxCoach ruft überhaupt keine Google-APIs auf. Es gibt nichts zu emulieren und
-    nichts zu umgehen: Die App läuft nativ auf entgoogeltem Android, installiert aus
+    Dadurch eignet sich die App für entgoogelte Android-Systeme wie GrapheneOS,
+    CalyxOS, /e/OS oder LineageOS ohne GApps. Sie installiert aus
     <a href="https://zapstore.dev/apps/com.cruxcoach.android">Zapstore</a> oder als
     signierte APK und aktualisiert sich ohne Play Store oder Play Integrity. Kein Konto,
     keine Google Mobile Services, keine Telemetrie.
@@ -214,6 +217,7 @@
   </div>
 </footer>
 
+<script type="module" src="/assets/apk-download.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.
    Never blocks render; silently no-ops where unsupported. */

@@ -8,8 +8,8 @@ CruxCoach is a non-commercial, community-developed Android application. It is no
 
 - [Homepage (English)](https://cruxcoach.org/): features, install options, screenshots
 - [Homepage (Deutsch)](https://cruxcoach.org/de/): same content in German
-- [Kilter app alternative & Aurora migration guide](https://cruxcoach.org/kilter-board-app-alternative.html): why the old Kilter app disappeared, how CruxCoach compares, step-by-step logbook recovery (German: /de/kilter-board-app-alternative.html)
-- [MoonBoard app for Android](https://cruxcoach.org/moonboard-app.html): free, open-source MoonBoard app; supported configurations; runs on de-Googled Android where the official MoonBoard app (which requires Google services) does not (German: /de/moonboard-app.html)
+- [Kilter app alternative & Aurora migration guide](https://cruxcoach.org/kilter-board-app-alternative.html): how the independent CruxCoach app differs from the current official app, plus step-by-step Aurora logbook import (German: /de/kilter-board-app-alternative.html)
+- [MoonBoard app for Android](https://cruxcoach.org/moonboard-app.html): free, open-source MoonBoard app; full official catalogue across five configurations; runs without an account or Google services, including on de-Googled Android (German: /de/moonboard-app.html)
 - [Board locations map](https://cruxcoach.org/boards/): interactive world map of climbing-board venues
 - [Board locations directory](https://cruxcoach.org/boards/list.html): static, text-only list of every venue (best machine-readable source)
 - [Imprint](https://cruxcoach.org/imprint.html): legal information, hosting details, trademark notice
@@ -39,7 +39,7 @@ CruxCoach is a non-commercial, community-developed Android application. It is no
 
 ## Project facts
 
-- Current version: 0.2.0 — the multi-board release (adds MoonBoard and the Tension-family boards). See the changelog for the dated release notes.
+- Current version: 0.2.1. See the changelog for dated release notes.
 - Platform: Android 8.0 or later, with Bluetooth Low Energy
 - License: GNU General Public License v3.0
 - Hardware compatibility — fully interactive (browse catalogue, render climb, light holds over Bluetooth, set own climbs): Kilter Board (Original and Homewall, all sizes and angles), MoonBoard (five configurations: 2016, Masters 2017, Masters 2019 and MoonBoard 2024 each at 25° and 40°, Mini 2020 at 40°), Tension, Grasshopper, Decoy, So iLL, Touchstone — seven board families in total.

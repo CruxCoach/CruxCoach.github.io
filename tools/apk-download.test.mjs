@@ -15,6 +15,12 @@ const apiUrl = 'https://codeberg.example/api/v1/repos/CruxCoach/CruxCoach/releas
 const attachment = 'https://codeberg.example/attachments/12345678-abcd-efab-cdef-123456789abc';
 const fallback = `https://cdn.example/${'a'.repeat(64)}`;
 const repoRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
+const boardInstallPages = [
+  'kilter-board-app-alternative.html',
+  'de/kilter-board-app-alternative.html',
+  'moonboard-app.html',
+  'de/moonboard-app.html',
+];
 
 function response({ ok = true, contentType = 'application/vnd.android.package-archive' } = {}) {
   return {
@@ -49,6 +55,32 @@ test('keeps Codeberg as the single canonical JSON-LD download URL', () => {
       filename,
     );
   }
+});
+
+test('board install pages wire the verified APK fallback progressively', () => {
+  const primaryUrls = new Set();
+  const fallbackUrls = new Set();
+
+  for (const filename of boardInstallPages) {
+    const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
+    const link = /href="(https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/[^"\s]+\.apk)" data-apk-fallback="(https:\/\/cdn\.zapstore\.dev\/[0-9a-f]{64})"/.exec(html);
+    assert.ok(link, `${filename} has a Codeberg APK link with a Zapstore fallback`);
+    primaryUrls.add(link[1]);
+    fallbackUrls.add(link[2]);
+    assert.match(
+      html,
+      /<noscript><a[^>]+href="https:\/\/cdn\.zapstore\.dev\/[0-9a-f]{64}">/,
+      `${filename} has a no-JavaScript fallback link`,
+    );
+    assert.match(
+      html,
+      /<script type="module" src="\/assets\/apk-download\.js"><\/script>/,
+      `${filename} loads the shared fallback enhancement`,
+    );
+  }
+
+  assert.equal(primaryUrls.size, 1, 'all board install pages use the same release');
+  assert.equal(fallbackUrls.size, 1, 'all board install pages use the same fallback object');
 });
 
 test('derives the CORS release API from a direct Codeberg URL', () => {

@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kilter Board App Alternative — CruxCoach, the Open-Source Android App</title>
-<meta name="description" content="Looking for an alternative to the Kilter Board app? CruxCoach is free, open source and needs no account — and it imports your old Aurora logbook. Step-by-step migration guide.">
+<meta name="description" content="Looking for an alternative to the Kilter Board app? CruxCoach is free, open source, needs no account and imports your Aurora logbook. Compare the independent Android app and migrate step by step.">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://cruxcoach.org/kilter-board-app-alternative.html">
 <link rel="alternate" hreflang="en" href="https://cruxcoach.org/kilter-board-app-alternative.html">
 <link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/kilter-board-app-alternative.html">
+<link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/kilter-board-app-alternative.html">
 <meta property="og:title" content="Kilter Board App Alternative — CruxCoach, the Open-Source Android App">
-<meta property="og:description" content="Free, open source, no account — and it imports your old Aurora logbook. What happened to the Kilter app, how CruxCoach compares, and how to get your data back.">
+<meta property="og:description" content="Free, open source and no account. See how this independent Android app differs from the current official Kilter app and how to import your Aurora logbook.">
 <meta property="og:url" content="https://cruxcoach.org/kilter-board-app-alternative.html">
 <meta property="og:site_name" content="CruxCoach">
 <meta property="og:locale" content="en_US">
@@ -22,7 +23,7 @@
 <meta property="og:image:height" content="512">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kilter Board App Alternative — CruxCoach, the Open-Source Android App">
-<meta name="twitter:description" content="Free, open source, no account — and it imports your old Aurora logbook. What happened to the Kilter app, how CruxCoach compares, and how to get your data back.">
+<meta name="twitter:description" content="Free, open source and no account. See how this independent Android app differs from the current official Kilter app and how to import your Aurora logbook.">
 <meta name="twitter:image" content="https://cruxcoach.org/assets/icon-512.png">
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
@@ -35,7 +36,7 @@
       "@id": "https://cruxcoach.org/kilter-board-app-alternative.html",
       "url": "https://cruxcoach.org/kilter-board-app-alternative.html",
       "name": "Kilter Board App Alternative — CruxCoach, the Open-Source Android App",
-      "description": "Why the old Kilter Board app disappeared, how the open-source CruxCoach app compares, and how to recover your Aurora logbook step by step.",
+      "description": "How the independent open-source CruxCoach app differs from the current official Kilter Board app, and how to import an Aurora logbook step by step.",
       "inLanguage": "en",
       "about": { "@id": "https://cruxcoach.org/#app" },
       "isPartOf": { "@type": "WebSite", "url": "https://cruxcoach.org/", "name": "CruxCoach" }
@@ -51,13 +52,13 @@
       "@type": "HowTo",
       "@id": "https://cruxcoach.org/kilter-board-app-alternative.html#migrate",
       "name": "Recover your old Kilter Board logbook and import it into CruxCoach",
-      "description": "Get your ascents, attempts, circuits and bid history out of the discontinued Aurora Kilter app and into an encrypted local logbook on your own device.",
+      "description": "Import your ascents, attempts, circuits and bid history from an Aurora data export into an encrypted local logbook on your own device.",
       "totalTime": "PT15M",
       "step": [
         {
           "@type": "HowToStep",
           "name": "Request your data export from Aurora",
-          "text": "Ask Aurora, the operator of the old Kilter app, for a personal data export. They email you a JSON file containing your ascents, attempts, circuits and bid history."
+          "text": "Ask Aurora, the operator of the previous Kilter app, for a personal data export. Save the JSON file you receive; it can contain your ascents, attempts, circuits and bid history."
         },
         {
           "@type": "HowToStep",
@@ -137,6 +138,7 @@
   .btn-primary:hover { opacity: 0.92; }
   .btn-secondary { background: transparent; color: var(--fg); border-color: var(--rule); }
   .btn-secondary:hover { border-color: var(--accent); }
+  [data-apk-fallback][aria-busy="true"] { cursor: progress; opacity: 0.7; }
   .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
   footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; color: var(--fg-mute); font-size: 0.85rem; text-align: center; }
   footer a { color: var(--fg-soft); }
@@ -178,29 +180,34 @@
     Free, no strings attached. The recommended route is Zapstore, a privacy-respecting
     Android store that verifies developer signatures and auto-updates; the signed APK
     from Codeberg works just as well, with the in-app updater handling future releases.
+    If Codeberg is unavailable, the same button switches to the verified,
+    content-addressed Zapstore copy.
   </p>
   <div class="cta-row">
     <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android">Get on Zapstore</a>
-    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.0/CruxCoach-v0.2.0.apk">Download APK</a>
+    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Download APK</a>
+    <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternate APK source</a></noscript>
   </div>
   <p class="cta-foot">Free. No account. Verifiable signed builds. Android 8.0+.</p>
 
   <h2>What happened to the old Kilter app</h2>
   <p>
-    On 26 March 2026, Aurora's Kilter app was pulled from the App Store and Play Store
-    after a dispute between Aurora Climbing and Kilter, LLC. Tens of thousands of
-    climbers lost access to their playlists, logbooks and draft climbs overnight, and
-    the official replacement shipped half-finished. The episode made one thing obvious:
-    when your training history lives on someone else's server, it can disappear without
-    notice.
+    On 26 March 2026, Aurora's previous Kilter app was removed from the app stores,
+    temporarily cutting climbers off from playlists, logbooks and draft climbs. A
+    <a href="https://play.google.com/store/apps/details?id=com.kiltergrips.kilter_board_app">current
+    official Kilter Board app</a> is available again. CruxCoach is not that first-party
+    replacement; it is an independent option for Android users who prefer local,
+    encrypted data, open-source code and no required account. The interruption remains
+    a useful reminder that training history kept only on someone else's server can
+    become unavailable without notice.
   </p>
 
-  <h2>What CruxCoach does differently</h2>
+  <h2>How CruxCoach differs</h2>
   <ul class="check-list">
     <li><strong>No account, no signup.</strong> Your identity is a Nostr keypair generated on your phone — nothing anyone can revoke.</li>
     <li><strong>Your logbook lives on your device</strong>, in an encrypted SQLCipher database. It can't be taken down, because nobody else has it.</li>
     <li><strong>Open source under the GPL-3.0.</strong> Anyone can audit, fork and build it. The code is on <a href="https://codeberg.org/CruxCoach/CruxCoach">Codeberg</a>.</li>
-    <li><strong>Works offline.</strong> The full climb catalogue — 496,000+ climbs across seven boards — is downloaded to your device on first sync.</li>
+    <li><strong>Works offline after sync.</strong> Choose the board catalogues you need and keep them on your device. The seven supported board families contain 650,000+ listed climbs in total.</li>
     <li><strong>Not just Kilter.</strong> One app drives the Kilter Board, MoonBoard, Tension, Grasshopper, Decoy, So iLL and Touchstone boards over Bluetooth LE.</li>
     <li><strong>No Google required.</strong> Runs on de-Googled phones — GrapheneOS, /e/OS, LineageOS without GApps.</li>
   </ul>
@@ -212,13 +219,13 @@
 
   <h2 id="migrate">Get your old Kilter data back</h2>
   <p>
-    Your history from the discontinued app is recoverable. Aurora is obliged to hand
-    over your personal data on request, and CruxCoach imports their export directly:
+    If you receive a personal data export from Aurora, CruxCoach can import its JSON
+    directly into your local logbook:
   </p>
   <ol class="steps">
     <li>
       <h3>Request your data export from Aurora</h3>
-      <p>Ask Aurora, the operator of the old Kilter app, for a personal data export. They email you a JSON file containing your ascents, attempts, circuits and bid history.</p>
+      <p>Ask Aurora, the operator of the previous Kilter app, for a personal data export. Save the JSON file you receive; it can contain your ascents, attempts, circuits and bid history.</p>
     </li>
     <li>
       <h3>Install CruxCoach</h3>
@@ -257,6 +264,7 @@
   </div>
 </footer>
 
+<script type="module" src="/assets/apk-download.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.
    Never blocks render; silently no-ops where unsupported. */
