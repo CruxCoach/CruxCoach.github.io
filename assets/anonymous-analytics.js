@@ -14,8 +14,9 @@ const CANONICAL_PATHS = new Map([
   ['/de/boards', '/de/boards/'],
   ['/de/boards/', '/de/boards/'],
   ['/de/boards/index.html', '/de/boards/'],
-  ['/boards/list.html', '/boards/list.html'],
-  ['/de/boards/list.html', '/de/boards/list.html'],
+  // Map and list are two views of the same logical Board Map page.
+  ['/boards/list.html', '/boards/'],
+  ['/de/boards/list.html', '/de/boards/'],
   ['/kilter-board-app-alternative.html', '/kilter-board-app-alternative.html'],
   ['/de/kilter-board-app-alternative.html', '/de/kilter-board-app-alternative.html'],
   ['/moonboard-app.html', '/moonboard-app.html'],

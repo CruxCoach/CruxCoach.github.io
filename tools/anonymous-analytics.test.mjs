@@ -19,6 +19,8 @@ test('canonical paths never expose dynamic shares, queries, or unknown paths', (
   assert.equal(normalizePagePath('/'), '/');
   assert.equal(normalizePagePath('/index.html'), '/');
   assert.equal(normalizePagePath('/de/boards/index.html'), '/de/boards/');
+  assert.equal(normalizePagePath('/boards/list.html'), '/boards/');
+  assert.equal(normalizePagePath('/de/boards/list.html'), '/de/boards/');
   assert.equal(normalizePagePath('/c/naddr1privatepayload'), '/c/:share');
   assert.equal(normalizePagePath('/someone-private'), '/404');
 });
@@ -199,7 +201,7 @@ test('privacy notices disclose the collector host and current Codeberg policy', 
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v20';/);
+  assert.match(source, /var VERSION = 'cc-v21';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
 });

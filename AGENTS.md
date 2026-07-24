@@ -49,9 +49,10 @@ the repo.
   3. `sw.js` is a resilience service worker (stale-while-revalidate + mirror
      fallback from `mirrors.json`) so returning visitors survive an origin outage.
   4. Every HTML page loads `assets/anonymous-analytics.js`. It sends only a
-     canonical page label and Zapstore-button dimensions; the direct-APK route
-     counts its own coarse click. Both paths honour DNT/GPC, never handle IDs,
-     and use no credentials or referrer.
+     canonical logical-page label and Zapstore-button dimensions; Board Map
+     map/list views share a label while language remains separate. The
+     direct-APK route counts its own coarse click. Both paths honour DNT/GPC,
+     never handle IDs, and use no credentials or referrer.
 - **Dark-mode-only**: `color-scheme=dark` in meta; no JS theme toggle.
 - **Accessibility**: every link has discernible text; decorative elements are
   `aria-hidden="true"`. Prefer plain semantic HTML over div soup.
