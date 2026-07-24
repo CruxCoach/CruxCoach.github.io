@@ -21,7 +21,7 @@ this script asks its API for the latest full release (prereleases/drafts
 excluded), takes the URL of the actual `.apk` asset, and reads its SHA-256
 sidecar. It streams the corresponding Zapstore object and requires matching
 size and SHA-256 before updating canonical Codeberg/Zapstore URLs and atomically
-publishing `.well-known/apk-target.json`. That closed-schema manifest binds the
+publishing `apk-target.json`. That closed-schema manifest binds the
 version, digest, byte size, and both exact hosts for the selector. The script is
 a no-op when all targets are current, and it never publishes a half-mirrored
 release. It runs nightly via `cron-refresh.sh`, which commits the rewrite as

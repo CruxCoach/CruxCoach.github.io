@@ -14,7 +14,9 @@
 // We derive that fallback URL from the release's SHA-256 sidecar, then require
 // the CDN object to have the same byte size and SHA-256 before changing either
 // set of links. It also atomically publishes the verified tuple to
-// .well-known/apk-target.json for the selector's server-side health cache.
+// /apk-target.json for the selector's server-side health cache. Keep this at
+// the public root: Codeberg Pages does not publish newly added dot-directory
+// files reliably.
 //
 // Sidecar URLs (….apk.sha256) are rewritten alongside if a page ever links
 // one. Exit code 0 = links are current (whether or not files were rewritten),
@@ -27,7 +29,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FILES = ['index.html', 'de/index.html', '404.html', 'llms.txt', 'kilter-board-app-alternative.html', 'de/kilter-board-app-alternative.html', 'moonboard-app.html', 'de/moonboard-app.html'];
-const MANIFEST = path.join(ROOT, '.well-known', 'apk-target.json');
+const MANIFEST = path.join(ROOT, 'apk-target.json');
 const API = 'https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/latest';
 const CODEBERG_LINK_RE =
   /https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/[^"'\s)]+\.apk(\.sha256)?/g;
@@ -145,12 +147,12 @@ const manifest = `${JSON.stringify({
 }, null, 2)}\n`;
 const beforeManifest = fs.existsSync(MANIFEST) ? fs.readFileSync(MANIFEST, 'utf8') : '';
 if (beforeManifest === manifest) {
-  console.log('.well-known/apk-target.json: unchanged');
+  console.log('apk-target.json: unchanged');
 } else {
   const temporary = `${MANIFEST}.tmp`;
   fs.writeFileSync(temporary, manifest);
   fs.renameSync(temporary, MANIFEST);
   rewritten += 1;
-  console.log('.well-known/apk-target.json: updated');
+  console.log('apk-target.json: updated');
 }
 console.log(rewritten ? `${rewritten} file(s) rewritten` : 'all links already current');

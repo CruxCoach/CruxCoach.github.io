@@ -33,7 +33,7 @@ test('keeps Codeberg as the canonical JSON-LD download URL', () => {
 
 test('the published selector manifest binds the two byte-identical sources', () => {
   const manifest = JSON.parse(fs.readFileSync(
-    path.join(repoRoot, '.well-known/apk-target.json'), 'utf8',
+    path.join(repoRoot, 'apk-target.json'), 'utf8',
   ));
   assert.deepEqual(Object.keys(manifest), [
     'schema', 'version', 'sha256', 'size', 'codeberg_url', 'zapstore_url',

@@ -80,7 +80,7 @@ them current when site facts change (especially on app releases; that includes
   Codeberg release metadata and SHA-256 sidecar without downloading the Codeberg
   APK, fully verifies the content-addressed Zapstore payload against that size
   and digest, updates the canonical URLs, and atomically publishes
-  `.well-known/apk-target.json` for the selector whenever a new full release
+  `/apk-target.json` for the selector whenever a new full release
   appears.
   A new interactive surface needs one of the closed `surface`/`locale` redirect
   paths; a new canonical source file still belongs in that script's `FILES` list.
