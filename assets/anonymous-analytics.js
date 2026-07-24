@@ -1,4 +1,6 @@
 const DEFAULT_ENDPOINT = 'https://stats.cruxcoach.org/v1/site-event';
+const FALLBACK_MARKER = 'cruxcoach:zapstore-click-at';
+export const FALLBACK_WINDOW_MS = 30 * 60 * 1000;
 
 const CANONICAL_PATHS = new Map([
   ['/', '/'],
@@ -70,35 +72,89 @@ export function sendAnonymousEvent(payload, options = {}) {
   })).then(() => true, () => false);
 }
 
+/** Store only a local timestamp, never an analytics/session identifier. */
+export function markZapstoreClick(storage, now = Date.now()) {
+  if (!storage || !Number.isFinite(now)) return false;
+  try {
+    storage.setItem(FALLBACK_MARKER, String(now));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Consume one same-tab marker if it is at most 30 minutes old. */
+export function consumeZapstoreFallback(storage, now = Date.now()) {
+  if (!storage || !Number.isFinite(now)) return false;
+  try {
+    const raw = storage.getItem(FALLBACK_MARKER);
+    storage.removeItem(FALLBACK_MARKER);
+    if (raw === null || raw.trim() === '') return false;
+    const markedAt = Number(raw);
+    return Number.isFinite(markedAt)
+      && now >= markedAt
+      && now - markedAt <= FALLBACK_WINDOW_MS;
+  } catch {
+    return false;
+  }
+}
+
+function sessionStorageFor(win, options) {
+  if (Object.prototype.hasOwnProperty.call(options, 'sessionStorageImpl')) {
+    return options.sessionStorageImpl;
+  }
+  try {
+    return win.sessionStorage || null;
+  } catch {
+    return null;
+  }
+}
+
 export function initAnonymousAnalytics(root = document, options = {}) {
   const win = options.windowImpl
     || (typeof window !== 'undefined' ? window : { location: { pathname: '/' } });
   const nav = options.navigatorImpl
     || (typeof navigator !== 'undefined' ? navigator : {});
   if (privacySignalEnabled(nav, win)) return;
+  const storage = sessionStorageFor(win, options);
+  const now = options.nowImpl || Date.now;
+  const canonicalPath = normalizePagePath(win.location && win.location.pathname);
 
   sendAnonymousEvent({
     metric: 'page_view',
-    path: normalizePagePath(win.location && win.location.pathname),
+    path: canonicalPath,
   }, { ...options, navigatorImpl: nav, windowImpl: win });
 
   root.addEventListener('click', (event) => {
+    const directApk = event.target && typeof event.target.closest === 'function'
+      ? event.target.closest('[data-apk-selector]')
+      : null;
+    if (directApk) {
+      if (consumeZapstoreFallback(storage, now())) {
+        sendAnonymousEvent({
+          metric: 'install_fallback',
+          from: 'zapstore',
+          to: 'direct_apk',
+          path: canonicalPath,
+        }, { ...options, navigatorImpl: nav, windowImpl: win });
+      }
+      return;
+    }
+
     const target = event.target && typeof event.target.closest === 'function'
       ? event.target.closest('[data-analytics-install-target]')
       : null;
     if (!target) return;
     const installTarget = target.dataset.analyticsInstallTarget;
     const surface = target.dataset.analyticsSurface;
-    const locale = (root.documentElement && root.documentElement.lang) === 'de'
-      ? 'de'
-      : 'en';
     if (!['direct_apk', 'zapstore'].includes(installTarget)) return;
     if (!['hero', 'install', 'shared_climb'].includes(surface)) return;
+    if (installTarget === 'zapstore') markZapstoreClick(storage, now());
     sendAnonymousEvent({
       metric: 'install_click',
       target: installTarget,
       surface,
-      locale,
+      path: canonicalPath,
     }, { ...options, navigatorImpl: nav, windowImpl: win });
   }, { capture: true });
 }

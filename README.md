@@ -30,8 +30,10 @@ cruxcoach-pages/
 
 - No external dependencies (no CDN-hosted CSS/fonts/JS). System font stack only.
 - No user tracking, cookies, profiles, or third-party analytics. A local script
-  sends only allowlisted page/click dimensions to an immediate daily aggregate
-  counter; DNT/GPC is honoured. Direct APK buttons use one stable first-party
+  sends only allowlisted page/click dimensions and one locally combined
+  same-tab Zapstore→APK fallback to an immediate daily aggregate counter;
+  DNT/GPC is honoured. The fallback uses only a 30-minute timestamp in the
+  tab's `sessionStorage`, never an identifier. Direct APK buttons use one closed first-party
   redirect whose server-side health cache selects Codeberg or the verified
   Zapstore mirror without any visitor-side availability probe.
 - Prefer plain semantic HTML over div soup.

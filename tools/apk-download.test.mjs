@@ -6,15 +6,15 @@ import { fileURLToPath } from 'node:url';
 
 const repoRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const selectorSurfaces = [
-  ['index.html', 'hero', 'en'],
-  ['index.html', 'install', 'en'],
-  ['de/index.html', 'hero', 'de'],
-  ['de/index.html', 'install', 'de'],
-  ['kilter-board-app-alternative.html', 'hero', 'en'],
-  ['de/kilter-board-app-alternative.html', 'hero', 'de'],
-  ['moonboard-app.html', 'hero', 'en'],
-  ['de/moonboard-app.html', 'hero', 'de'],
-  ['404.html', 'shared_climb', 'en'],
+  ['index.html', 'home-en', 'hero'],
+  ['index.html', 'home-en', 'install'],
+  ['de/index.html', 'home-de', 'hero'],
+  ['de/index.html', 'home-de', 'install'],
+  ['kilter-board-app-alternative.html', 'kilter-en', 'hero'],
+  ['de/kilter-board-app-alternative.html', 'kilter-de', 'hero'],
+  ['moonboard-app.html', 'moonboard-en', 'hero'],
+  ['de/moonboard-app.html', 'moonboard-de', 'hero'],
+  ['404.html', 'shared-climb', 'shared_climb'],
 ];
 
 test('keeps Codeberg as the canonical JSON-LD download URL', () => {
@@ -54,11 +54,11 @@ test('the published selector manifest binds the two byte-identical sources', () 
 });
 
 test('every direct APK surface exposes exactly one first-party selector button', () => {
-  for (const [filename, surface, locale] of selectorSurfaces) {
+  for (const [filename, pageKey, surface] of selectorSurfaces) {
     const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
-    const url = `https://stats.cruxcoach.org/download/apk/${surface}/${locale}`;
-    const matches = html.match(new RegExp(url.replaceAll('.', '\\.'), 'g')) || [];
-    assert.equal(matches.length, 1, `${filename}: ${surface}/${locale}`);
+    const url = `https://stats.cruxcoach.org/download/apk/${pageKey}/${surface}`;
+    const matches = html.match(new RegExp(`href="${url.replaceAll('.', '\\.')}"`, 'g')) || [];
+    assert.equal(matches.length, 1, `${filename}: ${pageKey}/${surface}`);
     assert.match(
       html,
       new RegExp(`href="${url.replaceAll('.', '\\.')}"[^>]*rel="nofollow"[^>]*referrerpolicy="no-referrer"[^>]*data-apk-selector`),
@@ -69,11 +69,11 @@ test('every direct APK surface exposes exactly one first-party selector button',
   }
 });
 
-test('shared-climb selector follows the chosen page language', () => {
+test('shared-climb selector uses its canonical aggregate page key', () => {
   const html = fs.readFileSync(path.join(repoRoot, '404.html'), 'utf8');
   assert.match(
     html,
-    /elCtaReleases\.href = 'https:\/\/stats\.cruxcoach\.org\/download\/apk\/shared_climb\/' \+ lang;/,
+    /elCtaReleases\.href = 'https:\/\/stats\.cruxcoach\.org\/download\/apk\/shared-climb\/shared_climb';/,
   );
 });
 

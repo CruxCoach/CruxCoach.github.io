@@ -9,8 +9,10 @@ this runs in the browser; the site itself stays build-step-free.
 node tools/update-download-link.mjs
 ```
 
-Every interactive APK button points to the stable first-party route
-`https://stats.cruxcoach.org/download/apk/<surface>/<locale>`. The server-side
+Every interactive APK button points to a closed first-party route
+`https://stats.cruxcoach.org/download/apk/<page-key>/<surface>`. The page key
+maps to one canonical analytics path without transmitting a full URL, query,
+or identifier. The server-side
 selector checks availability without visitor data and redirects the one button
 to the current Codeberg APK or its byte-identical, content-addressed Zapstore
 mirror. It works without JavaScript and avoids both pre-click provider

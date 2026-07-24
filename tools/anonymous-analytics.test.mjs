@@ -4,6 +4,10 @@ import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import {
+  FALLBACK_WINDOW_MS,
+  consumeZapstoreFallback,
+  initAnonymousAnalytics,
+  markZapstoreClick,
   normalizePagePath,
   privacySignalEnabled,
   sendAnonymousEvent,
@@ -38,7 +42,7 @@ test('DNT and Global Privacy Control suppress every request', async () => {
 test('request omits credentials and referrer and contains only explicit JSON', async () => {
   let call;
   const event = {
-    metric: 'install_click', target: 'direct_apk', surface: 'hero', locale: 'en',
+    metric: 'install_click', target: 'direct_apk', surface: 'hero', path: '/',
   };
   assert.equal(await sendAnonymousEvent(event, {
     endpoint: 'https://stats.example/v1/site-event',
@@ -52,6 +56,79 @@ test('request omits credentials and referrer and contains only explicit JSON', a
   assert.equal(call[1].keepalive, true);
   assert.equal(call[1].body, JSON.stringify(event));
   assert.deepEqual(call[1].headers, { 'Content-Type': 'text/plain;charset=UTF-8' });
+});
+
+function memoryStorage() {
+  const values = new Map();
+  return {
+    getItem: (key) => values.has(key) ? values.get(key) : null,
+    setItem: (key, value) => values.set(key, value),
+    removeItem: (key) => values.delete(key),
+  };
+}
+
+test('fallback marker is identifier-free, expires, and is consumed once', () => {
+  const storage = memoryStorage();
+  assert.equal(markZapstoreClick(storage, 1_000), true);
+  assert.equal(consumeZapstoreFallback(storage, 1_000 + FALLBACK_WINDOW_MS), true);
+  assert.equal(consumeZapstoreFallback(storage, 1_001), false);
+
+  assert.equal(markZapstoreClick(storage, 2_000), true);
+  assert.equal(consumeZapstoreFallback(
+    storage,
+    2_000 + FALLBACK_WINDOW_MS + 1,
+  ), false);
+});
+
+test('Zapstore then direct APK emits one combined canonical-page fallback', () => {
+  const storage = memoryStorage();
+  const payloads = [];
+  let clickHandler;
+  let now = 10_000;
+  const root = {
+    documentElement: { lang: 'en' },
+    addEventListener(type, handler) {
+      if (type === 'click') clickHandler = handler;
+    },
+  };
+  const options = {
+    navigatorImpl: {},
+    windowImpl: { location: { pathname: '/moonboard-app.html' } },
+    sessionStorageImpl: storage,
+    nowImpl: () => now,
+    fetchImpl: async (_url, request) => {
+      payloads.push(JSON.parse(request.body));
+    },
+  };
+  initAnonymousAnalytics(root, options);
+
+  clickHandler({
+    target: {
+      closest(selector) {
+        return selector === '[data-analytics-install-target]'
+          ? { dataset: { analyticsInstallTarget: 'zapstore', analyticsSurface: 'hero' } }
+          : null;
+      },
+    },
+  });
+  now += 60_000;
+  const directTarget = {
+    closest: (selector) => selector === '[data-apk-selector]' ? {} : null,
+  };
+  clickHandler({ target: directTarget });
+  clickHandler({ target: directTarget });
+
+  assert.deepEqual(payloads, [
+    { metric: 'page_view', path: '/moonboard-app.html' },
+    {
+      metric: 'install_click', target: 'zapstore', surface: 'hero',
+      path: '/moonboard-app.html',
+    },
+    {
+      metric: 'install_fallback', from: 'zapstore', to: 'direct_apk',
+      path: '/moonboard-app.html',
+    },
+  ]);
 });
 
 test('every static page loads the local aggregate client', () => {
@@ -114,12 +191,15 @@ test('privacy notices disclose the collector host and current Codeberg policy', 
     assert.match(html, /Art(?:icle|\.) 6(?:\(1\)| Abs\. 1)\(?f\)?|Art\. 6 Abs\. 1 lit\. f/, page);
     assert.match(html, /codeberg\.org\/Codeberg\/org\/src\/branch\/main\/PrivacyPolicy\.md/, page);
     assert.doesNotMatch(html, /docs\.codeberg\.org\/improving-codeberg\/privacy-policy/, page);
+    assert.match(html, /sessionStorage/, `${page}: local fallback marker`);
+    assert.match(html, /30 (?:minutes|Minuten)/, `${page}: marker expiry`);
+    assert.match(html, /not proof|kein Beweis/, `${page}: fallback semantics`);
   }
 });
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v19';/);
+  assert.match(source, /var VERSION = 'cc-v20';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
 });

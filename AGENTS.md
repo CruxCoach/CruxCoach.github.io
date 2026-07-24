@@ -71,7 +71,7 @@ them current when site facts change (especially on app releases; that includes
 `softwareVersion` in both homepages' JSON-LD):
 
 - **Direct APK download links**: every interactive download surface points to the
-  stable first-party route `https://stats.cruxcoach.org/download/apk/<surface>/<locale>`.
+  closed first-party route `https://stats.cruxcoach.org/download/apk/<page-key>/<surface>`.
   That server-side selector counts one coarse click and redirects to the currently
   available verified Codeberg APK or its byte-identical, content-addressed Zapstore
   mirror. It performs background checks without visitor data; browsers never probe
@@ -82,8 +82,9 @@ them current when site facts change (especially on app releases; that includes
   and digest, updates the canonical URLs, and atomically publishes
   `/apk-target.json` for the selector whenever a new full release
   appears.
-  A new interactive surface needs one of the closed `surface`/`locale` redirect
-  paths; a new canonical source file still belongs in that script's `FILES` list.
+  A new interactive surface needs one of the closed `page-key`/`surface`
+  redirect paths; a new canonical source file still belongs in that script's
+  `FILES` list.
 - `llms.txt` — structured project summary for LLM crawlers (distribution channels,
   privacy model, disambiguation vs. other "cruxcoach" sites). No Wikidata ID —
   the former item (Q139592177) was deleted 2026-05-01 as non-notable; don't
