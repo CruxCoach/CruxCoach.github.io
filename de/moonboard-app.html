@@ -103,7 +103,6 @@
   .btn-primary:hover { opacity: 0.92; }
   .btn-secondary { background: transparent; color: var(--fg); border-color: var(--rule); }
   .btn-secondary:hover { border-color: var(--accent); }
-  [data-apk-fallback][aria-busy="true"] { cursor: progress; opacity: 0.7; }
   .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
   footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; color: var(--fg-mute); font-size: 0.85rem; text-align: center; }
   footer a { color: var(--fg-soft); }
@@ -145,14 +144,13 @@
     Kostenlos, ohne Haken. Der empfohlene Weg ist Zapstore, ein datenschutzfreundlicher
     Android-Store, der Entwickler-Signaturen verifiziert und automatisch aktualisiert;
     die signierte APK von Codeberg funktioniert genauso gut — künftige Updates übernimmt
-    der In-App-Updater. Eine separat veröffentlichte, content-adressierte Zapstore-Kopie
-    steht als vorab verifizierter Fallback bereit, ohne dass dein Browser dafür eine
-    Verfügbarkeitsanfrage sendet.
+    der In-App-Updater. Ein einziger APK-Button wählt über einen First-Party-Selector
+    die verfügbare verifizierte Codeberg-Kopie oder den identischen,
+    content-adressierten Zapstore-Spiegel.
   </p>
   <div class="cta-row">
     <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android" data-analytics-install-target="zapstore" data-analytics-surface="hero">Bei Zapstore laden</a>
-    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4" data-analytics-install-target="direct_apk" data-analytics-surface="hero">APK herunterladen</a>
-    <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternative APK-Quelle</a></noscript>
+    <a class="btn btn-secondary" href="https://stats.cruxcoach.org/download/apk/hero/de" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector>APK herunterladen</a>
   </div>
   <p class="cta-foot">Kostenlos. Kein Konto. Verifizierbar signierte Builds. Android 8.0+.</p>
 
@@ -220,7 +218,6 @@
   </div>
 </footer>
 
-<script type="module" src="/assets/apk-download.js"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.

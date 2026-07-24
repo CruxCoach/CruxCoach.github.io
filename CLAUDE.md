@@ -35,18 +35,14 @@ the repo.
   limited to OSM map tiles and the Nostr WebSocket calls in `404.html`; install
   destinations are contacted only after a click. All are disclosed on the privacy
   page.
-- **The site is JS-free except for five deliberate exceptions:**
+- **The site is JS-free except for four deliberate exceptions:**
   1. `404.html` runs inline JS on `/c/<naddr>` paths to fetch climb metadata from
      public Nostr relays (`relay.damus.io`, `nos.lol`, `relay.primal.net`) over
      WebSocket and render an install/landing view.
   2. `boards/index.html` uses vendored Leaflet + markercluster to render the map.
   3. `sw.js` is a resilience service worker (stale-while-revalidate + mirror
      fallback from `mirrors.json`) so returning visitors survive an origin outage.
-  4. `index.html`, `de/index.html`, the four board-specific landing pages, and the
-     shared-climb view in `404.html` load
-     `assets/apk-download.js` to validate authored static URLs without making any
-     visitor-side availability request.
-  5. Every HTML page loads `assets/anonymous-analytics.js`. It sends only a
+  4. Every HTML page loads `assets/anonymous-analytics.js`. It sends only a
      canonical page label and explicit install-button dimensions, uses
      `credentials: omit` + `no-referrer`, honours DNT/GPC, and never handles IDs.
 - **Dark-mode-only**: `color-scheme=dark` in meta; no JS theme toggle.
@@ -67,18 +63,17 @@ These files are load-bearing for discoverability and are maintained by hand — 
 them current when site facts change (especially on app releases; that includes
 `softwareVersion` in both homepages' JSON-LD):
 
-- **Direct APK download links**: every download surface (hero, install card,
-  404 climb landing, llms.txt) offers both the current release's **versioned**
-  Codeberg URL and its content-addressed Zapstore CDN fallback — never the releases
-  page. JSON-LD keeps Codeberg as its canonical `downloadUrl`. Codeberg has no
-  "always newest" URL for versioned asset names, so
-  `tools/update-download-link.mjs` (run by the nightly cron) rewrites these URLs
-  in `index.html`, `de/index.html`, `404.html`, the four board-specific landing
-  pages and `llms.txt` when a new full release appears. It derives the Zapstore URL
-  from the Codeberg SHA-256 sidecar and verifies the CDN object before updating
-  either source. Hand-editing is fine — the cron self-heals. A new page with a
-  download link must be added to the `FILES` list in that script (and to
-  `link_files` in `cron-refresh.sh`).
+- **Direct APK download links**: every interactive download surface points to the
+  stable first-party route `https://stats.cruxcoach.org/download/apk/<surface>/<locale>`.
+  That server-side selector counts one coarse click and redirects to the currently
+  available verified Codeberg APK or its byte-identical, content-addressed Zapstore
+  mirror. It performs background checks without visitor data; browsers never probe
+  either source. JSON-LD and `llms.txt` retain the versioned Codeberg URL as the
+  canonical machine-readable target. `tools/update-download-link.mjs` verifies both
+  full payloads, updates those canonical URLs, and atomically publishes
+  `.well-known/apk-target.json` for the selector whenever a new full release appears.
+  A new interactive surface needs one of the closed `surface`/`locale` redirect
+  paths; a new canonical source file still belongs in that script's `FILES` list.
 - `llms.txt` — structured project summary for LLM crawlers (distribution channels,
   privacy model, disambiguation vs. other "cruxcoach" sites). No Wikidata ID —
   the former item (Q139592177) was deleted 2026-05-01 as non-notable; don't

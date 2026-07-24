@@ -83,7 +83,6 @@
   .cta:hover { border-color: var(--accent); border-bottom-color: var(--accent); }
   .cta.primary { background: var(--accent); color: #141312; border-color: var(--accent); border-bottom-color: var(--accent); }
   .cta.primary:hover { background: #d36c40; border-color: #d36c40; border-bottom-color: #d36c40; }
-  [data-apk-fallback][aria-busy="true"] { cursor: progress; opacity: 0.7; }
   .small { font-size: 0.9rem; color: var(--fg-mute); margin-top: 1.75rem; max-width: 30rem; }
 </style>
 <script>
@@ -128,11 +127,9 @@
     <div class="tags" id="cl-tags" hidden></div>
     <p class="install-prompt" id="cl-install-prompt"></p>
     <div class="cta-row">
-      <!-- Both URLs are preverified by the nightly release job. No visitor-side
-           availability probe runs before an explicit click. -->
+      <!-- One first-party redirect chooses a server-verified APK source. -->
       <a class="cta primary" id="cl-cta-zapstore" href="https://zapstore.dev/apps/com.cruxcoach.android" data-analytics-install-target="zapstore" data-analytics-surface="shared_climb">…</a>
-      <a class="cta" id="cl-cta-releases" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4" data-analytics-install-target="direct_apk" data-analytics-surface="shared_climb">…</a>
-      <noscript><a class="cta" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternate APK source</a></noscript>
+      <a class="cta" id="cl-cta-releases" href="https://stats.cruxcoach.org/download/apk/shared_climb/en" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector>…</a>
     </div>
     <p class="small" id="cl-already"><span id="cl-already-text"></span> <a id="cl-cta-intent" href="">…</a></p>
   </div>
@@ -188,6 +185,7 @@
     elPrompt.textContent = t('installPrompt');
     elCtaZapstore.textContent = t('ctaZapstore');
     elCtaReleases.textContent = t('ctaReleases');
+    elCtaReleases.href = 'https://stats.cruxcoach.org/download/apk/shared_climb/' + lang;
 
     // intent:// only resolves on Android — package= lookup. Hide the
     // small "already installed?" line entirely on other platforms;
@@ -389,7 +387,6 @@
   })();
   </script>
 
-<script type="module" src="/assets/apk-download.js"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.

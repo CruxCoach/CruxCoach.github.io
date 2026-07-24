@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-// Points every direct-download link on the site at the newest full release.
+// Publishes the newest fully mirrored APK target for the website and selector.
 //
 // Codeberg has no URL that always serves the newest APK when release assets
-// carry versioned names (CruxCoach-vX.Y.Z.apk), so the site hard-codes the
-// current versioned URL and this script — run nightly by cron-refresh.sh —
-// rewrites it whenever a new release appears. The /releases/latest API
+// carry versioned names (CruxCoach-vX.Y.Z.apk), so canonical machine-readable
+// links still contain the current version. This script — run nightly by
+// cron-refresh.sh — rewrites them whenever a new release appears; interactive
+// buttons use a stable first-party selector route. The /releases/latest API
 // endpoint already excludes prereleases and drafts, and the URL is taken
 // from the release's actual .apk asset (never constructed), so a
 // half-published release without an uploaded APK leaves the links alone.
@@ -12,8 +13,8 @@
 // The same APK is also published content-addressed on Zapstore's Blossom CDN.
 // We derive that fallback URL from the release's SHA-256 sidecar, then require
 // the CDN object to have the same byte size and SHA-256 before changing either
-// set of links. The update is therefore atomic: pages never mix releases or
-// point at a fallback that does not serve the exact release APK.
+// set of links. It also atomically publishes the verified tuple to
+// .well-known/apk-target.json for the selector's server-side health cache.
 //
 // Sidecar URLs (….apk.sha256) are rewritten alongside if a page ever links
 // one. Exit code 0 = links are current (whether or not files were rewritten),
@@ -26,6 +27,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FILES = ['index.html', 'de/index.html', '404.html', 'llms.txt', 'kilter-board-app-alternative.html', 'de/kilter-board-app-alternative.html', 'moonboard-app.html', 'de/moonboard-app.html'];
+const MANIFEST = path.join(ROOT, '.well-known', 'apk-target.json');
 const API = 'https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/latest';
 const CODEBERG_LINK_RE =
   /https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/[^"'\s)]+\.apk(\.sha256)?/g;
@@ -44,8 +46,19 @@ const apk = (release.assets ?? []).find((a) => a.name?.endsWith('.apk'));
 const shaAsset = (release.assets ?? []).find((a) => a.name?.endsWith('.apk.sha256'));
 const apkUrl = apk?.browser_download_url;
 const shaUrl = shaAsset?.browser_download_url;
+const versionMatch = /^v([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})$/.exec(release.tag_name ?? '');
+const version = versionMatch?.[1];
+if (!version) {
+  console.error(`latest release has no stable version tag: ${release.tag_name ?? '?'}`);
+  process.exit(1);
+}
+const expectedApkUrl = `${CODEBERG_DOWNLOAD_PREFIX}v${version}/CruxCoach-v${version}.apk`;
 if (!apkUrl?.startsWith(CODEBERG_DOWNLOAD_PREFIX) || !apkUrl.endsWith('.apk')) {
   console.error(`no usable .apk asset on latest release ${release.tag_name ?? '?'}`);
+  process.exit(1);
+}
+if (apkUrl !== expectedApkUrl) {
+  console.error(`unexpected APK name or URL on latest release ${release.tag_name}`);
   process.exit(1);
 }
 if (!shaUrl?.startsWith(CODEBERG_DOWNLOAD_PREFIX) || !shaUrl.endsWith('.apk.sha256')) {
@@ -120,5 +133,24 @@ for (const file of FILES) {
   fs.writeFileSync(abs, after);
   rewritten += 1;
   console.log(`${file}: updated`);
+}
+
+const manifest = `${JSON.stringify({
+  schema: 1,
+  version,
+  sha256: apkSha256,
+  size: apk.size,
+  codeberg_url: apkUrl,
+  zapstore_url: zapstoreUrl,
+}, null, 2)}\n`;
+const beforeManifest = fs.existsSync(MANIFEST) ? fs.readFileSync(MANIFEST, 'utf8') : '';
+if (beforeManifest === manifest) {
+  console.log('.well-known/apk-target.json: unchanged');
+} else {
+  const temporary = `${MANIFEST}.tmp`;
+  fs.writeFileSync(temporary, manifest);
+  fs.renameSync(temporary, MANIFEST);
+  rewritten += 1;
+  console.log('.well-known/apk-target.json: updated');
 }
 console.log(rewritten ? `${rewritten} file(s) rewritten` : 'all links already current');

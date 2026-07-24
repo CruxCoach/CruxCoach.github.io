@@ -72,7 +72,7 @@ test('every static page loads the local aggregate client', () => {
   }
 });
 
-test('the two install targets are labeled on every requested surface', () => {
+test('Zapstore clicks use the JS counter and direct APK clicks use the redirect', () => {
   const expected = [
     ['index.html', 'hero'],
     ['index.html', 'install'],
@@ -86,12 +86,13 @@ test('the two install targets are labeled on every requested surface', () => {
   ];
   for (const [page, surface] of expected) {
     const html = fs.readFileSync(path.join(repoRoot, page), 'utf8');
-    for (const target of ['zapstore', 'direct_apk']) {
-      const targetFirst = new RegExp(
-        `data-analytics-install-target="${target}"[^>]*data-analytics-surface="${surface}"`,
-      );
-      assert.match(html, targetFirst, `${page}: ${target}/${surface}`);
-    }
+    assert.match(
+      html,
+      new RegExp(`data-analytics-install-target="zapstore"[^>]*data-analytics-surface="${surface}"`),
+      `${page}: zapstore/${surface}`,
+    );
+    assert.doesNotMatch(html, /data-analytics-install-target="direct_apk"/, page);
+    assert.match(html, /https:\/\/stats\.cruxcoach\.org\/download\/apk\//, page);
   }
 });
 
@@ -118,6 +119,7 @@ test('privacy notices disclose the collector host and current Codeberg policy', 
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v18';/);
+  assert.match(source, /var VERSION = 'cc-v19';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
+  assert.doesNotMatch(source, /apk-download\.js/);
 });

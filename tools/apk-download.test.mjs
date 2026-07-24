@@ -3,22 +3,21 @@ import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
-import {
-  chooseApkUrl,
-  parseCodebergReleaseUrl,
-} from '../assets/apk-download.js';
 
-const primary = 'https://codeberg.example/CruxCoach/CruxCoach/releases/download/v1.2.3/CruxCoach-v1.2.3.apk';
-const fallback = `https://cdn.example/${'a'.repeat(64)}`;
 const repoRoot = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const boardInstallPages = [
-  'kilter-board-app-alternative.html',
-  'de/kilter-board-app-alternative.html',
-  'moonboard-app.html',
-  'de/moonboard-app.html',
+const selectorSurfaces = [
+  ['index.html', 'hero', 'en'],
+  ['index.html', 'install', 'en'],
+  ['de/index.html', 'hero', 'de'],
+  ['de/index.html', 'install', 'de'],
+  ['kilter-board-app-alternative.html', 'hero', 'en'],
+  ['de/kilter-board-app-alternative.html', 'hero', 'de'],
+  ['moonboard-app.html', 'hero', 'en'],
+  ['de/moonboard-app.html', 'hero', 'de'],
+  ['404.html', 'shared_climb', 'en'],
 ];
 
-test('keeps Codeberg as the single canonical JSON-LD download URL', () => {
+test('keeps Codeberg as the canonical JSON-LD download URL', () => {
   for (const filename of ['index.html', 'de/index.html']) {
     const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
     const match = /<script type="application\/ld\+json">\s*([\s\S]*?)<\/script>/.exec(html);
@@ -32,50 +31,57 @@ test('keeps Codeberg as the single canonical JSON-LD download URL', () => {
   }
 });
 
-test('board install pages carry the preverified static fallback', () => {
-  const primaryUrls = new Set();
-  const fallbackUrls = new Set();
+test('the published selector manifest binds the two byte-identical sources', () => {
+  const manifest = JSON.parse(fs.readFileSync(
+    path.join(repoRoot, '.well-known/apk-target.json'), 'utf8',
+  ));
+  assert.deepEqual(Object.keys(manifest), [
+    'schema', 'version', 'sha256', 'size', 'codeberg_url', 'zapstore_url',
+  ]);
+  assert.equal(manifest.schema, 1);
+  assert.match(manifest.version, /^\d{1,3}\.\d{1,3}\.\d{1,3}$/);
+  assert.match(manifest.sha256, /^[0-9a-f]{64}$/);
+  assert.ok(Number.isSafeInteger(manifest.size) && manifest.size > 0);
+  assert.equal(
+    manifest.codeberg_url,
+    `https://codeberg.org/CruxCoach/CruxCoach/releases/download/v${manifest.version}/CruxCoach-v${manifest.version}.apk`,
+  );
+  assert.equal(manifest.zapstore_url, `https://cdn.zapstore.dev/${manifest.sha256}`);
 
-  for (const filename of boardInstallPages) {
+  const llms = fs.readFileSync(path.join(repoRoot, 'llms.txt'), 'utf8');
+  assert.ok(llms.includes(manifest.codeberg_url));
+  assert.ok(llms.includes(manifest.zapstore_url));
+});
+
+test('every direct APK surface exposes exactly one first-party selector button', () => {
+  for (const [filename, surface, locale] of selectorSurfaces) {
     const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
-    const link = /href="(https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/[^"\s]+\.apk)" data-apk-fallback="(https:\/\/cdn\.zapstore\.dev\/[0-9a-f]{64})"/.exec(html);
-    assert.ok(link, `${filename} has a Codeberg APK link with a Zapstore fallback`);
-    primaryUrls.add(link[1]);
-    fallbackUrls.add(link[2]);
+    const url = `https://stats.cruxcoach.org/download/apk/${surface}/${locale}`;
+    const matches = html.match(new RegExp(url.replaceAll('.', '\\.'), 'g')) || [];
+    assert.equal(matches.length, 1, `${filename}: ${surface}/${locale}`);
     assert.match(
       html,
-      /<noscript><a[^>]+href="https:\/\/cdn\.zapstore\.dev\/[0-9a-f]{64}">/,
-      `${filename} has a no-JavaScript fallback link`,
+      new RegExp(`href="${url.replaceAll('.', '\\.')}"[^>]*rel="nofollow"[^>]*referrerpolicy="no-referrer"[^>]*data-apk-selector`),
+      filename,
     );
-    assert.match(
-      html,
-      /<script type="module" src="\/assets\/apk-download\.js"><\/script>/,
-      `${filename} loads the shared fallback enhancement`,
-    );
+    assert.doesNotMatch(html, /data-apk-fallback/, filename);
+    assert.doesNotMatch(html, /data-analytics-install-target="direct_apk"/, filename);
   }
-
-  assert.equal(primaryUrls.size, 1, 'all board install pages use the same release');
-  assert.equal(fallbackUrls.size, 1, 'all board install pages use the same fallback object');
 });
 
-test('parses the authored versioned Codeberg URL without fetching it', () => {
-  assert.deepEqual(parseCodebergReleaseUrl(primary), {
-    owner: 'CruxCoach',
-    repo: 'CruxCoach',
-    tag: 'v1.2.3',
-    filename: 'CruxCoach-v1.2.3.apk',
-    origin: 'https://codeberg.example',
-  });
+test('shared-climb selector follows the chosen page language', () => {
+  const html = fs.readFileSync(path.join(repoRoot, '404.html'), 'utf8');
+  assert.match(
+    html,
+    /elCtaReleases\.href = 'https:\/\/stats\.cruxcoach\.org\/download\/apk\/shared_climb\/' \+ lang;/,
+  );
 });
 
-test('runtime selection is deterministic and performs no availability probe', () => {
-  assert.equal(chooseApkUrl(primary, fallback), primary);
-  assert.equal(chooseApkUrl('not-a-release', fallback), fallback);
-});
-
-test('every download surface carries the preverified static fallback', () => {
-  for (const filename of ['index.html', 'de/index.html', '404.html']) {
+test('no browser-side APK availability implementation remains', () => {
+  assert.equal(fs.existsSync(path.join(repoRoot, 'assets/apk-download.js')), false);
+  for (const [filename] of selectorSurfaces) {
     const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
-    assert.match(html, /data-apk-fallback="https:\/\/cdn\.zapstore\.dev\/[0-9a-f]{64}"/, filename);
+    assert.doesNotMatch(html, /assets\/apk-download\.js/, filename);
+    assert.doesNotMatch(html, /<noscript>[^<]*<a[^>]+(?:APK source|APK-Quelle)/, filename);
   }
 });

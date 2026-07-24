@@ -103,7 +103,6 @@
   .btn-primary:hover { opacity: 0.92; }
   .btn-secondary { background: transparent; color: var(--fg); border-color: var(--rule); }
   .btn-secondary:hover { border-color: var(--accent); }
-  [data-apk-fallback][aria-busy="true"] { cursor: progress; opacity: 0.7; }
   .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
   footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; color: var(--fg-mute); font-size: 0.85rem; text-align: center; }
   footer a { color: var(--fg-soft); }
@@ -145,13 +144,12 @@
     Free, no strings attached. The recommended route is Zapstore, a privacy-respecting
     Android store that verifies developer signatures and auto-updates; the signed APK
     from Codeberg works just as well, with the in-app updater handling future releases.
-    A separately published, content-addressed Zapstore copy is available as a
-    preverified fallback without any availability probe from your browser.
+    One APK button uses a first-party selector to choose the currently available
+    verified Codeberg copy or its identical, content-addressed Zapstore mirror.
   </p>
   <div class="cta-row">
     <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android" data-analytics-install-target="zapstore" data-analytics-surface="hero">Get on Zapstore</a>
-    <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4" data-analytics-install-target="direct_apk" data-analytics-surface="hero">Download APK</a>
-    <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternate APK source</a></noscript>
+    <a class="btn btn-secondary" href="https://stats.cruxcoach.org/download/apk/hero/en" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector>Download APK</a>
   </div>
   <p class="cta-foot">Free. No account. Verifiable signed builds. Android 8.0+.</p>
 
@@ -219,7 +217,6 @@
   </div>
 </footer>
 
-<script type="module" src="/assets/apk-download.js"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.

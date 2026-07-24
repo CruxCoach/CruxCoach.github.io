@@ -9,24 +9,22 @@ this runs in the browser; the site itself stays build-step-free.
 node tools/update-download-link.mjs
 ```
 
-Every download button/link on the site points at the current release's
-versioned direct APK URL (`…/releases/download/vX.Y.Z/CruxCoach-vX.Y.Z.apk`)
-instead of the releases page. Each interactive button also carries the
-content-addressed Zapstore CDN URL for the exact same APK. The small
-`assets/apk-download.js` enhancement validates the authored URL shape without
-any visitor-side network request. The nightly job verifies both full payloads
-byte-for-byte before publishing their URLs. This avoids pre-click connection
-metadata and Forgejo counting an availability `HEAD` as a download. The
-ordinary Codeberg link remains usable with or without JavaScript.
+Every interactive APK button points to the stable first-party route
+`https://stats.cruxcoach.org/download/apk/<surface>/<locale>`. The server-side
+selector checks availability without visitor data and redirects the one button
+to the current Codeberg APK or its byte-identical, content-addressed Zapstore
+mirror. It works without JavaScript and avoids both pre-click provider
+connections and Forgejo counting an APK availability `HEAD` as a download.
 
 Codeberg offers no stable "always newest" URL for versioned asset names, so
 this script asks its API for the latest full release (prereleases/drafts
 excluded), takes the URL of the actual `.apk` asset, and reads its SHA-256
 sidecar. It streams the corresponding Zapstore object and requires matching
-size and SHA-256 before atomically rewriting both URLs in `index.html`,
-`de/index.html`, `404.html` and `llms.txt`. It is a no-op when the links are
-already current, and it never publishes a half-mirrored release. Runs nightly
-via `cron-refresh.sh`, which commits the rewrite as
+size and SHA-256 before updating canonical Codeberg/Zapstore URLs and atomically
+publishing `.well-known/apk-target.json`. That closed-schema manifest binds the
+version, digest, byte size, and both exact hosts for the selector. The script is
+a no-op when all targets are current, and it never publishes a half-mirrored
+release. It runs nightly via `cron-refresh.sh`, which commits the rewrite as
 `chore(download): bump direct APK link to vX.Y.Z`.
 
 ## Sitemap `lastmod` and IndexNow

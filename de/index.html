@@ -252,7 +252,6 @@
   .btn-primary:hover { background: var(--accent); border-bottom-color: transparent; opacity: 0.92; }
   .btn-secondary { background: transparent; color: var(--fg); border-color: var(--rule); }
   .btn-secondary:hover { border-color: var(--accent); }
-  [data-apk-fallback][aria-busy="true"] { cursor: progress; opacity: 0.7; }
   .btn-disabled { background: transparent; color: var(--fg-mute); border-color: var(--rule); cursor: not-allowed; pointer-events: none; }
   .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
 
@@ -527,8 +526,7 @@
       </ul>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android" data-analytics-install-target="zapstore" data-analytics-surface="hero">Auf Zapstore holen</a>
-        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4" data-analytics-install-target="direct_apk" data-analytics-surface="hero">APK herunterladen</a>
-        <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternative APK-Quelle</a></noscript>
+        <a class="btn btn-secondary" href="https://stats.cruxcoach.org/download/apk/hero/de" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector>APK herunterladen</a>
       </div>
       <p class="cta-foot">Kostenlos. Kein Account. Verifizierbar signierte Builds. Ab Android 8.0.</p>
     </div>
@@ -695,7 +693,7 @@
     </p>
     <ul class="privacy-list">
       <li><strong>Keine Google Play Services.</strong> CruxCoach ruft keine GMS-APIs auf und läuft voll auf GrapheneOS, CalyxOS, /e/OS und LineageOS ohne GApps.</li>
-      <li><strong>Installation ohne Play Store.</strong> Hol es dir über Zapstore oder lade die signierte APK direkt von Codeberg. CruxCoach ist nicht bei Google Play und braucht es auch nie.</li>
+      <li><strong>Installation ohne Play Store.</strong> Hol es dir über Zapstore oder nutze den Ein-Klick-APK-Download, der automatisch die verfügbare verifizierte Codeberg- oder Zapstore-Kopie auswählt. CruxCoach ist nicht bei Google Play und braucht es auch nie.</li>
       <li><strong>Updates ohne Google.</strong> Der optionale In-App-Updater zieht signierte APK-Releases direkt von Codeberg mit TOFU-Zertifikats-Pinning — ohne Play Store und ohne Play-Integrity-Prüfung. Bei Zapstore-Installationen schaltet er sich ab und überlässt das Update dem Store.</li>
     </ul>
   </div>
@@ -713,10 +711,9 @@
       </div>
       <div class="install-card">
         <h3>Direkt-APK</h3>
-        <p>Lade die signierte APK direkt von Codeberg. Eine identische content-adressierte Zapstore-Kopie wird jede Nacht als unabhängiger Fallback verifiziert.</p>
+        <p>Ein Button lädt die signierte APK von der gerade verfügbaren verifizierten Quelle: Codeberg oder dem identischen, content-adressierten Zapstore-Spiegel.</p>
         <div class="cta-row">
-          <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4" data-analytics-install-target="direct_apk" data-analytics-surface="install">APK herunterladen</a>
-          <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternative APK-Quelle</a></noscript>
+          <a class="btn btn-secondary" href="https://stats.cruxcoach.org/download/apk/install/de" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector>APK herunterladen</a>
         </div>
       </div>
       <div class="install-card">
@@ -832,7 +829,6 @@ bash scripts/setup_dev_env.sh
   </div>
 </footer>
 
-<script type="module" src="/assets/apk-download.js"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.

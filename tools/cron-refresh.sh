@@ -77,6 +77,7 @@ run() {
     index.html de/index.html 404.html llms.txt
     kilter-board-app-alternative.html de/kilter-board-app-alternative.html
     moonboard-app.html de/moonboard-app.html
+    .well-known/apk-target.json
   )
   if /usr/bin/node tools/update-download-link.mjs; then
     if ! git diff --quiet -- "${link_files[@]}"; then

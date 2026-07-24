@@ -31,7 +31,9 @@ cruxcoach-pages/
 - No external dependencies (no CDN-hosted CSS/fonts/JS). System font stack only.
 - No user tracking, cookies, profiles, or third-party analytics. A local script
   sends only allowlisted page/click dimensions to an immediate daily aggregate
-  counter; DNT/GPC is honoured.
+  counter; DNT/GPC is honoured. Direct APK buttons use one stable first-party
+  redirect whose server-side health cache selects Codeberg or the verified
+  Zapstore mirror without any visitor-side availability probe.
 - Prefer plain semantic HTML over div soup.
 - Light + dark mode via `prefers-color-scheme` — no JS toggle.
 - Accessibility: every link has discernible text; phone-mockup is `aria-hidden="true"`.

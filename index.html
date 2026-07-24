@@ -253,7 +253,6 @@
   .btn-primary:hover { background: var(--accent); border-bottom-color: transparent; opacity: 0.92; }
   .btn-secondary { background: transparent; color: var(--fg); border-color: var(--rule); }
   .btn-secondary:hover { border-color: var(--accent); }
-  [data-apk-fallback][aria-busy="true"] { cursor: progress; opacity: 0.7; }
   .btn-disabled { background: transparent; color: var(--fg-mute); border-color: var(--rule); cursor: not-allowed; pointer-events: none; }
   .cta-foot { font-size: 0.85rem; color: var(--fg-mute); }
 
@@ -537,8 +536,7 @@
       </ul>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://zapstore.dev/apps/com.cruxcoach.android" data-analytics-install-target="zapstore" data-analytics-surface="hero">Get on Zapstore</a>
-        <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4" data-analytics-install-target="direct_apk" data-analytics-surface="hero">Download APK</a>
-        <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternate APK source</a></noscript>
+        <a class="btn btn-secondary" href="https://stats.cruxcoach.org/download/apk/hero/en" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector>Download APK</a>
       </div>
       <p class="cta-foot">Free. No account. Verifiable signed builds. Android 8.0+.</p>
     </div>
@@ -703,7 +701,7 @@
     </p>
     <ul class="privacy-list">
       <li><strong>No Google Play Services.</strong> CruxCoach calls no GMS APIs and runs fully on GrapheneOS, CalyxOS, /e/OS and LineageOS without GApps.</li>
-      <li><strong>Install without the Play Store.</strong> Get it from Zapstore or sideload the signed APK from Codeberg. CruxCoach is not on Google Play and never requires it.</li>
+      <li><strong>Install without the Play Store.</strong> Get it from Zapstore or use the one-click APK download, which automatically selects the available verified Codeberg or Zapstore copy. CruxCoach is not on Google Play and never requires it.</li>
       <li><strong>Updates without Google.</strong> The optional in-app updater pulls signed APK releases straight from Codeberg with TOFU certificate pinning — no Play Store and no Play Integrity check. On Zapstore installs it disables itself and lets the store update.</li>
     </ul>
   </div>
@@ -721,10 +719,9 @@
       </div>
       <div class="install-card">
         <h3>Direct APK</h3>
-        <p>Download the signed APK directly from Codeberg. An identical content-addressed Zapstore copy is verified nightly as an independent fallback.</p>
+        <p>One button downloads the signed APK from whichever verified source is currently available: Codeberg or its identical, content-addressed Zapstore mirror.</p>
         <div class="cta-row">
-          <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" data-apk-fallback="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4" data-analytics-install-target="direct_apk" data-analytics-surface="install">Download APK</a>
-          <noscript><a class="btn btn-secondary" href="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4">Alternate APK source</a></noscript>
+          <a class="btn btn-secondary" href="https://stats.cruxcoach.org/download/apk/install/en" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector>Download APK</a>
         </div>
       </div>
       <div class="install-card">
@@ -838,7 +835,6 @@ bash scripts/setup_dev_env.sh
   </div>
 </footer>
 
-<script type="module" src="/assets/apk-download.js"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 <script>
 /* Progressive enhancement: register the resilience service worker.
