@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+[[ "${1:-}" == "--check" ]] && shift || true
+[[ $# -eq 0 ]] || { echo "usage: scripts/bootstrap [--check]" >&2; exit 2; }
+missing=0
+for command_name in node python3 git; do
+    if command -v "$command_name" >/dev/null 2>&1; then
+        echo "[OK] $command_name: $(command -v "$command_name")"
+    else
+        echo "[MISSING] $command_name" >&2
+        missing=1
+    fi
+done
+exit "$missing"
