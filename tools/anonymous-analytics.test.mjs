@@ -199,6 +199,20 @@ test('privacy notices disclose the collector host and current Codeberg policy', 
   }
 });
 
+test('privacy notices distinguish private analytics operations from public app source', () => {
+  for (const page of ['privacy.html', 'de/privacy.html']) {
+    const html = fs.readFileSync(path.join(repoRoot, page), 'utf8');
+    assert.match(html, /private operational repository|privaten Betriebs-Repository/, page);
+    assert.match(html, /source remains publicly available|Quellcode bleibt[\s\S]*?öffentlich verfügbar/, page);
+    assert.match(html, /codeberg\.org\/CruxCoach\/CruxCoach/, `${page}: public app source`);
+    assert.doesNotMatch(
+      html,
+      /codeberg\.org\/CruxCoach\/cruxcoach-dlstats/,
+      `${page}: private analytics repository`,
+    );
+  }
+});
+
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
   assert.match(source, /var VERSION = 'cc-v21';/);
