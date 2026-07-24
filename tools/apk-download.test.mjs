@@ -85,3 +85,13 @@ test('no browser-side APK availability implementation remains', () => {
     assert.doesNotMatch(html, /<noscript>[^<]*<a[^>]+(?:APK source|APK-Quelle)/, filename);
   }
 });
+
+test('the nightly updater never downloads the Codeberg APK for validation', () => {
+  const updater = fs.readFileSync(
+    path.join(repoRoot, 'tools/update-download-link.mjs'),
+    'utf8',
+  );
+  const fetchTargets = [...updater.matchAll(/\bfetch\(\s*([^,\n)]+)/g)]
+    .map((match) => match[1].trim());
+  assert.deepEqual(fetchTargets, ['API', 'shaUrl', 'zapstoreUrl']);
+});
