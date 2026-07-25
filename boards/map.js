@@ -213,6 +213,7 @@
         },
       }));
     } catch (e) { /* storage unavailable or full — non-fatal */ }
+    writeHash();
   }
 
   // Overwrite the active-filter sets from a persisted snapshot. Each
@@ -231,10 +232,63 @@
     activeCountries = Array.isArray(f.countries) ? new Set(f.countries) : null;
   }
 
+  // ── Shareable URL state ───────────────────────────────────────────
+  // The map kept its position in localStorage only, so a view worth
+  // showing someone could not be sent to them — a gym you found, or every
+  // Tension board in one region. The hash carries centre, zoom and the
+  // board-type filter: enough to reproduce what the sender is looking at,
+  // short enough to paste into a message. The detail filters stay in
+  // localStorage; encoding all seven dimensions would double the URL for
+  // a case nobody shares.
+  //
+  // A hash, when present, wins over the stored view: an incoming link must
+  // show its own subject, not wherever the recipient last happened to be.
+  function readHash() {
+    var raw = (location.hash || '').replace(/^#/, '');
+    if (!raw) return null;
+    var parts = raw.split('&');
+    var view = parts[0].split(',');
+    var lat = parseFloat(view[0]);
+    var lon = parseFloat(view[1]);
+    var zoom = parseInt(view[2], 10);
+    if (!isFinite(lat) || lat < -90 || lat > 90) return null;
+    if (!isFinite(lon) || lon < -180 || lon > 180) return null;
+    if (!isFinite(zoom) || zoom < 0 || zoom > 19) return null;
+    var out = { lat: lat, lon: lon, zoom: zoom, boards: null };
+    for (var i = 1; i < parts.length; i++) {
+      var kv = parts[i].split('=');
+      if (kv[0] !== 'b' || !kv[1]) continue;
+      // Drop unknown ids rather than filtering everything away on a typo.
+      var ids = kv[1].split(',').filter(function (id) { return !!COLOR[id]; });
+      if (ids.length) out.boards = ids;
+    }
+    return out;
+  }
+
+  // replaceState instead of assigning location.hash: assigning would push a
+  // history entry for every pan, burying the page the visitor arrived from.
+  function writeHash() {
+    if (!map || typeof history === 'undefined' || !history.replaceState) return;
+    var c = map.getCenter();
+    var hash = '#' + c.lat.toFixed(4) + ',' + c.lng.toFixed(4) + ',' + map.getZoom();
+    // Only spell out the board filter when it is not "everything".
+    if (activeBoards && activeBoards.size && activeBoards.size < BOARDS.length) {
+      hash += '&b=' + BOARDS
+        .filter(function (b) { return activeBoards.has(b.id); })
+        .map(function (b) { return b.id; })
+        .join(',');
+    }
+    if (hash !== location.hash) {
+      try { history.replaceState(null, '', location.pathname + location.search + hash); }
+      catch (e) { /* some privacy modes throttle replaceState — non-fatal */ }
+    }
+  }
+
   var savedState = loadState();
+  var hashState = readHash();
 
   var map = L.map('map', { worldCopyJump: true, zoomControl: true });
-  var sv = savedState && savedState.view;
+  var sv = hashState || (savedState && savedState.view);
   if (sv && isFinite(sv.lat) && sv.lat >= -90 && sv.lat <= 90 &&
       isFinite(sv.lon) && isFinite(sv.zoom) && sv.zoom >= 0 && sv.zoom <= 19) {
     map.setView([sv.lat, sv.lon], sv.zoom);
@@ -771,6 +825,9 @@
   // Apply any persisted filter snapshot over the all-on defaults, then keep
   // the stored map view in sync as the visitor pans and zooms.
   restoreFilters(savedState && savedState.filters);
+  // A shared link states which board types it is about; that beats whatever
+  // the recipient had selected before.
+  if (hashState && hashState.boards) activeBoards = new Set(hashState.boards);
   map.on('moveend', persist);
 
   function kilterEntryMatches(entry) {
