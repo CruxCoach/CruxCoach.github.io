@@ -259,10 +259,23 @@
     display: block;
   }
   .venue-list-meta { color: #888; font-size: 11px; }
+  /* Distance badge, shown only in the "nearest boards" list that a
+     successful locate opens. Sits after .venue-list-info, which is flex:1,
+     so it right-aligns without squeezing the venue name. */
+  .venue-list-dist {
+    flex-shrink: 0;
+    align-self: center;
+    color: var(--accent);
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    padding-left: 4px;
+  }
   .venue-list-empty { color: #888; padding: 10px 0; font-style: italic; }
-  /* Search panel — local incremental search over the loaded venues
-     (gym name / city / country). No geocoder, no third-party request:
-     it filters the same client-side dataset the markers come from. */
+  /* Search panel — local incremental search over two client-side
+     datasets: the loaded venues (gym name / city / country) and the
+     offline place index. No geocoder and no third-party request; both
+     files are served from this origin. */
   .search-box { position: relative; margin-bottom: 8px; }
   .search-box .search-icon {
     position: absolute; left: 8px; top: 50%; transform: translateY(-50%);
@@ -284,6 +297,43 @@
   }
   .search-hint { color: #888; font-size: 11.5px; padding: 2px 0 4px; }
   .search-results .venue-list-item.active { background: rgba(224,122,79,0.12); }
+  /* Place results — the second search group. These come from the offline
+     place index (boards/data/cities.json, built from GeoNames), not from a
+     geocoder, and they move the map instead of opening a marker. */
+  .search-group {
+    color: #666; font-size: 10.5px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    margin: 9px 0 2px;
+  }
+  .search-group:first-child { margin-top: 0; }
+  .search-note { color: #888; font-size: 11.5px; font-style: italic; padding: 6px 0 2px; }
+  .place-list-pin {
+    display: inline-flex; flex-shrink: 0;
+    width: 16px; height: 16px; color: var(--accent);
+  }
+  .place-list-pin svg { width: 100%; height: 100%; display: block; }
+  /* Polite live region announcing what the map just did (place jump,
+     locate result, or a refused location permission). */
+  .map-status {
+    margin-top: 6px;
+    background: #fff; color: #1a1a1a;
+    padding: 7px 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    font-size: 11.5px; line-height: 1.4;
+    max-width: 260px;
+  }
+  .panel-toggle.busy { opacity: 0.6; cursor: progress; }
+  /* Own-position overlay drawn by Leaflet's map.locate(). The browser
+     resolves the position locally; nothing is sent anywhere. */
+  .location-dot {
+    fill: var(--accent); fill-opacity: 1;
+    stroke: #fff; stroke-width: 2.5;
+  }
+  .location-accuracy {
+    fill: var(--accent); fill-opacity: 0.12;
+    stroke: var(--accent); stroke-opacity: 0.35; stroke-width: 1;
+  }
   .legend h3 { margin: 0 0 8px; font-size: 0.95rem; color: #1a1a1a; }
   .legend label {
     display: flex; align-items: center; cursor: pointer; user-select: none;

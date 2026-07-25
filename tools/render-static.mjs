@@ -62,6 +62,7 @@ const STRINGS = {
       (${perBoardSentence}). Use the <a href="${mapHref}">interactive map</a> to
       search by location and filter; this page lists everything as plain text.`,
     jumpToCountry: 'Jump to a country',
+    nearCity: (city) => `near ${city}`,
     backToMap: '← Back to the interactive map',
     footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Data CC-BY-4.0. Hosted by Codeberg e.V.',
     footerLinks: '<a href="/support.html">Support</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a>',
@@ -93,6 +94,7 @@ const STRINGS = {
       (${perBoardSentence}). Nutze die <a href="${mapHref}">interaktive Karte</a>, um
       nach Ort zu suchen und zu filtern; diese Seite listet alles als reinen Text.`,
     jumpToCountry: 'Zum Land springen',
+    nearCity: (city) => `bei ${city}`,
     backToMap: '← Zurück zur interaktiven Karte',
     footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Daten CC-BY-4.0. Gehostet bei Codeberg e.V.',
     footerLinks: '<a href="/de/support.html">Unterstützen</a> · <a href="/de/imprint.html">Impressum</a> · <a href="/de/privacy.html">Datenschutz</a>',
@@ -255,7 +257,16 @@ export function renderListPage(features, meta, lang = 'en') {
   const sections = groups.map(g => {
     const items = g.venues.map(f => {
       const p = f.properties;
-      const city = p.city ? ` <span class="muted">— ${esc(p.city)}</span>` : '';
+      // Upstream city if we have one; otherwise the nearest town the build
+      // could attach, phrased so it never claims to be the venue's address.
+      // Prefer the German form of the derived town on the German page — the
+      // index stores GeoNames' language-neutral primary, which is usually the
+      // English one ("Munich"), and "bei Munich" would read as a bug.
+      const nearest = (lang === 'de' && p.city_nearest_de) ? p.city_nearest_de : p.city_nearest;
+      const cityText = p.city
+        ? esc(p.city)
+        : (nearest ? esc(S.nearCity(nearest)) : '');
+      const city = cityText ? ` <span class="muted">— ${cityText}</span>` : '';
       const boards = venueBoards(p)
         .map(b => `<span class="bt">${esc(b)}</span>`)
         .join(' ');

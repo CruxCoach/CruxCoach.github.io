@@ -25,6 +25,7 @@ import { dirname, join } from 'node:path';
 
 import * as hangtime from './sources/hangtime.mjs';
 import { renderListPage, renderStatsBlock, injectBetweenMarkers } from './render-static.mjs';
+import { findNearestCity, loadCityIndex } from './nearest-city.mjs';
 
 const COUNTRY_CODER_PACKAGE = '@rapideditor/country-coder';
 const COUNTRY_CACHE = join(tmpdir(), 'cruxcoach-build-deps');
@@ -67,7 +68,13 @@ const OUT_LIST = join(REPO_ROOT, 'boards', 'list.html');
 const OUT_LIST_DE = join(REPO_ROOT, 'de', 'boards', 'list.html');
 const BOARDS_INDEX = join(REPO_ROOT, 'boards', 'index.html');
 const BOARDS_INDEX_DE = join(REPO_ROOT, 'de', 'boards', 'index.html');
+const CITIES_FILE = join(REPO_ROOT, 'boards', 'data', 'cities.json');
 const OVERRIDES_FILE = join(REPO_ROOT, 'tools', 'overrides.json');
+
+// How far a town may sit from a venue and still be a fair label for it. 25 km
+// covers a metro area and its suburbs without pinning a rural gym to a city
+// an hour's drive away.
+const NEAREST_CITY_MAX_KM = 25;
 const WELLPASS_FILE = join(REPO_ROOT, 'tools', 'wellpass.json');
 
 // 4-decimal precision ≈ 11 m at the equator. Tight enough to keep
@@ -259,6 +266,16 @@ async function main() {
   let venuesWithMulti = 0;
   let countryFromCoder = 0;
   let countryFallback = 0;
+  let cityUpstream = 0;
+  let cityNearest = 0;
+  let cityMissing = 0;
+
+  // Optional overlay: a fresh clone may not have run build-cities-data.mjs
+  // yet, and the nightly refresh must not fail over a missing place index.
+  const cityGrid = loadCityIndex(CITIES_FILE);
+  if (!cityGrid) {
+    process.stderr.write('[build]   WARN no place index at boards/data/cities.json — skipping nearest-city enrichment\n');
+  }
 
   for (const venue of venues.values()) {
     // Pick canonical name + city from the highest-priority entry. Country
@@ -273,6 +290,25 @@ async function main() {
 
     const kilterEntry = venue.entries.find(e => e.board === 'kilter');
     if (kilterEntry?.city) props.city = kilterEntry.city;
+
+    // Where upstream gave us no city, borrow the nearest one from the place
+    // index. It lands in its own field, never in `city`: this is "the closest
+    // town we know of", not a claim about the venue's actual address.
+    if (props.city) {
+      cityUpstream++;
+    } else if (cityGrid) {
+      const near = findNearestCity(cityGrid, venue.lat, venue.lon, NEAREST_CITY_MAX_KM);
+      if (near) {
+        props.city_nearest = near.name;
+        if (near.nameDe) props.city_nearest_de = near.nameDe;
+        props.city_nearest_km = Number(near.km.toFixed(1));
+        cityNearest++;
+      } else {
+        cityMissing++;
+      }
+    } else {
+      cityMissing++;
+    }
 
     const lookedUp = iso1A2Code([venue.lon, venue.lat]);
     if (lookedUp) {
@@ -327,6 +363,10 @@ async function main() {
     country_from_coder: countryFromCoder,
     country_from_fallback: countryFallback,
     country_missing: features.length - countryFromCoder - countryFallback,
+    city_from_upstream: cityUpstream,
+    city_from_nearest: cityNearest,
+    city_missing: cityMissing,
+    nearest_city_max_km: NEAREST_CITY_MAX_KM,
     overrides: overrideStats,
     wellpass: wellpassStats,
     per_board: perBoard,
@@ -362,6 +402,7 @@ async function main() {
   process.stderr.write(`[build] wrote ${features.length} venues (from ${allEntries.length} raw entries) → ${OUT_GEOJSON}\n`);
   process.stderr.write(`[build]   ${venuesWithMulti} venues host more than one board type\n`);
   process.stderr.write(`[build]   country resolved: ${countryFromCoder} via coder, ${countryFallback} via fallback, ${features.length - countryFromCoder - countryFallback} unresolved\n`);
+  process.stderr.write(`[build]   city: ${cityUpstream} upstream, ${cityNearest} nearest-town (<=${NEAREST_CITY_MAX_KM} km), ${cityMissing} none\n`);
   process.stderr.write(`[build]   meta → ${OUT_META}\n`);
   for (const [b, n] of Object.entries(perBoard)) {
     if (n > 0) process.stderr.write(`[build]   ${b.padEnd(12)} ${n}\n`);

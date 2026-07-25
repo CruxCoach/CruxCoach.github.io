@@ -46,6 +46,12 @@ the repo.
      public Nostr relays (`relay.damus.io`, `nos.lol`, `relay.primal.net`) over
      WebSocket and render an install/landing view.
   2. `boards/index.html` uses vendored Leaflet + markercluster to render the map.
+     Its search box also matches an offline place index (`boards/data/cities.json`,
+     built by `tools/build-cities-data.mjs`), lazily fetched from this origin on
+     the first query — a static file, never a geocoder call. The location button
+     is the only feature that requests a browser permission; `map.locate()` keeps
+     the coordinates in the page and transmits them nowhere. Both are disclosed
+     on the privacy pages.
   3. `sw.js` is a resilience service worker (stale-while-revalidate + mirror
      fallback from `mirrors.json`) so returning visitors survive an origin outage.
   4. Every HTML page loads `assets/anonymous-analytics.js`. It sends only a
@@ -97,8 +103,9 @@ them current when site facts change (especially on app releases; that includes
   `#faq` section (Google requires FAQ markup to match on-page content). The
   `/de/` page mirrors both. `boards/index.html` and `boards/list.html` carry
   their own `@graph` (WebApplication/Dataset/FAQPage/BreadcrumbList,
-  CollectionPage). All pages carry canonical + OG; the two homepages carry
-  `hreflang` (`/boards/` does not — there is no `/de/boards/`).
+  CollectionPage). All pages carry canonical + OG, and every page with a `/de/`
+  counterpart carries `hreflang` in both directions — including `/boards/` and
+  `/boards/list.html`, which do have German mirrors.
 - `boards/list.html` — build-generated static venue directory (see below);
   exists so non-JS AI crawlers can read the actual venue/country data.
 - `humans.txt`, `.well-known/security.txt` (RFC 9116), `.well-known/assetlinks.json`.

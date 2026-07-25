@@ -1,11 +1,15 @@
 {
-  "generated_at": "2026-07-23T03:30:10.290Z",
+  "generated_at": "2026-07-25T13:16:04.295Z",
   "venue_features": 2816,
   "raw_entries": 3066,
   "venues_with_multiple_boards": 104,
   "country_from_coder": 2815,
   "country_from_fallback": 0,
   "country_missing": 1,
+  "city_from_upstream": 1044,
+  "city_from_nearest": 1647,
+  "city_missing": 125,
+  "nearest_city_max_km": 25,
   "overrides": {
     "defined": 9,
     "applied": 9,

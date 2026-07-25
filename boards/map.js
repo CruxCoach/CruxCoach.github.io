@@ -55,14 +55,32 @@
       fixedAt: 'fixed at {angle}°',
       fixedAngle: 'fixed angle',
       angleAt: 'angle {angle}°',
-      searchAria: 'Search venues',
-      searchPlaceholder: 'Search gym, city or country',
-      searchHint: 'Search the listed boards by gym name, city or country.',
-      searchNoResults: 'No venues match “{q}”.',
+      searchAria: 'Search venues and places',
+      searchPlaceholder: 'Search gym, place or country',
+      searchHint: 'Find a gym by name, or jump the map to any town or city.',
+      searchNoResults: 'Nothing matches “{q}”.',
       searchMatchOne: '1 match',
       searchMatchMany: '{n} matches',
       searchCapped: ' (first {max} shown)',
       searchResultsLabel: 'Search results',
+      groupVenues: 'Gyms',
+      groupPlaces: 'Places',
+      placesLoading: 'Loading places…',
+      placesError: 'Place index unavailable.',
+      placeJump: 'Map moved to {place}. Open the list to see boards in view.',
+      locateAria: 'Show my location',
+      locating: 'Finding your location…',
+      locateFound: 'Your location, accurate to about {n} m.',
+      locateHere: 'You are here',
+      locateDenied: 'Location permission denied.',
+      locateUnsupported: 'This browser cannot share a location.',
+      locateFailed: 'Could not determine your location.',
+      nearCity: 'near {city}',
+      nearestBoards: 'Nearest boards',
+      nearestFromYou: 'Straight-line distance from your location.',
+      noNearestBoards: 'No boards match the current filters.',
+      distanceKm: '{n} km',
+      distanceM: '{n} m',
     },
     de: {
       boardType: 'Board-Typ',
@@ -112,14 +130,32 @@
       fixedAt: 'fest auf {angle}°',
       fixedAngle: 'fester Winkel',
       angleAt: 'Winkel {angle}°',
-      searchAria: 'Standorte suchen',
-      searchPlaceholder: 'Gym, Stadt oder Land suchen',
-      searchHint: 'Durchsuche die gelisteten Boards nach Gym-Name, Stadt oder Land.',
-      searchNoResults: 'Keine Standorte passen zu „{q}“.',
+      searchAria: 'Hallen und Orte suchen',
+      searchPlaceholder: 'Halle, Ort oder Land suchen',
+      searchHint: 'Finde eine Halle über ihren Namen — oder springe zu einer beliebigen Stadt.',
+      searchNoResults: 'Nichts passt zu „{q}“.',
       searchMatchOne: '1 Treffer',
       searchMatchMany: '{n} Treffer',
       searchCapped: ' (erste {max} gezeigt)',
       searchResultsLabel: 'Suchergebnisse',
+      groupVenues: 'Hallen',
+      groupPlaces: 'Orte',
+      placesLoading: 'Orte werden geladen…',
+      placesError: 'Ortsverzeichnis nicht verfügbar.',
+      placeJump: 'Karte auf {place} bewegt. Die Liste zeigt die Boards im Ausschnitt.',
+      locateAria: 'Meinen Standort anzeigen',
+      locating: 'Standort wird ermittelt…',
+      locateFound: 'Dein Standort, auf etwa {n} m genau.',
+      locateHere: 'Du bist hier',
+      locateDenied: 'Standortfreigabe verweigert.',
+      locateUnsupported: 'Dieser Browser kann keinen Standort teilen.',
+      locateFailed: 'Standort konnte nicht ermittelt werden.',
+      nearCity: 'bei {city}',
+      nearestBoards: 'Nächste Boards',
+      nearestFromYou: 'Luftlinie von deinem Standort.',
+      noNearestBoards: 'Keine Boards passen zu den aktuellen Filtern.',
+      distanceKm: '{n} km',
+      distanceM: '{n} m',
     },
   }[LANG];
 
@@ -454,7 +490,10 @@
       return '<span class="venue-list-dot" style="background:' + (COLOR[id] || '#888') + '"></span>';
     }).join('');
     var metaParts = [];
+    // An exact upstream city is stated plainly; a town the build attached by
+    // proximity is hedged, because a gym 13 km outside Bangor is not in it.
     if (rec.city) metaParts.push(escapeHtml(rec.city));
+    else if (rec.cityNearest) metaParts.push(escapeHtml(tf(T.nearCity, { city: rec.cityNearest })));
     if (countryText) metaParts.push(escapeHtml(countryText));
     return '<span class="venue-list-dots">' + dots + '</span>' +
       '<span class="venue-list-info">' +
@@ -481,6 +520,159 @@
         }))
         .openOn(map);
     }
+  }
+
+  // ── Place index ───────────────────────────────────────────────────
+  // The venue search above can only find a city that some venue carries in
+  // its `city` field, and barely a third of them do — searching "New York"
+  // reached 2 of the 18 boards standing within 15 km of it. This index
+  // answers the other half: jump the map to a place, and the clusters plus
+  // the "boards in view" list show what is actually there, by geometry
+  // rather than by patchy text.
+  //
+  // It is a static file from our own origin, not a geocoder call, so no
+  // keystroke and no IP ever reaches a third party. ~240 KiB gzipped is too
+  // much to spend on visitors who never open the search, so it loads on the
+  // first real query and the service worker keeps it from there.
+  var PLACE_MAX = 6;        // rendered place rows; gyms are the main event
+  var PLACE_ZOOM = 11;      // city-wide view — neighbouring boards stay visible
+  var placeIndex = null;    // [{ name, country, lat, lon, region, nName, nHay }]
+  var placeState = 'idle';  // idle | loading | ready | error
+  var placeLoad = null;
+
+  function loadPlaces(onReady) {
+    if (placeLoad) return placeLoad;
+    placeState = 'loading';
+    placeLoad = fetch('/boards/data/cities.json')
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        var rows = (data && data.cities) || [];
+        placeIndex = [];
+        for (var i = 0; i < rows.length; i++) {
+          // Row shape: [name, country, lat, lon, region?, alternates?]
+          var r = rows[i];
+          if (!r || r.length < 4) continue;
+          var region = r[4] || '';
+          var alternates = r[5] || [];
+          var germanName = r[6] || '';
+          var cName = countryName(r[1]);
+          // The index stores GeoNames' language-neutral primary name, which
+          // is usually the English one. The German page shows the German form
+          // where the build found one; both remain searchable either way.
+          var display = (LANG === 'de' && germanName) ? germanName : r[0];
+          // Every spelling of the city, whichever one we happen to show.
+          // Matching runs against all of them, so "Munich" and "München"
+          // reach the same place on either language of the site.
+          var forms = [r[0]];
+          if (germanName) forms.push(germanName);
+          for (var a = 0; a < alternates.length; a++) forms.push(alternates[a]);
+          var others = forms.filter(function (f) { return f !== display; });
+          placeIndex.push({
+            name: display,
+            country: r[1],
+            countryName: cName,
+            region: region,
+            lat: r[2],
+            lon: r[3],
+            forms: forms,
+            nName: normalizeText(display),
+            nAlternates: others.map(normalizeText),
+            nHay: normalizeText(forms.concat([region, cName]).filter(Boolean).join(' ')),
+          });
+        }
+        placeState = 'ready';
+        augmentVenueHaystacks();
+        if (onReady) onReady();
+      })
+      .catch(function () {
+        placeState = 'error';
+        if (onReady) onReady();
+      });
+    return placeLoad;
+  }
+
+  // Teach the venue search the same city spellings the place index knows, so
+  // a gym listed under "Munich" also answers to "München" and one listed
+  // under "Praha" answers to "Prague". Without this the alternates would only
+  // move the map, and the Gyms group would silently miss the very venues the
+  // visitor was looking for. Runs once, right after the index arrives.
+  function augmentVenueHaystacks() {
+    var byName = {};   // any spelling → every spelling of that city
+    for (var i = 0; i < placeIndex.length; i++) {
+      var p = placeIndex[i];
+      if (!p.nAlternates.length) continue;
+      var forms = p.forms;
+      var keys = [p.nName].concat(p.nAlternates);
+      for (var k = 0; k < keys.length; k++) {
+        // First writer wins: the index is population-sorted, so a big city
+        // beats a namesake village when both spellings collide.
+        if (!byName[keys[k]]) byName[keys[k]] = forms;
+      }
+    }
+    for (var v = 0; v < venueRecords.length; v++) {
+      var rec = venueRecords[v];
+      var city = rec.city || rec.cityNearest;
+      if (!city) continue;
+      var forms2 = byName[normalizeText(city)];
+      if (!forms2) continue;
+      var extra = [];
+      for (var f = 0; f < forms2.length; f++) {
+        var norm = normalizeText(forms2[f]);
+        if (rec.nHay.indexOf(norm) < 0) extra.push(norm);
+      }
+      if (extra.length) rec.nHay += ' ' + extra.join(' ');
+    }
+  }
+
+  // Rank. An exact hit wins whether it landed on the primary name or on an
+  // alternate spelling — typing "wien" means Vienna, not Wiener Neustadt,
+  // and "münchen" means Munich, not Ottobrunn bei München. Only after that
+  // do prefixes beat substrings. Ties fall back to file order, which the
+  // build writes largest-population first, so "berlin" offers Berlin, DE
+  // before Berlin, New Hampshire.
+  function scorePlace(rec, q) {
+    if (rec.nName === q) return 0;
+    for (var i = 0; i < rec.nAlternates.length; i++) {
+      if (rec.nAlternates[i] === q) return 0;
+    }
+    if (rec.nName.indexOf(q) === 0) return 1;
+    for (var j = 0; j < rec.nAlternates.length; j++) {
+      if (rec.nAlternates[j].indexOf(q) === 0) return 2;
+    }
+    if (rec.nName.indexOf(q) > 0) return 3;
+    return 4;
+  }
+
+  function searchPlaces(q, terms) {
+    if (placeState !== 'ready') return [];
+    var out = [];
+    for (var i = 0; i < placeIndex.length; i++) {
+      var rec = placeIndex[i];
+      var ok = true;
+      for (var t = 0; t < terms.length; t++) {
+        if (rec.nHay.indexOf(terms[t]) < 0) { ok = false; break; }
+      }
+      if (ok) out.push({ kind: 'place', rec: rec, score: scorePlace(rec, q), rank: i });
+    }
+    out.sort(function (a, b) { return a.score - b.score || a.rank - b.rank; });
+    return out.slice(0, PLACE_MAX);
+  }
+
+  function placeLabel(rec) {
+    var parts = [];
+    if (rec.region) parts.push(rec.region);
+    if (rec.countryName) parts.push(rec.countryName);
+    return parts.join(', ');
+  }
+
+  // Move the map without opening a popup: the place itself is not the
+  // answer, the boards around it are.
+  function flyToPlace(rec) {
+    if (!rec) return;
+    map.setView([rec.lat, rec.lon], PLACE_ZOOM);
   }
 
   // ── Filter dimensions ─────────────────────────────────────────────
@@ -778,10 +970,63 @@
     );
   }
 
+  // The list panel has two modes. Normally it mirrors the viewport ("boards
+  // in view"). After a successful locate it switches to "nearest boards",
+  // ranked by straight-line distance from the visitor — that list is anchored
+  // to the person, not the map, so panning around deliberately leaves it
+  // alone. Opening the panel from its own button returns it to view mode.
+  var venueListMode = 'inview';   // 'inview' | 'nearest'
+  var userLocation = null;        // L.LatLng once the browser has fixed one
+
+  // Metres → a string a human reads at a glance. Below a kilometre the exact
+  // metre is what tells you it is walkable; above it, one decimal is plenty.
+  function formatDistance(metres) {
+    if (metres < 1000) {
+      return tf(T.distanceM, { n: (Math.round(metres / 10) * 10).toLocaleString(LANG) });
+    }
+    var km = metres / 1000;
+    // Number() first: toFixed returns a string, and a string's toLocaleString
+    // would quietly skip the decimal comma the German page needs.
+    var n = km < 10 ? Number(km.toFixed(1)) : Math.round(km);
+    return tf(T.distanceKm, { n: n.toLocaleString(LANG) });
+  }
+
+  function renderNearestList(target) {
+    var MAX = 12;
+    var scored = [];
+    for (var i = 0; i < venueRecords.length; i++) {
+      var rec = venueRecords[i];
+      // Respect the active filters: a board the visitor filtered out should
+      // not reappear just because it happens to be close.
+      if (!rec.visible) continue;
+      scored.push({ idx: i, rec: rec, m: map.distance(userLocation, L.latLng(rec.lat, rec.lon)) });
+    }
+    scored.sort(function (a, b) { return a.m - b.m; });
+    var shown = scored.slice(0, MAX);
+
+    var html = '<h4>' + escapeHtml(T.nearestBoards) + '</h4>';
+    if (!shown.length) {
+      html += '<div class="venue-list-empty">' + escapeHtml(T.noNearestBoards) + '</div>';
+    } else {
+      html += '<div class="venue-list-status">' + escapeHtml(T.nearestFromYou) + '</div>';
+      html += shown.map(function (v) {
+        return '<button type="button" class="venue-list-item" data-idx="' + v.idx + '">' +
+          venueRowInner(v.rec, v.rec.country) +
+          '<span class="venue-list-dist">' + escapeHtml(formatDistance(v.m)) + '</span>' +
+          '</button>';
+      }).join('');
+    }
+    target.innerHTML = html;
+  }
+
   // Render the visible-venues list into the given element. Filters by
   // current map bounds + each record's `visible` flag (set by applyFilter).
   function refreshVenueList(target) {
     if (!target) return;
+    if (venueListMode === 'nearest' && userLocation) {
+      renderNearestList(target);
+      return;
+    }
     var bounds = map.getBounds();
     var visible = [];
     var MAX = 100;
@@ -859,8 +1104,83 @@
         '<circle cx="4" cy="18" r="1"/>' +
         '</svg>';
 
+      // Locating uses Leaflet's own map.locate(), which wraps the browser's
+      // Geolocation API. Nothing is requested from a third party and the
+      // coordinates never leave the page — the permission prompt is the
+      // browser's, and declining it simply leaves the map where it was.
+      var locateBtn = L.DomUtil.create('button', 'panel-toggle', btnRow);
+      locateBtn.setAttribute('type', 'button');
+      locateBtn.setAttribute('aria-label', T.locateAria);
+      locateBtn.innerHTML =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+        ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5" fill="currentColor"/>' +
+        '<line x1="12" y1="1.5" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.5"/>' +
+        '<line x1="1.5" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.5" y2="12"/>' +
+        '</svg>';
+
       var div = L.DomUtil.create('div', 'legend', wrap);
       var listPanel = L.DomUtil.create('div', 'venue-list', wrap);
+
+      // A single polite live region for both the place jump and the locate
+      // result, so a screen reader hears what the map just did.
+      var statusEl = L.DomUtil.create('div', 'map-status', wrap);
+      statusEl.setAttribute('role', 'status');
+      statusEl.hidden = true;
+      var statusTimer = null;
+      function setStatus(text) {
+        if (statusTimer) clearTimeout(statusTimer);
+        statusEl.textContent = text;
+        statusEl.hidden = !text;
+        if (text) {
+          statusTimer = setTimeout(function () {
+            statusEl.textContent = '';
+            statusEl.hidden = true;
+          }, 8000);
+        }
+      }
+
+      var locationMarker = null;
+      var locationCircle = null;
+
+      map.on('locationfound', function (e) {
+        if (locationMarker) map.removeLayer(locationMarker);
+        if (locationCircle) map.removeLayer(locationCircle);
+        locationCircle = L.circle(e.latlng, {
+          radius: e.accuracy,
+          className: 'location-accuracy',
+          interactive: false,
+        }).addTo(map);
+        locationMarker = L.circleMarker(e.latlng, {
+          radius: 7,
+          className: 'location-dot',
+        }).addTo(map).bindPopup(escapeHtml(T.locateHere));
+        locateBtn.classList.remove('busy');
+        setStatus(tf(T.locateFound, { n: Math.round(e.accuracy).toLocaleString(LANG) }));
+
+        // Knowing where you are is only half the answer; the other half is
+        // what is near you. Switch the list to distance ranking and open it.
+        userLocation = e.latlng;
+        venueListMode = 'nearest';
+        showPanel('list');
+        refreshVenueList(listPanel);
+      });
+
+      map.on('locationerror', function (e) {
+        locateBtn.classList.remove('busy');
+        // 1 = permission denied; anything else is a failure to fix a position.
+        setStatus(e && e.code === 1 ? T.locateDenied : T.locateFailed);
+      });
+
+      locateBtn.addEventListener('click', function () {
+        if (!navigator.geolocation) {
+          setStatus(T.locateUnsupported);
+          return;
+        }
+        locateBtn.classList.add('busy');
+        setStatus(T.locating);
+        map.locate({ setView: true, maxZoom: 14, enableHighAccuracy: true, timeout: 10000 });
+      });
 
       // ── Search panel ──────────────────────────────────────────────
       var searchPanel = L.DomUtil.create('div', 'search-panel', wrap);
@@ -896,6 +1216,27 @@
         if (searchActive < 0) searchInput.removeAttribute('aria-activedescendant');
       }
 
+      // One row template for both groups so the keyboard walks a single
+      // list: searchData holds gyms first, then places, and data-pos indexes
+      // straight into it.
+      function optionHtml(entry, pos) {
+        var inner = entry.kind === 'place'
+          ? '<span class="place-list-pin" aria-hidden="true">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+              ' stroke-linecap="round" stroke-linejoin="round">' +
+              '<path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/>' +
+              '<circle cx="12" cy="10" r="2.4"/></svg></span>' +
+              '<span class="venue-list-info">' +
+                '<span class="venue-list-name">' + escapeHtml(entry.rec.name) + '</span>' +
+                '<span class="venue-list-meta">' + escapeHtml(placeLabel(entry.rec)) + '</span>' +
+              '</span>'
+          : venueRowInner(entry.rec, entry.rec.countryName || entry.rec.country);
+        return '<button type="button" class="venue-list-item' +
+          (entry.kind === 'place' ? ' place-list-item' : '') + '" role="option"' +
+          ' id="cc-search-opt-' + pos + '" aria-selected="false" data-pos="' + pos + '">' +
+          inner + '</button>';
+      }
+
       function runSearch() {
         var raw = searchInput.value.trim();
         var q = normalizeText(raw);
@@ -907,6 +1248,10 @@
           searchResults.innerHTML = '<div class="search-hint">' + escapeHtml(T.searchHint) + '</div>';
           return;
         }
+        // First real query pulls the place index in; the callback re-runs
+        // this function so results appear without another keystroke.
+        if (placeState === 'idle') loadPlaces(runSearch);
+
         var terms = q.split(/\s+/);
         var matches = [];
         for (var i = 0; i < venueRecords.length; i++) {
@@ -916,33 +1261,67 @@
           for (var t = 0; t < terms.length; t++) {
             if (hay.indexOf(terms[t]) < 0) { ok = false; break; }
           }
-          if (ok) matches.push({ rec: rec, score: scoreRecord(rec, q) });
+          if (ok) matches.push({ kind: 'venue', rec: rec, score: scoreRecord(rec, q) });
         }
         matches.sort(function (a, b) {
           return a.score - b.score || a.rec.name.localeCompare(b.rec.name);
         });
+        var places = searchPlaces(q, terms);
+
         var total = matches.length;
-        if (!total) {
+        if (!total && !places.length) {
           searchData = [];
           searchInput.setAttribute('aria-expanded', 'false');
           searchResults.innerHTML = '<div class="venue-list-empty">' +
-            tf(T.searchNoResults, { q: escapeHtml(raw) }) + '</div>';
+            tf(T.searchNoResults, { q: escapeHtml(raw) }) + '</div>' + placeNoteHtml();
           return;
         }
+
         var capped = total > SEARCH_MAX;
-        searchData = capped ? matches.slice(0, SEARCH_MAX) : matches;
-        var countStr = (total === 1
-          ? T.searchMatchOne
-          : tf(T.searchMatchMany, { n: total.toLocaleString(LANG) })) +
-          (capped ? tf(T.searchCapped, { max: SEARCH_MAX }) : '');
-        var html = '<div class="venue-list-status">' + escapeHtml(countStr) + '</div>';
-        html += searchData.map(function (v, n) {
-          return '<button type="button" class="venue-list-item" role="option"' +
-            ' id="cc-search-opt-' + n + '" aria-selected="false" data-pos="' + n + '">' +
-            venueRowInner(v.rec, v.rec.countryName || v.rec.country) + '</button>';
-        }).join('');
+        var shownVenues = capped ? matches.slice(0, SEARCH_MAX) : matches;
+        searchData = shownVenues.concat(places);
+
+        var html = '';
+        if (shownVenues.length) {
+          var countStr = (total === 1
+            ? T.searchMatchOne
+            : tf(T.searchMatchMany, { n: total.toLocaleString(LANG) })) +
+            (capped ? tf(T.searchCapped, { max: SEARCH_MAX }) : '');
+          html += '<div class="search-group">' + escapeHtml(T.groupVenues) + '</div>';
+          html += '<div class="venue-list-status">' + escapeHtml(countStr) + '</div>';
+          html += shownVenues.map(function (v, n) { return optionHtml(v, n); }).join('');
+        }
+        if (places.length) {
+          html += '<div class="search-group">' + escapeHtml(T.groupPlaces) + '</div>';
+          html += places.map(function (v, n) {
+            return optionHtml(v, shownVenues.length + n);
+          }).join('');
+        }
+        html += placeNoteHtml();
         searchResults.innerHTML = html;
         searchInput.setAttribute('aria-expanded', 'true');
+      }
+
+      // Only speak up while the index is in flight or broken — a working
+      // index needs no commentary.
+      function placeNoteHtml() {
+        if (placeState === 'loading') {
+          return '<div class="search-note" role="status">' + escapeHtml(T.placesLoading) + '</div>';
+        }
+        if (placeState === 'error') {
+          return '<div class="search-note" role="status">' + escapeHtml(T.placesError) + '</div>';
+        }
+        return '';
+      }
+
+      function pickResult(entry) {
+        if (!entry) return;
+        if (entry.kind === 'place') {
+          flyToPlace(entry.rec);
+          setStatus(tf(T.placeJump, { place: entry.rec.name }));
+        } else {
+          flyToRecord(entry.rec);
+        }
       }
 
       searchInput.addEventListener('input', runSearch);
@@ -962,7 +1341,7 @@
         } else if (ev.key === 'Enter') {
           ev.preventDefault();
           var pick = searchActive >= 0 ? searchActive : 0;
-          if (searchData[pick]) flyToRecord(searchData[pick].rec);
+          pickResult(searchData[pick]);
         } else if (ev.key === 'Escape' && searchInput.value) {
           ev.preventDefault();
           searchInput.value = '';
@@ -972,8 +1351,7 @@
       searchResults.addEventListener('click', function (ev) {
         var btn = ev.target.closest('.venue-list-item');
         if (!btn) return;
-        var entry = searchData[+btn.dataset.pos];
-        if (entry) flyToRecord(entry.rec);
+        pickResult(searchData[+btn.dataset.pos]);
       });
 
       var panelBtns = { search: searchBtn, filter: filterBtn, list: listBtn };
@@ -996,13 +1374,28 @@
           }
         }
       }
+      // Open without toggling. setPanel() closes a panel that is already
+      // showing, which is right for a button press but wrong for locate:
+      // pressing the locate button twice must not hide the results.
+      function showPanel(name) {
+        if (!wrap.classList.contains('show-' + name)) setPanel(name);
+      }
+
       searchBtn.addEventListener('click', function () { setPanel('search'); });
       filterBtn.addEventListener('click', function () { setPanel('filter'); });
-      listBtn.addEventListener('click', function () { setPanel('list'); });
+      listBtn.addEventListener('click', function () {
+        // Reaching for the list button means "what is on screen", so this is
+        // also the way back out of the distance-ranked view.
+        venueListMode = 'inview';
+        setPanel('list');
+      });
 
-      // Refresh the list when the map moves/zooms — only if the list
-      // panel is currently the open one (avoid DOM churn otherwise).
+      // Refresh the list when the map moves/zooms — only if the list panel is
+      // currently the open one (avoid DOM churn otherwise). The nearest list
+      // is anchored to the visitor rather than the viewport, so panning must
+      // not rewrite it; only a new location fix does.
       map.on('moveend', function () {
+        if (venueListMode === 'nearest') return;
         if (wrap.classList.contains('show-list')) refreshVenueList(listPanel);
       });
 
@@ -1187,6 +1580,9 @@
           lon: lon,
           name: venueName,
           city: props.city || null,
+          cityNearest: (LANG === 'de' && props.city_nearest_de)
+            ? props.city_nearest_de
+            : (props.city_nearest || null),
           boards: props.boards,
           country: country,            // ISO code — drives the country filter
           countryName: cName,          // localized name — for search + display
@@ -1194,7 +1590,8 @@
           nName: normalizeText(venueName),
           nCity: props.city ? normalizeText(props.city) : '',
           nCountry: cName ? normalizeText(cName) : '',
-          nHay: normalizeText([venueName, props.city, cName, boardLabels].filter(Boolean).join(' ')),
+          nHay: normalizeText([venueName, props.city, props.city_nearest, props.city_nearest_de,
+            cName, boardLabels].filter(Boolean).join(' ')),
         });
       }
 

@@ -100,6 +100,38 @@ Then commit the regenerated files. The cadence is "whenever you remember"
 for now; if the dataset starts mattering for users, automate via a cron
 that runs the script and commits/pushes on diff.
 
+## Nearest-city enrichment (`nearest-city.mjs`)
+
+Only about a third of the venues arrive from upstream with a `city`. Measured
+against the data, that left the map's text search finding 2 of the 18 boards
+within 15 km of New York, and 2 of 8 around Zürich. `build-boards-data.mjs`
+therefore borrows the place index and labels the rest: for every venue without
+a city it attaches the nearest town within 25 km.
+
+```json
+{ "name": "Beacon Climbing Center", "city_nearest": "Bangor", "city_nearest_km": 13.0 }
+```
+
+- **Never written to `city`.** A gym 13 km outside Bangor is not *in* Bangor,
+  so the derived value lives in its own field and the UI hedges it — the map
+  and the directory render "near Bangor" / "bei Bangor", never a bare city
+  name. Consumers that want only verified addresses keep reading `city`.
+- **Coverage**: 1,044 upstream + 1,647 derived = 2,691 of 2,816 venues (96%).
+  The remaining 125 sit further than 25 km from any indexed town. Counts land
+  in `boards.meta.json` under `city_from_upstream` / `city_from_nearest` /
+  `city_missing`.
+- **Optional dependency**: if `boards/data/cities.json` is absent the build
+  warns and skips enrichment rather than failing, so a fresh clone and the
+  nightly refresh still work.
+- **Localized**: where the nearest town has a German name, the venue also gets
+  `city_nearest_de`, so the German directory and map say "bei München" where
+  the English ones say "near Munich".
+- **Not a metro-area fix.** GeoNames lists boroughs as their own cities, so a
+  Brooklyn gym is labelled "Brooklyn", not "New York City", and a text search
+  for the metro still will not gather them all. That case is answered by the
+  map instead: jumping to a place at zoom 11 puts a ~70 × 45 km window on
+  screen, which covers every board around New York, London, Berlin and Vienna.
+
 ## Static HTML (`render-static.mjs`)
 
 The map renders entirely in client-side JavaScript, fetching
@@ -226,6 +258,101 @@ curated venue identifiers (name + coordinates + boolean) live in this repo.
   outside the repo with the personal matcher, manually verify, then drop
   the resulting JSON onto `tools/wellpass.json`.
 - Stats land in `boards.meta.json` under `wellpass`.
+
+## Place index (`build-cities-data.mjs`)
+
+```bash
+node tools/build-cities-data.mjs
+# → rewrites boards/data/cities.json + cities.meta.json; commit both after.
+```
+
+Builds the offline place index behind the board map's location search.
+
+**Why it exists.** The map's venue search filters `boards.geojson` by text, so
+it can only find a city that a venue actually carries in its `city` field —
+and only about a third of them do. Measured against the data, searching "New
+York" reached 2 of the 18 boards standing within 15 km of it; Zürich 2 of 8,
+London 5 of 13. The place index answers from the other side: you jump the map
+to a place, and the clusters plus the "boards in view" list report what is
+there by geometry rather than by patchy text. A city with no board is a valid
+search — you still get to look.
+
+**Why it is a build step.** A live geocoder (Nominatim and friends) would send
+every keystroke and the visitor's IP to a third party, which the runtime rule
+in `AGENTS.md` forbids. A static file from our own origin keeps that intact,
+works offline, and the service worker caches it after first use. The map loads
+it lazily on the first real query, so visitors who never search never pay for
+it.
+
+**Size is the design constraint.** Every GeoNames city above 15k inhabitants
+is 34k places and 665 KiB gzipped — five times `boards.geojson`. Three choices
+bring it to ~240 KiB:
+
+1. **Proximity pruning.** Places within `--radius-km` (default 100) of a board
+   are kept down to `--min-population` (default 15 000); everywhere else only
+   `--global-population` (default 200 000) and up, so a visitor far from any
+   board still lands somewhere sensible.
+2. **Two decimals of coordinate** (~1.1 km). A place jump lands at zoom 11.
+3. **No population column.** Rows are written largest-first, so list order
+   already encodes the ranking the search needs.
+
+**Row shape** — `[name, country, lat, lon, region?, alternates?, name_de?]`,
+trailing optional fields omitted when empty:
+
+```json
+["Munich","DE",48.14,11.58,"",[],"München"]
+["Berlin","US",44.47,-71.19,"New Hampshire"]
+```
+
+- **`name`** is GeoNames' primary, which is language-neutral in intent but in
+  practice usually the English form.
+- **`name_de`** is the German form, and only present when it actually differs.
+  It exists because the `/de/` pages must *display* the German name, not merely
+  match it — a venue near Munich has to read "bei München" there. Roughly 1,000
+  cities carry one.
+
+- **`region`** is attached only to names that repeat within one country, so
+  the list can say "Berlin, New Hampshire" without spending bytes to say
+  "Bavaria" behind a München nothing collides with.
+- **`alternates`** are what make every city findable in both site languages.
+  They matter because GeoNames is inconsistent about which form is primary: it
+  stores "Munich", "Vienna" and "Prague" in English but "Köln", "Zürich" and
+  "Sevilla" locally, so without them the German site cannot find München and
+  the English one cannot find Cologne. They come from two sources, merged:
+
+  1. **`alternateNamesV2.zip`** — the language-tagged dump, which is the only
+     GeoNames file that says *which* language a name belongs to. For each city
+     the build takes the German and the English name, preferring GeoNames' own
+     `isPreferredName`, then `isShortName`. Historic and colloquial forms are
+     skipped, so "Pressburg" does not resurface as a name for Bratislava.
+     The dump is 193 MB and ~19 M rows, so it is never held in memory: the
+     build locates the entry in the ZIP's central directory and streams that
+     byte range through inflate, filtering rows by tab offsets before parsing
+     them. That pass takes about 15 seconds and is cached for later runs.
+     `--no-alternates` skips it for quick iteration — it prints a warning and
+     records `alternates_from_dump: false` in the meta, because committing
+     output built that way would silently drop thousands of names.
+  2. **`tools/city-exonyms.json`** — a hand-curated overlay in the same spirit
+     as `overrides.json` and `wellpass.json`, applied *first* so it can correct
+     the dump. An entry matching no city is reported as a warning and listed in
+     `cities.meta.json` under `exonym_entries_unmatched`, so an upstream rename
+     surfaces instead of silently doing nothing.
+
+  A name that normalizes to the primary name is dropped either way — the search
+  strips diacritics on both sides, so "Zurich" behind "Zürich" is dead weight.
+  About 1,600 of the 17,819 cities end up with an alternate; the rest are
+  spelled the same in both languages.
+
+**Rebuilding.** Not part of the nightly cron: GeoNames changes slowly and the
+pruning set barely moves. Rerun it by hand when the exonym overlay changes, or
+after boards appear in a region the index does not cover yet — the pruning
+reads `boards.geojson`, so build that first. The dumps are cached under
+`$TMPDIR/cruxcoach-build-deps/geonames`, so repeat runs need no network.
+`cities.json` carries no timestamp and is a pure function of its inputs, so a
+no-op rebuild produces no diff.
+
+**Licensing.** GeoNames data is CC BY 4.0. Attribution is required and lives
+in `humans.txt`, the privacy pages, and `cities.meta.json`.
 
 ## Data-source guidelines
 
