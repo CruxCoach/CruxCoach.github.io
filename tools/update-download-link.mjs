@@ -28,7 +28,7 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const FILES = ['index.html', 'de/index.html', '404.html', 'llms.txt', 'kilter-board-app-alternative.html', 'de/kilter-board-app-alternative.html', 'moonboard-app.html', 'de/moonboard-app.html'];
+const FILES = ['index.html', 'de/index.html', '404.html', 'llms.txt', 'kilter-board-app-alternative.html', 'de/kilter-board-app-alternative.html', 'moonboard-app.html', 'de/moonboard-app.html', 'tension-board-app.html', 'de/tension-board-app.html'];
 const MANIFEST = path.join(ROOT, 'apk-target.json');
 const API = 'https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/latest';
 const CODEBERG_LINK_RE =

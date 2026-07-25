@@ -21,6 +21,8 @@ const CANONICAL_PATHS = new Map([
   ['/de/kilter-board-app-alternative.html', '/de/kilter-board-app-alternative.html'],
   ['/moonboard-app.html', '/moonboard-app.html'],
   ['/de/moonboard-app.html', '/de/moonboard-app.html'],
+  ['/tension-board-app.html', '/tension-board-app.html'],
+  ['/de/tension-board-app.html', '/de/tension-board-app.html'],
   ['/support.html', '/support.html'],
   ['/de/support.html', '/de/support.html'],
   ['/privacy.html', '/privacy.html'],

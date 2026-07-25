@@ -17,7 +17,7 @@ function dryRun(urls = []) {
 test('IndexNow dry run defaults to every sitemap URL', () => {
   const result = dryRun();
   assert.equal(result.status, 0, result.stderr || result.stdout);
-  assert.match(result.stdout, /dry run would submit 12 URLs/);
+  assert.match(result.stdout, /dry run would submit 14 URLs/);
   assert.match(result.stdout, /^https:\/\/cruxcoach\.org\/moonboard-app\.html$/m);
   assert.match(result.stdout, /^https:\/\/cruxcoach\.org\/de\/moonboard-app\.html$/m);
 });

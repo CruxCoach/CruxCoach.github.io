@@ -95,7 +95,9 @@ DNS at Njalla:
 - [ ] **`/press.html`** press kit with high-res logo, screenshots, brief & long descriptions, story angles
 - [ ] **`/faq.html`** with anticipated normy questions
 - [ ] **Update Mastodon link** once `@cruxcoach@mastodon.social` is verified
-- [ ] **Once F-Droid / IzzyOnDroid listings land**, update install cards from "soon" to actual links
+- [ ] **Once an F-Droid listing lands**, add an install card for it. Needs fastlane metadata and a
+      build flavour without the in-app APK updater. IzzyOnDroid is ruled out: its inclusion policy
+      rejects apps "fully or in part created by generative AI tools".
 - [ ] **Set Codeberg-Repo `Website` field** (manual UI step) to `https://cruxcoach.org`
 
 ## Image-optimization notes

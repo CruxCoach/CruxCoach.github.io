@@ -20,7 +20,7 @@ test('maps canonical sitemap URLs to their source HTML files', () => {
 test('every sitemap entry has one valid lastmod and a real source file', () => {
   const xml = fs.readFileSync(path.join(repoRoot, 'sitemap.xml'), 'utf8');
   const entries = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)];
-  assert.equal(entries.length, 12);
+  assert.equal(entries.length, 14);
   for (const [, block] of entries) {
     const loc = /<loc>([^<]+)<\/loc>/.exec(block)?.[1];
     assert.ok(loc, 'entry has a loc');

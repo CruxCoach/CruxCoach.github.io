@@ -141,6 +141,7 @@ test('every static page loads the local aggregate client', () => {
     'kilter-board-app-alternative.html',
     'de/kilter-board-app-alternative.html',
     'moonboard-app.html', 'de/moonboard-app.html',
+    'tension-board-app.html', 'de/tension-board-app.html',
     'support.html', 'de/support.html',
     'privacy.html', 'de/privacy.html',
     'imprint.html', 'de/imprint.html',
@@ -161,6 +162,8 @@ test('Zapstore clicks use the JS counter and direct APK clicks use the redirect'
     ['de/kilter-board-app-alternative.html', 'hero'],
     ['moonboard-app.html', 'hero'],
     ['de/moonboard-app.html', 'hero'],
+    ['tension-board-app.html', 'hero'],
+    ['de/tension-board-app.html', 'hero'],
     ['404.html', 'shared_climb'],
   ];
   for (const [page, surface] of expected) {
@@ -215,7 +218,7 @@ test('privacy notices distinguish private analytics operations from public app s
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v22';/);
+  assert.match(source, /var VERSION = 'cc-v23';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
 });
