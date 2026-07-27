@@ -178,11 +178,6 @@ run >> "$LOG_FILE" 2>&1
 rc=$?
 sync_mirror >> "$LOG_FILE" 2>&1
 
-# Re-export whatever ended up on origin/main this run — the boards refresh
-# commits too, and it does not go through publish-release.sh.
-"$REPO_ROOT/tools/export-site.sh" >> "$LOG_FILE" 2>&1 \
-  || echo "[$(date -Is)] site export failed" >> "$LOG_FILE"
-
 # The apex certificate, on every host that serves it. Cheap, and the only way a
 # lapse gets noticed before visitors do — see the script for why a lapse is
 # plausible at all once more than one provider answers for the domain.
