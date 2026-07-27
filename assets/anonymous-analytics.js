@@ -113,6 +113,35 @@ function sessionStorageFor(win, options) {
   }
 }
 
+/**
+ * Point the direct-APK buttons at our own selector.
+ *
+ * The markup ships with the versioned Codeberg URL in `href`, so the button
+ * works with JavaScript switched off, with a privacy signal set, and while our
+ * server is down. This upgrade runs only once the page_view beacon has come
+ * back — that answer already proves the server is reachable, so no probe of
+ * any kind is added and no third party is contacted before a click.
+ */
+export function upgradeApkButtons(root) {
+  const buttons = root && typeof root.querySelectorAll === 'function'
+    ? root.querySelectorAll('[data-apk-selector]')
+    : [];
+  let upgraded = 0;
+  buttons.forEach((button) => {
+    const selectorUrl = button.dataset && button.dataset.apkSelector;
+    if (!selectorUrl) return;
+    button.href = selectorUrl;
+    upgraded += 1;
+  });
+  return upgraded;
+}
+
+/** The surface is the last segment of /download/apk/<page-key>/<surface>. */
+function surfaceOf(selectorUrl) {
+  const surface = String(selectorUrl || '').split('/').pop();
+  return ['hero', 'install', 'shared_climb'].includes(surface) ? surface : null;
+}
+
 export function initAnonymousAnalytics(root = document, options = {}) {
   const win = options.windowImpl
     || (typeof window !== 'undefined' ? window : { location: { pathname: '/' } });
@@ -126,7 +155,8 @@ export function initAnonymousAnalytics(root = document, options = {}) {
   sendAnonymousEvent({
     metric: 'page_view',
     path: canonicalPath,
-  }, { ...options, navigatorImpl: nav, windowImpl: win });
+  }, { ...options, navigatorImpl: nav, windowImpl: win })
+    .then((delivered) => (delivered ? upgradeApkButtons(root) : 0));
 
   root.addEventListener('click', (event) => {
     const directApk = event.target && typeof event.target.closest === 'function'
@@ -138,6 +168,19 @@ export function initAnonymousAnalytics(root = document, options = {}) {
           metric: 'install_fallback',
           from: 'zapstore',
           to: 'direct_apk',
+          path: canonicalPath,
+        }, { ...options, navigatorImpl: nav, windowImpl: win });
+      }
+      // An upgraded button is counted by the selector that serves it. A button
+      // still on its Codeberg default never reaches us, so count it here —
+      // otherwise an outage would look like nobody wanted the app.
+      const selectorUrl = directApk.dataset && directApk.dataset.apkSelector;
+      const surface = surfaceOf(selectorUrl);
+      if (surface && directApk.getAttribute('href') !== selectorUrl) {
+        sendAnonymousEvent({
+          metric: 'install_click',
+          target: 'direct_apk',
+          surface,
           path: canonicalPath,
         }, { ...options, navigatorImpl: nav, windowImpl: win });
       }

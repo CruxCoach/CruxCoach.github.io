@@ -57,24 +57,37 @@ test('every direct APK surface exposes exactly one first-party selector button',
   for (const [filename, pageKey, surface] of selectorSurfaces) {
     const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
     const url = `https://stats.cruxcoach.org/download/apk/${pageKey}/${surface}`;
-    const matches = html.match(new RegExp(`href="${url.replaceAll('.', '\\.')}"`, 'g')) || [];
+    const matches = html.match(
+      new RegExp(`data-apk-selector="${url.replaceAll('.', '\\.')}"`, 'g')) || [];
     assert.equal(matches.length, 1, `${filename}: ${pageKey}/${surface}`);
-    assert.match(
-      html,
-      new RegExp(`href="${url.replaceAll('.', '\\.')}"[^>]*rel="nofollow"[^>]*referrerpolicy="no-referrer"[^>]*data-apk-selector`),
-      filename,
-    );
-    assert.doesNotMatch(html, /data-apk-fallback/, filename);
     assert.doesNotMatch(html, /data-analytics-install-target="direct_apk"/, filename);
   }
 });
 
-test('shared-climb selector uses its canonical aggregate page key', () => {
+test('the button works before any script runs, and needs no second button', () => {
+  // The whole point of the arrangement: `href` is a plain versioned Codeberg
+  // link. With JS off, with DNT set, or while stats.cruxcoach.org is down, one
+  // click still yields CruxCoach-vX.Y.Z.apk. Our selector is an upgrade applied
+  // on top, never a precondition — and the UI stays a single button either way.
+  for (const [filename, pageKey, surface] of selectorSurfaces) {
+    const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
+    const url = `https://stats.cruxcoach.org/download/apk/${pageKey}/${surface}`;
+    assert.match(
+      html,
+      new RegExp(
+        `href="https://codeberg\\.org/CruxCoach/CruxCoach/releases/download/`
+        + `v\\d+\\.\\d+\\.\\d+/CruxCoach-v\\d+\\.\\d+\\.\\d+\\.apk"`
+        + `[^>]*rel="nofollow"[^>]*referrerpolicy="no-referrer"`
+        + `[^>]*data-apk-selector="${url.replaceAll('.', '\\.')}"`),
+      filename,
+    );
+  }
+});
+
+test('the shared-climb CTA keeps its static href instead of forcing the selector', () => {
   const html = fs.readFileSync(path.join(repoRoot, '404.html'), 'utf8');
-  assert.match(
-    html,
-    /elCtaReleases\.href = 'https:\/\/stats\.cruxcoach\.org\/download\/apk\/shared-climb\/shared_climb';/,
-  );
+  assert.doesNotMatch(html, /elCtaReleases\.href\s*=/);
+  assert.match(html, /data-apk-selector="https:\/\/stats\.cruxcoach\.org\/download\/apk\/shared-climb\/shared_climb"/);
 });
 
 test('no browser-side APK availability implementation remains', () => {

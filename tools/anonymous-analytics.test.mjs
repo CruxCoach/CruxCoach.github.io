@@ -7,6 +7,7 @@ import {
   FALLBACK_WINDOW_MS,
   consumeZapstoreFallback,
   initAnonymousAnalytics,
+  upgradeApkButtons,
   markZapstoreClick,
   normalizePagePath,
   privacySignalEnabled,
@@ -133,6 +134,112 @@ test('Zapstore then direct APK emits one combined canonical-page fallback', () =
   ]);
 });
 
+const CODEBERG_APK =
+  'https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk';
+const SELECTOR = 'https://stats.cruxcoach.org/download/apk/home-en/hero';
+
+/** A single direct-APK button plus the bits of the DOM the client touches. */
+function pageWithApkButton() {
+  const button = {
+    href: CODEBERG_APK,
+    dataset: { apkSelector: SELECTOR },
+    getAttribute: () => button.href,
+  };
+  const root = {
+    documentElement: { lang: 'en' },
+    button,
+    handler: null,
+    querySelectorAll: (selector) =>
+      (selector === '[data-apk-selector]' ? [button] : []),
+    addEventListener(type, handler) { if (type === 'click') root.handler = handler; },
+  };
+  return root;
+}
+
+function clickTheButton(root) {
+  root.handler({
+    target: {
+      closest: (selector) =>
+        (selector === '[data-apk-selector]' ? root.button : null),
+    },
+  });
+}
+
+test('the button is upgraded to our selector only once the beacon comes back', async () => {
+  const root = pageWithApkButton();
+  const options = {
+    navigatorImpl: {},
+    windowImpl: { location: { pathname: '/' } },
+    sessionStorageImpl: memoryStorage(),
+    fetchImpl: async () => {},
+  };
+  initAnonymousAnalytics(root, options);
+  assert.equal(root.button.href, CODEBERG_APK, 'not before the answer arrives');
+  await new Promise((resolve) => { setTimeout(resolve, 0); });
+  assert.equal(root.button.href, SELECTOR);
+});
+
+test('an unreachable server leaves the button on its working Codeberg link', async () => {
+  // The failure this whole design exists for: stats.cruxcoach.org is down. The
+  // click must still deliver an APK, so nothing may be rewritten.
+  const root = pageWithApkButton();
+  initAnonymousAnalytics(root, {
+    navigatorImpl: {},
+    windowImpl: { location: { pathname: '/' } },
+    sessionStorageImpl: memoryStorage(),
+    fetchImpl: async () => { throw new Error('connection refused'); },
+  });
+  await new Promise((resolve) => { setTimeout(resolve, 0); });
+  assert.equal(root.button.href, CODEBERG_APK);
+});
+
+test('a privacy signal leaves the button alone and sends nothing at all', async () => {
+  const root = pageWithApkButton();
+  let calls = 0;
+  initAnonymousAnalytics(root, {
+    navigatorImpl: { globalPrivacyControl: true },
+    windowImpl: { location: { pathname: '/' } },
+    fetchImpl: async () => { calls += 1; },
+  });
+  await new Promise((resolve) => { setTimeout(resolve, 0); });
+  assert.equal(root.button.href, CODEBERG_APK);
+  assert.equal(calls, 0);
+});
+
+test('each direct-APK click is counted exactly once, whoever serves it', async () => {
+  const payloads = [];
+  const options = (root) => ({
+    navigatorImpl: {},
+    windowImpl: { location: { pathname: '/' } },
+    sessionStorageImpl: memoryStorage(),
+    fetchImpl: async (_url, request) => { payloads.push(JSON.parse(request.body)); },
+  });
+
+  // Server down: it never sees the click, so the client records it.
+  const offline = pageWithApkButton();
+  initAnonymousAnalytics(offline, {
+    ...options(offline),
+    fetchImpl: async (_url, request) => {
+      payloads.push(JSON.parse(request.body));
+      throw new Error('connection refused');
+    },
+  });
+  await new Promise((resolve) => { setTimeout(resolve, 0); });
+  clickTheButton(offline);
+  assert.deepEqual(payloads.filter((p) => p.metric === 'install_click'), [
+    { metric: 'install_click', target: 'direct_apk', surface: 'hero', path: '/' },
+  ]);
+
+  // Server up: the selector counts the click as it serves the file. Counting
+  // here as well would double every direct-APK install in the daily figures.
+  payloads.length = 0;
+  const online = pageWithApkButton();
+  initAnonymousAnalytics(online, options(online));
+  await new Promise((resolve) => { setTimeout(resolve, 0); });
+  clickTheButton(online);
+  assert.deepEqual(payloads.filter((p) => p.metric === 'install_click'), []);
+});
+
 test('every static page loads the local aggregate client', () => {
   const pages = [
     'index.html', 'de/index.html', '404.html',
@@ -218,7 +325,7 @@ test('privacy notices distinguish private analytics operations from public app s
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v24';/);
+  assert.match(source, /var VERSION = 'cc-v25';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
 });

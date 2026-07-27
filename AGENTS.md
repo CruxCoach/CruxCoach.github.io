@@ -77,12 +77,21 @@ These files are load-bearing for discoverability and are maintained by hand — 
 them current when site facts change (especially on app releases; that includes
 `softwareVersion` in both homepages' JSON-LD):
 
-- **Direct APK download links**: every interactive download surface points to the
-  closed first-party route `https://stats.cruxcoach.org/download/apk/<page-key>/<surface>`.
-  That server-side selector counts one coarse click and redirects to the currently
-  available verified Codeberg APK or its byte-identical, content-addressed Zapstore
-  mirror. It performs background checks without visitor data; browsers never probe
-  either source. JSON-LD and `llms.txt` retain the versioned Codeberg URL as the
+- **Direct APK download links**: every interactive download surface is **one**
+  button whose `href` is the versioned Codeberg APK, carrying the closed
+  first-party route `https://stats.cruxcoach.org/download/apk/<page-key>/<surface>`
+  in `data-apk-selector`. `anonymous-analytics.js` swaps the two once the
+  `page_view` beacon has come back — that answer already proves the host is up, so
+  **no availability probe of any kind is added and no third party is contacted
+  before a click**. The static default is what removes the single point of failure:
+  with JS off, with DNT/GPC set, or while our host is down, the click still yields
+  `CruxCoach-vX.Y.Z.apk`. Never bind a surface to the selector URL alone
+  (`404.html` did, and was the one page that stayed broken) and never add a second
+  visible button — robustness belongs behind the single button, not in the UI.
+  The selector serves our own verified copy, else redirects to Codeberg, else
+  relays Zapstore; it performs its background checks without visitor data. A click
+  is counted exactly once: by the selector when it serves, by the beacon when the
+  button was never upgraded. JSON-LD and `llms.txt` retain the versioned Codeberg URL as the
   canonical machine-readable target. `tools/update-download-link.mjs` reads the
   Codeberg release metadata and SHA-256 sidecar without downloading the Codeberg
   APK, fully verifies the content-addressed Zapstore payload against that size

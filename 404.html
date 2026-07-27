@@ -129,7 +129,7 @@
     <div class="cta-row">
       <!-- One first-party redirect chooses a server-verified APK source. -->
       <a class="cta primary" id="cl-cta-zapstore" href="https://zapstore.dev/apps/com.cruxcoach.android" data-analytics-install-target="zapstore" data-analytics-surface="shared_climb">…</a>
-      <a class="cta" id="cl-cta-releases" href="https://stats.cruxcoach.org/download/apk/shared-climb/shared_climb" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector>…</a>
+      <a class="cta" id="cl-cta-releases" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/shared-climb/shared_climb">…</a>
     </div>
     <p class="small" id="cl-already"><span id="cl-already-text"></span> <a id="cl-cta-intent" href="">…</a></p>
   </div>
@@ -185,7 +185,10 @@
     elPrompt.textContent = t('installPrompt');
     elCtaZapstore.textContent = t('ctaZapstore');
     elCtaReleases.textContent = t('ctaReleases');
-    elCtaReleases.href = 'https://stats.cruxcoach.org/download/apk/shared-climb/shared_climb';
+    // The href stays as the markup has it: the versioned Codeberg URL, which
+    // anonymous-analytics.js upgrades to our own selector once the page_view
+    // beacon proves the server is up. Overwriting it here would tie the button
+    // to that one server again.
 
     // intent:// only resolves on Android — package= lookup. Hide the
     // small "already installed?" line entirely on other platforms;
