@@ -130,6 +130,13 @@ export function upgradeApkButtons(root) {
   buttons.forEach((button) => {
     const selectorUrl = button.dataset && button.dataset.apkSelector;
     if (!selectorUrl) return;
+    // Stash the link being replaced. If our server turns out to be gone by
+    // the time someone clicks, this is the way back — the href no longer
+    // holds it.
+    if (!button.dataset.apkDirect) {
+      button.dataset.apkDirect = button.getAttribute
+        ? button.getAttribute('href') : button.href;
+    }
     button.href = selectorUrl;
     upgraded += 1;
   });
@@ -143,6 +150,9 @@ function surfaceOf(selectorUrl) {
 }
 
 export const MIRROR_CHECK_TIMEOUT_MS = 1500;
+// Our own server, one round trip away (~120 ms measured). Kept tight: this
+// sits between a click and a download that has not started yet.
+export const SELECTOR_CHECK_TIMEOUT_MS = 800;
 
 const CODEBERG_APK_RE =
   /^https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/(v\d+\.\d+\.\d+)\/CruxCoach-v\d+\.\d+\.\d+\.apk$/;
@@ -161,62 +171,80 @@ export function releaseMetadataUrl(href) {
     : null;
 }
 
+/** True if the URL answered in time. Any failure, including a timeout. */
+function reachable(fetchImpl, win, url, timeoutMs, method) {
+  const controller = typeof AbortController === 'function'
+    ? new AbortController() : null;
+  const timer = win.setTimeout(() => controller && controller.abort(), timeoutMs);
+  return Promise.resolve(fetchImpl(url, {
+    method,
+    mode: 'cors',
+    credentials: 'omit',
+    cache: 'no-store',
+    referrerPolicy: 'no-referrer',
+    signal: controller ? controller.signal : undefined,
+  })).then(
+    (response) => { win.clearTimeout(timer); return !(response && response.ok === false); },
+    () => { win.clearTimeout(timer); return false; },
+  );
+}
+
+function plainClick(event) {
+  // Leave every non-plain activation to the browser. Intercepting a
+  // middle-click or ⌘-click would silently turn "open in a new tab" into a
+  // navigation in this one.
+  if (event.defaultPrevented) return false;
+  if (event.button !== undefined && event.button !== 0) return false;
+  return !(event.metaKey || event.ctrlKey || event.shiftKey || event.altKey);
+}
+
 /**
- * Last resort for a click that cannot reach our server.
+ * Decide where a direct-APK click actually goes, at the moment it happens.
  *
- * Only ever runs on a button still holding its Codeberg default — meaning our
- * selector is out of reach and Codeberg is the sole remaining route. If that
- * route is down too, the visitor would get nothing, so we ask Codeberg whether
- * the release is there and send them to the Zapstore mirror when it is not.
+ * The button's targets are all in the markup, so this only ever picks between
+ * them: our selector, the versioned Codeberg link, the content-addressed
+ * mirror. It walks them in that order and takes the first that answers.
  *
- * The question is asked at click time and never before. By clicking, the
- * visitor already set out for Codeberg — so this reveals them to nobody they
- * were not about to reach anyway, which is exactly why no such check may run
- * on page load.
+ * Nothing is asked before a click. Our own server is asked only about itself,
+ * and the two third parties only once a click is already on its way to them —
+ * which is why no check may run while someone is merely reading the page.
  */
-export function apkFallbackHandler(options = {}) {
+export function apkClickHandler(options = {}) {
   const win = options.windowImpl
     || (typeof window !== 'undefined' ? window : null);
   const fetchImpl = options.fetchImpl
     || (typeof fetch === 'function' ? fetch.bind(globalThis) : null);
-  const timeoutMs = options.mirrorTimeoutMs || MIRROR_CHECK_TIMEOUT_MS;
+  const selectorTimeout = options.selectorTimeoutMs || SELECTOR_CHECK_TIMEOUT_MS;
+  const mirrorTimeout = options.mirrorTimeoutMs || MIRROR_CHECK_TIMEOUT_MS;
   if (!win || !fetchImpl) return () => false;
 
-  return function handleFallback(event, button) {
-    // Leave every non-plain activation to the browser. Intercepting a
-    // middle-click or ⌘-click would silently turn "open in a new tab" into a
-    // navigation in this one.
-    if (event.defaultPrevented) return false;
-    if (event.button !== undefined && event.button !== 0) return false;
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
-
+  return function handleApkClick(event, button) {
+    if (!plainClick(event)) return false;
+    const data = (button && button.dataset) || {};
     const href = button && typeof button.getAttribute === 'function'
       ? button.getAttribute('href') : null;
-    const mirror = button && button.dataset && button.dataset.apkMirror;
-    const metadataUrl = releaseMetadataUrl(href);
-    // Both targets must be recognisable, or we have no business redirecting.
+    const upgraded = Boolean(data.apkSelector) && href === data.apkSelector;
+    const direct = data.apkDirect || (upgraded ? null : href);
+    const mirror = data.apkMirror;
+    const metadataUrl = releaseMetadataUrl(direct);
+    // Both remaining targets must be recognisable, or there is nothing to fall
+    // back to and the browser should just follow the link.
     if (!metadataUrl || !mirror || !MIRROR_RE.test(mirror)) return false;
 
     event.preventDefault();
-    const controller = typeof AbortController === 'function'
-      ? new AbortController() : null;
-    const timer = win.setTimeout(
-      () => controller && controller.abort(), timeoutMs);
-    const go = (url) => { win.clearTimeout(timer); win.location.href = url; };
+    const go = (url) => { win.location.href = url; };
+    const thirdParty = () => reachable(fetchImpl, win, metadataUrl, mirrorTimeout, 'GET')
+      .then((up) => go(up ? direct : mirror));
 
-    Promise.resolve(fetchImpl(metadataUrl, {
-      method: 'GET',
-      mode: 'cors',
-      credentials: 'omit',
-      cache: 'no-store',
-      referrerPolicy: 'no-referrer',
-      signal: controller ? controller.signal : undefined,
-    })).then(
-      // A slow Codeberg must not hold the download hostage: the abort above
-      // lands here as a rejection and takes the visitor to the mirror.
-      (response) => go(response && response.ok === false ? mirror : href),
-      () => go(mirror),
-    );
+    if (!upgraded) {
+      thirdParty();
+      return true;
+    }
+    // Upgraded means our server answered when the page loaded — minutes ago,
+    // possibly. A HEAD costs one round trip and counts nothing, and without it
+    // this click would be the one place the button still depends on us.
+    reachable(fetchImpl, win, data.apkSelector, selectorTimeout, 'HEAD')
+      .then((up) => (up ? go(data.apkSelector) : thirdParty()));
     return true;
   };
 }
@@ -232,7 +260,7 @@ export function initAnonymousAnalytics(root = document, options = {}) {
   const storage = analyticsOff ? null : sessionStorageFor(win, options);
   const now = options.nowImpl || Date.now;
   const canonicalPath = normalizePagePath(win.location && win.location.pathname);
-  const fallback = apkFallbackHandler({ ...options, windowImpl: win });
+  const handleApkClick = apkClickHandler({ ...options, windowImpl: win });
 
   if (!analyticsOff) {
     sendAnonymousEvent({
@@ -274,9 +302,9 @@ export function initAnonymousAnalytics(root = document, options = {}) {
           }, { ...options, navigatorImpl: nav, windowImpl: win });
         }
       }
-      // Not upgraded means our selector is unreachable and Codeberg is the
-      // only route left — the one case worth verifying before handing it over.
-      if (!upgraded) fallback(event, directApk);
+      // Every direct-APK click is routed here, upgraded or not: the button
+      // holds all three targets and the handler picks the first that answers.
+      handleApkClick(event, directApk);
       return;
     }
     if (analyticsOff) return;
