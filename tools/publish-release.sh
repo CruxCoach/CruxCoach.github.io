@@ -110,6 +110,11 @@ try_push || exit 3
 #
 # Non-fatal: the release is out and the site is correct; a stale mirror is a
 # degraded fallback, not a broken download.
+# Our own server serves an export of the published branch, so it has to be
+# refreshed here too — otherwise half the visitors would be told about a
+# release the other half cannot see yet.
+tools/export-site.sh || echo "-- local site export failed (non-fatal)"
+
 echo "-- syncing GitHub Pages mirror"
 if [ -f "$HOME/.ssh/id_ed25519_github_pages" ]; then
   mirror_attempt=1
