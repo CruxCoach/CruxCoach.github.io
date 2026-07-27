@@ -102,4 +102,29 @@ git -c user.name=CruxCoach -c user.email=dev@cruxcoach.de \
   || { echo "link commit failed"; exit 2; }
 
 try_push || exit 3
+
+# The mirror carries the same release or it is not a mirror. The nightly cron
+# syncs it too, but waiting for that would leave a window in which Codeberg has
+# the new version and the fallback still serves the old one — exactly the hours
+# after a release, when a Codeberg outage would hurt most.
+#
+# Non-fatal: the release is out and the site is correct; a stale mirror is a
+# degraded fallback, not a broken download.
+echo "-- syncing GitHub Pages mirror"
+if [ -f "$HOME/.ssh/id_ed25519_github_pages" ]; then
+  mirror_attempt=1
+  while [ "$mirror_attempt" -le 3 ]; do
+    if GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_ed25519_github_pages -o StrictHostKeyChecking=accept-new -o BatchMode=yes" \
+         git push github main; then
+      break
+    fi
+    echo "-- mirror push attempt $mirror_attempt failed"
+    mirror_attempt=$((mirror_attempt + 1))
+    sleep $((mirror_attempt * 5))
+  done
+  [ "$mirror_attempt" -le 3 ] || echo "-- mirror push failed (non-fatal)"
+else
+  echo "-- no GitHub deploy key here; mirror left to the nightly refresh"
+fi
+
 echo "-- published ${apk_tag}"
