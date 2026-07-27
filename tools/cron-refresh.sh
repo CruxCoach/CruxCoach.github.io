@@ -68,37 +68,25 @@ run() {
     if ! try_push; then return 4; fi
   fi
 
-  # Direct-download links first (independent of the boards dataset): a new
-  # app release moves the versioned APK URL, and the site must follow. On
-  # API failure the old links are kept — they stay valid because old
-  # release assets remain downloadable.
-  echo "-- checking direct APK download links"
-  local link_files=(
-    index.html de/index.html 404.html llms.txt
-    kilter-board-app-alternative.html de/kilter-board-app-alternative.html
-    moonboard-app.html de/moonboard-app.html
-    apk-target.json
-  )
-  if /usr/bin/node tools/update-download-link.mjs; then
-    if ! git diff --quiet -- "${link_files[@]}"; then
-      local apk_tag
-      apk_tag="$(grep -oE 'releases/download/[^/]+/' index.html | head -1 | cut -d/ -f3)"
-      echo "-- download links moved to ${apk_tag}"
-      /usr/bin/node tools/update-sitemap-lastmod.mjs \
-        index.html de/index.html \
-        kilter-board-app-alternative.html de/kilter-board-app-alternative.html \
-        moonboard-app.html de/moonboard-app.html \
-        || { echo "sitemap lastmod update failed"; return 3; }
-      git add "${link_files[@]}" sitemap.xml
-      git -c user.name=CruxCoach -c user.email=dev@cruxcoach.de \
-          commit -m "chore(download): bump direct APK link to ${apk_tag}" \
-        || { echo "link commit failed"; return 3; }
-      if ! try_push; then return 4; fi
-      RELEASE_TAG="$apk_tag"
-    fi
-  else
-    echo "-- download-link check failed; restoring links + continuing"
-    git checkout -- "${link_files[@]}"
+  # Direct-download links first (independent of the boards dataset). The
+  # release workflow already runs this same script the moment a release
+  # exists, so on most nights it finds nothing to do. It still runs, because
+  # it is what repairs a release published while this host was down.
+  #
+  # Shared with the workflow rather than reimplemented: the file list used to
+  # live here as a hand-written array, and it silently lost both
+  # tension-board pages — the updater rewrote them, this never staged them.
+  local before after
+  before="$(git rev-parse HEAD)"
+  tools/publish-release.sh
+  case "$?" in
+    0) ;;
+    3) return 4 ;;               # commit exists, push failed — same as before
+    *) echo "-- download-link publish failed; continuing with boards" ;;
+  esac
+  after="$(git rev-parse HEAD)"
+  if [ "$before" != "$after" ]; then
+    RELEASE_TAG="$(grep -oE 'releases/download/[^/]+/' index.html | head -1 | cut -d/ -f3)"
   fi
 
   echo "-- running build-boards-data.mjs"

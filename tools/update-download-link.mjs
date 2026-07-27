@@ -30,6 +30,15 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FILES = ['index.html', 'de/index.html', '404.html', 'llms.txt', 'kilter-board-app-alternative.html', 'de/kilter-board-app-alternative.html', 'moonboard-app.html', 'de/moonboard-app.html', 'tension-board-app.html', 'de/tension-board-app.html'];
 const MANIFEST = path.join(ROOT, 'apk-target.json');
+
+// Whoever commits the result has to know exactly which files this script may
+// touch. Duplicating the list in a shell array is how tension-board-app.html
+// came to be rewritten here and never staged there — so the list is asked for,
+// not copied. Answered before any network work, so it stays cheap to call.
+if (process.argv.includes('--print-files')) {
+  console.log([...FILES, 'apk-target.json'].join('\n'));
+  process.exit(0);
+}
 const API = 'https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/latest';
 const CODEBERG_LINK_RE =
   /https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/[^"'\s)]+\.apk(\.sha256)?/g;
