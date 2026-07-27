@@ -243,8 +243,8 @@ export function apkClickHandler(options = {}) {
     const data = (button && button.dataset) || {};
     const href = button && typeof button.getAttribute === 'function'
       ? button.getAttribute('href') : null;
-    const upgraded = Boolean(data.apkSelector) && href === data.apkSelector;
-    const direct = data.apkDirect || (upgraded ? null : href);
+    const direct = data.apkDirect
+      || (href === data.apkSelector ? null : href);
     const mirror = data.apkMirror;
     const metadataUrl = releaseMetadataUrl(direct);
     // Both remaining targets must be recognisable, or there is nothing to fall
@@ -259,17 +259,23 @@ export function apkClickHandler(options = {}) {
     const thirdParty = () => probe(fetchImpl, win, metadataUrl, mirrorTimeout, 'GET')
       .then((state) => go(state === 'down' ? mirror : direct));
 
-    if (!upgraded) {
+    // Ask our own server first, whether or not the button was upgraded.
+    //
+    // An upgraded button proves only that we answered when the page loaded,
+    // possibly minutes ago. A button that was never upgraded says nothing
+    // about us at all: the usual reason is a privacy signal, which suppresses
+    // the beacon that would have done the upgrading. Skipping this check for
+    // those visitors sent exactly the people who asked for less tracking to
+    // the one source where a third party watches them download — while our own
+    // copy, which nobody else sees, sat right here. That was backwards.
+    //
+    // 'unknown' counts against us: a blocker that stops this request almost
+    // certainly stops the download too, and the way out leads to Codeberg's
+    // properly named file rather than to a hash.
+    if (!data.apkSelector) {
       thirdParty();
       return true;
     }
-    // Upgraded means our server answered when the page loaded — minutes ago,
-    // possibly. A HEAD costs one round trip and counts nothing, and without it
-    // this click would be the one place the button still depends on us.
-    //
-    // 'unknown' counts against us here, unlike above: a blocker that stops
-    // this request almost certainly stops the download too, and the way out
-    // leads to Codeberg's properly named file rather than to a hash.
     probe(fetchImpl, win, data.apkSelector, selectorTimeout, 'HEAD')
       .then((state) => (state === 'up' ? go(data.apkSelector) : thirdParty()));
     return true;

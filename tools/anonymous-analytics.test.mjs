@@ -326,7 +326,7 @@ test('privacy notices distinguish private analytics operations from public app s
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v26';/);
+  assert.match(source, /var VERSION = 'cc-v27';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
 });
@@ -417,11 +417,21 @@ test('with our server and Codeberg both silent, the mirror still delivers', asyn
   assert.equal(win.location.href, MIRROR);
 });
 
-test('a click that never reached us walks the two remaining targets', async () => {
+test('a button that was never upgraded still gets offered our own copy', async () => {
+  // The usual reason a button is not upgraded is a privacy signal: it
+  // suppresses the beacon, and the beacon is what used to do the upgrading.
+  // Skipping our own server for those visitors sent the people who asked for
+  // less tracking to the one source where a third party watches them download.
   const healthy = clickWith(up, apkButton());
   await settle();
-  assert.equal(healthy.win.location.href, CODEBERG_APK);
-  assert.deepEqual(healthy.asked, [[METADATA, 'GET']], 'metadata, never the APK');
+  assert.equal(healthy.win.location.href, SELECTOR, 'no third party sees this one');
+  assert.deepEqual(healthy.asked, [[SELECTOR, 'HEAD']]);
+
+  // With us out of reach it walks on, and never touches the APK attachment.
+  const noServer = clickWith(onlyCodeberg, apkButton());
+  await settle();
+  assert.equal(noServer.win.location.href, CODEBERG_APK);
+  assert.deepEqual(noServer.asked, [[SELECTOR, 'HEAD'], [METADATA, 'GET']]);
 
   const silent = clickWith(hanging, apkButton());
   await settle();
