@@ -183,7 +183,11 @@ try {
     console.log('local APK copy: already current');
   } else {
     fs.mkdirSync(LOCAL_APK_DIR, { recursive: true });
-    const response = await fetch(apkUrl, { redirect: 'follow' });
+    // Deliberately the Zapstore CDN, never Codeberg: a nightly pull from a
+    // release asset is a synthetic fetch that costs Codeberg bandwidth and
+    // inflates its download count. The CDN is content-addressed, byte-verified
+    // against this same digest a few lines above, and counts nothing.
+    const response = await fetch(zapstoreUrl, { redirect: 'follow' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const bytes = Buffer.from(await response.arrayBuffer());
     const digest = createHash('sha256').update(bytes).digest('hex');

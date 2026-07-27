@@ -93,5 +93,10 @@ test('the nightly updater never downloads the Codeberg APK for validation', () =
   );
   const fetchTargets = [...updater.matchAll(/\bfetch\(\s*([^,\n)]+)/g)]
     .map((match) => match[1].trim());
-  assert.deepEqual(fetchTargets, ['API', 'shaUrl', 'zapstoreUrl']);
+  // zapstoreUrl appears twice: once to verify size and digest, once to pull
+  // our own copy of the release. Both are the content-addressed CDN, which
+  // counts nothing — the rule this test protects is that no synthetic fetch
+  // ever hits a Codeberg release asset.
+  assert.deepEqual(fetchTargets, ['API', 'shaUrl', 'zapstoreUrl', 'zapstoreUrl']);
+  assert.ok(!fetchTargets.includes('apkUrl'), 'never fetch the Codeberg asset');
 });
