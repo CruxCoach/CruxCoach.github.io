@@ -30,17 +30,24 @@ DOMAIN="${1:-cruxcoach.org}"
 WARN_DAYS="${2:-21}"
 problems=0
 
+# Both families. Dual-stack browsers prefer IPv6, so an unchecked AAAA is the
+# address most visitors would actually land on.
 addresses="$(dig +short A "$DOMAIN" | grep -E '^[0-9.]+$')"
+addresses="$addresses
+$(dig +short AAAA "$DOMAIN" | grep -E '^[0-9a-fA-F:]+$')"
+addresses="$(echo "$addresses" | grep -v '^$')"
 if [ -z "$addresses" ]; then
-  echo "FAIL $DOMAIN has no A records at all — DNS is the problem, not TLS"
+  echo "FAIL $DOMAIN has no A or AAAA records at all — DNS is the problem, not TLS"
   exit 1
 fi
 
 echo "== $DOMAIN: $(echo "$addresses" | wc -l) address(es) serving the apex"
 
 for ip in $addresses; do
+  # openssl needs an IPv6 literal in brackets to tell address from port.
+  case "$ip" in *:*) target="[$ip]" ;; *) target="$ip" ;; esac
   cert="$(echo \
-    | timeout 15 openssl s_client -connect "$ip:443" -servername "$DOMAIN" 2>/dev/null \
+    | timeout 15 openssl s_client -connect "$target:443" -servername "$DOMAIN" 2>/dev/null \
     | openssl x509 -noout -enddate -subject -ext subjectAltName 2>/dev/null)"
 
   if [ -z "$cert" ]; then
