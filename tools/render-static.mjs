@@ -60,7 +60,7 @@ const STRINGS = {
     bcList: 'Full Directory',
     navMap: 'Interactive map',
     navHome: 'Home',
-    navDownload: 'Download CruxCoach',
+    navDownload: '<span class="long">Download CruxCoach</span><span class="short">Download</span>',
     h1: 'All climbing board locations worldwide',
     lede: (mapHref, total, countries, perBoardSentence) => `A complete, text-based directory of every venue on the
       <a href="${mapHref}">CruxCoach climbing board map</a>: <strong>${total} venues</strong>
@@ -93,7 +93,7 @@ const STRINGS = {
     bcList: 'Gesamtverzeichnis',
     navMap: 'Interaktive Karte',
     navHome: 'Start',
-    navDownload: 'CruxCoach laden',
+    navDownload: '<span class="long">CruxCoach laden</span><span class="short">App laden</span>',
     h1: 'Alle Kletterboard-Standorte weltweit',
     lede: (mapHref, total, countries, perBoardSentence) => `Ein vollständiges, textbasiertes Verzeichnis aller Standorte auf der
       <a href="${mapHref}">CruxCoach-Kletterboard-Karte</a>: <strong>${total} Standorte</strong>
@@ -378,7 +378,16 @@ ${LIST_HREFLANG}
      would strand the button in the middle. Group it with the language
      switch on the right; inside a <nav> this never matches. */
   header .container > .hdr-dl { margin-left: auto; }
-  @media (max-width: 560px) { .hdr-dl { padding: 0.3em 0.6em; font-size: 0.78rem; } }
+  .hdr-dl .short { display: none; }
+  /* Beside a logo, a Board Map link and a language switch, the full label is
+     what makes a phone header feel packed. Shortened rather than dropped: the
+     button is the one thing in there most people came for. */
+  @media (max-width: 560px) {
+    .hdr-dl { padding: 0.3em 0.65em; font-size: 0.78rem; }
+    .hdr-dl .long { display: none; }
+    .hdr-dl .short { display: inline; }
+    header .container { gap: 0.6rem; }
+  }
   main { padding: 2.5rem 0 1rem; }
   .lede { font-size: 1.15rem; color: var(--fg-soft); max-width: 44rem; }
   .muted { color: var(--fg-mute); font-weight: 400; }

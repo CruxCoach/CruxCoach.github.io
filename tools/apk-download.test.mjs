@@ -217,3 +217,15 @@ test('the header button stays visible and legible where nav rules fight it', () 
     }
   }
 });
+
+test('the header button has a short label for narrow screens', () => {
+  // Full-width it crowds a phone header that already holds a logo, a Board Map
+  // link and a language switch. Both labels ship; CSS picks one.
+  for (const [filename] of selectorSurfaces) {
+    const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
+    if (!html.includes('class="hdr-dl"')) continue;
+    assert.match(html, /<span class="long">[^<]+<\/span><span class="short">[^<]+<\/span>/, filename);
+    assert.match(html, /\.hdr-dl \.short \{ display: none; \}/, filename);
+    assert.match(html, /\.hdr-dl \.long \{ display: none; \}/, `${filename}: narrow-screen swap`);
+  }
+});

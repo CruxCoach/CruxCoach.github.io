@@ -68,7 +68,16 @@
      would strand the button in the middle. Group it with the language
      switch on the right; inside a <nav> this never matches. */
   header .container > .hdr-dl { margin-left: auto; }
-  @media (max-width: 560px) { .hdr-dl { padding: 0.3em 0.6em; font-size: 0.78rem; } }
+  .hdr-dl .short { display: none; }
+  /* Beside a logo, a Board Map link and a language switch, the full label is
+     what makes a phone header feel packed. Shortened rather than dropped: the
+     button is the one thing in there most people came for. */
+  @media (max-width: 560px) {
+    .hdr-dl { padding: 0.3em 0.65em; font-size: 0.78rem; }
+    .hdr-dl .long { display: none; }
+    .hdr-dl .short { display: inline; }
+    header .container { gap: 0.6rem; }
+  }
 </style>
 </head>
 <body>
@@ -89,7 +98,7 @@
       </svg>
       CruxCoach
     </a>
-    <a class="hdr-dl" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/support-de/topbar" data-apk-mirror="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4.apk">CruxCoach laden</a>
+    <a class="hdr-dl" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/support-de/topbar" data-apk-mirror="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4.apk"><span class="long">CruxCoach laden</span><span class="short">App laden</span></a>
     <span class="lang"><a href="/support.html">EN</a><span class="lang-sep"> · </span><span aria-current="true">DE</span></span>
   </div>
 </header>
