@@ -343,7 +343,7 @@ test('release metadata is derived from the link, never the attachment itself', (
   assert.equal(releaseMetadataUrl('https://evil.example/CruxCoach-v0.2.1.apk'), null);
   assert.equal(releaseMetadataUrl(''), null);
 });
-const settle = () => new Promise((resolve) => { setTimeout(resolve, 5); });
+const settle = () => new Promise((resolve) => { setTimeout(resolve, 40); });
 
 /** A button as the markup ships it, optionally already upgraded. */
 function apkButton({ upgraded = false, mirror = MIRROR } = {}) {
@@ -370,17 +370,30 @@ function clickWith(fetchImpl, button) {
   };
   const handled = apkClickHandler({
     windowImpl: win,
+    selectorTimeoutMs: 5,
+    mirrorTimeoutMs: 5,
     fetchImpl: (url, init) => { asked.push([url, init.method]); return fetchImpl(url, init); },
   })(event, button);
   return { win, event, handled, asked };
 }
 
+// How a browser actually sees each situation.
 const up = async () => ({ ok: true });
-const dead = async () => { throw new Error('host unreachable'); };
-const deadExcept = (alive) => async (url) => {
-  if (url.startsWith(alive)) return { ok: true };
-  throw new Error('host unreachable');
-};
+const refusing = async () => ({ ok: false, status: 404 });
+// A host that is down usually leaves the connection hanging rather than
+// refusing it outright; the abort is what surfaces that.
+const hanging = (_url, init) => new Promise((_resolve, reject) => {
+  init.signal.addEventListener('abort', () => {
+    const error = new Error('aborted');
+    error.name = 'AbortError';
+    reject(error);
+  });
+});
+// A content blocker, a missing CORS header, no network: the request never
+// happens, and the failure says nothing at all about the host.
+const blocked = async () => { throw new TypeError('Failed to fetch'); };
+const onlyCodeberg = (url, init) =>
+  (url.startsWith(METADATA) ? up() : hanging(url, init));
 
 test('a healthy server keeps the click on our own route, asking nobody else', async () => {
   const { win, asked } = clickWith(up, apkButton({ upgraded: true }));
@@ -390,17 +403,16 @@ test('a healthy server keeps the click on our own route, asking nobody else', as
 });
 
 test('a server that died since page load no longer strands the click', async () => {
-  // The last dependency on stats.cruxcoach.org: the beacon proved it was up
-  // minutes ago, and the button was pointed at it. Without this check the
-  // click would land on a dead host with no way back.
-  const { win, asked } = clickWith(deadExcept(METADATA), apkButton({ upgraded: true }));
+  // The beacon proved it was up minutes ago and the button was pointed at it.
+  // Without this check the click would land on a dead host with no way back.
+  const { win, asked } = clickWith(onlyCodeberg, apkButton({ upgraded: true }));
   await settle();
   assert.equal(win.location.href, CODEBERG_APK);
   assert.deepEqual(asked.map((a) => a[0]), [SELECTOR, METADATA]);
 });
 
-test('with our server and Codeberg both gone, the mirror still delivers', async () => {
-  const { win } = clickWith(dead, apkButton({ upgraded: true }));
+test('with our server and Codeberg both silent, the mirror still delivers', async () => {
+  const { win } = clickWith(hanging, apkButton({ upgraded: true }));
   await settle();
   assert.equal(win.location.href, MIRROR);
 });
@@ -411,13 +423,31 @@ test('a click that never reached us walks the two remaining targets', async () =
   assert.equal(healthy.win.location.href, CODEBERG_APK);
   assert.deepEqual(healthy.asked, [[METADATA, 'GET']], 'metadata, never the APK');
 
-  const gone = clickWith(dead, apkButton());
+  const silent = clickWith(hanging, apkButton());
   await settle();
-  assert.equal(gone.win.location.href, MIRROR);
+  assert.equal(silent.win.location.href, MIRROR);
 
-  const refusing = clickWith(async () => ({ ok: false, status: 404 }), apkButton());
+  const refused = clickWith(refusing, apkButton());
   await settle();
-  assert.equal(refusing.win.location.href, MIRROR);
+  assert.equal(refused.win.location.href, MIRROR);
+});
+
+test('a check that could not run never argues for the hash-named mirror', async () => {
+  // The bug this exists for. Our own download route sent no CORS header, so
+  // the liveness fetch failed on every click no matter how healthy the server
+  // was; the Codeberg check was then blocked by a tracking blocker, and the
+  // visitor was handed a file named after its SHA-256 while all three sources
+  // were up.
+  //
+  // A request that never happened is not evidence. It may cost the visitor the
+  // better source, but it must never cost them a legible file name.
+  const { win } = clickWith(blocked, apkButton({ upgraded: true }));
+  await settle();
+  assert.equal(win.location.href, CODEBERG_APK, 'the canonical, properly named file');
+
+  const notUpgraded = clickWith(blocked, apkButton());
+  await settle();
+  assert.equal(notUpgraded.win.location.href, CODEBERG_APK);
 });
 
 test('a slow host does not hold the download hostage', async () => {
@@ -429,9 +459,9 @@ test('a slow host does not hold the download hostage', async () => {
   const event = { button: 0, defaultPrevented: false, preventDefault() {} };
   apkClickHandler({
     windowImpl: win,
-    fetchImpl: (_url, init) => new Promise((_resolve, reject) => {
-      init.signal.addEventListener('abort', () => reject(new Error('aborted')));
-    }),
+    // A real AbortController rejects with an AbortError, and the name is what
+    // separates "too slow to be useful" from "the request never happened".
+    fetchImpl: hanging,
   })(event, apkButton());
   await settle();
   assert.equal(win.location.href, MIRROR);

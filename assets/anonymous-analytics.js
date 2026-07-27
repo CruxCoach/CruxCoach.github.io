@@ -171,8 +171,20 @@ export function releaseMetadataUrl(href) {
     : null;
 }
 
-/** True if the URL answered in time. Any failure, including a timeout. */
-function reachable(fetchImpl, win, url, timeoutMs, method) {
+/**
+ * Ask a host whether it is answering. Three outcomes, not two.
+ *
+ * 'up'      it answered
+ * 'down'    it answered badly, or did not answer inside the timeout
+ * 'unknown' the question could never be put — a content blocker, a missing
+ *           CORS header, no network at all
+ *
+ * The distinction is the whole point. Treating 'unknown' as 'down' is what
+ * sent visitors to the content-addressed mirror while every source was
+ * healthy: a blocked request looks exactly like a dead host, so the check
+ * must not be allowed to argue *for* the worse option on no evidence.
+ */
+function probe(fetchImpl, win, url, timeoutMs, method) {
   const controller = typeof AbortController === 'function'
     ? new AbortController() : null;
   const timer = win.setTimeout(() => controller && controller.abort(), timeoutMs);
@@ -184,8 +196,16 @@ function reachable(fetchImpl, win, url, timeoutMs, method) {
     referrerPolicy: 'no-referrer',
     signal: controller ? controller.signal : undefined,
   })).then(
-    (response) => { win.clearTimeout(timer); return !(response && response.ok === false); },
-    () => { win.clearTimeout(timer); return false; },
+    (response) => {
+      win.clearTimeout(timer);
+      return (response && response.ok === false) ? 'down' : 'up';
+    },
+    (error) => {
+      win.clearTimeout(timer);
+      // A host too slow to answer inside the timeout is unhealthy enough to
+      // route around. Anything else says nothing about the host.
+      return (error && error.name === 'AbortError') ? 'down' : 'unknown';
+    },
   );
 }
 
@@ -233,8 +253,11 @@ export function apkClickHandler(options = {}) {
 
     event.preventDefault();
     const go = (url) => { win.location.href = url; };
-    const thirdParty = () => reachable(fetchImpl, win, metadataUrl, mirrorTimeout, 'GET')
-      .then((up) => go(up ? direct : mirror));
+    // Only a Codeberg that positively answered badly sends anyone to the
+    // mirror. The mirror works, but it is content-addressed, so the file
+    // arrives named after its hash — a last resort, not a coin flip.
+    const thirdParty = () => probe(fetchImpl, win, metadataUrl, mirrorTimeout, 'GET')
+      .then((state) => go(state === 'down' ? mirror : direct));
 
     if (!upgraded) {
       thirdParty();
@@ -243,8 +266,12 @@ export function apkClickHandler(options = {}) {
     // Upgraded means our server answered when the page loaded — minutes ago,
     // possibly. A HEAD costs one round trip and counts nothing, and without it
     // this click would be the one place the button still depends on us.
-    reachable(fetchImpl, win, data.apkSelector, selectorTimeout, 'HEAD')
-      .then((up) => (up ? go(data.apkSelector) : thirdParty()));
+    //
+    // 'unknown' counts against us here, unlike above: a blocker that stops
+    // this request almost certainly stops the download too, and the way out
+    // leads to Codeberg's properly named file rather than to a hash.
+    probe(fetchImpl, win, data.apkSelector, selectorTimeout, 'HEAD')
+      .then((state) => (state === 'up' ? go(data.apkSelector) : thirdParty()));
     return true;
   };
 }
