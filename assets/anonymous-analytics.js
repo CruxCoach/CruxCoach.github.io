@@ -172,8 +172,9 @@ export function initAnonymousAnalytics(root = document, options = {}) {
         }, { ...options, navigatorImpl: nav, windowImpl: win });
       }
       // An upgraded button is counted by the selector that serves it. A button
-      // still on its Codeberg default never reaches us, so count it here —
-      // otherwise an outage would look like nobody wanted the app.
+      // still on its Codeberg default never reaches us, so count it here. This
+      // rescues the click that beat the upgrade, not an outage: if our server
+      // is down, this request cannot arrive either.
       const selectorUrl = directApk.dataset && directApk.dataset.apkSelector;
       const surface = surfaceOf(selectorUrl);
       if (surface && directApk.getAttribute('href') !== selectorUrl) {

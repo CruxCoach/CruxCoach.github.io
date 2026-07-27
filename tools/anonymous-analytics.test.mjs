@@ -215,22 +215,21 @@ test('each direct-APK click is counted exactly once, whoever serves it', async (
     fetchImpl: async (_url, request) => { payloads.push(JSON.parse(request.body)); },
   });
 
-  // Server down: it never sees the click, so the client records it.
-  const offline = pageWithApkButton();
-  initAnonymousAnalytics(offline, {
-    ...options(offline),
-    fetchImpl: async (_url, request) => {
-      payloads.push(JSON.parse(request.body));
-      throw new Error('connection refused');
-    },
-  });
-  await new Promise((resolve) => { setTimeout(resolve, 0); });
-  clickTheButton(offline);
+  // A click that beats the upgrade — a real race on a warm cache. The server is
+  // up but never sees this one, because it went straight to Codeberg, so the
+  // client is the only place it can be recorded.
+  //
+  // Note what this does NOT rescue: if our server is genuinely down, this
+  // request cannot arrive either. During an outage nothing is counted anywhere,
+  // and no arrangement of client code can change that.
+  const raced = pageWithApkButton();
+  initAnonymousAnalytics(raced, options(raced));
+  clickTheButton(raced);
   assert.deepEqual(payloads.filter((p) => p.metric === 'install_click'), [
     { metric: 'install_click', target: 'direct_apk', surface: 'hero', path: '/' },
   ]);
 
-  // Server up: the selector counts the click as it serves the file. Counting
+  // Upgraded: the selector counts the click as it serves the file. Counting
   // here as well would double every direct-APK install in the daily figures.
   payloads.length = 0;
   const online = pageWithApkButton();
