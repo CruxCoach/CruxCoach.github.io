@@ -120,6 +120,12 @@
      switch on the right; inside a <nav> this never matches. */
   header .container > .hdr-dl { margin-left: auto; }
   .hdr-dl .short { display: none; }
+  /* Below this the logo carries the brand on its own. Clipped, not removed:
+     the SVG is aria-hidden, so dropping the name would leave the link with no
+     discernible text at all. */
+  @media (max-width: 430px) {
+    .brand .brand-name { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  }
   /* Beside a logo, a Board Map link and a language switch, the full label is
      what makes a phone header feel packed. Shortened rather than dropped: the
      button is the one thing in there most people came for. */
@@ -147,7 +153,7 @@
         <path d="M260,456 A200,200 0 1 0 264,56 L264,128 A128,128 0 1 1 260,384 Z" fill="url(#gR)"/>
         <polygon points="192,214 214,192 256,234 298,192 320,214 274,256 320,298 298,320 256,278 214,320 192,298 238,256" fill="url(#gX)"/>
       </svg>
-      CruxCoach
+      <span class="brand-name">CruxCoach</span>
     </a>
     <a class="hdr-dl" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/moonboard-en/topbar" data-apk-mirror="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4.apk"><span class="long">Download CruxCoach</span><span class="short">Download</span></a>
     <span class="lang"><span aria-current="true">EN</span><span class="lang-sep"> · </span><a href="/de/moonboard-app.html">DE</a></span>

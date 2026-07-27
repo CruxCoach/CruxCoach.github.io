@@ -26,7 +26,7 @@
 
 'use strict';
 
-var VERSION = 'cc-v30';
+var VERSION = 'cc-v31';
 var CACHE = 'cruxcoach-' + VERSION;
 var MIRRORS_KEY = '/__mirrors__';
 

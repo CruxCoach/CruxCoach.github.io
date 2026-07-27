@@ -229,3 +229,18 @@ test('the header button has a short label for narrow screens', () => {
     assert.match(html, /\.hdr-dl \.long \{ display: none; \}/, `${filename}: narrow-screen swap`);
   }
 });
+
+test('the brand keeps a discernible name at every width', () => {
+  // The logo is aria-hidden, so on the narrow screens where the brand text is
+  // taken out of the layout it has to stay in the accessibility tree — a
+  // display:none here would leave the link with no name at all.
+  for (const [filename] of selectorSurfaces) {
+    const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
+    if (!html.includes('class="brand-name"')) continue;
+    assert.match(html, /<span class="brand-name">CruxCoach<\/span>/, filename);
+    const rule = /\.brand \.brand-name \{([^}]*)\}/.exec(html);
+    assert.ok(rule, `${filename}: needs a narrow-screen rule`);
+    assert.doesNotMatch(rule[1], /display:\s*none/, `${filename}: must be clipped, not removed`);
+    assert.match(rule[1], /clip:/, filename);
+  }
+});

@@ -384,6 +384,9 @@ ${LIST_HREFLANG}
      button is the one thing in there most people came for. */
   @media (max-width: 560px) {
     .hdr-dl { padding: 0.3em 0.65em; font-size: 0.78rem; }
+    /* No logo here, so the brand text has to stay; the Home link is the
+       redundant one — the brand already goes there. */
+    nav a.nav-home { display: none; }
     .hdr-dl .long { display: none; }
     .hdr-dl .short { display: inline; }
     header .container { gap: 0.6rem; }
@@ -413,7 +416,7 @@ ${LIST_HREFLANG}
     <a href="${P.homeHref}" class="brand">CruxCoach</a>
     <nav>
       <a href="${P.mapHref}">${S.navMap}</a>
-      <a href="${P.homeHref}">${S.navHome}</a>
+      <a class="nav-home" href="${P.homeHref}">${S.navHome}</a>
       <a class="hdr-dl" href="${APK_URL}" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/${P.apkPageKey}/topbar" data-apk-mirror="${APK_MIRROR}">${S.navDownload}</a>
     </nav>
   </div>
