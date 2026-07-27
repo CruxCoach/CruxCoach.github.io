@@ -146,7 +146,8 @@ export function upgradeApkButtons(root) {
 /** The surface is the last segment of /download/apk/<page-key>/<surface>. */
 function surfaceOf(selectorUrl) {
   const surface = String(selectorUrl || '').split('/').pop();
-  return ['hero', 'install', 'shared_climb'].includes(surface) ? surface : null;
+  return ['hero', 'install', 'shared_climb', 'topbar'].includes(surface)
+    ? surface : null;
 }
 
 export const MIRROR_CHECK_TIMEOUT_MS = 1500;

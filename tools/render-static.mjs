@@ -34,6 +34,11 @@ export const BOARD_LABELS = {
 
 // All user-facing text per language. Board names, layout names and brand
 // words (Wellpass, OpenStreetMap) stay untranslated by design.
+// Kept in step by tools/update-download-link.mjs, which rewrites every
+// codeberg.org release URL and every cdn.zapstore.dev digest in this file.
+const APK_URL = 'https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk';
+const APK_MIRROR = 'https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4.apk';
+
 const STRINGS = {
   en: {
     unknownLocation: 'Unknown location',
@@ -55,6 +60,7 @@ const STRINGS = {
     bcList: 'Full Directory',
     navMap: 'Interactive map',
     navHome: 'Home',
+    navDownload: 'Download CruxCoach',
     h1: 'All climbing board locations worldwide',
     lede: (mapHref, total, countries, perBoardSentence) => `A complete, text-based directory of every venue on the
       <a href="${mapHref}">CruxCoach climbing board map</a>: <strong>${total} venues</strong>
@@ -87,6 +93,7 @@ const STRINGS = {
     bcList: 'Gesamtverzeichnis',
     navMap: 'Interaktive Karte',
     navHome: 'Start',
+    navDownload: 'CruxCoach laden',
     h1: 'Alle Kletterboard-Standorte weltweit',
     lede: (mapHref, total, countries, perBoardSentence) => `Ein vollständiges, textbasiertes Verzeichnis aller Standorte auf der
       <a href="${mapHref}">CruxCoach-Kletterboard-Karte</a>: <strong>${total} Standorte</strong>
@@ -107,6 +114,7 @@ const PAGES = {
     htmlLang: 'en',
     homeHref: '/',
     mapHref: '/boards/',
+    apkPageKey: 'boards-en',
     listHref: '/boards/list.html',
     homeUrl: 'https://cruxcoach.org/',
     mapUrl: 'https://cruxcoach.org/boards/',
@@ -117,6 +125,7 @@ const PAGES = {
     htmlLang: 'de',
     homeHref: '/de/',
     mapHref: '/de/boards/',
+    apkPageKey: 'boards-de',
     listHref: '/de/boards/list.html',
     homeUrl: 'https://cruxcoach.org/de/',
     mapUrl: 'https://cruxcoach.org/de/boards/',
@@ -357,6 +366,14 @@ ${LIST_HREFLANG}
   nav { margin-left: auto; display: flex; gap: 1.25rem; font-size: 0.95rem; }
   nav a { color: var(--fg-soft); border-bottom: 0; }
   nav a:hover { color: var(--accent); }
+  /* Header download button, same as on the hand-written pages. */
+  .hdr-dl { display: inline-flex; align-items: center; padding: 0.35em 0.85em; border-radius: 6px; background: var(--accent); color: #141312; font-size: 0.85rem; font-weight: 600; white-space: nowrap; border-bottom: 0; flex-shrink: 0; }
+  .hdr-dl:hover { background: #d36c40; border-bottom: 0; }
+  /* Pages without a <nav> lay the header out with space-between, which
+     would strand the button in the middle. Group it with the language
+     switch on the right; inside a <nav> this never matches. */
+  header .container > .hdr-dl { margin-left: auto; }
+  @media (max-width: 560px) { .hdr-dl { padding: 0.3em 0.6em; font-size: 0.78rem; } }
   main { padding: 2.5rem 0 1rem; }
   .lede { font-size: 1.15rem; color: var(--fg-soft); max-width: 44rem; }
   .muted { color: var(--fg-mute); font-weight: 400; }
@@ -383,6 +400,7 @@ ${LIST_HREFLANG}
     <nav>
       <a href="${P.mapHref}">${S.navMap}</a>
       <a href="${P.homeHref}">${S.navHome}</a>
+      <a class="hdr-dl" href="${APK_URL}" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/${P.apkPageKey}/topbar" data-apk-mirror="${APK_MIRROR}">${S.navDownload}</a>
     </nav>
   </div>
 </header>

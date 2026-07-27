@@ -68,6 +68,14 @@
   nav { margin-left: auto; display: flex; gap: 1.25rem; font-size: 0.95rem; }
   nav a { color: var(--fg-soft); border-bottom: 0; }
   nav a:hover { color: var(--accent); }
+  /* Header download button, same as on the hand-written pages. */
+  .hdr-dl { display: inline-flex; align-items: center; padding: 0.35em 0.85em; border-radius: 6px; background: var(--accent); color: #141312; font-size: 0.85rem; font-weight: 600; white-space: nowrap; border-bottom: 0; flex-shrink: 0; }
+  .hdr-dl:hover { background: #d36c40; border-bottom: 0; }
+  /* Pages without a <nav> lay the header out with space-between, which
+     would strand the button in the middle. Group it with the language
+     switch on the right; inside a <nav> this never matches. */
+  header .container > .hdr-dl { margin-left: auto; }
+  @media (max-width: 560px) { .hdr-dl { padding: 0.3em 0.6em; font-size: 0.78rem; } }
   main { padding: 2.5rem 0 1rem; }
   .lede { font-size: 1.15rem; color: var(--fg-soft); max-width: 44rem; }
   .muted { color: var(--fg-mute); font-weight: 400; }
@@ -94,6 +102,7 @@
     <nav>
       <a href="/boards/">Interactive map</a>
       <a href="/">Home</a>
+      <a class="hdr-dl" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/boards-en/topbar" data-apk-mirror="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4.apk">Download CruxCoach</a>
     </nav>
   </div>
 </header>

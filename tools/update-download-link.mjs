@@ -28,7 +28,22 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const FILES = ['index.html', 'de/index.html', '404.html', 'llms.txt', 'kilter-board-app-alternative.html', 'de/kilter-board-app-alternative.html', 'moonboard-app.html', 'de/moonboard-app.html', 'tension-board-app.html', 'de/tension-board-app.html'];
+// Every file that names a release URL or the mirror digest. The header
+// download button put one on almost every page, and render-static.mjs holds
+// the pair the generated board list pages inherit — miss any of them and that
+// page keeps offering the previous release for ever.
+const FILES = [
+  'index.html', 'de/index.html', '404.html', 'llms.txt',
+  'kilter-board-app-alternative.html', 'de/kilter-board-app-alternative.html',
+  'moonboard-app.html', 'de/moonboard-app.html',
+  'tension-board-app.html', 'de/tension-board-app.html',
+  'privacy.html', 'de/privacy.html',
+  'imprint.html', 'de/imprint.html',
+  'support.html', 'de/support.html',
+  'boards/index.html', 'de/boards/index.html',
+  'boards/list.html', 'de/boards/list.html',
+  'tools/render-static.mjs',
+];
 const MANIFEST = path.join(ROOT, 'apk-target.json');
 
 // Whoever commits the result has to know exactly which files this script may

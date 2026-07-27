@@ -260,27 +260,44 @@ test('every static page loads the local aggregate client', () => {
   }
 });
 
-test('Zapstore clicks use the JS counter and direct APK clicks use the redirect', () => {
-  const expected = [
-    ['index.html', 'hero'],
-    ['index.html', 'install'],
-    ['de/index.html', 'hero'],
-    ['de/index.html', 'install'],
-    ['kilter-board-app-alternative.html', 'hero'],
-    ['de/kilter-board-app-alternative.html', 'hero'],
-    ['moonboard-app.html', 'hero'],
-    ['de/moonboard-app.html', 'hero'],
-    ['tension-board-app.html', 'hero'],
-    ['de/tension-board-app.html', 'hero'],
-    ['404.html', 'shared_climb'],
-  ];
-  for (const [page, surface] of expected) {
+test('Zapstore is offered in the install section and nowhere else', () => {
+  // One call to action per surface. The hero used to offer Zapstore beside the
+  // APK; two buttons asking the same question is a decision the visitor should
+  // not have to make on arrival, so the store now appears only where someone
+  // has come looking for installation options.
+  const withInstallSection = ['index.html', 'de/index.html'];
+  for (const page of withInstallSection) {
     const html = fs.readFileSync(path.join(repoRoot, page), 'utf8');
+    const zapstore = html.match(/data-analytics-install-target="zapstore"/g) || [];
+    assert.equal(zapstore.length, 1, `${page}: exactly one Zapstore button`);
     assert.match(
       html,
-      new RegExp(`data-analytics-install-target="zapstore"[^>]*data-analytics-surface="${surface}"`),
-      `${page}: zapstore/${surface}`,
+      /data-analytics-install-target="zapstore"[^>]*data-analytics-surface="install"/,
+      page,
     );
+  }
+
+  const heroOnly = [
+    'kilter-board-app-alternative.html', 'de/kilter-board-app-alternative.html',
+    'moonboard-app.html', 'de/moonboard-app.html',
+    'tension-board-app.html', 'de/tension-board-app.html',
+  ];
+  for (const page of heroOnly) {
+    const html = fs.readFileSync(path.join(repoRoot, page), 'utf8');
+    assert.doesNotMatch(html, /data-analytics-install-target="zapstore"/, page);
+  }
+
+  // The shared-climb landing keeps its Zapstore option: it has no install
+  // section to move it to, and someone arriving from a link has no other
+  // route to an auto-updating install.
+  const shared = fs.readFileSync(path.join(repoRoot, '404.html'), 'utf8');
+  assert.match(
+    shared,
+    /data-analytics-install-target="zapstore"[^>]*data-analytics-surface="shared_climb"/,
+  );
+
+  for (const page of [...withInstallSection, ...heroOnly, '404.html']) {
+    const html = fs.readFileSync(path.join(repoRoot, page), 'utf8');
     assert.doesNotMatch(html, /data-analytics-install-target="direct_apk"/, page);
     assert.match(html, /https:\/\/stats\.cruxcoach\.org\/download\/apk\//, page);
   }
@@ -326,7 +343,7 @@ test('privacy notices distinguish private analytics operations from public app s
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v27';/);
+  assert.match(source, /var VERSION = 'cc-v28';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
 });

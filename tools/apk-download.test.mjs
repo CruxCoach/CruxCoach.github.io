@@ -15,6 +15,26 @@ const selectorSurfaces = [
   ['moonboard-app.html', 'moonboard-en', 'hero'],
   ['de/moonboard-app.html', 'moonboard-de', 'hero'],
   ['404.html', 'shared-climb', 'shared_climb'],
+  // The header button, on every page that has a header. 404.html has none —
+  // it is the shared-climb landing and carries its own call to action.
+  ['index.html', 'home-en', 'topbar'],
+  ['de/index.html', 'home-de', 'topbar'],
+  ['kilter-board-app-alternative.html', 'kilter-en', 'topbar'],
+  ['de/kilter-board-app-alternative.html', 'kilter-de', 'topbar'],
+  ['moonboard-app.html', 'moonboard-en', 'topbar'],
+  ['de/moonboard-app.html', 'moonboard-de', 'topbar'],
+  ['tension-board-app.html', 'tension-en', 'topbar'],
+  ['de/tension-board-app.html', 'tension-de', 'topbar'],
+  ['privacy.html', 'privacy-en', 'topbar'],
+  ['de/privacy.html', 'privacy-de', 'topbar'],
+  ['imprint.html', 'imprint-en', 'topbar'],
+  ['de/imprint.html', 'imprint-de', 'topbar'],
+  ['support.html', 'support-en', 'topbar'],
+  ['de/support.html', 'support-de', 'topbar'],
+  ['boards/index.html', 'boards-en', 'topbar'],
+  ['de/boards/index.html', 'boards-de', 'topbar'],
+  ['boards/list.html', 'boards-en', 'topbar'],
+  ['de/boards/list.html', 'boards-de', 'topbar'],
 ];
 
 test('keeps Codeberg as the canonical JSON-LD download URL', () => {
@@ -149,4 +169,28 @@ test('the nightly updater keeps the mirror attribute in step with the release', 
     'data-apk-mirror="https://cdn.zapstore.dev/' + 'a'.repeat(64) + '.apk"',
     'the .apk suffix must survive the rewrite',
   );
+});
+
+test('every page with a header offers the download, generated ones included', () => {
+  // boards/list.html is written by render-static.mjs, so the button has to
+  // exist in the generator too — a hand-edit there is overwritten by the next
+  // nightly build without a word.
+  const pages = fs.readdirSync(repoRoot)
+    .filter((name) => name.endsWith('.html'))
+    .concat(['de/index.html', 'de/privacy.html', 'de/imprint.html', 'de/support.html',
+             'boards/index.html', 'boards/list.html',
+             'de/boards/index.html', 'de/boards/list.html']);
+  for (const page of pages) {
+    const html = fs.readFileSync(path.join(repoRoot, page), 'utf8');
+    if (!html.includes('<header>')) continue;
+    const buttons = html.match(/class="hdr-dl"/g) || [];
+    assert.equal(buttons.length, 1, `${page}: exactly one header download button`);
+    assert.match(html, /data-apk-selector="[^"]+\/topbar"/, page);
+  }
+
+  const generator = fs.readFileSync(
+    path.join(repoRoot, 'tools/render-static.mjs'), 'utf8');
+  assert.match(generator, /class="hdr-dl"/, 'the generator must emit it as well');
+  assert.match(generator, /apkPageKey: 'boards-en'/);
+  assert.match(generator, /apkPageKey: 'boards-de'/);
 });

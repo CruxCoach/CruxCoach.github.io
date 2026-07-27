@@ -54,6 +54,14 @@
   .meta { font-size: 0.9rem; color: var(--fg-mute); margin-bottom: 2rem; }
   footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; color: var(--fg-mute); font-size: 0.85rem; text-align: center; }
   footer a { color: var(--fg-soft); }
+  /* Header download button. Self-contained: these pages share no stylesheet. */
+  .hdr-dl { display: inline-flex; align-items: center; padding: 0.35em 0.85em; border-radius: 6px; background: var(--accent); color: #141312; font-size: 0.85rem; font-weight: 600; white-space: nowrap; border-bottom: 0; flex-shrink: 0; }
+  .hdr-dl:hover { background: #d36c40; border-bottom: 0; }
+  /* Pages without a <nav> lay the header out with space-between, which
+     would strand the button in the middle. Group it with the language
+     switch on the right; inside a <nav> this never matches. */
+  header .container > .hdr-dl { margin-left: auto; }
+  @media (max-width: 560px) { .hdr-dl { padding: 0.3em 0.6em; font-size: 0.78rem; } }
 </style>
 </head>
 <body>
@@ -74,6 +82,7 @@
       </svg>
       CruxCoach
     </a>
+    <a class="hdr-dl" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/imprint-de/topbar" data-apk-mirror="https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4.apk">CruxCoach laden</a>
     <span class="lang"><a href="/imprint.html">EN</a><span class="lang-sep"> · </span><span aria-current="true">DE</span></span>
   </div>
 </header>
