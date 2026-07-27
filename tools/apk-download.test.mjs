@@ -194,3 +194,26 @@ test('every page with a header offers the download, generated ones included', ()
   assert.match(generator, /apkPageKey: 'boards-en'/);
   assert.match(generator, /apkPageKey: 'boards-de'/);
 });
+
+test('the header button stays visible and legible where nav rules fight it', () => {
+  // Two rules on the pages with a <nav> would otherwise take it apart:
+  // `nav a:hover { color: var(--accent) }` paints the label the same orange as
+  // the button, and `@media (max-width: 900px) { nav > a { display: none } }`
+  // hides every nav link — including the one people came for — on any phone.
+  for (const [filename] of selectorSurfaces) {
+    const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
+    if (!html.includes('class="hdr-dl"')) continue;
+    assert.match(
+      html,
+      /\.hdr-dl:hover[^{]*\{[^}]*color: #141312/,
+      `${filename}: hover must restate the label colour`,
+    );
+    if (/nav > a \{ display: none/.test(html)) {
+      assert.match(
+        html,
+        /nav > a\.hdr-dl \{ display: inline-flex/,
+        `${filename}: the narrow-screen rule must not hide it`,
+      );
+    }
+  }
+});

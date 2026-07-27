@@ -53,7 +53,12 @@
   footer a { color: var(--fg-soft); }
   /* Header download button. Self-contained: these pages share no stylesheet. */
   .hdr-dl { display: inline-flex; align-items: center; padding: 0.35em 0.85em; border-radius: 6px; background: var(--accent); color: #141312; font-size: 0.85rem; font-weight: 600; white-space: nowrap; border-bottom: 0; flex-shrink: 0; }
-  .hdr-dl:hover { background: #d36c40; border-bottom: 0; }
+  /* nav a:hover paints links in the accent colour, which on this button would
+     be orange text on an orange background — so the colour is restated here. */
+  .hdr-dl:hover, .hdr-dl:focus { background: #d36c40; color: #141312; border-bottom: 0; }
+  /* The narrow-screen rule hides every nav link so the header fits. This one is
+     the reason most people opened the page, so it survives that. */
+  nav > a.hdr-dl { display: inline-flex; }
   /* Pages without a <nav> lay the header out with space-between, which
      would strand the button in the middle. Group it with the language
      switch on the right; inside a <nav> this never matches. */
