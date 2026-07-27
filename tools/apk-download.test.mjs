@@ -113,3 +113,40 @@ test('the nightly updater never downloads the Codeberg APK for validation', () =
   assert.deepEqual(fetchTargets, ['API', 'shaUrl', 'zapstoreUrl', 'zapstoreUrl']);
   assert.ok(!fetchTargets.includes('apkUrl'), 'never fetch the Codeberg asset');
 });
+
+test('every direct-APK button carries the content-addressed mirror', () => {
+  // The click-time last resort can only redirect to a target the markup names,
+  // and it refuses anything that is not the Zapstore CDN blob for this release.
+  for (const [filename] of selectorSurfaces) {
+    const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
+    const mirrors = html.match(/data-apk-mirror="([^"]+)"/g) || [];
+    const selectors = html.match(/data-apk-selector="/g) || [];
+    assert.equal(mirrors.length, selectors.length, `${filename}: one mirror per button`);
+    for (const mirror of mirrors) {
+      assert.match(
+        mirror,
+        /^data-apk-mirror="https:\/\/cdn\.zapstore\.dev\/[0-9a-f]{64}\.apk"$/,
+        filename,
+      );
+    }
+  }
+});
+
+test('the nightly updater keeps the mirror attribute in step with the release', () => {
+  // Without this the attribute would silently rot to an old release, and the
+  // last resort would hand out a version nobody asked for.
+  const updater = fs.readFileSync(
+    path.join(repoRoot, 'tools/update-download-link.mjs'), 'utf8');
+  const zapstoreRe = /const ZAPSTORE_LINK_RE = (.+);/.exec(updater);
+  assert.ok(zapstoreRe, 'updater must define ZAPSTORE_LINK_RE');
+  // eslint-disable-next-line no-eval
+  const pattern = eval(zapstoreRe[1]);
+  const markup = 'data-apk-mirror="https://cdn.zapstore.dev/'
+    + '0'.repeat(64) + '.apk"';
+  const rewritten = markup.replace(pattern, 'https://cdn.zapstore.dev/' + 'a'.repeat(64));
+  assert.equal(
+    rewritten,
+    'data-apk-mirror="https://cdn.zapstore.dev/' + 'a'.repeat(64) + '.apk"',
+    'the .apk suffix must survive the rewrite',
+  );
+});

@@ -142,51 +142,144 @@ function surfaceOf(selectorUrl) {
   return ['hero', 'install', 'shared_climb'].includes(surface) ? surface : null;
 }
 
+export const MIRROR_CHECK_TIMEOUT_MS = 1500;
+
+const CODEBERG_APK_RE =
+  /^https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/(v\d+\.\d+\.\d+)\/CruxCoach-v\d+\.\d+\.\d+\.apk$/;
+const MIRROR_RE = /^https:\/\/cdn\.zapstore\.dev\/[0-9a-f]{64}\.apk$/i;
+
+/**
+ * Read metadata URL for the release a Codeberg APK link belongs to.
+ *
+ * Never the APK attachment itself: a HEAD or GET there would register as a
+ * download on Codeberg and inflate a counter other people read.
+ */
+export function releaseMetadataUrl(href) {
+  const match = CODEBERG_APK_RE.exec(String(href || ''));
+  return match
+    ? `https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/tags/${match[1]}`
+    : null;
+}
+
+/**
+ * Last resort for a click that cannot reach our server.
+ *
+ * Only ever runs on a button still holding its Codeberg default — meaning our
+ * selector is out of reach and Codeberg is the sole remaining route. If that
+ * route is down too, the visitor would get nothing, so we ask Codeberg whether
+ * the release is there and send them to the Zapstore mirror when it is not.
+ *
+ * The question is asked at click time and never before. By clicking, the
+ * visitor already set out for Codeberg — so this reveals them to nobody they
+ * were not about to reach anyway, which is exactly why no such check may run
+ * on page load.
+ */
+export function apkFallbackHandler(options = {}) {
+  const win = options.windowImpl
+    || (typeof window !== 'undefined' ? window : null);
+  const fetchImpl = options.fetchImpl
+    || (typeof fetch === 'function' ? fetch.bind(globalThis) : null);
+  const timeoutMs = options.mirrorTimeoutMs || MIRROR_CHECK_TIMEOUT_MS;
+  if (!win || !fetchImpl) return () => false;
+
+  return function handleFallback(event, button) {
+    // Leave every non-plain activation to the browser. Intercepting a
+    // middle-click or ⌘-click would silently turn "open in a new tab" into a
+    // navigation in this one.
+    if (event.defaultPrevented) return false;
+    if (event.button !== undefined && event.button !== 0) return false;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
+
+    const href = button && typeof button.getAttribute === 'function'
+      ? button.getAttribute('href') : null;
+    const mirror = button && button.dataset && button.dataset.apkMirror;
+    const metadataUrl = releaseMetadataUrl(href);
+    // Both targets must be recognisable, or we have no business redirecting.
+    if (!metadataUrl || !mirror || !MIRROR_RE.test(mirror)) return false;
+
+    event.preventDefault();
+    const controller = typeof AbortController === 'function'
+      ? new AbortController() : null;
+    const timer = win.setTimeout(
+      () => controller && controller.abort(), timeoutMs);
+    const go = (url) => { win.clearTimeout(timer); win.location.href = url; };
+
+    Promise.resolve(fetchImpl(metadataUrl, {
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'omit',
+      cache: 'no-store',
+      referrerPolicy: 'no-referrer',
+      signal: controller ? controller.signal : undefined,
+    })).then(
+      // A slow Codeberg must not hold the download hostage: the abort above
+      // lands here as a rejection and takes the visitor to the mirror.
+      (response) => go(response && response.ok === false ? mirror : href),
+      () => go(mirror),
+    );
+    return true;
+  };
+}
+
 export function initAnonymousAnalytics(root = document, options = {}) {
   const win = options.windowImpl
     || (typeof window !== 'undefined' ? window : { location: { pathname: '/' } });
   const nav = options.navigatorImpl
     || (typeof navigator !== 'undefined' ? navigator : {});
-  if (privacySignalEnabled(nav, win)) return;
-  const storage = sessionStorageFor(win, options);
+  // A privacy signal switches off counting, never the download. Getting the
+  // app must not depend on being willing to be counted.
+  const analyticsOff = privacySignalEnabled(nav, win);
+  const storage = analyticsOff ? null : sessionStorageFor(win, options);
   const now = options.nowImpl || Date.now;
   const canonicalPath = normalizePagePath(win.location && win.location.pathname);
+  const fallback = apkFallbackHandler({ ...options, windowImpl: win });
 
-  sendAnonymousEvent({
-    metric: 'page_view',
-    path: canonicalPath,
-  }, { ...options, navigatorImpl: nav, windowImpl: win })
-    .then((delivered) => (delivered ? upgradeApkButtons(root) : 0));
+  if (!analyticsOff) {
+    sendAnonymousEvent({
+      metric: 'page_view',
+      path: canonicalPath,
+    }, { ...options, navigatorImpl: nav, windowImpl: win })
+      .then((delivered) => (delivered ? upgradeApkButtons(root) : 0));
+  }
 
   root.addEventListener('click', (event) => {
     const directApk = event.target && typeof event.target.closest === 'function'
       ? event.target.closest('[data-apk-selector]')
       : null;
     if (directApk) {
-      if (consumeZapstoreFallback(storage, now())) {
-        sendAnonymousEvent({
-          metric: 'install_fallback',
-          from: 'zapstore',
-          to: 'direct_apk',
-          path: canonicalPath,
-        }, { ...options, navigatorImpl: nav, windowImpl: win });
-      }
-      // An upgraded button is counted by the selector that serves it. A button
-      // still on its Codeberg default never reaches us, so count it here. This
-      // rescues the click that beat the upgrade, not an outage: if our server
-      // is down, this request cannot arrive either.
       const selectorUrl = directApk.dataset && directApk.dataset.apkSelector;
-      const surface = surfaceOf(selectorUrl);
-      if (surface && directApk.getAttribute('href') !== selectorUrl) {
-        sendAnonymousEvent({
-          metric: 'install_click',
-          target: 'direct_apk',
-          surface,
-          path: canonicalPath,
-        }, { ...options, navigatorImpl: nav, windowImpl: win });
+      const upgraded = Boolean(selectorUrl)
+        && typeof directApk.getAttribute === 'function'
+        && directApk.getAttribute('href') === selectorUrl;
+      if (!analyticsOff) {
+        if (consumeZapstoreFallback(storage, now())) {
+          sendAnonymousEvent({
+            metric: 'install_fallback',
+            from: 'zapstore',
+            to: 'direct_apk',
+            path: canonicalPath,
+          }, { ...options, navigatorImpl: nav, windowImpl: win });
+        }
+        // An upgraded button is counted by the selector that serves it. A
+        // button still on its Codeberg default never reaches us, so count it
+        // here. This rescues the click that beat the upgrade, not an outage:
+        // if our server is down, this request cannot arrive either.
+        const surface = surfaceOf(selectorUrl);
+        if (surface && !upgraded) {
+          sendAnonymousEvent({
+            metric: 'install_click',
+            target: 'direct_apk',
+            surface,
+            path: canonicalPath,
+          }, { ...options, navigatorImpl: nav, windowImpl: win });
+        }
       }
+      // Not upgraded means our selector is unreachable and Codeberg is the
+      // only route left — the one case worth verifying before handing it over.
+      if (!upgraded) fallback(event, directApk);
       return;
     }
+    if (analyticsOff) return;
 
     const target = event.target && typeof event.target.closest === 'function'
       ? event.target.closest('[data-analytics-install-target]')

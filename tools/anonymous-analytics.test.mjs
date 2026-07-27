@@ -6,7 +6,9 @@ import { fileURLToPath } from 'node:url';
 import {
   FALLBACK_WINDOW_MS,
   consumeZapstoreFallback,
+  apkFallbackHandler,
   initAnonymousAnalytics,
+  releaseMetadataUrl,
   upgradeApkButtons,
   markZapstoreClick,
   normalizePagePath,
@@ -327,4 +329,115 @@ test('service worker uses a fresh cache and precaches the analytics client once'
   assert.match(source, /var VERSION = 'cc-v25';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
+});
+
+const MIRROR =
+  'https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4.apk';
+const METADATA =
+  'https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/tags/v0.2.1';
+
+test('release metadata is derived from the link, never the attachment itself', () => {
+  assert.equal(releaseMetadataUrl(CODEBERG_APK), METADATA);
+  // A GET on the attachment would count as a Codeberg download.
+  assert.ok(!releaseMetadataUrl(CODEBERG_APK).endsWith('.apk'));
+  assert.equal(releaseMetadataUrl('https://evil.example/CruxCoach-v0.2.1.apk'), null);
+  assert.equal(releaseMetadataUrl(''), null);
+});
+
+function fallbackPage(fetchImpl, { mirror = MIRROR } = {}) {
+  const win = {
+    location: { href: CODEBERG_APK, pathname: '/' },
+    setTimeout: (fn, ms) => setTimeout(fn, ms),
+    clearTimeout: (id) => clearTimeout(id),
+  };
+  const button = {
+    href: CODEBERG_APK,
+    dataset: { apkSelector: SELECTOR, apkMirror: mirror },
+    getAttribute: () => button.href,
+  };
+  const event = { button: 0, defaultPrevented: false, preventDefault() { this.defaultPrevented = true; } };
+  const handled = apkFallbackHandler({ windowImpl: win, fetchImpl })(event, button);
+  return { win, event, handled };
+}
+
+const settle = () => new Promise((resolve) => { setTimeout(resolve, 5); });
+
+test('a click that cannot reach us goes to the mirror only if Codeberg is down', async () => {
+  const asked = [];
+  const healthy = fallbackPage(async (url) => { asked.push(url); return { ok: true }; });
+  await settle();
+  assert.deepEqual(asked, [METADATA]);
+  assert.equal(healthy.win.location.href, CODEBERG_APK, 'healthy Codeberg is kept');
+
+  const down = fallbackPage(async () => { throw new Error('host unreachable'); });
+  await settle();
+  assert.equal(down.win.location.href, MIRROR);
+
+  const refusing = fallbackPage(async () => ({ ok: false, status: 404 }));
+  await settle();
+  assert.equal(refusing.win.location.href, MIRROR);
+});
+
+test('a slow Codeberg does not hold the download hostage', async () => {
+  const win = {
+    location: { href: CODEBERG_APK, pathname: '/' },
+    setTimeout: (fn) => setTimeout(fn, 0),  // fire the abort immediately
+    clearTimeout: (id) => clearTimeout(id),
+  };
+  const button = {
+    href: CODEBERG_APK,
+    dataset: { apkSelector: SELECTOR, apkMirror: MIRROR },
+    getAttribute: () => button.href,
+  };
+  const event = { button: 0, defaultPrevented: false, preventDefault() {} };
+  apkFallbackHandler({
+    windowImpl: win,
+    fetchImpl: (_url, init) => new Promise((_resolve, reject) => {
+      init.signal.addEventListener('abort', () => reject(new Error('aborted')));
+    }),
+  })(event, button);
+  await settle();
+  assert.equal(win.location.href, MIRROR);
+});
+
+test('modified clicks and unrecognised targets are left to the browser', async () => {
+  for (const modifier of ['metaKey', 'ctrlKey', 'shiftKey', 'altKey']) {
+    const win = { location: { href: CODEBERG_APK }, setTimeout, clearTimeout };
+    const button = {
+      href: CODEBERG_APK,
+      dataset: { apkMirror: MIRROR },
+      getAttribute: () => CODEBERG_APK,
+    };
+    const event = { button: 0, [modifier]: true, preventDefault: () => assert.fail(modifier) };
+    assert.equal(
+      apkFallbackHandler({ windowImpl: win, fetchImpl: async () => assert.fail(modifier) })(event, button),
+      false, modifier);
+  }
+  // Middle-click opens a tab; hijacking it would navigate this one instead.
+  const win = { location: { href: CODEBERG_APK }, setTimeout, clearTimeout };
+  const middle = { button: 1, preventDefault: () => assert.fail('middle click') };
+  assert.equal(apkFallbackHandler({ windowImpl: win, fetchImpl: async () => {} })(
+    middle, { getAttribute: () => CODEBERG_APK, dataset: { apkMirror: MIRROR } }), false);
+
+  // A mirror that is not the content-addressed CDN is not a redirect target.
+  const evil = fallbackPage(async () => assert.fail('must not probe'), {
+    mirror: 'https://evil.example/CruxCoach.apk',
+  });
+  assert.equal(evil.handled, false);
+  assert.equal(evil.win.location.href, CODEBERG_APK);
+});
+
+test('a privacy signal keeps the download working while counting nothing', async () => {
+  const root = pageWithApkButton();
+  const sent = [];
+  initAnonymousAnalytics(root, {
+    navigatorImpl: { doNotTrack: '1' },
+    windowImpl: { location: { pathname: '/' }, setTimeout, clearTimeout },
+    fetchImpl: async (url) => { sent.push(url); return { ok: true }; },
+  });
+  await settle();
+  assert.deepEqual(sent, [], 'no page view, no click counter');
+  // The click handler is still registered: robustness is not a reward for
+  // agreeing to be counted.
+  assert.ok(root.handler, 'fallback handler must be registered');
 });
