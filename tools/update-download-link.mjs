@@ -155,4 +155,58 @@ if (beforeManifest === manifest) {
   rewritten += 1;
   console.log('apk-target.json: updated');
 }
+// Keep our own copy of the release in step with the manifest we just wrote.
+//
+// The selector serves that copy first, so it must never lag behind a release:
+// a stale file fails the digest check, the selector silently drops to Codeberg,
+// and nobody notices that the local stage stopped working. Doing it here makes
+// it self-healing — the copy is re-fetched on the first nightly run after a
+// release, with no step for a human to forget.
+//
+// Failure is NOT fatal on purpose. A missing or unreadable copy costs the
+// local stage, not the download: Codeberg and Zapstore remain, and the
+// selector's digest check refuses to serve anything it cannot vouch for.
+const LOCAL_APK_DIR = process.env.CRUXCOACH_APK_LOCAL_DIR
+  ?? path.join(ROOT, '..', 'cruxcoach-dlstats', 'apk');
+const localApk = path.join(LOCAL_APK_DIR, `CruxCoach-v${version}.apk`);
+
+function digestOf(file) {
+  try {
+    return createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+  } catch {
+    return null;
+  }
+}
+
+try {
+  if (digestOf(localApk) === apkSha256) {
+    console.log('local APK copy: already current');
+  } else {
+    fs.mkdirSync(LOCAL_APK_DIR, { recursive: true });
+    const response = await fetch(apkUrl, { redirect: 'follow' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const bytes = Buffer.from(await response.arrayBuffer());
+    const digest = createHash('sha256').update(bytes).digest('hex');
+    if (digest !== apkSha256 || bytes.length !== apk.size) {
+      throw new Error(`downloaded copy does not match the manifest (${digest})`);
+    }
+    // Write beside the target and rename, so a torn write can never be picked
+    // up as a valid copy by a selector refresh running at the same moment.
+    const temporary = `${localApk}.tmp`;
+    fs.writeFileSync(temporary, bytes);
+    fs.renameSync(temporary, localApk);
+    console.log(`local APK copy: fetched ${bytes.length} bytes, digest verified`);
+    // Older releases are dead weight once the manifest has moved on.
+    for (const name of fs.readdirSync(LOCAL_APK_DIR)) {
+      if (name.startsWith('CruxCoach-v') && name.endsWith('.apk')
+          && name !== path.basename(localApk)) {
+        fs.unlinkSync(path.join(LOCAL_APK_DIR, name));
+        console.log(`local APK copy: removed stale ${name}`);
+      }
+    }
+  }
+} catch (error) {
+  console.warn(`local APK copy: skipped (${error.message})`);
+}
+
 console.log(rewritten ? `${rewritten} file(s) rewritten` : 'all links already current');
