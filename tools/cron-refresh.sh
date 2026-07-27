@@ -178,6 +178,12 @@ run >> "$LOG_FILE" 2>&1
 rc=$?
 sync_mirror >> "$LOG_FILE" 2>&1
 
+# The apex certificate, on every host that serves it. Cheap, and the only way a
+# lapse gets noticed before visitors do — see the script for why a lapse is
+# plausible at all once more than one provider answers for the domain.
+"$REPO_ROOT/tools/check-apex-certs.sh" >> "$LOG_FILE" 2>&1 \
+  || echo "[$(date -Is)] apex certificate check reported a problem" >> "$LOG_FILE"
+
 # Nudge search engines after any new deployed main commit, including changes
 # merged outside this cron process. Non-fatal; failures retry on the next run.
 notify_indexnow >> "$LOG_FILE" 2>&1 || true
