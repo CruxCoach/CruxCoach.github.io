@@ -12,8 +12,8 @@
     {
       "id": "github-pages",
       "url": "https://cruxcoach.github.io",
-      "enabled": true,
-      "note": "GitHub Pages mirror (repo CruxCoach/CruxCoach.github.io, synced nightly by cron-refresh.sh). Verified 2026-07-08: serves the site at root with Access-Control-Allow-Origin: *."
+      "enabled": false,
+      "note": "Was the mirror until 2026-08-05. Now the APEX: with the CNAME file in this repo, GitHub 301s cruxcoach.github.io to cruxcoach.org, so listing it here would point the failover at the origin it is meant to survive."
     },
     {
       "id": "nsite",
