@@ -1,8 +1,14 @@
 {
   "version": 1,
-  "updated": "2026-07-08",
-  "_comment": "Authoritative mirror list for the resilience service worker (sw.js). Only entries with enabled:true and a non-empty url are used. Canonical origin (cruxcoach.org) is intentionally NOT listed here. codeberg.page slot removed 2026-07-08 (it 307-redirects to the custom domain, useless as a mirror); Disroot removed (no pages hosting).",
+  "updated": "2026-08-05",
+  "_comment": "Authoritative mirror list for the resilience service worker (sw.js). Only entries with enabled:true and a non-empty url are used. Canonical origin (cruxcoach.org) is intentionally NOT listed here. codeberg.page slot removed 2026-07-08 (it 307-redirects to the custom domain, useless as a mirror); Disroot removed (no pages hosting). 2026-08-05: added mirror.cruxcoach.org after the apex was 502 for a day \u2014 a mirror we operate ourselves is the only one we can repair. github-pages stays enabled ONLY until the apex moves to GitHub Pages; at that moment cruxcoach.github.io starts 301-ing to the apex and must be disabled, or the mirror resolves to the very origin it exists to survive.",
   "mirrors": [
+    {
+      "id": "own-server",
+      "url": "https://mirror.cruxcoach.org",
+      "enabled": true,
+      "note": "Our own host (Hetzner, same box as stats./blossom.), Caddy site block in cruxcoach-dlstats/deploy/caddy/Caddyfile serving the nightly checkout with Access-Control-Allow-Origin: *. Independent infrastructure from both Codeberg and GitHub."
+    },
     {
       "id": "github-pages",
       "url": "https://cruxcoach.github.io",
@@ -13,13 +19,13 @@
       "id": "nsite",
       "url": "",
       "enabled": false,
-      "note": "Planned nsite (Nostr+Blossom) gateway URL, e.g. https://<npub>.nsite.lol — fill once published via nsyte."
+      "note": "Planned nsite (Nostr+Blossom) gateway URL, e.g. https://<npub>.nsite.lol \u2014 fill once published via nsyte."
     },
     {
       "id": "ipfs-dnslink",
       "url": "",
       "enabled": false,
-      "note": "Planned IPFS gateway URL for the pinned CID — fill once pinned (Filebase free tier) and _dnslink TXT is set."
+      "note": "Planned IPFS gateway URL for the pinned CID \u2014 fill once pinned (Filebase free tier) and _dnslink TXT is set."
     }
   ]
 }
