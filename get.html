@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download CruxCoach</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://cruxcoach.org/get.html">
+<!--
+  Resolver for the in-app share QR.
+
+  A QR code encodes exactly one string, so the trick the website's download
+  button uses is unavailable to it: that button ships the durable forge URL in
+  `href` and is upgraded to our selector only once a beacon has proved the
+  selector is reachable. A scanned QR has no click-time hook and no chance to
+  change its mind — whatever host it names has to be up, months after the
+  screenshot was taken.
+
+  So the QR names the most available host we have (this one: a CDN) and the
+  fallback chain lives here instead. Same three sources as the button, same
+  order, and the version is never baked in: apk-target.json is same-origin and
+  rewritten nightly, so this page keeps resolving to the current release long
+  after the phone that generated the QR has gone stale.
+
+  Self-contained on purpose. An external stylesheet or script would add a
+  request that can fail on the one page whose whole job is not failing.
+-->
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #12100e; color: #f3efe9;
+    padding: 1.5rem;
+  }
+  main { max-width: 26rem; width: 100%; text-align: center; }
+  h1 { font-size: 1.4rem; margin: 0 0 .4rem; }
+  p { margin: 0 0 1.4rem; color: #b9b1a6; font-size: .95rem; }
+  a.btn {
+    display: block; padding: .9rem 1.2rem; margin-bottom: .6rem;
+    border-radius: 12px; text-decoration: none; font-weight: 600;
+    background: #e2600d; color: #fff;
+  }
+  a.alt { background: transparent; color: #e2600d; border: 1px solid #e2600d; }
+  .muted { font-size: .82rem; color: #8d857b; margin-top: 1.2rem; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <h1>CruxCoach</h1>
+  <p id="status">Resolving the current release…</p>
+
+  <a class="btn" id="primary" href="https://stats.cruxcoach.org/download/apk/app-share/qr">Download APK</a>
+  <a class="btn alt hidden" id="secondary" href="#">Alternative source</a>
+
+  <p class="muted">
+    Free and open source. Verify the download with the SHA-256 published on
+    <a href="/#install" style="color:#b9b1a6">cruxcoach.org</a>.
+  </p>
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  var SELECTOR = 'https://stats.cruxcoach.org/download/apk/app-share/qr';
+  var status = document.getElementById('status');
+  var primary = document.getElementById('primary');
+  var secondary = document.getElementById('secondary');
+
+  /* Build the two key-free fallbacks from the nightly manifest. Never a
+     hardcoded version: this page outlives the release it was written for. */
+  function fallbacksFrom(target) {
+    var out = [];
+    if (target && typeof target.codeberg_url === 'string') {
+      out.push({ url: target.codeberg_url, label: 'Download from the forge' });
+    }
+    if (target && typeof target.zapstore_url === 'string') {
+      out.push({ url: target.zapstore_url + '.apk', label: 'Download from the CDN' });
+    }
+    return out;
+  }
+
+  function offer(list, note) {
+    if (!list.length) {
+      status.textContent = note || 'No source is reachable right now. '
+        + 'Please try again in a few minutes.';
+      return;
+    }
+    primary.href = list[0].url;
+    primary.textContent = list[0].label || 'Download APK';
+    if (list[1]) {
+      secondary.href = list[1].url;
+      secondary.textContent = list[1].label;
+      secondary.classList.remove('hidden');
+    }
+    status.textContent = note || 'Ready.';
+  }
+
+  /* HEAD, not GET: this must not pull 34 MB just to learn the host is alive.
+     Short timeout — a hung host is worse than a dead one here, because the
+     visitor is staring at a blank button while it waits. */
+  function reachable(url, ms) {
+    var control = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = setTimeout(function () { if (control) control.abort(); }, ms);
+    return fetch(url, {
+      method: 'HEAD', mode: 'no-cors', cache: 'no-store',
+      signal: control ? control.signal : undefined
+    }).then(function () { clearTimeout(timer); return true; })
+      .catch(function () { clearTimeout(timer); return false; });
+  }
+
+  if (typeof fetch !== 'function') return;   // the markup already works
+
+  fetch('/apk-target.json', { cache: 'no-store' })
+    .then(function (res) { return res.ok ? res.json() : null; })
+    .catch(function () { return null; })
+    .then(function (target) {
+      var backups = fallbacksFrom(target);
+      var version = target && target.version ? ' v' + target.version : '';
+
+      return reachable(SELECTOR, 2500).then(function (ok) {
+        if (ok) {
+          // Fast path: our selector picks a healthy source itself and serves
+          // the APK under its real file name. Start it without a second tap —
+          // scanning the QR was already the decision to install.
+          offer([{ url: SELECTOR, label: 'Download CruxCoach' + version }]
+                  .concat(backups),
+                'Starting download…');
+          location.href = SELECTOR;
+          return;
+        }
+        offer(backups, backups.length
+          ? 'Our download server is not reachable. Use a direct source:'
+          : null);
+      });
+    });
+})();
+</script>
+</body>
+</html>

@@ -343,9 +343,30 @@ test('privacy notices distinguish private analytics operations from public app s
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v31';/);
+  assert.match(source, /var VERSION = 'cc-v32';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
+  // The share QR names this page and nothing else, so a visitor who scans it
+  // gets no second chance if it is missing from the precache.
+  assert.match(source, /'\/get\.html'/);
+});
+
+test('the share-QR resolver carries the same fallback chain as the button', () => {
+  const source = fs.readFileSync(path.join(repoRoot, 'get.html'), 'utf8');
+  // Fast path first: our selector, which resolves the current release itself.
+  assert.match(source, /stats\.cruxcoach\.org\/download\/apk\/app-share\/qr/);
+  // Then the two key-free sources, read from the nightly manifest rather than
+  // written into the page — this file outlives the release it was added in.
+  assert.match(source, /apk-target\.json/);
+  assert.match(source, /codeberg_url/);
+  assert.match(source, /zapstore_url/);
+  // A hardcoded version here would pin every future scan to today's release,
+  // which is the exact defect the QR change was made to fix.
+  assert.doesNotMatch(source, /v\d+\.\d+\.\d+/);
+  // Self-contained: one failed request is all it takes to break the one page
+  // whose entire job is not failing.
+  assert.doesNotMatch(source, /<script[^>]+src=/);
+  assert.doesNotMatch(source, /<link[^>]+stylesheet/);
 });
 
 const MIRROR =

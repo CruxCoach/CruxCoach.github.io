@@ -26,7 +26,7 @@
 
 'use strict';
 
-var VERSION = 'cc-v31';
+var VERSION = 'cc-v32';
 var CACHE = 'cruxcoach-' + VERSION;
 var MIRRORS_KEY = '/__mirrors__';
 
@@ -50,6 +50,9 @@ var CORE = [
   '/de/moonboard-app.html',
   '/de/tension-board-app.html',
   '/404.html',
+  // The share-QR resolver. Precached because it is the one page a visitor
+  // reaches with no prior visit and no second chance.
+  '/get.html',
   '/boards/',
   '/boards/index.html',
   '/boards/list.html',

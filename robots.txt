@@ -8,5 +8,8 @@ Disallow: /privacy.html
 Disallow: /de/imprint.html
 Disallow: /de/privacy.html
 Disallow: /404.html
+# QR-resolver, not a landing page: it redirects and would only dilute the
+# install page in search results.
+Disallow: /get.html
 
 Sitemap: https://cruxcoach.org/sitemap.xml
