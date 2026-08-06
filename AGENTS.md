@@ -5,9 +5,16 @@ These instructions apply equally to Claude Code, Codex, and human contributors.
 ## What this repo is
 
 Source for **https://cruxcoach.org** — the public landing page for the CruxCoach
-open-source Android Kilter Board app. Published via **Codeberg Pages**: the default
-branch is served directly, so a push goes live within minutes. There is **no build
-step** for the site itself.
+open-source Android Kilter Board app. Published via **GitHub Pages** since
+2026-08-06: the default branch is served directly, so a push goes live within
+minutes. There is **no build step** for the site itself.
+
+The apex moved off Codeberg Pages after it served 502 for over a day and there
+was nothing on our side to fix — the outage was in Codeberg's own migration to a
+new git-pages front end. Codeberg remains a live push target and keeps its
+`.domains` file, and the `main.cruxcoach-pages.cruxcoach.codeberg.page` TXT
+record is deliberately still in DNS: together they make a rollback a single DNS
+change instead of a re-setup. Do not delete either without replacing that path.
 
 ## Commands
 
@@ -161,9 +168,19 @@ commits + pushes to Codeberg only when `boards/data/boards.geojson` actually cha
 build, to avoid daily no-op commits). It is `flock`-guarded, fast-forward-only on
 `main`, and retries the push 3× because Codeberg occasionally drops SSH. The
 `data(boards): daily refresh — …` commits on `main` come from this script.
-After the refresh it also syncs the GitHub Pages fallback mirror
-(`git push github main` → https://cruxcoach.github.io, deploy key
-`~/.ssh/id_ed25519_github_pages`; listed in `mirrors.json`, non-fatal on failure).
+After the refresh it also pushes to GitHub (`git push github main`, deploy key
+`~/.ssh/id_ed25519_github_pages`, non-fatal on failure). Since 2026-08-06 that
+is the CANONICAL host, not a mirror: with the `CNAME` file in the repo, GitHub
+301s cruxcoach.github.io to the apex, so it can no longer serve as a failover
+target and is disabled in `mirrors.json`.
+
+The mirror is now **https://mirror.cruxcoach.org** — our own machine, a Caddy
+site block in `cruxcoach-dlstats/deploy/caddy/Caddyfile` serving THIS checkout
+read-only with `Access-Control-Allow-Origin: *`. It needs no separate publish
+step, which is the point: a second publishing path is a second thing that can
+drift. `cruxcoach-dlstats/check_origins.py` (cron, every 6 h) verifies the apex,
+every enabled mirror including its CORS header, both machine-readable manifests
+on every host, and the download route.
 If anything was pushed to origin, it finally runs `tools/indexnow-ping.sh`
 (non-fatal), which submits every sitemap URL to api.indexnow.org so Bing/Yandex &
 co. re-crawl promptly. IndexNow needs no account: ownership is proven by the
