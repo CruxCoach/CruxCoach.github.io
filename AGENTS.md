@@ -61,11 +61,19 @@ the repo.
      on the privacy pages.
   3. `sw.js` is a resilience service worker (stale-while-revalidate + mirror
      fallback from `mirrors.json`) so returning visitors survive an origin outage.
-  4. Every HTML page loads `assets/anonymous-analytics.js`. It sends only a
-     canonical logical-page label and Zapstore-button dimensions; Board Map
-     map/list views share a label while language remains separate. The
+  4. Every HTML page loads `assets/anonymous-analytics.js` — except `get.html`,
+     which must stay self-contained (see below) and therefore carries a copy of
+     the page-view beacon inline, under the synthetic label `/app-share`. It
+     sends only a canonical logical-page label and Zapstore-button dimensions;
+     Board Map map/list views share a label while language remains separate. The
      direct-APK route counts its own coarse click. Both paths honour DNT/GPC,
      never handle IDs, and use no credentials or referrer.
+     **A page that can be clicked but not counted breaks the numbers, not just
+     one of them.** `get.html` counted its install click and never its own
+     arrival, so every QR scan surfaced as a download nobody had viewed a page
+     for. Any new interactive surface needs both halves, and a page view label
+     is only real once `SITE_PATHS` in the collector's `anonymous_schema.py`
+     accepts it — an unlisted label is answered with 400 and counts nothing.
 - **Dark-mode-only**: `color-scheme=dark` in meta; no JS theme toggle.
 - **Accessibility**: every link has discernible text; decorative elements are
   `aria-hidden="true"`. Prefer plain semantic HTML over div soup.
@@ -181,6 +189,16 @@ step, which is the point: a second publishing path is a second thing that can
 drift. `cruxcoach-dlstats/check_origins.py` (cron, every 6 h) verifies the apex,
 every enabled mirror including its CORS header, both machine-readable manifests
 on every host, and the download route.
+
+**Any origin the site is served from must also be listed in
+`DEFAULT_SITE_ORIGINS` in `cruxcoach-dlstats/anonymous_schema.py`.** Publishing a
+mirror is only half the job. The collector answers an unknown origin with 403,
+and that reply carries no `Access-Control-Allow-Origin` — so the beacon fails,
+the buttons are never upgraded, and the click-time liveness probe fails the same
+way. Visitors on such a host are counted nowhere and handed to a third party for
+the download. `mirror.cruxcoach.org` sat in exactly that state from publication
+until 2026-08-08, i.e. during the outage it exists to absorb; a test now reads
+`mirrors.json` and asserts the two lists agree.
 If anything was pushed to origin, it finally runs `tools/indexnow-ping.sh`
 (non-fatal), which submits every sitemap URL to api.indexnow.org so Bing/Yandex &
 co. re-crawl promptly. IndexNow needs no account: ownership is proven by the

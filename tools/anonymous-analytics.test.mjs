@@ -53,7 +53,7 @@ test('request omits credentials and referrer and contains only explicit JSON', a
     endpoint: 'https://stats.example/v1/site-event',
     navigatorImpl: {},
     windowImpl: {},
-    fetchImpl: async (...args) => { call = args; },
+    fetchImpl: async (...args) => { call = args; return { ok: true }; },
   }), true);
   assert.equal(call[0], 'https://stats.example/v1/site-event');
   assert.equal(call[1].credentials, 'omit');
@@ -103,6 +103,7 @@ test('Zapstore then direct APK emits one combined canonical-page fallback', () =
     nowImpl: () => now,
     fetchImpl: async (_url, request) => {
       payloads.push(JSON.parse(request.body));
+      return { ok: true };
     },
   };
   initAnonymousAnalytics(root, options);
@@ -173,12 +174,36 @@ test('the button is upgraded to our selector only once the beacon comes back', a
     navigatorImpl: {},
     windowImpl: { location: { pathname: '/' } },
     sessionStorageImpl: memoryStorage(),
-    fetchImpl: async () => {},
+    fetchImpl: async () => ({ ok: true }),
   };
   initAnonymousAnalytics(root, options);
   assert.equal(root.button.href, CODEBERG_APK, 'not before the answer arrives');
   await new Promise((resolve) => { setTimeout(resolve, 0); });
   assert.equal(root.button.href, SELECTOR);
+});
+
+test('an event the server refused is not a delivered one', async () => {
+  // A 403 (origin not on the allowlist) or a 400 (label outside the closed
+  // vocabulary) means nothing was counted. Reading either as success hid the
+  // loss and, worse, upgraded the buttons on the strength of a request the
+  // server had thrown away.
+  for (const response of [{ ok: false, status: 403 }, { ok: false, status: 400 }]) {
+    assert.equal(await sendAnonymousEvent({ metric: 'page_view', path: '/' }, {
+      navigatorImpl: {},
+      windowImpl: {},
+      fetchImpl: async () => response,
+    }), false, `HTTP ${response.status}`);
+
+    const root = pageWithApkButton();
+    initAnonymousAnalytics(root, {
+      navigatorImpl: {},
+      windowImpl: { location: { pathname: '/' } },
+      sessionStorageImpl: memoryStorage(),
+      fetchImpl: async () => response,
+    });
+    await new Promise((resolve) => { setTimeout(resolve, 0); });
+    assert.equal(root.button.href, CODEBERG_APK, `HTTP ${response.status}`);
+  }
 });
 
 test('an unreachable server leaves the button on its working Codeberg link', async () => {
@@ -214,7 +239,10 @@ test('each direct-APK click is counted exactly once, whoever serves it', async (
     navigatorImpl: {},
     windowImpl: { location: { pathname: '/' } },
     sessionStorageImpl: memoryStorage(),
-    fetchImpl: async (_url, request) => { payloads.push(JSON.parse(request.body)); },
+    fetchImpl: async (_url, request) => {
+      payloads.push(JSON.parse(request.body));
+      return { ok: true };
+    },
   });
 
   // A click that beats the upgrade — a real race on a warm cache. The server is
@@ -343,7 +371,7 @@ test('privacy notices distinguish private analytics operations from public app s
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v32';/);
+  assert.match(source, /var VERSION = 'cc-v33';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
   // The share QR names this page and nothing else, so a visitor who scans it
@@ -367,6 +395,25 @@ test('the share-QR resolver carries the same fallback chain as the button', () =
   // whose entire job is not failing.
   assert.doesNotMatch(source, /<script[^>]+src=/);
   assert.doesNotMatch(source, /<link[^>]+stylesheet/);
+});
+
+test('the share-QR resolver counts its own arrival, not just its click', () => {
+  // It has always counted the install click and never the visit, so every QR
+  // scan arrived in the figures as a click on a page nobody had viewed.
+  const source = fs.readFileSync(path.join(repoRoot, 'get.html'), 'utf8');
+  assert.match(source, /'metric': 'page_view'|metric: 'page_view'/);
+  // The same synthetic label the click from this page is filed under, so the
+  // two finally describe one visitor instead of contradicting each other.
+  assert.match(source, /path: '\/app-share'/);
+  assert.match(source, /stats\.cruxcoach\.org\/v1\/site-event/);
+  // Inlined on purpose: the self-contained assertions in the test above are
+  // what keep it that way, so this one only checks the counter is really here.
+  // The privacy rules are not waived by being written out a second time.
+  assert.match(source, /globalPrivacyControl/);
+  assert.match(source, /doNotTrack/);
+  assert.match(source, /keepalive: true/);
+  assert.match(source, /credentials: 'omit'/);
+  assert.match(source, /referrerPolicy: 'no-referrer'/);
 });
 
 const MIRROR =

@@ -114,6 +114,36 @@
 
   if (typeof fetch !== 'function') return;   // the markup already works
 
+  /* This page counted its install click but never its own arrival, so a QR
+     scan showed up in the figures as a download nobody had visited a page for
+     — the one route guaranteed to read as more clicks than views.
+
+     Inlined rather than loading /assets/anonymous-analytics.js: this page's
+     whole job is surviving on a single request from a phone camera, and a
+     second script is a second thing that can fail to arrive. The label is the
+     synthetic /app-share the collector already accepts, and which the click
+     from here is filed under too, so the pair finally matches.
+
+     Same privacy rules as everywhere else, checked here because the shared
+     module is not present to check them: DNT or GPC means nothing is sent, no
+     identifier exists to send, and the download is not affected either way. */
+  function countArrival() {
+    var nav = navigator || {};
+    var signals = [nav.doNotTrack, nav.msDoNotTrack, window.doNotTrack]
+      .map(function (value) { return String(value || '').toLowerCase(); });
+    if (nav.globalPrivacyControl === true
+        || signals.indexOf('1') !== -1 || signals.indexOf('yes') !== -1) return;
+    /* keepalive: this page navigates away within a couple of seconds, and the
+       counter must not be cancelled by its own success. */
+    fetch('https://stats.cruxcoach.org/v1/site-event', {
+      method: 'POST', mode: 'cors', credentials: 'omit', cache: 'no-store',
+      referrerPolicy: 'no-referrer', keepalive: true,
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+      body: JSON.stringify({ metric: 'page_view', path: '/app-share' })
+    }).catch(function () {});
+  }
+  countArrival();
+
   fetch('/apk-target.json', { cache: 'no-store' })
     .then(function (res) { return res.ok ? res.json() : null; })
     .catch(function () { return null; })

@@ -51,6 +51,14 @@ export function privacySignalEnabled(nav = {}, win = {}) {
 /**
  * Send only the already-allowlisted aggregate dimensions. The remote server
  * independently rejects unknown fields and never stores a raw request.
+ *
+ * Resolves true only for an answer that actually counted something. A refused
+ * event is not a delivered one: the server rejects an origin it does not know
+ * with 403 and an unknown label with 400, and treating either as success would
+ * both hide the loss and upgrade the buttons on the strength of a request that
+ * was thrown away. The CORS layer already rejects most of those replies (an
+ * error reply carries no Access-Control-Allow-Origin), so this closes the
+ * remaining gap rather than opening a new one.
  */
 export function sendAnonymousEvent(payload, options = {}) {
   const nav = options.navigatorImpl
@@ -72,7 +80,7 @@ export function sendAnonymousEvent(payload, options = {}) {
     keepalive: true,
     headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
     body: JSON.stringify(payload),
-  })).then(() => true, () => false);
+  })).then((response) => Boolean(response && response.ok), () => false);
 }
 
 /** Store only a local timestamp, never an analytics/session identifier. */
