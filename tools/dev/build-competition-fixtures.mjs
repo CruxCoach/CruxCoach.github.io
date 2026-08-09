@@ -25,7 +25,8 @@ import { fileURLToPath } from 'node:url';
 
 import { schnorr } from '../../assets/vendor/nostr-crypto/secp256k1/secp256k1.js';
 import {
-  bytesToHex, hexToBytes, eventId, getPublicKey, naddrEncode, serializeEvent,
+  bech32EncodeWords, bytesToHex, hexToBytes, eventId, getPublicKey, naddrEncode,
+  serializeEvent,
 } from '../../competitions/app/protocol/nostr-event.mjs';
 import { ccj, ccjHash, sha256Hex } from '../../competitions/app/protocol/ccj.mjs';
 import {
@@ -854,6 +855,47 @@ async function buildVectors(keys) {
   };
 }
 
+/**
+ * A structurally valid BOLT11 invoice, built here rather than by a node.
+ *
+ * No Lightning node was involved, no channel exists, and the signature words
+ * are zeros — nothing can pay this, which is the point: the fixtures must never
+ * contain something a wallet would try to settle. What it *is* good for is
+ * pinning the decoder, which reads the amount, the expiry, the payment hash and
+ * the description hash and never looks at the signature.
+ */
+function fakeInvoice({ amountMsat, timestamp, expirySec, paymentHash, descriptionHash }) {
+  const words = [];
+  const push = (value, count) => {
+    for (let i = count - 1; i >= 0; i--) words.push((value >> (5 * i)) & 31);
+  };
+  push(timestamp, 7);
+
+  const field = (type, valueWords) => {
+    words.push(type);
+    words.push((valueWords.length >> 5) & 31, valueWords.length & 31);
+    words.push(...valueWords);
+  };
+  const hexToWords = (hex) => {
+    const bits = [...hexToBytes(hex)]
+      .map((byte) => byte.toString(2).padStart(8, '0')).join('');
+    const padded = bits.padEnd(Math.ceil(bits.length / 5) * 5, '0');
+    const out = [];
+    for (let i = 0; i < padded.length; i += 5) out.push(parseInt(padded.slice(i, i + 5), 2));
+    return out;
+  };
+
+  field(1, hexToWords(paymentHash)); // p
+  field(23, hexToWords(descriptionHash)); // h
+  field(6, [(expirySec >> 5) & 31, expirySec & 31]); // x
+  for (let i = 0; i < 104; i++) words.push(0); // signature: deliberately not one
+
+  // 2000000 msat is 20 micro-bitcoin.
+  const micro = amountMsat / 100000;
+  if (!Number.isInteger(micro)) throw new Error('fixture amount must be a whole micro-bitcoin');
+  return bech32EncodeWords(`lnbc${micro}u`, words);
+}
+
 /** Lightning fixtures — locally signed, no invoice, no sats, no network. */
 async function buildZapFixtures(keys) {
   const compId = 'bb00cc11dd22ee33';
@@ -871,30 +913,82 @@ async function buildZapFixtures(keys) {
     content: 'CruxCoach competition entry',
   }, keys.alice);
 
+  // NIP-57: the invoice commits to the zap request through its description
+  // hash, which is what stops a provider swapping in a different request.
+  const descriptionHash = await sha256Hex(JSON.stringify(zapRequest));
+  const invoice = fakeInvoice({
+    amountMsat: 2000000,
+    timestamp: 1789000255,
+    expirySec: 900,
+    paymentHash: 'a'.repeat(64),
+    descriptionHash,
+  });
+
+  const receiptTags = [
+    ['p', keys.organizer.pk],
+    ['P', keys.alice.pk],
+    ['a', address],
+    ['bolt11', invoice],
+    ['description', JSON.stringify(zapRequest)],
+  ];
   const receipt = await sign({
-    kind: 9735,
-    created_at: 1789000260,
-    tags: [
-      ['p', keys.organizer.pk],
-      ['P', keys.alice.pk],
-      ['a', address],
-      ['bolt11', 'lnbc20u1pfixture0000000000000000000000000000000000000000000000000000000000'],
-      ['description', JSON.stringify(zapRequest)],
-    ],
-    content: '',
+    kind: 9735, created_at: 1789000260, tags: receiptTags, content: '',
   }, keys.zapper);
 
-  const wrongSigner = await sign({ ...receipt, tags: receipt.tags }, keys.dan);
-  const wrongCompetition = await sign({
+  const reSign = (mutate, key = keys.zapper) => sign({
     kind: 9735,
     created_at: 1789000260,
-    tags: receipt.tags.map((t) => (t[0] === 'a' ? ['a', competitionAddress(keys.organizer.pk, '0000000000000000')] : t)),
+    tags: mutate(receiptTags.map((t) => [...t])),
     content: '',
-  }, keys.zapper);
+  }, key);
+
+  const wrongSigner = await reSign((tags) => tags, keys.dan);
+  const wrongCompetition = await reSign((tags) => tags.map(
+    (t) => (t[0] === 'a' ? ['a', competitionAddress(keys.organizer.pk, '0000000000000000')] : t),
+  ));
+
+  // A request for a tenth of the fee, attested honestly. The provider is not
+  // lying; the receipt simply does not settle THIS entry.
+  const cheapRequest = await sign({
+    kind: 9734,
+    created_at: 1789000250,
+    tags: zapRequest.tags.map((t) => (t[0] === 'amount' ? ['amount', '200000'] : t)),
+    content: 'CruxCoach competition entry',
+  }, keys.alice);
+  const wrongAmount = await reSign((tags) => tags.map(
+    (t) => (t[0] === 'description' ? ['description', JSON.stringify(cheapRequest)] : t),
+  ));
+
+  // Somebody else's payment, correctly attested, cannot settle Alice's entry.
+  const othersRequest = await sign({
+    kind: 9734, created_at: 1789000250, tags: zapRequest.tags, content: 'CruxCoach competition entry',
+  }, keys.bob);
+  const wrongPayer = await reSign((tags) => tags
+    .map((t) => (t[0] === 'description' ? ['description', JSON.stringify(othersRequest)] : t))
+    .map((t) => (t[0] === 'P' ? ['P', keys.bob.pk] : t)));
+
+  // A receipt for a different registration attempt: same person, same
+  // competition, but the nonce says it paid for an entry that was withdrawn.
+  const otherNonceRequest = await sign({
+    kind: 9734,
+    created_at: 1789000250,
+    tags: zapRequest.tags.map((t) => (t[0] === 'cc-intent' ? ['cc-intent', '99887766'] : t)),
+    content: 'CruxCoach competition entry',
+  }, keys.alice);
+  const wrongRegistration = await reSign((tags) => tags.map(
+    (t) => (t[0] === 'description' ? ['description', JSON.stringify(otherNonceRequest)] : t),
+  ));
+
+  // The description is a zap request whose own signature does not hold.
+  const forgedRequest = { ...zapRequest, tags: zapRequest.tags.map((t) => (t[0] === 'amount' ? ['amount', '1'] : t)) };
+  const forgedDescription = await reSign((tags) => tags.map(
+    (t) => (t[0] === 'description' ? ['description', JSON.stringify(forgedRequest)] : t),
+  ));
 
   return {
     note: 'Locally generated. No invoice was created, no payment was made, nothing here touches a network.',
     lnurl_response: {
+      tag: 'payRequest',
       allowsNostr: true,
       nostrPubkey: keys.zapper.pk,
       callback: 'https://lnurl.example.invalid/callback',
@@ -906,10 +1000,24 @@ async function buildZapFixtures(keys) {
     competition_address: address,
     intent_nonce: '3f9a2c17',
     zap_request: zapRequest,
+    invoice: {
+      note: 'Structurally valid, deliberately unsigned. Nothing can pay it.',
+      bolt11: invoice,
+      amount_msat: 2000000,
+      timestamp: 1789000255,
+      expiry_sec: 900,
+      expires_at: 1789001155,
+      payment_hash: 'a'.repeat(64),
+      description_hash: descriptionHash,
+    },
     valid_receipt: receipt,
     rejected: {
       signed_by_the_wrong_key: wrongSigner,
       references_another_competition: wrongCompetition,
+      attests_a_smaller_amount: wrongAmount,
+      attests_somebody_elses_payment: wrongPayer,
+      pays_a_different_registration: wrongRegistration,
+      description_signature_does_not_hold: forgedDescription,
     },
   };
 }

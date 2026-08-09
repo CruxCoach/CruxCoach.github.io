@@ -15,6 +15,7 @@ import { compDTag, KIND } from '../competitions/app/protocol/competition.mjs';
 import {
   outstandingClaims, freeClimbs, outstandingCount, registrationOrder,
 } from '../competitions/app/protocol/claims.mjs';
+import { buildZapRequest, verifyZapReceipt } from '../competitions/app/protocol/zap.mjs';
 
 /**
  * A whole competition, end to end, over a loopback relay.
@@ -658,6 +659,125 @@ test('participant-chosen climbs: two entrants race for one climb and the loser r
     aliceSide.pool.close();
     bobSide.store.close();
     bobSide.pool.close();
+    store.close();
+    organizerPool.close();
+    await relay.close();
+  }
+});
+
+test('a fee is settled by a receipt that verifies, or by an override that is named', async () => {
+  // The two ways a payment can be recorded, and the difference between them.
+  // Nothing here contacts a payment provider: the "provider" is a local key,
+  // and no invoice exists that any wallet could settle.
+  const { relay, organizer, organizerPool, compId, store, writer } = await setup({
+    fee_msat: 2000000,
+    fee_lnurl: 'kellerwand@example.invalid',
+  });
+  const alice = newSigner();
+  const bob = newSigner();
+  const provider = newSigner();
+  const address = `30078:${organizer.pubkey}:cruxcoach:comp:${compId}`;
+
+  const receiptFor = async (payerSigner, { amountMsat = 2000000, signedBy = provider } = {}) => {
+    const request = await payerSigner.signEvent(buildZapRequest({
+      recipientPubkey: organizer.pubkey,
+      address,
+      amountMsat,
+      relays: [relay.url],
+      nonce: 'aabbccdd',
+      createdAt: now(),
+    }));
+    return signedBy.signEvent({
+      kind: 9735,
+      created_at: now(),
+      tags: [
+        ['p', organizer.pubkey],
+        ['P', request.pubkey],
+        ['a', address],
+        ['bolt11', 'lnbc20u1qqqqqqqqqqqqqqqqqqqqr6alde'],
+        ['description', JSON.stringify(request)],
+      ],
+      content: '',
+    });
+  };
+
+  try {
+    await writer.setStatus('published');
+    tick();
+    await writer.setStatus('registration_open');
+    for (const [signer, display] of [[alice, 'Alice'], [bob, 'Bob']]) {
+      // eslint-disable-next-line no-await-in-loop
+      await writer.decideRegistration(signer.pubkey, 'accepted', { division: 'open', display });
+      tick();
+    }
+    assert.equal(store.participant(alice.pubkey).payment, 'pending',
+      'a fee makes payment pending, not settled');
+
+    const expected = {
+      providerPubkey: provider.pubkey,
+      recipientPubkey: organizer.pubkey,
+      address,
+      amountMsat: 2000000,
+      nonce: 'aabbccdd',
+    };
+
+    // ── the verified path ──
+    const good = await receiptFor(alice);
+    const verified = await verifyZapReceipt(good, { ...expected, payerPubkey: alice.pubkey });
+    assert.equal(verified.ok, true, verified.error);
+    await writer.decidePayment(alice.pubkey, 'settled', {
+      zapReceiptId: good.id, amountMsat: verified.amountMsat, zapperPubkey: good.pubkey,
+    });
+    tick();
+    assert.equal(store.participant(alice.pubkey).payment, 'settled');
+
+    // ── the receipts that must not settle anything ──
+    assert.equal(
+      (await verifyZapReceipt(good, { ...expected, payerPubkey: bob.pubkey })).error,
+      'wrong_payer',
+      "Alice's receipt must not settle Bob's entry",
+    );
+    const cheap = await receiptFor(bob, { amountMsat: 200000 });
+    assert.equal(
+      (await verifyZapReceipt(cheap, { ...expected, payerPubkey: bob.pubkey })).error,
+      'wrong_amount',
+    );
+    const impostor = await receiptFor(bob, { signedBy: bob });
+    assert.equal(
+      (await verifyZapReceipt(impostor, { ...expected, payerPubkey: bob.pubkey })).error,
+      'wrong_signer',
+      'anyone can sign a 9735; only the endpoint that was published counts',
+    );
+    assert.equal(
+      (await verifyZapReceipt(good, { ...expected, payerPubkey: alice.pubkey, providerPubkey: null })).error,
+      'no_provider_key',
+    );
+
+    // ── the manual path ──
+    await assert.rejects(
+      () => writer.override('payment_decision', { pubkey: bob.pubkey, state: 'settled' }, ''),
+      /requires a reason/,
+      'recording a payment by hand without saying why must not be possible',
+    );
+    await writer.override(
+      'payment_decision',
+      { pubkey: bob.pubkey, state: 'settled' },
+      'Paid in cash at the desk, receipt 41.',
+      [bob.pubkey],
+    );
+    tick();
+    assert.equal(store.participant(bob.pubkey).payment, 'settled');
+
+    // The difference between the two paths survives in the record.
+    const audit = store.state.audit.filter((entry) => entry.op === 'override');
+    assert.equal(audit.length, 1);
+    assert.equal(audit[0].reason, 'Paid in cash at the desk, receipt 41.');
+    assert.equal(
+      store.state.audit.some((entry) => entry.seq === audit[0].seq && entry.op === 'override'),
+      true,
+      'a hand-recorded payment is visible to every client, not only to the organizer',
+    );
+  } finally {
     store.close();
     organizerPool.close();
     await relay.close();

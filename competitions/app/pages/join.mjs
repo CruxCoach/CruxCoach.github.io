@@ -12,6 +12,12 @@ import {
 import { SignIn } from '../ui/shell.mjs';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
+import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
+import {
+  resolvePayEndpoint, validatePayResponse, invoiceUrl, validateInvoiceResponse,
+} from '../protocol/lnurl.mjs';
+import { buildZapRequest } from '../protocol/zap.mjs';
+import { competitionAddress } from '../protocol/competition.mjs';
 import { EntrantWriter } from '../authority.mjs';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
@@ -139,11 +145,8 @@ function registrationPanel(snapshot) {
     if (mine.registration === 'waitlisted' && mine.waitlist_position) {
       rows.push(el('p', { className: 'small', text: `#${mine.waitlist_position}` }));
     }
-    if (competition.fee_msat > 0 && mine.payment === 'pending' && competition.fee_lnurl) {
-      rows.push(el('div', { className: 'notice warn' }, [
-        el('p', { text: t('pay.pending') }),
-        el('p', { className: 'mono selectable', text: competition.fee_lnurl }),
-      ]));
+    if (competition.fee_msat > 0 && mine.payment === 'pending') {
+      rows.push(paymentPanel(snapshot, mine));
     }
     if (competition.rules.climb_source === 'participant_choice') {
       rows.push(...claimStatus(snapshot, mine));
@@ -293,6 +296,167 @@ function registrationPanel(snapshot) {
  * still waiting on the organizer, and offers a way to pick again from what is
  * still free.
  */
+/**
+ * Payment failures that have their own sentence.
+ *
+ * Anything outside this set is the provider misbehaving in a way we cannot
+ * usefully describe, and gets the generic wording rather than a raw code.
+ */
+const PAY_ERRORS = new Set([
+  'empty', 'bad_address', 'bad_domain', 'onion', 'bad_lnurl', 'bad_url', 'not_https',
+  'unrecognised', 'not_a_pay_request', 'bad_callback', 'bad_limits', 'below_minimum',
+  'above_maximum', 'no_metadata', 'bad_metadata', 'no_invoice', 'unreadable_invoice',
+  'no_amount', 'wrong_amount', 'no_payment_hash', 'unreachable', 'timeout',
+]);
+
+function payError(code, values) {
+  return new Error(PAY_ERRORS.has(code) ? t(`pay.error.${code}`, values) : t('pay.error.provider'));
+}
+
+/**
+ * Paying the entry fee.
+ *
+ * Three steps, each of which can fail in a way the entrant has to be told
+ * about: resolve the organizer's payment endpoint, ask it for an invoice
+ * bound to this person and this registration, then show that invoice with a
+ * countdown and a way to pay it.
+ *
+ * The invoice is checked before it is displayed. An invoice for a different
+ * amount is refused rather than shown with a warning, because the number on the
+ * screen and the number the wallet would send have to be the same number.
+ */
+function paymentPanel(snapshot, mine) {
+  const competition = snapshot.competition;
+  const rows = [
+    el('h3', { text: t('pay.title') }),
+    el('p', { text: t('pay.amount', { sats: Math.round(competition.fee_msat / 1000) }) }),
+  ];
+
+  if (!competition.fee_lnurl) {
+    // A fee with nowhere to send it is the organizer's problem to fix, but the
+    // entrant still needs to know why there is no button.
+    rows.push(el('p', { className: 'small', text: t('pay.no_endpoint') }));
+    return el('div', { className: 'notice warn' }, rows);
+  }
+
+  const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+  const invoiceBox = el('div', {});
+
+  const showInvoice = (invoice, decoded, verifiable) => {
+    const left = secondsLeft(decoded, Math.floor(Date.now() / 1000));
+    replace(invoiceBox,
+      el('p', { className: 'mono selectable wrap', text: invoice }),
+      el('div', { className: 'row' }, [
+        el('a', { className: 'button primary', attrs: { href: walletUri(invoice) }, text: t('pay.open_wallet') }),
+        el('button', {
+          text: t('pay.copy'),
+          on: {
+            click: () => {
+              navigator.clipboard?.writeText(invoice)
+                .then(() => { feedback.textContent = t('pay.copied'); })
+                .catch(() => { feedback.textContent = t('pay.copy_failed'); });
+            },
+          },
+        }),
+      ]),
+      el('p', {
+        className: 'small',
+        text: left > 0
+          ? t('pay.expires_in', { minutes: Math.ceil(left / 60) })
+          : t('pay.expired'),
+      }),
+      // Said before they pay, not after: what the organizer will be able to
+      // check, and what they will have to take on trust.
+      el('p', {
+        className: 'small',
+        text: verifiable ? t('pay.will_verify') : t('pay.manual_confirm'),
+      }));
+  };
+
+  rows.push(
+    el('button', {
+      className: 'primary',
+      text: t('pay.get_invoice'),
+      on: {
+        click: () => guard(async () => {
+          feedback.textContent = t('pay.working');
+          const result = await requestInvoice(snapshot, mine);
+          showInvoice(result.invoice, result.decoded, result.verifiable);
+          feedback.textContent = '';
+        }, feedback),
+      },
+    }),
+    invoiceBox,
+    feedback,
+    el('p', { className: 'small', text: t('pay.settle_hint') }),
+  );
+  return el('div', { className: 'notice warn' }, rows);
+}
+
+/**
+ * Ask the organizer's payment endpoint for an invoice for this entry.
+ *
+ * The zap request is signed by the entrant and names the competition, the
+ * amount and their registration nonce, which is what later lets the organizer
+ * verify that *this* person paid *this* entry rather than that somebody paid
+ * something.
+ */
+async function requestInvoice(snapshot, mine) {
+  const competition = snapshot.competition;
+  const endpoint = resolvePayEndpoint(competition.fee_lnurl);
+  if (!endpoint.ok) throw payError(endpoint.error);
+
+  const payResponse = await fetchJson(endpoint.url);
+  const pay = validatePayResponse(payResponse, competition.fee_msat);
+  if (!pay.ok) {
+    throw payError(pay.error, {
+      min: Math.round((pay.min || 0) / 1000), max: Math.round((pay.max || 0) / 1000),
+    });
+  }
+
+  let zapRequest = null;
+  if (pay.allowsNostr) {
+    const draft = buildZapRequest({
+      recipientPubkey: competition.authority,
+      address: competitionAddress(ref.organizerPubkey, competition.comp_id),
+      amountMsat: competition.fee_msat,
+      relays: resolveRelays(),
+      nonce: entrant.nonceFor('register'),
+      createdAt: Math.floor(Date.now() / 1000),
+    });
+    zapRequest = await signer.signEvent(draft);
+  }
+
+  const response = await fetchJson(invoiceUrl(pay.callback, competition.fee_msat, { zapRequest }));
+  const decoded = decodeInvoice(response?.pr || '');
+  const checked = validateInvoiceResponse(response, decoded, competition.fee_msat);
+  if (!checked.ok) {
+    throw payError(checked.error, { sats: Math.round((checked.invoiceMsat || 0) / 1000) });
+  }
+
+  // Tell the organizer which receipt to look for. Sent even when the provider
+  // cannot zap, because the payment claim is also how a manual confirmation
+  // gets a paper trail.
+  await entrant.claimPayment(zapRequest ? zapRequest.id : '', checked.invoice);
+  return { invoice: checked.invoice, decoded, verifiable: pay.allowsNostr };
+}
+
+/** Fetch JSON with a deadline, because a hung request is not an answer. */
+async function fetchJson(url, timeoutMs = 15000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetch(url, { signal: controller.signal, redirect: 'follow' });
+    if (!response.ok) throw payError('unreachable');
+    return await response.json();
+  } catch (err) {
+    if (err.name === 'AbortError') throw payError('timeout');
+    throw new Error(err.message || t('pay.error.unreachable'));
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 function claimStatus(snapshot, mine) {
   const competition = snapshot.competition;
   const options = competition.climb_pool?.options || [];

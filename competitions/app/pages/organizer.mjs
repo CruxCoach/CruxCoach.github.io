@@ -22,6 +22,9 @@ import {
 } from '../protocol/competition.mjs';
 import { reduce } from '../protocol/reduce.mjs';
 import { outstandingClaims, registrationOrder } from '../protocol/claims.mjs';
+import { verifyZapReceipt, receiptFilter, ZAP_RECEIPT_KIND } from '../protocol/zap.mjs';
+import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
+import { competitionAddress } from '../protocol/competition.mjs';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
 import { createCompetitionForm } from './organizer-form.mjs';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
@@ -37,6 +40,28 @@ let pool = null;
 let writer = null;
 let ref = null;
 const intents = new Map();
+
+/**
+ * Zap receipts, indexed by who paid.
+ *
+ * Kept out of the reduced state on purpose: a receipt is evidence the organizer
+ * weighs, not a fact about the competition. What goes in the log is the
+ * organizer's decision after weighing it.
+ */
+const receipts = new Map();
+
+/**
+ * This competition's payment endpoint, resolved once.
+ *
+ * `nostrPubkey` is the only key a receipt may be signed by. Taking it from the
+ * endpoint the ORGANIZER published — rather than from the receipt itself —
+ * is the whole reason verification means anything.
+ */
+let lnurl = { resolved: false, nostrPubkey: null, error: null };
+
+function receiptFor(pubkey) {
+  return receipts.get(pubkey) || null;
+}
 
 const view = byId('view');
 const statusNode = byId('load-status');
@@ -417,10 +442,7 @@ function entrantsPanel(snapshot) {
             on: { click: () => act(() => writer.checkIn(p.pubkey)) },
           }),
         snapshot.competition.fee_msat > 0 && p.payment === 'pending'
-          && el('button', {
-            text: t('pay.settled'),
-            on: { click: () => act(() => writer.decidePayment(p.pubkey, 'settled')) },
-          }),
+          && paymentControls(snapshot, p),
       ]),
     ]),
   ]));
@@ -430,6 +452,73 @@ function entrantsPanel(snapshot) {
     rows.length ? el('ul', { className: 'plain' }, rows) : null,
     participants.length ? el('ul', { className: 'plain' }, participants) : el('p', { text: t('org.none') }),
   ]);
+}
+
+/**
+ * Recording an entry fee as paid.
+ *
+ * There are two ways to do it and they are deliberately not the same button.
+ *
+ * The first is a verified receipt: a kind-9735 signed by the key this
+ * competition's own payment endpoint named, over a zap request this entrant
+ * signed, for this competition, for the right amount. That is checked here and
+ * only then recorded, so "settled" means something.
+ *
+ * The second is the organizer saying so. Plenty of gyms take cash, and plenty
+ * of payment providers publish no verifiable receipt, so this has to exist —
+ * but it goes in as an override carrying a mandatory reason, which lands in the
+ * audit trail every client can read. A button that silently says "settled"
+ * without either of those is how a record stops being worth anything.
+ */
+function paymentControls(snapshot, participant) {
+  const receipt = receiptFor(participant.pubkey);
+  const controls = [];
+
+  if (receipt) {
+    controls.push(el('button', {
+      className: 'primary',
+      text: t('pay.verify'),
+      on: {
+        click: () => act(async () => {
+          const verified = await verifyZapReceipt(receipt.event, {
+            providerPubkey: lnurl.nostrPubkey,
+            payerPubkey: participant.pubkey,
+            recipientPubkey: snapshot.competition.authority,
+            address: competitionAddress(store.organizerPubkey, snapshot.competition.comp_id),
+            amountMsat: snapshot.competition.fee_msat,
+          });
+          if (!verified.ok) throw new Error(t(`pay.reject.${verified.error}`));
+          await writer.decidePayment(participant.pubkey, 'settled', {
+            zapReceiptId: receipt.event.id,
+            amountMsat: verified.amountMsat,
+            zapperPubkey: receipt.event.pubkey,
+          });
+        }),
+      },
+    }));
+  } else if (lnurl.nostrPubkey) {
+    controls.push(el('span', { className: 'hint', text: t('pay.no_receipt_yet') }));
+  } else {
+    controls.push(el('span', { className: 'hint', text: t('pay.unverifiable') }));
+  }
+
+  controls.push(el('button', {
+    text: t('pay.manual'),
+    on: {
+      click: () => act(async () => {
+        const reason = prompt(t('pay.manual_reason'));
+        if (!reason || !reason.trim()) throw new Error(t('pay.manual_no_reason'));
+        await writer.override(
+          'payment_decision',
+          { pubkey: participant.pubkey, state: 'settled' },
+          reason.trim(),
+          [participant.pubkey],
+        );
+      }),
+    },
+  }));
+
+  return el('span', { className: 'row' }, controls);
 }
 
 function queuePanel(snapshot) {
@@ -626,6 +715,73 @@ function render() {
     ]) : null);
 }
 
+/**
+ * Ask the organizer's own payment endpoint which key signs its receipts.
+ *
+ * Failing is not fatal: without it no receipt can be verified, and the console
+ * says so rather than pretending it checked something.
+ */
+async function resolvePaymentEndpoint() {
+  lnurl = { resolved: false, nostrPubkey: null, error: null };
+  const competition = store?.competition;
+  if (!competition || competition.fee_msat <= 0 || !competition.fee_lnurl) {
+    lnurl = { resolved: true, nostrPubkey: null, error: null };
+    return;
+  }
+  const endpoint = resolvePayEndpoint(competition.fee_lnurl);
+  if (!endpoint.ok) {
+    lnurl = { resolved: true, nostrPubkey: null, error: endpoint.error };
+    render();
+    return;
+  }
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 15000);
+    const response = await fetch(endpoint.url, { signal: controller.signal }).finally(
+      () => clearTimeout(timer),
+    );
+    const pay = validatePayResponse(await response.json(), competition.fee_msat);
+    lnurl = {
+      resolved: true,
+      nostrPubkey: pay.ok ? pay.nostrPubkey : null,
+      error: pay.ok ? null : pay.error,
+    };
+  } catch {
+    lnurl = { resolved: true, nostrPubkey: null, error: 'unreachable' };
+  }
+  render();
+}
+
+/**
+ * Collect zap receipts for this competition.
+ *
+ * Indexed by the pubkey inside the zap request rather than by the receipt's own
+ * `P` tag, which is optional — the request is what is signed by the payer.
+ */
+async function followReceipts() {
+  const competition = store?.competition;
+  if (!competition || competition.fee_msat <= 0) return;
+  const address = competitionAddress(store.organizerPubkey, competition.comp_id);
+  pool.subscribe([receiptFilter({ recipientPubkey: competition.authority, address })], {
+    onEvent: (event) => {
+      if (event.kind !== ZAP_RECEIPT_KIND) return;
+      const description = (event.tags || []).find((tag) => tag[0] === 'description')?.[1];
+      if (!description) return;
+      let request;
+      try {
+        request = JSON.parse(description);
+      } catch {
+        return;
+      }
+      if (!request?.pubkey) return;
+      const known = receipts.get(request.pubkey);
+      if (known && known.event.created_at >= event.created_at) return;
+      receipts.set(request.pubkey, { event, request });
+      render();
+    },
+  });
+}
+
 async function start() {
   const hash = location.hash.replace(/^#/, '');
   const parsed = parseCompetitionRef(hash);
@@ -639,6 +795,8 @@ async function start() {
   if (!opened) return;
   ({ store, pool } = opened);
   store.onChange(() => { render(); void settleClaims(); });
+  void resolvePaymentEndpoint();
+  void followReceipts();
   if (signer && signer.pubkey === store.competition.authority) {
     writer = new AuthorityWriter({ store, pool, signer });
     await store.followIntents((event) => {

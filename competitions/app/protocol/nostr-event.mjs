@@ -229,6 +229,49 @@ export function bech32Decode(value) {
   return { hrp, bytes: Uint8Array.from(converted) };
 }
 
+/**
+ * The raw 5-bit words of a bech32 string, checksum verified.
+ *
+ * BOLT11 needs these rather than bytes: its payload is a stream of 5-bit
+ * tagged fields whose lengths are counted in words, and converting to 8-bit
+ * first throws away exactly the alignment that stream depends on.
+ */
+export function bech32DecodeWords(value) {
+  if (typeof value !== 'string') return null;
+  const lower = value.toLowerCase();
+  if (value !== lower && value !== value.toUpperCase()) return null;
+  const split = lower.lastIndexOf('1');
+  if (split < 1 || split + 7 > lower.length) return null;
+  const hrp = lower.slice(0, split);
+  const data = [];
+  for (let i = split + 1; i < lower.length; i++) {
+    const index = CHARSET.indexOf(lower[i]);
+    if (index === -1) return null;
+    data.push(index);
+  }
+  if (polymod(hrpExpand(hrp).concat(data)) !== 1) return null;
+  return { hrp, words: data.slice(0, -6) };
+}
+
+/**
+ * Encode raw 5-bit words, for formats that are word-aligned rather than
+ * byte-aligned. Used by the fixture builder to produce a BOLT11 invoice the
+ * decoder can be tested against without a node.
+ */
+export function bech32EncodeWords(hrp, words, limit = 5000) {
+  if (hrp.length + words.length + 7 > limit) return null;
+  const checksum = polymod(hrpExpand(hrp).concat([...words]).concat([0, 0, 0, 0, 0, 0])) ^ 1;
+  const combined = [...words];
+  for (let i = 0; i < 6; i++) combined.push((checksum >> (5 * (5 - i))) & 31);
+  return `${hrp}1${combined.map((word) => CHARSET[word]).join('')}`;
+}
+
+/** 5-bit words back to bytes, for a field whose length is a whole number of bytes. */
+export function wordsToBytes(words) {
+  const converted = convertBits([...words], 5, 8, false);
+  return converted ? Uint8Array.from(converted) : null;
+}
+
 function tlv(entries) {
   const parts = [];
   for (const [type, value] of entries) {
