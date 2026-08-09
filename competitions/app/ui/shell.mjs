@@ -11,7 +11,7 @@
  * kind-0 profile at least one relay accepted. Until then the caller sees `null`
  * and offers no create, register or check-in.
  */
-import { KeyVaultSession, backupChallenge, checkBackupChallenge } from '../signer/local-key.mjs';
+import { KeyVaultSession } from '../signer/local-key.mjs';
 import {
   createLocalSigner, createNip07Signer, createNip46Signer, waitForNip07,
 } from '../signer/signers.mjs';
@@ -273,20 +273,16 @@ export class SignIn {
   /**
    * The backup step.
    *
-   * It asks for three specific characters of the nsec rather than accepting a
-   * tick box, because "I have written it down" is the assertion people make
-   * right before they lose the only copy.
+   * A tick box, deliberately. This screen shows the nsec a few lines further
+   * up, so asking for three characters of it proved only that somebody can
+   * read the page in front of them — friction shaped like a check without
+   * being one. A character challenge is worth something only where the key is
+   * no longer on screen; here an honest confirmation beats a false test.
    */
   renderBackup() {
     const { t } = this;
     const nsec = this.pendingKey.nsec;
-    const challenge = backupChallenge(nsec);
-    const inputs = challenge.map((item, index) => el('input', {
-      attrs: {
-        type: 'text', maxlength: '1', inputmode: 'text', autocomplete: 'off',
-        id: `challenge-${index}`, 'aria-label': t('key.confirm.position', { n: item.position }),
-      },
-    }));
+    const confirmed = el('input', { attrs: { type: 'checkbox', id: 'backup-confirm' } });
     const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
 
     replace(this.mount, el('div', { className: 'card' }, [
@@ -306,20 +302,19 @@ export class SignIn {
         }),
       ]),
       el('h3', { text: t('key.confirm.title') }),
-      el('p', { text: t('key.confirm.intro') }),
-      el('div', { className: 'challenge' }, challenge.map((item, index) => el('label', {
-        attrs: { for: `challenge-${index}` },
-        text: t('key.confirm.position', { n: item.position }),
-      }, [inputs[index]]))),
+      el('label', { className: 'inline', attrs: { for: 'backup-confirm' } }, [
+        confirmed,
+        el('span', { text: t('key.confirm.checkbox') }),
+      ]),
       feedback,
       el('button', {
         className: 'primary',
         text: t('action.save'),
         on: {
           click: () => this.run(async () => {
-            if (!checkBackupChallenge(challenge, inputs.map((input) => input.value))) {
-              feedback.textContent = t('key.confirm.wrong');
-              throw new Error(t('key.confirm.wrong'));
+            if (!confirmed.checked) {
+              feedback.textContent = t('key.confirm.unchecked');
+              throw new Error(t('key.confirm.unchecked'));
             }
             feedback.textContent = t('key.confirm.done');
             this.pendingKey = null;

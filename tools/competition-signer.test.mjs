@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 
 import {
   ABSOLUTE_SESSION_MS, HIDDEN_SESSION_MS, IDLE_SESSION_MS, KeyVaultSession, STORAGE_KEY,
-  backupChallenge, checkBackupChallenge, openVault, sealVault, zeroize,
+  openVault, sealVault, zeroize,
 } from '../competitions/app/signer/local-key.mjs';
 import {
   buildNostrConnectUri, createLocalSigner, createNip07Signer, createNip46Signer,
@@ -139,21 +139,6 @@ test('an nsec can be imported and a non-nsec cannot', () => {
   assert.equal(session.pubkey, getPublicKey(secret));
   assert.throws(() => session.importKey('npub1qqqqq'), /nsec/);
   assert.throws(() => session.importKey('not a key'), /nsec/);
-});
-
-test('the backup challenge asks about real positions and is stable', () => {
-  const secret = generateSecretKey();
-  const nsec = nsecEncode(secret);
-  const challenge = backupChallenge(nsec);
-  assert.equal(challenge.length, 3);
-  assert.deepEqual(backupChallenge(nsec), challenge, 'a reload must ask the same three');
-  for (const item of challenge) {
-    assert.equal(nsec[item.position - 1], item.expected, `position ${item.position}`);
-  }
-  assert.equal(checkBackupChallenge(challenge, challenge.map((c) => c.expected)), true);
-  assert.equal(checkBackupChallenge(challenge, challenge.map((c) => c.expected.toUpperCase())), true);
-  assert.equal(checkBackupChallenge(challenge, ['x', 'y', 'z']), false);
-  assert.equal(checkBackupChallenge(challenge, ['only one']), false);
 });
 
 // ── signer implementations ──

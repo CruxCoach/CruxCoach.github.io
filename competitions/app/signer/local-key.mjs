@@ -122,32 +122,6 @@ export function zeroize(bytes) {
 }
 
 /**
- * Three challenge positions from an nsec, 1-indexed, so a backup prompt asks
- * for specific characters instead of accepting "yes I wrote it down".
- *
- * Derived from the nsec itself so the same key always asks the same three —
- * a user who reloads mid-flow is not asked a different question about a
- * secret they have already written down.
- */
-export function backupChallenge(nsec) {
-  const body = nsec.slice(5); // strip the "nsec1" prefix
-  const positions = [];
-  let cursor = 7;
-  while (positions.length < 3) {
-    const index = (body.charCodeAt(cursor % body.length) + cursor * 13) % body.length;
-    if (!positions.includes(index)) positions.push(index);
-    cursor += 5;
-  }
-  positions.sort((a, b) => a - b);
-  return positions.map((index) => ({ position: index + 6, expected: body[index] }));
-}
-
-export function checkBackupChallenge(challenge, answers) {
-  if (!Array.isArray(answers) || answers.length !== challenge.length) return false;
-  return challenge.every((item, index) => (answers[index] || '').trim().toLowerCase() === item.expected);
-}
-
-/**
  * Session-scoped holder for the plaintext key.
  *
  * Deliberately a single instance with an explicit lifetime rather than a value
