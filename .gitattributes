@@ -1,0 +1,11 @@
+# Vendored third-party sources are kept BYTE-IDENTICAL to their upstream
+# release. That is the point of vendoring: a patched copy of an audited library
+# is an unaudited library, and the recorded SHA-256 digests in
+# assets/vendor/nostr-crypto/PROVENANCE.md only mean something if nothing here
+# has been reformatted.
+#
+# Upstream ships a few lines with trailing whitespace. Stripping them would be a
+# silent local modification, so `git diff --check` is told not to police these
+# paths. `tools/nostr-crypto.test.mjs` asserts every vendored file against its
+# recorded digest, which is a stronger guarantee than a whitespace check.
+assets/vendor/** -whitespace

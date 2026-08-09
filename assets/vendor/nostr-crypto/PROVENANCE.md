@@ -54,6 +54,28 @@ rejected here: they pull a dependency tree (NDK 2.18.1 → `nostr-tools` →
 "vendored" directory quietly becomes unauditable. Two dependency-free files with
 a recorded digest can be checked by hand.
 
+## Per-file digests
+
+Every file here is byte-identical to its upstream release. `tools/nostr-crypto.test.mjs`
+asserts these, which is why `.gitattributes` exempts `assets/vendor/**` from
+`git diff --check`: upstream ships a few lines with trailing whitespace, and
+stripping them would be a silent local modification of an audited library.
+
+```
+e0d1bad238ceef8d5451713daf6d5b256ce871d3200fe7ee79dbc01179ec806a  secp256k1/secp256k1.js
+bcd2c8e9d3a9252022c74185340d69d724d2c2eed191f5599a2cec5005507d93  ciphers/_arx.js
+5f1c00575e227b75163f4bac50b79442dec50ee3047c46c18887808ba8af0a69  ciphers/chacha.js
+5d2afd73b40dbafb7b6740c6e6388e7123c79a4e57306861b28c5734925fa84d  ciphers/_poly1305.js
+08bce2a6b116205e0d114ed3da22490384d933c6549f0b1a43e2817349465147  ciphers/utils.js
+```
+
+Reproduce with:
+
+```bash
+sha256sum assets/vendor/nostr-crypto/secp256k1/secp256k1.js \
+          assets/vendor/nostr-crypto/ciphers/*.js
+```
+
 ## Verifying this copy
 
 ```bash

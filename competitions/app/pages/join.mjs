@@ -7,9 +7,10 @@
  */
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
-  openCompetition, parseCompetitionRef, replace,
+  openCompetition, parseCompetitionRef, replace, resolveRelays,
 } from './common.mjs';
 import { SignIn } from '../ui/shell.mjs';
+import { RelayPool } from '../protocol/relay-pool.mjs';
 import { EntrantWriter } from '../authority.mjs';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
@@ -30,9 +31,16 @@ const view = byId('view');
 const statusNode = byId('load-status');
 const signInMount = byId('signin');
 
+// The profile gate needs relays before a competition is open, so it gets its
+// own pool. Writes stay gated on it: `onChange` only fires with a signer once a
+// kind-0 profile exists that a relay accepted.
+const profilePool = new RelayPool(resolveRelays());
+
 const signIn = new SignIn({
   t,
   mount: signInMount,
+  gateMount: byId('profile'),
+  pool: profilePool,
   onChange: (next) => {
     signer = next;
     entrant = signer && store
@@ -161,7 +169,15 @@ function registrationPanel(snapshot) {
     ]);
   }
 
-  const display = el('input', { attrs: { type: 'text', id: 'display', maxlength: '48', autocomplete: 'nickname' } });
+  // Pre-filled from the profile the gate already required, so nobody types
+  // their name twice — but still editable, because a pseudonym for one
+  // competition is a legitimate thing to want.
+  const display = el('input', {
+    attrs: {
+      type: 'text', id: 'display', maxlength: '48', autocomplete: 'nickname',
+      value: signIn.displayName || '',
+    },
+  });
   const division = el('select', { attrs: { id: 'division' } },
     competition.divisions.map((d) => el('option', { attrs: { value: d.id }, text: d.label })));
   const waiver = el('input', { attrs: { type: 'checkbox', id: 'waiver' } });

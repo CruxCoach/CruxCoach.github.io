@@ -4,6 +4,12 @@
  * The order the panel offers is the order of decreasing exposure — extension,
  * remote signer, then a key made here — because that is the order in which a
  * key is safest, not the order in which it is easiest.
+ *
+ * Signing in is NOT the end of it. A key proves you hold a key; it does not
+ * give you a name. Every path here hands the signer to a [ProfileGate], and
+ * `onChange` only reports a usable signer once that gate is satisfied by a
+ * kind-0 profile at least one relay accepted. Until then the caller sees `null`
+ * and offers no create, register or check-in.
  */
 import { KeyVaultSession, backupChallenge, checkBackupChallenge } from '../signer/local-key.mjs';
 import {
@@ -11,6 +17,7 @@ import {
 } from '../signer/signers.mjs';
 import { nsecEncode, npubEncode } from '../protocol/nostr-event.mjs';
 import { el, replace, copyWithExpiry, shortKey, announce } from './dom.mjs';
+import { ProfileGate } from './profile-gate.mjs';
 
 const METHOD_KEY = 'cruxcoach:competitions:method:v1';
 
@@ -21,7 +28,7 @@ export class SignIn {
    * @param {HTMLElement} options.mount
    * @param {(signer: object|null) => void} options.onChange
    */
-  constructor({ t, mount, onChange }) {
+  constructor({ t, mount, onChange, pool, gateMount }) {
     this.t = t;
     this.mount = mount;
     this.onChange = onChange;
@@ -31,9 +38,34 @@ export class SignIn {
     this.pendingKey = null;
     this.error = null;
     this.busy = false;
+    this.profile = null;
+    this.gate = pool
+      ? new ProfileGate({
+        t,
+        mount: gateMount || mount,
+        pool,
+        onReady: (profile) => {
+          this.profile = profile;
+          this.render();
+          this.onChange(this.signer, profile);
+        },
+        // Backing out of the profile step signs out. A signed-in user with no
+        // profile has no capabilities at all, and a screen offering none of
+        // them is more confusing than being signed out.
+        onCancel: () => this.signOut(),
+      })
+      : null;
   }
 
   get pubkey() { return this.signer?.pubkey || null; }
+
+  /** True once a kind-0 profile exists; the caller gates writes on this. */
+  get ready() { return Boolean(this.signer) && (!this.gate || this.gate.ready); }
+
+  /** The name to use in a competition, never contact details. */
+  get displayName() {
+    return this.gate?.displayName || (this.signer ? shortKey(this.signer.pubkey) : '');
+  }
 
   storedMethod() {
     try { return localStorage.getItem(METHOD_KEY); } catch { return null; }
@@ -45,19 +77,25 @@ export class SignIn {
 
   async use(signer, method) {
     this.signer = signer;
+    this.profile = null;
     this.error = null;
     if (method) this.rememberMethod(method);
     this.render();
-    this.onChange(signer);
+    if (!this.gate) { this.onChange(signer, null); return; }
+    // The gate reports readiness itself; until it does, the caller keeps
+    // seeing `null` and offers no write.
+    await this.gate.check(signer);
   }
 
   signOut() {
     this.signer?.close();
     this.signer = null;
+    this.profile = null;
+    this.gate?.reset();
     this.session.lock();
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
     this.render();
-    this.onChange(null);
+    this.onChange(null, null);
   }
 
   async run(work) {
@@ -82,11 +120,13 @@ export class SignIn {
         el('div', { className: 'row between' }, [
           el('div', {}, [
             el('div', { className: 'small', text: t('signin.as') }),
-            el('div', { className: 'mono', text: shortKey(this.signer.pubkey) }),
+            el('div', { text: this.displayName }),
+            el('div', { className: 'small mono', text: shortKey(this.signer.pubkey) }),
             el('div', { className: 'small', text: this.signer.kind }),
           ]),
           el('button', { text: t('signin.out'), on: { click: () => this.signOut() } }),
         ]),
+        this.ready ? null : el('p', { className: 'small', text: t('profile.required') }),
       ]));
       return;
     }

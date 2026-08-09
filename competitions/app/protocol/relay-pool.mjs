@@ -167,7 +167,7 @@ export class RelayPool {
       const sub = this.subscriptions.get(message[1]);
       if (!sub) return;
       sub.eosed.add(url);
-      sub.onEose(url, sub.eosed.size);
+      sub.onEose(url, sub.eosed.size, { failed: false, settled: sub.eosed.size + sub.failed.size });
       return;
     }
     if (message[0] === 'OK') {
@@ -226,7 +226,12 @@ export class RelayPool {
    */
   subscribe(filters, { onEvent, onEose = () => {} } = {}) {
     const subId = nextSubId();
-    const sub = { filters, onEvent, onEose, seen: new Set(), eosed: new Set() };
+    // `eosed` is relays that genuinely reported end-of-stored-events; `failed`
+    // is relays that never connected. Conflating the two is how "no relay
+    // answered" becomes indistinguishable from "the relays answered and there
+    // is nothing there" — and for a profile lookup, that difference decides
+    // whether someone is invited to overwrite a profile they already have.
+    const sub = { filters, onEvent, onEose, seen: new Set(), eosed: new Set(), failed: new Set() };
     this.subscriptions.set(subId, sub);
 
     const armed = this.urls.map((url) => this._ensure(url)
@@ -236,9 +241,10 @@ export class RelayPool {
         return true;
       })
       .catch(() => {
-        // A relay that will not connect must not stall an EOSE barrier.
-        sub.eosed.add(url);
-        onEose(url, sub.eosed.size);
+        // A relay that will not connect must not stall the barrier — but it is
+        // recorded as failed, not as having answered.
+        sub.failed.add(url);
+        onEose(url, sub.eosed.size, { failed: true, settled: sub.eosed.size + sub.failed.size });
         return false;
       }));
 
@@ -265,28 +271,42 @@ export class RelayPool {
   }
 
   /**
-   * One-shot query. Resolves when every relay has sent EOSE, or on timeout.
+   * One-shot query.
    *
-   * A timeout is reported, not hidden: a partial result cannot prove there is
-   * nothing newer, and a caller that treats it as complete will show a stale
-   * competition as the current one.
+   * Resolves when every relay has either reported end-of-stored-events or
+   * failed to connect, or on timeout.
+   *
+   * `complete` means something specific: **at least one relay genuinely
+   * answered**, so an empty `events` array is evidence of absence rather than
+   * evidence of a broken network. A timeout, or every relay failing, is
+   * reported as incomplete — a partial result cannot prove there is nothing
+   * newer, and a caller that treats it as complete will show a stale
+   * competition as the current one, or invite someone to overwrite a profile
+   * they already have.
+   *
+   * @returns {Promise<{events: object[], complete: boolean, answered: number, failed: number}>}
    */
   query(filters, { timeoutMs = DEFAULT_TIMEOUT_MS } = {}) {
     return new Promise((resolve) => {
       const events = [];
+      let answered = 0;
+      let failed = 0;
       let done = false;
-      const finish = (complete) => {
+      const finish = (timedOut) => {
         if (done) return;
         done = true;
         clearTimeout(timer);
         handle.close();
-        resolve({ events, complete });
+        resolve({ events, complete: !timedOut && answered > 0, answered, failed });
       };
-      const timer = setTimeout(() => finish(false), timeoutMs);
+      const timer = setTimeout(() => finish(true), timeoutMs);
       timer.unref?.();
       const handle = this.subscribe(filters, {
         onEvent: (event) => events.push(event),
-        onEose: (_url, count) => { if (count >= this.urls.length) finish(true); },
+        onEose: (_url, _count, info = {}) => {
+          if (info.failed) failed += 1; else answered += 1;
+          if (answered + failed >= this.urls.length) finish(false);
+        },
       });
     });
   }

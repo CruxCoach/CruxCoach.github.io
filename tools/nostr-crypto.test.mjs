@@ -93,6 +93,24 @@ test('ECDH agrees in both directions, which is what NIP-44 needs', () => {
   assert.equal(ab.length, 32);
 });
 
+test('every vendored file is byte-identical to its recorded digest', async () => {
+  // The whole reason `.gitattributes` exempts assets/vendor from
+  // `git diff --check`: upstream ships lines with trailing whitespace, and
+  // stripping them would be a silent local edit of an audited library. This is
+  // the stronger guarantee that replaces the whitespace check.
+  const { createHash } = await import('node:crypto');
+  const provenance = fs.readFileSync(path.join(vendorDir, 'PROVENANCE.md'), 'utf8');
+  const block = provenance.match(/## Per-file digests[\s\S]*?```\n([\s\S]*?)```/);
+  assert.ok(block, 'PROVENANCE.md has no per-file digest block');
+  const rows = block[1].trim().split('\n').map((line) => line.trim().split(/\s+/));
+  assert.ok(rows.length >= 5, `expected every vendored source, found ${rows.length}`);
+  for (const [digest, relative] of rows) {
+    const bytes = fs.readFileSync(path.join(vendorDir, relative));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), digest,
+      `${relative} is not the upstream file the provenance records`);
+  }
+});
+
 test('the vendored files are the ones the provenance file describes', () => {
   const provenance = fs.readFileSync(path.join(vendorDir, 'PROVENANCE.md'), 'utf8');
   for (const file of ['secp256k1/secp256k1.js', 'secp256k1/LICENSE-noble-secp256k1',

@@ -212,9 +212,12 @@ test('a competition runs end to end and every reader agrees on the state', async
 
     // ── first turn, with a deferral ──
     await writer.openTurn(0);
-    await until(aliceSide.store, (s) => s.currentClimber() === order[0], 'the first turn to open');
     const firstUp = order[0];
     const firstSide = firstUp === alice.pubkey ? aliceSide : bobSide;
+    // Wait on the store we are about to ASSERT on. Waiting on one reader and
+    // asserting on another is a race that passes whenever the two happen to be
+    // the same person.
+    await until(firstSide.store, (s) => s.currentClimber() === firstUp, 'the first turn to open');
     assert.equal(firstSide.store.canDefer(firstUp), true, 'the first climber may defer once');
     assert.equal(firstSide.store.defersLeft(firstUp), 1);
 

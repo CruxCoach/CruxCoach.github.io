@@ -14,8 +14,8 @@ import {
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
 } from './common.mjs';
 import { SignIn } from '../ui/shell.mjs';
-import { AuthorityWriter, publishCompetition } from '../authority.mjs';
 import { RelayPool } from '../protocol/relay-pool.mjs';
+import { AuthorityWriter, publishCompetition } from '../authority.mjs';
 import {
   newCompId, parseIntentEvent, validateCompetitionConfig,
 } from '../protocol/competition.mjs';
@@ -36,9 +36,15 @@ const intents = new Map();
 const view = byId('view');
 const statusNode = byId('load-status');
 
+// Same gate as the participant page: a key is not an identity, and an
+// organizer publishing a public competition needs a name people can look up.
+const profilePool = new RelayPool(resolveRelays());
+
 const signIn = new SignIn({
   t,
   mount: byId('signin'),
+  gateMount: byId('profile'),
+  pool: profilePool,
   onChange: (next) => { signer = next; render(); },
 });
 
