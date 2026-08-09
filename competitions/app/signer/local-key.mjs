@@ -9,8 +9,11 @@
  * Rules this file enforces:
  *   - the secret is NEVER persisted in plaintext; storage holds AES-GCM
  *     ciphertext under a PBKDF2-SHA-256 key derived from a user passphrase
- *   - the plaintext lives in one module-scoped array, zeroed on logout, on
- *     session expiry, and when the tab is hidden past the idle limit
+ *   - the plaintext lives in one array, zeroed when the session is locked, and
+ *     zeroed BY A SCHEDULED TIMER at the absolute limit, at the idle limit, and
+ *     five minutes after the page is hidden — not merely noticed before the
+ *     next signing attempt, which would leave the key in memory for as long as
+ *     nobody asked for a signature
  *   - "shared device" keeps it in memory only and never touches storage
  *   - nothing here is transmitted; the site is static and has no endpoint that
  *     could receive a secret
@@ -25,6 +28,15 @@ export const PBKDF2_ITERATIONS = 600000;
 
 export const ABSOLUTE_SESSION_MS = 12 * 60 * 60 * 1000;
 export const IDLE_SESSION_MS = 60 * 60 * 1000;
+
+/**
+ * How long a hidden page keeps the plaintext key.
+ *
+ * Shorter than the idle limit on purpose. A hidden tab is the case where the
+ * person has walked away from a gym desk or handed the phone over, and the
+ * usual idle budget assumes they are still the one holding it.
+ */
+export const HIDDEN_SESSION_MS = 5 * 60 * 1000;
 
 const encoder = new TextEncoder();
 
@@ -156,6 +168,97 @@ export class KeyVaultSession {
     this.startedAt = 0;
     this.touchedAt = 0;
     this.listeners = new Set();
+
+    // Injectable so the lifecycle can be tested with a fake clock and a fake
+    // event target rather than by waiting twelve hours.
+    this.setTimer = options.setTimer || ((fn, ms) => {
+      const id = setTimeout(fn, ms);
+      // A browser does not care, but Node keeps the process alive for a
+      // pending timer — so an armed session would hang any test runner that
+      // imports this module. `unref` is absent in a browser, where the handle
+      // is a number, and the optional call is a no-op there.
+      id?.unref?.();
+      return id;
+    });
+    this.clearTimer = options.clearTimer || ((id) => clearTimeout(id));
+    this.events = options.events === undefined ? globalThis.document : options.events;
+    this.timer = null;
+    this.hiddenTimer = null;
+
+    // One listener for the page's whole life, removed by `dispose()`. Attaching
+    // it per unlock would leak one per sign-in.
+    this.onVisibility = () => this.visibilityChanged();
+    this.events?.addEventListener?.('visibilitychange', this.onVisibility);
+  }
+
+  /** True when the host page is currently hidden. */
+  get pageHidden() {
+    return this.events?.visibilityState === 'hidden';
+  }
+
+  /**
+   * Schedule the zeroing.
+   *
+   * One timer, always pointing at the nearest deadline, re-armed whenever the
+   * deadlines move. Checking on the way out as well as on the way in means a
+   * clock that jumped backwards cannot leave the key alive forever.
+   */
+  arm() {
+    this.clearTimer(this.timer);
+    this.timer = null;
+    if (!this.secretKey) return;
+
+    const now = this.now();
+    const deadline = Math.min(
+      this.startedAt + ABSOLUTE_SESSION_MS,
+      this.touchedAt + IDLE_SESSION_MS,
+    );
+    // At least one millisecond, always. `expired()` is a strict comparison, so
+    // waking up at exactly the deadline finds the session *not* expired — and a
+    // re-arm at zero delay would then fire at the same instant, forever. A
+    // re-arm has to move time forward or it is a spin.
+    const wait = Math.max(1, deadline - now);
+    this.timer = this.setTimer(() => {
+      this.timer = null;
+      if (this.expired()) this.lock();
+      else this.arm();
+    }, wait);
+  }
+
+  /** Hidden starts a shorter clock; visible again cancels it and counts as use. */
+  visibilityChanged() {
+    if (!this.secretKey) return;
+    if (this.pageHidden) {
+      this.clearTimer(this.hiddenTimer);
+      this.hiddenTimer = this.setTimer(() => {
+        this.hiddenTimer = null;
+        this.lock();
+      }, HIDDEN_SESSION_MS);
+      return;
+    }
+    this.clearTimer(this.hiddenTimer);
+    this.hiddenTimer = null;
+    this.touch();
+  }
+
+  /** Stop every timer this session owns. Idempotent. */
+  disarm() {
+    this.clearTimer(this.timer);
+    this.clearTimer(this.hiddenTimer);
+    this.timer = null;
+    this.hiddenTimer = null;
+  }
+
+  /**
+   * Release the page-level listener as well as the timers.
+   *
+   * A page that replaces its session without this leaks one visibility
+   * listener per sign-in, each holding the old session alive.
+   */
+  dispose() {
+    this.disarm();
+    this.events?.removeEventListener?.('visibilitychange', this.onVisibility);
+    this.lock();
   }
 
   get unlocked() {
@@ -205,6 +308,11 @@ export class KeyVaultSession {
     this.pubkey = getPublicKey(secretKey);
     this.startedAt = this.now();
     this.touchedAt = this.startedAt;
+    // From this moment the key has a deadline, and something has to be
+    // watching it. Adopting a key without arming leaves plaintext alive until
+    // somebody happens to ask for a signature.
+    this.arm();
+    if (this.pageHidden) this.visibilityChanged();
     this.emit();
   }
 
@@ -224,8 +332,15 @@ export class KeyVaultSession {
     return { pubkey: this.pubkey };
   }
 
-  /** Wipe the plaintext but keep the stored ciphertext. */
+  /**
+   * Wipe the plaintext but keep the stored ciphertext.
+   *
+   * This is what "sign out" does, and it is deliberately not the same as
+   * throwing the key away: the same person coming back to the same device
+   * unlocks with their passphrase. [forget] is the one that removes it.
+   */
   lock() {
+    this.disarm();
     zeroize(this.secretKey);
     this.secretKey = null;
     this.pubkey = null;
@@ -234,7 +349,12 @@ export class KeyVaultSession {
     this.emit();
   }
 
-  /** Wipe the plaintext AND remove the stored ciphertext. */
+  /**
+   * Wipe the plaintext AND remove the stored ciphertext.
+   *
+   * Irreversible: the key is gone from this device and nothing can recover it.
+   * The UI asks for confirmation before calling this.
+   */
   forget() {
     this.lock();
     if (this.storage) this.storage.removeItem(STORAGE_KEY);
@@ -242,6 +362,7 @@ export class KeyVaultSession {
   }
 
   clear() {
+    this.disarm();
     zeroize(this.secretKey);
     this.secretKey = null;
     this.pubkey = null;
@@ -260,6 +381,8 @@ export class KeyVaultSession {
       return false;
     }
     this.touchedAt = this.now();
+    // The idle deadline just moved, so the timer has to move with it.
+    this.arm();
     return this.secretKey !== null;
   }
 

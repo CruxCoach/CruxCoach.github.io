@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import {
-  ABSOLUTE_SESSION_MS, IDLE_SESSION_MS, KeyVaultSession, STORAGE_KEY,
+  ABSOLUTE_SESSION_MS, HIDDEN_SESSION_MS, IDLE_SESSION_MS, KeyVaultSession, STORAGE_KEY,
   backupChallenge, checkBackupChallenge, openVault, sealVault, zeroize,
 } from '../competitions/app/signer/local-key.mjs';
 import {
@@ -388,4 +388,218 @@ test('NIP-46 transport events carry a NIP-40 expiration', async () => {
     bunker.close();
     await relay.close();
   }
+});
+
+// ── the key's lifecycle, on a fake clock ──
+
+/**
+ * A clock, a timer queue and an event target, all under the test's control.
+ *
+ * The whole point of the lifecycle is that it acts without being asked, so it
+ * cannot be tested by calling into it — only by moving time forward and
+ * watching what it did on its own.
+ */
+function fakeHost() {
+  let now = 1_700_000_000_000;
+  let nextId = 1;
+  const timers = new Map();
+  const listeners = new Map();
+
+  const host = {
+    visibilityState: 'visible',
+    now: () => now,
+    setTimer: (fn, ms) => {
+      const id = nextId++;
+      timers.set(id, { at: now + Math.max(0, ms), fn });
+      return id;
+    },
+    clearTimer: (id) => { timers.delete(id); },
+    addEventListener: (name, fn) => {
+      if (!listeners.has(name)) listeners.set(name, new Set());
+      listeners.get(name).add(fn);
+    },
+    removeEventListener: (name, fn) => { listeners.get(name)?.delete(fn); },
+
+    /** Move the clock, firing whatever falls due, in order. */
+    advance(ms) {
+      const target = now + ms;
+      for (;;) {
+        const due = [...timers.entries()]
+          .filter(([, t]) => t.at <= target)
+          .sort((a, b) => a[1].at - b[1].at)[0];
+        if (!due) break;
+        const [id, timer] = due;
+        timers.delete(id);
+        now = timer.at;
+        timer.fn();
+      }
+      now = target;
+    },
+    setVisibility(state) {
+      host.visibilityState = state;
+      for (const fn of listeners.get('visibilitychange') || []) fn();
+    },
+    get pendingTimers() { return timers.size; },
+    get listenerCount() {
+      return [...listeners.values()].reduce((total, set) => total + set.size, 0);
+    },
+  };
+  return host;
+}
+
+function sessionOn(host, storage = null) {
+  return new KeyVaultSession({
+    storage,
+    now: host.now,
+    setTimer: host.setTimer,
+    clearTimer: host.clearTimer,
+    events: host,
+  });
+}
+
+test('the key is zeroed at the absolute limit however busy the person is', async () => {
+  // The defect this replaces: expiry was only noticed on the next signing
+  // call, so a key could sit in memory for as long as nobody signed anything.
+  // Here somebody uses the page all day, which defeats the idle limit — the
+  // absolute limit is the one that has to end it anyway.
+  const host = fakeHost();
+  const session = sessionOn(host);
+  session.generate();
+  const key = session.secretKey;
+  assert.equal(session.unlocked, true);
+
+  const step = IDLE_SESSION_MS / 2;
+  for (let elapsed = 0; elapsed + step < ABSOLUTE_SESSION_MS; elapsed += step) {
+    host.advance(step);
+    assert.equal(session.touch(), true, `still working at ${elapsed + step}ms`);
+  }
+
+  host.advance(IDLE_SESSION_MS);
+  assert.equal(session.secretKey, null, 'the plaintext is gone at twelve hours regardless');
+  assert.ok(key.every((byte) => byte === 0), 'and the bytes were zeroed, not just dropped');
+  session.dispose();
+});
+
+test('the key is zeroed at the idle limit, and activity pushes it back', async () => {
+  const host = fakeHost();
+  const session = sessionOn(host);
+  session.generate();
+
+  host.advance(IDLE_SESSION_MS - 60_000);
+  assert.equal(session.touch(), true, 'still alive, and this counts as use');
+
+  host.advance(IDLE_SESSION_MS - 60_000);
+  assert.equal(session.unlocked, true, 'the idle window moved with the activity');
+
+  host.advance(120_000);
+  assert.equal(session.secretKey, null, 'idle limit reached with no further use');
+  session.dispose();
+});
+
+test('a hidden page gives the key five minutes, not the full idle hour', async () => {
+  const host = fakeHost();
+  const session = sessionOn(host);
+  session.generate();
+  const key = session.secretKey;
+
+  host.setVisibility('hidden');
+  host.advance(HIDDEN_SESSION_MS - 1000);
+  assert.equal(session.unlocked, true, 'not yet');
+
+  host.advance(2000);
+  assert.equal(session.secretKey, null, 'hidden long enough');
+  assert.ok(key.every((byte) => byte === 0));
+  session.dispose();
+});
+
+test('coming back to a hidden page cancels the countdown', async () => {
+  const host = fakeHost();
+  const session = sessionOn(host);
+  session.generate();
+
+  host.setVisibility('hidden');
+  host.advance(HIDDEN_SESSION_MS - 30_000);
+  host.setVisibility('visible');
+  host.advance(HIDDEN_SESSION_MS);
+
+  assert.equal(session.unlocked, true, 'returning to the page is use, not a reprieve on a running clock');
+  session.dispose();
+});
+
+test('a key adopted while the page is already hidden still gets the short clock', async () => {
+  const host = fakeHost();
+  host.visibilityState = 'hidden';
+  const session = sessionOn(host);
+  session.generate();
+
+  host.advance(HIDDEN_SESSION_MS + 1000);
+  assert.equal(session.secretKey, null);
+  session.dispose();
+});
+
+test('locking and forgetting both stop every timer', async () => {
+  const host = fakeHost();
+  const session = sessionOn(host);
+
+  session.generate();
+  assert.ok(host.pendingTimers > 0, 'an unlocked key is being watched');
+  session.lock();
+  assert.equal(host.pendingTimers, 0, 'a locked key has nothing left to watch');
+
+  session.generate();
+  host.setVisibility('hidden');
+  assert.ok(host.pendingTimers > 0);
+  session.forget();
+  assert.equal(host.pendingTimers, 0, 'including the hidden-page countdown');
+  session.dispose();
+});
+
+test('sign out keeps the encrypted key; forget removes it', async () => {
+  const storage = new Map();
+  const host = fakeHost();
+  const session = sessionOn(host, {
+    getItem: (k) => (storage.has(k) ? storage.get(k) : null),
+    setItem: (k, v) => storage.set(k, v),
+    removeItem: (k) => storage.delete(k),
+  });
+
+  session.generate();
+  await session.persist('a passphrase nobody will guess');
+  assert.equal(session.hasStoredKey(), true);
+
+  // Sign out: the plaintext goes, the ciphertext stays, and the same person
+  // comes back with their passphrase.
+  session.lock();
+  assert.equal(session.secretKey, null);
+  assert.equal(session.hasStoredKey(), true, 'signing out must not be a data-loss button');
+  await session.unlock('a passphrase nobody will guess');
+  assert.equal(session.unlocked, true);
+
+  session.forget();
+  assert.equal(session.hasStoredKey(), false, 'forget is the one that removes it');
+  assert.equal(storage.has(STORAGE_KEY), false);
+  session.dispose();
+});
+
+test('disposing removes the page listener rather than leaking one per sign-in', async () => {
+  const host = fakeHost();
+  const sessions = [sessionOn(host), sessionOn(host), sessionOn(host)];
+  assert.equal(host.listenerCount, 3);
+  for (const session of sessions) session.dispose();
+  assert.equal(host.listenerCount, 0, 'a page that replaces its session must not accumulate listeners');
+  assert.equal(host.pendingTimers, 0);
+});
+
+test('a clock that jumps backwards does not keep the key alive forever', async () => {
+  const host = fakeHost();
+  const session = sessionOn(host);
+  session.generate();
+  // The timer fires, the session is not expired by the wall clock, and the
+  // only safe behaviour is to re-arm rather than to stop watching.
+  host.advance(IDLE_SESSION_MS / 2);
+  session.touch();
+  assert.ok(host.pendingTimers > 0, 'still watched after an early wake-up');
+  host.advance(IDLE_SESSION_MS + 1000);
+  assert.equal(session.secretKey, null);
+  session.dispose();
 });

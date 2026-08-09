@@ -87,6 +87,18 @@ export class SignIn {
     await this.gate.check(signer);
   }
 
+  /**
+   * Sign out — the plaintext key is zeroed and the encrypted vault stays.
+   *
+   * Deliberately not "delete my key": somebody signing out on their own phone
+   * expects to come back with their passphrase, and a sign-out that destroyed
+   * the only copy of a key would be a data-loss button labelled as a session
+   * button. [forgetKey] is the destructive one, and it asks first.
+   *
+   * For a NIP-46 bunker this closes the local session only. NIP-46 has no
+   * revoke a client can rely on, so the honest thing is to say that the
+   * approval lives in the signer app and is revoked there.
+   */
   signOut() {
     this.signer?.close();
     this.signer = null;
@@ -96,6 +108,20 @@ export class SignIn {
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
     this.render();
     this.onChange(null, null);
+  }
+
+  /** Remove the stored key from this device. Irreversible, so it confirms. */
+  forgetKey() {
+    if (!confirm(this.t('signin.forget.confirm'))) return;
+    this.signer?.close();
+    this.signer = null;
+    this.profile = null;
+    this.gate?.reset();
+    this.session.forget();
+    try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
+    this.render();
+    this.onChange(null, null);
+    announce(this.t('signin.forget.done'));
   }
 
   async run(work) {
@@ -124,8 +150,18 @@ export class SignIn {
             el('div', { className: 'small mono', text: shortKey(this.signer.pubkey) }),
             el('div', { className: 'small', text: this.signer.kind }),
           ]),
-          el('button', { text: t('signin.out'), on: { click: () => this.signOut() } }),
+          el('span', { className: 'row' }, [
+            el('button', { text: t('signin.out'), on: { click: () => this.signOut() } }),
+            // Only for a key this device is actually holding. Signing out of an
+            // extension or a bunker leaves nothing here to forget.
+            this.session?.hasStoredKey?.() ? el('button', {
+              className: 'danger',
+              text: t('signin.forget'),
+              on: { click: () => this.forgetKey() },
+            }) : null,
+          ]),
         ]),
+        el('p', { className: 'small', text: t('signin.out.hint') }),
         this.ready ? null : el('p', { className: 'small', text: t('profile.required') }),
       ]));
       return;

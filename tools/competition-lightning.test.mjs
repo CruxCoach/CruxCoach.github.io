@@ -138,7 +138,7 @@ test('an endpoint that could be intercepted is refused, never downgraded', () =>
     ['', 'empty'],
     ['gym@somewhere', 'bad_domain'],
     ['gym@abcdefghijklmnop.onion', 'onion'],
-    ['http://example.org/pay', 'unrecognised'],
+    ['http://example.org/pay', 'not_https'],
     ['lnurl1qqqqq', 'bad_lnurl'],
     ['not a thing', 'unrecognised'],
   ]) {
@@ -346,4 +346,11 @@ test('a receipt from outside the window it should have arrived in is refused', a
     (await verifyZapReceipt(fixture.valid_receipt, { ...expected, notBefore: at - 10, notAfter: at + 10 })).ok,
     true,
   );
+});
+
+test('credentials in the authority are refused, because they read as the wrong host', () => {
+  // https://evil.example@bank.example resolves to evil.example and reads to a
+  // person as bank.example. Both clients answer this the same way.
+  assert.equal(resolvePayEndpoint('https://evil.example@bank.example/pay').error, 'bad_url');
+  assert.equal(resolvePayEndpoint('http://example.org/pay').error, 'not_https');
 });

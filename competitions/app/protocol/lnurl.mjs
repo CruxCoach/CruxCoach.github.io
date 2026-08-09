@@ -33,6 +33,13 @@ export function resolvePayEndpoint(value) {
   const text = String(value || '').trim();
   if (!text) return { ok: false, error: 'empty' };
 
+  // A URL is a URL first. Checked before the address branch because
+  // `https://evil.example@bank.example/pay` contains an '@' and would otherwise
+  // be taken apart as a lightning address — refused either way, but under a
+  // name that describes the wrong thing.
+  if (/^https:\/\//i.test(text)) return checkedUrl(text, text);
+  if (/^http:\/\//i.test(text)) return { ok: false, error: 'not_https' };
+
   // A lightning address: local-part@domain, resolved per LUD-16.
   const at = text.indexOf('@');
   if (at > 0 && !text.toLowerCase().startsWith('lnurl')) {
@@ -57,7 +64,6 @@ export function resolvePayEndpoint(value) {
     return checkedUrl(url, text);
   }
 
-  if (/^https:\/\//i.test(text)) return checkedUrl(text, text);
   return { ok: false, error: 'unrecognised' };
 }
 
@@ -69,6 +75,9 @@ function checkedUrl(url, display) {
     return { ok: false, error: 'bad_url' };
   }
   if (parsed.protocol !== 'https:') return { ok: false, error: 'not_https' };
+  // No credentials in the authority: `https://evil.example@bank.example` reads
+  // as the bank to a person and resolves to the attacker.
+  if (parsed.username || parsed.password) return { ok: false, error: 'bad_url' };
   if (parsed.hostname.endsWith('.onion')) return { ok: false, error: 'onion' };
   return { ok: true, kind: 'lnurl', url: parsed.toString(), display };
 }

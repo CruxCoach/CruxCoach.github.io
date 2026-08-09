@@ -189,6 +189,10 @@ const STRINGS = {
     'signin.shared': 'This is a shared or public device',
     'signin.shared.hint': 'Nothing is saved here. You will need your nsec again next time.',
     'signin.out': 'Sign out',
+    'signin.forget': 'Forget this key',
+    'signin.forget.confirm': 'Remove this key from this device? The encrypted copy is deleted and nothing can recover it. Make sure you have your nsec written down.',
+    'signin.forget.done': 'The key has been removed from this device.',
+    'signin.out.hint': 'Signing out locks the key and keeps the encrypted copy on this device, so you can come back with your passphrase.',
     'signin.as': 'Signed in as',
     'signin.working': 'Waiting for your signer…',
 
@@ -639,6 +643,10 @@ const STRINGS = {
     'signin.shared': 'Das ist ein geteiltes oder öffentliches Gerät',
     'signin.shared.hint': 'Hier wird nichts gespeichert. Beim nächsten Mal brauchst du deinen nsec wieder.',
     'signin.out': 'Abmelden',
+    'signin.forget': 'Schl\u00fcssel entfernen',
+    'signin.forget.confirm': 'Diesen Schl\u00fcssel von diesem Ger\u00e4t entfernen? Die verschl\u00fcsselte Kopie wird gel\u00f6scht und nichts kann sie zur\u00fcckholen. Stelle sicher, dass du deinen nsec notiert hast.',
+    'signin.forget.done': 'Der Schl\u00fcssel wurde von diesem Ger\u00e4t entfernt.',
+    'signin.out.hint': 'Abmelden sperrt den Schl\u00fcssel und beh\u00e4lt die verschl\u00fcsselte Kopie auf diesem Ger\u00e4t, damit du mit deiner Passphrase zur\u00fcckkommen kannst.',
     'signin.as': 'Angemeldet als',
     'signin.working': 'Warte auf deinen Signierer…',
 
