@@ -582,3 +582,48 @@ test('the organizer form builds a participant-choice competition too', async () 
     restore();
   }
 });
+
+test('every participant state a person can act on has the control to leave it', () => {
+  // The defect class this catches: a screen that renders a state and offers no
+  // way out of it. Paid entry on Android was exactly that for a whole release —
+  // `payment == pending` with no button — and the same shape hid in two more
+  // places.
+  const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
+
+  // A payment the organizer recorded as failed or expired must be retryable,
+  // not merely displayed.
+  assert.ok(
+    /PAYABLE_STATES = new Set\(\['pending', 'failed', 'expired'\]\)/.test(join),
+    'a failed or expired payment must still offer a way to pay',
+  );
+
+  // Withdrawing must not be a door that locks behind you.
+  assert.ok(join.includes("'withdrawn', 'rejected'"), 'no way back in after withdrawing');
+  assert.ok(join.includes('reg.again'), 'no control to ask again');
+
+  // Being accepted but not checked in must offer the check-in request the app
+  // has had all along.
+  assert.ok(join.includes('entrant.requestCheckIn()'), 'no way to ask to be checked in');
+});
+
+test('the two clients offer the same participant actions', () => {
+  // Not a style rule: a capability the browser has and the phone does not is
+  // the exact gap that shipped twice. Each entry is (web call, Android method).
+  const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
+  const androidViewModel = fs.readFileSync(
+    path.join(root, '../cruxcoach-0.2.3-competitions/androidApp/src/main/java/com/cruxcoach/android/ui/competition/CompetitionDetailViewModel.kt'),
+    'utf8',
+  );
+  const pairs = [
+    ['entrant.register(', 'fun register('],
+    ['entrant.withdraw()', 'fun withdraw()'],
+    ['entrant.requestCheckIn()', 'fun requestCheckIn()'],
+    ['entrant.requestDefer(', 'fun requestDefer()'],
+    ['entrant.reportAttempt(', 'fun reportAttempt('],
+    ['requestInvoice(', 'fun requestInvoice()'],
+  ];
+  for (const [web, android] of pairs) {
+    assert.ok(join.includes(web), `the website is missing ${web}`);
+    assert.ok(androidViewModel.includes(android), `the app is missing ${android}`);
+  }
+});

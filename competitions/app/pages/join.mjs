@@ -145,18 +145,61 @@ function registrationPanel(snapshot) {
     if (mine.registration === 'waitlisted' && mine.waitlist_position) {
       rows.push(el('p', { className: 'small', text: `#${mine.waitlist_position}` }));
     }
-    if (competition.fee_msat > 0 && mine.payment === 'pending') {
+    // Not only `pending`. A payment the organizer recorded as failed or
+    // expired is precisely the state somebody has to be able to leave, and
+    // showing the badge without the control strands them.
+    if (competition.fee_msat > 0 && PAYABLE_STATES.has(mine.payment)) {
       rows.push(paymentPanel(snapshot, mine));
     }
     if (competition.rules.climb_source === 'participant_choice') {
       rows.push(...claimStatus(snapshot, mine));
     }
+    // Ask to be checked in, rather than only waiting to be. The organizer
+    // still decides; this is how somebody at the back of a queue says they
+    // are here.
+    if (mine.registration === 'accepted' && mine.checkin === 'none'
+      && ['checkin_open', 'running'].includes(snapshot.state.status)) {
+      rows.push(el('button', {
+        className: 'primary',
+        text: t('action.checkin'),
+        on: { click: () => guard(() => entrant.requestCheckIn()) },
+      }));
+    }
+
     if (['pending', 'accepted', 'waitlisted'].includes(mine.registration)
       && !['finished', 'cancelled'].includes(snapshot.state.status)) {
       rows.push(el('button', {
         text: t('action.withdraw'),
         on: { click: () => guard(() => entrant.withdraw()) },
       }));
+    }
+
+    // Withdrawing is not meant to be a door that locks behind you. While
+    // registration is open, asking again replaces the withdrawal rather than
+    // adding a second request.
+    if (['withdrawn', 'rejected'].includes(mine.registration)
+      && snapshot.state.status === 'registration_open') {
+      const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+      rows.push(
+        el('p', { className: 'small', text: t('reg.again.hint') }),
+        el('button', {
+          className: 'primary',
+          text: t('reg.again'),
+          on: {
+            click: () => guard(async () => {
+              await entrant.register({
+                division: mine.division || competition.divisions[0].id,
+                display: mine.display || shortKey(signer.pubkey),
+                waiverAccepted: true,
+                selections: mine.selections,
+              });
+              feedback.textContent = t('reg.sent');
+              announce(t('reg.sent'));
+            }, feedback),
+          },
+        }),
+        feedback,
+      );
     }
     return el('section', { className: 'card raised' }, rows);
   }
@@ -302,6 +345,9 @@ function registrationPanel(snapshot) {
  * Anything outside this set is the provider misbehaving in a way we cannot
  * usefully describe, and gets the generic wording rather than a raw code.
  */
+/** Payment states an entrant can still act on. */
+const PAYABLE_STATES = new Set(['pending', 'failed', 'expired']);
+
 const PAY_ERRORS = new Set([
   'empty', 'bad_address', 'bad_domain', 'onion', 'bad_lnurl', 'bad_url', 'not_https',
   'unrecognised', 'not_a_pay_request', 'bad_callback', 'bad_limits', 'below_minimum',
