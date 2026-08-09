@@ -312,3 +312,51 @@ test('the privacy page discloses what the competition pages do', () => {
     }
   }
 });
+
+test('every module a page loads resolves, transitively', async () => {
+  // A typo in an import path produces a completely blank page and no error
+  // anywhere a test would normally look. Walking the graph from each entry
+  // point catches it here instead.
+  const entries = new Set();
+  for (const lang of LANGUAGES) {
+    for (const name of EN_PAGES) {
+      const match = readPage(lang, name).match(/<script type="module" src="([^"]+)"><\/script>/);
+      if (match) entries.add(path.join(root, match[1].replace(/^\//, '')));
+    }
+  }
+  assert.ok(entries.size >= 3, 'expected the organizer, join and live entry points');
+
+  const seen = new Set();
+  const visit = (file) => {
+    if (seen.has(file)) return;
+    seen.add(file);
+    assert.ok(fs.existsSync(file), `missing module: ${path.relative(root, file)}`);
+    const source = fs.readFileSync(file, 'utf8');
+    for (const match of source.matchAll(/(?:^|\n)\s*(?:import|export)[^'"\n]*from\s+['"]([^'"]+)['"]/g)) {
+      const specifier = match[1];
+      if (!specifier.startsWith('.')) continue;
+      visit(path.resolve(path.dirname(file), specifier));
+    }
+    for (const match of source.matchAll(/import\(\s*['"](\.[^'"]+)['"]\s*\)/g)) {
+      visit(path.resolve(path.dirname(file), match[1]));
+    }
+  };
+  for (const entry of entries) visit(entry);
+
+  // The vendored crypto has to be reachable from a page, not only from a test.
+  assert.ok(
+    [...seen].some((f) => f.includes('assets/vendor/nostr-crypto/secp256k1')),
+    'the pages never reach the vendored signing code',
+  );
+  assert.ok(seen.size >= 12, `only ${seen.size} modules were reachable, which looks wrong`);
+});
+
+test('every page references a stylesheet that exists', () => {
+  for (const lang of LANGUAGES) {
+    for (const name of EN_PAGES) {
+      const match = readPage(lang, name).match(/<link rel="stylesheet" href="([^"]+)">/);
+      assert.ok(match, `${lang}/${name} has no stylesheet`);
+      assert.ok(fs.existsSync(path.join(root, match[1].replace(/^\//, ''))), match[1]);
+    }
+  }
+});
