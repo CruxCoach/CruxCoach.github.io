@@ -118,8 +118,12 @@ async function main() {
       late_entry_allowed: false,
     },
     climbs: [
-      { id: 'c1', climb_uuid: '11111111-1111-4111-8111-111111111111', angle: 40, label: 'Qualifier 1', points: 100 },
-      { id: 'c2', climb_uuid: '22222222-2222-4222-8222-222222222222', angle: 40, label: 'Qualifier 2', points: 150 },
+      // Real-shaped uuids, not the all-same-digit placeholders both validators
+      // now refuse. Nothing here can load them either — a demo has no board
+      // database — but the demo has to build the same kind of competition an
+      // organizer does, or it stops being a rehearsal of anything.
+      { id: 'c1', climb_uuid: '3f8a1c24-5b6d-4e71-9a03-2c7d8e4f5061', angle: 40, label: 'Qualifier 1', points: 100 },
+      { id: 'c2', climb_uuid: '7b2e9d15-4c8a-4f36-8d52-1e9a3b7c4d08', angle: 40, label: 'Qualifier 2', points: 150 },
     ],
     relays: [relay.url],
     created_at: now(),

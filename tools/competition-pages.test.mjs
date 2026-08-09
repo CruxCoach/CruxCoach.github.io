@@ -484,3 +484,101 @@ test('the participant pages can render every mode the form can set', () => {
   assert.ok(join.includes('unique_per_competition') || join.includes('freeClimbs'),
     'nothing distinguishes a climb somebody already holds');
 });
+
+test('the organizer form builds a competition every validator accepts', async () => {
+  // The form is DOM code, so this drives `build()` through a minimal document
+  // rather than asserting on its source. What it proves is the thing a source
+  // scan cannot: that what the form produces actually validates.
+  const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+  const { validateCompetitionConfig, newCompId } = await import('../competitions/app/protocol/competition.mjs');
+
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  try {
+    const form = createCompetitionForm({
+      t: (key) => key,
+      pool: null,
+      signerPubkey: 'a'.repeat(64),
+      defaultDisplayName: 'Kellerwand',
+      defaultLud16: '',
+      relays: ['wss://relay.example.invalid'],
+    });
+    // The three things a form cannot invent for somebody: what the competition
+    // is called, where it is, and which board it runs on.
+    const fill = (id, value) => { form.node.querySelector(`#${id}`).value = value; };
+    fill('f-title', 'Kellerwand Winter Session');
+    fill('f-venue', 'Kellerwand Boulderhalle');
+    fill('f-board', 'kilterboard-og');
+    fill('f-climbs', '1');
+
+    // And at least one real climb, which is the point of the whole exercise:
+    // this is a catalogue uuid, so nothing is fetched and the organizer names
+    // it themselves.
+    const added = await form.climbs.add('3f8a1c24-5b6d-4e71-9a03-2c7d8e4f5061');
+    assert.equal(added, true, 'a real catalogue uuid must be accepted');
+    assert.equal(
+      await form.climbs.add('11111111-1111-4111-8111-111111111111'),
+      false,
+      'a placeholder must be refused by the form, not only by the validator',
+    );
+    form.node.querySelector('#climb-label-0').value = 'Blue slab';
+
+    const config = form.build(newCompId(), Math.floor(Date.UTC(2026, 7, 9) / 1000));
+    const result = validateCompetitionConfig(config);
+    assert.equal(result.ok, true, JSON.stringify(result.errors));
+  } finally {
+    restore();
+  }
+});
+
+test('the organizer form builds a participant-choice competition too', async () => {
+  // The mode the first version of this form could not express at all. Driving
+  // it rather than reading the source is what makes that claim checkable.
+  const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+  const { validateCompetitionConfig, newCompId } = await import('../competitions/app/protocol/competition.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+
+  const restore = window.install();
+  try {
+    const form = createCompetitionForm({
+      t: (key) => key,
+      pool: null,
+      signerPubkey: 'a'.repeat(64),
+      defaultDisplayName: 'Kellerwand',
+      defaultLud16: '',
+      relays: ['wss://relay.example.invalid'],
+    });
+    const set = (id, value) => { form.node.querySelector(`#${id}`).value = value; };
+    set('f-title', 'Pick your own');
+    set('f-venue', 'Kellerwand Boulderhalle');
+    set('f-board', 'kilterboard-og');
+    set('f-climb-source', 'participant_choice');
+    set('f-uniqueness', 'unique_per_competition');
+    set('f-progression', 'asynchronous_turns');
+    set('f-climbs', '1');
+    set('f-capacity', '2');
+
+    // With unique claims the pool has to hold enough for everyone.
+    for (const uuid of [
+      '3f8a1c24-5b6d-4e71-9a03-2c7d8e4f5061',
+      '7b2e9d15-4c8a-4f36-8d52-1e9a3b7c4d08',
+    ]) {
+      // eslint-disable-next-line no-await-in-loop
+      assert.equal(await form.climbs.add(uuid), true, uuid);
+    }
+    form.node.querySelector('#climb-label-0').value = 'Blue slab';
+    form.node.querySelector('#climb-label-1').value = 'Red roof';
+
+    const config = form.build(newCompId(), Math.floor(Date.UTC(2026, 7, 9) / 1000));
+    assert.equal(config.rules.climb_source, 'participant_choice');
+    assert.equal(config.rules.selection_uniqueness, 'unique_per_competition');
+    assert.equal(config.rules.progression, 'asynchronous_turns');
+    assert.equal(config.climbs, undefined, 'a chosen-climbs competition carries a pool, not a list');
+    assert.equal(config.climb_pool.options.length, 2);
+
+    const result = validateCompetitionConfig(config);
+    assert.equal(result.ok, true, JSON.stringify(result.errors));
+  } finally {
+    restore();
+  }
+});

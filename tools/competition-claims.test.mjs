@@ -16,10 +16,10 @@ import {
  */
 
 const POOL = [
-  { id: 'p1', climb_uuid: 'aaaaaaaa-1111-4111-8111-111111111111', label: 'Alpha', angle: 40, points: 100 },
-  { id: 'p2', climb_uuid: 'bbbbbbbb-2222-4222-8222-222222222222', label: 'Bravo', angle: 40, points: 100 },
-  { id: 'p3', climb_uuid: 'cccccccc-3333-4333-8333-333333333333', label: 'Charlie', angle: 40, points: 100 },
-  { id: 'p4', climb_uuid: 'dddddddd-4444-4444-8444-444444444444', label: 'Delta', angle: 40, points: 100 },
+  { id: 'p1', climb_uuid: 'a1c93f57-6e28-4b04-9d75-2f8a1e63c0b9', label: 'Alpha', angle: 40, points: 100 },
+  { id: 'p2', climb_uuid: 'b6d0428e-1f75-4c93-a208-7e35d1b49c60', label: 'Bravo', angle: 40, points: 100 },
+  { id: 'p3', climb_uuid: 'c8f24b06-3a91-4e57-b0d4-9c6153e8a2f7', label: 'Charlie', angle: 40, points: 100 },
+  { id: 'p4', climb_uuid: 'd35e91b8-742c-4f06-8a19-b5d0e37c264a', label: 'Delta', angle: 40, points: 100 },
 ];
 
 function competition(overrides = {}) {

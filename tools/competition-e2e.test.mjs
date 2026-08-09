@@ -89,8 +89,8 @@ function baseConfig(compId, authority, overrides = {}) {
       late_entry_allowed: false,
     },
     climbs: [
-      { id: 'c1', climb_uuid: '11111111-1111-4111-8111-111111111111', angle: 40, label: 'One', points: 100 },
-      { id: 'c2', climb_uuid: '22222222-2222-4222-8222-222222222222', angle: 40, label: 'Two', points: 150 },
+      { id: 'c1', climb_uuid: '3f8a1c24-5b6d-4e71-9a03-2c7d8e4f5061', angle: 40, label: 'One', points: 100 },
+      { id: 'c2', climb_uuid: '7b2e9d15-4c8a-4f36-8d52-1e9a3b7c4d08', angle: 40, label: 'Two', points: 150 },
     ],
     relays: [],
     created_at: 1789000000,
@@ -494,10 +494,10 @@ test('participant-chosen climbs: two entrants race for one climb and the loser r
   // their picks with their registration, the authority settles the race with
   // the shipped rule, the loser is told, and their second choice is granted.
   const pool = [
-    { id: 'p1', climb_uuid: 'aaaaaaaa-1111-4111-8111-111111111111', angle: 40, label: 'Blue slab', points: 100 },
-    { id: 'p2', climb_uuid: 'bbbbbbbb-2222-4222-8222-222222222222', angle: 40, label: 'Red roof', points: 100 },
-    { id: 'p3', climb_uuid: 'cccccccc-3333-4333-8333-333333333333', angle: 40, label: 'Yellow arete', points: 100 },
-    { id: 'p4', climb_uuid: 'dddddddd-4444-4444-8444-444444444444', angle: 40, label: 'Green crimps', points: 100 },
+    { id: 'p1', climb_uuid: 'a1c93f57-6e28-4b04-9d75-2f8a1e63c0b9', angle: 40, label: 'Blue slab', points: 100 },
+    { id: 'p2', climb_uuid: 'b6d0428e-1f75-4c93-a208-7e35d1b49c60', angle: 40, label: 'Red roof', points: 100 },
+    { id: 'p3', climb_uuid: 'c8f24b06-3a91-4e57-b0d4-9c6153e8a2f7', angle: 40, label: 'Yellow arete', points: 100 },
+    { id: 'p4', climb_uuid: 'd35e91b8-742c-4f06-8a19-b5d0e37c264a', angle: 40, label: 'Green crimps', points: 100 },
   ];
   const { relay, organizer, organizerPool, compId, store, writer, config } = await setup({
     climbs: undefined,

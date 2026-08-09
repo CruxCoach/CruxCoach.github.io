@@ -16,7 +16,7 @@ import { validateCompetitionConfig, KIND } from '../competitions/app/protocol/co
  * no board can load a climb that does not exist.
  */
 
-const REAL = 'aaaaaaaa-1111-4111-8111-111111111111';
+const REAL = 'a1c93f57-6e28-4b04-9d75-2f8a1e63c0b9';
 const SETTER = '2014dc3b1e6ca37888d3b4620fd4f23f1d8e5440dfbe51121cf787ad63b15004';
 
 test('a placeholder uuid is refused in every form it arrives in', () => {
@@ -26,14 +26,20 @@ test('a placeholder uuid is refused in every form it arrives in', () => {
     '00000009-0000-4000-8000-000000000000',
     '11111111-1111-1111-1111-111111111111',
     'ffffffff-ffff-ffff-ffff-ffffffffffff',
+    // Dressed up as a version-4 uuid, which is how a placeholder gets past a
+    // check that only looks for repetition across the whole string.
+    '22222222-2222-4222-8222-222222222222',
+    'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
     '00000000000000000000000000000000',
   ];
   for (const value of placeholders) {
     assert.equal(isPlaceholderUuid(value), true, value);
     assert.equal(parseClimbRef(value).error, 'placeholder', value);
   }
-  // The shape a real climb has must not be caught by the same net.
+  // The shape a real climb has must not be caught by the same net. A uuid is
+  // random, so one whose digits merely start the same is perfectly ordinary.
   assert.equal(isPlaceholderUuid(REAL), false);
+  assert.equal(isPlaceholderUuid('11111111-2222-4333-8444-555555555555'), false);
   assert.equal(isPlaceholderUuid('not a uuid'), false);
 });
 
@@ -134,8 +140,8 @@ test('the climb list refuses duplicates, placeholders and unlabelled entries', (
     { uuid: REAL, label: 'Blue slab', angle: 40, points: 100, kind: 'catalogue' },
     { uuid: REAL, label: 'Blue slab again', angle: 40, kind: 'catalogue' },
     { uuid: '00000001-0000-4000-8000-000000000000', label: 'Fake', angle: 40 },
-    { uuid: 'bbbbbbbb-2222-4222-8222-222222222222', label: '', angle: 40 },
-    { uuid: 'cccccccc-3333-4333-8333-333333333333', label: 'No angle' },
+    { uuid: 'b6d0428e-1f75-4c93-a208-7e35d1b49c60', label: '', angle: 40 },
+    { uuid: 'c8f24b06-3a91-4e57-b0d4-9c6153e8a2f7', label: 'No angle' },
     { uuid: 'nonsense', label: 'Nope', angle: 40 },
   ]);
   assert.deepEqual(climbs.map((c) => c.climb_uuid), [REAL]);
@@ -277,7 +283,7 @@ test('participant choice without a real pool does not validate', () => {
       source: 'organizer_list',
       options: [
         { id: 'p1', climb_uuid: REAL, angle: 40, label: 'Blue slab', points: 100 },
-        { id: 'p2', climb_uuid: 'bbbbbbbb-2222-4222-8222-222222222222', angle: 40, label: 'Red roof', points: 100 },
+        { id: 'p2', climb_uuid: 'b6d0428e-1f75-4c93-a208-7e35d1b49c60', angle: 40, label: 'Red roof', points: 100 },
       ],
     },
   }));

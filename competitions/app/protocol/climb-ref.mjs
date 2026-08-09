@@ -34,9 +34,24 @@ const LEGACY_UUID = /^[0-9a-f]{32}$/i;
 /**
  * Placeholder shapes that must never reach a published competition.
  *
- * An all-zero uuid, an all-same-digit uuid, or the `0000000N-0000-4000-8000-…`
- * pattern the first version of this form generated. They parse as uuids, which
- * is exactly why they need an explicit refusal.
+ * They parse as uuids, which is exactly why they need an explicit refusal: a
+ * competition built on them publishes, validates, reduces and scores perfectly,
+ * and then cannot be climbed.
+ *
+ * Four shapes, all of them things an implementation writes when it has given
+ * up on wiring the catalogue:
+ *
+ *   00000000-0000-0000-0000-000000000000   all zero
+ *   11111111-1111-1111-1111-111111111111   one digit repeated
+ *   22222222-2222-4222-8222-222222222222   one digit repeated, wearing a
+ *                                          version-4 nibble and a variant
+ *                                          nibble so it looks like a real uuid
+ *   0000000N-0000-4000-8000-000000000000   the counter the first version of
+ *                                          the organizer form generated
+ *
+ * The third is the one worth spelling out. A genuine climb uuid is random, so
+ * the chance of its thirty free hex digits all being the same is 16^-29 — this
+ * refuses nothing anybody could really have.
  */
 export function isPlaceholderUuid(value) {
   const normalized = String(value || '').toLowerCase().replace(/-/g, '');
@@ -45,6 +60,10 @@ export function isPlaceholderUuid(value) {
   if (/^(.)\1{31}$/.test(normalized)) return true;
   // 0000000N 0000 4000 8000 000000000000
   if (/^0{7}[0-9a-f]0{4}40{3}80{3}0{12}$/.test(normalized)) return true;
+  // Every digit the same except the version nibble (13) and the variant
+  // nibble (17), which is what makes it look like a v4 uuid.
+  const free = normalized.slice(0, 12) + normalized.slice(13, 16) + normalized.slice(17);
+  if (/^(.)\1{29}$/.test(free)) return true;
   return false;
 }
 

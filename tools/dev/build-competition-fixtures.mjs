@@ -167,8 +167,8 @@ function baseConfig({ compId, authority, overrides = {} }) {
       late_entry_allowed: false,
     },
     climbs: [
-      { id: 'c1', climb_uuid: '11111111-1111-4111-8111-111111111111', angle: 40, label: 'Qualifier 1', points: 100 },
-      { id: 'c2', climb_uuid: '22222222-2222-4222-8222-222222222222', angle: 40, label: 'Qualifier 2', points: 150 },
+      { id: 'c1', climb_uuid: '3f8a1c24-5b6d-4e71-9a03-2c7d8e4f5061', angle: 40, label: 'Qualifier 1', points: 100 },
+      { id: 'c2', climb_uuid: '7b2e9d15-4c8a-4f36-8d52-1e9a3b7c4d08', angle: 40, label: 'Qualifier 2', points: 150 },
     ],
     relays: ['wss://relay.example.invalid'],
     created_at: 1788900000,
@@ -360,10 +360,10 @@ async function streamPaidUniqueAsync(keys) {
       climb_pool: {
         source: 'organizer_list',
         options: [
-          { id: 'c1', climb_uuid: '11111111-1111-4111-8111-111111111111', angle: 40, label: 'Blue slab', points: 100 },
-          { id: 'c2', climb_uuid: '22222222-2222-4222-8222-222222222222', angle: 40, label: 'Red roof', points: 150 },
-          { id: 'c3', climb_uuid: '33333333-3333-4333-8333-333333333333', angle: 40, label: 'Yellow arete', points: 120 },
-          { id: 'c4', climb_uuid: '44444444-4444-4444-8444-444444444444', angle: 40, label: 'Green crimps', points: 130 },
+          { id: 'c1', climb_uuid: '3f8a1c24-5b6d-4e71-9a03-2c7d8e4f5061', angle: 40, label: 'Blue slab', points: 100 },
+          { id: 'c2', climb_uuid: '7b2e9d15-4c8a-4f36-8d52-1e9a3b7c4d08', angle: 40, label: 'Red roof', points: 150 },
+          { id: 'c3', climb_uuid: 'c41d7a90-2f63-4b85-9e17-6a0d8c3f2b54', angle: 40, label: 'Yellow arete', points: 120 },
+          { id: 'c4', climb_uuid: '9e05b3c7-8a14-4d62-b73f-5c1e920a7d86', angle: 40, label: 'Green crimps', points: 130 },
         ],
       },
       capacity: 2,

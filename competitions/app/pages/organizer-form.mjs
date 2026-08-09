@@ -573,5 +573,8 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
     ]),
   ]);
 
-  return { node, build, validate: (config) => validateCompetitionConfig(config) };
+  // `climbs` is exposed so the climb list can be driven from outside the DOM —
+  // by a test, and by the app-side handoff that adds a climb straight from the
+  // board browser.
+  return { node, build, climbs: climbEditor, validate: (config) => validateCompetitionConfig(config) };
 }
