@@ -16,7 +16,10 @@ function scoredClimbs(participant, competition) {
 }
 
 function pointsFor(climbId, competition) {
-  const climb = (competition.climbs || []).find((c) => c.id === climbId);
+  // Either source: a participant-chosen climb lives in the pool, not in
+  // `climbs`, and looking only at `climbs` scored every one of them zero.
+  const climb = (competition.climbs || []).find((c) => c.id === climbId)
+    || (competition.climb_pool?.options || []).find((c) => c.id === climbId);
   return Number.isInteger(climb?.points) ? climb.points : 0;
 }
 
