@@ -806,3 +806,87 @@ test('a fee is settled by a receipt that verifies, or by an override that is nam
     await relay.close();
   }
 });
+
+test('an intent keeps its nonce across a reload, so asking again replaces rather than adds', async () => {
+  // Held in memory only, a refresh produced a fresh nonce and a second live
+  // request. On the paid path that is worse than untidy: the zap request
+  // carries the registration's nonce and the organizer checks a receipt
+  // against it, so a nonce that changed would strand a payment already made.
+  const { relay, organizer, organizerPool, compId, store, writer } = await setup();
+  const alice = newSigner();
+  const side = await reader(relay.url, organizer.pubkey, compId);
+
+  // A storage that behaves like localStorage and outlives the writer.
+  const backing = new Map();
+  const storage = {
+    getItem: (k) => (backing.has(k) ? backing.get(k) : null),
+    setItem: (k, v) => backing.set(k, String(v)),
+    removeItem: (k) => backing.delete(k),
+  };
+  const makeEntrant = () => new EntrantWriter({
+    pool: side.pool,
+    signer: alice,
+    competition: side.store.competition,
+    organizerPubkey: organizer.pubkey,
+    now,
+    storage,
+  });
+
+  const intents = [];
+  try {
+    await writer.setStatus('published');
+    tick();
+    await writer.setStatus('registration_open');
+    await until(side.store, (s) => s.state?.status === 'registration_open', 'registration to open');
+
+    await store.followIntents((event) => {
+      const parsed = parseIntentEvent(event, store.competition, organizer.pubkey, now());
+      if (parsed.ok) intents.push(parsed);
+    });
+
+    const first = makeEntrant();
+    await first.register({ division: 'open', display: 'Alice', waiverAccepted: true });
+    await until({ state: { seq: 0 } }, () => intents.length === 1, 'the first request');
+    const nonce = intents[0].intent.nonce;
+
+    // The page reloads: a brand new writer, the same person, the same device.
+    tick();
+    const second = makeEntrant();
+    assert.equal(second.nonceFor('register'), nonce, 'the nonce has to survive the reload');
+    await second.register({ division: 'open', display: 'Alice again', waiverAccepted: true });
+    await until({ state: { seq: 0 } }, () => intents.length === 2, 'the second request');
+
+    assert.equal(intents[1].intent.nonce, nonce);
+    assert.equal(intents[1].eventId !== intents[0].eventId, true, 'a new event, replacing the old');
+
+    // One live request on the relay, not two: the d-tag is the same, so the
+    // addressable-replacement rule did the deduplication.
+    const live = await side.pool.query([{
+      kinds: [KIND],
+      authors: [alice.pubkey],
+      '#a': [`30078:${organizer.pubkey}:cruxcoach:comp:${compId}`],
+    }]);
+    const registrations = live.events.filter(
+      (event) => (event.tags.find((t) => t[0] === 'op') || [])[1] === 'register',
+    );
+    assert.equal(registrations.length, 1, 'a reload must not leave two live registrations');
+
+    // Without storage the old behaviour returns, and that is the documented
+    // fallback for private browsing rather than a failure.
+    const forgetful = new EntrantWriter({
+      pool: side.pool,
+      signer: alice,
+      competition: side.store.competition,
+      organizerPubkey: organizer.pubkey,
+      now,
+      storage: null,
+    });
+    assert.notEqual(forgetful.nonceFor('register'), nonce);
+  } finally {
+    side.store.close();
+    side.pool.close();
+    store.close();
+    organizerPool.close();
+    await relay.close();
+  }
+});

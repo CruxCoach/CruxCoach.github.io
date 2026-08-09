@@ -295,7 +295,7 @@ export async function publishCompetition(pool, signer, config, now = Math.floor(
 
 /** A participant's request. Never state — the authority's answer is. */
 export class EntrantWriter {
-  constructor({ pool, signer, competition, organizerPubkey, now }) {
+  constructor({ pool, signer, competition, organizerPubkey, now, storage }) {
     this.pool = pool;
     this.signer = signer;
     this.competition = competition;
@@ -303,11 +303,37 @@ export class EntrantWriter {
     this.now = now || (() => Math.floor(Date.now() / 1000));
     /** Reused per intent kind so a retry replaces rather than duplicates. */
     this.nonces = new Map();
+    this.storage = storage === undefined ? globalThis.localStorage : storage;
   }
 
+  /**
+   * A nonce per (competition, operation, signer), surviving a reload.
+   *
+   * Held in memory only, a refresh produced a fresh nonce — so registering
+   * again added a *second* live request instead of replacing the first. On the
+   * paid path that is worse than untidy: the zap request carries the
+   * registration's nonce and the organizer checks a receipt against it, so a
+   * nonce that changed would strand a payment already made.
+   */
   nonceFor(op) {
-    if (!this.nonces.has(op)) this.nonces.set(op, newNonce());
-    return this.nonces.get(op);
+    const key = `cruxcoach:comp:nonce:${this.signer.pubkey.slice(0, 8)}:${this.competition.comp_id}:${op}`;
+    if (this.nonces.has(op)) return this.nonces.get(op);
+
+    let nonce = null;
+    try {
+      nonce = this.storage?.getItem(key) || null;
+    } catch {
+      // Private mode, or storage disabled. In-memory is the fallback, and the
+      // consequence is exactly the old behaviour rather than a failure.
+    }
+    if (!nonce) {
+      nonce = newNonce();
+      try {
+        this.storage?.setItem(key, nonce);
+      } catch { /* as above */ }
+    }
+    this.nonces.set(op, nonce);
+    return nonce;
   }
 
   send(op, data, { expiration } = {}) {
