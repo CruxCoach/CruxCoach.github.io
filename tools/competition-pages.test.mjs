@@ -8,6 +8,9 @@ import { __testing as i18nTesting, LANGUAGES, createTranslator, describeRejectio
 import { REJECTION_CODES } from '../competitions/app/protocol/reduce.mjs';
 import { joinLink, parseCompetitionRef, DISCOVERY_RELAYS } from '../competitions/app/pages/common.mjs';
 import { isAllowedRelayUrl } from '../competitions/app/protocol/relay-url.mjs';
+import {
+  CLIMB_SOURCES, UNIQUENESS, PROGRESSIONS, SCORINGS,
+} from '../competitions/app/protocol/competition.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -433,4 +436,51 @@ test('the stylesheet honours reduced motion, high contrast and focus visibility'
   assert.match(css, /min-height: 2\.75rem/);
   // Wide content scrolls inside its own container rather than the page body.
   assert.match(css, /\.table-scroll \{ overflow-x: auto; \}/);
+});
+
+test('the organizer form offers every mode the protocol defines', () => {
+  // A mode the reducer understands and the form cannot set is a mode nobody
+  // can use. This is the check that the first version of this form failed:
+  // it hard-coded organizer_set with no uniqueness and shipped green.
+  const form = fs.readFileSync(
+    path.join(root, 'competitions/app/pages/organizer-form.mjs'),
+    'utf8',
+  );
+  const axes = {
+    CLIMB_SOURCES,
+    UNIQUENESS,
+    PROGRESSIONS,
+    SCORINGS,
+  };
+  for (const [name, values] of Object.entries(axes)) {
+    for (const value of values) {
+      assert.ok(
+        form.includes(`'${value}'`) || form.includes(`"${value}"`),
+        `the organizer form cannot set ${name} = ${value}`,
+      );
+    }
+  }
+});
+
+test('every mode the form offers has a label in both languages', () => {
+  // An option rendered with a missing key shows the key itself, which reads as
+  // a bug to the organizer and is one.
+  const { STRINGS } = i18nTesting;
+  const modes = [...CLIMB_SOURCES, ...UNIQUENESS, ...PROGRESSIONS, ...SCORINGS];
+  for (const value of modes) {
+    const key = `org.mode.${value}`;
+    for (const language of LANGUAGES) {
+      assert.ok(STRINGS[language][key], `${key} is missing in ${language}`);
+    }
+  }
+});
+
+test('the participant pages can render every mode the form can set', () => {
+  // Registration has to offer climb selection when the organizer configured
+  // it, and the live panel has to offer the async chooser.
+  const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
+  assert.ok(join.includes("'participant_choice'"), 'no climb selection at registration');
+  assert.ok(join.includes("'asynchronous_turns'"), 'no next-climb chooser for async turns');
+  assert.ok(join.includes('unique_per_competition') || join.includes('freeClimbs'),
+    'nothing distinguishes a climb somebody already holds');
 });

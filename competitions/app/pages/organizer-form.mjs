@@ -236,12 +236,12 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
     ], 'organizer_set'),
     climbCount: num('f-climbs', 4, { min: '1', max: '40' }),
     uniqueness: select('f-uniqueness', [
-      ['none', t('org.mode.uniqueness_none')],
-      ['unique_per_competition', t('org.mode.uniqueness_unique')],
+      ['none', t('org.mode.none')],
+      ['unique_per_competition', t('org.mode.unique_per_competition')],
     ], 'none'),
     progression: select('f-progression', [
-      ['synchronous_rounds', t('org.mode.sync')],
-      ['asynchronous_turns', t('org.mode.async')],
+      ['synchronous_rounds', t('org.mode.synchronous_rounds')],
+      ['asynchronous_turns', t('org.mode.asynchronous_turns')],
     ], 'synchronous_rounds'),
     attempts: num('f-attempts', 3, { min: '1', max: '20' }),
     scoring: select('f-scoring', [

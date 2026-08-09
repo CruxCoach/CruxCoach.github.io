@@ -111,23 +111,82 @@ the results as final.
 
 ## The Android app against the same relay
 
-The app ships with public relays compiled in, so it reads a competition from
-whichever relays the competition names. Point it at this one by publishing a
-competition whose `relays` list is the loopback URL — which is exactly what the
-demo script does — and running the app on the same machine (an emulator reaches
-the host loopback at `10.0.2.2`).
+The app reads a competition from whichever relays the competition names, and it
+will only ever accept a `ws://` URL when the host is loopback
+(`CompetitionProtocol.isAllowedRelayUrl`). So the phone has to reach this relay
+**at 127.0.0.1**, which is exactly what `adb reverse` is for.
 
-Without a device attached this is the deterministic substitute, and it is the
-stronger check of the two, because it compares hashes rather than screenshots:
+`10.0.2.2` — the emulator's alias for the host — does not work and never did:
+it is not loopback, so both clients refuse it. `CompetitionDevRelayPolicyTest`
+pins that, so this page cannot drift back to suggesting it.
+
+**1. Install the debug build.** Only the debug build permits cleartext to
+loopback; the release APK forbids it, and a test asserts the difference.
+
+```bash
+cd CruxCoach
+ANDROID_HOME=/home/myuser/android-sdk ./gradlew :androidApp:installDebug
+```
+
+**2. Point the phone's loopback at this machine.** Both ports: the relay, and
+the static site if you want to open the pages on the device too.
+
+```bash
+adb reverse tcp:7447 tcp:7447     # the dev relay
+adb reverse tcp:8000 tcp:8000     # the static site, if you want it on device
+adb reverse --list                # confirms both
+```
+
+**3. Publish a competition whose relay is the loopback URL.** The demo script
+already does this; if you are publishing by hand, the `relays` list must contain
+`ws://127.0.0.1:7447` and nothing else, or the phone will read a different
+competition from the public relays.
+
+```bash
+node tools/dev/run-competition-demo.mjs --port 7447 --stop-at running
+```
+
+The demo binds the relay to `127.0.0.1:7447` and publishes a competition whose
+`relays` list is exactly that URL, which is what makes it readable from the
+phone once `adb reverse` is in place.
+
+**4. Open it on the phone**, by any of the three ways in — all three still work
+and none of them is required:
+
+```bash
+# a. the App Link, as if the poster had been scanned by the system camera
+adb shell am start -a android.intent.action.VIEW \
+  -d "https://cruxcoach.org/comp/<naddr>"
+
+# b. the in-app scanner: Competitions → "Scan a code", pointed at the QR on the
+#    live screen. The camera permission is asked for here and nowhere else.
+
+# c. paste: Competitions → the link field → the naddr or the full link
+```
+
+`<naddr>` is printed by the demo script and is the same string the live screen's
+QR encodes.
+
+**Without a device**, the deterministic substitute is the stronger check of the
+two anyway, because it compares hashes rather than screenshots:
 
 ```bash
 cd CruxCoach
 ANDROID_HOME=/home/myuser/android-sdk ./gradlew :shared:testDebugUnitTest --tests '*Competition*'
 ```
 
-That replays the same seven signed event streams cruxcoach.org replays and
-asserts the same `state_hash`, the same reduced state and the same standings. If
-the app and the website ever disagree about who won, this fails.
+That replays the same signed event streams cruxcoach.org replays and asserts the
+same `state_hash`, the same reduced state and the same standings. If the app and
+the website ever disagree about who won, this fails.
+
+The scanner's own decode path is covered without a camera too — a QR is encoded,
+rendered to luminance the way a sensor would, and read back:
+
+```bash
+cd CruxCoach
+ANDROID_HOME=/home/myuser/android-sdk ./gradlew :androidApp:testDebugUnitTest \
+  --tests '*CompetitionQrDecoderTest*'
+```
 
 ---
 
@@ -167,8 +226,11 @@ point: it has no authentication, no rate limiting and no persistence.
 ## What this does not cover
 
 - **A physical phone.** There is no device attached to this machine, so the
-  Maestro flows in `CruxCoach/flows/` cannot run. The conformance test above is
-  the substitute and covers the protocol; it does not cover Compose rendering.
+  Maestro flows in `CruxCoach/flows/` cannot run and neither can the `adb`
+  steps above — they are written to be executed, not to have been executed. The
+  conformance test and the QR decoder test are the substitutes and cover the
+  protocol and the decode path; they do not cover Compose rendering, the camera
+  preview, or the permission dialog.
 - **A real Lightning payment.** The paid path is exercised with a locally
   generated zapper key and locally signed receipt fixtures
   (`competitions/fixtures/vectors/zap.json`). That is a faithful test of our

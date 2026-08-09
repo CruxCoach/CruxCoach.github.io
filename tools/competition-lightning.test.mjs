@@ -309,3 +309,41 @@ test('nothing in the fixtures is payable', () => {
     'the signature words must still be zeros',
   );
 });
+
+test('the invoice has to be for at least the fee, and bound to this request', async () => {
+  // The two checks that are cryptography rather than trust: the amount the
+  // invoice is actually for, and the description hash that commits it to this
+  // exact zap request.
+  const bound = await verifyZapReceipt(fixture.valid_receipt, expected);
+  assert.equal(bound.ok, true, bound.error);
+  assert.equal(bound.weaklyBound, false, 'the fixture invoice carries a description hash');
+
+  // An invoice for a tenth of the fee, correctly attested.
+  const small = {
+    ...fixture.valid_receipt,
+    tags: fixture.valid_receipt.tags.map(
+      (t) => (t[0] === 'bolt11' ? ['bolt11', fixture.invoice.bolt11.replace('lnbc20u', 'lnbc2u')] : t),
+    ),
+  };
+  const result = await verifyZapReceipt(small, expected);
+  assert.equal(result.ok, false);
+  // The signature no longer covers the swapped tag, which is itself the
+  // refusal — a provider that wanted to do this would have to sign it.
+  assert.ok(['bad_signature', 'invoice_too_small'].includes(result.error), result.error);
+});
+
+test('a receipt from outside the window it should have arrived in is refused', async () => {
+  const at = fixture.valid_receipt.created_at;
+  assert.equal(
+    (await verifyZapReceipt(fixture.valid_receipt, { ...expected, notBefore: at + 1 })).error,
+    'receipt_too_early',
+  );
+  assert.equal(
+    (await verifyZapReceipt(fixture.valid_receipt, { ...expected, notAfter: at - 1 })).error,
+    'receipt_too_late',
+  );
+  assert.equal(
+    (await verifyZapReceipt(fixture.valid_receipt, { ...expected, notBefore: at - 10, notAfter: at + 10 })).ok,
+    true,
+  );
+});

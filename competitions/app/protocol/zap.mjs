@@ -22,6 +22,7 @@
  */
 import { verifyEvent } from './nostr-event.mjs';
 import { sha256Hex } from './ccj.mjs';
+import { decodeInvoice } from './bolt11.mjs';
 
 export const ZAP_REQUEST_KIND = 9734;
 export const ZAP_RECEIPT_KIND = 9735;
@@ -75,8 +76,9 @@ const tag = (event, name) => (event.tags || []).find((t) => t[0] === name);
  * @param {string} expected.recipientPubkey the organizer
  * @param {string} expected.address the competition address
  * @param {number} expected.amountMsat the fee
- * @param {string} [expected.paymentHash] from the invoice we showed
  * @param {string} [expected.nonce] the registration intent nonce
+ * @param {number} [expected.notBefore] earliest `created_at` this may have
+ * @param {number} [expected.notAfter] latest `created_at` this may have
  * @returns {Promise<{ok: true, amountMsat: number} | {ok: false, error: string}>}
  */
 export async function verifyZapReceipt(receipt, expected) {
@@ -126,7 +128,36 @@ export async function verifyZapReceipt(receipt, expected) {
   const payerTag = tag(receipt, 'P')?.[1];
   if (payerTag && payerTag !== expected.payerPubkey) return fail('wrong_payer');
 
-  return { ok: true, amountMsat: requested, bolt11 };
+  // Last, because the checks above produce the more useful answer when both
+  // fail: the invoice itself. Its amount has to cover the fee, and where it
+  // carries a description hash that hash has to be over this exact request —
+  // the one thing here that is cryptography rather than trust.
+  const invoice = decodeInvoice(bolt11);
+  if (!invoice.ok) return fail('unreadable_invoice');
+  if (invoice.amountMsat !== null && invoice.amountMsat < expected.amountMsat) {
+    return fail('invoice_too_small');
+  }
+
+  let weaklyBound = false;
+  if (invoice.descriptionHash) {
+    if (invoice.descriptionHash !== await sha256Hex(description)) {
+      return fail('invoice_not_bound');
+    }
+  } else {
+    // NIP-57 makes the description hash a SHOULD. A receipt without one still
+    // counts, but the audit trail says it was bound weakly rather than
+    // pretending the strongest check happened.
+    weaklyBound = true;
+  }
+
+  if (Number.isInteger(expected.notBefore) && receipt.created_at < expected.notBefore) {
+    return fail('receipt_too_early');
+  }
+  if (Number.isInteger(expected.notAfter) && receipt.created_at > expected.notAfter) {
+    return fail('receipt_too_late');
+  }
+
+  return { ok: true, amountMsat: requested, bolt11, weaklyBound };
 }
 
 function fail(error) {

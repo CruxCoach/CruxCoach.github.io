@@ -16,6 +16,8 @@ import {
   outstandingClaims, freeClimbs, outstandingCount, registrationOrder,
 } from '../competitions/app/protocol/claims.mjs';
 import { buildZapRequest, verifyZapReceipt } from '../competitions/app/protocol/zap.mjs';
+import { sha256Hex } from '../competitions/app/protocol/ccj.mjs';
+import { fakeInvoice } from './dev/fake-invoice.mjs';
 
 /**
  * A whole competition, end to end, over a loopback relay.
@@ -678,7 +680,9 @@ test('a fee is settled by a receipt that verifies, or by an override that is nam
   const provider = newSigner();
   const address = `30078:${organizer.pubkey}:cruxcoach:comp:${compId}`;
 
-  const receiptFor = async (payerSigner, { amountMsat = 2000000, signedBy = provider } = {}) => {
+  const receiptFor = async (payerSigner, {
+    amountMsat = 2000000, signedBy = provider, bindInvoice = true,
+  } = {}) => {
     const request = await payerSigner.signEvent(buildZapRequest({
       recipientPubkey: organizer.pubkey,
       address,
@@ -687,6 +691,16 @@ test('a fee is settled by a receipt that verifies, or by an override that is nam
       nonce: 'aabbccdd',
       createdAt: now(),
     }));
+    const description = JSON.stringify(request);
+    // Unpayable by construction: the signature words are zeros, so nothing in
+    // this test could be settled even if a wallet saw it.
+    const invoice = fakeInvoice({
+      amountMsat: 2000000,
+      timestamp: now(),
+      expirySec: 900,
+      paymentHash: 'b'.repeat(64),
+      descriptionHash: bindInvoice ? await sha256Hex(description) : undefined,
+    });
     return signedBy.signEvent({
       kind: 9735,
       created_at: now(),
@@ -694,8 +708,8 @@ test('a fee is settled by a receipt that verifies, or by an override that is nam
         ['p', organizer.pubkey],
         ['P', request.pubkey],
         ['a', address],
-        ['bolt11', 'lnbc20u1qqqqqqqqqqqqqqqqqqqqr6alde'],
-        ['description', JSON.stringify(request)],
+        ['bolt11', invoice],
+        ['description', description],
       ],
       content: '',
     });
@@ -752,6 +766,15 @@ test('a fee is settled by a receipt that verifies, or by an override that is nam
       (await verifyZapReceipt(good, { ...expected, payerPubkey: alice.pubkey, providerPubkey: null })).error,
       'no_provider_key',
     );
+
+    // An invoice that commits to a different request is refused outright; one
+    // that commits to nothing still counts, but is recorded as weakly bound.
+    const unbound = await receiptFor(bob, { bindInvoice: false });
+    const weak = await verifyZapReceipt(unbound, { ...expected, payerPubkey: bob.pubkey });
+    assert.equal(weak.ok, true, weak.error);
+    assert.equal(weak.weaklyBound, true,
+      'NIP-57 makes the description hash a SHOULD, so this is a downgrade rather than a refusal');
+    assert.equal(verified.weaklyBound, false, 'and a bound invoice is not downgraded');
 
     // ── the manual path ──
     await assert.rejects(

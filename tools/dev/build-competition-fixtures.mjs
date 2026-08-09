@@ -25,8 +25,7 @@ import { fileURLToPath } from 'node:url';
 
 import { schnorr } from '../../assets/vendor/nostr-crypto/secp256k1/secp256k1.js';
 import {
-  bech32EncodeWords, bytesToHex, hexToBytes, eventId, getPublicKey, naddrEncode,
-  serializeEvent,
+  bytesToHex, hexToBytes, eventId, getPublicKey, naddrEncode, serializeEvent,
 } from '../../competitions/app/protocol/nostr-event.mjs';
 import { ccj, ccjHash, sha256Hex } from '../../competitions/app/protocol/ccj.mjs';
 import {
@@ -37,6 +36,7 @@ import {
 import { hashableState, reduce } from '../../competitions/app/protocol/reduce.mjs';
 import { isAllowedRelayUrl, isLoopbackRelay } from '../../competitions/app/protocol/relay-url.mjs';
 import { computeStandings } from '../../competitions/app/protocol/scoring.mjs';
+import { fakeInvoice } from './fake-invoice.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '../..');
@@ -853,47 +853,6 @@ async function buildVectors(keys) {
       tampered_must_fail_verification: tampered,
     },
   };
-}
-
-/**
- * A structurally valid BOLT11 invoice, built here rather than by a node.
- *
- * No Lightning node was involved, no channel exists, and the signature words
- * are zeros — nothing can pay this, which is the point: the fixtures must never
- * contain something a wallet would try to settle. What it *is* good for is
- * pinning the decoder, which reads the amount, the expiry, the payment hash and
- * the description hash and never looks at the signature.
- */
-function fakeInvoice({ amountMsat, timestamp, expirySec, paymentHash, descriptionHash }) {
-  const words = [];
-  const push = (value, count) => {
-    for (let i = count - 1; i >= 0; i--) words.push((value >> (5 * i)) & 31);
-  };
-  push(timestamp, 7);
-
-  const field = (type, valueWords) => {
-    words.push(type);
-    words.push((valueWords.length >> 5) & 31, valueWords.length & 31);
-    words.push(...valueWords);
-  };
-  const hexToWords = (hex) => {
-    const bits = [...hexToBytes(hex)]
-      .map((byte) => byte.toString(2).padStart(8, '0')).join('');
-    const padded = bits.padEnd(Math.ceil(bits.length / 5) * 5, '0');
-    const out = [];
-    for (let i = 0; i < padded.length; i += 5) out.push(parseInt(padded.slice(i, i + 5), 2));
-    return out;
-  };
-
-  field(1, hexToWords(paymentHash)); // p
-  field(23, hexToWords(descriptionHash)); // h
-  field(6, [(expirySec >> 5) & 31, expirySec & 31]); // x
-  for (let i = 0; i < 104; i++) words.push(0); // signature: deliberately not one
-
-  // 2000000 msat is 20 micro-bitcoin.
-  const micro = amountMsat / 100000;
-  if (!Number.isInteger(micro)) throw new Error('fixture amount must be a whole micro-bitcoin');
-  return bech32EncodeWords(`lnbc${micro}u`, words);
 }
 
 /** Lightning fixtures — locally signed, no invoice, no sats, no network. */
