@@ -17,8 +17,13 @@ import { SignIn } from '../ui/shell.mjs';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs';
 import {
-  newCompId, parseIntentEvent, validateCompetitionConfig,
+  NAMESPACE, newCompId, parseCompetitionEvent, parseIntentEvent, parseLogEvent,
+  validateCompetitionConfig,
 } from '../protocol/competition.mjs';
+import { reduce } from '../protocol/reduce.mjs';
+import { outstandingClaims, registrationOrder } from '../protocol/claims.mjs';
+import { verifyEvent } from '../protocol/nostr-event.mjs';
+import { createCompetitionForm } from './organizer-form.mjs';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs';
 import { announce, displayName, formatDateTime, shortKey } from '../ui/dom.mjs';
@@ -45,203 +50,30 @@ const signIn = new SignIn({
   mount: byId('signin'),
   gateMount: byId('profile'),
   pool: profilePool,
-  onChange: (next) => { signer = next; render(); },
+  onChange: (next) => {
+    signer = next;
+    owned = { loading: false, loaded: false, listings: [] };
+    if (signer) loadOwned(); else render();
+  },
 });
 
 // ── create ──
 
-function field(id, label, input, hint) {
-  return el('label', { attrs: { for: id } }, [
-    el('span', { text: label }),
-    hint ? el('span', { className: 'hint', text: hint }) : null,
-    input,
-  ]);
-}
-
-const text = (id, value = '', attrs = {}) => el('input', { attrs: { type: 'text', id, value, ...attrs } });
-const num = (id, value, attrs = {}) => el('input', { attrs: { type: 'number', id, value: String(value), ...attrs } });
-const when = (id, value) => el('input', { attrs: { type: 'datetime-local', id, value } });
-
-/** Local wall-clock string → epoch seconds. */
-const toEpoch = (value) => Math.floor(new Date(value).getTime() / 1000);
-
-function defaultWhen(offsetHours) {
-  const date = new Date(Date.now() + offsetHours * 3600 * 1000);
-  date.setMinutes(0, 0, 0);
-  const pad = (n) => String(n).padStart(2, '0');
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
-}
-
+/** The full create form lives in its own module; this only publishes it. */
 function createForm() {
-  const f = {
-    title: text('f-title', '', { maxlength: '120', required: 'required' }),
-    summary: text('f-summary', '', { maxlength: '140' }),
-    description: el('textarea', { attrs: { id: 'f-description', maxlength: '4000' } }),
-    organizerName: text('f-org', '', { maxlength: '80' }),
-    contact: text('f-contact', '', { maxlength: '120' }),
-    venue: text('f-venue', '', { maxlength: '120' }),
-    address: text('f-address', '', { maxlength: '160' }),
-    regOpens: when('f-reg-open', defaultWhen(1)),
-    regCloses: when('f-reg-close', defaultWhen(24)),
-    checkinOpens: when('f-checkin-open', defaultWhen(25)),
-    checkinCloses: when('f-checkin-close', defaultWhen(26)),
-    starts: when('f-start', defaultWhen(26)),
-    ends: when('f-end', defaultWhen(29)),
-    capacity: num('f-capacity', 20, { min: '0', max: '500' }),
-    climbCount: num('f-climbs', 4, { min: '1', max: '40' }),
-    attempts: num('f-attempts', 3, { min: '1', max: '20' }),
-    turnDeadline: num('f-deadline', 120, { min: '30', max: '1800' }),
-    deferBudget: num('f-defer-budget', 1, { min: '0', max: '5' }),
-    deferSlots: num('f-defer-slots', 2, { min: '1', max: '10' }),
-    minRest: num('f-rest', 0, { min: '0', max: '3600' }),
-    fee: num('f-fee', 0, { min: '0' }),
-    lnurl: text('f-lnurl', '', { maxlength: '120' }),
-    waiver: el('textarea', { attrs: { id: 'f-waiver', maxlength: '2000' } }),
-    eligibility: el('textarea', { attrs: { id: 'f-eligibility', maxlength: '2000' } }),
-    instructions: el('textarea', { attrs: { id: 'f-instructions', maxlength: '2000' } }),
-    spectator: el('textarea', { attrs: { id: 'f-spectator', maxlength: '2000' } }),
-    refund: el('textarea', { attrs: { id: 'f-refund', maxlength: '2000' } }),
-    visibility: el('select', { attrs: { id: 'f-visibility' } }, [
-      el('option', { attrs: { value: 'public' }, text: 'public' }),
-      el('option', { attrs: { value: 'unlisted' }, text: 'unlisted' }),
-    ]),
-    progression: el('select', { attrs: { id: 'f-progression' } }, [
-      el('option', { attrs: { value: 'synchronous_rounds' }, text: 'synchronous rounds' }),
-      el('option', { attrs: { value: 'asynchronous_turns' }, text: 'asynchronous turns' }),
-    ]),
-    board: text('f-board', 'kilterboard-og', { maxlength: '40' }),
-    size: text('f-size', '12x12', { maxlength: '20' }),
-    angle: num('f-angle', 40, { min: '0', max: '70' }),
-  };
-  f.waiver.value = 'I understand that climbing is dangerous and I take part at my own risk.';
-
+  const form = createCompetitionForm({
+    t,
+    pool: profilePool,
+    signerPubkey: signer.pubkey,
+    defaultDisplayName: signIn.displayName,
+    defaultLud16: signIn.profile?.fields?.lud16 || '',
+    relays: resolveRelays([]).slice(0, 8),
+  });
   const errors = el('div', { attrs: { role: 'alert' } });
 
-  const build = () => {
-    const count = Number(f.climbCount.value);
-    const climbs = Array.from({ length: count }, (_, i) => ({
-      id: `c${i + 1}`,
-      // Placeholder catalogue ids: the first release lets an organizer name the
-      // climbs; wiring them to real board uuids is the app's job and is listed
-      // in DECISIONS-TO-REVIEW.
-      climb_uuid: `${String(i + 1).padStart(8, '0')}-0000-4000-8000-000000000000`,
-      angle: Number(f.angle.value),
-      label: `${t('org.next_climb')} ${i + 1}`,
-      points: 100,
-    }));
-    const fee = Number(f.fee.value);
-    const config = {
-      comp_id: newCompId(),
-      authority: signer.pubkey,
-      authority_epoch: 1,
-      title: f.title.value.trim(),
-      summary: f.summary.value.trim(),
-      description: f.description.value.trim(),
-      organizer: { name: f.organizerName.value.trim(), contact: f.contact.value.trim() },
-      visibility: f.visibility.value,
-      status: 'draft',
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC',
-      registration_opens_at: toEpoch(f.regOpens.value),
-      registration_closes_at: toEpoch(f.regCloses.value),
-      checkin_opens_at: toEpoch(f.checkinOpens.value),
-      checkin_closes_at: toEpoch(f.checkinCloses.value),
-      starts_at: toEpoch(f.starts.value),
-      ends_at: toEpoch(f.ends.value),
-      capacity: Number(f.capacity.value),
-      waitlist_enabled: true,
-      venue: { kind: 'physical', name: f.venue.value.trim(), address: f.address.value.trim() },
-      board: {
-        brand: 'kilter', model: f.board.value.trim(), layout_id: 1,
-        size: f.size.value.trim(), angle: Number(f.angle.value),
-      },
-      divisions: [{ id: 'open', label: 'Open' }],
-      eligibility: f.eligibility.value.trim(),
-      waiver: f.waiver.value.trim(),
-      waiver_required: Boolean(f.waiver.value.trim()),
-      participant_instructions: f.instructions.value.trim(),
-      spectator_info: f.spectator.value.trim(),
-      refund_policy: f.refund.value.trim(),
-      fee_msat: fee,
-      prizes: [],
-      rules: {
-        climb_source: 'organizer_set',
-        climb_count: count,
-        selection_uniqueness: 'none',
-        progression: f.progression.value,
-        attempts_per_climb: Number(f.attempts.value),
-        turn_deadline_sec: Number(f.turnDeadline.value),
-        attempt_deadline_sec: 0,
-        min_rest_sec: Number(f.minRest.value),
-        defer_budget_per_round: Number(f.deferBudget.value),
-        max_consecutive_defers: Math.min(1, Number(f.deferBudget.value)),
-        defer_slots: Number(f.deferSlots.value),
-        scoring: 'tops_then_attempts',
-        tiebreaks: ['fewest_attempts', 'most_zones', 'earliest_finish', 'seed_order'],
-        late_entry_allowed: false,
-      },
-      climbs,
-      relays: resolveRelays([]).slice(0, 8),
-      created_at: Math.floor(Date.now() / 1000),
-      revision: 1,
-    };
-    if (fee > 0) config.fee_lnurl = f.lnurl.value.trim();
-    return config;
-  };
-
-  return el('section', { className: 'card' }, [
-    el('h2', { text: t('org.create') }),
-    el('fieldset', {}, [
-      el('legend', { text: t('org.basics') }),
-      field('f-title', t('org.basics'), f.title),
-      field('f-summary', 'Summary', f.summary),
-      field('f-description', 'Description', f.description),
-      field('f-org', 'Organizer', f.organizerName),
-      field('f-contact', 'Contact', f.contact),
-      field('f-visibility', 'Visibility', f.visibility,
-        'Unlisted keeps it off relay search. It is not private: anyone with the link can read it.'),
-    ]),
-    el('fieldset', {}, [
-      el('legend', { text: t('org.when') }),
-      field('f-reg-open', 'Registration opens', f.regOpens),
-      field('f-reg-close', 'Registration closes', f.regCloses),
-      field('f-checkin-open', 'Check-in opens', f.checkinOpens),
-      field('f-checkin-close', 'Check-in closes', f.checkinCloses),
-      field('f-start', 'Starts', f.starts),
-      field('f-end', 'Ends', f.ends),
-    ]),
-    el('fieldset', {}, [
-      el('legend', { text: t('org.where') }),
-      field('f-venue', 'Venue', f.venue),
-      field('f-address', 'Address', f.address),
-      field('f-board', 'Board model', f.board),
-      field('f-size', 'Board size', f.size),
-      field('f-angle', 'Angle', f.angle),
-    ]),
-    el('fieldset', {}, [
-      el('legend', { text: t('org.format') }),
-      field('f-climbs', 'Climbs', f.climbCount),
-      field('f-attempts', 'Attempts per climb', f.attempts),
-      field('f-capacity', 'Capacity', f.capacity, '0 means no limit.'),
-      field('f-fee', 'Entry fee (msat)', f.fee, '0 for a free competition.'),
-      field('f-lnurl', 'Lightning address', f.lnurl, 'Only needed when there is a fee.'),
-    ]),
-    el('details', { className: 'disclosure' }, [
-      el('summary', { text: t('org.advanced') }),
-      el('p', { className: 'small', text: t('org.advanced.hint') }),
-      field('f-progression', 'Progression', f.progression),
-      field('f-deadline', 'Turn deadline (s)', f.turnDeadline),
-      field('f-defer-budget', 'Deferrals per round', f.deferBudget),
-      field('f-defer-slots', 'Places a deferral moves you back', f.deferSlots),
-      field('f-rest', 'Minimum rest between turns (s)', f.minRest),
-    ]),
-    el('details', { className: 'disclosure' }, [
-      el('summary', { text: t('org.text') }),
-      field('f-eligibility', 'Eligibility', f.eligibility),
-      field('f-waiver', 'Terms entrants accept', f.waiver),
-      field('f-instructions', 'Instructions for entrants', f.instructions),
-      field('f-spectator', 'Spectator information', f.spectator),
-      field('f-refund', 'Refund policy', f.refund),
-    ]),
+  return el('div', {}, [
+    overviewSection(),
+    form.node,
     errors,
     el('button', {
       className: 'primary',
@@ -251,7 +83,7 @@ function createForm() {
           replace(errors);
           let config;
           try {
-            config = build();
+            config = form.build();
           } catch (err) {
             replace(errors, el('div', { className: 'notice bad' }, [el('p', { text: err.message })]));
             return;
@@ -286,6 +118,153 @@ function createForm() {
   ]);
 }
 
+// ── overview of competitions this organizer authored ──
+
+let owned = { loading: false, loaded: false, listings: [] };
+
+function overviewSection() {
+  const rows = owned.listings.map((listing) => {
+    const naddr = naddrEncode({
+      identifier: compDTag(listing.competition.comp_id),
+      pubkey: signer.pubkey,
+      kind: KIND,
+    });
+    const venue = listing.competition.venue?.name || '';
+    return el('li', {}, [
+      el('div', { className: 'row between' }, [
+        el('div', {}, [
+          el('strong', { text: listing.competition.title }),
+          el('div', { className: 'small' }, [
+            el('span', { text: t(`status.${listing.state?.status || listing.competition.status}`) }),
+            el('span', { text: ' · ' }),
+            el('span', {
+              text: formatDateTime(listing.competition.starts_at, language, listing.competition.timezone),
+            }),
+            venue ? el('span', { text: ` · ${venue}` }) : null,
+          ]),
+          el('div', {
+            className: 'small',
+            text: t('org.overview.counts', {
+              accepted: listing.accepted,
+              capacity: listing.competition.capacity || '∞',
+              checkedIn: listing.checkedIn,
+            }),
+          }),
+        ]),
+        el('div', { className: 'row' }, [
+          // One obvious next action, plus the few that are genuinely useful.
+          el('button', {
+            className: 'primary',
+            text: t(`org.overview.next.${nextActionFor(listing)}`),
+            on: { click: () => { location.hash = naddr; start(); } },
+          }),
+          el('a', {
+            className: 'button',
+            text: t('org.projector'),
+            attrs: { href: `live.html#${naddr}`, target: '_blank', rel: 'noopener' },
+          }),
+          el('button', {
+            text: t('action.copy_link'),
+            on: {
+              click: async (event) => {
+                await navigator.clipboard.writeText(joinLink(naddr));
+                event.target.textContent = t('action.copied');
+              },
+            },
+          }),
+        ]),
+      ]),
+    ]);
+  });
+
+  return el('section', { className: 'card' }, [
+    el('div', { className: 'row between' }, [
+      el('h2', { text: t('org.mine') }),
+      el('button', { text: t('comp.refresh'), on: { click: () => loadOwned(true) } }),
+    ]),
+    owned.loading && !owned.loaded
+      ? el('p', { text: t('comp.loading') })
+      : rows.length
+        ? el('ul', { className: 'plain' }, rows)
+        : el('p', { text: owned.loaded ? t('org.none') : t('error.offline') }),
+  ]);
+}
+
+/** The single most useful thing to do with a competition in this state. */
+function nextActionFor(listing) {
+  const status = listing.state?.status || listing.competition.status;
+  if (status === 'draft') return 'resume';
+  if (status === 'finished' || status === 'cancelled') return 'results';
+  return 'open';
+}
+
+/**
+ * Load the competitions this key authored.
+ *
+ * Queried by author + namespace rather than by hashtag, so unlisted and draft
+ * competitions appear too — they are the organizer's own, and a console that
+ * hid their drafts would be useless.
+ */
+async function loadOwned(force = false) {
+  if (!signer || (owned.loaded && !force)) { render(); return; }
+  owned = { ...owned, loading: true };
+  render();
+  const now = Math.floor(Date.now() / 1000);
+  const { events, complete } = await profilePool.query([{
+    kinds: [KIND],
+    authors: [signer.pubkey],
+    '#L': [NAMESPACE],
+    limit: 200,
+  }], { timeoutMs: 8000 });
+
+  const newest = new Map();
+  for (const event of events) {
+    if (!(await verifyEvent(event).catch(() => false))) continue;
+    const parsed = parseCompetitionEvent(event, now);
+    if (!parsed.ok) continue;
+    const existing = newest.get(parsed.competition.comp_id);
+    if (!existing || event.created_at > existing.createdAt) {
+      newest.set(parsed.competition.comp_id, { competition: parsed.competition, createdAt: event.created_at });
+    }
+  }
+
+  // Enrollment counts come from each competition's log, which is what the
+  // organizer actually wants to see at a glance.
+  const listings = [];
+  for (const entry of newest.values()) {
+    const summary = await summarise(entry.competition);
+    listings.push({ competition: entry.competition, ...summary });
+  }
+  listings.sort((a, b) => b.competition.starts_at - a.competition.starts_at);
+  owned = { loading: false, loaded: complete, listings };
+  render();
+}
+
+async function summarise(competition) {
+  const address = `${KIND}:${signer.pubkey}:${compDTag(competition.comp_id)}`;
+  const { events } = await profilePool.query([{
+    kinds: [KIND], authors: [competition.authority], '#a': [address], limit: 500,
+  }], { timeoutMs: 6000 });
+  const now = Math.floor(Date.now() / 1000);
+  const entries = [];
+  for (const event of events) {
+    if (!(await verifyEvent(event).catch(() => false))) continue;
+    const parsed = parseLogEvent(event, competition, signer.pubkey, now);
+    if (parsed.ok) entries.push(parsed);
+  }
+  const { state } = reduce({
+    competition,
+    competitionEventId: '',
+    entries,
+  });
+  // Without the definition's event id the chain cannot link, which is fine
+  // here: the overview only needs counts, and it says so by not claiming a
+  // status the log would have changed.
+  const accepted = state.participants.filter((p) => p.registration === 'accepted').length;
+  const checkedIn = state.participants.filter((p) => p.checkin === 'checked_in').length;
+  return { accepted, checkedIn, state: null };
+}
+
 // ── run ──
 
 function lifecycleActions(snapshot) {
@@ -317,14 +296,80 @@ function lifecycleActions(snapshot) {
   return actions;
 }
 
+/** Everything the claim rule needs, read out of this console's own state. */
+function claimInputs(snapshot) {
+  const requests = new Map();
+  for (const [, intent] of intents) {
+    if (intent.intent.op !== 'register') continue;
+    if (Array.isArray(intent.intent.data.selections)) {
+      requests.set(intent.pubkey, intent.intent.data.selections);
+    }
+  }
+  const entries = store.logEntries();
+  const answered = new Set(entries
+    .filter((entry) => entry.op === 'claim_decision')
+    .map((entry) => `${entry.data.pubkey}:${entry.data.climb_id}`));
+  return {
+    competition: snapshot.competition,
+    state: snapshot.state,
+    requests,
+    answered,
+    order: registrationOrder(entries),
+  };
+}
+
+let settling = false;
+
+/**
+ * Publish those decisions.
+ *
+ * Runs automatically: the organizer chose participant selection, and the
+ * resolution rule is fixed, so making them click "grant" once per climb per
+ * entrant would only add the delay in which the race is unresolved. One pass
+ * at a time, and re-entered by the store's own change notification once the
+ * grants land, so a batch settles in log order rather than all at seq n+1.
+ */
+async function settleClaims() {
+  if (settling || !writer || !store?.state) return;
+  const owed = outstandingClaims(claimInputs(store.snapshot()));
+  if (!owed.length) return;
+  settling = true;
+  try {
+    for (const claim of owed) {
+      // Sequential on purpose: each entry chains to the previous head.
+      // eslint-disable-next-line no-await-in-loop
+      await writer.decideClaim(claim.pubkey, claim.climbId, claim.decision, claim.reason);
+    }
+  } catch (err) {
+    replace(feedback, el('div', { className: 'notice bad' }, [
+      el('p', { text: err.message || t('error.generic') }),
+    ]));
+  } finally {
+    settling = false;
+  }
+}
+
+/** Which pool climbs an entrant asked for, as labels. */
+function selectionLabels(snapshot, ids) {
+  const options = snapshot.competition.climb_pool?.options || [];
+  return ids.map((id) => options.find((o) => o.id === id)?.label || id);
+}
+
 function entrantsPanel(snapshot) {
   const rows = [];
   for (const [, intent] of intents) {
     if (snapshot.state.participants.some((p) => p.pubkey === intent.pubkey)) continue;
     if (intent.intent.op !== 'register') continue;
+    const requested = Array.isArray(intent.intent.data.selections) ? intent.intent.data.selections : [];
     rows.push(el('li', {}, [
       el('div', { className: 'row between' }, [
-        el('span', { text: intent.intent.data.display || shortKey(intent.pubkey) }),
+        el('span', {}, [
+          el('span', { text: intent.intent.data.display || shortKey(intent.pubkey) }),
+          requested.length ? el('span', {
+            className: 'hint',
+            text: t('org.requested_climbs', { climbs: selectionLabels(snapshot, requested).join(', ') }),
+          }) : null,
+        ]),
         el('span', { className: 'row' }, [
           el('button', {
             className: 'primary',
@@ -359,6 +404,10 @@ function entrantsPanel(snapshot) {
         el('span', { className: 'badge', text: t(`checkin.${p.checkin}`) }),
         snapshot.competition.fee_msat > 0
           && el('span', { className: p.payment === 'settled' ? 'badge ok' : 'badge warn', text: t(`pay.${p.payment}`) }),
+        p.selections.length ? el('span', {
+          className: 'hint',
+          text: t('org.granted_climbs', { climbs: selectionLabels(snapshot, p.selections).join(', ') }),
+        }) : null,
       ]),
       el('span', { className: 'row' }, [
         p.registration === 'accepted' && p.checkin !== 'checked_in'
@@ -418,8 +467,30 @@ function queuePanel(snapshot) {
         on: { click: () => act(() => writer.advance()) },
       }));
     } else {
-      const climbId = state.current_climb_id;
+      // Under participant choice the climber is on a climb of their own, not on
+      // `current_climb_id` — recording against the wrong one would score
+      // somebody else's problem. Their report says which; failing that, the
+      // organizer picks from the set that climber actually holds.
+      const reported = intents.get(`${current}:attempt_report`)?.intent.data;
+      const own = store.remainingClimbs(current);
+      const climbId = snapshot.competition.rules.climb_source === 'participant_choice'
+        ? (own.find((c) => c.id === reported?.climb_id)?.id || own[0]?.id || '')
+        : state.current_climb_id;
       const attemptNo = (currentParticipant.climbs.find((c) => c.climb_id === climbId)?.attempts_used || 0) + 1;
+
+      if (reported?.climb_id) {
+        rows.push(el('p', {
+          className: 'notice',
+          text: t('org.reported', {
+            climb: own.find((c) => c.id === reported.climb_id)?.label || reported.climb_id,
+            outcome: t(`org.${reported.outcome}`),
+          }),
+        }));
+      }
+      if (own.length > 1) {
+        rows.push(el('p', { className: 'small', text: t('org.recording_for', { climb: own.find((c) => c.id === climbId)?.label || climbId }) }));
+      }
+
       rows.push(el('div', { className: 'row' }, ['top', 'zone', 'fall', 'timeout'].map((outcome) => el('button', {
         className: outcome === 'top' ? 'primary' : '',
         text: t(`org.${outcome}`),
@@ -437,20 +508,22 @@ function queuePanel(snapshot) {
     }
 
     const climbs = snapshot.competition.climbs || [];
-    rows.push(el('details', { className: 'disclosure' }, [
-      el('summary', { text: t('org.next_climb') }),
-      el('div', { className: 'row' }, climbs.map((climb) => el('button', {
-        text: climb.label,
-        attrs: { disabled: climb.id === state.current_climb_id },
-        on: {
-          click: () => act(async () => {
-            await writer.nextClimb(climb.id);
-            await writer.nextRound();
-            await writer.seed(eligible);
-          }),
-        },
-      }))),
-    ]));
+    if (climbs.length) {
+      rows.push(el('details', { className: 'disclosure' }, [
+        el('summary', { text: t('org.next_climb') }),
+        el('div', { className: 'row' }, climbs.map((climb) => el('button', {
+          text: climb.label,
+          attrs: { disabled: climb.id === state.current_climb_id },
+          on: {
+            click: () => act(async () => {
+              await writer.nextClimb(climb.id);
+              await writer.nextRound();
+              await writer.seed(eligible);
+            }),
+          },
+        }))),
+      ]));
+    }
   }
 
   const announcement = el('input', { attrs: { type: 'text', id: 'announce', maxlength: '280' } });
@@ -565,15 +638,24 @@ async function start() {
   });
   if (!opened) return;
   ({ store, pool } = opened);
-  store.onChange(render);
+  store.onChange(() => { render(); void settleClaims(); });
   if (signer && signer.pubkey === store.competition.authority) {
     writer = new AuthorityWriter({ store, pool, signer });
     await store.followIntents((event) => {
       const parsedIntent = parseIntentEvent(event, store.competition, store.organizerPubkey,
         Math.floor(Date.now() / 1000));
       if (!parsedIntent.ok) return;
-      intents.set(`${parsedIntent.pubkey}:${parsedIntent.intent.op}`, parsedIntent);
+      // Newest wins. An intent is replaceable, so a participant who re-picks
+      // after losing a race publishes a second one under the same nonce; a
+      // relay that backfills the old copy last must not undo the new choice.
+      const key = `${parsedIntent.pubkey}:${parsedIntent.intent.op}`;
+      const known = intents.get(key);
+      if (!known || parsedIntent.createdAt > known.createdAt
+        || (parsedIntent.createdAt === known.createdAt && parsedIntent.eventId > known.eventId)) {
+        intents.set(key, parsedIntent);
+      }
       render();
+      void settleClaims();
     });
   }
   render();

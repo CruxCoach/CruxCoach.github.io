@@ -12,6 +12,9 @@ import { createLocalSigner, createReadOnlySigner } from '../competitions/app/sig
 import { newCompId, parseIntentEvent } from '../competitions/app/protocol/competition.mjs';
 import { naddrEncode } from '../competitions/app/protocol/nostr-event.mjs';
 import { compDTag, KIND } from '../competitions/app/protocol/competition.mjs';
+import {
+  outstandingClaims, freeClimbs, outstandingCount, registrationOrder,
+} from '../competitions/app/protocol/claims.mjs';
 
 /**
  * A whole competition, end to end, over a loopback relay.
@@ -477,6 +480,184 @@ test('a paid competition keeps an unpaid entrant out of the running order', asyn
     await writer.openTurn(store.state.order.indexOf(alice.pubkey));
     assert.equal(store.currentClimber(), alice.pubkey);
   } finally {
+    store.close();
+    organizerPool.close();
+    await relay.close();
+  }
+});
+
+test('participant-chosen climbs: two entrants race for one climb and the loser re-picks', async () => {
+  // The whole of participant selection, over a real relay: entrants publish
+  // their picks with their registration, the authority settles the race with
+  // the shipped rule, the loser is told, and their second choice is granted.
+  const pool = [
+    { id: 'p1', climb_uuid: 'aaaaaaaa-1111-4111-8111-111111111111', angle: 40, label: 'Blue slab', points: 100 },
+    { id: 'p2', climb_uuid: 'bbbbbbbb-2222-4222-8222-222222222222', angle: 40, label: 'Red roof', points: 100 },
+    { id: 'p3', climb_uuid: 'cccccccc-3333-4333-8333-333333333333', angle: 40, label: 'Yellow arete', points: 100 },
+    { id: 'p4', climb_uuid: 'dddddddd-4444-4444-8444-444444444444', angle: 40, label: 'Green crimps', points: 100 },
+  ];
+  const { relay, organizer, organizerPool, compId, store, writer, config } = await setup({
+    climbs: undefined,
+    capacity: 2,
+    climb_pool: { source: 'organizer_list', options: pool },
+    rules: {
+      ...baseConfig('x', 'y').rules,
+      climb_source: 'participant_choice',
+      selection_uniqueness: 'unique_per_competition',
+      progression: 'asynchronous_turns',
+      climb_count: 1,
+    },
+  });
+  const alice = newSigner();
+  const bob = newSigner();
+  const aliceSide = await reader(relay.url, organizer.pubkey, compId);
+  const bobSide = await reader(relay.url, organizer.pubkey, compId);
+
+  /** The organizer console's settlement pass, using the shipped rule. */
+  const requests = new Map();
+  const settle = async () => {
+    for (;;) {
+      const entries = store.logEntries();
+      const answered = new Set(entries
+        .filter((entry) => entry.op === 'claim_decision')
+        .map((entry) => `${entry.data.pubkey}:${entry.data.climb_id}`));
+      const owed = outstandingClaims({
+        competition: store.competition,
+        state: store.state,
+        requests,
+        answered,
+        order: registrationOrder(entries),
+      });
+      if (!owed.length) return;
+      for (const claim of owed) {
+        // eslint-disable-next-line no-await-in-loop
+        await writer.decideClaim(claim.pubkey, claim.climbId, claim.decision, claim.reason);
+        tick();
+      }
+    }
+  };
+
+  try {
+    assert.equal(config.rules.climb_source, 'participant_choice');
+    await writer.setStatus('published');
+    tick();
+    await writer.setStatus('registration_open');
+    await until(bobSide.store, (s) => s.state?.status === 'registration_open', 'registration to open');
+
+    const intents = [];
+    await store.followIntents((event) => {
+      const parsed = parseIntentEvent(event, store.competition, organizer.pubkey, now());
+      if (parsed.ok) intents.push(parsed);
+    });
+
+    // Both want p1. Neither client can know that: the pool looks free to both.
+    const entrants = new Map();
+    for (const [signer, side, display] of [[alice, aliceSide, 'Alice'], [bob, bobSide, 'Bob']]) {
+      const entrant = new EntrantWriter({
+        pool: side.pool, signer, competition: side.store.competition,
+        organizerPubkey: organizer.pubkey, now,
+      });
+      entrants.set(signer.pubkey, entrant);
+      // eslint-disable-next-line no-await-in-loop
+      await entrant.register({ division: 'open', display, waiverAccepted: true, selections: ['p1'] });
+      tick();
+    }
+    await until({ state: { seq: 0 } }, () => intents.length === 2, 'both registrations to arrive');
+
+    // ── the organizer accepts, in the order they arrived, then settles ──
+    for (const intent of intents) {
+      requests.set(intent.pubkey, intent.intent.data.selections);
+      // eslint-disable-next-line no-await-in-loop
+      await writer.decideRegistration(intent.pubkey, 'accepted', {
+        division: intent.intent.data.division,
+        display: intent.intent.data.display,
+      });
+      tick();
+    }
+    await until(store, (s) => s.state.participants.length === 2, 'both entrants accepted');
+
+    const first = intents[0].pubkey;
+    const second = intents[1].pubkey;
+    await settle();
+
+    assert.equal(store.state.claims.p1, first, 'the first accepted entrant holds the contested climb');
+    assert.deepEqual(store.participant(first).selections, ['p1']);
+    assert.deepEqual(store.participant(second).selections, [],
+      'the loser holds nothing until they pick again');
+
+    // The denial is a real signed entry, so the loser sees it after a reload
+    // rather than having to infer it.
+    const denial = store.logEntries().find(
+      (entry) => entry.op === 'claim_decision' && entry.data.pubkey === second
+        && entry.data.decision === 'denied',
+    );
+    assert.ok(denial, 'the loser must be given an answer');
+    assert.equal(denial.data.reason, 'climb_already_claimed');
+
+    // Settling twice must be a no-op: a denial changes no state, so a console
+    // that re-renders would otherwise append the same refusal forever.
+    const seqAfterSettle = store.state.seq;
+    await settle();
+    assert.equal(store.state.seq, seqAfterSettle, 'a second settlement pass must publish nothing');
+
+    // ── the loser sees the loss and picks again ──
+    await until(bobSide.store, (s) => s.state.claims.p1 === first, 'the loser to see the claim');
+    const loserSide = second === alice.pubkey ? aliceSide : bobSide;
+    const free = freeClimbs(loserSide.store.competition, loserSide.store.state).map((o) => o.id);
+    assert.deepEqual(free, ['p2', 'p3', 'p4'], 'the contested climb is no longer offered');
+    assert.equal(outstandingCount(loserSide.store.competition, loserSide.store.participant(second)), 1);
+
+    tick();
+    await entrants.get(second).register({
+      division: 'open', display: 'Second', waiverAccepted: true, selections: ['p2'],
+    });
+    await until({ state: { seq: 0 } }, () => intents.length === 3, 'the second choice to arrive');
+    // Replacing, not duplicating: same author, same nonce, one live intent.
+    assert.equal(intents[2].pubkey, second);
+    assert.equal(intents[2].intent.nonce, intents.find((i) => i.pubkey === second).intent.nonce);
+
+    requests.set(second, intents[2].intent.data.selections);
+    await settle();
+    assert.equal(store.state.claims.p2, second, 'the second choice is granted');
+    assert.deepEqual(store.participant(second).selections, ['p2']);
+
+    // ── an attempt only counts on a climb the climber actually holds ──
+    tick();
+    await writer.setStatus('registration_closed');
+    tick();
+    await writer.setStatus('checkin_open');
+    for (const pubkey of [first, second]) {
+      // eslint-disable-next-line no-await-in-loop
+      await writer.checkIn(pubkey);
+      tick();
+    }
+    await writer.seed([first, second]);
+    tick();
+    await writer.setStatus('running');
+    tick();
+    await writer.openTurn(0);
+    tick();
+    await writer.recordAttempt(first, 'p2', 'top', 1);
+    assert.ok(
+      store.state.rejected.some((r) => r.code === 'climb_not_selected'),
+      'an attempt on somebody else\'s climb must not score',
+    );
+    assert.equal(store.participant(first).climbs.length, 0,
+      'and it must leave no trace in the hashed state');
+
+    tick();
+    await writer.recordAttempt(first, 'p1', 'top', 1);
+    assert.equal(store.participant(first).climbs[0].outcome, 'top');
+
+    // ── every reader agrees, which is the point of all of it ──
+    await until(aliceSide.store, (s) => s.stateHash === store.stateHash, 'reader A to converge');
+    await until(bobSide.store, (s) => s.stateHash === store.stateHash, 'reader B to converge');
+    assert.equal(aliceSide.store.stateHash, bobSide.store.stateHash);
+  } finally {
+    aliceSide.store.close();
+    aliceSide.pool.close();
+    bobSide.store.close();
+    bobSide.pool.close();
     store.close();
     organizerPool.close();
     await relay.close();

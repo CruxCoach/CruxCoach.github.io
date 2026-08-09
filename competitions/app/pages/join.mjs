@@ -11,6 +11,7 @@ import {
 } from './common.mjs';
 import { SignIn } from '../ui/shell.mjs';
 import { RelayPool } from '../protocol/relay-pool.mjs';
+import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
 import { EntrantWriter } from '../authority.mjs';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
@@ -144,6 +145,9 @@ function registrationPanel(snapshot) {
         el('p', { className: 'mono selectable', text: competition.fee_lnurl }),
       ]));
     }
+    if (competition.rules.climb_source === 'participant_choice') {
+      rows.push(...claimStatus(snapshot, mine));
+    }
     if (['pending', 'accepted', 'waitlisted'].includes(mine.registration)
       && !['finished', 'cancelled'].includes(snapshot.state.status)) {
       rows.push(el('button', {
@@ -191,6 +195,58 @@ function registrationPanel(snapshot) {
       display,
     ]),
   ];
+
+  // ── climb selection, when the organizer configured it ──
+  const selection = new Set();
+  if (competition.rules.climb_source === 'participant_choice') {
+    const options = competition.climb_pool?.options || [];
+    const needed = competition.rules.climb_count;
+    const unique = competition.rules.selection_uniqueness === 'unique_per_competition';
+    const counter = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+    const updateCounter = () => {
+      counter.textContent = t('select.count', { chosen: selection.size, needed });
+    };
+
+    rows.push(
+      el('h3', { text: t('select.title') }),
+      el('p', { className: 'small', text: t('select.hint', { needed }) }),
+      unique ? el('p', { className: 'small', text: t('select.unique_hint') }) : null,
+      counter,
+      el('div', { className: 'stack' }, options.map((option) => {
+        // Live: a climb somebody else already holds is shown as taken, and the
+        // control is absent rather than present-and-doomed.
+        const takenBy = unique ? snapshot.state.claims[option.id] : undefined;
+        const taken = Boolean(takenBy);
+        const box = el('input', {
+          attrs: { type: 'checkbox', id: `sel-${option.id}`, disabled: taken },
+          on: {
+            change: (event) => {
+              if (event.target.checked) {
+                if (selection.size >= needed) { event.target.checked = false; return; }
+                selection.add(option.id);
+              } else {
+                selection.delete(option.id);
+              }
+              updateCounter();
+            },
+          },
+        });
+        return el('label', { className: 'inline', attrs: { for: `sel-${option.id}` } }, [
+          box,
+          el('span', {}, [
+            el('span', { text: option.label }),
+            el('span', {
+              className: 'hint',
+              text: taken
+                ? t('select.taken')
+                : t('select.option_hint', { angle: option.angle, points: option.points ?? 0 }),
+            }),
+          ]),
+        ]);
+      })),
+    );
+    updateCounter();
+  }
   if (competition.divisions.length > 1) {
     rows.push(el('label', { attrs: { for: 'division' }, text: t('reg.division') }, [division]));
   }
@@ -211,10 +267,15 @@ function registrationPanel(snapshot) {
     text: t('action.register'),
     on: {
       click: () => guard(async () => {
+        if (competition.rules.climb_source === 'participant_choice'
+          && selection.size !== competition.rules.climb_count) {
+          throw new Error(t('select.incomplete', { needed: competition.rules.climb_count }));
+        }
         await entrant.register({
           division: competition.divisions.length > 1 ? division.value : competition.divisions[0].id,
           display: display.value.trim() || shortKey(signer.pubkey),
           waiverAccepted: !competition.waiver_required || waiver.checked,
+          selections: [...selection].sort(),
         });
         feedback.textContent = t('reg.sent');
         announce(t('reg.sent'));
@@ -222,6 +283,86 @@ function registrationPanel(snapshot) {
     },
   }));
   return el('section', { className: 'card raised' }, rows);
+}
+
+/**
+ * What happened to this entrant's climb choices.
+ *
+ * With unique claims somebody has to lose a race, and losing silently is the
+ * worst version of it: the screen names which climbs were granted, which are
+ * still waiting on the organizer, and offers a way to pick again from what is
+ * still free.
+ */
+function claimStatus(snapshot, mine) {
+  const competition = snapshot.competition;
+  const options = competition.climb_pool?.options || [];
+  const needed = competition.rules.climb_count;
+  const granted = mine.selections;
+  const rows = [el('h3', { text: t('select.your_climbs') })];
+
+  if (granted.length) {
+    rows.push(el('ul', { className: 'plain' }, granted.map((id) => el('li', {
+      text: options.find((o) => o.id === id)?.label || id,
+    }))));
+  }
+
+  if (granted.length >= needed) {
+    rows.push(el('p', { className: 'small', text: t('select.complete') }));
+    return rows;
+  }
+
+  const free = freeClimbs(competition, snapshot.state);
+  if (snapshot.state.status !== 'registration_open') {
+    rows.push(el('p', { className: 'small', text: t('select.pending') }));
+    return rows;
+  }
+  if (free.length === 0) {
+    rows.push(el('p', { className: 'small', text: t('select.none_left') }));
+    return rows;
+  }
+
+  // Losing a race is recoverable: re-registering replaces the earlier request,
+  // because an intent reuses its nonce.
+  const repick = new Set(granted);
+  const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+  rows.push(
+    el('p', { className: 'small', text: t('select.lost', { needed: outstandingCount(competition, mine) }) }),
+    el('div', { className: 'stack' }, free.map((option) => el('label', {
+      className: 'inline', attrs: { for: `repick-${option.id}` },
+    }, [
+      el('input', {
+        attrs: { type: 'checkbox', id: `repick-${option.id}` },
+        on: {
+          change: (event) => {
+            if (event.target.checked) {
+              if (repick.size >= needed) { event.target.checked = false; return; }
+              repick.add(option.id);
+            } else {
+              repick.delete(option.id);
+            }
+          },
+        },
+      }),
+      el('span', { text: option.label }),
+    ]))),
+    feedback,
+    el('button', {
+      text: t('select.repick'),
+      on: {
+        click: () => guard(async () => {
+          if (repick.size !== needed) throw new Error(t('select.incomplete', { needed }));
+          await entrant.register({
+            division: mine.division || competition.divisions[0].id,
+            display: mine.display,
+            waiverAccepted: true,
+            selections: [...repick].sort(),
+          });
+          feedback.textContent = t('select.repick_sent');
+        }, feedback),
+      },
+    }),
+  );
+  return rows;
 }
 
 function livePanel(snapshot) {
@@ -282,6 +423,10 @@ function livePanel(snapshot) {
       rows.push(el('p', { className: 'small', text: t('live.defer.none') }));
     }
 
+    if (snapshot.competition.rules.progression === 'asynchronous_turns') {
+      rows.push(...nextClimbChooser(snapshot, mine));
+    }
+
     if (mine.climbs.length) {
       rows.push(el('h3', { text: t('table.attempts') }), el('ul', { className: 'plain' },
         mine.climbs.map((climb) => el('li', {
@@ -293,9 +438,76 @@ function livePanel(snapshot) {
   return el('section', { className: 'card' }, rows);
 }
 
+/**
+ * Asynchronous turns: which of my climbs I go to next.
+ *
+ * The control exists only while this climber may actually act. Every reason
+ * they cannot — not their turn, resting, unpaid, no attempts left — gets its
+ * own sentence instead, because a disabled button teaches nobody anything, and
+ * a button that publishes a report the reducer then rejects is worse still:
+ * they would walk away believing the attempt counted.
+ */
+function nextClimbChooser(snapshot, mine) {
+  const rows = [el('h3', { text: t('next.title') })];
+  const remaining = store.remainingClimbs(mine.pubkey);
+
+  if (!remaining.length) {
+    rows.push(el('p', { className: 'small', text: t('next.none_left') }));
+    return rows;
+  }
+  if (!store.mayAct(mine.pubkey)) {
+    rows.push(el('p', { className: 'small', text: whyNotYet(snapshot, mine) }));
+    return rows;
+  }
+
+  const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+  const chosen = el('select', { attrs: { id: 'next-climb' } },
+    remaining.map((climb) => el('option', {
+      attrs: { value: climb.id },
+      text: t('next.option', { label: climb.label, attempts: climb.attemptsLeft }),
+    })));
+
+  rows.push(
+    el('label', { attrs: { for: 'next-climb' } }, [el('span', { text: t('next.choose') }), chosen]),
+    el('div', { className: 'row' }, ['top', 'zone', 'fall'].map((outcome) => el('button', {
+      className: outcome === 'top' ? 'primary' : '',
+      text: t(`org.${outcome}`),
+      on: {
+        click: () => guard(async () => {
+          const climb = remaining.find((c) => c.id === chosen.value);
+          if (!climb) throw new Error(t('next.gone'));
+          const used = snapshot.competition.rules.attempts_per_climb - climb.attemptsLeft;
+          await entrant.reportAttempt(climb.id, outcome, used + 1);
+          feedback.textContent = t('next.reported', { label: climb.label });
+          announce(t('next.reported', { label: climb.label }));
+        }, feedback),
+      },
+    }))),
+    el('p', { className: 'small', text: t('next.reported.hint') }),
+    feedback,
+  );
+  return rows;
+}
+
+/** The one sentence that says why the chooser is not there. */
+function whyNotYet(snapshot, mine) {
+  const state = snapshot.state;
+  if (state.paused) return t('next.paused');
+  if (mine.result !== 'active') return t('next.out');
+  if (mine.checkin !== 'checked_in') return t('next.not_checked_in');
+  if (snapshot.competition.fee_msat > 0 && mine.payment !== 'settled') return t('next.unpaid');
+  const rest = snapshot.competition.rules.min_rest_sec || 0;
+  if (rest > 0 && mine.last_attempt_at > 0) {
+    const left = rest - (Math.floor(Date.now() / 1000) - mine.last_attempt_at);
+    if (left > 0) return t('next.resting', { seconds: left });
+  }
+  return t('next.not_your_turn');
+}
+
 function climbLabel(snapshot, climbId) {
   if (!climbId) return '—';
-  const climb = (snapshot.competition.climbs || []).find((c) => c.id === climbId);
+  const climb = (snapshot.competition.climbs || []).find((c) => c.id === climbId)
+    || (snapshot.competition.climb_pool?.options || []).find((c) => c.id === climbId);
   return climb?.label || climbId;
 }
 

@@ -12,6 +12,7 @@
 import { ccj } from './ccj.mjs';
 import { addressOf, isHex32, tagValue, tagValues } from './nostr-event.mjs';
 import { isAllowedRelayUrl } from './relay-url.mjs';
+import { isPlaceholderUuid } from './climb-ref.mjs';
 
 export const KIND = 30078;
 export const NAMESPACE = 'com.cruxcoach.competition';
@@ -323,6 +324,7 @@ export function validateCompetitionConfig(config) {
       err(errors, 'climbs', 'must list between 1 and 40 climbs');
     } else {
       const ids = new Set();
+      const uuids = new Set();
       for (const climb of config.climbs) {
         if (!climb || !/^[a-z0-9_]{1,24}$/.test(climb.id || '')) {
           err(errors, 'climbs', 'each climb needs an id of [a-z0-9_], max 24 characters');
@@ -331,18 +333,80 @@ export function validateCompetitionConfig(config) {
         } else {
           ids.add(climb.id);
         }
-        if (typeof climb?.climb_uuid !== 'string' || !climb.climb_uuid) {
-          err(errors, 'climbs', 'each climb needs a catalogue uuid');
+        const uuid = String(climb?.climb_uuid || '').toLowerCase();
+        if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(uuid)
+          && !/^[0-9a-f]{32}$/.test(uuid)) {
+          err(errors, 'climbs', 'each climb needs a real board climb id');
+        } else if (isPlaceholderUuid(uuid)) {
+          // A competition built on placeholder ids cannot be climbed: the app
+          // has nothing to load onto the wall. Refusing at validation means
+          // such a competition can never be published, by either client.
+          err(errors, 'climbs', 'contains a placeholder climb id, which no board can load');
         }
         if (!Number.isInteger(climb?.angle)) err(errors, 'climbs', 'each climb needs an angle');
+        if (typeof climb?.label !== 'string' || !climb.label.trim()) {
+          err(errors, 'climbs', 'each climb needs a label');
+        }
+        if (uuids.has(uuid)) err(errors, 'climbs', 'lists the same climb twice');
+        else uuids.add(uuid);
       }
       if (Number.isInteger(rules.climb_count) && config.climbs.length < rules.climb_count) {
         err(errors, 'climbs', `needs at least ${rules.climb_count} climbs for this format`);
       }
     }
   }
-  if (rules?.climb_source === 'participant_choice' && config.climbs !== undefined) {
-    err(errors, 'climbs', 'must be absent when participants choose their own climbs');
+  if (rules?.climb_source === 'participant_choice') {
+    if (config.climbs !== undefined) {
+      err(errors, 'climbs', 'must be absent when participants choose their own climbs');
+    }
+    const pool = config.climb_pool;
+    if (!pool || typeof pool !== 'object') {
+      err(errors, 'climb_pool', 'is required when participants choose their own climbs');
+    } else if (!Array.isArray(pool.options) || pool.options.length === 0) {
+      err(errors, 'climb_pool', 'needs at least one climb for entrants to choose from');
+    } else if (pool.options.length > 60) {
+      err(errors, 'climb_pool', 'must offer at most 60 climbs');
+    } else {
+      const poolUuids = new Set();
+      const poolIds = new Set();
+      for (const option of pool.options) {
+        if (!option || !/^[a-z0-9_]{1,24}$/.test(option.id || '')) {
+          err(errors, 'climb_pool', 'each option needs an id of [a-z0-9_], max 24 characters');
+        } else if (poolIds.has(option.id)) {
+          err(errors, 'climb_pool', `duplicate option id "${option.id}"`);
+        } else {
+          poolIds.add(option.id);
+        }
+        const uuid = String(option?.climb_uuid || '').toLowerCase();
+        if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(uuid)
+          && !/^[0-9a-f]{32}$/.test(uuid)) {
+          err(errors, 'climb_pool', 'each option needs a real board climb id');
+        } else if (isPlaceholderUuid(uuid)) {
+          err(errors, 'climb_pool', 'contains a placeholder climb id, which no board can load');
+        } else if (poolUuids.has(uuid)) {
+          err(errors, 'climb_pool', 'offers the same climb twice');
+        } else {
+          poolUuids.add(uuid);
+        }
+        if (!Number.isInteger(option?.angle)) err(errors, 'climb_pool', 'each option needs an angle');
+        if (typeof option?.label !== 'string' || !option.label.trim()) {
+          err(errors, 'climb_pool', 'each option needs a label');
+        }
+      }
+      if (Number.isInteger(rules.climb_count) && pool.options.length < rules.climb_count) {
+        err(errors, 'climb_pool', `needs at least ${rules.climb_count} climbs for this format`);
+      }
+      if (rules.selection_uniqueness === 'unique_per_competition'
+        && Number.isInteger(config.capacity) && config.capacity > 0
+        && Number.isInteger(rules.climb_count)
+        && pool.options.length < config.capacity * rules.climb_count) {
+        // With unique claims, everyone must be able to get a full set. Fewer
+        // climbs than entrants x picks means somebody is guaranteed to lose a
+        // race they cannot recover from.
+        err(errors, 'climb_pool',
+          `needs at least ${config.capacity * rules.climb_count} climbs so every entrant can claim a full set`);
+      }
+    }
   }
 
   if (!Number.isInteger(config.fee_msat) || config.fee_msat < 0) {

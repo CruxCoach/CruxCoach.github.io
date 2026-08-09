@@ -90,6 +90,7 @@ function climbRecord(participant, climbId) {
  */
 export const REJECTION_CODES = [
   'already_topped', 'attempt_out_of_order', 'capacity_full', 'climb_already_claimed',
+  'climb_not_selected',
   'correction_missing_replacement', 'defer_budget_exhausted', 'defer_consecutive_limit',
   'duplicate_in_order', 'empty_announcement', 'epoch_mismatch', 'illegal_transition',
   'incomplete_seed_order', 'index_out_of_range', 'ineligible_in_order', 'no_attempts_left',
@@ -369,6 +370,18 @@ function applyAttemptResult(state, entry, competition) {
   const participant = findParticipant(state, pubkey);
   if (!participant) return reject(state, entry, 'no_such_participant');
   if (participant.result !== 'active') return reject(state, entry, 'participant_inactive');
+
+  // The climb has to be one this competition actually runs. Without this an
+  // attempt on any string at all would score: under `organizer_set` a climb
+  // that is not in the competition, and under `participant_choice` a climb
+  // somebody else holds — which is the whole point of unique claims.
+  if (competition.rules.climb_source === 'organizer_set') {
+    if (!competition.climbs.some((c) => c.id === climbId)) {
+      return reject(state, entry, 'unknown_climb');
+    }
+  } else if (!participant.selections.includes(climbId)) {
+    return reject(state, entry, 'climb_not_selected');
+  }
 
   // Look up WITHOUT creating. Creating first would leave a phantom
   // zero-attempt record behind on every rejected entry, and that record is

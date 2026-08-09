@@ -71,6 +71,20 @@ export class CompetitionStore {
     };
   }
 
+  /**
+   * Every accepted log entry, in sequence order.
+   *
+   * The organizer console needs this to know which decisions it has already
+   * published: a denied claim changes no state, so without a way to see the
+   * decision already in the log the console would republish the same refusal
+   * on every render.
+   */
+  logEntries() {
+    return [...this.entries.values()]
+      .map((parsed) => parsed.entry)
+      .sort((a, b) => a.seq - b.seq);
+  }
+
   note(problem) {
     // Kept and surfaced rather than logged and forgotten: "some events were
     // dropped" is exactly the situation a competition screen must not hide.
@@ -265,6 +279,56 @@ export class CompetitionStore {
     if (!participant) return false;
     return this.defersLeft(pubkey) > 0
       && participant.consecutive_defers < this.competition.rules.max_consecutive_defers;
+  }
+
+  /**
+   * Whether this climber may act right now.
+   *
+   * Every condition the reducer would apply to their next attempt, checked
+   * before a control is drawn — an attempt the reducer is going to reject is
+   * worse than no button, because the climber believes it counted.
+   */
+  mayAct(pubkey, nowSeconds = this.now()) {
+    if (!this.state || !this.competition) return false;
+    if (this.state.status !== 'running' || this.state.paused) return false;
+    if (this.currentClimber() !== pubkey) return false;
+    const participant = this.participant(pubkey);
+    if (!participant) return false;
+    if (participant.registration !== 'accepted') return false;
+    if (participant.checkin !== 'checked_in') return false;
+    if (participant.result !== 'active') return false;
+    if (this.competition.fee_msat > 0 && participant.payment !== 'settled') return false;
+    const rest = this.competition.rules.min_rest_sec || 0;
+    if (rest > 0 && participant.last_attempt_at > 0
+      && nowSeconds - participant.last_attempt_at < rest) {
+      return false;
+    }
+    return true;
+  }
+
+  /**
+   * The climbs this person may still attempt, with what is left on each.
+   *
+   * Under participant choice that is the set they hold — never the whole pool,
+   * because attempting somebody else's climb is refused by the reducer.
+   */
+  remainingClimbs(pubkey) {
+    if (!this.state || !this.competition) return [];
+    const participant = this.participant(pubkey);
+    if (!participant) return [];
+    const source = this.competition.rules.climb_source === 'participant_choice'
+      ? (this.competition.climb_pool?.options || [])
+        .filter((option) => participant.selections.includes(option.id))
+      : (this.competition.climbs || []);
+    return source
+      .map((climb) => ({
+        id: climb.id,
+        label: climb.label || climb.id,
+        angle: climb.angle,
+        attemptsLeft: this.attemptsLeft(pubkey, climb.id),
+        outcome: participant.climbs.find((c) => c.climb_id === climb.id)?.outcome || 'none',
+      }))
+      .filter((climb) => climb.attemptsLeft > 0);
   }
 
   /** Seconds left on the open turn, or null when no turn is open. */

@@ -353,7 +353,19 @@ async function streamPaidUniqueAsync(keys) {
       fee_msat: 2000000,
       fee_lnurl: 'kellerwand@example.invalid',
       climbs: undefined,
-      climb_pool: { source: 'board_catalogue', filter: { min_grade: 17, max_grade: 24, angle: 40 } },
+      // A real pool of real climbs. Entrants pick from these, and with
+      // `unique_per_competition` there have to be enough for everyone to get a
+      // full set — see the validation in competition.mjs.
+      climb_pool: {
+        source: 'organizer_list',
+        options: [
+          { id: 'c1', climb_uuid: '11111111-1111-4111-8111-111111111111', angle: 40, label: 'Blue slab', points: 100 },
+          { id: 'c2', climb_uuid: '22222222-2222-4222-8222-222222222222', angle: 40, label: 'Red roof', points: 150 },
+          { id: 'c3', climb_uuid: '33333333-3333-4333-8333-333333333333', angle: 40, label: 'Yellow arete', points: 120 },
+          { id: 'c4', climb_uuid: '44444444-4444-4444-8444-444444444444', angle: 40, label: 'Green crimps', points: 130 },
+        ],
+      },
+      capacity: 2,
       rules: {
         ...baseConfig({ compId, authority: keys.organizer.pk }).rules,
         climb_source: 'participant_choice',
@@ -394,6 +406,12 @@ async function streamPaidUniqueAsync(keys) {
   await log.add('queue', { action: 'seed', order: [keys.alice.pk] }, 1789005300);
   await log.add('lifecycle', { status: 'running', at: 1789005400 }, 1789005400);
   await log.add('queue', { action: 'open_turn', index: 0 }, 1789005500);
+  // climb_not_selected — c3 is in the pool but Alice never claimed it. Under
+  // participant choice an attempt only counts on a climb the climber holds,
+  // otherwise unique claims would decide nothing.
+  await log.add('attempt_result', {
+    pubkey: keys.alice.pk, climb_id: 'c3', outcome: 'top', attempt_no: 1,
+  }, 1789005510, { subjects: [keys.alice.pk] });
   await log.add('attempt_result', {
     pubkey: keys.alice.pk, climb_id: 'c1', outcome: 'top', attempt_no: 1,
   }, 1789005520, { subjects: [keys.alice.pk] });
@@ -402,7 +420,8 @@ async function streamPaidUniqueAsync(keys) {
   return finish(
     'paid-unique-async',
     'Participant-chosen climbs with enforced uniqueness, a paid entry where one payment expires, '
-    + 'and a no-show. The duplicate climb claim is rejected by the reducer.',
+    + 'and a no-show. The duplicate climb claim and an attempt on an unclaimed climb are both '
+    + 'rejected by the reducer.',
     competitionEvent,
     log,
   );
