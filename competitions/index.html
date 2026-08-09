@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' wss: ws://localhost:* ws://127.0.0.1:*; base-uri 'none'; form-action 'none'">
+<title>CruxCoach Competitions — run a board competition on Nostr</title>
+<meta name="description" content="Run or take part in a climbing-board competition. Open source, no account, no server: the whole competition lives on Nostr.">
+<meta name="theme-color" content="#141312">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://cruxcoach.org/competitions/">
+<link rel="alternate" hreflang="en" href="https://cruxcoach.org/competitions/">
+<link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/competitions/">
+<link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/competitions/">
+<meta property="og:title" content="CruxCoach Competitions — run a board competition on Nostr">
+<meta property="og:description" content="Run or take part in a climbing-board competition. Open source, no account, no server: the whole competition lives on Nostr.">
+<meta property="og:url" content="https://cruxcoach.org/competitions/">
+<meta property="og:site_name" content="CruxCoach">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://cruxcoach.org/assets/icon-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<link rel="apple-touch-icon" href="/assets/icon-512.png">
+<link rel="stylesheet" href="/competitions/app/competitions.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the main content</a>
+<header class="site-header">
+  <svg class="logo" viewBox="0 0 512 512" aria-hidden="true"><defs><radialGradient id="gL" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse"><stop offset="40%" stop-color="#FF8C2A"/><stop offset="100%" stop-color="#B84400"/></radialGradient><radialGradient id="gR" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse"><stop offset="40%" stop-color="#E05800"/><stop offset="100%" stop-color="#8C3000"/></radialGradient><radialGradient id="gX" cx="256" cy="256" r="80" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFD080"/><stop offset="100%" stop-color="#E08A00"/></radialGradient></defs><rect width="512" height="512" fill="#000"/><path d="M252,56 A200,200 0 1 0 248,456 L248,384 A128,128 0 1 1 252,128 Z" fill="url(#gL)"/><path d="M260,456 A200,200 0 1 0 264,56 L264,128 A128,128 0 1 1 260,384 Z" fill="url(#gR)"/><polygon points="192,214 214,192 256,234 298,192 320,214 274,256 320,298 298,320 256,278 214,320 192,298 238,256" fill="url(#gX)"/></svg>
+  <span class="brand">CruxCoach</span>
+  <nav aria-label="CruxCoach">
+  <a href="/competitions/">Competitions</a>
+  <a href="/competitions/organizer.html">Organize</a>
+  <a href="/competitions/join.html">Take part</a>
+  <a href="/">CruxCoach</a>
+  </nav>
+</header>
+
+<div id="live-status" class="visually-hidden" role="status" aria-live="polite" aria-label="Status"></div>
+<div id="live-alerts" class="visually-hidden" role="alert" aria-live="assertive" aria-label="Important updates"></div>
+
+<main id="main" class="wrap">
+<h1>Competitions</h1>
+<p class="lead">Run a competition on your board, or take part in one. There is no account and no server: the competition, every entry and every result live on Nostr, signed by the people who made them.</p>
+
+<div class="grid three">
+  <section class="card">
+    <h2><a href="/competitions/organizer.html">Organize</a></h2>
+    <p>Create a competition, share one link, decide who takes part, and run the queue from your phone. Everything you decide is signed with your key and is permanent.</p>
+  </section>
+  <section class="card">
+    <h2><a href="/competitions/join.html">Take part</a></h2>
+    <p>Open the link the organizer shared, register, and see whose turn it is, how many attempts you have left and where you stand — on any phone, without installing anything.</p>
+  </section>
+  <section class="card">
+    <h2><a href="/competitions/live.html">Live screen</a></h2>
+    <p>A read-only screen for a projector or a tablet by the entrance. It holds no key, so it is safe to leave running and safe to share.</p>
+  </section>
+</div>
+
+<section class="card">
+  <h2>How it works</h2>
+  <p>A competition is a signed document on Nostr. The organizer publishes decisions as an append-only, linked record; every client replays that record and arrives at the same standings. Nobody has to trust our servers, because there are none.</p>
+</section>
+
+<section class="card">
+  <h2>What is public</h2>
+  <p>Your public key, the name you choose for the screen, your division, and your results. Not your real name, not your contact details, and nothing about anyone who only looked. The name you pick appears on a public screen and on public relays — a nickname is fine.</p>
+</section>
+
+<section class="card">
+  <h2>The Android app</h2>
+  <p>CruxCoach for Android drives the board itself over Bluetooth and has the same competition view built in.</p>
+  <p><a href="/">Get the app</a></p>
+</section>
+</main>
+
+<footer class="site-footer">
+<a href="/privacy.html">Privacy</a> · <a href="/imprint.html">Imprint</a> · <a href="/">CruxCoach</a>
+</footer>
+
+</body>
+</html>

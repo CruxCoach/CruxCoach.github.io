@@ -16,13 +16,18 @@
       this file as the catch-all. When the app is installed, Android
       App Links open these URLs in the app and this page never loads.
       Without the app:
-        /c/<naddr>   community climb — landing view with metadata
-                     fetched from Nostr relays (Kind 30078 has no
-                     static representation)
-        /c/<uuid>    catalogue climb — no public metadata source,
-                     immediate redirect to the main site
-        /l/<payload> shared playlist — immediate redirect to the
-                     main site
+        /c/<naddr>      community climb — landing view with metadata
+                        fetched from Nostr relays (Kind 30078 has no
+                        static representation)
+        /c/<uuid>       catalogue climb — no public metadata source,
+                        immediate redirect to the main site
+        /l/<payload>    shared playlist — immediate redirect to the
+                        main site
+        /comp/<naddr>   competition join link — rewritten to the
+                        participant page, which loads it from relays.
+                        Deliberately NOT rendered here: the competition
+                        view needs the reducer, and half a competition
+                        is worse than a redirect.
       JS is intentionally limited to these paths (the rest of the site
       stays JS-free per README style guidelines).
 -->
@@ -91,7 +96,13 @@
   // /c/<uuid> and /l/<payload> have nothing useful to show without the
   // app — send them straight to the main site (replace() keeps the
   // dead-end URL out of the back-button history).
-  if (/^\/c\/naddr1[a-z0-9]+\/?$/i.test(location.pathname)) {
+  var compMatch = location.pathname.match(/^\/comp\/(naddr1[a-z0-9]+)\/?$/i);
+  if (compMatch) {
+    // Send it to the participant page, which knows how to read a competition.
+    // replace() keeps this dead-end URL out of the back-button history, the
+    // same reason the other redirects below use it.
+    location.replace('/competitions/join.html#' + compMatch[1].toLowerCase());
+  } else if (/^\/c\/naddr1[a-z0-9]+\/?$/i.test(location.pathname)) {
     document.documentElement.classList.add('climb-page');
   } else if (/^\/c\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{32})\/?$/i.test(location.pathname) ||
              /^\/l\/[A-Za-z0-9_-]{5,}\/?$/.test(location.pathname)) {

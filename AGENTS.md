@@ -31,10 +31,21 @@ python3 -m http.server          # then open http://localhost:8000
 # Regenerate the boards map dataset (the ONLY code that "builds" anything)
 node tools/build-boards-data.mjs
 # → rewrites boards/data/boards.geojson + boards.meta.json; commit both after.
+
+# Regenerate the cross-client competition fixtures (shared with the Android app)
+node tools/dev/build-competition-fixtures.mjs
+# → also update the pinned digest in tools/competition-fixtures.test.mjs AND in
+#   the app's shared/src/androidUnitTest/.../CompetitionFixtures.kt
+
+# A loopback Nostr relay for the competition runbook. Never a public relay.
+node tools/dev/relay.mjs --port 7447
 ```
 
 The lightweight `scripts/check` validates JavaScript, JSON, and the sitemap and
-runs the Node unit tests; there is no package.json or browser test suite.
+runs the Node unit tests (`tools/*.test.mjs`); there is no package.json or
+browser test suite. The competition suites are part of it: protocol, reducer,
+fixtures, signers, NIP-44, QR, pages, the dev relay, and an end-to-end run of a
+whole competition over a loopback relay.
 `node_modules/` is gitignored; `build-boards-data.mjs` installs its one dependency
 (`@rapideditor/country-coder`) into a per-`$TMPDIR` cache on first run, never into
 the repo.
@@ -48,7 +59,7 @@ the repo.
   limited to OSM map tiles and the Nostr WebSocket calls in `404.html`; install
   destinations are contacted only after a click. All are disclosed on the privacy
   page.
-- **The site is JS-free except for four deliberate exceptions:**
+- **The site is JS-free except for five deliberate exceptions:**
   1. `404.html` runs inline JS on `/c/<naddr>` paths to fetch climb metadata from
      public Nostr relays (`relay.damus.io`, `nos.lol`, `relay.primal.net`) over
      WebSocket and render an install/landing view.
@@ -74,6 +85,42 @@ the repo.
      for. Any new interactive surface needs both halves, and a page view label
      is only real once `SITE_PATHS` in the collector's `anonymous_schema.py`
      accepts it — an unlisted label is answered with 400 and counts nothing.
+  5. `competitions/` (and its `/de/` mirror) is a small application — the one
+     part of this site that is not a document. It reads and writes a competition
+     on Nostr relays, and it is the only place that signs anything. Its rules:
+     - **ES modules under `competitions/app/`, no inline script, no inline
+       style.** Every page ships a `Content-Security-Policy` meta tag with
+       `default-src 'none'; script-src 'self'; style-src 'self'` and no
+       `unsafe-inline`. `tools/competition-pages.test.mjs` fails the build if any
+       of that slips.
+     - **`competitions/app/protocol/` must not touch the DOM.** That is what lets
+       `node --test` run the code the site actually serves, which is the whole
+       basis of the cross-client conformance claim against the Android app. A
+       test enforces it.
+     - **Nothing ever assigns `innerHTML`.** Titles, display names and
+       announcements arrive from a public relay. Everything reaches the DOM via
+       `textContent`; a test greps for the alternatives.
+     - **Crypto is vendored, not written**: `assets/vendor/nostr-crypto/`
+       (@noble/secp256k1 and @noble/ciphers, both MIT and dependency-free) with
+       digests and provenance in `PROVENANCE.md`. SHA-256, HMAC, HKDF, PBKDF2
+       and AES-GCM come from WebCrypto instead. The official BIP-340, RFC 8439
+       and NIP-44 vectors run against the exact bytes we serve.
+     - **These pages carry NO analytics beacon and no install button.** The
+       collector's `SITE_PATHS` allowlist lives in `cruxcoach-dlstats`, and
+       `normalizePagePath` would file a competition view under `/404` and corrupt
+       that metric. A page that can be clicked but not counted breaks the
+       numbers — so this surface carries no counter at all rather than a broken
+       one. Adding one means adding the labels to the collector FIRST; see
+       `DECISIONS-TO-REVIEW.md` on the branch that introduced this.
+     - **`/comp/<naddr>` is the canonical join link.** `404.html` rewrites it to
+       `competitions/join.html#<naddr>`; the Android app claims the same path as
+       an App Link. The three application pages are `noindex` and out of the
+       sitemap — their content lives behind a fragment and comes from relays, so
+       a crawler can only ever see an empty shell.
+     - **`tools/dev/relay.mjs` is a development-only loopback relay** used by the
+       tests and the runbook (`tools/dev/RUNBOOK-competitions.md`). It refuses to
+       bind anything but loopback and is never referenced by a page. No test may
+       write to a public relay, and `ws://` is accepted only for loopback hosts.
 - **Dark-mode-only**: `color-scheme=dark` in meta; no JS theme toggle.
 - **Accessibility**: every link has discernible text; decorative elements are
   `aria-hidden="true"`. Prefer plain semantic HTML over div soup.
