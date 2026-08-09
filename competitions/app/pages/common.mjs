@@ -99,6 +99,45 @@ export function joinLink(naddr, origin = location.origin) {
   return `${origin}/comp/${naddr}`;
 }
 
+/**
+ * The "open a competition" card, shared by the participant and live screens.
+ *
+ * Both pages can be reached without a competition in the fragment — a bare
+ * `/competitions/live.html` on a projector is a normal way to start — and both
+ * then need the same thing: somewhere to paste the link. It lives here so a
+ * page cannot end up describing a way in that it does not actually offer.
+ *
+ * @param {(key: string) => string} t
+ * @param {(parsed: object) => void} onOpen  called once the input parsed
+ */
+export function openCompetitionForm(t, onOpen) {
+  const input = el('input', {
+    attrs: {
+      type: 'text', id: 'comp-ref', autocomplete: 'off', spellcheck: 'false',
+      placeholder: t('comp.open.placeholder'),
+    },
+  });
+  const error = el('p', { className: 'small', attrs: { role: 'alert' } });
+  return el('div', { className: 'card' }, [
+    el('h2', { text: t('comp.open') }),
+    el('p', { className: 'small', text: t('comp.open.hint') }),
+    el('label', { attrs: { for: 'comp-ref' }, text: t('comp.open') }, [input]),
+    error,
+    el('button', {
+      className: 'primary',
+      text: t('comp.open'),
+      on: {
+        click: () => {
+          const parsed = parseCompetitionRef(input.value);
+          if (!parsed.ok) { error.textContent = t('comp.invalid'); return; }
+          location.hash = parsed.naddr;
+          onOpen(parsed);
+        },
+      },
+    }),
+  ]);
+}
+
 /** Set up language, translator and the two live regions every page needs. */
 export function bootstrap() {
   const language = detectLanguage();

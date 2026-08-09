@@ -212,7 +212,7 @@ const STRINGS = {
     'key.forget.confirm': 'Remove the key stored in this browser? If you have not written it down, this identity is gone for good.',
 
     'comp.open': 'Open a competition',
-    'comp.open.hint': 'Paste a join link, an naddr, or scan the QR from the organizer.',
+    'comp.open.hint': 'Paste a join link or an naddr. Scanning the QR code with a phone camera opens the same link.',
     'comp.open.placeholder': 'https://cruxcoach.org/comp/naddr1… or naddr1…',
     'comp.notfound': 'No competition answered at that address. It may be very new, or the relays may be unreachable.',
     'comp.invalid': 'That link does not point at a CruxCoach competition.',
@@ -667,7 +667,7 @@ const STRINGS = {
     'key.forget.confirm': 'Den in diesem Browser gespeicherten Schlüssel entfernen? Wenn du ihn nicht aufgeschrieben hast, ist diese Identität endgültig weg.',
 
     'comp.open': 'Wettkampf öffnen',
-    'comp.open.hint': 'Beitrittslink oder naddr einfügen, oder den QR-Code der Ausrichtung scannen.',
+    'comp.open.hint': 'Beitrittslink oder naddr einfügen. Der QR-Code führt mit der Handy-Kamera zum selben Link.',
     'comp.open.placeholder': 'https://cruxcoach.org/comp/naddr1… oder naddr1…',
     'comp.notfound': 'Unter dieser Adresse hat kein Wettkampf geantwortet. Vielleicht ist er ganz frisch, oder die Relays sind nicht erreichbar.',
     'comp.invalid': 'Dieser Link zeigt nicht auf einen CruxCoach-Wettkampf.',

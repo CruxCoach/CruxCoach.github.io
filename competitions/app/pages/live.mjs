@@ -10,7 +10,7 @@
  */
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
-  openCompetition, parseCompetitionRef, replace,
+  openCompetition, openCompetitionForm, parseCompetitionRef, replace,
 } from './common.mjs';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
 
@@ -141,10 +141,11 @@ async function start() {
   const hash = location.hash.replace(/^#/, '');
   const parsed = parseCompetitionRef(hash);
   if (!parsed.ok) {
-    replace(view, el('div', { className: 'card' }, [
-      el('h1', { text: t('nav.projector') }),
-      el('p', { text: t('comp.open.hint') }),
-    ]));
+    replace(
+      view,
+      el('div', { className: 'card' }, [el('h1', { text: t('nav.projector') })]),
+      openCompetitionForm(t, start),
+    );
     return;
   }
   ref = parsed;

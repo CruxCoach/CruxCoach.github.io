@@ -7,7 +7,7 @@
  */
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
-  openCompetition, parseCompetitionRef, replace, resolveRelays,
+  openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
 } from './common.mjs';
 import { SignIn } from '../ui/shell.mjs';
 import { RelayPool } from '../protocol/relay-pool.mjs';
@@ -61,33 +61,7 @@ const signIn = new SignIn({
 
 // ── opening a competition ──
 
-function openForm() {
-  const input = el('input', {
-    attrs: {
-      type: 'text', id: 'comp-ref', autocomplete: 'off', spellcheck: 'false',
-      placeholder: t('comp.open.placeholder'),
-    },
-  });
-  const error = el('p', { className: 'small', attrs: { role: 'alert' } });
-  return el('div', { className: 'card' }, [
-    el('h2', { text: t('comp.open') }),
-    el('p', { className: 'small', text: t('comp.open.hint') }),
-    el('label', { attrs: { for: 'comp-ref' }, text: t('comp.open') }, [input]),
-    error,
-    el('button', {
-      className: 'primary',
-      text: t('comp.open'),
-      on: {
-        click: () => {
-          const parsed = parseCompetitionRef(input.value);
-          if (!parsed.ok) { error.textContent = t('comp.invalid'); return; }
-          location.hash = parsed.naddr;
-          start();
-        },
-      },
-    }),
-  ]);
-}
+const openForm = () => openCompetitionForm(t, start);
 
 // ── rendering ──
 

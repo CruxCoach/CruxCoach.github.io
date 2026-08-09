@@ -485,6 +485,28 @@ test('the participant pages can render every mode the form can set', () => {
     'nothing distinguishes a climb somebody already holds');
 });
 
+test('every page that can open a competition offers somewhere to paste it', async () => {
+  // The live screen told people to paste a join link while rendering no input
+  // at all, because it wrote its own empty state instead of using the form the
+  // participant page already had. One form used by both is what keeps the
+  // instruction and the page from drifting apart again.
+  for (const name of ['live.mjs', 'join.mjs']) {
+    const source = fs.readFileSync(path.join(root, 'competitions/app/pages', name), 'utf8');
+    assert.ok(source.includes('openCompetitionForm'), `${name} builds its own way in`);
+  }
+
+  const { openCompetitionForm } = await import('../competitions/app/pages/common.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  try {
+    const card = openCompetitionForm((key) => key, () => {});
+    assert.ok(card.querySelector('#comp-ref'), 'nothing to paste a link into');
+    assert.ok(card.querySelector('button'), 'no way to submit what was pasted');
+  } finally {
+    restore();
+  }
+});
+
 test('the organizer form builds a competition every validator accepts', async () => {
   // The form is DOM code, so this drives `build()` through a minimal document
   // rather than asserting on its source. What it proves is the thing a source
