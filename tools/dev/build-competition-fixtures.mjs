@@ -34,6 +34,7 @@ import {
   parseDTag, parseCompetitionEvent, parseLogEvent, KIND,
 } from '../../competitions/app/protocol/competition.mjs';
 import { hashableState, reduce } from '../../competitions/app/protocol/reduce.mjs';
+import { isAllowedRelayUrl, isLoopbackRelay } from '../../competitions/app/protocol/relay-url.mjs';
 import { computeStandings } from '../../competitions/app/protocol/scoring.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -481,6 +482,241 @@ async function streamChainBreak(keys) {
   return stream;
 }
 
+/**
+ * Every rejection path a client can reach, in one stream.
+ *
+ * Rejections are part of the hashed state, so "the two clients agree about
+ * what is legal" only means something if the fixtures actually contain
+ * illegal entries. Without this stream, a reducer that accepted everything
+ * would pass every other test in the suite.
+ */
+async function streamRejections(keys) {
+  const compId = 'ee11ff2200334455';
+  const config = baseConfig({
+    compId,
+    authority: keys.organizer.pk,
+    overrides: { title: 'Rejection paths', capacity: 2 },
+  });
+  const competitionEvent = await sign(buildCompetitionEvent(config, 1788900000), keys.organizer);
+  const log = new Log(compId, keys.organizer.pk, keys.organizer, competitionEvent.id);
+
+  await log.add('lifecycle', { status: 'published', at: 1788900100 }, 1788900100);
+  // running is not reachable from published — illegal_transition.
+  await log.add('lifecycle', { status: 'running', at: 1788900110 }, 1788900110);
+  await log.add('lifecycle', { status: 'registration_open', at: 1789000000 }, 1789000000);
+
+  // A check-in before check-in opens — wrong_status.
+  await log.add('checkin', { pubkey: keys.alice.pk, state: 'checked_in' }, 1789000010, { subjects: [keys.alice.pk] });
+
+  await log.add('registration_decision', {
+    pubkey: keys.alice.pk, decision: 'accepted', division: 'open', display: 'alice',
+  }, 1789000100, { subjects: [keys.alice.pk] });
+  await log.add('registration_decision', {
+    pubkey: keys.bob.pk, decision: 'accepted', division: 'open', display: 'bob',
+  }, 1789000110, { subjects: [keys.bob.pk] });
+  // capacity is 2 — carla does not fit.
+  await log.add('registration_decision', {
+    pubkey: keys.carla.pk, decision: 'accepted', division: 'open', display: 'carla',
+  }, 1789000120, { subjects: [keys.carla.pk] });
+  // unknown_division
+  await log.add('registration_decision', {
+    pubkey: keys.dan.pk, decision: 'accepted', division: 'masters', display: 'dan',
+  }, 1789000130, { subjects: [keys.dan.pk] });
+  // unknown_decision
+  await log.add('registration_decision', {
+    pubkey: keys.dan.pk, decision: 'maybe', division: 'open',
+  }, 1789000140, { subjects: [keys.dan.pk] });
+
+  // no_fee — this competition is free.
+  await log.add('payment_decision', { pubkey: keys.alice.pk, state: 'settled' }, 1789000150, { subjects: [keys.alice.pk] });
+  // uniqueness_not_enforced — climbs are organizer-set here.
+  await log.add('claim_decision', { pubkey: keys.alice.pk, climb_id: 'c1', decision: 'granted' }, 1789000160);
+  // no_such_participant
+  await log.add('disqualify', { pubkey: keys.zapper.pk }, 1789000170,
+    { reason: 'Not entered; this must be refused rather than inventing a competitor.' });
+  // empty_announcement
+  await log.add('announcement', { text: '' }, 1789000180);
+
+  await log.add('lifecycle', { status: 'registration_closed', at: 1789003600 }, 1789003600);
+  await log.add('lifecycle', { status: 'checkin_open', at: 1789003700 }, 1789003700);
+  await log.add('checkin', { pubkey: keys.alice.pk, state: 'checked_in' }, 1789003800, { subjects: [keys.alice.pk] });
+  await log.add('checkin', { pubkey: keys.bob.pk, state: 'checked_in' }, 1789003810, { subjects: [keys.bob.pk] });
+  // not_accepted_registration — carla never got in.
+  await log.add('checkin', { pubkey: keys.carla.pk, state: 'checked_in' }, 1789003820, { subjects: [keys.carla.pk] });
+
+  // incomplete_seed_order — bob is eligible and missing.
+  await log.add('queue', { action: 'seed', order: [keys.alice.pk] }, 1789005200);
+  // duplicate_in_order
+  await log.add('queue', { action: 'seed', order: [keys.alice.pk, keys.alice.pk] }, 1789005210);
+  // ineligible_in_order
+  await log.add('queue', { action: 'seed', order: [keys.alice.pk, keys.carla.pk] }, 1789005220);
+  const seeded = await seedOrder(compId, [keys.alice.pk, keys.bob.pk]);
+  await log.add('queue', { action: 'seed', order: seeded }, 1789005300);
+  // index_out_of_range
+  await log.add('queue', { action: 'open_turn', index: 9 }, 1789005310);
+  // unknown_queue_action
+  await log.add('queue', { action: 'teleport' }, 1789005320);
+
+  await log.add('lifecycle', { status: 'running', at: 1789005400 }, 1789005400);
+  await log.add('queue', { action: 'open_turn', index: 0 }, 1789005500);
+
+  // attempt_out_of_order on a climb with NO prior record. This is the
+  // regression guard for a reducer that creates the record before validating:
+  // doing so leaves a phantom zero-attempt entry in the hashed state.
+  await log.add('attempt_result', {
+    pubkey: seeded[0], climb_id: 'c2', outcome: 'fall', attempt_no: 3,
+  }, 1789005510, { subjects: [seeded[0]] });
+  // unknown_outcome
+  await log.add('attempt_result', {
+    pubkey: seeded[0], climb_id: 'c1', outcome: 'levitated', attempt_no: 1,
+  }, 1789005520, { subjects: [seeded[0]] });
+
+  await log.add('attempt_result', {
+    pubkey: seeded[0], climb_id: 'c1', outcome: 'top', attempt_no: 1,
+  }, 1789005530, { subjects: [seeded[0]] });
+  // already_topped
+  await log.add('attempt_result', {
+    pubkey: seeded[0], climb_id: 'c1', outcome: 'fall', attempt_no: 2,
+  }, 1789005540, { subjects: [seeded[0]] });
+
+  // defer_budget_exhausted (budget is 1, and this is the second)
+  await log.add('defer_decision', { pubkey: seeded[1], decision: 'granted' }, 1789005550, { subjects: [seeded[1]] });
+  await log.add('defer_decision', { pubkey: seeded[1], decision: 'granted' }, 1789005560, { subjects: [seeded[1]] });
+
+  return finish(
+    'rejections',
+    'One entry for every rejection path a reducer can reach. Rejections are part of the hashed '
+    + 'state, so a client that quietly accepted an illegal entry must fail here.',
+    competitionEvent,
+    log,
+  );
+}
+
+/**
+ * The rejection paths the first stream cannot reach, because an earlier check
+ * masks them there (a full competition rejects on capacity before it ever looks
+ * at the division). Between the two, every code in the closed set that a log
+ * entry can trigger is exercised.
+ */
+async function streamRejectionsPaid(keys) {
+  const compId = 'ff2233445566778a';
+  const base = baseConfig({ compId, authority: keys.organizer.pk });
+  const config = baseConfig({
+    compId,
+    authority: keys.organizer.pk,
+    overrides: {
+      title: 'Rejection paths, paid',
+      capacity: 0,
+      fee_msat: 1000000,
+      fee_lnurl: 'kellerwand@example.invalid',
+      rules: {
+        ...base.rules,
+        attempts_per_climb: 1,
+        // budget above the consecutive cap, so the consecutive rule is the one
+        // that fires rather than being masked by an exhausted budget.
+        defer_budget_per_round: 3,
+        max_consecutive_defers: 1,
+      },
+    },
+  });
+  const competitionEvent = await sign(buildCompetitionEvent(config, 1788900000), keys.organizer);
+  const log = new Log(compId, keys.organizer.pk, keys.organizer, competitionEvent.id);
+
+  await log.add('lifecycle', { status: 'published', at: 1788900100 }, 1788900100);
+  await log.add('lifecycle', { status: 'registration_open', at: 1789000000 }, 1789000000);
+  // unknown_division — capacity is unlimited here, so nothing masks it.
+  await log.add('registration_decision', {
+    pubkey: keys.dan.pk, decision: 'accepted', division: 'masters', display: 'dan',
+  }, 1789000010, { subjects: [keys.dan.pk] });
+  for (const climber of [keys.alice, keys.bob, keys.carla, keys.zapper]) {
+    await log.add('registration_decision', {
+      pubkey: climber.pk, decision: 'accepted', division: 'open', display: climber.label,
+    }, 1789000100, { subjects: [climber.pk] });
+  }
+  await log.add('registration_decision', {
+    pubkey: keys.dan.pk, decision: 'waitlisted', division: 'open', display: 'dan', waitlist_position: 1,
+  }, 1789000150, { subjects: [keys.dan.pk] });
+
+  // unknown_payment_state
+  await log.add('payment_decision', { pubkey: keys.alice.pk, state: 'maybe' }, 1789000200, { subjects: [keys.alice.pk] });
+  for (const climber of [keys.alice, keys.bob, keys.carla]) {
+    await log.add('payment_decision', { pubkey: climber.pk, state: 'settled' }, 1789000210, { subjects: [climber.pk] });
+  }
+
+  await log.add('lifecycle', { status: 'registration_closed', at: 1789003600 }, 1789003600);
+  await log.add('lifecycle', { status: 'checkin_open', at: 1789003700 }, 1789003700);
+  // unknown_checkin_state
+  await log.add('checkin', { pubkey: keys.alice.pk, state: 'maybe' }, 1789003750, { subjects: [keys.alice.pk] });
+  // not_accepted_registration — dan is waitlisted, not accepted.
+  await log.add('checkin', { pubkey: keys.dan.pk, state: 'checked_in' }, 1789003760, { subjects: [keys.dan.pk] });
+  for (const climber of [keys.alice, keys.bob, keys.carla, keys.zapper]) {
+    await log.add('checkin', { pubkey: climber.pk, state: 'checked_in' }, 1789003800, { subjects: [climber.pk] });
+  }
+
+  // no_order
+  await log.add('queue', { action: 'seed' }, 1789005100);
+  const seeded = await seedOrder(compId, [keys.alice.pk, keys.bob.pk, keys.carla.pk, keys.zapper.pk]);
+  await log.add('queue', { action: 'seed', order: seeded }, 1789005300);
+  await log.add('lifecycle', { status: 'running', at: 1789005400 }, 1789005400);
+
+  // unknown_climb
+  await log.add('queue', { action: 'next_climb', climb_id: 'nope' }, 1789005410);
+  // not_in_order — dan never made the running order.
+  await log.add('defer_decision', { pubkey: keys.dan.pk, decision: 'granted' }, 1789005420, { subjects: [keys.dan.pk] });
+
+  // not_eligible — this entrant is accepted and checked in, so the seed order
+  // legitimately contains them, but their fee never settled. Seeding and
+  // climbing have different eligibility rules, and this pins the difference.
+  // It has to happen while the order is still intact: once someone is
+  // disqualified the order shrinks and the same index means someone else.
+  await log.add('queue', { action: 'open_turn', index: seeded.indexOf(keys.zapper.pk) }, 1789005425);
+
+  // A granted defer, then a second in immediate succession → defer_consecutive_limit
+  // (budget is 3, so the budget rule cannot be what fires).
+  await log.add('defer_decision', { pubkey: seeded[0], decision: 'granted' }, 1789005430, { subjects: [seeded[0]] });
+  await log.add('defer_decision', { pubkey: seeded[0], decision: 'granted' }, 1789005440, { subjects: [seeded[0]] });
+
+  // attempts_per_climb is 1, so the second attempt has none left.
+  await log.add('queue', { action: 'open_turn', index: 0 }, 1789005500);
+  await log.add('attempt_result', {
+    pubkey: seeded[1], climb_id: 'c1', outcome: 'fall', attempt_no: 1,
+  }, 1789005510, { subjects: [seeded[1]] });
+  await log.add('attempt_result', {
+    pubkey: seeded[1], climb_id: 'c1', outcome: 'fall', attempt_no: 2,
+  }, 1789005520, { subjects: [seeded[1]] });
+
+  // participant_inactive — disqualified climbers record nothing further.
+  await log.add('disqualify', { pubkey: seeded[2] }, 1789005530,
+    { reason: 'Brushed a hold mid-attempt after a warning.', subjects: [seeded[2]] });
+  await log.add('attempt_result', {
+    pubkey: seeded[2], climb_id: 'c1', outcome: 'top', attempt_no: 1,
+  }, 1789005540, { subjects: [seeded[2]] });
+
+  // unknown_op, reached through an override wrapping an operation no reducer
+  // has. The parser only gates the TOP-LEVEL op, so this is the reducer's job.
+  await log.add('override', { op: 'teleport', data: {} }, 1789005560,
+    { reason: 'Deliberately unknown, to pin what a client does with one.', actor: 'organizer_override' });
+  // correction_missing_replacement
+  await log.add('correction', { supersedes_seq: 2 }, 1789005570,
+    { reason: 'Deliberately malformed, to pin what a client does with one.' });
+
+  // epoch_mismatch — an entry signed under an authority epoch that was never
+  // put in force by a document revision. A stale authority must not be able to
+  // keep writing after a handover, which is what §5.3 exists for.
+  log.epoch = 2;
+  await log.add('announcement', { text: 'From an epoch that is not in force.' }, 1789005580);
+  log.epoch = 1;
+
+  return finish(
+    'rejections-paid',
+    'The rejection paths an earlier check masks in the first rejection stream: unknown division, '
+    + 'unknown payment and check-in states, the consecutive-deferral cap, an exhausted attempt '
+    + 'allowance, a disqualified climber, and a malformed override and correction.',
+    competitionEvent,
+    log,
+  );
+}
+
 /** The organizer console's default seeding rule (§9.1). Advisory, but pinned. */
 async function seedOrder(compId, pubkeys) {
   const scored = [];
@@ -558,9 +794,34 @@ async function buildVectors(keys) {
   }, keys.organizer);
   const tampered = { ...sample, content: '{"hello":"w0rld"}' };
 
+  // Which relay URLs a client will talk to is a cross-client rule: if the app
+  // accepts a competition the website rejects, the two disagree about which
+  // competitions exist at all. Pin it like everything else.
+  const relayUrlCases = [
+    { url: 'wss://relay.example.invalid', allowed: true, loopback: false },
+    { url: 'wss://relay2.example.invalid/path', allowed: true, loopback: false },
+    { url: 'ws://127.0.0.1:7447', allowed: true, loopback: true },
+    { url: 'ws://localhost:7447', allowed: true, loopback: true },
+    { url: 'ws://LOCALHOST:7447', allowed: true, loopback: true },
+    { url: 'ws://[::1]:7447', allowed: true, loopback: true },
+    { url: 'ws://relay.example.invalid', allowed: false, loopback: false },
+    { url: 'ws://127.0.0.1.evil.invalid:7447', allowed: false, loopback: false },
+    { url: 'http://127.0.0.1:7447', allowed: false, loopback: false },
+    { url: 'wss://', allowed: false, loopback: false },
+    { url: '', allowed: false, loopback: false },
+    { url: 'wss://relay.example.invalid with a space', allowed: false, loopback: false },
+  ];
+  for (const testCase of relayUrlCases) {
+    if (isAllowedRelayUrl(testCase.url) !== testCase.allowed
+      || isLoopbackRelay(testCase.url) !== testCase.loopback) {
+      throw new Error(`relay-url vector disagrees with the implementation: ${JSON.stringify(testCase)}`);
+    }
+  }
+
   return {
     schema: 'cruxcoach-competition/1',
     note: 'Every key here is derived from a public label in build-competition-fixtures.mjs. They are test keys and are worthless.',
+    relay_urls: relayUrlCases,
     keys: Object.fromEntries(Object.values(keys).map((k) => [k.label, { secret_hex: bytesToHex(k.sk), pubkey: k.pk }])),
     ccj: ccjCases,
     ccj_rejected: ccjRejects,
@@ -654,6 +915,8 @@ async function main() {
     await streamPaidUniqueAsync(keys),
     await streamForkAndCorrection(keys),
     await streamChainBreak(keys),
+    await streamRejections(keys),
+    await streamRejectionsPaid(keys),
   ];
   const vectors = await buildVectors(keys);
   const zaps = await buildZapFixtures(keys);

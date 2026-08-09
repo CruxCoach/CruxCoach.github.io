@@ -77,13 +77,39 @@ test('no fixture references a public relay', () => {
       const full = path.join(dir, entry.name);
       if (entry.isDirectory()) { walk(full); continue; }
       const text = fs.readFileSync(full, 'utf8');
-      for (const match of text.matchAll(/wss:\/\/[^"\\\s]+/g)) {
+      for (const match of text.matchAll(/wss?:\/\/[^"\\\s]+/gi)) {
         // `.invalid` is reserved by RFC 2606 and can never resolve, so a
-        // fixture can never accidentally reach a real relay operator.
-        if (!match[0].includes('.invalid')) offenders.push(`${full}: ${match[0]}`);
+        // fixture naming one can never reach a real relay operator. Loopback
+        // is allowed because the runbook's dev relay lives there. `ws://` is
+        // scanned too: a cleartext URL to a real host would be worse, not
+        // better, than an encrypted one.
+        const url = match[0].toLowerCase();
+        const safe = url.includes('.invalid')
+          || /^ws:\/\/(127\.0\.0\.1|localhost|\[::1\])(:|$|\/)/.test(url);
+        if (!safe) offenders.push(`${full}: ${url}`);
       }
     }
   };
   walk(fixturesDir);
   assert.deepEqual(offenders, [], 'fixtures must only name unresolvable .invalid relays');
+});
+
+/**
+ * The Android repository keeps a byte-identical copy of this fixture set, and
+ * its own test suite asserts the SAME constant. Regenerating here without
+ * copying the files across therefore fails on this side, rather than silently
+ * leaving the two clients pinned to different contracts.
+ *
+ * When this fails after an intentional protocol change:
+ *   1. node tools/dev/build-competition-fixtures.mjs
+ *   2. update FIXTURES_MANIFEST_SHA256 below
+ *   3. copy competitions/fixtures/ to the app's
+ *      shared/src/commonTest/resources/competition/
+ *   4. update the same constant in CompetitionFixtures.kt
+ */
+const FIXTURES_MANIFEST_SHA256 = '5d5dd69ac844a77e3c3af605833a4a8baa32fdd2596591ea9730166a84c0aa39';
+
+test('the fixture manifest matches the digest the Android client pins', () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(fixturesDir, 'MANIFEST.json'), 'utf8'));
+  assert.equal(manifest.manifest_sha256, FIXTURES_MANIFEST_SHA256);
 });

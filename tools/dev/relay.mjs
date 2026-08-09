@@ -160,6 +160,9 @@ export async function startDevRelay(opts = {}) {
   const byReplacement = new Map();
   /** @type {Set<{send:Function, subs:Map<string,object[]>}>} */
   const clients = new Set();
+  /** Upgraded sockets are NOT closed by `server.close()`, so they are tracked
+   *  here — otherwise a finished test run simply never exits. */
+  const sockets = new Set();
 
   const dump = opts.dumpPath ? fs.createWriteStream(opts.dumpPath, { flags: 'a' }) : null;
 
@@ -185,9 +188,15 @@ export async function startDevRelay(opts = {}) {
     if (!valid) return { ok: false, reason: 'invalid: bad id or signature' };
 
     const cls = storageClass(event.kind);
-    if (cls === 'ephemeral') return { ok: true, reason: 'ephemeral: not stored', store: false };
+    // Ephemeral events are delivered to live subscribers and kept by nobody.
+    // Not delivering them is not a milder failure than not storing them: a
+    // NIP-46 answer that is neither stored nor delivered is simply lost, and
+    // the signer session hangs waiting for a reply that already happened.
+    if (cls === 'ephemeral') return { ok: true, reason: 'ephemeral: not stored', deliver: true };
 
-    if (byId.has(event.id)) return { ok: true, reason: 'duplicate: already have this event' };
+    if (byId.has(event.id)) {
+      return { ok: true, reason: 'duplicate: already have this event', deliver: false };
+    }
 
     const key = replacementKey(event);
     if (key) {
@@ -199,14 +208,16 @@ export async function startDevRelay(opts = {}) {
         const incomingWins =
           event.created_at > existing.created_at ||
           (event.created_at === existing.created_at && event.id < existing.id);
-        if (!incomingWins) return { ok: true, reason: 'replaced: a newer event is stored' };
+        if (!incomingWins) {
+          return { ok: true, reason: 'replaced: a newer event is stored', deliver: false };
+        }
         byId.delete(existingId);
       }
       byReplacement.set(key, event.id);
     }
     byId.set(event.id, event);
     if (dump) dump.write(`${JSON.stringify(event)}\n`);
-    return { ok: true, reason: '', store: true };
+    return { ok: true, reason: '', deliver: true };
   }
 
   const server = http.createServer((req, res) => {
@@ -236,6 +247,7 @@ export async function startDevRelay(opts = {}) {
       `Sec-WebSocket-Accept: ${acceptKey(key)}\r\n\r\n`,
     );
     socket.setNoDelay(true);
+    sockets.add(socket);
 
     const send = (msg) => {
       if (!socket.destroyed) socket.write(encodeTextFrame(JSON.stringify(msg)));
@@ -270,7 +282,7 @@ export async function startDevRelay(opts = {}) {
       }
     });
 
-    const drop = () => { clients.delete(client); };
+    const drop = () => { clients.delete(client); sockets.delete(socket); };
     socket.on('close', drop);
     socket.on('error', drop);
   });
@@ -296,7 +308,7 @@ export async function startDevRelay(opts = {}) {
       }
       const result = await ingest(event);
       client.send(['OK', event.id, result.ok, result.reason]);
-      if (result.ok && result.store !== false) {
+      if (result.ok && result.deliver) {
         for (const other of clients) {
           for (const [subId, filters] of other.subs) {
             if (filters.some((f) => matchesFilter(event, f))) other.send(['EVENT', subId, event]);
@@ -356,6 +368,8 @@ export async function startDevRelay(opts = {}) {
         for (const client of clients) client.send(['NOTICE', 'relay shutting down']);
         clients.clear();
         if (dump) dump.end();
+        for (const socket of sockets) { try { socket.destroy(); } catch { /* already gone */ } }
+        sockets.clear();
         server.close(() => resolve());
         server.closeAllConnections?.();
       }),

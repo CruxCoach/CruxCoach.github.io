@@ -11,6 +11,7 @@
  */
 import { ccj } from './ccj.mjs';
 import { addressOf, isHex32, tagValue, tagValues } from './nostr-event.mjs';
+import { isAllowedRelayUrl } from './relay-url.mjs';
 
 export const KIND = 30078;
 export const NAMESPACE = 'com.cruxcoach.competition';
@@ -365,10 +366,9 @@ export function validateCompetitionConfig(config) {
 
   if (!Array.isArray(config.relays) || config.relays.length < 1 || config.relays.length > 8) {
     err(errors, 'relays', 'must list between 1 and 8 relays');
-  } else if (config.relays.some((r) => typeof r !== 'string' || !/^wss:\/\/[^\s]+$/.test(r))) {
-    // ws:// is refused deliberately: a competition whose transport can be
-    // downgraded to cleartext is one a network can rewrite.
-    err(errors, 'relays', 'must all be wss:// URLs');
+  } else if (config.relays.some((r) => !isAllowedRelayUrl(r))) {
+    // See relay-url.mjs: wss:// anywhere, ws:// only for loopback.
+    err(errors, 'relays', 'must all be wss:// URLs (ws:// only for localhost)');
   }
 
   return { ok: errors.length === 0, errors };

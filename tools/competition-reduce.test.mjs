@@ -260,3 +260,15 @@ test('an unknown operation stops the client instead of being ignored', async () 
   assert.equal(result.ok, false);
   assert.equal(result.needsUpgrade, true, 'the user must be told to update, not shown a partial leaderboard');
 });
+
+test('every rejection code in the closed set is exercised by a fixture', async () => {
+  const seen = new Set();
+  for (const file of streamNames) {
+    const { state } = await replay(readStream(file));
+    for (const rejection of state.rejected) seen.add(rejection.code);
+  }
+  const uncovered = REJECTION_CODES.filter((code) => !seen.has(code));
+  // A rejection code with no fixture is a rule the Android client could
+  // implement differently without any test noticing.
+  assert.deepEqual(uncovered, [], 'these rejection codes have no fixture exercising them');
+});

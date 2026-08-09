@@ -370,15 +370,21 @@ function applyAttemptResult(state, entry, competition) {
   if (!participant) return reject(state, entry, 'no_such_participant');
   if (participant.result !== 'active') return reject(state, entry, 'participant_inactive');
 
-  const record = climbRecord(participant, climbId);
-  if (record.outcome === 'top') return reject(state, entry, 'already_topped');
-  if (!Number.isInteger(attemptNo) || attemptNo !== record.attempts_used + 1) {
+  // Look up WITHOUT creating. Creating first would leave a phantom
+  // zero-attempt record behind on every rejected entry, and that record is
+  // part of the hashed state — so a rejection would silently change the state
+  // two clients are supposed to agree on.
+  const existing = participant.climbs.find((c) => c.climb_id === climbId)
+    ?? { climb_id: climbId, attempts_used: 0, outcome: 'none', at: 0 };
+  if (existing.outcome === 'top') return reject(state, entry, 'already_topped');
+  if (!Number.isInteger(attemptNo) || attemptNo !== existing.attempts_used + 1) {
     return reject(state, entry, 'attempt_out_of_order');
   }
-  if (record.attempts_used >= competition.rules.attempts_per_climb) {
+  if (existing.attempts_used >= competition.rules.attempts_per_climb) {
     return reject(state, entry, 'no_attempts_left');
   }
 
+  const record = climbRecord(participant, climbId);
   record.attempts_used += 1;
   record.at = entry.at;
   participant.last_attempt_at = entry.at;

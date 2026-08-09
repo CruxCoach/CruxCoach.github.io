@@ -190,6 +190,10 @@ test('an ephemeral event is acknowledged, delivered live, and not stored', async
     client.send(['EVENT', event]);
     const ok = await client.await((m) => m[0] === 'OK' && m[1] === event.id);
     assert.equal(ok[2], true);
+    // Delivered live is the whole point: NIP-46 rides on kind 24133, and an
+    // answer that is neither stored nor delivered is simply lost.
+    const delivered = await client.await((m) => m[0] === 'EVENT' && m[1] === 'eph');
+    assert.equal(delivered[2].id, event.id);
     assert.equal(relay.events().length, 0, 'ephemeral events are not stored');
     client.close();
   } finally {
