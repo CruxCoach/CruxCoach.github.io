@@ -360,3 +360,77 @@ test('every page references a stylesheet that exists', () => {
     }
   }
 });
+
+test('the relay override is loopback-only and never replaces the competition relays', async () => {
+  const { resolveRelays } = await import('../competitions/app/pages/common.mjs');
+  const storage = new Map();
+  const originalLocation = globalThis.location;
+  const originalSession = globalThis.sessionStorage;
+  globalThis.sessionStorage = {
+    getItem: (k) => (storage.has(k) ? storage.get(k) : null),
+    setItem: (k, v) => storage.set(k, v),
+  };
+  const withSearch = (search) => { globalThis.location = { search, origin: 'https://cruxcoach.org' }; };
+  try {
+    // A link from a stranger cannot point a viewer at a relay of their
+    // choosing. Such a relay could not forge anything, but it could serve a
+    // truncated prefix of the log, which reduces cleanly and looks like a
+    // competition that has simply not progressed.
+    withSearch('?relay=wss://attacker.example.invalid');
+    let resolved = resolveRelays(['wss://organiser.example.invalid']);
+    assert.equal(resolved.includes('wss://attacker.example.invalid'), false);
+    assert.ok(resolved.includes('wss://organiser.example.invalid'));
+
+    withSearch('?relay=ws://evil.example.invalid:7447');
+    assert.equal(resolveRelays([]).includes('ws://evil.example.invalid:7447'), false);
+
+    // Loopback is accepted, and is ADDITIVE: the competition's own relays stay
+    // in the set, so an override cannot hide entries the real relays serve.
+    storage.clear();
+    withSearch('?relay=ws://127.0.0.1:7447');
+    resolved = resolveRelays(['wss://organiser.example.invalid']);
+    assert.equal(resolved[0], 'ws://127.0.0.1:7447');
+    assert.ok(resolved.includes('wss://organiser.example.invalid'));
+
+    // With no override the competition's own relays come first, then discovery.
+    storage.clear();
+    withSearch('');
+    resolved = resolveRelays(['wss://organiser.example.invalid']);
+    assert.equal(resolved[0], 'wss://organiser.example.invalid');
+    assert.ok(resolved.includes('wss://relay.damus.io'));
+  } finally {
+    globalThis.location = originalLocation;
+    globalThis.sessionStorage = originalSession;
+  }
+});
+
+test('every page has one h1, a skip link, and a labelled main landmark', () => {
+  for (const lang of LANGUAGES) {
+    for (const name of EN_PAGES) {
+      const page = readPage(lang, name);
+      assert.match(page, /<a class="skip-link" href="#main">/, `${lang}/${name}: no skip link`);
+      assert.match(page, /<main id="main"/, `${lang}/${name}: no main landmark`);
+      assert.match(page, /<nav aria-label="/, `${lang}/${name}: unlabelled nav`);
+      // The two live regions every screen needs: polite for state, assertive
+      // for "your turn" and errors.
+      assert.match(page, /id="live-status"[^>]*aria-live="polite"/, `${lang}/${name}`);
+      assert.match(page, /id="live-alerts"[^>]*aria-live="assertive"/, `${lang}/${name}`);
+      // The landing page owns its h1 in markup; the app surfaces render theirs.
+      if (name === 'index.html') {
+        assert.equal((page.match(/<h1>/g) || []).length, 1, `${lang}/${name}: expected exactly one h1`);
+      }
+    }
+  }
+});
+
+test('the stylesheet honours reduced motion, high contrast and focus visibility', () => {
+  const css = fs.readFileSync(path.join(root, 'competitions/app/competitions.css'), 'utf8');
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
+  assert.match(css, /@media \(prefers-contrast: more\)/);
+  assert.match(css, /:focus-visible/);
+  assert.match(css, /color-scheme: dark/);
+  // Touch targets: these get pressed at a wall, with chalk on.
+  assert.match(css, /min-height: 2\.75rem/);
+  // Wide content scrolls inside its own container rather than the page body.
+  assert.match(css, /\.table-scroll \{ overflow-x: auto; \}/);
+});

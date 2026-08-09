@@ -9,6 +9,7 @@
 import { decodeNip19 } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag, isCompId, parseDTag } from '../protocol/competition.mjs';
 import { RelayPool, mergeRelays } from '../protocol/relay-pool.mjs';
+import { isLoopbackRelay } from '../protocol/relay-url.mjs';
 import { CompetitionStore } from '../ui/store.mjs';
 import { createTranslator, detectLanguage } from '../ui/i18n.mjs';
 import { el, replace, byId } from '../ui/dom.mjs';
@@ -31,20 +32,28 @@ export const DISCOVERY_RELAYS = [
 const DEV_RELAY_KEY = 'cruxcoach:competitions:dev-relay';
 
 /**
- * A development relay can be pointed at only by an explicit, deliberate action:
- * a `?relay=ws://127.0.0.1:…` parameter that the runbook tells you to use. It is
- * remembered for the session and every screen says loudly that it is in use, so
- * a demo can never be mistaken for a real event.
+ * `?relay=…` exists for one purpose: the localhost runbook.
+ *
+ * It is therefore accepted **only for a loopback address**. A link carrying
+ * `?relay=wss://somewhere.example` would otherwise let a stranger choose which
+ * relay a viewer reads a competition from — and while such a relay could not
+ * forge anything (every event is signature-checked and bound to the organizer's
+ * key from the naddr), it could serve a truncated prefix of the log, which
+ * reduces cleanly and looks like a competition that simply has not progressed.
+ *
+ * Even so it is ADDITIVE, never a replacement: the competition's own relays
+ * stay in the set, so an override cannot hide entries the real relays serve.
+ * That is the same rule `RelayListResolver.mergeAdditive` follows in the app.
  */
 export function resolveRelays(competitionRelays = []) {
   const params = new URLSearchParams(location.search);
   const requested = params.get('relay');
-  if (requested) {
+  if (requested && isLoopbackRelay(requested)) {
     try { sessionStorage.setItem(DEV_RELAY_KEY, requested); } catch { /* private mode */ }
   }
   let remembered = null;
   try { remembered = sessionStorage.getItem(DEV_RELAY_KEY); } catch { /* private mode */ }
-  const override = requested || remembered;
+  const override = [requested, remembered].find((url) => url && isLoopbackRelay(url));
   if (override) return mergeRelays([override], competitionRelays);
   return mergeRelays(competitionRelays, DISCOVERY_RELAYS);
 }
