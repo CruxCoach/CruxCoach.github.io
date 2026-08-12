@@ -137,12 +137,20 @@ function applyLifecycle(state, entry, competition) {
 }
 
 function applyRegistrationDecision(state, entry, competition) {
-  if (!ACCEPTS.registration.has(state.status)) {
-    return reject(state, entry, 'wrong_status');
-  }
   const { pubkey, decision, division, display, waitlist_position: waitlist } = entry.data;
-  if (!['accepted', 'waitlisted', 'rejected'].includes(decision)) {
+  // `withdrawn` is an authority decision, just like acceptance. The entrant's
+  // `withdraw` intent alone is never state; the organizer must acknowledge it
+  // in the append-only record so every client agrees that the place is free.
+  if (!['accepted', 'waitlisted', 'rejected', 'withdrawn'].includes(decision)) {
     return reject(state, entry, 'unknown_decision');
+  }
+  // New admission decisions only belong to the registration window. A
+  // withdrawal is different: the protocol promises to honour it until the
+  // competition is over, including during check-in and a running round.
+  if (decision === 'withdrawn') {
+    if (['finished', 'cancelled'].includes(state.status)) return reject(state, entry, 'wrong_status');
+  } else if (!ACCEPTS.registration.has(state.status)) {
+    return reject(state, entry, 'wrong_status');
   }
   if (decision === 'accepted' && competition.capacity > 0) {
     const alreadyAccepted = state.participants.filter(

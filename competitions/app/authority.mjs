@@ -194,11 +194,14 @@ export class AuthorityWriter {
     return this.append('lifecycle', { status, at: this.now() });
   }
 
-  decideRegistration(pubkey, decision, { division, display, waitlistPosition, reason } = {}) {
+  decideRegistration(pubkey, decision, {
+    division, display, waitlistPosition, reason, intentId,
+  } = {}) {
     const data = { pubkey, decision };
     if (division !== undefined) data.division = division;
     if (display !== undefined) data.display = display;
     if (waitlistPosition !== undefined) data.waitlist_position = waitlistPosition;
+    if (intentId) data.intent_id = intentId;
     return this.append('registration_decision', data, { reason, subjects: [pubkey] });
   }
 
@@ -216,8 +219,10 @@ export class AuthorityWriter {
     return this.append('claim_decision', { pubkey, climb_id: climbId, decision, reason }, { subjects: [pubkey] });
   }
 
-  checkIn(pubkey, state = 'checked_in') {
-    return this.append('checkin', { pubkey, state }, { subjects: [pubkey] });
+  checkIn(pubkey, state = 'checked_in', intentId) {
+    const data = { pubkey, state };
+    if (intentId) data.intent_id = intentId;
+    return this.append('checkin', data, { subjects: [pubkey] });
   }
 
   seed(order) {
@@ -244,14 +249,18 @@ export class AuthorityWriter {
     return this.append('queue', { action: 'next_round' });
   }
 
-  decideDefer(pubkey, decision, reason) {
-    return this.append('defer_decision', { pubkey, decision, reason }, { subjects: [pubkey] });
+  decideDefer(pubkey, decision, reason, intentId) {
+    const data = { pubkey, decision, reason };
+    if (intentId) data.intent_id = intentId;
+    return this.append('defer_decision', data, { subjects: [pubkey] });
   }
 
-  recordAttempt(pubkey, climbId, outcome, attemptNo) {
-    return this.append('attempt_result', {
+  recordAttempt(pubkey, climbId, outcome, attemptNo, intentId) {
+    const data = {
       pubkey, climb_id: climbId, outcome, attempt_no: attemptNo,
-    }, { subjects: [pubkey] });
+    };
+    if (intentId) data.intent_id = intentId;
+    return this.append('attempt_result', data, { subjects: [pubkey] });
   }
 
   announce(text) {

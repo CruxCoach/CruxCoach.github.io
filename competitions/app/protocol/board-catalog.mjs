@@ -1,0 +1,119 @@
+/** Supported board choices, mirrored from the CruxCoach 0.2.2 board picker. */
+const range = (from, to) => Array.from({ length: Math.floor((to - from) / 5) + 1 }, (_, i) => from + i * 5);
+const sizes = (...entries) => entries.map((entry) => {
+  const [label, preview] = Array.isArray(entry) ? entry : [entry, null];
+  const images = Array.isArray(preview) ? preview : (preview ? [preview] : []);
+  return { value: label, label, image: images[images.length - 1] || null, images };
+});
+const image = (name) => `/competitions/assets/boards/${name}`;
+
+export const BOARD_TYPES = [
+  {
+    id: 'kilter-original', label: 'Kilter Original', brand: 'kilter',
+    models: [{
+      value: 'kilterboard-og', label: 'Kilter Board Original', layoutId: 1,
+      sizes: sizes(
+        ['12x12, with Kickboard', image('kilter/board_10.webp')],
+        ['12x16 Super Wide, with Kickboard', image('kilter/board_28.webp')],
+        ['12x8, with Kickboard', image('kilter/board_8.webp')],
+        ['14x12 Super Tall, with Kickboard', image('kilter/board_7.webp')],
+        ['10x7, no Kickboard', image('kilter/board_14.webp')],
+        ['12x12, no Kickboard', image('kilter/board_27.webp')],
+      ),
+      angles: range(0, 70), defaultSize: '12x12, with Kickboard', defaultAngle: 40,
+    }],
+  },
+  {
+    id: 'kilter-homewall', label: 'Kilter Homewall', brand: 'kilter',
+    models: [{
+      value: 'kilterboard-homewall', label: 'Kilter Board Homewall', layoutId: 8,
+      sizes: sizes(
+        ['Homewall 10x12 — Full Ride', image('kilter/board_25.webp')],
+        ['Homewall 10x7 — Full Ride', image('kilter/board_17.webp')],
+        ['Homewall 10x10 — Full Ride', image('kilter/board_21.webp')],
+        ['Homewall 10x7 — Mainline', image('kilter/board_18.webp')],
+        ['Homewall 12x8 — Full Ride', image('kilter/board_23.webp')],
+        ['Homewall 12x8 — Mainline', image('kilter/board_24.webp')],
+        ['Homewall 10x12 — Mainline', image('kilter/board_26.webp')],
+        ['Homewall 10x10 — Mainline', image('kilter/board_22.webp')],
+        ['Homewall 10x7 — Auxiliary', image('kilter/board_19.webp')],
+        ['Homewall 10x10 — Auxiliary', image('kilter/board_29.webp')],
+      ),
+      angles: range(0, 70), defaultSize: 'Homewall 10x12 — Full Ride', defaultAngle: 40,
+    }],
+  },
+  {
+    id: 'moonboard', label: 'MoonBoard', brand: 'moonboard',
+    models: [
+      { value: 'moonboard-2016', label: 'MoonBoard 2016', layoutId: 2, sizes: sizes(['11x18', image('moonboard/moonboard_2016.webp')]), angles: [25, 40], defaultAngle: 40 },
+      { value: 'moonboard-masters-2017', label: 'MoonBoard Masters 2017', layoutId: 4, sizes: sizes(['11x18', image('moonboard/moonboard_2017.webp')]), angles: [25, 40], defaultAngle: 40 },
+      { value: 'moonboard-masters-2019', label: 'MoonBoard Masters 2019', layoutId: 5, sizes: sizes(['11x18', image('moonboard/moonboard_2019.webp')]), angles: [25, 40], defaultAngle: 40 },
+      { value: 'mini-moonboard-2020', label: 'Mini MoonBoard 2020', layoutId: 6, sizes: sizes(['11x12', image('moonboard/mini_moonboard_2020.webp')]), angles: [40], defaultAngle: 40 },
+      { value: 'moonboard-2024', label: 'MoonBoard 2024', layoutId: 3, sizes: sizes(['11x18', image('moonboard/moonboard_2024.webp')]), angles: [25, 40], defaultAngle: 40 },
+      { value: 'mini-moonboard-2025', label: 'Mini MoonBoard 2025', layoutId: 7, sizes: sizes(['11x12', [
+        image('moonboard/mini_moonboard_2025_base.png'), image('moonboard/mini_moonboard_2025_hold_set_f.png'),
+        image('moonboard/mini_moonboard_2025_original_school_holds.png'), image('moonboard/mini_moonboard_2025_wooden_holds_b.png'),
+        image('moonboard/mini_moonboard_2025_wooden_holds_c.png'),
+      ]]), angles: [40], defaultAngle: 40 },
+      { value: 'moonboard-2010', label: 'MoonBoard 2010', layoutId: 1, sizes: sizes(['11x18', [
+        image('moonboard/moonboard_2010_base.png'), image('moonboard/moonboard_2010_original_school_holds.png'),
+      ]]), angles: [40], defaultAngle: 40 },
+    ],
+  },
+  {
+    id: 'tension', label: 'Tension', brand: 'tension',
+    models: [
+      {
+        value: 'tension-board-1', label: 'Tension Board', layoutId: 9,
+        sizes: sizes(...['Full Wall', 'Half Kickboard', 'No Kickboard', 'Short', 'Short & Narrow']
+          .map((label, index) => [label, image(`tension/board_${index + 1}.webp`)])),
+        angles: range(0, 50), defaultSize: 'Full Wall', defaultAngle: 40,
+      },
+      {
+        value: 'tension-board-2-mirror', label: 'Tension Board 2 (Mirror)', layoutId: 10,
+        sizes: sizes(...['12 high x 12 wide', '10 high x 12 wide', '12 high x 8 wide', '10 high x 8 wide']
+          .map((label, index) => [label, image(`tension/board_${index + 6}_10.webp`)])),
+        angles: range(0, 65), defaultSize: '12 high x 12 wide', defaultAngle: 40,
+      },
+      {
+        value: 'tension-board-2-spray', label: 'Tension Board 2 (Spray)', layoutId: 11,
+        sizes: sizes(...['12 high x 12 wide', '10 high x 12 wide', '12 high x 8 wide', '10 high x 8 wide']
+          .map((label, index) => [label, image(`tension/board_${index + 6}_11.webp`)])),
+        angles: range(0, 65), defaultSize: '12 high x 12 wide', defaultAngle: 40,
+      },
+    ],
+  },
+  {
+    id: 'grasshopper', label: 'Grasshopper', brand: 'grasshopper',
+    models: [{
+      value: 'grasshopper-board', label: 'Grasshopper Board', layoutId: 1,
+      sizes: sizes(['GrandMaster (12 x 12)', image('grasshopper/board_4.webp')], ['Master (8 x 12)', image('grasshopper/board_5.webp')], ['Ninja (8 x 10)', image('grasshopper/board_6.webp')]),
+      angles: range(-5, 60), defaultSize: 'GrandMaster (12 x 12)', defaultAngle: 40,
+    }],
+  },
+  {
+    id: 'decoy', label: 'Decoy', brand: 'decoy',
+    models: [{ value: 'decoy', label: 'Decoy', layoutId: 2, sizes: sizes(['12 x 12', image('decoy/board_1_2.webp')], ['8 x 12', image('decoy/board_2_2.webp')], ['8 x 10', image('decoy/board_3_2.webp')]), angles: range(0, 65), defaultSize: '12 x 12', defaultAngle: 40 }],
+  },
+  {
+    id: 'soill', label: 'So iLL', brand: 'soill',
+    models: [{ value: 'soill-board', label: 'So iLL Board', layoutId: 1, sizes: sizes(['12 x 12', image('soill/board_2.webp')], ['8 x 12', image('soill/board_1.webp')]), angles: range(0, 70), defaultSize: '12 x 12', defaultAngle: 40 }],
+  },
+  {
+    id: 'touchstone', label: 'Touchstone', brand: 'touchstone',
+    models: [{ value: 'touchstone-board', label: 'Touchstone Board', layoutId: 1, sizes: sizes(['Full Size (12 x 12)', image('touchstone/board_1.webp')]), angles: [35, 40], defaultSize: 'Full Size (12 x 12)', defaultAngle: 40 }],
+  },
+];
+
+export function boardType(id) {
+  return BOARD_TYPES.find((entry) => entry.id === id) || null;
+}
+
+export function resolveBoardSelection(typeId, modelValue, sizeValue, angleValue) {
+  const type = boardType(typeId);
+  const model = type?.models.find((entry) => entry.value === modelValue);
+  const angle = Number(angleValue);
+  if (!type || !model || !model.sizes.some((entry) => entry.value === sizeValue)
+    || !model.angles.includes(angle)) return null;
+  return { brand: type.brand, model: model.value, layout_id: model.layoutId, size: sizeValue, angle };
+}

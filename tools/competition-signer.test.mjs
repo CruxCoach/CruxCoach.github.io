@@ -14,6 +14,9 @@ import {
   nsecEncode, verifyEvent,
 } from '../competitions/app/protocol/nostr-event.mjs';
 import { conversationKey, decrypt, encrypt } from '../competitions/app/signer/nip44.mjs';
+import {
+  buildResumeUri, Nip46ConnectionSession, NIP46_CLIENT_VAULT_KEY, NIP46_CONNECTION_KEY,
+} from '../competitions/app/signer/nip46-connection.mjs';
 import { RelayPool } from '../competitions/app/protocol/relay-pool.mjs';
 import { startDevRelay } from './dev/relay.mjs';
 
@@ -263,11 +266,14 @@ test('the nostrconnect URI we hand out round-trips through our own parser', () =
  * requests over the loopback relay, encrypted with NIP-44, exactly as Amber
  * would.
  */
-async function fakeBunker(relayUrl, { userSecret, respondTo = ['connect', 'get_public_key', 'sign_event'] } = {}) {
+async function fakeBunker(relayUrl, {
+  userSecret, respondTo = ['connect', 'get_public_key', 'sign_event', 'logout'], errors = {},
+} = {}) {
   const signerSecret = generateSecretKey();
   const signerPubkey = getPublicKey(signerSecret);
   const pool = new RelayPool([relayUrl]);
   const userPubkey = getPublicKey(userSecret);
+  const methods = [];
 
   const subscription = pool.subscribe([{ kinds: [NIP46_KIND], '#p': [signerPubkey] }], {
     onEvent: async (event) => {
@@ -279,18 +285,23 @@ async function fakeBunker(relayUrl, { userSecret, respondTo = ['connect', 'get_p
         return;
       }
       if (!respondTo.includes(request.method)) return;
+      methods.push(request.method);
       let result;
       if (request.method === 'connect') result = 'ack';
       else if (request.method === 'get_public_key') result = userPubkey;
       else if (request.method === 'sign_event') {
         const draft = JSON.parse(request.params[0]);
         result = JSON.stringify(await finalizeEvent(draft, userSecret));
-      }
+      } else if (request.method === 'logout') result = 'ack';
       const reply = await finalizeEvent({
         kind: NIP46_KIND,
         created_at: Math.floor(Date.now() / 1000),
         tags: [['p', event.pubkey]],
-        content: await encrypt(convo, JSON.stringify({ id: request.id, result })),
+        content: await encrypt(convo, JSON.stringify(
+          errors[request.method]
+            ? { id: request.id, error: errors[request.method] }
+            : { id: request.id, result },
+        )),
       }, signerSecret);
       await pool.publish(reply);
     },
@@ -302,9 +313,39 @@ async function fakeBunker(relayUrl, { userSecret, respondTo = ['connect', 'get_p
   return {
     pubkey: signerPubkey,
     uri: `bunker://${signerPubkey}?relay=${relayUrl}&secret=hello`,
+    methods,
     close: () => { subscription.close(); pool.close(); },
   };
 }
+
+test('a NIP-46 pairing stores only an encrypted client key and public metadata', async () => {
+  const storage = fakeStorage();
+  const session = new Nip46ConnectionSession({ storage });
+  const clientSecret = generateSecretKey();
+  session.adopt(clientSecret);
+  const record = await session.persist({
+    remoteSignerPubkey: 'a'.repeat(64),
+    userPubkey: 'b'.repeat(64),
+    relays: ['wss://relay.example.invalid'],
+    secret: 'one-time-invitation',
+  }, 'correct horse battery', FAST);
+
+  const serialized = `${storage.getItem(NIP46_CLIENT_VAULT_KEY)} ${storage.getItem(NIP46_CONNECTION_KEY)}`;
+  assert.equal(serialized.includes(bytesToHex(clientSecret)), false);
+  assert.equal(serialized.includes(nsecEncode(clientSecret)), false);
+  assert.equal(serialized.includes('one-time-invitation'), false);
+  assert.equal(record.secret, undefined);
+
+  const clientPubkey = getPublicKey(clientSecret);
+  session.lock();
+  const unlocked = await session.unlock('correct horse battery');
+  assert.equal(getPublicKey(unlocked.secretKey), clientPubkey);
+  assert.equal(buildResumeUri(unlocked.connection).includes('secret='), false);
+
+  session.forget();
+  assert.equal(storage.getItem(NIP46_CLIENT_VAULT_KEY), null);
+  assert.equal(storage.getItem(NIP46_CONNECTION_KEY), null);
+});
 
 test('a NIP-46 session connects, learns the USER pubkey, and signs', async () => {
   const relay = await startDevRelay({ port: 0, quiet: true });
@@ -330,6 +371,40 @@ test('a NIP-46 session connects, learns the USER pubkey, and signs', async () =>
   }
 });
 
+test('a saved NIP-46 client reconnects without reusing the one-time invitation', async () => {
+  const relay = await startDevRelay({ port: 0, quiet: true });
+  const userSecret = generateSecretKey();
+  const clientSecret = generateSecretKey();
+  const bunker = await fakeBunker(relay.url, { userSecret });
+  try {
+    const first = await createNip46Signer(bunker.uri, { clientSecret, timeoutMs: 5000 });
+    const expectedUserPubkey = first.pubkey;
+    const connection = {
+      v: 1,
+      remote_signer_pubkey: first.remoteSignerPubkey,
+      user_pubkey: first.pubkey,
+      relays: first.relays,
+    };
+    first.close();
+
+    const resumed = await createNip46Signer(buildResumeUri(connection), {
+      clientSecret,
+      resume: true,
+      expectedUserPubkey,
+      timeoutMs: 5000,
+    });
+    const event = await resumed.signEvent({ kind: 1, created_at: 1789000000, tags: [], content: 'back' });
+    assert.equal(await verifyEvent(event), true);
+    resumed.close();
+
+    assert.equal(bunker.methods.filter((method) => method === 'connect').length, 1);
+    assert.equal(bunker.methods.filter((method) => method === 'get_public_key').length, 2);
+  } finally {
+    bunker.close();
+    await relay.close();
+  }
+});
+
 test('a silent bunker times out with a message instead of hanging forever', async () => {
   const relay = await startDevRelay({ port: 0, quiet: true });
   const bunker = await fakeBunker(relay.url, { userSecret: generateSecretKey(), respondTo: [] });
@@ -338,6 +413,20 @@ test('a silent bunker times out with a message instead of hanging forever', asyn
       () => createNip46Signer(bunker.uri, { timeoutMs: 300 }),
       /did not answer/,
     );
+  } finally {
+    bunker.close();
+    await relay.close();
+  }
+});
+
+test('a used bunker invitation has a stable recovery error', async () => {
+  const relay = await startDevRelay({ port: 0, quiet: true });
+  const bunker = await fakeBunker(relay.url, {
+    userSecret: generateSecretKey(), errors: { connect: 'already connected' },
+  });
+  try {
+    const error = await createNip46Signer(bunker.uri, { timeoutMs: 5000 }).catch((err) => err);
+    assert.equal(error.code, 'nip46_invitation_used');
   } finally {
     bunker.close();
     await relay.close();

@@ -13,9 +13,10 @@
  */
 import { KeyVaultSession } from '../signer/local-key.mjs';
 import {
-  createLocalSigner, createNip07Signer, createNip46Signer, waitForNip07,
+  createLocalSigner, createNip07Signer, createNip46Signer, parseNip46Uri, waitForNip07,
 } from '../signer/signers.mjs';
-import { nsecEncode, npubEncode } from '../protocol/nostr-event.mjs';
+import { Nip46ConnectionSession, buildResumeUri } from '../signer/nip46-connection.mjs';
+import { generateSecretKey, nsecEncode, npubEncode } from '../protocol/nostr-event.mjs';
 import { el, replace, copyWithExpiry, shortKey, announce } from './dom.mjs';
 import { ProfileGate } from './profile-gate.mjs';
 
@@ -34,8 +35,10 @@ export class SignIn {
     this.onChange = onChange;
     this.signer = null;
     this.session = new KeyVaultSession();
-    this.sharedDevice = false;
+    this.remoteSession = new Nip46ConnectionSession();
+    this.entryMode = null;
     this.pendingKey = null;
+    this.pendingNip46 = null;
     this.error = null;
     this.busy = false;
     this.profile = null;
@@ -95,9 +98,9 @@ export class SignIn {
    * the only copy of a key would be a data-loss button labelled as a session
    * button. [forgetKey] is the destructive one, and it asks first.
    *
-   * For a NIP-46 bunker this closes the local session only. NIP-46 has no
-   * revoke a client can rely on, so the honest thing is to say that the
-   * approval lives in the signer app and is revoked there.
+   * For NIP-46 this closes the live relay session but retains the encrypted
+   * client credential. The separate remove action also sends NIP-46 `logout`
+   * where supported and deletes the credential from this browser.
    */
   signOut() {
     this.signer?.close();
@@ -105,9 +108,30 @@ export class SignIn {
     this.profile = null;
     this.gate?.reset();
     this.session.lock();
+    this.remoteSession.lock();
+    this.entryMode = null;
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
     this.render();
     this.onChange(null, null);
+  }
+
+  /** Revoke the paired client where supported, then erase its encrypted credential. */
+  async forgetNip46() {
+    if (!confirm(this.t('signin.bunker.remove.confirm'))) return;
+    if (this.signer?.kind === 'nip46') {
+      try { await this.signer.logout?.(); } catch { this.signer.close(); }
+      this.signer = null;
+    }
+    this.pendingNip46?.close?.();
+    this.pendingNip46 = null;
+    this.profile = null;
+    this.gate?.reset();
+    this.remoteSession.forget();
+    this.entryMode = null;
+    try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
+    this.render();
+    this.onChange(null, null);
+    announce(this.t('signin.bunker.remove.done'));
   }
 
   /** Remove the stored key from this device. Irreversible, so it confirms. */
@@ -118,6 +142,7 @@ export class SignIn {
     this.profile = null;
     this.gate?.reset();
     this.session.forget();
+    this.entryMode = null;
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
     this.render();
     this.onChange(null, null);
@@ -131,7 +156,9 @@ export class SignIn {
     try {
       await work();
     } catch (err) {
-      this.error = err.message || String(err);
+      this.error = err.code === 'nip46_invitation_used'
+        ? this.t('signin.bunker.invitation_used')
+        : (err.message || String(err));
       announce(this.error, { assertive: true });
     } finally {
       this.busy = false;
@@ -151,7 +178,10 @@ export class SignIn {
             el('div', { className: 'small', text: this.signer.kind }),
           ]),
           el('span', { className: 'row' }, [
-            el('button', { text: t('signin.out'), on: { click: () => this.signOut() } }),
+            el('button', {
+              text: this.signer.kind === 'nip07' ? t('signin.out') : t('signin.lock'),
+              on: { click: () => this.signOut() },
+            }),
             // Only for a key this device is actually holding. Signing out of an
             // extension or a bunker leaves nothing here to forget.
             this.session?.hasStoredKey?.() ? el('button', {
@@ -159,22 +189,64 @@ export class SignIn {
               text: t('signin.forget'),
               on: { click: () => this.forgetKey() },
             }) : null,
+            this.signer.kind === 'nip46' && this.remoteSession.hasStoredConnection() ? el('button', {
+              className: 'danger',
+              text: t('signin.bunker.remove'),
+              on: { click: () => this.run(async () => this.forgetNip46()) },
+            }) : null,
           ]),
         ]),
-        el('p', { className: 'small', text: t('signin.out.hint') }),
+        el('p', {
+          className: 'small',
+          text: t(this.signer.kind === 'nip46' ? 'signin.out.hint.nip46' : 'signin.out.hint'),
+        }),
         this.ready ? null : el('p', { className: 'small', text: t('profile.required') }),
       ]));
       return;
     }
 
     if (this.pendingKey) { this.renderBackup(); return; }
+    if (this.pendingNip46) { this.renderNip46Persist(); return; }
 
     const children = [el('h2', { text: t('signin.title') }), el('p', { text: t('signin.intro') })];
     if (this.error) children.push(el('div', { className: 'notice bad' }, [el('p', { text: this.error })]));
     if (this.busy) children.push(el('p', { className: 'small', text: t('signin.working') }));
 
-    // 1. extension
-    children.push(el('div', { className: 'card raised' }, [
+    if (!this.entryMode) {
+      children.push(
+        el('h3', { text: t('signin.choice.title') }),
+        el('div', { className: 'signin-choice-grid' }, [
+          el('button', {
+            className: 'signin-choice',
+            attrs: { type: 'button' },
+            on: { click: () => { this.entryMode = 'new'; this.render(); } },
+          }, [
+            el('strong', { text: t('signin.choice.new') }),
+            el('span', { className: 'small', text: t('signin.choice.new.hint') }),
+          ]),
+          el('button', {
+            className: 'signin-choice',
+            attrs: { type: 'button' },
+            on: { click: () => { this.entryMode = 'existing'; this.render(); } },
+          }, [
+            el('strong', { text: t('signin.choice.existing') }),
+            el('span', { className: 'small', text: t('signin.choice.existing.hint') }),
+          ]),
+        ]),
+      );
+      replace(this.mount, el('div', { className: 'card' }, children));
+      return;
+    }
+
+    children.push(el('div', { className: 'row between signin-path-heading' }, [
+      el('h3', { text: t(this.entryMode === 'new' ? 'signin.new.title' : 'signin.existing.title') }),
+      el('button', {
+        className: 'quiet', text: t('signin.choice.back'),
+        on: { click: () => { this.entryMode = null; this.error = null; this.render(); } },
+      }),
+    ]));
+
+    const alternativeMethods = [el('div', { className: 'card raised' }, [
       el('h3', { text: t('signin.extension') }),
       el('p', { className: 'small', text: t('signin.extension.hint') }),
       el('button', {
@@ -183,34 +255,88 @@ export class SignIn {
         attrs: { disabled: this.busy },
         on: { click: () => this.run(async () => this.use(await createNip07Signer(), 'nip07')) },
       }),
-    ]));
+    ])];
 
     // 2. remote signer
-    const bunkerInput = el('input', {
-      attrs: { type: 'text', placeholder: t('signin.bunker.placeholder'), id: 'bunker-uri', autocomplete: 'off', spellcheck: 'false' },
-    });
-    children.push(el('div', { className: 'card raised' }, [
+    const remoteChildren = [
       el('h3', { text: t('signin.bunker') }),
       el('p', { className: 'small', text: t('signin.bunker.hint') }),
-      el('label', { attrs: { for: 'bunker-uri' }, text: t('signin.bunker') }, [bunkerInput]),
-      el('button', {
-        text: t('signin.bunker.connect'),
-        attrs: { disabled: this.busy },
-        on: {
-          click: () => this.run(async () => {
-            const signer = await createNip46Signer(bunkerInput.value.trim());
-            await this.use(signer, 'nip46');
-          }),
-        },
-      }),
-    ]));
-
-    // 3. a key made here — offered last, and only with the trade-off stated
-    const localChildren = [
-      el('h3', { text: t('signin.local') }),
-      el('p', { className: 'small', text: t('signin.local.hint') }),
     ];
-    if (this.session.hasStoredKey()) {
+    const savedRemote = this.remoteSession.describe();
+    if (this.remoteSession.hasStoredConnection() && savedRemote) {
+      const pass = el('input', { attrs: { type: 'password', id: 'bunker-pass', autocomplete: 'current-password' } });
+      remoteChildren.push(
+        el('p', { className: 'small', text: t('signin.bunker.saved') }),
+        el('p', { className: 'small mono', text: shortKey(savedRemote.user_pubkey) }),
+        el('label', { attrs: { for: 'bunker-pass' }, text: t('signin.passphrase') }, [pass]),
+        el('button', {
+          className: 'primary', text: t('signin.bunker.unlock'), attrs: { disabled: this.busy },
+          on: {
+            click: () => this.run(async () => {
+              const { connection, secretKey } = await this.remoteSession.unlock(pass.value);
+              pass.value = '';
+              try {
+                const signer = await createNip46Signer(buildResumeUri(connection), {
+                  clientSecret: secretKey,
+                  resume: true,
+                  expectedUserPubkey: connection.user_pubkey,
+                  touchClient: () => this.remoteSession.touch(),
+                });
+                await this.use(signer, 'nip46');
+              } catch (error) {
+                this.remoteSession.lock();
+                throw error;
+              }
+            }),
+          },
+        }),
+        el('button', {
+          className: 'quiet danger', text: t('signin.bunker.remove'),
+          on: { click: () => this.run(async () => this.forgetNip46()) },
+        }),
+      );
+    } else {
+      const bunkerInput = el('input', {
+        attrs: { type: 'text', placeholder: t('signin.bunker.placeholder'), id: 'bunker-uri', autocomplete: 'off', spellcheck: 'false' },
+      });
+      remoteChildren.push(
+        el('label', { attrs: { for: 'bunker-uri' }, text: t('signin.bunker') }, [bunkerInput]),
+        el('button', {
+          text: t('signin.bunker.connect'),
+          attrs: { disabled: this.busy },
+          on: {
+            click: () => this.run(async () => {
+              const uri = bunkerInput.value.trim();
+              if (parseNip46Uri(uri)?.scheme !== 'bunker') throw new Error(t('signin.bunker.only_bunker'));
+              this.remoteSession.adopt(generateSecretKey());
+              try {
+                this.pendingNip46 = await createNip46Signer(uri, {
+                  clientSecret: this.remoteSession.secretKey,
+                  touchClient: () => this.remoteSession.touch(),
+                });
+              } catch (error) {
+                this.remoteSession.lock();
+                throw error;
+              }
+            }),
+          },
+        }),
+      );
+    }
+    const remoteCard = el('div', { className: 'card raised' }, remoteChildren);
+    if (savedRemote && this.remoteSession.hasStoredConnection()) alternativeMethods.unshift(remoteCard);
+    else alternativeMethods.push(remoteCard);
+
+    // The local-key card is registration in the new-identity branch and an
+    // encrypted-vault unlock control in the existing-identity branch.
+    const localChildren = [
+      el('h3', { text: t(this.entryMode === 'new' ? 'signin.local' : 'signin.local.saved') }),
+      el('p', {
+        className: 'small',
+        text: t(this.entryMode === 'new' ? 'signin.local.hint' : 'signin.local.saved.hint'),
+      }),
+    ];
+    if (this.entryMode === 'existing' && this.session.hasStoredKey()) {
       const pass = el('input', { attrs: { type: 'password', id: 'unlock-pass', autocomplete: 'current-password' } });
       localChildren.push(
         el('p', { className: 'small mono', text: shortKey(this.session.storedPubkey()) }),
@@ -239,35 +365,128 @@ export class SignIn {
           },
         }),
       );
-    } else {
-      const shared = el('input', {
-        attrs: { type: 'checkbox', id: 'shared-device' },
-        on: { change: (event) => { this.sharedDevice = event.target.checked; } },
-      });
+    } else if (this.entryMode === 'new') {
       localChildren.push(
-        el('label', { className: 'inline', attrs: { for: 'shared-device' } }, [
-          shared,
-          el('span', {}, [
-            el('span', { text: t('signin.shared') }),
-            el('span', { className: 'hint', text: t('signin.shared.hint') }),
-          ]),
+        this.session.hasStoredKey()
+          ? el('div', { className: 'notice warn' }, [el('p', { text: t('signin.new.replace.warning') })])
+          : null,
+        el('ol', { className: 'signin-steps' }, [
+          el('li', { text: t('signin.local.step.create') }),
+          el('li', { text: t('signin.local.step.backup') }),
+          el('li', { text: t('signin.local.step.profile') }),
         ]),
         el('button', {
-          text: t('signin.local'),
+          className: 'primary',
+          text: t('signin.local.action'),
           attrs: { disabled: this.busy },
           on: {
             click: () => this.run(async () => {
-              this.session = new KeyVaultSession(this.sharedDevice ? { storage: null } : {});
+              if (this.session.hasStoredKey() && !confirm(t('signin.new.replace.confirm'))) return;
+              this.session = new KeyVaultSession();
               this.pendingKey = this.session.generate();
               this.render();
             }),
           },
         }),
       );
+
     }
-    children.push(el('div', { className: 'card raised' }, localChildren));
+
+    // Import is deliberately session-only. It must not turn pasting a
+    // high-value secret into an implicit persistence decision.
+    if (this.entryMode === 'existing') {
+      const importedNsec = el('input', {
+        attrs: {
+          type: 'password', id: 'import-nsec', autocomplete: 'off',
+          autocapitalize: 'none', spellcheck: 'false', placeholder: t('signin.import.placeholder'),
+        },
+      });
+      const importFeedback = el('p', {
+        className: 'small', attrs: { role: 'alert', 'aria-live': 'assertive' },
+      });
+      alternativeMethods.push(el('div', { className: 'card raised' }, [
+        el('h3', { text: t('signin.import') }),
+        el('p', { className: 'small', text: t('signin.import.hint') }),
+        el('div', { className: 'notice warn' }, [
+          el('p', { text: t('signin.import.warning') }),
+        ]),
+        el('label', { attrs: { for: 'import-nsec' } }, [
+          el('span', { text: t('signin.import.label') }), importedNsec,
+        ]),
+        importFeedback,
+        el('button', {
+          text: t('signin.import.action'),
+          attrs: { disabled: this.busy },
+          on: {
+            click: () => this.run(async () => {
+              try {
+                const session = new KeyVaultSession({ storage: null });
+                session.importKey(importedNsec.value);
+                importedNsec.value = '';
+                this.session = session;
+                await this.use(createLocalSigner(session), 'local');
+              } catch (err) {
+                importedNsec.value = '';
+                importFeedback.textContent = err.message || String(err);
+                throw err;
+              }
+            }),
+          },
+        }),
+      ]));
+    }
+    if (this.entryMode === 'new') {
+      children.push(el('div', { className: 'card raised' }, localChildren));
+    } else {
+      if (this.session.hasStoredKey()) alternativeMethods.unshift(el('div', { className: 'card raised' }, localChildren));
+      children.push(...alternativeMethods);
+    }
 
     replace(this.mount, el('div', { className: 'card' }, children));
+  }
+
+  /** Save the approved NIP-46 client credential, never the one-time invitation secret. */
+  renderNip46Persist() {
+    const { t } = this;
+    const signer = this.pendingNip46;
+    const pass = el('input', { attrs: { type: 'password', id: 'bunker-new-pass', autocomplete: 'new-password' } });
+    replace(this.mount, el('div', { className: 'card' }, [
+      el('h2', { text: t('signin.bunker.save.title') }),
+      el('p', { className: 'small', text: t('signin.bunker.save.hint') }),
+      this.error ? el('div', { className: 'notice bad' }, [el('p', { text: this.error })]) : null,
+      el('label', { attrs: { for: 'bunker-new-pass' } }, [
+        el('span', { text: t('signin.passphrase') }),
+        el('span', { className: 'hint', text: t('signin.passphrase.hint') }),
+        pass,
+      ]),
+      el('div', { className: 'row' }, [
+        el('button', {
+          className: 'primary', text: t('signin.bunker.save.action'), attrs: { disabled: this.busy },
+          on: {
+            click: () => this.run(async () => {
+              await this.remoteSession.persist({
+                remoteSignerPubkey: signer.remoteSignerPubkey,
+                userPubkey: signer.pubkey,
+                relays: signer.relays,
+              }, pass.value);
+              pass.value = '';
+              this.pendingNip46 = null;
+              await this.use(signer, 'nip46');
+            }),
+          },
+        }),
+        el('button', {
+          className: 'quiet', text: t('signin.bunker.once'), attrs: { disabled: this.busy },
+          on: {
+            click: () => this.run(async () => {
+              this.pendingNip46 = null;
+              await this.use(signer, 'nip46');
+            }),
+          },
+        }),
+      ]),
+      el('p', { className: 'small', text: t('signin.bunker.once.hint') }),
+    ]));
   }
 
   /**
@@ -284,12 +503,33 @@ export class SignIn {
     const nsec = this.pendingKey.nsec;
     const confirmed = el('input', { attrs: { type: 'checkbox', id: 'backup-confirm' } });
     const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+    const masked = '••••••••••••••••••••••••••••••••';
+    const secret = el('div', {
+      className: 'secret', attrs: { role: 'text', 'aria-describedby': 'nsec-warning' }, text: masked,
+    });
+    const reveal = el('button', {
+      className: 'quiet secret-reveal', text: '👁',
+      attrs: { type: 'button', 'aria-label': t('key.reveal'), 'aria-pressed': 'false' },
+      on: {
+        click: () => {
+          const showing = reveal.getAttribute('aria-pressed') === 'true';
+          secret.textContent = showing ? masked : nsec;
+          reveal.setAttribute('aria-pressed', String(!showing));
+          reveal.setAttribute('aria-label', t(showing ? 'key.reveal' : 'key.hide'));
+        },
+      },
+    });
 
     replace(this.mount, el('div', { className: 'card' }, [
       el('h2', { text: t('key.generated') }),
       el('div', { className: 'notice warn' }, [el('p', { text: t('key.warning') })]),
+      el('ul', { className: 'key-practices' }, [
+        el('li', { text: t('key.practice.password_manager') }),
+        el('li', { text: t('key.practice.private') }),
+        el('li', { text: t('key.practice.verify') }),
+      ]),
       el('p', { className: 'small', attrs: { id: 'nsec-warning' }, text: t('key.warning') }),
-      el('div', { className: 'secret', attrs: { role: 'text', 'aria-describedby': 'nsec-warning' }, text: nsec }),
+      el('div', { className: 'secret-row' }, [secret, reveal]),
       el('div', { className: 'row' }, [
         el('button', {
           text: t('key.copy'),
@@ -309,7 +549,7 @@ export class SignIn {
       feedback,
       el('button', {
         className: 'primary',
-        text: t('action.save'),
+        text: t('key.backup.continue'),
         on: {
           click: () => this.run(async () => {
             if (!confirmed.checked) {
@@ -343,7 +583,7 @@ export class SignIn {
       el('div', { className: 'row' }, [
         el('button', {
           className: 'primary',
-          text: t('action.save'),
+          text: t('key.save.continue'),
           on: {
             click: () => this.run(async () => {
               await this.session.persist(pass.value);
@@ -354,7 +594,7 @@ export class SignIn {
         }),
         el('button', {
           className: 'quiet',
-          text: t('action.cancel'),
+          text: t('key.save.skip'),
           on: { click: () => this.run(async () => this.use(createLocalSigner(this.session), 'local')) },
         }),
       ]),
@@ -365,9 +605,8 @@ export class SignIn {
    * Try to restore a previous session without prompting.
    *
    * Only the extension path can be restored silently — it is the only one where
-   * nothing secret has to be unlocked. A bunker needs its URI again and a local
-   * key needs its passphrase, and pretending otherwise would mean keeping
-   * something we should not.
+   * nothing secret has to be unlocked. A saved bunker pairing and a local key
+   * instead render their passphrase unlock control.
    */
   async restore() {
     if (this.storedMethod() !== 'nip07') { this.render(); return; }

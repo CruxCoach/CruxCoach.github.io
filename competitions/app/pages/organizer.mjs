@@ -77,8 +77,14 @@ const signIn = new SignIn({
   pool: profilePool,
   onChange: (next) => {
     signer = next;
+    writer = null;
     owned = { loading: false, loaded: false, listings: [] };
-    if (signer) loadOwned(); else render();
+    // A shared organizer link is normally opened before sign-in. Re-open it
+    // after the profile gate completes so the authority writer and intent
+    // subscription are actually attached to the newly available signer.
+    if (signer && store) void start();
+    else if (signer) void loadOwned();
+    else render();
   },
 });
 
@@ -376,16 +382,25 @@ async function settleClaims() {
 
 /** Which pool climbs an entrant asked for, as labels. */
 function selectionLabels(snapshot, ids) {
-  const options = snapshot.competition.climb_pool?.options || [];
+  const options = [
+    ...(snapshot.competition.climb_pool?.options || []),
+    ...(snapshot.competition.climbs || []),
+  ];
   return ids.map((id) => options.find((o) => o.id === id)?.label || id);
 }
 
 function entrantsPanel(snapshot) {
   const rows = [];
   for (const [, intent] of intents) {
-    if (snapshot.state.participants.some((p) => p.pubkey === intent.pubkey)) continue;
     if (intent.intent.op !== 'register') continue;
+    // A rejected or withdrawn entrant may ask again while registration is
+    // open. Presence in state therefore does not mean this newest request was
+    // answered; compare it with the authority log instead.
+    if (requestAnswered(intent)) continue;
     const requested = Array.isArray(intent.intent.data.selections) ? intent.intent.data.selections : [];
+    const rejectReason = el('input', {
+      attrs: { type: 'text', maxlength: '240', placeholder: t('org.reason') },
+    });
     rows.push(el('li', {}, [
       el('div', { className: 'row between' }, [
         el('span', {}, [
@@ -403,6 +418,7 @@ function entrantsPanel(snapshot) {
               click: () => act(() => writer.decideRegistration(intent.pubkey, 'accepted', {
                 division: intent.intent.data.division,
                 display: intent.intent.data.display,
+                intentId: intent.eventId,
               })),
             },
           }),
@@ -413,44 +429,183 @@ function entrantsPanel(snapshot) {
                 division: intent.intent.data.division,
                 display: intent.intent.data.display,
                 waitlistPosition: snapshot.state.participants.filter((p) => p.registration === 'waitlisted').length + 1,
+                intentId: intent.eventId,
+              })),
+            },
+          }),
+          el('button', {
+            className: 'danger',
+            text: t('org.reject'),
+            on: {
+              click: () => act(() => writer.decideRegistration(intent.pubkey, 'rejected', {
+                division: intent.intent.data.division,
+                display: intent.intent.data.display,
+                reason: rejectReason.value.trim() || undefined,
+                intentId: intent.eventId,
               })),
             },
           }),
         ]),
       ]),
+      rejectReason,
     ]));
   }
 
-  const participants = snapshot.state.participants.map((p) => el('li', {}, [
-    el('div', { className: 'row between' }, [
-      el('span', {}, [
-        el('span', { text: displayName(p) }),
-        el('span', { className: 'badge', text: t(`reg.${p.registration}`) }),
-        el('span', { className: 'badge', text: t(`checkin.${p.checkin}`) }),
-        snapshot.competition.fee_msat > 0
-          && el('span', { className: p.payment === 'settled' ? 'badge ok' : 'badge warn', text: t(`pay.${p.payment}`) }),
-        p.selections.length ? el('span', {
-          className: 'hint',
-          text: t('org.granted_climbs', { climbs: selectionLabels(snapshot, p.selections).join(', ') }),
-        }) : null,
+  const participants = snapshot.state.participants.map((p) => {
+    const controls = [];
+    if (p.registration === 'waitlisted' && snapshot.state.status === 'registration_open') {
+      controls.push(el('button', {
+        className: 'primary', text: t('org.promote'),
+        on: { click: () => act(() => writer.decideRegistration(p.pubkey, 'accepted', {
+          division: p.division, display: p.display,
+        })) },
+      }));
+    }
+    if (p.registration === 'accepted' && p.checkin === 'none'
+      && ['checkin_open', 'running'].includes(snapshot.state.status)) {
+      controls.push(
+        el('button', { text: t('action.checkin'), on: { click: () => act(() => writer.checkIn(p.pubkey)) } }),
+        el('button', { text: t('org.no_show'), on: { click: () => act(() => writer.checkIn(p.pubkey, 'no_show')) } }),
+      );
+    }
+    if (snapshot.competition.fee_msat > 0 && p.payment === 'pending') {
+      controls.push(paymentControls(snapshot, p));
+    }
+    const disqualifyReason = el('input', {
+      attrs: { type: 'text', maxlength: '240', placeholder: t('org.reason') },
+    });
+    const mayDisqualify = p.result === 'active'
+      && ['running', 'paused'].includes(snapshot.state.status)
+      && p.registration === 'accepted';
+
+    return el('li', {}, [
+      el('div', { className: 'row between' }, [
+        el('span', {}, [
+          el('span', { text: displayName(p) }),
+          el('span', { className: 'badge', text: t(`reg.${p.registration}`) }),
+          el('span', { className: 'badge', text: t(`checkin.${p.checkin}`) }),
+          snapshot.competition.fee_msat > 0
+            && el('span', { className: p.payment === 'settled' ? 'badge ok' : 'badge warn', text: t(`pay.${p.payment}`) }),
+          p.selections.length ? el('span', {
+            className: 'hint',
+            text: t('org.granted_climbs', { climbs: selectionLabels(snapshot, p.selections).join(', ') }),
+          }) : null,
+        ]),
+        el('span', { className: 'row' }, controls),
       ]),
-      el('span', { className: 'row' }, [
-        p.registration === 'accepted' && p.checkin !== 'checked_in'
-          && ['checkin_open', 'running'].includes(snapshot.state.status)
-          && el('button', {
-            text: t('action.checkin'),
-            on: { click: () => act(() => writer.checkIn(p.pubkey)) },
-          }),
-        snapshot.competition.fee_msat > 0 && p.payment === 'pending'
-          && paymentControls(snapshot, p),
-      ]),
-    ]),
-  ]));
+      mayDisqualify ? el('details', { className: 'disclosure' }, [
+        el('summary', { text: t('org.disqualify') }),
+        disqualifyReason,
+        el('button', {
+          className: 'danger', text: t('org.disqualify'),
+          on: {
+            click: () => {
+              if (!disqualifyReason.value.trim()) {
+                announce(t('org.reason.required'), { assertive: true });
+                return;
+              }
+              void act(() => writer.disqualify(p.pubkey, disqualifyReason.value.trim()));
+            },
+          },
+        }),
+      ]) : null,
+    ]);
+  });
 
   return el('section', { className: 'card' }, [
     el('h2', { text: t('org.entrants') }),
     rows.length ? el('ul', { className: 'plain' }, rows) : null,
     participants.length ? el('ul', { className: 'plain' }, participants) : el('p', { text: t('org.none') }),
+  ]);
+}
+
+/** Whether an authority entry already answered this participant request. */
+function requestAnswered(intent) {
+  return store.logEntries().some((entry) => {
+    if (entry.data?.pubkey !== intent.pubkey) return false;
+    const op = intent.intent.op;
+    const answersOperation = op === 'register' ? entry.op === 'registration_decision'
+      : op === 'withdraw' ? entry.op === 'registration_decision' && entry.data.decision === 'withdrawn'
+        : op === 'checkin_request' ? entry.op === 'checkin' && entry.data.state === 'checked_in'
+          : op === 'defer_request' ? entry.op === 'defer_decision'
+            : op === 'attempt_report' ? entry.op === 'attempt_result'
+              && entry.data.climb_id === intent.intent.data.climb_id
+              && entry.data.attempt_no === intent.intent.data.attempt_no
+              : false;
+    if (!answersOperation) return false;
+    // New decisions name the exact replaceable intent. The strict timestamp
+    // fallback is only for old logs and deliberately avoids same-second guesses.
+    if (entry.data.intent_id) return entry.data.intent_id === intent.eventId;
+    if ((entry.at || 0) <= intent.createdAt) return false;
+    return true;
+  });
+}
+
+/** Participant intents that need an explicit authority decision. */
+function requestsPanel(snapshot) {
+  const actionable = [...intents.values()]
+    .filter((intent) => ['withdraw', 'checkin_request', 'defer_request', 'attempt_report'].includes(intent.intent.op))
+    .filter((intent) => !requestAnswered(intent))
+    .sort((a, b) => a.createdAt - b.createdAt);
+
+  const rows = actionable.map((intent) => {
+    const participant = store.participant(intent.pubkey);
+    const name = participant ? displayName(participant) : shortKey(intent.pubkey);
+    const op = intent.intent.op;
+    let description;
+    let controls = [];
+
+    if (op === 'withdraw') {
+      description = t('org.request.withdraw');
+      controls = [el('button', {
+        className: 'primary', text: t('org.request.confirm_withdraw'),
+        on: { click: () => act(() => writer.decideRegistration(intent.pubkey, 'withdrawn', {
+          intentId: intent.eventId,
+        })) },
+      })];
+    } else if (op === 'checkin_request') {
+      description = t('org.request.checkin');
+      controls = [el('button', {
+        className: 'primary', text: t('org.request.grant_checkin'),
+        on: { click: () => act(() => writer.checkIn(intent.pubkey, 'checked_in', intent.eventId)) },
+      })];
+    } else if (op === 'defer_request') {
+      description = t('org.request.defer');
+      controls = [
+        store.canDefer(intent.pubkey) ? el('button', {
+          className: 'primary', text: t('org.request.grant_defer'),
+          on: { click: () => act(() => writer.decideDefer(intent.pubkey, 'granted', undefined, intent.eventId)) },
+        }) : null,
+        el('button', {
+          text: t('org.request.deny'),
+          on: { click: () => act(() => writer.decideDefer(intent.pubkey, 'denied', undefined, intent.eventId)) },
+        }),
+      ];
+    } else {
+      const data = intent.intent.data;
+      description = t('org.request.attempt', {
+        climb: selectionLabels(snapshot, [data.climb_id])[0],
+        outcome: t(`org.${data.outcome}`),
+      });
+      controls = [el('button', {
+        className: 'primary', text: t('org.request.record_attempt'),
+        on: { click: () => act(() => writer.recordAttempt(
+          intent.pubkey, data.climb_id, data.outcome, data.attempt_no, intent.eventId,
+        )) },
+      })];
+    }
+
+    return el('li', {}, [
+      el('div', { className: 'row between' }, [
+        el('span', { text: `${name} — ${description}` }),
+        el('span', { className: 'row' }, controls),
+      ]),
+    ]);
+  });
+
+  return el('section', { className: 'card' }, [
+    el('h2', { text: t('org.requests') }),
+    rows.length ? el('ul', { className: 'plain' }, rows) : el('p', { text: t('org.request.none') }),
   ]);
 }
 
@@ -704,6 +859,7 @@ function render() {
         : el('div', { className: 'notice warn' }, [el('p', { text: t('signin.as') })]),
     ]),
     feedback,
+    isAuthority ? requestsPanel(snapshot) : null,
     isAuthority ? entrantsPanel(snapshot) : null,
     isAuthority ? queuePanel(snapshot) : null,
     sharePanel(snapshot),
@@ -787,6 +943,8 @@ async function start() {
   const parsed = parseCompetitionRef(hash);
   if (!parsed.ok) { store = null; render(); return; }
   ref = parsed;
+  writer = null;
+  intents.clear();
 
   if (pool) { store?.close(); pool.close(); }
   const opened = await openCompetition({

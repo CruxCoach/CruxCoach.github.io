@@ -9,6 +9,7 @@
  *
  *   node tools/dev/run-competition-demo.mjs                 # run to the finish and stay up
  *   node tools/dev/run-competition-demo.mjs --stop-at running
+ *   node tools/dev/run-competition-demo.mjs --manual       # browser-driven, 3 entrants
  *   node tools/dev/run-competition-demo.mjs --port 7447 --dump /tmp/stream.jsonl
  *   node tools/dev/run-competition-demo.mjs --exit          # for CI: run and quit
  *
@@ -33,6 +34,7 @@ const flag = (name) => process.argv.includes(`--${name}`);
 
 const STOP_POINTS = ['published', 'registration_open', 'checkin_open', 'running', 'finished'];
 const stopAt = arg('stop-at', 'finished');
+const manual = flag('manual');
 if (!STOP_POINTS.includes(stopAt)) {
   console.error(`--stop-at must be one of: ${STOP_POINTS.join(', ')}`);
   process.exit(2);
@@ -68,6 +70,7 @@ async function main() {
   const organizer = newSigner('organizer');
   const alice = newSigner('alice   ');
   const bob = newSigner('bob     ');
+  const carla = newSigner('carla   ');
 
   const compId = newCompId();
   const startsAt = now() + 900;
@@ -76,7 +79,7 @@ async function main() {
     authority: organizer.pubkey,
     authority_epoch: 1,
     title: 'Kellerwand Demo Session',
-    summary: 'Two problems, three attempts each, two climbers.',
+    summary: 'Two problems, three attempts each, three climbers.',
     description: 'A localhost demonstration of the CruxCoach competition protocol.',
     organizer: { name: 'CruxCoach demo', contact: 'demo@example.invalid' },
     visibility: 'public',
@@ -148,14 +151,15 @@ async function main() {
     if (parsed.ok) intents.push(parsed);
   });
 
-  const reached = (status) => STOP_POINTS.indexOf(status) <= STOP_POINTS.indexOf(stopAt);
+  const effectiveStop = manual ? 'registration_open' : stopAt;
+  const reached = (status) => STOP_POINTS.indexOf(status) <= STOP_POINTS.indexOf(effectiveStop);
 
   await writer.setStatus('published');
   if (reached('registration_open')) {
     step('Opening registration');
     await writer.setStatus('registration_open');
 
-    for (const [signer, display] of [[alice, 'Alice'], [bob, 'Bob']]) {
+    for (const [signer, display] of manual ? [] : [[alice, 'Alice'], [bob, 'Bob'], [carla, 'Carla']]) {
       const entrant = new EntrantWriter({
         pool, signer, competition: store.competition, organizerPubkey: organizer.pubkey, now,
       });
@@ -163,11 +167,12 @@ async function main() {
       detail(`${display} sent a registration request`);
     }
     // Requests are not state. The organizer decides.
-    for (let i = 0; i < 40 && intents.length < 2; i++) await wait(50);
+    for (let i = 0; i < 40 && intents.length < 3 && !manual; i++) await wait(50);
     for (const intent of intents) {
       await writer.decideRegistration(intent.pubkey, 'accepted', {
         division: intent.intent.data.division,
         display: intent.intent.data.display,
+        intentId: intent.eventId,
       });
       detail(`accepted ${intent.intent.data.display}`);
     }
@@ -177,14 +182,14 @@ async function main() {
     step('Closing registration and opening check-in');
     await writer.setStatus('registration_closed');
     await writer.setStatus('checkin_open');
-    for (const signer of [alice, bob]) await writer.checkIn(signer.pubkey);
-    detail('both entrants checked in');
+    for (const signer of [alice, bob, carla]) await writer.checkIn(signer.pubkey);
+    detail('all entrants checked in');
   }
 
   let order = [];
   if (reached('running')) {
     step('Seeding the running order and starting');
-    order = await AuthorityWriter.defaultOrder(compId, [alice.pubkey, bob.pubkey]);
+    order = await AuthorityWriter.defaultOrder(compId, [alice.pubkey, bob.pubkey, carla.pubkey]);
     await writer.seed(order);
     await writer.setStatus('running');
     await writer.announce('Climb 1 is open. Three attempts each.');
@@ -228,6 +233,7 @@ async function main() {
   detail(`state hash  ${store.stateHash}`);
   detail(`complete    ${store.state.chain_complete}  fork ${store.state.fork_detected}`);
   detail(`stored events on the relay: ${relay.events().length}`);
+  if (manual) detail('manual mode  open the browser roles and drive every decision from the UI');
 
   const base = `http://localhost:8000`;
   const relayParam = `?relay=${encodeURIComponent(relay.url)}`;
@@ -239,8 +245,8 @@ async function main() {
   console.log(`  organizer     ${base}/competitions/organizer.html${relayParam}#${naddr}`);
   console.log(`  German        ${base}/de/competitions/join.html${relayParam}#${naddr}`);
   console.log('');
-  console.log('  Sign in with "Create a key here" and paste one of the nsec values above');
-  console.log('  to act as that entrant, or the organizer nsec to run the competition.');
+  console.log('  Open "Use an existing nsec" and paste one throwaway nsec above per browser profile.');
+  console.log('  The import is session-only. Create the requested one-field profile on the dev relay.');
   console.log('');
   console.log(`  join link     https://cruxcoach.org/comp/${naddr}`);
   console.log('──────────────────────────────────────────────────────────────');

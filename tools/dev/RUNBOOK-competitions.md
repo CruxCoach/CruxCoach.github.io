@@ -22,7 +22,114 @@ python3 --version
 
 ---
 
-## The five-minute version
+## Recommended browser-driven rehearsal (host + three entrants)
+
+Use four separate browser profiles or one normal window plus three private
+browser profiles. Tabs alone are not enough: they share the active key.
+
+If the browser runs on a different computer, create both SSH forwards first.
+The relay URL embedded in the page is loopback by design, so forwarding only
+the HTTP port is not enough.
+
+```bash
+ssh -N \
+  -L 8000:127.0.0.1:8000 \
+  -L 7447:127.0.0.1:7447 \
+  <ssh-user>@<ssh-host>
+```
+
+Keep that terminal open. On the remote machine, use two more terminals:
+
+```bash
+cd /home/myuser/worktrees/cruxcoach-pages-competitions
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+```bash
+cd /home/myuser/worktrees/cruxcoach-pages-competitions
+node tools/dev/run-competition-demo.mjs --port 7447 --manual
+```
+
+The demo prints four throwaway `nsec` values and the organizer, participant,
+German and live-screen URLs. Open those URLs through `http://localhost:8000` on
+your local computer. Never use these demo keys outside this loopback relay.
+
+For each writable browser profile, choose **Use an existing nsec** (not
+**Create a key here**), paste exactly one printed throwaway key, and create the
+requested one-field profile. The import is masked, cleared immediately and held
+in memory for this tab only. For a real identity, prefer NIP-07 or NIP-46.
+
+The live screen gets no key and may be an ordinary fifth tab.
+
+### Browser acceptance pass
+
+Run this in order and keep the live screen visible. Every accepted host action
+should appear in all relevant windows within about a second and survive reload.
+
+1. **Identity boundary.** In one profile, try a damaged `nsec`; it must stay
+   signed out and the field must clear. Import the organizer key, create the
+   one-field profile, reload, and import it again. Open the organizer URL with
+   Alice's key in a different profile: it may read and share, but must show no
+   run controls.
+2. **Registration decisions.** Alice, Bob and Carla each register with distinct
+   nicknames and accept the terms. Host: accept Alice, waitlist Bob, reject
+   Carla. Bob must show the waitlist position. Carla uses **Ask to enter again**;
+   the new request must reappear for the host and can be accepted. Promote Bob
+   from the waitlist.
+3. **Withdrawal and recovery.** Bob presses **Withdraw**. Nothing changes merely
+   because the intent exists; the host sees an open request and confirms it.
+   Bob then shows **Withdrawn** and, while registration is open, can ask again.
+   Accept that new request.
+4. **Check-in.** Close registration and open check-in. Alice asks to check in;
+   grant her open request. Check Bob in directly from the host console. Mark
+   Carla as no-show and verify she is omitted from the seeded queue. Change the
+   plan only by starting a fresh demo—no-show is an audit entry, not an undoable
+   local checkbox.
+5. **Queue and start.** Seed the queue, start, then call the first climber. The
+   same person must be “now” on host, participant and live screens; the next
+   person and countdown must agree too.
+6. **Deferral.** The current climber requests a deferral. Before the host acts,
+   the standings and attempt allowance do not change. Grant it: they move back
+   two slots, not to the end, and lose no attempt. A second consecutive request
+   must not offer another valid grant.
+7. **Attempts.** Record one **Fall**, one **Zone**, one **Top**, and one
+   **Time up** across turns. Each action closes the turn; call the next climber.
+   Verify attempts remaining and the leaderboard after every result. A timeout
+   consumes exactly one attempt.
+8. **Operations.** Publish an announcement and confirm it on participant and
+   live screens. Pause: participant actions disappear with an explanation.
+   Resume and continue. Disqualify one active entrant with a reason; the reason
+   is mandatory and the entrant leaves the eligible queue.
+9. **Round and finish.** Select the next climb, which advances the round and
+   reseeds eligible entrants. Complete at least one result there, finish, then
+   publish results. Reload every window: winner, ranks and audit-derived state
+   must remain identical.
+10. **Language and layout.** Repeat one participant window under `/de/`; state
+    must be identical and only wording changes. Test the live screen at narrow
+    phone width and full-screen projector width, keyboard-only focus, and with
+    reduced motion enabled.
+
+Use a separate `--manual` run to test **Cancel competition**, because cancellation
+is intentionally terminal. A fee-bearing competition, participant-chosen unique
+climbs, malformed/forked chains and provider failures are deterministic protocol
+cases rather than safe localhost wallet exercises; run the automated coverage
+listed below for those.
+
+### Negative and integrity pass
+
+```bash
+scripts/check
+node --test tools/competition-e2e.test.mjs tools/competition-reduce.test.mjs \
+  tools/competition-lightning.test.mjs tools/competition-pages.test.mjs
+```
+
+These cover zero-relay publication, unauthorized authority writes, capacity,
+paid/unpaid eligibility, verified and manual payment settlement, unique-climb
+races and re-picking, all stable rejection codes, timeout/deferral limits,
+correction, override, chain gap, fork selection, QR parsing, English/German
+parity and the CSP/no-analytics boundary.
+
+## The five-minute finished-state version
 
 Two terminals, in this order.
 
@@ -51,8 +158,8 @@ is not a real competition"** banner while it is in use.
 | Screen | What to look for |
 |---|---|
 | **live screen** | Standings, the winner, and the join QR. Resize the window: it is built to be read from across a room. |
-| **participant** | Sign in with *Create a key here* and paste Alice's `nsec`. The leaderboard highlights her row. |
-| **organizer** | Sign in with the organizer `nsec`. You get the run controls; sign in as Alice instead and you do not. |
+| **participant** | Open *Use an existing nsec* and paste Alice's throwaway `nsec`. The leaderboard highlights her row. |
+| **organizer** | Open *Use an existing nsec* with the organizer throwaway `nsec`. You get the run controls; Alice does not. |
 | **German** | The same competition under `/de/`. Same code, same state, different words. |
 
 ---
@@ -120,6 +227,12 @@ will only ever accept a `ws://` URL when the host is loopback
 it is not loopback, so both clients refuse it. `CompetitionDevRelayPolicyTest`
 pins that, so this page cannot drift back to suggesting it.
 
+For the multi-role rehearsal, use a disposable emulator snapshot. In the app,
+open **Settings → CruxCoach Account → Import key**, paste Alice's throwaway
+`nsec`, verify the derived `npub`, and accept the explicit overwrite warning.
+The import screen is screenshot-protected and masked by default. Do not import a
+demo key over a real identity unless its recovery key is already backed up.
+
 **1. Install the debug build.** Only the debug build permits cleartext to
 loopback; the release APK forbids it, and a test asserts the difference.
 
@@ -136,6 +249,10 @@ adb reverse tcp:7447 tcp:7447     # the dev relay
 adb reverse tcp:8000 tcp:8000     # the static site, if you want it on device
 adb reverse --list                # confirms both
 ```
+
+When the relay and site are on a remote SSH host, keep the two local SSH
+forwards from the browser section running too. The path is device loopback →
+`adb reverse` → local-computer loopback → SSH forward → remote loopback.
 
 **3. Publish a competition whose relay is the loopback URL.** The demo script
 already does this; if you are publishing by hand, the `relays` list must contain

@@ -20,10 +20,9 @@ test('maps canonical sitemap URLs to their source HTML files', () => {
 test('every sitemap entry has one valid lastmod and a real source file', () => {
   const xml = fs.readFileSync(path.join(repoRoot, 'sitemap.xml'), 'utf8');
   const entries = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)];
-  // Bumped from 14 when the two competition landing pages were added. The three
-  // application surfaces are deliberately absent: their content lives behind a
-  // fragment and arrives from relays, so a crawler can only see an empty shell.
-  assert.equal(entries.length, 16);
+  // The competition beta is deliberately isolated from the public site graph.
+  // Its landing pages and application surfaces therefore stay out together.
+  assert.equal(entries.length, 14);
   for (const [, block] of entries) {
     const loc = /<loc>([^<]+)<\/loc>/.exec(block)?.[1];
     assert.ok(loc, 'entry has a loc');

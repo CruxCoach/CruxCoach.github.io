@@ -157,6 +157,7 @@ export async function createNip46Signer(uri, options = {}) {
   const pool = options.pool || new RelayPool(parsed.relays, { WebSocketImpl: options.WebSocketImpl });
   const timeoutMs = options.timeoutMs ?? NIP46_TIMEOUT_MS;
   const now = options.now || (() => Math.floor(Date.now() / 1000));
+  let closed = false;
 
   const convoKey = await conversationKey(clientSecret, parsed.pubkey);
   /** @type {Map<string, {resolve: Function, reject: Function, timer: any}>} */
@@ -177,13 +178,28 @@ export async function createNip46Signer(uri, options = {}) {
         if (!waiter) return;
         pending.delete(payload.id);
         clearTimeout(waiter.timer);
-        if (payload.error) waiter.reject(new Error(`The signer refused: ${payload.error}`));
-        else waiter.resolve(payload.result);
+        if (payload.error) {
+          const error = new Error(`The signer refused: ${payload.error}`);
+          // A bunker invitation secret is single-use under NIP-46. Treating
+          // this as an acknowledged connection would be unsafe: after a reload
+          // this page has a new client key, while the signer approved the old
+          // one. Give the UI a stable code for the safe recovery instructions.
+          if (waiter.method === 'connect' && /already[\s_-]*connected/i.test(String(payload.error))) {
+            error.code = 'nip46_invitation_used';
+          }
+          waiter.reject(error);
+        } else waiter.resolve(payload.result);
       },
     },
   );
 
   async function request(method, params) {
+    if (closed) throw new Error('The signer session is locked. Unlock it again.');
+    if (options.touchClient && !options.touchClient()) {
+      const error = new Error('The signer connection expired. Unlock it again.');
+      error.code = 'nip46_locked';
+      throw error;
+    }
     const id = bytesToHex(randomBytes(8));
     const body = JSON.stringify({ id, method, params });
     const draft = {
@@ -203,7 +219,7 @@ export async function createNip46Signer(uri, options = {}) {
         reject(new Error(`The remote signer did not answer "${method}" within ${Math.round(timeoutMs / 1000)}s.`));
       }, timeoutMs);
       timer.unref?.();
-      pending.set(id, { resolve, reject, timer });
+      pending.set(id, { resolve, reject, timer, method });
     });
 
     const publish = await pool.publish(event);
@@ -220,6 +236,8 @@ export async function createNip46Signer(uri, options = {}) {
 
   /** Tear down everything this function created. */
   function teardown() {
+    if (closed) return;
+    closed = true;
     for (const [, waiter] of pending) {
       clearTimeout(waiter.timer);
       waiter.reject(new Error('The signer session was closed.'));
@@ -231,8 +249,11 @@ export async function createNip46Signer(uri, options = {}) {
 
   let userPubkey;
   try {
-    if (parsed.scheme === 'bunker') {
-      const result = await request('connect', [parsed.pubkey, parsed.secret || '']);
+    if (parsed.scheme === 'bunker' && !options.resume) {
+      // The fourth parameter lets the signer show a meaningful approval name.
+      // The empty third parameter requests no blanket permissions.
+      const metadata = JSON.stringify({ name: 'CruxCoach Competitions', url: 'https://cruxcoach.org/competitions/' });
+      const result = await request('connect', [parsed.pubkey, parsed.secret || '', '', metadata]);
       if (parsed.secret && result !== 'ack' && result !== parsed.secret) {
         throw new Error('The signer answered the connect request with the wrong secret.');
       }
@@ -245,6 +266,9 @@ export async function createNip46Signer(uri, options = {}) {
     // mandatory rather than an optimisation to skip.
     userPubkey = await request('get_public_key', []);
     if (!isHex32(userPubkey)) throw new Error('The signer returned something that is not a public key.');
+    if (options.expectedUserPubkey && userPubkey !== options.expectedUserPubkey) {
+      throw new Error('The signer connection now points to a different identity. Remove it and pair again.');
+    }
   } catch (err) {
     // A handshake that fails must not leave a relay connection and a live
     // subscription behind. A bunker being asleep is the COMMON case, so the
@@ -256,6 +280,7 @@ export async function createNip46Signer(uri, options = {}) {
   return {
     kind: 'nip46',
     pubkey: userPubkey,
+    clientPubkey,
     remoteSignerPubkey: parsed.pubkey,
     relays: parsed.relays,
     async signEvent(draft) {
@@ -272,6 +297,9 @@ export async function createNip46Signer(uri, options = {}) {
       if (signed.pubkey !== userPubkey) throw new Error('The signer signed as a different identity.');
       if ((await eventId(signed)) !== signed.id) throw new Error('The signer returned a mismatched event id.');
       return signed;
+    },
+    async logout() {
+      try { await request('logout', []); } finally { teardown(); }
     },
     close: teardown,
   };

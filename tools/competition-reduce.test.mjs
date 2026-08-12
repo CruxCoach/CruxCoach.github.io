@@ -163,6 +163,39 @@ test('an unpaid entrant is not eligible to climb', async () => {
   assert.equal(state.order.includes(bob.pubkey), false);
 });
 
+test('the authority can honour a withdrawal after registration has closed', async () => {
+  const stream = readStream('happy-sync.json');
+  const parsed = parseCompetitionEvent(stream.competition_event, NOW);
+  assert.equal(parsed.ok, true, parsed.error);
+  const pubkey = 'ab'.repeat(32);
+  const ids = Array.from({ length: 7 }, (_, index) => String(index + 1).repeat(64));
+  const operations = [
+    ['lifecycle', { status: 'published', at: NOW - 100 }],
+    ['lifecycle', { status: 'registration_open', at: NOW - 90 }],
+    ['registration_decision', { pubkey, decision: 'accepted', division: 'open', display: 'Late leaver' }],
+    ['lifecycle', { status: 'registration_closed', at: NOW - 80 }],
+    ['lifecycle', { status: 'checkin_open', at: NOW - 70 }],
+    ['lifecycle', { status: 'running', at: NOW - 60 }],
+    ['registration_decision', { pubkey, decision: 'withdrawn' }],
+  ];
+  const entries = operations.map(([op, data], index) => ({
+    eventId: ids[index], createdAt: NOW - 100 + index,
+    entry: {
+      v: 1, type: 'log', comp_id: parsed.competition.comp_id,
+      seq: index + 1, prev: index === 0 ? stream.competition_event.id : ids[index - 1],
+      epoch: 1, at: NOW - 100 + index, actor: 'authority', op, data,
+    },
+  }));
+  const { state } = reduce({
+    competition: parsed.competition,
+    competitionEventId: stream.competition_event.id,
+    entries,
+  });
+  assert.equal(state.status, 'running');
+  assert.equal(state.participants.find((p) => p.pubkey === pubkey)?.registration, 'withdrawn');
+  assert.equal(state.rejected.some((r) => r.seq === 7), false);
+});
+
 test('a granted deferral moves back exactly defer_slots and buys no attempts', async () => {
   const stream = readStream('defer-and-timeout.json');
   const { state, competition } = await replay(stream);

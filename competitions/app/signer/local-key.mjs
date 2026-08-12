@@ -132,10 +132,12 @@ export class KeyVaultSession {
   /**
    * @param {object} [options]
    * @param {Storage} [options.storage] localStorage, or null for a shared device
+   * @param {string} [options.storageKey] isolated vault slot
    * @param {() => number} [options.now]
    */
   constructor(options = {}) {
     this.storage = options.storage === undefined ? globalThis.localStorage : options.storage;
+    this.storageKey = options.storageKey || STORAGE_KEY;
     this.now = options.now || (() => Date.now());
     this.secretKey = null;
     this.pubkey = null;
@@ -246,7 +248,7 @@ export class KeyVaultSession {
   readVault() {
     if (!this.storage) return null;
     try {
-      const raw = this.storage.getItem(STORAGE_KEY);
+      const raw = this.storage.getItem(this.storageKey);
       return raw ? JSON.parse(raw) : null;
     } catch {
       return null;
@@ -291,11 +293,11 @@ export class KeyVaultSession {
   }
 
   /** Persist the current key under a passphrase. No-op on a shared device. */
-  async persist(passphrase) {
+  async persist(passphrase, sealOptions) {
     if (!this.storage) throw new Error('This device is marked as shared, so nothing is saved here.');
     if (!this.secretKey) throw new Error('There is no key to save.');
-    const vault = await sealVault(this.secretKey, passphrase);
-    this.storage.setItem(STORAGE_KEY, JSON.stringify(vault));
+    const vault = await sealVault(this.secretKey, passphrase, sealOptions);
+    this.storage.setItem(this.storageKey, JSON.stringify(vault));
     return vault;
   }
 
@@ -331,7 +333,7 @@ export class KeyVaultSession {
    */
   forget() {
     this.lock();
-    if (this.storage) this.storage.removeItem(STORAGE_KEY);
+    if (this.storage) this.storage.removeItem(this.storageKey);
     this.emit();
   }
 

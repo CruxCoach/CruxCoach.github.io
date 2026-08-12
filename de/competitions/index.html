@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' wss: ws://localhost:* ws://127.0.0.1:*; base-uri 'none'; form-action 'none'">
 <title>CruxCoach Wettkämpfe — Board-Wettkampf über Nostr</title>
 <meta name="description" content="Einen Board-Wettkampf ausrichten oder daran teilnehmen. Open Source, ohne Konto, ohne Server: der ganze Wettkampf liegt auf Nostr.">
+<meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://cruxcoach.org/de/competitions/">
@@ -28,6 +29,7 @@
 <header class="site-header">
   <svg class="logo" viewBox="0 0 512 512" aria-hidden="true"><defs><radialGradient id="gL" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse"><stop offset="40%" stop-color="#FF8C2A"/><stop offset="100%" stop-color="#B84400"/></radialGradient><radialGradient id="gR" cx="256" cy="256" r="210" gradientUnits="userSpaceOnUse"><stop offset="40%" stop-color="#E05800"/><stop offset="100%" stop-color="#8C3000"/></radialGradient><radialGradient id="gX" cx="256" cy="256" r="80" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFD080"/><stop offset="100%" stop-color="#E08A00"/></radialGradient></defs><rect width="512" height="512" fill="#000"/><path d="M252,56 A200,200 0 1 0 248,456 L248,384 A128,128 0 1 1 252,128 Z" fill="url(#gL)"/><path d="M260,456 A200,200 0 1 0 264,56 L264,128 A128,128 0 1 1 260,384 Z" fill="url(#gR)"/><polygon points="192,214 214,192 256,234 298,192 320,214 274,256 320,298 298,320 256,278 214,320 192,298 238,256" fill="url(#gX)"/></svg>
   <span class="brand">CruxCoach</span>
+  <span class="beta-badge" aria-label="Beta-Version">Beta</span>
   <nav aria-label="CruxCoach">
   <a href="/de/competitions/">Wettkämpfe</a>
   <a href="/de/competitions/organizer.html">Ausrichten</a>
@@ -40,6 +42,7 @@
 <div id="live-alerts" class="visually-hidden" role="alert" aria-live="assertive" aria-label="Wichtige Hinweise"></div>
 
 <main id="main" class="wrap">
+<aside class="beta-notice" aria-label="Beta-Hinweis"><strong>Competition Beta</strong><span>Diese Funktion wird getestet. Rechne mit Änderungen und verwende nur gesicherte Wiederherstellungsschlüssel.</span></aside>
 <h1>Wettkämpfe</h1>
 <p class="lead">Einen Wettkampf an deinem Board ausrichten oder daran teilnehmen. Ohne Konto und ohne Server: der Wettkampf, jede Meldung und jedes Ergebnis liegen auf Nostr, signiert von denen, die sie gemacht haben.</p>
 

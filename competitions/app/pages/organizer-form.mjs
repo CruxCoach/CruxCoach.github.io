@@ -17,6 +17,7 @@ import {
 } from '../protocol/climb-ref.mjs';
 import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
+import { BOARD_TYPES, boardType, resolveBoardSelection } from '../protocol/board-catalog.mjs';
 
 const text = (id, value = '', attrs = {}) => el('input', { attrs: { type: 'text', id, value, ...attrs } });
 const num = (id, value, attrs = {}) => el('input', { attrs: { type: 'number', id, value: String(value), ...attrs } });
@@ -221,14 +222,11 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
     venue: text('f-venue', '', { maxlength: '120' }),
     address: text('f-address', '', { maxlength: '160' }),
 
-    brand: select('f-brand', [
-      ['kilter', 'Kilter'], ['moonboard', 'MoonBoard'], ['tension', 'Tension'],
-      ['grasshopper', 'Grasshopper'], ['decoy', 'Decoy'], ['soill', 'So iLL'], ['touchstone', 'Touchstone'],
-    ], 'kilter'),
-    model: text('f-board', 'kilterboard-og', { maxlength: '40' }),
-    layoutId: num('f-layout', 1, { min: '0', max: '9999' }),
-    size: text('f-size', '12x12', { maxlength: '20' }),
-    angle: num('f-angle', 40, { min: '0', max: '70' }),
+    brand: select('f-brand', BOARD_TYPES.map((entry) => [entry.id, entry.label]), 'kilter-original'),
+    model: select('f-board', [], ''),
+    layoutId: el('input', { attrs: { type: 'hidden', id: 'f-layout' } }),
+    size: select('f-size', [], ''),
+    angle: select('f-angle', [], ''),
 
     climbSource: select('f-climb-source', [
       ['organizer_set', t('org.mode.organizer_set')],
@@ -252,7 +250,7 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
 
     capacity: num('f-capacity', 20, { min: '0', max: '500' }),
     waitlist: el('input', { attrs: { type: 'checkbox', id: 'f-waitlist', checked: true } }),
-    fee: num('f-fee', 0, { min: '0', max: '1000000000' }),
+    fee: num('f-fee', 0, { min: '0', max: '1000000', step: '1', inputmode: 'numeric' }),
     lnurl: text('f-lnurl', defaultLud16 || '', { maxlength: '120' }),
 
     turnDeadline: num('f-deadline', 120, { min: '30', max: '1800' }),
@@ -306,11 +304,11 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
         ['non_cash', t('org.prize.goods')], ['cash', t('org.prize.cash')],
       ], prize.kind);
       const labelInput = text(`prize-label-${index}`, prize.label, { maxlength: '80' });
-      const valueInput = num(`prize-value-${index}`, prize.value_msat || 0, { min: '0' });
+      const valueInput = num(`prize-value-${index}`, prize.value_sats || 0, { min: '0', step: '1' });
       rankInput.addEventListener('input', () => { prize.rank = Number(rankInput.value); });
       kindInput.addEventListener('change', () => { prize.kind = kindInput.value; renderPrizes(); });
       labelInput.addEventListener('input', () => { prize.label = labelInput.value; });
-      valueInput.addEventListener('input', () => { prize.value_msat = Number(valueInput.value); });
+      valueInput.addEventListener('input', () => { prize.value_sats = Number(valueInput.value); });
       return el('div', { className: 'card raised' }, [
         el('div', { className: 'row between' }, [
           el('strong', { text: t('org.prize.rank', { n: prize.rank }) }),
@@ -331,13 +329,102 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
   };
 
   // ── climbs ──
-  const boardOf = () => ({
-    brand: f.brand.value,
-    model: f.model.value.trim(),
-    layout_id: Number(f.layoutId.value),
-    size: f.size.value.trim(),
-    angle: Number(f.angle.value),
+  const replaceSelectOptions = (node, options, preferred) => {
+    replace(node, ...options.map(([value, label]) => el('option', {
+      attrs: { value, selected: value === preferred }, text: label,
+    })));
+    node.value = options.some(([value]) => value === preferred) ? preferred : (options[0]?.[0] || '');
+  };
+  const boardPickerNode = el('div', { className: 'board-picker' });
+  const selectedModel = () => boardType(f.brand.value)?.models.find((entry) => entry.value === f.model.value);
+  const syncBoardDetails = ({ resetModel = false, resetSize = false } = {}) => {
+    const type = boardType(f.brand.value) || BOARD_TYPES[0];
+    const oldModel = resetModel ? '' : f.model.value;
+    replaceSelectOptions(f.model, type.models.map((entry) => [entry.value, entry.label]), oldModel);
+    const model = selectedModel() || type.models[0];
+    const oldSize = resetSize ? '' : f.size.value;
+    replaceSelectOptions(f.size, model.sizes.map((entry) => [entry.value, entry.label]),
+      oldSize || model.defaultSize || model.sizes[0]?.value);
+    replaceSelectOptions(f.angle, model.angles.map((angle) => [String(angle), `${angle}°`]),
+      String(model.defaultAngle ?? model.angles[0]));
+    f.layoutId.value = String(model.layoutId);
+    f.model.disabled = type.models.length === 1;
+    f.size.disabled = model.sizes.length === 1;
+    f.angle.disabled = model.angles.length === 1;
+  };
+  const choiceTier = (title, choices, selected, onSelect) => el('div', { className: 'board-tier' }, [
+    el('div', { className: 'small board-step', text: title }),
+    el('div', { className: 'board-choices', attrs: { role: 'group', 'aria-label': title } },
+      choices.map((choice) => el('button', {
+        className: `board-choice${choice.value === selected ? ' selected' : ''}`,
+        text: choice.label,
+        attrs: { type: 'button', 'aria-pressed': String(choice.value === selected) },
+        on: { click: () => onSelect(choice.value) },
+      }))),
+  ]);
+  const renderBoardPicker = () => {
+    const type = boardType(f.brand.value) || BOARD_TYPES[0];
+    const model = selectedModel() || type.models[0];
+    const size = model.sizes.find((entry) => entry.value === f.size.value) || model.sizes[0];
+    const tiers = [];
+    let step = 2;
+    if (type.models.length > 1) {
+      tiers.push(choiceTier(`${step++}. ${t('org.board.step.variant')}`, type.models, model.value, (value) => {
+        f.model.value = value;
+        syncBoardDetails({ resetSize: true });
+        renderBoardPicker();
+      }));
+    }
+    if (model.sizes.length > 1) {
+      tiers.push(choiceTier(`${step++}. ${t('org.board.step.size')}`, model.sizes, size?.value, (value) => {
+        f.size.value = value;
+        renderBoardPicker();
+      }));
+    }
+    replace(boardPickerNode,
+      el('div', { className: 'board-preview' }, [
+        ...(size?.images || []).map((src, index) => el('img', {
+          className: size.images.length > 1 ? 'board-preview-layer' : '',
+          attrs: {
+            src,
+            alt: index === size.images.length - 1
+              ? t('org.board.preview.alt', { board: model.label, size: size.label }) : '',
+            'aria-hidden': index === size.images.length - 1 ? 'false' : 'true',
+            loading: 'lazy', decoding: 'async',
+          },
+        })),
+      ]),
+      field('f-brand', `1. ${t('org.board.step.type')}`, f.brand, t('org.board.step.type.hint')),
+      ...tiers,
+      field('f-angle', `${step}. ${t('org.board.step.angle')}`, f.angle),
+      el('p', {
+        className: 'board-selection-summary',
+        text: t('org.board.selected', {
+          board: model.label,
+          size: size?.label || '',
+          angle: f.angle.value,
+        }),
+      }),
+      // These values are protocol state, not concepts a person should have to
+      // understand. They remain form controls for validation and tests, but are
+      // never exposed in the picker UI.
+      el('div', { attrs: { hidden: 'hidden' } }, [f.model, f.size, f.layoutId]),
+    );
+  };
+  f.brand.addEventListener('change', () => {
+    syncBoardDetails({ resetModel: true, resetSize: true });
+    renderBoardPicker();
   });
+  f.model.addEventListener('change', () => {
+    syncBoardDetails({ resetSize: true });
+    renderBoardPicker();
+  });
+  f.size.addEventListener('change', renderBoardPicker);
+  f.angle.addEventListener('change', renderBoardPicker);
+  syncBoardDetails({ resetModel: true, resetSize: true });
+  renderBoardPicker();
+
+  const boardOf = () => resolveBoardSelection(f.brand.value, f.model.value, f.size.value, f.angle.value);
   const climbEditor = new ClimbEditor({ t, pool, boardOf });
   const climbInput = text('f-climb-ref', '', { placeholder: t('climb.paste.placeholder'), autocomplete: 'off' });
   const climbSection = el('div', {});
@@ -391,7 +478,17 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
       throw new Error(climbErrors.map((e) => t(`climb.error.${e.error}`)).join(' '));
     }
 
-    const fee = Number(f.fee.value);
+    const board = boardOf();
+    if (!board) throw new Error(t('org.board.invalid'));
+    for (const row of climbEditor.rows) {
+      const compatibility = row.described ? checkBoardCompatibility(row.described, board) : null;
+      if (compatibility && !compatibility.compatible) {
+        throw new Error(t('climb.error.incompatible', {
+          problems: compatibility.problems.map((p) => t(`climb.problem.${p}`)).join(', '),
+        }));
+      }
+    }
+    const fee = Number(f.fee.value) * 1000;
     const config = {
       comp_id: newCompId(),
       authority: signerPubkey,
@@ -414,7 +511,7 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
       venue: f.venueKind.value === 'online'
         ? { kind: 'online', name: f.venue.value.trim() }
         : { kind: 'physical', name: f.venue.value.trim(), address: f.address.value.trim() },
-      board: boardOf(),
+      board,
       divisions: divisionRows.map((d) => ({ id: d.id, label: d.label.trim() })),
       eligibility: f.eligibility.value.trim(),
       waiver: f.waiver.value.trim(),
@@ -424,7 +521,7 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
       refund_policy: f.refund.value.trim(),
       fee_msat: fee,
       prizes: prizeRows.map((p) => (p.kind === 'cash'
-        ? { rank: p.rank, kind: 'cash', value_msat: p.value_msat || 0, label: p.label.trim() }
+        ? { rank: p.rank, kind: 'cash', value_msat: (p.value_sats || 0) * 1000, label: p.label.trim() }
         : { rank: p.rank, kind: 'non_cash', label: p.label.trim() })),
       rules: {
         climb_source: f.climbSource.value,
@@ -496,11 +593,7 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
       field('f-address', t('org.field.address'), f.address),
       el('h3', { text: t('org.board') }),
       el('p', { className: 'small', text: t('org.board.hint') }),
-      field('f-brand', t('org.field.brand'), f.brand),
-      field('f-board', t('org.field.model'), f.model),
-      field('f-layout', t('org.field.layout'), f.layoutId, t('org.field.layout.hint')),
-      field('f-size', t('org.field.size'), f.size),
-      field('f-angle', t('org.field.angle'), f.angle),
+      boardPickerNode,
     ]),
 
     el('fieldset', {}, [
@@ -543,7 +636,7 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
         text: t('org.prizes.add'),
         on: {
           click: () => {
-            prizeRows.push({ rank: prizeRows.length + 1, kind: 'non_cash', label: '', value_msat: 0 });
+            prizeRows.push({ rank: prizeRows.length + 1, kind: 'non_cash', label: '', value_sats: 0 });
             renderPrizes();
           },
         },

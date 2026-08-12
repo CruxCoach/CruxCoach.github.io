@@ -69,6 +69,37 @@ small, .small { font-size: 0.9rem; color: var(--fg-mute); }
   border-bottom: 1px solid var(--rule);
   flex-wrap: wrap;
 }
+
+.beta-badge {
+  padding: 0.12rem 0.5rem;
+  border: 1px solid var(--warn);
+  border-radius: 999px;
+  color: var(--warn);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.beta-notice {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--warn) 55%, var(--rule));
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--warn) 8%, var(--bg-soft));
+  color: var(--fg-soft);
+  font-size: 0.9rem;
+}
+
+.beta-notice strong { flex: none; color: var(--warn); }
+
+@media (max-width: 38rem) {
+  .beta-notice { align-items: flex-start; flex-direction: column; gap: 0.2rem; }
+}
 .site-header .logo { width: 2rem; height: 2rem; flex: none; }
 .site-header .brand { font-weight: 600; color: var(--fg); }
 .site-header nav { margin-inline-start: auto; display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -251,6 +282,92 @@ code, .mono { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9
 .challenge { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 .challenge label { margin: 0; }
 .challenge input { width: 4.5rem; text-align: center; }
+.signin-steps, .key-practices { padding-inline-start: 1.4rem; color: var(--fg-soft); }
+.signin-steps li, .key-practices li { margin-bottom: 0.45rem; }
+.signin-alternatives > .card { margin-top: 0.8rem; }
+.signin-choice-grid { display: grid; gap: 0.75rem; }
+@media (min-width: 38rem) { .signin-choice-grid { grid-template-columns: 1fr 1fr; } }
+button.signin-choice {
+  min-height: 7rem;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  background: var(--bg-raised);
+}
+button.signin-choice strong { font-size: 1.08rem; }
+.signin-path-heading h3 { margin: 0; }
+.secret-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.5rem; align-items: stretch; }
+.secret-row .secret { min-width: 0; letter-spacing: 0.08em; }
+button.secret-reveal { min-width: 3rem; font-size: 1.2rem; }
+
+/* ── guided board picker ── */
+
+.board-picker {
+  max-width: 38rem;
+  margin-top: 0.8rem;
+}
+.board-preview {
+  position: relative;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  background: #0e0d0c;
+}
+.board-preview img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.board-preview img.board-preview-layer {
+  position: absolute;
+  inset: 0.75rem;
+  width: calc(100% - 1.5rem);
+  height: calc(100% - 1.5rem);
+  margin: auto;
+}
+.board-tier { margin: 0 0 1rem; }
+.board-step {
+  margin-bottom: 0.45rem;
+  color: var(--fg-soft);
+  font-weight: 600;
+}
+.board-choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.5rem;
+}
+button.board-choice {
+  justify-content: flex-start;
+  min-height: 3rem;
+  text-align: start;
+  background: var(--bg);
+}
+button.board-choice.selected {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+  color: var(--fg);
+}
+.board-selection-summary {
+  padding: 0.65rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(224, 122, 79, 0.1);
+  color: var(--fg);
+}
+
+@media (max-width: 32rem) {
+  .board-preview { height: 12rem; }
+  .board-choices { grid-template-columns: 1fr; }
+}
 
 /* ── accessibility ── */
 

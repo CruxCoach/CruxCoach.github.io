@@ -62,23 +62,38 @@ test('both languages declare hreflang in both directions', () => {
   }
 });
 
-test('the two landing pages are in the sitemap and the app surfaces are not', () => {
+test('the beta area is absent from the public sitemap', () => {
   const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
-  assert.ok(sitemap.includes('https://cruxcoach.org/competitions/</loc>'));
-  assert.ok(sitemap.includes('https://cruxcoach.org/de/competitions/</loc>'));
-  for (const name of ['organizer.html', 'join.html', 'live.html']) {
-    assert.equal(sitemap.includes(`competitions/${name}`), false,
-      `${name} has nothing a crawler can index and must stay out of the sitemap`);
+  assert.equal(sitemap.includes('/competitions/'), false);
+});
+
+test('every competition page is visibly beta and excluded from indexing', () => {
+  for (const lang of LANGUAGES) {
+    for (const name of EN_PAGES) {
+      const page = readPage(lang, name);
+      assert.match(page, /content="noindex,nofollow"/, `${lang}/${name}`);
+      assert.match(page, /class="beta-badge"[^>]*>Beta</, `${lang}/${name}`);
+      assert.match(page, /class="beta-notice"/, `${lang}/${name}`);
+    }
   }
 });
 
-test('the app surfaces are noindex and the landing pages are not', () => {
-  for (const lang of LANGUAGES) {
-    assert.equal(readPage(lang, 'index.html').includes('noindex'), false, `${lang} landing page`);
-    for (const name of ['organizer.html', 'join.html', 'live.html']) {
-      assert.match(readPage(lang, name), /content="noindex,follow"/, `${lang}/${name}`);
+test('ordinary site pages do not link into the isolated competition beta', () => {
+  const visit = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      const relative = path.relative(root, full);
+      if (entry.isDirectory()) {
+        if (relative === 'competitions' || relative === 'de/competitions' || relative.startsWith('.git')) continue;
+        visit(full);
+      } else if (entry.name.endsWith('.html')) {
+        const page = fs.readFileSync(full, 'utf8');
+        assert.equal(/href=["'][^"']*\/competitions\//.test(page), false,
+          `${relative} links into the competition beta`);
+      }
     }
-  }
+  };
+  visit(root);
 });
 
 test('every page ships a content security policy that forbids inline script', () => {
@@ -507,6 +522,49 @@ test('every page that can open a competition offers somewhere to paste it', asyn
   }
 });
 
+test('the organizer board picker is guided, visual, and keeps layout ids internal', async () => {
+  const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  try {
+    const form = createCompetitionForm({
+      t: (key) => key,
+      pool: null,
+      signerPubkey: 'a'.repeat(64),
+      defaultDisplayName: '',
+      defaultLud16: '',
+      relays: ['wss://relay.example.invalid'],
+    });
+    const brand = form.node.querySelector('#f-brand');
+    const model = form.node.querySelector('#f-board');
+    const layout = form.node.querySelector('#f-layout');
+    const size = form.node.querySelector('#f-size');
+    const angle = form.node.querySelector('#f-angle');
+
+    assert.equal(model.tagName, 'SELECT');
+    assert.equal(size.tagName, 'SELECT');
+    assert.equal(angle.tagName, 'SELECT');
+    assert.equal(layout.getAttribute('type'), 'hidden');
+    assert.ok(form.node.querySelector('.board-preview')?.querySelector('img'), 'the selected wall has no visual preview');
+    assert.equal(form.node.textContent.includes('org.field.layout'), false, 'layout id leaked into the UI');
+
+    brand.value = 'moonboard';
+    brand.dispatch('change');
+    assert.equal(model.value, 'moonboard-2016');
+    assert.equal(layout.value, '2');
+    assert.deepEqual(size.options.map((option) => option.value), ['11x18']);
+    assert.deepEqual(angle.options.map((option) => option.value), ['25', '40']);
+
+    model.value = 'mini-moonboard-2020';
+    model.dispatch('change');
+    assert.equal(layout.value, '6');
+    assert.deepEqual(size.options.map((option) => option.value), ['11x12']);
+    assert.deepEqual(angle.options.map((option) => option.value), ['40']);
+  } finally {
+    restore();
+  }
+});
+
 test('the organizer form builds a competition every validator accepts', async () => {
   // The form is DOM code, so this drives `build()` through a minimal document
   // rather than asserting on its source. What it proves is the thing a source
@@ -532,6 +590,8 @@ test('the organizer form builds a competition every validator accepts', async ()
     fill('f-venue', 'Kellerwand Boulderhalle');
     fill('f-board', 'kilterboard-og');
     fill('f-climbs', '1');
+    fill('f-fee', '321');
+    fill('f-lnurl', 'organizer@example.invalid');
 
     // And at least one real climb, which is the point of the whole exercise:
     // this is a catalogue uuid, so nothing is fetched and the organizer names
@@ -546,6 +606,7 @@ test('the organizer form builds a competition every validator accepts', async ()
     form.node.querySelector('#climb-label-0').value = 'Blue slab';
 
     const config = form.build(newCompId(), Math.floor(Date.UTC(2026, 7, 9) / 1000));
+    assert.equal(config.fee_msat, 321000, 'the sats UI must convert exactly at the protocol boundary');
     const result = validateCompetitionConfig(config);
     assert.equal(result.ok, true, JSON.stringify(result.errors));
   } finally {
@@ -647,5 +708,122 @@ test('the two clients offer the same participant actions', () => {
   for (const [web, android] of pairs) {
     assert.ok(join.includes(web), `the website is missing ${web}`);
     assert.ok(androidViewModel.includes(android), `the app is missing ${android}`);
+  }
+});
+
+test('the organizer console handles every participant intent it subscribes to', () => {
+  const organizer = fs.readFileSync(path.join(root, 'competitions/app/pages/organizer.mjs'), 'utf8');
+  for (const op of ['register', 'withdraw', 'checkin_request', 'defer_request', 'attempt_report']) {
+    assert.match(organizer, new RegExp(`['\"]${op}['\"]`), `${op} has no organizer surface`);
+  }
+  assert.match(organizer, /decideRegistration\(intent\.pubkey,\s*'withdrawn'/,
+    'withdrawal must become an authority decision');
+  assert.match(organizer, /intentId:\s*intent\.eventId/,
+    'authority decisions must name the exact replaceable intent they answer');
+  assert.match(organizer, /decideRegistration\(intent\.pubkey,\s*'rejected'/,
+    'registration requests need a reject action');
+});
+
+test('the nsec import path is masked, session-only and explicitly warned', () => {
+  const shell = fs.readFileSync(path.join(root, 'competitions/app/ui/shell.mjs'), 'utf8');
+  assert.match(shell, /type:\s*'password'.*id:\s*'import-nsec'/s);
+  assert.match(shell, /new KeyVaultSession\(\{ storage: null \}\)/);
+  assert.match(shell, /signin\.import\.warning/);
+});
+
+test('sign-in starts with two human choices, then separates registration from login', async () => {
+  const { SignIn } = await import('../competitions/app/ui/shell.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  try {
+    const mount = document.createElement('div');
+    const first = new SignIn({ t: (key) => key, mount, onChange: () => {} });
+    first.render();
+    const choices = mount.querySelectorAll('.signin-choice');
+    assert.equal(choices.length, 2);
+    assert.ok(mount.textContent.includes('signin.choice.new'));
+    assert.ok(mount.textContent.includes('signin.choice.existing'));
+    assert.equal(mount.textContent.includes('signin.extension'), false);
+
+    choices[0].dispatch('click');
+    assert.ok(mount.textContent.includes('signin.local.action'));
+    assert.equal(mount.textContent.includes('signin.extension'), false,
+      'registration should not be presented as a sign-in-method list');
+    first.session.dispose();
+    first.remoteSession.dispose();
+
+    const second = new SignIn({ t: (key) => key, mount, onChange: () => {} });
+    second.render();
+    mount.querySelectorAll('.signin-choice')[1].dispatch('click');
+    assert.ok(mount.textContent.includes('signin.extension'));
+    assert.ok(mount.textContent.includes('signin.bunker'));
+    assert.ok(mount.textContent.includes('signin.import'));
+    assert.equal(mount.textContent.includes('signin.local.action'), false);
+    second.session.dispose();
+    second.remoteSession.dispose();
+  } finally {
+    restore();
+  }
+});
+
+test('a generated recovery key is masked until the eye control reveals it', async () => {
+  const { SignIn } = await import('../competitions/app/ui/shell.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  try {
+    const mount = document.createElement('div');
+    const signIn = new SignIn({ t: (key) => key, mount, onChange: () => {} });
+    signIn.pendingKey = signIn.session.generate();
+    const nsec = signIn.pendingKey.nsec;
+    signIn.renderBackup();
+    assert.equal(mount.querySelector('.secret').textContent.includes(nsec), false);
+    const eye = mount.querySelector('.secret-reveal');
+    assert.equal(eye.getAttribute('aria-pressed'), 'false');
+    eye.dispatch('click');
+    assert.equal(mount.querySelector('.secret').textContent, nsec);
+    assert.equal(eye.getAttribute('aria-pressed'), 'true');
+    eye.dispatch('click');
+    assert.equal(mount.querySelector('.secret').textContent.includes(nsec), false);
+    signIn.session.dispose();
+    signIn.remoteSession.dispose();
+  } finally {
+    restore();
+  }
+});
+
+test('saving a newly generated key continues directly into the signed-in session', async () => {
+  const { SignIn } = await import('../competitions/app/ui/shell.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  let signIn;
+  try {
+    const mount = document.createElement('div');
+    let signedIn;
+    const changed = new Promise((resolve) => {
+      signIn = new SignIn({
+        t: (key) => key,
+        mount,
+        onChange: (signer) => { signedIn = signer; resolve(); },
+      });
+      signIn.pendingKey = signIn.session.generate();
+      // Persistence itself is covered by the signer tests. Keep this UI test
+      // focused on the transition after a successful save.
+      signIn.session.persist = async () => {};
+      signIn.renderBackup();
+      mount.querySelector('#backup-confirm').checked = true;
+      mount.querySelector('.primary').dispatch('click');
+      assert.ok(mount.querySelector('#new-pass'), 'backup confirmation should open encrypted storage');
+      mount.querySelector('#new-pass').value = 'a strong passphrase';
+      mount.querySelector('.primary').dispatch('click');
+    });
+    await changed;
+    // `onChange` is invoked inside `run()`; allow its final busy=false render
+    // to finish before uninstalling the DOM shim.
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    assert.equal(signedIn?.kind, 'local');
+  } finally {
+    signIn?.session.dispose();
+    signIn?.remoteSession.dispose();
+    restore();
   }
 });
