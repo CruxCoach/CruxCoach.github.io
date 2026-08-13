@@ -7,8 +7,9 @@
  * after.
  *
  * Rules this file enforces:
- *   - the secret is NEVER persisted in plaintext; storage holds AES-GCM
- *     ciphertext under a PBKDF2-SHA-256 key derived from a user passphrase
+ *   - the secret is NEVER persisted in plaintext; new identities store the
+ *     portable NIP-49 ncryptsec backup, while the old AES-GCM/PBKDF2 reader is
+ *     retained solely so identities saved by earlier releases still unlock
  *   - the plaintext lives in one array, zeroed when the session is locked, and
  *     zeroed BY A SCHEDULED TIMER at the absolute limit, at the idle limit, and
  *     five minutes after the page is hidden — not merely noticed before the
@@ -19,9 +20,11 @@
  *     could receive a secret
  */
 import { bytesToHex, generateSecretKey, getPublicKey, nsecEncode, decodeNip19, randomBytes } from '../protocol/nostr-event.mjs';
+import { decryptNcryptsec, encryptNcryptsec } from './nip49.mjs';
 
 export const STORAGE_KEY = 'cruxcoach:competitions:key:v1';
 export const VAULT_VERSION = 1;
+export const NIP49_VAULT_VERSION = 2;
 
 /** OWASP's 2023 floor for PBKDF2-HMAC-SHA256, and still the right order. */
 export const PBKDF2_ITERATIONS = 600000;
@@ -307,10 +310,36 @@ export class KeyVaultSession {
     return vault;
   }
 
+  /** Create a portable NIP-49 backup without storing it. */
+  async createNcryptsec(passphrase, options) {
+    if (!this.secretKey) throw new Error('There is no key to save.');
+    return encryptNcryptsec(this.secretKey, passphrase, options);
+  }
+
+  /** Keep the already encrypted portable backup on this device. */
+  saveNcryptsec(ncryptsec) {
+    if (!this.storage) return false;
+    this.storage.setItem(this.storageKey, JSON.stringify({
+      v: NIP49_VAULT_VERSION,
+      format: 'ncryptsec',
+      ncryptsec,
+      pubkey: this.pubkey,
+      created_at: Math.floor(Date.now() / 1000),
+    }));
+    return true;
+  }
+
   async unlock(passphrase) {
     const vault = this.readVault();
     if (!vault) throw new Error('There is no saved key on this device.');
-    this.adopt(await openVault(vault, passphrase));
+    const secret = vault.v === NIP49_VAULT_VERSION && vault.format === 'ncryptsec'
+      ? await decryptNcryptsec(vault.ncryptsec, passphrase)
+      : await openVault(vault, passphrase);
+    this.adopt(secret);
+    if (vault.pubkey && vault.pubkey !== this.pubkey) {
+      this.lock();
+      throw new Error('This saved key does not match the identity it claims.');
+    }
     return { pubkey: this.pubkey };
   }
 

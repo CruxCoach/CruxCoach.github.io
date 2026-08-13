@@ -12,8 +12,8 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-3';
-import { SignIn } from '../ui/shell.mjs?v=20260813-6';
+} from './common.mjs?v=20260813-4';
+import { SignIn } from '../ui/shell.mjs?v=20260813-7';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs';
 import {

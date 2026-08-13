@@ -84,6 +84,22 @@ test('the session never writes plaintext to storage', async () => {
   assert.equal(stored.includes(bytesToHex(session.secretKey)), false);
 });
 
+test('a portable ncryptsec backup can also unlock the saved browser identity', async () => {
+  const storage = fakeStorage();
+  const first = new KeyVaultSession({ storage });
+  const { pubkey } = first.generate();
+  const encrypted = await first.createNcryptsec('correct horse battery', { logN: 4 });
+  assert.match(encrypted, /^ncryptsec1/);
+  first.saveNcryptsec(encrypted);
+  first.lock();
+
+  const returning = new KeyVaultSession({ storage });
+  await returning.unlock('correct horse battery');
+  assert.equal(returning.pubkey, pubkey);
+  assert.equal(JSON.parse(storage.getItem(STORAGE_KEY)).format, 'ncryptsec');
+  returning.lock();
+});
+
 test('locking wipes memory but keeps the stored ciphertext', async () => {
   const storage = fakeStorage();
   const session = new KeyVaultSession({ storage });

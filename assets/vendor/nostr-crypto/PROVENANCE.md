@@ -10,6 +10,9 @@ should hand-roll, and neither exists in WebCrypto. Everything they do **not**
 provide — SHA-256, HMAC-SHA256, HKDF, PBKDF2, AES-GCM, random bytes — comes from
 the platform's own `crypto.subtle`, not from a library.
 
+NIP-49 additionally requires scrypt, so its audited implementation is vendored
+from the same Noble project rather than recreated here.
+
 Both are used unmodified. Not one byte was edited: a patched copy of an audited
 library is an unaudited library.
 
@@ -26,6 +29,20 @@ library is an unaudited library.
 | **Files kept** | `index.js` → `secp256k1/secp256k1.js`, `LICENSE` |
 | **Used for** | BIP-340 Schnorr sign/verify (Nostr event signatures) and ECDH (NIP-44 conversation keys) |
 | **Retrieved** | 2026-08-09 |
+
+| | |
+|---|---|
+| **Package** | `@noble/hashes` |
+| **Version** | 2.0.1 |
+| **License** | MIT (`hashes/LICENSE`) |
+| **Author** | Paul Miller (paulmillr.com) |
+| **Upstream** | https://github.com/paulmillr/noble-hashes |
+| **Fetched from** | `https://registry.npmjs.org/@noble/hashes/-/hashes-2.0.1.tgz` |
+| **Tarball SHA-256** | `638ffb3053a7e7478c9e54a6e297f3601299ee570a41112e501af7050d086a0a` |
+| **Runtime dependencies** | none |
+| **Files kept** | `scrypt.js` and its complete local import closure: `pbkdf2.js`, `hmac.js`, `sha2.js`, `_md.js`, `_u64.js`, `utils.js`; `LICENSE` |
+| **Used for** | NIP-49 scrypt key derivation for portable `ncryptsec` backups |
+| **Retrieved** | 2026-08-13 |
 
 | | |
 |---|---|
@@ -67,6 +84,14 @@ bcd2c8e9d3a9252022c74185340d69d724d2c2eed191f5599a2cec5005507d93  ciphers/_arx.j
 5f1c00575e227b75163f4bac50b79442dec50ee3047c46c18887808ba8af0a69  ciphers/chacha.js
 5d2afd73b40dbafb7b6740c6e6388e7123c79a4e57306861b28c5734925fa84d  ciphers/_poly1305.js
 08bce2a6b116205e0d114ed3da22490384d933c6549f0b1a43e2817349465147  ciphers/utils.js
+4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec  hashes/LICENSE
+a112f0fe1b15db00f2638618c436a17be1c5e13baf19d02fcc29016ae1db2233  hashes/_md.js
+e48c0cfc10810439a4807b46db136ce603a3fa09b62584f513ef2f3ca496af54  hashes/_u64.js
+b834a4e7ffecb7847fd87ebd792f7fdd13003d448acee5e8d97a6b77b8620797  hashes/hmac.js
+d971ad41b21ebfe9c5d61897ef6b3d669e17cf5524c94f03b01c8c2c120caa22  hashes/pbkdf2.js
+cce8f569bb8000d99e1e747be4ef1e49fed7cfadd2f249ac542ee2854ef359a9  hashes/scrypt.js
+3ddc587c588283cbceed4dd9929cefcce06a0c231b54d4c6f0f99c478c686c00  hashes/sha2.js
+11319ec0a8132a0c2ced8c98af33ae9274c001d6baf4f4709c4a6115e031a3c5  hashes/utils.js
 ```
 
 Reproduce with:
@@ -81,6 +106,7 @@ sha256sum assets/vendor/nostr-crypto/secp256k1/secp256k1.js \
 ```bash
 curl -sL https://registry.npmjs.org/@noble/secp256k1/-/secp256k1-3.1.0.tgz | sha256sum
 curl -sL https://registry.npmjs.org/@noble/ciphers/-/ciphers-2.3.0.tgz     | sha256sum
+curl -sL https://registry.npmjs.org/@noble/hashes/-/hashes-2.0.1.tgz       | sha256sum
 ```
 
 The vendored files must be byte-identical to `package/index.js` and to

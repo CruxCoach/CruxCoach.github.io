@@ -11,7 +11,8 @@
  * kind-0 profile at least one relay accepted. Until then the caller sees `null`
  * and offers no create, register or check-in.
  */
-import { KeyVaultSession } from '../signer/local-key.mjs?v=20260813-2';
+import { KeyVaultSession } from '../signer/local-key.mjs?v=20260813-3';
+import { decryptNcryptsec } from '../signer/nip49.mjs';
 import {
   createLocalSigner, createNip07Signer, createNip46Signer, parseNip46Uri, waitForNip07,
 } from '../signer/signers.mjs';
@@ -40,7 +41,8 @@ export class SignIn {
     this.remoteSession = new Nip46ConnectionSession();
     this.entryMode = null;
     this.pendingKey = null;
-    this.pendingLocalPersist = false;
+    this.backupMode = null;
+    this.pendingNcryptsec = null;
     this.pendingNip46 = null;
     this.error = null;
     this.busy = false;
@@ -100,13 +102,14 @@ export class SignIn {
 
   applyNavigation(screen) {
     const target = HISTORY_SCREENS.has(screen) ? screen : 'root';
-    if (target !== 'new' && (this.pendingKey || this.pendingLocalPersist)) {
+    if (target !== 'new' && this.pendingKey) {
       // The generated identity has not been published. Browser Back must wipe
       // it, but must not delete an older encrypted vault from this device.
       this.session.lock();
       this.session = new KeyVaultSession();
       this.pendingKey = null;
-      this.pendingLocalPersist = false;
+      this.backupMode = null;
+      this.pendingNcryptsec = null;
     }
     this.entryMode = target === 'root' ? null : target;
     this.error = null;
@@ -153,7 +156,8 @@ export class SignIn {
     this.signer = signer;
     if (method === 'local') {
       this.pendingKey = null;
-      this.pendingLocalPersist = false;
+      this.backupMode = null;
+      this.pendingNcryptsec = null;
     }
     this.profile = null;
     this.error = null;
@@ -185,7 +189,6 @@ export class SignIn {
     this.session.lock();
     this.remoteSession.lock();
     this.entryMode = null;
-    this.pendingLocalPersist = false;
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
     this.navigate('root', { replace: true });
     this.onChange(null, null);
@@ -204,7 +207,6 @@ export class SignIn {
     this.gate?.reset();
     this.remoteSession.forget();
     this.entryMode = null;
-    this.pendingLocalPersist = false;
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
     this.navigate('root', { replace: true });
     this.onChange(null, null);
@@ -220,7 +222,6 @@ export class SignIn {
     this.gate?.reset();
     this.session.forget();
     this.entryMode = null;
-    this.pendingLocalPersist = false;
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
     this.navigate('root', { replace: true });
     this.onChange(null, null);
@@ -291,7 +292,6 @@ export class SignIn {
     }
 
     if (this.pendingKey) { this.renderBackup(); return; }
-    if (this.pendingLocalPersist) { this.renderPersist(); return; }
     if (this.pendingNip46) { this.renderNip46Persist(); return; }
 
     const children = [el('h2', { text: t('signin.title') }), el('p', { text: t('signin.intro') })];
@@ -494,8 +494,9 @@ export class SignIn {
             click: () => this.run(async () => {
               if (this.session.hasStoredKey() && !confirm(t('signin.new.replace.confirm'))) return;
               this.session = new KeyVaultSession();
-              this.pendingLocalPersist = false;
               this.pendingKey = this.session.generate();
+              this.backupMode = null;
+              this.pendingNcryptsec = null;
               this.render();
             }),
           },
@@ -513,6 +514,10 @@ export class SignIn {
           autocapitalize: 'none', spellcheck: 'false', placeholder: t('signin.import.placeholder'),
         },
       });
+      const importPass = el('input', { attrs: {
+        type: 'password', id: 'import-pass', autocomplete: 'current-password',
+      } });
+      const importFile = el('input', { attrs: { type: 'file', id: 'import-file', accept: '.ncryptsec,text/plain' } });
       const importFeedback = el('p', {
         className: 'small', attrs: { role: 'alert', 'aria-live': 'assertive' },
       });
@@ -525,6 +530,14 @@ export class SignIn {
         el('label', { attrs: { for: 'import-nsec' } }, [
           el('span', { text: t('signin.import.label') }), importedNsec,
         ]),
+        el('label', { attrs: { for: 'import-file' } }, [
+          el('span', { text: t('signin.import.file') }), importFile,
+        ]),
+        el('label', { attrs: { for: 'import-pass' } }, [
+          el('span', { text: t('signin.import.passphrase') }),
+          el('span', { className: 'hint', text: t('signin.import.passphrase.hint') }),
+          importPass,
+        ]),
         importFeedback,
         el('button', {
           text: t('signin.import.action'),
@@ -532,9 +545,13 @@ export class SignIn {
           on: {
             click: () => this.run(async () => {
               try {
+                const uploaded = importFile.files?.[0];
+                const input = (uploaded ? await uploaded.text() : importedNsec.value).trim();
                 const session = new KeyVaultSession({ storage: null });
-                session.importKey(importedNsec.value);
+                if (input.startsWith('ncryptsec1')) session.importKey(await decryptNcryptsec(input, importPass.value));
+                else session.importKey(input);
                 importedNsec.value = '';
+                importPass.value = '';
                 this.session = session;
                 await this.use(createLocalSigner(session), 'local');
               } catch (err) {
@@ -617,19 +634,41 @@ export class SignIn {
     ]));
   }
 
-  /**
-   * The backup step.
-   *
-   * A tick box, deliberately. This screen shows the nsec a few lines further
-   * up, so asking for three characters of it proved only that somebody can
-   * read the page in front of them — friction shaped like a check without
-   * being one. A character challenge is worth something only where the key is
-   * no longer on screen; here an honest confirmation beats a false test.
-   */
+  /** Let the person choose one portable backup format before exposing a key. */
   renderBackup() {
     const { t } = this;
+    if (this.backupMode === 'raw') { this.renderRawBackup(); return; }
+    if (this.backupMode === 'encrypted') { this.renderEncryptedSetup(); return; }
+    if (this.backupMode === 'encrypted-ready') { this.renderEncryptedBackup(); return; }
+    replace(this.mount, el('div', { className: 'card' }, [
+      el('h2', { text: t('key.choice.title') }),
+      el('p', { className: 'lede', text: t('key.choice.hint') }),
+      el('div', { className: 'signin-path-grid backup-choice-grid' }, [
+        el('section', { className: 'card raised recommended-path' }, [
+          el('span', { className: 'badge ok', text: t('signin.recommended') }),
+          el('h3', { text: t('key.choice.encrypted') }),
+          el('p', { className: 'small', text: t('key.choice.encrypted.hint') }),
+          el('button', { className: 'primary', text: t('key.choice.encrypted.action'), on: {
+            click: () => { this.backupMode = 'encrypted'; this.renderBackup(); },
+          } }),
+        ]),
+        el('section', { className: 'card raised' }, [
+          el('h3', { text: t('key.choice.raw') }),
+          el('p', { className: 'small', text: t('key.choice.raw.hint') }),
+          el('button', { text: t('key.choice.raw.action'), on: {
+            click: () => { this.backupMode = 'raw'; this.renderBackup(); },
+          } }),
+        ]),
+      ]),
+      el('button', { className: 'quiet', text: t('signin.choice.back'), on: { click: () => {
+        this.session.lock(); this.pendingKey = null; this.navigateBack();
+      } } }),
+    ]));
+  }
+
+  renderRawBackup() {
+    const { t } = this;
     const nsec = this.pendingKey.nsec;
-    const canStore = Boolean(this.session.storage);
     const confirmed = el('input', { attrs: { type: 'checkbox', id: 'backup-confirm' } });
     const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
     const masked = '••••••••••••••••••••••••••••••••';
@@ -650,7 +689,7 @@ export class SignIn {
     });
 
     replace(this.mount, el('div', { className: 'card' }, [
-      el('h2', { text: t(canStore ? 'key.generated.storable' : 'key.generated') }),
+      el('h2', { text: t('key.raw.title') }),
       el('div', { className: 'notice warn', attrs: { id: 'nsec-warning' } }, [
         el('p', { text: t('key.warning') }),
       ]),
@@ -658,9 +697,6 @@ export class SignIn {
         el('li', { text: t('key.practice.password_manager') }),
         el('li', { text: t('key.practice.private') }),
       ]),
-      !canStore ? el('div', { className: 'notice' }, [
-        el('p', { text: t('key.storage.unavailable') }),
-      ]) : null,
       el('div', { className: 'secret-row' }, [secret, reveal]),
       el('div', { className: 'row' }, [
         el('button', {
@@ -681,7 +717,7 @@ export class SignIn {
       feedback,
       el('button', {
         className: 'primary backup-continue',
-        text: t(canStore ? 'key.backup.continue.storable' : 'key.backup.continue'),
+        text: t('key.backup.continue'),
         on: {
           click: () => this.run(async () => {
             if (!confirmed.checked) {
@@ -690,48 +726,94 @@ export class SignIn {
             }
             feedback.textContent = t('key.confirm.done');
             this.pendingKey = null;
-            if (this.session.storage) {
-              this.pendingLocalPersist = true;
-              this.renderPersist();
-            } else {
-              await this.use(createLocalSigner(this.session), 'local');
-            }
+            await this.use(createLocalSigner(this.session), 'local');
           }),
         },
       }),
+      el('button', { className: 'quiet', text: t('key.choice.change'), on: { click: () => {
+        this.backupMode = null; this.renderBackup();
+      } } }),
     ]));
   }
 
-  renderPersist() {
+  renderEncryptedSetup() {
     const { t } = this;
     const pass = el('input', { attrs: { type: 'password', id: 'new-pass', autocomplete: 'new-password' } });
+    const repeat = el('input', { attrs: { type: 'password', id: 'repeat-pass', autocomplete: 'new-password' } });
     replace(this.mount, el('div', { className: 'card' }, [
-      el('h2', { text: t('key.save.title') }),
-      el('p', { className: 'small', text: t('key.save.hint') }),
+      el('h2', { text: t('key.encrypted.create.title') }),
+      el('p', { className: 'small', text: t('key.encrypted.create.hint') }),
       this.error ? el('div', { className: 'notice bad' }, [el('p', { text: this.error })]) : null,
       el('label', { attrs: { for: 'new-pass' } }, [
         el('span', { text: t('signin.passphrase') }),
-        el('span', { className: 'hint', text: t('signin.passphrase.hint') }),
+        el('span', { className: 'hint', text: t('key.encrypted.passphrase.hint') }),
         pass,
       ]),
+      el('label', { attrs: { for: 'repeat-pass' } }, [el('span', { text: t('key.encrypted.repeat') }), repeat]),
       el('div', { className: 'row' }, [
         el('button', {
           className: 'primary',
-          text: t('key.save.continue'),
+          text: t('key.encrypted.create.action'),
           on: {
             click: () => this.run(async () => {
-              await this.session.persist(pass.value);
-              pass.value = '';
-              await this.use(createLocalSigner(this.session), 'local');
+              if (pass.value !== repeat.value) throw new Error(t('key.encrypted.mismatch'));
+              this.pendingNcryptsec = await this.session.createNcryptsec(pass.value);
+              pass.value = ''; repeat.value = '';
+              this.backupMode = 'encrypted-ready';
+              this.renderBackup();
             }),
           },
         }),
         el('button', {
           className: 'quiet',
-          text: t('key.save.skip'),
-          on: { click: () => this.run(async () => this.use(createLocalSigner(this.session), 'local')) },
+          text: t('key.choice.change'),
+          on: { click: () => { this.backupMode = null; this.renderBackup(); } },
         }),
       ]),
+    ]));
+  }
+
+  renderEncryptedBackup() {
+    const { t } = this;
+    const value = this.pendingNcryptsec;
+    const canStore = Boolean(this.session.storage);
+    const confirmed = el('input', { attrs: { type: 'checkbox', id: 'backup-confirm' } });
+    const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+    const download = () => {
+      const blob = new Blob([`${value}\n`], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url; anchor.download = 'cruxcoach-identity-backup.ncryptsec';
+      document.body.append(anchor); anchor.click(); anchor.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 0);
+      feedback.textContent = t('key.encrypted.downloaded');
+    };
+    replace(this.mount, el('div', { className: 'card' }, [
+      el('h2', { text: t('key.encrypted.ready.title') }),
+      el('p', { className: 'lede', text: t('key.encrypted.ready.hint') }),
+      el('div', { className: 'notice' }, [el('p', { text: t('key.encrypted.separate') })]),
+      !canStore ? el('div', { className: 'notice warn' }, [
+        el('p', { text: t('key.encrypted.storage.unavailable') }),
+      ]) : null,
+      el('div', { className: 'secret encrypted-secret', text: 'ncryptsec1••••••••••••••••••••' }),
+      el('div', { className: 'row' }, [
+        el('button', { className: 'primary', text: t('key.encrypted.download'), on: { click: download } }),
+        el('button', { text: t('key.encrypted.copy'), on: { click: async () => {
+          await copyWithExpiry(value); feedback.textContent = t('key.copied');
+        } } }),
+      ]),
+      el('label', { className: 'inline', attrs: { for: 'backup-confirm' } }, [
+        confirmed, el('span', { text: t('key.encrypted.confirm') }),
+      ]),
+      feedback,
+      el('button', { className: 'primary backup-continue', text: t(canStore ? 'key.encrypted.continue' : 'key.backup.continue'), on: {
+        click: () => this.run(async () => {
+          if (!confirmed.checked) throw new Error(t('key.confirm.unchecked'));
+          this.session.saveNcryptsec(value);
+          this.pendingNcryptsec = null; this.pendingKey = null;
+          await this.use(createLocalSigner(this.session), 'local');
+        }),
+      } }),
     ]));
   }
 

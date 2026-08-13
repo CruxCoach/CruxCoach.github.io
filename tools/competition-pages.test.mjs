@@ -992,7 +992,7 @@ test('browser Back moves through sign-in before it leaves the participant page',
   }
 });
 
-test('a generated recovery key is masked until the eye control reveals it', async () => {
+test('the raw backup is an explicit choice and stays masked until revealed', async () => {
   const { SignIn } = await import('../competitions/app/ui/shell.mjs');
   const { window } = await import('./dev/mini-dom.mjs');
   const restore = window.install();
@@ -1002,6 +1002,9 @@ test('a generated recovery key is masked until the eye control reveals it', asyn
     signIn.pendingKey = signIn.session.generate();
     const nsec = signIn.pendingKey.nsec;
     signIn.renderBackup();
+    assert.ok(mount.textContent.includes('key.choice.encrypted'));
+    assert.ok(mount.textContent.includes('key.choice.raw'));
+    mount.querySelectorAll('button')[1].dispatch('click');
     assert.equal(mount.querySelector('.secret').textContent.includes(nsec), false);
     assert.equal(mount.querySelectorAll('#nsec-warning').length, 1,
       'the recovery warning should be concise rather than repeated');
@@ -1011,7 +1014,6 @@ test('a generated recovery key is masked until the eye control reveals it', asyn
     assert.equal(mount.textContent.includes('key.signer'), false);
     assert.equal(mount.querySelectorAll('a').length, 0,
       'browser-key recovery should not introduce a second signer decision');
-    assert.ok(mount.textContent.includes('key.storage.unavailable'));
     assert.ok(mount.textContent.includes('key.backup.continue'));
     const eye = mount.querySelector('.secret-reveal');
     assert.equal(eye.getAttribute('aria-pressed'), 'false');
@@ -1027,7 +1029,7 @@ test('a generated recovery key is masked until the eye control reveals it', asyn
   }
 });
 
-test('saving a newly generated key continues directly into the signed-in session', async () => {
+test('an encrypted ncryptsec backup is saved once and continues directly into the session', async () => {
   const { SignIn } = await import('../competitions/app/ui/shell.mjs');
   const { window } = await import('./dev/mini-dom.mjs');
   const restore = window.install();
@@ -1046,29 +1048,25 @@ test('saving a newly generated key continues directly into the signed-in session
     // make the test exercise the encrypted-save branch explicitly.
     signIn.session.storage = { getItem: () => null, setItem() {}, removeItem() {} };
     signIn.pendingKey = signIn.session.generate();
-    // Persistence itself is covered by the signer tests. Keep this UI test
-    // focused on the transition after a successful save.
-    signIn.session.persist = async () => {};
+    signIn.session.createNcryptsec = async () => 'ncryptsec1encrypted';
+    let saved;
+    signIn.session.saveNcryptsec = (value) => { saved = value; return true; };
     signIn.renderBackup();
-    assert.ok(mount.textContent.includes('key.generated.storable'));
-    assert.ok(mount.textContent.includes('key.backup.continue.storable'));
-    assert.equal(mount.textContent.includes('key.storage.unavailable'), false);
+    mount.querySelectorAll('button')[0].dispatch('click');
+    assert.ok(mount.querySelector('#new-pass'));
+    mount.querySelector('#new-pass').value = 'a strong passphrase';
+    mount.querySelector('#repeat-pass').value = 'a strong passphrase';
+    mount.querySelector('.primary').dispatch('click');
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    assert.ok(mount.textContent.includes('key.encrypted.download'));
     mount.querySelector('#backup-confirm').checked = true;
     mount.querySelector('.backup-continue').dispatch('click');
-    // A person cannot click the next screen in the same JS tick. Reproduce the
-    // render in `run().finally` that used to throw them back to registration.
-    await new Promise((resolve) => setTimeout(resolve, 0));
-    assert.ok(mount.querySelector('#new-pass'),
-      'the passphrase step must survive the async backup transition');
-    assert.equal(signIn.pendingLocalPersist, true);
-    mount.querySelector('#new-pass').value = 'a strong passphrase';
-    mount.querySelector('.primary').dispatch('click');
     await changed;
     // `onChange` is invoked inside `run()`; allow its final busy=false render
     // to finish before uninstalling the DOM shim.
     await new Promise((resolve) => setTimeout(resolve, 0));
     assert.equal(signedIn?.kind, 'local');
-    assert.equal(signIn.pendingLocalPersist, false);
+    assert.equal(saved, 'ncryptsec1encrypted');
     assert.equal(mount.textContent.includes('signin.local.action'), false);
   } finally {
     signIn?.session.dispose();

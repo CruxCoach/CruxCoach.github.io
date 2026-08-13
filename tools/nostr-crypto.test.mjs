@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { schnorr, getSharedSecret } from '../assets/vendor/nostr-crypto/secp256k1/secp256k1.js';
 import { chacha20 } from '../assets/vendor/nostr-crypto/ciphers/chacha.js';
 import { bytesToHex, hexToBytes } from '../competitions/app/protocol/nostr-event.mjs';
+import { decryptNcryptsec, encryptNcryptsec } from '../competitions/app/signer/nip49.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const vendorDir = path.resolve(here, '../assets/vendor/nostr-crypto');
@@ -80,6 +81,16 @@ test('ChaCha20 round-trips', () => {
   assert.deepEqual(chacha20(key, nonce, ciphertext), plaintext);
 });
 
+test('NIP-49 official ncryptsec vector decrypts and new backups round-trip', async () => {
+  const encrypted = 'ncryptsec1qgg9947rlpvqu76pj5ecreduf9jxhselq2nae2kghhvd5g7dgjtcxfqtd67p9m0w57lspw8gsq6yphnm8623nsl8xn9j4jdzz84zm3frztj3z7s35vpzmqf6ksu8r89qk5z2zxfmu5gv8th8wclt0h4p';
+  const secret = hexToBytes('3501454135014541350145413501453fefb02227e449e57cf4d3a3ce05378683');
+  assert.deepEqual(await decryptNcryptsec(encrypted, 'nostr'), secret);
+  const created = await encryptNcryptsec(secret, 'correct horse battery', { logN: 4 });
+  assert.match(created, /^ncryptsec1/);
+  assert.deepEqual(await decryptNcryptsec(created, 'correct horse battery'), secret);
+  await assert.rejects(() => decryptNcryptsec(created, 'wrong password'), /does not open/);
+});
+
 test('ECDH agrees in both directions, which is what NIP-44 needs', () => {
   const a = hexToBytes('0000000000000000000000000000000000000000000000000000000000000003');
   const b = hexToBytes('0000000000000000000000000000000000000000000000000000000000000005');
@@ -115,18 +126,21 @@ test('the vendored files are the ones the provenance file describes', () => {
   const provenance = fs.readFileSync(path.join(vendorDir, 'PROVENANCE.md'), 'utf8');
   for (const file of ['secp256k1/secp256k1.js', 'secp256k1/LICENSE-noble-secp256k1',
     'ciphers/chacha.js', 'ciphers/_arx.js', 'ciphers/utils.js', 'ciphers/_poly1305.js',
-    'ciphers/LICENSE-noble-ciphers']) {
+    'ciphers/LICENSE-noble-ciphers', 'hashes/scrypt.js', 'hashes/pbkdf2.js',
+    'hashes/hmac.js', 'hashes/sha2.js', 'hashes/_md.js', 'hashes/_u64.js',
+    'hashes/utils.js', 'hashes/LICENSE']) {
     assert.ok(fs.existsSync(path.join(vendorDir, file)), `missing vendored file ${file}`);
   }
   assert.match(provenance, /@noble\/secp256k1/);
   assert.match(provenance, /@noble\/ciphers/);
+  assert.match(provenance, /@noble\/hashes/);
   assert.match(provenance, /MIT/);
   // A version bump that forgets the digest is the failure mode this catches.
   assert.match(provenance, /[0-9a-f]{64}/);
 });
 
-test('both licences are present and are the MIT text', () => {
-  for (const file of ['secp256k1/LICENSE-noble-secp256k1', 'ciphers/LICENSE-noble-ciphers']) {
+test('all licences are present and are the MIT text', () => {
+  for (const file of ['secp256k1/LICENSE-noble-secp256k1', 'ciphers/LICENSE-noble-ciphers', 'hashes/LICENSE']) {
     const text = fs.readFileSync(path.join(vendorDir, file), 'utf8');
     assert.match(text, /MIT License/i);
     assert.match(text, /Paul Miller/);
