@@ -862,6 +862,70 @@ test('the wizard progressively reveals only choices that apply', async () => {
   }
 });
 
+test('selected-climb controls follow scoring and make zone choices accessible', async () => {
+  const { window } = await import('./dev/mini-dom.mjs');
+  const cleanup = window.install();
+  try {
+    const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: null, signerPubkey: '11'.repeat(32),
+      defaultDisplayName: 'Host', defaultLud16: '', relays: [], catalogueLoader: async () => ({ climbs: [] }),
+    });
+    form.climbs.addCatalogue({
+      uuid: '3f8a1c24-5b6d-4e71-9a03-2c7d8e4f5061', label: 'Blue slab', setter: 'Ada',
+      brand: 'kilter', layoutId: 1, productSizeId: 10, angle: 40,
+      holds: [[1, 12, 12, 12], [2, 13, 72, 78], [3, 14, 132, 144]],
+    });
+    const scoring = form.node.querySelector('#f-scoring');
+    assert.equal(form.node.querySelector('#climb-points-0'), null, 'standard scoring has no per-climb points field');
+    assert.ok(form.node.querySelector('.zone-hold-options'));
+    assert.equal(form.node.querySelector('.zone-hold-options').querySelectorAll('input').length, 1);
+
+    scoring.value = 'achievement_points'; scoring.dispatch('change');
+    const zonePoints = form.node.querySelector('#f-zone-points');
+    zonePoints.value = '0'; zonePoints.dispatch('input');
+    assert.equal(form.node.querySelector('.zone-hold-options'), null, 'zero zone points remove zone UI');
+    assert.equal(form.node.querySelector('#climb-points-0'), null);
+
+    scoring.value = 'points_sum'; scoring.dispatch('change');
+    assert.ok(form.node.querySelector('#climb-points-0'));
+    assert.equal(form.node.querySelector('#climb-points-0').getAttribute('required'), 'required');
+    assert.equal(form.node.querySelector('.zone-hold-options'), null);
+  } finally {
+    cleanup();
+  }
+});
+
+test('the disabled climb-step Continue explains the live remaining count', async () => {
+  const { window } = await import('./dev/mini-dom.mjs');
+  const cleanup = window.install();
+  try {
+    const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: null, signerPubkey: '11'.repeat(32),
+      defaultDisplayName: 'Host', defaultLud16: '', relays: [], catalogueLoader: async () => ({ climbs: [] }),
+    });
+    for (let index = 1; index <= 3; index += 1) {
+      form.climbs.addCatalogue({
+        uuid: `${String(index).padStart(8, '0')}-1111-4111-8111-111111111111`, label: `Climb ${index}`,
+        brand: 'kilter', layoutId: 1, productSizeId: 10, angle: 40,
+        holds: [[index, 13, 72, 78]],
+      });
+    }
+    form.showStep(4);
+    const next = form.node.querySelector('.wizard-navigation').querySelector('.primary');
+    assert.equal(next.disabled, true);
+    assert.equal(form.node.querySelector('.wizard-step-status').textContent, 'Choose 1 more climb(s) before continuing.');
+    assert.match(form.node.querySelector('.selection-count').textContent, /3 of 4/);
+    form.node.querySelector('#f-climbs').value = '5';
+    form.node.querySelector('#f-climbs').dispatch('input');
+    assert.equal(form.node.querySelector('.wizard-step-status').textContent, 'Choose 2 more climb(s) before continuing.');
+    assert.match(form.node.querySelector('.selection-count').textContent, /3 of 5/);
+  } finally {
+    cleanup();
+  }
+});
+
 test('the embedded browser admits only namespaced climbs with exact board metadata', async () => {
   const { isBrowsableClimbEvent } = await import('../competitions/app/pages/organizer-form.mjs');
   const pubkey = 'ab'.repeat(32);
@@ -874,6 +938,8 @@ test('the embedded browser admits only namespaced climbs with exact board metada
   assert.equal(isBrowsableClimbEvent(event, { ...described, brand: '' }, board), false);
   assert.equal(isBrowsableClimbEvent(event, { ...described, layoutId: Number.NaN }, board), false);
   assert.equal(isBrowsableClimbEvent(event, { ...described, layoutId: 9 }, board), false);
+  assert.equal(isBrowsableClimbEvent(event, { ...described, angle: 45 }, board), false);
+  assert.equal(isBrowsableClimbEvent(event, { ...described, size: '8x12' }, board), false);
   assert.equal(isBrowsableClimbEvent(event, {
     ...described, uuid: '4f8a1c24-5b6d-4e71-9a03-2c7d8e4f5062',
   }, board), false, 'the signed address and payload must identify the same climb');
@@ -910,15 +976,65 @@ test('catalogue filters combine search, difficulty, sends and sort deterministic
   });
 });
 
+test('scoring policy exposes only fields that can affect that leaderboard', async () => {
+  const { scoringFieldPolicy } = await import('../competitions/app/pages/organizer-form.mjs');
+  assert.deepEqual(scoringFieldPolicy('tops_then_attempts'), { points: false, zone: true });
+  assert.deepEqual(scoringFieldPolicy('achievement_points', 10), { points: false, zone: true });
+  assert.deepEqual(scoringFieldPolicy('achievement_points', 0), { points: false, zone: false });
+  assert.deepEqual(scoringFieldPolicy('points_sum'), { points: true, zone: false });
+  assert.deepEqual(scoringFieldPolicy('hardest_n'), { points: true, zone: false });
+});
+
+test('zone candidates include only semantic intermediate handholds for every board family', async () => {
+  const { zoneCandidateHolds } = await import('../competitions/app/ui/climb-card.mjs');
+  const holds = [1, 2, 3, 4, 5, 6, 7, 8, 12, 13, 14, 15, 42, 43, 44, 45]
+    .map((role, index) => [index + 1, role, index, index]);
+  assert.deepEqual(zoneCandidateHolds(holds).map((hold) => hold[1]), [2, 6, 13, 43]);
+});
+
+test('a zone can be selected directly on the board image and only a route handhold is hittable', async () => {
+  const { climbCard } = await import('../competitions/app/ui/climb-card.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  try {
+    let selected = null;
+    const card = climbCard({
+      climb: {
+        label: 'Tap target', brand: 'kilter', layoutId: 1, productSizeId: 10, angle: 40,
+        holds: [[1, 12, 12, 12], [2, 13, 72, 78], [3, 14, 132, 144]],
+      },
+      board: {
+        brand: 'kilter', model: 'kilterboard-og', layout_id: 1,
+        size: '12x12, with Kickboard', angle: 40,
+      },
+      t: createTranslator('en'), zoneSelectable: true, onZone: (hold) => { selected = hold; },
+    });
+    const canvas = card.querySelector('canvas');
+    canvas.getBoundingClientRect = () => ({ left: 0, top: 0, width: 100, height: 100 });
+    canvas.dispatch('click', { clientX: 50, clientY: 50 });
+    assert.equal(selected, 2);
+    assert.match(canvas.getAttribute('aria-label'), /selected as the zone/);
+    selected = null;
+    canvas.dispatch('click', { clientX: 8, clientY: 92 });
+    assert.equal(selected, null, 'a start hold must not become a zone');
+  } finally {
+    restore();
+  }
+});
+
 test('board previews share the image geometry and open an accessible large view', async () => {
   const { climbCard, previewTransform } = await import('../competitions/app/ui/climb-card.mjs');
-  const moon = previewTransform({ bounds: [0, 10, 0, 17] }, { brand: 'moonboard', layout_id: 5 });
+  const moonBoard = {
+    brand: 'moonboard', model: 'moonboard-masters-2019', layout_id: 5, size: '11x18', angle: 40,
+  };
+  const moon = previewTransform({ bounds: [0, 10, 0, 17] }, moonBoard);
   assert.equal(moon.aspect, 0.6497);
-  assert.deepEqual(moon.point(0, 0), [0.14177, 0.94131]);
-  const moonTopRight = moon.point(10, 17);
-  assert.ok(Math.abs(moonTopRight[0] - 0.90474) < 1e-9);
-  assert.ok(Math.abs(moonTopRight[1] - 0.09495) < 1e-9);
-  const kilter = previewTransform({ bounds: [0, 144, 0, 156] }, { brand: 'kilter', layout_id: 1 });
+  assert.equal(moon.point(0, 0), null, 'MoonBoard points must come from the measured asset map');
+  const kilterBoard = {
+    brand: 'kilter', model: 'kilterboard-og', layout_id: 1,
+    size: '12x12, with Kickboard', angle: 40,
+  };
+  const kilter = previewTransform({ bounds: [24, 120, 0, 156] }, kilterBoard);
   assert.deepEqual(kilter.point(0, 0), [0, 1]);
   assert.deepEqual(kilter.point(144, 156), [1, 0]);
 
@@ -927,7 +1043,7 @@ test('board previews share the image geometry and open an accessible large view'
   try {
     const card = climbCard({
       climb: { label: 'Test climb', holds: [[1, 42, 0, 0]], bounds: [0, 10, 0, 17] },
-      board: { brand: 'moonboard', model: 'moonboard-masters-2019', layout_id: 5, size: '11x18' },
+      board: moonBoard,
       t: createTranslator('en'),
     });
     document.body.append(card);
@@ -946,6 +1062,7 @@ test('board previews share the image geometry and open an accessible large view'
 });
 
 test('measured MoonBoard preview data covers every supported variant', () => {
+  return import('../competitions/app/protocol/board-catalog.mjs').then(({ BOARD_TYPES, boardRenderGeometry }) => {
   const geometry = JSON.parse(fs.readFileSync(
     path.join(root, 'competitions/data/moonboard-preview-geometry.json'), 'utf8',
   ));
@@ -956,7 +1073,14 @@ test('measured MoonBoard preview data covers every supported variant', () => {
     assert.equal(Object.keys(entry.holds).length, ['6', '7'].includes(layout) ? 132 : 198);
     assert.equal(Object.values(entry.holds).every((point) => point.length === 2
       && point.every((value) => value >= 0 && value <= 1)), true);
+    const model = BOARD_TYPES.find(({ brand }) => brand === 'moonboard').models
+      .find(({ layoutId }) => layoutId === Number(layout));
+    assert.equal(boardRenderGeometry({
+      brand: 'moonboard', model: model.value, layout_id: model.layoutId,
+      size: model.sizes[0].value, angle: model.defaultAngle,
+    }).aspect, entry.aspect, `layout ${layout} Android asset aspect`);
   }
+  });
 });
 
 test('participant and repick pickers gate actions on verified catalogue readiness', () => {
@@ -992,6 +1116,98 @@ test('the organizer catalogue loads automatically and only exposes retry after f
       assert.equal(control.parentNode.querySelector('.field-marker'), null);
     }
     assert.equal(form.node.querySelector('#f-climb-min-ascents').value, '0');
+  } finally {
+    restore();
+  }
+});
+
+test('a pending Kilter response cannot populate a newly selected MoonBoard catalogue', async () => {
+  const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+  const { catalogueBoardKey } = await import('../competitions/app/protocol/board-catalog.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  try {
+    const pending = new Map();
+    const calls = [];
+    const catalogueLoader = (board) => new Promise((resolve) => {
+      const key = catalogueBoardKey(board);
+      calls.push(key);
+      pending.set(key, resolve);
+    });
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: null, signerPubkey: 'a'.repeat(64),
+      defaultDisplayName: 'Host', defaultLud16: '', relays: [], catalogueLoader,
+    });
+    assert.equal(calls[0], 'kilter:1:10:40');
+    const brand = form.node.querySelector('#f-brand');
+    const model = form.node.querySelector('#f-board');
+    brand.value = 'moonboard'; brand.dispatch('change');
+    model.value = 'moonboard-masters-2019'; model.dispatch('change');
+    const moonKey = 'moonboard:5:layout:40';
+    assert.ok(calls.includes(moonKey));
+
+    pending.get('kilter:1:10:40')({ climbs: [{
+      uuid: '11111111-1111-1111-1111-111111111111', label: 'STALE KILTER',
+      brand: 'kilter', layoutId: 1, productSizeId: 10, angle: 40, holds: [[1, 13, 0, 0]],
+    }] });
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    assert.equal(form.node.textContent.includes('STALE KILTER'), false);
+
+    pending.get(moonKey)({ climbs: [{
+      uuid: '22222222-2222-2222-2222-222222222222', label: 'REAL MOON 2019',
+      brand: 'moonboard', layoutId: 5, productSizeId: null, angle: 40,
+      holds: [[25, 42, 2, 2], [57, 43, 1, 5], [193, 44, 5, 17]],
+    }] });
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    assert.equal(form.node.textContent.includes('REAL MOON 2019'), true);
+    assert.equal(form.node.textContent.includes('STALE KILTER'), false);
+  } finally {
+    restore();
+  }
+});
+
+test('draft restoration starts only the restored MoonBoard 2019 catalogue', async () => {
+  const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+  const { catalogueBoardKey } = await import('../competitions/app/protocol/board-catalog.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  try {
+    const calls = [];
+    createCompetitionForm({
+      t: createTranslator('en'), pool: null, signerPubkey: 'a'.repeat(64),
+      defaultDisplayName: 'Host', defaultLud16: '', relays: [],
+      initialDraft: { fields: {
+        brand: 'moonboard', model: 'moonboard-masters-2019', size: '11x18', angle: '40',
+      } },
+      catalogueLoader: async (board) => { calls.push(catalogueBoardKey(board)); return { climbs: [] }; },
+    });
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    assert.deepEqual(calls, ['moonboard:5:layout:40']);
+  } finally {
+    restore();
+  }
+});
+
+test('a stale or wrong-brand loader payload fails closed before cards render', async () => {
+  const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  try {
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: null, signerPubkey: 'a'.repeat(64),
+      defaultDisplayName: 'Host', defaultLud16: '', relays: [],
+      initialDraft: { fields: {
+        brand: 'moonboard', model: 'moonboard-masters-2019', size: '11x18', angle: '40',
+      } },
+      catalogueLoader: async () => ({ climbs: [{
+        uuid: '11111111-1111-1111-1111-111111111111', label: 'WRONG BRAND',
+        brand: 'kilter', layoutId: 1, productSizeId: 10, angle: 40, holds: [[1, 13, 0, 0]],
+      }] }),
+    });
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    assert.equal(form.node.textContent.includes('WRONG BRAND'), false);
+    assert.match(form.node.querySelector('.climb-browser-results').textContent, /^$/);
+    assert.match(form.node.textContent, /did not match this exact board/);
   } finally {
     restore();
   }
@@ -1549,6 +1765,44 @@ test('the app catalogue is hash-verified and filtered to the selected wall', asy
   await assert.rejects(() => loadCatalogueClimbs({
     brand: 'kilter', layoutId: 1, modelLabel: 'Kilter Board Original', productSizeId: 10, angle: 40,
   }, { fetchImpl: tamperedFetch }), /catalogue_invalid/);
+
+  const wrongBrandPacked = gzipSync([
+    JSON.stringify({ v: 2, brand: 'kilter', layout: 1, rows: 0, snapshot_at: 42 }), '',
+  ].join('\n'));
+  const wrongBrandManifest = { v: 1, indexes: [{
+    brand: 'moonboard', layout: 5, rows: 0, file: 'moonboard-5.ndjson.gz',
+    bytes: wrongBrandPacked.length,
+    sha256: createHash('sha256').update(wrongBrandPacked).digest('hex'),
+  }] };
+  await assert.rejects(() => loadCatalogueClimbs({
+    brand: 'moonboard', layoutId: 5, modelLabel: 'MoonBoard Masters 2019',
+    productSizeId: null, angle: 40,
+  }, { fetchImpl: async (url) => url.endsWith('manifest.json')
+    ? new Response(JSON.stringify(wrongBrandManifest)) : new Response(wrongBrandPacked) }), /catalogue_invalid/);
+});
+
+test('the real MoonBoard Masters 2019 index resolves only layout 5 at 40 degrees', async () => {
+  const { loadCatalogueClimbs } = await import('../competitions/app/data/climb-catalogue.mjs');
+  const manifest = JSON.parse(fs.readFileSync(
+    path.join(root, 'competitions/data/climbs/manifest.json'), 'utf8',
+  ));
+  const entry = manifest.indexes.find(({ brand, layout }) => brand === 'moonboard' && layout === 5);
+  assert.ok(entry, 'MoonBoard Masters 2019 index missing');
+  const packed = fs.readFileSync(path.join(root, 'competitions/data/climbs', entry.file));
+  const fetchImpl = async (url) => url.endsWith('manifest.json')
+    ? new Response(JSON.stringify(manifest), { headers: { 'content-type': 'application/json' } })
+    : new Response(packed, { headers: { 'content-length': String(packed.length) } });
+  const result = await loadCatalogueClimbs({
+    brand: 'moonboard', layoutId: 5, modelLabel: 'MoonBoard Masters 2019',
+    productSizeId: null, angle: 40,
+  }, { fetchImpl });
+  assert.equal(result.catalogue.key, 'moonboard:5:layout:40');
+  assert.ok(result.climbs.length > 1000);
+  assert.equal(result.climbs.every((climb) => climb.brand === 'moonboard'
+    && climb.layoutId === 5 && climb.productSizeId === null && climb.angle === 40), true);
+  const fixture = result.climbs.find((climb) => climb.uuid === '1110ca02-7d4f-54f6-a7b8-34492c4c98a5');
+  assert.equal(fixture?.label, '!!!!');
+  assert.ok(fixture.holds.some(([, role]) => role === 43), 'real fixture has no intermediate handhold');
 });
 
 test('the money copy says CruxCoach holds nothing, wherever money is mentioned', () => {

@@ -3,8 +3,12 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { gunzipSync } from 'node:zlib';
 
-import { BOARD_TYPES, resolveBoardSelection } from '../competitions/app/protocol/board-catalog.mjs';
+import {
+  BOARD_TYPES, boardRenderGeometry, catalogueBoardKey, catalogueClimbMatches,
+  resolveBoardSelection, resolveCatalogueSelection,
+} from '../competitions/app/protocol/board-catalog.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -62,6 +66,59 @@ test('every visual board choice has a bundled same-origin preview', () => {
           assert.match(image, /^\/competitions\/assets\/boards\//);
           assert.equal(fs.existsSync(path.join(root, image)), true, `${model.label}: ${size.label}`);
         }
+      }
+    }
+  }
+});
+
+test('every supported image has deterministic Android render geometry', () => {
+  for (const type of BOARD_TYPES) {
+    for (const model of type.models) {
+      for (const size of model.sizes) {
+        const board = {
+          brand: type.brand, model: model.value, layout_id: model.layoutId,
+          size: size.value, angle: model.defaultAngle,
+        };
+        const geometry = boardRenderGeometry(board);
+        assert.ok(geometry, `${type.brand}/${model.layoutId}/${size.value}`);
+        assert.ok(geometry.aspect > 0, `${type.brand}/${model.layoutId}/${size.value} aspect`);
+        if (type.brand !== 'moonboard') {
+          assert.equal(geometry.bounds.length, 4);
+          assert.ok(Number.isInteger(geometry.productSizeId));
+        }
+      }
+    }
+  }
+});
+
+test('catalogue identity includes brand, layout, size and angle and matches rows exactly', () => {
+  const board = { brand: 'kilter', layoutId: 1, productSizeId: 10, angle: 40 };
+  assert.equal(catalogueBoardKey(board), 'kilter:1:10:40');
+  const row = { brand: 'kilter', layoutId: 1, productSizeId: 10, angle: 40 };
+  assert.equal(catalogueClimbMatches(row, board), true);
+  for (const changed of [
+    { brand: 'moonboard' }, { layoutId: 8 }, { productSizeId: 8 }, { angle: 45 },
+  ]) assert.equal(catalogueClimbMatches({ ...row, ...changed }, board), false);
+});
+
+test('Aurora-family render rectangles equal the signed app-catalogue size metadata', () => {
+  const headers = new Map();
+  for (const file of fs.readdirSync(path.join(root, 'competitions/data/climbs')).filter((name) => name.endsWith('.gz'))) {
+    const header = JSON.parse(gunzipSync(fs.readFileSync(path.join(root, 'competitions/data/climbs', file)))
+      .toString('utf8').split('\n', 1)[0]);
+    headers.set(`${header.brand}:${header.layout}`, header);
+  }
+  for (const type of BOARD_TYPES.filter(({ brand }) => brand !== 'moonboard')) {
+    for (const model of type.models) {
+      for (const size of model.sizes) {
+        const catalogue = resolveCatalogueSelection(type.id, model.value, size.value, model.defaultAngle);
+        const geometry = boardRenderGeometry({
+          brand: type.brand, model: model.value, layout_id: model.layoutId,
+          size: size.value, angle: model.defaultAngle,
+        });
+        assert.deepEqual(geometry.bounds,
+          headers.get(`${type.brand}:${model.layoutId}`).size_bounds[String(catalogue.productSizeId)],
+          `${type.brand}/${model.layoutId}/${catalogue.productSizeId}`);
       }
     }
   }

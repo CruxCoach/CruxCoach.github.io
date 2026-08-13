@@ -1,5 +1,5 @@
 import { el } from './dom.mjs';
-import { boardPreviewImages } from '../protocol/board-catalog.mjs';
+import { boardPreviewImages, boardRenderGeometry } from '../protocol/board-catalog.mjs?v=20260813-1';
 
 const FONT_GRADES = [
   '4a', '4b', '4c', '5a', '5b', '5c', '6a', '6a+', '6b', '6b+', '6c', '6c+',
@@ -40,16 +40,7 @@ export function gradeFilterOptions(scale = 'v', bound = 'min') {
   return groups.map((group) => ({ label: group.label, value: String(bound === 'max' ? group.max : group.min) }));
 }
 
-const MOONBOARD_PREVIEW_GEOMETRY = new Map([
-  [1, { aspect: 0.65, left: 0.143077, right: 0.912308, top: 0.0855, bottom: 0.9355 }],
-  [2, { aspect: 0.7007, left: 0.1161, right: 0.83176, top: 0.07033, bottom: 0.96701 }],
-  [3, { aspect: 0.6143, left: 0.06171, right: 0.93936, top: 0.03867, bottom: 0.96224 }],
-  [4, { aspect: 0.6487, left: 0.13646, right: 0.90993, top: 0.08369, bottom: 0.93466 }],
-  [5, { aspect: 0.6497, left: 0.14177, right: 0.90474, top: 0.09495, bottom: 0.94131 }],
-  [6, { aspect: 1, left: 0.14077, right: 0.92245, top: 0.10673, bottom: 0.94376 }],
-  [7, { aspect: 0.9365994, left: 0.143077, right: 0.912308, top: 0.113112, bottom: 0.90562 }],
-]);
-const MOONBOARD_GEOMETRY_URL = '/competitions/data/moonboard-preview-geometry.json?v=20260813-1';
+const MOONBOARD_GEOMETRY_URL = '/competitions/data/moonboard-preview-geometry.json?v=20260813-2';
 let measuredMoonBoardPromise = null;
 
 function loadMeasuredMoonBoard(board) {
@@ -78,44 +69,60 @@ function loadMeasuredMoonBoard(board) {
   });
 }
 
-/** Map catalogue coordinates into the exact rectangle occupied by the board image. */
+/** Map catalogue placements into the exact Android board image/canvas rectangle. */
 export function previewTransform(climb, board) {
-  const [minX, maxX, minY, maxY] = Array.isArray(climb.bounds) && climb.bounds.length === 4
-    ? climb.bounds.map(Number) : [0, 1, 0, 1];
-  const moon = board?.brand === 'moonboard'
-    ? MOONBOARD_PREVIEW_GEOMETRY.get(Number(board.layout_id ?? board.layoutId)) : null;
-  const aspect = moon?.aspect || Math.max(0.35, Math.min(1.5,
-    (maxX - minX) / Math.max(1, maxY - minY)));
+  const geometry = boardRenderGeometry(board);
+  if (!geometry) return null;
+  const [minX, maxX, minY, maxY] = geometry.bounds || [];
   return {
-    aspect,
+    aspect: geometry.aspect,
     point(x, y) {
+      if (!geometry.bounds) return null;
       const nx = (Number(x) - minX) / Math.max(1, maxX - minX);
       const ny = (Number(y) - minY) / Math.max(1, maxY - minY);
-      return moon
-        ? [moon.left + nx * (moon.right - moon.left), moon.bottom - ny * (moon.bottom - moon.top)]
-        : [nx, 1 - ny];
+      return [nx, 1 - ny];
     },
   };
+}
+
+/** Brand-native role ids which Android folds to the semantic HAND class. */
+export function zoneCandidateHolds(holds) {
+  return (Array.isArray(holds) ? holds : []).filter((hold) => (
+    Array.isArray(hold) && [2, 6, 13, 43].includes(Number(hold[1]))
+  ));
+}
+
+function roleColor(brand, role) {
+  if (brand === 'moonboard') return role === 42 ? '#2fb84a'
+    : role === 43 ? '#2f6be0' : role === 44 ? '#e23b36' : '#ff8a48';
+  const semantic = new Map([[1, 'start'], [5, 'start'], [12, 'start'], [42, 'start'],
+    [2, 'hand'], [6, 'hand'], [13, 'hand'], [43, 'hand'],
+    [3, 'finish'], [7, 'finish'], [14, 'finish'], [44, 'finish'],
+    [4, 'foot'], [8, 'foot'], [15, 'foot'], [45, 'foot']]).get(role);
+  if (brand === 'soill') return { start: '#00ff00', hand: '#ff00ff', finish: '#ffffff', foot: '#00ffff' }[semantic] || '#ff8a48';
+  if (brand === 'kilter') return { start: '#00ff00', hand: '#00ffff', finish: '#ff00ff', foot: '#ffa500' }[semantic] || '#ff8a48';
+  return { start: '#00ff00', hand: '#0000ff', finish: '#ff0000', foot: '#ff00ff' }[semantic] || '#ff8a48';
 }
 
 function preview(climb, board, t, { zoneSelectable = false, onZone } = {}) {
   const images = boardPreviewImages(board);
   const holds = Array.isArray(climb.holds) ? climb.holds : [];
   const geometry = previewTransform(climb, board);
+  const candidates = zoneCandidateHolds(holds);
+  let selectedZone = Number(climb.zone_hold) || null;
   const visual = ({ enlarged = false } = {}) => {
-    const stage = el(enlarged ? 'div' : 'button', {
+    const stage = el(enlarged || zoneSelectable ? 'div' : 'button', {
       className: `climb-card-preview${zoneSelectable ? ' zone-selectable' : ''}`,
       attrs: {
-        type: enlarged ? null : 'button',
-        'aria-label': enlarged ? t('climb.preview.alt', { label: climb.label })
+        type: enlarged || zoneSelectable ? null : 'button',
+        'aria-label': enlarged || zoneSelectable ? t('climb.preview.alt', { label: climb.label })
           : t('climb.preview.enlarge', { label: climb.label }),
-        style: `--preview-aspect:${geometry.aspect}`,
       },
     }, images.map((src) => el('img', {
       className: images.length > 1 ? 'board-preview-layer' : '',
       attrs: { src, alt: '', 'aria-hidden': 'true', loading: 'lazy', decoding: 'async' },
     })));
-    if (!holds.length) {
+    if (!holds.length || !geometry) {
       stage.append(el('span', { className: 'climb-preview-unavailable', text: t('climb.preview.unavailable') }));
       return stage;
     }
@@ -125,32 +132,86 @@ function preview(climb, board, t, { zoneSelectable = false, onZone } = {}) {
       className: 'climb-hold-overlay',
       attrs: { width: String(width), height: String(height), 'aria-hidden': 'true' },
     });
-    const draw = (measured = null) => {
+    const geometryFailure = el('span', {
+      className: 'climb-preview-unavailable',
+      attrs: { hidden: 'hidden' },
+      text: t('climb.preview.unavailable'),
+    });
+    let measuredGeometry = null;
+    let focusedCandidate = 0;
+    const pointFor = (hold) => measuredGeometry?.holds.get(Number(hold[0])) || geometry.point(hold[2], hold[3]);
+    const draw = () => {
       const context = canvas.getContext?.('2d');
       if (!context) return;
       context.clearRect(0, 0, width, height);
       for (const [placement, role, x, y] of holds) {
-        const [nx, ny] = measured?.holds.get(Number(placement)) || geometry.point(x, y);
+        const point = measuredGeometry?.holds.get(Number(placement)) || geometry.point(x, y);
+        if (!point) continue;
+        const [nx, ny] = point;
         const px = nx * width;
         const py = ny * height;
-        context.beginPath(); context.arc(px, py, Number(climb.zone_hold) === placement ? 26 : 19, 0, Math.PI * 2);
-        context.lineWidth = Number(climb.zone_hold) === placement ? 10 : 7;
-        context.strokeStyle = Number(climb.zone_hold) === placement ? '#ffd54f'
-          : board?.brand === 'moonboard'
-            ? (role === 42 ? '#2fb84a' : role === 43 ? '#2f6be0' : role === 44 ? '#e23b36' : '#ff8a48')
-            : (role === 12 ? '#4caf50' : role === 14 ? '#e84fd1' : role === 15 ? '#4aa3ff' : '#ff8a48');
+        context.beginPath(); context.arc(px, py, selectedZone === placement ? 26 : 19, 0, Math.PI * 2);
+        context.lineWidth = selectedZone === placement ? 10 : 7;
+        context.strokeStyle = selectedZone === placement ? '#ffd54f' : roleColor(board?.brand, role);
         context.stroke();
       }
     };
-    stage.append(canvas);
-    if (board?.brand === 'moonboard') loadMeasuredMoonBoard(board).then((measured) => draw(measured));
+    stage.append(canvas, geometryFailure);
+    if (zoneSelectable && candidates.length) {
+      const choose = (hold) => {
+        selectedZone = Number(hold[0]);
+        canvas.setAttribute('aria-label', t('climb.zone.selected_announcement', {
+          hold: t('climb.zone.hold', { number: candidates.indexOf(hold) + 1, column: hold[2], row: hold[3] }),
+        }));
+        draw();
+        onZone?.(selectedZone);
+      };
+      canvas.setAttribute('tabindex', '0');
+      canvas.setAttribute('role', 'button');
+      canvas.setAttribute('aria-label', t('climb.zone.image_control', { label: climb.label }));
+      canvas.removeAttribute('aria-hidden');
+      canvas.addEventListener('click', (event) => {
+        const rect = canvas.getBoundingClientRect?.();
+        if (!rect?.width || !rect?.height) return;
+        const nx = (event.clientX - rect.left) / rect.width;
+        const ny = (event.clientY - rect.top) / rect.height;
+        const nearest = candidates.map((hold) => {
+          const point = pointFor(hold);
+          return { hold, distance: point ? Math.hypot(point[0] - nx, point[1] - ny) : Infinity };
+        }).sort((a, b) => a.distance - b.distance)[0];
+        if (nearest && nearest.distance <= 0.055) choose(nearest.hold);
+      });
+      canvas.addEventListener('keydown', (event) => {
+        if (['ArrowRight', 'ArrowDown'].includes(event.key)) focusedCandidate = (focusedCandidate + 1) % candidates.length;
+        else if (['ArrowLeft', 'ArrowUp'].includes(event.key)) focusedCandidate = (focusedCandidate - 1 + candidates.length) % candidates.length;
+        else if (event.key === 'Home') focusedCandidate = 0;
+        else if (event.key === 'End') focusedCandidate = candidates.length - 1;
+        else if (event.key === 'Enter' || event.key === ' ') { event.preventDefault?.(); choose(candidates[focusedCandidate]); return; }
+        else return;
+        event.preventDefault?.();
+        canvas.setAttribute('aria-label', t('climb.zone.focused_hold', {
+          hold: t('climb.zone.hold', { number: focusedCandidate + 1, column: candidates[focusedCandidate][2], row: candidates[focusedCandidate][3] }),
+        }));
+      });
+      stage.append(el('p', { className: 'climb-zone-instruction', text: t('climb.zone.tap_hint') }));
+    }
+    if (board?.brand === 'moonboard') loadMeasuredMoonBoard(board).then((measured) => {
+      measuredGeometry = measured;
+      if (measured) draw();
+      else geometryFailure.removeAttribute('hidden');
+    });
     else draw();
-    if (zoneSelectable) stage.append(el('p', { className: 'climb-zone-instruction', text: t('climb.zone.choose_below') }));
     return stage;
   };
   const stage = visual();
   const openLargePreview = () => {
-    const close = () => dialog.parentNode?.removeChild(dialog);
+    const trigger = document.activeElement;
+    const onKeydown = (event) => { if (event.key === 'Escape') close(); };
+    const close = () => {
+      document.removeEventListener?.('keydown', onKeydown);
+      dialog.parentNode?.removeChild(dialog);
+      trigger?.focus?.();
+    };
     const dialog = el('dialog', {
       className: 'climb-preview-dialog',
       attrs: { 'aria-label': t('climb.preview.dialog', { label: climb.label }) },
@@ -168,15 +229,39 @@ function preview(climb, board, t, { zoneSelectable = false, onZone } = {}) {
     ]);
     document.body.append(dialog);
     if (typeof dialog.showModal === 'function') dialog.showModal();
-    else dialog.setAttribute('open', 'open');
+    else {
+      dialog.setAttribute('open', 'open');
+      document.addEventListener?.('keydown', onKeydown);
+    }
     dialog.querySelector('.climb-preview-close')?.focus?.();
   };
-  stage.addEventListener('click', openLargePreview);
-  return stage;
+  if (!zoneSelectable) stage.addEventListener('click', openLargePreview);
+  if (!zoneSelectable) return stage;
+  return el('div', { className: 'climb-preview-shell' }, [
+    stage,
+    el('button', {
+      className: 'quiet climb-preview-enlarge', text: t('climb.preview.enlarge_short'),
+      attrs: { type: 'button', 'aria-label': t('climb.preview.enlarge', { label: climb.label }) },
+      on: { click: openLargePreview },
+    }),
+  ]);
 }
 
 export function climbCard({ climb, board, t, selected = false, taken = false,
   action = null, zoneSelectable = false, onZone = null, gradeScale = storedGradeScale() }) {
+  const geometry = boardRenderGeometry(board);
+  const mismatched = !geometry
+    || (climb?.brand && climb.brand !== board?.brand)
+    || (Number.isInteger(climb?.layoutId) && climb.layoutId !== board?.layout_id)
+    || (Number.isInteger(climb?.angle) && climb.angle !== board?.angle)
+    || (climb?.size && board?.size && climb.size !== board.size)
+    || (Number.isInteger(climb?.productSizeId) && Number.isInteger(geometry.productSizeId)
+      && climb.productSizeId !== geometry.productSizeId);
+  if (mismatched) {
+    return el('article', { className: 'climb-result-card rich invalid' }, [
+      el('div', { className: 'notice bad', attrs: { role: 'alert' }, text: t('climb.browser.mismatch') }),
+    ]);
+  }
   const meta = [
     t('climb.card.grade', { grade: gradeLabel(climb.difficulty, gradeScale) }),
     t('climb.card.ascents', { count: climb.ascents || 0 }),

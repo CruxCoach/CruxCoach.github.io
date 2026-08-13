@@ -1,3 +1,5 @@
+import { catalogueBoardKey, catalogueClimbMatches } from '../protocol/board-catalog.mjs?v=20260813-1';
+
 const INDEX_ROOT = '/competitions/data/climbs';
 const MAX_COMPRESSED_BYTES = 32 * 1024 * 1024;
 const MAX_DECOMPRESSED_BYTES = 160 * 1024 * 1024;
@@ -48,6 +50,7 @@ function parseRecord(line, board, header) {
     brand: board.brand,
     boardLabel: board.modelLabel,
     layoutId: board.layoutId,
+    productSizeId: board.productSizeId ?? null,
     angle: board.angle,
     difficulty: Number.isFinite(difficulty) ? difficulty : null,
     quality: Number.isFinite(quality) ? quality : null,
@@ -60,7 +63,8 @@ function parseRecord(line, board, header) {
 
 /** Load the same catalogue snapshot the Android app imports from Blossom. */
 export async function loadCatalogueClimbs(board, { fetchImpl = globalThis.fetch } = {}) {
-  if (!board || typeof fetchImpl !== 'function' || typeof DecompressionStream === 'undefined'
+  const requestedKey = catalogueBoardKey(board);
+  if (!requestedKey || typeof fetchImpl !== 'function' || typeof DecompressionStream === 'undefined'
     || !globalThis.crypto?.subtle) {
     throw new Error('catalogue_unavailable');
   }
@@ -120,5 +124,14 @@ export async function loadCatalogueClimbs(board, { fetchImpl = globalThis.fetch 
     throw error;
   }
   if (!header) throw new Error('catalogue_invalid');
-  return { climbs, snapshotAt: header.snapshot_at, total: header.rows };
+  if (climbs.some((climb) => !catalogueClimbMatches(climb, board))) {
+    throw new Error('catalogue_invalid');
+  }
+  return {
+    climbs, snapshotAt: header.snapshot_at, total: header.rows,
+    catalogue: {
+      key: requestedKey, brand: header.brand, layoutId: header.layout,
+      productSizeId: board.productSizeId ?? null, angle: board.angle,
+    },
+  };
 }

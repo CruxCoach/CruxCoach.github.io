@@ -18,13 +18,14 @@ import {
 import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs';
 import { naddrEncode, verifyEvent } from '../protocol/nostr-event.mjs';
 import {
-  BOARD_TYPES, boardType, catalogueProductSizeId, resolveBoardSelection, resolveCatalogueSelection,
-} from '../protocol/board-catalog.mjs';
-import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs';
+  BOARD_TYPES, boardType, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
+  resolveBoardSelection, resolveCatalogueSelection,
+} from '../protocol/board-catalog.mjs?v=20260813-1';
+import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-1';
 import { loadVenueCatalogue, searchVenues } from '../data/venue-catalogue.mjs';
 import {
-  climbCard, filterCatalogue, gradeFilterOptions, saveGradeScale, storedGradeScale,
-} from '../ui/climb-card.mjs?v=20260813-2';
+  climbCard, filterCatalogue, gradeFilterOptions, saveGradeScale, storedGradeScale, zoneCandidateHolds,
+} from '../ui/climb-card.mjs?v=20260813-4';
 
 const text = (id, value = '', attrs = {}) => el('input', { attrs: { type: 'text', id, value, ...attrs } });
 const num = (id, value, attrs = {}) => el('input', { attrs: { type: 'number', id, value: String(value), required: 'required', ...attrs } });
@@ -231,6 +232,8 @@ export function isBrowsableClimbEvent(event, described, board) {
   // board metadata is therefore not "unknown but maybe fine": it is ineligible.
   if (!described.brand || described.brand !== board?.brand) return false;
   if (!Number.isFinite(described.layoutId) || described.layoutId !== board?.layout_id) return false;
+  if (!Number.isFinite(described.angle) || described.angle !== board?.angle) return false;
+  if (described.size && board?.size && described.size !== board.size) return false;
   return checkBoardCompatibility(described, board).compatible;
 }
 
@@ -241,12 +244,25 @@ export function isBrowsableClimbEvent(event, described, board) {
  * form. `entries()` returns what has been accepted, which is only ever climbs
  * that resolved to a real id.
  */
+export function scoringFieldPolicy(scoring, zonePoints = 0) {
+  return {
+    points: scoring === 'points_sum' || scoring === 'hardest_n',
+    zone: scoring === 'tops_then_attempts'
+      || (scoring === 'achievement_points' && Number(zonePoints) > 0),
+  };
+}
+
 class ClimbEditor {
-  constructor({ t, pool, boardOf, gradeScaleOf = storedGradeScale, onChange }) {
+  constructor({
+    t, pool, boardOf, gradeScaleOf = storedGradeScale, fieldPolicyOf = () => ({ points: false, zone: true }),
+    neededOf = () => 0, onChange,
+  }) {
     this.t = t;
     this.pool = pool;
     this.boardOf = boardOf;
     this.gradeScaleOf = gradeScaleOf;
+    this.fieldPolicyOf = fieldPolicyOf;
+    this.neededOf = neededOf;
     this.onChange = onChange || (() => {});
     this.rows = [];
     this.node = el('div', { className: 'stack' });
@@ -409,8 +425,7 @@ class ClimbEditor {
       { min: '0', max: '70' },
     );
     const pointsInput = num(`climb-points-${this.rows.length}`, 100, { min: '0', max: '10000' });
-    const holds = (Array.isArray(described?.holds) ? described.holds : [])
-      .filter(([, role]) => [13, 43].includes(role));
+    const holds = zoneCandidateHolds(described?.holds);
     const zoneInput = select(`climb-zone-${this.rows.length}`, [
       ['', t('climb.zone.choose')],
       ...holds.map(([placement, , x, y], index) => [String(placement), t('climb.zone.hold', {
@@ -434,16 +449,30 @@ class ClimbEditor {
 
   render() {
     const { t } = this;
+    const policy = this.fieldPolicyOf();
+    const needed = this.neededOf();
     replace(this.node,
-      this.rows.length ? el('p', {
-        className: 'selection-count',
-        text: t('climb.selected_count', { count: this.rows.length }),
-      }) : null,
+      el('div', { className: 'climb-selection-progress' }, [
+        el('p', {
+          className: 'selection-count',
+          text: t('climb.selected_progress', { chosen: this.rows.length, needed }),
+        }),
+        el('progress', {
+          attrs: { max: String(Math.max(1, needed)), value: String(Math.min(this.rows.length, Math.max(1, needed))) },
+        }),
+      ]),
       ...this.rows.map((row, index) => {
         const currentCompatibility = row.described
           ? checkBoardCompatibility(row.described, this.boardOf()) : row.compatibility;
-        const redrawZone = () => { this.render(); this.onChange(); };
-        row.zoneInput.addEventListener('change', redrawZone, { once: true });
+        if (policy.points) row.pointsInput.setAttribute('required', 'required');
+        else row.pointsInput.removeAttribute('required');
+        if (policy.zone) row.zoneInput.setAttribute('required', 'required');
+        else row.zoneInput.removeAttribute('required');
+        const chooseZone = (placement) => {
+          row.zoneInput.value = String(placement);
+          this.render();
+          this.onChange();
+        };
         return el('div', {
           className: `selected-climb${currentCompatibility && !currentCompatibility.compatible ? ' invalid' : ''}`,
         }, [
@@ -483,14 +512,32 @@ class ClimbEditor {
       row.described ? climbCard({
         climb: { ...row.described, zone_hold: Number(row.zoneInput.value) || undefined },
         board: this.boardOf(), t, selected: true, gradeScale: this.gradeScaleOf(),
+        zoneSelectable: policy.zone, onZone: chooseZone,
       }) : null,
       el('div', { className: 'climb-fields' }, [
-        field(row.labelInput.id, t('climb.label'), row.labelInput),
-        field(row.angleInput.id, t('climb.angle'), row.angleInput),
-        field(row.pointsInput.id, t('climb.points'), row.pointsInput, t('climb.points.hint')),
-        row.zoneInput && row.described?.holds?.length
-          ? field(row.zoneInput.id, t('climb.zone'), row.zoneInput, t('climb.zone.hint')) : null,
-        !row.zoneCandidates.length ? el('p', { className: 'notice warn', text: t('climb.zone.unavailable') }) : null,
+        !row.described ? field(row.labelInput.id, t('climb.label'), row.labelInput) : null,
+        !row.described ? field(row.angleInput.id, t('climb.angle'), row.angleInput) : null,
+        policy.points ? field(row.pointsInput.id, t('climb.points'), row.pointsInput, t('climb.points.hint')) : null,
+        policy.zone && row.zoneCandidates.length ? el('fieldset', {
+          className: 'zone-hold-options', attrs: { 'aria-required': 'true' },
+        }, [
+          el('legend', { text: t('climb.zone.keyboard_title') }),
+          el('p', { className: 'hint', text: t('climb.zone.keyboard_hint') }),
+          ...row.zoneCandidates.map(([placement, , x, y], candidateIndex) => {
+            const radio = el('input', {
+              attrs: {
+                type: 'radio', name: `climb-zone-${row.uuid}`, value: String(placement),
+                checked: Number(row.zoneInput.value) === placement,
+              },
+              on: { change: () => chooseZone(placement) },
+            });
+            return el('label', { className: 'zone-hold-option' }, [radio, el('span', {
+              text: t('climb.zone.hold', { number: candidateIndex + 1, column: x, row: y }),
+            })]);
+          }),
+        ]) : null,
+        policy.zone && !row.zoneCandidates.length
+          ? el('p', { className: 'notice warn', text: t('climb.zone.unavailable') }) : null,
       ]),
     ]);
       }));
@@ -836,9 +883,18 @@ export function createCompetitionForm({
   const catalogueBoardOf = () => resolveCatalogueSelection(
     f.brand.value, f.model.value, f.size.value, f.angle.value,
   );
+  const neededClimbs = () => {
+    const count = Number(f.climbCount.value);
+    return f.climbSource.value === 'participant_choice'
+      && f.uniqueness.value === 'unique_per_competition' && Number(f.capacity.value) > 0
+      ? Number(f.capacity.value) * count : count;
+  };
   let browserGradeScale = storedGradeScale();
   const climbEditor = new ClimbEditor({
-    t, pool, boardOf, gradeScaleOf: () => browserGradeScale, onChange: () => notifyDraftChange(),
+    t, pool, boardOf, gradeScaleOf: () => browserGradeScale,
+    fieldPolicyOf: () => scoringFieldPolicy(f.scoring.value, f.zonePoints.value),
+    neededOf: neededClimbs,
+    onChange: () => notifyDraftChange(),
   });
   const climbInput = text('f-climb-ref', '', { placeholder: t('climb.paste.placeholder'), autocomplete: 'off' });
   const climbSection = el('div', {});
@@ -926,8 +982,26 @@ export function createCompetitionForm({
   };
 
   const renderBrowserResults = () => {
+    const activeCatalogueBoard = catalogueBoardOf();
+    const activeKey = catalogueBoardKey(activeCatalogueBoard);
+    if (!activeKey) {
+      browserCandidates = [];
+      replace(browserResults);
+      browserStatus.textContent = t('climb.browser.mismatch');
+      return;
+    }
+    const safeCandidates = browserCandidates.filter(({ described, source }) => (
+      source !== 'catalogue' || catalogueClimbMatches(described, activeCatalogueBoard)
+    ));
+    if (safeCandidates.length !== browserCandidates.length) {
+      browserCandidates = [];
+      browserState = 'error';
+      replace(browserResults);
+      browserStatus.textContent = t('climb.browser.mismatch');
+      return;
+    }
     const needle = browserSearch.value.trim().toLocaleLowerCase();
-    const allMatches = filterCatalogue(browserCandidates, {
+    const allMatches = filterCatalogue(safeCandidates, {
       query: needle, minDifficulty: difficultyMin.value, maxDifficulty: difficultyMax.value,
       minAscents: minAscents.value, sort: browserSort.value,
     });
@@ -937,12 +1011,15 @@ export function createCompetitionForm({
       : t('climb.browser.empty_filter');
     replace(browserResults, ...matches.map(({ event, described, compatibility, source }) => {
       const selected = climbEditor.rows.some((row) => row.uuid === normalizeUuid(described.uuid));
+      const limitReached = climbEditor.rows.length >= selectionLimit() && !selected;
       const action = el('button', {
           className: selected ? '' : 'primary',
-          text: selected ? t('climb.browser.added') : t('climb.browser.choose'),
-          attrs: { disabled: selected ? 'disabled' : null },
+          text: selected ? t('climb.browser.added')
+            : limitReached ? t('climb.browser.limit_reached') : t('climb.browser.choose'),
+          attrs: { disabled: selected || limitReached ? 'disabled' : null },
           on: {
             click: () => {
+              if (climbEditor.rows.length >= selectionLimit()) return;
               const added = source === 'community'
                 ? climbEditor.addEvent(event) : climbEditor.addCatalogue(described);
               if (added) renderBrowserResults();
@@ -969,14 +1046,25 @@ export function createCompetitionForm({
       refreshCatalogueActions();
       return;
     }
+    const requestKey = catalogueBoardKey(catalogueBoard);
+    if (!requestKey) {
+      browserState = 'error'; browserLoading = false;
+      browserStatus.textContent = t('climb.browser.mismatch'); refreshCatalogueActions(); return;
+    }
     const token = ++browserLoadToken;
     browserState = 'loading';
     browserLoading = true; refreshCatalogueActions();
     browserStatus.textContent = t('climb.browser.loading_catalogue');
     replace(browserResults);
     try {
-      const { climbs } = await catalogueLoader(catalogueBoard);
-      if (token !== browserLoadToken) return;
+      const loaded = await catalogueLoader(catalogueBoard);
+      if (token !== browserLoadToken || catalogueBoardKey(catalogueBoardOf()) !== requestKey) return;
+      const { climbs, catalogue } = loaded || {};
+      if (!Array.isArray(climbs)
+        || (catalogue && catalogue.key !== requestKey)
+        || climbs.some((climb) => !catalogueClimbMatches(climb, catalogueBoard))) {
+        throw new Error('catalogue_mismatch');
+      }
       const candidates = climbs.map((described) => ({
         described,
         compatibility: checkBoardCompatibility(described, board),
@@ -989,7 +1077,7 @@ export function createCompetitionForm({
         browserStatus.textContent = t('climb.browser.loading_recent');
         const { events } = await pool.query([{ kinds: [30078], limit: 120 }], { timeoutMs: 7000 })
           .catch(() => ({ events: [] }));
-        if (token !== browserLoadToken) return;
+        if (token !== browserLoadToken || catalogueBoardKey(catalogueBoardOf()) !== requestKey) return;
         for (const event of events) {
           // eslint-disable-next-line no-await-in-loop
           if (!await verifyEvent(event).catch(() => false)) continue;
@@ -1000,7 +1088,12 @@ export function createCompetitionForm({
           });
         }
       }
-      browserCandidates = [...new Map(candidates.map(
+      if (catalogueBoardKey(catalogueBoardOf()) !== requestKey
+        || candidates.some(({ described, source }) => source === 'catalogue'
+          && !catalogueClimbMatches(described, catalogueBoard))) return;
+      browserCandidates = [...new Map(candidates.filter(({ described, source }) => (
+        source !== 'catalogue' || catalogueClimbMatches(described, catalogueBoard)
+      )).map(
         (candidate) => [candidate.described.uuid, candidate],
       )).values()].sort((a, b) => (b.described.ascents || 0) - (a.described.ascents || 0)
         || a.described.label.localeCompare(b.described.label));
@@ -1012,10 +1105,13 @@ export function createCompetitionForm({
         browserSearchField.setAttribute('hidden', 'hidden');
         browserStatus.textContent = t('climb.browser.empty');
       }
-    } catch {
+    } catch (error) {
       if (token !== browserLoadToken) return;
       browserState = 'error';
-      browserStatus.textContent = t('climb.browser.error');
+      browserCandidates = [];
+      replace(browserResults);
+      browserStatus.textContent = error?.message === 'catalogue_mismatch'
+        ? t('climb.browser.mismatch') : t('climb.browser.error');
     } finally {
       if (token === browserLoadToken) {
         browserLoading = false;
@@ -1081,12 +1177,12 @@ export function createCompetitionForm({
   };
   renderClimbSection();
   refreshCatalogueActions();
-  void browseClimbs();
   f.climbSource.addEventListener('change', () => {
     renderClimbSection();
     refreshCatalogueActions();
     renderBrowserResults();
     renderModeNotes();
+    climbEditor.render();
   });
 
   const modeNotes = el('div', {});
@@ -1426,6 +1522,10 @@ export function createCompetitionForm({
       scoringPreview.textContent = '';
     }
   };
+  const refreshClimbPolicy = () => {
+    climbEditor.render();
+    notifyDraftChange();
+  };
   const syncFormatControls = () => {
     const participantChoice = f.climbSource.value === 'participant_choice';
     for (const option of f.scoring.querySelectorAll('option')) {
@@ -1446,9 +1546,14 @@ export function createCompetitionForm({
     renderModeNotes();
   };
   f.climbSource.addEventListener('change', syncFormatControls);
-  f.scoring.addEventListener('change', renderScoringPreview);
+  f.scoring.addEventListener('change', () => { renderScoringPreview(); refreshClimbPolicy(); });
   for (const control of [f.zonePoints, f.topPoints, f.flashPoints]) {
     control.addEventListener('input', renderScoringPreview);
+  }
+  f.zonePoints.addEventListener('input', refreshClimbPolicy);
+  for (const control of [f.climbCount, f.capacity, f.uniqueness]) {
+    control.addEventListener('input', refreshClimbPolicy);
+    control.addEventListener('change', refreshClimbPolicy);
   }
   syncFormatControls();
 
@@ -1536,6 +1641,10 @@ export function createCompetitionForm({
     syncProgressionControls();
     syncTimeZoneOffsets();
   }
+  // Start only after draft restoration. Previously the default Kilter request
+  // began first, then a restored MoonBoard choice replaced the controls while
+  // that still-current response populated the shared candidate array.
+  void browseClimbs();
   const steps = [
     el('fieldset', { className: 'wizard-panel' }, [
       el('legend', { text: t('org.basics') }),

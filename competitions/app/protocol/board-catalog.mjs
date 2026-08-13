@@ -7,6 +7,40 @@ const sizes = (...entries) => entries.map((entry) => {
 });
 const image = (name) => `/competitions/assets/boards/${name}`;
 
+// Exact product-size rectangles consumed by KilterBoardVisualization in the
+// Android app. They come from product_sizes.edge_* in the same signed board
+// snapshots as the browser catalogue. The image and hold canvas both fill this
+// rectangle, so normalising placements against anything else moves the LEDs.
+const PRODUCT_SIZE_BOUNDS = new Map([
+  ['kilter:1:7', [0, 144, 0, 180]], ['kilter:1:8', [24, 120, 0, 156]],
+  ['kilter:1:10', [0, 144, 0, 156]], ['kilter:1:14', [28, 116, 36, 156]],
+  ['kilter:1:27', [0, 144, 12, 156]], ['kilter:1:28', [-24, 168, 0, 156]],
+  ['kilter:8:17', [-44, 44, 24, 144]], ['kilter:8:18', [-44, 44, 24, 144]],
+  ['kilter:8:19', [-44, 44, 24, 144]], ['kilter:8:21', [-56, 56, 24, 144]],
+  ['kilter:8:22', [-56, 56, 24, 144]], ['kilter:8:23', [-44, 44, -12, 144]],
+  ['kilter:8:24', [-44, 44, -12, 144]], ['kilter:8:25', [-56, 56, -12, 144]],
+  ['kilter:8:26', [-56, 56, -12, 144]], ['kilter:8:29', [-56, 56, 24, 144]],
+  ['tension:9:1', [0, 96, 0, 156]], ['tension:9:2', [0, 96, 4, 156]],
+  ['tension:9:3', [0, 96, 8, 156]], ['tension:9:4', [0, 96, 8, 132]],
+  ['tension:9:5', [16, 80, 8, 132]],
+  ['tension:10:6', [-68, 68, 0, 144]], ['tension:10:7', [-68, 68, 0, 120]],
+  ['tension:10:8', [-44, 44, 0, 144]], ['tension:10:9', [-44, 44, 0, 120]],
+  ['tension:11:6', [-68, 68, 0, 144]], ['tension:11:7', [-68, 68, 0, 120]],
+  ['tension:11:8', [-44, 44, 0, 144]], ['tension:11:9', [-44, 44, 0, 120]],
+  ['grasshopper:1:4', [-68, 68, 0, 144]], ['grasshopper:1:5', [-44, 44, 0, 144]],
+  ['grasshopper:1:6', [-44, 44, 0, 120]],
+  ['decoy:2:1', [-68, 68, 0, 144]], ['decoy:2:2', [-44, 44, 0, 144]],
+  ['decoy:2:3', [-44, 44, 0, 120]],
+  ['soill:1:1', [-48, 48, -16, 144]], ['soill:1:2', [-72, 72, -16, 144]],
+  ['touchstone:1:1', [-72, 72, -12, 144]],
+]);
+
+// Android's MoonBoard renderer instead uses the measured JSON asset aspect.
+const MOONBOARD_ASPECTS = new Map([
+  [1, 0.65], [2, 0.7007], [3, 0.6143], [4, 0.6487],
+  [5, 0.6497], [6, 1], [7, 0.9365994],
+]);
+
 function productSizeId(entry) {
   const preview = Array.isArray(entry) ? entry[1] : null;
   const last = Array.isArray(preview) ? preview[preview.length - 1] : preview;
@@ -156,3 +190,44 @@ export function boardPreviewImages(board) {
     .find((entry) => entry.value === board?.model && entry.layoutId === board?.layout_id);
   return model?.sizes.find((entry) => entry.value === board?.size)?.images || [];
 }
+
+/** Exact Android image/canvas geometry for one validated public board choice. */
+export function boardRenderGeometry(board) {
+  const type = BOARD_TYPES.find((entry) => entry.brand === board?.brand
+    && entry.models.some((model) => model.value === board?.model && model.layoutId === board?.layout_id));
+  const model = type?.models.find((entry) => entry.value === board?.model
+    && entry.layoutId === board?.layout_id);
+  const size = model?.sizes.find((entry) => entry.value === board?.size);
+  if (!type || !model || !size) return null;
+  if (type.brand === 'moonboard') {
+    const aspect = MOONBOARD_ASPECTS.get(model.layoutId);
+    return Number.isFinite(aspect) ? { aspect, layoutId: model.layoutId, productSizeId: null } : null;
+  }
+  const sizeId = productSizeId([size.label, size.image]);
+  const bounds = PRODUCT_SIZE_BOUNDS.get(`${type.brand}:${model.layoutId}:${sizeId}`);
+  if (!bounds) return null;
+  const [left, right, bottom, top] = bounds;
+  return {
+    aspect: (right - left) / (top - bottom), bounds: [...bounds],
+    layoutId: model.layoutId, productSizeId: sizeId,
+  };
+}
+
+/** Stable key for request/race isolation; every catalogue coordinate is included. */
+export function catalogueBoardKey(board) {
+  if (!board || typeof board.brand !== 'string' || !Number.isInteger(board.layoutId)
+    || !Number.isInteger(board.angle)
+    || (board.brand !== 'moonboard' && !Number.isInteger(board.productSizeId))) return '';
+  return `${board.brand}:${board.layoutId}:${board.productSizeId ?? 'layout'}:${board.angle}`;
+}
+
+/** Fail-closed admission check for a decoded row from a board catalogue. */
+export function catalogueClimbMatches(climb, board) {
+  return Boolean(catalogueBoardKey(board)
+    && climb?.brand === board.brand
+    && climb?.layoutId === board.layoutId
+    && climb?.angle === board.angle
+    && (board.productSizeId == null || climb?.productSizeId === board.productSizeId));
+}
+
+export const __geometryTesting = { PRODUCT_SIZE_BOUNDS, MOONBOARD_ASPECTS };

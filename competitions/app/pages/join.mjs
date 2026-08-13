@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-12';
+} from './common.mjs?v=20260813-13';
 import { SignIn } from '../ui/shell.mjs?v=20260813-10';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
@@ -25,13 +25,15 @@ import { EntrantWriter } from '../authority.mjs';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-15';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-16';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs';
-import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs';
-import { BOARD_TYPES, catalogueProductSizeId } from '../protocol/board-catalog.mjs';
+import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-1';
+import {
+  BOARD_TYPES, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
+} from '../protocol/board-catalog.mjs?v=20260813-1';
 import {
   climbCard, filterCatalogue, gradeFilterOptions, saveGradeScale, storedGradeScale,
-} from '../ui/climb-card.mjs?v=20260813-2';
+} from '../ui/climb-card.mjs?v=20260813-4';
 
 const { t, language } = bootstrap();
 
@@ -49,8 +51,10 @@ let catalogueCompetition = '';
 
 function catalogueBoard(competition) {
   const board = competition.board;
-  const model = BOARD_TYPES.flatMap((type) => type.models)
-    .find((candidate) => candidate.value === board.model && candidate.layoutId === board.layout_id);
+  const type = BOARD_TYPES.find((candidate) => candidate.brand === board.brand
+    && candidate.models.some((model) => model.value === board.model && model.layoutId === board.layout_id));
+  const model = type?.models.find((candidate) => candidate.value === board.model
+    && candidate.layoutId === board.layout_id);
   const size = model?.sizes.find((candidate) => candidate.value === board.size);
   return model && size ? {
     brand: board.brand, layoutId: board.layout_id, modelLabel: model.label,
@@ -65,8 +69,13 @@ async function hydrateCatalogue(competition) {
   const board = catalogueBoard(competition);
   if (!board) { catalogueState = 'error'; catalogueError = t('select.catalogue.bad_board'); render(); return; }
   try {
-    const { climbs } = await loadCatalogueClimbs(board);
+    const loaded = await loadCatalogueClimbs(board);
     if (catalogueCompetition !== token) return;
+    const { climbs, catalogue } = loaded || {};
+    if (!Array.isArray(climbs) || (catalogue && catalogue.key !== catalogueBoardKey(board))
+      || climbs.some((climb) => !catalogueClimbMatches(climb, board))) {
+      throw new Error('catalogue_mismatch');
+    }
     catalogueDetails = new Map(climbs.map((climb) => [String(climb.uuid).toLowerCase(), climb]));
     catalogueState = 'ready';
   } catch {
@@ -404,8 +413,11 @@ function registrationPanel(snapshot) {
     }
     if (catalogueState !== 'ready') selection.clear();
     const counter = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+    const selectionProgress = el('progress', { attrs: { max: String(needed), value: String(selection.size) } });
     const updateCounter = () => {
       counter.textContent = t('select.count', { chosen: selection.size, needed });
+      selectionProgress.value = selection.size;
+      selectionProgress.setAttribute('value', String(selection.size));
     };
 
     if (catalogueState !== 'ready') {
@@ -422,9 +434,9 @@ function registrationPanel(snapshot) {
       el('h3', { text: t('select.title') }),
       el('p', { className: 'small', text: t('select.hint', { needed }) }),
       unique ? el('p', { className: 'small', text: t('select.unique_hint') }) : null,
-      counter,
+      el('div', { className: 'climb-selection-progress' }, [counter, selectionProgress]),
       (() => {
-        const results = el('div', { className: 'stack' });
+        const results = el('div', { className: 'climb-browser-results' });
         let renderOptions = () => {};
         const filters = catalogueFilters(() => renderOptions());
         renderOptions = () => replace(results, ...filterCatalogue(options.map((option) => ({
@@ -460,7 +472,8 @@ function registrationPanel(snapshot) {
         });
         const details = catalogueDetails.get(String(option.climb_uuid).toLowerCase()) || option;
         const action = taken ? null : el('label', { className: 'climb-card-select', attrs: { for: `sel-${option.id}` } }, [
-          box, el('span', { text: selection.has(option.id) ? t('climb.browser.added') : t('climb.browser.choose') }),
+          box, el('span', { text: selection.has(option.id) ? t('climb.browser.added')
+            : limitReached ? t('climb.browser.limit_reached') : t('climb.browser.choose') }),
         ]);
         return climbCard({ climb: { ...details, ...option }, board: competition.board, t,
           selected: selection.has(option.id), taken, action, gradeScale: filters.gradeScale() });
@@ -759,12 +772,15 @@ function claimStatus(snapshot, mine) {
   const repick = new Set(granted);
   const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
   const readiness = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
-  const results = el('div', { className: 'stack' });
+  const results = el('div', { className: 'climb-browser-results' });
   const repickButton = el('button', { text: t('select.repick') });
+  const repickProgress = el('progress', { attrs: { max: String(needed), value: String(repick.size) } });
   let renderRepick = () => {};
   const filters = catalogueFilters(() => renderRepick());
   renderRepick = () => {
     const outstanding = needed - repick.size;
+    repickProgress.value = repick.size;
+    repickProgress.setAttribute('value', String(repick.size));
     repickButton.disabled = catalogueState !== 'ready' || outstanding !== 0;
     readiness.textContent = catalogueState !== 'ready' ? t('reg.ready.catalogue')
       : outstanding > 0 ? t('select.repick.remaining', { count: outstanding }) : t('select.repick.ready');
@@ -799,6 +815,7 @@ function claimStatus(snapshot, mine) {
     el('p', { className: 'small', text: t('select.lost', { needed: outstandingCount(competition, mine) }) }),
     filters.node,
     results,
+    repickProgress,
     readiness,
     feedback,
     repickButton,
