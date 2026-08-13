@@ -376,6 +376,24 @@ button.primary, .button.primary {
 }
 button.primary:hover, .button.primary:hover { background: var(--accent-dim); border-color: var(--accent-dim); }
 button.danger { border-color: var(--bad); color: var(--bad); }
+
+.key-forget-dialog {
+  width: min(32rem, calc(100vw - 2rem));
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 1px solid color-mix(in srgb, var(--bad) 38%, var(--rule));
+  border-radius: 18px;
+  color: var(--fg);
+  background: var(--bg-raised);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55);
+}
+.key-forget-dialog::backdrop {
+  background: rgba(5, 5, 5, 0.72);
+  backdrop-filter: blur(4px);
+}
+.key-forget-dialog h2 { margin-top: 0; }
+.key-forget-dialog p { color: var(--fg-soft); }
+.key-forget-dialog .button-row { justify-content: flex-end; margin-top: 1.5rem; }
+.key-forget-dialog button.danger { background: color-mix(in srgb, var(--bad) 12%, var(--bg-raised)); }
 button[disabled] { opacity: 0.5; cursor: not-allowed; }
 button.quiet { background: transparent; }
 

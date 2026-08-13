@@ -12,8 +12,8 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-7';
-import { SignIn } from '../ui/shell.mjs?v=20260813-8';
+} from './common.mjs?v=20260813-8';
+import { SignIn } from '../ui/shell.mjs?v=20260813-9';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs';
 import {
@@ -28,11 +28,11 @@ import { walletUri } from '../protocol/bolt11.mjs';
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
 import { competitionAddress } from '../protocol/competition.mjs';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
-import { createCompetitionForm } from './organizer-form.mjs?v=20260813-9';
+import { createCompetitionForm } from './organizer-form.mjs?v=20260813-10';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs';
 import { announce, displayName, formatDateTime, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-10';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-11';
 import { scoringExplanation } from '../ui/scoring-copy.mjs';
 
 const { t, language } = bootstrap();

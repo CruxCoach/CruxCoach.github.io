@@ -483,11 +483,12 @@ function venueBoardChoices(venue) {
             || entry.value === wall.sizeLabel
         ));
         if (!type || !model || !size) return [];
-        const angle = model.angles.includes(wall.angle) ? wall.angle : model.defaultAngle;
+        const angle = model.angles.includes(wall.angle) ? wall.angle
+          : model.angles.length === 1 ? model.angles[0] : null;
         return [{
           typeId, model: model.value, size: size.value, angle,
-          label: `${model.label} · ${size.label} · ${angle}°`,
-          address: source.address, exact: model.angles.includes(wall.angle),
+          label: [model.label, size.label, angle == null ? null : `${angle}°`].filter(Boolean).join(' · '),
+          address: source.address, exact: angle != null,
         }];
       });
     }
@@ -499,19 +500,24 @@ function venueBoardChoices(venue) {
       }];
     }
 
-    let model = type.models[0];
+    let model = type.models.length === 1 ? type.models[0] : null;
     if (source.id === 'moonboard' && MOONBOARD_VARIANTS.has(source.variant)) {
-      model = type.models.find((entry) => entry.value === MOONBOARD_VARIANTS.get(source.variant)) || model;
+      model = type.models.find((entry) => entry.value === MOONBOARD_VARIANTS.get(source.variant)) || null;
     }
-    const size = model.sizes[0];
-    const exactAngle = model.angles.includes(source.angle);
-    const angle = exactAngle ? source.angle : model.defaultAngle;
-    const exactModel = type.models.length === 1 || (source.id === 'moonboard' && MOONBOARD_VARIANTS.has(source.variant));
+    if (!model) {
+      return [{
+        typeId: type.id, model: null, size: null, angle: null,
+        label: type.label, address: source.address, exact: false,
+      }];
+    }
+    const size = model.sizes.length === 1 ? model.sizes[0] : null;
+    const angle = model.angles.includes(source.angle) ? source.angle
+      : model.angles.length === 1 ? model.angles[0] : null;
     return [{
-      typeId: type.id, model: model.value, size: size.value, angle,
-      label: `${model.label} · ${size.label} · ${angle}°`,
+      typeId: type.id, model: model.value, size: size?.value || null, angle,
+      label: [model.label, size?.label, angle == null ? null : `${angle}°`].filter(Boolean).join(' · '),
       address: source.address,
-      exact: exactModel && model.sizes.length === 1 && (exactAngle || model.angles.length === 1),
+      exact: size != null && angle != null,
     }];
   }).filter((choice, index, all) => all.findIndex((candidate) => (
     candidate.typeId === choice.typeId && candidate.model === choice.model
@@ -712,6 +718,13 @@ export function createCompetitionForm({
         choiceTier(`2. ${t('org.board.step.variant')}`, type.models, '', (value) => {
           f.model.value = value;
           syncBoardDetails({ resetSize: true });
+          const chosen = selectedModel();
+          if (chosen?.sizes.length > 1) replaceSelectOptions(f.size, [
+            ['', t('org.board.choose_size')], ...chosen.sizes.map((entry) => [entry.value, entry.label]),
+          ], '');
+          if (chosen?.angles.length > 1) replaceSelectOptions(f.angle, [
+            ['', t('org.board.choose_angle')], ...chosen.angles.map((angle) => [String(angle), `${angle}°`]),
+          ], '');
           renderBoardPicker();
           onBoardChange();
         }),
@@ -720,7 +733,7 @@ export function createCompetitionForm({
       );
       return;
     }
-    const size = model.sizes.find((entry) => entry.value === f.size.value) || model.sizes[0];
+    const size = model.sizes.find((entry) => entry.value === f.size.value) || null;
     const tiers = [];
     let step = 2;
     if (type.models.length > 1) {
@@ -756,11 +769,9 @@ export function createCompetitionForm({
       field('f-angle', `${step}. ${t('org.board.step.angle')}`, f.angle),
       el('p', {
         className: 'board-selection-summary',
-        text: t('org.board.selected', {
-          board: model.label,
-          size: size?.label || '',
-          angle: f.angle.value,
-        }),
+        text: !size ? t('org.board.choose_size')
+          : !f.angle.value ? t('org.board.choose_angle')
+            : t('org.board.selected', { board: model.label, size: size.label, angle: f.angle.value }),
       }),
       // These values are protocol state, not concepts a person should have to
       // understand. They remain form controls for validation and tests, but are
@@ -1116,8 +1127,15 @@ export function createCompetitionForm({
     }
     f.model.value = choice.model;
     syncBoardDetails({ resetSize: true });
-    f.size.value = choice.size;
-    f.angle.value = String(choice.angle);
+    const model = selectedModel();
+    if (choice.size == null && model?.sizes.length > 1) replaceSelectOptions(f.size, [
+      ['', t('org.board.choose_size')], ...model.sizes.map((entry) => [entry.value, entry.label]),
+    ], '');
+    else f.size.value = choice.size || model?.sizes[0]?.value || '';
+    if (choice.angle == null && model?.angles.length > 1) replaceSelectOptions(f.angle, [
+      ['', t('org.board.choose_angle')], ...model.angles.map((angle) => [String(angle), `${angle}°`]),
+    ], '');
+    else f.angle.value = String(choice.angle ?? model?.angles[0] ?? '');
     f.layoutId.value = String(selectedModel()?.layoutId || '');
     renderBoardPicker();
     onBoardChange();

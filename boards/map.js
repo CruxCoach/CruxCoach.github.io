@@ -20,6 +20,7 @@
       adjustable: 'Adjustable',
       fixed: 'Fixed',
       unknown: 'Unknown',
+      unknownMoonVariant: 'MoonBoard variant unknown',
       moonSetup: 'MoonBoard setup',
       variant: 'Variant',
       type: 'Type',
@@ -95,6 +96,7 @@
       adjustable: 'Verstellbar',
       fixed: 'Fest',
       unknown: 'Unbekannt',
+      unknownMoonVariant: 'MoonBoard-Variante unbekannt',
       moonSetup: 'MoonBoard-Setup',
       variant: 'Variante',
       type: 'Typ',
@@ -413,7 +415,9 @@
     }
     if (b === 'moonboard') {
       var tags = [];
-      if (boardObj.variant) tags.push(MOON_VARIANT_LABEL[boardObj.variant] || boardObj.variant);
+      tags.push(boardObj.variant
+        ? (MOON_VARIANT_LABEL[boardObj.variant] || boardObj.variant)
+        : T.unknownMoonVariant);
       if (boardObj.commercial === true) tags.push(T.commercial);
       else if (boardObj.commercial === false) tags.push(T.homeSetup);
       if (boardObj.led === true) tags.push('LED');

@@ -239,9 +239,34 @@ export class SignIn {
     announce(this.t('signin.bunker.remove.done'));
   }
 
-  /** Remove the stored key from this device. Irreversible, so it confirms. */
+  showForgetKeyDialog() {
+    const close = (dialog) => dialog.parentNode?.removeChild(dialog);
+    const dialog = el('dialog', {
+      className: 'key-forget-dialog',
+      attrs: { 'aria-labelledby': 'forget-key-title', 'aria-describedby': 'forget-key-copy' },
+      on: { close: (event) => close(event.currentTarget) },
+    }, [
+      el('h2', { attrs: { id: 'forget-key-title' }, text: this.t('signin.forget.title') }),
+      el('p', { attrs: { id: 'forget-key-copy' }, text: this.t('signin.forget.explainer') }),
+      el('div', { className: 'button-row' }, [
+        el('button', {
+          className: 'quiet', text: this.t('signin.forget.cancel'),
+          on: { click: () => close(dialog) },
+        }),
+        el('button', {
+          className: 'danger', text: this.t('signin.forget.remove'),
+          on: { click: () => { close(dialog); this.forgetKey(); } },
+        }),
+      ]),
+    ]);
+    this.mount.append(dialog);
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else dialog.setAttribute('open', 'open');
+    dialog.querySelector('.quiet')?.focus?.();
+  }
+
+  /** Remove only this browser's encrypted key copy after explicit confirmation. */
   forgetKey() {
-    if (!confirm(this.t('signin.forget.confirm'))) return;
     this.signer?.close();
     this.signer = null;
     this.profile = null;
@@ -299,7 +324,7 @@ export class SignIn {
             this.session?.hasStoredKey?.() ? el('button', {
               className: 'danger',
               text: t('signin.forget'),
-              on: { click: () => this.forgetKey() },
+              on: { click: () => this.showForgetKeyDialog() },
             }) : null,
             this.signer.kind === 'nip46' && this.remoteSession.hasStoredConnection() ? el('button', {
               className: 'danger',
@@ -493,13 +518,7 @@ export class SignIn {
         el('button', {
           className: 'quiet danger',
           text: t('key.forget'),
-          on: {
-            click: () => {
-              if (!confirm(t('key.forget.confirm'))) return;
-              this.session.forget();
-              this.render();
-            },
-          },
+          on: { click: () => this.showForgetKeyDialog() },
         }),
       );
     } else if (this.entryMode === 'new') {

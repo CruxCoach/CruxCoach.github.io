@@ -8,8 +8,8 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-5';
-import { SignIn } from '../ui/shell.mjs?v=20260813-8';
+} from './common.mjs?v=20260813-6';
+import { SignIn } from '../ui/shell.mjs?v=20260813-9';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';

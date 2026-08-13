@@ -682,6 +682,11 @@ test('venue suggestions use the board-map catalogue without preventing a custom 
           name: 'Unspecified Moon Gym', city: 'Funchal', country: 'PT',
           boards: [{ board: 'moonboard', commercial: true, led: true, variant: null, angle: null }],
         },
+      }, {
+        type: 'Feature', properties: {
+          name: 'Madeira Climbing Center', city: 'Funchal', country: 'PT',
+          boards: [{ board: 'moonboard', commercial: true, led: true, variant: 'mb2019-masters', angle: null }],
+        },
       }],
     });
     const form = createCompetitionForm({
@@ -716,6 +721,17 @@ test('venue suggestions use the board-map catalogue without preventing a custom 
     assert.equal(form.node.querySelector('#f-brand').value, 'moonboard');
     assert.equal(form.node.querySelector('#f-board').value, '', 'a missing variant must never silently become 2016');
     assert.match(form.node.querySelector('.board-selection-summary').textContent, /does not say which version/);
+
+    venue.value = 'madeira';
+    venue.dispatch('input');
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    form.node.querySelector('.venue-suggestion').dispatch('click');
+    assert.equal(form.node.querySelector('#f-board').value, 'moonboard-masters-2019');
+    const selectedMoon = [...form.node.querySelectorAll('.board-choice')]
+      .find((choice) => choice.textContent.includes('MoonBoard Masters 2019'));
+    assert.equal(selectedMoon?.getAttribute('aria-pressed'), 'true', 'the 2019 choice must be visibly selected');
+    assert.equal(form.node.querySelector('#f-angle').value, '', 'an unknown angle must not silently become 40°');
+    assert.match(form.node.querySelector('.board-selection-summary').textContent, /wall angle is unknown/);
   } finally {
     cleanup();
   }
@@ -1244,6 +1260,32 @@ test('a ready identity is one human profile bar with technical details collapsed
     assert.equal(mount.textContent.includes('signin.as'), false);
     assert.equal(mount.textContent.includes('local'), false, 'raw signer kinds are implementation details');
     assert.ok(mount.querySelector('.identity-details'));
+  } finally {
+    signIn?.session.dispose();
+    signIn?.remoteSession.dispose();
+    restore();
+  }
+});
+
+test('forgetting a browser key explains the local scope before removing it', async () => {
+  const { SignIn } = await import('../competitions/app/ui/shell.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  let signIn;
+  try {
+    const mount = document.createElement('div');
+    const removed = [];
+    signIn = new SignIn({ t: createTranslator('en'), mount, onChange: () => {} });
+    signIn.session.forget = () => removed.push('removed');
+    signIn.showForgetKeyDialog();
+    const dialog = mount.querySelector('.key-forget-dialog');
+    assert.ok(dialog);
+    assert.match(dialog.textContent, /only this browser’s encrypted copy/);
+    assert.match(dialog.textContent, /does not delete your Nostr identity/);
+    assert.equal(removed.length, 0, 'opening the explanation must not remove anything');
+    dialog.querySelector('.danger').dispatch('click');
+    assert.deepEqual(removed, ['removed']);
+    assert.equal(mount.querySelector('.key-forget-dialog'), null);
   } finally {
     signIn?.session.dispose();
     signIn?.remoteSession.dispose();
