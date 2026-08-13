@@ -544,7 +544,6 @@ export class SignIn {
       ]),
       el('ul', { className: 'key-practices' }, [
         el('li', { text: t('key.practice.password_manager') }),
-        el('li', { text: t('key.practice.protect_manager') }),
         el('li', { text: t('key.practice.private') }),
         el('li', { text: t('key.practice.verify') }),
       ]),
@@ -578,6 +577,13 @@ export class SignIn {
             className: 'button', text: t('key.signer.firefox'),
             attrs: {
               href: 'https://addons.mozilla.org/firefox/addon/nos2x-fox/',
+              target: '_blank', rel: 'noopener noreferrer', referrerpolicy: 'no-referrer',
+            },
+          }),
+          el('a', {
+            className: 'button', text: t('key.signer.amber'),
+            attrs: {
+              href: 'https://github.com/greenart7c3/Amber/releases',
               target: '_blank', rel: 'noopener noreferrer', referrerpolicy: 'no-referrer',
             },
           }),

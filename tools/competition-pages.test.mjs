@@ -957,11 +957,11 @@ test('a generated recovery key is masked until the eye control reveals it', asyn
     assert.equal(mount.querySelectorAll('#nsec-warning').length, 1,
       'the recovery warning should be concise rather than repeated');
     assert.ok(mount.textContent.includes('key.practice.password_manager'));
-    assert.ok(mount.textContent.includes('key.practice.protect_manager'));
     assert.ok(mount.textContent.includes('key.practice.private'));
     assert.ok(mount.textContent.includes('key.practice.verify'));
-    assert.equal(mount.querySelectorAll('a').length, 2,
-      'the recovery screen should link both supported nos2x variants');
+    assert.ok(mount.textContent.includes('key.signer.amber'));
+    assert.equal(mount.querySelectorAll('a').length, 3,
+      'the recovery screen should link the desktop signers and Amber');
     const eye = mount.querySelector('.secret-reveal');
     assert.equal(eye.getAttribute('aria-pressed'), 'false');
     eye.dispatch('click');
