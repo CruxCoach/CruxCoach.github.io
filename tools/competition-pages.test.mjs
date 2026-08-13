@@ -835,6 +835,14 @@ test('an unlimited entry capacity is shown as infinity in the review', async () 
   }
 });
 
+test('unlimited capacity copy uses the infinity symbol instead of protocol zero', () => {
+  const { STRINGS } = i18nTesting;
+  assert.match(STRINGS.en['org.field.capacity.hint'], /^∞/);
+  assert.match(STRINGS.de['org.field.capacity.hint'], /^∞/);
+  assert.doesNotMatch(STRINGS.en['org.field.capacity.info'], /\b0\b/);
+  assert.doesNotMatch(STRINGS.de['org.field.capacity.info'], /\b0\b/);
+});
+
 test('restored catalogue climbs regain their verified holds after reload', async () => {
   const { window } = await import('./dev/mini-dom.mjs');
   const cleanup = window.install();
