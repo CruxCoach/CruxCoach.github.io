@@ -26,11 +26,11 @@ import { verifyZapReceipt, receiptFilter, ZAP_RECEIPT_KIND } from '../protocol/z
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
 import { competitionAddress } from '../protocol/competition.mjs';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
-import { createCompetitionForm } from './organizer-form.mjs?v=20260813-4';
+import { createCompetitionForm } from './organizer-form.mjs?v=20260813-5';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs';
 import { announce, displayName, formatDateTime, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-6';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-7';
 
 const { t, language } = bootstrap();
 

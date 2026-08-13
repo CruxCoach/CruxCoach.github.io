@@ -659,6 +659,44 @@ test('the time zone is a picker whose choices always show the start-date UTC rel
   }
 });
 
+test('venue suggestions use the board-map catalogue without preventing a custom venue', async () => {
+  const { window } = await import('./dev/mini-dom.mjs');
+  const cleanup = window.install();
+  try {
+    const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    const { venueEntries } = await import('../competitions/app/data/venue-catalogue.mjs');
+    const venues = venueEntries({
+      type: 'FeatureCollection',
+      features: [{
+        type: 'Feature', properties: {
+          name: 'Bloc Garten', city: 'Berlin', country: 'DE',
+          boards: [{ board: 'kilter', address: 'Testweg 7, Berlin' }],
+        },
+      }],
+    });
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: { query: async () => ({ events: [] }) },
+      signerPubkey: '33'.repeat(32), defaultDisplayName: 'Host', defaultLud16: '', relays: ['wss://nos.lol'],
+      venueLoader: async () => venues,
+    });
+    const venue = form.node.querySelector('#f-venue');
+    assert.equal(venue.getAttribute('role'), 'combobox');
+    venue.value = 'bloc';
+    venue.dispatch('input');
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    const suggestion = form.node.querySelector('.venue-suggestion');
+    assert.equal(suggestion.textContent.includes('Bloc Garten'), true);
+    suggestion.dispatch('click');
+    assert.equal(venue.value, 'Bloc Garten');
+    assert.equal(form.node.querySelector('#f-address').value, 'Testweg 7, Berlin');
+
+    venue.value = 'My private training room';
+    assert.equal(venue.value, 'My private training room', 'free text must remain valid');
+  } finally {
+    cleanup();
+  }
+});
+
 test('competition creation is a guided wizard with a final review', async () => {
   const { window } = await import('./dev/mini-dom.mjs');
   const cleanup = window.install();

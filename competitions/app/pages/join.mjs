@@ -24,7 +24,7 @@ import { EntrantWriter } from '../authority.mjs';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-6';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-7';
 
 const { t, language } = bootstrap();
 

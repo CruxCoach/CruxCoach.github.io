@@ -21,6 +21,7 @@ import {
   BOARD_TYPES, boardType, resolveBoardSelection, resolveCatalogueSelection,
 } from '../protocol/board-catalog.mjs';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs';
+import { loadVenueCatalogue, searchVenues } from '../data/venue-catalogue.mjs';
 
 const text = (id, value = '', attrs = {}) => el('input', { attrs: { type: 'text', id, value, ...attrs } });
 const num = (id, value, attrs = {}) => el('input', { attrs: { type: 'number', id, value: String(value), required: 'required', ...attrs } });
@@ -455,6 +456,7 @@ class ClimbEditor {
 export function createCompetitionForm({
   t, pool, signerPubkey, defaultDisplayName, defaultLud16, relays,
   catalogueLoader = loadCatalogueClimbs, initialDraft = null, onDraftChange = () => {},
+  venueLoader = loadVenueCatalogue,
   persistDraft = true, onDraftDiscard = null, initialStep = null,
   onStepChange = () => {}, onStepBack = null,
 }) {
@@ -955,11 +957,120 @@ export function createCompetitionForm({
   const reviewNode = el('div', { className: 'review-grid' });
   const venueField = field('f-venue', t('org.field.venue'), f.venue);
   const addressField = field('f-address', t('org.field.address'), f.address);
+  const venueStatus = el('p', {
+    className: 'venue-suggestion-status hint',
+    attrs: { id: 'venue-suggestion-status', role: 'status', 'aria-live': 'polite' },
+    text: t('org.venue.suggest.hint'),
+  });
+  const venueSuggestions = el('div', {
+    className: 'venue-suggestions',
+    attrs: { id: 'venue-suggestions', role: 'listbox', hidden: 'hidden' },
+  });
+  const venuePicker = el('div', { className: 'venue-picker' }, [venueField, venueStatus, venueSuggestions]);
+  for (const [name, value] of Object.entries({
+    role: 'combobox', 'aria-autocomplete': 'list', 'aria-controls': 'venue-suggestions',
+    'aria-expanded': 'false', autocomplete: 'off', spellcheck: 'false',
+  })) f.venue.setAttribute(name, value);
+
+  let venueSearchToken = 0;
+  let activeVenueOption = -1;
+  let shownVenues = [];
+  const closeVenueSuggestions = () => {
+    activeVenueOption = -1;
+    shownVenues = [];
+    venueSuggestions.setAttribute('hidden', 'hidden');
+    f.venue.setAttribute('aria-expanded', 'false');
+    f.venue.removeAttribute('aria-activedescendant');
+  };
+  const venueBoardLabel = (id) => {
+    if (id === 'kilter') return 'Kilter';
+    if (id === 'soill') return 'So iLL';
+    return BOARD_TYPES.find((entry) => entry.brand === id)?.label || id;
+  };
+  const chooseVenue = (venue) => {
+    f.venue.value = venue.name;
+    if (venue.address) f.address.value = venue.address;
+    venueStatus.textContent = t('org.venue.suggest.selected', { name: venue.name });
+    closeVenueSuggestions();
+    notifyDraftChange();
+  };
+  const highlightVenueOption = (index) => {
+    const options = venueSuggestions.querySelectorAll('.venue-suggestion');
+    if (!options.length) return;
+    activeVenueOption = (index + options.length) % options.length;
+    options.forEach((option, optionIndex) => {
+      option.className = `venue-suggestion${optionIndex === activeVenueOption ? ' active' : ''}`;
+      option.setAttribute('aria-selected', String(optionIndex === activeVenueOption));
+    });
+    f.venue.setAttribute('aria-activedescendant', options[activeVenueOption].id);
+  };
+  const renderVenueSuggestions = (venues) => {
+    shownVenues = venues;
+    activeVenueOption = -1;
+    replace(venueSuggestions, ...venues.map((venue, index) => el('button', {
+      className: 'venue-suggestion',
+      attrs: { type: 'button', id: `venue-suggestion-${index}`, role: 'option', 'aria-selected': 'false' },
+      on: {
+        pointerdown: (event) => event.preventDefault(),
+        click: () => chooseVenue(venue),
+      },
+    }, [
+      el('strong', { text: venue.name }),
+      el('span', {
+        text: [venue.city, venue.country, [...new Set(venue.boards.map((board) => venueBoardLabel(board.id)))].join(' · ')]
+          .filter(Boolean).join(' · '),
+      }),
+    ])));
+    if (venues.length) {
+      venueSuggestions.removeAttribute('hidden');
+      f.venue.setAttribute('aria-expanded', 'true');
+      venueStatus.textContent = t('org.venue.suggest.results', { count: venues.length });
+    } else {
+      closeVenueSuggestions();
+      venueStatus.textContent = t('org.venue.suggest.none');
+    }
+  };
+  const updateVenueSuggestions = async () => {
+    const token = ++venueSearchToken;
+    const query = f.venue.value.trim();
+    if (f.venueKind.value !== 'physical' || query.length < 2) {
+      closeVenueSuggestions();
+      venueStatus.textContent = t('org.venue.suggest.hint');
+      return;
+    }
+    venueStatus.textContent = t('org.venue.suggest.loading');
+    try {
+      const catalogue = await venueLoader();
+      if (token !== venueSearchToken) return;
+      renderVenueSuggestions(searchVenues(catalogue, query, boardType(f.brand.value)?.brand || ''));
+    } catch {
+      if (token !== venueSearchToken) return;
+      closeVenueSuggestions();
+      venueStatus.textContent = t('org.venue.suggest.unavailable');
+    }
+  };
+  f.venue.addEventListener('input', updateVenueSuggestions);
+  f.venue.addEventListener('keydown', (event) => {
+    if (!shownVenues.length) return;
+    if (event.key === 'ArrowDown') {
+      event.preventDefault(); highlightVenueOption(activeVenueOption + 1);
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault(); highlightVenueOption(activeVenueOption - 1);
+    } else if (event.key === 'Enter' && activeVenueOption >= 0) {
+      event.preventDefault(); chooseVenue(shownVenues[activeVenueOption]);
+    } else if (event.key === 'Escape') {
+      event.preventDefault(); closeVenueSuggestions();
+    }
+  });
+  f.venue.addEventListener('blur', () => setTimeout(closeVenueSuggestions, 150));
   const syncVenueRequirement = () => {
     const required = f.venueKind.value === 'physical';
     setFieldRequirement(venueField, f.venue, required, t);
     if (required) addressField.removeAttribute('hidden');
-    else addressField.setAttribute('hidden', 'hidden');
+    else {
+      addressField.setAttribute('hidden', 'hidden');
+      closeVenueSuggestions();
+    }
   };
   f.venueKind.addEventListener('change', syncVenueRequirement);
   syncVenueRequirement();
@@ -1108,7 +1219,7 @@ export function createCompetitionForm({
       el('legend', { text: t('org.where') }),
       el('p', { className: 'wizard-intro', text: t('org.where.intro') }),
       field('f-venue-kind', t('org.field.venue_kind'), f.venueKind),
-      venueField,
+      venuePicker,
       addressField,
       el('h3', { text: t('org.board') }),
       el('p', { className: 'small', text: t('org.board.hint') }),
