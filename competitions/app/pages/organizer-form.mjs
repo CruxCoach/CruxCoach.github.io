@@ -492,6 +492,13 @@ function venueBoardChoices(venue) {
       });
     }
 
+    if (source.id === 'moonboard' && !MOONBOARD_VARIANTS.has(source.variant)) {
+      return [{
+        typeId: type.id, model: null, size: null, angle: null,
+        label: type.label, address: source.address, exact: false,
+      }];
+    }
+
     let model = type.models[0];
     if (source.id === 'moonboard' && MOONBOARD_VARIANTS.has(source.variant)) {
       model = type.models.find((entry) => entry.value === MOONBOARD_VARIANTS.get(source.variant)) || model;
@@ -698,7 +705,21 @@ export function createCompetitionForm({
   ]);
   const renderBoardPicker = () => {
     const type = boardType(f.brand.value) || BOARD_TYPES[0];
-    const model = selectedModel() || type.models[0];
+    const model = selectedModel();
+    if (!model) {
+      replace(boardPickerNode,
+        field('f-brand', `1. ${t('org.board.step.type')}`, f.brand, t('org.board.step.type.hint')),
+        choiceTier(`2. ${t('org.board.step.variant')}`, type.models, '', (value) => {
+          f.model.value = value;
+          syncBoardDetails({ resetSize: true });
+          renderBoardPicker();
+          onBoardChange();
+        }),
+        el('p', { className: 'board-selection-summary', text: t('org.board.choose_variant') }),
+        el('div', { attrs: { hidden: 'hidden' } }, [f.model, f.size, f.layoutId]),
+      );
+      return;
+    }
     const size = model.sizes.find((entry) => entry.value === f.size.value) || model.sizes[0];
     const tiers = [];
     let step = 2;
@@ -1084,6 +1105,15 @@ export function createCompetitionForm({
     if (!choice) return;
     f.brand.value = choice.typeId;
     syncBoardDetails({ resetModel: true, resetSize: true });
+    if (!choice.model) {
+      f.model.value = '';
+      f.size.value = '';
+      f.angle.value = '';
+      f.layoutId.value = '';
+      renderBoardPicker();
+      onBoardChange();
+      return;
+    }
     f.model.value = choice.model;
     syncBoardDetails({ resetSize: true });
     f.size.value = choice.size;

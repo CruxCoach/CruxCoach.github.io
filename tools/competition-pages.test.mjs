@@ -677,6 +677,11 @@ test('venue suggestions use the board-map catalogue without preventing a custom 
             }],
           }],
         },
+      }, {
+        type: 'Feature', properties: {
+          name: 'Unspecified Moon Gym', city: 'Funchal', country: 'PT',
+          boards: [{ board: 'moonboard', commercial: true, led: true, variant: null, angle: null }],
+        },
       }],
     });
     const form = createCompetitionForm({
@@ -703,6 +708,14 @@ test('venue suggestions use the board-map catalogue without preventing a custom 
 
     venue.value = 'My private training room';
     assert.equal(venue.value, 'My private training room', 'free text must remain valid');
+
+    venue.value = 'unspecified';
+    venue.dispatch('input');
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    form.node.querySelector('.venue-suggestion').dispatch('click');
+    assert.equal(form.node.querySelector('#f-brand').value, 'moonboard');
+    assert.equal(form.node.querySelector('#f-board').value, '', 'a missing variant must never silently become 2016');
+    assert.match(form.node.querySelector('.board-selection-summary').textContent, /does not say which version/);
   } finally {
     cleanup();
   }

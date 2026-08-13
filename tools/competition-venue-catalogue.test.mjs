@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 
 import {
   normalizeVenueText, searchVenues, venueEntries,
@@ -34,4 +35,10 @@ test('venue catalogue search ignores accents and prefers the selected board', ()
 test('venue suggestions require a useful query and never invent entries', () => {
   assert.deepEqual(searchVenues(catalogue, 'm'), []);
   assert.deepEqual(searchVenues(catalogue, 'not in the map'), []);
+});
+
+test('the curated Madeira venue identifies its 2019 Masters MoonBoard', () => {
+  const geojson = JSON.parse(fs.readFileSync(new URL('../boards/data/boards.geojson', import.meta.url), 'utf8'));
+  const madeira = venueEntries(geojson).find((entry) => entry.name === 'Madeira Climbing Center');
+  assert.equal(madeira?.boards.find((board) => board.id === 'moonboard')?.variant, 'mb2019-masters');
 });
