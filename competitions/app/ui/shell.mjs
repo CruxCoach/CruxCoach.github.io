@@ -23,7 +23,19 @@ import { ProfileGate } from './profile-gate.mjs';
 
 const METHOD_KEY = 'cruxcoach:competitions:method:v1';
 const HISTORY_KEY = 'cruxcoachCompetitionSignIn';
-const HISTORY_SCREENS = new Set(['root', 'new', 'signer', 'existing']);
+const HISTORY_SCREENS = new Set([
+  'root', 'new', 'signer', 'existing',
+  'new-backup-choice', 'new-backup-raw', 'new-backup-encrypted', 'new-backup-encrypted-ready',
+]);
+const BACKUP_SCREENS = new Set([
+  'new-backup-choice', 'new-backup-raw', 'new-backup-encrypted', 'new-backup-encrypted-ready',
+]);
+
+function entryModeForScreen(screen) {
+  if (screen === 'root') return null;
+  if (screen === 'new' || BACKUP_SCREENS.has(screen)) return 'new';
+  return screen;
+}
 
 export class SignIn {
   /**
@@ -52,11 +64,19 @@ export class SignIn {
       const navigation = event.state?.[HISTORY_KEY];
       if (!navigation || navigation.path !== this.historyPath) return;
       // Once sign-in completed, one press of Browser Back should leave this
-      // flow instead of stopping on its now-obsolete root entry.
+      // flow instead of visibly stopping on each now-obsolete sign-in entry.
       if (this.signer) {
-        if (navigation.screen === 'root' && !event.state?.cruxcoachCompetitionWizard) {
+        const depth = Number.isInteger(navigation.depth)
+          ? navigation.depth : (navigation.screen === 'root' ? 0 : 1);
+        if (depth > 0 || !event.state?.cruxcoachCompetitionWizard) {
           globalThis.window?.history?.back();
         }
+        return;
+      }
+      // A generated secret exists only in memory. After a hard reload, skip
+      // stale backup entries instead of rendering a broken half-finished step.
+      if (BACKUP_SCREENS.has(navigation.screen) && !this.pendingKey) {
+        globalThis.window?.history?.back();
         return;
       }
       this.applyNavigation(navigation.screen);
@@ -88,7 +108,7 @@ export class SignIn {
     if (!current || current.path !== this.historyPath || !HISTORY_SCREENS.has(current.screen)) {
       history.replaceState({
         ...(history.state || {}),
-        [HISTORY_KEY]: { path: this.historyPath, screen: 'root' },
+        [HISTORY_KEY]: { path: this.historyPath, screen: 'root', depth: 0 },
       }, '');
     }
     browser.addEventListener('popstate', this.popStateHandler);
@@ -102,7 +122,7 @@ export class SignIn {
 
   applyNavigation(screen) {
     const target = HISTORY_SCREENS.has(screen) ? screen : 'root';
-    if (target !== 'new' && this.pendingKey) {
+    if (!BACKUP_SCREENS.has(target) && this.pendingKey) {
       // The generated identity has not been published. Browser Back must wipe
       // it, but must not delete an older encrypted vault from this device.
       this.session.lock();
@@ -111,7 +131,11 @@ export class SignIn {
       this.backupMode = null;
       this.pendingNcryptsec = null;
     }
-    this.entryMode = target === 'root' ? null : target;
+    if (target === 'new-backup-choice') this.backupMode = null;
+    if (target === 'new-backup-raw') this.backupMode = 'raw';
+    if (target === 'new-backup-encrypted') this.backupMode = 'encrypted';
+    if (target === 'new-backup-encrypted-ready') this.backupMode = 'encrypted-ready';
+    this.entryMode = entryModeForScreen(target);
     this.error = null;
     this.render();
   }
@@ -120,9 +144,11 @@ export class SignIn {
     const target = HISTORY_SCREENS.has(screen) ? screen : 'root';
     const history = globalThis.window?.history;
     if (this.historyPath && history?.pushState && history?.replaceState) {
+      const current = history.state?.[HISTORY_KEY];
+      const currentDepth = Number.isInteger(current?.depth) ? current.depth : 0;
       history[replace ? 'replaceState' : 'pushState']({
         ...(history.state || {}),
-        [HISTORY_KEY]: { path: this.historyPath, screen: target },
+        [HISTORY_KEY]: { path: this.historyPath, screen: target, depth: replace ? currentDepth : currentDepth + 1 },
       }, '');
     }
     this.applyNavigation(target);
@@ -497,7 +523,7 @@ export class SignIn {
               this.pendingKey = this.session.generate();
               this.backupMode = null;
               this.pendingNcryptsec = null;
-              this.render();
+              this.navigate('new-backup-choice');
             }),
           },
         }),
@@ -649,20 +675,18 @@ export class SignIn {
           el('h3', { text: t('key.choice.encrypted') }),
           el('p', { className: 'small', text: t('key.choice.encrypted.hint') }),
           el('button', { className: 'primary', text: t('key.choice.encrypted.action'), on: {
-            click: () => { this.backupMode = 'encrypted'; this.renderBackup(); },
+            click: () => { this.pendingNcryptsec = null; this.navigate('new-backup-encrypted'); },
           } }),
         ]),
         el('section', { className: 'card raised' }, [
           el('h3', { text: t('key.choice.raw') }),
           el('p', { className: 'small', text: t('key.choice.raw.hint') }),
           el('button', { text: t('key.choice.raw.action'), on: {
-            click: () => { this.backupMode = 'raw'; this.renderBackup(); },
+            click: () => { this.pendingNcryptsec = null; this.navigate('new-backup-raw'); },
           } }),
         ]),
       ]),
-      el('button', { className: 'quiet', text: t('signin.choice.back'), on: { click: () => {
-        this.session.lock(); this.pendingKey = null; this.navigateBack();
-      } } }),
+      el('button', { className: 'quiet backup-back', text: t('signin.choice.back'), on: { click: () => this.navigateBack() } }),
     ]));
   }
 
@@ -730,9 +754,7 @@ export class SignIn {
           }),
         },
       }),
-      el('button', { className: 'quiet', text: t('key.choice.change'), on: { click: () => {
-        this.backupMode = null; this.renderBackup();
-      } } }),
+      el('button', { className: 'quiet backup-back', text: t('key.choice.change'), on: { click: () => this.navigateBack() } }),
     ]));
   }
 
@@ -759,15 +781,14 @@ export class SignIn {
               if (pass.value !== repeat.value) throw new Error(t('key.encrypted.mismatch'));
               this.pendingNcryptsec = await this.session.createNcryptsec(pass.value);
               pass.value = ''; repeat.value = '';
-              this.backupMode = 'encrypted-ready';
-              this.renderBackup();
+              this.navigate('new-backup-encrypted-ready');
             }),
           },
         }),
         el('button', {
-          className: 'quiet',
+          className: 'quiet backup-back',
           text: t('key.choice.change'),
-          on: { click: () => { this.backupMode = null; this.renderBackup(); } },
+          on: { click: () => this.navigateBack() },
         }),
       ]),
     ]));
@@ -814,6 +835,7 @@ export class SignIn {
           await this.use(createLocalSigner(this.session), 'local');
         }),
       } }),
+      el('button', { className: 'quiet backup-back', text: t('signin.choice.back'), on: { click: () => this.navigateBack() } }),
     ]));
   }
 
@@ -841,7 +863,7 @@ export class SignIn {
     }
     if (method !== 'nip07') {
       const screen = this.navigationScreen();
-      this.entryMode = screen === 'root' ? null : screen;
+      this.entryMode = entryModeForScreen(BACKUP_SCREENS.has(screen) ? 'new' : screen);
       this.render();
       return;
     }

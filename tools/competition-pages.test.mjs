@@ -992,6 +992,49 @@ test('browser Back moves through sign-in before it leaves the participant page',
   }
 });
 
+test('browser and visible Back visit every generated-key backup step in order', async () => {
+  const { SignIn } = await import('../competitions/app/ui/shell.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  let signIn;
+  try {
+    const mount = document.createElement('div');
+    signIn = new SignIn({ t: (key) => key, mount, onChange: () => {} });
+    signIn.navigate('new');
+    signIn.pendingKey = signIn.session.generate();
+    signIn.navigate('new-backup-choice');
+    assert.ok(mount.textContent.includes('key.choice.title'));
+
+    mount.querySelectorAll('button')[0].dispatch('click');
+    assert.ok(mount.querySelector('#new-pass'), 'protected choice must open its passphrase step');
+    signIn.session.createNcryptsec = async () => 'ncryptsec1encrypted';
+    mount.querySelector('#new-pass').value = 'a strong passphrase';
+    mount.querySelector('#repeat-pass').value = 'a strong passphrase';
+    mount.querySelector('.primary').dispatch('click');
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    assert.ok(mount.textContent.includes('key.encrypted.ready.title'));
+
+    globalThis.window.history.back();
+    assert.ok(mount.querySelector('#new-pass'), 'Back from download must return to the passphrase step');
+    mount.querySelector('.backup-back').dispatch('click');
+    assert.ok(mount.textContent.includes('key.choice.title'), 'visible Back must return to backup choice');
+    mount.querySelector('.backup-back').dispatch('click');
+    assert.ok(mount.textContent.includes('signin.local.action'), 'Back from backup choice must return to identity creation');
+    assert.equal(signIn.pendingKey, null, 'leaving backup must wipe the unpublished identity');
+
+    signIn.pendingKey = signIn.session.generate();
+    signIn.navigate('new-backup-choice');
+    mount.querySelectorAll('button')[1].dispatch('click');
+    assert.ok(mount.textContent.includes('key.raw.title'));
+    globalThis.window.history.back();
+    assert.ok(mount.textContent.includes('key.choice.title'), 'raw backup must not be skipped either');
+  } finally {
+    signIn?.session.dispose();
+    signIn?.remoteSession.dispose();
+    restore();
+  }
+});
+
 test('the raw backup is an explicit choice and stays masked until revealed', async () => {
   const { SignIn } = await import('../competitions/app/ui/shell.mjs');
   const { window } = await import('./dev/mini-dom.mjs');
