@@ -204,6 +204,11 @@ export function buildClimbList(entries) {
       label: label.slice(0, 60),
       points: Number.isInteger(entry.points) ? entry.points : 100,
       ...(entry.naddr ? { naddr: entry.naddr } : {}),
+      ...(Number.isInteger(entry.zoneHold) && entry.zoneHold > 0 ? { zone_hold: entry.zoneHold } : {}),
+      ...(entry.setter ? { setter: String(entry.setter).slice(0, 80) } : {}),
+      ...(Number.isFinite(entry.difficulty) ? { difficulty: entry.difficulty } : {}),
+      ...(Number.isFinite(entry.quality) ? { quality: entry.quality } : {}),
+      ...(Number.isInteger(entry.ascents) ? { ascents: entry.ascents } : {}),
       source: entry.kind === 'community' ? 'community' : 'catalogue',
     });
   });

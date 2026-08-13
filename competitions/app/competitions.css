@@ -786,6 +786,19 @@ button.board-choice.selected {
 }
 .climb-result-card p { margin: 0.15rem 0 0; }
 .climb-result-card.selected { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 7%, var(--bg)); }
+.climb-result-card.taken { opacity: 0.66; }
+.climb-result-card.rich { grid-template-columns: 8rem minmax(0, 1fr) auto; align-items: stretch; }
+.climb-card-preview { position: relative; min-height: 9rem; overflow: hidden; border-radius: 10px; background: #080808; }
+.climb-card-preview img { position: absolute; inset: 0.4rem; width: calc(100% - .8rem); height: calc(100% - .8rem); object-fit: contain; }
+.climb-hold-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.climb-preview-unavailable { position: absolute; inset: auto .5rem .5rem; color: var(--fg-soft); font-size: .72rem; text-align: center; }
+.climb-card-copy { align-self: center; }
+.climb-card-stats { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .45rem; }
+.climb-card-stats span, .zone-label { padding: .18rem .45rem; border-radius: 999px; background: color-mix(in srgb, var(--accent) 12%, var(--bg)); font-size: .78rem; }
+.climb-card-select { align-self: center; display: flex; align-items: center; gap: .45rem; margin: 0; padding: .55rem .7rem; border: 1px solid var(--rule); border-radius: 9px; cursor: pointer; }
+.climb-card-select input { width: 1.1rem; height: 1.1rem; }
+.zone-label { display: inline-block; color: #ffe176; }
+.climb-filter-grid { display: grid; grid-template-columns: repeat(4, minmax(7rem, 1fr)); gap: .6rem; margin: .8rem 0; }
 .climb-browser label { margin-top: 0.9rem; }
 .selection-count {
   display: inline-flex;
@@ -809,7 +822,10 @@ button.board-choice.selected {
 }
 @media (max-width: 32rem) {
   .climb-result-card { grid-template-columns: 1fr; }
+  .climb-result-card.rich { grid-template-columns: 6.5rem minmax(0, 1fr); }
+  .climb-result-card.rich > button { grid-column: 1 / -1; }
   .climb-result-card button { width: 100%; }
+  .climb-filter-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 32rem) {

@@ -149,3 +149,10 @@ export function resolveCatalogueSelection(typeId, modelValue, sizeValue, angleVa
     angle,
   };
 }
+
+/** Public presentation assets for a validated competition board. */
+export function boardPreviewImages(board) {
+  const model = BOARD_TYPES.flatMap((type) => type.models)
+    .find((entry) => entry.value === board?.model && entry.layoutId === board?.layout_id);
+  return model?.sizes.find((entry) => entry.value === board?.size)?.images || [];
+}

@@ -95,6 +95,13 @@ def layout_sizes(db: sqlite3.Connection, layout: int) -> list[tuple[int, int, in
     )]
 
 
+def size_bounds(brand: str, layout: int, sizes: list[tuple[int, int, int, int, int]]) -> dict[str, list[int]]:
+    if brand == "moonboard":
+        return {"default": [0, 10, 0, 11 if layout in (6, 7) else 17]}
+    return {str(size_id): [left, right, bottom, top]
+            for size_id, left, right, bottom, top in sizes}
+
+
 def compatible_sizes(edges: tuple[object, object, object, object], sizes: list[tuple[int, int, int, int, int]]) -> list[int]:
     if not sizes:
         return []
@@ -105,11 +112,42 @@ def compatible_sizes(edges: tuple[object, object, object, object], sizes: list[t
             if left >= size_left and right <= size_right and bottom >= size_bottom and top <= size_top]
 
 
+def climb_holds(db: sqlite3.Connection, brand: str, layout: int) -> dict[int, tuple[int, int]]:
+    """Placement coordinates used by the read-only web preview.
+
+    Coordinates come from the same catalogue row as the climb.  The browser
+    never guesses where a placement lives, and a zone can therefore only name
+    a real hold from that climb.
+    """
+    if brand == "moonboard":
+        rows = 12 if layout in (6, 7) else 18
+        return {pid: ((pid - 1) % 11, (pid - 1) // 11) for pid in range(1, 11 * rows + 1)}
+    tables = {row[0] for row in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    if not {"placements", "holes"}.issubset(tables):
+        return {}
+    return {int(pid): (int(x), int(y)) for pid, x, y in db.execute(
+        """SELECT p.id, h.x, h.y FROM placements p JOIN holes h ON h.id = p.hole_id
+           WHERE p.layout_id = ?""", (layout,))}
+
+
+def parse_holds(frames: object, coordinates: dict[int, tuple[int, int]]) -> list[list[int]]:
+    import re
+    result = []
+    for placement, role in re.findall(r"p(\d+)r(\d+)", str(frames or "").split(",", 1)[0]):
+        pid = int(placement)
+        xy = coordinates.get(pid)
+        if xy is not None:
+            result.append([pid, int(role), xy[0], xy[1]])
+    return result[:200]
+
+
 def export_layout(db: sqlite3.Connection, brand: str, layout: int, header: dict, target: Path) -> int:
     sizes = layout_sizes(db, layout)
+    coordinates = climb_holds(db, brand, layout)
     query = db.execute(
         """SELECT c.uuid, c.name, COALESCE(c.setter_username, ''),
                   c.edge_left, c.edge_right, c.edge_bottom, c.edge_top,
+                  c.frames,
                   s.angle, s.display_difficulty, s.quality_average,
                   COALESCE(s.ascensionist_count, 0)
            FROM climbs c
@@ -121,7 +159,7 @@ def export_layout(db: sqlite3.Connection, brand: str, layout: int, header: dict,
     records: list[list] = []
     current_uuid = None
     current = None
-    for uuid, name, setter, left, right, bottom, top, angle, difficulty, quality, ascents in query:
+    for uuid, name, setter, left, right, bottom, top, frames, angle, difficulty, quality, ascents in query:
         normalized = str(uuid).lower()
         if normalized != current_uuid:
             current_uuid = normalized
@@ -130,17 +168,19 @@ def export_layout(db: sqlite3.Connection, brand: str, layout: int, header: dict,
                 clean_text(name, 200),
                 clean_text(setter, 160),
                 compatible_sizes((left, right, bottom, top), sizes),
+                parse_holds(frames, coordinates),
                 [],
             ]
             records.append(current)
-        current[4].append([
+        current[5].append([
             int(angle),
             round(float(difficulty), 2) if difficulty is not None else None,
             round(float(quality), 2) if quality is not None else None,
             max(0, int(ascents or 0)),
         ])
 
-    complete_header = {**header, "v": 1, "brand": brand, "layout": layout, "rows": len(records)}
+    complete_header = {**header, "v": 2, "brand": brand, "layout": layout, "rows": len(records),
+                       "size_bounds": size_bounds(brand, layout, sizes)}
     with target.open("wb") as raw:
         with gzip.GzipFile(filename="", mode="wb", compresslevel=9, mtime=0, fileobj=raw) as zipped:
             zipped.write((json.dumps(complete_header, separators=(",", ":")) + "\n").encode())

@@ -27,6 +27,9 @@ import {
 } from '../ui/dom.mjs';
 import { describeRejection } from '../ui/i18n.mjs?v=20260813-8';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs';
+import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs';
+import { BOARD_TYPES, catalogueProductSizeId } from '../protocol/board-catalog.mjs';
+import { climbCard, filterCatalogue } from '../ui/climb-card.mjs';
 
 const { t, language } = bootstrap();
 
@@ -37,6 +40,39 @@ let signer = null;
 let ref = null;
 let lastTurnAnnouncement = null;
 let ticker = null;
+let catalogueDetails = new Map();
+let catalogueState = 'idle';
+let catalogueError = '';
+let catalogueCompetition = '';
+
+function catalogueBoard(competition) {
+  const board = competition.board;
+  const model = BOARD_TYPES.flatMap((type) => type.models)
+    .find((candidate) => candidate.value === board.model && candidate.layoutId === board.layout_id);
+  const size = model?.sizes.find((candidate) => candidate.value === board.size);
+  return model && size ? {
+    brand: board.brand, layoutId: board.layout_id, modelLabel: model.label,
+    productSizeId: catalogueProductSizeId(size), angle: board.angle,
+  } : null;
+}
+
+async function hydrateCatalogue(competition) {
+  const token = `${competition.authority}:${competition.comp_id}:${competition.revision}`;
+  catalogueCompetition = token;
+  catalogueState = 'loading'; catalogueError = ''; catalogueDetails = new Map(); render();
+  const board = catalogueBoard(competition);
+  if (!board) { catalogueState = 'error'; catalogueError = t('select.catalogue.bad_board'); render(); return; }
+  try {
+    const { climbs } = await loadCatalogueClimbs(board);
+    if (catalogueCompetition !== token) return;
+    catalogueDetails = new Map(climbs.map((climb) => [String(climb.uuid).toLowerCase(), climb]));
+    catalogueState = 'ready';
+  } catch {
+    if (catalogueCompetition !== token) return;
+    catalogueState = 'error'; catalogueError = t('select.catalogue.error');
+  }
+  render();
+}
 
 const view = byId('view');
 const statusNode = byId('load-status');
@@ -296,24 +332,50 @@ function registrationPanel(snapshot) {
       if (!option || (unique && snapshot.state.claims[option.id])) continue;
       selection.add(option.id);
     }
+    if (catalogueState !== 'ready') selection.clear();
     const counter = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
     const updateCounter = () => {
       counter.textContent = t('select.count', { chosen: selection.size, needed });
     };
 
-    rows.push(
+    if (catalogueState !== 'ready') {
+      rows.push(
+        el('h3', { text: t('select.title') }),
+        el('div', { className: `notice ${catalogueState === 'error' ? 'bad' : ''}`, attrs: { role: 'status' } }, [
+          el('p', { text: catalogueState === 'loading' ? t('select.catalogue.loading') : catalogueError || t('select.catalogue.loading') }),
+          catalogueState === 'error' ? el('button', {
+            text: t('select.catalogue.retry'), on: { click: () => hydrateCatalogue(competition) },
+          }) : null,
+        ]),
+      );
+    } else rows.push(
       el('h3', { text: t('select.title') }),
       el('p', { className: 'small', text: t('select.hint', { needed }) }),
       unique ? el('p', { className: 'small', text: t('select.unique_hint') }) : null,
       counter,
-      el('div', { className: 'stack' }, options.map((option) => {
+      (() => {
+        const search = el('input', { attrs: { type: 'search', placeholder: t('climb.browser.search.placeholder') } });
+        const minGrade = el('input', { attrs: { type: 'number', min: '0', max: '100', step: '.5', placeholder: t('climb.filter.min_grade') } });
+        const maxGrade = el('input', { attrs: { type: 'number', min: '0', max: '100', step: '.5', placeholder: t('climb.filter.max_grade') } });
+        const sends = el('input', { attrs: { type: 'number', min: '0', placeholder: t('climb.filter.min_ascents') } });
+        const sort = el('select', {}, [
+          ['popular', 'climb.filter.popular'], ['quality', 'climb.filter.quality'],
+          ['easiest', 'climb.filter.easiest'], ['hardest', 'climb.filter.hardest'],
+        ].map(([value, key]) => el('option', { attrs: { value }, text: t(key) })));
+        const results = el('div', { className: 'stack' });
+        const renderOptions = () => replace(results, ...filterCatalogue(options.map((option) => ({
+          option, described: { ...(catalogueDetails.get(String(option.climb_uuid).toLowerCase()) || {}), ...option },
+        })), { query: search.value, minDifficulty: minGrade.value, maxDifficulty: maxGrade.value,
+          minAscents: sends.value, sort: sort.value }).map(({ option }) => {
         // Live: a climb somebody else already holds is shown as taken, and the
         // control is absent rather than present-and-doomed.
         const takenBy = unique ? snapshot.state.claims[option.id] : undefined;
         const taken = Boolean(takenBy);
+        const resolved = catalogueDetails.has(String(option.climb_uuid).toLowerCase());
+        const limitReached = selection.size >= needed && !selection.has(option.id);
         const box = el('input', {
           attrs: {
-            type: 'checkbox', id: `sel-${option.id}`, disabled: taken,
+            type: 'checkbox', id: `sel-${option.id}`, disabled: taken || !resolved || limitReached,
             checked: selection.has(option.id),
           },
           on: {
@@ -325,25 +387,28 @@ function registrationPanel(snapshot) {
                 selection.delete(option.id);
               }
               updateCounter();
+              renderOptions();
+              updateReady();
               saveRegistrationDraft(competition, {
                 display: display.value.trim(), division: division.value, selections: [...selection],
               });
             },
           },
         });
-        return el('label', { className: 'inline', attrs: { for: `sel-${option.id}` } }, [
-          box,
-          el('span', {}, [
-            el('span', { text: option.label }),
-            el('span', {
-              className: 'hint',
-              text: taken
-                ? t('select.taken')
-                : t('select.option_hint', { angle: option.angle, points: option.points ?? 0 }),
-            }),
-          ]),
+        const details = catalogueDetails.get(String(option.climb_uuid).toLowerCase()) || option;
+        const action = taken ? null : el('label', { className: 'climb-card-select', attrs: { for: `sel-${option.id}` } }, [
+          box, el('span', { text: selection.has(option.id) ? t('climb.browser.added') : t('climb.browser.choose') }),
         ]);
-      })),
+        return climbCard({ climb: { ...details, ...option }, board: competition.board, t,
+          selected: selection.has(option.id), taken, action });
+        }));
+        for (const control of [search, minGrade, maxGrade, sends]) control.addEventListener('input', renderOptions);
+        sort.addEventListener('change', renderOptions);
+        renderOptions();
+        return el('div', {}, [
+          el('div', { className: 'climb-filter-grid compact' }, [search, minGrade, maxGrade, sends, sort]), results,
+        ]);
+      })(),
     );
     updateCounter();
   }
@@ -390,11 +455,13 @@ function registrationPanel(snapshot) {
   const updateReady = () => {
     const missingName = !display.value.trim();
     const missingClimbs = competition.rules.climb_source === 'participant_choice'
-      && selection.size !== competition.rules.climb_count;
+      && (catalogueState !== 'ready' || selection.size !== competition.rules.climb_count);
     const missingWaiver = competition.waiver_required && !waiver.checked;
     registerButton.disabled = missingName || missingClimbs || missingWaiver;
     readiness.textContent = missingName ? t('reg.ready.name')
-      : missingClimbs ? t('reg.ready.climbs', { count: competition.rules.climb_count - selection.size })
+      : catalogueState !== 'ready' && competition.rules.climb_source === 'participant_choice'
+        ? t('reg.ready.catalogue')
+        : missingClimbs ? t('reg.ready.climbs', { count: competition.rules.climb_count - selection.size })
         : missingWaiver ? t('reg.ready.waiver') : t('reg.ready.complete');
   };
   const saveDraft = () => saveRegistrationDraft(competition, {
@@ -632,43 +699,60 @@ function claimStatus(snapshot, mine) {
   // because an intent reuses its nonce.
   const repick = new Set(granted);
   const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+  const readiness = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+  const results = el('div', { className: 'stack' });
+  const search = el('input', { attrs: { type: 'search', placeholder: t('climb.browser.search.placeholder') } });
+  const minGrade = el('input', { attrs: { type: 'number', min: '0', max: '100', step: '.5', placeholder: t('climb.filter.min_grade') } });
+  const maxGrade = el('input', { attrs: { type: 'number', min: '0', max: '100', step: '.5', placeholder: t('climb.filter.max_grade') } });
+  const sends = el('input', { attrs: { type: 'number', min: '0', placeholder: t('climb.filter.min_ascents') } });
+  const sort = el('select', {}, [
+    ['popular', 'climb.filter.popular'], ['quality', 'climb.filter.quality'],
+    ['easiest', 'climb.filter.easiest'], ['hardest', 'climb.filter.hardest'],
+  ].map(([value, key]) => el('option', { attrs: { value }, text: t(key) })));
+  const repickButton = el('button', { text: t('select.repick') });
+  const renderRepick = () => {
+    const outstanding = needed - repick.size;
+    repickButton.disabled = catalogueState !== 'ready' || outstanding !== 0;
+    readiness.textContent = catalogueState !== 'ready' ? t('reg.ready.catalogue')
+      : outstanding > 0 ? t('select.repick.remaining', { count: outstanding }) : t('select.repick.ready');
+    replace(results, ...filterCatalogue(free.map((option) => ({
+      option, described: { ...(catalogueDetails.get(String(option.climb_uuid).toLowerCase()) || {}), ...option },
+    })), { query: search.value, minDifficulty: minGrade.value, maxDifficulty: maxGrade.value,
+      minAscents: sends.value, sort: sort.value }).map(({ option, described }) => {
+      const resolved = catalogueDetails.has(String(option.climb_uuid).toLowerCase());
+      const checked = repick.has(option.id);
+      const box = el('input', {
+        attrs: {
+          type: 'checkbox', id: `repick-${option.id}`, checked,
+          disabled: catalogueState !== 'ready' || !resolved || (!checked && repick.size >= needed),
+        },
+        on: { change: (event) => { if (event.target.checked) repick.add(option.id); else repick.delete(option.id); renderRepick(); } },
+      });
+      return climbCard({
+        climb: described, board: competition.board, t, selected: checked,
+        action: el('label', { className: 'climb-card-select', attrs: { for: box.id } }, [box, el('span', { text: checked ? t('climb.browser.added') : t('climb.browser.choose') })]),
+      });
+    }));
+  };
+  for (const control of [search, minGrade, maxGrade, sends]) control.addEventListener('input', renderRepick);
+  sort.addEventListener('change', renderRepick);
+  repickButton.addEventListener('click', () => guard(async () => {
+    if (catalogueState !== 'ready' || repick.size !== needed) throw new Error(t('select.incomplete', { needed }));
+    await entrant.register({
+      division: mine.division || competition.divisions[0].id, display: mine.display,
+      waiverAccepted: true, selections: [...repick].sort(),
+    });
+    feedback.textContent = t('select.repick_sent');
+  }, feedback));
   rows.push(
     el('p', { className: 'small', text: t('select.lost', { needed: outstandingCount(competition, mine) }) }),
-    el('div', { className: 'stack' }, free.map((option) => el('label', {
-      className: 'inline', attrs: { for: `repick-${option.id}` },
-    }, [
-      el('input', {
-        attrs: { type: 'checkbox', id: `repick-${option.id}` },
-        on: {
-          change: (event) => {
-            if (event.target.checked) {
-              if (repick.size >= needed) { event.target.checked = false; return; }
-              repick.add(option.id);
-            } else {
-              repick.delete(option.id);
-            }
-          },
-        },
-      }),
-      el('span', { text: option.label }),
-    ]))),
+    el('div', { className: 'climb-filter-grid compact' }, [search, minGrade, maxGrade, sends, sort]),
+    results,
+    readiness,
     feedback,
-    el('button', {
-      text: t('select.repick'),
-      on: {
-        click: () => guard(async () => {
-          if (repick.size !== needed) throw new Error(t('select.incomplete', { needed }));
-          await entrant.register({
-            division: mine.division || competition.divisions[0].id,
-            display: mine.display,
-            waiverAccepted: true,
-            selections: [...repick].sort(),
-          });
-          feedback.textContent = t('select.repick_sent');
-        }, feedback),
-      },
-    }),
+    repickButton,
   );
+  renderRepick();
   return rows;
 }
 
@@ -986,6 +1070,21 @@ function announcements(snapshot) {
   ]);
 }
 
+function fixedClimbsPanel(snapshot) {
+  const competition = snapshot.competition;
+  if (competition.rules.climb_source !== 'organizer_set') return null;
+  const climbs = competition.climbs || [];
+  return el('section', { className: 'card' }, [
+    el('h2', { text: t('climb.list.title') }),
+    el('p', { className: 'small', text: catalogueState === 'loading' ? t('select.catalogue.loading')
+      : catalogueState === 'error' ? t('select.catalogue.error') : t('climb.list.hint') }),
+    el('div', { className: 'stack' }, climbs.map((climb) => {
+      const details = catalogueDetails.get(String(climb.climb_uuid).toLowerCase()) || {};
+      return climbCard({ climb: { ...details, ...climb }, board: competition.board, t });
+    })),
+  ]);
+}
+
 function rejections(snapshot) {
   if (!snapshot.state.rejected.length) return null;
   return el('details', { className: 'disclosure' }, [
@@ -1005,6 +1104,7 @@ function render() {
     devRelayBanner(store, t),
     ...integrityNotices(snapshot, t),
     header(snapshot),
+    fixedClimbsPanel(snapshot),
     registrationPanel(snapshot),
     livePanel(snapshot),
     prizePanel(snapshot),
@@ -1054,6 +1154,7 @@ async function start() {
     });
   }
   render();
+  hydrateCatalogue(store.competition);
 
   // The turn countdown is the one thing that has to move without an event.
   if (ticker) clearInterval(ticker);

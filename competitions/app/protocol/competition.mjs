@@ -400,14 +400,17 @@ export function validateCompetitionConfig(config) {
           err(errors, 'climbs', 'contains a placeholder climb id, which no board can load');
         }
         if (!Number.isInteger(climb?.angle)) err(errors, 'climbs', 'each climb needs an angle');
+        if (climb?.zone_hold !== undefined && (!Number.isInteger(climb.zone_hold) || climb.zone_hold < 1)) {
+          err(errors, 'climbs', 'zone_hold must be a positive placement id');
+        }
         if (typeof climb?.label !== 'string' || !climb.label.trim()) {
           err(errors, 'climbs', 'each climb needs a label');
         }
         if (uuids.has(uuid)) err(errors, 'climbs', 'lists the same climb twice');
         else uuids.add(uuid);
       }
-      if (Number.isInteger(rules.climb_count) && config.climbs.length < rules.climb_count) {
-        err(errors, 'climbs', `needs at least ${rules.climb_count} climbs for this format`);
+      if (Number.isInteger(rules.climb_count) && config.climbs.length !== rules.climb_count) {
+        err(errors, 'climbs', `needs exactly ${rules.climb_count} climbs for this format`);
       }
     }
   }
@@ -445,6 +448,9 @@ export function validateCompetitionConfig(config) {
           poolUuids.add(uuid);
         }
         if (!Number.isInteger(option?.angle)) err(errors, 'climb_pool', 'each option needs an angle');
+        if (option?.zone_hold !== undefined && (!Number.isInteger(option.zone_hold) || option.zone_hold < 1)) {
+          err(errors, 'climb_pool', 'zone_hold must be a positive placement id');
+        }
         if (typeof option?.label !== 'string' || !option.label.trim()) {
           err(errors, 'climb_pool', 'each option needs a label');
         }

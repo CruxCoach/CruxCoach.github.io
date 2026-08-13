@@ -879,6 +879,35 @@ test('the embedded browser admits only namespaced climbs with exact board metada
   }, board), false, 'the signed address and payload must identify the same climb');
 });
 
+test('catalogue filters combine search, difficulty, sends and sort deterministically', async () => {
+  const { filterCatalogue, selectionReadiness } = await import('../competitions/app/ui/climb-card.mjs');
+  const rows = [
+    { described: { label: 'Blue slab', setter: 'Ada', difficulty: 10, ascents: 25, quality: 3 } },
+    { described: { label: 'Red roof', setter: 'Bob', difficulty: 18, ascents: 4, quality: 4 } },
+  ];
+  assert.deepEqual(filterCatalogue(rows, {
+    query: 'ada', minDifficulty: '8', maxDifficulty: '12', minAscents: '10', sort: 'hardest',
+  }), [rows[0]]);
+  assert.deepEqual(filterCatalogue(rows, { sort: 'quality' }), [rows[1], rows[0]]);
+  assert.deepEqual(selectionReadiness({ catalogueState: 'loading', chosen: 1, needed: 1 }), {
+    ready: false, reason: 'catalogue',
+  });
+  assert.deepEqual(selectionReadiness({ catalogueState: 'ready', chosen: 1, needed: 2 }), {
+    ready: false, reason: 'missing', count: 1,
+  });
+  assert.deepEqual(selectionReadiness({ catalogueState: 'ready', chosen: 2, needed: 2 }), {
+    ready: true, reason: 'complete', count: 0,
+  });
+});
+
+test('participant and repick pickers gate actions on verified catalogue readiness', () => {
+  const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
+  assert.match(join, /catalogueState !== 'ready' \|\| outstanding !== 0/);
+  assert.match(join, /renderOptions\(\);\s*updateReady\(\)/);
+  assert.match(join, /hydrateCatalogue\(store\.competition\)/);
+  assert.match(join, /function fixedClimbsPanel/);
+});
+
 test('the organizer form builds a competition every validator accepts', async () => {
   // The form is DOM code, so this drives `build()` through a minimal document
   // rather than asserting on its source. What it proves is the thing a source
@@ -918,6 +947,7 @@ test('the organizer form builds a competition every validator accepts', async ()
       'a placeholder must be refused by the form, not only by the validator',
     );
     form.node.querySelector('#climb-label-0').value = 'Blue slab';
+    form.node.querySelector('#f-scoring').value = 'points_sum';
 
     const config = form.build(newCompId(), Math.floor(Date.UTC(2026, 7, 9) / 1000));
     assert.equal(config.fee_msat, 321000, 'the sats UI must convert exactly at the protocol boundary');
@@ -965,6 +995,9 @@ test('the organizer form builds a participant-choice competition too', async () 
     }
     form.node.querySelector('#climb-label-0').value = 'Blue slab';
     form.node.querySelector('#climb-label-1').value = 'Red roof';
+    form.node.querySelector('#f-scoring').value = 'achievement_points';
+    form.node.querySelector('#f-zone-points').value = '0';
+    form.node.querySelector('#f-top-points').value = '10';
 
     const config = form.build(newCompId(), Math.floor(Date.UTC(2026, 7, 9) / 1000));
     assert.equal(config.rules.climb_source, 'participant_choice');

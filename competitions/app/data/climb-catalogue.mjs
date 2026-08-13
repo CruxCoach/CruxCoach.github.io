@@ -25,13 +25,16 @@ function validUuid(value) {
     || /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(value);
 }
 
-function parseRecord(line, board) {
+function parseRecord(line, board, header) {
   let row;
   try { row = JSON.parse(line); } catch { return null; }
-  if (!Array.isArray(row) || row.length !== 5) return null;
-  const [uuid, label, setter, sizeIds, stats] = row;
+  if (!Array.isArray(row) || ![5, 6].includes(row.length)) return null;
+  const [uuid, label, setter, sizeIds] = row;
+  const holds = row.length === 6 ? row[4] : [];
+  const stats = row.length === 6 ? row[5] : row[4];
   if (!validUuid(uuid) || typeof label !== 'string' || !label.trim() || label.length > 200) return null;
-  if (typeof setter !== 'string' || setter.length > 160 || !Array.isArray(sizeIds) || !Array.isArray(stats)) return null;
+  if (typeof setter !== 'string' || setter.length > 160 || !Array.isArray(sizeIds)
+    || !Array.isArray(holds) || !Array.isArray(stats)) return null;
   if (board.productSizeId != null && !sizeIds.includes(board.productSizeId)) return null;
   const stat = stats.find((entry) => Array.isArray(entry) && entry[0] === board.angle);
   if (!stat) return null;
@@ -49,6 +52,9 @@ function parseRecord(line, board) {
     difficulty: Number.isFinite(difficulty) ? difficulty : null,
     quality: Number.isFinite(quality) ? quality : null,
     ascents: Number.isInteger(ascents) && ascents >= 0 ? ascents : 0,
+    holds: holds.filter((hold) => Array.isArray(hold) && hold.length === 4
+      && hold.every(Number.isInteger) && hold[0] > 0).slice(0, 200),
+    bounds: header?.size_bounds?.[String(board.productSizeId)] || header?.size_bounds?.default || null,
   };
 }
 
@@ -84,13 +90,13 @@ export async function loadCatalogueClimbs(board, { fetchImpl = globalThis.fetch 
     if (!line) return;
     if (!header) {
       try { header = JSON.parse(line); } catch { throw new Error('catalogue_invalid'); }
-      if (header?.v !== 1 || header.brand !== board.brand || header.layout !== board.layoutId
+      if (![1, 2].includes(header?.v) || header.brand !== board.brand || header.layout !== board.layoutId
         || !Number.isInteger(header.rows) || header.rows < 0 || header.rows > MAX_RECORDS) {
         throw new Error('catalogue_invalid');
       }
       return;
     }
-    const climb = parseRecord(line, board);
+    const climb = parseRecord(line, board, header);
     if (climb) climbs.push(climb);
   };
 
