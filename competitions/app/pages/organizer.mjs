@@ -862,7 +862,7 @@ function render() {
         el('span', { className: 'badge', text: formatDateTime(snapshot.competition.starts_at, language, snapshot.competition.timezone) }),
       ]),
       isAuthority ? el('div', { className: 'row' }, lifecycleActions(snapshot))
-        : el('div', { className: 'notice warn' }, [el('p', { text: t('signin.as') })]),
+        : el('div', { className: 'notice warn' }, [el('p', { text: t('org.not_owner') })]),
     ]),
     feedback,
     isAuthority ? requestsPanel(snapshot) : null,

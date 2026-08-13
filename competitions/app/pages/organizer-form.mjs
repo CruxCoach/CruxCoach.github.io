@@ -17,7 +17,10 @@ import {
 } from '../protocol/climb-ref.mjs';
 import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs';
 import { naddrEncode, verifyEvent } from '../protocol/nostr-event.mjs';
-import { BOARD_TYPES, boardType, resolveBoardSelection } from '../protocol/board-catalog.mjs';
+import {
+  BOARD_TYPES, boardType, resolveBoardSelection, resolveCatalogueSelection,
+} from '../protocol/board-catalog.mjs';
+import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs';
 
 const text = (id, value = '', attrs = {}) => el('input', { attrs: { type: 'text', id, value, ...attrs } });
 const num = (id, value, attrs = {}) => el('input', { attrs: { type: 'number', id, value: String(value), required: 'required', ...attrs } });
@@ -210,6 +213,22 @@ class ClimbEditor {
     return true;
   }
 
+  /** Add an entry from the app's Blossom-backed catalogue snapshot. */
+  addCatalogue(described) {
+    const uuid = normalizeUuid(described?.uuid);
+    if (!uuid || this.rows.some((row) => row.uuid === uuid)) {
+      this.status.textContent = this.t(uuid ? 'climb.error.duplicate' : 'climb.error.not_a_climb');
+      return false;
+    }
+    const compatibility = checkBoardCompatibility(described, this.boardOf());
+    if (!compatibility.compatible) return false;
+    this.rows.push(this.buildRow({ kind: 'catalogue', uuid }, described, compatibility));
+    this.status.textContent = this.t('climb.added', { label: described.label });
+    this.render();
+    this.onChange();
+    return true;
+  }
+
   buildRow(ref, described, compatibility) {
     const { t } = this;
     const labelInput = text(`climb-label-${this.rows.length}`, described?.label || '', { maxlength: '60' });
@@ -293,7 +312,10 @@ class ClimbEditor {
  * @returns {{node: HTMLElement, build: () => object}} `build` throws with a
  *   readable message when the form cannot make a valid competition.
  */
-export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayName, defaultLud16, relays }) {
+export function createCompetitionForm({
+  t, pool, signerPubkey, defaultDisplayName, defaultLud16, relays,
+  catalogueLoader = loadCatalogueClimbs,
+}) {
   const f = {
     title: text('f-title', '', { maxlength: '120', required: 'required' }),
     summary: text('f-summary', '', { maxlength: '140' }),
@@ -525,6 +547,9 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
   renderBoardPicker();
 
   const boardOf = () => resolveBoardSelection(f.brand.value, f.model.value, f.size.value, f.angle.value);
+  const catalogueBoardOf = () => resolveCatalogueSelection(
+    f.brand.value, f.model.value, f.size.value, f.angle.value,
+  );
   const climbEditor = new ClimbEditor({ t, pool, boardOf });
   const climbInput = text('f-climb-ref', '', { placeholder: t('climb.paste.placeholder'), autocomplete: 'off' });
   const climbSection = el('div', {});
@@ -533,9 +558,11 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
   const browserSearch = text('f-climb-search', '', {
     placeholder: t('climb.browser.search.placeholder'), autocomplete: 'off', type: 'search',
   });
-  const browserSearchField = field(
-    'f-climb-search', t('climb.browser.search'), browserSearch, t('climb.browser.search.hint'),
-  );
+  const browserSearchField = el('label', { attrs: { for: 'f-climb-search' } }, [
+    el('span', { text: t('climb.browser.search') }),
+    el('span', { className: 'hint', text: t('climb.browser.search.hint') }),
+    browserSearch,
+  ]);
   browserSearchField.setAttribute('hidden', 'hidden');
   let browserCandidates = [];
 
@@ -550,12 +577,14 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
 
   const renderBrowserResults = () => {
     const needle = browserSearch.value.trim().toLocaleLowerCase();
-    const matches = browserCandidates.filter(({ described }) => !needle
+    const allMatches = browserCandidates.filter(({ described }) => !needle
       || described.label.toLocaleLowerCase().includes(needle)
-      || described.boardLabel.toLocaleLowerCase().includes(needle));
-    browserStatus.textContent = matches.length
-      ? t('climb.browser.found', { count: matches.length }) : t('climb.browser.empty_filter');
-    replace(browserResults, ...matches.map(({ event, described, compatibility }) => {
+      || described.setter?.toLocaleLowerCase().includes(needle));
+    const matches = allMatches.slice(0, 60);
+    browserStatus.textContent = allMatches.length
+      ? t('climb.browser.found', { count: allMatches.length, shown: matches.length })
+      : t('climb.browser.empty_filter');
+    replace(browserResults, ...matches.map(({ event, described, compatibility, source }) => {
       const selected = climbEditor.rows.some((row) => row.uuid === normalizeUuid(described.uuid));
       return el('article', { className: `climb-result-card${selected ? ' selected' : ''}` }, [
         el('div', {}, [
@@ -575,7 +604,9 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
           attrs: { disabled: selected ? 'disabled' : null },
           on: {
             click: () => {
-              if (climbEditor.addEvent(event)) renderBrowserResults();
+              const added = source === 'community'
+                ? climbEditor.addEvent(event) : climbEditor.addCatalogue(described);
+              if (added) renderBrowserResults();
             },
           },
         }),
@@ -585,25 +616,38 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
   browserSearch.addEventListener('input', renderBrowserResults);
 
   const browseClimbs = async () => {
-    browserStatus.textContent = t('climb.browser.loading');
+    browserStatus.textContent = t('climb.browser.loading_catalogue');
     replace(browserResults);
     try {
-      const { events } = await pool.query([{ kinds: [30078], limit: 120 }], { timeoutMs: 7000 });
       const board = boardOf();
-      const candidates = [];
-      for (const event of events) {
-        // Relay results are hostile input. Only signed CruxCoach climb events
-        // with a real UUID and a compatible board become selectable cards.
-        // eslint-disable-next-line no-await-in-loop
-        if (!await verifyEvent(event).catch(() => false)) continue;
-        const described = describeClimbEvent(event);
-        if (!isBrowsableClimbEvent(event, described, board)) continue;
-        const compatibility = checkBoardCompatibility(described, board);
-        candidates.push({ event, described, compatibility });
+      const catalogueBoard = catalogueBoardOf();
+      const { climbs } = await catalogueLoader(catalogueBoard);
+      const candidates = climbs.map((described) => ({
+        described,
+        compatibility: checkBoardCompatibility(described, board),
+        source: 'catalogue',
+      }));
+
+      // Relay events supplement the daily Blossom snapshot, so a newly shared
+      // community climb can appear before the next catalogue sync.
+      if (pool) {
+        browserStatus.textContent = t('climb.browser.loading_recent');
+        const { events } = await pool.query([{ kinds: [30078], limit: 120 }], { timeoutMs: 7000 })
+          .catch(() => ({ events: [] }));
+        for (const event of events) {
+          // eslint-disable-next-line no-await-in-loop
+          if (!await verifyEvent(event).catch(() => false)) continue;
+          const described = describeClimbEvent(event);
+          if (!isBrowsableClimbEvent(event, described, board)) continue;
+          candidates.push({
+            event, described, compatibility: checkBoardCompatibility(described, board), source: 'community',
+          });
+        }
       }
       browserCandidates = [...new Map(candidates.map(
         (candidate) => [candidate.described.uuid, candidate],
-      )).values()].sort((a, b) => a.described.label.localeCompare(b.described.label)).slice(0, 60);
+      )).values()].sort((a, b) => (b.described.ascents || 0) - (a.described.ascents || 0)
+        || a.described.label.localeCompare(b.described.label));
       if (browserCandidates.length) {
         browserSearchField.removeAttribute('hidden');
         renderBrowserResults();

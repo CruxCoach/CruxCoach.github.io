@@ -1,0 +1,165 @@
+{
+  "v": 1,
+  "indexes": [
+    {
+      "brand": "kilter",
+      "layout": 1,
+      "rows": 210655,
+      "file": "kilter-1.ndjson.gz",
+      "bytes": 9274775,
+      "sha256": "fafe6bb57a7a287a48edd2a3e36415c52db8abd76161f0d058e6242d9e23e9fe",
+      "source_manifest": "e970f401c1ad8832b5d4bf2bee5ac515666b23cd31c103360b2c4379a335016e",
+      "source_url": null
+    },
+    {
+      "brand": "kilter",
+      "layout": 8,
+      "rows": 22965,
+      "file": "kilter-8.ndjson.gz",
+      "bytes": 1065114,
+      "sha256": "3e485fe24bb8dc540a5889d68a93f5f1153e329fbfe2d53c3e540bc1c8606253",
+      "source_manifest": "e970f401c1ad8832b5d4bf2bee5ac515666b23cd31c103360b2c4379a335016e",
+      "source_url": null
+    },
+    {
+      "brand": "moonboard",
+      "layout": 1,
+      "rows": 124,
+      "file": "moonboard-1.ndjson.gz",
+      "bytes": 4926,
+      "sha256": "e4174bedfe151ef1657552b7591d26e402113331c3316f9fb42bc95ebd6162cf",
+      "source_manifest": "5cdc83ef26c471aa6acdd7b62fc5f8220e89827cf5e9ece51f7648444c6cbb0a",
+      "source_url": null
+    },
+    {
+      "brand": "moonboard",
+      "layout": 2,
+      "rows": 93707,
+      "file": "moonboard-2.ndjson.gz",
+      "bytes": 3722701,
+      "sha256": "90870ce61c80a6b8070a125505bc4e8ccbd7826a1c3b87f7fe3054444ad9c8f2",
+      "source_manifest": "5cdc83ef26c471aa6acdd7b62fc5f8220e89827cf5e9ece51f7648444c6cbb0a",
+      "source_url": null
+    },
+    {
+      "brand": "moonboard",
+      "layout": 3,
+      "rows": 37607,
+      "file": "moonboard-3.ndjson.gz",
+      "bytes": 1504903,
+      "sha256": "c66aa92c258a5c21f1ee17a44df208f03c5594a0dbaa5309f25962d2329dcf21",
+      "source_manifest": "5cdc83ef26c471aa6acdd7b62fc5f8220e89827cf5e9ece51f7648444c6cbb0a",
+      "source_url": null
+    },
+    {
+      "brand": "moonboard",
+      "layout": 4,
+      "rows": 74963,
+      "file": "moonboard-4.ndjson.gz",
+      "bytes": 2986522,
+      "sha256": "9714d3547f9d788a49f7212f7b8009409605663a2d82a13bd9b47ad8d8b1ab3a",
+      "source_manifest": "5cdc83ef26c471aa6acdd7b62fc5f8220e89827cf5e9ece51f7648444c6cbb0a",
+      "source_url": null
+    },
+    {
+      "brand": "moonboard",
+      "layout": 5,
+      "rows": 58505,
+      "file": "moonboard-5.ndjson.gz",
+      "bytes": 2336475,
+      "sha256": "274e1278457b893cc56a70de8eb0b7145ebfc7c1ba0e399c84c999496fe5bc03",
+      "source_manifest": "5cdc83ef26c471aa6acdd7b62fc5f8220e89827cf5e9ece51f7648444c6cbb0a",
+      "source_url": null
+    },
+    {
+      "brand": "moonboard",
+      "layout": 6,
+      "rows": 7867,
+      "file": "moonboard-6.ndjson.gz",
+      "bytes": 312192,
+      "sha256": "6fc766ce9f1c761f8391af8d3ce42c5382da8bac1eb5d89c5dae872c8d0a8925",
+      "source_manifest": "5cdc83ef26c471aa6acdd7b62fc5f8220e89827cf5e9ece51f7648444c6cbb0a",
+      "source_url": null
+    },
+    {
+      "brand": "moonboard",
+      "layout": 7,
+      "rows": 4870,
+      "file": "moonboard-7.ndjson.gz",
+      "bytes": 188909,
+      "sha256": "c81cd42bb3a13d60bc0ef87a8db9ea2bcc790fab0ba40a40aeaebd8347ae9a7a",
+      "source_manifest": "5cdc83ef26c471aa6acdd7b62fc5f8220e89827cf5e9ece51f7648444c6cbb0a",
+      "source_url": null
+    },
+    {
+      "brand": "tension",
+      "layout": 9,
+      "rows": 56940,
+      "file": "tension-9.ndjson.gz",
+      "bytes": 2413586,
+      "sha256": "1088633988bac323859ea51f23fc49af04d04e85126eb006157c677547ba3c3a",
+      "source_manifest": "c68f1722e41f41d3c16e6f10e47c4e02e8a237978eb9c1f49ecc72a631ae36bf",
+      "source_url": "https://blossom.cruxcoach.org/ea12ad91b83b987f47b7b099581aae24ed31d2d965a445107906db5098eeac60"
+    },
+    {
+      "brand": "tension",
+      "layout": 10,
+      "rows": 41794,
+      "file": "tension-10.ndjson.gz",
+      "bytes": 1736788,
+      "sha256": "483492390768cd56b50e062d78ecdcdd6bdb893f11731f7e4c66a392393ff54e",
+      "source_manifest": "c68f1722e41f41d3c16e6f10e47c4e02e8a237978eb9c1f49ecc72a631ae36bf",
+      "source_url": "https://blossom.cruxcoach.org/ea12ad91b83b987f47b7b099581aae24ed31d2d965a445107906db5098eeac60"
+    },
+    {
+      "brand": "tension",
+      "layout": 11,
+      "rows": 25218,
+      "file": "tension-11.ndjson.gz",
+      "bytes": 1071504,
+      "sha256": "d33a090922c80bb5689b22ed1730eac0c664ca6011a6fab64fcb70a8f525ce3b",
+      "source_manifest": "c68f1722e41f41d3c16e6f10e47c4e02e8a237978eb9c1f49ecc72a631ae36bf",
+      "source_url": "https://blossom.cruxcoach.org/ea12ad91b83b987f47b7b099581aae24ed31d2d965a445107906db5098eeac60"
+    },
+    {
+      "brand": "grasshopper",
+      "layout": 1,
+      "rows": 18976,
+      "file": "grasshopper-1.ndjson.gz",
+      "bytes": 784669,
+      "sha256": "423d32192072fd2e60e66fd468d4ae9c66f7fd786656e32440e6eecbbb6f13a0",
+      "source_manifest": "984a8d7c07021cba984e9c21f67d309852d3cbfe8ca6b17fecf8151f6ece538a",
+      "source_url": "https://blossom.cruxcoach.org/cb450f80436ce09cac439f83df3b352cade32e71717011a1c88c6b54ae69664f"
+    },
+    {
+      "brand": "decoy",
+      "layout": 2,
+      "rows": 6956,
+      "file": "decoy-2.ndjson.gz",
+      "bytes": 279025,
+      "sha256": "8d1c774d8c0ece1f19a04127b24858e2e2b7b553d02bfacfa51a1e66b2d71e0c",
+      "source_manifest": "acf00e492a6dc0115a7d71b537cab6f900504cd4b43d7d5de0dc068c3693f9de",
+      "source_url": "https://blossom.cruxcoach.org/9ed7db56fcc5715a8867eee5fe88a9c97b560010162056f189c614b597296b5a"
+    },
+    {
+      "brand": "soill",
+      "layout": 1,
+      "rows": 1498,
+      "file": "soill-1.ndjson.gz",
+      "bytes": 59261,
+      "sha256": "950df90329cb1cfcf262e8e3cf0021a98e74b51d115b6b133ef9beb1c8a156ad",
+      "source_manifest": "975e0e5fa8291f2ca28de9962f3c153da3231e88ad4aca4d65bb0ef14c528407",
+      "source_url": "https://blossom.cruxcoach.org/04a896f9a773c8c71b81c74ab58eec2d7d22b692a50e8c57ab7330b7d6a18212"
+    },
+    {
+      "brand": "touchstone",
+      "layout": 1,
+      "rows": 1339,
+      "file": "touchstone-1.ndjson.gz",
+      "bytes": 51559,
+      "sha256": "a34cb17539e05920a3fa1d0b73892e0fc4b0bbc85ab7cfffe096af2efe57ac0d",
+      "source_manifest": "4ff9330e5d01b78ea95bb6ea29ad1a433ee1ba4be6d5707ee9d06fbf2f5354e0",
+      "source_url": "https://blossom.cruxcoach.org/60e953f7144bc27f7ddaefe71a1bcebcb5bccf49b519a6138fea6a8da9073712"
+    }
+  ]
+}

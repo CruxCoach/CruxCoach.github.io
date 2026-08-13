@@ -145,6 +145,12 @@ export class ProfileGate {
     replace(this.mount);
   }
 
+  edit() {
+    if (!this.signer || !this.profile) return;
+    this.state = GateState.NEEDS_PROFILE;
+    this.render();
+  }
+
   render() {
     const { t } = this;
     if (!this.signer) { replace(this.mount); return; }
@@ -175,27 +181,13 @@ export class ProfileGate {
     }
 
     if (this.state === GateState.READY) {
-      replace(this.mount, el('div', { className: 'card' }, [
-        el('div', { className: 'row between' }, [
-          el('div', {}, [
-            el('div', { className: 'small', text: t('profile.signed_in_as') }),
-            el('div', { text: this.displayName }),
-          ]),
-          el('button', {
-            className: 'quiet',
-            text: t('profile.edit'),
-            on: {
-              click: () => {
-                this.state = GateState.NEEDS_PROFILE;
-                this.render();
-              },
-            },
-          }),
-        ]),
+      // The shared session bar already shows the person's name and owns the
+      // account menu. Keeping a second "signed in as" card here made a normal
+      // session look like a debugging screen.
+      replace(this.mount,
         this.conflicting
-          ? el('p', { className: 'small', text: t('profile.conflicting') })
-          : null,
-      ]));
+          ? el('div', { className: 'notice warn' }, [el('p', { text: t('profile.conflicting') })])
+          : null);
       return;
     }
 

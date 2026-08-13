@@ -7,6 +7,13 @@ const sizes = (...entries) => entries.map((entry) => {
 });
 const image = (name) => `/competitions/assets/boards/${name}`;
 
+function productSizeId(entry) {
+  const preview = Array.isArray(entry) ? entry[1] : null;
+  const last = Array.isArray(preview) ? preview[preview.length - 1] : preview;
+  const match = String(last || '').match(/(?:^|\/)board_(\d+)(?:_|\.webp$)/);
+  return match ? Number(match[1]) : null;
+}
+
 export const BOARD_TYPES = [
   {
     id: 'kilter-original', label: 'Kilter Original', brand: 'kilter',
@@ -116,4 +123,24 @@ export function resolveBoardSelection(typeId, modelValue, sizeValue, angleValue)
   if (!type || !model || !model.sizes.some((entry) => entry.value === sizeValue)
     || !model.angles.includes(angle)) return null;
   return { brand: type.brand, model: model.value, layout_id: model.layoutId, size: sizeValue, angle };
+}
+
+/** Internal catalogue coordinates. Product-size ids never enter the public competition document. */
+export function resolveCatalogueSelection(typeId, modelValue, sizeValue, angleValue) {
+  const type = boardType(typeId);
+  const model = type?.models.find((entry) => entry.value === modelValue);
+  const sourceSize = model?.sizes.find((entry) => entry.value === sizeValue);
+  const originalEntry = model?.sizes.findIndex((entry) => entry.value === sizeValue);
+  const angle = Number(angleValue);
+  if (!type || !model || !sourceSize || !model.angles.includes(angle)) return null;
+  // The image name intentionally mirrors the app's product_size_id. MoonBoard
+  // has one physical size per layout and therefore needs no size filter.
+  const configured = model.sizes[originalEntry];
+  return {
+    brand: type.brand,
+    layoutId: model.layoutId,
+    modelLabel: model.label,
+    productSizeId: productSizeId([configured.label, configured.image]),
+    angle,
+  };
 }

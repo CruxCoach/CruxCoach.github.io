@@ -177,18 +177,25 @@ export class SignIn {
   render() {
     const { t } = this;
     if (this.signer) {
-      replace(this.mount, el('div', { className: 'card' }, [
-        el('div', { className: 'row between' }, [
-          el('div', {}, [
-            el('div', { className: 'small', text: t('signin.as') }),
-            el('div', { text: this.displayName }),
-            el('div', { className: 'small mono', text: shortKey(this.signer.pubkey) }),
-            el('div', { className: 'small', text: this.signer.kind }),
-          ]),
-          el('span', { className: 'row' }, [
+      const name = this.displayName || t('account.getting_ready');
+      const methodKey = this.signer.kind === 'nip07' ? 'account.method.extension'
+        : this.signer.kind === 'nip46' ? 'account.method.signer' : 'account.method.device';
+      replace(this.mount, el('section', { className: 'session-bar', attrs: { 'aria-label': t('account.title') } }, [
+        el('div', { className: 'session-avatar', attrs: { 'aria-hidden': 'true' }, text: name.slice(0, 1).toLocaleUpperCase() }),
+        el('div', { className: 'session-person' }, [
+          el('strong', { text: name }),
+          el('span', { className: 'small', text: t(this.ready ? 'account.ready' : 'account.getting_ready') }),
+        ]),
+        el('details', { className: 'session-menu' }, [
+          el('summary', { text: t('account.manage') }),
+          el('div', { className: 'session-menu-panel' }, [
+            el('strong', { text: t('account.title') }),
+            el('p', { className: 'small', text: t(methodKey) }),
+            this.ready && this.gate ? el('button', {
+              className: 'quiet', text: t('profile.edit'), on: { click: () => this.gate.edit() },
+            }) : null,
             el('button', {
-              text: this.signer.kind === 'nip07' ? t('signin.out') : t('signin.lock'),
-              on: { click: () => this.signOut() },
+              text: t('signin.out'), on: { click: () => this.signOut() },
             }),
             // Only for a key this device is actually holding. Signing out of an
             // extension or a bunker leaves nothing here to forget.
@@ -202,13 +209,13 @@ export class SignIn {
               text: t('signin.bunker.remove'),
               on: { click: () => this.run(async () => this.forgetNip46()) },
             }) : null,
+            el('details', { className: 'identity-details' }, [
+              el('summary', { text: t('account.details') }),
+              el('p', { className: 'small mono selectable', text: shortKey(this.signer.pubkey) }),
+              el('p', { className: 'small', text: t('account.details.hint') }),
+            ]),
           ]),
         ]),
-        el('p', {
-          className: 'small',
-          text: t(this.signer.kind === 'nip46' ? 'signin.out.hint.nip46' : 'signin.out.hint'),
-        }),
-        this.ready ? null : el('p', { className: 'small', text: t('profile.required') }),
       ]));
       return;
     }

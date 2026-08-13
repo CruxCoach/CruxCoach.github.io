@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { gzipSync } from 'node:zlib';
+import { createHash } from 'node:crypto';
 
 import { __testing as i18nTesting, LANGUAGES, createTranslator, describeRejection } from '../competitions/app/ui/i18n.mjs';
 import { REJECTION_CODES } from '../competitions/app/protocol/reduce.mjs';
@@ -918,4 +920,52 @@ test('saving a newly generated key continues directly into the signed-in session
     signIn?.remoteSession.dispose();
     restore();
   }
+});
+
+test('a ready identity is one human profile bar with technical details collapsed', async () => {
+  const { SignIn } = await import('../competitions/app/ui/shell.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  let signIn;
+  try {
+    const mount = document.createElement('div');
+    signIn = new SignIn({ t: (key) => key, mount, onChange: () => {} });
+    await signIn.use({ kind: 'local', pubkey: 'e7ff1e23'.padEnd(64, 'a'), close() {} }, 'local');
+    assert.equal(mount.querySelectorAll('.session-bar').length, 1);
+    assert.ok(mount.textContent.includes('account.manage'));
+    assert.equal(mount.textContent.includes('signin.as'), false);
+    assert.equal(mount.textContent.includes('local'), false, 'raw signer kinds are implementation details');
+    assert.ok(mount.querySelector('.identity-details'));
+  } finally {
+    signIn?.session.dispose();
+    signIn?.remoteSession.dispose();
+    restore();
+  }
+});
+
+test('the app catalogue is hash-verified and filtered to the selected wall', async () => {
+  const { loadCatalogueClimbs } = await import('../competitions/app/data/climb-catalogue.mjs');
+  const lines = [
+    JSON.stringify({ v: 1, brand: 'kilter', layout: 1, rows: 2, snapshot_at: 42 }),
+    JSON.stringify(['11111111-1111-1111-1111-111111111111', 'Fits', 'Setter', [10], [[40, 5, 4, 12]]]),
+    JSON.stringify(['22222222-2222-2222-2222-222222222222', 'Wrong size', 'Setter', [8], [[40, 5, 4, 9]]]),
+  ].join('\n');
+  const packed = gzipSync(lines);
+  const digest = createHash('sha256').update(packed).digest('hex');
+  const manifest = { v: 1, indexes: [{
+    brand: 'kilter', layout: 1, rows: 2, file: 'kilter-1.ndjson.gz', bytes: packed.length, sha256: digest,
+  }] };
+  const fetchImpl = async (url) => url.endsWith('manifest.json')
+    ? new Response(JSON.stringify(manifest), { headers: { 'content-type': 'application/json' } })
+    : new Response(packed, { headers: { 'content-length': String(packed.length) } });
+  const result = await loadCatalogueClimbs({
+    brand: 'kilter', layoutId: 1, modelLabel: 'Kilter Board Original', productSizeId: 10, angle: 40,
+  }, { fetchImpl });
+  assert.deepEqual(result.climbs.map((climb) => climb.label), ['Fits']);
+
+  const tamperedFetch = async (url) => url.endsWith('manifest.json')
+    ? new Response(JSON.stringify(manifest)) : new Response(Buffer.from(packed).fill(0, 0, 1));
+  await assert.rejects(() => loadCatalogueClimbs({
+    brand: 'kilter', layoutId: 1, modelLabel: 'Kilter Board Original', productSizeId: 10, angle: 40,
+  }, { fetchImpl: tamperedFetch }), /catalogue_invalid/);
 });
