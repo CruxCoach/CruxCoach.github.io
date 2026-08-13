@@ -22,7 +22,7 @@
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="apple-touch-icon" href="/assets/icon-512.png">
-<link rel="stylesheet" href="/competitions/app/competitions.css">
+<link rel="stylesheet" href="/competitions/app/competitions.css?v=20260813-3">
 </head>
 <body>
 <a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
@@ -41,40 +41,43 @@
 <div id="live-status" class="visually-hidden" role="status" aria-live="polite" aria-label="Status"></div>
 <div id="live-alerts" class="visually-hidden" role="alert" aria-live="assertive" aria-label="Wichtige Hinweise"></div>
 
-<main id="main" class="wrap">
-<aside class="beta-notice" aria-label="Beta-Hinweis"><strong>Competition Beta</strong><span>Diese Funktion wird getestet. Rechne mit Änderungen und verwende nur gesicherte Wiederherstellungsschlüssel.</span></aside>
-<h1>Wettkämpfe</h1>
-<p class="lead">Einen Wettkampf an deinem Board ausrichten oder daran teilnehmen. Ohne Konto und ohne Server: der Wettkampf, jede Meldung und jedes Ergebnis liegen auf Nostr, signiert von denen, die sie gemacht haben.</p>
+<main id="main" class="wrap competition-home">
+<aside class="beta-notice" aria-label="Beta-Hinweis"><strong>Competition Beta</strong><span>Diese Funktion wird getestet. Rechne mit Änderungen und bewahre deine Anmeldesicherung gut auf.</span></aside>
+<section class="competition-hero">
+  <div class="competition-hero-copy">
+    <p class="eyebrow">Dein Board. Deine Leute. Ein Live-Event.</p>
+    <h1>Mach aus deiner Kletterwand eine Arena.</h1>
+    <p class="lead">Erstelle den Wettkampf, hole alle mit einem Link dazu und steuere die ganze Session direkt an der Wand. Keine Tabelle. Kein Account-Chaos.</p>
+    <div class="hero-actions"><a class="button primary" href="/de/competitions/organizer.html">Wettkampf erstellen <span aria-hidden="true">→</span></a><a class="button quiet" href="/de/competitions/join.html">Mit Link teilnehmen</a></div>
+    <ul class="hero-proof" aria-label="Wettkampf-Highlights"><li><strong>663k+</strong><span>Board-Boulder</span></li><li><strong>7</strong><span>Board-Familien</span></li><li><strong>Live</strong><span>Queue &amp; Rangliste</span></li></ul>
+  </div>
+  <div class="hero-board-stage" aria-label="Unterstützte Kletterboards">
+    <span class="hero-orbit orbit-one" aria-hidden="true"></span><span class="hero-orbit orbit-two" aria-hidden="true"></span>
+    <figure class="hero-board hero-board-main"><img src="/competitions/assets/boards/kilter/board_10.webp" alt="Kilter Board Original"></figure>
+    <figure class="hero-board hero-board-left"><img src="/competitions/assets/boards/moonboard/moonboard_2024.webp" alt="MoonBoard 2024"></figure>
+    <figure class="hero-board hero-board-right"><img src="/competitions/assets/boards/tension/board_6_10.webp" alt="Tension Board 2"></figure>
+    <span class="hero-live-pill"><i aria-hidden="true"></i> Live-Wettkampf</span>
+  </div>
+</section>
 
-<div class="grid three">
-  <section class="card">
+<div class="grid three action-grid">
+  <section class="card action-card"><span class="action-number">01</span>
     <h2><a href="/de/competitions/organizer.html">Ausrichten</a></h2>
-    <p>Einen Wettkampf anlegen, einen Link teilen, über die Teilnahme entscheiden und die Reihenfolge vom Handy aus leiten. Alles, was du entscheidest, wird mit deinem Schlüssel signiert und bleibt.</p>
+    <p>Baue Schritt für Schritt ein hochwertiges Event, wähle Boulder direkt aus dem App-Katalog und steuere die Queue vom Handy.</p><a class="action-link" href="/de/competitions/organizer.html">Jetzt erstellen <span aria-hidden="true">↗</span></a>
   </section>
-  <section class="card">
+  <section class="card action-card"><span class="action-number">02</span>
     <h2><a href="/de/competitions/join.html">Teilnehmen</a></h2>
-    <p>Den Link der Ausrichtung öffnen, anmelden, und sehen, wer dran ist, wie viele Versuche noch bleiben und wo du stehst — auf jedem Handy, ohne etwas zu installieren.</p>
+    <p>Öffne einen Link, melde dich mit einem Spitznamen an und kenne jederzeit deinen Zug, deine Versuche und deinen Rang.</p><a class="action-link" href="/de/competitions/join.html">Wettkampf öffnen <span aria-hidden="true">↗</span></a>
   </section>
-  <section class="card">
+  <section class="card action-card"><span class="action-number">03</span>
     <h2><a href="/de/competitions/live.html">Live-Anzeige</a></h2>
-    <p>Eine Nur-Lese-Anzeige für Beamer oder ein Tablet am Eingang. Sie hält keinen Schlüssel und kann deshalb bedenkenlos laufen und geteilt werden.</p>
+    <p>Zeige aktuelle Person, Countdown und Rangliste auf Beamer oder Tablet – schreibgeschützt und sicher.</p><a class="action-link" href="/de/competitions/live.html">Anzeige starten <span aria-hidden="true">↗</span></a>
   </section>
 </div>
 
-<section class="card">
-  <h2>Wie es funktioniert</h2>
-  <p>Ein Wettkampf ist ein signiertes Dokument auf Nostr. Die Ausrichtung veröffentlicht Entscheidungen als fortlaufenden, verketteten Verlauf; jeder Client spielt diesen Verlauf nach und kommt auf denselben Stand. Niemand muss unseren Servern vertrauen, weil es keine gibt.</p>
-</section>
-
-<section class="card">
-  <h2>Was öffentlich ist</h2>
-  <p>Dein öffentlicher Schlüssel, der Name, den du für die Anzeige wählst, deine Kategorie und deine Ergebnisse. Nicht dein echter Name, keine Kontaktdaten, und nichts über Leute, die nur geschaut haben. Der gewählte Name erscheint auf einer öffentlichen Anzeige und auf öffentlichen Relays — ein Spitzname reicht.</p>
-</section>
-
-<section class="card">
-  <h2>Die Android-App</h2>
-  <p>CruxCoach für Android steuert das Board selbst über Bluetooth und hat dieselbe Wettkampf-Ansicht eingebaut.</p>
-  <p><a href="/de/">App holen</a></p>
+<section class="trust-band">
+  <div><p class="eyebrow">Für die Wand gebaut</p><h2>Einfach an der Oberfläche.<br>Nachprüfbar darunter.</h2></div>
+  <div class="trust-copy"><p>CruxCoach hält das Event für Kletternde verständlich, während Anmeldung, Entscheidung und Ergebnis signiert und unabhängig auf Nostr lesbar bleiben.</p><p>Die Android-App öffnet jeden Wettkampf-Boulder direkt auf dem verbundenen Board. Die Website gibt Hosts den größeren Arbeitsplatz zum Erstellen und Steuern.</p><a href="/de/">Android-App entdecken <span aria-hidden="true">→</span></a></div>
 </section>
 </main>
 

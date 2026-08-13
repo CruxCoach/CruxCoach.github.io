@@ -22,7 +22,7 @@
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="apple-touch-icon" href="/assets/icon-512.png">
-<link rel="stylesheet" href="/competitions/app/competitions.css">
+<link rel="stylesheet" href="/competitions/app/competitions.css?v=20260813-3">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to the main content</a>
@@ -41,40 +41,43 @@
 <div id="live-status" class="visually-hidden" role="status" aria-live="polite" aria-label="Status"></div>
 <div id="live-alerts" class="visually-hidden" role="alert" aria-live="assertive" aria-label="Important updates"></div>
 
-<main id="main" class="wrap">
-<aside class="beta-notice" aria-label="Beta notice"><strong>Competition Beta</strong><span>This feature is being tested. Expect changes and use recovery keys you have backed up.</span></aside>
-<h1>Competitions</h1>
-<p class="lead">Run a competition on your board, or take part in one. There is no account and no server: the competition, every entry and every result live on Nostr, signed by the people who made them.</p>
+<main id="main" class="wrap competition-home">
+<aside class="beta-notice" aria-label="Beta notice"><strong>Competition Beta</strong><span>This feature is being tested. Expect changes and keep your sign-in backup safe.</span></aside>
+<section class="competition-hero">
+  <div class="competition-hero-copy">
+    <p class="eyebrow">Your board. Your people. One live event.</p>
+    <h1>Turn a climbing wall into an arena.</h1>
+    <p class="lead">Create the competition, bring everyone in with one link and run the whole session from the wall. No spreadsheet. No account maze.</p>
+    <div class="hero-actions"><a class="button primary" href="/competitions/organizer.html">Create a competition <span aria-hidden="true">→</span></a><a class="button quiet" href="/competitions/join.html">Join with a link</a></div>
+    <ul class="hero-proof" aria-label="Competition highlights"><li><strong>663k+</strong><span>board climbs</span></li><li><strong>7</strong><span>board families</span></li><li><strong>Live</strong><span>queue &amp; standings</span></li></ul>
+  </div>
+  <div class="hero-board-stage" aria-label="Supported climbing boards">
+    <span class="hero-orbit orbit-one" aria-hidden="true"></span><span class="hero-orbit orbit-two" aria-hidden="true"></span>
+    <figure class="hero-board hero-board-main"><img src="/competitions/assets/boards/kilter/board_10.webp" alt="Kilter Board Original"></figure>
+    <figure class="hero-board hero-board-left"><img src="/competitions/assets/boards/moonboard/moonboard_2024.webp" alt="MoonBoard 2024"></figure>
+    <figure class="hero-board hero-board-right"><img src="/competitions/assets/boards/tension/board_6_10.webp" alt="Tension Board 2"></figure>
+    <span class="hero-live-pill"><i aria-hidden="true"></i> Live competition</span>
+  </div>
+</section>
 
-<div class="grid three">
-  <section class="card">
+<div class="grid three action-grid">
+  <section class="card action-card"><span class="action-number">01</span>
     <h2><a href="/competitions/organizer.html">Organize</a></h2>
-    <p>Create a competition, share one link, decide who takes part, and run the queue from your phone. Everything you decide is signed with your key and is permanent.</p>
+    <p>Build a polished event step by step, choose climbs directly from the app catalogue, then run the queue from your phone.</p><a class="action-link" href="/competitions/organizer.html">Start building <span aria-hidden="true">↗</span></a>
   </section>
-  <section class="card">
+  <section class="card action-card"><span class="action-number">02</span>
     <h2><a href="/competitions/join.html">Take part</a></h2>
-    <p>Open the link the organizer shared, register, and see whose turn it is, how many attempts you have left and where you stand — on any phone, without installing anything.</p>
+    <p>Open one link, register with a nickname and always know your turn, attempts and place in the ranking.</p><a class="action-link" href="/competitions/join.html">Open competition <span aria-hidden="true">↗</span></a>
   </section>
-  <section class="card">
+  <section class="card action-card"><span class="action-number">03</span>
     <h2><a href="/competitions/live.html">Live screen</a></h2>
-    <p>A read-only screen for a projector or a tablet by the entrance. It holds no key, so it is safe to leave running and safe to share.</p>
+    <p>Put the current climber, countdown and standings on a projector or tablet—read-only and safe to leave running.</p><a class="action-link" href="/competitions/live.html">Launch display <span aria-hidden="true">↗</span></a>
   </section>
 </div>
 
-<section class="card">
-  <h2>How it works</h2>
-  <p>A competition is a signed document on Nostr. The organizer publishes decisions as an append-only, linked record; every client replays that record and arrives at the same standings. Nobody has to trust our servers, because there are none.</p>
-</section>
-
-<section class="card">
-  <h2>What is public</h2>
-  <p>Your public key, the name you choose for the screen, your division, and your results. Not your real name, not your contact details, and nothing about anyone who only looked. The name you pick appears on a public screen and on public relays — a nickname is fine.</p>
-</section>
-
-<section class="card">
-  <h2>The Android app</h2>
-  <p>CruxCoach for Android drives the board itself over Bluetooth and has the same competition view built in.</p>
-  <p><a href="/">Get the app</a></p>
+<section class="trust-band">
+  <div><p class="eyebrow">Built for the wall</p><h2>Simple on the surface.<br>Verifiable underneath.</h2></div>
+  <div class="trust-copy"><p>CruxCoach keeps the event understandable for climbers while every registration, decision and result remains signed and independently readable on Nostr.</p><p>The Android app opens each competition climb directly on the connected board. The website gives hosts the larger workspace for creating and running the event.</p><a href="/">Explore the Android app <span aria-hidden="true">→</span></a></div>
 </section>
 </main>
 

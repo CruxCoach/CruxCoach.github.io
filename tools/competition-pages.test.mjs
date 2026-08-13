@@ -51,6 +51,20 @@ test('the service worker never serves a stale competition release while online',
     'competition requests must try the network before their offline cache');
 });
 
+test('the competition front door and host workspace keep their distinct visual structure', () => {
+  for (const lang of ['en', 'de']) {
+    const home = readPage(lang, 'index.html');
+    const organizer = readPage(lang, 'organizer.html');
+    for (const marker of ['competition-hero', 'hero-board-stage', 'action-grid', 'trust-band']) {
+      assert.ok(home.includes(marker), `${lang} home is missing ${marker}`);
+    }
+    assert.ok(organizer.includes('workspace-intro'), `${lang} organizer has no workspace introduction`);
+  }
+  const css = fs.readFileSync(path.join(root, 'competitions/app/competitions.css'), 'utf8');
+  assert.match(css, /\.competition-wizard\s*\{[^}]*grid-template-columns:/s);
+  assert.match(css, /\.competition-wizard \.board-preview\s*\{[^}]*position: sticky/s);
+});
+
 // ── the repository's own rules ──
 
 test('every English page has a German mirror with the same structure', () => {

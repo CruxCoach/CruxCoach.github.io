@@ -841,7 +841,7 @@ async function act(work) {
 function render() {
   if (!signer) {
     replace(view, el('div', { className: 'card' }, [
-      el('h1', { text: t('nav.organizer') }),
+      el('h2', { text: t('nav.organizer') }),
       el('p', { text: t('signin.intro') }),
     ]));
     return;
@@ -856,7 +856,7 @@ function render() {
     devRelayBanner(store, t),
     ...integrityNotices(snapshot, t),
     el('section', { className: 'card' }, [
-      el('h1', { text: snapshot.competition.title }),
+      el('h2', { text: snapshot.competition.title }),
       el('div', { className: 'row' }, [
         el('span', { className: 'badge', text: t(`status.${snapshot.state.status}`) }),
         el('span', { className: 'badge', text: formatDateTime(snapshot.competition.starts_at, language, snapshot.competition.timezone) }),
