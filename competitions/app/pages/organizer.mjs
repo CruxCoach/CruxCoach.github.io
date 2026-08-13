@@ -18,7 +18,7 @@ import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs';
 import {
   NAMESPACE, newCompId, parseCompetitionEvent, parseIntentEvent, parseLogEvent,
-  validateCompetitionConfig,
+  checkinWindowOpen, registrationWindowOpen, validateCompetitionConfig,
 } from '../protocol/competition.mjs';
 import { reduce } from '../protocol/reduce.mjs';
 import { outstandingClaims, registrationOrder } from '../protocol/claims.mjs';
@@ -26,11 +26,11 @@ import { verifyZapReceipt, receiptFilter, ZAP_RECEIPT_KIND } from '../protocol/z
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
 import { competitionAddress } from '../protocol/competition.mjs';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
-import { createCompetitionForm } from './organizer-form.mjs?v=20260813-3';
+import { createCompetitionForm } from './organizer-form.mjs?v=20260813-4';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs';
 import { announce, displayName, formatDateTime, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-6';
 
 const { t, language } = bootstrap();
 
@@ -474,6 +474,7 @@ function selectionLabels(snapshot, ids) {
 
 function entrantsPanel(snapshot) {
   const rows = [];
+  const now = Math.floor(Date.now() / 1000);
   for (const [, intent] of intents) {
     if (intent.intent.op !== 'register') continue;
     // A rejected or withdrawn entrant may ask again while registration is
@@ -536,7 +537,8 @@ function entrantsPanel(snapshot) {
 
   const participants = snapshot.state.participants.map((p) => {
     const controls = [];
-    if (p.registration === 'waitlisted' && snapshot.state.status === 'registration_open') {
+    if (p.registration === 'waitlisted'
+      && registrationWindowOpen(snapshot.competition, snapshot.state.status, now)) {
       controls.push(el('button', {
         className: 'primary', text: t('org.promote'),
         on: { click: () => act(() => writer.decideRegistration(p.pubkey, 'accepted', {
@@ -545,7 +547,7 @@ function entrantsPanel(snapshot) {
       }));
     }
     if (p.registration === 'accepted' && p.checkin === 'none'
-      && ['checkin_open', 'running'].includes(snapshot.state.status)) {
+      && checkinWindowOpen(snapshot.competition, snapshot.state.status, now)) {
       controls.push(
         el('button', { text: t('action.checkin'), on: { click: () => act(() => writer.checkIn(p.pubkey)) } }),
         el('button', { text: t('org.no_show'), on: { click: () => act(() => writer.checkIn(p.pubkey, 'no_show')) } }),

@@ -11,7 +11,10 @@
  * The Kotlin port is `shared/.../domain/competition/CompetitionReducer.kt` and
  * is pinned to the same fixture streams.
  */
-import { LEGAL_TRANSITIONS, QUEUE_ACTIONS, ATTEMPT_OUTCOMES, PAYMENT_STATES, SCHEMA } from './competition.mjs';
+import {
+  LEGAL_TRANSITIONS, QUEUE_ACTIONS, ATTEMPT_OUTCOMES, PAYMENT_STATES, SCHEMA,
+  checkinWindowOpen, registrationWindowOpen,
+} from './competition.mjs';
 
 /** Build the zero state for a validated competition definition. */
 export function initialState(competition, competitionEventId) {
@@ -149,7 +152,7 @@ function applyRegistrationDecision(state, entry, competition) {
   // competition is over, including during check-in and a running round.
   if (decision === 'withdrawn') {
     if (['finished', 'cancelled'].includes(state.status)) return reject(state, entry, 'wrong_status');
-  } else if (!ACCEPTS.registration.has(state.status)) {
+  } else if (!registrationWindowOpen(competition, state.status, entry.at)) {
     return reject(state, entry, 'wrong_status');
   }
   if (decision === 'accepted' && competition.capacity > 0) {
@@ -215,13 +218,17 @@ function applyClaimDecision(state, entry, competition) {
   return state;
 }
 
-function applyCheckin(state, entry) {
+function applyCheckin(state, entry, competition) {
   if (!ACCEPTS.checkin.has(state.status)) {
     return reject(state, entry, 'wrong_status');
   }
   const { pubkey, state: checkinState } = entry.data;
   if (!['checked_in', 'no_show'].includes(checkinState)) {
     return reject(state, entry, 'unknown_checkin_state');
+  }
+  if (checkinState === 'checked_in'
+    && !checkinWindowOpen(competition, state.status, entry.at)) {
+    return reject(state, entry, 'wrong_status');
   }
   const participant = findParticipant(state, pubkey);
   if (!participant) return reject(state, entry, 'no_such_participant');

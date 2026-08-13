@@ -64,6 +64,21 @@ export const TIEBREAKS = ['fewest_attempts', 'most_zones', 'fewest_zone_attempts
 export const VISIBILITIES = ['public', 'unlisted'];
 export const PAYMENT_STATES = ['not_required', 'pending', 'settled', 'failed', 'expired', 'refunded'];
 
+/** Registration and check-in are independent windows and may overlap. */
+export function registrationWindowOpen(competition, status, at) {
+  if (!Number.isInteger(at) || at > competition.registration_closes_at) return false;
+  return status === 'registration_open'
+    || status === 'checkin_open'
+    || (status === 'running' && competition.rules.late_entry_allowed === true);
+}
+
+/** Late check-in during a running competition must be explicitly enabled. */
+export function checkinWindowOpen(competition, status, at) {
+  if (!Number.isInteger(at) || at > competition.checkin_closes_at) return false;
+  return status === 'checkin_open'
+    || (status === 'running' && competition.rules.late_entry_allowed === true);
+}
+
 /** `reason` is mandatory on these; an audit trail without a why is just a log. */
 const REASON_REQUIRED_OPS = new Set(['correction', 'override', 'disqualify']);
 
@@ -226,13 +241,24 @@ export function validateCompetitionConfig(config) {
       err(errors, field, 'must be a whole number of seconds since the epoch');
     }
   }
+  // Registration and check-in are independent windows and may overlap. Each
+  // window must be internally ordered; late_entry_allowed decides whether its
+  // closing edge may extend beyond the competition start.
   const order = [
     ['registration_opens_at', 'registration_closes_at'],
-    ['registration_closes_at', 'checkin_opens_at'],
     ['checkin_opens_at', 'checkin_closes_at'],
-    ['checkin_closes_at', 'starts_at'],
+    ['registration_opens_at', 'starts_at'],
+    ['checkin_opens_at', 'starts_at'],
     ['starts_at', 'ends_at'],
+    ['registration_closes_at', 'ends_at'],
+    ['checkin_closes_at', 'ends_at'],
   ];
+  if (config.rules?.late_entry_allowed !== true) {
+    order.push(
+      ['registration_closes_at', 'starts_at'],
+      ['checkin_closes_at', 'starts_at'],
+    );
+  }
   for (const [a, b] of order) {
     if (Number.isInteger(config[a]) && Number.isInteger(config[b]) && config[a] > config[b]) {
       err(errors, b, `must not be before ${a.replace(/_/g, ' ')}`);

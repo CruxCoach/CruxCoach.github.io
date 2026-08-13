@@ -17,12 +17,14 @@ import {
   resolvePayEndpoint, validatePayResponse, invoiceUrl, validateInvoiceResponse,
 } from '../protocol/lnurl.mjs';
 import { buildZapRequest } from '../protocol/zap.mjs';
-import { competitionAddress } from '../protocol/competition.mjs';
+import {
+  checkinWindowOpen, competitionAddress, registrationWindowOpen,
+} from '../protocol/competition.mjs';
 import { EntrantWriter } from '../authority.mjs';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-6';
 
 const { t, language } = bootstrap();
 
@@ -143,6 +145,7 @@ function header(snapshot) {
 function registrationPanel(snapshot) {
   const competition = snapshot.competition;
   const mine = me();
+  const now = Math.floor(Date.now() / 1000);
 
   if (!signer) {
     return el('section', { className: 'card raised' }, [
@@ -179,7 +182,7 @@ function registrationPanel(snapshot) {
     // still decides; this is how somebody at the back of a queue says they
     // are here.
     if (mine.registration === 'accepted' && mine.checkin === 'none'
-      && ['checkin_open', 'running'].includes(snapshot.state.status)) {
+      && checkinWindowOpen(competition, snapshot.state.status, now)) {
       rows.push(el('button', {
         className: 'primary',
         text: t('action.checkin'),
@@ -204,7 +207,7 @@ function registrationPanel(snapshot) {
     // registration is open, asking again replaces the withdrawal rather than
     // adding a second request.
     if (['withdrawn', 'rejected'].includes(mine.registration)
-      && snapshot.state.status === 'registration_open') {
+      && registrationWindowOpen(competition, snapshot.state.status, now)) {
       const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
       rows.push(
         el('p', { className: 'small', text: t('reg.again.hint') }),
@@ -230,7 +233,7 @@ function registrationPanel(snapshot) {
     return el('section', { className: 'card raised' }, rows);
   }
 
-  if (snapshot.state.status !== 'registration_open') {
+  if (!registrationWindowOpen(competition, snapshot.state.status, now)) {
     return el('section', { className: 'card raised' }, [
       el('h2', { text: t('action.register') }),
       el('p', { text: t('reg.closed') }),
@@ -607,7 +610,7 @@ function claimStatus(snapshot, mine) {
   }
 
   const free = freeClimbs(competition, snapshot.state);
-  if (snapshot.state.status !== 'registration_open') {
+  if (!registrationWindowOpen(competition, snapshot.state.status, Math.floor(Date.now() / 1000))) {
     rows.push(el('p', { className: 'small', text: t('select.pending') }));
     return rows;
   }

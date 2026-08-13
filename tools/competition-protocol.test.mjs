@@ -12,7 +12,8 @@ import {
 import { ccj, ccjHash, sha256Hex } from '../competitions/app/protocol/ccj.mjs';
 import {
   buildCompetitionEvent, buildIntentEvent, classifyEvent, compDTag, intentDTag,
-  logDTag, parseCompetitionEvent, parseDTag, validateCompetitionConfig, KIND,
+  checkinWindowOpen, logDTag, parseCompetitionEvent, parseDTag,
+  registrationWindowOpen, validateCompetitionConfig, KIND,
 } from '../competitions/app/protocol/competition.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -162,6 +163,30 @@ test('the fixture competition validates', () => {
   const result = validateCompetitionConfig(validConfig());
   assert.deepEqual(result.errors, []);
   assert.equal(result.ok, true);
+});
+
+test('registration may overlap check-in and late arrivals require an explicit rule', () => {
+  const base = validConfig();
+  const overlap = {
+    ...base,
+    registration_closes_at: base.checkin_opens_at + 300,
+  };
+  assert.equal(validateCompetitionConfig(overlap).ok, true, 'overlapping windows should be valid');
+  assert.equal(registrationWindowOpen(overlap, 'checkin_open', overlap.checkin_opens_at), true);
+
+  const afterStart = {
+    ...overlap,
+    registration_closes_at: base.starts_at + 60,
+    checkin_closes_at: base.starts_at + 120,
+  };
+  assert.equal(validateCompetitionConfig(afterStart).ok, false, 'late arrivals must be opted into');
+
+  const late = { ...afterStart, rules: { ...base.rules, late_entry_allowed: true } };
+  assert.equal(validateCompetitionConfig(late).ok, true);
+  assert.equal(registrationWindowOpen(late, 'running', base.starts_at + 30), true);
+  assert.equal(checkinWindowOpen(late, 'running', base.starts_at + 30), true);
+  assert.equal(registrationWindowOpen(late, 'running', late.registration_closes_at + 1), false);
+  assert.equal(checkinWindowOpen(late, 'running', late.checkin_closes_at + 1), false);
 });
 
 test('validation names the field that is wrong', () => {

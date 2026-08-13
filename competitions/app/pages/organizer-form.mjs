@@ -1089,6 +1089,12 @@ export function createCompetitionForm({
           el('h3', { text: t('org.schedule.checkin') }),
           field('f-checkin-open', t('org.field.checkin_open'), f.checkinOpens),
           field('f-checkin-close', t('org.field.checkin_close'), f.checkinCloses),
+          el('label', { className: 'inline', attrs: { for: 'f-late-entry' } }, [
+            f.lateEntry, el('span', {}, [
+              el('span', { text: t('org.field.late_entry') }),
+              el('span', { className: 'hint', text: t('org.field.late_entry.hint') }),
+            ]),
+          ]),
         ]),
         el('section', { className: 'subcard' }, [
           el('h3', { text: t('org.schedule.competition') }),
@@ -1178,9 +1184,6 @@ export function createCompetitionForm({
       ]),
 
       advancedTiming,
-      el('label', { className: 'inline', attrs: { for: 'f-late-entry' } }, [
-        f.lateEntry, el('span', { text: t('org.field.late_entry') }),
-      ]),
     ]),
     el('fieldset', { className: 'wizard-panel' }, [
       el('legend', { text: t('org.review.title') }),
@@ -1218,7 +1221,11 @@ export function createCompetitionForm({
         reviewCard(0, t('org.basics'), f.title.value || t('org.review.missing'),
           `${f.organizerName.value} · ${t(`org.visibility.${f.visibility.value}`)}`),
         reviewCard(1, t('org.when'), `${f.starts.value} → ${f.ends.value} · ${timeZoneLabel(f.timezone.value, timeZoneReference(f.starts.value))}`,
-          t('org.review.registration_window', { start: f.regOpens.value, end: f.regCloses.value })),
+          [
+            t('org.review.registration_window', { start: f.regOpens.value, end: f.regCloses.value }),
+            t('org.review.checkin_window', { start: f.checkinOpens.value, end: f.checkinCloses.value }),
+            f.lateEntry.checked ? t('org.review.late_arrivals') : '',
+          ].filter(Boolean).join(' · ')),
         reviewCard(2, t('org.board'), board
           ? `${boardType(f.brand.value)?.label || board.brand} · ${selectedModel()?.label || board.model}` : '—',
         `${board?.size || '—'} · ${board?.angle || '—'}° · ${f.venue.value || t(`org.venue.${f.venueKind.value}`)}`),
@@ -1312,10 +1319,19 @@ export function createCompetitionForm({
       return;
     }
     if (currentStep === 1) {
-      const ordered = [f.regOpens, f.regCloses, f.checkinOpens, f.checkinCloses, f.starts, f.ends]
-        .map((control) => zonedLocalToEpoch(control.value, f.timezone.value));
-      if (ordered.some((value) => !Number.isFinite(value))
-        || ordered.some((value, index) => index > 0 && value < ordered[index - 1])) {
+      const times = Object.fromEntries(Object.entries({
+        regOpen: f.regOpens, regClose: f.regCloses,
+        checkinOpen: f.checkinOpens, checkinClose: f.checkinCloses,
+        start: f.starts, end: f.ends,
+      }).map(([name, control]) => [name, zonedLocalToEpoch(control.value, f.timezone.value)]));
+      const pairs = [
+        ['regOpen', 'regClose'], ['checkinOpen', 'checkinClose'],
+        ['regOpen', 'start'], ['checkinOpen', 'start'], ['start', 'end'],
+        ['regClose', 'end'], ['checkinClose', 'end'],
+      ];
+      if (!f.lateEntry.checked) pairs.push(['regClose', 'start'], ['checkinClose', 'start']);
+      if (Object.values(times).some((value) => !Number.isFinite(value))
+        || pairs.some(([before, after]) => times[before] > times[after])) {
         stepError.textContent = t('org.wizard.time_error');
         stepError.removeAttribute('hidden');
         return;
