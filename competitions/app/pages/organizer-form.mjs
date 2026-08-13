@@ -22,7 +22,7 @@ import {
 } from '../protocol/board-catalog.mjs';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs';
 import { loadVenueCatalogue, searchVenues } from '../data/venue-catalogue.mjs';
-import { climbCard, filterCatalogue } from '../ui/climb-card.mjs';
+import { climbCard, filterCatalogue } from '../ui/climb-card.mjs?v=20260813-1';
 
 const text = (id, value = '', attrs = {}) => el('input', { attrs: { type: 'text', id, value, ...attrs } });
 const num = (id, value, attrs = {}) => el('input', { attrs: { type: 'number', id, value: String(value), required: 'required', ...attrs } });

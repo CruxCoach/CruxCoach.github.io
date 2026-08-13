@@ -900,6 +900,55 @@ test('catalogue filters combine search, difficulty, sends and sort deterministic
   });
 });
 
+test('board previews share the image geometry and open an accessible large view', async () => {
+  const { climbCard, previewTransform } = await import('../competitions/app/ui/climb-card.mjs');
+  const moon = previewTransform({ bounds: [0, 10, 0, 17] }, { brand: 'moonboard', layout_id: 5 });
+  assert.equal(moon.aspect, 0.6497);
+  assert.deepEqual(moon.point(0, 0), [0.14177, 0.94131]);
+  const moonTopRight = moon.point(10, 17);
+  assert.ok(Math.abs(moonTopRight[0] - 0.90474) < 1e-9);
+  assert.ok(Math.abs(moonTopRight[1] - 0.09495) < 1e-9);
+  const kilter = previewTransform({ bounds: [0, 144, 0, 156] }, { brand: 'kilter', layout_id: 1 });
+  assert.deepEqual(kilter.point(0, 0), [0, 1]);
+  assert.deepEqual(kilter.point(144, 156), [1, 0]);
+
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  try {
+    const card = climbCard({
+      climb: { label: 'Test climb', holds: [[1, 42, 0, 0]], bounds: [0, 10, 0, 17] },
+      board: { brand: 'moonboard', model: 'moonboard-masters-2019', layout_id: 5, size: '11x18' },
+      t: createTranslator('en'),
+    });
+    document.body.append(card);
+    const trigger = card.querySelector('.climb-card-preview');
+    assert.equal(trigger.tagName, 'BUTTON');
+    assert.match(trigger.getAttribute('aria-label'), /Enlarge board preview/);
+    trigger.dispatch('click');
+    const dialog = document.body.querySelector('.climb-preview-dialog');
+    assert.ok(dialog);
+    assert.ok(dialog.querySelector('.climb-preview-close'));
+    dialog.querySelector('.climb-preview-close').dispatch('click');
+    assert.equal(document.body.querySelector('.climb-preview-dialog'), null);
+  } finally {
+    restore();
+  }
+});
+
+test('measured MoonBoard preview data covers every supported variant', () => {
+  const geometry = JSON.parse(fs.readFileSync(
+    path.join(root, 'competitions/data/moonboard-preview-geometry.json'), 'utf8',
+  ));
+  assert.equal(geometry.v, 1);
+  assert.deepEqual(Object.keys(geometry.layouts), ['1', '2', '3', '4', '5', '6', '7']);
+  for (const [layout, entry] of Object.entries(geometry.layouts)) {
+    assert.equal(Number.isFinite(entry.aspect) && entry.aspect > 0, true, `layout ${layout} aspect`);
+    assert.equal(Object.keys(entry.holds).length, ['6', '7'].includes(layout) ? 132 : 198);
+    assert.equal(Object.values(entry.holds).every((point) => point.length === 2
+      && point.every((value) => value >= 0 && value <= 1)), true);
+  }
+});
+
 test('participant and repick pickers gate actions on verified catalogue readiness', () => {
   const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
   assert.match(join, /catalogueState !== 'ready' \|\| outstanding !== 0/);

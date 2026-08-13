@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-6';
+} from './common.mjs?v=20260813-7';
 import { SignIn } from '../ui/shell.mjs?v=20260813-9';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
@@ -25,11 +25,11 @@ import { EntrantWriter } from '../authority.mjs';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-8';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-12';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs';
 import { BOARD_TYPES, catalogueProductSizeId } from '../protocol/board-catalog.mjs';
-import { climbCard, filterCatalogue } from '../ui/climb-card.mjs';
+import { climbCard, filterCatalogue } from '../ui/climb-card.mjs?v=20260813-1';
 
 const { t, language } = bootstrap();
 
