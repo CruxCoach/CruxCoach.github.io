@@ -9,8 +9,9 @@ export function normalizeVenueText(value) {
     .replace(/[\u0300-\u036f]/g, '').replace(/ß/g, 'ss').trim();
 }
 
-function firstAddress(boards, preferredBoard = '') {
-  return boards.find((entry) => entry.id === preferredBoard && entry.address)?.address
+function firstAddress(boards, preferredBoard = '', venueAddress = '') {
+  return venueAddress
+    || boards.find((entry) => entry.id === preferredBoard && entry.address)?.address
     || boards.find((entry) => entry.address)?.address || '';
 }
 
@@ -43,12 +44,17 @@ export function venueEntries(geojson) {
     const city = String(props.city || props.city_nearest || '').trim();
     const country = String(props.country || '').trim();
     const name = props.name.trim();
+    // Some map sources know an address for the venue itself, others attach it
+    // to a specific installed board. Preserve both without synthesising one
+    // from city/country when the source does not actually provide an address.
+    const venueAddress = typeof props.address === 'string' ? props.address.trim() : '';
     const addresses = boards.map((entry) => entry.address).filter(Boolean);
     return [{
-      name, city, country, boards,
+      name, city, country, boards, mapAddress: venueAddress,
+      address: firstAddress(boards, '', venueAddress),
       searchName: normalizeVenueText(name),
       searchCity: normalizeVenueText(city),
-      searchHaystack: normalizeVenueText([name, city, country, ...addresses].join(' ')),
+      searchHaystack: normalizeVenueText([name, city, country, venueAddress, ...addresses].join(' ')),
     }];
   });
 }
@@ -63,7 +69,11 @@ export function searchVenues(entries, query, preferredBoard = '', limit = DEFAUL
     if (haystackIndex < 0) return [];
     const relevance = nameIndex === 0 ? 0 : nameIndex > 0 ? 1 : cityIndex === 0 ? 2 : cityIndex > 0 ? 3 : 4;
     const preferred = entry.boards.some((board) => board.id === preferredBoard) ? 0 : 1;
-    return [{ ...entry, address: firstAddress(entry.boards, preferredBoard), score: relevance * 2 + preferred }];
+    return [{
+      ...entry,
+      address: firstAddress(entry.boards, preferredBoard, entry.mapAddress),
+      score: relevance * 2 + preferred,
+    }];
   }).sort((a, b) => a.score - b.score || a.name.localeCompare(b.name)).slice(0, limit);
 }
 

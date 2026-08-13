@@ -880,7 +880,9 @@ test('the embedded browser admits only namespaced climbs with exact board metada
 });
 
 test('catalogue filters combine search, difficulty, sends and sort deterministically', async () => {
-  const { filterCatalogue, selectionReadiness } = await import('../competitions/app/ui/climb-card.mjs');
+  const {
+    filterCatalogue, gradeFilterOptions, gradeLabel, selectionReadiness,
+  } = await import('../competitions/app/ui/climb-card.mjs');
   const rows = [
     { described: { label: 'Blue slab', setter: 'Ada', difficulty: 10, ascents: 25, quality: 3 } },
     { described: { label: 'Red roof', setter: 'Bob', difficulty: 18, ascents: 4, quality: 4 } },
@@ -889,6 +891,14 @@ test('catalogue filters combine search, difficulty, sends and sort deterministic
     query: 'ada', minDifficulty: '8', maxDifficulty: '12', minAscents: '10', sort: 'hardest',
   }), [rows[0]]);
   assert.deepEqual(filterCatalogue(rows, { sort: 'quality' }), [rows[1], rows[0]]);
+  assert.equal(gradeLabel(20, 'v'), 'V5');
+  assert.equal(gradeLabel(20, 'font'), '6c');
+  assert.deepEqual(gradeFilterOptions('v', 'max').find(({ label }) => label === 'V0'), {
+    label: 'V0', value: '12',
+  }, 'a maximum V0 filter must include every difficulty displayed as V0');
+  assert.deepEqual(gradeFilterOptions('font', 'min').slice(0, 3), [
+    { label: '4a', value: '10' }, { label: '4b', value: '11' }, { label: '4c', value: '12' },
+  ]);
   assert.deepEqual(selectionReadiness({ catalogueState: 'loading', chosen: 1, needed: 1 }), {
     ready: false, reason: 'catalogue',
   });

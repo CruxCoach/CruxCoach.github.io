@@ -22,7 +22,9 @@ import {
 } from '../protocol/board-catalog.mjs';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs';
 import { loadVenueCatalogue, searchVenues } from '../data/venue-catalogue.mjs';
-import { climbCard, filterCatalogue } from '../ui/climb-card.mjs?v=20260813-1';
+import {
+  climbCard, filterCatalogue, gradeFilterOptions, saveGradeScale, storedGradeScale,
+} from '../ui/climb-card.mjs?v=20260813-2';
 
 const text = (id, value = '', attrs = {}) => el('input', { attrs: { type: 'text', id, value, ...attrs } });
 const num = (id, value, attrs = {}) => el('input', { attrs: { type: 'number', id, value: String(value), required: 'required', ...attrs } });
@@ -232,10 +234,11 @@ export function isBrowsableClimbEvent(event, described, board) {
  * that resolved to a real id.
  */
 class ClimbEditor {
-  constructor({ t, pool, boardOf, onChange }) {
+  constructor({ t, pool, boardOf, gradeScaleOf = storedGradeScale, onChange }) {
     this.t = t;
     this.pool = pool;
     this.boardOf = boardOf;
+    this.gradeScaleOf = gradeScaleOf;
     this.onChange = onChange || (() => {});
     this.rows = [];
     this.node = el('div', { className: 'stack' });
@@ -471,7 +474,7 @@ class ClimbEditor {
         ? el('p', { className: 'notice bad', text: t('climb.selected_incompatible') }) : null,
       row.described ? climbCard({
         climb: { ...row.described, zone_hold: Number(row.zoneInput.value) || undefined },
-        board: this.boardOf(), t, selected: true,
+        board: this.boardOf(), t, selected: true, gradeScale: this.gradeScaleOf(),
       }) : null,
       el('div', { className: 'climb-fields' }, [
         field(row.labelInput.id, t('climb.label'), row.labelInput),
@@ -825,7 +828,10 @@ export function createCompetitionForm({
   const catalogueBoardOf = () => resolveCatalogueSelection(
     f.brand.value, f.model.value, f.size.value, f.angle.value,
   );
-  const climbEditor = new ClimbEditor({ t, pool, boardOf, onChange: () => notifyDraftChange() });
+  let browserGradeScale = storedGradeScale();
+  const climbEditor = new ClimbEditor({
+    t, pool, boardOf, gradeScaleOf: () => browserGradeScale, onChange: () => notifyDraftChange(),
+  });
   const climbInput = text('f-climb-ref', '', { placeholder: t('climb.paste.placeholder'), autocomplete: 'off' });
   const climbSection = el('div', {});
   const browserResults = el('div', { className: 'climb-browser-results' });
@@ -833,15 +839,43 @@ export function createCompetitionForm({
   const browserSearch = text('f-climb-search', '', {
     placeholder: t('climb.browser.search.placeholder'), autocomplete: 'off', type: 'search',
   });
-  const gradeOptions = [['', t('climb.filter.any_grade')],
-    ...Array.from({ length: 18 }, (_, v) => [String(v === 0 ? 10 : v === 1 ? 13 : v === 2 ? 15 : v === 3 ? 16 : v === 4 ? 18 : v === 5 ? 20 : v + 16), `V${v}`])];
-  const difficultyMin = select('f-climb-min-grade', gradeOptions, '');
-  const difficultyMax = select('f-climb-max-grade', gradeOptions, '');
+  const difficultyMin = select('f-climb-min-grade', [], '');
+  const difficultyMax = select('f-climb-max-grade', [], '');
   const minAscents = num('f-climb-min-ascents', 0, { min: '0', max: '1000000' });
   const browserSort = select('f-climb-sort', [
     ['popular', t('climb.filter.popular')], ['quality', t('climb.filter.quality')],
     ['easiest', t('climb.filter.easiest')], ['hardest', t('climb.filter.hardest')],
   ], 'popular');
+  const gradeScaleButtons = el('div', {
+    className: 'segmented-control', attrs: { role: 'group', 'aria-label': t('climb.filter.grade_scale') },
+  });
+  const updateGradeControls = () => {
+    const minValue = difficultyMin.value;
+    const maxValue = difficultyMax.value;
+    replaceSelectOptions(difficultyMin, [
+      ['', t('climb.filter.any_grade')],
+      ...gradeFilterOptions(browserGradeScale, 'min').map(({ value, label }) => [value, label]),
+    ], minValue);
+    replaceSelectOptions(difficultyMax, [
+      ['', t('climb.filter.any_grade')],
+      ...gradeFilterOptions(browserGradeScale, 'max').map(({ value, label }) => [value, label]),
+    ], maxValue);
+    replace(gradeScaleButtons, ...[
+      ['v', t('climb.filter.grade_scale.v')], ['font', t('climb.filter.grade_scale.font')],
+    ].map(([value, label]) => el('button', {
+      className: browserGradeScale === value ? 'active' : '', text: label,
+      attrs: { type: 'button', 'aria-pressed': String(browserGradeScale === value) },
+      on: { click: () => {
+        if (browserGradeScale === value) return;
+        browserGradeScale = value;
+        saveGradeScale(value);
+        updateGradeControls();
+        climbEditor.render();
+        renderBrowserResults();
+      } },
+    })));
+  };
+  updateGradeControls();
   const browserSearchField = el('label', { attrs: { for: 'f-climb-search' } }, [
     el('span', { text: t('climb.browser.search') }),
     el('span', { className: 'hint', text: t('climb.browser.search.hint') }),
@@ -905,7 +939,9 @@ export function createCompetitionForm({
             },
           },
         });
-      return climbCard({ climb: described, board: boardOf(), t, selected, action });
+      return climbCard({
+        climb: described, board: boardOf(), t, selected, action, gradeScale: browserGradeScale,
+      });
     }));
   };
   browserSearch.addEventListener('input', renderBrowserResults);
@@ -992,6 +1028,20 @@ export function createCompetitionForm({
         el('p', { className: 'small', text: t('climb.browser.hint') }),
         retryCatalogueButton,
         browserSearchField,
+        el('div', { className: 'catalogue-toolbar' }, [
+          el('span', { className: 'small', text: t('climb.filter.grade_scale') }), gradeScaleButtons,
+          el('button', {
+            className: 'quiet', text: t('climb.filter.reset'), attrs: { type: 'button' },
+            on: { click: () => {
+              browserSearch.value = '';
+              difficultyMin.value = '';
+              difficultyMax.value = '';
+              minAscents.value = '0';
+              browserSort.value = 'popular';
+              renderBrowserResults();
+            } },
+          }),
+        ]),
         el('div', { className: 'climb-filter-grid' }, [
           field(difficultyMin.id, t('climb.filter.min_grade'), difficultyMin),
           field(difficultyMax.id, t('climb.filter.max_grade'), difficultyMax),
@@ -1238,7 +1288,9 @@ export function createCompetitionForm({
   const chooseVenue = ({ venue, board = null }) => {
     f.venue.value = venue.name;
     const address = board?.address || venue.address;
-    if (address) f.address.value = address;
+    // Selecting another mapped venue must never leave the previous venue's
+    // address behind. An empty field truthfully means the map has none.
+    f.address.value = address || '';
     selectVenueBoard(board);
     venueStatus.textContent = board
       ? t(board.exact ? 'org.venue.suggest.selected_board' : 'org.venue.suggest.selected_board_check', {

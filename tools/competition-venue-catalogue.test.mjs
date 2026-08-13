@@ -21,7 +21,18 @@ const catalogue = venueEntries({
         boards: [{ board: 'kilter', address: 'Hanne-Hiob-Straße 4, München' }],
       },
     },
+    {
+      type: 'Feature', properties: {
+        name: 'Map Address Gym', city: 'Berlin', country: 'DE', address: 'Mapstraße 7, Berlin',
+        boards: [{ board: 'moonboard' }],
+      },
+    },
   ],
+});
+
+test('venue-level map addresses are retained when no board-specific address exists', () => {
+  const found = searchVenues(catalogue, 'map address', 'moonboard');
+  assert.equal(found[0]?.address, 'Mapstraße 7, Berlin');
 });
 
 test('venue catalogue search ignores accents and prefers the selected board', () => {

@@ -1,12 +1,43 @@
 import { el } from './dom.mjs';
 import { boardPreviewImages } from '../protocol/board-catalog.mjs';
 
-export function gradeLabel(value) {
+const FONT_GRADES = [
+  '4a', '4b', '4c', '5a', '5b', '5c', '6a', '6a+', '6b', '6b+', '6c', '6c+',
+  '7a', '7a+', '7b', '7b+', '7c', '7c+', '8a', '8a+', '8b', '8b+', '8c', '8c+', '9a',
+];
+const V_GRADES = [
+  'V0', 'V0', 'V0', 'V1', 'V1', 'V2', 'V3', 'V3', 'V4', 'V4', 'V5', 'V5',
+  'V6', 'V7', 'V8', 'V8', 'V9', 'V10', 'V11', 'V12', 'V13', 'V14', 'V15', 'V16', 'V17',
+];
+const GRADE_SCALE_KEY = 'cruxcoach:grade-scale:v1';
+
+export function storedGradeScale(storage = globalThis.localStorage) {
+  try { return storage?.getItem(GRADE_SCALE_KEY) === 'font' ? 'font' : 'v'; } catch { return 'v'; }
+}
+
+export function saveGradeScale(scale, storage = globalThis.localStorage) {
+  try { storage?.setItem(GRADE_SCALE_KEY, scale === 'font' ? 'font' : 'v'); } catch { /* private mode */ }
+}
+
+/** Match the official difficulty table used by the Android app. */
+export function gradeLabel(value, scale = 'v') {
   if (!Number.isFinite(value)) return '—';
   const grade = Math.floor(Number(value) + 0.5);
-  const v = grade <= 12 ? 0 : grade <= 14 ? 1 : grade <= 15 ? 2 : grade <= 17 ? 3
-    : grade <= 19 ? 4 : grade <= 21 ? 5 : Math.min(17, grade - 16);
-  return `V${v}`;
+  const index = Math.max(0, Math.min(24, grade - 10));
+  return (scale === 'font' ? FONT_GRADES : V_GRADES)[index];
+}
+
+/** Select values are exact internal difficulty boundaries; only human grades are exposed. */
+export function gradeFilterOptions(scale = 'v', bound = 'min') {
+  const labels = scale === 'font' ? FONT_GRADES : V_GRADES;
+  const groups = [];
+  labels.forEach((label, index) => {
+    const difficulty = index + 10;
+    const previous = groups.at(-1);
+    if (previous?.label === label) previous.max = difficulty;
+    else groups.push({ label, min: difficulty, max: difficulty });
+  });
+  return groups.map((group) => ({ label: group.label, value: String(bound === 'max' ? group.max : group.min) }));
 }
 
 const MOONBOARD_PREVIEW_GEOMETRY = new Map([
@@ -145,9 +176,9 @@ function preview(climb, board, t, { zoneSelectable = false, onZone } = {}) {
 }
 
 export function climbCard({ climb, board, t, selected = false, taken = false,
-  action = null, zoneSelectable = false, onZone = null }) {
+  action = null, zoneSelectable = false, onZone = null, gradeScale = storedGradeScale() }) {
   const meta = [
-    t('climb.card.grade', { grade: gradeLabel(climb.difficulty) }),
+    t('climb.card.grade', { grade: gradeLabel(climb.difficulty, gradeScale) }),
     t('climb.card.ascents', { count: climb.ascents || 0 }),
     Number.isFinite(climb.quality) ? t('climb.card.quality', { quality: Number(climb.quality).toFixed(1) }) : null,
   ].filter(Boolean);

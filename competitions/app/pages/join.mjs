@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-7';
+} from './common.mjs?v=20260813-10';
 import { SignIn } from '../ui/shell.mjs?v=20260813-9';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
@@ -25,11 +25,13 @@ import { EntrantWriter } from '../authority.mjs';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-12';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-13';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs';
 import { BOARD_TYPES, catalogueProductSizeId } from '../protocol/board-catalog.mjs';
-import { climbCard, filterCatalogue } from '../ui/climb-card.mjs?v=20260813-1';
+import {
+  climbCard, filterCatalogue, gradeFilterOptions, saveGradeScale, storedGradeScale,
+} from '../ui/climb-card.mjs?v=20260813-2';
 
 const { t, language } = bootstrap();
 
@@ -78,6 +80,71 @@ const view = byId('view');
 const statusNode = byId('load-status');
 const REGISTRATION_DRAFT_PREFIX = 'cruxcoach:competitions:registration-draft:v1:';
 const REGISTRATION_DRAFT_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
+
+function catalogueFilters(onChange) {
+  let gradeScale = storedGradeScale();
+  const search = el('input', { attrs: { type: 'search', placeholder: t('climb.browser.search.placeholder') } });
+  const minGrade = el('select');
+  const maxGrade = el('select');
+  const sends = el('input', { attrs: { type: 'number', min: '0', value: '0' } });
+  const sort = el('select', {}, [
+    ['popular', 'climb.filter.popular'], ['quality', 'climb.filter.quality'],
+    ['easiest', 'climb.filter.easiest'], ['hardest', 'climb.filter.hardest'],
+  ].map(([value, key]) => el('option', { attrs: { value }, text: t(key) })));
+  const scale = el('div', {
+    className: 'segmented-control', attrs: { role: 'group', 'aria-label': t('climb.filter.grade_scale') },
+  });
+  const setSelectOptions = (node, options, previous) => {
+    replace(node, el('option', { attrs: { value: '' }, text: t('climb.filter.any_grade') }),
+      ...options.map(({ value, label }) => el('option', { attrs: { value }, text: label })));
+    node.value = [...node.options].some((option) => option.value === previous) ? previous : '';
+  };
+  const renderScale = () => {
+    const oldMin = minGrade.value;
+    const oldMax = maxGrade.value;
+    setSelectOptions(minGrade, gradeFilterOptions(gradeScale, 'min'), oldMin);
+    setSelectOptions(maxGrade, gradeFilterOptions(gradeScale, 'max'), oldMax);
+    replace(scale, ...[['v', t('climb.filter.grade_scale.v')], ['font', t('climb.filter.grade_scale.font')]]
+      .map(([value, label]) => el('button', {
+        className: gradeScale === value ? 'active' : '', text: label,
+        attrs: { type: 'button', 'aria-pressed': String(gradeScale === value) },
+        on: { click: () => {
+          if (gradeScale === value) return;
+          gradeScale = value; saveGradeScale(value); renderScale(); onChange();
+        } },
+      })));
+  };
+  renderScale();
+  for (const control of [search, minGrade, maxGrade, sends]) control.addEventListener('input', onChange);
+  sort.addEventListener('change', onChange);
+  const reset = el('button', {
+    className: 'quiet', text: t('climb.filter.reset'), attrs: { type: 'button' },
+    on: { click: () => {
+      search.value = ''; minGrade.value = ''; maxGrade.value = ''; sends.value = '0'; sort.value = 'popular';
+      onChange();
+    } },
+  });
+  const labelled = (label, control) => el('label', {}, [el('span', { text: label }), control]);
+  return {
+    node: el('div', { className: 'catalogue-filters' }, [
+      el('div', { className: 'catalogue-toolbar' }, [
+        el('span', { className: 'small', text: t('climb.filter.grade_scale') }), scale, reset,
+      ]),
+      el('div', { className: 'climb-filter-grid compact' }, [
+        labelled(t('climb.browser.search'), search),
+        labelled(t('climb.filter.min_grade'), minGrade),
+        labelled(t('climb.filter.max_grade'), maxGrade),
+        labelled(t('climb.filter.min_ascents'), sends),
+        labelled(t('climb.filter.sort'), sort),
+      ]),
+    ]),
+    values: () => ({
+      query: search.value, minDifficulty: minGrade.value, maxDifficulty: maxGrade.value,
+      minAscents: sends.value, sort: sort.value,
+    }),
+    gradeScale: () => gradeScale,
+  };
+}
 
 function canPersistRegistrationDraft() {
   return signer?.kind === 'nip07'
@@ -354,19 +421,12 @@ function registrationPanel(snapshot) {
       unique ? el('p', { className: 'small', text: t('select.unique_hint') }) : null,
       counter,
       (() => {
-        const search = el('input', { attrs: { type: 'search', placeholder: t('climb.browser.search.placeholder') } });
-        const minGrade = el('input', { attrs: { type: 'number', min: '0', max: '100', step: '.5', placeholder: t('climb.filter.min_grade') } });
-        const maxGrade = el('input', { attrs: { type: 'number', min: '0', max: '100', step: '.5', placeholder: t('climb.filter.max_grade') } });
-        const sends = el('input', { attrs: { type: 'number', min: '0', placeholder: t('climb.filter.min_ascents') } });
-        const sort = el('select', {}, [
-          ['popular', 'climb.filter.popular'], ['quality', 'climb.filter.quality'],
-          ['easiest', 'climb.filter.easiest'], ['hardest', 'climb.filter.hardest'],
-        ].map(([value, key]) => el('option', { attrs: { value }, text: t(key) })));
         const results = el('div', { className: 'stack' });
-        const renderOptions = () => replace(results, ...filterCatalogue(options.map((option) => ({
+        let renderOptions = () => {};
+        const filters = catalogueFilters(() => renderOptions());
+        renderOptions = () => replace(results, ...filterCatalogue(options.map((option) => ({
           option, described: { ...(catalogueDetails.get(String(option.climb_uuid).toLowerCase()) || {}), ...option },
-        })), { query: search.value, minDifficulty: minGrade.value, maxDifficulty: maxGrade.value,
-          minAscents: sends.value, sort: sort.value }).map(({ option }) => {
+        })), filters.values()).map(({ option }) => {
         // Live: a climb somebody else already holds is shown as taken, and the
         // control is absent rather than present-and-doomed.
         const takenBy = unique ? snapshot.state.claims[option.id] : undefined;
@@ -400,14 +460,10 @@ function registrationPanel(snapshot) {
           box, el('span', { text: selection.has(option.id) ? t('climb.browser.added') : t('climb.browser.choose') }),
         ]);
         return climbCard({ climb: { ...details, ...option }, board: competition.board, t,
-          selected: selection.has(option.id), taken, action });
+          selected: selection.has(option.id), taken, action, gradeScale: filters.gradeScale() });
         }));
-        for (const control of [search, minGrade, maxGrade, sends]) control.addEventListener('input', renderOptions);
-        sort.addEventListener('change', renderOptions);
         renderOptions();
-        return el('div', {}, [
-          el('div', { className: 'climb-filter-grid compact' }, [search, minGrade, maxGrade, sends, sort]), results,
-        ]);
+        return el('div', {}, [filters.node, results]);
       })(),
     );
     updateCounter();
@@ -701,24 +757,17 @@ function claimStatus(snapshot, mine) {
   const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
   const readiness = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
   const results = el('div', { className: 'stack' });
-  const search = el('input', { attrs: { type: 'search', placeholder: t('climb.browser.search.placeholder') } });
-  const minGrade = el('input', { attrs: { type: 'number', min: '0', max: '100', step: '.5', placeholder: t('climb.filter.min_grade') } });
-  const maxGrade = el('input', { attrs: { type: 'number', min: '0', max: '100', step: '.5', placeholder: t('climb.filter.max_grade') } });
-  const sends = el('input', { attrs: { type: 'number', min: '0', placeholder: t('climb.filter.min_ascents') } });
-  const sort = el('select', {}, [
-    ['popular', 'climb.filter.popular'], ['quality', 'climb.filter.quality'],
-    ['easiest', 'climb.filter.easiest'], ['hardest', 'climb.filter.hardest'],
-  ].map(([value, key]) => el('option', { attrs: { value }, text: t(key) })));
   const repickButton = el('button', { text: t('select.repick') });
-  const renderRepick = () => {
+  let renderRepick = () => {};
+  const filters = catalogueFilters(() => renderRepick());
+  renderRepick = () => {
     const outstanding = needed - repick.size;
     repickButton.disabled = catalogueState !== 'ready' || outstanding !== 0;
     readiness.textContent = catalogueState !== 'ready' ? t('reg.ready.catalogue')
       : outstanding > 0 ? t('select.repick.remaining', { count: outstanding }) : t('select.repick.ready');
     replace(results, ...filterCatalogue(free.map((option) => ({
       option, described: { ...(catalogueDetails.get(String(option.climb_uuid).toLowerCase()) || {}), ...option },
-    })), { query: search.value, minDifficulty: minGrade.value, maxDifficulty: maxGrade.value,
-      minAscents: sends.value, sort: sort.value }).map(({ option, described }) => {
+    })), filters.values()).map(({ option, described }) => {
       const resolved = catalogueDetails.has(String(option.climb_uuid).toLowerCase());
       const checked = repick.has(option.id);
       const box = el('input', {
@@ -730,12 +779,11 @@ function claimStatus(snapshot, mine) {
       });
       return climbCard({
         climb: described, board: competition.board, t, selected: checked,
+        gradeScale: filters.gradeScale(),
         action: el('label', { className: 'climb-card-select', attrs: { for: box.id } }, [box, el('span', { text: checked ? t('climb.browser.added') : t('climb.browser.choose') })]),
       });
     }));
   };
-  for (const control of [search, minGrade, maxGrade, sends]) control.addEventListener('input', renderRepick);
-  sort.addEventListener('change', renderRepick);
   repickButton.addEventListener('click', () => guard(async () => {
     if (catalogueState !== 'ready' || repick.size !== needed) throw new Error(t('select.incomplete', { needed }));
     await entrant.register({
@@ -746,7 +794,7 @@ function claimStatus(snapshot, mine) {
   }, feedback));
   rows.push(
     el('p', { className: 'small', text: t('select.lost', { needed: outstandingCount(competition, mine) }) }),
-    el('div', { className: 'climb-filter-grid compact' }, [search, minGrade, maxGrade, sends, sort]),
+    filters.node,
     results,
     readiness,
     feedback,
@@ -1074,13 +1122,27 @@ function fixedClimbsPanel(snapshot) {
   const competition = snapshot.competition;
   if (competition.rules.climb_source !== 'organizer_set') return null;
   const climbs = competition.climbs || [];
+  const gradeScale = storedGradeScale();
+  const scaleButtons = el('div', {
+    className: 'segmented-control', attrs: { role: 'group', 'aria-label': t('climb.filter.grade_scale') },
+  }, [['v', t('climb.filter.grade_scale.v')], ['font', t('climb.filter.grade_scale.font')]]
+    .map(([value, label]) => el('button', {
+      className: gradeScale === value ? 'active' : '', text: label,
+      attrs: { type: 'button', 'aria-pressed': String(gradeScale === value) },
+      on: { click: () => { saveGradeScale(value); render(); } },
+    })));
   return el('section', { className: 'card' }, [
     el('h2', { text: t('climb.list.title') }),
     el('p', { className: 'small', text: catalogueState === 'loading' ? t('select.catalogue.loading')
       : catalogueState === 'error' ? t('select.catalogue.error') : t('climb.list.hint') }),
+    el('div', { className: 'catalogue-toolbar' }, [
+      el('span', { className: 'small', text: t('climb.filter.grade_scale') }), scaleButtons,
+    ]),
     el('div', { className: 'stack' }, climbs.map((climb) => {
       const details = catalogueDetails.get(String(climb.climb_uuid).toLowerCase()) || {};
-      return climbCard({ climb: { ...details, ...climb }, board: competition.board, t });
+      return climbCard({
+        climb: { ...details, ...climb }, board: competition.board, t, gradeScale,
+      });
     })),
   ]);
 }
