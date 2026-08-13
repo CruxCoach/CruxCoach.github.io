@@ -542,7 +542,7 @@ class ClimbEditor {
         const zoneMissing = policy.zone && !(Number(row.zoneInput.value) || row.pendingZoneHold);
         return el('details', {
           className: `selected-climb${zoneMissing ? ' needs-action' : ''}${currentCompatibility && !currentCompatibility.compatible ? ' invalid' : ''}`,
-          attrs: { open: index === firstIncompleteIndex ? 'open' : null },
+          attrs: { name: 'selected-climb-editor', open: index === firstIncompleteIndex ? 'open' : null },
         }, [
       el('summary', { className: 'selected-climb-summary' }, [
         el('span', { className: 'selected-climb-number', text: String(index + 1) }),
@@ -554,11 +554,8 @@ class ClimbEditor {
       ]),
       el('div', { className: 'selected-climb-body' }, [
       el('div', { className: 'row between selected-climb-actions' }, [
-        el('span', { className: 'small', text: row.kind === 'community'
-          ? t('climb.source.community', {
-            board: row.described?.boardLabel || row.described?.brand || '—',
-            size: row.described?.size || '—',
-          }) : t('climb.source.catalogue') }),
+        el('span', { className: 'small', text: t(row.kind === 'community'
+          ? 'climb.source.community_short' : 'climb.source.catalogue_short') }),
         el('button', {
           className: 'quiet danger',
           text: t('action.remove'),
@@ -1033,7 +1030,7 @@ export function createCompetitionForm({
   let browserLoading = false;
   let browserState = 'idle';
   let browserLoadToken = 0;
-  let browserShown = 12;
+  let browserShown = 6;
   const catalogueActionStatus = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
   const selectionLimit = () => f.climbSource.value === 'organizer_set' ? 40 : 60;
   let addManualButton;
@@ -1054,7 +1051,7 @@ export function createCompetitionForm({
     browserState = 'idle';
     browserLoading = false;
     browserCandidates = [];
-    browserShown = 12;
+    browserShown = 6;
     browserSearch.value = '';
     browserSearchField.setAttribute('hidden', 'hidden');
     replace(browserResults);
@@ -1115,16 +1112,16 @@ export function createCompetitionForm({
     });
     if (matches.length < allMatches.length) cards.push(el('button', {
       className: 'quiet climb-browser-more',
-      text: t('climb.browser.more', { count: Math.min(12, allMatches.length - matches.length) }),
+      text: t('climb.browser.more', { count: Math.min(6, allMatches.length - matches.length) }),
       attrs: { type: 'button' },
-      on: { click: () => { browserShown += 12; renderBrowserResults(); } },
+      on: { click: () => { browserShown += 6; renderBrowserResults(); } },
     }));
     replace(browserResults, ...cards);
   };
-  browserSearch.addEventListener('input', () => { browserShown = 12; renderBrowserResults(); });
+  browserSearch.addEventListener('input', () => { browserShown = 6; renderBrowserResults(); });
   for (const control of [difficultyMin, difficultyMax, minAscents, browserSort]) {
-    control.addEventListener('input', () => { browserShown = 12; renderBrowserResults(); });
-    control.addEventListener('change', () => { browserShown = 12; renderBrowserResults(); });
+    control.addEventListener('input', () => { browserShown = 6; renderBrowserResults(); });
+    control.addEventListener('change', () => { browserShown = 6; renderBrowserResults(); });
   }
 
   const browseClimbs = async () => {
@@ -1233,7 +1230,7 @@ export function createCompetitionForm({
               difficultyMax.value = '';
               minAscents.value = '0';
               browserSort.value = 'popular';
-              browserShown = 12;
+              browserShown = 6;
               renderBrowserResults();
             } },
           }),

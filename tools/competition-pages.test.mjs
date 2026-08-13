@@ -927,15 +927,20 @@ test('the climb picker pages the catalogue and keeps selection guidance beside i
     assert.ok(form.node.querySelector('.climb-picker-workspace'));
     assert.ok(form.node.querySelector('.climb-selection-pane'));
     const results = form.node.querySelector('.climb-browser-results');
-    assert.equal(results.querySelectorAll('.climb-result-card').length, 12);
+    assert.equal(results.querySelectorAll('.climb-result-card').length, 6);
     assert.match(form.node.querySelector('.climb-selection-task').textContent, /add 4 more/i);
     const more = form.node.querySelector('.climb-browser-more');
-    assert.match(more.textContent, /12 more/);
+    assert.match(more.textContent, /6 more/);
     more.dispatch('click');
-    assert.equal(results.querySelectorAll('.climb-result-card').length, 24);
+    assert.equal(results.querySelectorAll('.climb-result-card').length, 12);
   } finally {
     cleanup();
   }
+});
+
+test('conditional controls cannot be made visible by the shared button display rule', () => {
+  const css = fs.readFileSync(path.join(root, 'competitions/app/competitions.css'), 'utf8');
+  assert.match(css, /\[hidden\]\s*\{\s*display:\s*none\s*!important;/);
 });
 
 test('the wizard progressively reveals only choices that apply', async () => {

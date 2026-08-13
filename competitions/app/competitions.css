@@ -27,6 +27,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 body {
   margin: 0;
@@ -889,23 +890,21 @@ button.board-choice.selected {
 
 .climb-browser { margin: 1rem 0; }
 .button-wide { width: 100%; }
-.climb-picker-workspace { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(19rem, .65fr); gap: 1rem; align-items: start; }
+.climb-picker-workspace { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(20rem, .85fr); gap: clamp(.9rem, 2vw, 1.4rem); align-items: start; }
 .climb-catalogue-pane { min-width: 0; }
 .climb-selection-pane {
   position: sticky;
-  top: 1rem;
-  max-height: calc(100vh - 2rem);
+  top: 5.4rem;
+  min-width: 0;
   padding: 1rem;
-  overflow: auto;
-  overscroll-behavior: contain;
-  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--rule));
-  border-radius: 18px;
-  background: var(--bg-raised);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, .16);
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--bg-raised) 90%, var(--bg));
+  box-shadow: 0 14px 38px rgba(0, 0, 0, .14);
 }
-.climb-selection-heading { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; }
+.climb-selection-heading { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; padding-bottom: .7rem; border-bottom: 1px solid var(--rule); }
 .climb-selection-heading :is(h3, .eyebrow) { margin: 0; }
-.climb-browser-results { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: 0.8rem; margin-top: 0.9rem; }
+.climb-browser-results { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); gap: 0.8rem; margin-top: 0.9rem; }
 .climb-browser-more { grid-column: 1 / -1; width: 100%; min-height: 3rem; }
 .climb-result-card {
   display: grid;
@@ -985,15 +984,16 @@ button.board-choice.selected {
   line-height: 1;
 }
 .zone-label { display: inline-block; color: #ffe176; }
-.climb-filter-grid { display: grid; grid-template-columns: repeat(4, minmax(7rem, 1fr)); gap: .6rem; margin: .8rem 0; }
+.climb-filter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin: .8rem 0; }
 .climb-filter-grid > label {
   display: grid;
   grid-template-rows: minmax(2.6em, auto) 2.75rem;
   align-items: end;
+  min-width: 0;
   margin: 0;
 }
 .climb-filter-grid > label > span:first-child { align-self: end; padding-bottom: .35rem; line-height: 1.2; }
-.climb-filter-grid > label > :is(input, select) { width: 100%; height: 2.75rem; margin: 0; }
+.climb-filter-grid > label > :is(input, select) { width: 100%; min-width: 0; max-width: 100%; height: 2.75rem; margin: 0; text-overflow: ellipsis; }
 .catalogue-toolbar {
   display: flex;
   align-items: center;
@@ -1036,7 +1036,7 @@ button.board-choice.selected {
 .climb-selection-progress { display: grid; grid-template-columns: auto minmax(8rem, 1fr); gap: .7rem; align-items: center; margin: .75rem 0; }
 .climb-selection-progress p { margin: 0; }
 .climb-selection-progress progress { width: 100%; height: .65rem; accent-color: var(--ok); }
-.climb-selection-task { margin: .65rem 0 1rem; padding: .7rem .8rem; border-left: 3px solid var(--accent); border-radius: 0 9px 9px 0; background: color-mix(in srgb, var(--accent) 9%, var(--bg)); font-size: .88rem; }
+.climb-selection-task { margin: .65rem 0 1rem; padding: .68rem .75rem; border-left: 3px solid var(--accent); border-radius: 0 9px 9px 0; background: color-mix(in srgb, var(--accent) 9%, var(--bg)); font-size: .82rem; line-height: 1.4; }
 .climb-selection-task.complete { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 9%, var(--bg)); }
 .climb-selection-empty { padding: 1.25rem .9rem; border: 1px dashed var(--rule); border-radius: 12px; text-align: center; color: var(--fg-mute); }
 .climb-selection-empty p { margin-bottom: 0; }
@@ -1049,7 +1049,7 @@ button.board-choice.selected {
 }
 .selected-climb.invalid { border-color: var(--bad); }
 .selected-climb.needs-action { border-color: color-mix(in srgb, #ffd54f 70%, var(--rule)); }
-.selected-climb-summary { display: grid; grid-template-columns: 1.7rem minmax(0, 1fr) auto; gap: .55rem; align-items: center; padding: .75rem; cursor: pointer; list-style: none; }
+.selected-climb-summary { display: grid; grid-template-columns: 1.7rem minmax(0, 1fr) auto; gap: .55rem; align-items: center; min-height: 3.4rem; padding: .65rem .7rem; cursor: pointer; list-style: none; }
 .selected-climb-summary::-webkit-details-marker { display: none; }
 .selected-climb-summary::after { content: '›'; grid-column: 3; grid-row: 1; color: var(--fg-mute); font-size: 1.25rem; transition: transform .18s ease; }
 .selected-climb-summary:has(.selected-climb-state) { grid-template-columns: 1.7rem minmax(0, 1fr) auto 1rem; }
@@ -1059,10 +1059,18 @@ button.board-choice.selected {
 .selected-climb-state { padding: .18rem .45rem; border-radius: 999px; white-space: nowrap; font-size: .7rem; font-weight: 800; }
 .selected-climb-state.needed { color: #f5ca43; background: color-mix(in srgb, #ffd54f 11%, var(--bg)); }
 .selected-climb-state.done { color: var(--ok); background: color-mix(in srgb, var(--ok) 10%, var(--bg)); }
-.selected-climb-body { padding: 0 .75rem .75rem; border-top: 1px solid var(--rule); }
+.selected-climb-body { padding: 0 .7rem .7rem; border-top: 1px solid var(--rule); }
 .selected-climb-actions { margin: .6rem 0; }
-.climb-selection-pane .climb-result-card.rich { grid-template-columns: minmax(6.5rem, 8rem) minmax(0, 1fr); }
-.climb-selection-pane .climb-card-preview { min-height: 8rem; }
+.climb-selection-pane .selected-climb-actions button { min-height: 2.25rem; padding: .3rem .6rem; border: 0; font-size: .8rem; }
+.climb-selection-pane .climb-result-card.rich { display: block; padding: 0; border: 0; background: transparent; }
+.climb-selection-pane .climb-result-card:hover { transform: none; border-color: transparent; }
+.climb-selection-pane .climb-preview-shell { max-width: 19rem; margin: 0 auto; }
+.climb-selection-pane .climb-card-preview { min-height: 0; aspect-ratio: 4 / 5; background: #111; }
+.climb-selection-pane .climb-card-copy { margin-top: .65rem; }
+.climb-selection-pane .climb-card-copy > strong { display: none; }
+.climb-selection-pane .climb-card-copy > p { display: inline; margin-right: .55rem; }
+.climb-selection-pane .climb-card-stats { display: inline-flex; margin-top: 0; vertical-align: middle; }
+.climb-selection-pane .zone-label { display: none; }
 .climb-fields { display: grid; gap: 0.65rem; }
 .climb-fields label { margin-bottom: 0; }
 .zone-hold-options { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .45rem; margin: 0; padding: .75rem; border: 1px solid var(--rule); border-radius: 10px; }
@@ -1088,7 +1096,7 @@ button.board-choice.selected {
 
 @media (max-width: 58rem) {
   .climb-picker-workspace { grid-template-columns: 1fr; }
-  .climb-selection-pane { position: static; max-height: none; order: -1; }
+  .climb-selection-pane { position: static; order: -1; }
 }
 
 @media (max-width: 32rem) {
