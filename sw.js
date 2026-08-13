@@ -26,7 +26,7 @@
 
 'use strict';
 
-var VERSION = 'cc-v33';
+var VERSION = 'cc-v34';
 var CACHE = 'cruxcoach-' + VERSION;
 var MIRRORS_KEY = '/__mirrors__';
 
@@ -191,6 +191,32 @@ self.addEventListener('fetch', function (event) {
   if (url.origin !== self.location.origin) return; // don't touch cross-origin assets
 
   var pathWithQuery = url.pathname + url.search;
+
+  /* Competition pages are an interactive application whose modules must move
+   * forward as one release. Serving yesterday's organizer form once and only
+   * refreshing it in the background leaves people on a mixed module graph.
+   * Prefer the network for this isolated beta; retain the cached copy solely
+   * as a genuine offline fallback. */
+  if (url.pathname === '/competitions' || url.pathname.indexOf('/competitions/') === 0 ||
+      url.pathname === '/de/competitions' || url.pathname.indexOf('/de/competitions/') === 0) {
+    event.respondWith(
+      caches.open(CACHE).then(function (cache) {
+        return fetch(req).then(function (res) {
+          if (res && res.ok) cache.put(req, res.clone());
+          return res;
+        }).catch(function () {
+          return cache.match(req).then(function (cached) {
+            if (cached) return cached;
+            return tryMirrors(pathWithQuery).then(function (mres) {
+              if (mres && mres.ok) cache.put(req, mres.clone());
+              return mres;
+            });
+          });
+        });
+      })
+    );
+    return;
+  }
 
   event.respondWith(
     caches.open(CACHE).then(function (cache) {

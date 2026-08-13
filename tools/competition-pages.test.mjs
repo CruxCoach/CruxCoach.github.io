@@ -32,6 +32,25 @@ function walkJs(dir, out = []) {
 }
 const APP_FILES = walkJs(path.join(root, 'competitions/app'));
 
+test('competition entry points version their release assets', () => {
+  for (const lang of ['en', 'de']) {
+    const page = readPage(lang, 'organizer.html');
+    assert.match(page, /competitions\.css\?v=\d{8}-\d+/);
+    assert.match(page, /organizer\.mjs\?v=\d{8}-\d+/);
+  }
+});
+
+test('the service worker never serves a stale competition release while online', () => {
+  const source = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
+  assert.match(source, /url\.pathname\.indexOf\('\/competitions\/'\) === 0/);
+  const competitionBranch = source.slice(
+    source.indexOf("if (url.pathname === '/competitions'"),
+    source.indexOf('event.respondWith(\n    caches.open(CACHE)', source.indexOf("if (url.pathname === '/competitions'")),
+  );
+  assert.ok(competitionBranch.indexOf('return fetch(req)') < competitionBranch.indexOf('return cache.match(req)'),
+    'competition requests must try the network before their offline cache');
+});
+
 // ── the repository's own rules ──
 
 test('every English page has a German mirror with the same structure', () => {
@@ -341,7 +360,7 @@ test('every module a page loads resolves, transitively', async () => {
   for (const lang of LANGUAGES) {
     for (const name of EN_PAGES) {
       const match = readPage(lang, name).match(/<script type="module" src="([^"]+)"><\/script>/);
-      if (match) entries.add(path.join(root, match[1].replace(/^\//, '')));
+      if (match) entries.add(path.join(root, new URL(match[1], 'https://cruxcoach.org').pathname.replace(/^\//, '')));
     }
   }
   assert.ok(entries.size >= 3, 'expected the organizer, join and live entry points');
@@ -376,7 +395,8 @@ test('every page references a stylesheet that exists', () => {
     for (const name of EN_PAGES) {
       const match = readPage(lang, name).match(/<link rel="stylesheet" href="([^"]+)">/);
       assert.ok(match, `${lang}/${name} has no stylesheet`);
-      assert.ok(fs.existsSync(path.join(root, match[1].replace(/^\//, ''))), match[1]);
+      const pathname = new URL(match[1], 'https://cruxcoach.org').pathname.replace(/^\//, '');
+      assert.ok(fs.existsSync(path.join(root, pathname)), match[1]);
     }
   }
 });
