@@ -149,7 +149,7 @@ function baseConfig({ compId, authority, overrides = {} }) {
     spectator_info: 'Free entry. The live screen is by the entrance.',
     refund_policy: 'Full refund until 24 hours before the start.',
     fee_msat: 0,
-    prizes: [{ rank: 1, kind: 'non_cash', label: 'Chalk bag' }],
+    prizes: [{ id: 'place_1', rank: 1, kind: 'non_cash', label: 'Chalk bag' }],
     rules: {
       climb_source: 'organizer_set',
       climb_count: 2,
@@ -727,11 +727,42 @@ async function streamRejectionsPaid(keys) {
   await log.add('announcement', { text: 'From an epoch that is not in force.' }, 1789005580);
   log.epoch = 1;
 
+  // ── prizes (§11.7) ──
+  //
+  // results_not_final: a prize cannot be decided while the standings can still
+  // move, so this one is rejected purely for arriving too early.
+  await log.add('prize_decision', {
+    prize_id: 'place_1', pubkey: keys.alice.pk, state: 'claimed',
+  }, 1789005590, { subjects: [keys.alice.pk] });
+
+  await log.add('lifecycle', { status: 'finished', at: 1789005600 }, 1789005600);
+
+  // unknown_prize — a decision naming a prize this competition never offered.
+  await log.add('prize_decision', {
+    prize_id: 'place_9', pubkey: keys.alice.pk, state: 'claimed',
+  }, 1789005610, { subjects: [keys.alice.pk] });
+
+  // unknown_prize_state
+  await log.add('prize_decision', {
+    prize_id: 'place_1', pubkey: keys.alice.pk, state: 'posted',
+  }, 1789005620, { subjects: [keys.alice.pk] });
+
+  // The real award, and then the one that must not happen: a second person
+  // told the same prize is theirs.
+  await log.add('prize_decision', {
+    prize_id: 'place_1', pubkey: keys.alice.pk, state: 'approved',
+  }, 1789005630, { subjects: [keys.alice.pk] });
+  await log.add('prize_decision', {
+    prize_id: 'place_1', pubkey: keys.bob.pk, state: 'approved',
+  }, 1789005640, { subjects: [keys.bob.pk] });
+
   return finish(
     'rejections-paid',
     'The rejection paths an earlier check masks in the first rejection stream: unknown division, '
     + 'unknown payment and check-in states, the consecutive-deferral cap, an exhausted attempt '
-    + 'allowance, a disqualified climber, and a malformed override and correction.',
+    + 'allowance, a disqualified climber, a malformed override and correction, and the prize '
+    + 'decisions that must be refused — too early, unknown prize, unknown state, and a second '
+    + 'person awarded a prize somebody already holds.',
     competitionEvent,
     log,
   );

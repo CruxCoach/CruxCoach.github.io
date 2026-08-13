@@ -12,7 +12,7 @@
  * is pinned to the same fixture streams.
  */
 import {
-  LEGAL_TRANSITIONS, QUEUE_ACTIONS, ATTEMPT_OUTCOMES, PAYMENT_STATES, SCHEMA,
+  LEGAL_TRANSITIONS, QUEUE_ACTIONS, ATTEMPT_OUTCOMES, PAYMENT_STATES, PRIZE_STATES, SCHEMA,
   checkinWindowOpen, registrationWindowOpen,
 } from './competition.mjs';
 
@@ -36,6 +36,16 @@ export function initialState(competition, competitionEventId) {
     participants: [],
     order: [],
     claims: {},
+    /**
+     * prize_id -> { pubkey, state }.
+     *
+     * The *status* of a prize and nothing else. The claim, the payout
+     * destination and any contact detail travel NIP-44 encrypted between the
+     * winner and the organizer and never reach this object — a public log
+     * carrying a Lightning address would publish the one thing a winner has
+     * most reason to keep to themselves.
+     */
+    prizes: {},
     announcements: [],
     audit: [],
     rejected: [],
@@ -100,7 +110,8 @@ export const REJECTION_CODES = [
   'no_fee', 'no_order', 'no_such_participant', 'not_accepted_registration', 'not_eligible',
   'not_in_order', 'participant_inactive', 'unknown_checkin_state', 'unknown_climb',
   'unknown_decision', 'unknown_division', 'unknown_op', 'unknown_outcome',
-  'unknown_payment_state', 'unknown_queue_action', 'uniqueness_not_enforced', 'wrong_status',
+  'unknown_payment_state', 'unknown_prize', 'unknown_prize_state', 'unknown_queue_action',
+  'uniqueness_not_enforced', 'prize_already_awarded', 'results_not_final', 'wrong_status',
 ];
 
 function reject(state, entry, code) {
@@ -215,6 +226,47 @@ function applyClaimDecision(state, entry, competition) {
     participant.selections.push(climbId);
     participant.selections.sort();
   }
+  return state;
+}
+
+/**
+ * A prize's public status — FEAT-058 §11.7.
+ *
+ * What this refuses is the thing an organizer cannot undo: two people being
+ * told the same prize is theirs. The reducer holds a prize to one winner, so a
+ * double award is a protocol error every client sees the same way rather than a
+ * mistake discovered when the second person asks where their money is.
+ */
+function applyPrizeDecision(state, entry, competition) {
+  const { prize_id: prizeId, pubkey, state: prizeState } = entry.data;
+
+  const prize = (competition.prizes || []).find((p) => p.id === prizeId);
+  if (!prize) return reject(state, entry, 'unknown_prize');
+  if (!PRIZE_STATES.includes(prizeState)) return reject(state, entry, 'unknown_prize_state');
+
+  // Nothing about a prize is decidable before the results are. A claim against
+  // provisional standings is a claim against a number that can still move.
+  if (state.status !== 'finished') return reject(state, entry, 'results_not_final');
+
+  const held = state.prizes[prizeId];
+  const awarded = held && ['approved', 'paid'].includes(held.state);
+
+  // `expired` is the one state about the prize rather than about a person.
+  if (prizeState === 'expired') {
+    if (awarded) return reject(state, entry, 'prize_already_awarded');
+    state.prizes[prizeId] = { pubkey: '', state: 'expired' };
+    return state;
+  }
+
+  const participant = findParticipant(state, pubkey);
+  if (!participant) return reject(state, entry, 'no_such_participant');
+
+  if (awarded && held.pubkey !== pubkey) {
+    // Somebody already has it. Refusing the second award is the entire point.
+    return reject(state, entry, 'prize_already_awarded');
+  }
+
+  state.prizes[prizeId] = { pubkey, state: prizeState };
   return state;
 }
 
@@ -453,6 +505,7 @@ const HANDLERS = {
   registration_decision: applyRegistrationDecision,
   payment_decision: applyPaymentDecision,
   claim_decision: applyClaimDecision,
+  prize_decision: applyPrizeDecision,
   checkin: applyCheckin,
   queue: applyQueue,
   defer_decision: applyDeferDecision,

@@ -46,13 +46,28 @@ export const LEGAL_TRANSITIONS = {
 export const LOG_OPS = [
   'lifecycle', 'registration_decision', 'payment_decision', 'claim_decision',
   'checkin', 'queue', 'defer_decision', 'attempt_result', 'correction',
-  'override', 'announcement', 'disqualify',
+  'override', 'announcement', 'disqualify', 'prize_decision',
 ];
 
 export const INTENT_OPS = [
   'register', 'withdraw', 'checkin_request', 'defer_request',
-  'attempt_report', 'payment_claim',
+  'attempt_report', 'payment_claim', 'prize_claim', 'prize_receipt',
 ];
+
+/**
+ * What can happen to a prize, in the public log.
+ *
+ * Deliberately thin. The claim itself, the payout destination and every contact
+ * detail travel NIP-44 encrypted and never appear here — this is the status a
+ * competition can show a room, and nothing more.
+ */
+/** The id shape shared by divisions, climbs and prizes. */
+export const isSlug = (value) => /^[a-z0-9_]{1,24}$/.test(String(value ?? ''));
+
+export const PRIZE_STATES = ['claimed', 'approved', 'paid', 'rejected', 'expired'];
+
+/** How long a winner has to claim, when the organizer sets no deadline. */
+export const DEFAULT_PRIZE_CLAIM_DAYS = 30;
 
 export const QUEUE_ACTIONS = ['seed', 'open_turn', 'close_turn', 'advance', 'reorder', 'next_climb', 'next_round'];
 export const ATTEMPT_OUTCOMES = ['top', 'zone', 'fall', 'pass', 'timeout'];
@@ -460,13 +475,56 @@ export function validateCompetitionConfig(config) {
 
   if (Array.isArray(config.prizes)) {
     if (config.prizes.length > 10) err(errors, 'prizes', 'must have at most 10 entries');
+    const prizeIds = new Set();
+    const slots = new Set();
+    const divisionIds = new Set((config.divisions || []).map((d) => d.id));
+    const multiDivision = divisionIds.size > 1;
+
     for (const prize of config.prizes) {
-      if (!Number.isInteger(prize?.rank) || prize.rank < 1) err(errors, 'prizes', 'each prize needs a rank');
+      // A stable id, because a claim names the prize it is for and a claim that
+      // named "second place" would follow the prize if the list were reordered.
+      if (!isSlug(prize?.id)) {
+        err(errors, 'prizes', 'each prize needs an id of [a-z0-9_], max 24 characters');
+      } else if (prizeIds.has(prize.id)) {
+        err(errors, 'prizes', `duplicate prize id "${prize.id}"`);
+      } else {
+        prizeIds.add(prize.id);
+      }
+
+      if (!Number.isInteger(prize?.rank) || prize.rank < 1 || prize.rank > 100) {
+        err(errors, 'prizes', 'each prize needs a rank from 1 to 100');
+      }
       if (!['cash', 'non_cash'].includes(prize?.kind)) err(errors, 'prizes', 'each prize is cash or non_cash');
-      if (prize?.kind === 'cash' && !Number.isInteger(prize.value_msat)) {
+      if (prize?.kind === 'cash'
+        && (!Number.isInteger(prize.value_msat) || prize.value_msat <= 0)) {
         err(errors, 'prizes', 'a cash prize needs a value in millisatoshis');
       }
+
+      // With more than one division, "first place" is ambiguous until it says
+      // first place *of what*.
+      if (multiDivision) {
+        if (!prize?.division) {
+          err(errors, 'prizes', 'with several divisions each prize needs a division');
+        } else if (!divisionIds.has(prize.division)) {
+          err(errors, 'prizes', `prize division "${prize.division}" is not a division of this competition`);
+        }
+      } else if (prize?.division && !divisionIds.has(prize.division)) {
+        err(errors, 'prizes', `prize division "${prize.division}" is not a division of this competition`);
+      }
+
+      // Two prizes for one place would entitle two people to one payment.
+      const slot = `${prize?.division || ''}#${prize?.rank}`;
+      if (slots.has(slot)) {
+        err(errors, 'prizes', 'two prizes cannot be for the same place in the same division');
+      }
+      slots.add(slot);
     }
+  }
+
+  if (config.prize_claim_days !== undefined
+    && (!Number.isInteger(config.prize_claim_days)
+      || config.prize_claim_days < 1 || config.prize_claim_days > 365)) {
+    err(errors, 'prize_claim_days', 'must be a whole number of days from 1 to 365');
   }
 
   if (!Array.isArray(config.relays) || config.relays.length < 1 || config.relays.length > 8) {

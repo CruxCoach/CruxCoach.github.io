@@ -459,6 +459,56 @@ class ClimbEditor {
   }
 }
 
+const MOONBOARD_VARIANTS = new Map([
+  ['mb2016', 'moonboard-2016'],
+  ['mb2017-masters', 'moonboard-masters-2017'],
+  ['mb2019-masters', 'moonboard-masters-2019'],
+  ['mini-2020', 'mini-moonboard-2020'],
+  ['mb2024', 'moonboard-2024'],
+]);
+
+function venueBoardChoices(venue) {
+  return venue.boards.flatMap((source) => {
+    let type = BOARD_TYPES.find((entry) => entry.brand === source.id) || null;
+    if (!type) return [];
+
+    if (source.id === 'kilter' && source.walls.length) {
+      return source.walls.flatMap((wall) => {
+        const typeId = wall.layout.toLowerCase().includes('homewall') ? 'kilter-homewall'
+          : wall.layout.toLowerCase().includes('original') ? 'kilter-original' : '';
+        type = boardType(typeId);
+        const model = type?.models[0];
+        const size = model?.sizes.find((entry) => entry.value === wall.sizeLabel);
+        if (!type || !model || !size) return [];
+        const angle = model.angles.includes(wall.angle) ? wall.angle : model.defaultAngle;
+        return [{
+          typeId, model: model.value, size: size.value, angle,
+          label: `${model.label} · ${size.label} · ${angle}°`,
+          address: source.address, exact: model.angles.includes(wall.angle),
+        }];
+      });
+    }
+
+    let model = type.models[0];
+    if (source.id === 'moonboard' && MOONBOARD_VARIANTS.has(source.variant)) {
+      model = type.models.find((entry) => entry.value === MOONBOARD_VARIANTS.get(source.variant)) || model;
+    }
+    const size = model.sizes[0];
+    const exactAngle = model.angles.includes(source.angle);
+    const angle = exactAngle ? source.angle : model.defaultAngle;
+    const exactModel = type.models.length === 1 || (source.id === 'moonboard' && MOONBOARD_VARIANTS.has(source.variant));
+    return [{
+      typeId: type.id, model: model.value, size: size.value, angle,
+      label: `${model.label} · ${size.label} · ${angle}°`,
+      address: source.address,
+      exact: exactModel && model.sizes.length === 1 && (exactAngle || model.angles.length === 1),
+    }];
+  }).filter((choice, index, all) => all.findIndex((candidate) => (
+    candidate.typeId === choice.typeId && candidate.model === choice.model
+      && candidate.size === choice.size && candidate.angle === choice.angle
+  )) === index);
+}
+
 /**
  * Build the whole create form.
  *
@@ -898,6 +948,13 @@ export function createCompetitionForm({
       }
     }
     const fee = Number(f.fee.value) * 1000;
+    // Computed before the config literal so the prizes can name the divisions
+    // they belong to; with one division a prize needs no division at all.
+    const divisions = divisionRows.map((d, index) => ({
+      id: divisionId(d.label, index),
+      label: d.label.trim(),
+    }));
+    const multiDivision = divisions.length > 1;
     const config = {
       comp_id: newCompId(),
       authority: signerPubkey,
@@ -929,9 +986,18 @@ export function createCompetitionForm({
       spectator_info: f.spectator.value.trim(),
       refund_policy: f.refund.value.trim(),
       fee_msat: fee,
-      prizes: prizeRows.map((p) => (p.kind === 'cash'
-        ? { rank: p.rank, kind: 'cash', value_msat: (p.value_sats || 0) * 1000, label: p.label.trim() }
-        : { rank: p.rank, kind: 'non_cash', label: p.label.trim() })),
+      // A stable id per prize, because a claim names the prize it is for. Derived
+      // from the slot it occupies, which is what actually identifies it: second
+      // place in the open division stays second place in the open division
+      // however the list is reordered.
+      prizes: prizeRows.map((p) => ({
+        id: prizeId(p, multiDivision),
+        rank: p.rank,
+        kind: p.kind === 'cash' ? 'cash' : 'non_cash',
+        ...(p.kind === 'cash' ? { value_msat: (p.value_sats || 0) * 1000 } : {}),
+        ...(multiDivision && p.division ? { division: p.division } : {}),
+        label: p.label.trim(),
+      })),
       rules: {
         climb_source: f.climbSource.value,
         climb_count: Number(f.climbCount.value),
@@ -1011,10 +1077,28 @@ export function createCompetitionForm({
     if (id === 'soill') return 'So iLL';
     return BOARD_TYPES.find((entry) => entry.brand === id)?.label || id;
   };
-  const chooseVenue = (venue) => {
+  const selectVenueBoard = (choice) => {
+    if (!choice) return;
+    f.brand.value = choice.typeId;
+    syncBoardDetails({ resetModel: true, resetSize: true });
+    f.model.value = choice.model;
+    syncBoardDetails({ resetSize: true });
+    f.size.value = choice.size;
+    f.angle.value = String(choice.angle);
+    f.layoutId.value = String(selectedModel()?.layoutId || '');
+    renderBoardPicker();
+    onBoardChange();
+  };
+  const chooseVenue = ({ venue, board = null }) => {
     f.venue.value = venue.name;
-    if (venue.address) f.address.value = venue.address;
-    venueStatus.textContent = t('org.venue.suggest.selected', { name: venue.name });
+    const address = board?.address || venue.address;
+    if (address) f.address.value = address;
+    selectVenueBoard(board);
+    venueStatus.textContent = board
+      ? t(board.exact ? 'org.venue.suggest.selected_board' : 'org.venue.suggest.selected_board_check', {
+        name: venue.name, board: board.label,
+      })
+      : t('org.venue.suggest.selected', { name: venue.name });
     closeVenueSuggestions();
     notifyDraftChange();
   };
@@ -1029,23 +1113,27 @@ export function createCompetitionForm({
     f.venue.setAttribute('aria-activedescendant', options[activeVenueOption].id);
   };
   const renderVenueSuggestions = (venues) => {
-    shownVenues = venues;
+    shownVenues = venues.flatMap((venue) => {
+      const boards = venueBoardChoices(venue);
+      return boards.length ? boards.map((board) => ({ venue, board })) : [{ venue, board: null }];
+    });
     activeVenueOption = -1;
-    replace(venueSuggestions, ...venues.map((venue, index) => el('button', {
+    replace(venueSuggestions, ...shownVenues.map(({ venue, board }, index) => el('button', {
       className: 'venue-suggestion',
       attrs: { type: 'button', id: `venue-suggestion-${index}`, role: 'option', 'aria-selected': 'false' },
       on: {
         pointerdown: (event) => event.preventDefault(),
-        click: () => chooseVenue(venue),
+        click: () => chooseVenue({ venue, board }),
       },
     }, [
       el('strong', { text: venue.name }),
       el('span', {
-        text: [venue.city, venue.country, [...new Set(venue.boards.map((board) => venueBoardLabel(board.id)))].join(' · ')]
+        text: [venue.city, venue.country, board?.label
+          || [...new Set(venue.boards.map((entry) => venueBoardLabel(entry.id)))].join(' · ')]
           .filter(Boolean).join(' · '),
       }),
     ])));
-    if (venues.length) {
+    if (shownVenues.length) {
       venueSuggestions.removeAttribute('hidden');
       f.venue.setAttribute('aria-expanded', 'true');
       venueStatus.textContent = t('org.venue.suggest.results', { count: venues.length });
@@ -1317,6 +1405,9 @@ export function createCompetitionForm({
       ]),
       field('f-fee', t('org.field.fee'), f.fee, t('org.field.fee.hint')),
       lnurlField,
+      // Said where the number is typed, not buried in terms. CruxCoach holds
+      // none of this money and could not refund it if it wanted to.
+      el('p', { className: 'notice small', text: t('money.no_custody') }),
       el('details', { className: 'disclosure' }, [
         el('summary', { text: t('org.divisions') }),
         el('p', { className: 'small', text: t('org.divisions.hint') }),
@@ -1334,6 +1425,9 @@ export function createCompetitionForm({
       el('details', { className: 'disclosure' }, [
         el('summary', { text: t('org.prizes') }),
         el('p', { className: 'small', text: t('org.prizes.hint') }),
+        // A prize is a promise. Entry fees are not set aside for it, and
+        // saying so at the point of promising is the only honest place.
+        el('p', { className: 'notice small', text: t('money.prize_not_funded') }),
         prizesNode,
         el('button', {
           text: t('org.prizes.add'),

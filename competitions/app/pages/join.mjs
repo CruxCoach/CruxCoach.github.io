@@ -469,6 +469,9 @@ function paymentPanel(snapshot, mine) {
   const rows = [
     el('h3', { text: t('pay.title') }),
     el('p', { text: t('pay.amount', { sats: Math.round(competition.fee_msat / 1000) }) }),
+    // Before they pay, not after: where the money goes and who cannot get it
+    // back for them.
+    el('p', { className: 'small', text: t('money.no_custody.entrant') }),
   ];
 
   if (!competition.fee_lnurl) {

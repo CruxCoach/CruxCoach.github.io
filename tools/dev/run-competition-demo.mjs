@@ -103,7 +103,7 @@ async function main() {
     spectator_info: 'The live screen is at /competitions/live.html.',
     refund_policy: 'Not applicable — entry is free.',
     fee_msat: 0,
-    prizes: [{ rank: 1, kind: 'non_cash', label: 'Chalk bag' }],
+    prizes: [{ id: 'place_1', rank: 1, kind: 'non_cash', label: 'Chalk bag' }],
     rules: {
       climb_source: 'organizer_set',
       climb_count: 2,

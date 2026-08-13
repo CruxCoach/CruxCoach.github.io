@@ -670,7 +670,12 @@ test('venue suggestions use the board-map catalogue without preventing a custom 
       features: [{
         type: 'Feature', properties: {
           name: 'Bloc Garten', city: 'Berlin', country: 'DE',
-          boards: [{ board: 'kilter', address: 'Testweg 7, Berlin' }],
+          boards: [{
+            board: 'kilter', address: 'Testweg 7, Berlin', walls: [{
+              layout: 'Homewall', size_id: 17, size_label: 'Homewall 10x7 — Full Ride',
+              adjustable: true, angle: 30,
+            }],
+          }],
         },
       }],
     });
@@ -689,6 +694,12 @@ test('venue suggestions use the board-map catalogue without preventing a custom 
     suggestion.dispatch('click');
     assert.equal(venue.value, 'Bloc Garten');
     assert.equal(form.node.querySelector('#f-address').value, 'Testweg 7, Berlin');
+    assert.equal(form.node.querySelector('#f-brand').value, 'kilter-homewall');
+    assert.equal(form.node.querySelector('#f-board').value, 'kilterboard-homewall');
+    assert.equal(form.node.querySelector('#f-size').value, 'Homewall 10x7 — Full Ride');
+    assert.equal(form.node.querySelector('#f-angle').value, '30');
+    assert.equal(form.node.querySelector('#f-layout').value, '8');
+    assert.match(form.node.querySelector('#venue-suggestion-status').textContent, /also matched the board/);
 
     venue.value = 'My private training room';
     assert.equal(venue.value, 'My private training room', 'free text must remain valid');
@@ -1285,4 +1296,45 @@ test('the app catalogue is hash-verified and filtered to the selected wall', asy
   await assert.rejects(() => loadCatalogueClimbs({
     brand: 'kilter', layoutId: 1, modelLabel: 'Kilter Board Original', productSizeId: 10, angle: 40,
   }, { fetchImpl: tamperedFetch }), /catalogue_invalid/);
+});
+
+test('the money copy says CruxCoach holds nothing, wherever money is mentioned', () => {
+  // Not decoration. CruxCoach has no balance, cannot refund, and cannot
+  // guarantee a prize — and a screen that leaves that ambiguous is making a
+  // claim about somebody else's money that the software cannot honour.
+  const form = fs.readFileSync(path.join(root, 'competitions/app/pages/organizer-form.mjs'), 'utf8');
+  const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
+
+  assert.ok(form.includes("t('money.no_custody')"), 'the fee field must say where the money goes');
+  assert.ok(
+    form.includes("t('money.prize_not_funded')"),
+    'the prize field must say a prize is a promise, not a funded pot',
+  );
+  assert.ok(
+    join.includes("t('money.no_custody.entrant')"),
+    'an entrant must be told before paying, not after',
+  );
+});
+
+test('no money copy implies a pot, escrow, or a platform cut', () => {
+  const { STRINGS } = i18nTesting;
+  // Words that would be false if they appeared: CruxCoach has no pot to hold,
+  // nothing to escrow, and takes no cut.
+  const forbidden = [
+    /\bescrow/i, /\bprize pot\b/i, /\bplatform fee\b/i, /\bwe hold\b/i,
+    /\bheld by CruxCoach\b/i, /\bguarantee[sd]? (?:the )?(?:prize|payout)\b/i,
+    /\btreuhand/i, /\bpreistopf\b/i, /\bplattformgebühr\b/i,
+  ];
+  for (const language of LANGUAGES) {
+    for (const [key, text] of Object.entries(STRINGS[language])) {
+      for (const pattern of forbidden) {
+        // The no-custody strings say these words in order to deny them.
+        if (key.startsWith('money.')) continue;
+        assert.ok(
+          !pattern.test(String(text)),
+          `${language}.${key} implies custody: ${text}`,
+        );
+      }
+    }
+  }
 });

@@ -19,11 +19,27 @@ export function venueEntries(geojson) {
   return geojson.features.flatMap((feature) => {
     const props = feature?.properties;
     if (!props || typeof props.name !== 'string' || !props.name.trim()) return [];
-    const boards = Array.isArray(props.boards) ? props.boards.flatMap((board) => (
-      board && typeof board.board === 'string'
-        ? [{ id: board.board, address: typeof board.address === 'string' ? board.address.trim() : '' }]
-        : []
-    )) : [];
+    const boards = Array.isArray(props.boards) ? props.boards.flatMap((board) => {
+      if (!board || typeof board.board !== 'string') return [];
+      const walls = Array.isArray(board.walls) ? board.walls.flatMap((wall) => (
+        wall && typeof wall === 'object' ? [{
+          layout: String(wall.layout || '').trim(),
+          sizeId: Number.isInteger(wall.size_id) ? wall.size_id : null,
+          sizeLabel: String(wall.size_label || '').trim(),
+          angle: Number.isFinite(wall.angle) ? wall.angle : null,
+          adjustable: wall.adjustable === true,
+          minAngle: Number.isFinite(wall.min_angle) ? wall.min_angle : null,
+          maxAngle: Number.isFinite(wall.max_angle) ? wall.max_angle : null,
+        }] : []
+      )) : [];
+      return [{
+        id: board.board,
+        address: typeof board.address === 'string' ? board.address.trim() : '',
+        variant: typeof board.variant === 'string' ? board.variant.trim() : '',
+        angle: Number.isFinite(board.angle) ? board.angle : null,
+        walls,
+      }];
+    }) : [];
     const city = String(props.city || props.city_nearest || '').trim();
     const country = String(props.country || '').trim();
     const name = props.name.trim();
