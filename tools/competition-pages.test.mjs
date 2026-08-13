@@ -408,10 +408,10 @@ test('every module a page loads resolves, transitively', async () => {
     for (const match of source.matchAll(/(?:^|\n)\s*(?:import|export)[^'"\n]*from\s+['"]([^'"]+)['"]/g)) {
       const specifier = match[1];
       if (!specifier.startsWith('.')) continue;
-      visit(path.resolve(path.dirname(file), specifier));
+      visit(path.resolve(path.dirname(file), specifier.split('?')[0]));
     }
     for (const match of source.matchAll(/import\(\s*['"](\.[^'"]+)['"]\s*\)/g)) {
-      visit(path.resolve(path.dirname(file), match[1]));
+      visit(path.resolve(path.dirname(file), match[1].split('?')[0]));
     }
   };
   for (const entry of entries) visit(entry);
@@ -958,7 +958,7 @@ test('a generated recovery key is masked until the eye control reveals it', asyn
       'the recovery warning should be concise rather than repeated');
     assert.ok(mount.textContent.includes('key.practice.password_manager'));
     assert.ok(mount.textContent.includes('key.practice.private'));
-    assert.ok(mount.textContent.includes('key.practice.verify'));
+    assert.equal(mount.textContent.includes('key.practice.verify'), false);
     assert.ok(mount.textContent.includes('key.signer.amber'));
     assert.equal(mount.querySelectorAll('a').length, 3,
       'the recovery screen should link the desktop signers and Amber');
@@ -969,6 +969,11 @@ test('a generated recovery key is masked until the eye control reveals it', asyn
     assert.equal(eye.getAttribute('aria-pressed'), 'true');
     eye.dispatch('click');
     assert.equal(mount.querySelector('.secret').textContent.includes(nsec), false);
+    mount.querySelector('.signer-switch').dispatch('click');
+    assert.equal(signIn.pendingKey, null);
+    assert.equal(signIn.entryMode, 'existing');
+    assert.ok(mount.textContent.includes('signin.extension'));
+    assert.ok(mount.textContent.includes('signin.bunker'));
     signIn.session.dispose();
     signIn.remoteSession.dispose();
   } finally {
@@ -1000,7 +1005,7 @@ test('saving a newly generated key continues directly into the signed-in session
     signIn.session.persist = async () => {};
     signIn.renderBackup();
     mount.querySelector('#backup-confirm').checked = true;
-    mount.querySelector('.primary').dispatch('click');
+    mount.querySelector('.backup-continue').dispatch('click');
     // A person cannot click the next screen in the same JS tick. Reproduce the
     // render in `run().finally` that used to throw them back to registration.
     await new Promise((resolve) => setTimeout(resolve, 0));

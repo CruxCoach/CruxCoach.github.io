@@ -545,7 +545,6 @@ export class SignIn {
       el('ul', { className: 'key-practices' }, [
         el('li', { text: t('key.practice.password_manager') }),
         el('li', { text: t('key.practice.private') }),
-        el('li', { text: t('key.practice.verify') }),
       ]),
       el('div', { className: 'secret-row' }, [secret, reveal]),
       el('div', { className: 'row' }, [
@@ -559,8 +558,8 @@ export class SignIn {
           },
         }),
       ]),
-      el('details', { className: 'disclosure signer-backup-help' }, [
-        el('summary', { text: t('key.signer.title') }),
+      el('section', { className: 'signer-backup-help' }, [
+        el('h3', { text: t('key.signer.title') }),
         el('p', {
           className: 'small',
           text: t(globalThis.window?.nostr ? 'key.signer.detected' : 'key.signer.hint'),
@@ -588,6 +587,23 @@ export class SignIn {
             },
           }),
         ]),
+        el('p', { className: 'small', text: t('key.signer.switch.hint') }),
+        el('button', {
+          className: 'primary signer-switch',
+          text: t('key.signer.switch'),
+          on: {
+            click: () => {
+              // This identity has never been published or persisted. Wipe its
+              // key from memory, but preserve an older encrypted local vault.
+              this.session.lock();
+              this.session = new KeyVaultSession();
+              this.pendingKey = null;
+              this.entryMode = 'existing';
+              this.error = null;
+              this.render();
+            },
+          },
+        }),
       ]),
       el('h3', { text: t('key.confirm.title') }),
       el('label', { className: 'inline', attrs: { for: 'backup-confirm' } }, [
@@ -596,7 +612,7 @@ export class SignIn {
       ]),
       feedback,
       el('button', {
-        className: 'primary',
+        className: 'primary backup-continue',
         text: t('key.backup.continue'),
         on: {
           click: () => this.run(async () => {

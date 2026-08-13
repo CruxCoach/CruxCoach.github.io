@@ -592,6 +592,14 @@ code, .mono { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.9
 .challenge input { width: 4.5rem; text-align: center; }
 .signin-steps, .key-practices { padding-inline-start: 1.4rem; color: var(--fg-soft); }
 .signin-steps li, .key-practices li { margin-bottom: 0.45rem; }
+.signer-backup-help {
+  margin: 1.25rem 0 var(--gap);
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--rule));
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--accent) 7%, var(--bg-raised));
+}
+.signer-backup-help h3 { margin-top: 0; }
 .signin-alternatives > .card { margin-top: 0.8rem; }
 .signin-choice-grid { display: grid; gap: 0.75rem; }
 @media (min-width: 38rem) { .signin-choice-grid { grid-template-columns: 1fr 1fr; } }
