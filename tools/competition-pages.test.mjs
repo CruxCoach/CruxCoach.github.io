@@ -943,6 +943,13 @@ test('conditional controls cannot be made visible by the shared button display r
   assert.match(css, /\[hidden\]\s*\{\s*display:\s*none\s*!important;/);
 });
 
+test('the selected-climb editor never overrides exact board preview geometry', () => {
+  const css = fs.readFileSync(path.join(root, 'competitions/app/competitions.css'), 'utf8');
+  const selectedPreviewRule = css.match(/\.climb-selection-pane \.climb-card-preview\s*\{([^}]*)\}/)?.[1] || '';
+  assert.doesNotMatch(selectedPreviewRule, /aspect-ratio|(?:^|;)\s*height\s*:/,
+    'the canvas intrinsic ratio must define the same rectangle used by the board image');
+});
+
 test('the wizard progressively reveals only choices that apply', async () => {
   const { window } = await import('./dev/mini-dom.mjs');
   const cleanup = window.install();

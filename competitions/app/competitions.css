@@ -1065,7 +1065,7 @@ button.board-choice.selected {
 .climb-selection-pane .climb-result-card.rich { display: block; padding: 0; border: 0; background: transparent; }
 .climb-selection-pane .climb-result-card:hover { transform: none; border-color: transparent; }
 .climb-selection-pane .climb-preview-shell { max-width: 19rem; margin: 0 auto; }
-.climb-selection-pane .climb-card-preview { min-height: 0; aspect-ratio: 4 / 5; background: #111; }
+.climb-selection-pane .climb-card-preview { min-height: 0; background: #111; }
 .climb-selection-pane .climb-card-copy { margin-top: .65rem; }
 .climb-selection-pane .climb-card-copy > strong { display: none; }
 .climb-selection-pane .climb-card-copy > p { display: inline; margin-right: .55rem; }
