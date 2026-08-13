@@ -11,7 +11,7 @@
  * kind-0 profile at least one relay accepted. Until then the caller sees `null`
  * and offers no create, register or check-in.
  */
-import { KeyVaultSession } from '../signer/local-key.mjs';
+import { KeyVaultSession } from '../signer/local-key.mjs?v=20260813-2';
 import {
   createLocalSigner, createNip07Signer, createNip46Signer, parseNip46Uri, waitForNip07,
 } from '../signer/signers.mjs';
@@ -629,6 +629,7 @@ export class SignIn {
   renderBackup() {
     const { t } = this;
     const nsec = this.pendingKey.nsec;
+    const canStore = Boolean(this.session.storage);
     const confirmed = el('input', { attrs: { type: 'checkbox', id: 'backup-confirm' } });
     const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
     const masked = '••••••••••••••••••••••••••••••••';
@@ -649,7 +650,7 @@ export class SignIn {
     });
 
     replace(this.mount, el('div', { className: 'card' }, [
-      el('h2', { text: t('key.generated') }),
+      el('h2', { text: t(canStore ? 'key.generated.storable' : 'key.generated') }),
       el('div', { className: 'notice warn', attrs: { id: 'nsec-warning' } }, [
         el('p', { text: t('key.warning') }),
       ]),
@@ -657,6 +658,9 @@ export class SignIn {
         el('li', { text: t('key.practice.password_manager') }),
         el('li', { text: t('key.practice.private') }),
       ]),
+      !canStore ? el('div', { className: 'notice' }, [
+        el('p', { text: t('key.storage.unavailable') }),
+      ]) : null,
       el('div', { className: 'secret-row' }, [secret, reveal]),
       el('div', { className: 'row' }, [
         el('button', {
@@ -677,7 +681,7 @@ export class SignIn {
       feedback,
       el('button', {
         className: 'primary backup-continue',
-        text: t('key.backup.continue'),
+        text: t(canStore ? 'key.backup.continue.storable' : 'key.backup.continue'),
         on: {
           click: () => this.run(async () => {
             if (!confirmed.checked) {

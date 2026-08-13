@@ -1011,6 +1011,8 @@ test('a generated recovery key is masked until the eye control reveals it', asyn
     assert.equal(mount.textContent.includes('key.signer'), false);
     assert.equal(mount.querySelectorAll('a').length, 0,
       'browser-key recovery should not introduce a second signer decision');
+    assert.ok(mount.textContent.includes('key.storage.unavailable'));
+    assert.ok(mount.textContent.includes('key.backup.continue'));
     const eye = mount.querySelector('.secret-reveal');
     assert.equal(eye.getAttribute('aria-pressed'), 'false');
     eye.dispatch('click');
@@ -1048,6 +1050,9 @@ test('saving a newly generated key continues directly into the signed-in session
     // focused on the transition after a successful save.
     signIn.session.persist = async () => {};
     signIn.renderBackup();
+    assert.ok(mount.textContent.includes('key.generated.storable'));
+    assert.ok(mount.textContent.includes('key.backup.continue.storable'));
+    assert.equal(mount.textContent.includes('key.storage.unavailable'), false);
     mount.querySelector('#backup-confirm').checked = true;
     mount.querySelector('.backup-continue').dispatch('click');
     // A person cannot click the next screen in the same JS tick. Reproduce the

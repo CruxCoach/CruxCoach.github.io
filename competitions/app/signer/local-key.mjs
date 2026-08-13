@@ -136,7 +136,13 @@ export class KeyVaultSession {
    * @param {() => number} [options.now]
    */
   constructor(options = {}) {
-    this.storage = options.storage === undefined ? globalThis.localStorage : options.storage;
+    if (options.storage !== undefined) {
+      this.storage = options.storage;
+    } else {
+      // Access itself can throw in hardened/private browser contexts. Treat
+      // that as session-only instead of crashing before the UI can explain it.
+      try { this.storage = globalThis.localStorage || null; } catch { this.storage = null; }
+    }
     this.storageKey = options.storageKey || STORAGE_KEY;
     this.now = options.now || (() => Date.now());
     this.secretKey = null;

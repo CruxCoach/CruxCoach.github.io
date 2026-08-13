@@ -116,6 +116,24 @@ test('a shared device never touches storage at all', async () => {
   assert.equal(session.describe().sharedDevice, true);
 });
 
+test('blocked browser storage becomes an explained session-only key instead of a crash', () => {
+  const previous = Object.getOwnPropertyDescriptor(globalThis, 'localStorage');
+  Object.defineProperty(globalThis, 'localStorage', {
+    configurable: true,
+    get() { throw new Error('storage blocked'); },
+  });
+  let session;
+  try {
+    session = new KeyVaultSession();
+    assert.equal(session.storage, null);
+    assert.equal(session.describe().sharedDevice, true);
+  } finally {
+    session?.dispose();
+    if (previous) Object.defineProperty(globalThis, 'localStorage', previous);
+    else delete globalThis.localStorage;
+  }
+});
+
 test('a session expires on the absolute limit and on the idle limit', () => {
   let clock = 1_000_000;
   const session = new KeyVaultSession({ storage: fakeStorage(), now: () => clock });
