@@ -13,7 +13,7 @@ import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
 } from './common.mjs';
-import { SignIn } from '../ui/shell.mjs?v=20260813-3';
+import { SignIn } from '../ui/shell.mjs?v=20260813-4';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs';
 import {
@@ -26,7 +26,7 @@ import { verifyZapReceipt, receiptFilter, ZAP_RECEIPT_KIND } from '../protocol/z
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
 import { competitionAddress } from '../protocol/competition.mjs';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
-import { createCompetitionForm } from './organizer-form.mjs';
+import { createCompetitionForm } from './organizer-form.mjs?v=20260813-2';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs';
 import { announce, displayName, formatDateTime, shortKey } from '../ui/dom.mjs';
@@ -51,6 +51,26 @@ const intents = new Map();
 const receipts = new Map();
 const DRAFT_PREFIX = 'cruxcoach:competitions:create-draft:v1:';
 const DRAFT_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
+const WIZARD_HISTORY_KEY = 'cruxcoachCompetitionWizard';
+let activeCreateForm = null;
+
+function historyWizardStep() {
+  const value = history.state?.[WIZARD_HISTORY_KEY];
+  return value?.path === location.pathname && Number.isInteger(value.step) ? value.step : null;
+}
+
+function recordWizardStep(step, { replaceState = false } = {}) {
+  history[replaceState ? 'replaceState' : 'pushState']({
+    ...(history.state || {}),
+    [WIZARD_HISTORY_KEY]: { path: location.pathname, step },
+  }, '');
+}
+
+window.addEventListener('popstate', (event) => {
+  const value = event.state?.[WIZARD_HISTORY_KEY];
+  if (!activeCreateForm || value?.path !== location.pathname || !Number.isInteger(value.step)) return;
+  activeCreateForm.showStep(value.step, { recordHistory: false });
+});
 
 function draftKey(pubkey) { return `${DRAFT_PREFIX}${pubkey}`; }
 
@@ -124,6 +144,7 @@ function createForm() {
     || (signer.kind === 'local' && signIn.session.hasStoredKey())
     || (signer.kind === 'nip46' && signIn.remoteSession.hasStoredConnection());
   let saveTimer = null;
+  const rememberedStep = historyWizardStep();
   const form = createCompetitionForm({
     t,
     pool: profilePool,
@@ -133,6 +154,9 @@ function createForm() {
     relays: resolveRelays([]).slice(0, 8),
     initialDraft: canPersistDraft ? readLocalDraft(ownerPubkey) : null,
     persistDraft: canPersistDraft,
+    initialStep: rememberedStep,
+    onStepChange: (step) => recordWizardStep(step),
+    onStepBack: () => history.back(),
     onDraftDiscard: () => {
       clearTimeout(saveTimer);
       clearLocalDraft(ownerPubkey);
@@ -144,6 +168,13 @@ function createForm() {
       saveTimer = setTimeout(() => saveLocalDraft(ownerPubkey, draft), 180);
     },
   });
+  activeCreateForm = form;
+  if (rememberedStep === null) {
+    // A restored draft may reopen several screens in. Seed its earlier screens
+    // so Browser Back still means "previous wizard screen", not "leave".
+    recordWizardStep(0, { replaceState: true });
+    for (let step = 1; step <= form.currentStep; step += 1) recordWizardStep(step);
+  }
   const errors = el('div', { attrs: { role: 'alert', 'aria-live': 'assertive' } });
   const publishButton = el('button', {
       className: 'primary',
@@ -885,6 +916,7 @@ async function act(work) {
 }
 
 function render() {
+  activeCreateForm = null;
   if (!signer) {
     replace(view, el('div', { className: 'card' }, [
       el('h2', { text: t('nav.organizer') }),

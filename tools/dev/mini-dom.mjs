@@ -175,7 +175,44 @@ export const window = {
     const previousWindow = globalThis.window;
     const doc = makeDocument();
     globalThis.document = doc;
-    globalThis.window = { document: doc, addEventListener() {}, location: { hash: '' } };
+    const listeners = new Map();
+    const stack = [{ state: null }];
+    let cursor = 0;
+    const fakeWindow = {
+      document: doc,
+      location: { hash: '', pathname: '/competitions/join.html' },
+      addEventListener(name, handler) {
+        if (!listeners.has(name)) listeners.set(name, []);
+        listeners.get(name).push(handler);
+      },
+      removeEventListener(name, handler) {
+        listeners.set(name, (listeners.get(name) || []).filter((entry) => entry !== handler));
+      },
+      dispatchEvent(name, event = {}) {
+        for (const handler of listeners.get(name) || []) handler(event);
+      },
+    };
+    fakeWindow.history = {
+      get state() { return stack[cursor].state; },
+      replaceState(state) { stack[cursor] = { state }; },
+      pushState(state) {
+        stack.splice(cursor + 1);
+        stack.push({ state });
+        cursor += 1;
+      },
+      back() {
+        if (cursor === 0) return;
+        cursor -= 1;
+        fakeWindow.dispatchEvent('popstate', { state: stack[cursor].state });
+      },
+      forward() {
+        if (cursor >= stack.length - 1) return;
+        cursor += 1;
+        fakeWindow.dispatchEvent('popstate', { state: stack[cursor].state });
+      },
+      get length() { return stack.length; },
+    };
+    globalThis.window = fakeWindow;
     return () => {
       globalThis.document = previousDocument;
       globalThis.window = previousWindow;

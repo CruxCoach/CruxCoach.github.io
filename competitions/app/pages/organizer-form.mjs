@@ -331,7 +331,8 @@ class ClimbEditor {
 export function createCompetitionForm({
   t, pool, signerPubkey, defaultDisplayName, defaultLud16, relays,
   catalogueLoader = loadCatalogueClimbs, initialDraft = null, onDraftChange = () => {},
-  persistDraft = true, onDraftDiscard = null,
+  persistDraft = true, onDraftDiscard = null, initialStep = null,
+  onStepChange = () => {}, onStepBack = null,
 }) {
   let notifyDraftChange = () => {};
   const f = {
@@ -1056,7 +1057,10 @@ export function createCompetitionForm({
     t('org.basics'), t('org.when'), t('org.where'), t('org.format'),
     t('climb.section'), t('org.entry'), t('org.optional.title'), t('org.review.title'),
   ];
-  let currentStep = Math.max(0, Math.min(Number(initialDraft?.currentStep) || 0, steps.length - 1));
+  let currentStep = Math.max(0, Math.min(
+    Number.isInteger(initialStep) ? initialStep : (Number(initialDraft?.currentStep) || 0),
+    steps.length - 1,
+  ));
   let furthestStep = currentStep;
   const progress = el('ol', { className: 'wizard-progress', attrs: { 'aria-label': t('org.wizard.progress') } });
   const navigation = el('div', { className: 'wizard-navigation' });
@@ -1065,7 +1069,8 @@ export function createCompetitionForm({
   const stepError = el('p', { className: 'notice bad wizard-error', attrs: { role: 'alert', hidden: 'hidden' } });
   const nextButton = el('button', { className: 'primary', text: t('org.wizard.next') });
   const backButton = el('button', { text: t('org.wizard.back') });
-  const showStep = (index) => {
+  const showStep = (index, { recordHistory = true } = {}) => {
+    const previousStep = currentStep;
     currentStep = Math.max(0, Math.min(index, steps.length - 1));
     furthestStep = Math.max(furthestStep, currentStep);
     stepError.setAttribute('hidden', 'hidden');
@@ -1113,6 +1118,7 @@ export function createCompetitionForm({
     nextButton.textContent = currentStep === steps.length - 2 ? t('org.wizard.review') : t('org.wizard.next');
     replace(navigation, backButton, currentStep < steps.length - 1 ? nextButton : null);
     notifyDraftChange();
+    if (recordHistory && currentStep !== previousStep) onStepChange(currentStep);
   };
   const reviewCard = (stepIndex, title, value, detail) => el('article', { className: 'review-card' }, [
     el('div', { className: 'row between' }, [
@@ -1125,7 +1131,10 @@ export function createCompetitionForm({
     el('strong', { text: value }),
     detail ? el('p', { className: 'small', text: detail }) : null,
   ]);
-  backButton.addEventListener('click', () => showStep(currentStep - 1));
+  backButton.addEventListener('click', () => {
+    if (currentStep > 0 && onStepBack) onStepBack();
+    else showStep(currentStep - 1);
+  });
   const invalidControl = () => {
     const controls = [
       ...steps[currentStep].querySelectorAll('input'),
@@ -1260,7 +1269,7 @@ export function createCompetitionForm({
   node.addEventListener('input', notifyDraftChange);
   node.addEventListener('change', notifyDraftChange);
   node.addEventListener('click', () => queueMicrotask(notifyDraftChange));
-  showStep(currentStep);
+  showStep(currentStep, { recordHistory: false });
   notifyDraftChange();
 
   // `climbs` is exposed so the climb list can be driven from outside the DOM —

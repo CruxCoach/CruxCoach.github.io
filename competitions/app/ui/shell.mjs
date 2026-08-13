@@ -21,6 +21,8 @@ import { el, replace, copyWithExpiry, shortKey, announce } from './dom.mjs';
 import { ProfileGate } from './profile-gate.mjs';
 
 const METHOD_KEY = 'cruxcoach:competitions:method:v1';
+const HISTORY_KEY = 'cruxcoachCompetitionSignIn';
+const HISTORY_SCREENS = new Set(['root', 'new', 'existing']);
 
 export class SignIn {
   /**
@@ -43,6 +45,21 @@ export class SignIn {
     this.error = null;
     this.busy = false;
     this.profile = null;
+    this.historyPath = globalThis.window?.location?.pathname || '';
+    this.popStateHandler = (event) => {
+      const navigation = event.state?.[HISTORY_KEY];
+      if (!navigation || navigation.path !== this.historyPath) return;
+      // Once sign-in completed, one press of Browser Back should leave this
+      // flow instead of stopping on its now-obsolete root entry.
+      if (this.signer) {
+        if (navigation.screen === 'root' && !event.state?.cruxcoachCompetitionWizard) {
+          globalThis.window?.history?.back();
+        }
+        return;
+      }
+      this.applyNavigation(navigation.screen);
+    };
+    this.installNavigation();
     this.gate = pool
       ? new ProfileGate({
         t,
@@ -59,6 +76,59 @@ export class SignIn {
         onCancel: () => this.signOut(),
       })
       : null;
+  }
+
+  installNavigation() {
+    const browser = globalThis.window;
+    const history = browser?.history;
+    if (!this.historyPath || !history?.replaceState || !history?.pushState) return;
+    const current = history.state?.[HISTORY_KEY];
+    if (!current || current.path !== this.historyPath || !HISTORY_SCREENS.has(current.screen)) {
+      history.replaceState({
+        ...(history.state || {}),
+        [HISTORY_KEY]: { path: this.historyPath, screen: 'root' },
+      }, '');
+    }
+    browser.addEventListener('popstate', this.popStateHandler);
+  }
+
+  navigationScreen() {
+    const navigation = globalThis.window?.history?.state?.[HISTORY_KEY];
+    if (navigation?.path !== this.historyPath || !HISTORY_SCREENS.has(navigation.screen)) return 'root';
+    return navigation.screen;
+  }
+
+  applyNavigation(screen) {
+    const target = HISTORY_SCREENS.has(screen) ? screen : 'root';
+    if (target !== 'new' && (this.pendingKey || this.pendingLocalPersist)) {
+      // The generated identity has not been published. Browser Back must wipe
+      // it, but must not delete an older encrypted vault from this device.
+      this.session.lock();
+      this.session = new KeyVaultSession();
+      this.pendingKey = null;
+      this.pendingLocalPersist = false;
+    }
+    this.entryMode = target === 'root' ? null : target;
+    this.error = null;
+    this.render();
+  }
+
+  navigate(screen, { replace = false } = {}) {
+    const target = HISTORY_SCREENS.has(screen) ? screen : 'root';
+    const history = globalThis.window?.history;
+    if (this.historyPath && history?.pushState && history?.replaceState) {
+      history[replace ? 'replaceState' : 'pushState']({
+        ...(history.state || {}),
+        [HISTORY_KEY]: { path: this.historyPath, screen: target },
+      }, '');
+    }
+    this.applyNavigation(target);
+  }
+
+  navigateBack() {
+    const history = globalThis.window?.history;
+    if (this.navigationScreen() !== 'root' && history?.back) history.back();
+    else this.navigate('root', { replace: true });
   }
 
   get pubkey() { return this.signer?.pubkey || null; }
@@ -117,7 +187,7 @@ export class SignIn {
     this.entryMode = null;
     this.pendingLocalPersist = false;
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
-    this.render();
+    this.navigate('root', { replace: true });
     this.onChange(null, null);
   }
 
@@ -136,7 +206,7 @@ export class SignIn {
     this.entryMode = null;
     this.pendingLocalPersist = false;
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
-    this.render();
+    this.navigate('root', { replace: true });
     this.onChange(null, null);
     announce(this.t('signin.bunker.remove.done'));
   }
@@ -152,7 +222,7 @@ export class SignIn {
     this.entryMode = null;
     this.pendingLocalPersist = false;
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
-    this.render();
+    this.navigate('root', { replace: true });
     this.onChange(null, null);
     announce(this.t('signin.forget.done'));
   }
@@ -235,7 +305,7 @@ export class SignIn {
           el('button', {
             className: 'signin-choice',
             attrs: { type: 'button' },
-            on: { click: () => { this.entryMode = 'new'; this.render(); } },
+            on: { click: () => this.navigate('new') },
           }, [
             el('strong', { text: t('signin.choice.new') }),
             el('span', { className: 'small', text: t('signin.choice.new.hint') }),
@@ -243,7 +313,7 @@ export class SignIn {
           el('button', {
             className: 'signin-choice',
             attrs: { type: 'button' },
-            on: { click: () => { this.entryMode = 'existing'; this.render(); } },
+            on: { click: () => this.navigate('existing') },
           }, [
             el('strong', { text: t('signin.choice.existing') }),
             el('span', { className: 'small', text: t('signin.choice.existing.hint') }),
@@ -258,7 +328,7 @@ export class SignIn {
       el('h3', { text: t(this.entryMode === 'new' ? 'signin.new.title' : 'signin.existing.title') }),
       el('button', {
         className: 'quiet', text: t('signin.choice.back'),
-        on: { click: () => { this.entryMode = null; this.error = null; this.render(); } },
+        on: { click: () => this.navigateBack() },
       }),
     ]));
 
@@ -598,9 +668,7 @@ export class SignIn {
               this.session.lock();
               this.session = new KeyVaultSession();
               this.pendingKey = null;
-              this.entryMode = 'existing';
-              this.error = null;
-              this.render();
+              this.navigate('existing', { replace: true });
             },
           },
         }),
@@ -689,7 +757,12 @@ export class SignIn {
       this.render();
       return;
     }
-    if (method !== 'nip07') { this.render(); return; }
+    if (method !== 'nip07') {
+      const screen = this.navigationScreen();
+      this.entryMode = screen === 'root' ? null : screen;
+      this.render();
+      return;
+    }
     const extension = await waitForNip07();
     if (!extension) { this.render(); return; }
     try {

@@ -9,7 +9,7 @@ import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
 } from './common.mjs';
-import { SignIn } from '../ui/shell.mjs?v=20260813-3';
+import { SignIn } from '../ui/shell.mjs?v=20260813-4';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';

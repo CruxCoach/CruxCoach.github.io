@@ -626,9 +626,13 @@ test('competition creation is a guided wizard with a final review', async () => 
   const cleanup = window.install();
   try {
     const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    const historySteps = [];
+    let backCalls = 0;
     const form = createCompetitionForm({
       t: createTranslator('en'), pool: { query: async () => ({ events: [] }) },
       signerPubkey: '11'.repeat(32), defaultDisplayName: 'Host', defaultLud16: '', relays: ['wss://nos.lol'],
+      onStepChange: (step) => historySteps.push(step),
+      onStepBack: () => { backCalls += 1; },
     });
     assert.equal(form.stepCount, 8);
     assert.equal(form.currentStep, 0);
@@ -642,8 +646,13 @@ test('competition creation is a guided wizard with a final review', async () => 
     assert.match(venue.parentNode.textContent, /Optional/);
     form.showStep(7);
     assert.equal(form.currentStep, 7);
+    assert.deepEqual(historySteps, [7]);
+    form.node.querySelector('.wizard-navigation').querySelector('button').dispatch('click');
+    assert.equal(backCalls, 1, 'the visible Back control should use browser history');
+    form.showStep(6, { recordHistory: false });
+    assert.deepEqual(historySteps, [7], 'popstate must not create another history entry');
     assert.match(form.node.querySelector('.review-grid').textContent, /Kilter|Original/i);
-    assert.equal(form.node.getAttribute('data-ready'), 'true');
+    assert.equal(form.node.getAttribute('data-ready'), 'false');
   } finally {
     cleanup();
   }
@@ -939,6 +948,36 @@ test('sign-in starts with two human choices, then separates registration from lo
     second.session.dispose();
     second.remoteSession.dispose();
   } finally {
+    restore();
+  }
+});
+
+test('browser Back moves through sign-in before it leaves the participant page', async () => {
+  const { SignIn } = await import('../competitions/app/ui/shell.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  let signIn;
+  try {
+    const mount = document.createElement('div');
+    signIn = new SignIn({ t: (key) => key, mount, onChange: () => {} });
+    signIn.render();
+    mount.querySelectorAll('.signin-choice')[0].dispatch('click');
+    assert.ok(mount.textContent.includes('signin.new.title'));
+    assert.equal(globalThis.window.history.length, 2);
+
+    globalThis.window.history.back();
+    assert.ok(mount.textContent.includes('signin.choice.title'));
+    assert.equal(signIn.entryMode, null);
+
+    globalThis.window.history.forward();
+    signIn.pendingKey = signIn.session.generate();
+    signIn.renderBackup();
+    globalThis.window.history.back();
+    assert.equal(signIn.pendingKey, null, 'Back must wipe an unpublished generated identity');
+    assert.ok(mount.textContent.includes('signin.choice.title'));
+  } finally {
+    signIn?.session.dispose();
+    signIn?.remoteSession.dispose();
     restore();
   }
 });
