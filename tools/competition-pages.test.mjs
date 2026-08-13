@@ -629,6 +629,45 @@ test('competition creation is a guided wizard with a final review', async () => 
   }
 });
 
+test('an unpublished competition draft returns with its values and current step', async () => {
+  const { window } = await import('./dev/mini-dom.mjs');
+  const cleanup = window.install();
+  try {
+    const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    let saved = null;
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: { query: async () => ({ events: [] }) },
+      signerPubkey: '22'.repeat(32), defaultDisplayName: 'Host', defaultLud16: '', relays: ['wss://nos.lol'],
+      initialDraft: {
+        fields: {
+          title: 'Friday Finals', organizerName: 'Boulder Crew', venueKind: 'online', venue: '',
+          brand: 'moonboard', model: 'mini-moonboard-2020', size: '11x12', angle: '40', waitlist: false,
+        },
+        divisions: ['Open', 'Youth'],
+        prizes: [],
+        climbs: [{
+          uuid: '11111111-1111-1111-1111-111111111111', kind: 'catalogue',
+          label: 'Warm-up', angle: 40, points: 100,
+        }],
+        currentStep: 2,
+      },
+      onDraftChange: (draft) => { saved = draft; },
+    });
+    assert.equal(form.currentStep, 2);
+    assert.equal(form.node.querySelector('#f-title').value, 'Friday Finals');
+    assert.equal(form.node.querySelector('#f-board').value, 'mini-moonboard-2020');
+    assert.equal(form.climbs.entries()[0].label, 'Warm-up');
+    assert.equal(saved.currentStep, 2);
+    form.node.querySelector('#f-title').value = 'Saturday Finals';
+    // The production event bubbles from the input. The intentionally tiny DOM
+    // shim has no bubbling, so deliver it at the form surface here.
+    form.node.dispatch('input');
+    assert.equal(saved.fields.title, 'Saturday Finals');
+  } finally {
+    cleanup();
+  }
+});
+
 test('the wizard progressively reveals only choices that apply', async () => {
   const { window } = await import('./dev/mini-dom.mjs');
   const cleanup = window.install();
@@ -973,6 +1012,39 @@ test('a ready identity is one human profile bar with technical details collapsed
   } finally {
     signIn?.session.dispose();
     signIn?.remoteSession.dispose();
+    restore();
+  }
+});
+
+test('reload returns a saved local identity directly to its unlock screen', async () => {
+  const { SignIn } = await import('../competitions/app/ui/shell.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  const previousStorage = globalThis.localStorage;
+  const values = new Map();
+  globalThis.localStorage = {
+    getItem: (key) => values.get(key) ?? null,
+    setItem: (key, value) => values.set(key, String(value)),
+    removeItem: (key) => values.delete(key),
+  };
+  let first;
+  let returning;
+  try {
+    first = new SignIn({ t: (key) => key, mount: document.createElement('div'), onChange: () => {} });
+    first.session.generate();
+    await first.session.persist('a strong passphrase');
+    first.rememberMethod('local');
+
+    const mount = document.createElement('div');
+    returning = new SignIn({ t: (key) => key, mount, onChange: () => {} });
+    await returning.restore();
+    assert.ok(mount.querySelector('#unlock-pass'));
+    assert.equal(mount.querySelector('.signin-choice-grid'), null);
+    assert.ok(mount.textContent.includes('signin.local.saved'));
+  } finally {
+    first?.session.lock();
+    returning?.session.lock();
+    globalThis.localStorage = previousStorage;
     restore();
   }
 });

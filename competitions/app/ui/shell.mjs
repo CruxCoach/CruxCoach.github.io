@@ -628,7 +628,21 @@ export class SignIn {
    * instead render their passphrase unlock control.
    */
   async restore() {
-    if (this.storedMethod() !== 'nip07') { this.render(); return; }
+    const method = this.storedMethod();
+    // A reload must feel like returning, not like registration. Local and
+    // remote credentials remain encrypted and still require their passphrase;
+    // we simply open the correct unlock screen immediately.
+    if (method === 'local' && this.session.hasStoredKey()) {
+      this.entryMode = 'existing';
+      this.render();
+      return;
+    }
+    if (method === 'nip46' && this.remoteSession.hasStoredConnection()) {
+      this.entryMode = 'existing';
+      this.render();
+      return;
+    }
+    if (method !== 'nip07') { this.render(); return; }
     const extension = await waitForNip07();
     if (!extension) { this.render(); return; }
     try {

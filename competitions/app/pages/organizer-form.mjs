@@ -115,6 +115,22 @@ class ClimbEditor {
     }));
   }
 
+  /** Restore a local, unpublished draft without doing network lookups again. */
+  restore(entries = []) {
+    this.rows = [];
+    for (const entry of entries) {
+      const uuid = normalizeUuid(entry?.uuid);
+      if (!uuid || this.rows.some((row) => row.uuid === uuid)) continue;
+      const kind = entry.kind === 'community' ? 'community' : 'catalogue';
+      const row = this.buildRow({ uuid, kind, naddr: entry.naddr }, null, null);
+      row.labelInput.value = String(entry.label || '').slice(0, 60);
+      row.angleInput.value = String(Number.isFinite(Number(entry.angle)) ? Number(entry.angle) : 40);
+      row.pointsInput.value = String(Number.isFinite(Number(entry.points)) ? Number(entry.points) : 100);
+      this.rows.push(row);
+    }
+    this.render();
+  }
+
   /** Re-check selected relay climbs after the organizer changes the wall. */
   boardProblems() {
     const board = this.boardOf();
@@ -314,8 +330,10 @@ class ClimbEditor {
  */
 export function createCompetitionForm({
   t, pool, signerPubkey, defaultDisplayName, defaultLud16, relays,
-  catalogueLoader = loadCatalogueClimbs,
+  catalogueLoader = loadCatalogueClimbs, initialDraft = null, onDraftChange = () => {},
+  persistDraft = true, onDraftDiscard = null,
 }) {
+  let notifyDraftChange = () => {};
   const f = {
     title: text('f-title', '', { maxlength: '120', required: 'required' }),
     summary: text('f-summary', '', { maxlength: '140' }),
@@ -550,7 +568,7 @@ export function createCompetitionForm({
   const catalogueBoardOf = () => resolveCatalogueSelection(
     f.brand.value, f.model.value, f.size.value, f.angle.value,
   );
-  const climbEditor = new ClimbEditor({ t, pool, boardOf });
+  const climbEditor = new ClimbEditor({ t, pool, boardOf, onChange: () => notifyDraftChange() });
   const climbInput = text('f-climb-ref', '', { placeholder: t('climb.paste.placeholder'), autocomplete: 'off' });
   const climbSection = el('div', {});
   const browserResults = el('div', { className: 'climb-browser-results' });
@@ -871,6 +889,45 @@ export function createCompetitionForm({
   };
   f.progression.addEventListener('change', syncProgressionControls);
   syncProgressionControls();
+
+  // Restore only known controls. The protocol-only layout id is always
+  // derived again from the validated board catalogue.
+  if (initialDraft && typeof initialDraft === 'object') {
+    const values = initialDraft.fields && typeof initialDraft.fields === 'object' ? initialDraft.fields : {};
+    for (const [name, control] of Object.entries(f)) {
+      if (!(name in values) || name === 'layoutId' || ['brand', 'model', 'size', 'angle'].includes(name)) continue;
+      if (control.getAttribute('type') === 'checkbox') control.checked = Boolean(values[name]);
+      else control.value = String(values[name] ?? '');
+    }
+    if (typeof values.brand === 'string' && boardType(values.brand)) f.brand.value = values.brand;
+    syncBoardDetails({ resetModel: true, resetSize: true });
+    if ([...f.model.querySelectorAll('option')].some((option) => option.value === values.model)) f.model.value = values.model;
+    syncBoardDetails({ resetSize: true });
+    if ([...f.size.querySelectorAll('option')].some((option) => option.value === values.size)) f.size.value = values.size;
+    if ([...f.angle.querySelectorAll('option')].some((option) => option.value === String(values.angle))) f.angle.value = String(values.angle);
+    f.layoutId.value = String(selectedModel()?.layoutId || '');
+    if (Array.isArray(initialDraft.divisions) && initialDraft.divisions.length) {
+      divisionRows.splice(0, divisionRows.length, ...initialDraft.divisions.slice(0, 20).map(
+        (label) => ({ label: String(label || '').slice(0, 48) }),
+      ));
+      renderDivisions();
+    }
+    if (Array.isArray(initialDraft.prizes)) {
+      prizeRows.splice(0, prizeRows.length, ...initialDraft.prizes.slice(0, 50).map((prize, index) => ({
+        rank: Number(prize?.rank) || index + 1,
+        kind: prize?.kind === 'cash' ? 'cash' : 'non_cash',
+        label: String(prize?.label || '').slice(0, 80),
+        value_sats: Number(prize?.value_sats) || 0,
+      })));
+      renderPrizes();
+    }
+    climbEditor.restore(initialDraft.climbs);
+    renderBoardPicker();
+    syncVenueRequirement();
+    syncFormatControls();
+    syncFeeControls();
+    syncProgressionControls();
+  }
   const steps = [
     el('fieldset', { className: 'wizard-panel' }, [
       el('legend', { text: t('org.basics') }),
@@ -999,8 +1056,8 @@ export function createCompetitionForm({
     t('org.basics'), t('org.when'), t('org.where'), t('org.format'),
     t('climb.section'), t('org.entry'), t('org.optional.title'), t('org.review.title'),
   ];
-  let currentStep = 0;
-  let furthestStep = 0;
+  let currentStep = Math.max(0, Math.min(Number(initialDraft?.currentStep) || 0, steps.length - 1));
+  let furthestStep = currentStep;
   const progress = el('ol', { className: 'wizard-progress', attrs: { 'aria-label': t('org.wizard.progress') } });
   const navigation = el('div', { className: 'wizard-navigation' });
   const reviewActions = el('div', { className: 'wizard-publish-actions' });
@@ -1055,6 +1112,7 @@ export function createCompetitionForm({
     backButton.disabled = currentStep === 0;
     nextButton.textContent = currentStep === steps.length - 2 ? t('org.wizard.review') : t('org.wizard.next');
     replace(navigation, backButton, currentStep < steps.length - 1 ? nextButton : null);
+    notifyDraftChange();
   };
   const reviewCard = (stepIndex, title, value, detail) => el('article', { className: 'review-card' }, [
     el('div', { className: 'row between' }, [
@@ -1171,7 +1229,16 @@ export function createCompetitionForm({
   let node = el('section', { className: 'card competition-wizard', attrs: { 'data-ready': 'false' } }, [
     el('div', { className: 'wizard-heading' }, [
       el('div', {}, [el('h2', { text: t('org.create') }), stepStatus]),
-      el('span', { className: 'badge', text: t('org.wizard.autosave') }),
+      el('div', { className: 'row' }, [
+        el('span', {
+          className: 'badge',
+          text: t(persistDraft ? 'org.wizard.autosave' : 'org.wizard.session_only'),
+        }),
+        initialDraft && onDraftDiscard ? el('button', {
+          className: 'quiet', text: t('org.wizard.discard'),
+          on: { click: () => { if (confirm(t('org.wizard.discard.confirm'))) onDraftDiscard(); } },
+        }) : null,
+      ]),
     ]),
     progress,
     stepError,
@@ -1179,7 +1246,22 @@ export function createCompetitionForm({
     navigation,
     reviewActions,
   ]);
-  showStep(0);
+  const draftSnapshot = () => ({
+    fields: Object.fromEntries(Object.entries(f).map(([name, control]) => [
+      name,
+      control.getAttribute('type') === 'checkbox' ? Boolean(control.checked) : control.value,
+    ])),
+    divisions: divisionRows.map((division) => division.label),
+    prizes: prizeRows.map((prize) => ({ ...prize })),
+    climbs: climbEditor.entries(),
+    currentStep,
+  });
+  notifyDraftChange = () => onDraftChange(draftSnapshot());
+  node.addEventListener('input', notifyDraftChange);
+  node.addEventListener('change', notifyDraftChange);
+  node.addEventListener('click', () => queueMicrotask(notifyDraftChange));
+  showStep(currentStep);
+  notifyDraftChange();
 
   // `climbs` is exposed so the climb list can be driven from outside the DOM —
   // by a test, and by the app-side handoff that adds a climb straight from the

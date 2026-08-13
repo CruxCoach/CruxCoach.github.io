@@ -49,6 +49,31 @@ const intents = new Map();
  * organizer's decision after weighing it.
  */
 const receipts = new Map();
+const DRAFT_PREFIX = 'cruxcoach:competitions:create-draft:v1:';
+const DRAFT_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
+
+function draftKey(pubkey) { return `${DRAFT_PREFIX}${pubkey}`; }
+
+function readLocalDraft(pubkey) {
+  try {
+    const saved = JSON.parse(localStorage.getItem(draftKey(pubkey)) || 'null');
+    if (!saved || saved.version !== 1 || Date.now() - saved.savedAt > DRAFT_MAX_AGE_MS) {
+      localStorage.removeItem(draftKey(pubkey));
+      return null;
+    }
+    return saved.draft;
+  } catch { return null; }
+}
+
+function saveLocalDraft(pubkey, draft) {
+  try {
+    localStorage.setItem(draftKey(pubkey), JSON.stringify({ version: 1, savedAt: Date.now(), draft }));
+  } catch { /* private mode or a full storage quota: the form still works */ }
+}
+
+function clearLocalDraft(pubkey) {
+  try { localStorage.removeItem(draftKey(pubkey)); } catch { /* private mode */ }
+}
 
 /**
  * This competition's payment endpoint, resolved once.
@@ -92,6 +117,13 @@ const signIn = new SignIn({
 
 /** The full create form lives in its own module; this only publishes it. */
 function createForm() {
+  const ownerPubkey = signer.pubkey;
+  // A person who chose a session-only identity also chose not to leave data on
+  // this device. Respect that choice for the form, not only for their key.
+  const canPersistDraft = signer.kind === 'nip07'
+    || (signer.kind === 'local' && signIn.session.hasStoredKey())
+    || (signer.kind === 'nip46' && signIn.remoteSession.hasStoredConnection());
+  let saveTimer = null;
   const form = createCompetitionForm({
     t,
     pool: profilePool,
@@ -99,6 +131,18 @@ function createForm() {
     defaultDisplayName: signIn.displayName,
     defaultLud16: signIn.profile?.fields?.lud16 || '',
     relays: resolveRelays([]).slice(0, 8),
+    initialDraft: canPersistDraft ? readLocalDraft(ownerPubkey) : null,
+    persistDraft: canPersistDraft,
+    onDraftDiscard: () => {
+      clearTimeout(saveTimer);
+      clearLocalDraft(ownerPubkey);
+      location.reload();
+    },
+    onDraftChange: (draft) => {
+      if (!canPersistDraft) return;
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => saveLocalDraft(ownerPubkey, draft), 180);
+    },
   });
   const errors = el('div', { attrs: { role: 'alert', 'aria-live': 'assertive' } });
   const publishButton = el('button', {
@@ -133,6 +177,8 @@ function createForm() {
             const naddr = naddrEncode({
               identifier: compDTag(config.comp_id), pubkey: signer.pubkey, kind: KIND,
             });
+            clearTimeout(saveTimer);
+            if (canPersistDraft) clearLocalDraft(ownerPubkey);
             location.hash = naddr;
             await start();
           } catch (err) {
