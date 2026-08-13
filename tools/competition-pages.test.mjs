@@ -816,6 +816,39 @@ test('an unpublished competition draft returns with its values and current step'
   }
 });
 
+test('restored catalogue climbs regain their verified holds after reload', async () => {
+  const { window } = await import('./dev/mini-dom.mjs');
+  const cleanup = window.install();
+  try {
+    const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    const uuid = '1110ca02-7d4f-54f6-a7b8-34492c4c98a5';
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: null, signerPubkey: '22'.repeat(32),
+      defaultDisplayName: 'Host', defaultLud16: '', relays: [],
+      initialDraft: {
+        fields: {
+          brand: 'moonboard', model: 'moonboard-masters-2019', size: '11x18', angle: '40',
+          scoring: 'tops_then_attempts',
+        },
+        climbs: [{ uuid, kind: 'catalogue', label: '!!!!', angle: 40, points: 100 }],
+      },
+      catalogueLoader: async () => ({ climbs: [{
+        uuid, label: '!!!!', setter: 'Moon setter', brand: 'moonboard',
+        boardLabel: 'MoonBoard Masters 2019', layoutId: 5, productSizeId: null, angle: 40,
+        holds: [[25, 42, 2, 2], [57, 43, 1, 5], [193, 44, 5, 17]],
+        difficulty: 20, quality: 3, ascents: 100,
+      }] }),
+    });
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    const [row] = form.climbs.rows;
+    assert.equal(row.described?.brand, 'moonboard');
+    assert.deepEqual(row.zoneCandidates.map((hold) => hold[0]), [57]);
+    assert.doesNotMatch(form.node.textContent, /no verified intermediate hand holds/i);
+  } finally {
+    cleanup();
+  }
+});
+
 test('the wizard progressively reveals only choices that apply', async () => {
   const { window } = await import('./dev/mini-dom.mjs');
   const cleanup = window.install();

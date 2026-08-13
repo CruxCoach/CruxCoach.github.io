@@ -303,6 +303,48 @@ class ClimbEditor {
     this.render();
   }
 
+  /**
+   * Reattach catalogue metadata to the deliberately small persisted draft.
+   *
+   * Drafts keep ids and organizer input, not a second copy of the catalogue's
+   * holds. Until the matching board catalogue has loaded, those restored rows
+   * therefore cannot know which route holds are eligible zones. Hydrate them
+   * in place once the verified snapshot arrives so a reload never turns valid
+   * climbs into apparent "no intermediate holds" errors.
+   */
+  hydrateCatalogue(descriptions = []) {
+    const byUuid = new Map(descriptions.map((description) => [
+      normalizeUuid(description?.uuid), description,
+    ]).filter(([uuid]) => uuid));
+    let changed = false;
+    this.rows = this.rows.map((row) => {
+      if (row.kind !== 'catalogue') return row;
+      const described = byUuid.get(row.uuid);
+      if (!described || row.described === described) return row;
+      const values = {
+        label: row.labelInput.value,
+        angle: row.angleInput.value,
+        points: row.pointsInput.value,
+        zone: row.zoneInput?.value || '',
+      };
+      const compatibility = checkBoardCompatibility(described, this.boardOf());
+      if (!compatibility.compatible) return row;
+      const hydrated = this.buildRow({
+        uuid: row.uuid, kind: row.kind, naddr: row.naddr,
+      }, described, compatibility);
+      hydrated.labelInput.value = values.label || described.label || '';
+      hydrated.angleInput.value = values.angle;
+      hydrated.pointsInput.value = values.points;
+      if (hydrated.zoneCandidates.some(([placement]) => String(placement) === values.zone)) {
+        hydrated.zoneInput.value = values.zone;
+      }
+      changed = true;
+      return hydrated;
+    });
+    if (changed) this.render();
+    return changed;
+  }
+
   /** Re-check selected relay climbs after the organizer changes the wall. */
   boardProblems() {
     const board = this.boardOf();
@@ -1104,6 +1146,9 @@ export function createCompetitionForm({
         (candidate) => [candidate.described.uuid, candidate],
       )).values()].sort((a, b) => (b.described.ascents || 0) - (a.described.ascents || 0)
         || a.described.label.localeCompare(b.described.label));
+      climbEditor.hydrateCatalogue(browserCandidates
+        .filter(({ source }) => source === 'catalogue')
+        .map(({ described }) => described));
       browserState = 'ready';
       if (browserCandidates.length) {
         browserSearchField.removeAttribute('hidden');
