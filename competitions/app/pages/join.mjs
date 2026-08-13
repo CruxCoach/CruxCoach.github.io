@@ -24,7 +24,8 @@ import { EntrantWriter } from '../authority.mjs';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-7';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-8';
+import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs';
 
 const { t, language } = bootstrap();
 
@@ -139,6 +140,10 @@ function header(snapshot) {
       el('dd', { text: formatDateTime(competition.registration_closes_at, language, competition.timezone) }),
     ]),
     competition.description && el('p', { text: competition.description }),
+    el('aside', { className: 'subcard scoring-explanation' }, [
+      el('h2', { text: t('scoring.info.title') }),
+      el('p', { text: scoringExplanation(t, competition) }),
+    ]),
   ]);
 }
 
@@ -812,6 +817,7 @@ function climbLabel(snapshot, climbId) {
 function leaderboard(snapshot) {
   if (!snapshot.standings.length) return null;
   const mine = me();
+  const points = usesPointLeaderboard(snapshot.competition);
   return el('section', { className: 'card' }, [
     el('h2', { text: t('live.leaderboard') }),
     el('div', { className: 'table-scroll' }, [
@@ -819,6 +825,7 @@ function leaderboard(snapshot) {
         el('thead', {}, [el('tr', {}, [
           el('th', { className: 'num', text: t('table.rank') }),
           el('th', { text: t('table.climber') }),
+          points && el('th', { className: 'num', text: t('table.points') }),
           el('th', { className: 'num', text: t('table.tops') }),
           el('th', { className: 'num', text: t('table.zones') }),
           el('th', { className: 'num', text: t('table.attempts') }),
@@ -828,6 +835,7 @@ function leaderboard(snapshot) {
         }, [
           el('td', { className: 'num', text: row.rank || '—' }),
           el('td', { text: row.display || shortKey(row.pubkey) }),
+          points && el('td', { className: 'num', text: String(row.points) }),
           el('td', { className: 'num', text: String(row.tops) }),
           el('td', { className: 'num', text: String(row.zones) }),
           el('td', { className: 'num', text: String(row.attempts) }),

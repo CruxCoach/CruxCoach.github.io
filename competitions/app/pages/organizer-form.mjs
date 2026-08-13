@@ -170,13 +170,25 @@ function defaultWhen(offsetHours) {
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
 }
 
-function field(id, label, input, hint) {
+function infoTip(id, label, explanation) {
+  if (!explanation) return null;
+  return el('span', {
+    className: 'info-tip',
+    attrs: { tabindex: '0', 'aria-label': `${label}: ${explanation}`, 'aria-describedby': `${id}-explanation` },
+  }, [
+    el('span', { className: 'info-tip-icon', attrs: { 'aria-hidden': 'true' }, text: 'i' }),
+    el('span', { className: 'info-popover', attrs: { id: `${id}-explanation`, role: 'tooltip' }, text: explanation }),
+  ]);
+}
+
+function field(id, label, input, hint, explanation) {
   const required = input.getAttribute('required') !== null;
   const german = document.documentElement?.getAttribute?.('lang') === 'de';
   const marker = required ? (german ? 'Pflichtfeld' : 'Required') : (german ? 'Optional' : 'Optional');
   return el('label', { className: required ? 'field-required' : 'field-optional', attrs: { for: id } }, [
     el('span', {}, [
       el('span', { text: label }),
+      infoTip(id, label, explanation),
       el('span', {
         className: `field-marker ${required ? 'required' : 'optional'}`,
         text: marker,
@@ -497,7 +509,7 @@ export function createCompetitionForm({
     uniqueness: select('f-uniqueness', [
       ['none', t('org.mode.none')],
       ['unique_per_competition', t('org.mode.unique_per_competition')],
-    ], 'none'),
+    ], 'unique_per_competition'),
     progression: select('f-progression', [
       ['synchronous_rounds', t('org.mode.synchronous_rounds')],
       ['asynchronous_turns', t('org.mode.asynchronous_turns')],
@@ -505,9 +517,13 @@ export function createCompetitionForm({
     attempts: num('f-attempts', 3, { min: '1', max: '20' }),
     scoring: select('f-scoring', [
       ['tops_then_attempts', t('org.mode.tops_then_attempts')],
+      ['achievement_points', t('org.mode.achievement_points')],
       ['points_sum', t('org.mode.points_sum')],
       ['hardest_n', t('org.mode.hardest_n')],
     ], 'tops_then_attempts'),
+    zonePoints: num('f-zone-points', 10, { min: '0', max: '10000' }),
+    topPoints: num('f-top-points', 15, { min: '0', max: '10000' }),
+    flashPoints: num('f-flash-points', 5, { min: '0', max: '10000' }),
 
     capacity: num('f-capacity', 20, { min: '0', max: '500' }),
     waitlist: el('input', { attrs: { type: 'checkbox', id: 'f-waitlist', checked: true } }),
@@ -853,7 +869,8 @@ export function createCompetitionForm({
       notes.push(t('org.mode.note.unique_needs_choice'));
     }
     if (f.progression.value === 'asynchronous_turns') notes.push(t('org.mode.note.async'));
-    if (f.scoring.value !== 'tops_then_attempts' && f.climbSource.value !== 'organizer_set') {
+    if (['points_sum', 'hardest_n'].includes(f.scoring.value)
+      && f.climbSource.value !== 'organizer_set') {
       notes.push(t('org.mode.note.points_needs_list'));
     }
     replace(modeNotes, ...notes.map((note) => el('p', { className: 'small', text: note })));
@@ -918,7 +935,7 @@ export function createCompetitionForm({
       rules: {
         climb_source: f.climbSource.value,
         climb_count: Number(f.climbCount.value),
-        selection_uniqueness: f.uniqueness.value,
+        selection_uniqueness: participantChoice ? f.uniqueness.value : 'none',
         progression: f.progression.value,
         attempts_per_climb: Number(f.attempts.value),
         turn_deadline_sec: Number(f.turnDeadline.value),
@@ -928,6 +945,13 @@ export function createCompetitionForm({
         max_consecutive_defers: Number(f.deferConsecutive.value),
         defer_slots: Number(f.deferSlots.value),
         scoring: f.scoring.value,
+        ...(f.scoring.value === 'achievement_points' ? {
+          score_points: {
+            zone: Number(f.zonePoints.value),
+            top: Number(f.topPoints.value),
+            flash: Number(f.flashPoints.value),
+          },
+        } : {}),
         tiebreaks: ['fewest_attempts', 'most_zones', 'earliest_finish', 'seed_order'],
         late_entry_allowed: f.lateEntry.checked,
       },
@@ -1074,22 +1098,62 @@ export function createCompetitionForm({
   };
   f.venueKind.addEventListener('change', syncVenueRequirement);
   syncVenueRequirement();
-  const uniquenessField = field('f-uniqueness', t('org.field.uniqueness'), f.uniqueness);
-  const scoringField = field('f-scoring', t('org.field.scoring'), f.scoring);
+  const uniquenessField = field(
+    'f-uniqueness', t('org.field.uniqueness'), f.uniqueness, null, t('org.field.uniqueness.info'),
+  );
+  const scoringField = field(
+    'f-scoring', t('org.field.scoring'), f.scoring, null, t('org.field.scoring.info'),
+  );
+  const scoringPreview = el('div', { className: 'scoring-preview', attrs: { role: 'status', 'aria-live': 'polite' } });
+  const achievementFields = el('section', { className: 'subcard achievement-points', attrs: { hidden: 'hidden' } }, [
+    el('h3', { text: t('org.scoring.achievement.title') }),
+    el('p', { className: 'small', text: t('org.scoring.achievement.hint') }),
+    el('div', { className: 'three-columns' }, [
+      field('f-zone-points', t('org.field.zone_points'), f.zonePoints, null, t('org.field.zone_points.info')),
+      field('f-top-points', t('org.field.top_points'), f.topPoints, null, t('org.field.top_points.info')),
+      field('f-flash-points', t('org.field.flash_points'), f.flashPoints, null, t('org.field.flash_points.info')),
+    ]),
+    scoringPreview,
+  ]);
+  const renderScoringPreview = () => {
+    const mode = f.scoring.value;
+    if (mode === 'achievement_points') {
+      achievementFields.removeAttribute('hidden');
+      const zone = Number(f.zonePoints.value) || 0;
+      const top = Number(f.topPoints.value) || 0;
+      const flash = Number(f.flashPoints.value) || 0;
+      scoringPreview.textContent = t('org.scoring.achievement.preview', {
+        zone, top: zone + top, flash: zone + top + flash,
+      });
+    } else {
+      achievementFields.setAttribute('hidden', 'hidden');
+      scoringPreview.textContent = '';
+    }
+  };
   const syncFormatControls = () => {
     const participantChoice = f.climbSource.value === 'participant_choice';
+    for (const option of f.scoring.querySelectorAll('option')) {
+      if (['points_sum', 'hardest_n'].includes(option.value) && participantChoice) {
+        option.setAttribute('disabled', 'disabled');
+      } else {
+        option.removeAttribute('disabled');
+      }
+    }
     if (participantChoice) {
       uniquenessField.removeAttribute('hidden');
-      f.scoring.value = 'tops_then_attempts';
-      scoringField.setAttribute('hidden', 'hidden');
+      if (['points_sum', 'hardest_n'].includes(f.scoring.value)) f.scoring.value = 'tops_then_attempts';
     } else {
-      f.uniqueness.value = 'none';
       uniquenessField.setAttribute('hidden', 'hidden');
-      scoringField.removeAttribute('hidden');
     }
+    scoringField.removeAttribute('hidden');
+    renderScoringPreview();
     renderModeNotes();
   };
   f.climbSource.addEventListener('change', syncFormatControls);
+  f.scoring.addEventListener('change', renderScoringPreview);
+  for (const control of [f.zonePoints, f.topPoints, f.flashPoints]) {
+    control.addEventListener('input', renderScoringPreview);
+  }
   syncFormatControls();
 
   const lnurlField = field('f-lnurl', t('org.field.lnurl'), f.lnurl, t('org.field.lnurl.hint'));
@@ -1189,7 +1253,7 @@ export function createCompetitionForm({
     el('fieldset', { className: 'wizard-panel' }, [
       el('legend', { text: t('org.when') }),
       el('p', { className: 'wizard-intro', text: t('org.when.intro') }),
-      field('f-timezone', t('org.field.timezone'), f.timezone, t('org.field.timezone.hint')),
+      field('f-timezone', t('org.field.timezone'), f.timezone, t('org.field.timezone.hint'), t('org.field.timezone.info')),
       el('div', { className: 'schedule-grid' }, [
         el('section', { className: 'subcard' }, [
           el('h3', { text: t('org.schedule.registration') }),
@@ -1229,13 +1293,14 @@ export function createCompetitionForm({
     el('fieldset', { className: 'wizard-panel' }, [
       el('legend', { text: t('org.format') }),
       el('p', { className: 'wizard-intro', text: t('org.format.intro') }),
-      field('f-climb-source', t('org.field.climb_source'), f.climbSource),
-      field('f-climbs', t('org.field.climb_count'), f.climbCount, t('org.field.climb_count.hint')),
+      field('f-climb-source', t('org.field.climb_source'), f.climbSource, null, t('org.field.climb_source.info')),
+      field('f-climbs', t('org.field.climb_count'), f.climbCount, t('org.field.climb_count.hint'), t('org.field.climb_count.info')),
       uniquenessField,
-      field('f-capacity', t('org.field.capacity'), f.capacity, t('org.field.capacity.hint')),
-      field('f-progression', t('org.field.progression'), f.progression),
-      field('f-attempts', t('org.field.attempts'), f.attempts),
+      field('f-capacity', t('org.field.capacity'), f.capacity, t('org.field.capacity.hint'), t('org.field.capacity.info')),
+      field('f-progression', t('org.field.progression'), f.progression, null, t('org.field.progression.info')),
+      field('f-attempts', t('org.field.attempts'), f.attempts, null, t('org.field.attempts.info')),
       scoringField,
+      achievementFields,
       modeNotes,
     ]),
 
@@ -1373,6 +1438,12 @@ export function createCompetitionForm({
     replace(navigation, backButton, currentStep < steps.length - 1 ? nextButton : null);
     notifyDraftChange();
     if (recordHistory && currentStep !== previousStep) onStepChange(currentStep);
+    if (currentStep !== previousStep) {
+      node?.scrollIntoView?.({
+        behavior: globalThis.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ? 'auto' : 'smooth',
+        block: 'start',
+      });
+    }
   };
   const reviewCard = (stepIndex, title, value, detail) => el('article', { className: 'review-card' }, [
     el('div', { className: 'row between' }, [

@@ -91,6 +91,34 @@ test('standings match the recorded ones', async () => {
   }
 });
 
+test('Zone Top and Flash points stack exactly once per climb', () => {
+  const competition = {
+    rules: {
+      climb_source: 'organizer_set', climb_count: 3, scoring: 'achievement_points',
+      score_points: { zone: 10, top: 15, flash: 5 }, tiebreaks: ['fewest_attempts'],
+    },
+    climbs: [
+      { id: 'zone', points: 0 }, { id: 'top', points: 0 }, { id: 'flash', points: 0 },
+    ],
+  };
+  const state = {
+    order: ['p'],
+    participants: [{
+      pubkey: 'p', display: 'Pat', division: 'open', result: 'active',
+      registration: 'accepted', checkin: 'checked_in', selections: [],
+      climbs: [
+        { climb_id: 'zone', attempts_used: 1, outcome: 'zone', at: 1 },
+        { climb_id: 'top', attempts_used: 2, outcome: 'top', at: 2 },
+        { climb_id: 'flash', attempts_used: 1, outcome: 'top', at: 3 },
+      ],
+    }],
+  };
+  const [standing] = computeStandings(state, competition);
+  assert.equal(standing.points, 10 + 25 + 30);
+  assert.equal(standing.tops, 2);
+  assert.equal(standing.zones, 3);
+});
+
 // ── the specific behaviours the streams exist to pin ──
 
 test('a withheld entry stops reduction at the gap instead of skipping ahead', async () => {

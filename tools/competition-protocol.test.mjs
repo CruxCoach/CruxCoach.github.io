@@ -244,6 +244,23 @@ test('rule combinations that cannot work are refused', () => {
   assert.ok(tooManyConsecutive.errors.some((e) => e.field === 'rules.max_consecutive_defers'));
 });
 
+test('Zone Top and Flash scoring requires explicit bounded point values', () => {
+  const base = validConfig();
+  const missing = validateCompetitionConfig({
+    ...base, rules: { ...base.rules, scoring: 'achievement_points' },
+  });
+  assert.ok(missing.errors.some((e) => e.field === 'rules.score_points'));
+
+  const valid = validateCompetitionConfig({
+    ...base,
+    rules: {
+      ...base.rules, scoring: 'achievement_points',
+      score_points: { zone: 10, top: 15, flash: 5 },
+    },
+  });
+  assert.equal(valid.ok, true, JSON.stringify(valid.errors));
+});
+
 test('a duplicate climb id or division id is refused', () => {
   const base = validConfig();
   const dupClimb = validateCompetitionConfig({

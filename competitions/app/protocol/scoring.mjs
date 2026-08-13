@@ -42,6 +42,7 @@ function tally(participant, competition) {
   let points = 0;
   let finishedAt = 0;
   const toppedPoints = [];
+  const achievement = competition.rules.score_points || { zone: 0, top: 0, flash: 0 };
   for (const climb of climbs) {
     totalAttempts += climb.attempts_used;
     if (climb.outcome === 'top') {
@@ -50,12 +51,15 @@ function tally(participant, competition) {
       attempts += climb.attempts_used;
       zoneAttempts += climb.attempts_used;
       const value = pointsFor(climb.climb_id, competition);
-      points += value;
+      points += competition.rules.scoring === 'achievement_points'
+        ? achievement.zone + achievement.top + (climb.attempts_used === 1 ? achievement.flash : 0)
+        : value;
       toppedPoints.push(value);
       if (climb.at > finishedAt) finishedAt = climb.at;
     } else if (climb.outcome === 'zone') {
       zones += 1;
       zoneAttempts += climb.attempts_used;
+      if (competition.rules.scoring === 'achievement_points') points += achievement.zone;
     }
   }
   if (competition.rules.scoring === 'hardest_n') {

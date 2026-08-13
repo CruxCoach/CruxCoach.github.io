@@ -26,11 +26,12 @@ import { verifyZapReceipt, receiptFilter, ZAP_RECEIPT_KIND } from '../protocol/z
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
 import { competitionAddress } from '../protocol/competition.mjs';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
-import { createCompetitionForm } from './organizer-form.mjs?v=20260813-5';
+import { createCompetitionForm } from './organizer-form.mjs?v=20260813-6';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs';
 import { announce, displayName, formatDateTime, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-7';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-8';
+import { scoringExplanation } from '../ui/scoring-copy.mjs';
 
 const { t, language } = bootstrap();
 
@@ -943,6 +944,10 @@ function render() {
       ]),
       isAuthority ? el('div', { className: 'row' }, lifecycleActions(snapshot))
         : el('div', { className: 'notice warn' }, [el('p', { text: t('org.not_owner') })]),
+      el('aside', { className: 'subcard scoring-explanation' }, [
+        el('h3', { text: t('scoring.info.title') }),
+        el('p', { text: scoringExplanation(t, snapshot.competition) }),
+      ]),
     ]),
     feedback,
     isAuthority ? requestsPanel(snapshot) : null,

@@ -59,7 +59,7 @@ export const ATTEMPT_OUTCOMES = ['top', 'zone', 'fall', 'pass', 'timeout'];
 export const CLIMB_SOURCES = ['organizer_set', 'participant_choice'];
 export const UNIQUENESS = ['none', 'unique_per_competition'];
 export const PROGRESSIONS = ['synchronous_rounds', 'asynchronous_turns'];
-export const SCORINGS = ['tops_then_attempts', 'points_sum', 'hardest_n'];
+export const SCORINGS = ['tops_then_attempts', 'achievement_points', 'points_sum', 'hardest_n'];
 export const TIEBREAKS = ['fewest_attempts', 'most_zones', 'fewest_zone_attempts', 'earliest_finish', 'seed_order'];
 export const VISIBILITIES = ['public', 'unlisted'];
 export const PAYMENT_STATES = ['not_required', 'pending', 'settled', 'failed', 'expired', 'refunded'];
@@ -323,6 +323,21 @@ export function validateCompetitionConfig(config) {
     checkInt(errors, rules, 'defer_budget_per_round');
     checkInt(errors, rules, 'max_consecutive_defers');
     checkInt(errors, rules, 'defer_slots');
+    if (rules.scoring === 'achievement_points') {
+      const points = rules.score_points;
+      if (!points || typeof points !== 'object') {
+        err(errors, 'rules.score_points', 'is required for Zone / Top / Flash points');
+      } else {
+        for (const field of ['zone', 'top', 'flash']) {
+          if (!Number.isInteger(points[field]) || points[field] < 0 || points[field] > 10000) {
+            err(errors, `rules.score_points.${field}`, 'must be a whole number from 0 to 10000');
+          }
+        }
+        if (['zone', 'top', 'flash'].every((field) => points[field] === 0)) {
+          err(errors, 'rules.score_points', 'at least one achievement must award points');
+        }
+      }
+    }
     if (!Array.isArray(rules.tiebreaks) || rules.tiebreaks.length === 0) {
       err(errors, 'rules.tiebreaks', 'needs at least one tiebreak');
     } else if (rules.tiebreaks.some((t) => !TIEBREAKS.includes(t))) {

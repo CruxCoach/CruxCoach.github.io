@@ -712,6 +712,8 @@ test('competition creation is a guided wizard with a final review', async () => 
     });
     assert.equal(form.stepCount, 8);
     assert.equal(form.currentStep, 0);
+    let scrollCalls = 0;
+    form.node.scrollIntoView = () => { scrollCalls += 1; };
     assert.equal(form.node.querySelectorAll('.wizard-panel').filter((step) => !step.getAttribute('hidden')).length, 1);
     const venueKind = form.node.querySelector('#f-venue-kind');
     const venue = form.node.querySelector('#f-venue');
@@ -722,6 +724,7 @@ test('competition creation is a guided wizard with a final review', async () => 
     assert.match(venue.parentNode.textContent, /Optional/);
     form.showStep(7);
     assert.equal(form.currentStep, 7);
+    assert.equal(scrollCalls, 1, 'each real step change should return to the top of the wizard');
     assert.deepEqual(historySteps, [7]);
     form.node.querySelector('.wizard-navigation').querySelector('button').dispatch('click');
     assert.equal(backCalls, 1, 'the visible Back control should use browser history');
@@ -799,8 +802,17 @@ test('the wizard progressively reveals only choices that apply', async () => {
     climbSource.value = 'participant_choice';
     climbSource.dispatch('change');
     assert.equal(form.node.querySelector('#f-scoring').value, 'tops_then_attempts');
-    assert.equal(form.node.querySelector('#f-scoring').parentNode.getAttribute('hidden'), 'hidden');
+    assert.equal(form.node.querySelector('#f-scoring').parentNode.getAttribute('hidden'), null);
     assert.equal(form.node.querySelector('#f-uniqueness').parentNode.getAttribute('hidden'), null);
+    assert.equal(form.node.querySelector('#f-uniqueness').value, 'unique_per_competition');
+
+    climbSource.value = 'organizer_set';
+    climbSource.dispatch('change');
+    const scoring = form.node.querySelector('#f-scoring');
+    scoring.value = 'achievement_points';
+    scoring.dispatch('change');
+    assert.equal(form.node.querySelector('#f-zone-points').parentNode.parentNode.getAttribute('hidden'), null);
+    assert.match(form.node.querySelector('.scoring-preview').textContent, /Zone = 10.*Top = 25.*Flash = 30/);
 
     assert.equal(form.node.querySelector('#div-id-0'), null, 'protocol ids are never exposed to hosts');
     assert.equal(form.build().waiver, '', 'a waiver is opt-in, never silently prefilled');
