@@ -202,6 +202,14 @@ function field(id, label, input, hint, explanation) {
   ]);
 }
 
+/** Catalogue filters are refinements, never required competition fields. */
+function filterField(id, label, input) {
+  input.removeAttribute('required');
+  return el('label', { className: 'catalogue-filter-field', attrs: { for: id } }, [
+    el('span', { text: label }), input,
+  ]);
+}
+
 function setFieldRequirement(wrapper, input, required, t) {
   if (required) input.setAttribute('required', 'required');
   else input.removeAttribute('required');
@@ -841,7 +849,9 @@ export function createCompetitionForm({
   });
   const difficultyMin = select('f-climb-min-grade', [], '');
   const difficultyMax = select('f-climb-max-grade', [], '');
-  const minAscents = num('f-climb-min-ascents', 0, { min: '0', max: '1000000' });
+  const minAscents = select('f-climb-min-ascents', [
+    ['0', t('climb.filter.any_sends')], ['10', '10+'], ['100', '100+'], ['1000', '1,000+'],
+  ], '0');
   const browserSort = select('f-climb-sort', [
     ['popular', t('climb.filter.popular')], ['quality', t('climb.filter.quality')],
     ['easiest', t('climb.filter.easiest')], ['hardest', t('climb.filter.hardest')],
@@ -1043,10 +1053,10 @@ export function createCompetitionForm({
           }),
         ]),
         el('div', { className: 'climb-filter-grid' }, [
-          field(difficultyMin.id, t('climb.filter.min_grade'), difficultyMin),
-          field(difficultyMax.id, t('climb.filter.max_grade'), difficultyMax),
-          field(minAscents.id, t('climb.filter.min_ascents'), minAscents),
-          field(browserSort.id, t('climb.filter.sort'), browserSort),
+          filterField(difficultyMin.id, t('climb.filter.min_grade'), difficultyMin),
+          filterField(difficultyMax.id, t('climb.filter.max_grade'), difficultyMax),
+          filterField(minAscents.id, t('climb.filter.min_ascents'), minAscents),
+          filterField(browserSort.id, t('climb.filter.sort'), browserSort),
         ]),
         browserStatus,
         browserResults,

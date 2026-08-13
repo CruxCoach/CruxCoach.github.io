@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-11';
+} from './common.mjs?v=20260813-12';
 import { SignIn } from '../ui/shell.mjs?v=20260813-10';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
@@ -25,7 +25,7 @@ import { EntrantWriter } from '../authority.mjs';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-14';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-15';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs';
 import { BOARD_TYPES, catalogueProductSizeId } from '../protocol/board-catalog.mjs';
@@ -86,7 +86,9 @@ function catalogueFilters(onChange) {
   const search = el('input', { attrs: { type: 'search', placeholder: t('climb.browser.search.placeholder') } });
   const minGrade = el('select');
   const maxGrade = el('select');
-  const sends = el('input', { attrs: { type: 'number', min: '0', value: '0' } });
+  const sends = el('select', {}, [
+    ['0', t('climb.filter.any_sends')], ['10', '10+'], ['100', '100+'], ['1000', '1,000+'],
+  ].map(([value, label]) => el('option', { attrs: { value }, text: label })));
   const sort = el('select', {}, [
     ['popular', 'climb.filter.popular'], ['quality', 'climb.filter.quality'],
     ['easiest', 'climb.filter.easiest'], ['hardest', 'climb.filter.hardest'],

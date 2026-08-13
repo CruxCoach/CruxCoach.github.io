@@ -985,6 +985,13 @@ test('the organizer catalogue loads automatically and only exposes retry after f
       .find((button) => button.textContent === 'Try loading again');
     assert.equal(retry?.getAttribute('hidden'), 'hidden',
       'retry must stay hidden after a successful automatic load');
+    for (const id of ['#f-climb-min-grade', '#f-climb-max-grade', '#f-climb-min-ascents', '#f-climb-sort']) {
+      const control = form.node.querySelector(id);
+      assert.equal(control.tagName, 'SELECT', `${id} should use the same compact dropdown control`);
+      assert.equal(control.getAttribute('required'), null, `${id} is a filter, not a required form field`);
+      assert.equal(control.parentNode.querySelector('.field-marker'), null);
+    }
+    assert.equal(form.node.querySelector('#f-climb-min-ascents').value, '0');
   } finally {
     restore();
   }
