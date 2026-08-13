@@ -100,15 +100,10 @@ function createForm() {
     defaultLud16: signIn.profile?.fields?.lud16 || '',
     relays: resolveRelays([]).slice(0, 8),
   });
-  const errors = el('div', { attrs: { role: 'alert' } });
-
-  return el('div', {}, [
-    overviewSection(),
-    form.node,
-    errors,
-    el('button', {
+  const errors = el('div', { attrs: { role: 'alert', 'aria-live': 'assertive' } });
+  const publishButton = el('button', {
       className: 'primary',
-      text: t('action.publish'),
+      text: t('org.create_draft'),
       on: {
         click: async () => {
           replace(errors);
@@ -128,10 +123,12 @@ function createForm() {
             ]));
             return;
           }
+          publishButton.disabled = true;
+          publishButton.textContent = t('org.create_draft_working');
+          let relayPool = null;
           try {
-            const relayPool = new RelayPool(config.relays);
+            relayPool = new RelayPool(config.relays);
             const published = await publishCompetition(relayPool, signer, config);
-            relayPool.close();
             announce(t('publish.ok', published));
             const naddr = naddrEncode({
               identifier: compDTag(config.comp_id), pubkey: signer.pubkey, kind: KIND,
@@ -142,10 +139,19 @@ function createForm() {
             replace(errors, el('div', { className: 'notice bad' }, [
               el('p', { text: err.message || t('publish.none') }),
             ]));
+          } finally {
+            relayPool?.close();
+            publishButton.disabled = false;
+            publishButton.textContent = t('org.create_draft');
           }
         },
       },
-    }),
+    });
+  form.reviewActions.append(errors, publishButton);
+
+  return el('div', {}, [
+    overviewSection(),
+    form.node,
   ]);
 }
 

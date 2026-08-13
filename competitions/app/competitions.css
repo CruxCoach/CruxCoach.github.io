@@ -169,10 +169,13 @@ button.quiet { background: transparent; }
 
 label { display: block; margin: 0 0 0.9rem; color: var(--fg); }
 label .hint { display: block; font-size: 0.88rem; color: var(--fg-mute); margin-top: 0.15rem; }
+.field-marker { margin-inline-start: 0.45rem; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+.field-marker.required { color: var(--accent); }
+.field-marker.optional { color: var(--fg-mute); }
 label.inline { display: flex; align-items: flex-start; gap: 0.55rem; }
 label.inline input { margin-top: 0.35rem; }
 
-input[type="text"], input[type="password"], input[type="number"], input[type="datetime-local"],
+input[type="text"], input[type="search"], input[type="password"], input[type="number"], input[type="datetime-local"],
 input[type="email"], select, textarea {
   font: inherit;
   width: 100%;
@@ -186,6 +189,10 @@ input[type="email"], select, textarea {
 }
 textarea { min-height: 6rem; resize: vertical; }
 input[readonly] { color: var(--fg-soft); }
+input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="true"] {
+  border-color: var(--bad);
+  box-shadow: 0 0 0 1px var(--bad);
+}
 
 fieldset { border: 1px solid var(--rule); border-radius: var(--radius); padding: 1rem 1.1rem; margin: 0 0 var(--gap); }
 legend { padding: 0 0.4rem; color: var(--fg); font-weight: 600; }
@@ -193,6 +200,94 @@ legend { padding: 0 0.4rem; color: var(--fg); font-weight: 600; }
 details.disclosure { border: 1px solid var(--rule); border-radius: var(--radius); padding: 0.6rem 1rem; margin: 0 0 var(--gap); }
 details.disclosure summary { cursor: pointer; font-weight: 600; min-height: 2.2rem; display: flex; align-items: center; }
 details.disclosure[open] { padding-bottom: 1rem; }
+
+/* ── competition creation wizard ── */
+
+.wizard-heading { display: flex; gap: 1rem; align-items: flex-start; justify-content: space-between; }
+.wizard-heading h2 { margin-bottom: 0.15rem; }
+.wizard-step-status { margin: 0; font-size: 0.9rem; }
+.wizard-progress {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0.35rem;
+  padding: 0;
+  margin: 1.25rem 0;
+  list-style: none;
+}
+.wizard-progress li {
+  min-width: 0;
+  padding-top: 0.5rem;
+  border-top: 3px solid var(--rule);
+  color: var(--fg-mute);
+  font-size: 0.73rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wizard-progress li.current { color: var(--fg); border-color: var(--accent); }
+.wizard-progress li.done { color: var(--ok); border-color: var(--ok); }
+.wizard-panel { border: 0; padding: 0; margin-top: 1.5rem; }
+.wizard-panel > legend { padding: 0; margin-bottom: 1rem; font-size: 1.25rem; }
+.wizard-navigation { display: flex; justify-content: space-between; gap: 0.75rem; margin-top: 1.25rem; }
+.competition-wizard[data-ready="false"] .wizard-publish-actions { display: none; }
+.wizard-intro { max-width: 44rem; margin-top: -0.5rem; }
+.schedule-grid { display: grid; gap: 0.75rem; }
+.subcard, .compact-editor-row {
+  padding: 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--bg-raised);
+}
+.subcard h3 { margin: 0 0 0.65rem; }
+.compact-editor-row + .compact-editor-row { margin-top: 0.65rem; }
+.wizard-publish-actions { margin-top: 1rem; }
+.wizard-publish-actions > button { width: 100%; min-height: 3.15rem; font-size: 1.05rem; }
+.wizard-publish-actions [role="alert"]:empty { display: none; }
+.review-grid { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.review-card { padding: 1rem; border: 1px solid var(--rule); border-radius: 8px; background: var(--bg-raised); }
+.review-card h3 { margin: 0 0 0.35rem; color: var(--fg-mute); font-size: 0.85rem; }
+.review-card p { margin: 0.25rem 0 0; }
+button.review-edit { min-height: 2rem; padding: 0.2rem 0.45rem; color: var(--accent); font-size: 0.82rem; }
+button.wizard-progress-button {
+  display: block;
+  width: 100%;
+  min-height: 0;
+  padding: 0.5rem 0 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  text-align: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wizard-progress li { padding-top: 0; }
+.wizard-progress li.current button { font-weight: 700; }
+.wizard-progress li.done button:not([disabled]):hover { color: var(--fg); }
+
+@media (min-width: 48rem) {
+  .schedule-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 42rem) {
+  .wizard-progress { grid-template-columns: repeat(8, 1fr); }
+  .wizard-progress li { height: 0.7rem; padding: 0; font-size: 0; }
+  button.wizard-progress-button { height: 100%; padding: 0; }
+  .wizard-heading { align-items: center; }
+  .wizard-navigation {
+    position: sticky;
+    bottom: 0;
+    z-index: 3;
+    margin-inline: -1.25rem;
+    padding: 0.8rem 1.25rem max(0.8rem, env(safe-area-inset-bottom));
+    border-top: 1px solid var(--rule);
+    background: color-mix(in srgb, var(--bg-soft) 94%, transparent);
+    backdrop-filter: blur(10px);
+  }
+  .wizard-navigation button { flex: 1; }
+}
 
 /* ── status ── */
 
@@ -362,6 +457,49 @@ button.board-choice.selected {
   border-radius: 8px;
   background: rgba(224, 122, 79, 0.1);
   color: var(--fg);
+}
+
+/* ── embedded, verified climb browser ── */
+
+.climb-browser { margin: 1rem 0; }
+.button-wide { width: 100%; }
+.climb-browser-results { display: grid; gap: 0.65rem; margin-top: 0.75rem; }
+.climb-result-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--bg);
+}
+.climb-result-card p { margin: 0.15rem 0 0; }
+.climb-result-card.selected { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 7%, var(--bg)); }
+.climb-browser label { margin-top: 0.9rem; }
+.selection-count {
+  display: inline-flex;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 14%, var(--bg));
+  color: var(--fg);
+  font-weight: 700;
+}
+.selected-climb {
+  padding: 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--bg-raised);
+}
+.selected-climb.invalid { border-color: var(--bad); }
+.climb-fields { display: grid; gap: 0.65rem; }
+.climb-fields label { margin-bottom: 0; }
+@media (min-width: 44rem) {
+  .climb-fields { grid-template-columns: minmax(0, 2fr) minmax(6rem, 0.7fr) minmax(7rem, 0.8fr); }
+}
+@media (max-width: 32rem) {
+  .climb-result-card { grid-template-columns: 1fr; }
+  .climb-result-card button { width: 100%; }
 }
 
 @media (max-width: 32rem) {

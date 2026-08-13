@@ -13,15 +13,15 @@
  */
 import { el, replace } from '../ui/dom.mjs';
 import {
-  buildClimbList, checkBoardCompatibility, climbEventFilter, describeClimbEvent, parseClimbRef,
+  buildClimbList, checkBoardCompatibility, climbEventFilter, describeClimbEvent, normalizeUuid, parseClimbRef,
 } from '../protocol/climb-ref.mjs';
 import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs';
-import { verifyEvent } from '../protocol/nostr-event.mjs';
+import { naddrEncode, verifyEvent } from '../protocol/nostr-event.mjs';
 import { BOARD_TYPES, boardType, resolveBoardSelection } from '../protocol/board-catalog.mjs';
 
 const text = (id, value = '', attrs = {}) => el('input', { attrs: { type: 'text', id, value, ...attrs } });
-const num = (id, value, attrs = {}) => el('input', { attrs: { type: 'number', id, value: String(value), ...attrs } });
-const when = (id, value) => el('input', { attrs: { type: 'datetime-local', id, value } });
+const num = (id, value, attrs = {}) => el('input', { attrs: { type: 'number', id, value: String(value), required: 'required', ...attrs } });
+const when = (id, value) => el('input', { attrs: { type: 'datetime-local', id, value, required: 'required' } });
 const area = (id, value = '', max = 2000) => {
   const node = el('textarea', { attrs: { id, maxlength: String(max) } });
   node.value = value;
@@ -29,7 +29,7 @@ const area = (id, value = '', max = 2000) => {
 };
 const select = (id, options, value) => el(
   'select',
-  { attrs: { id } },
+  { attrs: { id, required: 'required' } },
   options.map(([v, label]) => el('option', { attrs: { value: v, selected: v === value }, text: label })),
 );
 
@@ -43,11 +43,44 @@ function defaultWhen(offsetHours) {
 }
 
 function field(id, label, input, hint) {
-  return el('label', { attrs: { for: id } }, [
-    el('span', { text: label }),
+  const required = input.getAttribute('required') !== null;
+  const german = document.documentElement?.getAttribute?.('lang') === 'de';
+  const marker = required ? (german ? 'Pflichtfeld' : 'Required') : (german ? 'Optional' : 'Optional');
+  return el('label', { className: required ? 'field-required' : 'field-optional', attrs: { for: id } }, [
+    el('span', {}, [
+      el('span', { text: label }),
+      el('span', {
+        className: `field-marker ${required ? 'required' : 'optional'}`,
+        text: marker,
+      }),
+    ]),
     hint ? el('span', { className: 'hint', text: hint }) : null,
     input,
   ]);
+}
+
+function setFieldRequirement(wrapper, input, required, t) {
+  if (required) input.setAttribute('required', 'required');
+  else input.removeAttribute('required');
+  wrapper.className = required ? 'field-required' : 'field-optional';
+  const marker = wrapper.querySelector('.field-marker');
+  if (marker) {
+    marker.className = `field-marker ${required ? 'required' : 'optional'}`;
+    marker.textContent = required ? t('field.required') : t('field.optional');
+  }
+}
+
+/** Strict admission contract for the broad relay-backed browser query. */
+export function isBrowsableClimbEvent(event, described, board) {
+  const dTag = (event?.tags || []).find((tag) => tag[0] === 'd')?.[1] || '';
+  if (!dTag.startsWith(`cruxcoach:climb:${String(event?.pubkey || '').slice(0, 8)}:`)) return false;
+  const uuid = normalizeUuid(described?.uuid);
+  if (!uuid || normalizeUuid(dTag.split(':').at(-1)) !== uuid || !described?.label) return false;
+  // Unlike a pasted address, a discovery result has no prior identity. Missing
+  // board metadata is therefore not "unknown but maybe fine": it is ineligible.
+  if (!described.brand || described.brand !== board?.brand) return false;
+  if (!Number.isFinite(described.layoutId) || described.layoutId !== board?.layout_id) return false;
+  return checkBoardCompatibility(described, board).compatible;
 }
 
 /**
@@ -79,6 +112,22 @@ class ClimbEditor {
     }));
   }
 
+  /** Re-check selected relay climbs after the organizer changes the wall. */
+  boardProblems() {
+    const board = this.boardOf();
+    return this.rows.filter((row) => row.described
+      && !checkBoardCompatibility(row.described, board).compatible);
+  }
+
+  announceBoardChange() {
+    const problems = this.boardProblems();
+    if (problems.length) {
+      this.status.textContent = this.t('climb.board_changed', { count: problems.length });
+    }
+    this.render();
+    this.onChange();
+  }
+
   /** Accept a pasted reference, fetching a community climb to describe it. */
   async add(input) {
     const { t } = this;
@@ -106,6 +155,12 @@ class ClimbEditor {
       if (verified.length > 0) {
         const newest = verified.reduce((best, e) => (e.created_at > best.created_at ? e : best));
         described = describeClimbEvent(newest);
+        const dTag = (newest.tags || []).find((tag) => tag[0] === 'd')?.[1] || '';
+        if (normalizeUuid(described.uuid) !== ref.uuid
+          || !dTag.startsWith(`cruxcoach:climb:${newest.pubkey.slice(0, 8)}:`)) {
+          this.status.textContent = t('climb.error.identity_mismatch');
+          return false;
+        }
       } else {
         // Not fatal: a very fresh climb may not have propagated. The organizer
         // fills in the label and angle instead, and is told why.
@@ -127,6 +182,29 @@ class ClimbEditor {
     this.status.textContent = described
       ? t('climb.added', { label: described.label || ref.uuid.slice(0, 8) })
       : t('climb.added_manual');
+    this.render();
+    this.onChange();
+    return true;
+  }
+
+  /** Add a relay result selected in the embedded browser. */
+  addEvent(event) {
+    const described = describeClimbEvent(event);
+    const uuid = normalizeUuid(described.uuid);
+    if (!uuid || this.rows.some((row) => row.uuid === uuid)) {
+      this.status.textContent = this.t(uuid ? 'climb.error.duplicate' : 'climb.error.not_a_climb');
+      return false;
+    }
+    const compatibility = checkBoardCompatibility(described, this.boardOf());
+    if (!compatibility.compatible) return false;
+    const dTag = (event.tags || []).find((tag) => tag[0] === 'd')?.[1];
+    if (!dTag) return false;
+    const ref = {
+      kind: 'community', uuid,
+      naddr: naddrEncode({ identifier: dTag, pubkey: event.pubkey, kind: event.kind }),
+    };
+    this.rows.push(this.buildRow(ref, described, compatibility));
+    this.status.textContent = this.t('climb.added', { label: described.label || uuid.slice(0, 8) });
     this.render();
     this.onChange();
     return true;
@@ -155,7 +233,17 @@ class ClimbEditor {
 
   render() {
     const { t } = this;
-    replace(this.node, ...this.rows.map((row, index) => el('div', { className: 'card raised' }, [
+    replace(this.node,
+      this.rows.length ? el('p', {
+        className: 'selection-count',
+        text: t('climb.selected_count', { count: this.rows.length }),
+      }) : null,
+      ...this.rows.map((row, index) => {
+        const currentCompatibility = row.described
+          ? checkBoardCompatibility(row.described, this.boardOf()) : row.compatibility;
+        return el('div', {
+          className: `selected-climb${currentCompatibility && !currentCompatibility.compatible ? ' invalid' : ''}`,
+        }, [
       el('div', { className: 'row between' }, [
         el('strong', { text: `${index + 1}. ${row.described?.label || row.labelInput.value || row.uuid.slice(0, 8)}` }),
         el('button', {
@@ -169,8 +257,7 @@ class ClimbEditor {
             },
           },
         }),
-      ]),
-      el('p', { className: 'small mono selectable', text: row.uuid }),
+        ]),
       el('p', {
         className: 'small',
         text: row.kind === 'community'
@@ -188,10 +275,15 @@ class ClimbEditor {
           }),
         })
         : null,
-      field(row.labelInput.id, t('climb.label'), row.labelInput),
-      field(row.angleInput.id, t('climb.angle'), row.angleInput),
-      field(row.pointsInput.id, t('climb.points'), row.pointsInput, t('climb.points.hint')),
-    ])));
+      currentCompatibility && !currentCompatibility.compatible
+        ? el('p', { className: 'notice bad', text: t('climb.selected_incompatible') }) : null,
+      el('div', { className: 'climb-fields' }, [
+        field(row.labelInput.id, t('climb.label'), row.labelInput),
+        field(row.angleInput.id, t('climb.angle'), row.angleInput),
+        field(row.pointsInput.id, t('climb.points'), row.pointsInput, t('climb.points.hint')),
+      ]),
+    ]);
+      }));
   }
 }
 
@@ -206,7 +298,7 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
     title: text('f-title', '', { maxlength: '120', required: 'required' }),
     summary: text('f-summary', '', { maxlength: '140' }),
     description: area('f-description', '', 4000),
-    organizerName: text('f-org', defaultDisplayName || '', { maxlength: '80' }),
+    organizerName: text('f-org', defaultDisplayName || '', { maxlength: '80', required: 'required' }),
     contact: text('f-contact', '', { maxlength: '120' }),
     visibility: select('f-visibility', [['public', t('org.visibility.public')], ['unlisted', t('org.visibility.unlisted')]], 'public'),
 
@@ -216,10 +308,10 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
     checkinCloses: when('f-checkin-close', defaultWhen(26)),
     starts: when('f-start', defaultWhen(26)),
     ends: when('f-end', defaultWhen(29)),
-    timezone: text('f-timezone', Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC', { maxlength: '64' }),
+    timezone: text('f-timezone', Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC', { maxlength: '64', required: 'required' }),
 
     venueKind: select('f-venue-kind', [['physical', t('org.venue.physical')], ['online', t('org.venue.online')]], 'physical'),
-    venue: text('f-venue', '', { maxlength: '120' }),
+    venue: text('f-venue', '', { maxlength: '120', required: 'required' }),
     address: text('f-address', '', { maxlength: '160' }),
 
     brand: select('f-brand', BOARD_TYPES.map((entry) => [entry.id, entry.label]), 'kilter-original'),
@@ -261,24 +353,28 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
     lateEntry: el('input', { attrs: { type: 'checkbox', id: 'f-late-entry' } }),
 
     eligibility: area('f-eligibility'),
-    waiver: area('f-waiver', 'I understand that climbing is dangerous and I take part at my own risk.'),
+    waiver: area('f-waiver'),
     instructions: area('f-instructions'),
     spectator: area('f-spectator'),
     refund: area('f-refund'),
   };
 
   // ── divisions ──
-  const divisionRows = [{ id: 'open', label: 'Open' }];
+  const divisionRows = [{ label: t('org.division.open') }];
+  const divisionId = (label, index) => {
+    const slug = String(label || '')
+      .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 20);
+    return `${slug || 'division'}_${index + 1}`.slice(0, 24);
+  };
   const divisionsNode = el('div', { className: 'stack' });
   const renderDivisions = () => {
     replace(divisionsNode, ...divisionRows.map((division, index) => {
-      const idInput = text(`div-id-${index}`, division.id, { maxlength: '24' });
-      const labelInput = text(`div-label-${index}`, division.label, { maxlength: '48' });
-      idInput.addEventListener('input', () => { division.id = idInput.value.trim().toLowerCase(); });
+      const labelInput = text(`div-label-${index}`, division.label, { maxlength: '48', required: 'required' });
       labelInput.addEventListener('input', () => { division.label = labelInput.value; });
-      return el('div', { className: 'card raised' }, [
+      return el('div', { className: 'compact-editor-row' }, [
         el('div', { className: 'row between' }, [
-          el('strong', { text: `${index + 1}` }),
+          el('strong', { text: t('org.division.number', { n: index + 1 }) }),
           divisionRows.length > 1
             ? el('button', {
               className: 'quiet danger',
@@ -287,7 +383,6 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
             })
             : null,
         ]),
-        field(idInput.id, t('org.division.id'), idInput, t('org.division.id.hint')),
         field(labelInput.id, t('org.division.label'), labelInput),
       ]);
     }));
@@ -336,6 +431,7 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
     node.value = options.some(([value]) => value === preferred) ? preferred : (options[0]?.[0] || '');
   };
   const boardPickerNode = el('div', { className: 'board-picker' });
+  let onBoardChange = () => {};
   const selectedModel = () => boardType(f.brand.value)?.models.find((entry) => entry.value === f.model.value);
   const syncBoardDetails = ({ resetModel = false, resetSize = false } = {}) => {
     const type = boardType(f.brand.value) || BOARD_TYPES[0];
@@ -373,12 +469,14 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
         f.model.value = value;
         syncBoardDetails({ resetSize: true });
         renderBoardPicker();
+        onBoardChange();
       }));
     }
     if (model.sizes.length > 1) {
       tiers.push(choiceTier(`${step++}. ${t('org.board.step.size')}`, model.sizes, size?.value, (value) => {
         f.size.value = value;
         renderBoardPicker();
+        onBoardChange();
       }));
     }
     replace(boardPickerNode,
@@ -414,13 +512,15 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
   f.brand.addEventListener('change', () => {
     syncBoardDetails({ resetModel: true, resetSize: true });
     renderBoardPicker();
+    onBoardChange();
   });
   f.model.addEventListener('change', () => {
     syncBoardDetails({ resetSize: true });
     renderBoardPicker();
+    onBoardChange();
   });
-  f.size.addEventListener('change', renderBoardPicker);
-  f.angle.addEventListener('change', renderBoardPicker);
+  f.size.addEventListener('change', () => { renderBoardPicker(); onBoardChange(); });
+  f.angle.addEventListener('change', () => { renderBoardPicker(); onBoardChange(); });
   syncBoardDetails({ resetModel: true, resetSize: true });
   renderBoardPicker();
 
@@ -428,12 +528,112 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
   const climbEditor = new ClimbEditor({ t, pool, boardOf });
   const climbInput = text('f-climb-ref', '', { placeholder: t('climb.paste.placeholder'), autocomplete: 'off' });
   const climbSection = el('div', {});
+  const browserResults = el('div', { className: 'climb-browser-results' });
+  const browserStatus = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+  const browserSearch = text('f-climb-search', '', {
+    placeholder: t('climb.browser.search.placeholder'), autocomplete: 'off', type: 'search',
+  });
+  const browserSearchField = field(
+    'f-climb-search', t('climb.browser.search'), browserSearch, t('climb.browser.search.hint'),
+  );
+  browserSearchField.setAttribute('hidden', 'hidden');
+  let browserCandidates = [];
+
+  onBoardChange = () => {
+    browserCandidates = [];
+    browserSearch.value = '';
+    browserSearchField.setAttribute('hidden', 'hidden');
+    replace(browserResults);
+    browserStatus.textContent = t('climb.browser.board_changed');
+    climbEditor.announceBoardChange();
+  };
+
+  const renderBrowserResults = () => {
+    const needle = browserSearch.value.trim().toLocaleLowerCase();
+    const matches = browserCandidates.filter(({ described }) => !needle
+      || described.label.toLocaleLowerCase().includes(needle)
+      || described.boardLabel.toLocaleLowerCase().includes(needle));
+    browserStatus.textContent = matches.length
+      ? t('climb.browser.found', { count: matches.length }) : t('climb.browser.empty_filter');
+    replace(browserResults, ...matches.map(({ event, described, compatibility }) => {
+      const selected = climbEditor.rows.some((row) => row.uuid === normalizeUuid(described.uuid));
+      return el('article', { className: `climb-result-card${selected ? ' selected' : ''}` }, [
+        el('div', {}, [
+          el('strong', { text: described.label }),
+          el('p', { className: 'small', text: t('climb.browser.meta', {
+            angle: Number.isFinite(described.angle) ? described.angle : boardOf().angle,
+            board: described.boardLabel || boardOf().model,
+          }) }),
+          compatibility.warnings.length
+            ? el('p', { className: 'small', text: t('climb.warning', {
+              warnings: compatibility.warnings.map((warning) => t(`climb.problem.${warning}`)).join(', '),
+            }) }) : null,
+        ]),
+        el('button', {
+          className: selected ? '' : 'primary',
+          text: selected ? t('climb.browser.added') : t('climb.browser.choose'),
+          attrs: { disabled: selected ? 'disabled' : null },
+          on: {
+            click: () => {
+              if (climbEditor.addEvent(event)) renderBrowserResults();
+            },
+          },
+        }),
+      ]);
+    }));
+  };
+  browserSearch.addEventListener('input', renderBrowserResults);
+
+  const browseClimbs = async () => {
+    browserStatus.textContent = t('climb.browser.loading');
+    replace(browserResults);
+    try {
+      const { events } = await pool.query([{ kinds: [30078], limit: 120 }], { timeoutMs: 7000 });
+      const board = boardOf();
+      const candidates = [];
+      for (const event of events) {
+        // Relay results are hostile input. Only signed CruxCoach climb events
+        // with a real UUID and a compatible board become selectable cards.
+        // eslint-disable-next-line no-await-in-loop
+        if (!await verifyEvent(event).catch(() => false)) continue;
+        const described = describeClimbEvent(event);
+        if (!isBrowsableClimbEvent(event, described, board)) continue;
+        const compatibility = checkBoardCompatibility(described, board);
+        candidates.push({ event, described, compatibility });
+      }
+      browserCandidates = [...new Map(candidates.map(
+        (candidate) => [candidate.described.uuid, candidate],
+      )).values()].sort((a, b) => a.described.label.localeCompare(b.described.label)).slice(0, 60);
+      if (browserCandidates.length) {
+        browserSearchField.removeAttribute('hidden');
+        renderBrowserResults();
+      } else {
+        browserSearchField.setAttribute('hidden', 'hidden');
+        browserStatus.textContent = t('climb.browser.empty');
+      }
+    } catch {
+      browserStatus.textContent = t('climb.browser.error');
+    }
+  };
+  const browseClimbsButton = el('button', {
+    className: 'button-wide', text: t('climb.browser.open'), on: { click: browseClimbs },
+  });
 
   const renderClimbSection = () => {
     const participantChoice = f.climbSource.value === 'participant_choice';
     replace(climbSection,
       el('h3', { text: participantChoice ? t('climb.pool.title') : t('climb.list.title') }),
       el('p', { className: 'small', text: participantChoice ? t('climb.pool.hint') : t('climb.list.hint') }),
+      el('div', { className: 'climb-browser card raised' }, [
+        el('h3', { text: t('climb.browser.title') }),
+        el('p', { className: 'small', text: t('climb.browser.hint') }),
+        browseClimbsButton,
+        browserSearchField,
+        browserStatus,
+        browserResults,
+      ]),
+      el('details', { className: 'disclosure' }, [
+        el('summary', { text: t('climb.manual.title') }),
       el('p', { className: 'small', text: t('climb.how') }),
       field('f-climb-ref', t('climb.paste'), climbInput, t('climb.paste.hint')),
       el('button', {
@@ -445,6 +645,7 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
           },
         },
       }),
+      ]),
       climbEditor.status,
       climbEditor.node);
   };
@@ -512,7 +713,7 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
         ? { kind: 'online', name: f.venue.value.trim() }
         : { kind: 'physical', name: f.venue.value.trim(), address: f.address.value.trim() },
       board,
-      divisions: divisionRows.map((d) => ({ id: d.id, label: d.label.trim() })),
+      divisions: divisionRows.map((d, index) => ({ id: divisionId(d.label, index), label: d.label.trim() })),
       eligibility: f.eligibility.value.trim(),
       waiver: f.waiver.value.trim(),
       waiver_required: Boolean(f.waiver.value.trim()),
@@ -562,112 +763,386 @@ export function createCompetitionForm({ t, pool, signerPubkey, defaultDisplayNam
     return config;
   };
 
-  const node = el('section', { className: 'card' }, [
-    el('h2', { text: t('org.create') }),
+  const reviewNode = el('div', { className: 'review-grid' });
+  const venueField = field('f-venue', t('org.field.venue'), f.venue);
+  const addressField = field('f-address', t('org.field.address'), f.address);
+  const syncVenueRequirement = () => {
+    const required = f.venueKind.value === 'physical';
+    setFieldRequirement(venueField, f.venue, required, t);
+    if (required) addressField.removeAttribute('hidden');
+    else addressField.setAttribute('hidden', 'hidden');
+  };
+  f.venueKind.addEventListener('change', syncVenueRequirement);
+  syncVenueRequirement();
+  const uniquenessField = field('f-uniqueness', t('org.field.uniqueness'), f.uniqueness);
+  const scoringField = field('f-scoring', t('org.field.scoring'), f.scoring);
+  const syncFormatControls = () => {
+    const participantChoice = f.climbSource.value === 'participant_choice';
+    if (participantChoice) {
+      uniquenessField.removeAttribute('hidden');
+      f.scoring.value = 'tops_then_attempts';
+      scoringField.setAttribute('hidden', 'hidden');
+    } else {
+      f.uniqueness.value = 'none';
+      uniquenessField.setAttribute('hidden', 'hidden');
+      scoringField.removeAttribute('hidden');
+    }
+    renderModeNotes();
+  };
+  f.climbSource.addEventListener('change', syncFormatControls);
+  syncFormatControls();
 
-    el('fieldset', {}, [
+  const lnurlField = field('f-lnurl', t('org.field.lnurl'), f.lnurl, t('org.field.lnurl.hint'));
+  const syncFeeControls = () => {
+    const paid = Number(f.fee.value) > 0;
+    if (paid) {
+      lnurlField.removeAttribute('hidden');
+      setFieldRequirement(lnurlField, f.lnurl, true, t);
+    } else {
+      lnurlField.setAttribute('hidden', 'hidden');
+      setFieldRequirement(lnurlField, f.lnurl, false, t);
+    }
+  };
+  f.fee.addEventListener('input', syncFeeControls);
+  syncFeeControls();
+
+  const basicExtras = el('details', { className: 'disclosure' }, [
+    el('summary', { text: t('org.basics.optional') }),
+    field('f-summary', t('org.field.summary'), f.summary),
+    field('f-description', t('org.field.description'), f.description),
+    field('f-contact', t('org.field.contact'), f.contact, t('org.field.contact.hint')),
+  ]);
+  const advancedTiming = el('details', { className: 'disclosure' }, [
+    el('summary', { text: t('org.advanced') }),
+    el('p', { className: 'small', text: t('org.advanced.hint') }),
+    field('f-deadline', t('org.field.turn_deadline'), f.turnDeadline),
+    field('f-defer-budget', t('org.field.defer_budget'), f.deferBudget),
+    field('f-defer-consecutive', t('org.field.defer_consecutive'), f.deferConsecutive),
+    field('f-defer-slots', t('org.field.defer_slots'), f.deferSlots),
+    field('f-rest', t('org.field.min_rest'), f.minRest),
+  ]);
+  const syncProgressionControls = () => {
+    if (f.progression.value === 'asynchronous_turns') advancedTiming.removeAttribute('hidden');
+    else advancedTiming.setAttribute('hidden', 'hidden');
+  };
+  f.progression.addEventListener('change', syncProgressionControls);
+  syncProgressionControls();
+  const steps = [
+    el('fieldset', { className: 'wizard-panel' }, [
       el('legend', { text: t('org.basics') }),
+      el('p', { className: 'wizard-intro', text: t('org.basics.intro') }),
       field('f-title', t('org.field.title'), f.title),
-      field('f-summary', t('org.field.summary'), f.summary),
-      field('f-description', t('org.field.description'), f.description),
       field('f-org', t('org.field.organizer'), f.organizerName),
-      field('f-contact', t('org.field.contact'), f.contact, t('org.field.contact.hint')),
       field('f-visibility', t('org.field.visibility'), f.visibility, t('org.field.visibility.hint')),
+      basicExtras,
     ]),
 
-    el('fieldset', {}, [
+    el('fieldset', { className: 'wizard-panel' }, [
       el('legend', { text: t('org.when') }),
+      el('p', { className: 'wizard-intro', text: t('org.when.intro') }),
       field('f-timezone', t('org.field.timezone'), f.timezone),
-      field('f-reg-open', t('org.field.reg_open'), f.regOpens),
-      field('f-reg-close', t('org.field.reg_close'), f.regCloses),
-      field('f-checkin-open', t('org.field.checkin_open'), f.checkinOpens),
-      field('f-checkin-close', t('org.field.checkin_close'), f.checkinCloses),
-      field('f-start', t('org.field.starts'), f.starts),
-      field('f-end', t('org.field.ends'), f.ends),
+      el('div', { className: 'schedule-grid' }, [
+        el('section', { className: 'subcard' }, [
+          el('h3', { text: t('org.schedule.registration') }),
+          field('f-reg-open', t('org.field.reg_open'), f.regOpens),
+          field('f-reg-close', t('org.field.reg_close'), f.regCloses),
+        ]),
+        el('section', { className: 'subcard' }, [
+          el('h3', { text: t('org.schedule.checkin') }),
+          field('f-checkin-open', t('org.field.checkin_open'), f.checkinOpens),
+          field('f-checkin-close', t('org.field.checkin_close'), f.checkinCloses),
+        ]),
+        el('section', { className: 'subcard' }, [
+          el('h3', { text: t('org.schedule.competition') }),
+          field('f-start', t('org.field.starts'), f.starts),
+          field('f-end', t('org.field.ends'), f.ends),
+        ]),
+      ]),
     ]),
 
-    el('fieldset', {}, [
+    el('fieldset', { className: 'wizard-panel' }, [
       el('legend', { text: t('org.where') }),
+      el('p', { className: 'wizard-intro', text: t('org.where.intro') }),
       field('f-venue-kind', t('org.field.venue_kind'), f.venueKind),
-      field('f-venue', t('org.field.venue'), f.venue),
-      field('f-address', t('org.field.address'), f.address),
+      venueField,
+      addressField,
       el('h3', { text: t('org.board') }),
       el('p', { className: 'small', text: t('org.board.hint') }),
       boardPickerNode,
     ]),
 
-    el('fieldset', {}, [
+    el('fieldset', { className: 'wizard-panel' }, [
       el('legend', { text: t('org.format') }),
+      el('p', { className: 'wizard-intro', text: t('org.format.intro') }),
       field('f-climb-source', t('org.field.climb_source'), f.climbSource),
       field('f-climbs', t('org.field.climb_count'), f.climbCount, t('org.field.climb_count.hint')),
-      field('f-uniqueness', t('org.field.uniqueness'), f.uniqueness),
+      uniquenessField,
+      field('f-capacity', t('org.field.capacity'), f.capacity, t('org.field.capacity.hint')),
       field('f-progression', t('org.field.progression'), f.progression),
       field('f-attempts', t('org.field.attempts'), f.attempts),
-      field('f-scoring', t('org.field.scoring'), f.scoring),
+      scoringField,
       modeNotes,
     ]),
 
-    el('fieldset', {}, [el('legend', { text: t('climb.section') }), climbSection]),
+    el('fieldset', { className: 'wizard-panel' }, [
+      el('legend', {}, [el('span', { text: t('climb.section') }), el('span', { className: 'field-marker required', text: t('field.required') })]),
+      climbSection,
+    ]),
 
-    el('fieldset', {}, [
+    el('fieldset', { className: 'wizard-panel' }, [
       el('legend', { text: t('org.entry') }),
-      field('f-capacity', t('org.field.capacity'), f.capacity, t('org.field.capacity.hint')),
+      el('p', { className: 'wizard-intro', text: t('org.entry.intro') }),
       el('label', { className: 'inline', attrs: { for: 'f-waitlist' } }, [
         f.waitlist, el('span', { text: t('org.field.waitlist') }),
       ]),
       field('f-fee', t('org.field.fee'), f.fee, t('org.field.fee.hint')),
-      field('f-lnurl', t('org.field.lnurl'), f.lnurl, t('org.field.lnurl.hint')),
-      el('h3', { text: t('org.divisions') }),
-      el('p', { className: 'small', text: t('org.divisions.hint') }),
-      divisionsNode,
-      el('button', {
-        text: t('org.divisions.add'),
-        on: {
-          click: () => {
-            divisionRows.push({ id: `division_${divisionRows.length + 1}`, label: '' });
-            renderDivisions();
+      lnurlField,
+      el('details', { className: 'disclosure' }, [
+        el('summary', { text: t('org.divisions') }),
+        el('p', { className: 'small', text: t('org.divisions.hint') }),
+        divisionsNode,
+        el('button', {
+          text: t('org.divisions.add'),
+          on: {
+            click: () => {
+              divisionRows.push({ label: '' });
+              renderDivisions();
+            },
           },
-        },
-      }),
-      el('h3', { text: t('org.prizes') }),
-      el('p', { className: 'small', text: t('org.prizes.hint') }),
-      prizesNode,
-      el('button', {
-        text: t('org.prizes.add'),
-        on: {
-          click: () => {
-            prizeRows.push({ rank: prizeRows.length + 1, kind: 'non_cash', label: '', value_sats: 0 });
-            renderPrizes();
+        }),
+      ]),
+      el('details', { className: 'disclosure' }, [
+        el('summary', { text: t('org.prizes') }),
+        el('p', { className: 'small', text: t('org.prizes.hint') }),
+        prizesNode,
+        el('button', {
+          text: t('org.prizes.add'),
+          on: {
+            click: () => {
+              prizeRows.push({ rank: prizeRows.length + 1, kind: 'non_cash', label: '', value_sats: 0 });
+              renderPrizes();
+            },
           },
-        },
-      }),
+        }),
+      ]),
     ]),
 
-    el('details', { className: 'disclosure' }, [
+    el('fieldset', { className: 'wizard-panel' }, [
+      el('legend', { text: t('org.optional.title') }),
+      el('p', { className: 'small', text: t('org.optional.hint') }),
+      el('details', { className: 'disclosure' }, [
       el('summary', { text: t('org.text') }),
       field('f-eligibility', t('org.field.eligibility'), f.eligibility),
       field('f-waiver', t('org.field.waiver'), f.waiver, t('org.field.waiver.hint')),
       field('f-instructions', t('org.field.instructions'), f.instructions),
       field('f-spectator', t('org.field.spectator'), f.spectator),
       field('f-refund', t('org.field.refund'), f.refund),
-    ]),
+      ]),
 
-    el('details', { className: 'disclosure' }, [
-      el('summary', { text: t('org.advanced') }),
-      el('p', { className: 'small', text: t('org.advanced.hint') }),
-      field('f-deadline', t('org.field.turn_deadline'), f.turnDeadline),
-      field('f-defer-budget', t('org.field.defer_budget'), f.deferBudget),
-      field('f-defer-consecutive', t('org.field.defer_consecutive'), f.deferConsecutive),
-      field('f-defer-slots', t('org.field.defer_slots'), f.deferSlots),
-      field('f-rest', t('org.field.min_rest'), f.minRest),
+      advancedTiming,
       el('label', { className: 'inline', attrs: { for: 'f-late-entry' } }, [
         f.lateEntry, el('span', { text: t('org.field.late_entry') }),
       ]),
     ]),
+    el('fieldset', { className: 'wizard-panel' }, [
+      el('legend', { text: t('org.review.title') }),
+      el('p', { className: 'small', text: t('org.review.hint') }),
+      reviewNode,
+    ]),
+  ];
+
+  const stepTitles = [
+    t('org.basics'), t('org.when'), t('org.where'), t('org.format'),
+    t('climb.section'), t('org.entry'), t('org.optional.title'), t('org.review.title'),
+  ];
+  let currentStep = 0;
+  let furthestStep = 0;
+  const progress = el('ol', { className: 'wizard-progress', attrs: { 'aria-label': t('org.wizard.progress') } });
+  const navigation = el('div', { className: 'wizard-navigation' });
+  const reviewActions = el('div', { className: 'wizard-publish-actions' });
+  const stepStatus = el('p', { className: 'wizard-step-status', attrs: { 'aria-live': 'polite' } });
+  const stepError = el('p', { className: 'notice bad wizard-error', attrs: { role: 'alert', hidden: 'hidden' } });
+  const nextButton = el('button', { className: 'primary', text: t('org.wizard.next') });
+  const backButton = el('button', { text: t('org.wizard.back') });
+  const showStep = (index) => {
+    currentStep = Math.max(0, Math.min(index, steps.length - 1));
+    furthestStep = Math.max(furthestStep, currentStep);
+    stepError.setAttribute('hidden', 'hidden');
+    stepError.textContent = '';
+    node?.setAttribute('data-ready', String(currentStep === steps.length - 1));
+    if (currentStep === steps.length - 1) {
+      const board = boardOf();
+      replace(reviewNode,
+        reviewCard(0, t('org.basics'), f.title.value || t('org.review.missing'),
+          `${f.organizerName.value} · ${t(`org.visibility.${f.visibility.value}`)}`),
+        reviewCard(1, t('org.when'), `${f.starts.value} → ${f.ends.value}`,
+          t('org.review.registration_window', { start: f.regOpens.value, end: f.regCloses.value })),
+        reviewCard(2, t('org.board'), board
+          ? `${boardType(f.brand.value)?.label || board.brand} · ${selectedModel()?.label || board.model}` : '—',
+        `${board?.size || '—'} · ${board?.angle || '—'}° · ${f.venue.value || t(`org.venue.${f.venueKind.value}`)}`),
+        reviewCard(3, t('org.format'), t(`org.mode.${f.climbSource.value}`),
+          `${t(`org.mode.${f.progression.value}`)} · ${t(`org.mode.${f.scoring.value}`)}`),
+        reviewCard(4, t('climb.section'), t('org.review.climbs', { count: climbEditor.rows.length }),
+          climbEditor.rows.map((row) => row.labelInput.value.trim()).filter(Boolean).join(' · ')),
+        reviewCard(5, t('org.entry'), t('org.review.capacity', { count: f.capacity.value }),
+          Number(f.fee.value) > 0 ? `${f.fee.value} sats` : t('pay.not_required')),
+        reviewCard(6, t('org.optional.title'), t('org.review.optional_value', {
+          count: [f.eligibility, f.waiver, f.instructions, f.spectator, f.refund]
+            .filter((input) => input.value.trim()).length,
+        }), t('org.review.divisions', { count: divisionRows.length })),
+      );
+    }
+    steps.forEach((panel, panelIndex) => {
+      if (panelIndex === currentStep) panel.removeAttribute('hidden');
+      else panel.setAttribute('hidden', 'hidden');
+    });
+    replace(progress, ...stepTitles.map((title, stepIndex) => el('li', {
+      className: stepIndex === currentStep ? 'current' : (stepIndex <= furthestStep ? 'done' : ''),
+      attrs: { 'aria-current': stepIndex === currentStep ? 'step' : 'false' },
+    }, [el('button', {
+      className: 'wizard-progress-button',
+      text: `${stepIndex + 1}. ${title}`,
+      attrs: { type: 'button', disabled: stepIndex > furthestStep ? 'disabled' : null },
+      on: { click: () => { if (stepIndex <= furthestStep) showStep(stepIndex); } },
+    })])));
+    stepStatus.textContent = t('org.wizard.step', {
+      current: currentStep + 1, total: steps.length, title: stepTitles[currentStep],
+    });
+    backButton.disabled = currentStep === 0;
+    nextButton.textContent = currentStep === steps.length - 2 ? t('org.wizard.review') : t('org.wizard.next');
+    replace(navigation, backButton, currentStep < steps.length - 1 ? nextButton : null);
+  };
+  const reviewCard = (stepIndex, title, value, detail) => el('article', { className: 'review-card' }, [
+    el('div', { className: 'row between' }, [
+      el('h3', { text: title }),
+      el('button', {
+        className: 'quiet review-edit', text: t('org.review.change'),
+        on: { click: () => showStep(stepIndex) },
+      }),
+    ]),
+    el('strong', { text: value }),
+    detail ? el('p', { className: 'small', text: detail }) : null,
   ]);
+  backButton.addEventListener('click', () => showStep(currentStep - 1));
+  const invalidControl = () => {
+    const controls = [
+      ...steps[currentStep].querySelectorAll('input'),
+      ...steps[currentStep].querySelectorAll('select'),
+      ...steps[currentStep].querySelectorAll('textarea'),
+    ];
+    return controls.find((control) => {
+      if (control.getAttribute('hidden') !== null || control.disabled) return false;
+      const value = String(control.value || '').trim();
+      if (control.getAttribute('required') !== null && !value) return true;
+      if (control.getAttribute('type') === 'number' && value) {
+        const number = Number(value);
+        const min = Number(control.getAttribute('min'));
+        const max = Number(control.getAttribute('max'));
+        if (!Number.isFinite(number)) return true;
+        if (control.getAttribute('min') !== null && number < min) return true;
+        if (control.getAttribute('max') !== null && number > max) return true;
+      }
+      return false;
+    });
+  };
+  nextButton.addEventListener('click', () => {
+    for (const control of [
+      ...steps[currentStep].querySelectorAll('input'),
+      ...steps[currentStep].querySelectorAll('select'),
+      ...steps[currentStep].querySelectorAll('textarea'),
+    ]) control.removeAttribute('aria-invalid');
+    const invalid = invalidControl();
+    if (invalid) {
+      stepError.textContent = t('org.wizard.required_error');
+      stepError.removeAttribute('hidden');
+      invalid.setAttribute('aria-invalid', 'true');
+      let ancestor = invalid.parentNode;
+      while (ancestor && ancestor !== steps[currentStep]) {
+        if (ancestor.tagName === 'DETAILS') ancestor.setAttribute('open', 'open');
+        ancestor = ancestor.parentNode;
+      }
+      invalid.focus?.();
+      return;
+    }
+    if (currentStep === 1) {
+      const ordered = [f.regOpens, f.regCloses, f.checkinOpens, f.checkinCloses, f.starts, f.ends]
+        .map((control) => toEpoch(control.value));
+      if (ordered.some((value) => !Number.isFinite(value))
+        || ordered.some((value, index) => index > 0 && value < ordered[index - 1])) {
+        stepError.textContent = t('org.wizard.time_error');
+        stepError.removeAttribute('hidden');
+        return;
+      }
+    }
+    if (currentStep === 3 && f.climbSource.value === 'participant_choice'
+      && f.uniqueness.value === 'unique_per_competition' && Number(f.capacity.value) === 0) {
+      stepError.textContent = t('org.wizard.unique_capacity_error');
+      stepError.removeAttribute('hidden');
+      return;
+    }
+    if (currentStep === 4) {
+      const count = Number(f.climbCount.value);
+      const unique = f.climbSource.value === 'participant_choice'
+        && f.uniqueness.value === 'unique_per_competition';
+      const needed = unique && Number(f.capacity.value) > 0 ? Number(f.capacity.value) * count : count;
+      if (needed > 60) {
+        stepError.textContent = t('org.wizard.unique_pool_error', { count: needed });
+        stepError.removeAttribute('hidden');
+        return;
+      }
+      if (climbEditor.rows.length < needed) {
+        stepError.textContent = t('org.wizard.climb_count_error', { count: needed });
+        stepError.removeAttribute('hidden');
+        return;
+      }
+    }
+    if (currentStep === 4 && climbEditor.boardProblems().length) {
+      stepError.textContent = t('org.wizard.climb_board_error');
+      stepError.removeAttribute('hidden');
+      return;
+    }
+    if (currentStep === 6
+      && Number(f.deferConsecutive.value) > Number(f.deferBudget.value)) {
+      stepError.textContent = t('org.wizard.defer_error');
+      stepError.removeAttribute('hidden');
+      return;
+    }
+    if (currentStep === steps.length - 2) {
+      try {
+        const validation = validateCompetitionConfig(build());
+        if (!validation.ok) {
+          stepError.textContent = t('org.wizard.config_error');
+          stepError.removeAttribute('hidden');
+          return;
+        }
+      } catch (error) {
+        stepError.textContent = error.message || t('org.wizard.config_error');
+        stepError.removeAttribute('hidden');
+        return;
+      }
+    }
+    showStep(currentStep + 1);
+  });
+
+  let node = el('section', { className: 'card competition-wizard', attrs: { 'data-ready': 'false' } }, [
+    el('div', { className: 'wizard-heading' }, [
+      el('div', {}, [el('h2', { text: t('org.create') }), stepStatus]),
+      el('span', { className: 'badge', text: t('org.wizard.autosave') }),
+    ]),
+    progress,
+    stepError,
+    ...steps,
+    navigation,
+    reviewActions,
+  ]);
+  showStep(0);
 
   // `climbs` is exposed so the climb list can be driven from outside the DOM —
   // by a test, and by the app-side handoff that adds a climb straight from the
   // board browser.
-  return { node, build, climbs: climbEditor, validate: (config) => validateCompetitionConfig(config) };
+  return {
+    node, build, climbs: climbEditor, reviewActions,
+    validate: (config) => validateCompetitionConfig(config),
+    showStep, get currentStep() { return currentStep; }, stepCount: steps.length,
+  };
 }

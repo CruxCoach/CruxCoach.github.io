@@ -71,6 +71,7 @@ function me() {
 
 function header(snapshot) {
   const competition = snapshot.competition;
+  const board = competition.board || {};
   return el('section', { className: 'card' }, [
     el('h1', { text: competition.title }),
     el('p', { className: 'lead', text: competition.summary }),
@@ -88,6 +89,13 @@ function header(snapshot) {
       el('dd', {
         text: `${competition.rules.climb_count} × ${competition.rules.attempts_per_climb}`,
       }),
+      el('dt', { text: t('org.board') }),
+      el('dd', {
+        text: [humanBoardModel(board.model), board.size, Number.isInteger(board.angle) ? `${board.angle}°` : '']
+          .filter(Boolean).join(' · '),
+      }),
+      el('dt', { text: t('org.field.reg_close') }),
+      el('dd', { text: formatDateTime(competition.registration_closes_at, language, competition.timezone) }),
     ]),
     competition.description && el('p', { text: competition.description }),
   ]);
@@ -144,7 +152,12 @@ function registrationPanel(snapshot) {
       && !['finished', 'cancelled'].includes(snapshot.state.status)) {
       rows.push(el('button', {
         text: t('action.withdraw'),
-        on: { click: () => guard(() => entrant.withdraw()) },
+        on: {
+          click: () => {
+            if (!confirm(t('reg.withdraw.confirm'))) return;
+            guard(() => entrant.withdraw());
+          },
+        },
       }));
     }
 
@@ -199,18 +212,22 @@ function registrationPanel(snapshot) {
   const display = el('input', {
     attrs: {
       type: 'text', id: 'display', maxlength: '48', autocomplete: 'nickname',
-      value: signIn.displayName || '',
+      value: signIn.displayName || '', required: 'required',
     },
   });
-  const division = el('select', { attrs: { id: 'division' } },
+  const division = el('select', { attrs: { id: 'division', required: 'required' } },
     competition.divisions.map((d) => el('option', { attrs: { value: d.id }, text: d.label })));
   const waiver = el('input', { attrs: { type: 'checkbox', id: 'waiver' } });
   const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+  const readiness = el('p', { className: 'small registration-readiness', attrs: { role: 'status', 'aria-live': 'polite' } });
 
   const rows = [
     el('h2', { text: t('action.register') }),
     el('label', { attrs: { for: 'display' } }, [
-      el('span', { text: t('reg.display') }),
+      el('span', {}, [
+        el('span', { text: t('reg.display') }),
+        el('span', { className: 'field-marker required', text: t('field.required') }),
+      ]),
       el('span', { className: 'hint', text: t('reg.display.hint') }),
       display,
     ]),
@@ -268,7 +285,11 @@ function registrationPanel(snapshot) {
     updateCounter();
   }
   if (competition.divisions.length > 1) {
-    rows.push(el('label', { attrs: { for: 'division' }, text: t('reg.division') }, [division]));
+    rows.push(el('label', { attrs: { for: 'division' } }, [
+      el('span', { text: t('reg.division') }),
+      el('span', { className: 'field-marker required', text: t('field.required') }),
+      division,
+    ]));
   }
   if (competition.eligibility) rows.push(el('p', { className: 'small', text: competition.eligibility }));
   if (competition.waiver_required) {
@@ -282,7 +303,7 @@ function registrationPanel(snapshot) {
       ]),
     );
   }
-  rows.push(feedback, el('button', {
+  const registerButton = el('button', {
     className: 'primary',
     text: t('action.register'),
     on: {
@@ -293,7 +314,7 @@ function registrationPanel(snapshot) {
         }
         await entrant.register({
           division: competition.divisions.length > 1 ? division.value : competition.divisions[0].id,
-          display: display.value.trim() || shortKey(signer.pubkey),
+          display: display.value.trim(),
           waiverAccepted: !competition.waiver_required || waiver.checked,
           selections: [...selection].sort(),
         });
@@ -301,8 +322,39 @@ function registrationPanel(snapshot) {
         announce(t('reg.sent'));
       }, feedback),
     },
-  }));
+  });
+  const updateReady = () => {
+    const missingName = !display.value.trim();
+    const missingClimbs = competition.rules.climb_source === 'participant_choice'
+      && selection.size !== competition.rules.climb_count;
+    const missingWaiver = competition.waiver_required && !waiver.checked;
+    registerButton.disabled = missingName || missingClimbs || missingWaiver;
+    readiness.textContent = missingName ? t('reg.ready.name')
+      : missingClimbs ? t('reg.ready.climbs', { count: competition.rules.climb_count - selection.size })
+        : missingWaiver ? t('reg.ready.waiver') : t('reg.ready.complete');
+  };
+  display.addEventListener('input', updateReady);
+  waiver.addEventListener('change', updateReady);
+  for (const control of rows.flatMap((row) => row?.querySelectorAll?.('input') || [])) {
+    if (String(control.id || '').startsWith('sel-')) control.addEventListener('change', updateReady);
+  }
+  updateReady();
+  rows.push(readiness, feedback, registerButton);
   return el('section', { className: 'card raised' }, rows);
+}
+
+function humanBoardModel(model) {
+  const known = {
+    'kilterboard-og': 'Kilter Board Original',
+    'kilterboard-homewall': 'Kilter Board Homewall',
+    'tension-board-1': 'Tension Board',
+    'tension-board-2-mirror': 'Tension Board 2 (Mirror)',
+    'tension-board-2-spray': 'Tension Board 2 (Spray)',
+  };
+  if (known[model]) return known[model];
+  if (!model) return '';
+  return model.split('-').map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
+    .replace(/Moonboard/g, 'MoonBoard');
 }
 
 /**

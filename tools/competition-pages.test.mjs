@@ -565,6 +565,88 @@ test('the organizer board picker is guided, visual, and keeps layout ids interna
   }
 });
 
+test('competition creation is a guided wizard with a final review', async () => {
+  const { window } = await import('./dev/mini-dom.mjs');
+  const cleanup = window.install();
+  try {
+    const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: { query: async () => ({ events: [] }) },
+      signerPubkey: '11'.repeat(32), defaultDisplayName: 'Host', defaultLud16: '', relays: ['wss://nos.lol'],
+    });
+    assert.equal(form.stepCount, 8);
+    assert.equal(form.currentStep, 0);
+    assert.equal(form.node.querySelectorAll('.wizard-panel').filter((step) => !step.getAttribute('hidden')).length, 1);
+    const venueKind = form.node.querySelector('#f-venue-kind');
+    const venue = form.node.querySelector('#f-venue');
+    assert.equal(venue.getAttribute('required'), 'required');
+    venueKind.value = 'online';
+    venueKind.dispatch('change');
+    assert.equal(venue.getAttribute('required'), null, 'an online event must not require a physical venue name');
+    assert.match(venue.parentNode.textContent, /Optional/);
+    form.showStep(7);
+    assert.equal(form.currentStep, 7);
+    assert.match(form.node.querySelector('.review-grid').textContent, /Kilter|Original/i);
+    assert.equal(form.node.getAttribute('data-ready'), 'true');
+  } finally {
+    cleanup();
+  }
+});
+
+test('the wizard progressively reveals only choices that apply', async () => {
+  const { window } = await import('./dev/mini-dom.mjs');
+  const cleanup = window.install();
+  try {
+    const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: { query: async () => ({ events: [] }) },
+      signerPubkey: '11'.repeat(32), defaultDisplayName: 'Host', defaultLud16: '', relays: ['wss://nos.lol'],
+    });
+    const fee = form.node.querySelector('#f-fee');
+    const lnurl = form.node.querySelector('#f-lnurl');
+    assert.equal(lnurl.getAttribute('required'), null, 'free events do not ask for payment details');
+    fee.value = '250';
+    fee.dispatch('input');
+    assert.equal(lnurl.getAttribute('required'), 'required', 'paid events require a payment destination');
+
+    const venueKind = form.node.querySelector('#f-venue-kind');
+    venueKind.value = 'online';
+    venueKind.dispatch('change');
+    assert.equal(form.node.querySelector('#f-venue').getAttribute('required'), null);
+    assert.equal(form.node.querySelector('#f-address').parentNode.getAttribute('hidden'), 'hidden');
+
+    const climbSource = form.node.querySelector('#f-climb-source');
+    climbSource.value = 'participant_choice';
+    climbSource.dispatch('change');
+    assert.equal(form.node.querySelector('#f-scoring').value, 'tops_then_attempts');
+    assert.equal(form.node.querySelector('#f-scoring').parentNode.getAttribute('hidden'), 'hidden');
+    assert.equal(form.node.querySelector('#f-uniqueness').parentNode.getAttribute('hidden'), null);
+
+    assert.equal(form.node.querySelector('#div-id-0'), null, 'protocol ids are never exposed to hosts');
+    assert.equal(form.build().waiver, '', 'a waiver is opt-in, never silently prefilled');
+    assert.ok(form.reviewActions, 'the create action belongs inside the final review');
+  } finally {
+    cleanup();
+  }
+});
+
+test('the embedded browser admits only namespaced climbs with exact board metadata', async () => {
+  const { isBrowsableClimbEvent } = await import('../competitions/app/pages/organizer-form.mjs');
+  const pubkey = 'ab'.repeat(32);
+  const uuid = '3f8a1c24-5b6d-4e71-9a03-2c7d8e4f5061';
+  const event = { pubkey, tags: [['d', `cruxcoach:climb:${pubkey.slice(0, 8)}:${uuid}`]] };
+  const board = { brand: 'kilter', layout_id: 1, size: '12x12', angle: 40 };
+  const described = { uuid, label: 'Blue slab', brand: 'kilter', layoutId: 1, size: '12x12', angle: 40 };
+  assert.equal(isBrowsableClimbEvent(event, described, board), true);
+  assert.equal(isBrowsableClimbEvent({ ...event, tags: [['d', `other-app:${uuid}`]] }, described, board), false);
+  assert.equal(isBrowsableClimbEvent(event, { ...described, brand: '' }, board), false);
+  assert.equal(isBrowsableClimbEvent(event, { ...described, layoutId: Number.NaN }, board), false);
+  assert.equal(isBrowsableClimbEvent(event, { ...described, layoutId: 9 }, board), false);
+  assert.equal(isBrowsableClimbEvent(event, {
+    ...described, uuid: '4f8a1c24-5b6d-4e71-9a03-2c7d8e4f5062',
+  }, board), false, 'the signed address and payload must identify the same climb');
+});
+
 test('the organizer form builds a competition every validator accepts', async () => {
   // The form is DOM code, so this drives `build()` through a minimal document
   // rather than asserting on its source. What it proves is the thing a source
