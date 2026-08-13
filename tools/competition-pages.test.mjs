@@ -816,6 +816,25 @@ test('an unpublished competition draft returns with its values and current step'
   }
 });
 
+test('an unlimited entry capacity is shown as infinity in the review', async () => {
+  const { window } = await import('./dev/mini-dom.mjs');
+  const cleanup = window.install();
+  try {
+    const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: null, signerPubkey: '22'.repeat(32),
+      defaultDisplayName: 'Host', defaultLud16: '', relays: [],
+      initialDraft: { fields: { capacity: '0' } },
+      catalogueLoader: async () => ({ climbs: [] }),
+    });
+    form.showStep(7, { recordHistory: false });
+    assert.match(form.node.querySelector('.review-grid').textContent, /Up to ∞ entrants/);
+    assert.doesNotMatch(form.node.querySelector('.review-grid').textContent, /Up to 0 entrants/);
+  } finally {
+    cleanup();
+  }
+});
+
 test('restored catalogue climbs regain their verified holds after reload', async () => {
   const { window } = await import('./dev/mini-dom.mjs');
   const cleanup = window.install();

@@ -1913,7 +1913,9 @@ export function createCompetitionForm({
           })}`),
         reviewCard(4, t('climb.section'), t('org.review.climbs', { count: climbEditor.rows.length }),
           climbEditor.rows.map((row) => row.labelInput.value.trim()).filter(Boolean).join(' · ')),
-        reviewCard(5, t('org.entry'), t('org.review.capacity', { count: f.capacity.value }),
+        reviewCard(5, t('org.entry'), t('org.review.capacity', {
+          count: Number(f.capacity.value) > 0 ? f.capacity.value : '∞',
+        }),
           Number(f.fee.value) > 0 ? `${f.fee.value} sats` : t('pay.not_required')),
         reviewCard(6, t('org.optional.title'), t('org.review.optional_value', {
           count: [f.eligibility, f.waiver, f.instructions, f.spectator, f.refund]
