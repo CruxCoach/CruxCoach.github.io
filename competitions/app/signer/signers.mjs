@@ -85,6 +85,19 @@ export async function createNip07Signer(win = globalThis) {
       if ((await eventId(signed)) !== signed.id) throw new Error('The extension returned a mismatched event id.');
       return signed;
     },
+    /**
+     * NIP-44 is optional in NIP-07, so an extension may simply not have it.
+     * Saying which capability is missing is the difference between a user
+     * switching extensions and a user filing a bug against us.
+     */
+    async encrypt(recipientPubkey, plaintext) {
+      if (!extension.nip44?.encrypt) throw new Error('NIP44_UNSUPPORTED');
+      return extension.nip44.encrypt(recipientPubkey, plaintext);
+    },
+    async decrypt(senderPubkey, ciphertext) {
+      if (!extension.nip44?.decrypt) throw new Error('NIP44_UNSUPPORTED');
+      return extension.nip44.decrypt(senderPubkey, ciphertext);
+    },
     close() {},
   };
 }
@@ -298,6 +311,18 @@ export async function createNip46Signer(uri, options = {}) {
       if ((await eventId(signed)) !== signed.id) throw new Error('The signer returned a mismatched event id.');
       return signed;
     },
+    /**
+     * NIP-46's own `nip44_encrypt` / `nip44_decrypt`.
+     *
+     * The key never comes here, which is the whole point of a bunker: the
+     * plaintext goes to the signer's device and the ciphertext comes back.
+     */
+    async encrypt(recipientPubkey, plaintext) {
+      return request('nip44_encrypt', [recipientPubkey, plaintext]);
+    },
+    async decrypt(senderPubkey, ciphertext) {
+      return request('nip44_decrypt', [senderPubkey, ciphertext]);
+    },
     async logout() {
       try { await request('logout', []); } finally { teardown(); }
     },
@@ -319,6 +344,14 @@ export function createLocalSigner(session) {
       if (!session.touch()) throw new Error('Your session expired. Unlock the key again.');
       return finalizeEvent(draft, session.secretKey);
     },
+    async encrypt(recipientPubkey, plaintext) {
+      if (!session.touch()) throw new Error('Your session expired. Unlock the key again.');
+      return encrypt(await conversationKey(session.secretKey, recipientPubkey), plaintext);
+    },
+    async decrypt(senderPubkey, ciphertext) {
+      if (!session.touch()) throw new Error('Your session expired. Unlock the key again.');
+      return decrypt(await conversationKey(session.secretKey, senderPubkey), ciphertext);
+    },
     close() {
       session.lock();
     },
@@ -331,6 +364,12 @@ export function createReadOnlySigner(pubkey = null) {
     kind: 'readonly',
     pubkey,
     async signEvent() {
+      throw new Error('This screen is read-only and has no signing key.');
+    },
+    async encrypt() {
+      throw new Error('This screen is read-only and has no signing key.');
+    },
+    async decrypt() {
       throw new Error('This screen is read-only and has no signing key.');
     },
     close() {},
