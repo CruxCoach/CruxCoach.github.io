@@ -8,8 +8,8 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-10';
-import { SignIn } from '../ui/shell.mjs?v=20260813-9';
+} from './common.mjs?v=20260813-11';
+import { SignIn } from '../ui/shell.mjs?v=20260813-10';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
@@ -25,7 +25,7 @@ import { EntrantWriter } from '../authority.mjs';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-13';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-14';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs';
 import { BOARD_TYPES, catalogueProductSizeId } from '../protocol/board-catalog.mjs';
@@ -147,9 +147,10 @@ function catalogueFilters(onChange) {
 }
 
 function canPersistRegistrationDraft() {
-  return signer?.kind === 'nip07'
-    || (signer?.kind === 'local' && signIn.session.hasStoredKey())
-    || (signer?.kind === 'nip46' && signIn.remoteSession.hasStoredConnection());
+  // A registration draft is ordinary competition input, not key material.
+  // Keep it for the signed-in pubkey even when that identity is session-only,
+  // so removing and later restoring the key never discards the form.
+  return Boolean(signer?.pubkey);
 }
 
 function registrationDraftKey(competition) {

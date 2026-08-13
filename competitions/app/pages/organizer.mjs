@@ -12,8 +12,8 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-10';
-import { SignIn } from '../ui/shell.mjs?v=20260813-9';
+} from './common.mjs?v=20260813-11';
+import { SignIn } from '../ui/shell.mjs?v=20260813-10';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs';
 import {
@@ -32,7 +32,7 @@ import { createCompetitionForm } from './organizer-form.mjs?v=20260813-14';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs';
 import { announce, displayName, formatDateTime, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-13';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-14';
 import { scoringExplanation } from '../ui/scoring-copy.mjs';
 
 const { t, language } = bootstrap();
@@ -150,11 +150,10 @@ const signIn = new SignIn({
 /** The full create form lives in its own module; this only publishes it. */
 function createForm() {
   const ownerPubkey = signer.pubkey;
-  // A person who chose a session-only identity also chose not to leave data on
-  // this device. Respect that choice for the form, not only for their key.
-  const canPersistDraft = signer.kind === 'nip07'
-    || (signer.kind === 'local' && signIn.session.hasStoredKey())
-    || (signer.kind === 'nip46' && signIn.remoteSession.hasStoredConnection());
+  // Competition input and signing credentials have independent lifecycles.
+  // Forgetting a key must not silently erase or stop saving the form somebody
+  // may have spent half an hour completing. The pubkey still keeps drafts
+  // isolated; signing back into the same identity restores its draft.
   let saveTimer = null;
   const rememberedStep = historyWizardStep();
   const form = createCompetitionForm({
@@ -164,8 +163,8 @@ function createForm() {
     defaultDisplayName: signIn.displayName,
     defaultLud16: signIn.profile?.fields?.lud16 || '',
     relays: resolveRelays([]).slice(0, 8),
-    initialDraft: canPersistDraft ? readLocalDraft(ownerPubkey) : null,
-    persistDraft: canPersistDraft,
+    initialDraft: readLocalDraft(ownerPubkey),
+    persistDraft: true,
     initialStep: rememberedStep,
     onStepChange: (step) => recordWizardStep(step),
     onStepBack: () => history.back(),
@@ -175,7 +174,6 @@ function createForm() {
       location.reload();
     },
     onDraftChange: (draft) => {
-      if (!canPersistDraft) return;
       clearTimeout(saveTimer);
       saveTimer = setTimeout(() => saveLocalDraft(ownerPubkey, draft), 180);
     },
@@ -221,7 +219,7 @@ function createForm() {
               identifier: compDTag(config.comp_id), pubkey: signer.pubkey, kind: KIND,
             });
             clearTimeout(saveTimer);
-            if (canPersistDraft) clearLocalDraft(ownerPubkey);
+            clearLocalDraft(ownerPubkey);
             location.hash = naddr;
             await start();
           } catch (err) {

@@ -1395,7 +1395,8 @@ test('forgetting a browser key explains the local scope before removing it', asy
     signIn.showForgetKeyDialog();
     const dialog = mount.querySelector('.key-forget-dialog');
     assert.ok(dialog);
-    assert.match(dialog.textContent, /only this browser’s encrypted copy/);
+    assert.match(dialog.textContent, /only this browser’s encrypted key copy/);
+    assert.match(dialog.textContent, /Competition drafts and form entries stay saved/);
     assert.match(dialog.textContent, /does not delete your Nostr identity/);
     assert.equal(removed.length, 0, 'opening the explanation must not remove anything');
     dialog.querySelector('.danger').dispatch('click');
@@ -1404,6 +1405,81 @@ test('forgetting a browser key explains the local scope before removing it', asy
   } finally {
     signIn?.session.dispose();
     signIn?.remoteSession.dispose();
+    restore();
+  }
+});
+
+test('forgetting a key leaves organizer and registration drafts untouched', async () => {
+  const { SignIn } = await import('../competitions/app/ui/shell.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  const previousStorage = globalThis.localStorage;
+  const values = new Map([
+    ['cruxcoach:competitions:key:v1', JSON.stringify({ v: 1, pubkey: '11'.repeat(32) })],
+    ['cruxcoach:competitions:method:v1', 'local'],
+    [`cruxcoach:competitions:create-draft:v1:${'11'.repeat(32)}`, '{"title":"Finals"}'],
+    [`cruxcoach:competitions:registration-draft:v1:${'11'.repeat(32)}:host:event`, '{"division":"open"}'],
+  ]);
+  globalThis.localStorage = {
+    getItem: (key) => values.get(key) ?? null,
+    setItem: (key, value) => values.set(key, String(value)),
+    removeItem: (key) => values.delete(key),
+  };
+  let signIn;
+  try {
+    signIn = new SignIn({ t: (key) => key, mount: document.createElement('div'), onChange: () => {} });
+    signIn.forgetKey();
+    assert.equal(values.has('cruxcoach:competitions:key:v1'), false);
+    assert.equal(values.has(`cruxcoach:competitions:create-draft:v1:${'11'.repeat(32)}`), true);
+    assert.equal(values.has(`cruxcoach:competitions:registration-draft:v1:${'11'.repeat(32)}:host:event`), true);
+  } finally {
+    signIn?.session.dispose();
+    signIn?.remoteSession.dispose();
+    globalThis.localStorage = previousStorage;
+    restore();
+  }
+});
+
+test('signing back in can recreate the encrypted remembered browser session', async () => {
+  const { SignIn, nsecEncode } = await import('../competitions/app/ui/shell.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  const previousStorage = globalThis.localStorage;
+  const values = new Map();
+  globalThis.localStorage = {
+    getItem: (key) => values.get(key) ?? null,
+    setItem: (key, value) => values.set(key, String(value)),
+    removeItem: (key) => values.delete(key),
+  };
+  let signIn;
+  let returning;
+  try {
+    const mount = document.createElement('div');
+    let resolveChanged;
+    const changed = new Promise((resolve) => { resolveChanged = resolve; });
+    signIn = new SignIn({ t: (key) => key, mount, onChange: () => resolveChanged() });
+    signIn.entryMode = 'existing';
+    signIn.render();
+    mount.querySelector('#import-nsec').value = nsecEncode(new Uint8Array(32).fill(1));
+    mount.querySelector('#import-pass').value = 'remember me safely';
+    mount.querySelector('#import-remember').checked = true;
+    [...mount.querySelectorAll('button')]
+      .find((button) => button.textContent === 'signin.import.action').dispatch('click');
+    await changed;
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    assert.ok(values.has('cruxcoach:competitions:key:v1'), 'the re-imported key must be stored encrypted');
+    assert.equal(values.get('cruxcoach:competitions:method:v1'), 'local');
+
+    const returningMount = document.createElement('div');
+    returning = new SignIn({ t: (key) => key, mount: returningMount, onChange: () => {} });
+    await returning.restore();
+    assert.ok(returningMount.querySelector('#unlock-pass'));
+  } finally {
+    signIn?.session.dispose();
+    signIn?.remoteSession.dispose();
+    returning?.session.dispose();
+    returning?.remoteSession.dispose();
+    globalThis.localStorage = previousStorage;
     restore();
   }
 });

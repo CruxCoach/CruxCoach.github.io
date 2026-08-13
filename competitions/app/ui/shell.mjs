@@ -550,8 +550,9 @@ export class SignIn {
 
     }
 
-    // Import is deliberately session-only. It must not turn pasting a
-    // high-value secret into an implicit persistence decision.
+    // Re-import can restore the convenient encrypted browser copy that
+    // "Forget" removed. The choice is explicit and defaults to the normal
+    // personal-device flow; a shared device remains one uncheck away.
     if (this.entryMode === 'existing') {
       const importedNsec = el('input', {
         attrs: {
@@ -561,6 +562,9 @@ export class SignIn {
       });
       const importPass = el('input', { attrs: {
         type: 'password', id: 'import-pass', autocomplete: 'current-password',
+      } });
+      const rememberImport = el('input', { attrs: {
+        type: 'checkbox', id: 'import-remember', checked: 'checked',
       } });
       const importFile = el('input', { attrs: { type: 'file', id: 'import-file', accept: '.ncryptsec,text/plain' } });
       const importFeedback = el('p', {
@@ -583,23 +587,35 @@ export class SignIn {
           el('span', { className: 'hint', text: t('signin.import.passphrase.hint') }),
           importPass,
         ]),
+        el('label', { className: 'inline', attrs: { for: 'import-remember' } }, [
+          rememberImport, el('span', { text: t('signin.import.remember') }),
+        ]),
+        el('p', { className: 'small', text: t('signin.import.remember.hint') }),
         importFeedback,
         el('button', {
           text: t('signin.import.action'),
           attrs: { disabled: this.busy },
           on: {
             click: () => this.run(async () => {
+              let session = null;
               try {
                 const uploaded = importFile.files?.[0];
                 const input = (uploaded ? await uploaded.text() : importedNsec.value).trim();
-                const session = new KeyVaultSession({ storage: null });
-                if (input.startsWith('ncryptsec1')) session.importKey(await decryptNcryptsec(input, importPass.value));
-                else session.importKey(input);
+                const remember = rememberImport.checked;
+                session = remember ? new KeyVaultSession() : new KeyVaultSession({ storage: null });
+                if (input.startsWith('ncryptsec1')) {
+                  session.importKey(await decryptNcryptsec(input, importPass.value));
+                  if (remember) session.saveNcryptsec(input);
+                } else {
+                  session.importKey(input);
+                  if (remember) await session.persist(importPass.value);
+                }
                 importedNsec.value = '';
                 importPass.value = '';
                 this.session = session;
                 await this.use(createLocalSigner(session), 'local');
               } catch (err) {
+                session?.lock();
                 importedNsec.value = '';
                 importFeedback.textContent = err.message || String(err);
                 throw err;
