@@ -14,6 +14,11 @@ function productSizeId(entry) {
   return match ? Number(match[1]) : null;
 }
 
+/** Stable app/catalogue size coordinate. It is used for matching only and never published. */
+export function catalogueProductSizeId(size) {
+  return productSizeId([size?.label, size?.image]);
+}
+
 export const BOARD_TYPES = [
   {
     id: 'kilter-original', label: 'Kilter Original', brand: 'kilter',

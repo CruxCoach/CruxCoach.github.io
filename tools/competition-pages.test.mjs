@@ -672,7 +672,7 @@ test('venue suggestions use the board-map catalogue without preventing a custom 
           name: 'Bloc Garten', city: 'Berlin', country: 'DE',
           boards: [{
             board: 'kilter', address: 'Testweg 7, Berlin', walls: [{
-              layout: 'Homewall', size_id: 17, size_label: 'Homewall 10x7 — Full Ride',
+              layout: 'Homewall', size_id: 17, size_label: 'A translated map label',
               adjustable: true, angle: 30,
             }],
           }],

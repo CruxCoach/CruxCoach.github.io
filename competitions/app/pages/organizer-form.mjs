@@ -18,7 +18,7 @@ import {
 import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs';
 import { naddrEncode, verifyEvent } from '../protocol/nostr-event.mjs';
 import {
-  BOARD_TYPES, boardType, resolveBoardSelection, resolveCatalogueSelection,
+  BOARD_TYPES, boardType, catalogueProductSizeId, resolveBoardSelection, resolveCatalogueSelection,
 } from '../protocol/board-catalog.mjs';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs';
 import { loadVenueCatalogue, searchVenues } from '../data/venue-catalogue.mjs';
@@ -478,7 +478,10 @@ function venueBoardChoices(venue) {
           : wall.layout.toLowerCase().includes('original') ? 'kilter-original' : '';
         type = boardType(typeId);
         const model = type?.models[0];
-        const size = model?.sizes.find((entry) => entry.value === wall.sizeLabel);
+        const size = model?.sizes.find((entry) => (
+          (wall.sizeId != null && catalogueProductSizeId(entry) === wall.sizeId)
+            || entry.value === wall.sizeLabel
+        ));
         if (!type || !model || !size) return [];
         const angle = model.angles.includes(wall.angle) ? wall.angle : model.defaultAngle;
         return [{
