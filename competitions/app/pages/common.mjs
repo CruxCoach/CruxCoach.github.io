@@ -7,11 +7,11 @@
  * else is rejected loudly rather than half-loaded.
  */
 import { decodeNip19 } from '../protocol/nostr-event.mjs';
-import { KIND, compDTag, isCompId, parseDTag } from '../protocol/competition.mjs';
+import { KIND, compDTag, isCompId, parseDTag } from '../protocol/competition.mjs?v=20260813-2';
 import { RelayPool, mergeRelays } from '../protocol/relay-pool.mjs';
 import { isLoopbackRelay } from '../protocol/relay-url.mjs';
-import { CompetitionStore } from '../ui/store.mjs';
-import { createTranslator, detectLanguage } from '../ui/i18n.mjs?v=20260813-16';
+import { CompetitionStore } from '../ui/store.mjs?v=20260813-1';
+import { createTranslator, detectLanguage } from '../ui/i18n.mjs?v=20260813-17';
 import { el, replace, byId } from '../ui/dom.mjs';
 
 /**

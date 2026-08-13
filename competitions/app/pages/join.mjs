@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-13';
+} from './common.mjs?v=20260813-14';
 import { SignIn } from '../ui/shell.mjs?v=20260813-10';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
@@ -20,13 +20,13 @@ import { buildZapRequest } from '../protocol/zap.mjs';
 import { buildClaimBody, validateClaimInput, eligibleWinner } from '../protocol/prize.mjs';
 import {
   checkinWindowOpen, competitionAddress, registrationWindowOpen,
-} from '../protocol/competition.mjs';
-import { EntrantWriter } from '../authority.mjs';
+} from '../protocol/competition.mjs?v=20260813-2';
+import { EntrantWriter } from '../authority.mjs?v=20260813-1';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-16';
-import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-17';
+import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-1';
 import {
   BOARD_TYPES, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
@@ -245,7 +245,12 @@ function header(snapshot) {
       el('dd', { text: formatDateTime(competition.starts_at, language, competition.timezone) }),
       el('dt', { text: t('org.format') }),
       el('dd', {
-        text: `${competition.rules.climb_count} × ${competition.rules.attempts_per_climb}`,
+        text: t('competition.format.summary', {
+          available: competition.rules.climb_source === 'participant_choice'
+            ? (competition.climb_pool?.options?.length || 0) : (competition.climbs?.length || 0),
+          counted: competition.rules.counted_climb_count || competition.rules.climb_count,
+          attempts: competition.rules.attempts_per_climb,
+        }),
       }),
       el('dt', { text: t('org.board') }),
       el('dd', {

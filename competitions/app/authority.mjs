@@ -10,7 +10,7 @@ import { finalizeEvent } from './protocol/nostr-event.mjs';
 import {
   buildCompetitionEvent, buildIntentEvent, buildLogEvent, buildResultsEvent,
   buildSnapshotEvent, newNonce, parseIntentEvent,
-} from './protocol/competition.mjs';
+} from './protocol/competition.mjs?v=20260813-2';
 import { hashableState } from './protocol/reduce.mjs';
 import { ccj, ccjHash } from './protocol/ccj.mjs';
 

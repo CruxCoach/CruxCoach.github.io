@@ -24,6 +24,55 @@ function pointsFor(climbId, competition) {
 }
 
 /**
+ * How many per-climb results contribute to the standing. Older v1 events did
+ * not carry this additive field, so their historical all-results behaviour is
+ * exactly `climb_count`.
+ */
+export function countedClimbCount(competition) {
+  const available = competition?.rules?.climb_count;
+  const explicit = competition?.rules?.counted_climb_count;
+  return Number.isInteger(explicit) && explicit >= 1 && explicit <= available ? explicit : available;
+}
+
+function contribution(climb, competition) {
+  const top = climb.outcome === 'top' ? 1 : 0;
+  const zone = top || climb.outcome === 'zone' ? 1 : 0;
+  const topAttempts = top ? climb.attempts_used : 0;
+  const zoneAttempts = zone ? climb.attempts_used : 0;
+  const achievement = competition.rules.score_points || { zone: 0, top: 0, flash: 0 };
+  const points = top
+    ? (competition.rules.scoring === 'achievement_points'
+      ? achievement.zone + achievement.top + (climb.attempts_used === 1 ? achievement.flash : 0)
+      : pointsFor(climb.climb_id, competition))
+    : (climb.outcome === 'zone' && competition.rules.scoring === 'achievement_points' ? achievement.zone : 0);
+  return {
+    climb,
+    top,
+    zone,
+    topAttempts,
+    zoneAttempts,
+    points,
+  };
+}
+
+/** Best-result selection is itself deterministic, before the chosen rows aggregate. */
+function bestContributions(participant, competition) {
+  const pointScoring = competition.rules.scoring !== 'tops_then_attempts';
+  return scoredClimbs(participant, competition)
+    .map((climb) => contribution(climb, competition))
+    .sort((a, b) => {
+      if (pointScoring && a.points !== b.points) return b.points - a.points;
+      if (a.top !== b.top) return b.top - a.top;
+      if (a.topAttempts !== b.topAttempts) return a.topAttempts - b.topAttempts;
+      if (a.zone !== b.zone) return b.zone - a.zone;
+      if (a.zoneAttempts !== b.zoneAttempts) return a.zoneAttempts - b.zoneAttempts;
+      if (a.climb.at !== b.climb.at) return a.climb.at - b.climb.at;
+      return String(a.climb.climb_id).localeCompare(String(b.climb.climb_id));
+    })
+    .slice(0, countedClimbCount(competition));
+}
+
+/**
  * Competition-style tally.
  *
  * `attempts` counts only the attempts spent on climbs that were TOPPED — the
@@ -33,7 +82,7 @@ function pointsFor(climbId, competition) {
  * file did. `total_attempts` keeps the raw number for display.
  */
 function tally(participant, competition) {
-  const climbs = scoredClimbs(participant, competition);
+  const contributions = bestContributions(participant, competition);
   let tops = 0;
   let zones = 0;
   let attempts = 0;
@@ -41,30 +90,21 @@ function tally(participant, competition) {
   let totalAttempts = 0;
   let points = 0;
   let finishedAt = 0;
-  const toppedPoints = [];
-  const achievement = competition.rules.score_points || { zone: 0, top: 0, flash: 0 };
-  for (const climb of climbs) {
+  for (const result of contributions) {
+    const { climb } = result;
     totalAttempts += climb.attempts_used;
-    if (climb.outcome === 'top') {
+    if (result.top) {
       tops += 1;
       zones += 1; // a top implies its zone
       attempts += climb.attempts_used;
       zoneAttempts += climb.attempts_used;
-      const value = pointsFor(climb.climb_id, competition);
-      points += competition.rules.scoring === 'achievement_points'
-        ? achievement.zone + achievement.top + (climb.attempts_used === 1 ? achievement.flash : 0)
-        : value;
-      toppedPoints.push(value);
+      points += result.points;
       if (climb.at > finishedAt) finishedAt = climb.at;
-    } else if (climb.outcome === 'zone') {
+    } else if (result.zone) {
       zones += 1;
       zoneAttempts += climb.attempts_used;
-      if (competition.rules.scoring === 'achievement_points') points += achievement.zone;
+      points += result.points;
     }
-  }
-  if (competition.rules.scoring === 'hardest_n') {
-    const n = competition.rules.climb_count;
-    points = [...toppedPoints].sort((a, b) => b - a).slice(0, n).reduce((sum, v) => sum + v, 0);
   }
   return {
     tops, zones, attempts, points,

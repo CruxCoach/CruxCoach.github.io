@@ -165,6 +165,68 @@ test('the fixture competition validates', () => {
   assert.equal(result.ok, true);
 });
 
+test('available climbs and counted results are independent and backwards compatible', () => {
+  const base = validConfig();
+  const climbs = Array.from({ length: 12 }, (_, index) => ({
+    ...base.climbs[index % base.climbs.length],
+    id: `c${index + 1}`,
+    climb_uuid: `00000000-0000-4000-8000-${String(index + 1).padStart(12, '0')}`,
+  }));
+  const bestFive = {
+    ...base,
+    climbs,
+    rules: { ...base.rules, climb_count: 5, counted_climb_count: 5 },
+  };
+  assert.equal(validateCompetitionConfig(bestFive).ok, true);
+
+  const tooManyCounted = {
+    ...bestFive, rules: { ...bestFive.rules, climb_count: 13, counted_climb_count: 13 },
+  };
+  assert.ok(validateCompetitionConfig(tooManyCounted).errors
+    .some((error) => error.field === 'rules.counted_climb_count'));
+
+  // Existing signed events omit the additive field and retain N == M.
+  assert.equal(validateCompetitionConfig(base).ok, true);
+});
+
+test('shared pools need N options; only exclusive claims multiply N by capacity', () => {
+  const base = validConfig();
+  const options = Array.from({ length: 5 }, (_, index) => ({
+    ...base.climbs[index % base.climbs.length],
+    id: `p${index + 1}`,
+    climb_uuid: `10000000-0000-4000-8000-${String(index + 1).padStart(12, '0')}`,
+  }));
+  const shared = {
+    ...base,
+    climbs: undefined,
+    climb_pool: { source: 'organizer_list', options },
+    rules: {
+      ...base.rules, climb_source: 'participant_choice', climb_count: 5,
+      counted_climb_count: 5, selection_uniqueness: 'none',
+    },
+  };
+  assert.equal(validateCompetitionConfig(shared).ok, true, 'capacity never multiplies a shared pool');
+
+  const exclusiveShort = {
+    ...shared,
+    capacity: 2,
+    rules: { ...shared.rules, selection_uniqueness: 'unique_per_competition' },
+  };
+  assert.ok(validateCompetitionConfig(exclusiveShort).errors.some((error) => error.field === 'climb_pool'));
+
+  const exclusiveEnough = {
+    ...exclusiveShort,
+    climb_pool: {
+      ...exclusiveShort.climb_pool,
+      options: [...options, ...options.map((option, index) => ({
+        ...option, id: `q${index + 1}`,
+        climb_uuid: `20000000-0000-4000-8000-${String(index + 1).padStart(12, '0')}`,
+      }))],
+    },
+  };
+  assert.equal(validateCompetitionConfig(exclusiveEnough).ok, true);
+});
+
 test('registration may overlap check-in and late arrivals require an explicit rule', () => {
   const base = validConfig();
   const overlap = {

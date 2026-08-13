@@ -119,6 +119,72 @@ test('Zone Top and Flash points stack exactly once per climb', () => {
   assert.equal(standing.zones, 3);
 });
 
+function bestNState(results) {
+  return {
+    order: ['p'],
+    participants: [{
+      pubkey: 'p', display: 'Pat', division: 'open', result: 'active',
+      registration: 'accepted', checkin: 'checked_in', selections: [], climbs: results,
+    }],
+  };
+}
+
+test('best N deterministically selects whole per-climb results for every scoring family', () => {
+  const results = [
+    { climb_id: 'a', attempts_used: 3, outcome: 'top', at: 30 },
+    { climb_id: 'b', attempts_used: 1, outcome: 'top', at: 10 },
+    { climb_id: 'c', attempts_used: 2, outcome: 'top', at: 20 },
+    { climb_id: 'd', attempts_used: 1, outcome: 'zone', at: 5 },
+    { climb_id: 'e', attempts_used: 1, outcome: 'fall', at: 4 },
+  ];
+  const climbs = [
+    { id: 'a', points: 500 }, { id: 'b', points: 100 }, { id: 'c', points: 300 },
+    { id: 'd', points: 900 }, { id: 'e', points: 1000 },
+  ];
+  const common = {
+    climb_source: 'organizer_set', climb_count: 2, counted_climb_count: 2,
+    tiebreaks: ['fewest_attempts', 'most_zones'],
+  };
+
+  const tops = computeStandings(bestNState(results), {
+    climbs, rules: { ...common, scoring: 'tops_then_attempts' },
+  })[0];
+  assert.deepEqual(
+    { tops: tops.tops, zones: tops.zones, attempts: tops.attempts, total: tops.total_attempts },
+    { tops: 2, zones: 2, attempts: 3, total: 3 },
+    'best tops are selected before attempts aggregate; discarded attempts cannot leak into a tiebreak',
+  );
+
+  const achievement = computeStandings(bestNState(results), {
+    climbs, rules: {
+      ...common, scoring: 'achievement_points', score_points: { zone: 10, top: 15, flash: 5 },
+    },
+  })[0];
+  assert.equal(achievement.points, 55, 'flash (30) plus best remaining top (25) count');
+
+  for (const scoring of ['points_sum', 'hardest_n']) {
+    const points = computeStandings(bestNState(results), { climbs, rules: { ...common, scoring } })[0];
+    assert.equal(points.points, 800, `${scoring} counts the two highest topped contributions`);
+  }
+});
+
+test('counted N equal to available M is byte-for-byte standings compatible', () => {
+  const results = [
+    { climb_id: 'a', attempts_used: 2, outcome: 'top', at: 2 },
+    { climb_id: 'b', attempts_used: 1, outcome: 'zone', at: 1 },
+  ];
+  const climbs = [{ id: 'a', points: 100 }, { id: 'b', points: 200 }];
+  const rules = {
+    climb_source: 'organizer_set', climb_count: 2, scoring: 'tops_then_attempts',
+    tiebreaks: ['fewest_attempts', 'most_zones'],
+  };
+  const legacy = computeStandings(bestNState(results), { climbs, rules });
+  const explicit = computeStandings(bestNState(results), {
+    climbs, rules: { ...rules, counted_climb_count: 2 },
+  });
+  assert.deepEqual(explicit, legacy);
+});
+
 // ── the specific behaviours the streams exist to pin ──
 
 test('a withheld entry stops reduction at the gap instead of skipping ahead', async () => {

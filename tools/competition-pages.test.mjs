@@ -584,7 +584,7 @@ test('the organizer board picker is guided, visual, and keeps layout ids interna
   const restore = window.install();
   try {
     const form = createCompetitionForm({
-      t: (key) => key,
+      t: createTranslator('en'),
       pool: null,
       signerPubkey: 'a'.repeat(64),
       defaultDisplayName: '',
@@ -844,7 +844,7 @@ test('the wizard progressively reveals only choices that apply', async () => {
     assert.equal(form.node.querySelector('#f-scoring').value, 'tops_then_attempts');
     assert.equal(form.node.querySelector('#f-scoring').parentNode.getAttribute('hidden'), null);
     assert.equal(form.node.querySelector('#f-uniqueness').parentNode.getAttribute('hidden'), null);
-    assert.equal(form.node.querySelector('#f-uniqueness').value, 'unique_per_competition');
+    assert.equal(form.node.querySelector('#f-uniqueness').value, 'none', 'shared choices are the safe default');
 
     climbSource.value = 'organizer_set';
     climbSource.dispatch('change');
@@ -916,11 +916,43 @@ test('the disabled climb-step Continue explains the live remaining count', async
     const next = form.node.querySelector('.wizard-navigation').querySelector('.primary');
     assert.equal(next.disabled, true);
     assert.equal(form.node.querySelector('.wizard-step-status').textContent, 'Choose 1 more climb(s) before continuing.');
-    assert.match(form.node.querySelector('.selection-count').textContent, /3 of 4/);
+    assert.match(form.node.querySelector('.selection-count').textContent, /3 climbs available.*best 4 count/);
     form.node.querySelector('#f-climbs').value = '5';
     form.node.querySelector('#f-climbs').dispatch('input');
     assert.equal(form.node.querySelector('.wizard-step-status').textContent, 'Choose 2 more climb(s) before continuing.');
-    assert.match(form.node.querySelector('.selection-count').textContent, /3 of 5/);
+    assert.match(form.node.querySelector('.selection-count').textContent, /3 climbs available.*best 5 count/);
+  } finally {
+    cleanup();
+  }
+});
+
+test('shared and exclusive pools have different format-specific climb blockers', async () => {
+  const { window } = await import('./dev/mini-dom.mjs');
+  const cleanup = window.install();
+  try {
+    const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: null, signerPubkey: '11'.repeat(32),
+      defaultDisplayName: 'Host', defaultLud16: '', relays: [], catalogueLoader: async () => ({ climbs: [] }),
+    });
+    form.climbs.addCatalogue({
+      uuid: '31c93f57-6e28-4b04-9d75-2f8a1e63c0b9', label: 'One',
+      brand: 'kilter', layoutId: 1, productSizeId: 10, angle: 40, holds: [[1, 13, 72, 78]],
+    });
+    const source = form.node.querySelector('#f-climb-source');
+    source.value = 'participant_choice'; source.dispatch('change');
+    const count = form.node.querySelector('#f-climbs');
+    count.value = '2'; count.dispatch('input');
+    const capacity = form.node.querySelector('#f-capacity');
+    capacity.value = '3'; capacity.dispatch('input');
+    form.showStep(4);
+    assert.equal(form.node.querySelector('.wizard-step-status').textContent,
+      'Choose 1 more climb(s) before continuing.', 'shared pool needs only N options');
+
+    const uniqueness = form.node.querySelector('#f-uniqueness');
+    uniqueness.value = 'unique_per_competition'; uniqueness.dispatch('change');
+    assert.equal(form.node.querySelector('.wizard-step-status').textContent,
+      'Choose 5 more climb(s) before continuing.', 'exclusive pool needs N × capacity options');
   } finally {
     cleanup();
   }
@@ -983,6 +1015,23 @@ test('scoring policy exposes only fields that can affect that leaderboard', asyn
   assert.deepEqual(scoringFieldPolicy('achievement_points', 0), { points: false, zone: false });
   assert.deepEqual(scoringFieldPolicy('points_sum'), { points: true, zone: false });
   assert.deepEqual(scoringFieldPolicy('hardest_n'), { points: true, zone: false });
+});
+
+test('participant scoring copy explains best N from the actual organizer list', async () => {
+  const { scoringExplanation } = await import('../competitions/app/ui/scoring-copy.mjs');
+  const t = createTranslator('en');
+  const climbs = Array.from({ length: 12 }, (_, index) => ({ id: `c${index + 1}` }));
+  const competition = {
+    climbs,
+    rules: {
+      climb_source: 'organizer_set', climb_count: 5, counted_climb_count: 5,
+      scoring: 'tops_then_attempts',
+    },
+  };
+  assert.match(scoringExplanation(t, competition), /best 5 of 12 results count/i);
+  assert.doesNotMatch(scoringExplanation(t, {
+    ...competition, climbs: climbs.slice(0, 5), rules: { ...competition.rules, counted_climb_count: undefined },
+  }), /Only the best/i, 'legacy N=M competitions keep their existing explanation');
 });
 
 test('zone candidates include only semantic intermediate handholds for every board family', async () => {
@@ -1224,7 +1273,7 @@ test('the organizer form builds a competition every validator accepts', async ()
   const restore = window.install();
   try {
     const form = createCompetitionForm({
-      t: (key) => key,
+      t: createTranslator('en'),
       pool: null,
       signerPubkey: 'a'.repeat(64),
       defaultDisplayName: 'Kellerwand',
@@ -1258,6 +1307,22 @@ test('the organizer form builds a competition every validator accepts', async ()
     assert.equal(config.fee_msat, 321000, 'the sats UI must convert exactly at the protocol boundary');
     const result = validateCompetitionConfig(config);
     assert.equal(result.ok, true, JSON.stringify(result.errors));
+
+    // The fixed-set format derives M from the actual list and keeps best N
+    // independent. This is the representative 12-available / best-5 product case.
+    fill('f-climbs', '5');
+    for (let index = 0; index < 11; index += 1) {
+      const uuid = `3f8a1c24-5b6d-4e71-9a03-${String(index + 1).padStart(12, '0')}`;
+      // eslint-disable-next-line no-await-in-loop
+      assert.equal(await form.climbs.add(uuid), true);
+      form.node.querySelector(`#climb-label-${index + 1}`).value = `Final ${index + 2}`;
+    }
+    const bestFive = form.build();
+    assert.equal(bestFive.climbs.length, 12);
+    assert.equal(bestFive.rules.climb_count, 5);
+    assert.equal(bestFive.rules.counted_climb_count, 5);
+    assert.equal(validateCompetitionConfig(bestFive).ok, true);
+    assert.match(form.node.querySelector('.results-example').textContent, /12.*5/);
   } finally {
     restore();
   }
@@ -1313,6 +1378,15 @@ test('the organizer form builds a participant-choice competition too', async () 
 
     const result = validateCompetitionConfig(config);
     assert.equal(result.ok, true, JSON.stringify(result.errors));
+
+    // Shared choice never multiplies by capacity: the same one-climb pool is
+    // valid even when hundreds of entrants may choose that climb.
+    set('f-uniqueness', 'none');
+    set('f-capacity', '500');
+    const shared = form.build();
+    assert.ok(shared.climb_pool.options.length >= shared.rules.climb_count);
+    assert.equal(shared.rules.counted_climb_count, shared.rules.climb_count);
+    assert.equal(validateCompetitionConfig(shared).ok, true);
   } finally {
     restore();
   }

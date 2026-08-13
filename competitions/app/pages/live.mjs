@@ -11,9 +11,9 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
-} from './common.mjs';
+} from './common.mjs?v=20260813-14';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
-import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs';
+import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 
 const { t, language } = bootstrap();
 

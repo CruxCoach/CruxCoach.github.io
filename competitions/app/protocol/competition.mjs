@@ -164,6 +164,7 @@ const LIMITS = {
 const RANGES = {
   capacity: [0, 500],
   climb_count: [1, 40],
+  counted_climb_count: [1, 40],
   attempts_per_climb: [1, 20],
   turn_deadline_sec: [30, 1800],
   attempt_deadline_sec: [0, 1800],
@@ -331,6 +332,7 @@ export function validateCompetitionConfig(config) {
     checkEnum(errors, rules, 'progression', PROGRESSIONS);
     checkEnum(errors, rules, 'scoring', SCORINGS);
     checkInt(errors, rules, 'climb_count');
+    checkInt(errors, rules, 'counted_climb_count', false);
     checkInt(errors, rules, 'attempts_per_climb');
     checkInt(errors, rules, 'turn_deadline_sec');
     checkInt(errors, rules, 'attempt_deadline_sec', false);
@@ -364,6 +366,10 @@ export function validateCompetitionConfig(config) {
     }
     if (rules.selection_uniqueness === 'unique_per_competition' && rules.climb_source !== 'participant_choice') {
       err(errors, 'rules.selection_uniqueness', 'only applies when participants choose their climbs');
+    }
+    if (Number.isInteger(rules.counted_climb_count) && Number.isInteger(rules.climb_count)
+      && rules.counted_climb_count > rules.climb_count) {
+      err(errors, 'rules.counted_climb_count', 'cannot exceed the available or selected climb count');
     }
     // A points format needs a points table, and the table lives on the
     // organizer's climb list. With participant-chosen climbs there is nothing
@@ -409,8 +415,12 @@ export function validateCompetitionConfig(config) {
         if (uuids.has(uuid)) err(errors, 'climbs', 'lists the same climb twice');
         else uuids.add(uuid);
       }
-      if (Number.isInteger(rules.climb_count) && config.climbs.length !== rules.climb_count) {
-        err(errors, 'climbs', `needs exactly ${rules.climb_count} climbs for this format`);
+      if (Number.isInteger(rules.climb_count) && config.climbs.length < rules.climb_count) {
+        err(errors, 'climbs', `needs at least ${rules.climb_count} climbs so that many results can count`);
+      }
+      if (Number.isInteger(rules.counted_climb_count)
+        && rules.counted_climb_count > config.climbs.length) {
+        err(errors, 'rules.counted_climb_count', 'cannot exceed the organizer climb list');
       }
     }
   }

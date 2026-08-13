@@ -15,7 +15,7 @@ import { el, replace } from '../ui/dom.mjs';
 import {
   buildClimbList, checkBoardCompatibility, climbEventFilter, describeClimbEvent, normalizeUuid, parseClimbRef,
 } from '../protocol/climb-ref.mjs';
-import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs';
+import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs?v=20260813-2';
 import { naddrEncode, verifyEvent } from '../protocol/nostr-event.mjs';
 import {
   BOARD_TYPES, boardType, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
@@ -255,7 +255,7 @@ export function scoringFieldPolicy(scoring, zonePoints = 0) {
 class ClimbEditor {
   constructor({
     t, pool, boardOf, gradeScaleOf = storedGradeScale, fieldPolicyOf = () => ({ points: false, zone: true }),
-    neededOf = () => 0, onChange,
+    neededOf = () => 0, progressTextOf = null, onChange,
   }) {
     this.t = t;
     this.pool = pool;
@@ -263,6 +263,7 @@ class ClimbEditor {
     this.gradeScaleOf = gradeScaleOf;
     this.fieldPolicyOf = fieldPolicyOf;
     this.neededOf = neededOf;
+    this.progressTextOf = progressTextOf;
     this.onChange = onChange || (() => {});
     this.rows = [];
     this.node = el('div', { className: 'stack' });
@@ -455,7 +456,9 @@ class ClimbEditor {
       el('div', { className: 'climb-selection-progress' }, [
         el('p', {
           className: 'selection-count',
-          text: t('climb.selected_progress', { chosen: this.rows.length, needed }),
+          text: this.progressTextOf
+            ? this.progressTextOf(this.rows.length, needed)
+            : t('climb.selected_progress', { chosen: this.rows.length, needed }),
         }),
         el('progress', {
           attrs: { max: String(Math.max(1, needed)), value: String(Math.min(this.rows.length, Math.max(1, needed))) },
@@ -660,7 +663,7 @@ export function createCompetitionForm({
     uniqueness: select('f-uniqueness', [
       ['none', t('org.mode.none')],
       ['unique_per_competition', t('org.mode.unique_per_competition')],
-    ], 'unique_per_competition'),
+    ], 'none'),
     progression: select('f-progression', [
       ['synchronous_rounds', t('org.mode.synchronous_rounds')],
       ['asynchronous_turns', t('org.mode.asynchronous_turns')],
@@ -889,12 +892,16 @@ export function createCompetitionForm({
       && f.uniqueness.value === 'unique_per_competition' && Number(f.capacity.value) > 0
       ? Number(f.capacity.value) * count : count;
   };
+  const availableClimbs = () => climbEditor?.rows?.length || 0;
   let browserGradeScale = storedGradeScale();
   const climbEditor = new ClimbEditor({
     t, pool, boardOf, gradeScaleOf: () => browserGradeScale,
     fieldPolicyOf: () => scoringFieldPolicy(f.scoring.value, f.zonePoints.value),
     neededOf: neededClimbs,
-    onChange: () => notifyDraftChange(),
+    progressTextOf: (chosen, needed) => f.climbSource.value === 'organizer_set'
+      ? t('climb.selected_fixed_progress', { chosen, needed })
+      : t('climb.selected_progress', { chosen, needed }),
+    onChange: () => { renderModeNotes(); notifyDraftChange(); },
   });
   const climbInput = text('f-climb-ref', '', { placeholder: t('climb.paste.placeholder'), autocomplete: 'off' });
   const climbSection = el('div', {});
@@ -953,7 +960,7 @@ export function createCompetitionForm({
   let browserState = 'idle';
   let browserLoadToken = 0;
   const catalogueActionStatus = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
-  const selectionLimit = () => f.climbSource.value === 'organizer_set' ? Number(f.climbCount.value) : 60;
+  const selectionLimit = () => f.climbSource.value === 'organizer_set' ? 40 : 60;
   let addManualButton;
   let retryCatalogueButton;
   const refreshCatalogueActions = () => {
@@ -1186,6 +1193,9 @@ export function createCompetitionForm({
   });
 
   const modeNotes = el('div', {});
+  const resultsExample = el('p', {
+    className: 'notice small results-example', attrs: { role: 'status', 'aria-live': 'polite' },
+  });
   const renderModeNotes = () => {
     const notes = [];
     if (f.climbSource.value === 'participant_choice') {
@@ -1199,6 +1209,15 @@ export function createCompetitionForm({
       && f.climbSource.value !== 'organizer_set') {
       notes.push(t('org.mode.note.points_needs_list'));
     }
+    const count = Math.max(1, Number(f.climbCount.value) || 1);
+    const available = f.climbSource.value === 'organizer_set' ? availableClimbs() : count;
+    resultsExample.textContent = f.climbSource.value === 'organizer_set'
+      ? t('org.results.example.fixed', { available, count: Math.min(count, Math.max(available, count)) })
+      : f.uniqueness.value === 'unique_per_competition'
+        ? t('org.results.example.exclusive', {
+          count, pool: Math.max(0, availableClimbs()), capacity: Number(f.capacity.value) || 0,
+        })
+        : t('org.results.example.shared', { count, pool: Math.max(0, availableClimbs()) });
     replace(modeNotes, ...notes.map((note) => el('p', { className: 'small', text: note })));
   };
   renderModeNotes();
@@ -1285,7 +1304,11 @@ export function createCompetitionForm({
       })),
       rules: {
         climb_source: f.climbSource.value,
+        // M is the actual organizer list or participant pool. `climb_count`
+        // remains the v1-compatible N quota; the additive field names its new,
+        // unambiguous scoring meaning for clients that understand best-N.
         climb_count: Number(f.climbCount.value),
+        counted_climb_count: Number(f.climbCount.value),
         selection_uniqueness: participantChoice ? f.uniqueness.value : 'none',
         progression: f.progression.value,
         attempts_per_climb: Number(f.attempts.value),
@@ -1552,8 +1575,8 @@ export function createCompetitionForm({
   }
   f.zonePoints.addEventListener('input', refreshClimbPolicy);
   for (const control of [f.climbCount, f.capacity, f.uniqueness]) {
-    control.addEventListener('input', refreshClimbPolicy);
-    control.addEventListener('change', refreshClimbPolicy);
+    control.addEventListener('input', () => { refreshClimbPolicy(); renderModeNotes(); });
+    control.addEventListener('change', () => { refreshClimbPolicy(); renderModeNotes(); });
   }
   syncFormatControls();
 
@@ -1699,13 +1722,15 @@ export function createCompetitionForm({
       el('legend', { text: t('org.format') }),
       el('p', { className: 'wizard-intro', text: t('org.format.intro') }),
       field('f-climb-source', t('org.field.climb_source'), f.climbSource, null, t('org.field.climb_source.info')),
-      field('f-climbs', t('org.field.climb_count'), f.climbCount, t('org.field.climb_count.hint'), t('org.field.climb_count.info')),
+      field('f-climbs', t('org.field.counted_climb_count'), f.climbCount,
+        t('org.field.counted_climb_count.hint'), t('org.field.counted_climb_count.info')),
       uniquenessField,
       field('f-capacity', t('org.field.capacity'), f.capacity, t('org.field.capacity.hint'), t('org.field.capacity.info')),
       field('f-progression', t('org.field.progression'), f.progression, null, t('org.field.progression.info')),
       field('f-attempts', t('org.field.attempts'), f.attempts, null, t('org.field.attempts.info')),
       scoringField,
       achievementFields,
+      resultsExample,
       modeNotes,
     ]),
 
@@ -1803,9 +1828,6 @@ export function createCompetitionForm({
     const needed = unique && Number(f.capacity.value) > 0 ? Number(f.capacity.value) * count : count;
     if (!boardOf()) return t('org.wizard.climb_board_error');
     if (climbEditor.rows.length < needed) return t('org.wizard.climbs_more', { count: needed - climbEditor.rows.length });
-    if (f.climbSource.value === 'organizer_set' && climbEditor.rows.length > needed) {
-      return t('org.wizard.climb_count_remove', { count: climbEditor.rows.length - needed });
-    }
     const zoneRequired = f.scoring.value === 'tops_then_attempts'
       || (f.scoring.value === 'achievement_points' && Number(f.zonePoints.value) > 0);
     const missing = zoneRequired ? climbEditor.rows.filter((row) => !Number(row.zoneInput.value)) : [];
@@ -1841,7 +1863,9 @@ export function createCompetitionForm({
           ? `${boardType(f.brand.value)?.label || board.brand} · ${selectedModel()?.label || board.model}` : '—',
         `${board?.size || '—'} · ${board?.angle || '—'}° · ${f.venue.value || t(`org.venue.${f.venueKind.value}`)}`),
         reviewCard(3, t('org.format'), t(`org.mode.${f.climbSource.value}`),
-          `${t(`org.mode.${f.progression.value}`)} · ${t(`org.mode.${f.scoring.value}`)}`),
+          `${t(`org.mode.${f.progression.value}`)} · ${t(`org.mode.${f.scoring.value}`)} · ${t('org.review.results_count', {
+            available: climbEditor.rows.length, count: f.climbCount.value,
+          })}`),
         reviewCard(4, t('climb.section'), t('org.review.climbs', { count: climbEditor.rows.length }),
           climbEditor.rows.map((row) => row.labelInput.value.trim()).filter(Boolean).join(' · ')),
         reviewCard(5, t('org.entry'), t('org.review.capacity', { count: f.capacity.value }),
@@ -1973,11 +1997,6 @@ export function createCompetitionForm({
       }
       if (climbEditor.rows.length < needed) {
         stepError.textContent = t('org.wizard.climb_count_error', { count: needed });
-        stepError.removeAttribute('hidden');
-        return;
-      }
-      if (f.climbSource.value === 'organizer_set' && climbEditor.rows.length > needed) {
-        stepError.textContent = t('org.wizard.climb_count_remove', { count: climbEditor.rows.length - needed });
         stepError.removeAttribute('hidden');
         return;
       }
