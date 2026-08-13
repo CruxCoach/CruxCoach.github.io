@@ -933,8 +933,18 @@ test('sign-in starts with two human choices, then separates registration from lo
 
     choices[0].dispatch('click');
     assert.ok(mount.textContent.includes('signin.local.action'));
+    assert.ok(mount.textContent.includes('signin.new.signer.action'));
     assert.equal(mount.textContent.includes('signin.extension'), false,
-      'registration should not be presented as a sign-in-method list');
+      'the first new-identity screen should present two clear storage paths');
+    mount.querySelectorAll('button').find(
+      (button) => button.textContent === 'signin.new.signer.action',
+    ).dispatch('click');
+    assert.ok(mount.textContent.includes('signin.extension'));
+    assert.ok(mount.textContent.includes('signin.bunker'));
+    assert.equal(mount.textContent.includes('signin.import'), false,
+      'the signer path should not mix in raw browser-key import');
+    assert.equal(mount.querySelectorAll('a').length, 3,
+      'the signer path should offer nos2x, nos2x-fox and Amber');
     first.session.dispose();
     first.remoteSession.dispose();
 
@@ -998,9 +1008,9 @@ test('a generated recovery key is masked until the eye control reveals it', asyn
     assert.ok(mount.textContent.includes('key.practice.password_manager'));
     assert.ok(mount.textContent.includes('key.practice.private'));
     assert.equal(mount.textContent.includes('key.practice.verify'), false);
-    assert.ok(mount.textContent.includes('key.signer.amber'));
-    assert.equal(mount.querySelectorAll('a').length, 3,
-      'the recovery screen should link the desktop signers and Amber');
+    assert.equal(mount.textContent.includes('key.signer'), false);
+    assert.equal(mount.querySelectorAll('a').length, 0,
+      'browser-key recovery should not introduce a second signer decision');
     const eye = mount.querySelector('.secret-reveal');
     assert.equal(eye.getAttribute('aria-pressed'), 'false');
     eye.dispatch('click');
@@ -1008,11 +1018,6 @@ test('a generated recovery key is masked until the eye control reveals it', asyn
     assert.equal(eye.getAttribute('aria-pressed'), 'true');
     eye.dispatch('click');
     assert.equal(mount.querySelector('.secret').textContent.includes(nsec), false);
-    mount.querySelector('.signer-switch').dispatch('click');
-    assert.equal(signIn.pendingKey, null);
-    assert.equal(signIn.entryMode, 'existing');
-    assert.ok(mount.textContent.includes('signin.extension'));
-    assert.ok(mount.textContent.includes('signin.bunker'));
     signIn.session.dispose();
     signIn.remoteSession.dispose();
   } finally {

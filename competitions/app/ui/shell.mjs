@@ -22,7 +22,7 @@ import { ProfileGate } from './profile-gate.mjs';
 
 const METHOD_KEY = 'cruxcoach:competitions:method:v1';
 const HISTORY_KEY = 'cruxcoachCompetitionSignIn';
-const HISTORY_SCREENS = new Set(['root', 'new', 'existing']);
+const HISTORY_SCREENS = new Set(['root', 'new', 'signer', 'existing']);
 
 export class SignIn {
   /**
@@ -324,8 +324,10 @@ export class SignIn {
       return;
     }
 
+    const pathTitle = this.entryMode === 'new' ? 'signin.new.title'
+      : this.entryMode === 'signer' ? 'signin.signer.title' : 'signin.existing.title';
     children.push(el('div', { className: 'row between signin-path-heading' }, [
-      el('h3', { text: t(this.entryMode === 'new' ? 'signin.new.title' : 'signin.existing.title') }),
+      el('h3', { text: t(pathTitle) }),
       el('button', {
         className: 'quiet', text: t('signin.choice.back'),
         on: { click: () => this.navigateBack() },
@@ -335,6 +337,22 @@ export class SignIn {
     const alternativeMethods = [el('div', { className: 'card raised' }, [
       el('h3', { text: t('signin.extension') }),
       el('p', { className: 'small', text: t('signin.extension.hint') }),
+      el('div', { className: 'row' }, [
+        el('a', {
+          className: 'button', text: t('signin.extension.chrome'),
+          attrs: {
+            href: 'https://chromewebstore.google.com/detail/nos2x/kpgefcfmnafjgpblomihpgmejjdanjjp',
+            target: '_blank', rel: 'noopener noreferrer', referrerpolicy: 'no-referrer',
+          },
+        }),
+        el('a', {
+          className: 'button', text: t('signin.extension.firefox'),
+          attrs: {
+            href: 'https://addons.mozilla.org/firefox/addon/nos2x-fox/',
+            target: '_blank', rel: 'noopener noreferrer', referrerpolicy: 'no-referrer',
+          },
+        }),
+      ]),
       el('button', {
         className: 'primary',
         text: t('signin.extension'),
@@ -347,6 +365,13 @@ export class SignIn {
     const remoteChildren = [
       el('h3', { text: t('signin.bunker') }),
       el('p', { className: 'small', text: t('signin.bunker.hint') }),
+      el('a', {
+        className: 'button', text: t('signin.bunker.amber'),
+        attrs: {
+          href: 'https://github.com/greenart7c3/Amber/releases',
+          target: '_blank', rel: 'noopener noreferrer', referrerpolicy: 'no-referrer',
+        },
+      }),
     ];
     const savedRemote = this.remoteSession.describe();
     if (this.remoteSession.hasStoredConnection() && savedRemote) {
@@ -523,7 +548,23 @@ export class SignIn {
       ]));
     }
     if (this.entryMode === 'new') {
-      children.push(el('div', { className: 'card raised' }, localChildren));
+      children.push(
+        el('div', { className: 'signin-path-grid' }, [
+          el('section', { className: 'card raised recommended-path' }, [
+            el('span', { className: 'badge ok', text: t('signin.recommended') }),
+            el('h3', { text: t('signin.new.signer') }),
+            el('p', { className: 'small', text: t('signin.new.signer.hint') }),
+            el('button', {
+              className: 'primary',
+              text: t('signin.new.signer.action'),
+              on: { click: () => this.navigate('signer') },
+            }),
+          ]),
+          el('div', { className: 'card raised' }, localChildren),
+        ]),
+      );
+    } else if (this.entryMode === 'signer') {
+      children.push(...alternativeMethods);
     } else {
       if (this.session.hasStoredKey()) alternativeMethods.unshift(el('div', { className: 'card raised' }, localChildren));
       children.push(...alternativeMethods);
@@ -624,51 +665,6 @@ export class SignIn {
             click: async () => {
               await copyWithExpiry(nsec);
               feedback.textContent = t('key.copied');
-            },
-          },
-        }),
-      ]),
-      el('section', { className: 'signer-backup-help' }, [
-        el('h3', { text: t('key.signer.title') }),
-        el('p', {
-          className: 'small',
-          text: t(globalThis.window?.nostr ? 'key.signer.detected' : 'key.signer.hint'),
-        }),
-        el('div', { className: 'row' }, [
-          el('a', {
-            className: 'button', text: t('key.signer.chrome'),
-            attrs: {
-              href: 'https://chromewebstore.google.com/detail/nos2x/kpgefcfmnafjgpblomihpgmejjdanjjp',
-              target: '_blank', rel: 'noopener noreferrer', referrerpolicy: 'no-referrer',
-            },
-          }),
-          el('a', {
-            className: 'button', text: t('key.signer.firefox'),
-            attrs: {
-              href: 'https://addons.mozilla.org/firefox/addon/nos2x-fox/',
-              target: '_blank', rel: 'noopener noreferrer', referrerpolicy: 'no-referrer',
-            },
-          }),
-          el('a', {
-            className: 'button', text: t('key.signer.amber'),
-            attrs: {
-              href: 'https://github.com/greenart7c3/Amber/releases',
-              target: '_blank', rel: 'noopener noreferrer', referrerpolicy: 'no-referrer',
-            },
-          }),
-        ]),
-        el('p', { className: 'small', text: t('key.signer.switch.hint') }),
-        el('button', {
-          className: 'primary signer-switch',
-          text: t('key.signer.switch'),
-          on: {
-            click: () => {
-              // This identity has never been published or persisted. Wipe its
-              // key from memory, but preserve an older encrypted local vault.
-              this.session.lock();
-              this.session = new KeyVaultSession();
-              this.pendingKey = null;
-              this.navigate('existing', { replace: true });
             },
           },
         }),
