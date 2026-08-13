@@ -25,7 +25,7 @@ import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-1';
 import { loadVenueCatalogue, searchVenues } from '../data/venue-catalogue.mjs';
 import {
   climbCard, filterCatalogue, gradeFilterOptions, saveGradeScale, storedGradeScale, zoneCandidateHolds,
-} from '../ui/climb-card.mjs?v=20260813-4';
+} from '../ui/climb-card.mjs?v=20260813-5';
 
 const text = (id, value = '', attrs = {}) => el('input', { attrs: { type: 'text', id, value, ...attrs } });
 const num = (id, value, attrs = {}) => el('input', { attrs: { type: 'number', id, value: String(value), required: 'required', ...attrs } });
@@ -278,7 +278,7 @@ class ClimbEditor {
       points: Number(row.pointsInput.value),
       kind: row.kind,
       naddr: row.naddr,
-      zoneHold: Number(row.zoneInput?.value) || undefined,
+      zoneHold: Number(row.zoneInput?.value) || row.pendingZoneHold || undefined,
       setter: row.described?.setter,
       difficulty: row.described?.difficulty,
       quality: row.described?.quality,
@@ -297,7 +297,8 @@ class ClimbEditor {
       row.labelInput.value = String(entry.label || '').slice(0, 60);
       row.angleInput.value = String(Number.isFinite(Number(entry.angle)) ? Number(entry.angle) : 40);
       row.pointsInput.value = String(Number.isFinite(Number(entry.points)) ? Number(entry.points) : 100);
-      if (row.zoneInput) row.zoneInput.value = String(Number(entry.zoneHold) || '');
+      row.pendingZoneHold = Number(entry.zoneHold) || null;
+      if (row.zoneInput && row.pendingZoneHold) row.zoneInput.value = String(row.pendingZoneHold);
       this.rows.push(row);
     }
     this.render();
@@ -318,14 +319,13 @@ class ClimbEditor {
     ]).filter(([uuid]) => uuid));
     let changed = false;
     this.rows = this.rows.map((row) => {
-      if (row.kind !== 'catalogue') return row;
       const described = byUuid.get(row.uuid);
       if (!described || row.described === described) return row;
       const values = {
         label: row.labelInput.value,
         angle: row.angleInput.value,
         points: row.pointsInput.value,
-        zone: row.zoneInput?.value || '',
+        zone: row.zoneInput?.value || String(row.pendingZoneHold || ''),
       };
       const compatibility = checkBoardCompatibility(described, this.boardOf());
       if (!compatibility.compatible) return row;
@@ -338,6 +338,7 @@ class ClimbEditor {
       if (hydrated.zoneCandidates.some(([placement]) => String(placement) === values.zone)) {
         hydrated.zoneInput.value = values.zone;
       }
+      hydrated.pendingZoneHold = null;
       changed = true;
       return hydrated;
     });
@@ -487,6 +488,7 @@ class ClimbEditor {
       pointsInput,
       zoneInput,
       zoneCandidates: holds,
+      pendingZoneHold: null,
     };
   }
 
@@ -494,6 +496,16 @@ class ClimbEditor {
     const { t } = this;
     const policy = this.fieldPolicyOf();
     const needed = this.neededOf();
+    const remaining = Math.max(0, needed - this.rows.length);
+    const missingZones = policy.zone
+      ? this.rows.filter((row) => !(Number(row.zoneInput?.value) || row.pendingZoneHold)) : [];
+    const firstIncompleteIndex = policy.zone
+      ? this.rows.findIndex((row) => !(Number(row.zoneInput?.value) || row.pendingZoneHold)) : -1;
+    const nextTask = remaining > 0
+      ? t('climb.selection.task.more', { count: remaining })
+      : missingZones.length
+        ? t('climb.selection.task.zones', { count: missingZones.length })
+        : t('climb.selection.task.ready');
     replace(this.node,
       el('div', { className: 'climb-selection-progress' }, [
         el('p', {
@@ -506,6 +518,14 @@ class ClimbEditor {
           attrs: { max: String(Math.max(1, needed)), value: String(Math.min(this.rows.length, Math.max(1, needed))) },
         }),
       ]),
+      el('p', {
+        className: `climb-selection-task${remaining || missingZones.length ? '' : ' complete'}`,
+        attrs: { role: 'status', 'aria-live': 'polite' }, text: nextTask,
+      }),
+      !this.rows.length ? el('div', { className: 'climb-selection-empty' }, [
+        el('strong', { text: t('climb.selection.empty.title') }),
+        el('p', { className: 'small', text: t('climb.selection.empty.hint') }),
+      ]) : null,
       ...this.rows.map((row, index) => {
         const currentCompatibility = row.described
           ? checkBoardCompatibility(row.described, this.boardOf()) : row.compatibility;
@@ -514,15 +534,31 @@ class ClimbEditor {
         if (policy.zone) row.zoneInput.setAttribute('required', 'required');
         else row.zoneInput.removeAttribute('required');
         const chooseZone = (placement) => {
+          row.pendingZoneHold = null;
           row.zoneInput.value = String(placement);
           this.render();
           this.onChange();
         };
-        return el('div', {
-          className: `selected-climb${currentCompatibility && !currentCompatibility.compatible ? ' invalid' : ''}`,
+        const zoneMissing = policy.zone && !(Number(row.zoneInput.value) || row.pendingZoneHold);
+        return el('details', {
+          className: `selected-climb${zoneMissing ? ' needs-action' : ''}${currentCompatibility && !currentCompatibility.compatible ? ' invalid' : ''}`,
+          attrs: { open: index === firstIncompleteIndex ? 'open' : null },
         }, [
-      el('div', { className: 'row between' }, [
-        el('strong', { text: `${index + 1}. ${row.described?.label || row.labelInput.value || row.uuid.slice(0, 8)}` }),
+      el('summary', { className: 'selected-climb-summary' }, [
+        el('span', { className: 'selected-climb-number', text: String(index + 1) }),
+        el('strong', { text: row.described?.label || row.labelInput.value || row.uuid.slice(0, 8) }),
+        policy.zone ? el('span', {
+          className: `selected-climb-state${zoneMissing ? ' needed' : ' done'}`,
+          text: t(zoneMissing ? 'climb.zone.badge_needed' : 'climb.zone.badge_done'),
+        }) : null,
+      ]),
+      el('div', { className: 'selected-climb-body' }, [
+      el('div', { className: 'row between selected-climb-actions' }, [
+        el('span', { className: 'small', text: row.kind === 'community'
+          ? t('climb.source.community', {
+            board: row.described?.boardLabel || row.described?.brand || '—',
+            size: row.described?.size || '—',
+          }) : t('climb.source.catalogue') }),
         el('button', {
           className: 'quiet danger',
           text: t('action.remove'),
@@ -535,15 +571,6 @@ class ClimbEditor {
           },
         }),
         ]),
-      el('p', {
-        className: 'small',
-        text: row.kind === 'community'
-          ? t('climb.source.community', {
-            board: row.described?.boardLabel || row.described?.brand || '—',
-            size: row.described?.size || '—',
-          })
-          : t('climb.source.catalogue'),
-      }),
       row.compatibility?.warnings?.length
         ? el('p', {
           className: 'small',
@@ -555,7 +582,7 @@ class ClimbEditor {
       currentCompatibility && !currentCompatibility.compatible
         ? el('p', { className: 'notice bad', text: t('climb.selected_incompatible') }) : null,
       row.described ? climbCard({
-        climb: { ...row.described, zone_hold: Number(row.zoneInput.value) || undefined },
+        climb: { ...row.described, zone_hold: Number(row.zoneInput.value) || row.pendingZoneHold || undefined },
         board: this.boardOf(), t, selected: true, gradeScale: this.gradeScaleOf(),
         zoneSelectable: policy.zone, onZone: chooseZone,
       }) : null,
@@ -563,9 +590,11 @@ class ClimbEditor {
         !row.described ? field(row.labelInput.id, t('climb.label'), row.labelInput) : null,
         !row.described ? field(row.angleInput.id, t('climb.angle'), row.angleInput) : null,
         policy.points ? field(row.pointsInput.id, t('climb.points'), row.pointsInput, t('climb.points.hint')) : null,
-        policy.zone && row.zoneCandidates.length ? el('fieldset', {
-          className: 'zone-hold-options', attrs: { 'aria-required': 'true' },
+        policy.zone && row.zoneCandidates.length ? el('details', {
+          className: 'zone-options-disclosure',
         }, [
+          el('summary', { text: t('climb.zone.list_action') }),
+          el('fieldset', { className: 'zone-hold-options', attrs: { 'aria-required': 'true' } }, [
           el('legend', { text: t('climb.zone.keyboard_title') }),
           el('p', { className: 'hint', text: t('climb.zone.keyboard_hint') }),
           ...row.zoneCandidates.map(([placement, , x, y], candidateIndex) => {
@@ -580,9 +609,11 @@ class ClimbEditor {
               text: t('climb.zone.hold', { number: candidateIndex + 1, column: x, row: y }),
             })]);
           }),
+          ]),
         ]) : null,
         policy.zone && !row.zoneCandidates.length
           ? el('p', { className: 'notice warn', text: t('climb.zone.unavailable') }) : null,
+      ]),
       ]),
     ]);
       }));
@@ -945,6 +976,7 @@ export function createCompetitionForm({
       : t('climb.selected_progress', { chosen, needed }),
     onChange: () => { renderModeNotes(); notifyDraftChange(); },
   });
+  climbEditor.render();
   const climbInput = text('f-climb-ref', '', { placeholder: t('climb.paste.placeholder'), autocomplete: 'off' });
   const climbSection = el('div', {});
   const browserResults = el('div', { className: 'climb-browser-results' });
@@ -1001,6 +1033,7 @@ export function createCompetitionForm({
   let browserLoading = false;
   let browserState = 'idle';
   let browserLoadToken = 0;
+  let browserShown = 12;
   const catalogueActionStatus = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
   const selectionLimit = () => f.climbSource.value === 'organizer_set' ? 40 : 60;
   let addManualButton;
@@ -1021,6 +1054,7 @@ export function createCompetitionForm({
     browserState = 'idle';
     browserLoading = false;
     browserCandidates = [];
+    browserShown = 12;
     browserSearch.value = '';
     browserSearchField.setAttribute('hidden', 'hidden');
     replace(browserResults);
@@ -1054,11 +1088,11 @@ export function createCompetitionForm({
       query: needle, minDifficulty: difficultyMin.value, maxDifficulty: difficultyMax.value,
       minAscents: minAscents.value, sort: browserSort.value,
     });
-    const matches = allMatches.slice(0, 60);
+    const matches = allMatches.slice(0, browserShown);
     browserStatus.textContent = allMatches.length
       ? t('climb.browser.found', { count: allMatches.length, shown: matches.length })
       : t('climb.browser.empty_filter');
-    replace(browserResults, ...matches.map(({ event, described, compatibility, source }) => {
+    const cards = matches.map(({ event, described, compatibility, source }) => {
       const selected = climbEditor.rows.some((row) => row.uuid === normalizeUuid(described.uuid));
       const limitReached = climbEditor.rows.length >= selectionLimit() && !selected;
       const action = el('button', {
@@ -1078,12 +1112,19 @@ export function createCompetitionForm({
       return climbCard({
         climb: described, board: boardOf(), t, selected, action, gradeScale: browserGradeScale,
       });
+    });
+    if (matches.length < allMatches.length) cards.push(el('button', {
+      className: 'quiet climb-browser-more',
+      text: t('climb.browser.more', { count: Math.min(12, allMatches.length - matches.length) }),
+      attrs: { type: 'button' },
+      on: { click: () => { browserShown += 12; renderBrowserResults(); } },
     }));
+    replace(browserResults, ...cards);
   };
-  browserSearch.addEventListener('input', renderBrowserResults);
+  browserSearch.addEventListener('input', () => { browserShown = 12; renderBrowserResults(); });
   for (const control of [difficultyMin, difficultyMax, minAscents, browserSort]) {
-    control.addEventListener('input', renderBrowserResults);
-    control.addEventListener('change', renderBrowserResults);
+    control.addEventListener('input', () => { browserShown = 12; renderBrowserResults(); });
+    control.addEventListener('change', () => { browserShown = 12; renderBrowserResults(); });
   }
 
   const browseClimbs = async () => {
@@ -1146,9 +1187,7 @@ export function createCompetitionForm({
         (candidate) => [candidate.described.uuid, candidate],
       )).values()].sort((a, b) => (b.described.ascents || 0) - (a.described.ascents || 0)
         || a.described.label.localeCompare(b.described.label));
-      climbEditor.hydrateCatalogue(browserCandidates
-        .filter(({ source }) => source === 'catalogue')
-        .map(({ described }) => described));
+      climbEditor.hydrateCatalogue(browserCandidates.map(({ described }) => described));
       browserState = 'ready';
       if (browserCandidates.length) {
         browserSearchField.removeAttribute('hidden');
@@ -1178,9 +1217,7 @@ export function createCompetitionForm({
 
   const renderClimbSection = () => {
     const participantChoice = f.climbSource.value === 'participant_choice';
-    replace(climbSection,
-      el('h3', { text: participantChoice ? t('climb.pool.title') : t('climb.list.title') }),
-      el('p', { className: 'small', text: participantChoice ? t('climb.pool.hint') : t('climb.list.hint') }),
+    const cataloguePane = el('section', { className: 'climb-catalogue-pane' }, [
       el('div', { className: 'climb-browser card raised' }, [
         el('h3', { text: t('climb.browser.title') }),
         el('p', { className: 'small', text: t('climb.browser.hint') }),
@@ -1196,6 +1233,7 @@ export function createCompetitionForm({
               difficultyMax.value = '';
               minAscents.value = '0';
               browserSort.value = 'popular';
+              browserShown = 12;
               renderBrowserResults();
             } },
           }),
@@ -1212,20 +1250,31 @@ export function createCompetitionForm({
       catalogueActionStatus,
       el('details', { className: 'disclosure' }, [
         el('summary', { text: t('climb.manual.title') }),
-      el('p', { className: 'small', text: t('climb.how') }),
-      field('f-climb-ref', t('climb.paste'), climbInput, t('climb.paste.hint')),
-      (addManualButton = el('button', {
-        text: t('climb.add'),
-        on: {
-          click: async () => {
-            const ok = await climbEditor.add(climbInput.value);
-            if (ok) climbInput.value = '';
+        el('p', { className: 'small', text: t('climb.how') }),
+        field('f-climb-ref', t('climb.paste'), climbInput, t('climb.paste.hint')),
+        (addManualButton = el('button', {
+          text: t('climb.add'),
+          on: {
+            click: async () => {
+              const ok = await climbEditor.add(climbInput.value);
+              if (ok) climbInput.value = '';
+            },
           },
-        },
-      })),
+        })),
+      ]),
+    ]);
+    const selectionPane = el('aside', { className: 'climb-selection-pane' }, [
+      el('div', { className: 'climb-selection-heading' }, [
+        el('span', { className: 'eyebrow', text: t('climb.selection.eyebrow') }),
+        el('h3', { text: t('climb.selection.title') }),
       ]),
       climbEditor.status,
-      climbEditor.node);
+      climbEditor.node,
+    ]);
+    replace(climbSection,
+      el('h3', { text: participantChoice ? t('climb.pool.title') : t('climb.list.title') }),
+      el('p', { className: 'small', text: participantChoice ? t('climb.pool.hint') : t('climb.list.hint') }),
+      el('div', { className: 'climb-picker-workspace' }, [cataloguePane, selectionPane]));
   };
   renderClimbSection();
   refreshCatalogueActions();
@@ -1290,7 +1339,7 @@ export function createCompetitionForm({
     const zoneRequired = f.scoring.value === 'tops_then_attempts'
       || (f.scoring.value === 'achievement_points' && Number(f.zonePoints.value) > 0);
     const missingZones = zoneRequired
-      ? climbEditor.rows.filter((row) => !Number(row.zoneInput?.value)) : [];
+      ? climbEditor.rows.filter((row) => !(Number(row.zoneInput?.value) || row.pendingZoneHold)) : [];
     if (missingZones.length) {
       throw new Error(t('climb.zone.required_named', {
         climbs: missingZones.map((row) => row.labelInput.value.trim() || row.uuid.slice(0, 8)).join(', '),
@@ -1875,7 +1924,8 @@ export function createCompetitionForm({
     if (climbEditor.rows.length < needed) return t('org.wizard.climbs_more', { count: needed - climbEditor.rows.length });
     const zoneRequired = f.scoring.value === 'tops_then_attempts'
       || (f.scoring.value === 'achievement_points' && Number(f.zonePoints.value) > 0);
-    const missing = zoneRequired ? climbEditor.rows.filter((row) => !Number(row.zoneInput.value)) : [];
+    const missing = zoneRequired
+      ? climbEditor.rows.filter((row) => !(Number(row.zoneInput.value) || row.pendingZoneHold)) : [];
     if (missing.length) return t('climb.zone.required_named', {
       climbs: missing.map((row) => row.labelInput.value.trim() || row.uuid.slice(0, 8)).join(', '),
     });

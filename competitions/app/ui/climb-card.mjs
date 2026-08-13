@@ -193,7 +193,6 @@ function preview(climb, board, t, { zoneSelectable = false, onZone } = {}) {
           hold: t('climb.zone.hold', { number: focusedCandidate + 1, column: candidates[focusedCandidate][2], row: candidates[focusedCandidate][3] }),
         }));
       });
-      stage.append(el('p', { className: 'climb-zone-instruction', text: t('climb.zone.tap_hint') }));
     }
     if (board?.brand === 'moonboard') loadMeasuredMoonBoard(board).then((measured) => {
       measuredGeometry = measured;
@@ -238,6 +237,10 @@ function preview(climb, board, t, { zoneSelectable = false, onZone } = {}) {
   if (!zoneSelectable) stage.addEventListener('click', openLargePreview);
   if (!zoneSelectable) return stage;
   return el('div', { className: 'climb-preview-shell' }, [
+    el('div', { className: `climb-zone-cue${selectedZone ? ' complete' : ''}` }, [
+      el('span', { className: 'climb-zone-cue-dot', attrs: { 'aria-hidden': 'true' } }),
+      el('span', { text: t(selectedZone ? 'climb.zone.cue_done' : 'climb.zone.cue_pick') }),
+    ]),
     stage,
     el('button', {
       className: 'quiet climb-preview-enlarge', text: t('climb.preview.enlarge_short'),

@@ -857,7 +857,7 @@ test('restored catalogue climbs regain their verified holds after reload', async
           brand: 'moonboard', model: 'moonboard-masters-2019', size: '11x18', angle: '40',
           scoring: 'tops_then_attempts',
         },
-        climbs: [{ uuid, kind: 'catalogue', label: '!!!!', angle: 40, points: 100 }],
+        climbs: [{ uuid, kind: 'catalogue', label: '!!!!', angle: 40, points: 100, zoneHold: 57 }],
       },
       catalogueLoader: async () => ({ climbs: [{
         uuid, label: '!!!!', setter: 'Moon setter', brand: 'moonboard',
@@ -870,7 +870,40 @@ test('restored catalogue climbs regain their verified holds after reload', async
     const [row] = form.climbs.rows;
     assert.equal(row.described?.brand, 'moonboard');
     assert.deepEqual(row.zoneCandidates.map((hold) => hold[0]), [57]);
+    assert.equal(row.zoneInput.value, '57', 'the saved zone survives sign-out, sign-in and catalogue hydration');
+    assert.equal(form.climbs.entries()[0].zoneHold, 57);
     assert.doesNotMatch(form.node.textContent, /no verified intermediate hand holds/i);
+  } finally {
+    cleanup();
+  }
+});
+
+test('the climb picker pages the catalogue and keeps selection guidance beside it', async () => {
+  const { window } = await import('./dev/mini-dom.mjs');
+  const cleanup = window.install();
+  try {
+    const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    const climbs = Array.from({ length: 25 }, (_, index) => ({
+      uuid: `${String(index + 1).padStart(8, '0')}-1111-4111-8111-111111111111`,
+      label: `Climb ${index + 1}`, brand: 'kilter', layoutId: 1, productSizeId: 10, angle: 40,
+      holds: [[1, 12, 12, 12], [2, 13, 72, 78], [3, 14, 132, 144]],
+      difficulty: index, quality: 3, ascents: 25 - index,
+    }));
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: null, signerPubkey: '22'.repeat(32),
+      defaultDisplayName: 'Host', defaultLud16: '', relays: [],
+      catalogueLoader: async () => ({ climbs }),
+    });
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    assert.ok(form.node.querySelector('.climb-picker-workspace'));
+    assert.ok(form.node.querySelector('.climb-selection-pane'));
+    const results = form.node.querySelector('.climb-browser-results');
+    assert.equal(results.querySelectorAll('.climb-result-card').length, 12);
+    assert.match(form.node.querySelector('.climb-selection-task').textContent, /add 4 more/i);
+    const more = form.node.querySelector('.climb-browser-more');
+    assert.match(more.textContent, /12 more/);
+    more.dispatch('click');
+    assert.equal(results.querySelectorAll('.climb-result-card').length, 24);
   } finally {
     cleanup();
   }
