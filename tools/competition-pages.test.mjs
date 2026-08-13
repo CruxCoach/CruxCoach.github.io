@@ -168,7 +168,8 @@ test('the competition pages send no analytics beacon', () => {
   // answered with 400 and counts nothing, and `normalizePagePath` would file
   // these views under /404 and corrupt that metric instead. A page that can be
   // clicked but not counted breaks the numbers — so these pages carry no
-  // counter at all rather than a broken one, and no install button either.
+  // counter at all rather than a broken one. The download CTA is a plain,
+  // direct link and deliberately carries none of the tracked-site hooks.
   for (const lang of LANGUAGES) {
     for (const name of EN_PAGES) {
       const page = readPage(lang, name);
@@ -179,12 +180,31 @@ test('the competition pages send no analytics beacon', () => {
   }
 });
 
+test('every competition header links home and offers an untracked app download', () => {
+  for (const lang of LANGUAGES) {
+    for (const name of EN_PAGES) {
+      const page = readPage(lang, name);
+      const home = lang === 'de' ? '/de/' : '/';
+      assert.match(page, new RegExp('<a class="site-brand" href="' + home + '"'),
+        lang + '/' + name + ' has no linked brand');
+      assert.match(page,
+        /<a class="header-download" href="https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/[^"]+\.apk"/,
+        lang + '/' + name + ' has no direct app download');
+      assert.equal(page.includes('data-apk-selector'), false,
+        lang + '/' + name + ' tracks its download');
+    }
+  }
+});
+
 test('the pages load only same-origin assets', () => {
   for (const lang of LANGUAGES) {
     for (const name of EN_PAGES) {
       const page = readPage(lang, name);
-      for (const match of page.matchAll(/(?:src|href)="(https?:\/\/[^"]+)"/g)) {
-        // Links to our own canonical URLs are fine; a fetched asset is not.
+      const fetchedAssets = [
+        ...page.matchAll(/<(?:script|img|source)[^>]+src="(https?:\/\/[^"]+)"/g),
+        ...page.matchAll(/<link[^>]+href="(https?:\/\/[^"]+)"/g),
+      ];
+      for (const match of fetchedAssets) {
         assert.ok(match[1].startsWith('https://cruxcoach.org/'),
           `${lang}/${name} references ${match[1]}`);
       }
@@ -934,6 +954,14 @@ test('a generated recovery key is masked until the eye control reveals it', asyn
     const nsec = signIn.pendingKey.nsec;
     signIn.renderBackup();
     assert.equal(mount.querySelector('.secret').textContent.includes(nsec), false);
+    assert.equal(mount.querySelectorAll('#nsec-warning').length, 1,
+      'the recovery warning should be concise rather than repeated');
+    assert.ok(mount.textContent.includes('key.practice.password_manager'));
+    assert.ok(mount.textContent.includes('key.practice.protect_manager'));
+    assert.ok(mount.textContent.includes('key.practice.private'));
+    assert.ok(mount.textContent.includes('key.practice.verify'));
+    assert.equal(mount.querySelectorAll('a').length, 2,
+      'the recovery screen should link both supported nos2x variants');
     const eye = mount.querySelector('.secret-reveal');
     assert.equal(eye.getAttribute('aria-pressed'), 'false');
     eye.dispatch('click');

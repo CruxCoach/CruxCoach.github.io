@@ -539,13 +539,15 @@ export class SignIn {
 
     replace(this.mount, el('div', { className: 'card' }, [
       el('h2', { text: t('key.generated') }),
-      el('div', { className: 'notice warn' }, [el('p', { text: t('key.warning') })]),
+      el('div', { className: 'notice warn', attrs: { id: 'nsec-warning' } }, [
+        el('p', { text: t('key.warning') }),
+      ]),
       el('ul', { className: 'key-practices' }, [
         el('li', { text: t('key.practice.password_manager') }),
+        el('li', { text: t('key.practice.protect_manager') }),
         el('li', { text: t('key.practice.private') }),
         el('li', { text: t('key.practice.verify') }),
       ]),
-      el('p', { className: 'small', attrs: { id: 'nsec-warning' }, text: t('key.warning') }),
       el('div', { className: 'secret-row' }, [secret, reveal]),
       el('div', { className: 'row' }, [
         el('button', {
@@ -557,6 +559,29 @@ export class SignIn {
             },
           },
         }),
+      ]),
+      el('details', { className: 'disclosure signer-backup-help' }, [
+        el('summary', { text: t('key.signer.title') }),
+        el('p', {
+          className: 'small',
+          text: t(globalThis.window?.nostr ? 'key.signer.detected' : 'key.signer.hint'),
+        }),
+        el('div', { className: 'row' }, [
+          el('a', {
+            className: 'button', text: t('key.signer.chrome'),
+            attrs: {
+              href: 'https://chromewebstore.google.com/detail/nos2x/kpgefcfmnafjgpblomihpgmejjdanjjp',
+              target: '_blank', rel: 'noopener noreferrer', referrerpolicy: 'no-referrer',
+            },
+          }),
+          el('a', {
+            className: 'button', text: t('key.signer.firefox'),
+            attrs: {
+              href: 'https://addons.mozilla.org/firefox/addon/nos2x-fox/',
+              target: '_blank', rel: 'noopener noreferrer', referrerpolicy: 'no-referrer',
+            },
+          }),
+        ]),
       ]),
       el('h3', { text: t('key.confirm.title') }),
       el('label', { className: 'inline', attrs: { for: 'backup-confirm' } }, [

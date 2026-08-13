@@ -111,9 +111,20 @@ small, .small { font-size: 0.9rem; color: var(--fg-mute); }
 }
 .site-header .logo { width: 2.15rem; height: 2.15rem; flex: none; border-radius: 9px; }
 .site-header .brand { font-weight: 800; letter-spacing: -0.02em; color: var(--fg); }
+.site-header .site-brand { display: inline-flex; align-items: center; gap: 0.65rem; border: 0; border-radius: 10px; }
+.site-header .site-brand:hover .brand { color: var(--accent); }
 .site-header nav { margin-inline-start: auto; display: flex; gap: 0.2rem; }
 .site-header nav a { padding: 0.5rem 0.72rem; border: 0; border-radius: 999px; color: var(--fg-soft); font-size: 0.9rem; font-weight: 600; }
 .site-header nav a:hover { background: var(--bg-raised); color: var(--fg); }
+.site-header nav a.header-download {
+  padding-inline: 0.95rem;
+  background: var(--accent);
+  color: var(--ink);
+  font-weight: 750;
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+.site-header nav a.header-download:hover { background: var(--accent-dim); color: var(--ink); }
+.header-download .short { display: none; }
 
 .skip-link {
   position: absolute;
@@ -255,7 +266,6 @@ small, .small { font-size: 0.9rem; color: var(--fg-mute); }
   .trust-band { grid-template-columns: 1fr; gap: 1rem; }
 }
 @media (max-width: 34rem) {
-  .site-header nav a:last-child { display: none; }
   .site-header nav { gap: 0; }
   .site-header nav a { padding-inline: 0.46rem; font-size: 0.8rem; }
   .competition-hero h1 { font-size: clamp(2.7rem, 15vw, 4.2rem); }
@@ -264,6 +274,17 @@ small, .small { font-size: 0.9rem; color: var(--fg-mute); }
   .hero-board-stage { min-height: 24rem; }
   .action-card { min-height: 16rem; }
   .trust-band { padding: 1.4rem; border-radius: 20px; }
+}
+
+@media (max-width: 48rem) {
+  .site-header nav a:not(.header-download) { display: none; }
+  .site-header nav a.header-download { display: inline-flex; padding-inline: 0.75rem; }
+  .header-download .long { display: none; }
+  .header-download .short { display: inline; }
+}
+@media (max-width: 27rem) {
+  .site-header .brand { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .site-header .beta-badge { display: none; }
 }
 
 /* One calm account surface. Identity plumbing stays behind the Profile menu. */
