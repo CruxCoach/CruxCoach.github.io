@@ -36,6 +36,45 @@ let ticker = null;
 
 const view = byId('view');
 const statusNode = byId('load-status');
+const REGISTRATION_DRAFT_PREFIX = 'cruxcoach:competitions:registration-draft:v1:';
+const REGISTRATION_DRAFT_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
+
+function canPersistRegistrationDraft() {
+  return signer?.kind === 'nip07'
+    || (signer?.kind === 'local' && signIn.session.hasStoredKey())
+    || (signer?.kind === 'nip46' && signIn.remoteSession.hasStoredConnection());
+}
+
+function registrationDraftKey(competition) {
+  return `${REGISTRATION_DRAFT_PREFIX}${signer.pubkey}:${competition.authority}:${competition.comp_id}`;
+}
+
+function readRegistrationDraft(competition) {
+  if (!canPersistRegistrationDraft()) return null;
+  try {
+    const key = registrationDraftKey(competition);
+    const saved = JSON.parse(localStorage.getItem(key) || 'null');
+    if (!saved || saved.version !== 1 || Date.now() - saved.savedAt > REGISTRATION_DRAFT_MAX_AGE_MS) {
+      localStorage.removeItem(key);
+      return null;
+    }
+    return saved.draft;
+  } catch { return null; }
+}
+
+function saveRegistrationDraft(competition, draft) {
+  if (!canPersistRegistrationDraft()) return;
+  try {
+    localStorage.setItem(registrationDraftKey(competition), JSON.stringify({
+      version: 1, savedAt: Date.now(), draft,
+    }));
+  } catch { /* private mode or quota: registration still works */ }
+}
+
+function clearRegistrationDraft(competition) {
+  if (!signer) return;
+  try { localStorage.removeItem(registrationDraftKey(competition)); } catch { /* private mode */ }
+}
 const signInMount = byId('signin');
 
 // The profile gate needs relays before a competition is open, so it gets its
@@ -209,14 +248,17 @@ function registrationPanel(snapshot) {
   // Pre-filled from the profile the gate already required, so nobody types
   // their name twice — but still editable, because a pseudonym for one
   // competition is a legitimate thing to want.
+  const savedDraft = readRegistrationDraft(competition);
   const display = el('input', {
     attrs: {
       type: 'text', id: 'display', maxlength: '48', autocomplete: 'nickname',
-      value: signIn.displayName || '', required: 'required',
+      value: savedDraft?.display || signIn.displayName || '', required: 'required',
     },
   });
   const division = el('select', { attrs: { id: 'division', required: 'required' } },
-    competition.divisions.map((d) => el('option', { attrs: { value: d.id }, text: d.label })));
+    competition.divisions.map((d) => el('option', {
+      attrs: { value: d.id, selected: d.id === savedDraft?.division }, text: d.label,
+    })));
   const waiver = el('input', { attrs: { type: 'checkbox', id: 'waiver' } });
   const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
   const readiness = el('p', { className: 'small registration-readiness', attrs: { role: 'status', 'aria-live': 'polite' } });
@@ -239,6 +281,12 @@ function registrationPanel(snapshot) {
     const options = competition.climb_pool?.options || [];
     const needed = competition.rules.climb_count;
     const unique = competition.rules.selection_uniqueness === 'unique_per_competition';
+    for (const id of Array.isArray(savedDraft?.selections) ? savedDraft.selections : []) {
+      if (selection.size >= needed) break;
+      const option = options.find((candidate) => candidate.id === id);
+      if (!option || (unique && snapshot.state.claims[option.id])) continue;
+      selection.add(option.id);
+    }
     const counter = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
     const updateCounter = () => {
       counter.textContent = t('select.count', { chosen: selection.size, needed });
@@ -255,7 +303,10 @@ function registrationPanel(snapshot) {
         const takenBy = unique ? snapshot.state.claims[option.id] : undefined;
         const taken = Boolean(takenBy);
         const box = el('input', {
-          attrs: { type: 'checkbox', id: `sel-${option.id}`, disabled: taken },
+          attrs: {
+            type: 'checkbox', id: `sel-${option.id}`, disabled: taken,
+            checked: selection.has(option.id),
+          },
           on: {
             change: (event) => {
               if (event.target.checked) {
@@ -265,6 +316,9 @@ function registrationPanel(snapshot) {
                 selection.delete(option.id);
               }
               updateCounter();
+              saveRegistrationDraft(competition, {
+                display: display.value.trim(), division: division.value, selections: [...selection],
+              });
             },
           },
         });
@@ -318,6 +372,7 @@ function registrationPanel(snapshot) {
           waiverAccepted: !competition.waiver_required || waiver.checked,
           selections: [...selection].sort(),
         });
+        clearRegistrationDraft(competition);
         feedback.textContent = t('reg.sent');
         announce(t('reg.sent'));
       }, feedback),
@@ -333,7 +388,11 @@ function registrationPanel(snapshot) {
       : missingClimbs ? t('reg.ready.climbs', { count: competition.rules.climb_count - selection.size })
         : missingWaiver ? t('reg.ready.waiver') : t('reg.ready.complete');
   };
-  display.addEventListener('input', updateReady);
+  const saveDraft = () => saveRegistrationDraft(competition, {
+    display: display.value.trim(), division: division.value, selections: [...selection],
+  });
+  display.addEventListener('input', () => { updateReady(); saveDraft(); });
+  division.addEventListener('change', saveDraft);
   waiver.addEventListener('change', updateReady);
   for (const control of rows.flatMap((row) => row?.querySelectorAll?.('input') || [])) {
     if (String(control.id || '').startsWith('sel-')) control.addEventListener('change', updateReady);
