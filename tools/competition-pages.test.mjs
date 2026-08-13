@@ -621,6 +621,44 @@ test('the organizer board picker is guided, visual, and keeps layout ids interna
   }
 });
 
+test('the time zone is a picker whose choices always show the start-date UTC relation', async () => {
+  const { createCompetitionForm, timeZoneUtcRelation, zonedLocalToEpoch } = await import(
+    '../competitions/app/pages/organizer-form.mjs'
+  );
+  assert.equal(timeZoneUtcRelation('Europe/Berlin', new Date('2026-01-15T12:00:00Z')), 'UTC+01:00');
+  assert.equal(timeZoneUtcRelation('Europe/Berlin', new Date('2026-07-15T12:00:00Z')), 'UTC+02:00');
+  assert.equal(
+    new Date(zonedLocalToEpoch('2026-07-15T12:00', 'Europe/Berlin') * 1000).toISOString(),
+    '2026-07-15T10:00:00.000Z',
+    'datetime-local must be interpreted in the chosen zone rather than the browser zone',
+  );
+
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  try {
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: { query: async () => ({ events: [] }) },
+      signerPubkey: 'aa'.repeat(32), defaultDisplayName: 'Host', defaultLud16: '', relays: ['wss://nos.lol'],
+    });
+    const picker = form.node.querySelector('#f-timezone');
+    assert.equal(picker.tagName, 'SELECT');
+    assert.ok(picker.options.length > 300, 'modern browsers should receive the full IANA zone list');
+    for (const option of picker.options) {
+      assert.match(option.textContent, / \(UTC[+-]\d{2}:\d{2}\)$/);
+    }
+    picker.value = 'Europe/Berlin';
+    const starts = form.node.querySelector('#f-start');
+    starts.value = '2026-07-15T12:00';
+    starts.dispatch('input');
+    assert.match(
+      picker.options.find((option) => option.value === 'Europe/Berlin').textContent,
+      /\(UTC\+02:00\)$/,
+    );
+  } finally {
+    restore();
+  }
+});
+
 test('competition creation is a guided wizard with a final review', async () => {
   const { window } = await import('./dev/mini-dom.mjs');
   const cleanup = window.install();

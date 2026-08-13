@@ -36,7 +36,131 @@ const select = (id, options, value) => el(
   options.map(([v, label]) => el('option', { attrs: { value: v, selected: v === value }, text: label })),
 );
 
-const toEpoch = (value) => Math.floor(new Date(value).getTime() / 1000);
+const FALLBACK_TIME_ZONES = [
+  'UTC', 'Africa/Cairo', 'Africa/Johannesburg', 'America/Anchorage', 'America/Argentina/Buenos_Aires',
+  'America/Chicago', 'America/Denver', 'America/Halifax', 'America/Los_Angeles', 'America/Mexico_City',
+  'America/New_York', 'America/Phoenix', 'America/Sao_Paulo', 'America/Toronto', 'America/Vancouver',
+  'Asia/Bangkok', 'Asia/Dubai', 'Asia/Hong_Kong', 'Asia/Jerusalem', 'Asia/Kolkata', 'Asia/Seoul',
+  'Asia/Shanghai', 'Asia/Singapore', 'Asia/Tokyo', 'Australia/Adelaide', 'Australia/Brisbane',
+  'Australia/Melbourne', 'Australia/Perth', 'Australia/Sydney', 'Europe/Amsterdam', 'Europe/Athens',
+  'Europe/Berlin', 'Europe/Helsinki', 'Europe/Lisbon', 'Europe/London', 'Europe/Madrid',
+  'Europe/Oslo', 'Europe/Paris', 'Europe/Prague', 'Europe/Rome', 'Europe/Stockholm', 'Europe/Vienna',
+  'Europe/Warsaw', 'Europe/Zurich', 'Pacific/Auckland', 'Pacific/Honolulu',
+];
+
+function normalizedTimeZone(value) {
+  const zone = String(value || '').trim();
+  return ['Etc/UTC', 'Etc/GMT', 'GMT'].includes(zone) ? 'UTC' : zone;
+}
+
+function validTimeZone(value) {
+  try {
+    new Intl.DateTimeFormat('en-US', { timeZone: value }).format(0);
+    return true;
+  } catch { return false; }
+}
+
+function offsetFromName(timeZone, date) {
+  for (const timeZoneName of ['longOffset', 'shortOffset']) {
+    try {
+      const name = new Intl.DateTimeFormat('en-US', {
+        timeZone, timeZoneName, hour: '2-digit', hourCycle: 'h23',
+      }).formatToParts(date).find((part) => part.type === 'timeZoneName')?.value;
+      if (name === 'GMT' || name === 'UTC') return 0;
+      const match = /^(?:GMT|UTC)([+-])(\d{1,2})(?::?(\d{2}))?$/.exec(name || '');
+      if (match) return (match[1] === '-' ? -1 : 1) * (Number(match[2]) * 60 + Number(match[3] || 0));
+    } catch { /* fall through to the universally supported parts formatter */ }
+  }
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', {
+    timeZone, year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23',
+  }).formatToParts(date).filter((part) => part.type !== 'literal').map((part) => [part.type, part.value]));
+  const representedAsUtc = Date.UTC(
+    Number(parts.year), Number(parts.month) - 1, Number(parts.day),
+    Number(parts.hour), Number(parts.minute), Number(parts.second),
+  );
+  return Math.round((representedAsUtc - date.getTime()) / 60000);
+}
+
+export function timeZoneUtcRelation(timeZone, at = new Date()) {
+  const minutes = offsetFromName(normalizedTimeZone(timeZone), at);
+  const sign = minutes < 0 ? '-' : '+';
+  const absolute = Math.abs(minutes);
+  return `UTC${sign}${String(Math.floor(absolute / 60)).padStart(2, '0')}:${String(absolute % 60).padStart(2, '0')}`;
+}
+
+function timeZoneReference(value) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(String(value || ''));
+  return match
+    ? new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]), Number(match[4]), Number(match[5])))
+    : new Date();
+}
+
+function timeZoneLabel(timeZone, at) {
+  return `${timeZone.replaceAll('_', ' ').replaceAll('/', ' / ')} (${timeZoneUtcRelation(timeZone, at)})`;
+}
+
+function supportedTimeZones(selected) {
+  const discovered = typeof Intl.supportedValuesOf === 'function'
+    ? Intl.supportedValuesOf('timeZone') : FALLBACK_TIME_ZONES;
+  const values = new Set(['UTC', ...discovered.map(normalizedTimeZone)]);
+  const normalizedSelected = normalizedTimeZone(selected);
+  if (validTimeZone(normalizedSelected)) values.add(normalizedSelected);
+  return [...values].sort((a, b) => (a === 'UTC' ? -1 : b === 'UTC' ? 1 : a.localeCompare(b)));
+}
+
+function timeZonePicker(id, value, at) {
+  const selected = validTimeZone(normalizedTimeZone(value)) ? normalizedTimeZone(value) : 'UTC';
+  const node = el('select', { attrs: { id, required: 'required' } }, supportedTimeZones(selected).map(
+    (zone) => el('option', {
+      attrs: { value: zone, selected: zone === selected, 'data-timezone': zone },
+      text: timeZoneLabel(zone, at),
+    }),
+  ));
+  node.value = selected;
+  return node;
+}
+
+function refreshTimeZonePicker(node, at) {
+  for (const option of node.querySelectorAll('option')) {
+    const zone = option.getAttribute('data-timezone') || option.value;
+    option.textContent = timeZoneLabel(zone, at);
+  }
+}
+
+function ensureTimeZoneOption(node, value, at) {
+  const zone = normalizedTimeZone(value);
+  if (!validTimeZone(zone)) return false;
+  if (![...node.querySelectorAll('option')].some((option) => option.value === zone)) {
+    node.append(el('option', {
+      attrs: { value: zone, 'data-timezone': zone }, text: timeZoneLabel(zone, at),
+    }));
+  }
+  return true;
+}
+
+/** Interpret a datetime-local value in the selected IANA zone, not the browser's zone. */
+export function zonedLocalToEpoch(value, timeZone) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(String(value || ''));
+  const zone = normalizedTimeZone(timeZone);
+  if (!match || !validTimeZone(zone)) return NaN;
+  const wallClockUtc = Date.UTC(
+    Number(match[1]), Number(match[2]) - 1, Number(match[3]), Number(match[4]), Number(match[5]),
+  );
+  let instant = wallClockUtc;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    instant = wallClockUtc - offsetFromName(zone, new Date(instant)) * 60000;
+  }
+  const actual = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
+    timeZone: zone, year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+  }).formatToParts(new Date(instant)).filter((part) => part.type !== 'literal').map((part) => [part.type, part.value]));
+  const reconstructed = `${actual.year}-${actual.month}-${actual.day}T${actual.hour}:${actual.minute}`;
+  // A spring DST jump contains local wall-clock times that never happen.
+  // Refuse those instead of silently moving the competition by an hour.
+  if (reconstructed !== value) return NaN;
+  return Math.floor(instant / 1000);
+}
 
 function defaultWhen(offsetHours) {
   const date = new Date(Date.now() + offsetHours * 3600 * 1000);
@@ -349,7 +473,9 @@ export function createCompetitionForm({
     checkinCloses: when('f-checkin-close', defaultWhen(26)),
     starts: when('f-start', defaultWhen(26)),
     ends: when('f-end', defaultWhen(29)),
-    timezone: text('f-timezone', Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC', { maxlength: '64', required: 'required' }),
+    timezone: timeZonePicker(
+      'f-timezone', Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC', timeZoneReference(defaultWhen(26)),
+    ),
 
     venueKind: select('f-venue-kind', [['physical', t('org.venue.physical')], ['online', t('org.venue.online')]], 'physical'),
     venue: text('f-venue', '', { maxlength: '120', required: 'required' }),
@@ -764,12 +890,12 @@ export function createCompetitionForm({
       visibility: f.visibility.value,
       status: 'draft',
       timezone: f.timezone.value.trim() || 'UTC',
-      registration_opens_at: toEpoch(f.regOpens.value),
-      registration_closes_at: toEpoch(f.regCloses.value),
-      checkin_opens_at: toEpoch(f.checkinOpens.value),
-      checkin_closes_at: toEpoch(f.checkinCloses.value),
-      starts_at: toEpoch(f.starts.value),
-      ends_at: toEpoch(f.ends.value),
+      registration_opens_at: zonedLocalToEpoch(f.regOpens.value, f.timezone.value),
+      registration_closes_at: zonedLocalToEpoch(f.regCloses.value, f.timezone.value),
+      checkin_opens_at: zonedLocalToEpoch(f.checkinOpens.value, f.timezone.value),
+      checkin_closes_at: zonedLocalToEpoch(f.checkinCloses.value, f.timezone.value),
+      starts_at: zonedLocalToEpoch(f.starts.value, f.timezone.value),
+      ends_at: zonedLocalToEpoch(f.ends.value, f.timezone.value),
       capacity: Number(f.capacity.value),
       waitlist_enabled: f.waitlist.checked,
       venue: f.venueKind.value === 'online'
@@ -891,13 +1017,22 @@ export function createCompetitionForm({
   f.progression.addEventListener('change', syncProgressionControls);
   syncProgressionControls();
 
+  const syncTimeZoneOffsets = () => refreshTimeZonePicker(f.timezone, timeZoneReference(f.starts.value));
+  f.starts.addEventListener('input', syncTimeZoneOffsets);
+  f.starts.addEventListener('change', syncTimeZoneOffsets);
+  syncTimeZoneOffsets();
+
   // Restore only known controls. The protocol-only layout id is always
   // derived again from the validated board catalogue.
   if (initialDraft && typeof initialDraft === 'object') {
     const values = initialDraft.fields && typeof initialDraft.fields === 'object' ? initialDraft.fields : {};
+    const restoredTimeZone = ensureTimeZoneOption(
+      f.timezone, values.timezone, timeZoneReference(values.starts),
+    ) ? normalizedTimeZone(values.timezone) : null;
     for (const [name, control] of Object.entries(f)) {
       if (!(name in values) || name === 'layoutId' || ['brand', 'model', 'size', 'angle'].includes(name)) continue;
       if (control.getAttribute('type') === 'checkbox') control.checked = Boolean(values[name]);
+      else if (name === 'timezone') control.value = restoredTimeZone || control.value;
       else control.value = String(values[name] ?? '');
     }
     if (typeof values.brand === 'string' && boardType(values.brand)) f.brand.value = values.brand;
@@ -928,6 +1063,7 @@ export function createCompetitionForm({
     syncFormatControls();
     syncFeeControls();
     syncProgressionControls();
+    syncTimeZoneOffsets();
   }
   const steps = [
     el('fieldset', { className: 'wizard-panel' }, [
@@ -942,7 +1078,7 @@ export function createCompetitionForm({
     el('fieldset', { className: 'wizard-panel' }, [
       el('legend', { text: t('org.when') }),
       el('p', { className: 'wizard-intro', text: t('org.when.intro') }),
-      field('f-timezone', t('org.field.timezone'), f.timezone),
+      field('f-timezone', t('org.field.timezone'), f.timezone, t('org.field.timezone.hint')),
       el('div', { className: 'schedule-grid' }, [
         el('section', { className: 'subcard' }, [
           el('h3', { text: t('org.schedule.registration') }),
@@ -1081,7 +1217,7 @@ export function createCompetitionForm({
       replace(reviewNode,
         reviewCard(0, t('org.basics'), f.title.value || t('org.review.missing'),
           `${f.organizerName.value} · ${t(`org.visibility.${f.visibility.value}`)}`),
-        reviewCard(1, t('org.when'), `${f.starts.value} → ${f.ends.value}`,
+        reviewCard(1, t('org.when'), `${f.starts.value} → ${f.ends.value} · ${timeZoneLabel(f.timezone.value, timeZoneReference(f.starts.value))}`,
           t('org.review.registration_window', { start: f.regOpens.value, end: f.regCloses.value })),
         reviewCard(2, t('org.board'), board
           ? `${boardType(f.brand.value)?.label || board.brand} · ${selectedModel()?.label || board.model}` : '—',
@@ -1177,7 +1313,7 @@ export function createCompetitionForm({
     }
     if (currentStep === 1) {
       const ordered = [f.regOpens, f.regCloses, f.checkinOpens, f.checkinCloses, f.starts, f.ends]
-        .map((control) => toEpoch(control.value));
+        .map((control) => zonedLocalToEpoch(control.value, f.timezone.value));
       if (ordered.some((value) => !Number.isFinite(value))
         || ordered.some((value, index) => index > 0 && value < ordered[index - 1])) {
         stepError.textContent = t('org.wizard.time_error');
