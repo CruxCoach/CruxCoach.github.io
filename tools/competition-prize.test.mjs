@@ -268,3 +268,87 @@ test('the claim deadline defaults to thirty days after the results', () => {
   assert.equal(claimDeadline(at, undefined), at + 30 * 86400);
   assert.equal(claimDeadline(at, 7), at + 7 * 86400);
 });
+
+// ── the encrypted channel, on a real key ──
+
+test('a claim survives the round trip through NIP-44 and still verifies', async () => {
+  // The end the organizer sees: a ciphertext off a relay, decrypted with their
+  // own key, checked against the standings before anybody looks at a wallet
+  // address.
+  const { KeyVaultSession } = await import('../competitions/app/signer/local-key.mjs');
+  const { createLocalSigner } = await import('../competitions/app/signer/signers.mjs');
+
+  const winnerSession = new KeyVaultSession({ storage: null });
+  winnerSession.generate();
+  const organizerSession = new KeyVaultSession({ storage: null });
+  organizerSession.generate();
+  const winner = createLocalSigner(winnerSession);
+  const organizer = createLocalSigner(organizerSession);
+
+  try {
+    const standings = [{ rank: 1, pubkey: winner.pubkey, division: 'open', display: 'Winner' }];
+    const plaintext = buildClaimBody({
+      compId: 'aa00bb11cc22dd33',
+      prizeId: 'place_1',
+      resultsHash: RESULTS,
+      payoutKind: 'lightning_address',
+      destination: 'winner@example.org',
+    });
+
+    const ciphertext = await winner.encrypt(organizer.pubkey, plaintext);
+    assert.notEqual(ciphertext, plaintext, 'the destination must not travel in the clear');
+    assert.ok(!ciphertext.includes('winner@example.org'), 'nor appear inside the ciphertext');
+
+    const decrypted = await organizer.decrypt(winner.pubkey, ciphertext);
+    const result = verifyClaim(decrypted, {
+      compId: 'aa00bb11cc22dd33',
+      claimantPubkey: winner.pubkey,
+      resultsHash: RESULTS,
+      standings,
+      prizes: [CASH],
+      prizeStates: {},
+      nowSeconds: 1_789_000_500,
+    });
+    assert.equal(result.ok, true, result.error);
+    assert.equal(result.claim.destination, 'winner@example.org');
+
+    // And the same ciphertext, presented as somebody else's claim, is refused
+    // on eligibility rather than on decryption.
+    const impostor = verifyClaim(decrypted, {
+      compId: 'aa00bb11cc22dd33',
+      claimantPubkey: CAROL,
+      resultsHash: RESULTS,
+      standings,
+      prizes: [CASH],
+      prizeStates: {},
+      nowSeconds: 1_789_000_500,
+    });
+    assert.equal(impostor.error, 'not_the_winner');
+  } finally {
+    winnerSession.dispose();
+    organizerSession.dispose();
+  }
+});
+
+test('a stranger cannot read a claim addressed to the organizer', async () => {
+  const { KeyVaultSession } = await import('../competitions/app/signer/local-key.mjs');
+  const { createLocalSigner } = await import('../competitions/app/signer/signers.mjs');
+
+  const sessions = [new KeyVaultSession({ storage: null }), new KeyVaultSession({ storage: null }),
+    new KeyVaultSession({ storage: null })];
+  sessions.forEach((session) => session.generate());
+  const [winner, organizer, stranger] = sessions.map(createLocalSigner);
+
+  try {
+    const ciphertext = await winner.encrypt(organizer.pubkey, buildClaimBody({
+      compId: 'aa00bb11cc22dd33',
+      prizeId: 'place_1',
+      resultsHash: RESULTS,
+      payoutKind: 'lightning_address',
+      destination: 'winner@example.org',
+    }));
+    await assert.rejects(() => stranger.decrypt(winner.pubkey, ciphertext));
+  } finally {
+    sessions.forEach((session) => session.dispose());
+  }
+});

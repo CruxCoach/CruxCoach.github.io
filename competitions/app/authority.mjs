@@ -215,6 +215,19 @@ export class AuthorityWriter {
     return this.append('payment_decision', data, { subjects: [pubkey] });
   }
 
+  /**
+   * A prize's public status.
+   *
+   * Carries no payout detail on purpose — the destination stayed encrypted
+   * between the winner and this console, and putting it here would publish it
+   * next to their name for good.
+   */
+  decidePrize(prizeId, pubkey, state, reason) {
+    const data = { prize_id: prizeId, state };
+    if (pubkey) data.pubkey = pubkey;
+    return this.append('prize_decision', data, { reason, subjects: pubkey ? [pubkey] : [] });
+  }
+
   decideClaim(pubkey, climbId, decision, reason) {
     return this.append('claim_decision', { pubkey, climb_id: climbId, decision, reason }, { subjects: [pubkey] });
   }
@@ -384,6 +397,28 @@ export class EntrantWriter {
 
   reportAttempt(climbId, outcome, attemptNo) {
     return this.send('attempt_report', { climb_id: climbId, outcome, attempt_no: attemptNo });
+  }
+
+  /**
+   * Ask for a prize.
+   *
+   * `ciphertext` is already NIP-44 encrypted to the organizer by the caller —
+   * this writer never sees a payout destination in the clear, and neither does
+   * any relay.
+   */
+  claimPrize(prizeId, ciphertext) {
+    return this.send('prize_claim', { prize_id: prizeId, enc: ciphertext });
+  }
+
+  /**
+   * Say the money arrived.
+   *
+   * The only evidence about a payout that comes from the side that was paid.
+   * Optional by nature: a winner who never sends one is not evidence of
+   * anything, and the organizer's screen says so rather than assuming.
+   */
+  acknowledgePrize(prizeId) {
+    return this.send('prize_receipt', { prize_id: prizeId, received: true });
   }
 
   claimPayment(zapReceiptId, bolt11) {

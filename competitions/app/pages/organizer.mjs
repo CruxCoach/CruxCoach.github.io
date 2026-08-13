@@ -23,6 +23,8 @@ import {
 import { reduce } from '../protocol/reduce.mjs';
 import { outstandingClaims, registrationOrder } from '../protocol/claims.mjs';
 import { verifyZapReceipt, receiptFilter, ZAP_RECEIPT_KIND } from '../protocol/zap.mjs';
+import { verifyClaim, eligibleWinner, claimDeadline } from '../protocol/prize.mjs';
+import { walletUri } from '../protocol/bolt11.mjs';
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
 import { competitionAddress } from '../protocol/competition.mjs';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
@@ -50,6 +52,15 @@ const intents = new Map();
  * organizer's decision after weighing it.
  */
 const receipts = new Map();
+
+/**
+ * prize_id -> a decrypted, checked claim.
+ *
+ * Decrypted once when the intent arrives and kept in memory only. Nothing here
+ * is written anywhere: a payout destination that reached storage would outlive
+ * the reason it was ever shared.
+ */
+const prizeClaims = new Map();
 const DRAFT_PREFIX = 'cruxcoach:competitions:create-draft:v1:';
 const DRAFT_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
 const WIZARD_HISTORY_KEY = 'cruxcoachCompetitionWizard';
@@ -444,6 +455,50 @@ let settling = false;
  * at a time, and re-entered by the store's own change notification once the
  * grants land, so a batch settles in log order rather than all at seq n+1.
  */
+/**
+ * Decrypt and check one prize claim.
+ *
+ * The check happens before the destination is ever put on screen, so an
+ * organizer looking at somebody's Lightning address has already been told
+ * whether the standings agree that this is the person who won.
+ *
+ * A claim that will not decrypt is an ordinary event: anybody can address a
+ * ciphertext to an organizer, and the console must not break because somebody
+ * sent it nonsense.
+ */
+async function readPrizeClaim(parsedIntent) {
+  const competition = store?.competition;
+  if (!competition || !signer?.decrypt) return;
+  const prizeId = parsedIntent.intent.data?.prize_id;
+  const ciphertext = parsedIntent.intent.data?.enc;
+  if (!prizeId || typeof ciphertext !== 'string') return;
+
+  let plaintext;
+  try {
+    plaintext = await signer.decrypt(parsedIntent.pubkey, ciphertext);
+  } catch {
+    prizeClaims.set(prizeId, { error: 'unreadable', pubkey: parsedIntent.pubkey });
+    render();
+    return;
+  }
+
+  const snapshot = store.snapshot();
+  const result = verifyClaim(plaintext, {
+    compId: competition.comp_id,
+    claimantPubkey: parsedIntent.pubkey,
+    resultsHash: snapshot.stateHash,
+    standings: snapshot.standings,
+    prizes: competition.prizes || [],
+    prizeStates: snapshot.state?.prizes || {},
+    nowSeconds: Math.floor(Date.now() / 1000),
+    deadline: claimDeadline(snapshot.state?.results_at || 0, competition.prize_claim_days),
+  });
+  prizeClaims.set(prizeId, result.ok
+    ? { claim: result.claim, prize: result.prize, pubkey: parsedIntent.pubkey }
+    : { error: result.error, pubkey: parsedIntent.pubkey });
+  render();
+}
+
 async function settleClaims() {
   if (settling || !writer || !store?.state) return;
   const owed = outstandingClaims(claimInputs(store.snapshot()));
@@ -762,6 +817,121 @@ function paymentControls(snapshot, participant) {
   return el('span', { className: 'row' }, controls);
 }
 
+/**
+ * Prize claims waiting on the organizer.
+ *
+ * Every claim is decrypted here and nowhere else, checked against the final
+ * standings before it is shown, and paid from the organizer's own wallet. The
+ * console never holds the money and cannot send it — it produces a wallet link
+ * and records what the organizer says happened.
+ *
+ * The check runs *before* the payout destination is displayed. An organizer
+ * looking at a Lightning address has already been told whether the person who
+ * sent it is the person the standings say won.
+ */
+function prizeClaimsPanel(snapshot) {
+  const competition = snapshot.competition;
+  const prizes = competition.prizes || [];
+  if (prizes.length === 0) return null;
+
+  const rows = [el('h2', { text: t('org.prizes.claims') })];
+  rows.push(el('p', { className: 'small', text: t('money.no_custody') }));
+
+  if (snapshot.state.status !== 'finished') {
+    rows.push(el('p', { className: 'small', text: t('org.prizes.not_final') }));
+    return el('section', { className: 'card' }, rows);
+  }
+
+  const deadline = claimDeadline(snapshot.state.results_at || 0, competition.prize_claim_days);
+  let any = false;
+
+  for (const prize of prizes) {
+    const status = snapshot.state.prizes?.[prize.id];
+    const claim = prizeClaims.get(prize.id);
+    const winner = eligibleWinner(snapshot.standings, prize);
+
+    rows.push(el('h3', {
+      text: prize.kind === 'cash'
+        ? t('prize.won_cash', { label: prize.label, sats: Math.round(prize.value_msat / 1000) })
+        : t('prize.won_goods', { label: prize.label }),
+    }));
+
+    if (!winner) {
+      // A tie, or a rank nobody reached. Neither is something the console can
+      // resolve on its own.
+      rows.push(el('p', { className: 'small', text: t('org.prizes.no_winner') }));
+      continue;
+    }
+    rows.push(el('p', { className: 'small', text: t('org.prizes.winner', { name: winner.display || shortKey(winner.pubkey) }) }));
+
+    if (status) {
+      rows.push(el('span', { className: 'badge', text: t(`prize.state.${status.state}`) }));
+    }
+    if (!claim) {
+      rows.push(el('p', { className: 'small', text: t('org.prizes.no_claim_yet') }));
+      continue;
+    }
+    any = true;
+
+    if (claim.error) {
+      // Named, not hidden: an organizer who sees "not the winner" knows not to
+      // pay, and one who sees "stale results" knows to ask for a fresh claim.
+      rows.push(el('p', { className: 'notice bad', text: t(`org.prizes.refused.${claim.error}`, {}) }));
+      rows.push(el('button', {
+        text: t('org.prizes.reject'),
+        on: { click: () => act(() => writer.decidePrize(prize.id, winner.pubkey, 'rejected')) },
+      }));
+      continue;
+    }
+
+    rows.push(
+      el('p', { className: 'small', text: t('org.prizes.destination') }),
+      el('p', { className: 'mono selectable wrap', text: claim.claim.destination }),
+    );
+    if (prize.kind === 'cash' && claim.claim.payout_kind !== 'non_cash') {
+      rows.push(el('a', {
+        className: 'button primary',
+        attrs: {
+          href: claim.claim.payout_kind === 'bolt11'
+            ? walletUri(claim.claim.destination)
+            : `lightning:${claim.claim.destination}`,
+        },
+        text: t('org.prizes.pay'),
+      }));
+    }
+    rows.push(el('div', { className: 'row' }, [
+      el('button', {
+        text: t('org.prizes.approve'),
+        on: { click: () => act(() => writer.decidePrize(prize.id, winner.pubkey, 'approved')) },
+      }),
+      el('button', {
+        className: 'primary',
+        text: t('org.prizes.mark_paid'),
+        on: {
+          click: () => act(async () => {
+            // "Paid" is the organizer's assertion and the spec says so. The
+            // reason is what makes it auditable rather than merely asserted.
+            const reason = prompt(t('org.prizes.paid_reason'));
+            if (!reason || !reason.trim()) throw new Error(t('org.prizes.paid_no_reason'));
+            await writer.decidePrize(prize.id, winner.pubkey, 'paid', reason.trim());
+          }),
+        },
+      }),
+      el('button', {
+        text: t('org.prizes.reject'),
+        on: { click: () => act(() => writer.decidePrize(prize.id, winner.pubkey, 'rejected')) },
+      }),
+    ]));
+    rows.push(el('p', { className: 'small', text: t('org.prizes.paid_is_your_word') }));
+  }
+
+  if (!any && snapshot.state.status === 'finished'
+    && Number.isInteger(deadline) && Math.floor(Date.now() / 1000) > deadline) {
+    rows.push(el('p', { className: 'small', text: t('org.prizes.deadline_passed') }));
+  }
+  return el('section', { className: 'card' }, rows);
+}
+
 function queuePanel(snapshot) {
   const state = snapshot.state;
   if (!['checkin_open', 'running'].includes(state.status)) return null;
@@ -953,6 +1123,7 @@ function render() {
     isAuthority ? requestsPanel(snapshot) : null,
     isAuthority ? entrantsPanel(snapshot) : null,
     isAuthority ? queuePanel(snapshot) : null,
+    isAuthority ? prizeClaimsPanel(snapshot) : null,
     sharePanel(snapshot),
     snapshot.state.rejected.length ? el('details', { className: 'disclosure' }, [
       el('summary', { text: String(snapshot.state.rejected.length) }),
@@ -1060,6 +1231,7 @@ async function start() {
       if (!known || parsedIntent.createdAt > known.createdAt
         || (parsedIntent.createdAt === known.createdAt && parsedIntent.eventId > known.eventId)) {
         intents.set(key, parsedIntent);
+        if (parsedIntent.intent.op === 'prize_claim') void readPrizeClaim(parsedIntent);
       }
       render();
       void settleClaims();

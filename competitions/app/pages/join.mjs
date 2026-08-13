@@ -17,6 +17,7 @@ import {
   resolvePayEndpoint, validatePayResponse, invoiceUrl, validateInvoiceResponse,
 } from '../protocol/lnurl.mjs';
 import { buildZapRequest } from '../protocol/zap.mjs';
+import { buildClaimBody, validateClaimInput, eligibleWinner } from '../protocol/prize.mjs';
 import {
   checkinWindowOpen, competitionAddress, registrationWindowOpen,
 } from '../protocol/competition.mjs';
@@ -817,6 +818,134 @@ function climbLabel(snapshot, climbId) {
   return climb?.label || climbId;
 }
 
+/**
+ * Claiming a prize you won.
+ *
+ * Only after the results are final, only for the prize you are actually
+ * standing at, and only through an encrypted channel: the payout destination
+ * goes to the organizer and nowhere else. The panel says, before anything is
+ * typed, that the money is the organizer's to send and CruxCoach's to record.
+ */
+function prizePanel(snapshot) {
+  const competition = snapshot.competition;
+  const prizes = competition.prizes || [];
+  if (prizes.length === 0) return null;
+  if (snapshot.state.status !== 'finished') return null;
+
+  const mine = me();
+  if (!mine || !signer) return null;
+
+  const resultsHash = snapshot.stateHash;
+  const claimable = prizes.filter((prize) => {
+    const winner = eligibleWinner(snapshot.standings, prize);
+    return winner && winner.pubkey === mine.pubkey;
+  });
+  if (claimable.length === 0) return null;
+
+  const rows = [el('h2', { text: t('prize.title') })];
+
+  for (const prize of claimable) {
+    const status = snapshot.state.prizes?.[prize.id];
+    const cash = prize.kind === 'cash';
+
+    rows.push(el('h3', {
+      text: cash
+        ? t('prize.won_cash', { label: prize.label, sats: Math.round(prize.value_msat / 1000) })
+        : t('prize.won_goods', { label: prize.label }),
+    }));
+    // Said before they hand over a wallet address: whose money this is.
+    rows.push(el('p', { className: 'small', text: t('money.prize_not_funded.entrant') }));
+
+    if (status && ['approved', 'paid'].includes(status.state) && status.pubkey === mine.pubkey) {
+      rows.push(el('p', { className: 'notice ok', text: t(`prize.state.${status.state}`) }));
+      if (status.state === 'paid') {
+        // The only evidence about a payout that comes from the person paid.
+        const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+        rows.push(el('button', {
+          text: t('prize.acknowledge'),
+          on: {
+            click: () => guard(async () => {
+              await entrant.acknowledgePrize(prize.id);
+              feedback.textContent = t('prize.acknowledged');
+            }, feedback),
+          },
+        }), feedback);
+      }
+      continue;
+    }
+    if (status && status.state === 'rejected') {
+      rows.push(el('p', { className: 'notice warn', text: t('prize.state.rejected') }));
+    }
+    if (status && status.state === 'expired') {
+      rows.push(el('p', { className: 'notice warn', text: t('prize.state.expired') }));
+      continue;
+    }
+    if (status && status.state === 'claimed') {
+      rows.push(el('p', { className: 'small', text: t('prize.state.claimed') }));
+    }
+
+    const kindSelect = el('select', { attrs: { id: `prize-kind-${prize.id}` } },
+      (cash
+        ? [['lightning_address', t('prize.kind.address')], ['bolt11', t('prize.kind.invoice')]]
+        : [['non_cash', t('prize.kind.non_cash')]]
+      ).map(([value, label]) => el('option', { attrs: { value }, text: label })));
+    const destination = el('input', {
+      attrs: {
+        type: 'text',
+        id: `prize-dest-${prize.id}`,
+        maxlength: '600',
+        placeholder: cash ? t('prize.dest.address_hint') : t('prize.dest.goods_hint'),
+      },
+    });
+    const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+
+    rows.push(
+      el('label', { attrs: { for: `prize-kind-${prize.id}` } }, [
+        el('span', { text: t('prize.kind') }), kindSelect,
+      ]),
+      el('label', { attrs: { for: `prize-dest-${prize.id}` } }, [
+        el('span', { text: t('prize.dest') }),
+        el('span', { className: 'hint', text: t('prize.dest.hint') }),
+        destination,
+      ]),
+      el('button', {
+        className: 'primary',
+        text: t('prize.claim'),
+        on: {
+          click: () => guard(async () => {
+            const payoutKind = kindSelect.value;
+            const checked = validateClaimInput({
+              prize,
+              payoutKind,
+              destination: destination.value,
+              nowSeconds: Math.floor(Date.now() / 1000),
+            });
+            // Refused here rather than by the organizer later: the winner is
+            // standing right there and can fix it.
+            if (!checked.ok) throw new Error(t(`prize.error.${checked.error}`, {}));
+
+            if (!signer.encrypt) throw new Error(t('prize.error.no_encryption'));
+            const body = buildClaimBody({
+              compId: competition.comp_id,
+              prizeId: prize.id,
+              resultsHash,
+              payoutKind,
+              destination: destination.value,
+            });
+            const ciphertext = await signer.encrypt(competition.authority, body);
+            await entrant.claimPrize(prize.id, ciphertext);
+            feedback.textContent = t('prize.sent');
+            announce(t('prize.sent'));
+          }, feedback),
+        },
+      }),
+      feedback,
+    );
+  }
+
+  return el('section', { className: 'card raised' }, rows);
+}
+
 function leaderboard(snapshot) {
   if (!snapshot.standings.length) return null;
   const mine = me();
@@ -878,6 +1007,7 @@ function render() {
     header(snapshot),
     registrationPanel(snapshot),
     livePanel(snapshot),
+    prizePanel(snapshot),
     leaderboard(snapshot),
     announcements(snapshot),
     rejections(snapshot),
