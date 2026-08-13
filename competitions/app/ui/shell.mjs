@@ -38,6 +38,7 @@ export class SignIn {
     this.remoteSession = new Nip46ConnectionSession();
     this.entryMode = null;
     this.pendingKey = null;
+    this.pendingLocalPersist = false;
     this.pendingNip46 = null;
     this.error = null;
     this.busy = false;
@@ -80,6 +81,10 @@ export class SignIn {
 
   async use(signer, method) {
     this.signer = signer;
+    if (method === 'local') {
+      this.pendingKey = null;
+      this.pendingLocalPersist = false;
+    }
     this.profile = null;
     this.error = null;
     if (method) this.rememberMethod(method);
@@ -110,6 +115,7 @@ export class SignIn {
     this.session.lock();
     this.remoteSession.lock();
     this.entryMode = null;
+    this.pendingLocalPersist = false;
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
     this.render();
     this.onChange(null, null);
@@ -128,6 +134,7 @@ export class SignIn {
     this.gate?.reset();
     this.remoteSession.forget();
     this.entryMode = null;
+    this.pendingLocalPersist = false;
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
     this.render();
     this.onChange(null, null);
@@ -143,6 +150,7 @@ export class SignIn {
     this.gate?.reset();
     this.session.forget();
     this.entryMode = null;
+    this.pendingLocalPersist = false;
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
     this.render();
     this.onChange(null, null);
@@ -206,6 +214,7 @@ export class SignIn {
     }
 
     if (this.pendingKey) { this.renderBackup(); return; }
+    if (this.pendingLocalPersist) { this.renderPersist(); return; }
     if (this.pendingNip46) { this.renderNip46Persist(); return; }
 
     const children = [el('h2', { text: t('signin.title') }), el('p', { text: t('signin.intro') })];
@@ -383,6 +392,7 @@ export class SignIn {
             click: () => this.run(async () => {
               if (this.session.hasStoredKey() && !confirm(t('signin.new.replace.confirm'))) return;
               this.session = new KeyVaultSession();
+              this.pendingLocalPersist = false;
               this.pendingKey = this.session.generate();
               this.render();
             }),
@@ -559,6 +569,7 @@ export class SignIn {
             feedback.textContent = t('key.confirm.done');
             this.pendingKey = null;
             if (this.session.storage) {
+              this.pendingLocalPersist = true;
               this.renderPersist();
             } else {
               await this.use(createLocalSigner(this.session), 'local');
@@ -575,6 +586,7 @@ export class SignIn {
     replace(this.mount, el('div', { className: 'card' }, [
       el('h2', { text: t('key.save.title') }),
       el('p', { className: 'small', text: t('key.save.hint') }),
+      this.error ? el('div', { className: 'notice bad' }, [el('p', { text: this.error })]) : null,
       el('label', { attrs: { for: 'new-pass' } }, [
         el('span', { text: t('signin.passphrase') }),
         el('span', { className: 'hint', text: t('signin.passphrase.hint') }),
