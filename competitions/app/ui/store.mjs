@@ -46,6 +46,8 @@ export class CompetitionStore {
     this.subscriptions = [];
     this.reducing = false;
     this.dirty = false;
+    /** Local transport freshness only; never part of the reduced/event state. */
+    this.lastSyncedAt = 0;
   }
 
   onChange(listener) {
@@ -68,6 +70,9 @@ export class CompetitionStore {
       problems: [...this.problems],
       developmentRelay: usesDevelopmentRelay(this.pool.urls),
       entryCount: this.entries.size,
+      connectedRelays: this.pool.connectedUrls.length,
+      relayCount: this.pool.urls.length,
+      lastSyncedAt: this.lastSyncedAt,
     };
   }
 
@@ -119,6 +124,7 @@ export class CompetitionStore {
     }
     this.competition = parsed.competition;
     this.competitionEventId = newest.id;
+    this.lastSyncedAt = this.now();
     await this.recompute();
     return { ok: true, competition: parsed.competition };
   }
@@ -143,7 +149,13 @@ export class CompetitionStore {
       return false;
     }
     this.entries.set(event.id, parsed);
+    this.lastSyncedAt = this.now();
     return true;
+  }
+
+  /** Relay transport changed. Screens may update a local offline hint. */
+  connectionChanged() {
+    this.emit();
   }
 
   /** Re-reduce and notify. Coalesces bursts so a backfill re-renders once. */

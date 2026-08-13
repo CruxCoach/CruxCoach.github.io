@@ -12,7 +12,7 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-16';
+} from './common.mjs?v=20260813-17';
 import { SignIn } from '../ui/shell.mjs?v=20260813-10';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260813-1';
@@ -32,7 +32,7 @@ import { createCompetitionForm } from './organizer-form.mjs?v=20260813-20';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs?v=20260813-2';
 import { announce, displayName, formatDateTime, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-19';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-20';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
 
 const { t, language } = bootstrap();
@@ -283,7 +283,7 @@ function overviewSection() {
             on: { click: () => { location.hash = naddr; start(); } },
           }),
           el('a', {
-            className: 'button',
+            className: 'button primary',
             text: t('org.projector'),
             attrs: { href: `live.html#${naddr}`, target: '_blank', rel: 'noopener' },
           }),
@@ -1059,7 +1059,7 @@ function sharePanel(snapshot) {
         },
       }),
       el('a', {
-        className: 'button',
+        className: 'button primary',
         text: t('org.projector'),
         attrs: { href: `live.html#${ref.naddr}`, target: '_blank', rel: 'noopener' },
       }),

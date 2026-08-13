@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-14';
+} from './common.mjs?v=20260813-17';
 import { SignIn } from '../ui/shell.mjs?v=20260813-10';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
@@ -25,8 +25,9 @@ import { EntrantWriter } from '../authority.mjs?v=20260813-1';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-17';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-20';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
+import { personalCue, queuePreview, rotationPreview, syncHealth } from '../ui/live-view.mjs?v=20260813-1';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-1';
 import {
   BOARD_TYPES, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
@@ -48,6 +49,7 @@ let catalogueDetails = new Map();
 let catalogueState = 'idle';
 let catalogueError = '';
 let catalogueCompetition = '';
+let lastHealthKind = '';
 
 function catalogueBoard(competition) {
   const board = competition.board;
@@ -831,61 +833,83 @@ function claimStatus(snapshot, mine) {
 
 function livePanel(snapshot) {
   const state = snapshot.state;
-  if (!['running', 'paused', 'finished'].includes(state.status)) {
-    return el('section', { className: 'card' }, [
-      el('h2', { text: t('live.current') }),
-      el('p', { text: t('live.waiting') }),
-    ]);
-  }
-
   const current = store.currentClimber();
+  const next = store.nextClimber();
   const currentParticipant = current ? store.participant(current) : null;
+  const nextParticipant = next ? store.participant(next) : null;
   const mine = me();
   const isMyTurn = Boolean(mine && current === mine.pubkey);
-  const rows = [el('h2', { text: t('live.current') })];
+  const cue = personalCue(state, mine?.pubkey);
+  const queue = queuePreview(state, state.participants, 6);
+  const rotation = rotationPreview(snapshot.competition, state, mine, 4);
+  const activeClimb = snapshot.competition.rules.climb_source === 'participant_choice'
+    ? rotation.entries[0]
+    : (snapshot.competition.climbs || []).find((climb) => climb.id === state.current_climb_id);
+  const cueKey = `live.cue.${cue.kind}`;
+  const cueText = cue.kind === 'queued' ? t(cueKey, { n: cue.ahead }) : t(cueKey);
+  const rows = [
+    el('div', { className: `participant-live-hero cue-${cue.kind}` }, [
+      el('div', {}, [
+        el('p', { className: 'eyebrow', text: t(`status.${state.status}`) }),
+        el('h2', { text: cueText }),
+        el('p', { className: 'participant-next-task', text: activeClimb
+          ? t('live.your_next_climb', { climb: activeClimb.label || activeClimb.id })
+          : t('live.no_next_climb') }),
+      ]),
+      el('div', { className: 'participant-turn-facts' }, [
+        el('span', { text: currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
+        state.status === 'running' && el('strong', {
+          className: 'mono', attrs: { id: 'deadline' }, text: formatSeconds(store.secondsToDeadline()),
+        }),
+      ]),
+    ]),
+  ];
 
-  if (isMyTurn) {
-    rows.push(el('div', { className: 'turn-banner', attrs: { role: 'status' } }, [
-      el('div', { text: t('live.your_turn') }),
-      el('div', { className: 'small', text: t('live.your_turn.hint') }),
-    ]));
+  if (!['running', 'paused', 'finished'].includes(state.status)) {
+    rows.push(el('p', { className: 'participant-waiting', text: t('live.waiting') }));
   }
 
-  rows.push(el('dl', { className: 'key-value' }, [
-    el('dt', { text: t('live.current') }),
-    el('dd', { text: currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
-    el('dt', { text: t('org.next_climb') }),
-    el('dd', { text: climbLabel(snapshot, state.current_climb_id) }),
-    el('dt', { text: t('live.deadline') }),
-    el('dd', { className: 'mono', attrs: { id: 'deadline' }, text: formatSeconds(store.secondsToDeadline()) }),
+  if (['running', 'paused'].includes(state.status)) rows.push(el('div', { className: 'participant-live-grid' }, [
+    el('section', { className: 'subcard' }, [
+      el('h3', { text: t('live.now_and_next') }),
+      el('dl', { className: 'key-value' }, [
+        el('dt', { text: t('live.current') }),
+        el('dd', { text: currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
+        el('dt', { text: t('live.current_climb') }),
+        el('dd', { text: climbLabel(snapshot, state.current_climb_id) }),
+        el('dt', { text: t('live.next') }),
+        el('dd', { text: nextParticipant ? displayName(nextParticipant) : '—' }),
+      ]),
+    ]),
+    el('section', { className: 'subcard' }, [
+      el('h3', { text: t('live.climber_queue') }),
+      queue.entries.length ? el('ol', { className: 'participant-queue' }, queue.entries.map((entry) => el('li', {
+        className: entry.pubkey === mine?.pubkey ? 'me' : entry.current ? 'is-current' : '',
+      }, [
+        el('span', { text: entry.current ? t('live.now_short') : String(entry.queuePosition + 1) }),
+        el('strong', { text: entry.participant ? displayName(entry.participant) : shortKey(entry.pubkey) }),
+      ]))) : el('p', { className: 'small', text: t('live.queue_empty') }),
+      queue.hidden > 0 && el('p', { className: 'small', text: t('live.more', { n: queue.hidden }) }),
+    ]),
   ]));
 
   if (mine) {
     const before = store.climbersBefore(mine.pubkey);
-    rows.push(el('dl', { className: 'key-value' }, [
-      el('dt', { text: t('live.before_you') }),
-      el('dd', { text: before === null ? '—' : String(before) }),
-      el('dt', { text: t('live.attempts_left') }),
-      el('dd', { text: String(store.attemptsLeft(mine.pubkey, state.current_climb_id)) }),
-      el('dt', { text: t('live.defers_left') }),
-      el('dd', { text: String(store.defersLeft(mine.pubkey)) }),
+    rows.push(el('section', { className: 'participant-my-status' }, [
+      el('h3', { text: t('live.your_status') }),
+      el('div', { className: 'participant-metrics' }, [
+        el('div', {}, [el('strong', { text: before === null ? '—' : String(before) }), el('span', { text: t('live.before_you') })]),
+        el('div', {}, [el('strong', { text: String(store.attemptsLeft(mine.pubkey, activeClimb?.id || state.current_climb_id)) }), el('span', { text: t('live.attempts_left') })]),
+        el('div', {}, [el('strong', { text: String(store.defersLeft(mine.pubkey)) }), el('span', { text: t('live.defers_left') })]),
+      ]),
+      rotation.entries.length && el('div', { className: 'participant-rotation' }, [
+        el('h3', { text: t('live.your_rotation') }),
+        el('ol', {}, rotation.entries.map((climb, index) => el('li', {
+          className: index === 0 ? 'is-next' : '', text: `${climb.label || climb.id}${Number.isInteger(climb.angle) ? ` · ${climb.angle}°` : ''}`,
+        }))),
+        rotation.hidden > 0 && el('p', { className: 'small', text: t('live.more', { n: rotation.hidden }) }),
+      ]),
     ]));
-
-    // The defer control EXISTS only when it can be used. A disabled button
-    // that never explains itself is a worse answer than a sentence.
-    if (store.canDefer(mine.pubkey)) {
-      rows.push(
-        el('p', { className: 'small', text: t('live.defer.hint', { n: snapshot.competition.rules.defer_slots }) }),
-        el('button', {
-          text: t('live.defer'),
-          on: {
-            click: () => guard(() => entrant.requestDefer(state.current_climb_id, state.turn_deadline_at)),
-          },
-        }),
-      );
-    } else if (isMyTurn && store.defersLeft(mine.pubkey) === 0) {
-      rows.push(el('p', { className: 'small', text: t('live.defer.none') }));
-    }
 
     if (snapshot.competition.rules.progression === 'asynchronous_turns') {
       rows.push(...nextClimbChooser(snapshot, mine));
@@ -897,9 +921,32 @@ function livePanel(snapshot) {
           text: `${climbLabel(snapshot, climb.climb_id)} — ${climb.outcome} (${climb.attempts_used})`,
         }))));
     }
+
+    if (['running', 'paused'].includes(state.status)) {
+      const actions = [];
+      if (activeClimb?.climb_uuid) actions.push(el('a', {
+        className: `button ${isMyTurn ? 'primary' : ''}`,
+        text: isMyTurn ? t('live.open_now') : t('live.prepare_board'),
+        attrs: { href: `/c/${activeClimb.climb_uuid}` },
+      }));
+      if (store.canDefer(mine.pubkey)) actions.push(el('button', {
+        text: t('live.defer'),
+        on: { click: () => guard(() => entrant.requestDefer(state.current_climb_id, state.turn_deadline_at)) },
+      }));
+      const reason = !store.canDefer(mine.pubkey) && isMyTurn
+        ? (state.paused ? t('next.paused') : store.defersLeft(mine.pubkey) === 0
+          ? t('live.defer.none') : t('live.defer.consecutive')) : '';
+      if (actions.length || reason) rows.push(el('aside', { className: 'participant-actions' }, [
+        el('div', { className: 'participant-actions-copy' }, [
+          el('strong', { text: isMyTurn ? t('live.your_turn') : t('live.next_action') }),
+          el('span', { text: reason || (isMyTurn ? t('live.your_turn.hint') : t('live.prepare_hint')) }),
+        ]),
+        el('div', { className: 'row' }, actions),
+      ]));
+    }
   }
 
-  return el('section', { className: 'card' }, rows);
+  return el('section', { className: 'card participant-live' }, rows);
 }
 
 /**
@@ -1104,7 +1151,7 @@ function prizePanel(snapshot) {
 }
 
 function leaderboard(snapshot) {
-  if (!snapshot.standings.length) return null;
+  if (!snapshot.standings.length || !store.trustworthy) return null;
   const mine = me();
   const points = usesPointLeaderboard(snapshot.competition);
   return el('section', { className: 'card' }, [
@@ -1182,22 +1229,40 @@ function rejections(snapshot) {
   ]);
 }
 
+function transportNotice(snapshot) {
+  const health = syncHealth(snapshot, Math.floor(Date.now() / 1000));
+  lastHealthKind = health.kind;
+  if (health.kind === 'live') return null;
+  const key = health.kind === 'stale' ? 'live.stale'
+    : health.kind === 'offline' ? 'live.offline' : 'live.connecting';
+  return el('div', { className: 'notice warn', attrs: { role: 'status' } }, [
+    el('p', { text: t(key) }),
+    health.age !== null && el('p', { className: 'small', text: t('live.last_update', { n: health.age }) }),
+  ]);
+}
+
 function render() {
   if (!store) { replace(view, openForm()); return; }
   const snapshot = store.snapshot();
   if (!snapshot.state) return;
 
-  replace(view,
-    devRelayBanner(store, t),
-    ...integrityNotices(snapshot, t),
+  const liveFirst = ['running', 'paused', 'finished', 'cancelled'].includes(snapshot.state.status);
+  const shared = [
+    liveFirst ? livePanel(snapshot) : null,
     header(snapshot),
     fixedClimbsPanel(snapshot),
     registrationPanel(snapshot),
-    livePanel(snapshot),
+    liveFirst ? null : livePanel(snapshot),
     prizePanel(snapshot),
     leaderboard(snapshot),
     announcements(snapshot),
     rejections(snapshot),
+  ];
+  replace(view,
+    devRelayBanner(store, t),
+    ...integrityNotices(snapshot, t),
+    transportNotice(snapshot),
+    ...shared,
     el('details', { className: 'disclosure' }, [
       el('summary', { text: t('org.share') }),
       el('p', { className: 'mono selectable', text: joinLink(ref.naddr) }),
@@ -1205,8 +1270,9 @@ function render() {
 
   // Announce a turn change once, not on every re-render.
   const mine = me();
-  if (mine && store.currentClimber() === mine.pubkey && lastTurnAnnouncement !== snapshot.state.seq) {
-    lastTurnAnnouncement = snapshot.state.seq;
+  const turnAnnouncement = `${snapshot.state.round}:${snapshot.state.turn_opened_at}:${mine?.pubkey || ''}`;
+  if (mine && store.currentClimber() === mine.pubkey && lastTurnAnnouncement !== turnAnnouncement) {
+    lastTurnAnnouncement = turnAnnouncement;
     announce(t('live.your_turn'), { assertive: true });
   }
 }
@@ -1248,6 +1314,8 @@ async function start() {
   ticker = setInterval(() => {
     const node = byId('deadline');
     if (node && store) node.textContent = formatSeconds(store.secondsToDeadline());
+    const health = store ? syncHealth(store.snapshot(), Math.floor(Date.now() / 1000)) : null;
+    if (health && health.kind !== lastHealthKind) render();
   }, 1000);
 }
 

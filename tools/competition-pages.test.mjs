@@ -65,6 +65,35 @@ test('the competition front door and host workspace keep their distinct visual s
   assert.match(css, /\.competition-wizard \.board-preview\s*\{[^}]*position: sticky/s);
 });
 
+test('projection and participant live views expose the shared event hierarchy', () => {
+  const live = fs.readFileSync(path.join(root, 'competitions/app/pages/live.mjs'), 'utf8');
+  const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
+  const policy = fs.readFileSync(path.join(root, 'competitions/app/ui/live-view.mjs'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'competitions/app/competitions.css'), 'utf8');
+
+  for (const marker of [
+    'projection-hero', 'projection-queue', 'projection-rotation', 'projection-ranking',
+    'projection-announcement', 'projection-fullscreen',
+  ]) assert.ok(live.includes(marker), `projection is missing ${marker}`);
+  for (const marker of [
+    'participant-live-hero', 'participant-queue', 'participant-rotation', 'participant-actions',
+  ]) assert.ok(join.includes(marker), `participant view is missing ${marker}`);
+  for (const derivation of ['queuePreview', 'rotationPreview', 'personalCue', 'syncHealth', 'tiedAt']) {
+    assert.ok(policy.includes(`function ${derivation}`), `live policy is missing ${derivation}`);
+  }
+  assert.match(css, /:fullscreen \.site-header/);
+  assert.match(css, /\.participant-actions\s*\{[^}]*position: sticky/s);
+  assert.match(css, /\.projector \.now\s*\{[^}]*min-height:/s,
+    'ticker text needs a reserved line box to avoid layout jumps');
+});
+
+test('live ranking fails closed on an incomplete or forked record', () => {
+  const live = fs.readFileSync(path.join(root, 'competitions/app/pages/live.mjs'), 'utf8');
+  const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
+  assert.match(live, /!snapshot\.state\.chain_complete \|\| snapshot\.state\.fork_detected/);
+  assert.match(join, /!store\.trustworthy/);
+});
+
 // ── the repository's own rules ──
 
 test('every English page has a German mirror with the same structure', () => {
