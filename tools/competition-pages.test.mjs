@@ -908,6 +908,29 @@ test('participant and repick pickers gate actions on verified catalogue readines
   assert.match(join, /function fixedClimbsPanel/);
 });
 
+test('the organizer catalogue loads automatically and only exposes retry after failure', async () => {
+  const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  try {
+    let loads = 0;
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: null,
+      signerPubkey: 'a'.repeat(64), defaultDisplayName: 'Host', defaultLud16: '', relays: [],
+      catalogueLoader: async () => { loads += 1; return { climbs: [] }; },
+    });
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    assert.equal(loads, 1, 'a complete default board should start loading without a click');
+    assert.equal(form.node.textContent.includes('Load app catalogue'), false);
+    const retry = form.node.querySelectorAll('button')
+      .find((button) => button.textContent === 'Try loading again');
+    assert.equal(retry?.getAttribute('hidden'), 'hidden',
+      'retry must stay hidden after a successful automatic load');
+  } finally {
+    restore();
+  }
+});
+
 test('the organizer form builds a competition every validator accepts', async () => {
   // The form is DOM code, so this drives `build()` through a minimal document
   // rather than asserting on its source. What it proves is the thing a source

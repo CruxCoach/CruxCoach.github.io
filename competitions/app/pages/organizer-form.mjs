@@ -850,14 +850,17 @@ export function createCompetitionForm({
   browserSearchField.setAttribute('hidden', 'hidden');
   let browserCandidates = [];
   let browserLoading = false;
+  let browserState = 'idle';
+  let browserLoadToken = 0;
   const catalogueActionStatus = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
   const selectionLimit = () => f.climbSource.value === 'organizer_set' ? Number(f.climbCount.value) : 60;
   let addManualButton;
-  let browseClimbsButton;
+  let retryCatalogueButton;
   const refreshCatalogueActions = () => {
     const noBoard = !boardOf();
     const atLimit = climbEditor.rows.length >= selectionLimit();
-    browseClimbsButton.disabled = noBoard || browserLoading || atLimit;
+    retryCatalogueButton.hidden = browserState !== 'error';
+    retryCatalogueButton.disabled = noBoard || browserLoading || atLimit;
     addManualButton.disabled = noBoard || browserLoading || atLimit;
     catalogueActionStatus.textContent = noBoard ? t('climb.action.no_board')
       : browserLoading ? t('climb.action.loading')
@@ -865,12 +868,17 @@ export function createCompetitionForm({
   };
 
   onBoardChange = () => {
+    browserLoadToken += 1;
+    browserState = 'idle';
+    browserLoading = false;
     browserCandidates = [];
     browserSearch.value = '';
     browserSearchField.setAttribute('hidden', 'hidden');
     replace(browserResults);
     browserStatus.textContent = t('climb.browser.board_changed');
     climbEditor.announceBoardChange();
+    refreshCatalogueActions();
+    void browseClimbs();
   };
 
   const renderBrowserResults = () => {
@@ -907,13 +915,22 @@ export function createCompetitionForm({
   }
 
   const browseClimbs = async () => {
+    const board = boardOf();
+    const catalogueBoard = catalogueBoardOf();
+    if (!board || !catalogueBoard) {
+      browserState = 'idle';
+      browserLoading = false;
+      refreshCatalogueActions();
+      return;
+    }
+    const token = ++browserLoadToken;
+    browserState = 'loading';
     browserLoading = true; refreshCatalogueActions();
     browserStatus.textContent = t('climb.browser.loading_catalogue');
     replace(browserResults);
     try {
-      const board = boardOf();
-      const catalogueBoard = catalogueBoardOf();
       const { climbs } = await catalogueLoader(catalogueBoard);
+      if (token !== browserLoadToken) return;
       const candidates = climbs.map((described) => ({
         described,
         compatibility: checkBoardCompatibility(described, board),
@@ -926,6 +943,7 @@ export function createCompetitionForm({
         browserStatus.textContent = t('climb.browser.loading_recent');
         const { events } = await pool.query([{ kinds: [30078], limit: 120 }], { timeoutMs: 7000 })
           .catch(() => ({ events: [] }));
+        if (token !== browserLoadToken) return;
         for (const event of events) {
           // eslint-disable-next-line no-await-in-loop
           if (!await verifyEvent(event).catch(() => false)) continue;
@@ -940,6 +958,7 @@ export function createCompetitionForm({
         (candidate) => [candidate.described.uuid, candidate],
       )).values()].sort((a, b) => (b.described.ascents || 0) - (a.described.ascents || 0)
         || a.described.label.localeCompare(b.described.label));
+      browserState = 'ready';
       if (browserCandidates.length) {
         browserSearchField.removeAttribute('hidden');
         renderBrowserResults();
@@ -948,13 +967,19 @@ export function createCompetitionForm({
         browserStatus.textContent = t('climb.browser.empty');
       }
     } catch {
+      if (token !== browserLoadToken) return;
+      browserState = 'error';
       browserStatus.textContent = t('climb.browser.error');
     } finally {
-      browserLoading = false; refreshCatalogueActions();
+      if (token === browserLoadToken) {
+        browserLoading = false;
+        refreshCatalogueActions();
+      }
     }
   };
-  browseClimbsButton = el('button', {
-    className: 'button-wide', text: t('climb.browser.open'), on: { click: browseClimbs },
+  retryCatalogueButton = el('button', {
+    className: 'button-wide', text: t('select.catalogue.retry'), attrs: { hidden: 'hidden' },
+    on: { click: browseClimbs },
   });
 
   const renderClimbSection = () => {
@@ -965,7 +990,7 @@ export function createCompetitionForm({
       el('div', { className: 'climb-browser card raised' }, [
         el('h3', { text: t('climb.browser.title') }),
         el('p', { className: 'small', text: t('climb.browser.hint') }),
-        browseClimbsButton,
+        retryCatalogueButton,
         browserSearchField,
         el('div', { className: 'climb-filter-grid' }, [
           field(difficultyMin.id, t('climb.filter.min_grade'), difficultyMin),
@@ -996,7 +1021,13 @@ export function createCompetitionForm({
   };
   renderClimbSection();
   refreshCatalogueActions();
-  f.climbSource.addEventListener('change', () => { renderClimbSection(); renderModeNotes(); });
+  void browseClimbs();
+  f.climbSource.addEventListener('change', () => {
+    renderClimbSection();
+    refreshCatalogueActions();
+    renderBrowserResults();
+    renderModeNotes();
+  });
 
   const modeNotes = el('div', {});
   const renderModeNotes = () => {
