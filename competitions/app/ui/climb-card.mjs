@@ -286,7 +286,18 @@ export function climbCard({ climb, board, t, selected = false, taken = false,
   ]);
 }
 
-export function filterCatalogue(climbs, { query = '', minDifficulty = '', maxDifficulty = '', minAscents = '', sort = 'popular' } = {}) {
+function randomRank(value, seed) {
+  let hash = (2166136261 ^ Number(seed)) >>> 0;
+  for (const character of String(value || '')) {
+    hash ^= character.codePointAt(0);
+    hash = Math.imul(hash, 16777619) >>> 0;
+  }
+  return hash;
+}
+
+export function filterCatalogue(climbs, {
+  query = '', minDifficulty = '', maxDifficulty = '', minAscents = '', sort = 'popular', randomSeed = 0,
+} = {}) {
   const needle = query.trim().toLocaleLowerCase();
   const min = minDifficulty === '' ? -Infinity : Number(minDifficulty);
   const max = maxDifficulty === '' ? Infinity : Number(maxDifficulty);
@@ -299,6 +310,13 @@ export function filterCatalogue(climbs, { query = '', minDifficulty = '', maxDif
     if (sort === 'hardest') return (b.described.difficulty ?? -Infinity) - (a.described.difficulty ?? -Infinity);
     if (sort === 'easiest') return (a.described.difficulty ?? Infinity) - (b.described.difficulty ?? Infinity);
     if (sort === 'quality') return (b.described.quality || 0) - (a.described.quality || 0);
+    if (sort === 'quality_sends') return ((b.described.quality || 0) * (b.described.ascents || 0))
+      - ((a.described.quality || 0) * (a.described.ascents || 0));
+    if (sort === 'newest') return (b.described.createdAt || 0) - (a.described.createdAt || 0);
+    if (sort === 'most_moves') return (b.described.holds?.length || 0) - (a.described.holds?.length || 0);
+    if (sort === 'fewest_moves') return (a.described.holds?.length || 0) - (b.described.holds?.length || 0);
+    if (sort === 'random') return randomRank(a.described.uuid || a.described.label, randomSeed)
+      - randomRank(b.described.uuid || b.described.label, randomSeed);
     return (b.described.ascents || 0) - (a.described.ascents || 0);
   });
 }

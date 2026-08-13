@@ -21,11 +21,11 @@ import {
   BOARD_TYPES, boardType, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
   resolveBoardSelection, resolveCatalogueSelection,
 } from '../protocol/board-catalog.mjs?v=20260813-1';
-import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-1';
+import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-2';
 import { loadVenueCatalogue, searchVenues } from '../data/venue-catalogue.mjs';
 import {
   climbCard, filterCatalogue, gradeFilterOptions, saveGradeScale, storedGradeScale, zoneCandidateHolds,
-} from '../ui/climb-card.mjs?v=20260813-5';
+} from '../ui/climb-card.mjs?v=20260813-6';
 
 const text = (id, value = '', attrs = {}) => el('input', { attrs: { type: 'text', id, value, ...attrs } });
 const num = (id, value, attrs = {}) => el('input', { attrs: { type: 'number', id, value: String(value), required: 'required', ...attrs } });
@@ -988,7 +988,10 @@ export function createCompetitionForm({
   ], '0');
   const browserSort = select('f-climb-sort', [
     ['popular', t('climb.filter.popular')], ['quality', t('climb.filter.quality')],
+    ['quality_sends', t('climb.filter.quality_sends')], ['newest', t('climb.filter.newest')],
+    ['random', t('climb.filter.random')],
     ['easiest', t('climb.filter.easiest')], ['hardest', t('climb.filter.hardest')],
+    ['most_moves', t('climb.filter.most_moves')], ['fewest_moves', t('climb.filter.fewest_moves')],
   ], 'popular');
   const gradeScaleButtons = el('div', {
     className: 'segmented-control', attrs: { role: 'group', 'aria-label': t('climb.filter.grade_scale') },
@@ -1031,6 +1034,7 @@ export function createCompetitionForm({
   let browserState = 'idle';
   let browserLoadToken = 0;
   let browserShown = 6;
+  let browserRandomSeed = Date.now();
   const catalogueActionStatus = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
   const selectionLimit = () => f.climbSource.value === 'organizer_set' ? 40 : 60;
   let addManualButton;
@@ -1083,7 +1087,7 @@ export function createCompetitionForm({
     const needle = browserSearch.value.trim().toLocaleLowerCase();
     const allMatches = filterCatalogue(safeCandidates, {
       query: needle, minDifficulty: difficultyMin.value, maxDifficulty: difficultyMax.value,
-      minAscents: minAscents.value, sort: browserSort.value,
+      minAscents: minAscents.value, sort: browserSort.value, randomSeed: browserRandomSeed,
     });
     const matches = allMatches.slice(0, browserShown);
     browserStatus.textContent = allMatches.length
@@ -1121,7 +1125,10 @@ export function createCompetitionForm({
   browserSearch.addEventListener('input', () => { browserShown = 6; renderBrowserResults(); });
   for (const control of [difficultyMin, difficultyMax, minAscents, browserSort]) {
     control.addEventListener('input', () => { browserShown = 6; renderBrowserResults(); });
-    control.addEventListener('change', () => { browserShown = 6; renderBrowserResults(); });
+    control.addEventListener('change', () => {
+      if (control === browserSort && browserSort.value === 'random') browserRandomSeed = Date.now();
+      browserShown = 6; renderBrowserResults();
+    });
   }
 
   const browseClimbs = async () => {

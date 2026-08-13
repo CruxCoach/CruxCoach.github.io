@@ -143,6 +143,7 @@ export function describeClimbEvent(event) {
     setterGradeId: grade ? Number(grade[1]) : null,
     angle: grade && grade[2] !== undefined ? Number(grade[2]) : null,
     setterPubkey: event.pubkey,
+    ...(Number.isInteger(event.created_at) && event.created_at > 0 ? { createdAt: event.created_at } : {}),
   };
 }
 

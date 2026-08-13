@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-18';
+} from './common.mjs?v=20260813-19';
 import { SignIn } from '../ui/shell.mjs?v=20260813-10';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
@@ -25,16 +25,16 @@ import { EntrantWriter } from '../authority.mjs?v=20260813-1';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-21';
+import { describeRejection } from '../ui/i18n.mjs?v=20260813-22';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { personalCue, queuePreview, rotationPreview, syncHealth } from '../ui/live-view.mjs?v=20260813-1';
-import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-1';
+import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-2';
 import {
   BOARD_TYPES, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
 } from '../protocol/board-catalog.mjs?v=20260813-1';
 import {
   climbCard, filterCatalogue, gradeFilterOptions, saveGradeScale, storedGradeScale,
-} from '../ui/climb-card.mjs?v=20260813-4';
+} from '../ui/climb-card.mjs?v=20260813-6';
 
 const { t, language } = bootstrap();
 

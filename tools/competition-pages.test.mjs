@@ -1116,13 +1116,23 @@ test('catalogue filters combine search, difficulty, sends and sort deterministic
     filterCatalogue, gradeFilterOptions, gradeLabel, selectionReadiness,
   } = await import('../competitions/app/ui/climb-card.mjs');
   const rows = [
-    { described: { label: 'Blue slab', setter: 'Ada', difficulty: 10, ascents: 25, quality: 3 } },
-    { described: { label: 'Red roof', setter: 'Bob', difficulty: 18, ascents: 4, quality: 4 } },
+    { described: { uuid: 'a', label: 'Blue slab', setter: 'Ada', difficulty: 10, ascents: 25, quality: 3, createdAt: 100, holds: [1, 2] } },
+    { described: { uuid: 'b', label: 'Red roof', setter: 'Bob', difficulty: 18, ascents: 4, quality: 4, createdAt: 300, holds: [1, 2, 3, 4] } },
+    { described: { uuid: 'c', label: 'Green wall', setter: 'Cat', difficulty: 15, ascents: 10, quality: 2, createdAt: 200, holds: [1] } },
   ];
   assert.deepEqual(filterCatalogue(rows, {
     query: 'ada', minDifficulty: '8', maxDifficulty: '12', minAscents: '10', sort: 'hardest',
   }), [rows[0]]);
-  assert.deepEqual(filterCatalogue(rows, { sort: 'quality' }), [rows[1], rows[0]]);
+  assert.deepEqual(filterCatalogue(rows, { sort: 'quality' }), [rows[1], rows[0], rows[2]]);
+  assert.deepEqual(filterCatalogue(rows, { sort: 'newest' }), [rows[1], rows[2], rows[0]]);
+  assert.deepEqual(filterCatalogue(rows, { sort: 'quality_sends' }), [rows[0], rows[2], rows[1]]);
+  assert.deepEqual(filterCatalogue(rows, { sort: 'most_moves' }), [rows[1], rows[0], rows[2]]);
+  assert.deepEqual(filterCatalogue(rows, { sort: 'fewest_moves' }), [rows[2], rows[0], rows[1]]);
+  const shuffled = filterCatalogue(rows, { sort: 'random', randomSeed: 42 });
+  assert.deepEqual(filterCatalogue(rows, { sort: 'random', randomSeed: 42 }), shuffled,
+    'pagination must retain one random ordering');
+  assert.notDeepEqual(filterCatalogue(rows, { sort: 'random', randomSeed: 43 }), shuffled,
+    'choosing Random again should reshuffle');
   assert.equal(gradeLabel(20, 'v'), 'V5');
   assert.equal(gradeLabel(20, 'font'), '6c');
   assert.deepEqual(gradeFilterOptions('v', 'max').find(({ label }) => label === 'V0'), {
@@ -2010,6 +2020,8 @@ test('the real MoonBoard Masters 2019 index resolves only layout 5 at 40 degrees
     && climb.layoutId === 5 && climb.productSizeId === null && climb.angle === 40), true);
   const fixture = result.climbs.find((climb) => climb.uuid === '1110ca02-7d4f-54f6-a7b8-34492c4c98a5');
   assert.equal(fixture?.label, '!!!!');
+  assert.ok(Number.isInteger(fixture.createdAt) && fixture.createdAt > 0,
+    'the web index must retain the app catalogue creation date for Newest sorting');
   assert.ok(fixture.holds.some(([, role]) => role === 43), 'real fixture has no intermediate handhold');
 });
 

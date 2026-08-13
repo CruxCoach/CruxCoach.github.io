@@ -9,6 +9,7 @@ verified before decompression. No credential or production write is used.
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
 import gzip
 import hashlib
 import json
@@ -32,6 +33,21 @@ BOARDS = {
 
 def clean_text(value: object, limit: int) -> str:
     return " ".join(str(value or "").split())[:limit]
+
+
+def created_epoch(value: object) -> int | None:
+    """Normalize the catalogue's SQL/ISO creation timestamps to UTC seconds."""
+    text = str(value or "").strip()
+    if not text:
+        return None
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        epoch = int(parsed.timestamp())
+        return epoch if epoch > 0 else None
+    except (ValueError, OverflowError):
+        return None
 
 
 def manifest(sync_repo: Path, filename: str) -> tuple[dict, dict]:
@@ -147,7 +163,7 @@ def export_layout(db: sqlite3.Connection, brand: str, layout: int, header: dict,
     query = db.execute(
         """SELECT c.uuid, c.name, COALESCE(c.setter_username, ''),
                   c.edge_left, c.edge_right, c.edge_bottom, c.edge_top,
-                  c.frames,
+                  c.frames, c.created_at,
                   s.angle, s.display_difficulty, s.quality_average,
                   COALESCE(s.ascensionist_count, 0)
            FROM climbs c
@@ -159,7 +175,7 @@ def export_layout(db: sqlite3.Connection, brand: str, layout: int, header: dict,
     records: list[list] = []
     current_uuid = None
     current = None
-    for uuid, name, setter, left, right, bottom, top, frames, angle, difficulty, quality, ascents in query:
+    for uuid, name, setter, left, right, bottom, top, frames, created_at, angle, difficulty, quality, ascents in query:
         normalized = str(uuid).lower()
         if normalized != current_uuid:
             current_uuid = normalized
@@ -169,17 +185,18 @@ def export_layout(db: sqlite3.Connection, brand: str, layout: int, header: dict,
                 clean_text(setter, 160),
                 compatible_sizes((left, right, bottom, top), sizes),
                 parse_holds(frames, coordinates),
+                created_epoch(created_at),
                 [],
             ]
             records.append(current)
-        current[5].append([
+        current[6].append([
             int(angle),
             round(float(difficulty), 2) if difficulty is not None else None,
             round(float(quality), 2) if quality is not None else None,
             max(0, int(ascents or 0)),
         ])
 
-    complete_header = {**header, "v": 2, "brand": brand, "layout": layout, "rows": len(records),
+    complete_header = {**header, "v": 3, "brand": brand, "layout": layout, "rows": len(records),
                        "size_bounds": size_bounds(brand, layout, sizes)}
     with target.open("wb") as raw:
         with gzip.GzipFile(filename="", mode="wb", compresslevel=9, mtime=0, fileobj=raw) as zipped:

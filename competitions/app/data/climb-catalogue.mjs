@@ -30,10 +30,11 @@ function validUuid(value) {
 function parseRecord(line, board, header) {
   let row;
   try { row = JSON.parse(line); } catch { return null; }
-  if (!Array.isArray(row) || ![5, 6].includes(row.length)) return null;
+  if (!Array.isArray(row) || ![5, 6, 7].includes(row.length)) return null;
   const [uuid, label, setter, sizeIds] = row;
-  const holds = row.length === 6 ? row[4] : [];
-  const stats = row.length === 6 ? row[5] : row[4];
+  const holds = row.length >= 6 ? row[4] : [];
+  const createdAt = row.length === 7 ? row[5] : null;
+  const stats = row.length === 7 ? row[6] : row.length === 6 ? row[5] : row[4];
   if (!validUuid(uuid) || typeof label !== 'string' || !label.trim() || label.length > 200) return null;
   if (typeof setter !== 'string' || setter.length > 160 || !Array.isArray(sizeIds)
     || !Array.isArray(holds) || !Array.isArray(stats)) return null;
@@ -55,6 +56,7 @@ function parseRecord(line, board, header) {
     difficulty: Number.isFinite(difficulty) ? difficulty : null,
     quality: Number.isFinite(quality) ? quality : null,
     ascents: Number.isInteger(ascents) && ascents >= 0 ? ascents : 0,
+    createdAt: Number.isInteger(createdAt) && createdAt > 0 ? createdAt : null,
     holds: holds.filter((hold) => Array.isArray(hold) && hold.length === 4
       && hold.every(Number.isInteger) && hold[0] > 0).slice(0, 200),
     bounds: header?.size_bounds?.[String(board.productSizeId)] || header?.size_bounds?.default || null,
@@ -94,7 +96,7 @@ export async function loadCatalogueClimbs(board, { fetchImpl = globalThis.fetch 
     if (!line) return;
     if (!header) {
       try { header = JSON.parse(line); } catch { throw new Error('catalogue_invalid'); }
-      if (![1, 2].includes(header?.v) || header.brand !== board.brand || header.layout !== board.layoutId
+      if (![1, 2, 3].includes(header?.v) || header.brand !== board.brand || header.layout !== board.layoutId
         || !Number.isInteger(header.rows) || header.rows < 0 || header.rows > MAX_RECORDS) {
         throw new Error('catalogue_invalid');
       }
