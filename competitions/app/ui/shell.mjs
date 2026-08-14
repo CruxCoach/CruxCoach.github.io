@@ -11,12 +11,12 @@
  * kind-0 profile at least one relay accepted. Until then the caller sees `null`
  * and offers no create, register or check-in.
  */
-import { KeyVaultSession } from '../signer/local-key.mjs?v=20260813-3';
+import { KeyVaultSession } from '../signer/local-key.mjs?v=20260814-1';
 import { decryptNcryptsec } from '../signer/nip49.mjs';
 import {
   createLocalSigner, createNip07Signer, createNip46Signer, parseNip46Uri, waitForNip07,
 } from '../signer/signers.mjs';
-import { Nip46ConnectionSession, buildResumeUri } from '../signer/nip46-connection.mjs';
+import { Nip46ConnectionSession, buildResumeUri } from '../signer/nip46-connection.mjs?v=20260814-1';
 import { generateSecretKey, nsecEncode, npubEncode } from '../protocol/nostr-event.mjs';
 import { el, replace, copyWithExpiry, shortKey, announce } from './dom.mjs';
 import { ProfileGate } from './profile-gate.mjs';
@@ -55,7 +55,6 @@ export class SignIn {
     this.pendingKey = null;
     this.backupMode = null;
     this.pendingNcryptsec = null;
-    this.pendingNip46 = null;
     this.error = null;
     this.busy = false;
     this.profile = null;
@@ -214,6 +213,7 @@ export class SignIn {
     this.gate?.reset();
     this.session.lock();
     this.remoteSession.lock();
+    this.remoteSession.clearLive();
     this.entryMode = null;
     try { localStorage.removeItem(METHOD_KEY); } catch { /* private mode */ }
     this.navigate('root', { replace: true });
@@ -227,8 +227,6 @@ export class SignIn {
       try { await this.signer.logout?.(); } catch { this.signer.close(); }
       this.signer = null;
     }
-    this.pendingNip46?.close?.();
-    this.pendingNip46 = null;
     this.profile = null;
     this.gate?.reset();
     this.remoteSession.forget();
@@ -343,8 +341,6 @@ export class SignIn {
     }
 
     if (this.pendingKey) { this.renderBackup(); return; }
-    if (this.pendingNip46) { this.renderNip46Persist(); return; }
-
     const children = [el('h2', { text: t('signin.title') }), el('p', { text: t('signin.intro') })];
     if (this.error) children.push(el('div', { className: 'notice bad' }, [el('p', { text: this.error })]));
     if (this.busy) children.push(el('p', { className: 'small', text: t('signin.working') }));
@@ -444,6 +440,11 @@ export class SignIn {
                   expectedUserPubkey: connection.user_pubkey,
                   touchClient: () => this.remoteSession.touch(),
                 });
+                this.remoteSession.rememberLive({
+                  remoteSignerPubkey: signer.remoteSignerPubkey,
+                  userPubkey: signer.pubkey,
+                  relays: signer.relays,
+                });
                 await this.use(signer, 'nip46');
               } catch (error) {
                 this.remoteSession.lock();
@@ -472,10 +473,16 @@ export class SignIn {
               if (parseNip46Uri(uri)?.scheme !== 'bunker') throw new Error(t('signin.bunker.only_bunker'));
               this.remoteSession.adopt(generateSecretKey());
               try {
-                this.pendingNip46 = await createNip46Signer(uri, {
+                const signer = await createNip46Signer(uri, {
                   clientSecret: this.remoteSession.secretKey,
                   touchClient: () => this.remoteSession.touch(),
                 });
+                this.remoteSession.rememberLive({
+                  remoteSignerPubkey: signer.remoteSignerPubkey,
+                  userPubkey: signer.pubkey,
+                  relays: signer.relays,
+                });
+                await this.use(signer, 'nip46');
               } catch (error) {
                 this.remoteSession.lock();
                 throw error;
@@ -649,50 +656,6 @@ export class SignIn {
     }
 
     replace(this.mount, el('div', { className: 'card' }, children));
-  }
-
-  /** Save the approved NIP-46 client credential, never the one-time invitation secret. */
-  renderNip46Persist() {
-    const { t } = this;
-    const signer = this.pendingNip46;
-    const pass = el('input', { attrs: { type: 'password', id: 'bunker-new-pass', autocomplete: 'new-password' } });
-    replace(this.mount, el('div', { className: 'card' }, [
-      el('h2', { text: t('signin.bunker.save.title') }),
-      el('p', { className: 'small', text: t('signin.bunker.save.hint') }),
-      this.error ? el('div', { className: 'notice bad' }, [el('p', { text: this.error })]) : null,
-      el('label', { attrs: { for: 'bunker-new-pass' } }, [
-        el('span', { text: t('signin.passphrase') }),
-        el('span', { className: 'hint', text: t('signin.passphrase.hint') }),
-        pass,
-      ]),
-      el('div', { className: 'row' }, [
-        el('button', {
-          className: 'primary', text: t('signin.bunker.save.action'), attrs: { disabled: this.busy },
-          on: {
-            click: () => this.run(async () => {
-              await this.remoteSession.persist({
-                remoteSignerPubkey: signer.remoteSignerPubkey,
-                userPubkey: signer.pubkey,
-                relays: signer.relays,
-              }, pass.value);
-              pass.value = '';
-              this.pendingNip46 = null;
-              await this.use(signer, 'nip46');
-            }),
-          },
-        }),
-        el('button', {
-          className: 'quiet', text: t('signin.bunker.once'), attrs: { disabled: this.busy },
-          on: {
-            click: () => this.run(async () => {
-              this.pendingNip46 = null;
-              await this.use(signer, 'nip46');
-            }),
-          },
-        }),
-      ]),
-      el('p', { className: 'small', text: t('signin.bunker.once.hint') }),
-    ]));
   }
 
   /** Let the person choose one portable backup format before exposing a key. */
@@ -877,12 +840,31 @@ export class SignIn {
   /**
    * Try to restore a previous session without prompting.
    *
-   * Only the extension path can be restored silently — it is the only one where
-   * nothing secret has to be unlocked. A saved bunker pairing and a local key
-   * instead render their passphrase unlock control.
+   * Extensions and a live, tab-scoped bunker connection restore silently. A
+   * deliberately saved long-term pairing and a local key remain encrypted at
+   * rest and render their passphrase unlock control.
    */
   async restore() {
     const method = this.storedMethod();
+    if (method === 'nip46') {
+      const live = this.remoteSession.resumeLive();
+      if (live) {
+        try {
+          const signer = await createNip46Signer(buildResumeUri(live.connection), {
+            clientSecret: live.secretKey,
+            resume: true,
+            expectedUserPubkey: live.connection.user_pubkey,
+            touchClient: () => this.remoteSession.touch(),
+          });
+          await this.use(signer, 'nip46');
+          return;
+        } catch {
+          // Keep the tab credential: an asleep signer or offline relay is
+          // retryable and must not silently destroy an otherwise valid session.
+          this.remoteSession.lock();
+        }
+      }
+    }
     // A reload must feel like returning, not like registration. Local and
     // remote credentials remain encrypted and still require their passphrase;
     // we simply open the correct unlock screen immediately.

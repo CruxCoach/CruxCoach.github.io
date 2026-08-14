@@ -13,7 +13,7 @@ import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
 } from './common.mjs?v=20260813-19';
-import { SignIn } from '../ui/shell.mjs?v=20260813-10';
+import { SignIn } from '../ui/shell.mjs?v=20260814-1';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260813-1';
 import {
