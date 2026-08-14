@@ -25,7 +25,7 @@ import { EntrantWriter } from '../authority.mjs?v=20260813-1';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-22';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-2';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { personalCue, queuePreview, rotationPreview, syncHealth } from '../ui/live-view.mjs?v=20260813-1';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-2';
@@ -232,41 +232,78 @@ function me() {
 function header(snapshot) {
   const competition = snapshot.competition;
   const board = competition.board || {};
-  return el('section', { className: 'card' }, [
-    el('h1', { text: competition.title }),
-    el('p', { className: 'lead', text: competition.summary }),
-    el('div', { className: 'row' }, [
+  return el('section', { className: 'participant-comp-header' }, [
+    el('div', { className: 'participant-comp-title' }, [
+      el('p', { className: 'eyebrow', text: t('participant.competition') }),
+      el('h1', { text: competition.title }),
+    ]),
+    el('div', { className: 'participant-comp-badges' }, [
       el('span', { className: 'badge', text: t(`status.${snapshot.state.status}`) }),
       competition.venue?.name && el('span', { className: 'badge', text: competition.venue.name }),
-      competition.fee_msat > 0
-        ? el('span', { className: 'badge', text: formatSats(competition.fee_msat) })
-        : el('span', { className: 'badge ok', text: t('pay.not_required') }),
+      el('span', {
+        className: competition.fee_msat > 0 ? 'badge' : 'badge ok',
+        text: competition.fee_msat > 0 ? formatSats(competition.fee_msat) : t('pay.not_required'),
+      }),
     ]),
-    el('dl', { className: 'key-value' }, [
-      el('dt', { text: t('org.when') }),
-      el('dd', { text: formatDateTime(competition.starts_at, language, competition.timezone) }),
-      el('dt', { text: t('org.format') }),
-      el('dd', {
-        text: t('competition.format.summary', {
-          available: competition.rules.climb_source === 'participant_choice'
-            ? (competition.climb_pool?.options?.length || 0) : (competition.climbs?.length || 0),
-          counted: competition.rules.counted_climb_count || competition.rules.climb_count,
-          attempts: competition.rules.attempts_per_climb,
+    el('p', { className: 'lead', text: competition.summary }),
+    el('details', { className: 'disclosure participant-comp-details' }, [
+      el('summary', { text: t('participant.details') }),
+      el('dl', { className: 'key-value' }, [
+        el('dt', { text: t('org.when') }),
+        el('dd', { text: formatDateTime(competition.starts_at, language, competition.timezone) }),
+        el('dt', { text: t('org.format') }),
+        el('dd', {
+          text: t('competition.format.summary', {
+            available: competition.rules.climb_source === 'participant_choice'
+              ? (competition.climb_pool?.options?.length || 0) : (competition.climbs?.length || 0),
+            counted: competition.rules.counted_climb_count || competition.rules.climb_count,
+            attempts: competition.rules.attempts_per_climb,
+          }),
         }),
-      }),
-      el('dt', { text: t('org.board') }),
-      el('dd', {
-        text: [humanBoardModel(board.model), board.size, Number.isInteger(board.angle) ? `${board.angle}°` : '']
-          .filter(Boolean).join(' · '),
-      }),
-      el('dt', { text: t('org.field.reg_close') }),
-      el('dd', { text: formatDateTime(competition.registration_closes_at, language, competition.timezone) }),
+        el('dt', { text: t('org.board') }),
+        el('dd', {
+          text: [humanBoardModel(board.model), board.size, Number.isInteger(board.angle) ? `${board.angle}°` : '']
+            .filter(Boolean).join(' · '),
+        }),
+        el('dt', { text: t('org.field.reg_close') }),
+        el('dd', { text: formatDateTime(competition.registration_closes_at, language, competition.timezone) }),
+      ]),
+      competition.description && el('p', { text: competition.description }),
+      el('aside', { className: 'subcard scoring-explanation' }, [
+        el('h2', { text: t('scoring.info.title') }),
+        el('p', { text: scoringExplanation(t, competition) }),
+      ]),
     ]),
-    competition.description && el('p', { text: competition.description }),
-    el('aside', { className: 'subcard scoring-explanation' }, [
-      el('h2', { text: t('scoring.info.title') }),
-      el('p', { text: scoringExplanation(t, competition) }),
-    ]),
+  ]);
+}
+
+function participantScreen(snapshot) {
+  if (['running', 'paused', 'finished', 'cancelled'].includes(snapshot.state.status)) return 'live';
+  const mine = me();
+  if (['registration_closed', 'checkin_open'].includes(snapshot.state.status)
+    && mine?.registration === 'accepted') return 'checkin';
+  return 'registration';
+}
+
+function phaseNavigation(screen) {
+  const phases = ['registration', 'checkin', 'live'];
+  const current = phases.indexOf(screen);
+  return el('nav', { className: 'participant-phases', attrs: { 'aria-label': t('participant.progress') } }, [
+    el('ol', {}, phases.map((phase, index) => el('li', {
+      className: index < current ? 'done' : index === current ? 'current' : 'upcoming',
+      attrs: index === current ? { 'aria-current': 'step' } : {},
+    }, [
+      el('span', { className: 'participant-phase-number', text: index < current ? '✓' : String(index + 1) }),
+      el('span', { text: t(`participant.phase.${phase}`) }),
+    ]))),
+  ]);
+}
+
+function phaseIntro(screen) {
+  return el('section', { className: `participant-phase-intro phase-${screen}` }, [
+    el('p', { className: 'eyebrow', text: t(`participant.phase.${screen}`) }),
+    el('h2', { text: t(`participant.${screen}.title`) }),
+    el('p', { text: t(`participant.${screen}.hint`) }),
   ]);
 }
 
@@ -287,7 +324,6 @@ function registrationPanel(snapshot) {
       el('h2', { text: t('action.register') }),
       el('div', { className: 'row' }, [
         el('span', { className: 'badge', text: t(`reg.${mine.registration}`) }),
-        el('span', { className: 'badge', text: t(`checkin.${mine.checkin}`) }),
         competition.fee_msat > 0 && el('span', {
           className: mine.payment === 'settled' ? 'badge ok' : 'badge warn',
           text: t(`pay.${mine.payment}`),
@@ -306,18 +342,6 @@ function registrationPanel(snapshot) {
     if (competition.rules.climb_source === 'participant_choice') {
       rows.push(...claimStatus(snapshot, mine));
     }
-    // Ask to be checked in, rather than only waiting to be. The organizer
-    // still decides; this is how somebody at the back of a queue says they
-    // are here.
-    if (mine.registration === 'accepted' && mine.checkin === 'none'
-      && checkinWindowOpen(competition, snapshot.state.status, now)) {
-      rows.push(el('button', {
-        className: 'primary',
-        text: t('action.checkin'),
-        on: { click: () => guard(() => entrant.requestCheckIn()) },
-      }));
-    }
-
     if (['pending', 'accepted', 'waitlisted'].includes(mine.registration)
       && !['finished', 'cancelled'].includes(snapshot.state.status)) {
       rows.push(el('button', {
@@ -555,6 +579,64 @@ function registrationPanel(snapshot) {
   updateReady();
   rows.push(readiness, feedback, registerButton);
   return el('section', { className: 'card raised' }, rows);
+}
+
+function checkinPanel(snapshot) {
+  const competition = snapshot.competition;
+  const mine = me();
+  const now = Math.floor(Date.now() / 1000);
+  const rows = [el('h2', { text: t('participant.checkin.card_title') })];
+
+  if (!signer) {
+    rows.push(el('p', { text: t('participant.checkin.signin') }));
+    return el('section', { className: 'card raised participant-checkin-card' }, rows);
+  }
+  if (!mine || mine.registration !== 'accepted') {
+    rows.push(el('p', { text: mine ? t(`reg.${mine.registration}`) : t('reg.closed') }));
+    return el('section', { className: 'card raised participant-checkin-card' }, rows);
+  }
+
+  rows.push(el('div', { className: 'participant-checkin-status' }, [
+    el('span', {
+      className: mine.checkin === 'checked_in' ? 'participant-status-icon ok' : 'participant-status-icon',
+      text: mine.checkin === 'checked_in' ? '✓' : '2',
+    }),
+    el('div', {}, [
+      el('strong', { text: t(`checkin.${mine.checkin}`) }),
+      el('span', { text: mine.checkin === 'checked_in'
+        ? t('participant.checkin.ready') : t('participant.checkin.waiting') }),
+    ]),
+  ]));
+
+  if (competition.fee_msat > 0 && PAYABLE_STATES.has(mine.payment)) rows.push(paymentPanel(snapshot, mine));
+  if (competition.rules.climb_source === 'participant_choice') rows.push(...claimStatus(snapshot, mine));
+
+  if (mine.checkin === 'none' && checkinWindowOpen(competition, snapshot.state.status, now)) {
+    const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
+    rows.push(el('button', {
+      className: 'primary participant-checkin-action', text: t('action.checkin'),
+      on: { click: () => guard(async () => {
+        await entrant.requestCheckIn();
+        feedback.textContent = t('participant.checkin.sent');
+      }, feedback) },
+    }), feedback);
+  } else if (mine.checkin === 'none') {
+    rows.push(el('p', { className: 'notice warn', text: t('participant.checkin.closed') }));
+  }
+
+  if (!['finished', 'cancelled'].includes(snapshot.state.status)) rows.push(
+    el('details', { className: 'disclosure participant-secondary-actions' }, [
+      el('summary', { text: t('participant.registration.manage') }),
+      el('button', {
+        className: 'quiet danger', text: t('action.withdraw'),
+        on: { click: () => {
+          if (!confirm(t('reg.withdraw.confirm'))) return;
+          guard(() => entrant.withdraw());
+        } },
+      }),
+    ]),
+  );
+  return el('section', { className: 'card raised participant-checkin-card' }, rows);
 }
 
 function humanBoardModel(model) {
@@ -1246,23 +1328,30 @@ function render() {
   const snapshot = store.snapshot();
   if (!snapshot.state) return;
 
-  const liveFirst = ['running', 'paused', 'finished', 'cancelled'].includes(snapshot.state.status);
-  const shared = [
-    liveFirst ? livePanel(snapshot) : null,
-    header(snapshot),
-    fixedClimbsPanel(snapshot),
-    registrationPanel(snapshot),
-    liveFirst ? null : livePanel(snapshot),
-    prizePanel(snapshot),
-    leaderboard(snapshot),
-    announcements(snapshot),
-    rejections(snapshot),
-  ];
+  const screen = participantScreen(snapshot);
+  const primary = screen === 'registration'
+    ? [phaseIntro(screen), registrationPanel(snapshot)]
+    : screen === 'checkin'
+      ? [phaseIntro(screen), checkinPanel(snapshot)]
+      : [livePanel(snapshot), prizePanel(snapshot), leaderboard(snapshot)];
+  const secondary = screen === 'live'
+    ? el('details', { className: 'disclosure participant-past-phase' }, [
+      el('summary', { text: t('participant.registration.details') }),
+      registrationPanel(snapshot),
+    ])
+    : fixedClimbsPanel(snapshot);
   replace(view,
     devRelayBanner(store, t),
     ...integrityNotices(snapshot, t),
     transportNotice(snapshot),
-    ...shared,
+    el('div', { className: 'participant-screen', attrs: { 'data-screen': screen } }, [
+      header(snapshot),
+      phaseNavigation(screen),
+      ...primary,
+      announcements(snapshot),
+      secondary,
+      rejections(snapshot),
+    ]),
     el('details', { className: 'disclosure' }, [
       el('summary', { text: t('org.share') }),
       el('p', { className: 'mono selectable', text: joinLink(ref.naddr) }),

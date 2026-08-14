@@ -741,6 +741,37 @@ body:has(.projector) { background: #08090a; }
   font-size: 1.15rem;
 }
 
+/* Participant flow: one phase, one primary task. */
+.participant-screen { display: grid; gap: 1rem; }
+.participant-comp-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.45rem 1rem; align-items: start; padding: clamp(1.1rem, 3vw, 1.6rem); border: 1px solid var(--rule); border-radius: var(--radius); background: var(--bg-raised); }
+.participant-comp-title h1 { margin: 0.08em 0 0; font-size: clamp(1.65rem, 5vw, 2.65rem); }
+.participant-comp-header > .lead { grid-column: 1 / -1; max-width: 54rem; margin: 0.35rem 0 0; color: var(--fg-soft); }
+.participant-comp-badges { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.4rem; }
+.participant-comp-details { grid-column: 1 / -1; margin-top: 0.25rem; }
+.participant-comp-details .key-value { margin-top: 1rem; }
+.participant-phases { padding: 0.35rem 0; }
+.participant-phases ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; padding: 0; margin: 0; list-style: none; }
+.participant-phases li { position: relative; display: flex; gap: 0.55rem; align-items: center; min-width: 0; color: var(--fg-mute); font-size: 0.86rem; font-weight: 700; }
+.participant-phases li:not(:last-child)::after { content: ""; position: absolute; z-index: 0; top: 50%; right: 0; width: calc(100% - 2.35rem); height: 2px; background: var(--rule); transform: translateY(-50%); }
+.participant-phases li.done:not(:last-child)::after { background: var(--ok); }
+.participant-phase-number { position: relative; z-index: 1; display: grid; width: 2rem; height: 2rem; flex: 0 0 2rem; place-items: center; border: 1px solid var(--rule); border-radius: 50%; background: var(--bg); }
+.participant-phases li.current { color: var(--fg); }
+.participant-phases li.current .participant-phase-number { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 18%, var(--bg)); color: var(--accent); }
+.participant-phases li.done { color: var(--ok); }
+.participant-phases li.done .participant-phase-number { border-color: var(--ok); color: var(--ok); }
+.participant-phase-intro { padding: clamp(1.35rem, 4vw, 2.25rem); border-inline-start: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; background: linear-gradient(100deg, color-mix(in srgb, var(--accent) 11%, var(--bg-raised)), var(--bg-raised)); }
+.participant-phase-intro h2 { max-width: 19ch; margin: 0.12em 0; font-size: clamp(2rem, 7vw, 3.7rem); }
+.participant-phase-intro > p:last-child { max-width: 46rem; margin-bottom: 0; color: var(--fg-soft); }
+.participant-checkin-card { display: grid; gap: 0.85rem; }
+.participant-checkin-status { display: flex; gap: 1rem; align-items: center; padding: 1rem; border: 1px solid var(--rule); border-radius: 14px; background: var(--bg); }
+.participant-checkin-status > div { display: flex; flex-direction: column; }
+.participant-checkin-status span:last-child { margin-top: 0.2rem; color: var(--fg-mute); }
+.participant-status-icon { display: grid; width: 3rem; height: 3rem; flex: 0 0 3rem; place-items: center; border: 2px solid var(--accent); border-radius: 50%; color: var(--accent); font-size: 1.25rem; font-weight: 850; }
+.participant-status-icon.ok { border-color: var(--ok); color: var(--ok); }
+.participant-checkin-action { width: 100%; min-height: 3.5rem; font-size: 1.05rem; }
+.participant-secondary-actions { margin-top: 0.5rem; }
+.participant-past-phase > .card { margin-top: 1rem; box-shadow: none; }
+
 /* Participant live hierarchy: one personal answer, supporting shared truth. */
 .participant-live { position: relative; padding: 0; overflow: visible; }
 .participant-live > :not(.participant-live-hero, .participant-actions) { margin-inline: clamp(1rem, 3vw, 1.6rem); }
@@ -775,6 +806,11 @@ body:has(.projector) { background: #08090a; }
 .participant-actions .button, .participant-actions button { min-height: 3rem; }
 
 @media (max-width: 42rem) {
+  .participant-comp-header { grid-template-columns: 1fr; }
+  .participant-comp-badges { justify-content: flex-start; }
+  .participant-phases li { flex-direction: column; gap: 0.35rem; text-align: center; }
+  .participant-phases li:not(:last-child)::after { top: 1rem; width: calc(100% - 2rem); }
+  .participant-phases li > span:last-child { font-size: 0.72rem; }
   .participant-live-hero { grid-template-columns: 1fr; }
   .participant-turn-facts { align-items: flex-start; text-align: start; }
   .participant-live-grid { grid-template-columns: 1fr; }

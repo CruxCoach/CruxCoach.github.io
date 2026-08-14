@@ -87,6 +87,20 @@ test('projection and participant live views expose the shared event hierarchy', 
     'ticker text needs a reserved line box to avoid layout jumps');
 });
 
+test('participant registration, check-in and live competition are separate primary screens', () => {
+  const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'competitions/app/competitions.css'), 'utf8');
+
+  assert.match(join, /function participantScreen\(snapshot\)/);
+  assert.match(join, /return 'live'/);
+  assert.match(join, /mine\?\.registration === 'accepted'\) return 'checkin'/);
+  assert.match(join, /screen === 'registration'[\s\S]*registrationPanel\(snapshot\)[\s\S]*screen === 'checkin'[\s\S]*checkinPanel\(snapshot\)[\s\S]*livePanel\(snapshot\)/);
+  assert.match(join, /className: 'participant-phases'/);
+  assert.match(join, /data-screen': screen/);
+  assert.match(css, /\.participant-phase-intro\s*\{/);
+  assert.match(css, /\.participant-checkin-card\s*\{/);
+});
+
 test('live ranking fails closed on an incomplete or forked record', () => {
   const live = fs.readFileSync(path.join(root, 'competitions/app/pages/live.mjs'), 'utf8');
   const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
