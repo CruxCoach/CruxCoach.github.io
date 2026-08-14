@@ -28,7 +28,9 @@ export function queuePreview(state, participants, limit = 7) {
 export function rotationPreview(competition, state, participant, limit = 5) {
   if (!competition || !state) return { entries: [], hidden: 0 };
   const source = competition.rules?.climb_source === 'participant_choice'
-    ? (competition.climb_pool?.options || []).filter((climb) => participant?.selections?.includes(climb.id))
+    ? (competition.climb_pool?.options || []).filter((climb) =>
+      competition.rules?.selection_uniqueness !== 'unique_per_competition'
+        || participant?.selections?.includes(climb.id))
     : (competition.climbs || []);
   if (!source.length) return { entries: [], hidden: 0 };
 
@@ -55,12 +57,12 @@ export function rotationPreview(competition, state, participant, limit = 5) {
   return { entries, hidden: Math.max(0, ordered.length - entries.length) };
 }
 
-export function personalCue(state, pubkey) {
+export function personalCue(state, pubkey, running = state?.status === 'running') {
   if (!state || !pubkey) return { kind: 'spectator', ahead: null, index: -1 };
   const index = state.order.indexOf(pubkey);
   if (TERMINAL.has(state.status)) return { kind: state.status, ahead: null, index };
   if (state.status === 'paused') return { kind: 'paused', ahead: null, index };
-  if (state.status !== 'running') return { kind: 'waiting', ahead: null, index };
+  if (!running) return { kind: 'waiting', ahead: null, index };
   if (index < 0) return { kind: 'not_queued', ahead: null, index };
   if (state.cursor === index) return { kind: 'current', ahead: 0, index };
   const cursor = state.cursor < 0 ? 0 : state.cursor;

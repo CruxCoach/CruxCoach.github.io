@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { verifyEvent } from '../competitions/app/protocol/nostr-event.mjs';
 import { ccjHash } from '../competitions/app/protocol/ccj.mjs';
 import { parseCompetitionEvent, parseLogEvent } from '../competitions/app/protocol/competition.mjs';
-import { hashableState, reduce, REJECTION_CODES } from '../competitions/app/protocol/reduce.mjs';
+import { applyEntry, hashableState, reduce, REJECTION_CODES } from '../competitions/app/protocol/reduce.mjs';
 import { computeStandings } from '../competitions/app/protocol/scoring.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -81,6 +81,55 @@ test('duplicate delivery of every event changes nothing', async () => {
     const twice = await replay(stream, { duplicate: true });
     assert.deepEqual(hashableState(twice.state), hashableState(once.state), `${stream.name}: idempotency`);
   }
+});
+
+test('config updates keep the definition as root and derive one audited effective config', () => {
+  const stream = readStream('happy-sync.json');
+  const parsed = parseCompetitionEvent(stream.competition_event, NOW);
+  assert.equal(parsed.ok, true, parsed.error);
+  const eventId = 'ed'.repeat(32);
+  const { state } = reduce({
+    competition: parsed.competition,
+    competitionEventId: stream.competition_event.id,
+    entries: [{ eventId, createdAt: NOW, entry: {
+      seq: 1, prev: stream.competition_event.id, epoch: 1, at: NOW,
+      op: 'config_update', actor: 'authority', reason: 'Correct the displayed title',
+      data: { revision: 2, impact: 'safe', patch: { title: 'Corrected title' } },
+    } }],
+  });
+  assert.equal(state.head, eventId);
+  assert.equal(state.effective_config.title, 'Corrected title');
+  assert.equal(state.effective_config.comp_id, parsed.competition.comp_id);
+  assert.equal(state.config_revision, 2);
+  assert.deepEqual(state.audit.at(-1), {
+    seq: 1, op: 'config_update', reason: 'Correct the displayed title', at: NOW,
+    revision: 2, impact: 'safe',
+  });
+});
+
+test('config updates cannot remove a climb already referenced by the log', () => {
+  const stream = readStream('happy-sync.json');
+  const parsed = parseCompetitionEvent(stream.competition_event, NOW);
+  const state = {
+    ...reduce({ competition: parsed.competition, competitionEventId: stream.competition_event.id, entries: [] }).state,
+    current_climb_id: parsed.competition.climbs[0].id,
+  };
+  const entry = {
+    seq: 1, prev: stream.competition_event.id, epoch: 1, at: NOW,
+    op: 'config_update', actor: 'authority', reason: 'Replace pool',
+    data: {
+      revision: 2, impact: 'scoring',
+      patch: { climbs: parsed.competition.climbs.map((climb, index) =>
+        (index === 0 ? { ...climb, id: 'replacement' } : climb)) },
+    },
+  };
+  const { state: reduced } = reduce({
+    competition: parsed.competition, competitionEventId: stream.competition_event.id,
+    entries: [{ eventId: 'ee'.repeat(32), createdAt: NOW, entry }],
+    snapshot: { state, head: stream.competition_event.id, seq: 0 },
+  });
+  assert.equal(reduced.config_revision, 1);
+  assert.equal(reduced.rejected.at(-1).code, 'config_referenced_climb');
 });
 
 test('standings match the recorded ones', async () => {
@@ -166,6 +215,49 @@ test('best N deterministically selects whole per-climb results for every scoring
     const points = computeStandings(bestNState(results), { climbs, rules: { ...common, scoring } })[0];
     assert.equal(points.points, 800, `${scoring} counts the two highest topped contributions`);
   }
+
+  const livePool = computeStandings(bestNState(results), {
+    climb_pool: { options: climbs },
+    rules: {
+      ...common, climb_source: 'participant_choice', climb_count: 5,
+      counted_climb_count: 2, selection_uniqueness: 'none', scoring: 'points_sum',
+    },
+  })[0];
+  assert.equal(livePool.points, 800,
+    'an entrant may try more than N pool climbs without preselecting any; only the best N score');
+});
+
+test('legacy unique selections neither gate an empty participant nor narrow Best-N scoring', () => {
+  const competition = {
+    starts_at: 1, ends_at: 999, climbs: [],
+    climb_pool: { options: [{ id: 'a', points: 0 }, { id: 'b', points: 0 }, { id: 'c', points: 0 }] },
+    rules: {
+      climb_source: 'participant_choice', selection_uniqueness: 'unique_per_competition',
+      climb_count: 2, counted_climb_count: 2, attempts_per_climb: 5,
+      scoring: 'tops_then_attempts', tiebreaks: ['fewest_attempts'],
+    },
+  };
+  const baseParticipant = {
+    pubkey: 'p', display: 'Pat', division: 'open', registration: 'accepted',
+    checkin: 'checked_in', result: 'active', selections: [], climbs: [], last_attempt_at: 0,
+  };
+  const state = {
+    epoch: 1, status: 'running', participants: [baseParticipant], rejected: [],
+  };
+  applyEntry(state, {
+    seq: 1, epoch: 1, at: 10, op: 'attempt_result',
+    data: { pubkey: 'p', climb_id: 'b', outcome: 'top', attempt_no: 1 },
+  }, competition);
+  assert.equal(state.rejected.length, 0, 'empty legacy selections must not make the pool unplayable');
+
+  const scoringState = bestNState([
+    { climb_id: 'a', attempts_used: 1, outcome: 'fall', at: 1 },
+    { climb_id: 'b', attempts_used: 2, outcome: 'top', at: 2 },
+    { climb_id: 'c', attempts_used: 1, outcome: 'top', at: 3 },
+  ]);
+  scoringState.participants[0].selections = ['a'];
+  const standing = computeStandings(scoringState, competition)[0];
+  assert.deepEqual({ tops: standing.tops, attempts: standing.attempts }, { tops: 2, attempts: 3 });
 });
 
 test('counted N equal to available M is byte-for-byte standings compatible', () => {
@@ -394,7 +486,9 @@ test('every rejection code in the closed set is exercised by a fixture', async (
     const { state } = await replay(readStream(file));
     for (const rejection of state.rejected) seen.add(rejection.code);
   }
-  const uncovered = REJECTION_CODES.filter((code) => !seen.has(code));
+  // config_update has focused reducer tests above; legacy signed fixtures stay
+  // byte-for-byte stable so older clients can continue using them.
+  const uncovered = REJECTION_CODES.filter((code) => !seen.has(code) && !code.startsWith('config_'));
   // A rejection code with no fixture is a rule the Android client could
   // implement differently without any test noticing.
   assert.deepEqual(uncovered, [], 'these rejection codes have no fixture exercising them');

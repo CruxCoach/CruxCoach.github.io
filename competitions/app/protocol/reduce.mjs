@@ -13,7 +13,8 @@
  */
 import {
   LEGAL_TRANSITIONS, QUEUE_ACTIONS, ATTEMPT_OUTCOMES, PAYMENT_STATES, PRIZE_STATES, SCHEMA,
-  checkinWindowOpen, registrationWindowOpen,
+  checkinWindowOpen, competitionRunning, configPatchImpact, registrationWindowOpen,
+  validateCompetitionConfig,
 } from './competition.mjs';
 
 /** Build the zero state for a validated competition definition. */
@@ -103,7 +104,6 @@ function climbRecord(participant, climbId) {
  */
 export const REJECTION_CODES = [
   'already_topped', 'attempt_out_of_order', 'capacity_full', 'climb_already_claimed',
-  'climb_not_selected',
   'correction_missing_replacement', 'defer_budget_exhausted', 'defer_consecutive_limit',
   'duplicate_in_order', 'empty_announcement', 'epoch_mismatch', 'illegal_transition',
   'incomplete_seed_order', 'index_out_of_range', 'ineligible_in_order', 'no_attempts_left',
@@ -112,20 +112,15 @@ export const REJECTION_CODES = [
   'unknown_decision', 'unknown_division', 'unknown_op', 'unknown_outcome',
   'unknown_payment_state', 'unknown_prize', 'unknown_prize_state', 'unknown_queue_action',
   'uniqueness_not_enforced', 'prize_already_awarded', 'results_not_final', 'wrong_status',
+  'config_bad_revision', 'config_empty_patch', 'config_immutable_field',
+  'config_impact_mismatch', 'config_invalid', 'config_referenced_climb',
+  'config_referenced_division',
 ];
 
 function reject(state, entry, code) {
   state.rejected.push({ seq: entry.seq, op: entry.op, code });
   return state;
 }
-
-/** Which lifecycle states accept which classes of entry (§10.2). */
-const ACCEPTS = {
-  registration: new Set(['registration_open']),
-  checkin: new Set(['checkin_open', 'running']),
-  queue: new Set(['checkin_open', 'running']),
-  attempt: new Set(['running']),
-};
 
 // ── operations ──
 
@@ -271,9 +266,6 @@ function applyPrizeDecision(state, entry, competition) {
 }
 
 function applyCheckin(state, entry, competition) {
-  if (!ACCEPTS.checkin.has(state.status)) {
-    return reject(state, entry, 'wrong_status');
-  }
   const { pubkey, state: checkinState } = entry.data;
   if (!['checked_in', 'no_show'].includes(checkinState)) {
     return reject(state, entry, 'unknown_checkin_state');
@@ -307,11 +299,19 @@ function isEligible(state, competition, pubkey, atSeconds) {
 }
 
 function applyQueue(state, entry, competition) {
-  if (!ACCEPTS.queue.has(state.status)) {
+  const action = entry.data.action;
+  if (!competitionRunning(competition, state.status, entry.at)
+    && !checkinWindowOpen(competition, state.status, entry.at)) {
     return reject(state, entry, 'wrong_status');
   }
-  const action = entry.data.action;
   if (!QUEUE_ACTIONS.includes(action)) return reject(state, entry, 'unknown_queue_action');
+
+  if (state.round === 0) {
+    state.round = 1;
+    if (competition.rules.climb_source === 'organizer_set' && competition.climbs?.length) {
+      state.current_climb_id = competition.climbs[0].id;
+    }
+  }
 
   if (action === 'seed' || action === 'reorder') {
     const order = entry.data.order;
@@ -367,8 +367,9 @@ function applyQueue(state, entry, competition) {
 
   if (action === 'next_climb') {
     const climbId = entry.data.climb_id;
-    if (competition.rules.climb_source === 'organizer_set'
-      && !competition.climbs.some((c) => c.id === climbId)) {
+    const pool = competition.rules.climb_source === 'participant_choice'
+      ? (competition.climb_pool?.options || []) : (competition.climbs || []);
+    if (!pool.some((c) => c.id === climbId)) {
       return reject(state, entry, 'unknown_climb');
     }
     state.current_climb_id = climbId;
@@ -429,7 +430,7 @@ function applyDeferDecision(state, entry, competition) {
 }
 
 function applyAttemptResult(state, entry, competition) {
-  if (!ACCEPTS.attempt.has(state.status)) {
+  if (!competitionRunning(competition, state.status, entry.at)) {
     return reject(state, entry, 'wrong_status');
   }
   const { pubkey, climb_id: climbId, outcome, attempt_no: attemptNo } = entry.data;
@@ -441,15 +442,13 @@ function applyAttemptResult(state, entry, competition) {
   // The climb has to be one this competition actually runs. Without this an
   // attempt on any string at all would score: under `organizer_set` a climb
   // that is not in the competition, and under `participant_choice` a climb
-  // somebody else holds — which is the whole point of unique claims.
-  if (competition.rules.climb_source === 'organizer_set') {
-    if (!competition.climbs.some((c) => c.id === climbId)) {
-      return reject(state, entry, 'unknown_climb');
-    }
-  } else if (!participant.selections.includes(climbId)) {
-    return reject(state, entry, 'climb_not_selected');
+  // Legacy claims/selections remain in state for hash and audit compatibility,
+  // but never gate live access: every participant may attempt the whole pool.
+  const pool = competition.rules.climb_source === 'participant_choice'
+    ? (competition.climb_pool?.options || []) : (competition.climbs || []);
+  if (!pool.some((c) => c.id === climbId)) {
+    return reject(state, entry, 'unknown_climb');
   }
-
   // Look up WITHOUT creating. Creating first would leave a phantom
   // zero-attempt record behind on every rejected entry, and that record is
   // part of the hashed state — so a rejection would silently change the state
@@ -500,6 +499,65 @@ function applyAnnouncement(state, entry) {
   return state;
 }
 
+function mergePatch(target, patch) {
+  const result = structuredClone(target);
+  for (const [key, value] of Object.entries(patch)) {
+    if (value === null) delete result[key];
+    else if (value && typeof value === 'object' && !Array.isArray(value)
+      && result[key] && typeof result[key] === 'object' && !Array.isArray(result[key])) {
+      result[key] = mergePatch(result[key], value);
+    } else result[key] = structuredClone(value);
+  }
+  return result;
+}
+
+/** Apply RFC-7396-style merge patches while preserving historical references. */
+function applyConfigUpdate(state, entry, competition) {
+  const { revision, patch, impact } = entry.data;
+  if (!Number.isInteger(revision) || revision !== state.config_revision + 1) {
+    return reject(state, entry, 'config_bad_revision');
+  }
+  if (!patch || typeof patch !== 'object' || Array.isArray(patch) || Object.keys(patch).length === 0) {
+    return reject(state, entry, 'config_empty_patch');
+  }
+  const derivedImpact = configPatchImpact(patch);
+  if (!derivedImpact) return reject(state, entry, 'config_immutable_field');
+  if (impact !== derivedImpact) return reject(state, entry, 'config_impact_mismatch');
+
+  const next = mergePatch(competition, patch);
+  next.revision = revision;
+  const validation = validateCompetitionConfig(next);
+  if (!validation.ok) return reject(state, entry, 'config_invalid');
+
+  const referencedClimbs = new Set([
+    state.current_climb_id,
+    ...Object.keys(state.claims),
+    ...state.participants.flatMap((p) => [
+      ...p.selections,
+      ...p.climbs.map((climb) => climb.climb_id),
+    ]),
+  ].filter(Boolean));
+  const nextClimbs = new Set([
+    ...(next.climbs || []).map((climb) => climb.id),
+    ...(next.climb_pool?.options || []).map((climb) => climb.id),
+  ]);
+  if ([...referencedClimbs].some((id) => !nextClimbs.has(id))) {
+    return reject(state, entry, 'config_referenced_climb');
+  }
+  const nextDivisions = new Set((next.divisions || []).map((division) => division.id));
+  if (state.participants.some((p) => p.division && !nextDivisions.has(p.division))) {
+    return reject(state, entry, 'config_referenced_division');
+  }
+
+  state.effective_config = next;
+  state.config_revision = revision;
+  state.audit.push({
+    seq: entry.seq, op: 'config_update', reason: entry.reason, at: entry.at,
+    revision, impact,
+  });
+  return state;
+}
+
 const HANDLERS = {
   lifecycle: applyLifecycle,
   registration_decision: applyRegistrationDecision,
@@ -512,6 +570,7 @@ const HANDLERS = {
   attempt_result: applyAttemptResult,
   disqualify: applyDisqualify,
   announcement: applyAnnouncement,
+  config_update: applyConfigUpdate,
 };
 
 /**
@@ -598,7 +657,7 @@ export function reduce({ competition, competitionEventId, entries, snapshot }) {
       chosen = [...linked].sort((a, b) =>
         a.createdAt - b.createdAt || (a.eventId < b.eventId ? -1 : a.eventId > b.eventId ? 1 : 0))[0];
     }
-    applyEntry(state, chosen.entry, competition);
+    applyEntry(state, chosen.entry, state.effective_config || competition);
     state.seq = chosen.entry.seq;
     state.head = chosen.eventId;
     expectedPrev = chosen.eventId;

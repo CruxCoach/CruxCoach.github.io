@@ -32,11 +32,11 @@ export const LIFECYCLE = [
 ];
 
 export const LEGAL_TRANSITIONS = {
-  draft: ['published', 'cancelled'],
-  published: ['registration_open', 'cancelled'],
-  registration_open: ['registration_closed', 'cancelled'],
-  registration_closed: ['checkin_open', 'cancelled'],
-  checkin_open: ['running', 'cancelled'],
+  draft: ['published', 'paused', 'finished', 'cancelled'],
+  published: ['registration_open', 'paused', 'finished', 'cancelled'],
+  registration_open: ['registration_closed', 'paused', 'finished', 'cancelled'],
+  registration_closed: ['checkin_open', 'paused', 'finished', 'cancelled'],
+  checkin_open: ['running', 'paused', 'finished', 'cancelled'],
   running: ['paused', 'finished', 'cancelled'],
   paused: ['running', 'finished', 'cancelled'],
   finished: [],
@@ -46,8 +46,34 @@ export const LEGAL_TRANSITIONS = {
 export const LOG_OPS = [
   'lifecycle', 'registration_decision', 'payment_decision', 'claim_decision',
   'checkin', 'queue', 'defer_decision', 'attempt_result', 'correction',
-  'override', 'announcement', 'disqualify', 'prize_decision',
+  'override', 'announcement', 'disqualify', 'prize_decision', 'config_update',
 ];
+
+/**
+ * Mutable configuration is deliberately a closed set. Identity, authority,
+ * relay routing and lifecycle remain rooted in the signed definition/log.
+ * Everything else is either presentation/operations-safe or can change who
+ * may climb/how results score and is therefore labelled `scoring` in the log.
+ */
+export const SAFE_CONFIG_FIELDS = [
+  'title', 'summary', 'description', 'eligibility', 'waiver',
+  'participant_instructions', 'spectator_info', 'refund_policy', 'visibility',
+  'venue', 'timezone', 'prize_claim_days',
+];
+export const SCORING_CONFIG_FIELDS = [
+  'starts_at', 'ends_at', 'registration_opens_at', 'registration_closes_at',
+  'checkin_opens_at', 'checkin_closes_at', 'capacity', 'waitlist_enabled',
+  'fee_msat', 'fee_lnurl', 'waiver_required', 'board', 'divisions', 'climbs',
+  'climb_pool', 'prizes', 'rules',
+];
+export const MUTABLE_CONFIG_FIELDS = [...SAFE_CONFIG_FIELDS, ...SCORING_CONFIG_FIELDS];
+
+export function configPatchImpact(patch) {
+  if (!patch || typeof patch !== 'object' || Array.isArray(patch)) return null;
+  const fields = Object.keys(patch);
+  if (fields.length === 0 || fields.some((field) => !MUTABLE_CONFIG_FIELDS.includes(field))) return null;
+  return fields.some((field) => SCORING_CONFIG_FIELDS.includes(field)) ? 'scoring' : 'safe';
+}
 
 export const INTENT_OPS = [
   'register', 'withdraw', 'checkin_request', 'defer_request',
@@ -81,21 +107,24 @@ export const PAYMENT_STATES = ['not_required', 'pending', 'settled', 'failed', '
 
 /** Registration and check-in are independent windows and may overlap. */
 export function registrationWindowOpen(competition, status, at) {
-  if (!Number.isInteger(at) || at > competition.registration_closes_at) return false;
-  return status === 'registration_open'
-    || status === 'checkin_open'
-    || (status === 'running' && competition.rules.late_entry_allowed === true);
+  if (!Number.isInteger(at) || ['finished', 'cancelled'].includes(status)) return false;
+  return at >= competition.registration_opens_at && at <= competition.registration_closes_at;
 }
 
-/** Late check-in during a running competition must be explicitly enabled. */
+/** Check-in is independently scheduled and may overlap registration. */
 export function checkinWindowOpen(competition, status, at) {
-  if (!Number.isInteger(at) || at > competition.checkin_closes_at) return false;
-  return status === 'checkin_open'
-    || (status === 'running' && competition.rules.late_entry_allowed === true);
+  if (!Number.isInteger(at) || ['finished', 'cancelled'].includes(status)) return false;
+  return at >= competition.checkin_opens_at && at <= competition.checkin_closes_at;
+}
+
+/** The clock starts the competition; pause and terminal states are host overrides. */
+export function competitionRunning(competition, status, at) {
+  if (!Number.isInteger(at) || ['paused', 'finished', 'cancelled'].includes(status)) return false;
+  return at >= competition.starts_at && at <= competition.ends_at;
 }
 
 /** `reason` is mandatory on these; an audit trail without a why is just a log. */
-const REASON_REQUIRED_OPS = new Set(['correction', 'override', 'disqualify']);
+const REASON_REQUIRED_OPS = new Set(['correction', 'override', 'disqualify', 'config_update']);
 
 // ── d-tags (§3.2) ──
 
@@ -258,8 +287,7 @@ export function validateCompetitionConfig(config) {
     }
   }
   // Registration and check-in are independent windows and may overlap. Each
-  // window must be internally ordered; late_entry_allowed decides whether its
-  // closing edge may extend beyond the competition start.
+  // window must be internally ordered. Either may remain open after start.
   const order = [
     ['registration_opens_at', 'registration_closes_at'],
     ['checkin_opens_at', 'checkin_closes_at'],
@@ -269,12 +297,6 @@ export function validateCompetitionConfig(config) {
     ['registration_closes_at', 'ends_at'],
     ['checkin_closes_at', 'ends_at'],
   ];
-  if (config.rules?.late_entry_allowed !== true) {
-    order.push(
-      ['registration_closes_at', 'starts_at'],
-      ['checkin_closes_at', 'starts_at'],
-    );
-  }
   for (const [a, b] of order) {
     if (Number.isInteger(config[a]) && Number.isInteger(config[b]) && config[a] > config[b]) {
       err(errors, b, `must not be before ${a.replace(/_/g, ' ')}`);
@@ -468,16 +490,9 @@ export function validateCompetitionConfig(config) {
       if (Number.isInteger(rules.climb_count) && pool.options.length < rules.climb_count) {
         err(errors, 'climb_pool', `needs at least ${rules.climb_count} climbs for this format`);
       }
-      if (rules.selection_uniqueness === 'unique_per_competition'
-        && Number.isInteger(config.capacity) && config.capacity > 0
-        && Number.isInteger(rules.climb_count)
-        && pool.options.length < config.capacity * rules.climb_count) {
-        // With unique claims, everyone must be able to get a full set. Fewer
-        // climbs than entrants x picks means somebody is guaranteed to lose a
-        // race they cannot recover from.
-        err(errors, 'climb_pool',
-          `needs at least ${config.capacity * rules.climb_count} climbs so every entrant can claim a full set`);
-      }
+      // `unique_per_competition` remains readable for legacy signed events.
+      // New clients expose the complete pool and apply Best-N while scoring,
+      // so pool capacity is never multiplied by participant capacity.
     }
   }
 

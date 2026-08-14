@@ -32,6 +32,14 @@ function walkJs(dir, out = []) {
 }
 const APP_FILES = walkJs(path.join(root, 'competitions/app'));
 
+test('the host edit flow publishes an audited log revision at every sequence', () => {
+  const organizer = fs.readFileSync(path.join(root, 'competitions/app/pages/organizer.mjs'), 'utf8');
+  assert.match(organizer, /writer\.updateConfig\(patch, reason\.value\.trim\(\)\)/);
+  assert.match(organizer, /configPatchImpact\(patch\)/);
+  assert.doesNotMatch(organizer, /state\.seq === 0 \? el\('button',[\s\S]{0,300}org\.edit\.action/);
+  assert.match(organizer, /org\.edit\.reason_hint/);
+});
+
 test('competition entry points version their release assets', () => {
   for (const lang of ['en', 'de']) {
     const page = readPage(lang, 'organizer.html');
@@ -103,8 +111,8 @@ test('live host, participant and projection surfaces keep state-specific action 
   assert.match(css, /\.host-result-actions\s*\{[^}]*position: sticky/s,
     'attempt controls must remain reachable on a small wall-side phone');
 
-  assert.match(join, /state\.status === 'running'[\s\S]*participant-actions/,
-    'participant controls must be gated by the running phase');
+  assert.match(join, /competitionRunning\([\s\S]*participant-actions/,
+    'participant controls must be gated by the scheduled running window');
   assert.match(join, /participant-actions participant-actions-status/,
     'paused and terminal participants need a status surface, not disabled controls');
   assert.match(join, /className: 'button primary'[\s\S]*live\.prepare_board/,
@@ -615,14 +623,11 @@ test('every mode the form offers has a label in both languages', () => {
   }
 });
 
-test('the participant pages can render every mode the form can set', () => {
-  // Registration has to offer climb selection when the organizer configured
-  // it, and the live panel has to offer the async chooser.
+test('participant choice happens live, never during registration', () => {
   const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
-  assert.ok(join.includes("'participant_choice'"), 'no climb selection at registration');
+  assert.match(join, /selections: \[\]/, 'registration must not preselect climbs');
   assert.ok(join.includes("'asynchronous_turns'"), 'no next-climb chooser for async turns');
-  assert.ok(join.includes('unique_per_competition') || join.includes('freeClimbs'),
-    'nothing distinguishes a climb somebody already holds');
+  assert.ok(join.includes('remainingClimbs'), 'live flow cannot choose from the remaining pool');
 });
 
 test('every page that can open a competition offers somewhere to paste it', async () => {
@@ -1048,7 +1053,7 @@ test('the wizard progressively reveals only choices that apply', async () => {
     climbSource.dispatch('change');
     assert.equal(form.node.querySelector('#f-scoring').value, 'tops_then_attempts');
     assert.equal(form.node.querySelector('#f-scoring').parentNode.getAttribute('hidden'), null);
-    assert.equal(form.node.querySelector('#f-uniqueness').parentNode.getAttribute('hidden'), null);
+    assert.equal(form.node.querySelector('#f-uniqueness').parentNode.getAttribute('hidden'), 'hidden');
     assert.equal(form.node.querySelector('#f-uniqueness').value, 'none', 'shared choices are the safe default');
 
     climbSource.value = 'organizer_set';
@@ -1347,10 +1352,11 @@ test('measured MoonBoard preview data covers every supported variant', () => {
   });
 });
 
-test('participant and repick pickers gate actions on verified catalogue readiness', () => {
+test('the participant catalogue is live-only and registration has no hidden picker', () => {
   const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
-  assert.match(join, /catalogueState !== 'ready' \|\| outstanding !== 0/);
-  assert.match(join, /renderOptions\(\);\s*updateReady\(\)/);
+  assert.doesNotMatch(join, /function claimStatus|repickButton|sel-\$\{option\.id\}/);
+  assert.doesNotMatch(join, /false &&/);
+  assert.match(join, /function nextClimbChooser/);
   assert.match(join, /hydrateCatalogue\(store\.competition\)/);
   assert.match(join, /function fixedClimbsPanel/);
 });
@@ -1586,10 +1592,12 @@ test('the organizer form builds a participant-choice competition too', async () 
 
     const config = form.build(newCompId(), Math.floor(Date.UTC(2026, 7, 9) / 1000));
     assert.equal(config.rules.climb_source, 'participant_choice');
-    assert.equal(config.rules.selection_uniqueness, 'unique_per_competition');
+    assert.equal(config.rules.selection_uniqueness, 'none');
     assert.equal(config.rules.progression, 'asynchronous_turns');
     assert.equal(config.climbs, undefined, 'a chosen-climbs competition carries a pool, not a list');
     assert.equal(config.climb_pool.options.length, 2);
+    assert.equal(config.rules.climb_count, 2, 'available M is the complete pool');
+    assert.equal(config.rules.counted_climb_count, 1, 'best N is independent of pool size');
 
     const result = validateCompetitionConfig(config);
     assert.equal(result.ok, true, JSON.stringify(result.errors));
@@ -1600,7 +1608,8 @@ test('the organizer form builds a participant-choice competition too', async () 
     set('f-capacity', '500');
     const shared = form.build();
     assert.ok(shared.climb_pool.options.length >= shared.rules.climb_count);
-    assert.equal(shared.rules.counted_climb_count, shared.rules.climb_count);
+    assert.equal(shared.rules.counted_climb_count, 1);
+    assert.equal(shared.rules.climb_count, shared.climb_pool.options.length);
     assert.equal(validateCompetitionConfig(shared).ok, true);
   } finally {
     restore();

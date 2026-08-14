@@ -167,6 +167,68 @@ export function zonedLocalToEpoch(value, timeZone) {
   return Math.floor(instant / 1000);
 }
 
+/** Turn an epoch back into the wall-clock value expected by datetime-local. */
+function epochToZonedLocal(epoch, timeZone) {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
+    timeZone: normalizedTimeZone(timeZone), year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+  }).formatToParts(new Date(epoch * 1000)).filter((part) => part.type !== 'literal')
+    .map((part) => [part.type, part.value]));
+  return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}`;
+}
+
+/** Prefill the creation wizard for a safe addressable definition revision. */
+export function competitionToFormDraft(competition) {
+  const zone = normalizedTimeZone(competition.timezone || 'UTC');
+  const type = BOARD_TYPES.find((candidate) => candidate.brand === competition.board?.brand
+    && candidate.models.some((model) => model.value === competition.board?.model
+      && model.layoutId === competition.board?.layout_id));
+  const climbs = competition.rules?.climb_source === 'participant_choice'
+    ? (competition.climb_pool?.options || []) : (competition.climbs || []);
+  return {
+    fields: {
+      title: competition.title, summary: competition.summary, description: competition.description,
+      organizerName: competition.organizer_name, contact: competition.contact,
+      visibility: competition.visibility,
+      regOpens: epochToZonedLocal(competition.registration_opens_at, zone),
+      regCloses: epochToZonedLocal(competition.registration_closes_at, zone),
+      checkinOpens: epochToZonedLocal(competition.checkin_opens_at, zone),
+      checkinCloses: epochToZonedLocal(competition.checkin_closes_at, zone),
+      starts: epochToZonedLocal(competition.starts_at, zone),
+      ends: epochToZonedLocal(competition.ends_at, zone), timezone: zone,
+      venueKind: competition.venue?.kind || 'physical', venue: competition.venue?.name || '',
+      address: competition.venue?.address || '', brand: type?.id || BOARD_TYPES[0].id,
+      model: competition.board?.model || '', size: competition.board?.size || '',
+      angle: String(competition.board?.angle ?? ''),
+      climbSource: competition.rules?.climb_source || 'organizer_set',
+      climbCount: String(competition.rules?.counted_climb_count || competition.rules?.climb_count || 1),
+      uniqueness: 'none', progression: competition.rules?.progression || 'synchronous_rounds',
+      attempts: String(competition.rules?.attempts_per_climb || 1),
+      scoring: competition.rules?.scoring || 'tops_then_attempts',
+      zonePoints: String(competition.rules?.score_points?.zone || 0),
+      topPoints: String(competition.rules?.score_points?.top || 0),
+      flashPoints: String(competition.rules?.score_points?.flash || 0),
+      capacity: String(competition.capacity || 20), capacityUnlimited: competition.capacity === 0,
+      waitlist: Boolean(competition.waitlist_enabled), fee: String((competition.fee_msat || 0) / 1000),
+      lnurl: competition.fee_lnurl || '', turnDeadline: String(competition.rules?.turn_deadline_sec || 120),
+      deferBudget: String(competition.rules?.defer_budget_per_round || 0),
+      deferConsecutive: String(competition.rules?.max_consecutive_defers || 0),
+      deferSlots: String(competition.rules?.defer_slots || 1),
+      minRest: String(competition.rules?.min_rest_sec || 0),
+      lateEntry: Boolean(competition.rules?.late_entry_allowed), eligibility: competition.eligibility || '',
+      waiver: competition.waiver || '', instructions: competition.participant_instructions || '',
+      spectator: competition.spectator_info || '', refund: competition.refund_policy || '',
+    },
+    divisions: (competition.divisions || []).map((division) => division.label),
+    prizes: (competition.prizes || []).map((prize) => ({
+      rank: prize.rank, kind: prize.kind, label: prize.label,
+      value_sats: Math.floor((prize.value_msat || 0) / 1000),
+    })),
+    climbs,
+    currentStep: 0,
+  };
+}
+
 function defaultWhen(offsetHours) {
   const date = new Date(Date.now() + offsetHours * 3600 * 1000);
   date.setMinutes(0, 0, 0);
@@ -1368,7 +1430,7 @@ export function createCompetitionForm({
       description: f.description.value.trim(),
       organizer: { name: f.organizerName.value.trim(), contact: f.contact.value.trim() },
       visibility: f.visibility.value,
-      status: 'draft',
+      status: 'published',
       timezone: f.timezone.value.trim() || 'UTC',
       registration_opens_at: zonedLocalToEpoch(f.regOpens.value, f.timezone.value),
       registration_closes_at: zonedLocalToEpoch(f.regCloses.value, f.timezone.value),
@@ -1407,9 +1469,9 @@ export function createCompetitionForm({
         // M is the actual organizer list or participant pool. `climb_count`
         // remains the v1-compatible N quota; the additive field names its new,
         // unambiguous scoring meaning for clients that understand best-N.
-        climb_count: Number(f.climbCount.value),
+        climb_count: participantChoice ? climbs.length : Number(f.climbCount.value),
         counted_climb_count: Number(f.climbCount.value),
-        selection_uniqueness: participantChoice ? f.uniqueness.value : 'none',
+        selection_uniqueness: 'none',
         progression: f.progression.value,
         attempts_per_climb: Number(f.attempts.value),
         turn_deadline_sec: Number(f.turnDeadline.value),
@@ -1659,7 +1721,8 @@ export function createCompetitionForm({
       }
     }
     if (participantChoice) {
-      uniquenessField.removeAttribute('hidden');
+      uniquenessField.setAttribute('hidden', 'hidden');
+      f.uniqueness.value = 'none';
       if (['points_sum', 'hardest_n'].includes(f.scoring.value)) f.scoring.value = 'tops_then_attempts';
     } else {
       uniquenessField.setAttribute('hidden', 'hidden');

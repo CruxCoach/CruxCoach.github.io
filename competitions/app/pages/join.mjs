@@ -11,7 +11,6 @@ import {
 } from './common.mjs?v=20260814-1';
 import { SignIn } from '../ui/shell.mjs?v=20260814-1';
 import { RelayPool } from '../protocol/relay-pool.mjs';
-import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
 import {
   resolvePayEndpoint, validatePayResponse, invoiceUrl, validateInvoiceResponse,
@@ -19,7 +18,7 @@ import {
 import { buildZapRequest } from '../protocol/zap.mjs';
 import { buildClaimBody, validateClaimInput, eligibleWinner } from '../protocol/prize.mjs';
 import {
-  checkinWindowOpen, competitionAddress, registrationWindowOpen,
+  checkinWindowOpen, competitionAddress, competitionRunning, registrationWindowOpen,
 } from '../protocol/competition.mjs?v=20260813-2';
 import { EntrantWriter } from '../authority.mjs?v=20260813-1';
 import {
@@ -91,6 +90,23 @@ const view = byId('view');
 const statusNode = byId('load-status');
 const REGISTRATION_DRAFT_PREFIX = 'cruxcoach:competitions:registration-draft:v1:';
 const REGISTRATION_DRAFT_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
+const CHECKIN_REQUEST_PREFIX = 'cruxcoach:competitions:checkin-request:v1:';
+
+function checkinRequestKey(competition) {
+  return signer ? `${CHECKIN_REQUEST_PREFIX}${signer.pubkey}:${competition.authority}:${competition.comp_id}` : '';
+}
+
+function checkinRequested(competition) {
+  try { return Boolean(localStorage.getItem(checkinRequestKey(competition))); } catch { return false; }
+}
+
+function markCheckinRequested(competition) {
+  try { localStorage.setItem(checkinRequestKey(competition), String(Date.now())); } catch { /* status still updates in this view */ }
+}
+
+function clearCheckinRequested(competition) {
+  try { localStorage.removeItem(checkinRequestKey(competition)); } catch { /* storage may be disabled */ }
+}
 
 function catalogueFilters(onChange) {
   let gradeScale = storedGradeScale();
@@ -278,25 +294,44 @@ function header(snapshot) {
 }
 
 function participantScreen(snapshot) {
-  if (['running', 'paused', 'finished', 'cancelled'].includes(snapshot.state.status)) return 'live';
+  const now = Math.floor(Date.now() / 1000);
+  if (competitionRunning(snapshot.competition, snapshot.state.status, now)
+    || ['paused', 'finished', 'cancelled'].includes(snapshot.state.status)) return 'live';
   const mine = me();
-  if (['registration_closed', 'checkin_open'].includes(snapshot.state.status)
-    && mine?.registration === 'accepted') return 'checkin';
+  // Acceptance, not a mutually exclusive global phase, advances this person.
+  // The check-in screen can therefore clearly say "not open yet" even while
+  // registration remains open for somebody else.
+  if (mine?.registration === 'accepted') return 'checkin';
   return 'registration';
 }
 
-function phaseNavigation(screen) {
+function phaseNavigation(screen, snapshot) {
   const phases = ['registration', 'checkin', 'live'];
   const current = phases.indexOf(screen);
+  const mine = me();
+  const completed = {
+    registration: mine?.registration === 'accepted',
+    checkin: mine?.checkin === 'checked_in',
+    live: snapshot.state.status === 'finished',
+  };
   return el('nav', { className: 'participant-phases', attrs: { 'aria-label': t('participant.progress') } }, [
     el('ol', {}, phases.map((phase, index) => el('li', {
-      className: index < current ? 'done' : index === current ? 'current' : 'upcoming',
+      className: completed[phase] ? 'done' : index === current ? 'current' : 'upcoming',
       attrs: index === current ? { 'aria-current': 'step' } : {},
     }, [
-      el('span', { className: 'participant-phase-number', text: index < current ? '✓' : String(index + 1) }),
-      el('span', { text: t(`participant.phase.${phase}`) }),
+      el('span', { className: 'participant-phase-number', text: completed[phase] ? '✓' : String(index + 1) }),
+      el('span', {}, [
+        el('strong', { text: t(`participant.phase.${phase}`) }),
+        el('small', { text: t(`participant.phase_state.${completed[phase] ? 'done' : index === current ? 'current' : 'upcoming'}`) }),
+      ]),
     ]))),
   ]);
+}
+
+function windowPosition(now, opensAt, closesAt) {
+  if (now < opensAt) return 'upcoming';
+  if (now > closesAt) return 'closed';
+  return 'open';
 }
 
 function phaseIntro(screen) {
@@ -322,8 +357,12 @@ function registrationPanel(snapshot) {
   if (mine) {
     const rows = [
       el('h2', { text: t('action.register') }),
-      el('div', { className: 'row' }, [
-        el('span', { className: 'badge', text: t(`reg.${mine.registration}`) }),
+      el('div', { className: `participant-decision participant-decision-${mine.registration}` }, [
+        el('span', { className: `participant-status-icon ${mine.registration === 'accepted' ? 'ok' : ''}`, text: mine.registration === 'accepted' ? '✓' : '•' }),
+        el('div', {}, [
+          el('strong', { text: t(`reg.${mine.registration}`) }),
+          el('span', { text: t(`reg.detail.${mine.registration}`) }),
+        ]),
         competition.fee_msat > 0 && el('span', {
           className: mine.payment === 'settled' ? 'badge ok' : 'badge warn',
           text: t(`pay.${mine.payment}`),
@@ -338,9 +377,6 @@ function registrationPanel(snapshot) {
     // showing the badge without the control strands them.
     if (competition.fee_msat > 0 && PAYABLE_STATES.has(mine.payment)) {
       rows.push(paymentPanel(snapshot, mine));
-    }
-    if (competition.rules.climb_source === 'participant_choice') {
-      rows.push(...claimStatus(snapshot, mine));
     }
     if (['pending', 'accepted', 'waitlisted'].includes(mine.registration)
       && !['finished', 'cancelled'].includes(snapshot.state.status)) {
@@ -372,7 +408,7 @@ function registrationPanel(snapshot) {
                 division: mine.division || competition.divisions[0].id,
                 display: mine.display || shortKey(signer.pubkey),
                 waiverAccepted: true,
-                selections: mine.selections,
+                selections: [],
               });
               feedback.textContent = t('reg.sent');
               announce(t('reg.sent'));
@@ -385,10 +421,18 @@ function registrationPanel(snapshot) {
     return el('section', { className: 'card raised' }, rows);
   }
 
+  const registrationPosition = windowPosition(
+    now, competition.registration_opens_at, competition.registration_closes_at,
+  );
   if (!registrationWindowOpen(competition, snapshot.state.status, now)) {
     return el('section', { className: 'card raised' }, [
       el('h2', { text: t('action.register') }),
-      el('p', { text: t('reg.closed') }),
+      el('div', { className: `participant-window-state state-${registrationPosition}` }, [
+        el('strong', { text: t(`reg.window.${registrationPosition}`) }),
+        el('span', { text: registrationPosition === 'upcoming'
+          ? formatDateTime(competition.registration_opens_at, language, competition.timezone)
+          : formatDateTime(competition.registration_closes_at, language, competition.timezone) }),
+      ]),
     ]);
   }
 
@@ -430,91 +474,6 @@ function registrationPanel(snapshot) {
     ]),
   ];
 
-  // ── climb selection, when the organizer configured it ──
-  const selection = new Set();
-  if (competition.rules.climb_source === 'participant_choice') {
-    const options = competition.climb_pool?.options || [];
-    const needed = competition.rules.climb_count;
-    const unique = competition.rules.selection_uniqueness === 'unique_per_competition';
-    for (const id of Array.isArray(savedDraft?.selections) ? savedDraft.selections : []) {
-      if (selection.size >= needed) break;
-      const option = options.find((candidate) => candidate.id === id);
-      if (!option || (unique && snapshot.state.claims[option.id])) continue;
-      selection.add(option.id);
-    }
-    if (catalogueState !== 'ready') selection.clear();
-    const counter = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
-    const selectionProgress = el('progress', { attrs: { max: String(needed), value: String(selection.size) } });
-    const updateCounter = () => {
-      counter.textContent = t('select.count', { chosen: selection.size, needed });
-      selectionProgress.value = selection.size;
-      selectionProgress.setAttribute('value', String(selection.size));
-    };
-
-    if (catalogueState !== 'ready') {
-      rows.push(
-        el('h3', { text: t('select.title') }),
-        el('div', { className: `notice ${catalogueState === 'error' ? 'bad' : ''}`, attrs: { role: 'status' } }, [
-          el('p', { text: catalogueState === 'loading' ? t('select.catalogue.loading') : catalogueError || t('select.catalogue.loading') }),
-          catalogueState === 'error' ? el('button', {
-            text: t('select.catalogue.retry'), on: { click: () => hydrateCatalogue(competition) },
-          }) : null,
-        ]),
-      );
-    } else rows.push(
-      el('h3', { text: t('select.title') }),
-      el('p', { className: 'small', text: t('select.hint', { needed }) }),
-      unique ? el('p', { className: 'small', text: t('select.unique_hint') }) : null,
-      el('div', { className: 'climb-selection-progress' }, [counter, selectionProgress]),
-      (() => {
-        const results = el('div', { className: 'climb-browser-results' });
-        let renderOptions = () => {};
-        const filters = catalogueFilters(() => renderOptions());
-        renderOptions = () => replace(results, ...filterCatalogue(options.map((option) => ({
-          option, described: { ...(catalogueDetails.get(String(option.climb_uuid).toLowerCase()) || {}), ...option },
-        })), filters.values()).map(({ option }) => {
-        // Live: a climb somebody else already holds is shown as taken, and the
-        // control is absent rather than present-and-doomed.
-        const takenBy = unique ? snapshot.state.claims[option.id] : undefined;
-        const taken = Boolean(takenBy);
-        const resolved = catalogueDetails.has(String(option.climb_uuid).toLowerCase());
-        const limitReached = selection.size >= needed && !selection.has(option.id);
-        const box = el('input', {
-          attrs: {
-            type: 'checkbox', id: `sel-${option.id}`, disabled: taken || !resolved || limitReached,
-            checked: selection.has(option.id),
-          },
-          on: {
-            change: (event) => {
-              if (event.target.checked) {
-                if (selection.size >= needed) { event.target.checked = false; return; }
-                selection.add(option.id);
-              } else {
-                selection.delete(option.id);
-              }
-              updateCounter();
-              renderOptions();
-              updateReady();
-              saveRegistrationDraft(competition, {
-                display: display.value.trim(), division: division.value, selections: [...selection],
-              });
-            },
-          },
-        });
-        const details = catalogueDetails.get(String(option.climb_uuid).toLowerCase()) || option;
-        const action = taken ? null : el('label', { className: 'climb-card-select', attrs: { for: `sel-${option.id}` } }, [
-          box, el('span', { text: selection.has(option.id) ? t('climb.browser.added')
-            : limitReached ? t('climb.browser.limit_reached') : t('climb.browser.choose') }),
-        ]);
-        return climbCard({ climb: { ...details, ...option }, board: competition.board, t,
-          selected: selection.has(option.id), taken, action, gradeScale: filters.gradeScale() });
-        }));
-        renderOptions();
-        return el('div', {}, [filters.node, results]);
-      })(),
-    );
-    updateCounter();
-  }
   if (competition.divisions.length > 1) {
     rows.push(el('label', { attrs: { for: 'division' } }, [
       el('span', { text: t('reg.division') }),
@@ -539,15 +498,11 @@ function registrationPanel(snapshot) {
     text: t('action.register'),
     on: {
       click: () => guard(async () => {
-        if (competition.rules.climb_source === 'participant_choice'
-          && selection.size !== competition.rules.climb_count) {
-          throw new Error(t('select.incomplete', { needed: competition.rules.climb_count }));
-        }
         await entrant.register({
           division: competition.divisions.length > 1 ? division.value : competition.divisions[0].id,
           display: display.value.trim(),
           waiverAccepted: !competition.waiver_required || waiver.checked,
-          selections: [...selection].sort(),
+          selections: [],
         });
         clearRegistrationDraft(competition);
         feedback.textContent = t('reg.sent');
@@ -557,25 +512,17 @@ function registrationPanel(snapshot) {
   });
   const updateReady = () => {
     const missingName = !display.value.trim();
-    const missingClimbs = competition.rules.climb_source === 'participant_choice'
-      && (catalogueState !== 'ready' || selection.size !== competition.rules.climb_count);
     const missingWaiver = competition.waiver_required && !waiver.checked;
-    registerButton.disabled = missingName || missingClimbs || missingWaiver;
+    registerButton.disabled = missingName || missingWaiver;
     readiness.textContent = missingName ? t('reg.ready.name')
-      : catalogueState !== 'ready' && competition.rules.climb_source === 'participant_choice'
-        ? t('reg.ready.catalogue')
-        : missingClimbs ? t('reg.ready.climbs', { count: competition.rules.climb_count - selection.size })
-        : missingWaiver ? t('reg.ready.waiver') : t('reg.ready.complete');
+      : missingWaiver ? t('reg.ready.waiver') : t('reg.ready.complete');
   };
   const saveDraft = () => saveRegistrationDraft(competition, {
-    display: display.value.trim(), division: division.value, selections: [...selection],
+    display: display.value.trim(), division: division.value,
   });
   display.addEventListener('input', () => { updateReady(); saveDraft(); });
   division.addEventListener('change', saveDraft);
   waiver.addEventListener('change', updateReady);
-  for (const control of rows.flatMap((row) => row?.querySelectorAll?.('input') || [])) {
-    if (String(control.id || '').startsWith('sel-')) control.addEventListener('change', updateReady);
-  }
   updateReady();
   rows.push(readiness, feedback, registerButton);
   return el('section', { className: 'card raised' }, rows);
@@ -596,32 +543,41 @@ function checkinPanel(snapshot) {
     return el('section', { className: 'card raised participant-checkin-card' }, rows);
   }
 
+  if (mine.checkin === 'checked_in') clearCheckinRequested(competition);
+  const requested = mine.checkin === 'none' && checkinRequested(competition);
+  const position = windowPosition(now, competition.checkin_opens_at, competition.checkin_closes_at);
   rows.push(el('div', { className: 'participant-checkin-status' }, [
     el('span', {
       className: mine.checkin === 'checked_in' ? 'participant-status-icon ok' : 'participant-status-icon',
       text: mine.checkin === 'checked_in' ? '✓' : '2',
     }),
     el('div', {}, [
-      el('strong', { text: t(`checkin.${mine.checkin}`) }),
+      el('strong', { text: requested ? t('checkin.requested') : t(`checkin.${mine.checkin}`) }),
       el('span', { text: mine.checkin === 'checked_in'
-        ? t('participant.checkin.ready') : t('participant.checkin.waiting') }),
+        ? t('participant.checkin.ready') : requested
+          ? t('participant.checkin.requested_waiting') : t(`participant.checkin.${position}`) }),
     ]),
   ]));
 
   if (competition.fee_msat > 0 && PAYABLE_STATES.has(mine.payment)) rows.push(paymentPanel(snapshot, mine));
-  if (competition.rules.climb_source === 'participant_choice') rows.push(...claimStatus(snapshot, mine));
-
-  if (mine.checkin === 'none' && checkinWindowOpen(competition, snapshot.state.status, now)) {
+  if (mine.checkin === 'none' && !requested && checkinWindowOpen(competition, snapshot.state.status, now)) {
     const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
     rows.push(el('button', {
       className: 'primary participant-checkin-action', text: t('action.checkin'),
       on: { click: () => guard(async () => {
         await entrant.requestCheckIn();
+        markCheckinRequested(competition);
         feedback.textContent = t('participant.checkin.sent');
+        render();
       }, feedback) },
     }), feedback);
-  } else if (mine.checkin === 'none') {
-    rows.push(el('p', { className: 'notice warn', text: t('participant.checkin.closed') }));
+  } else if (mine.checkin === 'none' && !requested) {
+    rows.push(el('div', { className: `participant-window-state state-${position}` }, [
+      el('strong', { text: t(`checkin.window.${position}`) }),
+      el('span', { text: position === 'upcoming'
+        ? formatDateTime(competition.checkin_opens_at, language, competition.timezone)
+        : formatDateTime(competition.checkin_closes_at, language, competition.timezone) }),
+    ]));
   }
 
   if (!['finished', 'cancelled'].includes(snapshot.state.status)) rows.push(
@@ -828,91 +784,6 @@ async function fetchJson(url, timeoutMs = 15000) {
   }
 }
 
-function claimStatus(snapshot, mine) {
-  const competition = snapshot.competition;
-  const options = competition.climb_pool?.options || [];
-  const needed = competition.rules.climb_count;
-  const granted = mine.selections;
-  const rows = [el('h3', { text: t('select.your_climbs') })];
-
-  if (granted.length) {
-    rows.push(el('ul', { className: 'plain' }, granted.map((id) => el('li', {
-      text: options.find((o) => o.id === id)?.label || id,
-    }))));
-  }
-
-  if (granted.length >= needed) {
-    rows.push(el('p', { className: 'small', text: t('select.complete') }));
-    return rows;
-  }
-
-  const free = freeClimbs(competition, snapshot.state);
-  if (!registrationWindowOpen(competition, snapshot.state.status, Math.floor(Date.now() / 1000))) {
-    rows.push(el('p', { className: 'small', text: t('select.pending') }));
-    return rows;
-  }
-  if (free.length === 0) {
-    rows.push(el('p', { className: 'small', text: t('select.none_left') }));
-    return rows;
-  }
-
-  // Losing a race is recoverable: re-registering replaces the earlier request,
-  // because an intent reuses its nonce.
-  const repick = new Set(granted);
-  const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
-  const readiness = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
-  const results = el('div', { className: 'climb-browser-results' });
-  const repickButton = el('button', { text: t('select.repick') });
-  const repickProgress = el('progress', { attrs: { max: String(needed), value: String(repick.size) } });
-  let renderRepick = () => {};
-  const filters = catalogueFilters(() => renderRepick());
-  renderRepick = () => {
-    const outstanding = needed - repick.size;
-    repickProgress.value = repick.size;
-    repickProgress.setAttribute('value', String(repick.size));
-    repickButton.disabled = catalogueState !== 'ready' || outstanding !== 0;
-    readiness.textContent = catalogueState !== 'ready' ? t('reg.ready.catalogue')
-      : outstanding > 0 ? t('select.repick.remaining', { count: outstanding }) : t('select.repick.ready');
-    replace(results, ...filterCatalogue(free.map((option) => ({
-      option, described: { ...(catalogueDetails.get(String(option.climb_uuid).toLowerCase()) || {}), ...option },
-    })), filters.values()).map(({ option, described }) => {
-      const resolved = catalogueDetails.has(String(option.climb_uuid).toLowerCase());
-      const checked = repick.has(option.id);
-      const box = el('input', {
-        attrs: {
-          type: 'checkbox', id: `repick-${option.id}`, checked,
-          disabled: catalogueState !== 'ready' || !resolved || (!checked && repick.size >= needed),
-        },
-        on: { change: (event) => { if (event.target.checked) repick.add(option.id); else repick.delete(option.id); renderRepick(); } },
-      });
-      return climbCard({
-        climb: described, board: competition.board, t, selected: checked,
-        gradeScale: filters.gradeScale(),
-        action: el('label', { className: 'climb-card-select', attrs: { for: box.id } }, [box, el('span', { text: checked ? t('climb.browser.added') : t('climb.browser.choose') })]),
-      });
-    }));
-  };
-  repickButton.addEventListener('click', () => guard(async () => {
-    if (catalogueState !== 'ready' || repick.size !== needed) throw new Error(t('select.incomplete', { needed }));
-    await entrant.register({
-      division: mine.division || competition.divisions[0].id, display: mine.display,
-      waiverAccepted: true, selections: [...repick].sort(),
-    });
-    feedback.textContent = t('select.repick_sent');
-  }, feedback));
-  rows.push(
-    el('p', { className: 'small', text: t('select.lost', { needed: outstandingCount(competition, mine) }) }),
-    filters.node,
-    results,
-    repickProgress,
-    readiness,
-    feedback,
-    repickButton,
-  );
-  renderRepick();
-  return rows;
-}
-
 function livePanel(snapshot) {
   const state = snapshot.state;
   const current = store.currentClimber();
@@ -921,7 +792,8 @@ function livePanel(snapshot) {
   const nextParticipant = next ? store.participant(next) : null;
   const mine = me();
   const isMyTurn = Boolean(mine && current === mine.pubkey);
-  const cue = personalCue(state, mine?.pubkey);
+  const runningNow = competitionRunning(snapshot.competition, state.status, Math.floor(Date.now() / 1000));
+  const cue = personalCue(state, mine?.pubkey, runningNow);
   const queue = queuePreview(state, state.participants, 6);
   const rotation = rotationPreview(snapshot.competition, state, mine, 4);
   const activeClimb = snapshot.competition.rules.climb_source === 'participant_choice'
@@ -942,18 +814,18 @@ function livePanel(snapshot) {
       el('div', { className: 'participant-turn-facts' }, [
         el('span', { className: 'participant-current-label', text: t('live.current') }),
         el('strong', { className: 'participant-current-person', text: currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
-        state.status === 'running' && el('strong', {
+        runningNow && el('strong', {
           className: 'mono participant-deadline', attrs: { id: 'deadline', 'aria-label': t('live.deadline') }, text: formatSeconds(store.secondsToDeadline()),
         }),
       ]),
     ]),
   ];
 
-  if (!['running', 'paused', 'finished', 'cancelled'].includes(state.status)) {
+  if (!runningNow && !['paused', 'finished', 'cancelled'].includes(state.status)) {
     rows.push(el('p', { className: 'participant-waiting', text: t('live.waiting') }));
   }
 
-  if (['running', 'paused'].includes(state.status)) rows.push(el('details', { className: 'participant-shared-state' }, [
+  if (runningNow || state.status === 'paused') rows.push(el('details', { className: 'participant-shared-state' }, [
     el('summary', { text: t('live.shared_state') }),
     el('div', { className: 'participant-live-grid' }, [
     el('section', { className: 'subcard' }, [
@@ -999,7 +871,7 @@ function livePanel(snapshot) {
     ]));
 
     if (snapshot.competition.rules.progression === 'asynchronous_turns'
-      && ['running', 'paused'].includes(state.status)) {
+      && (runningNow || state.status === 'paused')) {
       rows.push(...nextClimbChooser(snapshot, mine));
     }
 
@@ -1010,7 +882,7 @@ function livePanel(snapshot) {
         }))));
     }
 
-    if (state.status === 'running') {
+    if (runningNow) {
       const actions = [];
       if (activeClimb?.climb_uuid) actions.push(el('a', {
         className: 'button primary',
@@ -1366,7 +1238,7 @@ function render() {
     transportNotice(snapshot),
     el('div', { className: 'participant-screen', attrs: { 'data-screen': screen } }, [
       header(snapshot),
-      phaseNavigation(screen),
+      phaseNavigation(screen, snapshot),
       ...primary,
       announcements(snapshot),
       secondary,

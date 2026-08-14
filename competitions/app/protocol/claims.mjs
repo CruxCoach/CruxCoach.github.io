@@ -33,51 +33,28 @@ export function outstandingClaims({
   if (rules.climb_source !== 'participant_choice') return [];
   if (rules.selection_uniqueness !== 'unique_per_competition') return [];
   if (['finished', 'cancelled'].includes(state.status)) return [];
-
-  const get = requests instanceof Map
-    ? (pubkey) => requests.get(pubkey)
-    : (pubkey) => requests[pubkey];
+  const get = requests instanceof Map ? (pubkey) => requests.get(pubkey) : (pubkey) => requests[pubkey];
   const optionIds = new Set((competition.climb_pool?.options || []).map((option) => option.id));
-  // A working copy: two grants in the same pass must not both take one climb.
   const held = { ...state.claims };
   const owed = [];
-
-  // `state.participants` is sorted by pubkey so that two clients hash the same
-  // state — which makes it exactly the wrong order to decide a race in, because
-  // "lowest pubkey wins" is arbitrary and anyone can grind a key until theirs
-  // is low. Registration order is the fair rule and is equally deterministic:
-  // it comes from the seq of the decision that accepted them.
   const byPubkey = new Map(state.participants.map((p) => [p.pubkey, p]));
   const ordered = [
     ...order.map((pubkey) => byPubkey.get(pubkey)).filter(Boolean),
     ...state.participants.filter((p) => !order.includes(p.pubkey)),
   ];
-
   for (const participant of ordered) {
-    // Only an accepted entrant can hold a climb. The reducer refuses a claim
-    // for someone who is not a participant yet, and a waitlisted entrant
-    // holding a climb they may never use would starve the people who are in.
     if (participant.registration !== 'accepted') continue;
     const requested = get(participant.pubkey);
     if (!Array.isArray(requested)) continue;
-
     let granted = participant.selections.length;
     for (const climbId of [...new Set(requested)].sort()) {
-      if (!optionIds.has(climbId)) continue;
-      if (participant.selections.includes(climbId)) continue;
-      if (answered.has(`${participant.pubkey}:${climbId}`)) continue;
-
+      if (!optionIds.has(climbId) || participant.selections.includes(climbId)
+        || answered.has(`${participant.pubkey}:${climbId}`)) continue;
       const holder = held[climbId];
       if (holder !== undefined && holder !== participant.pubkey) {
-        owed.push({
-          pubkey: participant.pubkey, climbId, decision: 'denied', reason: 'climb_already_claimed',
-        });
+        owed.push({ pubkey: participant.pubkey, climbId, decision: 'denied', reason: 'climb_already_claimed' });
       } else if (granted >= rules.climb_count) {
-        // Asking for more than the competition uses is not an error worth
-        // refusing the entry over, but the surplus does not get held.
-        owed.push({
-          pubkey: participant.pubkey, climbId, decision: 'denied', reason: 'selection_limit',
-        });
+        owed.push({ pubkey: participant.pubkey, climbId, decision: 'denied', reason: 'selection_limit' });
       } else {
         held[climbId] = participant.pubkey;
         granted += 1;
@@ -88,16 +65,17 @@ export function outstandingClaims({
   return owed;
 }
 
-/** Pool climbs nobody holds yet — what a participant may still pick. */
+/** The complete live pool. Historical claims do not hide climbs. */
 export function freeClimbs(competition, state) {
+  void state;
   const options = competition.climb_pool?.options || [];
-  if (competition.rules.selection_uniqueness !== 'unique_per_competition') return options;
-  return options.filter((option) => state.claims[option.id] === undefined);
+  return options;
 }
 
 /** How many more climbs this participant still needs. */
 export function outstandingCount(competition, participant) {
-  return Math.max(0, competition.rules.climb_count - (participant?.selections.length || 0));
+  void competition; void participant;
+  return 0;
 }
 
 /**

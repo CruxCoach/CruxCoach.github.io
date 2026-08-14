@@ -204,7 +204,7 @@ test('available climbs and counted results are independent and backwards compati
   assert.equal(validateCompetitionConfig(base).ok, true);
 });
 
-test('shared pools need N options; only exclusive claims multiply N by capacity', () => {
+test('every participant-choice pool needs only N options, including legacy unique events', () => {
   const base = validConfig();
   const options = Array.from({ length: 5 }, (_, index) => ({
     ...base.climbs[index % base.climbs.length],
@@ -227,7 +227,8 @@ test('shared pools need N options; only exclusive claims multiply N by capacity'
     capacity: 2,
     rules: { ...shared.rules, selection_uniqueness: 'unique_per_competition' },
   };
-  assert.ok(validateCompetitionConfig(exclusiveShort).errors.some((error) => error.field === 'climb_pool'));
+  assert.equal(validateCompetitionConfig(exclusiveShort).ok, true,
+    'legacy uniqueness must not multiply the pool or make a demo unplayable');
 
   const exclusiveEnough = {
     ...exclusiveShort,
@@ -242,7 +243,7 @@ test('shared pools need N options; only exclusive claims multiply N by capacity'
   assert.equal(validateCompetitionConfig(exclusiveEnough).ok, true);
 });
 
-test('registration may overlap check-in and late arrivals require an explicit rule', () => {
+test('registration check-in and running windows may overlap without manual activation', () => {
   const base = validConfig();
   const overlap = {
     ...base,
@@ -256,14 +257,15 @@ test('registration may overlap check-in and late arrivals require an explicit ru
     registration_closes_at: base.starts_at + 60,
     checkin_closes_at: base.starts_at + 120,
   };
-  assert.equal(validateCompetitionConfig(afterStart).ok, false, 'late arrivals must be opted into');
-
-  const late = { ...afterStart, rules: { ...base.rules, late_entry_allowed: true } };
+  assert.equal(validateCompetitionConfig(afterStart).ok, true);
+  const late = { ...afterStart, rules: { ...base.rules, late_entry_allowed: false } };
   assert.equal(validateCompetitionConfig(late).ok, true);
   assert.equal(registrationWindowOpen(late, 'running', base.starts_at + 30), true);
   assert.equal(checkinWindowOpen(late, 'running', base.starts_at + 30), true);
   assert.equal(registrationWindowOpen(late, 'running', late.registration_closes_at + 1), false);
   assert.equal(checkinWindowOpen(late, 'running', late.checkin_closes_at + 1), false);
+  assert.equal(registrationWindowOpen(late, 'published', late.registration_opens_at - 1), false);
+  assert.equal(checkinWindowOpen(late, 'published', late.checkin_opens_at - 1), false);
 });
 
 test('validation names the field that is wrong', () => {

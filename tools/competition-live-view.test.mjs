@@ -69,7 +69,7 @@ test('rotation starts at the event current climb and wraps predictably', () => {
     rules: { ...competition.rules, climb_source: 'participant_choice' },
     climb_pool: { options: competition.climbs },
   }, running, { ...participants[1], climbs: [{ climb_id: 'one', outcome: 'top' }] }, 4);
-  assert.deepEqual(personal.entries.map((climb) => climb.id), ['two']);
+  assert.deepEqual(personal.entries.map((climb) => climb.id), ['two', 'three']);
 });
 
 test('defer policy exposes a visible reason for every disabled state', () => {

@@ -10,9 +10,9 @@ import { finalizeEvent } from './protocol/nostr-event.mjs';
 import {
   buildCompetitionDeletionRequest, buildCompetitionEvent,
   buildCompetitionTombstoneEvent, buildIntentEvent, buildLogEvent,
-  buildResultsEvent, buildSnapshotEvent, newNonce, parseIntentEvent,
+  buildResultsEvent, buildSnapshotEvent, configPatchImpact, newNonce, parseIntentEvent,
 } from './protocol/competition.mjs?v=20260814-4';
-import { hashableState } from './protocol/reduce.mjs';
+import { applyEntry, hashableState } from './protocol/reduce.mjs';
 import { ccj, ccjHash } from './protocol/ccj.mjs';
 
 /** How often the authority publishes a state snapshot (FEAT-058 §6.3). */
@@ -89,7 +89,7 @@ export class AuthorityWriter {
    * head would claim the same `seq` — which every client would then correctly
    * report as a fork, caused entirely by us.
    */
-  append(op, data, { reason, subjects = [], actor = 'authority' } = {}) {
+  append(op, data, { reason, subjects = [], actor = 'authority', validate } = {}) {
     const run = async () => {
       this.assertAuthorised();
       const state = this.store.state;
@@ -99,6 +99,8 @@ export class AuthorityWriter {
         // verify, and would bake the gap into the record permanently.
         throw new Error('Some entries are still missing from the relays. Wait until the record is complete.');
       }
+      const resolvedData = typeof data === 'function' ? data(state) : data;
+      if (validate) validate(state, resolvedData);
 
       const draft = buildLogEvent({
         compId: this.competition.comp_id,
@@ -107,7 +109,7 @@ export class AuthorityWriter {
         prev: state.head,
         epoch: state.epoch,
         op,
-        data,
+        data: resolvedData,
         reason,
         at: this.now(),
         actor,
@@ -309,6 +311,32 @@ export class AuthorityWriter {
     return this.append('announcement', { text });
   }
 
+  updateConfig(patch, reason) {
+    if (typeof reason !== 'string' || !reason.trim()) {
+      throw new Error('A reason is required for every competition edit.');
+    }
+    const impact = configPatchImpact(patch);
+    if (!impact) throw new Error('The configuration patch is empty or changes an immutable field.');
+    return this.append('config_update', (state) => ({
+      revision: state.config_revision + 1, patch, impact,
+    }), {
+      reason: reason.trim(),
+      validate: (state, data) => {
+        const candidate = structuredClone(state);
+        const before = candidate.rejected.length;
+        applyEntry(candidate, {
+          seq: state.seq + 1, epoch: state.epoch, at: this.now(), op: 'config_update',
+          reason: reason.trim(), data,
+        }, this.competition);
+        if (candidate.rejected.length > before) {
+          const error = new Error(candidate.rejected.at(-1).code);
+          error.code = candidate.rejected.at(-1).code;
+          throw error;
+        }
+      },
+    });
+  }
+
   disqualify(pubkey, reason) {
     return this.append('disqualify', { pubkey }, { reason, subjects: [pubkey] });
   }
@@ -402,12 +430,11 @@ export class EntrantWriter {
     return signAndPublish(this.pool, this.signer, draft);
   }
 
-  register({ division, display, waiverAccepted, selections }) {
+  register({ division, display, waiverAccepted, selections: _legacySelections }) {
     if (this.competition.waiver_required && !waiverAccepted) {
       throw new Error('You have to accept the terms before registering.');
     }
     const data = { division, display, waiver_accepted: Boolean(waiverAccepted) };
-    if (Array.isArray(selections) && selections.length) data.selections = selections;
     return this.send('register', data);
   }
 

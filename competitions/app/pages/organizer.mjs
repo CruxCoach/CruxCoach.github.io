@@ -17,8 +17,9 @@ import { SignIn } from '../ui/shell.mjs?v=20260814-1';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-4';
 import {
-  NAMESPACE, newCompId, parseCompetitionEvent, parseIntentEvent, parseLogEvent,
-  checkinWindowOpen, registrationWindowOpen, validateCompetitionConfig,
+  MUTABLE_CONFIG_FIELDS, NAMESPACE, configPatchImpact, newCompId,
+  parseCompetitionEvent, parseIntentEvent, parseLogEvent,
+  checkinWindowOpen, competitionRunning, registrationWindowOpen, validateCompetitionConfig,
 } from '../protocol/competition.mjs?v=20260813-2';
 import { reduce } from '../protocol/reduce.mjs';
 import { outstandingClaims, registrationOrder } from '../protocol/claims.mjs';
@@ -28,7 +29,7 @@ import { walletUri } from '../protocol/bolt11.mjs';
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
 import { competitionAddress } from '../protocol/competition.mjs?v=20260813-2';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
-import { createCompetitionForm } from './organizer-form.mjs?v=20260813-22';
+import { competitionToFormDraft, createCompetitionForm } from './organizer-form.mjs?v=20260814-1';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs?v=20260813-2';
 import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
@@ -46,6 +47,8 @@ let ref = null;
 let ticker = null;
 let lastHealthKind = '';
 let cleanupResult = null;
+let editingDefinition = false;
+let activeEditView = null;
 const intents = new Map();
 
 /**
@@ -192,7 +195,7 @@ function createForm() {
   const errors = el('div', { attrs: { role: 'alert', 'aria-live': 'assertive' } });
   const publishButton = el('button', {
       className: 'primary',
-      text: t('org.create_draft'),
+      text: t('org.publish_competition'),
       on: {
         click: async () => {
           replace(errors);
@@ -213,7 +216,7 @@ function createForm() {
             return;
           }
           publishButton.disabled = true;
-          publishButton.textContent = t('org.create_draft_working');
+          publishButton.textContent = t('org.publish_working');
           let relayPool = null;
           try {
             relayPool = new RelayPool(config.relays);
@@ -233,7 +236,7 @@ function createForm() {
           } finally {
             relayPool?.close();
             publishButton.disabled = false;
-            publishButton.textContent = t('org.create_draft');
+            publishButton.textContent = t('org.publish_competition');
           }
         },
       },
@@ -242,6 +245,103 @@ function createForm() {
 
   return el('div', {}, [
     overviewSection(),
+    form.node,
+  ]);
+}
+
+function competitionPatch(previous, next) {
+  const patch = {};
+  for (const field of MUTABLE_CONFIG_FIELDS) {
+    const before = previous[field];
+    const after = next[field];
+    if (JSON.stringify(before) === JSON.stringify(after)) continue;
+    patch[field] = after === undefined ? null : after;
+  }
+  return patch;
+}
+
+function editCompetitionForm(snapshot) {
+  const competition = snapshot.competition;
+  const form = createCompetitionForm({
+    t, pool: profilePool, signerPubkey: signer.pubkey,
+    defaultDisplayName: competition.organizer_name,
+    defaultLud16: competition.fee_lnurl || '', relays: competition.relays,
+    initialDraft: competitionToFormDraft(competition), persistDraft: false,
+  });
+  activeCreateForm = form;
+  const errors = el('div', { attrs: { role: 'alert', 'aria-live': 'assertive' } });
+  const reason = el('textarea', {
+    attrs: { required: 'required', maxlength: '500', rows: '3', placeholder: t('org.edit.reason_placeholder') },
+  });
+  const impact = el('div', { className: 'notice', attrs: { role: 'status', 'aria-live': 'polite' } }, [
+    el('strong', { text: t('org.edit.impact.none') }),
+    el('p', { text: t('org.edit.impact.none_hint') }),
+  ]);
+  const refreshImpact = () => {
+    try {
+      const patch = competitionPatch(competition, form.build());
+      const kind = configPatchImpact(patch);
+      replace(impact,
+        el('strong', { text: t(`org.edit.impact.${kind || 'none'}`) }),
+        el('p', { text: t(`org.edit.impact.${kind || 'none'}_hint`) }));
+    } catch { /* incomplete form: its own validation remains authoritative */ }
+  };
+  form.node.addEventListener('input', refreshImpact);
+  const save = el('button', {
+    className: 'primary', text: t('org.edit.publish_revision'),
+    on: { click: async () => {
+      replace(errors);
+      let config;
+      try {
+        config = { ...form.build(), comp_id: competition.comp_id };
+      } catch (err) {
+        replace(errors, el('div', { className: 'notice bad' }, [el('p', { text: err.message })]));
+        return;
+      }
+      const validation = validateCompetitionConfig(config);
+      if (!validation.ok) {
+        replace(errors, el('div', { className: 'notice bad' }, [el('ul', { className: 'plain' },
+          validation.errors.map((error) => el('li', { text: `${error.field} ${error.message}` })))]));
+        return;
+      }
+      const patch = competitionPatch(competition, config);
+      if (!configPatchImpact(patch)) {
+        replace(errors, el('div', { className: 'notice warn' }, [el('p', { text: t('org.edit.no_changes') })]));
+        return;
+      }
+      if (!reason.value.trim()) {
+        replace(errors, el('div', { className: 'notice bad' }, [el('p', { text: t('org.reason.required') })]));
+        reason.focus();
+        return;
+      }
+      save.disabled = true;
+      try {
+        await writer.updateConfig(patch, reason.value.trim());
+        announce(t('org.edit.saved'));
+        editingDefinition = false;
+        activeEditView = null;
+        render();
+      } catch (err) {
+        const message = err.code?.startsWith('config_') ? t(`rejection.${err.code}`) : (err.message || t('publish.none'));
+        replace(errors, el('div', { className: 'notice bad' }, [el('p', { text: message })]));
+        save.disabled = false;
+      }
+    } },
+  });
+  form.reviewActions.append(impact, el('label', {}, [
+    el('span', { text: t('org.edit.reason') }), reason,
+    el('small', { className: 'hint', text: t('org.edit.reason_hint') }),
+  ]), errors, el('div', { className: 'row' }, [
+    el('button', { text: t('action.cancel'), on: { click: () => {
+      editingDefinition = false; activeEditView = null; render();
+    } } }),
+    save,
+  ]));
+  return el('div', {}, [
+    el('section', { className: 'notice warn' }, [
+      el('strong', { text: t('org.edit.title') }),
+      el('p', { text: t('org.edit.revision_notice', { revision: snapshot.state.config_revision + 1 }) }),
+    ]),
     form.node,
   ]);
 }
@@ -402,17 +502,13 @@ function lifecycleActions(snapshot) {
     className, text: label, on: { click: () => act(() => writer.setStatus(next)) },
   }));
 
-  if (status === 'draft') step(t('action.publish'), 'published', 'primary');
-  if (status === 'published') step(t('org.open_registration'), 'registration_open', 'primary');
-  if (status === 'registration_open') step(t('org.close_registration'), 'registration_closed', 'primary');
-  if (status === 'registration_closed') step(t('org.open_checkin'), 'checkin_open', 'primary');
-  if (status === 'checkin_open') step(t('org.start'), 'running', 'primary');
-  if (status === 'running') step(t('org.pause'), 'paused');
+  const runningNow = competitionRunning(snapshot.competition, status, Math.floor(Date.now() / 1000));
+  if (runningNow) step(t('org.pause'), 'paused');
   if (status === 'paused') step(t('org.resume'), 'running', 'primary');
   if (!['finished', 'cancelled'].includes(status)) {
     actions.push(el('details', { className: 'host-danger-menu' }, [
       el('summary', { text: t('org.more_controls') }),
-      ['running', 'paused'].includes(status) && el('button', {
+      (runningNow || status === 'paused') && el('button', {
         text: t('org.finish'),
         on: {
           click: () => {
@@ -978,7 +1074,9 @@ function prizeClaimsPanel(snapshot) {
 
 function queuePanel(snapshot) {
   const state = snapshot.state;
-  if (!['checkin_open', 'running', 'paused'].includes(state.status)) return null;
+  const now = Math.floor(Date.now() / 1000);
+  const runningNow = competitionRunning(snapshot.competition, state.status, now);
+  if (!checkinWindowOpen(snapshot.competition, state.status, now) && !runningNow && state.status !== 'paused') return null;
 
   const eligible = state.participants
     .filter((p) => p.registration === 'accepted' && p.checkin === 'checked_in' && p.result === 'active')
@@ -1014,7 +1112,7 @@ function queuePanel(snapshot) {
     ]));
   }
 
-  if (['running', 'paused'].includes(state.status) && state.order.length) {
+  if ((runningNow || state.status === 'paused') && state.order.length) {
     rows.push(el('div', { className: 'host-turn-hero' }, [
       el('div', {}, [
         el('span', { className: 'host-turn-label', text: t('live.current') }),
@@ -1036,7 +1134,7 @@ function queuePanel(snapshot) {
       el('strong', { text: nextParticipant ? displayName(nextParticipant) : t('live.queue_empty') }),
     ]));
     if (!currentParticipant) {
-      if (state.status === 'running') rows.push(el('button', {
+      if (runningNow) rows.push(el('button', {
         className: 'primary host-primary-action',
         text: t('org.next_climber'),
         on: { click: () => act(() => writer.advance()) },
@@ -1093,7 +1191,7 @@ function queuePanel(snapshot) {
     }
 
     const climbs = snapshot.competition.climbs || [];
-    if (climbs.length && state.status === 'running') {
+    if (climbs.length && runningNow) {
       rows.push(el('details', { className: 'disclosure' }, [
         el('summary', { text: t('org.next_climb') }),
         el('div', { className: 'row' }, climbs.map((climb) => el('button', {
@@ -1174,11 +1272,22 @@ function hostSyncState(snapshot) {
 }
 
 function hostOverview(snapshot, isAuthority) {
+  const now = Math.floor(Date.now() / 1000);
   const accepted = snapshot.state.participants.filter((p) => p.registration === 'accepted').length;
   const checkedIn = snapshot.state.participants.filter((p) => p.checkin === 'checked_in').length;
   const openRequests = [...intents.values()]
     .filter((intent) => ['register', 'withdraw', 'checkin_request', 'defer_request', 'attempt_report'].includes(intent.intent.op))
     .filter((intent) => !requestAnswered(intent)).length;
+  const effectiveStatus = competitionRunning(snapshot.competition, snapshot.state.status, now)
+    ? 'running' : snapshot.state.status;
+  const windowCard = (kind, opensAt, closesAt, open) => {
+    const position = now < opensAt ? 'upcoming' : now > closesAt ? 'closed' : open ? 'open' : 'closed';
+    return el('div', { className: `host-window state-${position}` }, [
+      el('strong', { text: t(`org.window.${kind}`) }),
+      el('span', { className: 'badge', text: t(`org.window.${position}`) }),
+      el('small', { text: `${formatDateTime(opensAt, language, snapshot.competition.timezone)} → ${formatDateTime(closesAt, language, snapshot.competition.timezone)}` }),
+    ]);
+  };
   return el('header', { className: 'host-overview' }, [
     el('div', { className: 'host-overview-title' }, [
       el('p', { className: 'eyebrow', text: t('org.control_room') }),
@@ -1186,15 +1295,32 @@ function hostOverview(snapshot, isAuthority) {
       el('span', { text: formatDateTime(snapshot.competition.starts_at, language, snapshot.competition.timezone) }),
     ]),
     el('div', { className: 'host-overview-state' }, [
-      el('span', { className: `phase-badge phase-${snapshot.state.status}`, text: t(`status.${snapshot.state.status}`) }),
+      el('span', { className: `phase-badge phase-${effectiveStatus}`, text: t(`status.${effectiveStatus}`) }),
       hostSyncState(snapshot),
+    ]),
+    el('div', { className: 'host-window-grid' }, [
+      windowCard('registration', snapshot.competition.registration_opens_at,
+        snapshot.competition.registration_closes_at,
+        registrationWindowOpen(snapshot.competition, snapshot.state.status, now)),
+      windowCard('checkin', snapshot.competition.checkin_opens_at,
+        snapshot.competition.checkin_closes_at,
+        checkinWindowOpen(snapshot.competition, snapshot.state.status, now)),
+      windowCard('live', snapshot.competition.starts_at, snapshot.competition.ends_at,
+        competitionRunning(snapshot.competition, snapshot.state.status, now)),
     ]),
     el('dl', { className: 'host-overview-metrics' }, [
       el('div', {}, [el('dt', { text: t('org.entrants') }), el('dd', { text: String(accepted) })]),
       el('div', {}, [el('dt', { text: t('participant.phase.checkin') }), el('dd', { text: String(checkedIn) })]),
       el('div', {}, [el('dt', { text: t('org.requests') }), el('dd', { text: String(openRequests) })]),
     ]),
-    isAuthority ? el('div', { className: 'host-lifecycle' }, lifecycleActions(snapshot)) : null,
+    isAuthority ? el('div', { className: 'host-lifecycle' }, [
+      el('button', {
+        text: t('org.edit.action'), on: { click: () => {
+          editingDefinition = true; activeEditView = null; render();
+        } },
+      }),
+      ...lifecycleActions(snapshot),
+    ]) : null,
   ]);
 }
 
@@ -1226,6 +1352,12 @@ function render() {
   const snapshot = store.snapshot();
   if (!snapshot.state) return;
   const isAuthority = signer.pubkey === snapshot.competition.authority;
+
+  if (editingDefinition && isAuthority) {
+    activeEditView ||= editCompetitionForm(snapshot);
+    replace(view, activeEditView);
+    return;
+  }
 
   replace(view,
     devRelayBanner(store, t),

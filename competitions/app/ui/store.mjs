@@ -10,7 +10,7 @@
  */
 import { verifyEvent } from '../protocol/nostr-event.mjs';
 import {
-  KIND, NAMESPACE, competitionAddress, compDTag,
+  KIND, NAMESPACE, competitionAddress, competitionRunning, compDTag,
   parseCompetitionEvent, parseLogEvent,
 } from '../protocol/competition.mjs?v=20260813-2';
 import { hashableState, reduce } from '../protocol/reduce.mjs';
@@ -34,6 +34,8 @@ export class CompetitionStore {
     this.address = competitionAddress(organizerPubkey, compId);
 
     this.competition = null;
+    /** Immutable signed chain root; `competition` is the effective live config. */
+    this.definitionCompetition = null;
     this.competitionEventId = null;
     /** @type {Map<string, {entry: object, eventId: string, createdAt: number}>} */
     this.entries = new Map();
@@ -122,6 +124,7 @@ export class CompetitionStore {
     if (!parsed.ok) {
       return { ok: false, error: parsed.error, needsUpgrade: Boolean(parsed.needsUpgrade) };
     }
+    this.definitionCompetition = parsed.competition;
     this.competition = parsed.competition;
     this.competitionEventId = newest.id;
     this.lastSyncedAt = this.now();
@@ -166,11 +169,12 @@ export class CompetitionStore {
       do {
         this.dirty = false;
         const { state, chainBreakAt } = reduce({
-          competition: this.competition,
+          competition: this.definitionCompetition,
           competitionEventId: this.competitionEventId,
           entries: [...this.entries.values()],
         });
         this.state = state;
+        this.competition = state.effective_config || this.definitionCompetition;
         this.chainBreakAt = chainBreakAt;
         this.standings = computeStandings(state, this.competition);
         // eslint-disable-next-line no-await-in-loop
@@ -285,7 +289,7 @@ export class CompetitionStore {
    * no button plus a sentence.
    */
   canDefer(pubkey) {
-    if (!this.state || this.state.status !== 'running') return false;
+    if (!this.state || !competitionRunning(this.competition, this.state.status, this.now())) return false;
     if (this.currentClimber() !== pubkey) return false;
     const participant = this.participant(pubkey);
     if (!participant) return false;
@@ -302,7 +306,7 @@ export class CompetitionStore {
    */
   mayAct(pubkey, nowSeconds = this.now()) {
     if (!this.state || !this.competition) return false;
-    if (this.state.status !== 'running' || this.state.paused) return false;
+    if (!competitionRunning(this.competition, this.state.status, nowSeconds) || this.state.paused) return false;
     if (this.currentClimber() !== pubkey) return false;
     const participant = this.participant(pubkey);
     if (!participant) return false;
@@ -321,16 +325,17 @@ export class CompetitionStore {
   /**
    * The climbs this person may still attempt, with what is left on each.
    *
-   * Under participant choice that is the set they hold — never the whole pool,
-   * because attempting somebody else's climb is refused by the reducer.
+   * Participant-choice entrants may try the whole pool. Scoring later keeps
+   * only their best N results.
    */
   remainingClimbs(pubkey) {
     if (!this.state || !this.competition) return [];
     const participant = this.participant(pubkey);
     if (!participant) return [];
     const source = this.competition.rules.climb_source === 'participant_choice'
-      ? (this.competition.climb_pool?.options || [])
-        .filter((option) => participant.selections.includes(option.id))
+      ? (this.competition.climb_pool?.options || []).filter((climb) =>
+        this.competition.rules.selection_uniqueness !== 'unique_per_competition'
+          || participant.selections.includes(climb.id))
       : (this.competition.climbs || []);
     return source
       .map((climb) => ({

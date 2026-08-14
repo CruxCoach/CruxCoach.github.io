@@ -53,12 +53,12 @@ function baseConfig(compId, authority, overrides = {}) {
     visibility: 'public',
     status: 'draft',
     timezone: 'Europe/Berlin',
-    registration_opens_at: 1789000000,
-    registration_closes_at: 1789003600,
-    checkin_opens_at: 1789003600,
-    checkin_closes_at: 1789005400,
-    starts_at: 1789005400,
-    ends_at: 1789012600,
+    registration_opens_at: now() - 60,
+    registration_closes_at: now() + 3600,
+    checkin_opens_at: now() - 60,
+    checkin_closes_at: now() + 5400,
+    starts_at: now(),
+    ends_at: now() + 7200,
     capacity: 8,
     waitlist_enabled: true,
     venue: { kind: 'physical', name: 'Test wall', address: 'Loopback 1' },
@@ -489,10 +489,9 @@ test('a paid competition keeps an unpaid entrant out of the running order', asyn
   }
 });
 
-test('participant-chosen climbs: two entrants race for one climb and the loser re-picks', async () => {
-  // The whole of participant selection, over a real relay: entrants publish
-  // their picks with their registration, the authority settles the race with
-  // the shipped rule, the loser is told, and their second choice is granted.
+test('participant-chosen climbs: registration never narrows the shared live pool', async () => {
+  // Legacy callers may still pass selections, but the intent deliberately
+  // omits them and every accepted entrant may attempt the entire pool.
   const pool = [
     { id: 'p1', climb_uuid: 'a1c93f57-6e28-4b04-9d75-2f8a1e63c0b9', angle: 40, label: 'Blue slab', points: 100 },
     { id: 'p2', climb_uuid: 'b6d0428e-1f75-4c93-a208-7e35d1b49c60', angle: 40, label: 'Red roof', points: 100 },
@@ -516,30 +515,6 @@ test('participant-chosen climbs: two entrants race for one climb and the loser r
   const aliceSide = await reader(relay.url, organizer.pubkey, compId);
   const bobSide = await reader(relay.url, organizer.pubkey, compId);
 
-  /** The organizer console's settlement pass, using the shipped rule. */
-  const requests = new Map();
-  const settle = async () => {
-    for (;;) {
-      const entries = store.logEntries();
-      const answered = new Set(entries
-        .filter((entry) => entry.op === 'claim_decision')
-        .map((entry) => `${entry.data.pubkey}:${entry.data.climb_id}`));
-      const owed = outstandingClaims({
-        competition: store.competition,
-        state: store.state,
-        requests,
-        answered,
-        order: registrationOrder(entries),
-      });
-      if (!owed.length) return;
-      for (const claim of owed) {
-        // eslint-disable-next-line no-await-in-loop
-        await writer.decideClaim(claim.pubkey, claim.climbId, claim.decision, claim.reason);
-        tick();
-      }
-    }
-  };
-
   try {
     assert.equal(config.rules.climb_source, 'participant_choice');
     await writer.setStatus('published');
@@ -553,7 +528,7 @@ test('participant-chosen climbs: two entrants race for one climb and the loser r
       if (parsed.ok) intents.push(parsed);
     });
 
-    // Both want p1. Neither client can know that: the pool looks free to both.
+    // Legacy callers both pass p1. It must not become registration state.
     const entrants = new Map();
     for (const [signer, side, display] of [[alice, aliceSide, 'Alice'], [bob, bobSide, 'Bob']]) {
       const entrant = new EntrantWriter({
@@ -569,7 +544,7 @@ test('participant-chosen climbs: two entrants race for one climb and the loser r
 
     // ── the organizer accepts, in the order they arrived, then settles ──
     for (const intent of intents) {
-      requests.set(intent.pubkey, intent.intent.data.selections);
+      assert.equal(intent.intent.data.selections, undefined);
       // eslint-disable-next-line no-await-in-loop
       await writer.decideRegistration(intent.pubkey, 'accepted', {
         division: intent.intent.data.division,
@@ -581,50 +556,13 @@ test('participant-chosen climbs: two entrants race for one climb and the loser r
 
     const first = intents[0].pubkey;
     const second = intents[1].pubkey;
-    await settle();
+    assert.deepEqual(store.state.claims, {});
+    assert.deepEqual(store.participant(first).selections, []);
+    assert.deepEqual(store.participant(second).selections, []);
+    assert.deepEqual(freeClimbs(store.competition, store.state).map((o) => o.id), ['p1', 'p2', 'p3', 'p4']);
+    assert.equal(outstandingCount(store.competition, store.participant(second)), 0);
 
-    assert.equal(store.state.claims.p1, first, 'the first accepted entrant holds the contested climb');
-    assert.deepEqual(store.participant(first).selections, ['p1']);
-    assert.deepEqual(store.participant(second).selections, [],
-      'the loser holds nothing until they pick again');
-
-    // The denial is a real signed entry, so the loser sees it after a reload
-    // rather than having to infer it.
-    const denial = store.logEntries().find(
-      (entry) => entry.op === 'claim_decision' && entry.data.pubkey === second
-        && entry.data.decision === 'denied',
-    );
-    assert.ok(denial, 'the loser must be given an answer');
-    assert.equal(denial.data.reason, 'climb_already_claimed');
-
-    // Settling twice must be a no-op: a denial changes no state, so a console
-    // that re-renders would otherwise append the same refusal forever.
-    const seqAfterSettle = store.state.seq;
-    await settle();
-    assert.equal(store.state.seq, seqAfterSettle, 'a second settlement pass must publish nothing');
-
-    // ── the loser sees the loss and picks again ──
-    await until(bobSide.store, (s) => s.state.claims.p1 === first, 'the loser to see the claim');
-    const loserSide = second === alice.pubkey ? aliceSide : bobSide;
-    const free = freeClimbs(loserSide.store.competition, loserSide.store.state).map((o) => o.id);
-    assert.deepEqual(free, ['p2', 'p3', 'p4'], 'the contested climb is no longer offered');
-    assert.equal(outstandingCount(loserSide.store.competition, loserSide.store.participant(second)), 1);
-
-    tick();
-    await entrants.get(second).register({
-      division: 'open', display: 'Second', waiverAccepted: true, selections: ['p2'],
-    });
-    await until({ state: { seq: 0 } }, () => intents.length === 3, 'the second choice to arrive');
-    // Replacing, not duplicating: same author, same nonce, one live intent.
-    assert.equal(intents[2].pubkey, second);
-    assert.equal(intents[2].intent.nonce, intents.find((i) => i.pubkey === second).intent.nonce);
-
-    requests.set(second, intents[2].intent.data.selections);
-    await settle();
-    assert.equal(store.state.claims.p2, second, 'the second choice is granted');
-    assert.deepEqual(store.participant(second).selections, ['p2']);
-
-    // ── an attempt only counts on a climb the climber actually holds ──
+    // ── an attempt counts anywhere in the pool ──
     tick();
     await writer.setStatus('registration_closed');
     tick();
@@ -641,12 +579,9 @@ test('participant-chosen climbs: two entrants race for one climb and the loser r
     await writer.openTurn(0);
     tick();
     await writer.recordAttempt(first, 'p2', 'top', 1);
-    assert.ok(
-      store.state.rejected.some((r) => r.code === 'climb_not_selected'),
-      'an attempt on somebody else\'s climb must not score',
-    );
-    assert.equal(store.participant(first).climbs.length, 0,
-      'and it must leave no trace in the hashed state');
+    assert.equal(store.state.rejected.some((r) => r.code === 'climb_not_selected'), false,
+      'legacy allocations must not narrow the live pool');
+    assert.equal(store.participant(first).climbs[0].climb_id, 'p2');
 
     tick();
     await writer.recordAttempt(first, 'p1', 'top', 1);

@@ -7,13 +7,8 @@
  * the ranking, including on how ties are laid out.
  */
 
-/** Climbs that count for a participant: their granted selections, or all of them. */
-function scoredClimbs(participant, competition) {
-  if (competition.rules.climb_source === 'participant_choice' && participant.selections.length) {
-    return participant.climbs.filter((c) => participant.selections.includes(c.climb_id));
-  }
-  return participant.climbs;
-}
+/** Every attempted pool climb is eligible; legacy selections never gate Best-N. */
+function scoredClimbs(participant) { return participant.climbs; }
 
 function pointsFor(climbId, competition) {
   // Either source: a participant-chosen climb lives in the pool, not in
@@ -58,7 +53,7 @@ function contribution(climb, competition) {
 /** Best-result selection is itself deterministic, before the chosen rows aggregate. */
 function bestContributions(participant, competition) {
   const pointScoring = competition.rules.scoring !== 'tops_then_attempts';
-  return scoredClimbs(participant, competition)
+  return scoredClimbs(participant)
     .map((climb) => contribution(climb, competition))
     .sort((a, b) => {
       if (pointScoring && a.points !== b.points) return b.points - a.points;
