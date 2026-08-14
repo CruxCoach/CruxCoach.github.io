@@ -333,9 +333,7 @@ export class CompetitionStore {
     const participant = this.participant(pubkey);
     if (!participant) return [];
     const source = this.competition.rules.climb_source === 'participant_choice'
-      ? (this.competition.climb_pool?.options || []).filter((climb) =>
-        this.competition.rules.selection_uniqueness !== 'unique_per_competition'
-          || participant.selections.includes(climb.id))
+      ? (this.competition.climb_pool?.options || [])
       : (this.competition.climbs || []);
     return source
       .map((climb) => ({

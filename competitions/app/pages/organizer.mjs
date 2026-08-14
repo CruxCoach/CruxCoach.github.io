@@ -12,7 +12,7 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-1';
+} from './common.mjs?v=20260814-2';
 import { SignIn } from '../ui/shell.mjs?v=20260814-2';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-4';
@@ -43,6 +43,7 @@ let signer = null;
 let store = null;
 let pool = null;
 let writer = null;
+let lastEffectiveStatus = '';
 let ref = null;
 let ticker = null;
 let lastHealthKind = '';
@@ -1076,6 +1077,7 @@ function queuePanel(snapshot) {
   const state = snapshot.state;
   const now = Math.floor(Date.now() / 1000);
   const runningNow = competitionRunning(snapshot.competition, state.status, now);
+  const effectiveStatus = runningNow ? 'running' : state.status;
   if (!checkinWindowOpen(snapshot.competition, state.status, now) && !runningNow && state.status !== 'paused') return null;
 
   const eligible = state.participants
@@ -1091,7 +1093,7 @@ function queuePanel(snapshot) {
         el('p', { className: 'eyebrow', text: t('org.now_to_do') }),
         el('h2', { text: t('org.run') }),
       ]),
-      el('span', { className: `phase-badge phase-${state.status}`, text: t(`status.${state.status}`) }),
+      el('span', { className: `phase-badge phase-${effectiveStatus}`, text: t(`status.${effectiveStatus}`) }),
     ]),
   ];
 
@@ -1351,6 +1353,9 @@ function render() {
 
   const snapshot = store.snapshot();
   if (!snapshot.state) return;
+  lastEffectiveStatus = competitionRunning(
+    snapshot.competition, snapshot.state.status, Math.floor(Date.now() / 1000),
+  ) ? 'running' : snapshot.state.status;
   const isAuthority = signer.pubkey === snapshot.competition.authority;
 
   if (editingDefinition && isAuthority) {
@@ -1503,11 +1508,19 @@ async function start() {
 
   if (ticker) clearInterval(ticker);
   ticker = setInterval(() => {
+    const snapshot = store?.snapshot();
+    const effectiveStatus = snapshot?.state && competitionRunning(
+      snapshot.competition, snapshot.state.status, Math.floor(Date.now() / 1000),
+    ) ? 'running' : snapshot?.state?.status || '';
+    if (effectiveStatus && effectiveStatus !== lastEffectiveStatus) {
+      render();
+      return;
+    }
     const deadline = byId('host-deadline');
-    if (deadline && store && store.snapshot().state.status === 'running') {
+    if (deadline && store && effectiveStatus === 'running') {
       deadline.textContent = formatSeconds(store.secondsToDeadline());
     }
-    const health = store ? syncHealth(store.snapshot(), Math.floor(Date.now() / 1000)) : null;
+    const health = snapshot ? syncHealth(snapshot, Math.floor(Date.now() / 1000)) : null;
     if (health && health.kind !== lastHealthKind) render();
   }, 1000);
 }

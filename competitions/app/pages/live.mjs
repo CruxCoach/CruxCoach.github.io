@@ -7,8 +7,9 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
-} from './common.mjs?v=20260814-1';
+} from './common.mjs?v=20260814-2';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
+import { competitionRunning } from '../protocol/competition.mjs?v=20260813-2';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { queuePreview, rotationPreview, syncHealth, tiedAt } from '../ui/live-view.mjs?v=20260813-1';
 
@@ -19,9 +20,15 @@ let ref = null;
 let ticker = null;
 let previousRanks = new Map();
 let lastHealthKind = '';
+let lastEffectiveStatus = '';
 
 const view = byId('view');
 const statusNode = byId('load-status');
+
+function effectiveStatus(snapshot, now = Math.floor(Date.now() / 1000)) {
+  return competitionRunning(snapshot.competition, snapshot.state.status, now)
+    ? 'running' : snapshot.state.status;
+}
 
 function climbLabel(snapshot, climbId) {
   if (!climbId) return '—';
@@ -67,13 +74,14 @@ function syncNotice(snapshot) {
 
 function projectionHeader(snapshot) {
   const competition = snapshot.competition;
+  const status = effectiveStatus(snapshot);
   return el('header', { className: 'projection-heading' }, [
     el('div', {}, [
       el('p', { className: 'eyebrow', text: t('live.event_now') }),
       el('h1', { text: competition.title }),
     ]),
     el('div', { className: 'projection-meta' }, [
-      el('span', { className: `phase-badge phase-${snapshot.state.status}`, text: t(`status.${snapshot.state.status}`) }),
+      el('span', { className: `phase-badge phase-${status}`, text: t(`status.${status}`) }),
       boardLabel(competition) && el('span', { className: 'badge', text: boardLabel(competition) }),
       competition.venue?.name && el('span', { className: 'badge', text: competition.venue.name }),
       syncNotice(snapshot),
@@ -243,9 +251,11 @@ function leaderboard(snapshot, current) {
 function render() {
   const snapshot = store.snapshot();
   if (!snapshot.state) return;
-  const body = snapshot.state.status === 'cancelled'
+  const status = effectiveStatus(snapshot);
+  lastEffectiveStatus = status;
+  const body = status === 'cancelled'
     ? cancelled(snapshot)
-    : ['running', 'paused', 'finished'].includes(snapshot.state.status)
+    : ['running', 'paused', 'finished'].includes(status)
       ? running(snapshot)
       : preStart(snapshot);
   replace(view, projectionToolbar(), devRelayBanner(store, t), ...integrityNotices(snapshot, t), ...body);
@@ -272,11 +282,17 @@ async function start() {
 
   if (ticker) clearInterval(ticker);
   ticker = setInterval(() => {
+    const snapshot = store?.snapshot();
+    const status = snapshot?.state ? effectiveStatus(snapshot) : '';
+    if (status && status !== lastEffectiveStatus) {
+      render();
+      return;
+    }
     const node = byId('deadline');
-    if (node && store && store.snapshot().state.status === 'running') {
+    if (node && store && status === 'running') {
       node.textContent = formatSeconds(store.secondsToDeadline());
     }
-    const health = store ? syncHealth(store.snapshot(), Math.floor(Date.now() / 1000)) : null;
+    const health = snapshot ? syncHealth(snapshot, Math.floor(Date.now() / 1000)) : null;
     if (health && health.kind !== lastHealthKind) render();
   }, 1000);
 }

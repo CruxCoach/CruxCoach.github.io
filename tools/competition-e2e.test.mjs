@@ -561,6 +561,8 @@ test('participant-chosen climbs: registration never narrows the shared live pool
     assert.deepEqual(store.participant(second).selections, []);
     assert.deepEqual(freeClimbs(store.competition, store.state).map((o) => o.id), ['p1', 'p2', 'p3', 'p4']);
     assert.equal(outstandingCount(store.competition, store.participant(second)), 0);
+    assert.deepEqual(store.remainingClimbs(first).map((o) => o.id), ['p1', 'p2', 'p3', 'p4']);
+    assert.deepEqual(store.remainingClimbs(second).map((o) => o.id), ['p1', 'p2', 'p3', 'p4']);
 
     // ── an attempt counts anywhere in the pool ──
     tick();

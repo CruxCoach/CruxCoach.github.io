@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-1';
+} from './common.mjs?v=20260814-2';
 import { SignIn } from '../ui/shell.mjs?v=20260814-2';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
@@ -43,6 +43,7 @@ let entrant = null;
 let signer = null;
 let ref = null;
 let lastTurnAnnouncement = null;
+let lastParticipantScreen = '';
 let ticker = null;
 let catalogueDetails = new Map();
 let catalogueState = 'idle';
@@ -247,6 +248,9 @@ function me() {
 
 function header(snapshot) {
   const competition = snapshot.competition;
+  const now = Math.floor(Date.now() / 1000);
+  const status = competitionRunning(competition, snapshot.state.status, now)
+    ? 'running' : snapshot.state.status;
   const board = competition.board || {};
   return el('section', { className: 'participant-comp-header' }, [
     el('div', { className: 'participant-comp-title' }, [
@@ -254,7 +258,7 @@ function header(snapshot) {
       el('h1', { text: competition.title }),
     ]),
     el('div', { className: 'participant-comp-badges' }, [
-      el('span', { className: 'badge', text: t(`status.${snapshot.state.status}`) }),
+      el('span', { className: 'badge', text: t(`status.${status}`) }),
       competition.venue?.name && el('span', { className: 'badge', text: competition.venue.name }),
       el('span', {
         className: competition.fee_msat > 0 ? 'badge' : 'badge ok',
@@ -1221,6 +1225,7 @@ function render() {
   if (!snapshot.state) return;
 
   const screen = participantScreen(snapshot);
+  lastParticipantScreen = screen;
   const primary = screen === 'registration'
     ? [phaseIntro(screen), registrationPanel(snapshot)]
     : screen === 'checkin'
@@ -1293,9 +1298,14 @@ async function start() {
   // The turn countdown is the one thing that has to move without an event.
   if (ticker) clearInterval(ticker);
   ticker = setInterval(() => {
+    const snapshot = store?.snapshot();
+    if (snapshot?.state && participantScreen(snapshot) !== lastParticipantScreen) {
+      render();
+      return;
+    }
     const node = byId('deadline');
     if (node && store) node.textContent = formatSeconds(store.secondsToDeadline());
-    const health = store ? syncHealth(store.snapshot(), Math.floor(Date.now() / 1000)) : null;
+    const health = snapshot ? syncHealth(snapshot, Math.floor(Date.now() / 1000)) : null;
     if (health && health.kind !== lastHealthKind) render();
   }, 1000);
 }

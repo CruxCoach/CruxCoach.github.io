@@ -119,6 +119,12 @@ test('live host, participant and projection surfaces keep state-specific action 
     'preparing the next boulder is the one dominant queued action');
   assert.match(live, /!terminal && el\('div', \{ className: 'projection-middle'/,
     'a final projection must not keep presenting an active queue or rotation');
+  assert.match(live, /competitionRunning\(snapshot\.competition, snapshot\.state\.status, now\)/,
+    'the projection must derive running state from its scheduled window');
+  assert.match(live, /status !== lastEffectiveStatus[\s\S]*render\(\)/,
+    'the projection must cross scheduled phase boundaries without a relay event');
+  assert.match(organizer, /effectiveStatus === 'running'[\s\S]*secondsToDeadline/,
+    'the host countdown must tick for an automatically started competition');
 });
 
 test('participant registration, check-in and live competition are separate primary screens', () => {
