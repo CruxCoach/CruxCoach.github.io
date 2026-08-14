@@ -343,7 +343,21 @@ test('the authority refuses to write on top of a gap in the record', async () =>
     // is complete, but a client that lost one is not, and must not extend a
     // chain it cannot verify.
     store.state.chain_complete = false;
-    await assert.rejects(() => writer.setStatus('registration_open'), /missing/);
+    await assert.rejects(() => writer.setStatus('registration_open'), /complete, conflict-free/);
+  } finally {
+    store.close();
+    organizerPool.close();
+    await relay.close();
+  }
+});
+
+test('the authority refuses a locally contiguous prefix before relay history completes', async () => {
+  const { relay, organizerPool, store, writer } = await setup();
+  try {
+    assert.equal(store.state.chain_complete, true);
+    store.historyComplete = false;
+    await assert.rejects(() => writer.setStatus('published'), /complete, conflict-free/);
+    assert.equal(store.state.seq, 0);
   } finally {
     store.close();
     organizerPool.close();

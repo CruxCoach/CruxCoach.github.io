@@ -94,10 +94,11 @@ export class AuthorityWriter {
       this.assertAuthorised();
       const state = this.store.state;
       if (!state) throw new Error('The competition state has not been reduced yet.');
-      if (!state.chain_complete) {
-        // Writing on top of a gap would extend a chain we cannot ourselves
-        // verify, and would bake the gap into the record permanently.
-        throw new Error('Some entries are still missing from the relays. Wait until the record is complete.');
+      if (!this.store.trustworthy) {
+        // A locally contiguous prefix is not enough: an unfinished multi-relay
+        // backfill may still reveal its next entry or a fork. Extending that
+        // prefix would turn uncertain transport history into a permanent fork.
+        throw new Error('The complete, conflict-free relay record is required before writing.');
       }
       const resolvedData = typeof data === 'function' ? data(state) : data;
       if (validate) validate(state, resolvedData);
@@ -165,8 +166,9 @@ export class AuthorityWriter {
     const state = this.store.state;
     if (!state) throw new Error('The competition state has not been reduced yet.');
     if (state.status !== 'finished') throw new Error('Finish the competition before publishing results.');
-    if (!state.chain_complete) throw new Error('Entries are missing. Results cannot be final yet.');
-    if (state.fork_detected) throw new Error('This competition has a conflicting record. Resolve it first.');
+    if (!this.store.trustworthy) {
+      throw new Error('The complete, conflict-free relay record is required before publishing results.');
+    }
 
     const draft = buildResultsEvent({
       compId: this.competition.comp_id,

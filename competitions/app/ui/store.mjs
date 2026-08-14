@@ -128,7 +128,7 @@ export class CompetitionStore {
    * "loading…" that never ends is indistinguishable from a broken link.
    */
   async loadCompetition({ timeoutMs = 8000 } = {}) {
-    const { events, complete } = await this.pool.query([{
+    const { events, complete, failed } = await this.pool.query([{
       kinds: [KIND],
       authors: [this.organizerPubkey],
       '#d': [compDTag(this.compId)],
@@ -136,7 +136,7 @@ export class CompetitionStore {
     }], { timeoutMs });
 
     if (events.length === 0) {
-      return { ok: false, error: complete ? 'not_found' : 'unreachable' };
+      return { ok: false, error: complete && failed === 0 ? 'not_found' : 'unreachable' };
     }
     // Newest wins, never first-answer: a relay that missed the last edit still
     // answers, and answering first does not make it current.
@@ -228,8 +228,7 @@ export class CompetitionStore {
       });
     };
 
-    this.historyComplete = await this.backfillLog();
-    await this.recompute();
+    await this.hydrateHistory();
 
     const subscription = this.pool.subscribe([{
       kinds: [KIND],
@@ -251,6 +250,14 @@ export class CompetitionStore {
     return subscription;
   }
 
+  /** Fetch and reduce all currently stored authority history without subscribing. */
+  async hydrateHistory({ timeoutMs = 12000 } = {}) {
+    if (!this.competition) throw new Error('load the competition first');
+    this.historyComplete = await this.backfillLog({ timeoutMs });
+    await this.recompute();
+    return this.snapshot();
+  }
+
   entrySequences() {
     return new Set([...this.entries.values()].map((item) => item.entry.seq));
   }
@@ -265,7 +272,7 @@ export class CompetitionStore {
     let firstSeq = 1;
     while (firstSeq <= MAX_LOG_SEQUENCE) {
       const dTags = logPageDTags(this.compId, firstSeq);
-      const { events, complete } = await this.pool.query([{
+      const { events, complete, failed } = await this.pool.query([{
         kinds: [KIND],
         authors: [this.definitionCompetition.authority],
         '#a': [this.address],
@@ -273,7 +280,10 @@ export class CompetitionStore {
         limit: 100,
       }], { timeoutMs });
       for (const event of events) await this.ingest(event); // eslint-disable-line no-await-in-loop
-      if (!complete) {
+      // An answering stale relay cannot prove that a failed configured relay
+      // does not hold the next authority entry. Keep role and personal state
+      // blocked until every relay in this competition read set reached EOSE.
+      if (!complete || failed !== 0) {
         this.note('history_incomplete');
         return false;
       }

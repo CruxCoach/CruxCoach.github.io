@@ -12,16 +12,15 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-7';
+} from './common.mjs?v=20260814-8';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
-import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-6';
+import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-7';
 import {
   MUTABLE_CONFIG_FIELDS, NAMESPACE, configPatchImpact, newCompId,
-  parseCompetitionEvent, parseIntentEvent, parseLogEvent,
+  parseCompetitionEvent, parseIntentEvent,
   checkinWindowOpen, competitionRunning, registrationWindowOpen, validateCompetitionConfig,
 } from '../protocol/competition.mjs?v=20260814-6';
-import { reduce } from '../protocol/reduce.mjs?v=20260814-4';
 import { outstandingClaims, registrationOrder } from '../protocol/claims.mjs';
 import { verifyZapReceipt, receiptFilter, ZAP_RECEIPT_KIND } from '../protocol/zap.mjs';
 import { verifyClaim, eligibleWinner, claimDeadline } from '../protocol/prize.mjs';
@@ -36,6 +35,7 @@ import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '
 import { describeRejection } from '../ui/i18n.mjs?v=20260814-9';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { syncHealth } from '../ui/live-view.mjs?v=20260813-1';
+import { CompetitionStore } from '../ui/store.mjs?v=20260814-5';
 
 const { t, language } = bootstrap();
 
@@ -374,9 +374,9 @@ function overviewSection() {
           el('div', {
             className: 'small',
             text: t('org.overview.counts', {
-              accepted: listing.accepted,
+              accepted: listing.accepted ?? '—',
               capacity: listing.competition.capacity || '∞',
-              checkedIn: listing.checkedIn,
+              checkedIn: listing.checkedIn ?? '—',
             }),
           }),
         ]),
@@ -470,28 +470,25 @@ async function loadOwned(force = false) {
 }
 
 async function summarise(competition) {
-  const address = `${KIND}:${signer.pubkey}:${compDTag(competition.comp_id)}`;
-  const { events } = await profilePool.query([{
-    kinds: [KIND], authors: [competition.authority], '#a': [address], limit: 500,
-  }], { timeoutMs: 6000 });
-  const now = Math.floor(Date.now() / 1000);
-  const entries = [];
-  for (const event of events) {
-    if (!(await verifyEvent(event).catch(() => false))) continue;
-    const parsed = parseLogEvent(event, competition, signer.pubkey, now);
-    if (parsed.ok) entries.push(parsed);
+  const summaryPool = new RelayPool(resolveRelays(competition.relays));
+  try {
+    const summaryStore = new CompetitionStore({
+      pool: summaryPool,
+      organizerPubkey: signer.pubkey,
+      compId: competition.comp_id,
+    });
+    const loaded = await summaryStore.loadCompetition({ timeoutMs: 6000 });
+    if (!loaded.ok) return { accepted: null, checkedIn: null, state: null };
+    const snapshot = await summaryStore.hydrateHistory({ timeoutMs: 6000 });
+    if (!snapshot.trustworthy) return { accepted: null, checkedIn: null, state: null };
+    return {
+      accepted: snapshot.state.participants.filter((p) => p.registration === 'accepted').length,
+      checkedIn: snapshot.state.participants.filter((p) => p.checkin === 'checked_in').length,
+      state: snapshot.state,
+    };
+  } finally {
+    summaryPool.close();
   }
-  const { state } = reduce({
-    competition,
-    competitionEventId: '',
-    entries,
-  });
-  // Without the definition's event id the chain cannot link, which is fine
-  // here: the overview only needs counts, and it says so by not claiming a
-  // status the log would have changed.
-  const accepted = state.participants.filter((p) => p.registration === 'accepted').length;
-  const checkedIn = state.participants.filter((p) => p.checkin === 'checked_in').length;
-  return { accepted, checkedIn, state: null };
 }
 
 // ── run ──
