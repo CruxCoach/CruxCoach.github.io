@@ -199,11 +199,11 @@ test('requests may be a plain object as well as a Map', () => {
   assert.deepEqual(owed, [{ pubkey: 'alice', climbId: 'p1', decision: 'granted' }]);
 });
 
-test('the free list is what a participant may still pick', () => {
+test('legacy claims never hide any climb from the live pool', () => {
   const comp = competition();
   assert.deepEqual(
     freeClimbs(comp, state([], { p1: 'alice', p3: 'bob' })).map((o) => o.id),
-    ['p2', 'p4'],
+    ['p1', 'p2', 'p3', 'p4'],
   );
   // Without uniqueness every climb stays available to everybody.
   assert.equal(
@@ -212,12 +212,12 @@ test('the free list is what a participant may still pick', () => {
   );
 });
 
-test('the outstanding count is how many more to pick', () => {
+test('registration never asks a participant to preselect climbs', () => {
   const comp = competition();
-  assert.equal(outstandingCount(comp, participant('alice')), 2);
-  assert.equal(outstandingCount(comp, participant('alice', { selections: ['p1'] })), 1);
+  assert.equal(outstandingCount(comp, participant('alice')), 0);
+  assert.equal(outstandingCount(comp, participant('alice', { selections: ['p1'] })), 0);
   assert.equal(outstandingCount(comp, participant('alice', { selections: ['p1', 'p2'] })), 0);
-  assert.equal(outstandingCount(comp, undefined), 2);
+  assert.equal(outstandingCount(comp, undefined), 0);
 });
 
 test('registration order decides the race, not pubkey order', () => {

@@ -263,8 +263,8 @@ test('participant choice without a real pool does not validate', () => {
   const noPool = validateCompetitionConfig(config({ rules, climbs: undefined }));
   assert.equal(noPool.ok, false);
 
-  // A pool too small for everyone to get a full set is the race nobody can win.
-  const tooSmall = validateCompetitionConfig(config({
+  // Capacity no longer multiplies the required pool: everyone shares it.
+  const sharedPool = validateCompetitionConfig(config({
     rules,
     climbs: undefined,
     capacity: 4,
@@ -273,7 +273,7 @@ test('participant choice without a real pool does not validate', () => {
       options: [{ id: 'p1', climb_uuid: REAL, angle: 40, label: 'Blue slab', points: 100 }],
     },
   }));
-  assert.equal(tooSmall.ok, false);
+  assert.equal(sharedPool.ok, true);
 
   const enough = validateCompetitionConfig(config({
     rules,

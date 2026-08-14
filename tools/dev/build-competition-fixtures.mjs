@@ -407,9 +407,8 @@ async function streamPaidUniqueAsync(keys) {
   await log.add('queue', { action: 'seed', order: [keys.alice.pk] }, 1789005300);
   await log.add('lifecycle', { status: 'running', at: 1789005400 }, 1789005400);
   await log.add('queue', { action: 'open_turn', index: 0 }, 1789005500);
-  // climb_not_selected — c3 is in the pool but Alice never claimed it. Under
-  // participant choice an attempt only counts on a climb the climber holds,
-  // otherwise unique claims would decide nothing.
+  // Legacy claims remain in the stream, but do not narrow the live pool. The
+  // unclaimed c3 attempt is valid and Best-N chooses it over c1.
   await log.add('attempt_result', {
     pubkey: keys.alice.pk, climb_id: 'c3', outcome: 'top', attempt_no: 1,
   }, 1789005510, { subjects: [keys.alice.pk] });
@@ -420,9 +419,8 @@ async function streamPaidUniqueAsync(keys) {
 
   return finish(
     'paid-unique-async',
-    'Participant-chosen climbs with enforced uniqueness, a paid entry where one payment expires, '
-    + 'and a no-show. The duplicate climb claim and an attempt on an unclaimed climb are both '
-    + 'rejected by the reducer.',
+    'A legacy participant-choice stream with claims, a paid entry where one payment expires, '
+    + 'and a no-show. Duplicate claims remain auditable while attempts use the whole pool.',
     competitionEvent,
     log,
   );
