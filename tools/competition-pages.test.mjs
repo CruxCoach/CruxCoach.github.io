@@ -123,6 +123,8 @@ test('live host, participant and projection surfaces keep state-specific action 
   assert.match(organizer, /id: 'host-deadline'/, 'the host needs the same live countdown as the wall');
   assert.match(organizer, /completeTurn\(current, climbId, outcome, attemptNo/,
     'recording a result and opening the next turn must be one authority operation');
+  assert.match(organizer, /secondsToDeadline\(\) === 0[\s\S]*completeTurn\(current, climbId, 'timeout'/,
+    'time up is offered only after the signed turn deadline expires');
   assert.match(organizer, /seedAndOpen\(order\)/,
     'seeding must automatically assign the first participant');
   assert.doesNotMatch(organizer, /reported\?\.climb_id[\s\S]{0,120}own\[0\]/,

@@ -84,13 +84,12 @@ export function personalCue(state, pubkey, running = state?.status === 'running'
  * round, so presenting one there would be invented precision.
  */
 export function turnEstimate(state, competition, pubkey, nowSeconds, running = state?.status === 'running') {
-  if (!state || !competition || !pubkey || !running || state.cursor < 0) return null;
+  if (!state || !competition || !pubkey || !running || state.cursor < 0
+    || state.turn_deadline_at <= nowSeconds) return null;
   const index = state.order.indexOf(pubkey);
   if (index <= state.cursor) return null;
   const ahead = index - state.cursor;
-  const currentLeft = state.turn_deadline_at > 0
-    ? Math.max(0, state.turn_deadline_at - nowSeconds)
-    : competition.rules?.turn_deadline_sec || 0;
+  const currentLeft = state.turn_deadline_at - nowSeconds;
   const turnSeconds = competition.rules?.turn_deadline_sec || 0;
   if (turnSeconds <= 0) return null;
   return { seconds: currentLeft + Math.max(0, ahead - 1) * turnSeconds, ahead };

@@ -94,6 +94,10 @@ test('turn estimates use only the current deadline and configured turn limits', 
   assert.deepEqual(turnEstimate({ ...timed, status: 'registration_open' }, configured, 'd', 100, true),
     { seconds: 90, ahead: 2 }, 'scheduled running state is supplied by the page clock');
   assert.equal(turnEstimate(timed, configured, 'a', 100), null, 'no invented ETA across rounds');
+  assert.equal(turnEstimate(timed, configured, 'd', 131), null,
+    'an expired turn has no honest estimate until the organizer advances it');
+  assert.equal(turnEstimate({ ...timed, turn_deadline_at: 0 }, configured, 'd', 100), null,
+    'a configured limit is not evidence that a current turn was opened');
 });
 
 test('defer policy exposes a visible reason for every disabled state', () => {

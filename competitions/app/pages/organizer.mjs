@@ -1210,7 +1210,7 @@ function queuePanel(snapshot) {
       }));
       if (climbId) rows.push(el('fieldset', { className: 'host-result-actions' }, [
         el('legend', { text: t('org.record_result') }),
-        ...['top', 'zone', 'fall', 'timeout'].map((outcome) => el('button', {
+        ...['top', 'zone', 'fall'].map((outcome) => el('button', {
         className: `host-result-${outcome}`,
         text: t(`org.${outcome}`),
           on: {
@@ -1218,7 +1218,16 @@ function queuePanel(snapshot) {
               await writer.completeTurn(current, climbId, outcome, attemptNo, reported ? reportIntent.eventId : undefined);
             }),
           },
-      })),
+        })),
+        store.secondsToDeadline() === 0 && el('button', {
+          className: 'host-result-timeout',
+          text: t('org.timeout'),
+          on: {
+            click: () => act(async () => {
+              await writer.completeTurn(current, climbId, 'timeout', attemptNo, reported ? reportIntent.eventId : undefined);
+            }),
+          },
+        }),
       ]));
       rows.push(el('div', { className: 'host-secondary-turn-actions' }, [
         el('button', {
