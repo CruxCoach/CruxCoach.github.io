@@ -73,6 +73,21 @@ test('the competition front door and host workspace keep their distinct visual s
   assert.match(css, /\.competition-wizard \.board-preview\s*\{[^}]*position: sticky/s);
 });
 
+test('host setup, entrants and live operations are focused restorable destinations', () => {
+  const organizer = fs.readFileSync(path.join(root, 'competitions/app/pages/organizer.mjs'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'competitions/app/competitions.css'), 'utf8');
+
+  assert.match(organizer, /HOST_DESTINATIONS = new Set\(\['setup', 'entrants', 'live'\]\)/);
+  assert.match(organizer, /HOST_HISTORY_KEY/);
+  assert.match(organizer, /window\.addEventListener\('popstate'/);
+  assert.match(organizer, /function hostDestinationNav\(active\)/);
+  assert.match(organizer, /function hostDestinationContent\(snapshot, destination\)/);
+  assert.match(organizer, /requestsPanel\(snapshot, \['withdraw', 'checkin_request'\]\)/);
+  assert.match(organizer, /requestsPanel\(snapshot, \['defer_request', 'attempt_report'\]\)/);
+  assert.match(css, /\.host-destination-nav\s*\{/);
+  assert.match(css, /button\[aria-current="page"\]/);
+});
+
 test('projection and participant live views expose the shared event hierarchy', () => {
   const live = fs.readFileSync(path.join(root, 'competitions/app/pages/live.mjs'), 'utf8');
   const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');

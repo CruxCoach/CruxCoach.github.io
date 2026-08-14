@@ -12,7 +12,7 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-8';
+} from './common.mjs?v=20260814-9';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-7';
@@ -32,7 +32,7 @@ import { competitionToFormDraft, createCompetitionForm } from './organizer-form.
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs?v=20260814-6';
 import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-9';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-10';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { syncHealth } from '../ui/live-view.mjs?v=20260813-1';
 import { CompetitionStore } from '../ui/store.mjs?v=20260814-5';
@@ -50,6 +50,9 @@ let lastHealthKind = '';
 let cleanupResult = null;
 let editingDefinition = false;
 let activeEditView = null;
+const HOST_DESTINATIONS = new Set(['setup', 'entrants', 'live']);
+const HOST_HISTORY_KEY = 'cruxcoachCompetitionHostDestination';
+let hostDestination = '';
 const intents = new Map();
 
 /**
@@ -88,8 +91,14 @@ function recordWizardStep(step, { replaceState = false } = {}) {
 
 window.addEventListener('popstate', (event) => {
   const value = event.state?.[WIZARD_HISTORY_KEY];
-  if (!activeCreateForm || value?.path !== location.pathname || !Number.isInteger(value.step)) return;
-  activeCreateForm.showStep(value.step, { recordHistory: false });
+  if (activeCreateForm && value?.path === location.pathname && Number.isInteger(value.step)) {
+    activeCreateForm.showStep(value.step, { recordHistory: false });
+  }
+  const destination = event.state?.[HOST_HISTORY_KEY];
+  if (HOST_DESTINATIONS.has(destination)) {
+    hostDestination = destination;
+    render();
+  }
 });
 
 function draftKey(pubkey) { return `${DRAFT_PREFIX}${pubkey}`; }
@@ -841,9 +850,9 @@ function requestAnswered(intent) {
 }
 
 /** Participant intents that need an explicit authority decision. */
-function requestsPanel(snapshot) {
+function requestsPanel(snapshot, operations = ['withdraw', 'checkin_request', 'defer_request', 'attempt_report']) {
   const actionable = [...intents.values()]
-    .filter((intent) => ['withdraw', 'checkin_request', 'defer_request', 'attempt_report'].includes(intent.intent.op))
+    .filter((intent) => operations.includes(intent.intent.op))
     .filter((intent) => !requestAnswered(intent))
     .sort((a, b) => a.createdAt - b.createdAt);
 
@@ -1305,7 +1314,7 @@ function hostSyncState(snapshot) {
   ]);
 }
 
-function hostOverview(snapshot, isAuthority) {
+function hostOverview(snapshot, isAuthority, destination) {
   const now = Math.floor(Date.now() / 1000);
   const accepted = snapshot.state.participants.filter((p) => p.registration === 'accepted').length;
   const checkedIn = snapshot.state.participants.filter((p) => p.checkin === 'checked_in').length;
@@ -1347,14 +1356,78 @@ function hostOverview(snapshot, isAuthority) {
       el('div', {}, [el('dt', { text: t('participant.phase.checkin') }), el('dd', { text: String(checkedIn) })]),
       el('div', {}, [el('dt', { text: t('org.requests') }), el('dd', { text: String(openRequests) })]),
     ]),
-    isAuthority ? el('div', { className: 'host-lifecycle' }, [
-      el('button', {
+    isAuthority && destination !== 'entrants' ? el('div', { className: 'host-lifecycle' }, [
+      destination === 'setup' ? el('button', {
         text: t('org.edit.action'), on: { click: () => {
           editingDefinition = true; activeEditView = null; render();
         } },
-      }),
+      }) : null,
       ...lifecycleActions(snapshot),
     ]) : null,
+  ]);
+}
+
+function defaultHostDestination(snapshot) {
+  const now = Math.floor(Date.now() / 1000);
+  if (competitionRunning(snapshot.competition, snapshot.state.status, now)
+    || snapshot.state.status === 'paused') return 'live';
+  if (registrationWindowOpen(snapshot.competition, snapshot.state.status, now)
+    || checkinWindowOpen(snapshot.competition, snapshot.state.status, now)
+    || intents.size) return 'entrants';
+  return 'setup';
+}
+
+function selectHostDestination(destination, { replaceState = false } = {}) {
+  if (!HOST_DESTINATIONS.has(destination)) return;
+  hostDestination = destination;
+  history[replaceState ? 'replaceState' : 'pushState']({
+    ...(history.state || {}),
+    [HOST_HISTORY_KEY]: destination,
+  }, '');
+  render();
+}
+
+function hostDestinationNav(active) {
+  return el('nav', {
+    className: 'host-destination-nav',
+    attrs: { 'aria-label': t('org.nav.label') },
+  }, ['setup', 'entrants', 'live'].map((destination) => el('button', {
+    text: t(`org.nav.${destination}`),
+    attrs: {
+      'aria-current': destination === active ? 'page' : null,
+      disabled: destination === active,
+    },
+    on: { click: () => selectHostDestination(destination) },
+  })));
+}
+
+function hostDestinationContent(snapshot, destination) {
+  if (destination === 'setup') {
+    return el('div', { className: 'host-console-layout host-setup-layout' }, [
+      el('section', { className: 'host-console-primary' }, [sharePanel(snapshot)]),
+      el('aside', { className: 'host-console-secondary' }, [
+        el('section', { className: 'card scoring-explanation' }, [
+          el('h2', { text: t('scoring.info.title') }),
+          el('p', { text: scoringExplanation(t, snapshot.competition) }),
+        ]),
+      ]),
+    ]);
+  }
+  if (destination === 'entrants') {
+    return el('div', { className: 'host-console-layout' }, [
+      el('section', { className: 'host-console-primary' }, [
+        entrantsPanel(snapshot),
+        requestsPanel(snapshot, ['withdraw', 'checkin_request']),
+      ]),
+      el('aside', { className: 'host-console-secondary' }, [prizeClaimsPanel(snapshot)]),
+    ]);
+  }
+  return el('div', { className: 'host-console-layout' }, [
+    el('section', { className: 'host-console-primary' }, [queuePanel(snapshot)]),
+    el('aside', { className: 'host-console-secondary' }, [
+      requestsPanel(snapshot, ['defer_request', 'attempt_report']),
+      sharePanel(snapshot),
+    ]),
   ]);
 }
 
@@ -1395,6 +1468,12 @@ function render() {
     snapshot.competition, snapshot.state.status, Math.floor(Date.now() / 1000),
   ) ? 'running' : snapshot.state.status;
   const isAuthority = signer.pubkey === snapshot.competition.authority;
+  if (isAuthority && !HOST_DESTINATIONS.has(hostDestination)) {
+    const saved = history.state?.[HOST_HISTORY_KEY];
+    hostDestination = HOST_DESTINATIONS.has(saved) ? saved : defaultHostDestination(snapshot);
+    selectHostDestination(hostDestination, { replaceState: true });
+    return;
+  }
 
   if (editingDefinition && isAuthority) {
     activeEditView ||= editCompetitionForm(snapshot);
@@ -1405,26 +1484,11 @@ function render() {
   replace(view,
     devRelayBanner(store, t),
     ...integrityNotices(snapshot, t),
-    hostOverview(snapshot, isAuthority),
+    hostOverview(snapshot, isAuthority, hostDestination),
     !isAuthority ? el('div', { className: 'notice warn' }, [el('p', { text: t('org.not_owner') })]) : null,
     feedback,
-    isAuthority ? el('div', { className: 'host-console-layout' }, [
-      el('section', { className: 'host-console-primary' }, [
-        queuePanel(snapshot),
-        requestsPanel(snapshot),
-        prizeClaimsPanel(snapshot),
-      ]),
-      el('aside', { className: 'host-console-secondary' }, [
-        entrantsPanel(snapshot),
-        sharePanel(snapshot),
-        el('details', { className: 'disclosure' }, [
-          el('summary', { text: t('scoring.info.title') }),
-          el('div', { className: 'scoring-explanation' }, [
-            el('p', { text: scoringExplanation(t, snapshot.competition) }),
-          ]),
-        ]),
-      ]),
-    ]) : el('section', { className: 'card' }, [
+    isAuthority ? hostDestinationNav(hostDestination) : null,
+    isAuthority ? hostDestinationContent(snapshot, hostDestination) : el('section', { className: 'card' }, [
       el('aside', { className: 'subcard scoring-explanation' }, [
         el('h3', { text: t('scoring.info.title') }),
         el('p', { text: scoringExplanation(t, snapshot.competition) }),
