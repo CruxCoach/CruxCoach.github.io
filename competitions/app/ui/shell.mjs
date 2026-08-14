@@ -312,18 +312,20 @@ export class SignIn {
     if (passphrase !== repeat) throw new Error(this.t('signin.bunker.passphrase_mismatch'));
   }
 
-  async finishRemotePairing(signer, passphrase) {
+  async finishRemotePairing(signer, passphrase, { persist = true } = {}) {
     const connection = {
       remoteSignerPubkey: signer.remoteSignerPubkey,
       userPubkey: signer.pubkey,
       relays: signer.relays,
     };
-    try {
-      await this.remoteSession.persist(connection, passphrase);
-    } catch (error) {
-      signer.close();
-      this.remoteSession.forget();
-      throw error;
+    if (persist) {
+      try {
+        await this.remoteSession.persist(connection, passphrase);
+      } catch (error) {
+        signer.close();
+        this.remoteSession.forget();
+        throw error;
+      }
     }
     this.remoteSession.rememberLive(connection);
     try {
@@ -450,10 +452,11 @@ export class SignIn {
     ])];
 
     // 2. remote signer
+    const androidBrowser = isAndroidBrowser();
     const remoteChildren = [
       el('h3', { text: t('signin.bunker') }),
       el('p', { className: 'small', text: t('signin.bunker.hint') }),
-      el('a', {
+      !androidBrowser && el('a', {
         className: 'button', text: t('signin.bunker.amber'),
         attrs: {
           href: 'https://github.com/greenart7c3/Amber/releases',
@@ -462,9 +465,44 @@ export class SignIn {
       }),
     ];
     const savedRemote = this.remoteSession.describe();
+    const directClientSecret = androidBrowser ? generateSecretKey() : null;
+    const directUri = androidBrowser ? buildNostrConnectUri({
+      clientPubkey: getPublicKey(directClientSecret),
+      relays: AMBER_CONNECT_RELAYS,
+      secret: bytesToHex(randomBytes(16)),
+    }) : '';
+    const directAmberAction = () => androidBrowser && el('a', {
+      className: 'button primary',
+      text: t('signin.bunker.open_amber'),
+      attrs: { href: directUri },
+      on: {
+        click: (event) => {
+          if (this.busy) { event.preventDefault(); return; }
+          this.busy = true;
+          this.error = null;
+          this.remoteSession.adopt(directClientSecret);
+          // Keep this client credential only in the browser tab. Amber remains
+          // the signer and can approve a fresh pairing next session; inventing
+          // a second web passphrase here only makes the safer path harder.
+          void createNip46Signer(directUri, {
+            clientSecret: directClientSecret,
+            touchClient: () => this.remoteSession.touch(),
+          }).then(
+            (signer) => this.finishRemotePairing(signer, '', { persist: false }),
+          ).catch((error) => {
+            this.remoteSession.lock();
+            this.error = error.message || String(error);
+            announce(this.error, { assertive: true });
+          }).finally(() => {
+            this.busy = false;
+            this.render();
+          });
+        },
+      },
+    });
     if (this.remoteSession.hasStoredConnection() && savedRemote) {
       const pass = el('input', { attrs: { type: 'password', id: 'bunker-pass', autocomplete: 'current-password' } });
-      remoteChildren.push(
+      const savedControls = [
         el('p', { className: 'small', text: t('signin.bunker.saved') }),
         el('p', { className: 'small mono', text: shortKey(savedRemote.user_pubkey) }),
         el('label', { attrs: { for: 'bunker-pass' }, text: t('signin.passphrase') }, [pass]),
@@ -498,6 +536,13 @@ export class SignIn {
           className: 'quiet danger', text: t('signin.bunker.remove'),
           on: { click: () => this.run(async () => this.forgetNip46()) },
         }),
+      ];
+      remoteChildren.push(
+        directAmberAction(),
+        ...(androidBrowser ? [el('details', { className: 'disclosure' }, [
+          el('summary', { text: t('signin.bunker.saved') }),
+          ...savedControls,
+        ])] : savedControls),
       );
     } else {
       const bunkerInput = el('input', {
@@ -509,57 +554,11 @@ export class SignIn {
       const repeatPass = el('input', {
         attrs: { type: 'password', id: 'bunker-save-repeat', autocomplete: 'new-password' },
       });
-      const directClientSecret = generateSecretKey();
-      const directUri = buildNostrConnectUri({
-        clientPubkey: getPublicKey(directClientSecret),
-        relays: AMBER_CONNECT_RELAYS,
-        secret: bytesToHex(randomBytes(16)),
-      });
-      remoteChildren.push(
+      const manualControls = [
         el('p', { className: 'small', text: t('signin.bunker.save_hint') }),
         el('label', { attrs: { for: 'bunker-save-pass' }, text: t('signin.bunker.save_passphrase') }, [savePass]),
         el('label', { attrs: { for: 'bunker-save-repeat' }, text: t('signin.bunker.save_repeat') }, [repeatPass]),
-        isAndroidBrowser() ? el('a', {
-          className: 'button primary',
-          text: t('signin.bunker.open_amber'),
-          attrs: { href: directUri },
-          on: {
-            click: (event) => {
-              try {
-                this.validateRemotePassphrase(savePass.value, repeatPass.value);
-              } catch (error) {
-                event.preventDefault();
-                this.error = error.message || String(error);
-                announce(this.error, { assertive: true });
-                this.render();
-                return;
-              }
-              if (this.busy) { event.preventDefault(); return; }
-              this.busy = true;
-              this.error = null;
-              this.remoteSession.adopt(directClientSecret);
-              // Do not prevent the anchor's default action: Android dispatches
-              // nostrconnect:// straight to Amber. createNip46Signer installs
-              // its relay subscription synchronously before that hand-off.
-              void createNip46Signer(directUri, {
-                clientSecret: directClientSecret,
-                touchClient: () => this.remoteSession.touch(),
-              }).then(
-                (signer) => this.finishRemotePairing(signer, savePass.value),
-              ).catch((error) => {
-                this.remoteSession.lock();
-                this.error = error.message || String(error);
-                announce(this.error, { assertive: true });
-              }).finally(() => {
-                savePass.value = '';
-                repeatPass.value = '';
-                this.busy = false;
-                this.render();
-              });
-            },
-          },
-        }) : null,
-        el('p', { className: 'small', text: t(isAndroidBrowser()
+        el('p', { className: 'small', text: t(androidBrowser
           ? 'signin.bunker.paste_fallback' : 'signin.bunker.paste_hint') }),
         el('label', { attrs: { for: 'bunker-uri' }, text: t('signin.bunker') }, [bunkerInput]),
         el('button', {
@@ -587,6 +586,13 @@ export class SignIn {
             }),
           },
         }),
+      ];
+      remoteChildren.push(
+        directAmberAction(),
+        ...(androidBrowser ? [el('details', { className: 'disclosure' }, [
+          el('summary', { text: t('signin.bunker.paste_fallback') }),
+          ...manualControls,
+        ])] : manualControls),
       );
     }
     const remoteCard = el('div', { className: 'card raised' }, remoteChildren);

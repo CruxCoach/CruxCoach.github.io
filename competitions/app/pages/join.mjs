@@ -8,8 +8,8 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-2';
-import { SignIn } from '../ui/shell.mjs?v=20260814-2';
+} from './common.mjs?v=20260814-3';
+import { SignIn } from '../ui/shell.mjs?v=20260814-3';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
 import {
@@ -24,9 +24,9 @@ import { EntrantWriter } from '../authority.mjs?v=20260813-1';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-4';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-5';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
-import { personalCue, queuePreview, rotationPreview, syncHealth } from '../ui/live-view.mjs?v=20260813-1';
+import { personalCue, queuePreview, rotationPreview, syncHealth, turnEstimate } from '../ui/live-view.mjs?v=20260814-2';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-2';
 import {
   BOARD_TYPES, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
@@ -50,6 +50,7 @@ let catalogueState = 'idle';
 let catalogueError = '';
 let catalogueCompetition = '';
 let lastHealthKind = '';
+const preparedClimbs = new Map();
 
 function catalogueBoard(competition) {
   const board = competition.board;
@@ -798,22 +799,29 @@ function livePanel(snapshot) {
   const isMyTurn = Boolean(mine && current === mine.pubkey);
   const runningNow = competitionRunning(snapshot.competition, state.status, Math.floor(Date.now() / 1000));
   const cue = personalCue(state, mine?.pubkey, runningNow);
+  const estimate = turnEstimate(
+    state, snapshot.competition, mine?.pubkey, Math.floor(Date.now() / 1000), runningNow,
+  );
+  const effectiveStatus = runningNow ? 'running' : state.status;
   const queue = queuePreview(state, state.participants, 6);
   const rotation = rotationPreview(snapshot.competition, state, mine, 4);
+  const preparedId = mine ? preparedClimbs.get(`${snapshot.competition.comp_id}:${mine.pubkey}`) : '';
   const activeClimb = snapshot.competition.rules.climb_source === 'participant_choice'
-    ? rotation.entries[0]
+    ? (snapshot.competition.climb_pool?.options || []).find((climb) => climb.id === preparedId)
     : (snapshot.competition.climbs || []).find((climb) => climb.id === state.current_climb_id);
   const cueKey = `live.cue.${cue.kind}`;
-  const cueText = cue.kind === 'queued' ? t(cueKey, { n: cue.ahead }) : t(cueKey);
+  const cueText = ['queued', 'next_round'].includes(cue.kind) ? t(cueKey, { n: cue.ahead }) : t(cueKey);
   const terminal = ['finished', 'cancelled'].includes(state.status);
   const rows = [
     el('div', { className: `participant-live-hero cue-${cue.kind}` }, [
       el('div', {}, [
-        el('p', { className: 'eyebrow', text: t(`status.${state.status}`) }),
+        el('p', { className: 'eyebrow', text: t(`status.${effectiveStatus}`) }),
         el('h2', { text: cueText }),
-        el('p', { className: 'participant-next-task', text: !terminal && activeClimb
+        el('p', { className: 'participant-next-task', text: !terminal && isMyTurn && !activeClimb
+          ? t('next.choose_required') : !terminal && activeClimb
           ? t('live.your_next_climb', { climb: activeClimb.label || activeClimb.id })
           : terminal ? t(`live.cue.${state.status}`) : t('live.no_next_climb') }),
+        estimate && el('p', { className: 'participant-eta', text: t('live.eta', { time: formatSeconds(estimate.seconds) }) }),
       ]),
       el('div', { className: 'participant-turn-facts' }, [
         el('span', { className: 'participant-current-label', text: t('live.current') }),
@@ -846,9 +854,9 @@ function livePanel(snapshot) {
     el('section', { className: 'subcard' }, [
       el('h3', { text: t('live.climber_queue') }),
       queue.entries.length ? el('ol', { className: 'participant-queue' }, queue.entries.map((entry) => el('li', {
-        className: entry.pubkey === mine?.pubkey ? 'me' : entry.current ? 'is-current' : '',
+        className: [entry.pubkey === mine?.pubkey ? 'me' : '', entry.current ? 'is-current' : '', entry.nextRound ? 'is-next-round' : ''].filter(Boolean).join(' '),
       }, [
-        el('span', { text: entry.current ? t('live.now_short') : String(entry.queuePosition + 1) }),
+        el('span', { text: entry.current ? t('live.now_short') : entry.nextRound ? t('live.next_round_short') : String(entry.queuePosition + 1) }),
         el('strong', { text: entry.participant ? displayName(entry.participant) : shortKey(entry.pubkey) }),
       ]))) : el('p', { className: 'small', text: t('live.queue_empty') }),
       queue.hidden > 0 && el('p', { className: 'small', text: t('live.more', { n: queue.hidden }) }),
@@ -857,12 +865,12 @@ function livePanel(snapshot) {
   ]));
 
   if (mine) {
-    const before = store.climbersBefore(mine.pubkey);
+    const before = cue.ahead;
     rows.push(el('section', { className: 'participant-my-status' }, [
       el('h3', { text: t('live.your_status') }),
       el('div', { className: 'participant-metrics' }, [
         el('div', {}, [el('strong', { text: before === null ? '—' : String(before) }), el('span', { text: t('live.before_you') })]),
-        el('div', {}, [el('strong', { text: String(store.attemptsLeft(mine.pubkey, activeClimb?.id || state.current_climb_id)) }), el('span', { text: t('live.attempts_left') })]),
+        el('div', {}, [el('strong', { text: activeClimb ? String(store.attemptsLeft(mine.pubkey, activeClimb.id)) : '—' }), el('span', { text: t('live.attempts_left') })]),
         el('div', {}, [el('strong', { text: String(store.defersLeft(mine.pubkey)) }), el('span', { text: t('live.defers_left') })]),
       ]),
       rotation.entries.length && el('div', { className: 'participant-rotation' }, [
@@ -876,7 +884,7 @@ function livePanel(snapshot) {
 
     if (snapshot.competition.rules.progression === 'asynchronous_turns'
       && (runningNow || state.status === 'paused')) {
-      rows.push(...nextClimbChooser(snapshot, mine));
+      rows.push(nextClimbChooser(snapshot, mine));
     }
 
     if (mine.climbs.length) {
@@ -891,7 +899,7 @@ function livePanel(snapshot) {
       if (activeClimb?.climb_uuid) actions.push(el('a', {
         className: 'button primary',
         text: isMyTurn ? t('live.open_now') : t('live.prepare_board'),
-        attrs: { href: `/c/${activeClimb.climb_uuid}` },
+        attrs: { href: `/c/${activeClimb.climb_uuid}`, target: '_blank', rel: 'noopener' },
       }));
       if (store.canDefer(mine.pubkey)) actions.push(el('button', {
         text: t('live.defer'),
@@ -930,52 +938,87 @@ function livePanel(snapshot) {
 /**
  * Asynchronous turns: which of my climbs I go to next.
  *
- * The control exists only while this climber may actually act. Every reason
- * they cannot — not their turn, resting, unpaid, no attempts left — gets its
- * own sentence instead, because a disabled button teaches nobody anything, and
- * a button that publishes a report the reducer then rejects is worse still:
- * they would walk away believing the attempt counted.
+ * Choosing is always local preparation and is therefore available before the
+ * turn. Signed result controls appear only while the climber may actually act;
+ * every reason they cannot gets its own sentence.
  */
 function nextClimbChooser(snapshot, mine) {
-  const rows = [el('h3', { text: t('next.title') })];
   const remaining = store.remainingClimbs(mine.pubkey);
+  const mayAct = store.mayAct(mine.pubkey);
+  const key = `${snapshot.competition.comp_id}:${mine.pubkey}`;
+  let selected = preparedClimbs.get(key) || '';
+  if (selected && !remaining.some((climb) => climb.id === selected)) {
+    preparedClimbs.delete(key);
+    selected = '';
+  }
+  const rows = [
+    el('p', { className: 'eyebrow', text: mayAct ? t('next.action_required') : t('next.prepare') }),
+    el('h3', { text: mayAct ? t('next.choose_now') : t('next.title') }),
+    el('p', { className: 'small', text: mayAct ? t('next.choose_now.hint') : t('next.prepare.hint') }),
+  ];
 
   if (!remaining.length) {
     rows.push(el('p', { className: 'small', text: t('next.none_left') }));
-    return rows;
-  }
-  if (!store.mayAct(mine.pubkey)) {
-    rows.push(el('p', { className: 'small', text: whyNotYet(snapshot, mine) }));
-    return rows;
+    return el('section', { className: 'participant-climb-choice' }, rows);
   }
 
   const feedback = el('p', { className: 'small', attrs: { role: 'status', 'aria-live': 'polite' } });
-  const chosen = el('select', { attrs: { id: 'next-climb' } },
-    remaining.map((climb) => el('option', {
-      attrs: { value: climb.id },
+  const chosen = el('select', { attrs: { id: 'next-climb', required: 'required' } }, [
+    el('option', { attrs: { value: '', selected: !selected }, text: t('next.choose.placeholder') }),
+    ...remaining.map((climb) => el('option', {
+      attrs: { value: climb.id, selected: climb.id === selected },
       text: t('next.option', { label: climb.label, attempts: climb.attemptsLeft }),
-    })));
+    })),
+  ]);
+  chosen.addEventListener('change', () => {
+    if (chosen.value) preparedClimbs.set(key, chosen.value);
+    else preparedClimbs.delete(key);
+    render();
+  });
 
   rows.push(
     el('label', { attrs: { for: 'next-climb' } }, [el('span', { text: t('next.choose') }), chosen]),
-    el('div', { className: 'row' }, ['top', 'zone', 'fall'].map((outcome) => el('button', {
-      className: outcome === 'top' ? 'primary' : '',
-      text: t(`org.${outcome}`),
-      on: {
-        click: () => guard(async () => {
-          const climb = remaining.find((c) => c.id === chosen.value);
-          if (!climb) throw new Error(t('next.gone'));
-          const used = snapshot.competition.rules.attempts_per_climb - climb.attemptsLeft;
-          await entrant.reportAttempt(climb.id, outcome, used + 1);
-          feedback.textContent = t('next.reported', { label: climb.label });
-          announce(t('next.reported', { label: climb.label }));
-        }, feedback),
-      },
-    }))),
-    el('p', { className: 'small', text: t('next.reported.hint') }),
-    feedback,
+    selected && el('div', { className: 'participant-prepared-confirmation' }, [
+      el('strong', { text: t('next.prepared') }),
+      el('span', { text: t('next.local_only') }),
+    ]),
   );
-  return rows;
+  const selectedClimb = remaining.find((climb) => climb.id === selected);
+  const definition = (snapshot.competition.climb_pool?.options || snapshot.competition.climbs || [])
+    .find((climb) => climb.id === selected);
+  if (definition?.climb_uuid) rows.push(el('a', {
+    className: `button ${mayAct ? 'primary' : ''}`,
+    text: mayAct ? t('live.open_now') : t('live.prepare_board'),
+    attrs: { href: `/c/${definition.climb_uuid}`, target: '_blank', rel: 'noopener' },
+  }));
+  if (mayAct) {
+    rows.push(
+      selectedClimb
+        ? el('div', { className: 'participant-report-actions' }, [
+          el('strong', { text: t('next.report_result') }),
+          el('div', { className: 'row' }, ['top', 'zone', 'fall'].map((outcome) => el('button', {
+            className: outcome === 'top' ? 'primary' : '',
+            text: t(`org.${outcome}`),
+            on: {
+              click: () => guard(async () => {
+                const current = store.remainingClimbs(mine.pubkey).find((c) => c.id === selected);
+                if (!current) throw new Error(t('next.gone'));
+                const used = snapshot.competition.rules.attempts_per_climb - current.attemptsLeft;
+                await entrant.reportAttempt(current.id, outcome, used + 1);
+                feedback.textContent = t('next.reported', { label: current.label });
+                announce(t('next.reported', { label: current.label }));
+              }, feedback),
+            },
+          }))),
+          el('p', { className: 'small', text: t('next.reported.hint') }),
+        ])
+        : el('p', { className: 'notice warn', text: t('next.choose_required') }),
+      feedback,
+    );
+  } else {
+    rows.push(el('p', { className: 'small participant-action-lock', text: whyNotYet(snapshot, mine) }));
+  }
+  return el('section', { className: `participant-climb-choice ${mayAct ? 'action-required' : 'is-preparation'}` }, rows);
 }
 
 /** The one sentence that says why the chooser is not there. */
@@ -1129,10 +1172,16 @@ function prizePanel(snapshot) {
 }
 
 function leaderboard(snapshot) {
-  if (!snapshot.standings.length || !store.trustworthy) return null;
   const mine = me();
   const points = usesPointLeaderboard(snapshot.competition);
-  return el('section', { className: 'card' }, [
+  if (!store.trustworthy || !snapshot.standings.length) {
+    return el('section', { className: 'card participant-leaderboard', attrs: { id: 'leaderboard' } }, [
+      el('h2', { text: t('live.leaderboard') }),
+      el('p', { className: 'notice warn', text: store.trustworthy
+        ? t('live.leaderboard.empty') : t('live.leaderboard.unavailable') }),
+    ]);
+  }
+  return el('section', { className: 'card participant-leaderboard', attrs: { id: 'leaderboard' } }, [
     el('h2', { text: t('live.leaderboard') }),
     el('div', { className: 'table-scroll' }, [
       el('table', {}, [
@@ -1156,6 +1205,22 @@ function leaderboard(snapshot) {
         ]))),
       ]),
     ]),
+  ]);
+}
+
+function liveNavigation(snapshot) {
+  const mine = me();
+  const standing = mine && snapshot.standings.find((row) => row.pubkey === mine.pubkey);
+  return el('nav', { className: 'participant-live-nav', attrs: { 'aria-label': t('live.navigation') } }, [
+    el('button', {
+      attrs: { type: 'button' }, text: t('live.dashboard'),
+      on: { click: () => byId('live-dashboard')?.scrollIntoView() },
+    }),
+    el('button', {
+      className: 'leaderboard-link', attrs: { type: 'button' },
+      text: standing?.rank ? t('live.leaderboard_rank', { rank: standing.rank }) : t('live.leaderboard'),
+      on: { click: () => byId('leaderboard')?.scrollIntoView() },
+    }),
   ]);
 }
 
@@ -1230,7 +1295,7 @@ function render() {
     ? [phaseIntro(screen), registrationPanel(snapshot)]
     : screen === 'checkin'
       ? [phaseIntro(screen), checkinPanel(snapshot)]
-      : [livePanel(snapshot), prizePanel(snapshot), leaderboard(snapshot)];
+      : [liveNavigation(snapshot), el('div', { attrs: { id: 'live-dashboard' } }, [livePanel(snapshot)]), prizePanel(snapshot), leaderboard(snapshot)];
   const secondary = screen === 'live'
     ? el('details', { className: 'disclosure participant-past-phase' }, [
       el('summary', { text: t('participant.registration.details') }),

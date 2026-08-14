@@ -13,14 +13,21 @@ export function queuePreview(state, participants, limit = 7) {
   if (!state || !Array.isArray(state.order)) return { entries: [], hidden: 0 };
   const byKey = new Map((participants || []).map((participant) => [participant.pubkey, participant]));
   const start = Math.max(0, state.cursor < 0 ? 0 : state.cursor);
-  const remaining = state.order.slice(start);
-  const entries = remaining.slice(0, limit).map((pubkey, offset) => ({
+  // Keep the whole rotation visible. Entries before the cursor have already
+  // climbed in this round; appending them (and labelling them) is more truthful
+  // than making them disappear until the organizer starts the next round.
+  const remaining = state.cursor < 0
+    ? state.order.map((pubkey) => ({ pubkey, nextRound: false }))
+    : state.order.slice(start).map((pubkey) => ({ pubkey, nextRound: false }))
+      .concat(state.order.slice(0, start).map((pubkey) => ({ pubkey, nextRound: true })));
+  const entries = remaining.slice(0, limit).map(({ pubkey, nextRound }, offset) => ({
     pubkey,
     participant: byKey.get(pubkey) || null,
-    absoluteIndex: start + offset,
+    absoluteIndex: state.order.indexOf(pubkey),
     queuePosition: offset,
     current: state.cursor >= 0 && start + offset === state.cursor,
     next: state.cursor >= 0 && start + offset === state.cursor + 1,
+    nextRound,
   }));
   return { entries, hidden: Math.max(0, remaining.length - entries.length) };
 }
@@ -28,9 +35,7 @@ export function queuePreview(state, participants, limit = 7) {
 export function rotationPreview(competition, state, participant, limit = 5) {
   if (!competition || !state) return { entries: [], hidden: 0 };
   const source = competition.rules?.climb_source === 'participant_choice'
-    ? (competition.climb_pool?.options || []).filter((climb) =>
-      competition.rules?.selection_uniqueness !== 'unique_per_competition'
-        || participant?.selections?.includes(climb.id))
+    ? (competition.climb_pool?.options || [])
     : (competition.climbs || []);
   if (!source.length) return { entries: [], hidden: 0 };
 
@@ -66,8 +71,29 @@ export function personalCue(state, pubkey, running = state?.status === 'running'
   if (index < 0) return { kind: 'not_queued', ahead: null, index };
   if (state.cursor === index) return { kind: 'current', ahead: 0, index };
   const cursor = state.cursor < 0 ? 0 : state.cursor;
-  const ahead = Math.max(0, index - cursor);
+  if (state.cursor >= 0 && index < cursor) {
+    return { kind: 'next_round', ahead: state.order.length - cursor + index, index };
+  }
+  const ahead = index - cursor;
   return { kind: ahead === 1 ? 'next' : 'queued', ahead, index };
+}
+
+/**
+ * A cautious turn estimate. It is deliberately unavailable across a round
+ * boundary: the protocol has no deadline for when an organizer opens a new
+ * round, so presenting one there would be invented precision.
+ */
+export function turnEstimate(state, competition, pubkey, nowSeconds, running = state?.status === 'running') {
+  if (!state || !competition || !pubkey || !running || state.cursor < 0) return null;
+  const index = state.order.indexOf(pubkey);
+  if (index <= state.cursor) return null;
+  const ahead = index - state.cursor;
+  const currentLeft = state.turn_deadline_at > 0
+    ? Math.max(0, state.turn_deadline_at - nowSeconds)
+    : competition.rules?.turn_deadline_sec || 0;
+  const turnSeconds = competition.rules?.turn_deadline_sec || 0;
+  if (turnSeconds <= 0) return null;
+  return { seconds: currentLeft + Math.max(0, ahead - 1) * turnSeconds, ahead };
 }
 
 export function deferAvailability(state, competition, participant, pubkey) {

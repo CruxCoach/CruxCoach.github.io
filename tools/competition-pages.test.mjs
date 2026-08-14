@@ -106,6 +106,8 @@ test('live host, participant and projection surfaces keep state-specific action 
     'host-next-strip', 'host-result-actions', 'host-danger-menu', 'host-sync-state',
   ]) assert.ok(organizer.includes(marker), `host console is missing ${marker}`);
   assert.match(organizer, /id: 'host-deadline'/, 'the host needs the same live countdown as the wall');
+  assert.match(organizer, /recordAttempt\([\s\S]*state\.cursor >= state\.order\.length - 1[\s\S]*nextRound\(\)[\s\S]*advance\(\)/,
+    'recording a result must preserve queue progress and open the next turn');
   assert.match(organizer, /state\.status === 'paused'[\s\S]*org\.paused\.hint/,
     'pause must replace scoring actions with an explicit locked state');
   assert.match(css, /\.host-result-actions\s*\{[^}]*position: sticky/s,
@@ -1754,6 +1756,9 @@ test('Android sign-in hands a client-initiated connection directly to Amber', as
     assert.match(amber.getAttribute('href'), /^nostrconnect:\/\//);
     assert.ok(mount.textContent.includes('signin.bunker.save_hint'),
       'the reusable encrypted pairing must be explained before the one-time hand-off');
+    const shell = fs.readFileSync(path.join(root, 'competitions/app/ui/shell.mjs'), 'utf8');
+    assert.match(shell, /finishRemotePairing\(signer, '', \{ persist: false \}\)/,
+      'direct Amber sign-in must stay tab-scoped and require no browser passphrase');
   } finally {
     signIn?.session.dispose();
     signIn?.remoteSession.dispose();

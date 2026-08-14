@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import {
-  deferAvailability, personalCue, queuePreview, rotationPreview, syncHealth, tiedAt,
+  deferAvailability, personalCue, queuePreview, rotationPreview, syncHealth, tiedAt, turnEstimate,
 } from '../competitions/app/ui/live-view.mjs';
 
 const participants = ['a', 'b', 'c', 'd', 'e'].map((pubkey) => ({
@@ -36,6 +36,7 @@ test('personal cues cover lifecycle and every queue relation without local state
   assert.deepEqual(personalCue(running, 'b'), { kind: 'current', ahead: 0, index: 1 });
   assert.deepEqual(personalCue(running, 'c'), { kind: 'next', ahead: 1, index: 2 });
   assert.deepEqual(personalCue(running, 'e'), { kind: 'queued', ahead: 3, index: 4 });
+  assert.deepEqual(personalCue(running, 'a'), { kind: 'next_round', ahead: 4, index: 0 });
   assert.equal(personalCue(running, 'missing').kind, 'not_queued');
   assert.equal(personalCue({ ...running, status: 'paused' }, 'b').kind, 'paused');
   assert.equal(personalCue({ ...running, status: 'finished' }, 'b').kind, 'finished');
@@ -48,7 +49,14 @@ test('projection queues are bounded and keep current and next semantics', () => 
   assert.deepEqual(preview.entries.map((entry) => entry.pubkey), ['b', 'c']);
   assert.equal(preview.entries[0].current, true);
   assert.equal(preview.entries[1].next, true);
-  assert.equal(preview.hidden, 2);
+  assert.equal(preview.hidden, 3);
+});
+
+test('queue preview wraps completed climbers into a labelled next-round section', () => {
+  const preview = queuePreview(running, participants, 7);
+  assert.deepEqual(preview.entries.map((entry) => entry.pubkey), ['b', 'c', 'd', 'e', 'a']);
+  assert.equal(preview.entries.at(-1).nextRound, true);
+  assert.equal(preview.entries.at(-1).queuePosition, 4);
 });
 
 test('rotation starts at the event current climb and wraps predictably', () => {
@@ -70,6 +78,22 @@ test('rotation starts at the event current climb and wraps predictably', () => {
     climb_pool: { options: competition.climbs },
   }, running, { ...participants[1], climbs: [{ climb_id: 'one', outcome: 'top' }] }, 4);
   assert.deepEqual(personal.entries.map((climb) => climb.id), ['two', 'three']);
+
+  const legacyUnique = rotationPreview({
+    ...competition,
+    rules: { ...competition.rules, climb_source: 'participant_choice', selection_uniqueness: 'unique_per_competition' },
+    climb_pool: { options: competition.climbs },
+  }, running, { ...participants[1], selections: ['one'], climbs: [] }, 4);
+  assert.deepEqual(legacyUnique.entries.map((climb) => climb.id), ['one', 'two', 'three']);
+});
+
+test('turn estimates use only the current deadline and configured turn limits', () => {
+  const timed = { ...running, turn_deadline_at: 130 };
+  const configured = { ...competition, rules: { ...competition.rules, turn_deadline_sec: 60 } };
+  assert.deepEqual(turnEstimate(timed, configured, 'd', 100), { seconds: 90, ahead: 2 });
+  assert.deepEqual(turnEstimate({ ...timed, status: 'registration_open' }, configured, 'd', 100, true),
+    { seconds: 90, ahead: 2 }, 'scheduled running state is supplied by the page clock');
+  assert.equal(turnEstimate(timed, configured, 'a', 100), null, 'no invented ETA across rounds');
 });
 
 test('defer policy exposes a visible reason for every disabled state', () => {

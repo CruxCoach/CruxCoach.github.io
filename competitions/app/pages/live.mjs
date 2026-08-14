@@ -7,11 +7,11 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
-} from './common.mjs?v=20260814-2';
+} from './common.mjs?v=20260814-3';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
 import { competitionRunning } from '../protocol/competition.mjs?v=20260813-2';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
-import { queuePreview, rotationPreview, syncHealth, tiedAt } from '../ui/live-view.mjs?v=20260813-1';
+import { queuePreview, rotationPreview, syncHealth, tiedAt } from '../ui/live-view.mjs?v=20260814-2';
 
 const { t, language } = bootstrap();
 
@@ -123,9 +123,9 @@ function queuePanel(snapshot, current) {
     ]),
     preview.entries.length
       ? el('ol', { className: 'projection-list' }, preview.entries.map((entry) => el('li', {
-        className: [entry.current ? 'is-current' : '', entry.next ? 'is-next' : ''].filter(Boolean).join(' '),
+        className: [entry.current ? 'is-current' : '', entry.next ? 'is-next' : '', entry.nextRound ? 'is-next-round' : ''].filter(Boolean).join(' '),
       }, [
-        el('span', { className: 'queue-number', text: entry.current ? t('live.now_short') : String(entry.queuePosition + 1) }),
+        el('span', { className: 'queue-number', text: entry.current ? t('live.now_short') : entry.nextRound ? t('live.next_round_short') : String(entry.queuePosition + 1) }),
         el('strong', { text: entry.participant ? displayName(entry.participant) : shortKey(entry.pubkey) }),
         entry.pubkey === current && el('span', { className: 'visually-hidden', text: t('live.current') }),
       ])))

@@ -12,8 +12,8 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-2';
-import { SignIn } from '../ui/shell.mjs?v=20260814-2';
+} from './common.mjs?v=20260814-3';
+import { SignIn } from '../ui/shell.mjs?v=20260814-3';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-4';
 import {
@@ -33,7 +33,7 @@ import { competitionToFormDraft, createCompetitionForm } from './organizer-form.
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs?v=20260813-2';
 import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-4';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-5';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { syncHealth } from '../ui/live-view.mjs?v=20260813-1';
 
@@ -1175,12 +1175,13 @@ function queuePanel(snapshot) {
         ...['top', 'zone', 'fall', 'timeout'].map((outcome) => el('button', {
         className: `host-result-${outcome}`,
         text: t(`org.${outcome}`),
-        on: {
-          click: () => act(async () => {
-            await writer.recordAttempt(current, climbId, outcome, attemptNo);
-            await writer.closeTurn();
-          }),
-        },
+          on: {
+            click: () => act(async () => {
+              await writer.recordAttempt(current, climbId, outcome, attemptNo);
+              if (state.cursor >= state.order.length - 1) await writer.nextRound();
+              await writer.advance();
+            }),
+          },
       })),
       ]));
       rows.push(el('div', { className: 'host-secondary-turn-actions' }, [
