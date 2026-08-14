@@ -107,7 +107,7 @@ test('no fixture references a public relay', () => {
  *      shared/src/commonTest/resources/competition/
  *   4. update the same constant in CompetitionFixtures.kt
  */
-const FIXTURES_MANIFEST_SHA256 = 'e97a35bd8be3b25954b1a953b517c843ac291f343129910818518bb7d320c10e';
+const FIXTURES_MANIFEST_SHA256 = '9157bbb4b911639fe4ac478968a90178fd3cfc94208c43978d5839572a013d32';
 
 test('the fixture manifest matches the digest the Android client pins', () => {
   const manifest = JSON.parse(fs.readFileSync(path.join(fixturesDir, 'MANIFEST.json'), 'utf8'));

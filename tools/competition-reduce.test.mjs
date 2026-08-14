@@ -462,7 +462,7 @@ test('counted N equal to available M is byte-for-byte standings compatible', () 
 
 test('a withheld entry stops reduction at the gap instead of skipping ahead', async () => {
   const stream = readStream('chain-break.json');
-  const { state, chainBreakAt } = await replay(stream);
+  const { state, chainBreakAt, chosenEntries } = await replay(stream);
   assert.equal(chainBreakAt, 3);
   assert.equal(state.chain_complete, false);
   assert.equal(state.seq, 2, 'nothing past the gap may be applied');
@@ -470,6 +470,8 @@ test('a withheld entry stops reduction at the gap instead of skipping ahead', as
   // second. Skipping the gap would have shown a field with the second climber
   // and not the first — a participant list that never existed.
   assert.equal(state.participants.length, 0);
+  assert.deepEqual(chosenEntries.map((entry) => entry.seq), [1, 2],
+    'organizer audit controls must never expose entries beyond the chosen prefix');
 });
 
 test('supplying the withheld entry completes the chain', async () => {
@@ -489,6 +491,8 @@ test('a fork is detected, and every client picks the same branch', async () => {
   assert.equal(forwards.state.fork_detected, true);
   assert.equal(backwards.state.fork_detected, true);
   assert.equal(forwards.state.head, backwards.state.head, 'both orders must land on the same branch');
+  assert.deepEqual(forwards.chosenEntries, backwards.chosenEntries,
+    'organizer audit controls must expose only the deterministic chosen branch');
 });
 
 test('a correction supersedes an earlier decision and stays in the audit trail', async () => {
@@ -500,6 +504,28 @@ test('a correction supersedes an earlier decision and stays in the audit trail',
   assert.ok(corrections[0].reason.length > 0, 'a correction must carry its reason');
   const carla = state.participants.find((p) => p.display === 'carla');
   assert.equal(carla.registration, 'waitlisted', 'the correction must have taken effect');
+});
+
+test('post-finish corrections replay at the original turn and retain the latest valid amendment', async () => {
+  const stream = readStream('result-correction.json');
+  const { state } = await replay(stream);
+  const alice = state.participants.find((participant) => participant.display === 'alice');
+  const bob = state.participants.find((participant) => participant.display === 'bob');
+  assert.equal(alice.climbs.find((climb) => climb.climb_id === 'c1').outcome, 'zone',
+    'the latest valid amendment wins even when a later amendment is invalid');
+  assert.equal(bob.climbs.find((climb) => climb.climb_id === 'c1').outcome, 'zone');
+  assert.ok(state.audit.some((entry) => entry.op === 'correction' && entry.supersedes_results === true));
+  assert.ok(state.rejected.some((entry) => entry.code === 'correction_bad_target'));
+  assert.ok(state.rejected.some((entry) => entry.code === 'correction_invalid_replacement'));
+  const rejectedSeqs = new Set(state.rejected.filter((entry) => entry.op === 'correction')
+    .map((entry) => entry.seq));
+  assert.ok(state.audit.filter((entry) => rejectedSeqs.has(entry.seq))
+    .every((entry) => entry.supersedes_results !== true),
+  'a rejected correction must not claim that it amended results');
+  const firstCorrection = stream.log_events.find((event) =>
+    event.tags.some((tag) => tag[0] === 'op' && tag[1] === 'correction'));
+  assert.equal(JSON.parse(firstCorrection.content).data.supersedes_results, undefined,
+    'amended-results state must be derived rather than trusted from authority data');
 });
 
 test('an override applies its wrapped operation and is always audited', async () => {

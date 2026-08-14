@@ -312,6 +312,30 @@ test('a competition runs end to end and every reader agrees on the state', async
     assert.equal(payload.standings.length, 2);
     assert.ok(payload.ruleset_hash.length === 64, 'the ruleset the standings were computed under is pinned');
 
+    // ── published results are amended additively, never overwritten ──
+    const resultToCorrect = store.logEntries().find((entry) =>
+      entry.op === 'attempt_result' && entry.data.pubkey === secondUp
+      && entry.data.climb_id === 'c1' && entry.data.outcome === 'top');
+    assert.ok(resultToCorrect, 'the recorded attempt needs a signed sequence to correct');
+    tick();
+    await writer.correct(resultToCorrect.seq, {
+      op: resultToCorrect.op,
+      data: { ...resultToCorrect.data, outcome: 'zone' },
+    }, 'The judge selected top instead of zone.', [secondUp]);
+    await until(projector.store,
+      (s) => s.state?.audit.some((entry) => entry.supersedes_results === true),
+      'the results correction to reach the projector');
+    assert.notEqual(store.stateHash, payload.state_hash, 'the erratum changes state without replacing results');
+    assert.equal(relay.events().filter((e) => e.tags.some((t) => t[0] === 'l' && t[1] === 'results')).length, 1,
+      'a correction must not publish a silent second results document');
+    await assert.rejects(
+      () => writer.correct(999999, {
+        op: 'attempt_result', data: { ...resultToCorrect.data, outcome: 'fall' },
+      }, 'This target does not exist.'),
+      (error) => error.code === 'correction_bad_target',
+    );
+    await writer.publishSnapshot();
+
     // ── snapshots exist and agree with a full replay ──
     const snapshots = relay.events().filter((e) => e.tags.some((t) => t[0] === 'l' && t[1] === 'snapshot'));
     assert.ok(snapshots.length > 0, 'the authority should publish snapshots');
@@ -357,6 +381,9 @@ test('the authority refuses a locally contiguous prefix before relay history com
     assert.equal(store.state.chain_complete, true);
     store.historyComplete = false;
     await assert.rejects(() => writer.setStatus('published'), /complete, conflict-free/);
+    store.state.status = 'cancelled';
+    await assert.rejects(() => writer.deleteCompetition(), /complete, conflict-free/,
+      'destructive cleanup must enforce trust in the writer, not only in its button');
     assert.equal(store.state.seq, 0);
   } finally {
     store.close();

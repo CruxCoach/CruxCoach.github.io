@@ -12,7 +12,7 @@ import {
   buildCompetitionTombstoneEvent, buildIntentEvent, buildLogEvent,
   buildResultsEvent, buildSnapshotEvent, configPatchImpact, newNonce, parseIntentEvent,
 } from './protocol/competition.mjs?v=20260814-6';
-import { applyEntry, hashableState } from './protocol/reduce.mjs?v=20260814-4';
+import { applyEntry, hashableState, reduce } from './protocol/reduce.mjs?v=20260814-5';
 import { ccj, ccjHash } from './protocol/ccj.mjs';
 
 /** How often the authority publishes a state snapshot (FEAT-058 §6.3). */
@@ -202,6 +202,9 @@ export class AuthorityWriter {
    */
   async deleteCompetition() {
     this.assertAuthorised();
+    if (!this.store.trustworthy) {
+      throw new Error('The complete, conflict-free relay record is required before deletion.');
+    }
     if (this.store.state?.status !== 'cancelled') {
       throw new Error('Cancel the competition before requesting relay deletion.');
     }
@@ -384,7 +387,33 @@ export class AuthorityWriter {
   }
 
   correct(supersedesSeq, replacement, reason, subjects = []) {
-    return this.append('correction', { supersedes_seq: supersedesSeq, replacement }, { reason, subjects });
+    return this.append('correction', () => ({
+      supersedes_seq: supersedesSeq,
+      replacement,
+    }), {
+      reason,
+      subjects,
+      validate: (state, data) => {
+        const seq = state.seq + 1;
+        const entry = {
+          seq, prev: state.head, epoch: state.epoch, at: this.now(),
+          op: 'correction', actor: 'authority', reason, data,
+        };
+        const result = reduce({
+          competition: this.store.definitionCompetition,
+          competitionEventId: this.store.competitionEventId,
+          entries: [...this.store.entries.values(), {
+            entry, eventId: `preview-${seq}`, createdAt: entry.at,
+          }],
+        });
+        const rejection = result.state.rejected.find((item) => item.seq === seq);
+        if (rejection) {
+          const error = new Error(rejection.code);
+          error.code = rejection.code;
+          throw error;
+        }
+      },
+    });
   }
 
   /**

@@ -191,6 +191,33 @@ test('a non-live organizer summary hydrates the same complete effective state', 
   assert.equal(snapshot.state.config_revision, 4);
 });
 
+test('a recompute caller waits for an overlapping dirty pass that includes its event', async () => {
+  const pool = new ClampedPool();
+  const store = new CompetitionStore({
+    pool,
+    organizerPubkey: fixture.competition_event.pubkey,
+    compId: payload.comp_id,
+    now: () => 1789020000,
+  });
+  assert.equal((await store.loadCompetition()).ok, true);
+  await store.hydrateHistory();
+
+  const last = [...store.entries.entries()].find(([, parsed]) =>
+    parsed.entry.seq === fixture.expected.state.seq);
+  assert.ok(last);
+  store.entries.delete(last[0]);
+  await store.recompute();
+  assert.equal(store.state.seq, fixture.expected.state.seq - 1);
+
+  const active = store.recompute();
+  store.entries.set(last[0], last[1]);
+  const joined = store.recompute();
+  await Promise.all([active, joined]);
+  assert.equal(store.state.seq, fixture.expected.state.seq);
+  assert.equal(store.stateHash, fixture.expected.state_hash,
+    'the joined caller must not resolve against the stale in-flight hash pass');
+});
+
 test('an incomplete stored query never becomes trustworthy personal state', async () => {
   const pool = new ClampedPool({ incomplete: true });
   const store = new CompetitionStore({

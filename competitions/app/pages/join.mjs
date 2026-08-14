@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-13';
+} from './common.mjs?v=20260814-14';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
@@ -20,11 +20,11 @@ import { buildClaimBody, validateClaimInput, eligibleWinner } from '../protocol/
 import {
   checkinWindowOpen, competitionAddress, competitionRunning, registrationWindowOpen,
 } from '../protocol/competition.mjs?v=20260814-6';
-import { EntrantWriter } from '../authority.mjs?v=20260814-7';
+import { EntrantWriter } from '../authority.mjs?v=20260814-8';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-13';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-14';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { personalCue, queuePreview, rotationPreview, syncHealth, turnEstimate } from '../ui/live-view.mjs?v=20260814-2';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-2';
@@ -1299,6 +1299,8 @@ function leaderboard(snapshot) {
   }
   return el('section', { className: 'card participant-leaderboard', attrs: { id: 'leaderboard' } }, [
     el('h2', { text: t('live.leaderboard') }),
+    snapshot.state.audit.some((entry) => entry.supersedes_results === true)
+      && el('p', { className: 'notice warn', attrs: { role: 'status' }, text: t('results.amended') }),
     el('div', { className: 'table-scroll' }, [
       el('table', {}, [
         el('thead', {}, [el('tr', {}, [

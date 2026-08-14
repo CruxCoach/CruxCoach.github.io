@@ -1770,6 +1770,17 @@ test('the organizer console handles every participant intent it subscribes to', 
     'finishing must explain and confirm its terminal effect');
   assert.match(organizer, /confirm\(t\('org\.cancel_comp\.confirm'\)\)/,
     'cancellation must explain that relay deletion follows and is best effort');
+  assert.match(organizer, /writer\.correct\(selected\.seq/,
+    'recorded attempts need a reasoned additive correction action');
+  assert.match(organizer, /latestCorrections\.has\(entry\.seq\)/,
+    'an already corrected attempt must remain selectable and visibly amended');
+  assert.match(organizer, /state\.audit\.some\(\(entry\) => entry\.supersedes_results === true\)/,
+    'the host must see when final results include an amendment');
+  for (const page of ['join.mjs', 'live.mjs']) {
+    const source = fs.readFileSync(path.join(root, `competitions/app/pages/${page}`), 'utf8');
+    assert.match(source, /supersedes_results === true[\s\S]*results\.amended/,
+      `${page} must identify an amended ranking`);
+  }
   assert.match(organizer, /\['prize_claim', 'prize_receipt'\]\.includes/,
     'each prize request needs its own replaceable inbox lane');
   assert.match(organizer, /prizeClaims\.get\(`\$\{prize\.id\}:\$\{winner\.pubkey\}`\)/,

@@ -12,10 +12,10 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-13';
+} from './common.mjs?v=20260814-14';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
-import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-7';
+import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-8';
 import {
   MUTABLE_CONFIG_FIELDS, NAMESPACE, configPatchImpact, newCompId,
   parseCompetitionEvent, parseIntentEvent,
@@ -32,10 +32,10 @@ import { competitionToFormDraft, createCompetitionForm } from './organizer-form.
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs?v=20260814-6';
 import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-13';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-14';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { syncHealth } from '../ui/live-view.mjs?v=20260813-1';
-import { CompetitionStore } from '../ui/store.mjs?v=20260814-8';
+import { CompetitionStore } from '../ui/store.mjs?v=20260814-9';
 
 const { t, language } = bootstrap();
 
@@ -1117,6 +1117,102 @@ function prizeClaimsPanel(snapshot) {
   return el('section', { className: 'card' }, rows);
 }
 
+/** Additive, reasoned correction of one recorded attempt. */
+function correctionsPanel(snapshot) {
+  const rejectedCorrections = new Set(snapshot.state.rejected
+    .filter((entry) => entry.op === 'correction').map((entry) => entry.seq));
+  const latestCorrections = new Map();
+  store.logEntries()
+    .filter((entry) => entry.op === 'correction' && !rejectedCorrections.has(entry.seq)
+      && Number.isInteger(entry.data?.supersedes_seq))
+    .forEach((entry) => latestCorrections.set(entry.data.supersedes_seq, entry.data.replacement));
+  const attempts = store.logEntries()
+    .filter((entry) => ['attempt_result', 'complete_turn'].includes(entry.op))
+    .map((entry) => {
+      const replacement = latestCorrections.get(entry.seq);
+      return replacement?.op === entry.op ? { ...entry, data: replacement.data } : entry;
+    })
+    .sort((a, b) => b.seq - a.seq);
+  const amended = snapshot.state.audit.some((entry) => entry.supersedes_results === true);
+  const rows = [el('h2', { text: t('org.correction.title') })];
+  if (amended) rows.push(el('p', {
+    className: 'notice warn', attrs: { role: 'status' }, text: t('results.amended'),
+  }));
+  rows.push(el('p', { className: 'small', text: t('org.correction.hint') }));
+  if (!attempts.length) {
+    rows.push(el('p', { className: 'small', text: t('org.correction.none') }));
+    return el('section', { className: 'card' }, rows);
+  }
+
+  const attempt = el('select', { attrs: { id: 'correction-attempt', required: 'required' } },
+    attempts.map((entry) => {
+      const participant = snapshot.state.participants.find((item) => item.pubkey === entry.data.pubkey);
+      const climb = selectionLabels(snapshot, [entry.data.climb_id])[0];
+      return el('option', {
+        attrs: { value: entry.seq },
+        text: t('org.correction.option', {
+          name: participant ? displayName(participant) : shortKey(entry.data.pubkey),
+          climb,
+          attempt: entry.data.attempt_no,
+          outcome: `${t(`org.${entry.data.outcome}`)}${latestCorrections.has(entry.seq)
+            ? ` · ${t('org.correction.amended')}` : ''}`,
+        }),
+      });
+    }));
+  const outcome = el('select', { attrs: { id: 'correction-outcome', required: 'required' } },
+    ['top', 'zone', 'fall', 'pass', 'timeout'].map((value) => el('option', {
+      attrs: { value, selected: value === attempts[0].data.outcome }, text: t(`org.${value}`),
+    })));
+  const reason = el('textarea', {
+    attrs: {
+      id: 'correction-reason', required: 'required', maxlength: '500', rows: '3',
+      placeholder: t('org.correction.reason_placeholder'),
+    },
+  });
+  attempt.addEventListener('change', () => {
+    const selected = attempts.find((entry) => entry.seq === Number(attempt.value));
+    if (selected) outcome.value = selected.data.outcome;
+  });
+  const form = el('form', {
+    className: 'stack',
+    on: {
+      submit: (event) => {
+        event.preventDefault();
+        const selected = attempts.find((entry) => entry.seq === Number(attempt.value));
+        if (!selected || !reason.value.trim()) {
+          announce(t('org.reason.required'), { assertive: true });
+          reason.focus();
+          return;
+        }
+        if (outcome.value === selected.data.outcome) {
+          announce(t('org.correction.no_change'), { assertive: true });
+          outcome.focus();
+          return;
+        }
+        const confirmation = snapshot.state.status === 'finished'
+          ? t('org.correction.confirm_final') : t('org.correction.confirm');
+        if (!confirm(confirmation)) return;
+        void act(async () => {
+          await writer.correct(selected.seq, {
+            op: selected.op,
+            data: { ...selected.data, outcome: outcome.value },
+          }, reason.value.trim(), [selected.data.pubkey]);
+          reason.value = '';
+        });
+      },
+    },
+  }, [
+    el('label', { attrs: { for: 'correction-attempt' }, text: t('org.correction.attempt') }, [attempt]),
+    el('label', { attrs: { for: 'correction-outcome' }, text: t('org.correction.outcome') }, [outcome]),
+    el('label', { attrs: { for: 'correction-reason' }, text: t('org.reason') }, [reason]),
+    el('button', { className: 'danger', attrs: { type: 'submit' }, text: t('org.correction.publish') }),
+  ]);
+  rows.push(el('details', { className: 'disclosure' }, [
+    el('summary', { text: t('org.correction.open') }), form,
+  ]));
+  return el('section', { className: 'card' }, rows);
+}
+
 function queuePanel(snapshot) {
   const state = snapshot.state;
   const now = Math.floor(Date.now() / 1000);
@@ -1465,6 +1561,7 @@ function hostDestinationContent(snapshot, destination) {
     el('section', { className: 'host-console-primary' }, [queuePanel(snapshot)]),
     el('aside', { className: 'host-console-secondary' }, [
       requestsPanel(snapshot, ['defer_request', 'attempt_report']),
+      correctionsPanel(snapshot),
       sharePanel(snapshot),
     ]),
   ]);

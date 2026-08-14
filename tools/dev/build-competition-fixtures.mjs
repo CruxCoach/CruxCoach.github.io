@@ -471,6 +471,94 @@ async function streamForkAndCorrection(keys) {
   );
 }
 
+/**
+ * A finished result corrected additively, in the original attempt's context.
+ * This is the case the old append-at-the-end implementation could never
+ * perform: the competition is finished and attempt 1 is no longer "next".
+ */
+async function streamResultCorrection(keys) {
+  const compId = 'c011ec710a7e0001';
+  const config = baseConfig({
+    compId,
+    authority: keys.organizer.pk,
+    overrides: { title: 'Result correction' },
+  });
+  const competitionEvent = await sign(buildCompetitionEvent(config, 1788900000), keys.organizer);
+  const log = new Log(compId, keys.organizer.pk, keys.organizer, competitionEvent.id);
+
+  await log.add('lifecycle', { status: 'published', at: 1788900100 }, 1788900100);
+  await log.add('lifecycle', { status: 'registration_open', at: 1789000000 }, 1789000000);
+  for (const [index, climber] of [keys.alice, keys.bob].entries()) {
+    await log.add('registration_decision', {
+      pubkey: climber.pk, decision: 'accepted', division: 'open', display: climber.label,
+    }, 1789000100 + index, { subjects: [climber.pk] });
+  }
+  await log.add('lifecycle', { status: 'registration_closed', at: 1789003600 }, 1789003600);
+  await log.add('lifecycle', { status: 'checkin_open', at: 1789003700 }, 1789003700);
+  for (const [index, climber] of [keys.alice, keys.bob].entries()) {
+    await log.add('checkin', {
+      pubkey: climber.pk, state: 'checked_in',
+    }, 1789003800 + index, { subjects: [climber.pk] });
+  }
+  await log.add('lifecycle', { status: 'running', at: 1789005400 }, 1789005400);
+  await log.add('queue', { action: 'seed_open', order: [keys.alice.pk, keys.bob.pk] }, 1789005410);
+  const aliceResult = await log.add('complete_turn', {
+    pubkey: keys.alice.pk, climb_id: 'c1', outcome: 'top', attempt_no: 1,
+  }, 1789005420, { subjects: [keys.alice.pk] });
+  await log.add('complete_turn', {
+    pubkey: keys.bob.pk, climb_id: 'c1', outcome: 'zone', attempt_no: 1,
+  }, 1789005430, { subjects: [keys.bob.pk] });
+  await log.add('lifecycle', { status: 'finished', at: 1789005500 }, 1789005500);
+
+  const seqOf = (event) => Number(event.tags.find((tag) => tag[0] === 'seq')[1]);
+  await log.add('correction', {
+    supersedes_seq: seqOf(aliceResult),
+    replacement: {
+      op: 'complete_turn',
+      data: { pubkey: keys.alice.pk, climb_id: 'c1', outcome: 'fall', attempt_no: 1 },
+    },
+  }, 1789005510, {
+    reason: 'The judge selected top instead of fall on the result tablet.',
+    subjects: [keys.alice.pk],
+  });
+  await log.add('correction', {
+    supersedes_seq: seqOf(aliceResult),
+    replacement: {
+      op: 'complete_turn',
+      data: { pubkey: keys.alice.pk, climb_id: 'c1', outcome: 'zone', attempt_no: 1 },
+    },
+  }, 1789005520, {
+    reason: 'Video review showed a zone rather than a fall.',
+    subjects: [keys.alice.pk],
+  });
+  await log.add('correction', {
+    supersedes_seq: seqOf(aliceResult),
+    replacement: {
+      op: 'complete_turn',
+      data: { pubkey: keys.alice.pk, climb_id: 'c1', outcome: 'top', attempt_no: 9 },
+    },
+  }, 1789005530, {
+    reason: 'An invalid later amendment must retain the latest valid result.',
+    subjects: [keys.alice.pk],
+  });
+  await log.add('correction', {
+    supersedes_seq: 999,
+    replacement: {
+      op: 'attempt_result',
+      data: { pubkey: keys.alice.pk, climb_id: 'c1', outcome: 'top', attempt_no: 1 },
+    },
+  }, 1789005540, { reason: 'A nonexistent entry cannot be amended.' });
+
+  return finish(
+    'result-correction',
+    'A post-finish correction replaces an atomic attempt in its original running/turn context, '
+    + 'derives the amended-results marker, permits a later valid amendment, and retains that '
+    + 'latest valid effect when a still-later amendment is invalid.',
+    competitionEvent,
+    log,
+  );
+}
+
 async function streamChainBreak(keys) {
   const compId = 'dd88ee99ffaa0b1c';
   const config = baseConfig({ compId, authority: keys.organizer.pk, overrides: { title: 'Chain break' } });
@@ -1129,6 +1217,7 @@ async function main() {
     await streamDeferAndTimeout(keys),
     await streamPaidUniqueAsync(keys),
     await streamForkAndCorrection(keys),
+    await streamResultCorrection(keys),
     await streamChainBreak(keys),
     await streamRejections(keys),
     await streamRejectionsPaid(keys),

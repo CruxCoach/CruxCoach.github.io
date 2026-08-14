@@ -107,7 +107,8 @@ function climbRecord(participant, climbId) {
  */
 export const REJECTION_CODES = [
   'already_topped', 'attempt_out_of_order', 'capacity_full', 'climb_already_claimed',
-  'correction_missing_replacement', 'defer_budget_exhausted', 'defer_consecutive_limit',
+  'correction_bad_target', 'correction_invalid_replacement', 'correction_missing_replacement',
+  'defer_budget_exhausted', 'defer_consecutive_limit',
   'duplicate_in_order', 'empty_announcement', 'epoch_mismatch', 'illegal_transition',
   'incomplete_seed_order', 'index_out_of_range', 'ineligible_in_order', 'no_attempts_left',
   'no_fee', 'no_order', 'no_such_participant', 'not_accepted_registration', 'not_eligible',
@@ -720,14 +721,13 @@ export function applyEntry(state, entry, competition) {
       seq: entry.seq, op: 'correction', reason: entry.reason, at: entry.at,
       supersedes_seq: entry.data.supersedes_seq,
     });
-    const replacement = entry.data.replacement;
-    if (!replacement || typeof replacement !== 'object') {
+    if (!entry.data.replacement || typeof entry.data.replacement !== 'object') {
       return reject(state, entry, 'correction_missing_replacement');
     }
-    const wrapped = { ...entry, op: replacement.op, data: replacement.data };
-    const handler = HANDLERS[wrapped.op];
-    if (!handler) return reject(state, entry, 'unknown_op');
-    return handler(state, wrapped, competition);
+    // A lone state has no earlier entry to replace. Full-history `reduce()`
+    // handles corrections; applying the body here at its later seq would be a
+    // different and unsafe operation.
+    return reject(state, entry, 'correction_bad_target');
   }
 
   const handler = HANDLERS[entry.op];
@@ -744,10 +744,10 @@ export function applyEntry(state, entry, competition) {
  * @param {Array<{entry: object, eventId: string, createdAt: number}>} args.entries
  *        already parsed + author-checked log entries, in any order
  * @param {object} [args.snapshot]    optional trusted starting point
- * @returns {{ state: object, chainBreakAt: number|null }}
+ * @returns {{ state: object, chainBreakAt: number|null, chosenEntries: object[] }}
  */
 export function reduce({ competition, competitionEventId, entries, snapshot }) {
-  const state = snapshot
+  const baseState = snapshot
     ? { ...structuredClone(snapshot.state), from_snapshot: true }
     : initialState(competition, competitionEventId);
 
@@ -763,6 +763,8 @@ export function reduce({ competition, competitionEventId, entries, snapshot }) {
   let expectedPrev = snapshot ? snapshot.head : competitionEventId;
   let seq = snapshot ? snapshot.seq + 1 : 1;
   let chainBreakAt = null;
+  let forkDetected = baseState.fork_detected;
+  const chosenChain = [];
 
   for (;;) {
     const bucket = bySeq.get(seq);
@@ -774,18 +776,95 @@ export function reduce({ competition, competitionEventId, entries, snapshot }) {
     }
     let chosen = linked[0];
     if (linked.length > 1) {
-      state.fork_detected = true;
+      forkDetected = true;
       // Lower created_at wins; ties broken by lexicographically lower event id.
       // Which branch is "right" is unknowable — that every client picks the
       // same one is not.
       chosen = [...linked].sort((a, b) =>
         a.createdAt - b.createdAt || (a.eventId < b.eventId ? -1 : a.eventId > b.eventId ? 1 : 0))[0];
     }
-    applyEntry(state, chosen.entry, state.effective_config || competition);
-    state.seq = chosen.entry.seq;
-    state.head = chosen.eventId;
+    chosenChain.push(chosen);
     expectedPrev = chosen.eventId;
     seq += 1;
+  }
+
+  /*
+   * A correction replaces an earlier effect at the point where that effect
+   * originally occurred. Applying its body at the correction's later seq is
+   * observably wrong for attempts: attempt_no 1 is no longer the next attempt,
+   * and a correction after finish fails the running-window check. Plan all
+   * corrections in the chosen prefix first, then replay that prefix once with
+   * the replacements in their original context. The signed chain metadata and
+   * correction audit entry still retain their real, later sequence numbers.
+   */
+  const corrections = new Map();
+  const replacements = new Map();
+  const available = new Map(chosenChain.map((item) => [item.entry.seq, item]));
+  for (const item of chosenChain) {
+    const entry = item.entry;
+    if (entry.op !== 'correction') continue;
+    const target = entry.data.supersedes_seq;
+    const replacement = entry.data.replacement;
+    let error = null;
+    if (!replacement || typeof replacement !== 'object' || Array.isArray(replacement)
+      || !replacement.data || typeof replacement.data !== 'object' || Array.isArray(replacement.data)) {
+      error = 'correction_missing_replacement';
+    } else if (!Number.isInteger(target) || target < 1 || target >= entry.seq) {
+      error = 'correction_bad_target';
+    } else if (snapshot && target <= snapshot.seq) {
+      error = 'correction_bad_target';
+    } else if (!available.has(target) || available.get(target).entry.op === 'correction') {
+      error = 'correction_bad_target';
+    } else if (!HANDLERS[replacement.op]) {
+      error = 'unknown_op';
+    }
+    const plan = { target, replacement, error };
+    corrections.set(entry.seq, plan);
+    if (!error) {
+      if (!replacements.has(target)) replacements.set(target, []);
+      replacements.get(target).push(plan);
+    }
+  }
+
+  let state = baseState;
+  state.fork_detected = forkDetected;
+  for (const item of chosenChain) {
+    const entry = item.entry;
+    if (entry.op === 'correction') {
+      const plan = corrections.get(entry.seq);
+      const audit = {
+        seq: entry.seq, op: 'correction', reason: entry.reason, at: entry.at,
+        supersedes_seq: entry.data.supersedes_seq,
+      };
+      if (!plan.error && state.status === 'finished') audit.supersedes_results = true;
+      state.audit.push(audit);
+      if (plan.error) reject(state, entry, plan.error);
+    } else {
+      const plans = replacements.get(entry.seq);
+      if (!plans) {
+        applyEntry(state, entry, state.effective_config || competition);
+      } else {
+        const before = structuredClone(state);
+        let latestValid = null;
+        for (const plan of plans) {
+          const candidate = structuredClone(before);
+          const rejectedBefore = candidate.rejected.length;
+          applyEntry(candidate, { ...entry, op: plan.replacement.op, data: plan.replacement.data },
+            candidate.effective_config || competition);
+          if (candidate.rejected.length !== rejectedBefore) {
+            plan.error = 'correction_invalid_replacement';
+          } else {
+            latestValid = candidate;
+          }
+        }
+        // Every candidate replaces the same original operation. The latest
+        // valid amendment wins; an invalid later amendment cannot erase it.
+        if (latestValid) state = latestValid;
+        else applyEntry(state, entry, state.effective_config || competition);
+      }
+    }
+    state.seq = entry.seq;
+    state.head = item.eventId;
   }
 
   // A gap is not a licence to skip ahead: the missing entry may be the
@@ -797,7 +876,7 @@ export function reduce({ competition, competitionEventId, entries, snapshot }) {
     chainBreakAt = seq;
   }
   state.chain_complete = chainBreakAt === null;
-  return { state, chainBreakAt };
+  return { state, chainBreakAt, chosenEntries: chosenChain.map((item) => item.entry) };
 }
 
 /**

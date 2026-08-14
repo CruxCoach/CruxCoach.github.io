@@ -13,7 +13,7 @@ import {
   INTENT_OPS, KIND, NAMESPACE, competitionAddress, competitionRunning, compDTag,
   intentDTag, logDTag, parseCompetitionEvent, parseIntentEvent, parseLogEvent,
 } from '../protocol/competition.mjs?v=20260814-6';
-import { hashableState, reduce } from '../protocol/reduce.mjs?v=20260814-4';
+import { hashableState, reduce } from '../protocol/reduce.mjs?v=20260814-5';
 import { computeStandings } from '../protocol/scoring.mjs?v=20260813-1';
 import { ccjHash } from '../protocol/ccj.mjs';
 import { usesDevelopmentRelay } from '../protocol/relay-url.mjs';
@@ -60,6 +60,7 @@ export class CompetitionStore {
     this.standings = [];
     this.stateHash = null;
     this.chainBreakAt = null;
+    this.chosenEntries = [];
     // False until an explicit, exact-d-tag stored-history walk reaches the
     // first absent sequence. A broad live REQ is not proof of complete history:
     // relays commonly apply a small default result limit.
@@ -73,6 +74,7 @@ export class CompetitionStore {
     this.listeners = new Set();
     this.subscriptions = [];
     this.reducing = false;
+    this.recomputePromise = null;
     this.dirty = false;
     /** Local transport freshness only; never part of the reduced/event state. */
     this.lastSyncedAt = 0;
@@ -116,9 +118,7 @@ export class CompetitionStore {
    * on every render.
    */
   logEntries() {
-    return [...this.entries.values()]
-      .map((parsed) => parsed.entry)
-      .sort((a, b) => a.seq - b.seq);
+    return [...this.chosenEntries];
   }
 
   note(problem) {
@@ -196,27 +196,33 @@ export class CompetitionStore {
 
   /** Re-reduce and notify. Coalesces bursts so a backfill re-renders once. */
   async recompute() {
-    if (this.reducing) { this.dirty = true; return; }
+    this.dirty = true;
+    if (this.recomputePromise) return this.recomputePromise;
     this.reducing = true;
-    try {
-      do {
-        this.dirty = false;
-        const { state, chainBreakAt } = reduce({
-          competition: this.definitionCompetition,
-          competitionEventId: this.competitionEventId,
-          entries: [...this.entries.values()],
-        });
-        this.state = state;
-        this.competition = state.effective_config || this.definitionCompetition;
-        this.chainBreakAt = chainBreakAt;
-        this.standings = computeStandings(state, this.competition);
-        // eslint-disable-next-line no-await-in-loop
-        this.stateHash = await ccjHash(hashableState(state));
-      } while (this.dirty);
-    } finally {
-      this.reducing = false;
-    }
-    this.emit();
+    this.recomputePromise = (async () => {
+      try {
+        do {
+          this.dirty = false;
+          const { state, chainBreakAt, chosenEntries } = reduce({
+            competition: this.definitionCompetition,
+            competitionEventId: this.competitionEventId,
+            entries: [...this.entries.values()],
+          });
+          this.state = state;
+          this.competition = state.effective_config || this.definitionCompetition;
+          this.chainBreakAt = chainBreakAt;
+          this.chosenEntries = chosenEntries;
+          this.standings = computeStandings(state, this.competition);
+          // eslint-disable-next-line no-await-in-loop
+          this.stateHash = await ccjHash(hashableState(state));
+        } while (this.dirty);
+        this.emit();
+      } finally {
+        this.reducing = false;
+        this.recomputePromise = null;
+      }
+    })();
+    return this.recomputePromise;
   }
 
   /**

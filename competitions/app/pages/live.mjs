@@ -7,7 +7,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
-} from './common.mjs?v=20260814-13';
+} from './common.mjs?v=20260814-14';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
 import { competitionRunning, parseIntentEvent } from '../protocol/competition.mjs?v=20260814-6';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
@@ -248,6 +248,8 @@ function leaderboard(snapshot, current) {
   previousRanks = nextRanks;
   return el('section', { className: 'projection-panel projection-ranking' }, [
     el('h2', { text: snapshot.state.status === 'finished' ? t('live.final_ranking') : t('live.leaderboard') }),
+    snapshot.state.audit.some((entry) => entry.supersedes_results === true)
+      && el('p', { className: 'notice warn', attrs: { role: 'status' }, text: t('results.amended') }),
     el('div', { className: 'table-scroll' }, [
       el('table', {}, [
         el('thead', {}, [el('tr', {}, [
