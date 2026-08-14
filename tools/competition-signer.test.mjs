@@ -16,6 +16,7 @@ import {
 import { conversationKey, decrypt, encrypt } from '../competitions/app/signer/nip44.mjs';
 import {
   buildResumeUri, Nip46ConnectionSession, NIP46_CLIENT_VAULT_KEY, NIP46_CONNECTION_KEY,
+  NIP46_LIVE_SESSION_KEY,
 } from '../competitions/app/signer/nip46-connection.mjs';
 import { RelayPool } from '../competitions/app/protocol/relay-pool.mjs';
 import { startDevRelay } from './dev/relay.mjs';
@@ -381,6 +382,32 @@ test('a NIP-46 pairing stores only an encrypted client key and public metadata',
   assert.equal(storage.getItem(NIP46_CONNECTION_KEY), null);
 });
 
+test('a Bunker link resumes inside the same browser tab without a passphrase', () => {
+  const tab = fakeStorage();
+  const clientSecret = generateSecretKey();
+  const first = new Nip46ConnectionSession({ storage: null, sessionStorage: tab });
+  first.adopt(clientSecret);
+  assert.equal(first.rememberLive({
+    remoteSignerPubkey: 'a'.repeat(64),
+    userPubkey: 'b'.repeat(64),
+    relays: ['wss://relay.example.invalid'],
+    secret: 'must-not-survive',
+  }), true);
+
+  const serialized = tab.getItem(NIP46_LIVE_SESSION_KEY);
+  assert.equal(serialized.includes('must-not-survive'), false, 'the invitation secret is never retained');
+
+  const afterReload = new Nip46ConnectionSession({ storage: null, sessionStorage: tab });
+  const live = afterReload.resumeLive();
+  assert.equal(bytesToHex(live.secretKey), bytesToHex(clientSecret));
+  assert.equal(buildResumeUri(live.connection).includes('secret='), false);
+
+  afterReload.clearLive();
+  assert.equal(tab.getItem(NIP46_LIVE_SESSION_KEY), null, 'explicit sign-out ends the tab session');
+  first.dispose();
+  afterReload.dispose();
+});
+
 test('a NIP-46 session connects, learns the USER pubkey, and signs', async () => {
   const relay = await startDevRelay({ port: 0, quiet: true });
   const userSecret = generateSecretKey();
@@ -631,6 +658,29 @@ test('coming back to a hidden page cancels the countdown', async () => {
   host.advance(HIDDEN_SESSION_MS);
 
   assert.equal(session.unlocked, true, 'returning to the page is use, not a reprieve on a running clock');
+  session.dispose();
+});
+
+test('a remote signer client stays unlocked for the whole page session', async () => {
+  const host = fakeHost();
+  const session = new Nip46ConnectionSession({
+    storage: null,
+    now: host.now,
+    setTimer: host.setTimer,
+    clearTimer: host.clearTimer,
+    events: host,
+  });
+  session.adopt(generateSecretKey());
+
+  host.setVisibility('hidden');
+  host.advance(ABSOLUTE_SESSION_MS * 3);
+
+  assert.equal(session.touch(), true, 'a paired bunker must not expire mid-session');
+  assert.ok(session.secretKey, 'the live NIP-46 client credential is still available');
+  assert.equal(host.pendingTimers, 0, 'the remote session has no local-key expiry timer');
+
+  session.lock();
+  assert.equal(session.secretKey, null, 'explicit sign-out still wipes it');
   session.dispose();
 });
 

@@ -749,7 +749,8 @@ export function createCompetitionForm({
     topPoints: num('f-top-points', 15, { min: '0', max: '10000' }),
     flashPoints: num('f-flash-points', 5, { min: '0', max: '10000' }),
 
-    capacity: num('f-capacity', 20, { min: '0', max: '500' }),
+    capacity: num('f-capacity', 20, { min: '1', max: '500' }),
+    capacityUnlimited: el('input', { attrs: { type: 'checkbox', id: 'f-capacity-unlimited' } }),
     waitlist: el('input', { attrs: { type: 'checkbox', id: 'f-waitlist', checked: true } }),
     fee: num('f-fee', 0, { min: '0', max: '1000000', step: '1', inputmode: 'numeric' }),
     lnurl: text('f-lnurl', defaultLud16 || '', { maxlength: '120' }),
@@ -767,6 +768,7 @@ export function createCompetitionForm({
     spectator: area('f-spectator'),
     refund: area('f-refund'),
   };
+  const capacityValue = () => f.capacityUnlimited.checked ? 0 : Number(f.capacity.value);
 
   // ── divisions ──
   const divisionRows = [{ label: t('org.division.open') }];
@@ -959,8 +961,8 @@ export function createCompetitionForm({
   const neededClimbs = () => {
     const count = Number(f.climbCount.value);
     return f.climbSource.value === 'participant_choice'
-      && f.uniqueness.value === 'unique_per_competition' && Number(f.capacity.value) > 0
-      ? Number(f.capacity.value) * count : count;
+      && f.uniqueness.value === 'unique_per_competition' && capacityValue() > 0
+      ? capacityValue() * count : count;
   };
   const availableClimbs = () => climbEditor?.rows?.length || 0;
   let browserGradeScale = storedGradeScale();
@@ -1313,7 +1315,7 @@ export function createCompetitionForm({
       ? t('org.results.example.fixed', { available, count: Math.min(count, Math.max(available, count)) })
       : f.uniqueness.value === 'unique_per_competition'
         ? t('org.results.example.exclusive', {
-          count, pool: Math.max(0, availableClimbs()), capacity: Number(f.capacity.value) || 0,
+          count, pool: Math.max(0, availableClimbs()), capacity: capacityValue(),
         })
         : t('org.results.example.shared', { count, pool: Math.max(0, availableClimbs()) });
     replace(modeNotes, ...notes.map((note) => el('p', { className: 'small', text: note })));
@@ -1374,7 +1376,7 @@ export function createCompetitionForm({
       checkin_closes_at: zonedLocalToEpoch(f.checkinCloses.value, f.timezone.value),
       starts_at: zonedLocalToEpoch(f.starts.value, f.timezone.value),
       ends_at: zonedLocalToEpoch(f.ends.value, f.timezone.value),
-      capacity: Number(f.capacity.value),
+      capacity: capacityValue(),
       waitlist_enabled: f.waitlist.checked,
       venue: f.venueKind.value === 'online'
         ? { kind: 'online', name: f.venue.value.trim() }
@@ -1676,6 +1678,24 @@ export function createCompetitionForm({
     control.addEventListener('input', () => { refreshClimbPolicy(); renderModeNotes(); });
     control.addEventListener('change', () => { refreshClimbPolicy(); renderModeNotes(); });
   }
+  const capacityField = field(
+    'f-capacity', t('org.field.capacity'), f.capacity,
+    t('org.field.capacity.hint'), t('org.field.capacity.info'),
+  );
+  const syncCapacityControls = () => {
+    f.capacity.disabled = f.capacityUnlimited.checked;
+    if (f.capacityUnlimited.checked) f.capacity.setAttribute('disabled', 'disabled');
+    else f.capacity.removeAttribute('disabled');
+    refreshClimbPolicy();
+    renderModeNotes();
+  };
+  f.capacityUnlimited.addEventListener('change', syncCapacityControls);
+  const capacityControls = el('div', { className: 'capacity-controls' }, [
+    capacityField,
+    el('label', { className: 'inline', attrs: { for: 'f-capacity-unlimited' } }, [
+      f.capacityUnlimited, el('span', { text: t('org.field.capacity.unlimited') }),
+    ]),
+  ]);
   syncFormatControls();
 
   const lnurlField = field('f-lnurl', t('org.field.lnurl'), f.lnurl, t('org.field.lnurl.hint'));
@@ -1732,6 +1752,13 @@ export function createCompetitionForm({
       else if (name === 'timezone') control.value = restoredTimeZone || control.value;
       else control.value = String(values[name] ?? '');
     }
+    // Older drafts represented unlimited capacity as a visible protocol zero.
+    // Keep them unlimited while moving the implementation detail behind the
+    // explicit checkbox. A real finite value is ready if the toggle is cleared.
+    if (!('capacityUnlimited' in values) && Number(values.capacity) === 0) {
+      f.capacityUnlimited.checked = true;
+      f.capacity.value = '20';
+    }
     if (typeof values.brand === 'string' && boardType(values.brand)) f.brand.value = values.brand;
     syncBoardDetails({ resetModel: true, resetSize: true });
     if ([...f.model.querySelectorAll('option')].some((option) => option.value === values.model)) f.model.value = values.model;
@@ -1758,6 +1785,7 @@ export function createCompetitionForm({
     renderBoardPicker();
     syncVenueRequirement();
     syncFormatControls();
+    syncCapacityControls();
     syncFeeControls();
     syncProgressionControls();
     syncTimeZoneOffsets();
@@ -1823,7 +1851,7 @@ export function createCompetitionForm({
       field('f-climbs', t('org.field.counted_climb_count'), f.climbCount,
         t('org.field.counted_climb_count.hint'), t('org.field.counted_climb_count.info')),
       uniquenessField,
-      field('f-capacity', t('org.field.capacity'), f.capacity, t('org.field.capacity.hint'), t('org.field.capacity.info')),
+      capacityControls,
       field('f-progression', t('org.field.progression'), f.progression, null, t('org.field.progression.info')),
       field('f-attempts', t('org.field.attempts'), f.attempts, null, t('org.field.attempts.info')),
       scoringField,
@@ -1923,7 +1951,7 @@ export function createCompetitionForm({
     const count = Number(f.climbCount.value);
     const unique = f.climbSource.value === 'participant_choice'
       && f.uniqueness.value === 'unique_per_competition';
-    const needed = unique && Number(f.capacity.value) > 0 ? Number(f.capacity.value) * count : count;
+    const needed = unique && capacityValue() > 0 ? capacityValue() * count : count;
     if (!boardOf()) return t('org.wizard.climb_board_error');
     if (climbEditor.rows.length < needed) return t('org.wizard.climbs_more', { count: needed - climbEditor.rows.length });
     const zoneRequired = f.scoring.value === 'tops_then_attempts'
@@ -1968,7 +1996,7 @@ export function createCompetitionForm({
         reviewCard(4, t('climb.section'), t('org.review.climbs', { count: climbEditor.rows.length }),
           climbEditor.rows.map((row) => row.labelInput.value.trim()).filter(Boolean).join(' · ')),
         reviewCard(5, t('org.entry'), t('org.review.capacity', {
-          count: Number(f.capacity.value) > 0 ? f.capacity.value : '∞',
+          count: capacityValue() > 0 ? f.capacity.value : '∞',
         }),
           Number(f.fee.value) > 0 ? `${f.fee.value} sats` : t('pay.not_required')),
         reviewCard(6, t('org.optional.title'), t('org.review.optional_value', {
@@ -2081,7 +2109,7 @@ export function createCompetitionForm({
       }
     }
     if (currentStep === 3 && f.climbSource.value === 'participant_choice'
-      && f.uniqueness.value === 'unique_per_competition' && Number(f.capacity.value) === 0) {
+      && f.uniqueness.value === 'unique_per_competition' && capacityValue() === 0) {
       stepError.textContent = t('org.wizard.unique_capacity_error');
       stepError.removeAttribute('hidden');
       return;
@@ -2090,7 +2118,7 @@ export function createCompetitionForm({
       const count = Number(f.climbCount.value);
       const unique = f.climbSource.value === 'participant_choice'
         && f.uniqueness.value === 'unique_per_competition';
-      const needed = unique && Number(f.capacity.value) > 0 ? Number(f.capacity.value) * count : count;
+      const needed = unique && capacityValue() > 0 ? capacityValue() * count : count;
       if (needed > 60) {
         stepError.textContent = t('org.wizard.unique_pool_error', { count: needed });
         stepError.removeAttribute('hidden');

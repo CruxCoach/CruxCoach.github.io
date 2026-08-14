@@ -856,6 +856,8 @@ test('an unlimited entry capacity is shown as infinity in the review', async () 
       initialDraft: { fields: { capacity: '0' } },
       catalogueLoader: async () => ({ climbs: [] }),
     });
+    assert.equal(form.node.querySelector('#f-capacity-unlimited').checked, true);
+    assert.equal(form.node.querySelector('#f-capacity').disabled, true);
     form.showStep(7, { recordHistory: false });
     assert.match(form.node.querySelector('.review-grid').textContent, /Up to ∞ entrants/);
     assert.doesNotMatch(form.node.querySelector('.review-grid').textContent, /Up to 0 entrants/);
@@ -864,12 +866,41 @@ test('an unlimited entry capacity is shown as infinity in the review', async () 
   }
 });
 
-test('unlimited capacity copy uses the infinity symbol instead of protocol zero', () => {
+test('unlimited capacity is an explicit bilingual choice instead of a protocol zero', () => {
   const { STRINGS } = i18nTesting;
-  assert.match(STRINGS.en['org.field.capacity.hint'], /^∞/);
-  assert.match(STRINGS.de['org.field.capacity.hint'], /^∞/);
+  assert.match(STRINGS.en['org.field.capacity.unlimited'], /∞/);
+  assert.match(STRINGS.de['org.field.capacity.unlimited'], /∞/);
   assert.doesNotMatch(STRINGS.en['org.field.capacity.info'], /\b0\b/);
   assert.doesNotMatch(STRINGS.de['org.field.capacity.info'], /\b0\b/);
+});
+
+test('the unlimited capacity choice disables the numeric limit and publishes protocol zero', async () => {
+  const { window } = await import('./dev/mini-dom.mjs');
+  const cleanup = window.install();
+  try {
+    const { createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: null, signerPubkey: '22'.repeat(32),
+      defaultDisplayName: 'Host', defaultLud16: '', relays: [],
+      catalogueLoader: async () => ({ climbs: [] }),
+    });
+    const toggle = form.node.querySelector('#f-capacity-unlimited');
+    const capacity = form.node.querySelector('#f-capacity');
+    assert.equal(capacity.value, '20');
+    assert.equal(capacity.disabled, false);
+
+    toggle.checked = true;
+    toggle.dispatch('change');
+    assert.equal(capacity.disabled, true);
+    assert.equal(form.build().capacity, 0);
+
+    toggle.checked = false;
+    toggle.dispatch('change');
+    assert.equal(capacity.disabled, false);
+    assert.equal(form.build().capacity, 20);
+  } finally {
+    cleanup();
+  }
 });
 
 test('restored catalogue climbs regain their verified holds after reload', async () => {

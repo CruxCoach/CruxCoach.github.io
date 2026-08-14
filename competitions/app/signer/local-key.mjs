@@ -147,6 +147,11 @@ export class KeyVaultSession {
       try { this.storage = globalThis.localStorage || null; } catch { this.storage = null; }
     }
     this.storageKey = options.storageKey || STORAGE_KEY;
+    // A local signing key is locked aggressively by default. Callers that use
+    // this holder for a revocable, remote-signer client credential can opt out:
+    // that credential should live for the browser session and is still wiped
+    // on explicit sign-out or disposal.
+    this.expiryEnabled = options.expiryEnabled !== false;
     this.now = options.now || (() => Date.now());
     this.secretKey = null;
     this.pubkey = null;
@@ -173,7 +178,7 @@ export class KeyVaultSession {
     // One listener for the page's whole life, removed by `dispose()`. Attaching
     // it per unlock would leak one per sign-in.
     this.onVisibility = () => this.visibilityChanged();
-    this.events?.addEventListener?.('visibilitychange', this.onVisibility);
+    if (this.expiryEnabled) this.events?.addEventListener?.('visibilitychange', this.onVisibility);
   }
 
   /** True when the host page is currently hidden. */
@@ -191,7 +196,7 @@ export class KeyVaultSession {
   arm() {
     this.clearTimer(this.timer);
     this.timer = null;
-    if (!this.secretKey) return;
+    if (!this.secretKey || !this.expiryEnabled) return;
 
     const now = this.now();
     const deadline = Math.min(
@@ -212,7 +217,7 @@ export class KeyVaultSession {
 
   /** Hidden starts a shorter clock; visible again cancels it and counts as use. */
   visibilityChanged() {
-    if (!this.secretKey) return;
+    if (!this.secretKey || !this.expiryEnabled) return;
     if (this.pageHidden) {
       this.clearTimer(this.hiddenTimer);
       this.hiddenTimer = this.setTimer(() => {
@@ -242,7 +247,7 @@ export class KeyVaultSession {
    */
   dispose() {
     this.disarm();
-    this.events?.removeEventListener?.('visibilitychange', this.onVisibility);
+    if (this.expiryEnabled) this.events?.removeEventListener?.('visibilitychange', this.onVisibility);
     this.lock();
   }
 
@@ -380,7 +385,7 @@ export class KeyVaultSession {
   }
 
   expired() {
-    if (!this.startedAt) return false;
+    if (!this.expiryEnabled || !this.startedAt) return false;
     const now = this.now();
     return now - this.startedAt > ABSOLUTE_SESSION_MS || now - this.touchedAt > IDLE_SESSION_MS;
   }
@@ -413,7 +418,7 @@ export class KeyVaultSession {
       pubkey: this.pubkey,
       stored: this.hasStoredKey(),
       sharedDevice: !this.storage,
-      expiresAt: this.startedAt ? this.startedAt + ABSOLUTE_SESSION_MS : 0,
+      expiresAt: this.expiryEnabled && this.startedAt ? this.startedAt + ABSOLUTE_SESSION_MS : 0,
     };
   }
 }
