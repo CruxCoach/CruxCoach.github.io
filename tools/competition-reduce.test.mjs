@@ -136,7 +136,40 @@ test('standings match the recorded ones', async () => {
   for (const file of streamNames) {
     const stream = readStream(file);
     const { state, competition } = await replay(stream);
-    assert.deepEqual(computeStandings(state, competition), stream.expected.standings, stream.name);
+    assert.deepEqual(
+      computeStandings(state, state.effective_config || competition),
+      stream.expected.standings,
+      stream.name,
+    );
+  }
+});
+
+test('the shared authority stream pins every additive operation and config rejection', async () => {
+  const stream = readStream('authority-operations.json');
+  const { state } = await replay(stream);
+  const operations = stream.log_events.map((event) => JSON.parse(event.content).op);
+
+  for (const operation of ['complete_turn', 'retire', 'config_update']) {
+    assert.ok(operations.includes(operation), `${operation} must be present as signed input`);
+  }
+  for (const action of ['seed_open', 'skip_turn']) {
+    assert.ok(stream.log_events.some((event) => {
+      const payload = JSON.parse(event.content);
+      return payload.op === 'queue' && payload.data.action === action;
+    }), `${action} must be present as signed input`);
+  }
+
+  assert.equal(state.effective_config.rules.scoring, 'points_sum');
+  assert.equal(state.config_revision, 4);
+  const alice = state.participants.find((participant) => participant.display === 'alice');
+  const bob = state.participants.find((participant) => participant.display === 'bob');
+  assert.equal(alice.result, 'finished', 'retirement keeps the participant ranked');
+  assert.equal(alice.climbs[0].outcome, 'top', 'retirement keeps recorded results');
+  assert.deepEqual(bob.climbs, [], 'skipping Bob consumes no attempt');
+
+  const configRejections = new Set(state.rejected.map((rejection) => rejection.code));
+  for (const code of REJECTION_CODES.filter((candidate) => candidate.startsWith('config_'))) {
+    assert.ok(configRejections.has(code), `${code} needs shared signed coverage`);
   }
 });
 
@@ -621,11 +654,7 @@ test('every rejection code in the closed set is exercised by a fixture', async (
     const { state } = await replay(readStream(file));
     for (const rejection of state.rejected) seen.add(rejection.code);
   }
-  // Additive config/turn operations have focused mirror tests in Web and
-  // Kotlin; legacy signed fixtures stay byte-for-byte stable for old clients.
-  const focused = new Set(['no_open_turn', 'not_current_turn']);
-  const uncovered = REJECTION_CODES.filter((code) => !seen.has(code)
-    && !code.startsWith('config_') && !focused.has(code));
+  const uncovered = REJECTION_CODES.filter((code) => !seen.has(code));
   // A rejection code with no fixture is a rule the Android client could
   // implement differently without any test noticing.
   assert.deepEqual(uncovered, [], 'these rejection codes have no fixture exercising them');

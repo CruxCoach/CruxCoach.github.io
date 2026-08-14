@@ -194,7 +194,7 @@ async function finish(name, description, competitionEvent, log, extras = {}) {
     entries,
   });
   const stateHash = await ccjHash(hashableState(state));
-  const standings = computeStandings(state, parsed.competition);
+  const standings = computeStandings(state, state.effective_config || parsed.competition);
 
   return {
     name,
@@ -498,6 +498,105 @@ async function streamChainBreak(keys) {
   );
   stream.withheld_event = withheld;
   return stream;
+}
+
+/**
+ * The additive authority operations introduced after the original fixture set.
+ *
+ * Keeping them in one signed stream proves more than isolated reducer tests:
+ * both clients must parse the exact same envelopes, apply effective config to
+ * later entries and scoring, preserve attempts across a skipped turn, advance
+ * atomically, and keep a retired climber ranked.
+ */
+async function streamAuthorityOperations(keys) {
+  const compId = 'e102a304b506c708';
+  const config = baseConfig({
+    compId,
+    authority: keys.organizer.pk,
+    overrides: { title: 'Additive authority operations' },
+  });
+  const competitionEvent = await sign(buildCompetitionEvent(config, 1788900000), keys.organizer);
+  const log = new Log(compId, keys.organizer.pk, keys.organizer, competitionEvent.id);
+  const climbers = [keys.alice, keys.bob, keys.carla];
+
+  await log.add('lifecycle', { status: 'published', at: 1788900100 }, 1788900100);
+  await log.add('lifecycle', { status: 'registration_open', at: 1789000000 }, 1789000000);
+  for (const [index, climber] of climbers.entries()) {
+    await log.add('registration_decision', {
+      pubkey: climber.pk, decision: 'accepted', division: 'open', display: climber.label,
+    }, 1789000100 + index, { subjects: [climber.pk] });
+  }
+  await log.add('lifecycle', { status: 'registration_closed', at: 1789003600 }, 1789003600);
+  await log.add('lifecycle', { status: 'checkin_open', at: 1789003700 }, 1789003700);
+  for (const [index, climber] of climbers.entries()) {
+    await log.add('checkin', {
+      pubkey: climber.pk, state: 'checked_in',
+    }, 1789003800 + index, { subjects: [climber.pk] });
+  }
+  await log.add('lifecycle', { status: 'running', at: 1789005400 }, 1789005400);
+
+  await log.add('config_update', {
+    revision: 2, impact: 'safe', patch: { title: 'Authority operations — corrected' },
+  }, 1789005410, { reason: 'Correct the title shown to participants.' });
+  await log.add('config_update', {
+    revision: 3, impact: 'scoring', patch: { rules: { scoring: 'points_sum' } },
+  }, 1789005420, { reason: 'Use the published point values for final ranking.' });
+
+  const order = climbers.map((climber) => climber.pk);
+  await log.add('queue', { action: 'seed_open', order }, 1789005430);
+  await log.add('complete_turn', {
+    pubkey: keys.alice.pk, climb_id: 'c1', outcome: 'top', attempt_no: 1,
+  }, 1789005440, { subjects: [keys.alice.pk] });
+  await log.add('queue', { action: 'skip_turn' }, 1789005450);
+  await log.add('complete_turn', {
+    pubkey: keys.carla.pk, climb_id: 'c2', outcome: 'zone', attempt_no: 1,
+  }, 1789005460, { subjects: [keys.carla.pk] });
+  await log.add('retire', { pubkey: keys.alice.pk }, 1789005470, {
+    reason: 'Alice has finished climbing but keeps her recorded result.',
+    subjects: [keys.alice.pk],
+  });
+  await log.add('complete_turn', {
+    pubkey: keys.carla.pk, climb_id: 'c1', outcome: 'fall', attempt_no: 1,
+  }, 1789005471, { subjects: [keys.carla.pk] });
+  await log.add('queue', { action: 'close_turn' }, 1789005472);
+  await log.add('queue', { action: 'skip_turn' }, 1789005473);
+  await log.add('queue', { action: 'seed_open', order: [keys.bob.pk, keys.carla.pk] }, 1789005474);
+
+  // Parser-valid but reducer-invalid updates pin every config rejection code.
+  // Rejected entries still advance the signed chain, while revision remains 3.
+  const rejectedUpdates = [
+    [{ revision: 99, impact: 'safe', patch: { summary: 'Wrong revision' } }, 'Reject a skipped revision.'],
+    [{ revision: 4, impact: 'safe', patch: {} }, 'Reject an empty patch.'],
+    [{ revision: 4, impact: 'safe', patch: { authority: keys.bob.pk } }, 'Reject an immutable authority change.'],
+    [{ revision: 4, impact: 'safe', patch: { capacity: 7 } }, 'Reject a false impact label.'],
+    [{ revision: 4, impact: 'scoring', patch: { capacity: -1 } }, 'Reject an invalid capacity.'],
+    [{
+      revision: 4,
+      impact: 'scoring',
+      patch: { climbs: config.climbs.map((climb, index) => index === 0 ? { ...climb, id: 'replacement' } : climb) },
+    }, 'Keep a climb already referenced by results.'],
+    [{
+      revision: 4,
+      impact: 'scoring',
+      patch: { divisions: [{ id: 'masters', label: 'Masters' }] },
+    }, 'Keep a division already referenced by entrants.'],
+  ];
+  let at = 1789005480;
+  for (const [data, reason] of rejectedUpdates) {
+    await log.add('config_update', data, at, { reason });
+    at += 10;
+  }
+  await log.add('config_update', {
+    revision: 4, impact: 'safe', patch: { summary: 'Verified after rejected edits.' },
+  }, at, { reason: 'Publish the clarified event summary.' });
+
+  return finish(
+    'authority-operations',
+    'Shared signed coverage for effective safe and scoring edits, seed-and-open, atomic turn completion, '
+    + 'a skipped turn without an attempt, ranked retirement, and every config-update rejection.',
+    competitionEvent,
+    log,
+  );
 }
 
 /**
@@ -1026,6 +1125,7 @@ async function main() {
 
   const streams = [
     await streamHappySync(keys),
+    await streamAuthorityOperations(keys),
     await streamDeferAndTimeout(keys),
     await streamPaidUniqueAsync(keys),
     await streamForkAndCorrection(keys),
