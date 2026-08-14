@@ -12,28 +12,28 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-4';
+} from './common.mjs?v=20260814-5';
 import { SignIn } from '../ui/shell.mjs?v=20260814-3';
 import { RelayPool } from '../protocol/relay-pool.mjs';
-import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-5';
+import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-6';
 import {
   MUTABLE_CONFIG_FIELDS, NAMESPACE, configPatchImpact, newCompId,
   parseCompetitionEvent, parseIntentEvent, parseLogEvent,
   checkinWindowOpen, competitionRunning, registrationWindowOpen, validateCompetitionConfig,
-} from '../protocol/competition.mjs?v=20260814-5';
-import { reduce } from '../protocol/reduce.mjs';
+} from '../protocol/competition.mjs?v=20260814-6';
+import { reduce } from '../protocol/reduce.mjs?v=20260814-4';
 import { outstandingClaims, registrationOrder } from '../protocol/claims.mjs';
 import { verifyZapReceipt, receiptFilter, ZAP_RECEIPT_KIND } from '../protocol/zap.mjs';
 import { verifyClaim, eligibleWinner, claimDeadline } from '../protocol/prize.mjs';
 import { walletUri } from '../protocol/bolt11.mjs';
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
-import { competitionAddress } from '../protocol/competition.mjs?v=20260814-5';
+import { competitionAddress } from '../protocol/competition.mjs?v=20260814-6';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
-import { competitionToFormDraft, createCompetitionForm } from './organizer-form.mjs?v=20260814-1';
+import { competitionToFormDraft, createCompetitionForm } from './organizer-form.mjs?v=20260814-2';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
-import { KIND, compDTag } from '../protocol/competition.mjs?v=20260814-5';
+import { KIND, compDTag } from '../protocol/competition.mjs?v=20260814-6';
 import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-6';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-7';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { syncHealth } from '../ui/live-view.mjs?v=20260813-1';
 
@@ -265,7 +265,7 @@ function editCompetitionForm(snapshot) {
   const competition = snapshot.competition;
   const form = createCompetitionForm({
     t, pool: profilePool, signerPubkey: signer.pubkey,
-    defaultDisplayName: competition.organizer_name,
+    defaultDisplayName: competition.organizer?.name || '',
     defaultLud16: competition.fee_lnurl || '', relays: competition.relays,
     initialDraft: competitionToFormDraft(competition), persistDraft: false,
   });
@@ -759,6 +759,9 @@ function entrantsPanel(snapshot) {
     const mayDisqualify = p.result === 'active'
       && ['running', 'paused'].includes(snapshot.state.status)
       && p.registration === 'accepted';
+    const retireReason = el('input', {
+      attrs: { type: 'text', maxlength: '240', placeholder: t('org.reason') },
+    });
 
     return el('li', {}, [
       el('div', { className: 'row between' }, [
@@ -775,6 +778,23 @@ function entrantsPanel(snapshot) {
         ]),
         el('span', { className: 'row' }, controls),
       ]),
+      mayDisqualify ? el('details', { className: 'disclosure' }, [
+        el('summary', { text: t('org.stop_participating') }),
+        el('p', { className: 'small', text: t('org.stop_participating.hint') }),
+        retireReason,
+        el('button', {
+          text: t('org.stop_participating'),
+          on: {
+            click: () => {
+              if (!retireReason.value.trim()) {
+                announce(t('org.reason.required'), { assertive: true });
+                return;
+              }
+              void act(() => writer.retire(p.pubkey, retireReason.value.trim()));
+            },
+          },
+        }),
+      ]) : null,
       mayDisqualify ? el('details', { className: 'disclosure' }, [
         el('summary', { text: t('org.disqualify') }),
         disqualifyReason,
@@ -1195,6 +1215,10 @@ function queuePanel(snapshot) {
       })),
       ]));
       rows.push(el('div', { className: 'host-secondary-turn-actions' }, [
+        el('button', {
+          text: t('org.skip_turn'),
+          on: { click: () => act(() => writer.skipTurn()) },
+        }),
         el('button', {
           text: t('live.defer'),
           on: { click: () => act(() => writer.decideDefer(current, 'granted')) },

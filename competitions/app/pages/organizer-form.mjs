@@ -15,7 +15,7 @@ import { el, replace } from '../ui/dom.mjs';
 import {
   buildClimbList, checkBoardCompatibility, climbEventFilter, describeClimbEvent, normalizeUuid, parseClimbRef,
 } from '../protocol/climb-ref.mjs';
-import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs?v=20260814-5';
+import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs?v=20260814-6';
 import { naddrEncode, verifyEvent } from '../protocol/nostr-event.mjs';
 import {
   BOARD_TYPES, boardType, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
@@ -188,7 +188,7 @@ export function competitionToFormDraft(competition) {
   return {
     fields: {
       title: competition.title, summary: competition.summary, description: competition.description,
-      organizerName: competition.organizer_name, contact: competition.contact,
+      organizerName: competition.organizer?.name || '', contact: competition.organizer?.contact || '',
       visibility: competition.visibility,
       regOpens: epochToZonedLocal(competition.registration_opens_at, zone),
       regCloses: epochToZonedLocal(competition.registration_closes_at, zone),

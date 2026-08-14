@@ -340,6 +340,61 @@ test('complete_turn rejects a result for anyone except the open climber', () => 
   assert.equal(state.cursor, 0);
 });
 
+test('skip_turn preserves attempts and atomically opens the next participant', () => {
+  const participant = (pubkey) => ({
+    pubkey, registration: 'accepted', payment: 'not_required', checkin: 'checked_in',
+    result: 'active', last_attempt_at: 0, climbs: [], defers_used_this_round: 1, consecutive_defers: 1,
+  });
+  const competition = {
+    starts_at: 1, ends_at: 999, fee_msat: 0,
+    rules: { min_rest_sec: 0, turn_deadline_sec: 60 },
+  };
+  const state = {
+    epoch: 1, status: 'running', order: ['p1', 'p2'], cursor: 0, round: 1,
+    turn_opened_at: 5, turn_deadline_at: 65, rejected: [],
+    participants: [participant('p1'), participant('p2')],
+  };
+  applyEntry(state, {
+    seq: 1, epoch: 1, at: 10, op: 'queue', data: { action: 'skip_turn' },
+  }, competition);
+  assert.deepEqual({ cursor: state.cursor, round: state.round, opened: state.turn_opened_at, deadline: state.turn_deadline_at },
+    { cursor: 1, round: 1, opened: 10, deadline: 70 });
+  assert.deepEqual(state.participants.map((p) => p.climbs), [[], []]);
+
+  applyEntry(state, {
+    seq: 2, epoch: 1, at: 20, op: 'queue', data: { action: 'skip_turn' },
+  }, competition);
+  assert.deepEqual({ cursor: state.cursor, round: state.round, opened: state.turn_opened_at, deadline: state.turn_deadline_at },
+    { cursor: 0, round: 2, opened: 20, deadline: 80 });
+  assert.deepEqual(state.participants.map((p) => p.defers_used_this_round), [0, 0]);
+});
+
+test('retire preserves results and advances without leaving a dead queue slot', () => {
+  const participant = (pubkey) => ({
+    pubkey, registration: 'accepted', payment: 'not_required', checkin: 'checked_in',
+    result: 'active', last_attempt_at: 0, climbs: [{ climb_id: 'a', attempts_used: 1, outcome: 'top', at: 5 }],
+    defers_used_this_round: 0, consecutive_defers: 0,
+  });
+  const competition = {
+    starts_at: 1, ends_at: 999, fee_msat: 0,
+    rules: { min_rest_sec: 0, turn_deadline_sec: 60 },
+  };
+  const state = {
+    epoch: 1, status: 'running', order: ['p1', 'p2', 'p3'], cursor: 1, round: 1,
+    turn_opened_at: 5, turn_deadline_at: 65, rejected: [], audit: [],
+    participants: [participant('p1'), participant('p2'), participant('p3')],
+  };
+  applyEntry(state, {
+    seq: 1, epoch: 1, at: 10, op: 'retire', reason: 'left early', data: { pubkey: 'p2' },
+  }, competition);
+  assert.equal(state.participants[1].result, 'finished');
+  assert.equal(state.participants[1].climbs[0].outcome, 'top');
+  assert.deepEqual(state.order, ['p1', 'p3']);
+  assert.deepEqual({ cursor: state.cursor, opened: state.turn_opened_at, deadline: state.turn_deadline_at },
+    { cursor: 1, opened: 10, deadline: 70 });
+  assert.equal(state.rejected.length, 0);
+});
+
 test('counted N equal to available M is byte-for-byte standings compatible', () => {
   const results = [
     { climb_id: 'a', attempts_used: 2, outcome: 'top', at: 2 },

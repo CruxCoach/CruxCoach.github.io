@@ -114,6 +114,10 @@ test('live host, participant and projection surfaces keep state-specific action 
     'participant choice must never fall back to the first remaining boulder');
   assert.match(organizer, /nextClimberWraps\(\)[\s\S]*live\.next_round_short/,
     'the host must see who follows at the next-round boundary');
+  assert.match(live, /function chosenClimb\([\s\S]*remainingClimbs/,
+    'the projector must reject exhausted participant choices');
+  assert.match(live, /followIntents\([\s\S]*intent\.op !== 'climb_choice'/,
+    'the public live screen must follow the same participant choice as the host');
   assert.match(organizer, /state\.status === 'paused'[\s\S]*org\.paused\.hint/,
     'pause must replace scoring actions with an explicit locked state');
   assert.match(css, /\.host-result-actions\s*\{[^}]*position: sticky/s,
@@ -900,6 +904,39 @@ test('an unpublished competition draft returns with its values and current step'
     // shim has no bubbling, so deliver it at the form surface here.
     form.node.dispatch('input');
     assert.equal(saved.fields.title, 'Saturday Finals');
+  } finally {
+    cleanup();
+  }
+});
+
+test('host editing is prefilled from the effective competition including nested organizer data', async () => {
+  const { window } = await import('./dev/mini-dom.mjs');
+  const cleanup = window.install();
+  try {
+    const { competitionToFormDraft, createCompetitionForm } = await import('../competitions/app/pages/organizer-form.mjs');
+    const competition = {
+      title: 'Demo Comp', summary: 'Current summary', description: 'Current description',
+      organizer: { name: 'Madeira Climbing Center', contact: 'host@example.org' },
+      visibility: 'public', timezone: 'UTC', registration_opens_at: 1786665600,
+      registration_closes_at: 1786737600, checkin_opens_at: 1786665600,
+      checkin_closes_at: 1786737600, starts_at: 1786665600, ends_at: 1786737600,
+      venue: { kind: 'physical', name: 'Madeira Climbing Center', address: 'Funchal' },
+      board: { brand: 'moonboard', model: 'moonboard-masters-2019', layout_id: 5, size: '11x18', angle: 40 },
+      rules: { climb_source: 'participant_choice', counted_climb_count: 4, attempts_per_climb: 3,
+        scoring: 'tops_then_attempts', progression: 'synchronous_rounds', turn_deadline_sec: 120 },
+      climb_pool: { options: [] }, capacity: 0, waitlist_enabled: true, fee_msat: 0,
+      divisions: [{ id: 'open', label: 'Open' }], prizes: [], relays: [],
+    };
+    const form = createCompetitionForm({
+      t: createTranslator('en'), pool: null, signerPubkey: '22'.repeat(32),
+      defaultDisplayName: '', defaultLud16: '', relays: [], persistDraft: false,
+      initialDraft: competitionToFormDraft(competition), catalogueLoader: async () => ({ climbs: [] }),
+    });
+    assert.equal(form.node.querySelector('#f-title').value, 'Demo Comp');
+    assert.equal(form.node.querySelector('#f-org').value, 'Madeira Climbing Center');
+    assert.equal(form.node.querySelector('#f-contact').value, 'host@example.org');
+    assert.equal(form.node.querySelector('#f-venue').value, 'Madeira Climbing Center');
+    assert.equal(form.node.querySelector('#f-capacity-unlimited').checked, true);
   } finally {
     cleanup();
   }

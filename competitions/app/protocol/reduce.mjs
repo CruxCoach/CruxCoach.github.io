@@ -376,6 +376,31 @@ function applyQueue(state, entry, competition) {
     return state;
   }
 
+  if (action === 'skip_turn') {
+    if (state.cursor < 0 || state.cursor >= state.order.length || state.turn_opened_at <= 0) {
+      return reject(state, entry, 'no_open_turn');
+    }
+    let next = nextEligibleIndex(state, competition, state.cursor, entry.at);
+    if (next === -1) {
+      state.round += 1;
+      for (const participant of state.participants) {
+        participant.defers_used_this_round = 0;
+        participant.consecutive_defers = 0;
+      }
+      next = nextEligibleIndex(state, competition, -1, entry.at);
+    }
+    if (next === -1) {
+      state.cursor = -1;
+      state.turn_opened_at = 0;
+      state.turn_deadline_at = 0;
+    } else {
+      state.cursor = next;
+      state.turn_opened_at = entry.at;
+      state.turn_deadline_at = entry.at + competition.rules.turn_deadline_sec;
+    }
+    return state;
+  }
+
   if (action === 'next_climb') {
     const climbId = entry.data.climb_id;
     const pool = competition.rules.climb_source === 'participant_choice'
@@ -545,6 +570,46 @@ function applyDisqualify(state, entry) {
   return state;
 }
 
+function applyRetire(state, entry, competition) {
+  const participant = findParticipant(state, entry.data.pubkey);
+  if (!participant) return reject(state, entry, 'no_such_participant');
+  if (participant.result !== 'active') return reject(state, entry, 'participant_inactive');
+
+  const removedIndex = state.order.indexOf(participant.pubkey);
+  const wasCurrent = removedIndex !== -1 && removedIndex === state.cursor;
+  participant.result = 'finished';
+  if (removedIndex !== -1) state.order.splice(removedIndex, 1);
+
+  if (removedIndex !== -1 && removedIndex < state.cursor) state.cursor -= 1;
+  if (wasCurrent) {
+    let next = removedIndex < state.order.length
+      && isEligible(state, competition, state.order[removedIndex], entry.at) ? removedIndex : -1;
+    if (next === -1) next = nextEligibleIndex(state, competition, removedIndex - 1, entry.at);
+    if (next === -1) {
+      state.round += 1;
+      for (const candidate of state.participants) {
+        candidate.defers_used_this_round = 0;
+        candidate.consecutive_defers = 0;
+      }
+      next = nextEligibleIndex(state, competition, -1, entry.at);
+    }
+    if (next === -1) {
+      state.cursor = -1;
+      state.turn_opened_at = 0;
+      state.turn_deadline_at = 0;
+    } else {
+      state.cursor = next;
+      state.turn_opened_at = entry.at;
+      state.turn_deadline_at = entry.at + competition.rules.turn_deadline_sec;
+    }
+  } else if (state.cursor >= state.order.length) {
+    state.cursor = -1;
+    state.turn_opened_at = 0;
+    state.turn_deadline_at = 0;
+  }
+  return state;
+}
+
 function applyAnnouncement(state, entry) {
   const text = entry.data.text;
   if (typeof text !== 'string' || !text) return reject(state, entry, 'empty_announcement');
@@ -623,6 +688,7 @@ const HANDLERS = {
   attempt_result: applyAttemptResult,
   complete_turn: applyCompleteTurn,
   disqualify: applyDisqualify,
+  retire: applyRetire,
   announcement: applyAnnouncement,
   config_update: applyConfigUpdate,
 };

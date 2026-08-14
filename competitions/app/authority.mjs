@@ -11,8 +11,8 @@ import {
   buildCompetitionDeletionRequest, buildCompetitionEvent,
   buildCompetitionTombstoneEvent, buildIntentEvent, buildLogEvent,
   buildResultsEvent, buildSnapshotEvent, configPatchImpact, newNonce, parseIntentEvent,
-} from './protocol/competition.mjs?v=20260814-5';
-import { applyEntry, hashableState } from './protocol/reduce.mjs';
+} from './protocol/competition.mjs?v=20260814-6';
+import { applyEntry, hashableState } from './protocol/reduce.mjs?v=20260814-4';
 import { ccj, ccjHash } from './protocol/ccj.mjs';
 
 /** How often the authority publishes a state snapshot (FEAT-058 §6.3). */
@@ -290,6 +290,10 @@ export class AuthorityWriter {
     return this.append('queue', { action: 'advance' });
   }
 
+  skipTurn() {
+    return this.append('queue', { action: 'skip_turn' });
+  }
+
   nextClimb(climbId) {
     return this.append('queue', { action: 'next_climb', climb_id: climbId });
   }
@@ -367,6 +371,10 @@ export class AuthorityWriter {
 
   disqualify(pubkey, reason) {
     return this.append('disqualify', { pubkey }, { reason, subjects: [pubkey] });
+  }
+
+  retire(pubkey, reason) {
+    return this.append('retire', { pubkey }, { reason, subjects: [pubkey] });
   }
 
   override(op, data, reason, subjects = []) {

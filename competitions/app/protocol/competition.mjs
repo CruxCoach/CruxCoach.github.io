@@ -46,7 +46,7 @@ export const LEGAL_TRANSITIONS = {
 export const LOG_OPS = [
   'lifecycle', 'registration_decision', 'payment_decision', 'claim_decision',
   'checkin', 'queue', 'defer_decision', 'attempt_result', 'complete_turn', 'correction',
-  'override', 'announcement', 'disqualify', 'prize_decision', 'config_update',
+  'override', 'announcement', 'disqualify', 'retire', 'prize_decision', 'config_update',
 ];
 
 /**
@@ -95,7 +95,7 @@ export const PRIZE_STATES = ['claimed', 'approved', 'paid', 'rejected', 'expired
 /** How long a winner has to claim, when the organizer sets no deadline. */
 export const DEFAULT_PRIZE_CLAIM_DAYS = 30;
 
-export const QUEUE_ACTIONS = ['seed', 'seed_open', 'open_turn', 'close_turn', 'advance', 'reorder', 'next_climb', 'next_round'];
+export const QUEUE_ACTIONS = ['seed', 'seed_open', 'open_turn', 'close_turn', 'advance', 'skip_turn', 'reorder', 'next_climb', 'next_round'];
 export const ATTEMPT_OUTCOMES = ['top', 'zone', 'fall', 'pass', 'timeout'];
 export const CLIMB_SOURCES = ['organizer_set', 'participant_choice'];
 export const UNIQUENESS = ['none', 'unique_per_competition'];
@@ -124,7 +124,7 @@ export function competitionRunning(competition, status, at) {
 }
 
 /** `reason` is mandatory on these; an audit trail without a why is just a log. */
-const REASON_REQUIRED_OPS = new Set(['correction', 'override', 'disqualify', 'config_update']);
+const REASON_REQUIRED_OPS = new Set(['correction', 'override', 'disqualify', 'retire', 'config_update']);
 
 // ── d-tags (§3.2) ──
 

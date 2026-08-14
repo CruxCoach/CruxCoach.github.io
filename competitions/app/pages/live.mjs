@@ -7,9 +7,9 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
-} from './common.mjs?v=20260814-4';
+} from './common.mjs?v=20260814-5';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
-import { competitionRunning } from '../protocol/competition.mjs?v=20260814-5';
+import { competitionRunning, parseIntentEvent } from '../protocol/competition.mjs?v=20260814-6';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { queuePreview, rotationPreview, syncHealth, tiedAt } from '../ui/live-view.mjs?v=20260814-2';
 
@@ -21,6 +21,7 @@ let ticker = null;
 let previousRanks = new Map();
 let lastHealthKind = '';
 let lastEffectiveStatus = '';
+const choices = new Map();
 
 const view = byId('view');
 const statusNode = byId('load-status');
@@ -35,6 +36,15 @@ function climbLabel(snapshot, climbId) {
   const climb = (snapshot.competition.climbs || []).find((item) => item.id === climbId)
     || (snapshot.competition.climb_pool?.options || []).find((item) => item.id === climbId);
   return climb?.label || climbId;
+}
+
+/** Latest relay-visible choice, provided it is still legal for this entrant. */
+function chosenClimb(snapshot, pubkey) {
+  if (!pubkey || snapshot.competition.rules.climb_source !== 'participant_choice') return null;
+  const intent = choices.get(pubkey);
+  const climbId = intent?.intent.data?.climb_id;
+  if (!climbId) return null;
+  return store.remainingClimbs(pubkey).find((climb) => climb.id === climbId) || null;
 }
 
 function boardLabel(competition) {
@@ -160,6 +170,8 @@ function running(snapshot) {
   const nextParticipant = next ? store.participant(next) : null;
   const paused = state.status === 'paused';
   const terminal = state.status === 'finished';
+  const currentChoice = chosenClimb(snapshot, current);
+  const nextChoice = chosenClimb(snapshot, next);
 
   return [
     projectionHeader(snapshot),
@@ -171,7 +183,8 @@ function running(snapshot) {
       el('div', { className: 'projection-current' }, [
         el('p', { className: 'projection-kicker', text: terminal ? t('live.final') : paused ? t('live.paused') : t('live.current') }),
         el('p', { className: 'now', text: terminal ? t('live.finished') : currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
-        !terminal && el('p', { className: 'current-climb', text: climbLabel(snapshot, state.current_climb_id) }),
+        !terminal && el('p', { className: 'current-climb', text: currentChoice?.label
+          || climbLabel(snapshot, state.current_climb_id) }),
         !terminal && el('div', { className: 'turn-facts' }, [
           el('span', { text: t('live.round_value', { n: state.round }) }),
           !terminal && el('span', { className: 'countdown', attrs: { id: 'deadline' }, text: paused ? t('live.paused') : formatSeconds(store.secondsToDeadline()) }),
@@ -180,7 +193,9 @@ function running(snapshot) {
       el('div', { className: 'projection-next' }, [
         el('p', { className: 'projection-kicker', text: t('live.next') }),
         el('p', { className: 'next-name', text: terminal ? '—' : nextParticipant ? displayName(nextParticipant) : t('live.queue_empty') }),
-        el('p', { className: 'next-climb', text: rotationPreview(snapshot.competition, state, nextParticipant, 2).entries[0]?.label || climbLabel(snapshot, state.current_climb_id) }),
+        el('p', { className: 'next-climb', text: nextChoice?.label
+          || rotationPreview(snapshot.competition, state, nextParticipant, 2).entries[0]?.label
+          || climbLabel(snapshot, state.current_climb_id) }),
       ]),
     ]),
     !terminal && el('div', { className: 'projection-middle' }, [
@@ -278,6 +293,18 @@ async function start() {
   if (!opened) return;
   store = opened.store;
   store.onChange(render);
+  choices.clear();
+  await store.followIntents((event) => {
+    const parsedIntent = parseIntentEvent(event, store.competition, store.organizerPubkey,
+      Math.floor(Date.now() / 1000));
+    if (!parsedIntent.ok || parsedIntent.intent.op !== 'climb_choice') return;
+    const known = choices.get(parsedIntent.pubkey);
+    if (!known || parsedIntent.createdAt > known.createdAt
+      || (parsedIntent.createdAt === known.createdAt && parsedIntent.eventId > known.eventId)) {
+      choices.set(parsedIntent.pubkey, parsedIntent);
+      render();
+    }
+  });
   render();
 
   if (ticker) clearInterval(ticker);
