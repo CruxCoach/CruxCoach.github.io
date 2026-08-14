@@ -45,7 +45,7 @@ export const LEGAL_TRANSITIONS = {
 
 export const LOG_OPS = [
   'lifecycle', 'registration_decision', 'payment_decision', 'claim_decision',
-  'checkin', 'queue', 'defer_decision', 'attempt_result', 'correction',
+  'checkin', 'queue', 'defer_decision', 'attempt_result', 'complete_turn', 'correction',
   'override', 'announcement', 'disqualify', 'prize_decision', 'config_update',
 ];
 
@@ -77,7 +77,7 @@ export function configPatchImpact(patch) {
 
 export const INTENT_OPS = [
   'register', 'withdraw', 'checkin_request', 'defer_request',
-  'attempt_report', 'payment_claim', 'prize_claim', 'prize_receipt',
+  'climb_choice', 'attempt_report', 'payment_claim', 'prize_claim', 'prize_receipt',
 ];
 
 /**
@@ -95,7 +95,7 @@ export const PRIZE_STATES = ['claimed', 'approved', 'paid', 'rejected', 'expired
 /** How long a winner has to claim, when the organizer sets no deadline. */
 export const DEFAULT_PRIZE_CLAIM_DAYS = 30;
 
-export const QUEUE_ACTIONS = ['seed', 'open_turn', 'close_turn', 'advance', 'reorder', 'next_climb', 'next_round'];
+export const QUEUE_ACTIONS = ['seed', 'seed_open', 'open_turn', 'close_turn', 'advance', 'reorder', 'next_climb', 'next_round'];
 export const ATTEMPT_OUTCOMES = ['top', 'zone', 'fall', 'pass', 'timeout'];
 export const CLIMB_SOURCES = ['organizer_set', 'participant_choice'];
 export const UNIQUENESS = ['none', 'unique_per_competition'];
@@ -806,6 +806,15 @@ export function parseIntentEvent(event, competition, organizerPubkey, nowSeconds
   const payload = classified.payload;
   if (!INTENT_OPS.includes(payload.op)) {
     return { ok: false, error: `unknown request "${payload.op}"`, needsUpgrade: true };
+  }
+  if (payload.op === 'climb_choice') {
+    const climbId = payload.data?.climb_id;
+    if (competition.rules.climb_source !== 'participant_choice') {
+      return { ok: false, error: 'climb choice is not enabled for this competition' };
+    }
+    if (!(competition.climb_pool?.options || []).some((climb) => climb.id === climbId)) {
+      return { ok: false, error: 'climb choice is not in the competition pool' };
+    }
   }
   if (payload.nonce !== classified.dTag.nonce) return { ok: false, error: 'nonce does not match d-tag' };
   return { ok: true, intent: payload, pubkey: event.pubkey, eventId: event.id, createdAt: event.created_at };

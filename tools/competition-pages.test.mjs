@@ -106,8 +106,14 @@ test('live host, participant and projection surfaces keep state-specific action 
     'host-next-strip', 'host-result-actions', 'host-danger-menu', 'host-sync-state',
   ]) assert.ok(organizer.includes(marker), `host console is missing ${marker}`);
   assert.match(organizer, /id: 'host-deadline'/, 'the host needs the same live countdown as the wall');
-  assert.match(organizer, /recordAttempt\([\s\S]*state\.cursor >= state\.order\.length - 1[\s\S]*nextRound\(\)[\s\S]*advance\(\)/,
-    'recording a result must preserve queue progress and open the next turn');
+  assert.match(organizer, /completeTurn\(current, climbId, outcome, attemptNo/,
+    'recording a result and opening the next turn must be one authority operation');
+  assert.match(organizer, /seedAndOpen\(order\)/,
+    'seeding must automatically assign the first participant');
+  assert.doesNotMatch(organizer, /reported\?\.climb_id[\s\S]{0,120}own\[0\]/,
+    'participant choice must never fall back to the first remaining boulder');
+  assert.match(organizer, /nextClimberWraps\(\)[\s\S]*live\.next_round_short/,
+    'the host must see who follows at the next-round boundary');
   assert.match(organizer, /state\.status === 'paused'[\s\S]*org\.paused\.hint/,
     'pause must replace scoring actions with an explicit locked state');
   assert.match(css, /\.host-result-actions\s*\{[^}]*position: sticky/s,
@@ -636,6 +642,7 @@ test('participant choice happens live, never during registration', () => {
   assert.match(join, /selections: \[\]/, 'registration must not preselect climbs');
   assert.ok(join.includes("'asynchronous_turns'"), 'no next-climb chooser for async turns');
   assert.ok(join.includes('remainingClimbs'), 'live flow cannot choose from the remaining pool');
+  assert.ok(join.includes('entrant.chooseClimb(climbId)'), 'the prepared choice must be visible to the host');
 });
 
 test('every page that can open a competition offers somewhere to paste it', async () => {
@@ -1674,6 +1681,8 @@ test('the organizer console handles every participant intent it subscribes to', 
   for (const op of ['register', 'withdraw', 'checkin_request', 'defer_request', 'attempt_report']) {
     assert.match(organizer, new RegExp(`['\"]${op}['\"]`), `${op} has no organizer surface`);
   }
+  assert.match(organizer, /intents\.get\(`\$\{current\}:climb_choice`\)/,
+    'the current participant choice must drive the host surface');
   assert.match(organizer, /decideRegistration\(intent\.pubkey,\s*'withdrawn'/,
     'withdrawal must become an authority decision');
   assert.match(organizer, /intentId:\s*intent\.eventId/,

@@ -15,7 +15,7 @@ import { el, replace } from '../ui/dom.mjs';
 import {
   buildClimbList, checkBoardCompatibility, climbEventFilter, describeClimbEvent, normalizeUuid, parseClimbRef,
 } from '../protocol/climb-ref.mjs';
-import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs?v=20260813-2';
+import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs?v=20260814-5';
 import { naddrEncode, verifyEvent } from '../protocol/nostr-event.mjs';
 import {
   BOARD_TYPES, boardType, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,

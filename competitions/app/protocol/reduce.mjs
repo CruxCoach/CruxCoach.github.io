@@ -108,7 +108,7 @@ export const REJECTION_CODES = [
   'duplicate_in_order', 'empty_announcement', 'epoch_mismatch', 'illegal_transition',
   'incomplete_seed_order', 'index_out_of_range', 'ineligible_in_order', 'no_attempts_left',
   'no_fee', 'no_order', 'no_such_participant', 'not_accepted_registration', 'not_eligible',
-  'not_in_order', 'participant_inactive', 'unknown_checkin_state', 'unknown_climb',
+  'no_open_turn', 'not_current_turn', 'not_in_order', 'participant_inactive', 'unknown_checkin_state', 'unknown_climb',
   'unknown_decision', 'unknown_division', 'unknown_op', 'unknown_outcome',
   'unknown_payment_state', 'unknown_prize', 'unknown_prize_state', 'unknown_queue_action',
   'uniqueness_not_enforced', 'prize_already_awarded', 'results_not_final', 'wrong_status',
@@ -313,7 +313,7 @@ function applyQueue(state, entry, competition) {
     }
   }
 
-  if (action === 'seed' || action === 'reorder') {
+  if (action === 'seed' || action === 'seed_open' || action === 'reorder') {
     const order = entry.data.order;
     if (!Array.isArray(order)) return reject(state, entry, 'no_order');
     const eligible = state.participants
@@ -324,11 +324,22 @@ function applyQueue(state, entry, competition) {
     if (order.some((p) => !eligible.includes(p))) {
       return reject(state, entry, 'ineligible_in_order');
     }
-    if (action === 'seed' && order.length !== eligible.length) {
+    if ((action === 'seed' || action === 'seed_open') && order.length !== eligible.length) {
       return reject(state, entry, 'incomplete_seed_order');
     }
     state.order = [...order];
     state.cursor = -1;
+    if (action === 'seed_open') {
+      const first = nextEligibleIndex(state, competition, -1, entry.at);
+      if (first !== -1) {
+        state.cursor = first;
+        state.turn_opened_at = entry.at;
+        state.turn_deadline_at = entry.at + competition.rules.turn_deadline_sec;
+      } else {
+        state.turn_opened_at = 0;
+        state.turn_deadline_at = 0;
+      }
+    }
     return state;
   }
 
@@ -480,6 +491,48 @@ function applyAttemptResult(state, entry, competition) {
   return state;
 }
 
+/**
+ * Record exactly one attempt for the open climber and hand over the wall in
+ * the same signed log entry. This prevents a successful result followed by a
+ * failed/racing queue update from leaving every client on a different turn.
+ * Legacy `attempt_result` remains replayable, but new hosts use this operation.
+ */
+function applyCompleteTurn(state, entry, competition) {
+  if (state.cursor < 0 || state.cursor >= state.order.length || state.turn_opened_at <= 0) {
+    return reject(state, entry, 'no_open_turn');
+  }
+  if (entry.data.pubkey !== state.order[state.cursor]) {
+    return reject(state, entry, 'not_current_turn');
+  }
+
+  const rejectedBefore = state.rejected.length;
+  applyAttemptResult(state, entry, competition);
+  if (state.rejected.length !== rejectedBefore) return state;
+
+  let next = nextEligibleIndex(state, competition, state.cursor, entry.at);
+  if (next === -1) {
+    state.round += 1;
+    state.cursor = -1;
+    state.turn_deadline_at = 0;
+    for (const participant of state.participants) {
+      participant.defers_used_this_round = 0;
+      participant.consecutive_defers = 0;
+    }
+    next = nextEligibleIndex(state, competition, -1, entry.at);
+  }
+
+  if (next !== -1) {
+    state.cursor = next;
+    state.turn_opened_at = entry.at;
+    state.turn_deadline_at = entry.at + competition.rules.turn_deadline_sec;
+  } else {
+    state.cursor = -1;
+    state.turn_opened_at = 0;
+    state.turn_deadline_at = 0;
+  }
+  return state;
+}
+
 function applyDisqualify(state, entry) {
   const participant = findParticipant(state, entry.data.pubkey);
   if (!participant) return reject(state, entry, 'no_such_participant');
@@ -568,6 +621,7 @@ const HANDLERS = {
   queue: applyQueue,
   defer_decision: applyDeferDecision,
   attempt_result: applyAttemptResult,
+  complete_turn: applyCompleteTurn,
   disqualify: applyDisqualify,
   announcement: applyAnnouncement,
   config_update: applyConfigUpdate,

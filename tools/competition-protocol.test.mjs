@@ -13,7 +13,7 @@ import { ccj, ccjHash, sha256Hex } from '../competitions/app/protocol/ccj.mjs';
 import {
   buildCompetitionDeletionRequest, buildCompetitionEvent,
   buildCompetitionTombstoneEvent, buildIntentEvent, classifyEvent, compDTag, intentDTag,
-  checkinWindowOpen, logDTag, parseCompetitionEvent, parseDTag,
+  checkinWindowOpen, logDTag, parseCompetitionEvent, parseDTag, parseIntentEvent,
   registrationWindowOpen, validateCompetitionConfig, KIND,
 } from '../competitions/app/protocol/competition.mjs';
 
@@ -422,6 +422,29 @@ test('an intent binds its d-tag to the signer', () => {
   const dTag = draft.tags.find((t) => t[0] === 'd')[1];
   assert.equal(dTag, intentDTag(vectors.address.comp_id, pubkey, '3f9a2c17'));
   assert.equal(parseDTag(dTag).pubkeyPrefix, pubkey.slice(0, 8));
+});
+
+test('climb_choice is accepted only for a boulder in a participant-choice pool', () => {
+  const base = validConfig();
+  const competition = {
+    ...base,
+    climbs: undefined,
+    climb_pool: { source: 'organizer_list', options: base.climbs },
+    rules: { ...base.rules, climb_source: 'participant_choice', selection_uniqueness: 'none' },
+  };
+  const pubkey = vectors.keys.alice.pubkey;
+  const choice = (climbId) => ({
+    ...buildIntentEvent({
+      compId: competition.comp_id, organizerPubkey: competition.authority,
+      authority: competition.authority, pubkey, nonce: '3f9a2c17', op: 'climb_choice',
+      data: { climb_id: climbId }, at: 1789000100,
+    }),
+    pubkey,
+  });
+  assert.equal(parseIntentEvent(choice(base.climbs[0].id), competition,
+    competition.authority, 1789000200).ok, true);
+  assert.match(parseIntentEvent(choice('not_in_pool'), competition,
+    competition.authority, 1789000200).error, /not in the competition pool/);
 });
 
 test('every builder produces an event inside the relay size ceiling', () => {

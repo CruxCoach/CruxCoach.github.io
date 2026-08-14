@@ -574,20 +574,27 @@ test('participant-chosen climbs: registration never narrows the shared live pool
       await writer.checkIn(pubkey);
       tick();
     }
-    await writer.seed([first, second]);
-    tick();
     await writer.setStatus('running');
     tick();
-    await writer.openTurn(0);
+    await writer.seedAndOpen([first, second]);
     tick();
-    await writer.recordAttempt(first, 'p2', 'top', 1);
+    await entrants.get(first).chooseClimb('p2');
+    await until({ state: { seq: 0 } }, () => intents.some((intent) => intent.intent.op === 'climb_choice'
+      && intent.pubkey === first), 'prepared choice to reach the host');
+    await writer.completeTurn(first, 'p2', 'top', 1);
     assert.equal(store.state.rejected.some((r) => r.code === 'climb_not_selected'), false,
       'legacy allocations must not narrow the live pool');
     assert.equal(store.participant(first).climbs[0].climb_id, 'p2');
+    assert.equal(store.currentClimber(), second, 'one result must hand the turn to the other participant');
 
     tick();
-    await writer.recordAttempt(first, 'p1', 'top', 1);
-    assert.equal(store.participant(first).climbs[0].outcome, 'top');
+    await writer.completeTurn(second, 'p1', 'fall', 1);
+    assert.equal(store.currentClimber(), first, 'the last turn must wrap and open the next round');
+    assert.equal(store.state.round, 2);
+
+    tick();
+    await writer.completeTurn(first, 'p1', 'top', 1);
+    assert.equal(store.participant(first).climbs.find((climb) => climb.climb_id === 'p1').outcome, 'top');
 
     // ── every reader agrees, which is the point of all of it ──
     await until(aliceSide.store, (s) => s.stateHash === store.stateHash, 'reader A to converge');

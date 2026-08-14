@@ -260,6 +260,86 @@ test('legacy unique selections neither gate an empty participant nor narrow Best
   assert.deepEqual({ tops: standing.tops, attempts: standing.attempts }, { tops: 2, attempts: 3 });
 });
 
+test('complete_turn records one attempt and atomically rotates and wraps the queue', () => {
+  const participant = (pubkey) => ({
+    pubkey, display: pubkey, division: 'open', registration: 'accepted', payment: 'not_required',
+    checkin: 'checked_in', result: 'active', selections: [], climbs: [], last_attempt_at: 0,
+    defers_used_this_round: 1, consecutive_defers: 0,
+  });
+  const competition = {
+    starts_at: 1, ends_at: 999, fee_msat: 0, climbs: [],
+    climb_pool: { options: [{ id: 'a', points: 0 }, { id: 'b', points: 0 }] },
+    rules: {
+      climb_source: 'participant_choice', attempts_per_climb: 3, min_rest_sec: 0,
+      turn_deadline_sec: 90,
+    },
+  };
+  const state = {
+    epoch: 1, status: 'running', participants: [participant('p1'), participant('p2')],
+    order: ['p1', 'p2'], cursor: 0, round: 1, turn_opened_at: 5, turn_deadline_at: 95,
+    rejected: [],
+  };
+
+  applyEntry(state, {
+    seq: 1, epoch: 1, at: 10, op: 'complete_turn',
+    data: { pubkey: 'p1', climb_id: 'a', outcome: 'fall', attempt_no: 1 },
+  }, competition);
+  assert.equal(state.participants[0].climbs[0].attempts_used, 1);
+  assert.deepEqual({ cursor: state.cursor, round: state.round, deadline: state.turn_deadline_at },
+    { cursor: 1, round: 1, deadline: 100 });
+
+  applyEntry(state, {
+    seq: 2, epoch: 1, at: 20, op: 'complete_turn',
+    data: { pubkey: 'p2', climb_id: 'b', outcome: 'zone', attempt_no: 1 },
+  }, competition);
+  assert.deepEqual({ cursor: state.cursor, round: state.round, deadline: state.turn_deadline_at },
+    { cursor: 0, round: 2, deadline: 110 });
+  assert.deepEqual(state.participants.map((p) => p.defers_used_this_round), [0, 0]);
+  assert.equal(state.rejected.length, 0);
+});
+
+test('seed_open deterministically installs the queue and opens its first turn', () => {
+  const participant = (pubkey) => ({
+    pubkey, registration: 'accepted', payment: 'not_required', checkin: 'checked_in',
+    result: 'active', last_attempt_at: 0,
+  });
+  const competition = {
+    starts_at: 1, ends_at: 999, fee_msat: 0, climbs: [{ id: 'a' }],
+    rules: { climb_source: 'organizer_set', min_rest_sec: 0, turn_deadline_sec: 75 },
+  };
+  const state = {
+    epoch: 1, status: 'running', round: 0, current_climb_id: '', order: [], cursor: -1,
+    turn_opened_at: 0, turn_deadline_at: 0, rejected: [],
+    participants: [participant('p1'), participant('p2')],
+  };
+  applyEntry(state, {
+    seq: 1, epoch: 1, at: 10, op: 'queue',
+    data: { action: 'seed_open', order: ['p2', 'p1'] },
+  }, competition);
+  assert.deepEqual({ order: state.order, cursor: state.cursor, round: state.round, deadline: state.turn_deadline_at }, {
+    order: ['p2', 'p1'], cursor: 0, round: 1, deadline: 85,
+  });
+  assert.equal(state.current_climb_id, 'a');
+  assert.equal(state.rejected.length, 0);
+});
+
+test('complete_turn rejects a result for anyone except the open climber', () => {
+  const competition = {
+    starts_at: 1, ends_at: 999, fee_msat: 0, climbs: [{ id: 'a' }],
+    rules: { climb_source: 'organizer_set', attempts_per_climb: 3, min_rest_sec: 0, turn_deadline_sec: 60 },
+  };
+  const state = {
+    epoch: 1, status: 'running', order: ['p1'], cursor: 0, round: 1,
+    turn_opened_at: 5, turn_deadline_at: 65, rejected: [], participants: [],
+  };
+  applyEntry(state, {
+    seq: 1, epoch: 1, at: 10, op: 'complete_turn',
+    data: { pubkey: 'p2', climb_id: 'a', outcome: 'fall', attempt_no: 1 },
+  }, competition);
+  assert.equal(state.rejected.at(-1).code, 'not_current_turn');
+  assert.equal(state.cursor, 0);
+});
+
 test('counted N equal to available M is byte-for-byte standings compatible', () => {
   const results = [
     { climb_id: 'a', attempts_used: 2, outcome: 'top', at: 2 },
@@ -486,9 +566,11 @@ test('every rejection code in the closed set is exercised by a fixture', async (
     const { state } = await replay(readStream(file));
     for (const rejection of state.rejected) seen.add(rejection.code);
   }
-  // config_update has focused reducer tests above; legacy signed fixtures stay
-  // byte-for-byte stable so older clients can continue using them.
-  const uncovered = REJECTION_CODES.filter((code) => !seen.has(code) && !code.startsWith('config_'));
+  // Additive config/turn operations have focused mirror tests in Web and
+  // Kotlin; legacy signed fixtures stay byte-for-byte stable for old clients.
+  const focused = new Set(['no_open_turn', 'not_current_turn']);
+  const uncovered = REJECTION_CODES.filter((code) => !seen.has(code)
+    && !code.startsWith('config_') && !focused.has(code));
   // A rejection code with no fixture is a rule the Android client could
   // implement differently without any test noticing.
   assert.deepEqual(uncovered, [], 'these rejection codes have no fixture exercising them');

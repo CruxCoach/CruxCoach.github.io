@@ -12,28 +12,28 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-3';
+} from './common.mjs?v=20260814-4';
 import { SignIn } from '../ui/shell.mjs?v=20260814-3';
 import { RelayPool } from '../protocol/relay-pool.mjs';
-import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-4';
+import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-5';
 import {
   MUTABLE_CONFIG_FIELDS, NAMESPACE, configPatchImpact, newCompId,
   parseCompetitionEvent, parseIntentEvent, parseLogEvent,
   checkinWindowOpen, competitionRunning, registrationWindowOpen, validateCompetitionConfig,
-} from '../protocol/competition.mjs?v=20260813-2';
+} from '../protocol/competition.mjs?v=20260814-5';
 import { reduce } from '../protocol/reduce.mjs';
 import { outstandingClaims, registrationOrder } from '../protocol/claims.mjs';
 import { verifyZapReceipt, receiptFilter, ZAP_RECEIPT_KIND } from '../protocol/zap.mjs';
 import { verifyClaim, eligibleWinner, claimDeadline } from '../protocol/prize.mjs';
 import { walletUri } from '../protocol/bolt11.mjs';
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
-import { competitionAddress } from '../protocol/competition.mjs?v=20260813-2';
+import { competitionAddress } from '../protocol/competition.mjs?v=20260814-5';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
 import { competitionToFormDraft, createCompetitionForm } from './organizer-form.mjs?v=20260814-1';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
-import { KIND, compDTag } from '../protocol/competition.mjs?v=20260813-2';
+import { KIND, compDTag } from '../protocol/competition.mjs?v=20260814-5';
 import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-5';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-6';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { syncHealth } from '../ui/live-view.mjs?v=20260813-1';
 
@@ -810,7 +810,7 @@ function requestAnswered(intent) {
       : op === 'withdraw' ? entry.op === 'registration_decision' && entry.data.decision === 'withdrawn'
         : op === 'checkin_request' ? entry.op === 'checkin' && entry.data.state === 'checked_in'
           : op === 'defer_request' ? entry.op === 'defer_decision'
-            : op === 'attempt_report' ? entry.op === 'attempt_result'
+            : op === 'attempt_report' ? ['attempt_result', 'complete_turn'].includes(entry.op)
               && entry.data.climb_id === intent.intent.data.climb_id
               && entry.data.attempt_no === intent.intent.data.attempt_no
               : false;
@@ -871,7 +871,7 @@ function requestsPanel(snapshot) {
       });
       controls = [el('button', {
         className: 'primary', text: t('org.request.record_attempt'),
-        on: { click: () => act(() => writer.recordAttempt(
+        on: { click: () => act(() => writer.completeTurn(
           intent.pubkey, data.climb_id, data.outcome, data.attempt_no, intent.eventId,
         )) },
       })];
@@ -1087,6 +1087,13 @@ function queuePanel(snapshot) {
   const currentParticipant = current ? store.participant(current) : null;
   const next = store.nextClimber();
   const nextParticipant = next ? store.participant(next) : null;
+  const participantChoice = snapshot.competition.rules.climb_source === 'participant_choice';
+  const choice = current ? intents.get(`${current}:climb_choice`)?.intent.data : null;
+  const reportIntent = current ? intents.get(`${current}:attempt_report`) : null;
+  const reported = reportIntent && !requestAnswered(reportIntent) ? reportIntent.intent.data : null;
+  const own = current ? store.remainingClimbs(current) : [];
+  const chosenClimb = participantChoice
+    ? own.find((climb) => climb.id === (reported?.climb_id || choice?.climb_id)) : null;
   const rows = [
     el('div', { className: 'host-run-heading' }, [
       el('div', {}, [
@@ -1107,7 +1114,7 @@ function queuePanel(snapshot) {
         on: {
           click: () => act(async () => {
             const order = await AuthorityWriter.defaultOrder(snapshot.competition.comp_id, eligible);
-            await writer.seed(order);
+            await writer.seedAndOpen(order);
           }),
         },
       }),
@@ -1119,7 +1126,9 @@ function queuePanel(snapshot) {
       el('div', {}, [
         el('span', { className: 'host-turn-label', text: t('live.current') }),
         el('strong', { className: 'host-current-name', text: currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
-        el('span', { className: 'host-current-climb', text: state.current_climb_id
+        el('span', { className: 'host-current-climb', text: participantChoice
+          ? chosenClimb?.label || t('org.awaiting_climb_choice_short')
+          : state.current_climb_id
           ? snapshot.competition.climbs?.find((climb) => climb.id === state.current_climb_id)?.label || state.current_climb_id
           : t('live.rotation_empty') }),
       ]),
@@ -1133,7 +1142,9 @@ function queuePanel(snapshot) {
     ]));
     rows.push(el('div', { className: 'host-next-strip' }, [
       el('span', { text: t('live.next') }),
-      el('strong', { text: nextParticipant ? displayName(nextParticipant) : t('live.queue_empty') }),
+      el('strong', { text: nextParticipant
+        ? `${displayName(nextParticipant)}${store.nextClimberWraps() ? ` · ${t('live.next_round_short')}` : ''}`
+        : t('live.queue_empty') }),
     ]));
     if (!currentParticipant) {
       if (runningNow) rows.push(el('button', {
@@ -1148,12 +1159,10 @@ function queuePanel(snapshot) {
       } else {
       // Under participant choice the climber is on a climb of their own, not on
       // `current_climb_id` — recording against the wrong one would score
-      // somebody else's problem. Their report says which; failing that, the
-      // organizer picks from the set that climber actually holds.
-      const reported = intents.get(`${current}:attempt_report`)?.intent.data;
-      const own = store.remainingClimbs(current);
-      const climbId = snapshot.competition.rules.climb_source === 'participant_choice'
-        ? (own.find((c) => c.id === reported?.climb_id)?.id || own[0]?.id || '')
+      // somebody else's problem. Their replaceable choice/report says which;
+      // without it the host waits instead of silently assigning one.
+      const climbId = participantChoice
+        ? (chosenClimb?.id || '')
         : state.current_climb_id;
       const attemptNo = (currentParticipant.climbs.find((c) => c.climb_id === climbId)?.attempts_used || 0) + 1;
 
@@ -1166,20 +1175,21 @@ function queuePanel(snapshot) {
           }),
         }));
       }
-      if (own.length > 1) {
+      if (climbId && own.length > 1) {
         rows.push(el('p', { className: 'small', text: t('org.recording_for', { climb: own.find((c) => c.id === climbId)?.label || climbId }) }));
       }
 
-      rows.push(el('fieldset', { className: 'host-result-actions' }, [
+      if (!climbId && participantChoice) rows.push(el('p', {
+        className: 'notice warn', text: t('org.awaiting_climb_choice', { name: displayName(currentParticipant) }),
+      }));
+      if (climbId) rows.push(el('fieldset', { className: 'host-result-actions' }, [
         el('legend', { text: t('org.record_result') }),
         ...['top', 'zone', 'fall', 'timeout'].map((outcome) => el('button', {
         className: `host-result-${outcome}`,
         text: t(`org.${outcome}`),
           on: {
             click: () => act(async () => {
-              await writer.recordAttempt(current, climbId, outcome, attemptNo);
-              if (state.cursor >= state.order.length - 1) await writer.nextRound();
-              await writer.advance();
+              await writer.completeTurn(current, climbId, outcome, attemptNo, reported ? reportIntent.eventId : undefined);
             }),
           },
       })),
@@ -1334,10 +1344,11 @@ async function act(work) {
   try {
     await work();
   } catch (err) {
+    const message = err.code ? t(`rejection.${err.code}`) : (err.message || t('error.generic'));
     replace(feedback, el('div', { className: 'notice bad' }, [
-      el('p', { text: err.message || t('error.generic') }),
+      el('p', { text: message }),
     ]));
-    announce(err.message || t('error.generic'), { assertive: true });
+    announce(message, { assertive: true });
   }
 }
 

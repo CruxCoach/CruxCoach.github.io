@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-3';
+} from './common.mjs?v=20260814-4';
 import { SignIn } from '../ui/shell.mjs?v=20260814-3';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
@@ -19,12 +19,12 @@ import { buildZapRequest } from '../protocol/zap.mjs';
 import { buildClaimBody, validateClaimInput, eligibleWinner } from '../protocol/prize.mjs';
 import {
   checkinWindowOpen, competitionAddress, competitionRunning, registrationWindowOpen,
-} from '../protocol/competition.mjs?v=20260813-2';
-import { EntrantWriter } from '../authority.mjs?v=20260813-1';
+} from '../protocol/competition.mjs?v=20260814-5';
+import { EntrantWriter } from '../authority.mjs?v=20260814-5';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-5';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-6';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { personalCue, queuePreview, rotationPreview, syncHealth, turnEstimate } from '../ui/live-view.mjs?v=20260814-2';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-2';
@@ -938,9 +938,9 @@ function livePanel(snapshot) {
 /**
  * Asynchronous turns: which of my climbs I go to next.
  *
- * Choosing is always local preparation and is therefore available before the
- * turn. Signed result controls appear only while the climber may actually act;
- * every reason they cannot gets its own sentence.
+ * Choosing is replaceable signed preparation and is therefore available before
+ * the turn. It lets the host prepare without scoring anything. Signed result
+ * controls appear only while the climber may actually act.
  */
 function nextClimbChooser(snapshot, mine) {
   const remaining = store.remainingClimbs(mine.pubkey);
@@ -970,17 +970,32 @@ function nextClimbChooser(snapshot, mine) {
       text: t('next.option', { label: climb.label, attempts: climb.attemptsLeft }),
     })),
   ]);
-  chosen.addEventListener('change', () => {
-    if (chosen.value) preparedClimbs.set(key, chosen.value);
-    else preparedClimbs.delete(key);
-    render();
+  chosen.addEventListener('change', async () => {
+    const climbId = chosen.value;
+    if (!climbId) {
+      preparedClimbs.delete(key);
+      render();
+      return;
+    }
+    chosen.disabled = true;
+    try {
+      await entrant.chooseClimb(climbId);
+      preparedClimbs.set(key, climbId);
+      announce(t('next.choice_shared'));
+      render();
+    } catch (err) {
+      chosen.disabled = false;
+      const message = err.message || t('error.generic');
+      feedback.textContent = message;
+      announce(message, { assertive: true });
+    }
   });
 
   rows.push(
     el('label', { attrs: { for: 'next-climb' } }, [el('span', { text: t('next.choose') }), chosen]),
     selected && el('div', { className: 'participant-prepared-confirmation' }, [
       el('strong', { text: t('next.prepared') }),
-      el('span', { text: t('next.local_only') }),
+      el('span', { text: t('next.choice_shared') }),
     ]),
   );
   const selectedClimb = remaining.find((climb) => climb.id === selected);

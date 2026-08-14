@@ -11,7 +11,7 @@ import {
   buildCompetitionDeletionRequest, buildCompetitionEvent,
   buildCompetitionTombstoneEvent, buildIntentEvent, buildLogEvent,
   buildResultsEvent, buildSnapshotEvent, configPatchImpact, newNonce, parseIntentEvent,
-} from './protocol/competition.mjs?v=20260814-4';
+} from './protocol/competition.mjs?v=20260814-5';
 import { applyEntry, hashableState } from './protocol/reduce.mjs';
 import { ccj, ccjHash } from './protocol/ccj.mjs';
 
@@ -273,6 +273,11 @@ export class AuthorityWriter {
     return this.append('queue', { action: 'seed', order });
   }
 
+  /** Establish the deterministic order and open its first eligible turn. */
+  seedAndOpen(order) {
+    return this.append('queue', { action: 'seed_open', order });
+  }
+
   openTurn(index) {
     return this.append('queue', { action: 'open_turn', index });
   }
@@ -305,6 +310,29 @@ export class AuthorityWriter {
     };
     if (intentId) data.intent_id = intentId;
     return this.append('attempt_result', data, { subjects: [pubkey] });
+  }
+
+  /** Record the open climber's attempt and open the next eligible turn atomically. */
+  completeTurn(pubkey, climbId, outcome, attemptNo, intentId) {
+    const data = {
+      pubkey, climb_id: climbId, outcome, attempt_no: attemptNo,
+    };
+    if (intentId) data.intent_id = intentId;
+    return this.append('complete_turn', data, {
+      subjects: [pubkey],
+      validate: (state, resolvedData) => {
+        const candidate = structuredClone(state);
+        const before = candidate.rejected.length;
+        applyEntry(candidate, {
+          seq: state.seq + 1, epoch: state.epoch, at: this.now(), op: 'complete_turn', data: resolvedData,
+        }, this.competition);
+        if (candidate.rejected.length > before) {
+          const error = new Error(candidate.rejected.at(-1).code);
+          error.code = candidate.rejected.at(-1).code;
+          throw error;
+        }
+      },
+    });
   }
 
   announce(text) {
@@ -449,6 +477,11 @@ export class EntrantWriter {
   /** Short-lived by nature, so it carries a NIP-40 expiration. */
   requestDefer(climbId, deadlineAt) {
     return this.send('defer_request', { climb_id: climbId }, { expiration: deadlineAt });
+  }
+
+  /** Prepare or replace the participant's next boulder choice. */
+  chooseClimb(climbId) {
+    return this.send('climb_choice', { climb_id: climbId });
   }
 
   reportAttempt(climbId, outcome, attemptNo) {

@@ -12,8 +12,8 @@ import { verifyEvent } from '../protocol/nostr-event.mjs';
 import {
   KIND, NAMESPACE, competitionAddress, competitionRunning, compDTag,
   parseCompetitionEvent, parseLogEvent,
-} from '../protocol/competition.mjs?v=20260813-2';
-import { hashableState, reduce } from '../protocol/reduce.mjs';
+} from '../protocol/competition.mjs?v=20260814-5';
+import { hashableState, reduce } from '../protocol/reduce.mjs?v=20260814-3';
 import { computeStandings } from '../protocol/scoring.mjs?v=20260813-1';
 import { ccjHash } from '../protocol/ccj.mjs';
 import { usesDevelopmentRelay } from '../protocol/relay-url.mjs';
@@ -251,8 +251,14 @@ export class CompetitionStore {
   }
 
   nextClimber() {
-    if (!this.state || this.state.cursor < 0) return null;
-    return this.state.order[this.state.cursor + 1] || null;
+    if (!this.state || this.state.cursor < 0 || this.state.order.length === 0) return null;
+    return this.state.order[(this.state.cursor + 1) % this.state.order.length] || null;
+  }
+
+  /** Whether the next queue entry is the first climber of the next round. */
+  nextClimberWraps() {
+    return Boolean(this.state && this.state.cursor >= 0
+      && this.state.order.length > 0 && this.state.cursor + 1 >= this.state.order.length);
   }
 
   /** How many climbers are ahead of `pubkey` in this round, or null. */

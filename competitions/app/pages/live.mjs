@@ -7,9 +7,9 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
-} from './common.mjs?v=20260814-3';
+} from './common.mjs?v=20260814-4';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
-import { competitionRunning } from '../protocol/competition.mjs?v=20260813-2';
+import { competitionRunning } from '../protocol/competition.mjs?v=20260814-5';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { queuePreview, rotationPreview, syncHealth, tiedAt } from '../ui/live-view.mjs?v=20260814-2';
 
