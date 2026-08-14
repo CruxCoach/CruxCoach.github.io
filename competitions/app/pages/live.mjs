@@ -7,7 +7,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
-} from './common.mjs?v=20260814-14';
+} from './common.mjs?v=20260814-15';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
 import { competitionRunning, parseIntentEvent } from '../protocol/competition.mjs?v=20260814-6';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
@@ -297,7 +297,8 @@ async function start() {
   }
   ref = parsed;
   const opened = await openCompetition({
-    organizerPubkey: parsed.organizerPubkey, compId: parsed.compId, t, statusNode,
+    organizerPubkey: parsed.organizerPubkey, compId: parsed.compId,
+    relayHints: parsed.relayHints, t, statusNode,
   });
   if (!opened) return;
   store = opened.store;

@@ -12,7 +12,7 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-14';
+} from './common.mjs?v=20260814-15';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-8';
@@ -35,7 +35,10 @@ import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '
 import { describeRejection } from '../ui/i18n.mjs?v=20260814-14';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { syncHealth } from '../ui/live-view.mjs?v=20260813-1';
-import { CompetitionStore } from '../ui/store.mjs?v=20260814-9';
+import { CompetitionStore } from '../ui/store.mjs?v=20260814-10';
+import {
+  createLatestRun, mapConcurrent, mergeProgressive,
+} from '../ui/concurrency.mjs?v=20260814-2';
 
 const { t, language } = bootstrap();
 
@@ -76,6 +79,7 @@ const DRAFT_PREFIX = 'cruxcoach:competitions:create-draft:v1:';
 const DRAFT_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
 const WIZARD_HISTORY_KEY = 'cruxcoachCompetitionWizard';
 let activeCreateForm = null;
+const ownedLoads = createLatestRun();
 
 function historyWizardStep() {
   const value = history.state?.[WIZARD_HISTORY_KEY];
@@ -234,6 +238,7 @@ function createForm() {
             announce(t('publish.ok', published));
             const naddr = naddrEncode({
               identifier: compDTag(config.comp_id), pubkey: signer.pubkey, kind: KIND,
+              relays: config.relays,
             });
             clearTimeout(saveTimer);
             clearLocalDraft(ownerPubkey);
@@ -366,6 +371,7 @@ function overviewSection() {
       identifier: compDTag(listing.competition.comp_id),
       pubkey: signer.pubkey,
       kind: KIND,
+      relays: listing.competition.relays,
     });
     const venue = listing.competition.venue?.name || '';
     return el('li', {}, [
@@ -420,7 +426,7 @@ function overviewSection() {
       el('h2', { text: t('org.mine') }),
       el('button', { text: t('comp.refresh'), on: { click: () => loadOwned(true) } }),
     ]),
-    owned.loading && !owned.loaded
+    owned.loading && !owned.listings.length
       ? el('p', { text: t('comp.loading') })
       : rows.length
         ? el('ul', { className: 'plain' }, rows)
@@ -445,6 +451,7 @@ function nextActionFor(listing) {
  */
 async function loadOwned(force = false) {
   if (!signer || (owned.loaded && !force)) { render(); return; }
+  const run = ownedLoads.begin();
   owned = { ...owned, loading: true };
   render();
   const now = Math.floor(Date.now() / 1000);
@@ -454,6 +461,7 @@ async function loadOwned(force = false) {
     '#L': [NAMESPACE],
     limit: 200,
   }], { timeoutMs: 8000 });
+  if (!run.isCurrent()) return;
 
   const newest = new Map();
   for (const event of events) {
@@ -468,11 +476,30 @@ async function loadOwned(force = false) {
 
   // Enrollment counts come from each competition's log, which is what the
   // organizer actually wants to see at a glance.
-  const listings = [];
-  for (const entry of newest.values()) {
-    const summary = await summarise(entry.competition);
-    listings.push({ competition: entry.competition, ...summary });
-  }
+  const entries = [...newest.values()];
+  const visible = new Array(entries.length);
+  const listings = await mapConcurrent(entries, async (entry) => {
+    const summary = await summarise(entry.competition).catch(() => ({
+      accepted: null, checkedIn: null, state: null,
+    }));
+    return { competition: entry.competition, ...summary };
+  }, {
+    limit: 4,
+    onResult: (listing, index) => {
+      if (!run.isCurrent()) return;
+      visible[index] = listing;
+      const progressive = visible.filter(Boolean).reduce(
+        (current, item) => mergeProgressive(
+          current, item, (value) => value.competition.comp_id,
+        ),
+        owned.listings,
+      )
+        .sort((a, b) => b.competition.starts_at - a.competition.starts_at);
+      owned = { ...owned, loading: true, listings: progressive };
+      render();
+    },
+  });
+  if (!run.isCurrent()) return;
   listings.sort((a, b) => b.competition.starts_at - a.competition.starts_at);
   owned = { loading: false, loaded: complete, listings };
   render();
@@ -1715,7 +1742,8 @@ async function start() {
 
   if (pool) { store?.close(); pool.close(); }
   const opened = await openCompetition({
-    organizerPubkey: parsed.organizerPubkey, compId: parsed.compId, t, statusNode,
+    organizerPubkey: parsed.organizerPubkey, compId: parsed.compId,
+    relayHints: parsed.relayHints, t, statusNode,
   });
   if (!opened) return;
   ({ store, pool } = opened);

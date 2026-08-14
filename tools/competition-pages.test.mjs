@@ -10,6 +10,7 @@ import { __testing as i18nTesting, LANGUAGES, createTranslator, describeRejectio
 import { REJECTION_CODES } from '../competitions/app/protocol/reduce.mjs';
 import { joinLink, parseCompetitionRef, DISCOVERY_RELAYS } from '../competitions/app/pages/common.mjs';
 import { isAllowedRelayUrl } from '../competitions/app/protocol/relay-url.mjs';
+import { naddrEncode } from '../competitions/app/protocol/nostr-event.mjs';
 import {
   CLIMB_SOURCES, UNIQUENESS, PROGRESSIONS, SCORINGS,
 } from '../competitions/app/protocol/competition.mjs';
@@ -462,6 +463,17 @@ test('a damaged link is reported differently from something that is not a link',
   assert.equal(parseCompetitionRef(corrupted).error, 'damaged_link',
     'one mistyped character should say the link is damaged');
   assert.equal(parseCompetitionRef('hello').error, 'not_an_naddr');
+});
+
+test('canonical join links retain relay hints for private competition discovery', () => {
+  const vectors = JSON.parse(fs.readFileSync(path.join(root, 'competitions/fixtures/vectors/protocol.json'), 'utf8'));
+  const { organizer, comp_id: compId } = vectors.address;
+  const relayHints = ['wss://gym.example', 'ws://127.0.0.1:7447'];
+  const naddr = naddrEncode({
+    identifier: `cruxcoach:comp:${compId}`, pubkey: organizer, kind: 30078, relays: relayHints,
+  });
+
+  assert.deepEqual(parseCompetitionRef(naddr).relayHints, relayHints);
 });
 
 test('rubbish and other people\'s links are refused, not half-loaded', () => {

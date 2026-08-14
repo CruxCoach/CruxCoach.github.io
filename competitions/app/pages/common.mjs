@@ -10,7 +10,7 @@ import { decodeNip19 } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag, isCompId, parseDTag } from '../protocol/competition.mjs?v=20260814-6';
 import { RelayPool, mergeRelays } from '../protocol/relay-pool.mjs';
 import { isLoopbackRelay } from '../protocol/relay-url.mjs';
-import { CompetitionStore } from '../ui/store.mjs?v=20260814-9';
+import { CompetitionStore } from '../ui/store.mjs?v=20260814-10';
 import { createTranslator, detectLanguage } from '../ui/i18n.mjs?v=20260814-14';
 import { el, replace, byId } from '../ui/dom.mjs';
 
@@ -150,14 +150,14 @@ export function bootstrap() {
  * Load a competition and start following it.
  * @returns {{store: CompetitionStore, pool: RelayPool} | null}
  */
-export async function openCompetition({ organizerPubkey, compId, t, statusNode }) {
+export async function openCompetition({ organizerPubkey, compId, relayHints = [], t, statusNode }) {
   const say = (message) => { if (statusNode) replace(statusNode, el('p', { text: message })); };
   say(t('comp.loading'));
 
   // Two passes: find it on the discovery relays, then reconnect to the relays
   // the competition itself names. A competition run on a gym's own relay is
   // invisible otherwise.
-  let pool = new RelayPool(resolveRelays());
+  let pool = new RelayPool(resolveRelays(relayHints));
   let store = new CompetitionStore({ pool, organizerPubkey, compId });
   pool.onStatusChange = (status) => store.connectionChanged(status);
   let loaded = await store.loadCompetition();

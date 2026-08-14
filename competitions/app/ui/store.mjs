@@ -76,6 +76,8 @@ export class CompetitionStore {
     this.reducing = false;
     this.recomputePromise = null;
     this.dirty = false;
+    this.historyHydrationPromise = null;
+    this.historyHydrationDirty = false;
     /** Local transport freshness only; never part of the reduced/event state. */
     this.lastSyncedAt = 0;
   }
@@ -187,9 +189,13 @@ export class CompetitionStore {
 
   /** Relay transport changed. Screens may update a local offline hint. */
   connectionChanged(status = '') {
-    if (status.startsWith('disconnected:') && this.intentHistoryComplete !== null) {
-      this.intentRelayEose.delete(status.slice('disconnected:'.length));
-      this.intentHistoryComplete = false;
+    if (status.startsWith('disconnected:')) {
+      this.historyComplete = false;
+      if (this.intentHistoryComplete !== null) {
+        this.intentRelayEose.delete(status.slice('disconnected:'.length));
+        this.intentHistoryComplete = false;
+      }
+      this.note('history_incomplete');
     }
     this.emit();
   }
@@ -244,8 +250,10 @@ export class CompetitionStore {
       });
     };
 
-    await this.hydrateHistory();
-
+    // Arm stored+live delivery before the exact walk. Trust remains false until
+    // that walk and every event that overlapped it have been reduced, closing
+    // the otherwise silent EOSE-to-follow handoff window.
+    this.historyComplete = false;
     const subscription = this.pool.subscribe([{
       kinds: [KIND],
       authors: [this.competition.authority],
@@ -254,24 +262,43 @@ export class CompetitionStore {
       onEvent: async (event) => {
         if (await this.ingest(event)) {
           if (!this.historyComplete || boundedMissingSequence(this.entrySequences()) !== null) {
-            this.historyComplete = await this.backfillLog();
+            await this.hydrateHistory();
+          } else {
+            scheduleRecompute();
           }
-          scheduleRecompute();
         }
       },
-      onEose: () => scheduleRecompute(),
+      onEose: () => {
+        if (!this.historyComplete) void this.hydrateHistory();
+        else scheduleRecompute();
+      },
     });
     this.subscriptions.push(subscription);
     await subscription.ready;
+    await this.hydrateHistory();
     return subscription;
   }
 
   /** Fetch and reduce all currently stored authority history without subscribing. */
   async hydrateHistory({ timeoutMs = 12000 } = {}) {
     if (!this.competition) throw new Error('load the competition first');
-    this.historyComplete = await this.backfillLog({ timeoutMs });
-    await this.recompute();
-    return this.snapshot();
+    this.historyHydrationDirty = true;
+    this.historyComplete = false;
+    this.emit();
+    if (this.historyHydrationPromise) return this.historyHydrationPromise;
+    this.historyHydrationPromise = (async () => {
+      try {
+        do {
+          this.historyHydrationDirty = false;
+          this.historyComplete = await this.backfillLog({ timeoutMs });
+          await this.recompute();
+        } while (this.historyHydrationDirty);
+        return this.snapshot();
+      } finally {
+        this.historyHydrationPromise = null;
+      }
+    })();
+    return this.historyHydrationPromise;
   }
 
   entrySequences() {

@@ -22,12 +22,19 @@ const participantFixture = JSON.parse(fs.readFileSync(
 ));
 
 class ClampedPool {
-  constructor({ incomplete = false, failed = 0 } = {}) {
+  constructor({ incomplete = false, failed = 0, queryDelayMs = 0, liveDuringFirstLog = false } = {}) {
     this.urls = ['wss://relay.example.invalid'];
     this.connectedUrls = [...this.urls];
     this.incomplete = incomplete;
     this.failed = failed;
+    this.queryDelayMs = queryDelayMs;
+    this.liveDuringFirstLog = liveDuringFirstLog;
+    this.liveDelivered = false;
     this.logQueries = [];
+    this.activeLogQueries = 0;
+    this.maxActiveLogQueries = 0;
+    this.subscribed = false;
+    this.subscriptionOptions = null;
   }
 
   async query(filters) {
@@ -39,19 +46,33 @@ class ClampedPool {
     }
     const wanted = filter['#d'] || [];
     this.logQueries.push(filter);
-    const events = fixture.log_events.filter((event) => {
-      const dTag = event.tags.find((tag) => tag[0] === 'd')?.[1];
-      return wanted.includes(dTag);
-    }).slice(0, 20); // emulate a relay with a hard twenty-event response cap
-    return {
-      events,
-      complete: !this.incomplete,
-      answered: this.incomplete ? 0 : 1,
-      failed: this.failed,
-    };
+    this.activeLogQueries += 1;
+    this.maxActiveLogQueries = Math.max(this.maxActiveLogQueries, this.activeLogQueries);
+    try {
+      if (this.queryDelayMs) await new Promise((resolve) => setTimeout(resolve, this.queryDelayMs));
+      if (this.liveDuringFirstLog && !this.liveDelivered) {
+        this.liveDelivered = true;
+        void this.subscriptionOptions.onEvent(fixture.log_events.at(-1));
+      }
+      const events = fixture.log_events.filter((event, index) => {
+        if (this.liveDuringFirstLog && index === fixture.log_events.length - 1) return false;
+        const dTag = event.tags.find((tag) => tag[0] === 'd')?.[1];
+        return wanted.includes(dTag);
+      }).slice(0, 20); // emulate a relay with a hard twenty-event response cap
+      return {
+        events,
+        complete: !this.incomplete,
+        answered: this.incomplete ? 0 : 1,
+        failed: this.failed,
+      };
+    } finally {
+      this.activeLogQueries -= 1;
+    }
   }
 
-  subscribe() {
+  subscribe(_filters, options) {
+    this.subscribed = true;
+    this.subscriptionOptions = options;
     return { ready: Promise.resolve(true), close() {} };
   }
 }
@@ -78,6 +99,78 @@ test('stored history walks exact d-tag pages despite a twenty-event relay cap', 
   assert.deepEqual(pool.logQueries[0]['#d'], logPageDTags(payload.comp_id, 1));
   assert.deepEqual(pool.logQueries[1]['#d'], logPageDTags(payload.comp_id, 21));
   assert.equal(pool.logQueries.every((filter) => filter.limit === 100), true);
+});
+
+test('live delivery is armed before hydration and closes the EOSE-to-follow race', async () => {
+  const pool = new ClampedPool({ liveDuringFirstLog: true });
+  const store = new CompetitionStore({
+    pool,
+    organizerPubkey: fixture.competition_event.pubkey,
+    compId: payload.comp_id,
+    now: () => 1789020000,
+  });
+  assert.equal((await store.loadCompetition()).ok, true);
+  const observations = [];
+  store.onChange((snapshot) => observations.push({ trustworthy: snapshot.trustworthy, subscribed: pool.subscribed }));
+
+  await store.follow();
+
+  assert.equal(pool.liveDelivered, true);
+  assert.equal(store.state.seq, fixture.expected.state.seq,
+    'the event omitted from stored pages must arrive through the already-armed subscription');
+  assert.equal(store.stateHash, fixture.expected.state_hash);
+  assert.ok(observations.some((item) => item.trustworthy));
+  assert.ok(observations.filter((item) => item.trustworthy).every((item) => item.subscribed),
+    'no trusted snapshot may escape before live delivery is armed');
+});
+
+test('relay loss immediately makes a trusted projection stale until exact recovery', async () => {
+  const pool = new ClampedPool();
+  const store = new CompetitionStore({
+    pool,
+    organizerPubkey: fixture.competition_event.pubkey,
+    compId: payload.comp_id,
+    now: () => 1789020000,
+  });
+  assert.equal((await store.loadCompetition()).ok, true);
+  await store.follow();
+  const verifiedHash = store.snapshot().stateHash;
+  assert.equal(store.snapshot().trustworthy, true);
+
+  store.connectionChanged(`disconnected:${pool.urls[0]}`);
+  assert.equal(store.snapshot().trustworthy, false);
+  assert.equal(store.snapshot().historyComplete, false);
+  assert.equal(store.snapshot().stateHash, verifiedHash,
+    'the last projection stays visible but is explicitly stale');
+
+  pool.subscriptionOptions.onEose(pool.urls[0]);
+  await new Promise((resolve) => setImmediate(resolve));
+  await store.historyHydrationPromise;
+  assert.equal(store.snapshot().trustworthy, true);
+  assert.equal(store.snapshot().stateHash, verifiedHash);
+});
+
+test('a burst while history is incomplete coalesces exact recovery walks', async () => {
+  const pool = new ClampedPool({ incomplete: true, queryDelayMs: 10 });
+  const store = new CompetitionStore({
+    pool,
+    organizerPubkey: fixture.competition_event.pubkey,
+    compId: payload.comp_id,
+    now: () => 1789020000,
+  });
+  assert.equal((await store.loadCompetition()).ok, true);
+  await store.follow();
+  const burst = fixture.log_events.slice(-12);
+  for (const event of burst) store.entries.delete(event.id);
+  await store.recompute();
+  const before = pool.logQueries.length;
+
+  await Promise.all(burst.map((event) => pool.subscriptionOptions.onEvent(event)));
+
+  assert.equal(pool.maxActiveLogQueries, 1, 'exact history walks must never overlap');
+  assert.equal(pool.logQueries.length - before, 2,
+    'unique overlapping events request one active walk and one dirty rerun');
+  assert.equal(store.snapshot().trustworthy, false);
 });
 
 test('own replaceable intent is restored only from a complete exact d-tag query', async () => {

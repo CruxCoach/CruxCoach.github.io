@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-14';
+} from './common.mjs?v=20260814-15';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
@@ -1504,7 +1504,8 @@ async function start() {
 
   if (pool) { store?.close(); pool.close(); }
   const opened = await openCompetition({
-    organizerPubkey: parsed.organizerPubkey, compId: parsed.compId, t, statusNode,
+    organizerPubkey: parsed.organizerPubkey, compId: parsed.compId,
+    relayHints: parsed.relayHints, t, statusNode,
   });
   if (!opened) return;
   ({ store, pool } = opened);
