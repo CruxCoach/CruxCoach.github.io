@@ -418,13 +418,13 @@ export class EntrantWriter {
     this.competition = competition;
     this.organizerPubkey = organizerPubkey;
     this.now = now || (() => Math.floor(Date.now() / 1000));
-    /** Reused per intent kind so a retry replaces rather than duplicates. */
+    /** Reused per intent lane so a retry replaces rather than duplicates. */
     this.nonces = new Map();
     this.storage = storage === undefined ? globalThis.localStorage : storage;
   }
 
   /**
-   * A nonce per (competition, operation, signer), surviving a reload.
+   * A nonce per (competition, operation lane, signer), surviving a reload.
    *
    * Held in memory only, a refresh produced a fresh nonce — so registering
    * again added a *second* live request instead of replacing the first. On the
@@ -432,9 +432,9 @@ export class EntrantWriter {
    * registration's nonce and the organizer checks a receipt against it, so a
    * nonce that changed would strand a payment already made.
    */
-  nonceFor(op) {
-    const key = `cruxcoach:comp:nonce:${this.signer.pubkey.slice(0, 8)}:${this.competition.comp_id}:${op}`;
-    if (this.nonces.has(op)) return this.nonces.get(op);
+  nonceFor(scope) {
+    const key = `cruxcoach:comp:nonce:${this.signer.pubkey.slice(0, 8)}:${this.competition.comp_id}:${scope}`;
+    if (this.nonces.has(scope)) return this.nonces.get(scope);
 
     let nonce = null;
     try {
@@ -449,17 +449,17 @@ export class EntrantWriter {
         this.storage?.setItem(key, nonce);
       } catch { /* as above */ }
     }
-    this.nonces.set(op, nonce);
+    this.nonces.set(scope, nonce);
     return nonce;
   }
 
-  send(op, data, { expiration } = {}) {
+  send(op, data, { expiration, nonceScope = op } = {}) {
     const draft = buildIntentEvent({
       compId: this.competition.comp_id,
       organizerPubkey: this.organizerPubkey,
       authority: this.competition.authority,
       pubkey: this.signer.pubkey,
-      nonce: this.nonceFor(op),
+      nonce: this.nonceFor(nonceScope),
       op,
       data,
       at: this.now(),
@@ -506,7 +506,9 @@ export class EntrantWriter {
    * any relay.
    */
   claimPrize(prizeId, ciphertext) {
-    return this.send('prize_claim', { prize_id: prizeId, enc: ciphertext });
+    return this.send('prize_claim', { prize_id: prizeId, enc: ciphertext }, {
+      nonceScope: `prize_claim:${prizeId}`,
+    });
   }
 
   /**
@@ -517,7 +519,9 @@ export class EntrantWriter {
    * anything, and the organizer's screen says so rather than assuming.
    */
   acknowledgePrize(prizeId) {
-    return this.send('prize_receipt', { prize_id: prizeId, received: true });
+    return this.send('prize_receipt', { prize_id: prizeId, received: true }, {
+      nonceScope: `prize_receipt:${prizeId}`,
+    });
   }
 
   claimPayment(zapReceiptId, bolt11) {

@@ -1750,7 +1750,10 @@ test('the two clients offer the same participant actions', () => {
 
 test('the organizer console handles every participant intent it subscribes to', () => {
   const organizer = fs.readFileSync(path.join(root, 'competitions/app/pages/organizer.mjs'), 'utf8');
-  for (const op of ['register', 'withdraw', 'checkin_request', 'defer_request', 'attempt_report']) {
+  for (const op of [
+    'register', 'withdraw', 'checkin_request', 'defer_request', 'attempt_report',
+    'prize_claim', 'prize_receipt',
+  ]) {
     assert.match(organizer, new RegExp(`['\"]${op}['\"]`), `${op} has no organizer surface`);
   }
   assert.match(organizer, /intents\.get\(`\$\{current\}:climb_choice`\)/,
@@ -1767,6 +1770,14 @@ test('the organizer console handles every participant intent it subscribes to', 
     'finishing must explain and confirm its terminal effect');
   assert.match(organizer, /confirm\(t\('org\.cancel_comp\.confirm'\)\)/,
     'cancellation must explain that relay deletion follows and is best effort');
+  assert.match(organizer, /\['prize_claim', 'prize_receipt'\]\.includes/,
+    'each prize request needs its own replaceable inbox lane');
+
+  const authority = fs.readFileSync(path.join(root, 'competitions/app/authority.mjs'), 'utf8');
+  assert.match(authority, /nonceScope: `prize_claim:\$\{prizeId\}`/,
+    'claiming a second prize must not replace the first claim');
+  assert.match(authority, /nonceScope: `prize_receipt:\$\{prizeId\}`/,
+    'acknowledging a second prize must not replace the first receipt');
 });
 
 test('the nsec import path is masked, session-only and explicitly warned', () => {

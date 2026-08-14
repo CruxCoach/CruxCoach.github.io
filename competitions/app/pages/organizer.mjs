@@ -1616,7 +1616,9 @@ async function start() {
       // Newest wins. An intent is replaceable, so a participant who re-picks
       // after losing a race publishes a second one under the same nonce; a
       // relay that backfills the old copy last must not undo the new choice.
-      const key = `${parsedIntent.pubkey}:${parsedIntent.intent.op}`;
+      const prizeLane = ['prize_claim', 'prize_receipt'].includes(parsedIntent.intent.op)
+        ? `:${parsedIntent.intent.data?.prize_id || ''}` : '';
+      const key = `${parsedIntent.pubkey}:${parsedIntent.intent.op}${prizeLane}`;
       const known = intents.get(key);
       if (!known || parsedIntent.createdAt > known.createdAt
         || (parsedIntent.createdAt === known.createdAt && parsedIntent.eventId > known.eventId)) {

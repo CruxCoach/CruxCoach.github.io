@@ -811,6 +811,14 @@ test('an intent keeps its nonce across a reload, so asking again replaces rather
     tick();
     const second = makeEntrant();
     assert.equal(second.nonceFor('register'), nonce, 'the nonce has to survive the reload');
+    assert.equal(
+      second.nonceFor('prize_claim:place_1'), first.nonceFor('prize_claim:place_1'),
+      'a prize-specific retry has to survive reload',
+    );
+    assert.notEqual(
+      second.nonceFor('prize_claim:place_1'), second.nonceFor('prize_claim:place_2'),
+      'claims for two prizes must not replace each other',
+    );
     await second.register({ division: 'open', display: 'Alice again', waiverAccepted: true });
     await until({ state: { seq: 0 } }, () => intents.length === 2, 'the second request');
 
