@@ -924,7 +924,10 @@ test('host editing is prefilled from the effective competition including nested 
       board: { brand: 'moonboard', model: 'moonboard-masters-2019', layout_id: 5, size: '11x18', angle: 40 },
       rules: { climb_source: 'participant_choice', counted_climb_count: 4, attempts_per_climb: 3,
         scoring: 'tops_then_attempts', progression: 'synchronous_rounds', turn_deadline_sec: 120 },
-      climb_pool: { options: [] }, capacity: 0, waitlist_enabled: true, fee_msat: 0,
+      climb_pool: { options: [{
+        id: 'c1', climb_uuid: '11111111-1111-1111-1111-111111111111',
+        label: 'THE WARM UP PROBLEM', angle: 40, points: 100, source: 'catalogue', zone_hold: 7,
+      }] }, capacity: 0, waitlist_enabled: true, fee_msat: 0,
       divisions: [{ id: 'open', label: 'Open' }], prizes: [], relays: [],
     };
     const form = createCompetitionForm({
@@ -937,6 +940,12 @@ test('host editing is prefilled from the effective competition including nested 
     assert.equal(form.node.querySelector('#f-contact').value, 'host@example.org');
     assert.equal(form.node.querySelector('#f-venue').value, 'Madeira Climbing Center');
     assert.equal(form.node.querySelector('#f-capacity-unlimited').checked, true);
+    assert.deepEqual(form.climbs.entries().map((climb) => ({
+      uuid: climb.uuid, label: climb.label, angle: climb.angle, zoneHold: climb.zoneHold,
+    })), [{
+      uuid: '11111111-1111-1111-1111-111111111111',
+      label: 'THE WARM UP PROBLEM', angle: 40, zoneHold: 7,
+    }]);
   } finally {
     cleanup();
   }

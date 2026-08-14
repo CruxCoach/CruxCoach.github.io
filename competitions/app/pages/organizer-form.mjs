@@ -183,8 +183,25 @@ export function competitionToFormDraft(competition) {
   const type = BOARD_TYPES.find((candidate) => candidate.brand === competition.board?.brand
     && candidate.models.some((model) => model.value === competition.board?.model
       && model.layoutId === competition.board?.layout_id));
-  const climbs = competition.rules?.climb_source === 'participant_choice'
+  const competitionClimbs = competition.rules?.climb_source === 'participant_choice'
     ? (competition.climb_pool?.options || []) : (competition.climbs || []);
+  // The protocol stores published climbs in its stable wire shape, while the
+  // editor deliberately uses the smaller local-draft shape. Feeding wire
+  // entries directly to restore() drops every row because it expects `uuid`,
+  // not `climb_uuid`.
+  const climbs = competitionClimbs.map((climb) => ({
+    uuid: climb.climb_uuid,
+    label: climb.label,
+    angle: climb.angle,
+    points: climb.points,
+    kind: climb.source === 'community' ? 'community' : 'catalogue',
+    naddr: climb.naddr,
+    zoneHold: climb.zone_hold,
+    setter: climb.setter,
+    difficulty: climb.difficulty,
+    quality: climb.quality,
+    ascents: climb.ascents,
+  }));
   return {
     fields: {
       title: competition.title, summary: competition.summary, description: competition.description,

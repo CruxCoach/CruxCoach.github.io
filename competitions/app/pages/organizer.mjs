@@ -29,7 +29,7 @@ import { walletUri } from '../protocol/bolt11.mjs';
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
 import { competitionAddress } from '../protocol/competition.mjs?v=20260814-6';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
-import { competitionToFormDraft, createCompetitionForm } from './organizer-form.mjs?v=20260814-2';
+import { competitionToFormDraft, createCompetitionForm } from './organizer-form.mjs?v=20260814-3';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs?v=20260814-6';
 import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
