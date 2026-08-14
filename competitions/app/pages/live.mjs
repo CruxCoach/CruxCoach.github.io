@@ -9,9 +9,13 @@ import {
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
 } from './common.mjs?v=20260814-15';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
-import { competitionRunning, parseIntentEvent } from '../protocol/competition.mjs?v=20260814-6';
+import {
+  competitionRunning, effectiveTimeStateKey, isNewerReplaceable, parseIntentEvent,
+} from '../protocol/competition.mjs?v=20260814-7';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
-import { queuePreview, rotationPreview, syncHealth, tiedAt } from '../ui/live-view.mjs?v=20260814-2';
+import {
+  activeParticipantClimb, queuePreview, rotationPreview, syncHealth, tiedAt,
+} from '../ui/live-view.mjs?v=20260814-3';
 
 const { t, language } = bootstrap();
 
@@ -20,7 +24,7 @@ let ref = null;
 let ticker = null;
 let previousRanks = new Map();
 let lastHealthKind = '';
-let lastEffectiveStatus = '';
+let lastTimeStateKey = '';
 const choices = new Map();
 
 const view = byId('view');
@@ -45,7 +49,10 @@ function chosenClimb(snapshot, pubkey) {
   const intent = choices.get(pubkey);
   const climbId = intent?.intent.data?.climb_id;
   if (!climbId) return null;
-  return store.remainingClimbs(pubkey).find((climb) => climb.id === climbId) || null;
+  return activeParticipantClimb(
+    snapshot.competition, snapshot.state, store.participant(pubkey), climbId,
+    store.remainingClimbs(pubkey),
+  );
 }
 
 function boardLabel(competition) {
@@ -185,7 +192,8 @@ function running(snapshot) {
         el('p', { className: 'projection-kicker', text: terminal ? t('live.final') : paused ? t('live.paused') : t('live.current') }),
         el('p', { className: 'now', text: terminal ? t('live.finished') : currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
         !terminal && el('p', { className: 'current-climb', text: currentChoice?.label
-          || climbLabel(snapshot, state.current_climb_id) }),
+          || (snapshot.competition.rules.climb_source === 'participant_choice'
+            ? t('live.no_next_climb') : climbLabel(snapshot, state.current_climb_id)) }),
         !terminal && el('div', { className: 'turn-facts' }, [
           el('span', { text: t('live.round_value', { n: state.round }) }),
           !terminal && el('span', { className: 'countdown', attrs: { id: 'deadline' }, text: paused ? t('live.paused') : formatSeconds(store.secondsToDeadline()) }),
@@ -195,8 +203,10 @@ function running(snapshot) {
         el('p', { className: 'projection-kicker', text: t('live.next') }),
         el('p', { className: 'next-name', text: terminal ? '—' : nextParticipant ? displayName(nextParticipant) : t('live.queue_empty') }),
         el('p', { className: 'next-climb', text: nextChoice?.label
-          || rotationPreview(snapshot.competition, state, nextParticipant, 2).entries[0]?.label
-          || climbLabel(snapshot, state.current_climb_id) }),
+          || (snapshot.competition.rules.climb_source === 'participant_choice'
+            ? t('live.no_next_climb')
+            : rotationPreview(snapshot.competition, state, nextParticipant, 2).entries[0]?.label
+              || climbLabel(snapshot, state.current_climb_id)) }),
       ]),
     ]),
     !terminal && el('div', { className: 'projection-middle' }, [
@@ -276,7 +286,9 @@ function render() {
     return;
   }
   const status = effectiveStatus(snapshot);
-  lastEffectiveStatus = status;
+  lastTimeStateKey = effectiveTimeStateKey(
+    snapshot.competition, snapshot.state, Math.floor(Date.now() / 1000),
+  );
   const body = status === 'cancelled'
     ? cancelled(snapshot)
     : ['running', 'paused', 'finished'].includes(status)
@@ -309,8 +321,9 @@ async function start() {
       Math.floor(Date.now() / 1000));
     if (!parsedIntent.ok || parsedIntent.intent.op !== 'climb_choice') return;
     const known = choices.get(parsedIntent.pubkey);
-    if (!known || parsedIntent.createdAt > known.createdAt
-      || (parsedIntent.createdAt === known.createdAt && parsedIntent.eventId > known.eventId)) {
+    if (!known || isNewerReplaceable(
+      parsedIntent.createdAt, parsedIntent.eventId, known.createdAt, known.eventId,
+    )) {
       choices.set(parsedIntent.pubkey, parsedIntent);
       render();
     }
@@ -321,7 +334,10 @@ async function start() {
   ticker = setInterval(() => {
     const snapshot = store?.snapshot();
     const status = snapshot?.state ? effectiveStatus(snapshot) : '';
-    if (status && status !== lastEffectiveStatus) {
+    const now = Math.floor(Date.now() / 1000);
+    const timeKey = snapshot?.state
+      ? effectiveTimeStateKey(snapshot.competition, snapshot.state, now) : '';
+    if (timeKey && timeKey !== lastTimeStateKey) {
       render();
       return;
     }

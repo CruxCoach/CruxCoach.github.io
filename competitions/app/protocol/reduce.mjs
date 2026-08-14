@@ -667,6 +667,17 @@ function applyConfigUpdate(state, entry, competition) {
   if ([...referencedClimbs].some((id) => !nextClimbs.has(id))) {
     return reject(state, entry, 'config_referenced_climb');
   }
+  const climbById = (config) => new Map([
+    ...(config.climbs || []), ...(config.climb_pool?.options || []),
+  ].map((climb) => [climb.id, climb]));
+  const beforeById = climbById(competition);
+  const afterById = climbById(next);
+  if ([...referencedClimbs].some((id) => {
+    const before = beforeById.get(id);
+    const after = afterById.get(id);
+    return before && after && (before.climb_uuid !== after.climb_uuid
+      || before.angle !== after.angle || before.board_cell_id !== after.board_cell_id);
+  })) return reject(state, entry, 'config_referenced_climb');
   const nextDivisions = new Set((next.divisions || []).map((division) => division.id));
   if (state.participants.some((p) => p.division && !nextDivisions.has(p.division))) {
     return reject(state, entry, 'config_referenced_division');

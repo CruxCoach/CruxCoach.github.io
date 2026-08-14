@@ -7,11 +7,11 @@
  * else is rejected loudly rather than half-loaded.
  */
 import { decodeNip19 } from '../protocol/nostr-event.mjs';
-import { KIND, compDTag, isCompId, parseDTag } from '../protocol/competition.mjs?v=20260814-6';
+import { KIND, compDTag, isCompId, parseDTag } from '../protocol/competition.mjs?v=20260814-7';
 import { RelayPool, mergeRelays } from '../protocol/relay-pool.mjs';
 import { isLoopbackRelay } from '../protocol/relay-url.mjs';
 import { CompetitionStore } from '../ui/store.mjs?v=20260814-10';
-import { createTranslator, detectLanguage } from '../ui/i18n.mjs?v=20260814-14';
+import { createTranslator, detectLanguage } from '../ui/i18n.mjs?v=20260814-15';
 import { el, replace, byId } from '../ui/dom.mjs';
 
 /**
@@ -62,8 +62,11 @@ export function resolveDiscoveryRelays(relayHints = []) {
   let remembered = null;
   try { remembered = sessionStorage.getItem(DEV_RELAY_KEY); } catch { /* private mode */ }
   const override = [requested, remembered].find((url) => url && isLoopbackRelay(url));
-  if (override) return mergeRelays([override], [...relayHints, ...DISCOVERY_RELAYS]);
-  return mergeRelays(relayHints, DISCOVERY_RELAYS);
+  // Hints are controlled by whoever made the link. Reserve most of the bounded
+  // pool for normal discovery so eight attacker hints cannot crowd it out.
+  const boundedHints = mergeRelays(relayHints, [], 3);
+  if (override) return mergeRelays([override], [...boundedHints, ...DISCOVERY_RELAYS]);
+  return mergeRelays(boundedHints, DISCOVERY_RELAYS);
 }
 
 /**

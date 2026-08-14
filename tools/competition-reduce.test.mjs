@@ -143,6 +143,22 @@ test('config updates cannot remove a climb already referenced by the log', () =>
   });
   assert.equal(reduced.config_revision, 1);
   assert.equal(reduced.rejected.at(-1).code, 'config_referenced_climb');
+
+  const retargeted = {
+    ...entry,
+    data: {
+      ...entry.data,
+      patch: { climbs: parsed.competition.climbs.map((climb, index) => index === 0
+        ? { ...climb, climb_uuid: 'b6d0428e-1f75-4c93-a208-7e35d1b49c60' } : climb) },
+    },
+  };
+  const { state: retargetedState } = reduce({
+    competition: parsed.competition, competitionEventId: stream.competition_event.id,
+    entries: [{ eventId: 'ef'.repeat(32), createdAt: NOW, entry: retargeted }],
+    snapshot: { state, head: stream.competition_event.id, seq: 0 },
+  });
+  assert.equal(retargetedState.config_revision, 1);
+  assert.equal(retargetedState.rejected.at(-1).code, 'config_referenced_climb');
 });
 
 test('standings match the recorded ones', async () => {

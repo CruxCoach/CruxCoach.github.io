@@ -18,27 +18,27 @@ import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-8';
 import {
   MUTABLE_CONFIG_FIELDS, NAMESPACE, configPatchImpact, newCompId,
-  parseCompetitionEvent, parseIntentEvent,
+  effectiveTimeStateKey, isNewerReplaceable, parseCompetitionEvent, parseIntentEvent,
   checkinWindowOpen, competitionRunning, registrationWindowOpen, validateCompetitionConfig,
-} from '../protocol/competition.mjs?v=20260814-6';
+} from '../protocol/competition.mjs?v=20260814-7';
 import { outstandingClaims, registrationOrder } from '../protocol/claims.mjs';
 import { verifyZapReceipt, receiptFilter, ZAP_RECEIPT_KIND } from '../protocol/zap.mjs';
 import { verifyClaim, eligibleWinner, claimDeadline } from '../protocol/prize.mjs';
 import { walletUri } from '../protocol/bolt11.mjs';
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
-import { competitionAddress } from '../protocol/competition.mjs?v=20260814-6';
+import { competitionAddress } from '../protocol/competition.mjs?v=20260814-7';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
 import { competitionToFormDraft, createCompetitionForm } from './organizer-form.mjs?v=20260814-3';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
-import { KIND, compDTag } from '../protocol/competition.mjs?v=20260814-6';
+import { KIND, compDTag } from '../protocol/competition.mjs?v=20260814-7';
 import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-14';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-15';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
-import { syncHealth } from '../ui/live-view.mjs?v=20260813-1';
+import { activeParticipantClimb, syncHealth } from '../ui/live-view.mjs?v=20260814-3';
 import { CompetitionStore } from '../ui/store.mjs?v=20260814-10';
 import {
-  createLatestRun, mapConcurrent, mergeProgressive,
-} from '../ui/concurrency.mjs?v=20260814-2';
+  createCoalescedRunner, createLatestRun, mapConcurrent, mergeProgressive,
+} from '../ui/concurrency.mjs?v=20260814-3';
 
 const { t, language } = bootstrap();
 
@@ -46,7 +46,7 @@ let signer = null;
 let store = null;
 let pool = null;
 let writer = null;
-let lastEffectiveStatus = '';
+let lastTimeStateKey = '';
 let ref = null;
 let ticker = null;
 let lastHealthKind = '';
@@ -449,7 +449,11 @@ function nextActionFor(listing) {
  * competitions appear too — they are the organizer's own, and a console that
  * hid their drafts would be useless.
  */
-async function loadOwned(force = false) {
+const loadOwned = createCoalescedRunner(loadOwnedPass, {
+  mergeArgs: ([pendingForce = false], [latestForce = false]) => [pendingForce || latestForce],
+});
+
+async function loadOwnedPass(force = false) {
   if (!signer || (owned.loaded && !force)) { render(); return; }
   const run = ownedLoads.begin();
   owned = { ...owned, loading: true };
@@ -469,8 +473,12 @@ async function loadOwned(force = false) {
     const parsed = parseCompetitionEvent(event, now);
     if (!parsed.ok) continue;
     const existing = newest.get(parsed.competition.comp_id);
-    if (!existing || event.created_at > existing.createdAt) {
-      newest.set(parsed.competition.comp_id, { competition: parsed.competition, createdAt: event.created_at });
+    if (!existing || isNewerReplaceable(
+      event.created_at, event.id, existing.createdAt, existing.eventId,
+    )) {
+      newest.set(parsed.competition.comp_id, {
+        competition: parsed.competition, createdAt: event.created_at, eventId: event.id,
+      });
     }
   }
 
@@ -557,17 +565,7 @@ function lifecycleActions(snapshot) {
         on: {
           click: () => {
             if (!confirm(t('org.cancel_comp.confirm'))) return;
-            act(async () => {
-              await writer.setStatus('cancelled');
-              cleanupResult = await writer.deleteCompetition();
-              replace(feedback, el('div', { className: 'notice warn' }, [
-                el('p', { text: t('org.cleanup.result', {
-                  tombstone: cleanupResult.tombstone.accepted,
-                  deletion: cleanupResult.deletion.accepted,
-                  total: Math.max(cleanupResult.tombstone.attempted, cleanupResult.deletion.attempted),
-                }) }),
-              ]));
-            });
+            act(() => writer.setStatus('cancelled'));
           },
         },
       }),
@@ -576,10 +574,10 @@ function lifecycleActions(snapshot) {
   if (status === 'cancelled') {
     actions.push(el('button', {
       className: 'danger',
-      text: t('org.cleanup.retry'),
+      text: t(cleanupResult ? 'org.cleanup.retry' : 'org.cleanup.send'),
       on: {
         click: () => act(async () => {
-          if (!confirm(t('org.cleanup.confirm'))) return;
+          if (!confirm(t(cleanupResult ? 'org.cleanup.confirm_again' : 'org.cleanup.confirm'))) return;
           cleanupResult = await writer.deleteCompetition();
           replace(feedback, el('div', { className: 'notice warn' }, [
             el('p', { text: t('org.cleanup.result', {
@@ -1259,8 +1257,10 @@ function queuePanel(snapshot) {
   const reportIntent = current ? intents.get(`${current}:attempt_report`) : null;
   const reported = reportIntent && !requestAnswered(reportIntent) ? reportIntent.intent.data : null;
   const own = current ? store.remainingClimbs(current) : [];
-  const chosenClimb = participantChoice
-    ? own.find((climb) => climb.id === (reported?.climb_id || choice?.climb_id)) : null;
+  const chosenClimb = participantChoice ? activeParticipantClimb(
+    snapshot.competition, state, currentParticipant,
+    reported?.climb_id || choice?.climb_id, own,
+  ) : null;
   const rows = [
     el('div', { className: 'host-run-heading' }, [
       el('div', {}, [
@@ -1627,9 +1627,9 @@ function render() {
     replace(view, devRelayBanner(store, t), ...integrityNotices(snapshot, t), blocked);
     return;
   }
-  lastEffectiveStatus = competitionRunning(
-    snapshot.competition, snapshot.state.status, Math.floor(Date.now() / 1000),
-  ) ? 'running' : snapshot.state.status;
+  lastTimeStateKey = effectiveTimeStateKey(
+    snapshot.competition, snapshot.state, Math.floor(Date.now() / 1000),
+  );
   const isAuthority = signer.pubkey === snapshot.competition.authority;
   if (isAuthority && !HOST_DESTINATIONS.has(hostDestination)) {
     const saved = history.state?.[HOST_HISTORY_KEY];
@@ -1763,8 +1763,9 @@ async function start() {
         ? `:${parsedIntent.intent.data?.prize_id || ''}` : '';
       const key = `${parsedIntent.pubkey}:${parsedIntent.intent.op}${prizeLane}`;
       const known = intents.get(key);
-      if (!known || parsedIntent.createdAt > known.createdAt
-        || (parsedIntent.createdAt === known.createdAt && parsedIntent.eventId > known.eventId)) {
+      if (!known || isNewerReplaceable(
+        parsedIntent.createdAt, parsedIntent.eventId, known.createdAt, known.eventId,
+      )) {
         intents.set(key, parsedIntent);
       }
       render();
@@ -1776,10 +1777,13 @@ async function start() {
   if (ticker) clearInterval(ticker);
   ticker = setInterval(() => {
     const snapshot = store?.snapshot();
+    const now = Math.floor(Date.now() / 1000);
     const effectiveStatus = snapshot?.state && competitionRunning(
-      snapshot.competition, snapshot.state.status, Math.floor(Date.now() / 1000),
+      snapshot.competition, snapshot.state.status, now,
     ) ? 'running' : snapshot?.state?.status || '';
-    if (effectiveStatus && effectiveStatus !== lastEffectiveStatus) {
+    const timeKey = snapshot?.state
+      ? effectiveTimeStateKey(snapshot.competition, snapshot.state, now) : '';
+    if (timeKey && timeKey !== lastTimeStateKey) {
       render();
       return;
     }

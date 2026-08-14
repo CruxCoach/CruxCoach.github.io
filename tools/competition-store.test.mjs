@@ -5,7 +5,9 @@ import fs from 'node:fs';
 import {
   CompetitionStore, LOG_PAGE_SIZE, boundedMissingSequence, logPageDTags,
 } from '../competitions/app/ui/store.mjs';
-import { buildIntentEvent, intentDTag } from '../competitions/app/protocol/competition.mjs';
+import {
+  buildCompetitionEvent, buildIntentEvent, intentDTag,
+} from '../competitions/app/protocol/competition.mjs';
 import {
   finalizeEvent, getPublicKey, hexToBytes,
 } from '../competitions/app/protocol/nostr-event.mjs';
@@ -93,6 +95,26 @@ test('a definition candidate is not actionable until every signed relay answers'
   assert.deepEqual(await store.loadCompetition(), { ok: false, error: 'unreachable' });
   assert.equal(store.snapshot().competition, null);
   assert.equal((await store.loadCompetition({ requireAllRelays: false })).ok, true);
+});
+
+test('equal-second definitions converge on the NIP-01 lower event id in either arrival order', async () => {
+  const secret = hexToBytes('41'.repeat(32));
+  const pubkey = getPublicKey(secret);
+  const at = 1789019000;
+  const events = await Promise.all(['Alpha revision', 'Beta revision'].map((title) =>
+    finalizeEvent(buildCompetitionEvent({ ...payload, title }, at), secret)));
+  const expected = [...events].sort((a, b) => a.id.localeCompare(b.id))[0];
+
+  for (const order of [events, [...events].reverse()]) {
+    const pool = new ClampedPool();
+    pool.query = async () => ({ events: order, complete: true, answered: 1, failed: 0 });
+    const store = new CompetitionStore({
+      pool, organizerPubkey: pubkey, compId: payload.comp_id, now: () => 1789020000,
+    });
+    assert.equal((await store.loadCompetition()).ok, true);
+    assert.equal(store.competitionEventId, expected.id);
+    assert.equal(store.competition.title, JSON.parse(expected.content).title);
+  }
 });
 
 test('stored history walks exact d-tag pages despite a twenty-event relay cap', async () => {
@@ -206,6 +228,16 @@ test('own replaceable intent is restored only from a complete exact d-tag query'
     data: { climb_id: competition.climb_pool.options[0].id },
     at: 1789005000,
   }), secret);
+  const competing = await finalizeEvent(buildIntentEvent({
+    compId: competition.comp_id,
+    organizerPubkey: participantFixture.competition_event.pubkey,
+    authority: competition.authority,
+    pubkey,
+    nonce,
+    op: 'climb_choice',
+    data: { climb_id: competition.climb_pool.options[1].id },
+    at: 1789005000,
+  }), secret);
   const queries = [];
   const pool = {
     urls: ['wss://one.invalid'], connectedUrls: ['wss://one.invalid'],
@@ -223,6 +255,13 @@ test('own replaceable intent is restored only from a complete exact d-tag query'
   assert.equal(restored.trustworthy, true);
   assert.equal(restored.intent.intent.data.climb_id, competition.climb_pool.options[0].id);
   assert.deepEqual(queries[0]['#d'], [intentDTag(competition.comp_id, pubkey, nonce)]);
+
+  const expected = [event, competing].sort((a, b) => a.id.localeCompare(b.id))[0];
+  for (const order of [[event, competing], [competing, event]]) {
+    pool.query = async () => ({ events: order, complete: true, answered: 1, failed: 0 });
+    const converged = await store.loadOwnIntent(pubkey, 'climb_choice', nonce);
+    assert.equal(converged.intent.eventId, expected.id);
+  }
 
   pool.query = async () => ({ events: [event], complete: true, answered: 1, failed: 1 });
   assert.deepEqual(await store.loadOwnIntent(pubkey, 'climb_choice', nonce), {

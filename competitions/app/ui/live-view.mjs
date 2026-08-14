@@ -62,6 +62,19 @@ export function rotationPreview(competition, state, participant, limit = 5) {
   return { entries, hidden: Math.max(0, ordered.length - entries.length) };
 }
 
+/** One truthful climb resolver shared by host, participant, and projector. */
+export function activeParticipantClimb(
+  competition, state, participant, choiceClimbId, remainingClimbs = [],
+) {
+  if (!competition || !state) return null;
+  if (competition.rules?.climb_source === 'organizer_set') {
+    return (competition.climbs || []).find((climb) => climb.id === state.current_climb_id) || null;
+  }
+  if (!participant || !choiceClimbId) return null;
+  // `remainingClimbs` excludes topped/dnf and attempts-exhausted choices.
+  return remainingClimbs.find((climb) => climb.id === choiceClimbId) || null;
+}
+
 export function personalCue(state, pubkey, running = state?.status === 'running') {
   if (!state || !pubkey) return { kind: 'spectator', ahead: null, index: -1 };
   const index = state.order.indexOf(pubkey);

@@ -10,8 +10,9 @@ import { finalizeEvent } from './protocol/nostr-event.mjs';
 import {
   buildCompetitionDeletionRequest, buildCompetitionEvent,
   buildCompetitionTombstoneEvent, buildIntentEvent, buildLogEvent,
-  buildResultsEvent, buildSnapshotEvent, configPatchImpact, newNonce, parseIntentEvent,
-} from './protocol/competition.mjs?v=20260814-6';
+  buildResultsEvent, buildSnapshotEvent, configPatchImpact, MAX_FUTURE_SKEW_SECONDS,
+  newNonce, parseIntentEvent,
+} from './protocol/competition.mjs?v=20260814-7';
 import { applyEntry, hashableState, reduce } from './protocol/reduce.mjs?v=20260814-5';
 import { ccj, ccjHash } from './protocol/ccj.mjs';
 
@@ -210,7 +211,9 @@ export class AuthorityWriter {
     }
     const definitionEventId = this.store.competitionEventId;
     if (!definitionEventId) throw new Error('The competition definition id is missing.');
-    const at = this.now();
+    const now = this.now();
+    const at = Math.max(now, (this.store.competitionCreatedAt || 0) + 1);
+    if (at > now + MAX_FUTURE_SKEW_SECONDS) throw new Error('The definition timestamp is too far ahead.');
     const tombstoneEvent = await this.signer.signEvent(buildCompetitionTombstoneEvent({
       compId: this.competition.comp_id,
       deletedAt: at,
@@ -449,6 +452,8 @@ export class EntrantWriter {
     this.now = now || (() => Math.floor(Date.now() / 1000));
     /** Reused per intent lane so a retry replaces rather than duplicates. */
     this.nonces = new Map();
+    this.createdAtFloors = new Map();
+    this.laneQueues = new Map();
     this.storage = storage === undefined ? globalThis.localStorage : storage;
   }
 
@@ -462,12 +467,17 @@ export class EntrantWriter {
    * nonce that changed would strand a payment already made.
    */
   nonceFor(scope) {
-    const key = `cruxcoach:comp:nonce:${this.signer.pubkey.slice(0, 8)}:${this.competition.comp_id}:${scope}`;
+    const key = this.storageKey(scope, 'nonce');
+    const legacyKey = this.legacyStorageKey(scope, 'nonce');
     if (this.nonces.has(scope)) return this.nonces.get(scope);
 
     let nonce = null;
     try {
-      nonce = this.storage?.getItem(key) || null;
+      nonce = this.storage?.getItem(key) || this.storage?.getItem(legacyKey) || null;
+      if (nonce && !this.storage?.getItem(key)) {
+        this.storage?.setItem(key, nonce);
+        this.storage?.removeItem(legacyKey);
+      }
     } catch {
       // Private mode, or storage disabled. In-memory is the fallback, and the
       // consequence is exactly the old behaviour rather than a failure.
@@ -482,7 +492,59 @@ export class EntrantWriter {
     return nonce;
   }
 
-  send(op, data, { expiration, nonceScope = op } = {}) {
+  storageKey(scope, field) {
+    return `cruxcoach:comp:${field}:${this.signer.pubkey}:${this.competition.comp_id}:${scope}`;
+  }
+
+  legacyStorageKey(scope, field) {
+    return `cruxcoach:comp:${field}:${this.signer.pubkey.slice(0, 8)}:${this.competition.comp_id}:${scope}`;
+  }
+
+  /** Seed the monotonic floor from a trusted exact relay restoration. */
+  observeIntent(scope, intent) {
+    if (!intent || !Number.isInteger(intent.createdAt)) return;
+    const prior = this.createdAtFloors.get(scope) || 0;
+    this.createdAtFloors.set(scope, Math.max(prior, intent.createdAt));
+  }
+
+  nextCreatedAt(scope) {
+    const now = this.now();
+    let prior = this.createdAtFloors.get(scope) || 0;
+    if (!prior) {
+      try {
+        const key = this.storageKey(scope, 'created-at');
+        const legacyKey = this.legacyStorageKey(scope, 'created-at');
+        const stored = this.storage?.getItem(key);
+        const legacy = stored == null ? this.storage?.getItem(legacyKey) : null;
+        prior = Number(stored ?? legacy ?? 0);
+        if (legacy != null) {
+          this.storage?.setItem(key, legacy);
+          this.storage?.removeItem(legacyKey);
+        }
+      } catch { /* private mode */ }
+    }
+    const next = Math.max(now, prior + 1);
+    if (next > now + MAX_FUTURE_SKEW_SECONDS) {
+      throw new Error('Too many replacements were created ahead of the clock.');
+    }
+    return next;
+  }
+
+  async send(op, data, { expiration, nonceScope = op } = {}) {
+    const prior = this.laneQueues.get(nonceScope) || Promise.resolve();
+    const pending = prior.catch(() => {}).then(() => this.sendSerial(
+      op, data, { expiration, nonceScope },
+    ));
+    this.laneQueues.set(nonceScope, pending);
+    try {
+      return await pending;
+    } finally {
+      if (this.laneQueues.get(nonceScope) === pending) this.laneQueues.delete(nonceScope);
+    }
+  }
+
+  async sendSerial(op, data, { expiration, nonceScope }) {
+    const createdAt = this.nextCreatedAt(nonceScope);
     const draft = buildIntentEvent({
       compId: this.competition.comp_id,
       organizerPubkey: this.organizerPubkey,
@@ -491,10 +553,13 @@ export class EntrantWriter {
       nonce: this.nonceFor(nonceScope),
       op,
       data,
-      at: this.now(),
+      at: createdAt,
       expiration,
     });
-    return signAndPublish(this.pool, this.signer, draft);
+    const published = await signAndPublish(this.pool, this.signer, draft);
+    this.createdAtFloors.set(nonceScope, createdAt);
+    try { this.storage?.setItem(this.storageKey(nonceScope, 'created-at'), String(createdAt)); } catch { /* private mode */ }
+    return published;
   }
 
   register({ division, display, waiverAccepted, selections: _legacySelections }) {

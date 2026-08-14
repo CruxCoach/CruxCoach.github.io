@@ -151,8 +151,8 @@ test('live host, participant and projection surfaces keep state-specific action 
     'a final projection must not keep presenting an active queue or rotation');
   assert.match(live, /competitionRunning\(snapshot\.competition, snapshot\.state\.status, now\)/,
     'the projection must derive running state from its scheduled window');
-  assert.match(live, /status !== lastEffectiveStatus[\s\S]*render\(\)/,
-    'the projection must cross scheduled phase boundaries without a relay event');
+  assert.match(live, /timeKey !== lastTimeStateKey[\s\S]*render\(\)/,
+    'the projection must cross every scheduled phase boundary without a relay event');
   assert.match(organizer, /effectiveStatus === 'running'[\s\S]*secondsToDeadline/,
     'the host countdown must tick for an automatically started competition');
 });
@@ -604,6 +604,16 @@ test('untrusted relay hints are discovery-only and signed competition relays are
     resolved = resolveRelays(['wss://organiser.example.invalid']);
     assert.deepEqual(resolved, ['wss://organiser.example.invalid']);
     assert.equal(resolved.includes('wss://relay.damus.io'), false);
+
+    const crowded = resolveDiscoveryRelays([
+      'wss://hint-1.example', 'wss://hint-1.example', 'not a relay',
+      ...Array.from({ length: 8 }, (_, index) => `wss://hint-${index + 2}.example`),
+    ]);
+    assert.equal(crowded.length, 8);
+    assert.deepEqual(crowded.slice(0, 3), [
+      'wss://hint-1.example', 'wss://hint-2.example', 'wss://hint-3.example',
+    ]);
+    assert.ok(crowded.includes('wss://relay.damus.io'));
   } finally {
     globalThis.location = originalLocation;
     globalThis.sessionStorage = originalSession;

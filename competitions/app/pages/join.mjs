@@ -19,14 +19,17 @@ import { buildZapRequest } from '../protocol/zap.mjs';
 import { buildClaimBody, validateClaimInput, eligibleWinner } from '../protocol/prize.mjs';
 import {
   checkinWindowOpen, competitionAddress, competitionRunning, registrationWindowOpen,
-} from '../protocol/competition.mjs?v=20260814-6';
+  effectiveTimeStateKey, isNewerReplaceable, parseIntentEvent,
+} from '../protocol/competition.mjs?v=20260814-7';
 import { EntrantWriter } from '../authority.mjs?v=20260814-8';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-14';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-15';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
-import { personalCue, queuePreview, rotationPreview, syncHealth, turnEstimate } from '../ui/live-view.mjs?v=20260814-2';
+import {
+  activeParticipantClimb, personalCue, queuePreview, rotationPreview, syncHealth, turnEstimate,
+} from '../ui/live-view.mjs?v=20260814-3';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-2';
 import {
   BOARD_TYPES, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
@@ -44,6 +47,7 @@ let signer = null;
 let ref = null;
 let lastTurnAnnouncement = null;
 let lastParticipantScreen = '';
+let lastTimeStateKey = '';
 let ticker = null;
 let catalogueDetails = new Map();
 let catalogueState = 'idle';
@@ -52,6 +56,7 @@ let catalogueCompetition = '';
 let lastHealthKind = '';
 let preparedChoiceTrust = 'idle';
 let preparedChoiceToken = 0;
+const relayChoices = new Map();
 const preparedClimbs = new Map();
 const PARTICIPANT_DESTINATIONS = new Set(['registration', 'checkin', 'live', 'chooser', 'leaderboard']);
 const PARTICIPANT_HISTORY_KEY = 'cruxcoachCompetitionParticipantDestination';
@@ -271,6 +276,7 @@ async function restorePreparedChoice() {
   if (!restored.trustworthy) {
     preparedChoiceTrust = 'untrusted';
   } else {
+    entrant.observeIntent('climb_choice', restored.intent);
     const climbId = restored.intent?.intent.data?.climb_id;
     if (climbId) preparedClimbs.set(key, climbId); else preparedClimbs.delete(key);
     preparedChoiceTrust = 'ready';
@@ -901,9 +907,16 @@ function livePanel(snapshot) {
   const queue = queuePreview(state, state.participants, 6);
   const rotation = rotationPreview(snapshot.competition, state, mine, 4);
   const preparedId = mine ? preparedClimbs.get(`${snapshot.competition.comp_id}:${mine.pubkey}`) : '';
-  const activeClimb = snapshot.competition.rules.climb_source === 'participant_choice'
-    ? (snapshot.competition.climb_pool?.options || []).find((climb) => climb.id === preparedId)
-    : (snapshot.competition.climbs || []).find((climb) => climb.id === state.current_climb_id);
+  const currentChoiceId = current
+    ? (current === mine?.pubkey && preparedId
+      ? preparedId : relayChoices.get(current)?.intent.data?.climb_id) : '';
+  const activeClimb = activeParticipantClimb(
+    snapshot.competition, state, mine, preparedId, mine ? store.remainingClimbs(mine.pubkey) : [],
+  );
+  const currentClimb = activeParticipantClimb(
+    snapshot.competition, state, currentParticipant, currentChoiceId,
+    current ? store.remainingClimbs(current) : [],
+  );
   const cueKey = `live.cue.${cue.kind}`;
   const cueText = ['queued', 'next_round'].includes(cue.kind) ? t(cueKey, { n: cue.ahead }) : t(cueKey);
   const terminal = ['finished', 'cancelled'].includes(state.status);
@@ -941,7 +954,9 @@ function livePanel(snapshot) {
         el('dt', { text: t('live.current') }),
         el('dd', { text: currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
         el('dt', { text: t('live.current_climb') }),
-        el('dd', { text: climbLabel(snapshot, state.current_climb_id) }),
+        el('dd', { text: currentClimb?.label
+          || (snapshot.competition.rules.climb_source === 'participant_choice'
+            ? t('live.no_next_climb') : climbLabel(snapshot, state.current_climb_id)) }),
         el('dt', { text: t('live.next') }),
         el('dd', { text: nextParticipant ? displayName(nextParticipant) : '—' }),
       ]),
@@ -1428,6 +1443,9 @@ function render() {
   }
 
   const screen = participantScreen(snapshot);
+  lastTimeStateKey = effectiveTimeStateKey(
+    snapshot.competition, snapshot.state, Math.floor(Date.now() / 1000),
+  );
   const available = participantDestinations(snapshot);
   const followedPreviousPhase = !participantDestination || participantDestination === lastParticipantScreen;
   if (!available.has(participantDestination) ||
@@ -1514,7 +1532,19 @@ async function start() {
     && PARTICIPANT_DESTINATIONS.has(savedDestination.destination)
     ? savedDestination.destination : '';
   lastParticipantScreen = '';
+  lastTimeStateKey = '';
   store.onChange(render);
+  relayChoices.clear();
+  await store.followIntents((event) => {
+    const parsedIntent = parseIntentEvent(
+      event, store.competition, store.organizerPubkey, Math.floor(Date.now() / 1000),
+    );
+    if (!parsedIntent.ok || parsedIntent.intent.op !== 'climb_choice') return;
+    const known = relayChoices.get(parsedIntent.pubkey);
+    if (!known || isNewerReplaceable(
+      parsedIntent.createdAt, parsedIntent.eventId, known.createdAt, known.eventId,
+    )) relayChoices.set(parsedIntent.pubkey, parsedIntent);
+  });
   if (signer) {
     entrant = new EntrantWriter({
       pool, signer, competition: store.competition, organizerPubkey: store.organizerPubkey,
@@ -1530,7 +1560,11 @@ async function start() {
   if (ticker) clearInterval(ticker);
   ticker = setInterval(() => {
     const snapshot = store?.snapshot();
-    if (snapshot?.state && participantScreen(snapshot) !== lastParticipantScreen) {
+    const timeKey = snapshot?.state ? effectiveTimeStateKey(
+      snapshot.competition, snapshot.state, Math.floor(Date.now() / 1000),
+    ) : '';
+    if (snapshot?.state && (participantScreen(snapshot) !== lastParticipantScreen
+      || timeKey !== lastTimeStateKey)) {
       render();
       return;
     }

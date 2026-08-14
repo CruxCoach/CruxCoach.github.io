@@ -160,6 +160,20 @@ test('the climb list keeps the community address when there is one', () => {
   assert.equal(climbs[0].naddr, 'naddr1example');
 });
 
+test('editing preserves stable ids and unknown metadata across reorder and addition', () => {
+  const second = 'b6d0428e-1f75-4c93-a208-7e35d1b49c60';
+  const third = 'c8f24b06-3a91-4e57-b0d4-9c6153e8a2f7';
+  const { climbs, errors } = buildClimbList([
+    { id: 'final', raw: { id: 'final', custom: { cell: 'B' } }, uuid: second, label: 'Final', angle: 45 },
+    { id: 'qual', raw: { id: 'qual', future_flag: true }, uuid: REAL, label: 'Qual', angle: 40 },
+    { uuid: third, label: 'New', angle: 40 },
+  ]);
+  assert.deepEqual(errors, []);
+  assert.deepEqual(climbs.map((climb) => climb.id), ['final', 'qual', 'c1']);
+  assert.deepEqual(climbs[0].custom, { cell: 'B' });
+  assert.equal(climbs[1].future_flag, true);
+});
+
 test('a community climb is fetched by its own address, not by a search', () => {
   const filter = climbEventFilter({
     setterPubkey: SETTER, dTag: `cruxcoach:climb:${SETTER.slice(0, 8)}:${REAL}`,

@@ -118,3 +118,29 @@ test('duplicate EOSE from one relay cannot complete a query while another is sil
   assert.deepEqual(await query, { events: [], complete: true, answered: 2, failed: 0 });
   pool.close();
 });
+
+test('a reconnect invalidates an earlier EOSE instead of carrying stale proof forward', async () => {
+  const urls = ['wss://one.example', 'wss://two.example'];
+  const pool = new RelayPool(urls, { WebSocketImpl: FakeWebSocket });
+  const query = pool.query([{ kinds: [30078] }], { timeoutMs: 1000 });
+  const [one, two] = FakeWebSocket.instances;
+  one.open();
+  two.open();
+  await tick();
+  const subId = reqs(one)[0][1];
+  one.message(['EOSE', subId]);
+  one.close();
+
+  const reconnecting = pool._ensure(urls[0]);
+  const replacement = FakeWebSocket.instances[2];
+  replacement.open();
+  await reconnecting;
+  two.message(['EOSE', subId]);
+
+  assert.deepEqual(
+    await query,
+    { events: [], complete: true, answered: 1, failed: 1 },
+    'the strict caller sees the lost relay, rather than two stale answers',
+  );
+  pool.close();
+});

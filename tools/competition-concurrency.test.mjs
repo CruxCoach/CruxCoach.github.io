@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import {
-  createLatestRun, mapConcurrent, mergeProgressive,
+  createCoalescedRunner, createLatestRun, mapConcurrent, mergeProgressive,
 } from '../competitions/app/ui/concurrency.mjs';
 
 test('one slow competition does not withhold faster organizer rows', async () => {
@@ -33,6 +33,51 @@ test('organizer summary concurrency is bounded', async () => {
     return value;
   }, { limit: 4 });
   assert.equal(peak, 4);
+});
+
+test('rapid organizer refreshes share one global four-worker ceiling and one rerun', async () => {
+  let active = 0;
+  let peak = 0;
+  let passes = 0;
+  let releaseFirst;
+  const firstGate = new Promise((resolve) => { releaseFirst = resolve; });
+  const refresh = createCoalescedRunner(async () => {
+    passes += 1;
+    if (passes === 1) await firstGate;
+    await mapConcurrent(Array.from({ length: 12 }, (_, index) => index), async () => {
+      active += 1;
+      peak = Math.max(peak, active);
+      await new Promise((resolve) => setImmediate(resolve));
+      active -= 1;
+    }, { limit: 4 });
+  });
+
+  const first = refresh('initial');
+  const repeated = Array.from({ length: 20 }, () => refresh('latest'));
+  releaseFirst();
+  await Promise.all([first, ...repeated]);
+  assert.equal(passes, 2);
+  assert.equal(peak, 4);
+});
+
+test('coalescing never downgrades a pending forced organizer refresh', async () => {
+  for (const pending of [[true, false], [false, true]]) {
+    const seen = [];
+    let releaseFirst;
+    const firstGate = new Promise((resolve) => { releaseFirst = resolve; });
+    const refresh = createCoalescedRunner(async (force) => {
+      seen.push(force);
+      if (seen.length === 1) await firstGate;
+    }, {
+      mergeArgs: ([left = false], [right = false]) => [left || right],
+    });
+    const first = refresh(false);
+    const second = refresh(pending[0]);
+    const third = refresh(pending[1]);
+    releaseFirst();
+    await Promise.all([first, second, third]);
+    assert.deepEqual(seen, [false, true]);
+  }
 });
 
 test('obsolete organizer loads cannot overwrite a newer refresh', () => {

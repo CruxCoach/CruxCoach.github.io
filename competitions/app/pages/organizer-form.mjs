@@ -15,7 +15,7 @@ import { el, replace } from '../ui/dom.mjs';
 import {
   buildClimbList, checkBoardCompatibility, climbEventFilter, describeClimbEvent, normalizeUuid, parseClimbRef,
 } from '../protocol/climb-ref.mjs';
-import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs?v=20260814-6';
+import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs?v=20260814-7';
 import { naddrEncode, verifyEvent } from '../protocol/nostr-event.mjs';
 import {
   BOARD_TYPES, boardType, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
@@ -190,6 +190,8 @@ export function competitionToFormDraft(competition) {
   // entries directly to restore() drops every row because it expects `uuid`,
   // not `climb_uuid`.
   const climbs = competitionClimbs.map((climb) => ({
+    id: climb.id,
+    raw: { ...climb },
     uuid: climb.climb_uuid,
     label: climb.label,
     angle: climb.angle,
@@ -351,6 +353,8 @@ class ClimbEditor {
 
   entries() {
     return this.rows.map((row) => ({
+      id: row.id,
+      raw: row.raw,
       uuid: row.uuid,
       label: row.labelInput.value.trim(),
       angle: Number(row.angleInput.value),
@@ -372,7 +376,9 @@ class ClimbEditor {
       const uuid = normalizeUuid(entry?.uuid);
       if (!uuid || this.rows.some((row) => row.uuid === uuid)) continue;
       const kind = entry.kind === 'community' ? 'community' : 'catalogue';
-      const row = this.buildRow({ uuid, kind, naddr: entry.naddr }, null, null);
+      const row = this.buildRow({
+        uuid, kind, naddr: entry.naddr, id: entry.id, raw: entry.raw,
+      }, null, null);
       row.labelInput.value = String(entry.label || '').slice(0, 60);
       row.angleInput.value = String(Number.isFinite(Number(entry.angle)) ? Number(entry.angle) : 40);
       row.pointsInput.value = String(Number.isFinite(Number(entry.points)) ? Number(entry.points) : 100);
@@ -409,7 +415,7 @@ class ClimbEditor {
       const compatibility = checkBoardCompatibility(described, this.boardOf());
       if (!compatibility.compatible) return row;
       const hydrated = this.buildRow({
-        uuid: row.uuid, kind: row.kind, naddr: row.naddr,
+        uuid: row.uuid, kind: row.kind, naddr: row.naddr, id: row.id, raw: row.raw,
       }, described, compatibility);
       hydrated.labelInput.value = values.label || described.label || '';
       hydrated.angleInput.value = values.angle;
@@ -557,6 +563,8 @@ class ClimbEditor {
     ], '');
     zoneInput.removeAttribute('required');
     return {
+      id: ref.id,
+      raw: ref.raw,
       uuid: ref.uuid,
       kind: ref.kind,
       naddr: ref.naddr,

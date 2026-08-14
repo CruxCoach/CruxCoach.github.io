@@ -13,7 +13,7 @@ import { ccj, ccjHash, sha256Hex } from '../competitions/app/protocol/ccj.mjs';
 import {
   buildCompetitionDeletionRequest, buildCompetitionEvent,
   buildCompetitionTombstoneEvent, buildIntentEvent, classifyEvent, compDTag, intentDTag,
-  checkinWindowOpen, logDTag, parseCompetitionEvent, parseDTag, parseIntentEvent,
+  checkinWindowOpen, effectiveTimeStateKey, logDTag, parseCompetitionEvent, parseDTag, parseIntentEvent,
   registrationWindowOpen, validateCompetitionConfig, KIND,
 } from '../competitions/app/protocol/competition.mjs';
 
@@ -266,6 +266,30 @@ test('registration check-in and running windows may overlap without manual activ
   assert.equal(checkinWindowOpen(late, 'running', late.checkin_closes_at + 1), false);
   assert.equal(registrationWindowOpen(late, 'published', late.registration_opens_at - 1), false);
   assert.equal(checkinWindowOpen(late, 'published', late.checkin_opens_at - 1), false);
+});
+
+test('effective time-state key changes at every inclusive UI boundary', () => {
+  const competition = validConfig();
+  const state = { status: 'published', turn_opened_at: competition.starts_at, turn_deadline_at: competition.starts_at + 5 };
+  const points = [
+    competition.registration_opens_at - 1,
+    competition.registration_opens_at,
+    competition.checkin_opens_at,
+    competition.starts_at,
+    competition.starts_at + 5,
+    competition.registration_closes_at + 1,
+    competition.checkin_closes_at + 1,
+    competition.ends_at + 1,
+  ];
+  const keys = points.map((at) => effectiveTimeStateKey(competition, state, at));
+  assert.equal(new Set(keys).size, keys.length);
+  assert.notEqual(
+    effectiveTimeStateKey(competition, state, competition.starts_at),
+    effectiveTimeStateKey(competition, { ...state, status: 'paused' }, competition.starts_at),
+  );
+  assert.match(effectiveTimeStateKey(
+    competition, { ...state, status: 'cancelled' }, competition.starts_at,
+  ), /^cancelled:0:0:0:/);
 });
 
 test('validation names the field that is wrong', () => {

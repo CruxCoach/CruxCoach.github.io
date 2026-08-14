@@ -24,6 +24,12 @@ export const MAX_FUTURE_SKEW_SECONDS = 3600;
 /** FEAT-058 §16.2 — half the tightest observed relay frame limit. */
 export const MAX_EVENT_BYTES = 65536;
 
+/** NIP-01 replaceable ordering: later timestamp, then lexicographically lower id. */
+export function isNewerReplaceable(candidateCreatedAt, candidateId, currentCreatedAt, currentId) {
+  return candidateCreatedAt > currentCreatedAt
+    || (candidateCreatedAt === currentCreatedAt && candidateId < currentId);
+}
+
 export const DOC_TYPES = ['competition', 'log', 'snapshot', 'results', 'intent'];
 
 export const LIFECYCLE = [
@@ -121,6 +127,19 @@ export function checkinWindowOpen(competition, status, at) {
 export function competitionRunning(competition, status, at) {
   if (!Number.isInteger(at) || ['paused', 'finished', 'cancelled'].includes(status)) return false;
   return at >= competition.starts_at && at <= competition.ends_at;
+}
+
+/** Every wall-clock boundary that can change a competition screen without an event. */
+export function effectiveTimeStateKey(competition, state, at) {
+  if (!competition || !state || !Number.isInteger(at)) return '';
+  return [
+    state.status,
+    registrationWindowOpen(competition, state.status, at) ? 1 : 0,
+    checkinWindowOpen(competition, state.status, at) ? 1 : 0,
+    competitionRunning(competition, state.status, at) ? 1 : 0,
+    Number.isInteger(state.turn_opened_at) && at >= state.turn_opened_at ? 1 : 0,
+    Number.isInteger(state.turn_deadline_at) && at >= state.turn_deadline_at ? 1 : 0,
+  ].join(':');
 }
 
 /** `reason` is mandatory on these; an audit trail without a why is just a log. */

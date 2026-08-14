@@ -816,6 +816,8 @@ test('an intent keeps its nonce across a reload, so asking again replaces rather
     now,
     storage,
   });
+  const legacyNonceKey = `cruxcoach:comp:nonce:${alice.pubkey.slice(0, 8)}:${compId}:register`;
+  backing.set(legacyNonceKey, 'deadbeef');
 
   const intents = [];
   try {
@@ -830,6 +832,9 @@ test('an intent keeps its nonce across a reload, so asking again replaces rather
     });
 
     const first = makeEntrant();
+    assert.equal(first.nonceFor('register'), 'deadbeef');
+    assert.equal(backing.has(legacyNonceKey), false, 'legacy short-pubkey storage is migrated once');
+    assert.equal(backing.get(first.storageKey('register', 'nonce')), 'deadbeef');
     await first.register({ division: 'open', display: 'Alice', waiverAccepted: true });
     await until({ state: { seq: 0 } }, () => intents.length === 1, 'the first request');
     const nonce = intents[0].intent.nonce;
@@ -852,6 +857,38 @@ test('an intent keeps its nonce across a reload, so asking again replaces rather
     assert.equal(intents[1].intent.nonce, nonce);
     assert.equal(intents[1].eventId !== intents[0].eventId, true, 'a new event, replacing the old');
 
+    // A second action in the same wall-clock second must still replace the
+    // first under NIP-01; random event-id ordering cannot express user intent.
+    const immediate = makeEntrant();
+    await immediate.register({ division: 'open', display: 'Alice final', waiverAccepted: true });
+    await until({ state: { seq: 0 } }, () => intents.length === 3, 'the immediate replacement');
+    assert.equal(intents[2].createdAt, intents[1].createdAt + 1);
+    assert.equal(intents[2].intent.nonce, nonce);
+
+    // Double taps are serialized per addressable lane, so both cannot reserve
+    // the same second and leave relay event-id ordering to decide the winner.
+    const concurrent = makeEntrant();
+    await Promise.all([
+      concurrent.register({ division: 'open', display: 'Alice tap one', waiverAccepted: true }),
+      concurrent.register({ division: 'open', display: 'Alice tap two', waiverAccepted: true }),
+    ]);
+    await until({ state: { seq: 0 } }, () => intents.length === 5, 'both serialized replacements');
+    assert.equal(intents[3].createdAt + 1, intents[4].createdAt);
+
+    const collidingPrefix = `${alice.pubkey.slice(0, 8)}${alice.pubkey.slice(8).replace(/^./, alice.pubkey[8] === '0' ? '1' : '0')}`;
+    const otherIdentity = new EntrantWriter({
+      pool: side.pool,
+      signer: { pubkey: collidingPrefix },
+      competition: side.store.competition,
+      organizerPubkey: organizer.pubkey,
+      now,
+      storage,
+    });
+    assert.notEqual(
+      concurrent.storageKey('register', 'nonce'), otherIdentity.storageKey('register', 'nonce'),
+      'two identities sharing the old 32-bit prefix must have separate local lanes',
+    );
+
     // One live request on the relay, not two: the d-tag is the same, so the
     // addressable-replacement rule did the deduplication.
     const live = await side.pool.query([{
@@ -863,6 +900,7 @@ test('an intent keeps its nonce across a reload, so asking again replaces rather
       (event) => (event.tags.find((t) => t[0] === 'op') || [])[1] === 'register',
     );
     assert.equal(registrations.length, 1, 'a reload must not leave two live registrations');
+    assert.equal(registrations[0].id, intents[4].eventId, 'the final double tap must be the retained one');
 
     // Without storage the old behaviour returns, and that is the documented
     // fallback for private browsing rather than a failure.

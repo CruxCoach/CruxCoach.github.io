@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import {
-  deferAvailability, personalCue, queuePreview, rotationPreview, syncHealth, tiedAt, turnEstimate,
+  activeParticipantClimb, deferAvailability, personalCue, queuePreview, rotationPreview,
+  syncHealth, tiedAt, turnEstimate,
 } from '../competitions/app/ui/live-view.mjs';
 
 const participants = ['a', 'b', 'c', 'd', 'e'].map((pubkey) => ({
@@ -26,6 +27,25 @@ const competition = {
     { id: 'three', label: 'Boulder 3', angle: 40 },
   ],
 };
+
+test('one resolver refuses participant-choice fallbacks and exhausted choices', () => {
+  assert.equal(activeParticipantClimb(competition, running, participants[1], '', []), competition.climbs[0]);
+  const participantChoice = {
+    ...competition,
+    rules: { ...competition.rules, climb_source: 'participant_choice' },
+    climbs: [],
+    climb_pool: { options: competition.climbs },
+  };
+  assert.equal(activeParticipantClimb(
+    participantChoice, running, participants[1], 'two', [competition.climbs[1]],
+  ), competition.climbs[1]);
+  assert.equal(activeParticipantClimb(
+    participantChoice, running, participants[1], '', [competition.climbs[0]],
+  ), null, 'missing intent cannot fall back to the pool or global current climb');
+  assert.equal(activeParticipantClimb(
+    participantChoice, running, participants[1], 'two', [],
+  ), null, 'a topped or attempts-exhausted choice is no longer active');
+});
 
 test('personal cues cover lifecycle and every queue relation without local state', () => {
   assert.deepEqual(personalCue({ ...running, status: 'draft' }, 'b').kind, 'waiting');

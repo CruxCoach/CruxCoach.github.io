@@ -98,6 +98,12 @@ export class RelayPool {
       const drop = () => {
         if (connection.socket !== socket) return;
         clearTimeout(settleTimer);
+        for (const sub of this.subscriptions.values()) {
+          if (sub.armed.get(url) !== connection.generation) continue;
+          sub.armed.delete(url);
+          sub.eosed.delete(url);
+          sub.onReset(url, connection.generation);
+        }
         connection.ready = null;
         connection.socket = null;
         // Fail in-flight publishes for this relay immediately rather than
@@ -243,7 +249,7 @@ export class RelayPool {
   /**
    * Open a live subscription. Returns a handle whose `close()` is idempotent.
    */
-  subscribe(filters, { onEvent, onEose = () => {} } = {}) {
+  subscribe(filters, { onEvent, onEose = () => {}, onReset = () => {} } = {}) {
     const subId = nextSubId();
     // `eosed` is relays that genuinely reported end-of-stored-events; `failed`
     // is relays that never connected. Conflating the two is how "no relay
@@ -251,7 +257,8 @@ export class RelayPool {
     // is nothing there" — and for a profile lookup, that difference decides
     // whether someone is invited to overwrite a profile they already have.
     const sub = {
-      filters, onEvent, onEose, seen: new Set(), eosed: new Set(), failed: new Set(), armed: new Map(),
+      filters, onEvent, onEose, onReset,
+      seen: new Set(), eosed: new Set(), failed: new Set(), armed: new Map(),
     };
     this.subscriptions.set(subId, sub);
 
@@ -337,6 +344,11 @@ export class RelayPool {
             failedUrls.delete(url);
             answeredUrls.add(url);
           }
+          if (answeredUrls.size + failedUrls.size >= this.urls.length) finish(false);
+        },
+        onReset: (url) => {
+          answeredUrls.delete(url);
+          failedUrls.add(url);
           if (answeredUrls.size + failedUrls.size >= this.urls.length) finish(false);
         },
       });

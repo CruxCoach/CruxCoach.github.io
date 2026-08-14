@@ -187,8 +187,18 @@ export function checkBoardCompatibility(climb, board) {
  */
 export function buildClimbList(entries) {
   const seen = new Set();
+  const usedIds = new Set();
+  const reservedIds = new Set(entries.map((entry) => entry?.id)
+    .filter((id) => typeof id === 'string' && /^[a-z0-9][a-z0-9_-]{0,31}$/.test(id)));
   const climbs = [];
   const errors = [];
+  const allocateId = () => {
+    let number = 1;
+    while (usedIds.has(`c${number}`) || reservedIds.has(`c${number}`)) number += 1;
+    const id = `c${number}`;
+    usedIds.add(id);
+    return id;
+  };
   entries.forEach((entry, index) => {
     const uuid = normalizeUuid(entry.uuid);
     if (!uuid) { errors.push({ index, error: 'not_a_climb' }); return; }
@@ -198,8 +208,18 @@ export function buildClimbList(entries) {
     const label = (entry.label || '').trim();
     if (!label) { errors.push({ index, error: 'no_label' }); return; }
     if (!Number.isInteger(entry.angle)) { errors.push({ index, error: 'no_angle' }); return; }
+    const requestedId = typeof entry.id === 'string' && /^[a-z0-9][a-z0-9_-]{0,31}$/.test(entry.id)
+      ? entry.id : null;
+    if (requestedId && usedIds.has(requestedId)) {
+      errors.push({ index, error: 'duplicate' }); return;
+    }
+    const id = requestedId || allocateId();
+    if (requestedId) usedIds.add(requestedId);
+    const raw = entry.raw && typeof entry.raw === 'object' && !Array.isArray(entry.raw)
+      ? entry.raw : {};
     climbs.push({
-      id: `c${climbs.length + 1}`,
+      ...raw,
+      id,
       climb_uuid: uuid,
       angle: entry.angle,
       label: label.slice(0, 60),

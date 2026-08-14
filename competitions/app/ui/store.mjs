@@ -11,8 +11,8 @@
 import { verifyEvent } from '../protocol/nostr-event.mjs';
 import {
   INTENT_OPS, KIND, NAMESPACE, competitionAddress, competitionRunning, compDTag,
-  intentDTag, logDTag, parseCompetitionEvent, parseIntentEvent, parseLogEvent,
-} from '../protocol/competition.mjs?v=20260814-6';
+  intentDTag, isNewerReplaceable, logDTag, parseCompetitionEvent, parseIntentEvent, parseLogEvent,
+} from '../protocol/competition.mjs?v=20260814-7';
 import { hashableState, reduce } from '../protocol/reduce.mjs?v=20260814-5';
 import { computeStandings } from '../protocol/scoring.mjs?v=20260813-1';
 import { ccjHash } from '../protocol/ccj.mjs';
@@ -54,6 +54,7 @@ export class CompetitionStore {
     /** Immutable signed chain root; `competition` is the effective live config. */
     this.definitionCompetition = null;
     this.competitionEventId = null;
+    this.competitionCreatedAt = 0;
     /** @type {Map<string, {entry: object, eventId: string, createdAt: number}>} */
     this.entries = new Map();
     this.state = null;
@@ -151,7 +152,9 @@ export class CompetitionStore {
     }
     // Newest wins, never first-answer: a relay that missed the last edit still
     // answers, and answering first does not make it current.
-    const newest = events.reduce((best, e) => (e.created_at > best.created_at ? e : best));
+    const newest = events.reduce((best, event) => (
+      isNewerReplaceable(event.created_at, event.id, best.created_at, best.id) ? event : best
+    ));
     if (!(await verifyEvent(newest).catch(() => false))) return { ok: false, error: 'invalid_signature' };
 
     const parsed = parseCompetitionEvent(newest, this.now());
@@ -161,6 +164,7 @@ export class CompetitionStore {
     this.definitionCompetition = parsed.competition;
     this.competition = parsed.competition;
     this.competitionEventId = newest.id;
+    this.competitionCreatedAt = newest.created_at;
     this.lastSyncedAt = this.now();
     await this.recompute();
     return { ok: true, competition: parsed.competition };
@@ -413,7 +417,7 @@ export class CompetitionStore {
       if (parsed.ok && parsed.pubkey === pubkey && parsed.intent.op === op
         && parsed.intent.nonce === nonce) valid.push(parsed);
     }
-    valid.sort((a, b) => b.createdAt - a.createdAt || b.eventId.localeCompare(a.eventId));
+    valid.sort((a, b) => b.createdAt - a.createdAt || a.eventId.localeCompare(b.eventId));
     return { trustworthy: true, intent: valid[0] || null };
   }
 

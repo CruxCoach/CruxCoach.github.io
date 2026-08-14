@@ -33,6 +33,30 @@ export function createLatestRun() {
   };
 }
 
+/** One active task plus at most one merged-arguments rerun. */
+export function createCoalescedRunner(task, {
+  mergeArgs = (_pending, latest) => latest,
+} = {}) {
+  let active = null;
+  let pendingArgs = null;
+  return (...args) => {
+    if (active) {
+      pendingArgs = pendingArgs ? mergeArgs(pendingArgs, args) : args;
+      return active;
+    }
+    active = (async () => {
+      let passArgs = args;
+      while (passArgs) {
+        // eslint-disable-next-line no-await-in-loop
+        await task(...passArgs);
+        passArgs = pendingArgs;
+        pendingArgs = null;
+      }
+    })().finally(() => { active = null; });
+    return active;
+  };
+}
+
 /** Replace one progressively refreshed row without hiding untouched old rows. */
 export function mergeProgressive(values, value, key) {
   const wanted = key(value);
