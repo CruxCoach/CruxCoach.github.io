@@ -5,6 +5,10 @@ import fs from 'node:fs';
 import {
   CompetitionStore, LOG_PAGE_SIZE, boundedMissingSequence, logPageDTags,
 } from '../competitions/app/ui/store.mjs';
+import { buildIntentEvent, intentDTag } from '../competitions/app/protocol/competition.mjs';
+import {
+  finalizeEvent, getPublicKey, hexToBytes,
+} from '../competitions/app/protocol/nostr-event.mjs';
 
 const fixture = JSON.parse(fs.readFileSync(
   new URL('../competitions/fixtures/streams/authority-operations.json', import.meta.url),
@@ -12,6 +16,10 @@ const fixture = JSON.parse(fs.readFileSync(
 ));
 const payload = JSON.parse(fixture.competition_event.content);
 const definitionDTag = fixture.competition_event.tags.find((tag) => tag[0] === 'd')[1];
+const participantFixture = JSON.parse(fs.readFileSync(
+  new URL('../competitions/fixtures/streams/paid-unique-async.json', import.meta.url),
+  'utf8',
+));
 
 class ClampedPool {
   constructor({ incomplete = false, failed = 0 } = {}) {
@@ -70,6 +78,45 @@ test('stored history walks exact d-tag pages despite a twenty-event relay cap', 
   assert.deepEqual(pool.logQueries[0]['#d'], logPageDTags(payload.comp_id, 1));
   assert.deepEqual(pool.logQueries[1]['#d'], logPageDTags(payload.comp_id, 21));
   assert.equal(pool.logQueries.every((filter) => filter.limit === 100), true);
+});
+
+test('own replaceable intent is restored only from a complete exact d-tag query', async () => {
+  const competition = JSON.parse(participantFixture.competition_event.content);
+  const secret = hexToBytes('31'.repeat(32));
+  const pubkey = getPublicKey(secret);
+  const nonce = 'a1b2c3d4';
+  const event = await finalizeEvent(buildIntentEvent({
+    compId: competition.comp_id,
+    organizerPubkey: participantFixture.competition_event.pubkey,
+    authority: competition.authority,
+    pubkey,
+    nonce,
+    op: 'climb_choice',
+    data: { climb_id: competition.climb_pool.options[0].id },
+    at: 1789005000,
+  }), secret);
+  const queries = [];
+  const pool = {
+    urls: ['wss://one.invalid'], connectedUrls: ['wss://one.invalid'],
+    async query(filters) {
+      queries.push(filters[0]);
+      return { events: [event], complete: true, answered: 1, failed: 0 };
+    },
+  };
+  const store = new CompetitionStore({
+    pool, organizerPubkey: participantFixture.competition_event.pubkey,
+    compId: competition.comp_id, now: () => 1789006000,
+  });
+  store.competition = competition;
+  const restored = await store.loadOwnIntent(pubkey, 'climb_choice', nonce);
+  assert.equal(restored.trustworthy, true);
+  assert.equal(restored.intent.intent.data.climb_id, competition.climb_pool.options[0].id);
+  assert.deepEqual(queries[0]['#d'], [intentDTag(competition.comp_id, pubkey, nonce)]);
+
+  pool.query = async () => ({ events: [event], complete: true, answered: 1, failed: 1 });
+  assert.deepEqual(await store.loadOwnIntent(pubkey, 'climb_choice', nonce), {
+    trustworthy: false, intent: null,
+  });
 });
 
 test('a non-live organizer summary hydrates the same complete effective state', async () => {

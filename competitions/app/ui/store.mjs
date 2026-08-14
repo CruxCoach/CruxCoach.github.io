@@ -11,7 +11,7 @@
 import { verifyEvent } from '../protocol/nostr-event.mjs';
 import {
   KIND, NAMESPACE, competitionAddress, competitionRunning, compDTag,
-  logDTag, parseCompetitionEvent, parseLogEvent,
+  intentDTag, logDTag, parseCompetitionEvent, parseIntentEvent, parseLogEvent,
 } from '../protocol/competition.mjs?v=20260814-6';
 import { hashableState, reduce } from '../protocol/reduce.mjs?v=20260814-4';
 import { computeStandings } from '../protocol/scoring.mjs?v=20260813-1';
@@ -311,6 +311,32 @@ export class CompetitionStore {
     this.subscriptions.push(subscription);
     await subscription.ready;
     return subscription;
+  }
+
+  /**
+   * Restore one replaceable request by its stable per-operation nonce.
+   *
+   * This is deliberately an exact d-tag query. A broad intent query can be
+   * relay-capped and is suitable for a host inbox with an incompleteness
+   * warning, but never for telling one participant what they already chose.
+   */
+  async loadOwnIntent(pubkey, op, nonce, { timeoutMs = 12000 } = {}) {
+    if (!this.competition) throw new Error('load the competition first');
+    const dTag = intentDTag(this.compId, pubkey, nonce);
+    const { events, complete, failed } = await this.pool.query([{
+      kinds: [KIND], authors: [pubkey], '#d': [dTag], '#a': [this.address],
+      '#p': [this.competition.authority], '#op': [op], limit: 8,
+    }], { timeoutMs });
+    if (!complete || failed !== 0) return { trustworthy: false, intent: null };
+    const valid = [];
+    for (const event of events) {
+      if (!(await verifyEvent(event))) continue; // eslint-disable-line no-await-in-loop
+      const parsed = parseIntentEvent(event, this.competition, this.organizerPubkey, this.now());
+      if (parsed.ok && parsed.pubkey === pubkey && parsed.intent.op === op
+        && parsed.intent.nonce === nonce) valid.push(parsed);
+    }
+    valid.sort((a, b) => b.createdAt - a.createdAt || b.eventId.localeCompare(a.eventId));
+    return { trustworthy: true, intent: valid[0] || null };
   }
 
   close() {

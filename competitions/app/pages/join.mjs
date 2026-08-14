@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-9';
+} from './common.mjs?v=20260814-10';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
@@ -24,7 +24,7 @@ import { EntrantWriter } from '../authority.mjs?v=20260814-7';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-10';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-11';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { personalCue, queuePreview, rotationPreview, syncHealth, turnEstimate } from '../ui/live-view.mjs?v=20260814-2';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-2';
@@ -50,6 +50,8 @@ let catalogueState = 'idle';
 let catalogueError = '';
 let catalogueCompetition = '';
 let lastHealthKind = '';
+let preparedChoiceTrust = 'idle';
+let preparedChoiceToken = 0;
 const preparedClimbs = new Map();
 
 function catalogueBoard(competition) {
@@ -234,8 +236,36 @@ const signIn = new SignIn({
       })
       : null;
     render();
+    void restorePreparedChoice();
   },
 });
+
+async function restorePreparedChoice() {
+  const token = ++preparedChoiceToken;
+  if (!signer || !entrant || !store
+    || store.competition.rules.climb_source !== 'participant_choice') {
+    preparedChoiceTrust = 'ready';
+    render();
+    return;
+  }
+  preparedChoiceTrust = 'loading';
+  render();
+  const pubkey = signer.pubkey;
+  const competition = store.competition;
+  const nonce = entrant.nonceFor('climb_choice');
+  const restored = await store.loadOwnIntent(pubkey, 'climb_choice', nonce);
+  if (token !== preparedChoiceToken || signer?.pubkey !== pubkey
+    || store?.competition.comp_id !== competition.comp_id) return;
+  const key = `${competition.comp_id}:${pubkey}`;
+  if (!restored.trustworthy) {
+    preparedChoiceTrust = 'untrusted';
+  } else {
+    const climbId = restored.intent?.intent.data?.climb_id;
+    if (climbId) preparedClimbs.set(key, climbId); else preparedClimbs.delete(key);
+    preparedChoiceTrust = 'ready';
+  }
+  render();
+}
 
 // ── opening a competition ──
 
@@ -957,6 +987,17 @@ function nextClimbChooser(snapshot, mine) {
     el('p', { className: 'small', text: mayAct ? t('next.choose_now.hint') : t('next.prepare.hint') }),
   ];
 
+  if (preparedChoiceTrust !== 'ready') {
+    rows.push(el('div', { className: 'notice warn', attrs: { role: 'status' } }, [
+      el('p', { text: t(preparedChoiceTrust === 'loading'
+        ? 'next.choice_loading' : 'next.choice_untrusted') }),
+      preparedChoiceTrust === 'untrusted' && el('button', {
+        text: t('action.retry'), on: { click: () => { void restorePreparedChoice(); } },
+      }),
+    ]));
+    return el('section', { className: 'participant-climb-choice' }, rows);
+  }
+
   if (!remaining.length) {
     rows.push(el('p', { className: 'small', text: t('next.none_left') }));
     return el('section', { className: 'participant-climb-choice' }, rows);
@@ -973,7 +1014,6 @@ function nextClimbChooser(snapshot, mine) {
   chosen.addEventListener('change', async () => {
     const climbId = chosen.value;
     if (!climbId) {
-      preparedClimbs.delete(key);
       render();
       return;
     }
@@ -981,6 +1021,7 @@ function nextClimbChooser(snapshot, mine) {
     try {
       await entrant.chooseClimb(climbId);
       preparedClimbs.set(key, climbId);
+      preparedChoiceTrust = 'ready';
       announce(t('next.choice_shared'));
       render();
     } catch (err) {
@@ -1379,8 +1420,11 @@ async function start() {
       pool, signer, competition: store.competition, organizerPubkey: store.organizerPubkey,
     });
   }
+  preparedChoiceTrust = signer && store.competition.rules.climb_source === 'participant_choice'
+    ? 'loading' : 'ready';
   render();
-  hydrateCatalogue(store.competition);
+  void restorePreparedChoice();
+  void hydrateCatalogue(store.competition);
 
   // The turn countdown is the one thing that has to move without an event.
   if (ticker) clearInterval(ticker);
