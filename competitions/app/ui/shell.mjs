@@ -14,10 +14,13 @@
 import { KeyVaultSession } from '../signer/local-key.mjs?v=20260814-1';
 import { decryptNcryptsec } from '../signer/nip49.mjs';
 import {
-  createLocalSigner, createNip07Signer, createNip46Signer, parseNip46Uri, waitForNip07,
-} from '../signer/signers.mjs';
+  buildNostrConnectUri, createLocalSigner, createNip07Signer, createNip46Signer,
+  parseNip46Uri, waitForNip07,
+} from '../signer/signers.mjs?v=20260814-1';
 import { Nip46ConnectionSession, buildResumeUri } from '../signer/nip46-connection.mjs?v=20260814-1';
-import { generateSecretKey, nsecEncode, npubEncode } from '../protocol/nostr-event.mjs';
+import {
+  bytesToHex, generateSecretKey, getPublicKey, nsecEncode, npubEncode, randomBytes,
+} from '../protocol/nostr-event.mjs';
 import { el, replace, copyWithExpiry, shortKey, announce } from './dom.mjs';
 import { ProfileGate } from './profile-gate.mjs';
 
@@ -30,6 +33,15 @@ const HISTORY_SCREENS = new Set([
 const BACKUP_SCREENS = new Set([
   'new-backup-choice', 'new-backup-raw', 'new-backup-encrypted', 'new-backup-encrypted-ready',
 ]);
+const AMBER_CONNECT_RELAYS = [
+  'wss://relay.damus.io',
+  'wss://nos.lol',
+  'wss://relay.primal.net',
+];
+
+function isAndroidBrowser() {
+  return /Android/i.test(globalThis.navigator?.userAgent || '');
+}
 
 function entryModeForScreen(screen) {
   if (screen === 'root') return null;
@@ -294,6 +306,35 @@ export class SignIn {
     }
   }
 
+  validateRemotePassphrase(passphrase, repeat) {
+    if (!this.remoteSession.storage) throw new Error(this.t('signin.bunker.storage_unavailable'));
+    if (passphrase.length < 8) throw new Error(this.t('signin.bunker.passphrase_short'));
+    if (passphrase !== repeat) throw new Error(this.t('signin.bunker.passphrase_mismatch'));
+  }
+
+  async finishRemotePairing(signer, passphrase) {
+    const connection = {
+      remoteSignerPubkey: signer.remoteSignerPubkey,
+      userPubkey: signer.pubkey,
+      relays: signer.relays,
+    };
+    try {
+      await this.remoteSession.persist(connection, passphrase);
+    } catch (error) {
+      signer.close();
+      this.remoteSession.forget();
+      throw error;
+    }
+    this.remoteSession.rememberLive(connection);
+    try {
+      await this.use(signer, 'nip46');
+    } catch (error) {
+      signer.close();
+      this.remoteSession.lock();
+      throw error;
+    }
+  }
+
   render() {
     const { t } = this;
     if (this.signer) {
@@ -462,7 +503,64 @@ export class SignIn {
       const bunkerInput = el('input', {
         attrs: { type: 'text', placeholder: t('signin.bunker.placeholder'), id: 'bunker-uri', autocomplete: 'off', spellcheck: 'false' },
       });
+      const savePass = el('input', {
+        attrs: { type: 'password', id: 'bunker-save-pass', autocomplete: 'new-password' },
+      });
+      const repeatPass = el('input', {
+        attrs: { type: 'password', id: 'bunker-save-repeat', autocomplete: 'new-password' },
+      });
+      const directClientSecret = generateSecretKey();
+      const directUri = buildNostrConnectUri({
+        clientPubkey: getPublicKey(directClientSecret),
+        relays: AMBER_CONNECT_RELAYS,
+        secret: bytesToHex(randomBytes(16)),
+      });
       remoteChildren.push(
+        el('p', { className: 'small', text: t('signin.bunker.save_hint') }),
+        el('label', { attrs: { for: 'bunker-save-pass' }, text: t('signin.bunker.save_passphrase') }, [savePass]),
+        el('label', { attrs: { for: 'bunker-save-repeat' }, text: t('signin.bunker.save_repeat') }, [repeatPass]),
+        isAndroidBrowser() ? el('a', {
+          className: 'button primary',
+          text: t('signin.bunker.open_amber'),
+          attrs: { href: directUri },
+          on: {
+            click: (event) => {
+              try {
+                this.validateRemotePassphrase(savePass.value, repeatPass.value);
+              } catch (error) {
+                event.preventDefault();
+                this.error = error.message || String(error);
+                announce(this.error, { assertive: true });
+                this.render();
+                return;
+              }
+              if (this.busy) { event.preventDefault(); return; }
+              this.busy = true;
+              this.error = null;
+              this.remoteSession.adopt(directClientSecret);
+              // Do not prevent the anchor's default action: Android dispatches
+              // nostrconnect:// straight to Amber. createNip46Signer installs
+              // its relay subscription synchronously before that hand-off.
+              void createNip46Signer(directUri, {
+                clientSecret: directClientSecret,
+                touchClient: () => this.remoteSession.touch(),
+              }).then(
+                (signer) => this.finishRemotePairing(signer, savePass.value),
+              ).catch((error) => {
+                this.remoteSession.lock();
+                this.error = error.message || String(error);
+                announce(this.error, { assertive: true });
+              }).finally(() => {
+                savePass.value = '';
+                repeatPass.value = '';
+                this.busy = false;
+                this.render();
+              });
+            },
+          },
+        }) : null,
+        el('p', { className: 'small', text: t(isAndroidBrowser()
+          ? 'signin.bunker.paste_fallback' : 'signin.bunker.paste_hint') }),
         el('label', { attrs: { for: 'bunker-uri' }, text: t('signin.bunker') }, [bunkerInput]),
         el('button', {
           text: t('signin.bunker.connect'),
@@ -471,18 +569,17 @@ export class SignIn {
             click: () => this.run(async () => {
               const uri = bunkerInput.value.trim();
               if (parseNip46Uri(uri)?.scheme !== 'bunker') throw new Error(t('signin.bunker.only_bunker'));
+              this.validateRemotePassphrase(savePass.value, repeatPass.value);
               this.remoteSession.adopt(generateSecretKey());
               try {
                 const signer = await createNip46Signer(uri, {
                   clientSecret: this.remoteSession.secretKey,
                   touchClient: () => this.remoteSession.touch(),
                 });
-                this.remoteSession.rememberLive({
-                  remoteSignerPubkey: signer.remoteSignerPubkey,
-                  userPubkey: signer.pubkey,
-                  relays: signer.relays,
-                });
-                await this.use(signer, 'nip46');
+                await this.finishRemotePairing(signer, savePass.value);
+                bunkerInput.value = '';
+                savePass.value = '';
+                repeatPass.value = '';
               } catch (error) {
                 this.remoteSession.lock();
                 throw error;

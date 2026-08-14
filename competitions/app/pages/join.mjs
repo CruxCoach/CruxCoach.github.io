@@ -9,7 +9,7 @@ import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
 } from './common.mjs?v=20260814-1';
-import { SignIn } from '../ui/shell.mjs?v=20260814-1';
+import { SignIn } from '../ui/shell.mjs?v=20260814-2';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
 import {
@@ -24,7 +24,7 @@ import { EntrantWriter } from '../authority.mjs?v=20260813-1';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-3';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-4';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { personalCue, queuePreview, rotationPreview, syncHealth } from '../ui/live-view.mjs?v=20260813-1';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-2';

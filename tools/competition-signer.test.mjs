@@ -349,6 +349,20 @@ async function fakeBunker(relayUrl, {
     pubkey: signerPubkey,
     uri: `bunker://${signerPubkey}?relay=${relayUrl}&secret=hello`,
     methods,
+    async approveNostrConnect(uri) {
+      const invitation = parseNip46Uri(uri);
+      assert.equal(invitation?.scheme, 'nostrconnect');
+      const convo = await conversationKey(signerSecret, invitation.pubkey);
+      const reply = await finalizeEvent({
+        kind: NIP46_KIND,
+        created_at: Math.floor(Date.now() / 1000),
+        tags: [['p', invitation.pubkey]],
+        content: await encrypt(convo, JSON.stringify({
+          id: 'amber-connect', result: invitation.secret,
+        })),
+      }, signerSecret);
+      await pool.publish(reply);
+    },
     close: () => { subscription.close(); pool.close(); },
   };
 }
@@ -425,6 +439,37 @@ test('a NIP-46 session connects, learns the USER pubkey, and signs', async () =>
     });
     assert.equal(await verifyEvent(event), true);
     assert.equal(event.pubkey, signer.pubkey);
+    signer.close();
+  } finally {
+    bunker.close();
+    await relay.close();
+  }
+});
+
+test('an Android nostrconnect hand-off discovers and authenticates Amber directly', async () => {
+  const relay = await startDevRelay({ port: 0, quiet: true });
+  const userSecret = generateSecretKey();
+  const clientSecret = generateSecretKey();
+  const bunker = await fakeBunker(relay.url, { userSecret });
+  const uri = buildNostrConnectUri({
+    clientPubkey: getPublicKey(clientSecret),
+    relays: [relay.url],
+    secret: 'unguessable-connect-secret',
+  });
+  try {
+    let listening;
+    const ready = new Promise((resolve) => { listening = resolve; });
+    const pending = createNip46Signer(uri, {
+      clientSecret, timeoutMs: 5000, onListening: listening,
+    });
+    // createNip46Signer installs the subscription before its first await, just
+    // as the Android click path must do before the browser opens Amber.
+    await ready;
+    await bunker.approveNostrConnect(uri);
+    const signer = await pending;
+    assert.equal(signer.remoteSignerPubkey, bunker.pubkey);
+    assert.equal(signer.pubkey, getPublicKey(userSecret));
+    assert.deepEqual(bunker.methods, ['get_public_key']);
     signer.close();
   } finally {
     bunker.close();

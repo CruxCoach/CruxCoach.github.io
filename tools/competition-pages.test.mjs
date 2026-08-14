@@ -1705,6 +1705,8 @@ test('sign-in starts with two human choices, then separates registration from lo
     ).dispatch('click');
     assert.ok(mount.textContent.includes('signin.extension'));
     assert.ok(mount.textContent.includes('signin.bunker'));
+    assert.ok(mount.querySelector('#bunker-save-pass'));
+    assert.ok(mount.querySelector('#bunker-save-repeat'));
     assert.equal(mount.textContent.includes('signin.import'), false,
       'the signer path should not mix in raw browser-key import');
     assert.equal(mount.querySelectorAll('a').length, 3,
@@ -1724,6 +1726,43 @@ test('sign-in starts with two human choices, then separates registration from lo
   } finally {
     restore();
   }
+});
+
+test('Android sign-in hands a client-initiated connection directly to Amber', async () => {
+  const { SignIn } = await import('../competitions/app/ui/shell.mjs');
+  const { window } = await import('./dev/mini-dom.mjs');
+  const restore = window.install();
+  const previousNavigator = Object.getOwnPropertyDescriptor(globalThis, 'navigator');
+  let signIn;
+  try {
+    Object.defineProperty(globalThis, 'navigator', {
+      configurable: true, value: { userAgent: 'Mozilla/5.0 (Linux; Android 14)' },
+    });
+    const mount = document.createElement('div');
+    signIn = new SignIn({ t: (key) => key, mount, onChange: () => {} });
+    signIn.navigate('signer');
+    const amber = mount.querySelectorAll('a').find(
+      (link) => link.textContent === 'signin.bunker.open_amber',
+    );
+    assert.ok(amber, 'Android must get a direct Amber action');
+    assert.match(amber.getAttribute('href'), /^nostrconnect:\/\//);
+    assert.ok(mount.textContent.includes('signin.bunker.save_hint'),
+      'the reusable encrypted pairing must be explained before the one-time hand-off');
+  } finally {
+    signIn?.session.dispose();
+    signIn?.remoteSession.dispose();
+    if (previousNavigator) Object.defineProperty(globalThis, 'navigator', previousNavigator);
+    else delete globalThis.navigator;
+    restore();
+  }
+});
+
+test('new bunker pairings are persisted before the signer session is used', () => {
+  const shell = fs.readFileSync(path.join(root, 'competitions/app/ui/shell.mjs'), 'utf8');
+  assert.match(shell, /await this\.remoteSession\.persist\(connection, passphrase\)/);
+  assert.match(shell, /await this\.use\(signer, 'nip46'\)/);
+  assert.ok(shell.indexOf('await this.remoteSession.persist(connection, passphrase)')
+    < shell.indexOf("await this.use(signer, 'nip46')"));
 });
 
 test('browser Back moves through sign-in before it leaves the participant page', async () => {

@@ -16,7 +16,7 @@
  */
 import {
   bytesToHex, decodeNip19, eventId, finalizeEvent, generateSecretKey, getPublicKey,
-  hexToBytes, isHex32, randomBytes,
+  hexToBytes, isHex32, randomBytes, verifyEvent,
 } from '../protocol/nostr-event.mjs';
 import { conversationKey, decrypt, encrypt } from './nip44.mjs';
 import { RelayPool } from '../protocol/relay-pool.mjs';
@@ -167,12 +167,31 @@ export async function createNip46Signer(uri, options = {}) {
 
   const clientSecret = options.clientSecret || generateSecretKey();
   const clientPubkey = getPublicKey(clientSecret);
+  if (parsed.scheme === 'nostrconnect' && parsed.pubkey !== clientPubkey) {
+    throw new Error('The Nostr Connect invitation does not match this browser session.');
+  }
   const pool = options.pool || new RelayPool(parsed.relays, { WebSocketImpl: options.WebSocketImpl });
   const timeoutMs = options.timeoutMs ?? NIP46_TIMEOUT_MS;
   const now = options.now || (() => Math.floor(Date.now() / 1000));
   let closed = false;
-
-  const convoKey = await conversationKey(clientSecret, parsed.pubkey);
+  let remoteSignerPubkey = parsed.scheme === 'bunker' ? parsed.pubkey : null;
+  let convoKeyPromise = remoteSignerPubkey
+    ? conversationKey(clientSecret, remoteSignerPubkey) : null;
+  let incomingConnect = null;
+  let settleIncomingConnect = null;
+  if (parsed.scheme === 'nostrconnect') {
+    incomingConnect = new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        settleIncomingConnect = null;
+        reject(new Error(`The remote signer did not accept the connection within ${Math.round(timeoutMs / 1000)}s.`));
+      }, timeoutMs);
+      timer.unref?.();
+      settleIncomingConnect = {
+        resolve: (value) => { clearTimeout(timer); resolve(value); },
+        reject: (error) => { clearTimeout(timer); reject(error); },
+      };
+    });
+  }
   /** @type {Map<string, {resolve: Function, reject: Function, timer: any}>} */
   const pending = new Map();
 
@@ -180,12 +199,33 @@ export async function createNip46Signer(uri, options = {}) {
     [{ kinds: [NIP46_KIND], '#p': [clientPubkey], since: now() - 60 }],
     {
       onEvent: async (event) => {
-        if (event.pubkey !== parsed.pubkey) return;
+        if (!(await verifyEvent(event))) return;
+        if (remoteSignerPubkey && event.pubkey !== remoteSignerPubkey) return;
+        let eventConvoKey;
+        try {
+          eventConvoKey = remoteSignerPubkey
+            ? await convoKeyPromise
+            : await conversationKey(clientSecret, event.pubkey);
+        } catch {
+          return;
+        }
         let payload;
         try {
-          payload = JSON.parse(await decrypt(convoKey, event.content));
+          payload = JSON.parse(await decrypt(eventConvoKey, event.content));
         } catch {
           return; // not for us, or corrupt; a bunker retries
+        }
+        if (!remoteSignerPubkey) {
+          // In the client-initiated flow the remote signer is not known until
+          // it answers. The high-entropy invitation secret authenticates that
+          // unsolicited response; only then may its event author become the
+          // remote signer used by all subsequent RPCs.
+          if (payload.error || payload.result !== parsed.secret) return;
+          remoteSignerPubkey = event.pubkey;
+          convoKeyPromise = Promise.resolve(eventConvoKey);
+          settleIncomingConnect?.resolve(event.pubkey);
+          settleIncomingConnect = null;
+          return;
         }
         const waiter = pending.get(payload.id);
         if (!waiter) return;
@@ -208,6 +248,9 @@ export async function createNip46Signer(uri, options = {}) {
 
   async function request(method, params) {
     if (closed) throw new Error('The signer session is locked. Unlock it again.');
+    if (!remoteSignerPubkey || !convoKeyPromise) {
+      throw new Error('The remote signer has not accepted this connection yet.');
+    }
     if (options.touchClient && !options.touchClient()) {
       const error = new Error('The signer connection expired. Unlock it again.');
       error.code = 'nip46_locked';
@@ -219,10 +262,10 @@ export async function createNip46Signer(uri, options = {}) {
       kind: NIP46_KIND,
       created_at: now(),
       tags: [
-        ['p', parsed.pubkey],
+        ['p', remoteSignerPubkey],
         ['expiration', String(now() + NIP46_EXPIRY_SEC)],
       ],
-      content: await encrypt(convoKey, body),
+      content: await encrypt(await convoKeyPromise, body),
     };
     const event = await finalizeEvent(draft, clientSecret);
 
@@ -246,6 +289,7 @@ export async function createNip46Signer(uri, options = {}) {
   // The bunker's answer is an ephemeral event: if our REQ is not live when it
   // arrives, it is gone for good — nothing stores kind 24133 to fetch later.
   await subscription.ready;
+  options.onListening?.();
 
   /** Tear down everything this function created. */
   function teardown() {
@@ -256,6 +300,8 @@ export async function createNip46Signer(uri, options = {}) {
       waiter.reject(new Error('The signer session was closed.'));
     }
     pending.clear();
+    settleIncomingConnect?.reject(new Error('The signer session was closed.'));
+    settleIncomingConnect = null;
     subscription.close();
     if (!options.pool) pool.close();
   }
@@ -270,9 +316,11 @@ export async function createNip46Signer(uri, options = {}) {
       if (parsed.secret && result !== 'ack' && result !== parsed.secret) {
         throw new Error('The signer answered the connect request with the wrong secret.');
       }
-    } else if (options.awaitConnect !== false) {
-      // nostrconnect: the bunker initiates. Wait for it to say hello.
-      await options.waitForConnect?.();
+    } else if (parsed.scheme === 'nostrconnect') {
+      // Amber (or another remote signer) initiates this connection after the
+      // browser opens the nostrconnect:// URI. Its response author becomes the
+      // remote signer only after the invitation secret above was verified.
+      await incomingConnect;
     }
 
     // The remote-signer pubkey is not the user pubkey, so this call is
@@ -294,7 +342,7 @@ export async function createNip46Signer(uri, options = {}) {
     kind: 'nip46',
     pubkey: userPubkey,
     clientPubkey,
-    remoteSignerPubkey: parsed.pubkey,
+    remoteSignerPubkey,
     relays: parsed.relays,
     async signEvent(draft) {
       const unsigned = {
