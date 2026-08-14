@@ -41,11 +41,19 @@ const DEV_RELAY_KEY = 'cruxcoach:competitions:dev-relay';
  * key from the naddr), it could serve a truncated prefix of the log, which
  * reduces cleanly and looks like a competition that simply has not progressed.
  *
- * Even so it is ADDITIVE, never a replacement: the competition's own relays
- * stay in the set, so an override cannot hide entries the real relays serve.
- * That is the same rule `RelayListResolver.mergeAdditive` follows in the app.
+ * It is a discovery aid only. Once a signed definition has been found, its
+ * relay list is the complete authority/read/write scope; neither a URL hint nor
+ * a user's optional relays may weaken or expand that completeness barrier.
  */
 export function resolveRelays(competitionRelays = []) {
+  if (competitionRelays.length > 0) {
+    return mergeRelays(competitionRelays, []);
+  }
+  return resolveDiscoveryRelays();
+}
+
+/** Untrusted candidate discovery: hints first, then local/default finders. */
+export function resolveDiscoveryRelays(relayHints = []) {
   const params = new URLSearchParams(location.search);
   const requested = params.get('relay');
   if (requested && isLoopbackRelay(requested)) {
@@ -54,8 +62,8 @@ export function resolveRelays(competitionRelays = []) {
   let remembered = null;
   try { remembered = sessionStorage.getItem(DEV_RELAY_KEY); } catch { /* private mode */ }
   const override = [requested, remembered].find((url) => url && isLoopbackRelay(url));
-  if (override) return mergeRelays([override], competitionRelays);
-  return mergeRelays(competitionRelays, DISCOVERY_RELAYS);
+  if (override) return mergeRelays([override], [...relayHints, ...DISCOVERY_RELAYS]);
+  return mergeRelays(relayHints, DISCOVERY_RELAYS);
 }
 
 /**
@@ -157,21 +165,31 @@ export async function openCompetition({ organizerPubkey, compId, relayHints = []
   // Two passes: find it on the discovery relays, then reconnect to the relays
   // the competition itself names. A competition run on a gym's own relay is
   // invisible otherwise.
-  let pool = new RelayPool(resolveRelays(relayHints));
+  let pool = new RelayPool(resolveDiscoveryRelays(relayHints));
   let store = new CompetitionStore({ pool, organizerPubkey, compId });
   pool.onStatusChange = (status) => store.connectionChanged(status);
-  let loaded = await store.loadCompetition();
+  let loaded = await store.loadCompetition({ requireAllRelays: false });
 
-  if (loaded.ok) {
+  // A replacement definition may itself migrate the signed relay set. Follow
+  // that signed chain until the set used for the fetch matches the newest
+  // definition; only then is the candidate actionable. Bound/cycle-check
+  // malformed migrations rather than spinning forever.
+  const authorityScopes = new Set();
+  while (loaded.ok) {
     const wanted = resolveRelays(loaded.competition.relays);
     const current = pool.urls.join('|');
-    if (wanted.join('|') !== current) {
-      pool.close();
-      pool = new RelayPool(wanted);
-      store = new CompetitionStore({ pool, organizerPubkey, compId });
-      pool.onStatusChange = (status) => store.connectionChanged(status);
-      loaded = await store.loadCompetition();
+    const scopeKey = wanted.join('|');
+    if (scopeKey === current) break;
+    if (authorityScopes.has(scopeKey) || authorityScopes.size >= 8) {
+      loaded = { ok: false, error: 'invalid' };
+      break;
     }
+    authorityScopes.add(scopeKey);
+    pool.close();
+    pool = new RelayPool(wanted);
+    store = new CompetitionStore({ pool, organizerPubkey, compId });
+    pool.onStatusChange = (status) => store.connectionChanged(status);
+    loaded = await store.loadCompetition();
   }
 
   if (!loaded.ok) {

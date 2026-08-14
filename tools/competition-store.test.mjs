@@ -77,6 +77,24 @@ class ClampedPool {
   }
 }
 
+test('a definition candidate is not actionable until every signed relay answers', async () => {
+  const pool = new ClampedPool();
+  pool.urls = ['wss://signed-one.example', 'wss://signed-two.example'];
+  pool.query = async () => ({
+    events: [fixture.competition_event], complete: true, answered: 1, failed: 1,
+  });
+  const store = new CompetitionStore({
+    pool,
+    organizerPubkey: fixture.competition_event.pubkey,
+    compId: payload.comp_id,
+    now: () => 1789020000,
+  });
+
+  assert.deepEqual(await store.loadCompetition(), { ok: false, error: 'unreachable' });
+  assert.equal(store.snapshot().competition, null);
+  assert.equal((await store.loadCompetition({ requireAllRelays: false })).ok, true);
+});
+
 test('stored history walks exact d-tag pages despite a twenty-event relay cap', async () => {
   const pool = new ClampedPool();
   const store = new CompetitionStore({

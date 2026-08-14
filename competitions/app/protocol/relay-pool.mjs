@@ -33,7 +33,7 @@ export class RelayPool {
     this.urls = [...new Set(urls)];
     this.WebSocketImpl = options.WebSocketImpl || globalThis.WebSocket;
     this.onStatusChange = options.onStatusChange || (() => {});
-    /** @type {Map<string, {socket: WebSocket|null, ready: Promise<void>|null, attempts: number, closed: boolean}>} */
+    /** @type {Map<string, {socket: WebSocket|null, ready: Promise<void>|null, attempts: number, closed: boolean, generation: number}>} */
     this.connections = new Map();
     /** @type {Map<string, {filters: object[], onEvent: Function, onEose: Function, seen: Set<string>, eosed: Set<string>}>} */
     this.subscriptions = new Map();
@@ -57,7 +57,7 @@ export class RelayPool {
   _ensure(url) {
     let connection = this.connections.get(url);
     if (!connection) {
-      connection = { socket: null, ready: null, attempts: 0, closed: false };
+      connection = { socket: null, ready: null, attempts: 0, closed: false, generation: 0 };
       this.connections.set(url, connection);
     }
     if (connection.socket && connection.socket.readyState === 1) return Promise.resolve();
@@ -83,18 +83,20 @@ export class RelayPool {
       socket.addEventListener('open', () => {
         clearTimeout(settleTimer);
         connection.attempts = 0;
+        connection.generation += 1;
         this.onStatusChange(`connected:${url}`);
         // Re-arm every live subscription: a reconnect that forgets them looks
         // exactly like a competition where nothing is happening.
         for (const [subId, sub] of this.subscriptions) {
-          this._send(socket, ['REQ', subId, ...sub.filters]);
+          this._arm(url, connection, subId, sub);
         }
         resolve();
       });
 
-      socket.addEventListener('message', (event) => this._onMessage(url, event.data));
+      socket.addEventListener('message', (event) => this._onMessage(url, event.data, socket));
 
       const drop = () => {
+        if (connection.socket !== socket) return;
         clearTimeout(settleTimer);
         connection.ready = null;
         connection.socket = null;
@@ -144,7 +146,23 @@ export class RelayPool {
     }
   }
 
-  _onMessage(url, raw) {
+  _arm(url, connection, subId, sub) {
+    if (!connection.socket || connection.socket.readyState !== 1) return false;
+    if (sub.armed.get(url) === connection.generation) return true;
+    // EOSE is scoped to one REQ on one socket generation. A reconnect starts a
+    // fresh stored-event prefix; duplicate EOSE frames on that socket do not.
+    sub.eosed.delete(url);
+    sub.failed.delete(url);
+    if (!this._send(connection.socket, ['REQ', subId, ...sub.filters])) return false;
+    sub.armed.set(url, connection.generation);
+    return true;
+  }
+
+  _onMessage(url, raw, sourceSocket = null) {
+    // A close/reconnect can race a final queued callback from the old socket.
+    // Its EVENT/EOSE belongs to the old REQ generation and cannot settle the
+    // new one, even though both use the same relay URL and subscription id.
+    if (sourceSocket && this.connections.get(url)?.socket !== sourceSocket) return;
     let message;
     try {
       message = JSON.parse(typeof raw === 'string' ? raw : String(raw));
@@ -166,6 +184,7 @@ export class RelayPool {
     if (message[0] === 'EOSE') {
       const sub = this.subscriptions.get(message[1]);
       if (!sub) return;
+      if (sub.eosed.has(url)) return;
       sub.eosed.add(url);
       sub.onEose(url, sub.eosed.size, { failed: false, settled: sub.eosed.size + sub.failed.size });
       return;
@@ -231,20 +250,23 @@ export class RelayPool {
     // answered" becomes indistinguishable from "the relays answered and there
     // is nothing there" — and for a profile lookup, that difference decides
     // whether someone is invited to overwrite a profile they already have.
-    const sub = { filters, onEvent, onEose, seen: new Set(), eosed: new Set(), failed: new Set() };
+    const sub = {
+      filters, onEvent, onEose, seen: new Set(), eosed: new Set(), failed: new Set(), armed: new Map(),
+    };
     this.subscriptions.set(subId, sub);
 
     const armed = this.urls.map((url) => this._ensure(url)
       .then(() => {
         const connection = this.connections.get(url);
-        if (connection?.socket) this._send(connection.socket, ['REQ', subId, ...filters]);
-        return true;
+        return connection ? this._arm(url, connection, subId, sub) : false;
       })
       .catch(() => {
         // A relay that will not connect must not stall the barrier — but it is
         // recorded as failed, not as having answered.
-        sub.failed.add(url);
-        onEose(url, sub.eosed.size, { failed: true, settled: sub.eosed.size + sub.failed.size });
+        if (!sub.failed.has(url)) {
+          sub.failed.add(url);
+          onEose(url, sub.eosed.size, { failed: true, settled: sub.eosed.size + sub.failed.size });
+        }
         return false;
       }));
 
@@ -289,23 +311,33 @@ export class RelayPool {
   query(filters, { timeoutMs = DEFAULT_TIMEOUT_MS } = {}) {
     return new Promise((resolve) => {
       const events = [];
-      let answered = 0;
-      let failed = 0;
+      const answeredUrls = new Set();
+      const failedUrls = new Set();
       let done = false;
       const finish = (timedOut) => {
         if (done) return;
         done = true;
         clearTimeout(timer);
         handle.close();
-        resolve({ events, complete: !timedOut && answered > 0, answered, failed });
+        resolve({
+          events,
+          complete: !timedOut && answeredUrls.size > 0,
+          answered: answeredUrls.size,
+          failed: failedUrls.size,
+        });
       };
       const timer = setTimeout(() => finish(true), timeoutMs);
       timer.unref?.();
       const handle = this.subscribe(filters, {
         onEvent: (event) => events.push(event),
-        onEose: (_url, _count, info = {}) => {
-          if (info.failed) failed += 1; else answered += 1;
-          if (answered + failed >= this.urls.length) finish(false);
+        onEose: (url, _count, info = {}) => {
+          if (info.failed) {
+            if (!answeredUrls.has(url)) failedUrls.add(url);
+          } else {
+            failedUrls.delete(url);
+            answeredUrls.add(url);
+          }
+          if (answeredUrls.size + failedUrls.size >= this.urls.length) finish(false);
         },
       });
     });
@@ -325,13 +357,9 @@ export class RelayPool {
 }
 
 /**
- * Merge relay lists additively: the competition's own relays first, then any
- * the user configured that are not already present.
- *
- * Additive on purpose, matching `RelayListResolver.mergeAdditive` in the app —
- * a restrictive user list must not be able to shrink the set below the relays
- * the competition itself is published on, or that user simply cannot see the
- * event they were invited to.
+ * Merge candidate relay lists in priority order. Authority callers pass only
+ * the exact signed competition list; discovery callers may add untrusted
+ * naddr/default hints before a definition is actionable.
  */
 export function mergeRelays(competitionRelays, userRelays = [], limit = 8) {
   const out = [];

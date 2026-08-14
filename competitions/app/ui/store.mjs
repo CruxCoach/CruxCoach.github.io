@@ -135,14 +135,17 @@ export class CompetitionStore {
    * A definition that never arrives is reported rather than retried forever:
    * "loading…" that never ends is indistinguishable from a broken link.
    */
-  async loadCompetition({ timeoutMs = 8000 } = {}) {
-    const { events, complete, failed } = await this.pool.query([{
+  async loadCompetition({ timeoutMs = 8000, requireAllRelays = true } = {}) {
+    const { events, complete, answered, failed } = await this.pool.query([{
       kinds: [KIND],
       authors: [this.organizerPubkey],
       '#d': [compDTag(this.compId)],
       limit: 1,
     }], { timeoutMs });
 
+    if (requireAllRelays && answered !== this.pool.urls.length) {
+      return { ok: false, error: 'unreachable' };
+    }
     if (events.length === 0) {
       return { ok: false, error: complete && failed === 0 ? 'not_found' : 'unreachable' };
     }

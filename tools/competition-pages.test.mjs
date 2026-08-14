@@ -567,8 +567,8 @@ test('every page references a stylesheet that exists', () => {
   }
 });
 
-test('the relay override is loopback-only and never replaces the competition relays', async () => {
-  const { resolveRelays } = await import('../competitions/app/pages/common.mjs');
+test('untrusted relay hints are discovery-only and signed competition relays are exact', async () => {
+  const { resolveRelays, resolveDiscoveryRelays } = await import('../competitions/app/pages/common.mjs');
   const storage = new Map();
   const originalLocation = globalThis.location;
   const originalSession = globalThis.sessionStorage;
@@ -583,27 +583,27 @@ test('the relay override is loopback-only and never replaces the competition rel
     // truncated prefix of the log, which reduces cleanly and looks like a
     // competition that has simply not progressed.
     withSearch('?relay=wss://attacker.example.invalid');
-    let resolved = resolveRelays(['wss://organiser.example.invalid']);
+    let resolved = resolveDiscoveryRelays(['wss://organiser.example.invalid']);
     assert.equal(resolved.includes('wss://attacker.example.invalid'), false);
     assert.ok(resolved.includes('wss://organiser.example.invalid'));
 
     withSearch('?relay=ws://evil.example.invalid:7447');
-    assert.equal(resolveRelays([]).includes('ws://evil.example.invalid:7447'), false);
+    assert.equal(resolveDiscoveryRelays().includes('ws://evil.example.invalid:7447'), false);
 
-    // Loopback is accepted, and is ADDITIVE: the competition's own relays stay
-    // in the set, so an override cannot hide entries the real relays serve.
+    // Loopback is accepted for candidate discovery, alongside naddr hints.
     storage.clear();
     withSearch('?relay=ws://127.0.0.1:7447');
-    resolved = resolveRelays(['wss://organiser.example.invalid']);
+    resolved = resolveDiscoveryRelays(['wss://organiser.example.invalid']);
     assert.equal(resolved[0], 'ws://127.0.0.1:7447');
     assert.ok(resolved.includes('wss://organiser.example.invalid'));
 
-    // With no override the competition's own relays come first, then discovery.
+    // A signed definition changes the trust boundary: only its declared relay
+    // set remains, regardless of remembered overrides or fixed discovery URLs.
     storage.clear();
     withSearch('');
     resolved = resolveRelays(['wss://organiser.example.invalid']);
-    assert.equal(resolved[0], 'wss://organiser.example.invalid');
-    assert.ok(resolved.includes('wss://relay.damus.io'));
+    assert.deepEqual(resolved, ['wss://organiser.example.invalid']);
+    assert.equal(resolved.includes('wss://relay.damus.io'), false);
   } finally {
     globalThis.location = originalLocation;
     globalThis.sessionStorage = originalSession;
