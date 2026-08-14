@@ -1761,6 +1761,12 @@ test('the organizer console handles every participant intent it subscribes to', 
     'authority decisions must name the exact replaceable intent they answer');
   assert.match(organizer, /decideRegistration\(intent\.pubkey,\s*'rejected'/,
     'registration requests need a reject action');
+  assert.match(organizer, /confirm\(t\('org\.skip_turn\.confirm'\)\)/,
+    'skipping a turn must explain and confirm its effect');
+  assert.match(organizer, /confirm\(t\('org\.finish\.confirm'\)\)/,
+    'finishing must explain and confirm its terminal effect');
+  assert.match(organizer, /confirm\(t\('org\.cancel_comp\.confirm'\)\)/,
+    'cancellation must explain that relay deletion follows and is best effort');
 });
 
 test('the nsec import path is masked, session-only and explicitly warned', () => {

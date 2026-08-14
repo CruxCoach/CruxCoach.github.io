@@ -519,7 +519,7 @@ function lifecycleActions(snapshot) {
         text: t('org.finish'),
         on: {
           click: () => {
-            if (!confirm(`${t('org.finish')}?`)) return;
+            if (!confirm(t('org.finish.confirm'))) return;
             act(() => writer.setStatus('finished'));
           },
         },
@@ -529,7 +529,7 @@ function lifecycleActions(snapshot) {
         text: t('org.cancel_comp'),
         on: {
           click: () => {
-            if (!confirm(`${t('org.cancel_comp')}?`)) return;
+            if (!confirm(t('org.cancel_comp.confirm'))) return;
             act(async () => {
               await writer.setStatus('cancelled');
               cleanupResult = await writer.deleteCompetition();
@@ -1232,7 +1232,12 @@ function queuePanel(snapshot) {
       rows.push(el('div', { className: 'host-secondary-turn-actions' }, [
         el('button', {
           text: t('org.skip_turn'),
-          on: { click: () => act(() => writer.skipTurn()) },
+          on: {
+            click: () => {
+              if (!confirm(t('org.skip_turn.confirm'))) return;
+              act(() => writer.skipTurn());
+            },
+          },
         }),
         el('button', {
           text: t('live.defer'),
