@@ -10,9 +10,9 @@
  * standing at a wall with one hand.
  */
 import {
-  DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityNotices,
+  DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-5';
+} from './common.mjs?v=20260814-7';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-6';
@@ -33,7 +33,7 @@ import { competitionToFormDraft, createCompetitionForm } from './organizer-form.
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs?v=20260814-6';
 import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-7';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-9';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { syncHealth } from '../ui/live-view.mjs?v=20260813-1';
 
@@ -1389,6 +1389,11 @@ function render() {
 
   const snapshot = store.snapshot();
   if (!snapshot.state) return;
+  const blocked = integrityGuard(snapshot, t);
+  if (blocked) {
+    replace(view, devRelayBanner(store, t), ...integrityNotices(snapshot, t), blocked);
+    return;
+  }
   lastEffectiveStatus = competitionRunning(
     snapshot.competition, snapshot.state.status, Math.floor(Date.now() / 1000),
   ) ? 'running' : snapshot.state.status;

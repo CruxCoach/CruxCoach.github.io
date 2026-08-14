@@ -5,9 +5,9 @@
  * event truth.
  */
 import {
-  bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
+  bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
-} from './common.mjs?v=20260814-5';
+} from './common.mjs?v=20260814-7';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
 import { competitionRunning, parseIntentEvent } from '../protocol/competition.mjs?v=20260814-6';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
@@ -266,6 +266,12 @@ function leaderboard(snapshot, current) {
 function render() {
   const snapshot = store.snapshot();
   if (!snapshot.state) return;
+  const blocked = integrityGuard(snapshot, t);
+  if (blocked) {
+    replace(view, projectionToolbar(), devRelayBanner(store, t),
+      ...integrityNotices(snapshot, t), blocked);
+    return;
+  }
   const status = effectiveStatus(snapshot);
   lastEffectiveStatus = status;
   const body = status === 'cancelled'

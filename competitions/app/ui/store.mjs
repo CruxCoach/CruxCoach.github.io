@@ -11,12 +11,29 @@
 import { verifyEvent } from '../protocol/nostr-event.mjs';
 import {
   KIND, NAMESPACE, competitionAddress, competitionRunning, compDTag,
-  parseCompetitionEvent, parseLogEvent,
+  logDTag, parseCompetitionEvent, parseLogEvent,
 } from '../protocol/competition.mjs?v=20260814-6';
 import { hashableState, reduce } from '../protocol/reduce.mjs?v=20260814-4';
 import { computeStandings } from '../protocol/scoring.mjs?v=20260813-1';
 import { ccjHash } from '../protocol/ccj.mjs';
 import { usesDevelopmentRelay } from '../protocol/relay-url.mjs';
+
+export const LOG_PAGE_SIZE = 20;
+export const MAX_LOG_SEQUENCE = 999999;
+
+export function logPageDTags(compId, firstSeq) {
+  return Array.from(
+    { length: Math.min(LOG_PAGE_SIZE, MAX_LOG_SEQUENCE - firstSeq + 1) },
+    (_, index) => logDTag(compId, firstSeq + index),
+  );
+}
+
+export function boundedMissingSequence(sequences) {
+  if (!sequences.size) return null;
+  const max = Math.max(...sequences);
+  for (let seq = 1; seq <= max; seq += 1) if (!sequences.has(seq)) return seq;
+  return null;
+}
 
 export class CompetitionStore {
   /**
@@ -43,6 +60,10 @@ export class CompetitionStore {
     this.standings = [];
     this.stateHash = null;
     this.chainBreakAt = null;
+    // False until an explicit, exact-d-tag stored-history walk reaches the
+    // first absent sequence. A broad live REQ is not proof of complete history:
+    // relays commonly apply a small default result limit.
+    this.historyComplete = false;
     this.problems = [];
     this.listeners = new Set();
     this.subscriptions = [];
@@ -69,6 +90,8 @@ export class CompetitionStore {
       standings: this.standings,
       stateHash: this.stateHash,
       chainBreakAt: this.chainBreakAt,
+      historyComplete: this.historyComplete,
+      trustworthy: this.trustworthy,
       problems: [...this.problems],
       developmentRelay: usesDevelopmentRelay(this.pool.urls),
       entryCount: this.entries.size,
@@ -205,19 +228,67 @@ export class CompetitionStore {
       });
     };
 
+    this.historyComplete = await this.backfillLog();
+    await this.recompute();
+
     const subscription = this.pool.subscribe([{
       kinds: [KIND],
       authors: [this.competition.authority],
       '#a': [this.address],
     }], {
       onEvent: async (event) => {
-        if (await this.ingest(event)) scheduleRecompute();
+        if (await this.ingest(event)) {
+          if (!this.historyComplete || boundedMissingSequence(this.entrySequences()) !== null) {
+            this.historyComplete = await this.backfillLog();
+          }
+          scheduleRecompute();
+        }
       },
       onEose: () => scheduleRecompute(),
     });
     this.subscriptions.push(subscription);
     await subscription.ready;
     return subscription;
+  }
+
+  entrySequences() {
+    return new Set([...this.entries.values()].map((item) => item.entry.seq));
+  }
+
+  /**
+   * Hydrate the authority chain without relying on a relay's broad-query
+   * default limit. Twenty exact sequence d-tags per request works even on the
+   * relays that clamp a response to twenty events; the larger explicit limit
+   * leaves room for forks at a sequence so fork evidence is not hidden.
+   */
+  async backfillLog({ timeoutMs = 12000 } = {}) {
+    let firstSeq = 1;
+    while (firstSeq <= MAX_LOG_SEQUENCE) {
+      const dTags = logPageDTags(this.compId, firstSeq);
+      const { events, complete } = await this.pool.query([{
+        kinds: [KIND],
+        authors: [this.definitionCompetition.authority],
+        '#a': [this.address],
+        '#d': dTags,
+        limit: 100,
+      }], { timeoutMs });
+      for (const event of events) await this.ingest(event); // eslint-disable-line no-await-in-loop
+      if (!complete) {
+        this.note('history_incomplete');
+        return false;
+      }
+
+      const present = this.entrySequences();
+      const missingOffset = dTags.findIndex((_tag, index) => !present.has(firstSeq + index));
+      if (missingOffset !== -1) {
+        // If a later sequence in this exact page exists, this is a real hole,
+        // not the end of the chain. The reducer will surface and block it.
+        return true;
+      }
+      firstSeq += dTags.length;
+    }
+    this.note('history_incomplete');
+    return false;
   }
 
   /** Participant intents addressed to the authority — the organizer console needs these. */
@@ -360,7 +431,8 @@ export class CompetitionStore {
 
   /** True when the reduced state can be trusted enough to show standings. */
   get trustworthy() {
-    return Boolean(this.state) && this.state.chain_complete && !this.state.fork_detected;
+    return this.historyComplete && Boolean(this.state)
+      && this.state.chain_complete && !this.state.fork_detected;
   }
 }
 

@@ -10,8 +10,8 @@ import { decodeNip19 } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag, isCompId, parseDTag } from '../protocol/competition.mjs?v=20260814-6';
 import { RelayPool, mergeRelays } from '../protocol/relay-pool.mjs';
 import { isLoopbackRelay } from '../protocol/relay-url.mjs';
-import { CompetitionStore } from '../ui/store.mjs?v=20260814-3';
-import { createTranslator, detectLanguage } from '../ui/i18n.mjs?v=20260814-7';
+import { CompetitionStore } from '../ui/store.mjs?v=20260814-4';
+import { createTranslator, detectLanguage } from '../ui/i18n.mjs?v=20260814-9';
 import { el, replace, byId } from '../ui/dom.mjs';
 
 /**
@@ -197,6 +197,11 @@ export function devRelayBanner(store, t) {
 /** Render the two problems every live screen must never hide. */
 export function integrityNotices(snapshot, t) {
   const notices = [];
+  if (!snapshot.historyComplete) {
+    notices.push(el('div', { className: 'notice bad', attrs: { role: 'alert' } }, [
+      el('p', { text: t('live.history_incomplete') }),
+    ]));
+  }
   if (snapshot.chainBreakAt) {
     notices.push(el('div', { className: 'notice bad', attrs: { role: 'alert' } }, [
       el('p', { text: t('live.chain_break', { n: snapshot.chainBreakAt }) }),
@@ -208,6 +213,19 @@ export function integrityNotices(snapshot, t) {
     ]));
   }
   return notices;
+}
+
+/** Block every personal/authority projection until relay history is trustworthy. */
+export function integrityGuard(snapshot, t) {
+  if (snapshot.trustworthy) return null;
+  return el('section', { className: 'card integrity-guard', attrs: { 'aria-labelledby': 'integrity-title' } }, [
+    el('h2', { attrs: { id: 'integrity-title' }, text: t('live.integrity_title') }),
+    el('p', { text: t('live.integrity_blocked') }),
+    el('button', {
+      className: 'primary', text: t('comp.refresh'),
+      on: { click: () => location.reload() },
+    }),
+  ]);
 }
 
 export { el, replace, byId, CompetitionStore, RelayPool, compDTag, isCompId };
