@@ -18,6 +18,7 @@ import {
   buildResumeUri, Nip46ConnectionSession, NIP46_CLIENT_VAULT_KEY, NIP46_CONNECTION_KEY,
   NIP46_LIVE_SESSION_KEY,
 } from '../competitions/app/signer/nip46-connection.mjs';
+import { ReloadSessionCache } from '../competitions/app/signer/reload-session.mjs';
 import { RelayPool } from '../competitions/app/protocol/relay-pool.mjs';
 import { startDevRelay } from './dev/relay.mjs';
 
@@ -29,6 +30,22 @@ function fakeStorage() {
     setItem: (k, v) => map.set(k, String(v)),
     removeItem: (k) => map.delete(k),
     get size() { return map.size; },
+    get serialized() { return JSON.stringify([...map.entries()]); },
+  };
+}
+
+function fakeReloadCache(storageKey = STORAGE_KEY) {
+  const sessionStorage = fakeStorage();
+  const records = new Map();
+  const recordStore = {
+    put: async (record) => records.set(record.token, record),
+    get: async (token) => records.get(token),
+    delete: async (token) => records.delete(token),
+  };
+  return {
+    sessionStorage,
+    records,
+    create: () => new ReloadSessionCache({ storageKey, sessionStorage, recordStore }),
   };
 }
 
@@ -99,6 +116,41 @@ test('a portable ncryptsec backup can also unlock the saved browser identity', a
   assert.equal(returning.pubkey, pubkey);
   assert.equal(JSON.parse(storage.getItem(STORAGE_KEY)).format, 'ncryptsec');
   returning.lock();
+});
+
+test('an unlocked ncryptsec identity survives a hard reload without plaintext storage', async () => {
+  const storage = fakeStorage();
+  const reload = fakeReloadCache();
+  const first = new KeyVaultSession({ storage, reloadCache: reload.create() });
+  const { pubkey } = first.generate();
+  const ncryptsec = await first.createNcryptsec('correct horse battery', { logN: 4 });
+  first.saveNcryptsec(ncryptsec);
+  assert.equal(await first.enableReloadResume(), true);
+
+  const persisted = `${reload.sessionStorage.serialized}${JSON.stringify([...reload.records.values()])}`;
+  assert.equal(persisted.includes(bytesToHex(first.secretKey)), false);
+  assert.equal(persisted.includes(nsecEncode(first.secretKey)), false);
+
+  const returning = new KeyVaultSession({ storage, reloadCache: reload.create() });
+  assert.equal(await returning.restoreAfterReload(), true);
+  assert.equal(returning.pubkey, pubkey);
+  assert.equal(returning.unlocked, true);
+  returning.lock();
+});
+
+test('sign out removes the hard-reload session but keeps the encrypted ncryptsec', async () => {
+  const storage = fakeStorage();
+  const reload = fakeReloadCache();
+  const first = new KeyVaultSession({ storage, reloadCache: reload.create() });
+  first.generate();
+  first.saveNcryptsec(await first.createNcryptsec('correct horse battery', { logN: 4 }));
+  await first.enableReloadResume();
+  first.lock();
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  const returning = new KeyVaultSession({ storage, reloadCache: reload.create() });
+  assert.equal(await returning.restoreAfterReload(), false);
+  assert.equal(returning.hasStoredKey(), true);
 });
 
 test('locking wipes memory but keeps the stored ciphertext', async () => {

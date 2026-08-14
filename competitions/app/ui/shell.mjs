@@ -11,7 +11,7 @@
  * kind-0 profile at least one relay accepted. Until then the caller sees `null`
  * and offers no create, register or check-in.
  */
-import { KeyVaultSession } from '../signer/local-key.mjs?v=20260814-1';
+import { KeyVaultSession } from '../signer/local-key.mjs?v=20260814-7';
 import { decryptNcryptsec } from '../signer/nip49.mjs';
 import {
   buildNostrConnectUri, createLocalSigner, createNip07Signer, createNip46Signer,
@@ -192,6 +192,7 @@ export class SignIn {
   async use(signer, method) {
     this.signer = signer;
     if (method === 'local') {
+      await this.session.enableReloadResume();
       this.pendingKey = null;
       this.backupMode = null;
       this.pendingNcryptsec = null;
@@ -943,12 +944,16 @@ export class SignIn {
   /**
    * Try to restore a previous session without prompting.
    *
-   * Extensions and a live, tab-scoped bunker connection restore silently. A
-   * deliberately saved long-term pairing and a local key remain encrypted at
-   * rest and render their passphrase unlock control.
+   * Extensions, live bunker connections, and still-valid tab-local key
+   * sessions restore silently. The durable credentials remain encrypted.
    */
   async restore() {
     const method = this.storedMethod();
+    if (method === 'local' && this.session.hasStoredKey()
+      && await this.session.restoreAfterReload()) {
+      await this.use(createLocalSigner(this.session), 'local');
+      return;
+    }
     if (method === 'nip46') {
       const live = this.remoteSession.resumeLive();
       if (live) {

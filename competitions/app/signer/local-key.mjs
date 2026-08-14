@@ -21,6 +21,7 @@
  */
 import { bytesToHex, generateSecretKey, getPublicKey, nsecEncode, decodeNip19, randomBytes } from '../protocol/nostr-event.mjs';
 import { decryptNcryptsec, encryptNcryptsec } from './nip49.mjs';
+import { ReloadSessionCache } from './reload-session.mjs';
 
 export const STORAGE_KEY = 'cruxcoach:competitions:key:v1';
 export const VAULT_VERSION = 1;
@@ -158,6 +159,10 @@ export class KeyVaultSession {
     this.startedAt = 0;
     this.touchedAt = 0;
     this.listeners = new Set();
+    this.reloadCache = options.reloadCache === undefined
+      ? new ReloadSessionCache({ storageKey: this.storageKey })
+      : options.reloadCache;
+    this.reloadResumeEnabled = false;
 
     // Injectable so the lifecycle can be tested with a fake clock and a fake
     // event target rather than by waiting twelve hours.
@@ -219,6 +224,9 @@ export class KeyVaultSession {
   visibilityChanged() {
     if (!this.secretKey || !this.expiryEnabled) return;
     if (this.pageHidden) {
+      this.reloadCache?.update?.({
+        startedAt: this.startedAt, touchedAt: this.touchedAt, hiddenAt: this.now(),
+      });
       this.clearTimer(this.hiddenTimer);
       this.hiddenTimer = this.setTimer(() => {
         this.hiddenTimer = null;
@@ -306,6 +314,47 @@ export class KeyVaultSession {
     this.emit();
   }
 
+  /** Let a saved, unlocked identity survive reloads in this browser tab. */
+  async enableReloadResume() {
+    if (!this.secretKey || !this.hasStoredKey() || this.storedPubkey() !== this.pubkey) return false;
+    const secretKey = this.secretKey;
+    const pubkey = this.pubkey;
+    const saved = Boolean(await this.reloadCache?.save?.(secretKey, {
+      pubkey, startedAt: this.startedAt, touchedAt: this.touchedAt,
+    }));
+    if (this.secretKey !== secretKey || this.pubkey !== pubkey) {
+      await this.reloadCache?.clear?.();
+      return false;
+    }
+    this.reloadResumeEnabled = saved;
+    return saved;
+  }
+
+  /** Restore a still-valid tab session without asking for its passphrase. */
+  async restoreAfterReload() {
+    const expectedPubkey = this.storedPubkey();
+    if (!expectedPubkey) return false;
+    const restored = await this.reloadCache?.restore?.({
+      now: this.now(), absoluteMs: ABSOLUTE_SESSION_MS, idleMs: IDLE_SESSION_MS,
+      hiddenMs: HIDDEN_SESSION_MS, expectedPubkey,
+    });
+    if (!restored) return false;
+    this.clear();
+    this.secretKey = restored.secretKey;
+    this.pubkey = getPublicKey(restored.secretKey);
+    if (this.pubkey !== expectedPubkey) {
+      this.lock();
+      return false;
+    }
+    this.startedAt = restored.startedAt;
+    this.touchedAt = restored.touchedAt;
+    this.reloadResumeEnabled = true;
+    this.arm();
+    if (this.pageHidden) this.visibilityChanged();
+    this.emit();
+    return true;
+  }
+
   /** Persist the current key under a passphrase. No-op on a shared device. */
   async persist(passphrase, sealOptions) {
     if (!this.storage) throw new Error('This device is marked as shared, so nothing is saved here.');
@@ -362,6 +411,8 @@ export class KeyVaultSession {
     this.pubkey = null;
     this.startedAt = 0;
     this.touchedAt = 0;
+    this.reloadResumeEnabled = false;
+    void this.reloadCache?.clear?.();
     this.emit();
   }
 
@@ -382,6 +433,8 @@ export class KeyVaultSession {
     zeroize(this.secretKey);
     this.secretKey = null;
     this.pubkey = null;
+    this.reloadResumeEnabled = false;
+    void this.reloadCache?.clear?.();
   }
 
   expired() {
@@ -397,6 +450,9 @@ export class KeyVaultSession {
       return false;
     }
     this.touchedAt = this.now();
+    if (this.reloadResumeEnabled) {
+      this.reloadCache?.update?.({ startedAt: this.startedAt, touchedAt: this.touchedAt, hiddenAt: null });
+    }
     // The idle deadline just moved, so the timer has to move with it.
     this.arm();
     return this.secretKey !== null;
