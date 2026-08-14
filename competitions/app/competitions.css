@@ -876,10 +876,11 @@ body:has(.projector) { background: #08090a; }
 .participant-past-phase > .card { margin-top: 1rem; box-shadow: none; }
 
 /* Participant live hierarchy: one personal answer, supporting shared truth. */
-.participant-live-nav { position: sticky; z-index: 10; top: 0.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; padding: 0.4rem; border: 1px solid var(--rule); border-radius: 14px; background: color-mix(in srgb, var(--bg-raised) 94%, transparent); box-shadow: 0 8px 28px rgba(0,0,0,0.35); backdrop-filter: blur(14px); }
-.participant-live-nav button { display: grid; min-height: 2.8rem; place-items: center; padding: 0.45rem 0.7rem; border: 0; border-radius: 10px; background: transparent; color: var(--fg-soft); font-weight: 800; text-align: center; }
-.participant-live-nav button:first-child { background: color-mix(in srgb, var(--accent) 16%, var(--bg)); color: var(--fg); }
-.participant-live-nav .leaderboard-link { border: 1px solid var(--rule); }
+.participant-destination-nav { position: sticky; z-index: 10; top: 0.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: 0.35rem; padding: 0.4rem; border: 1px solid var(--rule); border-radius: 14px; background: color-mix(in srgb, var(--bg-raised) 94%, transparent); box-shadow: 0 8px 28px rgba(0,0,0,0.35); backdrop-filter: blur(14px); }
+.participant-destination-nav button { display: grid; min-height: 2.8rem; place-items: center; padding: 0.45rem 0.5rem; border: 0; border-radius: 10px; background: transparent; color: var(--fg-soft); font-size: 0.82rem; font-weight: 800; text-align: center; }
+.participant-destination-nav button[aria-current="page"] { background: color-mix(in srgb, var(--accent) 16%, var(--bg)); color: var(--fg); opacity: 1; }
+.participant-destination-nav button:disabled:not([aria-current="page"]) { opacity: 0.42; }
+.participant-live-context { padding-block: 0.85rem; }
 .participant-live { position: relative; padding: 0; overflow: visible; }
 .participant-live > :not(.participant-live-hero, .participant-actions) { margin-inline: clamp(1rem, 3vw, 1.6rem); }
 .participant-live-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; align-items: center; min-height: 11rem; padding: clamp(1.25rem, 4vw, 2.2rem); border-radius: var(--radius) var(--radius) 0 0; background: radial-gradient(circle at 0 0, color-mix(in srgb, var(--accent) 24%, transparent), transparent 52%), #171719; }

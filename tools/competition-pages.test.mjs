@@ -154,18 +154,26 @@ test('live host, participant and projection surfaces keep state-specific action 
     'the host countdown must tick for an automatically started competition');
 });
 
-test('participant registration, check-in and live competition are separate primary screens', () => {
+test('all five participant jobs are focused history-backed destinations', () => {
   const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'competitions/app/competitions.css'), 'utf8');
 
   assert.match(join, /function participantScreen\(snapshot\)/);
   assert.match(join, /return 'live'/);
   assert.match(join, /mine\?\.registration === 'accepted'\) return 'checkin'/);
-  assert.match(join, /screen === 'registration'[\s\S]*registrationPanel\(snapshot\)[\s\S]*screen === 'checkin'[\s\S]*checkinPanel\(snapshot\)[\s\S]*livePanel\(snapshot\)/);
+  assert.match(join, /PARTICIPANT_DESTINATIONS = new Set\(\['registration', 'checkin', 'live', 'chooser', 'leaderboard'\]\)/);
+  assert.match(join, /PARTICIPANT_HISTORY_KEY/);
+  assert.match(join, /window\.addEventListener\('popstate'/);
+  assert.match(join, /destination === 'registration'[\s\S]*registrationPanel\(snapshot\)[\s\S]*destination === 'checkin'[\s\S]*checkinPanel\(snapshot\)[\s\S]*destination === 'live'[\s\S]*livePanel\(snapshot\)[\s\S]*destination === 'chooser'[\s\S]*nextClimbChooser\(snapshot, me\(\)\)[\s\S]*leaderboard\(snapshot\)/);
+  assert.match(join, /climb_source === 'participant_choice'[\s\S]*available\.add\('chooser'\)/,
+    'organizer-set competitions must not expose a participant choice writer the protocol rejects');
   assert.match(join, /className: 'participant-phases'/);
+  assert.match(join, /className: 'participant-destination-nav'/);
   assert.match(join, /data-screen': screen/);
+  assert.match(join, /'data-destination': destination/);
   assert.match(css, /\.participant-phase-intro\s*\{/);
   assert.match(css, /\.participant-checkin-card\s*\{/);
+  assert.match(css, /\.participant-destination-nav\s*\{/);
 });
 
 test('live ranking fails closed on an incomplete or forked record', () => {
@@ -659,7 +667,8 @@ test('every mode the form offers has a label in both languages', () => {
 test('participant choice happens live, never during registration', () => {
   const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
   assert.match(join, /selections: \[\]/, 'registration must not preselect climbs');
-  assert.ok(join.includes("'asynchronous_turns'"), 'no next-climb chooser for async turns');
+  assert.match(join, /rules\.climb_source === 'participant_choice'[\s\S]*available\.add\('chooser'\)/,
+    'the focused chooser must exist for participant-choice competitions');
   assert.ok(join.includes('remainingClimbs'), 'live flow cannot choose from the remaining pool');
   assert.ok(join.includes('entrant.chooseClimb(climbId)'), 'the prepared choice must be visible to the host');
 });

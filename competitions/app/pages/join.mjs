@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-10';
+} from './common.mjs?v=20260814-11';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
@@ -24,7 +24,7 @@ import { EntrantWriter } from '../authority.mjs?v=20260814-7';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-11';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-12';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { personalCue, queuePreview, rotationPreview, syncHealth, turnEstimate } from '../ui/live-view.mjs?v=20260814-2';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-2';
@@ -53,6 +53,17 @@ let lastHealthKind = '';
 let preparedChoiceTrust = 'idle';
 let preparedChoiceToken = 0;
 const preparedClimbs = new Map();
+const PARTICIPANT_DESTINATIONS = new Set(['registration', 'checkin', 'live', 'chooser', 'leaderboard']);
+const PARTICIPANT_HISTORY_KEY = 'cruxcoachCompetitionParticipantDestination';
+let participantDestination = '';
+
+window.addEventListener('popstate', (event) => {
+  const saved = event.state?.[PARTICIPANT_HISTORY_KEY];
+  if (saved?.address === store?.address && PARTICIPANT_DESTINATIONS.has(saved.destination)) {
+    participantDestination = saved.destination;
+    render();
+  }
+});
 
 function catalogueBoard(competition) {
   const board = competition.board;
@@ -340,6 +351,51 @@ function participantScreen(snapshot) {
   return 'registration';
 }
 
+function participantDestinations(snapshot) {
+  const phase = participantScreen(snapshot);
+  const mine = me();
+  const available = new Set(['registration']);
+  if (mine?.registration === 'accepted') available.add('checkin');
+  if (phase === 'live') {
+    available.add('live');
+    available.add('leaderboard');
+    if (mine && snapshot.competition.rules.climb_source === 'participant_choice') {
+      available.add('chooser');
+    }
+  }
+  return available;
+}
+
+function recordParticipantDestination(destination, { replaceState = false } = {}) {
+  history[replaceState ? 'replaceState' : 'pushState']({
+    ...(history.state || {}),
+    [PARTICIPANT_HISTORY_KEY]: { address: store.address, destination },
+  }, '');
+}
+
+function selectParticipantDestination(destination, { replaceState = false } = {}) {
+  if (!store || !participantDestinations(store.snapshot()).has(destination)) return;
+  participantDestination = destination;
+  recordParticipantDestination(destination, { replaceState });
+  render();
+}
+
+function participantDestinationNavigation(snapshot, active) {
+  const available = participantDestinations(snapshot);
+  return el('nav', {
+    className: 'participant-destination-nav',
+    attrs: { 'aria-label': t('participant.navigation') },
+  }, [...PARTICIPANT_DESTINATIONS].map((destination) => el('button', {
+    text: t(`participant.destination.${destination}`),
+    attrs: {
+      type: 'button',
+      disabled: !available.has(destination) || destination === active,
+      'aria-current': destination === active ? 'page' : null,
+    },
+    on: { click: () => selectParticipantDestination(destination) },
+  })));
+}
+
 function phaseNavigation(screen, snapshot) {
   const phases = ['registration', 'checkin', 'live'];
   const current = phases.indexOf(screen);
@@ -374,6 +430,15 @@ function phaseIntro(screen) {
     el('p', { className: 'eyebrow', text: t(`participant.phase.${screen}`) }),
     el('h2', { text: t(`participant.${screen}.title`) }),
     el('p', { text: t(`participant.${screen}.hint`) }),
+  ]);
+}
+
+function participantDestinationIntro(destination) {
+  if (['registration', 'checkin', 'live'].includes(destination)) return phaseIntro(destination);
+  return el('section', { className: `participant-phase-intro phase-${destination}` }, [
+    el('p', { className: 'eyebrow', text: t(`participant.destination.${destination}`) }),
+    el('h2', { text: t(`participant.${destination}.title`) }),
+    el('p', { text: t(`participant.${destination}.hint`) }),
   ]);
 }
 
@@ -912,11 +977,6 @@ function livePanel(snapshot) {
       ]),
     ]));
 
-    if (snapshot.competition.rules.progression === 'asynchronous_turns'
-      && (runningNow || state.status === 'paused')) {
-      rows.push(nextClimbChooser(snapshot, mine));
-    }
-
     if (mine.climbs.length) {
       rows.push(el('h3', { text: t('table.attempts') }), el('ul', { className: 'plain' },
         mine.climbs.map((climb) => el('li', {
@@ -1264,19 +1324,32 @@ function leaderboard(snapshot) {
   ]);
 }
 
-function liveNavigation(snapshot) {
+function participantLiveContext(snapshot) {
   const mine = me();
-  const standing = mine && snapshot.standings.find((row) => row.pubkey === mine.pubkey);
-  return el('nav', { className: 'participant-live-nav', attrs: { 'aria-label': t('live.navigation') } }, [
-    el('button', {
-      attrs: { type: 'button' }, text: t('live.dashboard'),
-      on: { click: () => byId('live-dashboard')?.scrollIntoView() },
-    }),
-    el('button', {
-      className: 'leaderboard-link', attrs: { type: 'button' },
-      text: standing?.rank ? t('live.leaderboard_rank', { rank: standing.rank }) : t('live.leaderboard'),
-      on: { click: () => byId('leaderboard')?.scrollIntoView() },
-    }),
+  const current = store.currentClimber();
+  const currentParticipant = current ? store.participant(current) : null;
+  const runningNow = competitionRunning(
+    snapshot.competition, snapshot.state.status, Math.floor(Date.now() / 1000),
+  );
+  const cue = personalCue(snapshot.state, mine?.pubkey, runningNow);
+  const cueText = ['queued', 'next_round'].includes(cue.kind)
+    ? t(`live.cue.${cue.kind}`, { n: cue.ahead }) : t(`live.cue.${cue.kind}`);
+  const preparedId = mine ? preparedClimbs.get(`${snapshot.competition.comp_id}:${mine.pubkey}`) : '';
+  const prepared = preparedId ? climbLabel(snapshot, preparedId) : t('live.no_next_climb');
+  return el('section', { className: 'card participant-live-context', attrs: { 'aria-label': t('participant.live_context') } }, [
+    el('dl', { className: 'key-value' }, [
+      el('dt', { text: t('live.current') }),
+      el('dd', { text: currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
+      mine && el('dt', { text: t('live.before_you') }),
+      mine && el('dd', { text: cue.ahead === null ? '—' : String(cue.ahead) }),
+      mine && snapshot.competition.rules.climb_source === 'participant_choice'
+        && el('dt', { text: t('next.prepared') }),
+      mine && snapshot.competition.rules.climb_source === 'participant_choice'
+        && el('dd', { text: preparedChoiceTrust === 'ready' ? prepared
+          : t(preparedChoiceTrust === 'untrusted' ? 'next.choice_untrusted' : 'next.choice_loading') }),
+      el('dt', { text: t('live.next_action') }),
+      el('dd', { text: cueText }),
+    ]),
   ]);
 }
 
@@ -1353,13 +1426,29 @@ function render() {
   }
 
   const screen = participantScreen(snapshot);
+  const available = participantDestinations(snapshot);
+  const followedPreviousPhase = !participantDestination || participantDestination === lastParticipantScreen;
+  if (!available.has(participantDestination) ||
+    (lastParticipantScreen && screen !== lastParticipantScreen && followedPreviousPhase)) {
+    participantDestination = screen;
+    recordParticipantDestination(participantDestination, { replaceState: true });
+  }
   lastParticipantScreen = screen;
-  const primary = screen === 'registration'
-    ? [phaseIntro(screen), registrationPanel(snapshot)]
-    : screen === 'checkin'
-      ? [phaseIntro(screen), checkinPanel(snapshot)]
-      : [liveNavigation(snapshot), el('div', { attrs: { id: 'live-dashboard' } }, [livePanel(snapshot)]), prizePanel(snapshot), leaderboard(snapshot)];
-  const secondary = screen === 'live'
+  const destination = participantDestination;
+  const primary = destination === 'registration'
+    ? [participantDestinationIntro(destination), registrationPanel(snapshot)]
+    : destination === 'checkin'
+      ? [participantDestinationIntro(destination), checkinPanel(snapshot)]
+      : destination === 'live'
+        ? [participantDestinationIntro(destination), livePanel(snapshot), prizePanel(snapshot)]
+        : destination === 'chooser'
+          ? [participantDestinationIntro(destination), participantLiveContext(snapshot), nextClimbChooser(snapshot, me())]
+          : [participantDestinationIntro(destination), participantLiveContext(snapshot),
+            el('aside', { className: 'subcard scoring-explanation' }, [
+              el('h3', { text: t('scoring.info.title') }),
+              el('p', { text: scoringExplanation(t, snapshot.competition) }),
+            ]), leaderboard(snapshot)];
+  const secondary = screen === 'live' && destination !== 'registration'
     ? el('details', { className: 'disclosure participant-past-phase' }, [
       el('summary', { text: t('participant.registration.details') }),
       registrationPanel(snapshot),
@@ -1369,9 +1458,12 @@ function render() {
     devRelayBanner(store, t),
     ...integrityNotices(snapshot, t),
     transportNotice(snapshot),
-    el('div', { className: 'participant-screen', attrs: { 'data-screen': screen } }, [
+    el('div', { className: 'participant-screen', attrs: {
+      'data-screen': screen, 'data-destination': destination,
+    } }, [
       header(snapshot),
       phaseNavigation(screen, snapshot),
+      participantDestinationNavigation(snapshot, destination),
       ...primary,
       announcements(snapshot),
       secondary,
@@ -1414,6 +1506,11 @@ async function start() {
   });
   if (!opened) return;
   ({ store, pool } = opened);
+  const savedDestination = history.state?.[PARTICIPANT_HISTORY_KEY];
+  participantDestination = savedDestination?.address === store.address
+    && PARTICIPANT_DESTINATIONS.has(savedDestination.destination)
+    ? savedDestination.destination : '';
+  lastParticipantScreen = '';
   store.onChange(render);
   if (signer) {
     entrant = new EntrantWriter({
