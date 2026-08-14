@@ -65,7 +65,7 @@ const intents = new Map();
 const receipts = new Map();
 
 /**
- * prize_id -> a decrypted, checked claim.
+ * prize_id + claimant -> decrypted claim input.
  *
  * Decrypted once when the intent arrives and kept in memory only. Nothing here
  * is written anywhere: a payout destination that reached storage would outlive
@@ -624,25 +624,16 @@ async function readPrizeClaim(parsedIntent) {
   try {
     plaintext = await signer.decrypt(parsedIntent.pubkey, ciphertext);
   } catch {
-    prizeClaims.set(prizeId, { error: 'unreadable', pubkey: parsedIntent.pubkey });
+    prizeClaims.set(`${prizeId}:${parsedIntent.pubkey}`, {
+      error: 'unreadable', pubkey: parsedIntent.pubkey, eventId: parsedIntent.eventId,
+    });
     render();
     return;
   }
 
-  const snapshot = store.snapshot();
-  const result = verifyClaim(plaintext, {
-    compId: competition.comp_id,
-    claimantPubkey: parsedIntent.pubkey,
-    resultsHash: snapshot.stateHash,
-    standings: snapshot.standings,
-    prizes: competition.prizes || [],
-    prizeStates: snapshot.state?.prizes || {},
-    nowSeconds: Math.floor(Date.now() / 1000),
-    deadline: claimDeadline(snapshot.state?.results_at || 0, competition.prize_claim_days),
+  prizeClaims.set(`${prizeId}:${parsedIntent.pubkey}`, {
+    plaintext, pubkey: parsedIntent.pubkey, eventId: parsedIntent.eventId,
   });
-  prizeClaims.set(prizeId, result.ok
-    ? { claim: result.claim, prize: result.prize, pubkey: parsedIntent.pubkey }
-    : { error: result.error, pubkey: parsedIntent.pubkey });
   render();
 }
 
@@ -1014,7 +1005,6 @@ function prizeClaimsPanel(snapshot) {
 
   for (const prize of prizes) {
     const status = snapshot.state.prizes?.[prize.id];
-    const claim = prizeClaims.get(prize.id);
     const winner = eligibleWinner(snapshot.standings, prize);
 
     rows.push(el('h3', {
@@ -1030,12 +1020,40 @@ function prizeClaimsPanel(snapshot) {
       continue;
     }
     rows.push(el('p', { className: 'small', text: t('org.prizes.winner', { name: winner.display || shortKey(winner.pubkey) }) }));
+    const rawClaim = intents.get(`${winner.pubkey}:prize_claim:${prize.id}`);
+    const cachedClaim = prizeClaims.get(`${prize.id}:${winner.pubkey}`);
+    const storedClaim = cachedClaim?.eventId === rawClaim?.eventId ? cachedClaim : null;
+    const claim = storedClaim?.plaintext ? verifyClaim(storedClaim.plaintext, {
+      compId: competition.comp_id,
+      claimantPubkey: winner.pubkey,
+      resultsHash: snapshot.stateHash,
+      standings: snapshot.standings,
+      prizes,
+      prizeStates: snapshot.state?.prizes || {},
+      nowSeconds: Math.floor(Date.now() / 1000),
+      deadline,
+    }) : storedClaim;
+    const receipt = intents.get(`${winner.pubkey}:prize_receipt:${prize.id}`);
 
     if (status) {
       rows.push(el('span', { className: 'badge', text: t(`prize.state.${status.state}`) }));
     }
-    if (!claim) {
+    if (status?.state === 'paid') {
+      rows.push(el('p', {
+        className: 'small',
+        text: t(receipt?.intent.data?.received === true
+          ? 'org.prizes.receipt_yes' : 'org.prizes.receipt_no'),
+      }));
+    }
+    if (!rawClaim) {
       rows.push(el('p', { className: 'small', text: t('org.prizes.no_claim_yet') }));
+      continue;
+    }
+    if (!claim) {
+      rows.push(el('button', {
+        className: 'primary', text: t('org.prizes.review'),
+        on: { click: () => act(() => readPrizeClaim(rawClaim)) },
+      }));
       continue;
     }
     any = true;
@@ -1623,7 +1641,6 @@ async function start() {
       if (!known || parsedIntent.createdAt > known.createdAt
         || (parsedIntent.createdAt === known.createdAt && parsedIntent.eventId > known.eventId)) {
         intents.set(key, parsedIntent);
-        if (parsedIntent.intent.op === 'prize_claim') void readPrizeClaim(parsedIntent);
       }
       render();
       void settleClaims();

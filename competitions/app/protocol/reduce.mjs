@@ -52,6 +52,9 @@ export function initialState(competition, competitionEventId) {
     rejected: [],
     fork_detected: false,
     chain_complete: true,
+    // Derived from the accepted finish entry for local claim deadlines. It is
+    // excluded from the state hash to preserve every existing signed stream.
+    results_at: 0,
     from_snapshot: false,
   };
 }
@@ -141,6 +144,7 @@ function applyLifecycle(state, entry, competition) {
   if (next === 'cancelled' || next === 'finished') {
     state.cursor = -1;
     state.turn_deadline_at = 0;
+    if (next === 'finished') state.results_at = entry.at;
   }
   return state;
 }
@@ -802,6 +806,6 @@ export function reduce({ competition, competitionEventId, entries, snapshot }) {
  * a snapshot-started client and a full-replay client can still agree.
  */
 export function hashableState(state) {
-  const { from_snapshot: _ignored, ...rest } = state;
+  const { from_snapshot: _ignored, results_at: _derived, ...rest } = state;
   return rest;
 }

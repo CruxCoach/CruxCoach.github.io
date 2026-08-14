@@ -1772,6 +1772,14 @@ test('the organizer console handles every participant intent it subscribes to', 
     'cancellation must explain that relay deletion follows and is best effort');
   assert.match(organizer, /\['prize_claim', 'prize_receipt'\]\.includes/,
     'each prize request needs its own replaceable inbox lane');
+  assert.match(organizer, /prizeClaims\.get\(`\$\{prize\.id\}:\$\{winner\.pubkey\}`\)/,
+    'a stranger claim must not hide the actual winner claim');
+  assert.match(organizer, /verifyClaim\(storedClaim\.plaintext/,
+    'a correction must revalidate a cached private claim before showing its destination');
+  assert.match(organizer, /click: \(\) => act\(\(\) => readPrizeClaim\(rawClaim\)\)/,
+    'decrypting a claim must be an explicit organizer action, not an arrival-time signer prompt');
+  assert.match(organizer, /prize_receipt:\$\{prize\.id\}/,
+    'the organizer must show the winner receipt for each paid prize');
 
   const authority = fs.readFileSync(path.join(root, 'competitions/app/authority.mjs'), 'utf8');
   assert.match(authority, /nonceScope: `prize_claim:\$\{prizeId\}`/,

@@ -83,6 +83,19 @@ test('duplicate delivery of every event changes nothing', async () => {
   }
 });
 
+test('the accepted finish time drives prize deadlines without changing legacy state hashes', async () => {
+  const stream = readStream('happy-sync.json');
+  const finished = stream.log_events.find((event) => {
+    const body = JSON.parse(event.content);
+    return body.op === 'lifecycle' && body.data?.status === 'finished';
+  });
+  assert.ok(finished, 'fixture needs a terminal finish entry');
+  const { state } = await replay(stream);
+  assert.equal(state.results_at, JSON.parse(finished.content).at);
+  assert.equal('results_at' in hashableState(state), false);
+  assert.equal(await ccjHash(hashableState(state)), stream.expected.state_hash);
+});
+
 test('config updates keep the definition as root and derive one audited effective config', () => {
   const stream = readStream('happy-sync.json');
   const parsed = parseCompetitionEvent(stream.competition_event, NOW);
