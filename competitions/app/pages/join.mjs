@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-19';
+} from './common.mjs?v=20260814-1';
 import { SignIn } from '../ui/shell.mjs?v=20260814-1';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { freeClimbs, outstandingCount } from '../protocol/claims.mjs';
@@ -25,7 +25,7 @@ import { EntrantWriter } from '../authority.mjs?v=20260813-1';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-2';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-3';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { personalCue, queuePreview, rotationPreview, syncHealth } from '../ui/live-view.mjs?v=20260813-1';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-2';
@@ -929,29 +929,33 @@ function livePanel(snapshot) {
     : (snapshot.competition.climbs || []).find((climb) => climb.id === state.current_climb_id);
   const cueKey = `live.cue.${cue.kind}`;
   const cueText = cue.kind === 'queued' ? t(cueKey, { n: cue.ahead }) : t(cueKey);
+  const terminal = ['finished', 'cancelled'].includes(state.status);
   const rows = [
     el('div', { className: `participant-live-hero cue-${cue.kind}` }, [
       el('div', {}, [
         el('p', { className: 'eyebrow', text: t(`status.${state.status}`) }),
         el('h2', { text: cueText }),
-        el('p', { className: 'participant-next-task', text: activeClimb
+        el('p', { className: 'participant-next-task', text: !terminal && activeClimb
           ? t('live.your_next_climb', { climb: activeClimb.label || activeClimb.id })
-          : t('live.no_next_climb') }),
+          : terminal ? t(`live.cue.${state.status}`) : t('live.no_next_climb') }),
       ]),
       el('div', { className: 'participant-turn-facts' }, [
-        el('span', { text: currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
+        el('span', { className: 'participant-current-label', text: t('live.current') }),
+        el('strong', { className: 'participant-current-person', text: currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
         state.status === 'running' && el('strong', {
-          className: 'mono', attrs: { id: 'deadline' }, text: formatSeconds(store.secondsToDeadline()),
+          className: 'mono participant-deadline', attrs: { id: 'deadline', 'aria-label': t('live.deadline') }, text: formatSeconds(store.secondsToDeadline()),
         }),
       ]),
     ]),
   ];
 
-  if (!['running', 'paused', 'finished'].includes(state.status)) {
+  if (!['running', 'paused', 'finished', 'cancelled'].includes(state.status)) {
     rows.push(el('p', { className: 'participant-waiting', text: t('live.waiting') }));
   }
 
-  if (['running', 'paused'].includes(state.status)) rows.push(el('div', { className: 'participant-live-grid' }, [
+  if (['running', 'paused'].includes(state.status)) rows.push(el('details', { className: 'participant-shared-state' }, [
+    el('summary', { text: t('live.shared_state') }),
+    el('div', { className: 'participant-live-grid' }, [
     el('section', { className: 'subcard' }, [
       el('h3', { text: t('live.now_and_next') }),
       el('dl', { className: 'key-value' }, [
@@ -973,6 +977,7 @@ function livePanel(snapshot) {
       ]))) : el('p', { className: 'small', text: t('live.queue_empty') }),
       queue.hidden > 0 && el('p', { className: 'small', text: t('live.more', { n: queue.hidden }) }),
     ]),
+  ]),
   ]));
 
   if (mine) {
@@ -993,21 +998,22 @@ function livePanel(snapshot) {
       ]),
     ]));
 
-    if (snapshot.competition.rules.progression === 'asynchronous_turns') {
+    if (snapshot.competition.rules.progression === 'asynchronous_turns'
+      && ['running', 'paused'].includes(state.status)) {
       rows.push(...nextClimbChooser(snapshot, mine));
     }
 
     if (mine.climbs.length) {
       rows.push(el('h3', { text: t('table.attempts') }), el('ul', { className: 'plain' },
         mine.climbs.map((climb) => el('li', {
-          text: `${climbLabel(snapshot, climb.climb_id)} — ${climb.outcome} (${climb.attempts_used})`,
+          text: `${climbLabel(snapshot, climb.climb_id)} — ${t(`org.${climb.outcome}`)} (${climb.attempts_used})`,
         }))));
     }
 
-    if (['running', 'paused'].includes(state.status)) {
+    if (state.status === 'running') {
       const actions = [];
       if (activeClimb?.climb_uuid) actions.push(el('a', {
-        className: `button ${isMyTurn ? 'primary' : ''}`,
+        className: 'button primary',
         text: isMyTurn ? t('live.open_now') : t('live.prepare_board'),
         attrs: { href: `/c/${activeClimb.climb_uuid}` },
       }));
@@ -1024,6 +1030,20 @@ function livePanel(snapshot) {
           el('span', { text: reason || (isMyTurn ? t('live.your_turn.hint') : t('live.prepare_hint')) }),
         ]),
         el('div', { className: 'row' }, actions),
+      ]));
+    } else if (state.status === 'paused') {
+      rows.push(el('aside', { className: 'participant-actions participant-actions-status', attrs: { role: 'status' } }, [
+        el('div', { className: 'participant-actions-copy' }, [
+          el('strong', { text: t('live.paused') }),
+          el('span', { text: t('live.paused.hint') }),
+        ]),
+      ]));
+    } else if (terminal) {
+      rows.push(el('aside', { className: 'participant-actions participant-actions-status' }, [
+        el('div', { className: 'participant-actions-copy' }, [
+          el('strong', { text: t(`live.cue.${state.status}`) }),
+          el('span', { text: t('live.finished.hint') }),
+        ]),
       ]));
     }
   }
@@ -1085,7 +1105,7 @@ function nextClimbChooser(snapshot, mine) {
 /** The one sentence that says why the chooser is not there. */
 function whyNotYet(snapshot, mine) {
   const state = snapshot.state;
-  if (state.paused) return t('next.paused');
+  if (state.status === 'paused') return t('next.paused');
   if (mine.result !== 'active') return t('next.out');
   if (mine.checkin !== 'checked_in') return t('next.not_checked_in');
   if (snapshot.competition.fee_msat > 0 && mine.payment !== 'settled') return t('next.unpaid');

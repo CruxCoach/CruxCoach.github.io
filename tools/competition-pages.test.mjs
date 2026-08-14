@@ -87,6 +87,32 @@ test('projection and participant live views expose the shared event hierarchy', 
     'ticker text needs a reserved line box to avoid layout jumps');
 });
 
+test('live host, participant and projection surfaces keep state-specific action hierarchy', () => {
+  const organizer = fs.readFileSync(path.join(root, 'competitions/app/pages/organizer.mjs'), 'utf8');
+  const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
+  const live = fs.readFileSync(path.join(root, 'competitions/app/pages/live.mjs'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'competitions/app/competitions.css'), 'utf8');
+
+  for (const marker of [
+    'host-overview', 'host-console-primary', 'host-run-card', 'host-turn-hero',
+    'host-next-strip', 'host-result-actions', 'host-danger-menu', 'host-sync-state',
+  ]) assert.ok(organizer.includes(marker), `host console is missing ${marker}`);
+  assert.match(organizer, /id: 'host-deadline'/, 'the host needs the same live countdown as the wall');
+  assert.match(organizer, /state\.status === 'paused'[\s\S]*org\.paused\.hint/,
+    'pause must replace scoring actions with an explicit locked state');
+  assert.match(css, /\.host-result-actions\s*\{[^}]*position: sticky/s,
+    'attempt controls must remain reachable on a small wall-side phone');
+
+  assert.match(join, /state\.status === 'running'[\s\S]*participant-actions/,
+    'participant controls must be gated by the running phase');
+  assert.match(join, /participant-actions participant-actions-status/,
+    'paused and terminal participants need a status surface, not disabled controls');
+  assert.match(join, /className: 'button primary'[\s\S]*live\.prepare_board/,
+    'preparing the next boulder is the one dominant queued action');
+  assert.match(live, /!terminal && el\('div', \{ className: 'projection-middle'/,
+    'a final projection must not keep presenting an active queue or rotation');
+});
+
 test('participant registration, check-in and live competition are separate primary screens', () => {
   const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'competitions/app/competitions.css'), 'utf8');

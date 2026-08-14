@@ -8,9 +8,10 @@
  */
 import { finalizeEvent } from './protocol/nostr-event.mjs';
 import {
-  buildCompetitionEvent, buildIntentEvent, buildLogEvent, buildResultsEvent,
-  buildSnapshotEvent, newNonce, parseIntentEvent,
-} from './protocol/competition.mjs?v=20260813-2';
+  buildCompetitionDeletionRequest, buildCompetitionEvent,
+  buildCompetitionTombstoneEvent, buildIntentEvent, buildLogEvent,
+  buildResultsEvent, buildSnapshotEvent, newNonce, parseIntentEvent,
+} from './protocol/competition.mjs?v=20260814-4';
 import { hashableState } from './protocol/reduce.mjs';
 import { ccj, ccjHash } from './protocol/ccj.mjs';
 
@@ -186,6 +187,34 @@ export class AuthorityWriter {
       at: this.now(),
     });
     return signAndPublish(this.pool, this.signer, draft);
+  }
+
+  /**
+   * Best-effort relay cleanup after cancellation.
+   *
+   * Relay OK means that the marker/request was accepted, never that every
+   * physical copy disappeared. Both result sets stay visible to the host UI so
+   * it can offer retry without claiming stronger guarantees than NIP-09 gives.
+   */
+  async deleteCompetition() {
+    this.assertAuthorised();
+    if (this.store.state?.status !== 'cancelled') {
+      throw new Error('Cancel the competition before requesting relay deletion.');
+    }
+    const definitionEventId = this.store.competitionEventId;
+    if (!definitionEventId) throw new Error('The competition definition id is missing.');
+    const at = this.now();
+    const tombstoneEvent = await this.signer.signEvent(buildCompetitionTombstoneEvent({
+      compId: this.competition.comp_id,
+      deletedAt: at,
+    }));
+    const tombstone = await this.pool.publish(tombstoneEvent);
+    const deletionEvent = await this.signer.signEvent(buildCompetitionDeletionRequest({
+      definitionEventId,
+      at: Math.max(at, this.now()),
+    }));
+    const deletion = await this.pool.publish(deletionEvent);
+    return { tombstone, deletion };
   }
 
   // ── named operations, so screens never hand-build a `data` object ──

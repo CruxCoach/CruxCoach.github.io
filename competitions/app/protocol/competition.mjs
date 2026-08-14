@@ -592,6 +592,42 @@ export function buildCompetitionEvent(config, createdAt) {
   return { kind: KIND, created_at: createdAt, tags, content: ccj(payload) };
 }
 
+/**
+ * Replace the readable addressable definition even on relays that ignore
+ * NIP-09. It deliberately classifies as the competition coordinate but is not
+ * a valid Competition config, so old clients fail closed instead of rendering
+ * a deleted event.
+ */
+export function buildCompetitionTombstoneEvent({ compId, deletedAt }) {
+  return {
+    kind: KIND,
+    created_at: deletedAt,
+    tags: [
+      ['d', compDTag(compId)],
+      ['L', NAMESPACE],
+      ['l', 'competition', NAMESPACE],
+      ['cc-schema', SCHEMA],
+      ['alt', 'Deleted CruxCoach competition'],
+      ['status', 'deleted'],
+    ],
+    content: ccj({
+      v: SCHEMA_MAJOR, type: 'competition', comp_id: compId,
+      deleted: true, deleted_at: deletedAt,
+    }),
+  };
+}
+
+/** NIP-09 request for the concrete definition; the newer tombstone survives. */
+export function buildCompetitionDeletionRequest({ definitionEventId, at }) {
+  if (!isHex32(definitionEventId)) throw new Error('definition event id is invalid');
+  return {
+    kind: 5,
+    created_at: at,
+    tags: [['e', definitionEventId], ['k', String(KIND)]],
+    content: 'CruxCoach test competition cleanup',
+  };
+}
+
 export function buildLogEvent({ compId, organizerPubkey, seq, prev, epoch, op, data, reason, at, actor = 'authority', subjects = [] }) {
   if (!LOG_OPS.includes(op)) throw new Error(`unknown log op ${op}`);
   if (REASON_REQUIRED_OPS.has(op) && !reason) throw new Error(`op ${op} requires a reason`);

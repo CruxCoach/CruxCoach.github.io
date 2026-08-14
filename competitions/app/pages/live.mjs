@@ -7,7 +7,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
-} from './common.mjs?v=20260813-19';
+} from './common.mjs?v=20260814-1';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { queuePreview, rotationPreview, syncHealth, tiedAt } from '../ui/live-view.mjs?v=20260813-1';
@@ -163,8 +163,8 @@ function running(snapshot) {
       el('div', { className: 'projection-current' }, [
         el('p', { className: 'projection-kicker', text: terminal ? t('live.final') : paused ? t('live.paused') : t('live.current') }),
         el('p', { className: 'now', text: terminal ? t('live.finished') : currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
-        el('p', { className: 'current-climb', text: climbLabel(snapshot, state.current_climb_id) }),
-        el('div', { className: 'turn-facts' }, [
+        !terminal && el('p', { className: 'current-climb', text: climbLabel(snapshot, state.current_climb_id) }),
+        !terminal && el('div', { className: 'turn-facts' }, [
           el('span', { text: t('live.round_value', { n: state.round }) }),
           !terminal && el('span', { className: 'countdown', attrs: { id: 'deadline' }, text: paused ? t('live.paused') : formatSeconds(store.secondsToDeadline()) }),
         ]),
@@ -175,7 +175,7 @@ function running(snapshot) {
         el('p', { className: 'next-climb', text: rotationPreview(snapshot.competition, state, nextParticipant, 2).entries[0]?.label || climbLabel(snapshot, state.current_climb_id) }),
       ]),
     ]),
-    el('div', { className: 'projection-middle' }, [
+    !terminal && el('div', { className: 'projection-middle' }, [
       queuePanel(snapshot, current),
       rotationPanel(snapshot, currentParticipant),
     ]),

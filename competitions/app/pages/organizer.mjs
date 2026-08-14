@@ -12,10 +12,10 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260813-19';
+} from './common.mjs?v=20260814-1';
 import { SignIn } from '../ui/shell.mjs?v=20260814-1';
 import { RelayPool } from '../protocol/relay-pool.mjs';
-import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260813-1';
+import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-4';
 import {
   NAMESPACE, newCompId, parseCompetitionEvent, parseIntentEvent, parseLogEvent,
   checkinWindowOpen, registrationWindowOpen, validateCompetitionConfig,
@@ -31,9 +31,10 @@ import { verifyEvent } from '../protocol/nostr-event.mjs';
 import { createCompetitionForm } from './organizer-form.mjs?v=20260813-22';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs?v=20260813-2';
-import { announce, displayName, formatDateTime, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260813-22';
+import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-3';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
+import { syncHealth } from '../ui/live-view.mjs?v=20260813-1';
 
 const { t, language } = bootstrap();
 
@@ -42,6 +43,9 @@ let store = null;
 let pool = null;
 let writer = null;
 let ref = null;
+let ticker = null;
+let lastHealthKind = '';
+let cleanupResult = null;
 const intents = new Map();
 
 /**
@@ -403,17 +407,59 @@ function lifecycleActions(snapshot) {
   if (status === 'registration_open') step(t('org.close_registration'), 'registration_closed', 'primary');
   if (status === 'registration_closed') step(t('org.open_checkin'), 'checkin_open', 'primary');
   if (status === 'checkin_open') step(t('org.start'), 'running', 'primary');
-  if (status === 'running') { step(t('org.pause'), 'paused'); step(t('org.finish'), 'finished'); }
-  if (status === 'paused') { step(t('org.resume'), 'running', 'primary'); step(t('org.finish'), 'finished'); }
+  if (status === 'running') step(t('org.pause'), 'paused');
+  if (status === 'paused') step(t('org.resume'), 'running', 'primary');
   if (!['finished', 'cancelled'].includes(status)) {
+    actions.push(el('details', { className: 'host-danger-menu' }, [
+      el('summary', { text: t('org.more_controls') }),
+      ['running', 'paused'].includes(status) && el('button', {
+        text: t('org.finish'),
+        on: {
+          click: () => {
+            if (!confirm(`${t('org.finish')}?`)) return;
+            act(() => writer.setStatus('finished'));
+          },
+        },
+      }),
+      el('button', {
+        className: 'danger',
+        text: t('org.cancel_comp'),
+        on: {
+          click: () => {
+            if (!confirm(`${t('org.cancel_comp')}?`)) return;
+            act(async () => {
+              await writer.setStatus('cancelled');
+              cleanupResult = await writer.deleteCompetition();
+              replace(feedback, el('div', { className: 'notice warn' }, [
+                el('p', { text: t('org.cleanup.result', {
+                  tombstone: cleanupResult.tombstone.accepted,
+                  deletion: cleanupResult.deletion.accepted,
+                  total: Math.max(cleanupResult.tombstone.attempted, cleanupResult.deletion.attempted),
+                }) }),
+              ]));
+            });
+          },
+        },
+      }),
+    ]));
+  }
+  if (status === 'cancelled') {
     actions.push(el('button', {
       className: 'danger',
-      text: t('org.cancel_comp'),
+      text: t('org.cleanup.retry'),
       on: {
-        click: () => {
-          if (!confirm(`${t('org.cancel_comp')}?`)) return;
-          act(() => writer.setStatus('cancelled'));
-        },
+        click: () => act(async () => {
+          if (!confirm(t('org.cleanup.confirm'))) return;
+          cleanupResult = await writer.deleteCompetition();
+          replace(feedback, el('div', { className: 'notice warn' }, [
+            el('p', { text: t('org.cleanup.result', {
+              tombstone: cleanupResult.tombstone.accepted,
+              deletion: cleanupResult.deletion.accepted,
+              total: Math.max(cleanupResult.tombstone.attempted, cleanupResult.deletion.attempted),
+            }) }),
+            el('p', { text: t('org.cleanup.limit') }),
+          ]));
+        }),
       },
     }));
   }
@@ -932,39 +978,74 @@ function prizeClaimsPanel(snapshot) {
 
 function queuePanel(snapshot) {
   const state = snapshot.state;
-  if (!['checkin_open', 'running'].includes(state.status)) return null;
+  if (!['checkin_open', 'running', 'paused'].includes(state.status)) return null;
 
   const eligible = state.participants
     .filter((p) => p.registration === 'accepted' && p.checkin === 'checked_in' && p.result === 'active')
     .map((p) => p.pubkey);
   const current = store.currentClimber();
   const currentParticipant = current ? store.participant(current) : null;
-  const rows = [el('h2', { text: t('org.run') })];
+  const next = store.nextClimber();
+  const nextParticipant = next ? store.participant(next) : null;
+  const rows = [
+    el('div', { className: 'host-run-heading' }, [
+      el('div', {}, [
+        el('p', { className: 'eyebrow', text: t('org.now_to_do') }),
+        el('h2', { text: t('org.run') }),
+      ]),
+      el('span', { className: `phase-badge phase-${state.status}`, text: t(`status.${state.status}`) }),
+    ]),
+  ];
 
   if (state.order.length !== eligible.length || state.order.length === 0) {
-    rows.push(el('button', {
-      className: 'primary',
-      text: t('live.queue'),
-      on: {
-        click: () => act(async () => {
-          const order = await AuthorityWriter.defaultOrder(snapshot.competition.comp_id, eligible);
-          await writer.seed(order);
-        }),
-      },
-    }));
+    rows.push(el('div', { className: 'host-empty-action' }, [
+      el('strong', { text: t('org.queue_needed') }),
+      el('span', { text: t('org.queue_needed.hint', { n: eligible.length }) }),
+      el('button', {
+        className: 'primary host-primary-action',
+        text: t('live.queue'),
+        on: {
+          click: () => act(async () => {
+            const order = await AuthorityWriter.defaultOrder(snapshot.competition.comp_id, eligible);
+            await writer.seed(order);
+          }),
+        },
+      }),
+    ]));
   }
 
-  if (state.status === 'running' && state.order.length) {
-    rows.push(el('p', {
-      text: currentParticipant ? displayName(currentParticipant) : t('live.nobody'),
-    }));
+  if (['running', 'paused'].includes(state.status) && state.order.length) {
+    rows.push(el('div', { className: 'host-turn-hero' }, [
+      el('div', {}, [
+        el('span', { className: 'host-turn-label', text: t('live.current') }),
+        el('strong', { className: 'host-current-name', text: currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
+        el('span', { className: 'host-current-climb', text: state.current_climb_id
+          ? snapshot.competition.climbs?.find((climb) => climb.id === state.current_climb_id)?.label || state.current_climb_id
+          : t('live.rotation_empty') }),
+      ]),
+      el('div', { className: 'host-turn-timer' }, [
+        el('span', { text: t('live.deadline') }),
+        el('strong', {
+          className: 'mono', attrs: { id: 'host-deadline' },
+          text: state.status === 'paused' ? t('live.paused') : formatSeconds(store.secondsToDeadline()),
+        }),
+      ]),
+    ]));
+    rows.push(el('div', { className: 'host-next-strip' }, [
+      el('span', { text: t('live.next') }),
+      el('strong', { text: nextParticipant ? displayName(nextParticipant) : t('live.queue_empty') }),
+    ]));
     if (!currentParticipant) {
-      rows.push(el('button', {
-        className: 'primary',
+      if (state.status === 'running') rows.push(el('button', {
+        className: 'primary host-primary-action',
         text: t('org.next_climber'),
         on: { click: () => act(() => writer.advance()) },
       }));
+      else rows.push(el('p', { className: 'host-paused-copy', text: t('org.paused.hint') }));
     } else {
+      if (state.status === 'paused') {
+        rows.push(el('p', { className: 'host-paused-copy', text: t('org.paused.hint') }));
+      } else {
       // Under participant choice the climber is on a climb of their own, not on
       // `current_climb_id` — recording against the wrong one would score
       // somebody else's problem. Their report says which; failing that, the
@@ -989,8 +1070,10 @@ function queuePanel(snapshot) {
         rows.push(el('p', { className: 'small', text: t('org.recording_for', { climb: own.find((c) => c.id === climbId)?.label || climbId }) }));
       }
 
-      rows.push(el('div', { className: 'row' }, ['top', 'zone', 'fall', 'timeout'].map((outcome) => el('button', {
-        className: outcome === 'top' ? 'primary' : '',
+      rows.push(el('fieldset', { className: 'host-result-actions' }, [
+        el('legend', { text: t('org.record_result') }),
+        ...['top', 'zone', 'fall', 'timeout'].map((outcome) => el('button', {
+        className: `host-result-${outcome}`,
         text: t(`org.${outcome}`),
         on: {
           click: () => act(async () => {
@@ -998,15 +1081,19 @@ function queuePanel(snapshot) {
             await writer.closeTurn();
           }),
         },
-      }))));
-      rows.push(el('button', {
-        text: t('live.defer'),
-        on: { click: () => act(() => writer.decideDefer(current, 'granted')) },
-      }));
+      })),
+      ]));
+      rows.push(el('div', { className: 'host-secondary-turn-actions' }, [
+        el('button', {
+          text: t('live.defer'),
+          on: { click: () => act(() => writer.decideDefer(current, 'granted')) },
+        }),
+      ]));
+      }
     }
 
     const climbs = snapshot.competition.climbs || [];
-    if (climbs.length) {
+    if (climbs.length && state.status === 'running') {
       rows.push(el('details', { className: 'disclosure' }, [
         el('summary', { text: t('org.next_climb') }),
         el('div', { className: 'row' }, climbs.map((climb) => el('button', {
@@ -1040,7 +1127,7 @@ function queuePanel(snapshot) {
     }),
   ]));
 
-  return el('section', { className: 'card' }, rows);
+  return el('section', { className: `card host-run-card host-state-${state.status}` }, rows);
 }
 
 function sharePanel(snapshot) {
@@ -1069,6 +1156,45 @@ function sharePanel(snapshot) {
       text: t('live.leaderboard'),
       on: { click: () => act(() => writer.publishResults()) },
     }) : null,
+  ]);
+}
+
+function hostSyncState(snapshot) {
+  const health = syncHealth(snapshot, Math.floor(Date.now() / 1000));
+  lastHealthKind = health.kind;
+  if (health.kind === 'live') {
+    return el('span', { className: 'sync-state ok', text: t('live.synced', { n: health.connected }) });
+  }
+  const key = health.kind === 'stale' ? 'live.stale'
+    : health.kind === 'offline' ? 'live.offline' : 'live.connecting';
+  return el('div', { className: `host-sync-state sync-${health.kind}`, attrs: { role: 'status' } }, [
+    el('strong', { text: t(key) }),
+    health.age !== null && el('span', { text: t('live.last_update', { n: health.age }) }),
+  ]);
+}
+
+function hostOverview(snapshot, isAuthority) {
+  const accepted = snapshot.state.participants.filter((p) => p.registration === 'accepted').length;
+  const checkedIn = snapshot.state.participants.filter((p) => p.checkin === 'checked_in').length;
+  const openRequests = [...intents.values()]
+    .filter((intent) => ['register', 'withdraw', 'checkin_request', 'defer_request', 'attempt_report'].includes(intent.intent.op))
+    .filter((intent) => !requestAnswered(intent)).length;
+  return el('header', { className: 'host-overview' }, [
+    el('div', { className: 'host-overview-title' }, [
+      el('p', { className: 'eyebrow', text: t('org.control_room') }),
+      el('h1', { text: snapshot.competition.title }),
+      el('span', { text: formatDateTime(snapshot.competition.starts_at, language, snapshot.competition.timezone) }),
+    ]),
+    el('div', { className: 'host-overview-state' }, [
+      el('span', { className: `phase-badge phase-${snapshot.state.status}`, text: t(`status.${snapshot.state.status}`) }),
+      hostSyncState(snapshot),
+    ]),
+    el('dl', { className: 'host-overview-metrics' }, [
+      el('div', {}, [el('dt', { text: t('org.entrants') }), el('dd', { text: String(accepted) })]),
+      el('div', {}, [el('dt', { text: t('participant.phase.checkin') }), el('dd', { text: String(checkedIn) })]),
+      el('div', {}, [el('dt', { text: t('org.requests') }), el('dd', { text: String(openRequests) })]),
+    ]),
+    isAuthority ? el('div', { className: 'host-lifecycle' }, lifecycleActions(snapshot)) : null,
   ]);
 }
 
@@ -1104,25 +1230,31 @@ function render() {
   replace(view,
     devRelayBanner(store, t),
     ...integrityNotices(snapshot, t),
-    el('section', { className: 'card' }, [
-      el('h2', { text: snapshot.competition.title }),
-      el('div', { className: 'row' }, [
-        el('span', { className: 'badge', text: t(`status.${snapshot.state.status}`) }),
-        el('span', { className: 'badge', text: formatDateTime(snapshot.competition.starts_at, language, snapshot.competition.timezone) }),
+    hostOverview(snapshot, isAuthority),
+    !isAuthority ? el('div', { className: 'notice warn' }, [el('p', { text: t('org.not_owner') })]) : null,
+    feedback,
+    isAuthority ? el('div', { className: 'host-console-layout' }, [
+      el('section', { className: 'host-console-primary' }, [
+        queuePanel(snapshot),
+        requestsPanel(snapshot),
+        prizeClaimsPanel(snapshot),
       ]),
-      isAuthority ? el('div', { className: 'row' }, lifecycleActions(snapshot))
-        : el('div', { className: 'notice warn' }, [el('p', { text: t('org.not_owner') })]),
+      el('aside', { className: 'host-console-secondary' }, [
+        entrantsPanel(snapshot),
+        sharePanel(snapshot),
+        el('details', { className: 'disclosure' }, [
+          el('summary', { text: t('scoring.info.title') }),
+          el('div', { className: 'scoring-explanation' }, [
+            el('p', { text: scoringExplanation(t, snapshot.competition) }),
+          ]),
+        ]),
+      ]),
+    ]) : el('section', { className: 'card' }, [
       el('aside', { className: 'subcard scoring-explanation' }, [
         el('h3', { text: t('scoring.info.title') }),
         el('p', { text: scoringExplanation(t, snapshot.competition) }),
       ]),
     ]),
-    feedback,
-    isAuthority ? requestsPanel(snapshot) : null,
-    isAuthority ? entrantsPanel(snapshot) : null,
-    isAuthority ? queuePanel(snapshot) : null,
-    isAuthority ? prizeClaimsPanel(snapshot) : null,
-    sharePanel(snapshot),
     snapshot.state.rejected.length ? el('details', { className: 'disclosure' }, [
       el('summary', { text: String(snapshot.state.rejected.length) }),
       el('ul', { className: 'plain' }, snapshot.state.rejected.map(
@@ -1236,6 +1368,16 @@ async function start() {
     });
   }
   render();
+
+  if (ticker) clearInterval(ticker);
+  ticker = setInterval(() => {
+    const deadline = byId('host-deadline');
+    if (deadline && store && store.snapshot().state.status === 'running') {
+      deadline.textContent = formatSeconds(store.secondsToDeadline());
+    }
+    const health = store ? syncHealth(store.snapshot(), Math.floor(Date.now() / 1000)) : null;
+    if (health && health.kind !== lastHealthKind) render();
+  }, 1000);
 }
 
 window.addEventListener('hashchange', start);

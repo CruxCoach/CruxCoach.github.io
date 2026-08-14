@@ -11,10 +11,25 @@ import {
 } from '../competitions/app/protocol/nostr-event.mjs';
 import { ccj, ccjHash, sha256Hex } from '../competitions/app/protocol/ccj.mjs';
 import {
-  buildCompetitionEvent, buildIntentEvent, classifyEvent, compDTag, intentDTag,
+  buildCompetitionDeletionRequest, buildCompetitionEvent,
+  buildCompetitionTombstoneEvent, buildIntentEvent, classifyEvent, compDTag, intentDTag,
   checkinWindowOpen, logDTag, parseCompetitionEvent, parseDTag,
   registrationWindowOpen, validateCompetitionConfig, KIND,
 } from '../competitions/app/protocol/competition.mjs';
+
+test('competition cleanup keeps a tombstone and targets the concrete definition', () => {
+  const compId = '0123456789abcdef';
+  const tombstone = buildCompetitionTombstoneEvent({ compId, deletedAt: 1234 });
+  assert.deepEqual(tombstone.tags.find((tag) => tag[0] === 'd'), ['d', compDTag(compId)]);
+  assert.equal(JSON.parse(tombstone.content).deleted, true);
+
+  const definitionEventId = 'b'.repeat(64);
+  const deletion = buildCompetitionDeletionRequest({ definitionEventId, at: 1235 });
+  assert.equal(deletion.kind, 5);
+  assert.deepEqual(deletion.tags, [['e', definitionEventId], ['k', String(KIND)]]);
+  assert.equal(deletion.tags.some((tag) => tag[0] === 'a'), false,
+    'an address deletion would also delete the newer tombstone');
+});
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const fixtures = path.join(here, '../competitions/fixtures');
