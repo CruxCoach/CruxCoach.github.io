@@ -10,7 +10,7 @@
  */
 import { verifyEvent } from '../protocol/nostr-event.mjs';
 import {
-  KIND, NAMESPACE, competitionAddress, competitionRunning, compDTag,
+  INTENT_OPS, KIND, NAMESPACE, competitionAddress, competitionRunning, compDTag,
   intentDTag, logDTag, parseCompetitionEvent, parseIntentEvent, parseLogEvent,
 } from '../protocol/competition.mjs?v=20260814-6';
 import { hashableState, reduce } from '../protocol/reduce.mjs?v=20260814-4';
@@ -64,6 +64,11 @@ export class CompetitionStore {
     // first absent sequence. A broad live REQ is not proof of complete history:
     // relays commonly apply a small default result limit.
     this.historyComplete = false;
+    // Null means this consumer has not requested the organizer/public intent
+    // inbox. False means it did, but every configured relay did not complete.
+    this.intentHistoryComplete = null;
+    this.intentBackfillComplete = false;
+    this.intentRelayEose = new Set();
     this.problems = [];
     this.listeners = new Set();
     this.subscriptions = [];
@@ -91,6 +96,7 @@ export class CompetitionStore {
       stateHash: this.stateHash,
       chainBreakAt: this.chainBreakAt,
       historyComplete: this.historyComplete,
+      intentHistoryComplete: this.intentHistoryComplete,
       trustworthy: this.trustworthy,
       problems: [...this.problems],
       developmentRelay: usesDevelopmentRelay(this.pool.urls),
@@ -180,7 +186,11 @@ export class CompetitionStore {
   }
 
   /** Relay transport changed. Screens may update a local offline hint. */
-  connectionChanged() {
+  connectionChanged(status = '') {
+    if (status.startsWith('disconnected:') && this.intentHistoryComplete !== null) {
+      this.intentRelayEose.delete(status.slice('disconnected:'.length));
+      this.intentHistoryComplete = false;
+    }
     this.emit();
   }
 
@@ -302,14 +312,46 @@ export class CompetitionStore {
   }
 
   /** Participant intents addressed to the authority — the organizer console needs these. */
-  async followIntents(onIntent) {
-    const subscription = this.pool.subscribe([{
+  async followIntents(onIntent, { timeoutMs = 12000 } = {}) {
+    if (!this.competition) throw new Error('load the competition first');
+    this.intentHistoryComplete = false;
+    this.intentBackfillComplete = false;
+    this.intentRelayEose.clear();
+    this.emit();
+    const liveFilter = {
       kinds: [KIND],
       '#a': [this.address],
       '#p': [this.competition.authority],
-    }], { onEvent: onIntent });
+      '#l': ['intent'],
+    };
+    const accept = async (event) => {
+      if (await verifyEvent(event).catch(() => false)) onIntent(event);
+    };
+    // Arm live delivery first, then backfill. The overlap closes the EOSE to
+    // follow race; the caller's newest-event map deduplicates both paths.
+    const subscription = this.pool.subscribe([liveFilter], {
+      onEvent: (event) => { void accept(event); },
+      onEose: (url, _count, info = {}) => {
+        if (info.failed) this.intentRelayEose.delete(url);
+        else this.intentRelayEose.add(url);
+        this.intentHistoryComplete = this.intentBackfillComplete
+          && this.intentRelayEose.size === this.pool.urls.length;
+        this.emit();
+      },
+    });
     this.subscriptions.push(subscription);
     await subscription.ready;
+    // One filter per operation gives every bounded inbox lane its own limit.
+    // Capacity is capped at 500 for finite competitions, so 1000 also leaves
+    // room for an identity that had to replace its stable local nonce.
+    const filters = INTENT_OPS.map((op) => ({ ...liveFilter, '#op': [op], limit: 1000 }));
+    const { events, complete, failed } = await this.pool.query(filters, { timeoutMs });
+    for (const event of events) await accept(event); // eslint-disable-line no-await-in-loop
+    this.intentBackfillComplete = complete && failed === 0;
+    this.intentHistoryComplete = this.intentBackfillComplete
+      && this.intentRelayEose.size === this.pool.urls.length;
+    if (!this.intentHistoryComplete) this.note('intents_incomplete');
+    this.emit();
     return subscription;
   }
 

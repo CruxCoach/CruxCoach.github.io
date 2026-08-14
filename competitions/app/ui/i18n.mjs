@@ -538,6 +538,8 @@ const STRINGS = {
     'comp.loading': 'Loading the competition…',
     'comp.refresh': 'Refresh',
     'live.history_incomplete': 'The relay history is incomplete. Personal status, turns, and results are hidden until the missing signed record is recovered.',
+    'live.intent_integrity_title': 'Requests are not yet trustworthy',
+    'live.intents_incomplete': 'Not every competition relay completed the participant-request history. Requests and prepared boulders stay hidden until a full reload succeeds.',
     'live.integrity_title': 'Waiting for a trustworthy competition record',
     'live.integrity_blocked': 'CruxCoach will not guess your registration, queue position, or results from partial or conflicting relay history. Reconnect and refresh to try the signed backfill again.',
 
@@ -1541,6 +1543,8 @@ const STRINGS = {
     'comp.loading': 'Wettkampf wird geladen…',
     'comp.refresh': 'Aktualisieren',
     'live.history_incomplete': 'Der Relay-Verlauf ist unvollständig. Persönlicher Status, Züge und Ergebnisse bleiben verborgen, bis der fehlende signierte Verlauf wiederhergestellt ist.',
+    'live.intent_integrity_title': 'Anfragen sind noch nicht vertrauenswürdig',
+    'live.intents_incomplete': 'Nicht jedes Wettkampf-Relay hat den Verlauf der Teilnehmendenanfragen vollständig geliefert. Anfragen und vorbereitete Boulder bleiben verborgen, bis ein vollständiges Neuladen gelingt.',
     'live.integrity_title': 'Warten auf einen vertrauenswürdigen Wettkampfverlauf',
     'live.integrity_blocked': 'CruxCoach errät Anmeldung, Warteschlangenposition oder Ergebnisse nicht aus einem unvollständigen oder widersprüchlichen Relay-Verlauf. Stelle die Verbindung wieder her und aktualisiere die Seite, um den signierten Verlauf erneut zu laden.',
 

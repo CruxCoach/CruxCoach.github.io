@@ -12,7 +12,7 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-11';
+} from './common.mjs?v=20260814-13';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-7';
@@ -32,10 +32,10 @@ import { competitionToFormDraft, createCompetitionForm } from './organizer-form.
 import { naddrEncode } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag } from '../protocol/competition.mjs?v=20260814-6';
 import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-12';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-13';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { syncHealth } from '../ui/live-view.mjs?v=20260813-1';
-import { CompetitionStore } from '../ui/store.mjs?v=20260814-6';
+import { CompetitionStore } from '../ui/store.mjs?v=20260814-8';
 
 const { t, language } = bootstrap();
 
@@ -1318,9 +1318,9 @@ function hostOverview(snapshot, isAuthority, destination) {
   const now = Math.floor(Date.now() / 1000);
   const accepted = snapshot.state.participants.filter((p) => p.registration === 'accepted').length;
   const checkedIn = snapshot.state.participants.filter((p) => p.checkin === 'checked_in').length;
-  const openRequests = [...intents.values()]
+  const openRequests = snapshot.intentHistoryComplete ? [...intents.values()]
     .filter((intent) => ['register', 'withdraw', 'checkin_request', 'defer_request', 'attempt_report'].includes(intent.intent.op))
-    .filter((intent) => !requestAnswered(intent)).length;
+    .filter((intent) => !requestAnswered(intent)).length : null;
   const effectiveStatus = competitionRunning(snapshot.competition, snapshot.state.status, now)
     ? 'running' : snapshot.state.status;
   const windowCard = (kind, opensAt, closesAt, open) => {
@@ -1354,7 +1354,7 @@ function hostOverview(snapshot, isAuthority, destination) {
     el('dl', { className: 'host-overview-metrics' }, [
       el('div', {}, [el('dt', { text: t('org.entrants') }), el('dd', { text: String(accepted) })]),
       el('div', {}, [el('dt', { text: t('participant.phase.checkin') }), el('dd', { text: String(checkedIn) })]),
-      el('div', {}, [el('dt', { text: t('org.requests') }), el('dd', { text: String(openRequests) })]),
+      el('div', {}, [el('dt', { text: t('org.requests') }), el('dd', { text: openRequests === null ? '—' : String(openRequests) })]),
     ]),
     isAuthority && destination !== 'entrants' ? el('div', { className: 'host-lifecycle' }, [
       destination === 'setup' ? el('button', {
@@ -1411,6 +1411,13 @@ function hostDestinationContent(snapshot, destination) {
           el('p', { text: scoringExplanation(t, snapshot.competition) }),
         ]),
       ]),
+    ]);
+  }
+  if (!snapshot.intentHistoryComplete) {
+    return el('section', { className: 'card integrity-guard' }, [
+      el('h2', { text: t('live.intent_integrity_title') }),
+      el('p', { text: t('live.intents_incomplete') }),
+      el('button', { className: 'primary', text: t('comp.refresh'), on: { click: () => location.reload() } }),
     ]);
   }
   if (destination === 'entrants') {

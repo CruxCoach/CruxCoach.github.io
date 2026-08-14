@@ -10,8 +10,8 @@ import { decodeNip19 } from '../protocol/nostr-event.mjs';
 import { KIND, compDTag, isCompId, parseDTag } from '../protocol/competition.mjs?v=20260814-6';
 import { RelayPool, mergeRelays } from '../protocol/relay-pool.mjs';
 import { isLoopbackRelay } from '../protocol/relay-url.mjs';
-import { CompetitionStore } from '../ui/store.mjs?v=20260814-6';
-import { createTranslator, detectLanguage } from '../ui/i18n.mjs?v=20260814-12';
+import { CompetitionStore } from '../ui/store.mjs?v=20260814-8';
+import { createTranslator, detectLanguage } from '../ui/i18n.mjs?v=20260814-13';
 import { el, replace, byId } from '../ui/dom.mjs';
 
 /**
@@ -159,7 +159,7 @@ export async function openCompetition({ organizerPubkey, compId, t, statusNode }
   // invisible otherwise.
   let pool = new RelayPool(resolveRelays());
   let store = new CompetitionStore({ pool, organizerPubkey, compId });
-  pool.onStatusChange = () => store.connectionChanged();
+  pool.onStatusChange = (status) => store.connectionChanged(status);
   let loaded = await store.loadCompetition();
 
   if (loaded.ok) {
@@ -169,7 +169,7 @@ export async function openCompetition({ organizerPubkey, compId, t, statusNode }
       pool.close();
       pool = new RelayPool(wanted);
       store = new CompetitionStore({ pool, organizerPubkey, compId });
-      pool.onStatusChange = () => store.connectionChanged();
+      pool.onStatusChange = (status) => store.connectionChanged(status);
       loaded = await store.loadCompetition();
     }
   }
@@ -210,6 +210,11 @@ export function integrityNotices(snapshot, t) {
   if (snapshot.state?.fork_detected) {
     notices.push(el('div', { className: 'notice bad', attrs: { role: 'alert' } }, [
       el('p', { text: t('live.fork') }),
+    ]));
+  }
+  if (snapshot.intentHistoryComplete === false) {
+    notices.push(el('div', { className: 'notice bad', attrs: { role: 'alert' } }, [
+      el('p', { text: t('live.intents_incomplete') }),
     ]));
   }
   return notices;

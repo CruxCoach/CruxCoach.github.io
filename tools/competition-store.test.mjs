@@ -119,6 +119,60 @@ test('own replaceable intent is restored only from a complete exact d-tag query'
   });
 });
 
+test('the broad intent inbox is live-first, signature-checked and all-relay complete', async () => {
+  const competition = JSON.parse(participantFixture.competition_event.content);
+  const secret = hexToBytes('32'.repeat(32));
+  const pubkey = getPublicKey(secret);
+  const event = await finalizeEvent(buildIntentEvent({
+    compId: competition.comp_id,
+    organizerPubkey: participantFixture.competition_event.pubkey,
+    authority: competition.authority,
+    pubkey,
+    nonce: 'feedcafe',
+    op: 'climb_choice',
+    data: { climb_id: competition.climb_pool.options[0].id },
+    at: 1789005000,
+  }), secret);
+  const tampered = { ...event, content: event.content.replace('climb_choice', 'attempt_report') };
+  const calls = [];
+  const pool = {
+    urls: ['wss://one.invalid', 'wss://two.invalid'], connectedUrls: [],
+    subscribe(filters, options = {}) {
+      calls.push({ kind: 'subscribe', filters });
+      for (const url of this.urls) options.onEose?.(url, this.urls.indexOf(url) + 1, {
+        failed: false, settled: this.urls.indexOf(url) + 1,
+      });
+      return { ready: Promise.resolve(true), close() {} };
+    },
+    async query(filters) {
+      calls.push({ kind: 'query', filters });
+      return { events: [event, tampered], complete: true, answered: 2, failed: 0 };
+    },
+  };
+  const store = new CompetitionStore({
+    pool, organizerPubkey: participantFixture.competition_event.pubkey,
+    compId: competition.comp_id, now: () => 1789006000,
+  });
+  store.competition = competition;
+  const accepted = [];
+  await store.followIntents((candidate) => accepted.push(candidate.id));
+
+  assert.deepEqual(accepted, [event.id]);
+  assert.equal(store.snapshot().intentHistoryComplete, true);
+  assert.equal(calls[0].kind, 'subscribe', 'live delivery is armed before history is fetched');
+  assert.equal(calls[1].filters.length, 9, 'each intent operation receives its own bounded lane');
+  assert.equal(calls[1].filters.every((filter) => filter.limit === 1000), true);
+
+  store.connectionChanged('disconnected:wss://two.invalid');
+  assert.equal(store.snapshot().intentHistoryComplete, false,
+    'a relay drop invalidates a previously complete inbox');
+
+  pool.query = async () => ({ events: [event], complete: true, answered: 1, failed: 1 });
+  await store.followIntents(() => {});
+  assert.equal(store.snapshot().intentHistoryComplete, false);
+  assert.ok(store.snapshot().problems.includes('intents_incomplete'));
+});
+
 test('a non-live organizer summary hydrates the same complete effective state', async () => {
   const pool = new ClampedPool();
   const store = new CompetitionStore({

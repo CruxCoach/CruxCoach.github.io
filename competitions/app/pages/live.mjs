@@ -7,7 +7,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
-} from './common.mjs?v=20260814-11';
+} from './common.mjs?v=20260814-13';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
 import { competitionRunning, parseIntentEvent } from '../protocol/competition.mjs?v=20260814-6';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
@@ -40,7 +40,8 @@ function climbLabel(snapshot, climbId) {
 
 /** Latest relay-visible choice, provided it is still legal for this entrant. */
 function chosenClimb(snapshot, pubkey) {
-  if (!pubkey || snapshot.competition.rules.climb_source !== 'participant_choice') return null;
+  if (!snapshot.intentHistoryComplete || !pubkey
+    || snapshot.competition.rules.climb_source !== 'participant_choice') return null;
   const intent = choices.get(pubkey);
   const climbId = intent?.intent.data?.climb_id;
   if (!climbId) return null;
