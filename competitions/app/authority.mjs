@@ -15,6 +15,9 @@ import {
 } from './protocol/competition.mjs?v=20260814-7';
 import { applyEntry, hashableState, reduce } from './protocol/reduce.mjs?v=20260814-5';
 import { ccj, ccjHash } from './protocol/ccj.mjs';
+import {
+  CleanupJobStore, executeCleanupJob, newCleanupJob,
+} from './cleanup-jobs.mjs';
 
 /** How often the authority publishes a state snapshot (FEAT-058 §6.3). */
 export const SNAPSHOT_EVERY = 25;
@@ -62,11 +65,12 @@ export class AuthorityWriter {
    * @param {{pubkey: string, signEvent: Function}} options.signer
    * @param {() => number} [options.now]
    */
-  constructor({ store, pool, signer, now }) {
+  constructor({ store, pool, signer, now, cleanupJobs }) {
     this.store = store;
     this.pool = pool;
     this.signer = signer;
     this.now = now || (() => Math.floor(Date.now() / 1000));
+    this.cleanupJobs = cleanupJobs || new CleanupJobStore();
     this.entriesSinceSnapshot = 0;
     /** Serialises writes: two entries racing for the same seq is a self-inflicted fork. */
     this.queue = Promise.resolve();
@@ -211,6 +215,8 @@ export class AuthorityWriter {
     }
     const definitionEventId = this.store.competitionEventId;
     if (!definitionEventId) throw new Error('The competition definition id is missing.');
+    const existing = this.cleanupJobs.get(this.signer.pubkey, this.competition.comp_id);
+    if (existing) return executeCleanupJob(existing, this.pool, this.cleanupJobs, this.now);
     const now = this.now();
     const at = Math.max(now, (this.store.competitionCreatedAt || 0) + 1);
     if (at > now + MAX_FUTURE_SKEW_SECONDS) throw new Error('The definition timestamp is too far ahead.');
@@ -218,13 +224,23 @@ export class AuthorityWriter {
       compId: this.competition.comp_id,
       deletedAt: at,
     }));
-    const tombstone = await this.pool.publish(tombstoneEvent);
     const deletionEvent = await this.signer.signEvent(buildCompetitionDeletionRequest({
       definitionEventId,
       at: Math.max(at, this.now()),
     }));
-    const deletion = await this.pool.publish(deletionEvent);
-    return { tombstone, deletion };
+    const job = newCleanupJob({
+      ownerPubkey: this.signer.pubkey,
+      compId: this.competition.comp_id,
+      title: this.competition.title,
+      definitionEventId,
+      relays: this.competition.relays,
+      tombstoneEvent,
+      deletionEvent,
+      updatedAt: this.now(),
+    });
+    // Persist both signed artifacts before either can replace/remove the root.
+    this.cleanupJobs.save(job);
+    return executeCleanupJob(job, this.pool, this.cleanupJobs, this.now);
   }
 
   // ── named operations, so screens never hand-build a `data` object ──

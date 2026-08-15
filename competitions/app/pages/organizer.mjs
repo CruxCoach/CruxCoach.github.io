@@ -15,7 +15,7 @@ import {
 } from './common.mjs?v=20260814-15';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
-import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260814-8';
+import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260815-1';
 import {
   MUTABLE_CONFIG_FIELDS, NAMESPACE, configPatchImpact, newCompId,
   effectiveTimeStateKey, isNewerReplaceable, parseCompetitionEvent, parseIntentEvent,
@@ -39,6 +39,7 @@ import { CompetitionStore } from '../ui/store.mjs?v=20260814-10';
 import {
   createCoalescedRunner, createLatestRun, mapConcurrent, mergeProgressive,
 } from '../ui/concurrency.mjs?v=20260814-3';
+import { CleanupJobStore, executeCleanupJob } from '../cleanup-jobs.mjs';
 
 const { t, language } = bootstrap();
 
@@ -80,6 +81,8 @@ const DRAFT_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
 const WIZARD_HISTORY_KEY = 'cruxcoachCompetitionWizard';
 let activeCreateForm = null;
 const ownedLoads = createLatestRun();
+const cleanupJobs = new CleanupJobStore();
+const cleanupRetrying = new Set();
 
 function historyWizardStep() {
   const value = history.state?.[WIZARD_HISTORY_KEY];
@@ -260,6 +263,7 @@ function createForm() {
 
   return el('div', {}, [
     overviewSection(),
+    feedback,
     form.node,
   ]);
 }
@@ -366,6 +370,52 @@ function editCompetitionForm(snapshot) {
 let owned = { loading: false, loaded: false, listings: [] };
 
 function overviewSection() {
+  const pendingCleanup = cleanupJobs.list(signer.pubkey);
+  const cleanupRows = pendingCleanup.map((job) => {
+    const outcome = (kind, url) => job.outcomes?.[kind]?.find((item) => item.url === url);
+    const accepted = (kind) => job.relays.filter((url) => outcome(kind, url)?.ok).length;
+    const working = cleanupRetrying.has(job.comp_id);
+    return el('li', {}, [
+      el('strong', { text: job.title || job.comp_id }),
+      el('p', { className: 'small', text: t('org.cleanup.pending_result', {
+        tombstone: accepted('tombstone'), deletion: accepted('deletion'), total: job.relays.length,
+      }) }),
+      el('details', {}, [
+        el('summary', { text: t('org.cleanup.relay_details') }),
+        el('ul', { className: 'plain' }, job.relays.map((url) => el('li', {
+          className: 'small mono wrap',
+          text: t('org.cleanup.relay_result', {
+            relay: url,
+            tombstone: outcome('tombstone', url)?.ok ? t('org.cleanup.accepted') : t('org.cleanup.pending'),
+            deletion: outcome('deletion', url)?.ok ? t('org.cleanup.accepted') : t('org.cleanup.pending'),
+          }),
+        }))),
+      ]),
+      el('button', {
+        className: 'danger', text: working ? t('publish.working') : t('org.cleanup.retry'),
+        attrs: { disabled: working || null },
+        on: { click: () => act(async () => {
+          if (!confirm(t('org.cleanup.confirm_again'))) return;
+          cleanupRetrying.add(job.comp_id); render();
+          const retryPool = new RelayPool(job.relays);
+          try {
+            const result = await executeCleanupJob(job, retryPool, cleanupJobs);
+            cleanupResult = result;
+            replace(feedback, el('div', { className: 'notice warn' }, [
+              el('p', { text: t('org.cleanup.result', {
+                tombstone: result.tombstone.accepted,
+                deletion: result.deletion.accepted,
+                total: job.relays.length,
+              }) }),
+              el('p', { text: t('org.cleanup.limit') }),
+            ]));
+          } finally {
+            retryPool.close(); cleanupRetrying.delete(job.comp_id); render();
+          }
+        }) },
+      }),
+    ]);
+  });
   const rows = owned.listings.map((listing) => {
     const naddr = naddrEncode({
       identifier: compDTag(listing.competition.comp_id),
@@ -426,6 +476,11 @@ function overviewSection() {
       el('h2', { text: t('org.mine') }),
       el('button', { text: t('comp.refresh'), on: { click: () => loadOwned(true) } }),
     ]),
+    cleanupRows.length ? el('div', { className: 'notice warn' }, [
+      el('h3', { text: t('org.cleanup.pending_title') }),
+      el('p', { text: t('org.cleanup.pending_hint') }),
+      el('ul', { className: 'plain' }, cleanupRows),
+    ]) : null,
     owned.loading && !owned.listings.length
       ? el('p', { text: t('comp.loading') })
       : rows.length
@@ -571,7 +626,7 @@ function lifecycleActions(snapshot) {
       }),
     ]));
   }
-  if (status === 'cancelled') {
+  if (status === 'cancelled' && !cleanupResult?.complete) {
     actions.push(el('button', {
       className: 'danger',
       text: t(cleanupResult ? 'org.cleanup.retry' : 'org.cleanup.send'),
@@ -1751,7 +1806,7 @@ async function start() {
   void resolvePaymentEndpoint();
   void followReceipts();
   if (signer && signer.pubkey === store.competition.authority) {
-    writer = new AuthorityWriter({ store, pool, signer });
+    writer = new AuthorityWriter({ store, pool, signer, cleanupJobs });
     await store.followIntents((event) => {
       const parsedIntent = parseIntentEvent(event, store.competition, store.organizerPubkey,
         Math.floor(Date.now() / 1000));

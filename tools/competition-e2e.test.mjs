@@ -18,6 +18,7 @@ import {
 import { buildZapRequest, verifyZapReceipt } from '../competitions/app/protocol/zap.mjs';
 import { sha256Hex } from '../competitions/app/protocol/ccj.mjs';
 import { fakeInvoice } from './dev/fake-invoice.mjs';
+import { CleanupJobStore } from '../competitions/app/cleanup-jobs.mjs';
 
 /**
  * A whole competition, end to end, over a loopback relay.
@@ -39,6 +40,15 @@ function newSigner() {
   const session = new KeyVaultSession({ storage: null });
   session.generate();
   return createLocalSigner(session);
+}
+
+function memoryStorage() {
+  const values = new Map();
+  return {
+    get length() { return values.size; }, key: (index) => [...values.keys()][index] ?? null,
+    getItem: (key) => values.get(key) ?? null,
+    setItem: (key, value) => values.set(key, String(value)), removeItem: (key) => values.delete(key),
+  };
 }
 
 function baseConfig(compId, authority, overrides = {}) {
@@ -389,6 +399,25 @@ test('the authority refuses a locally contiguous prefix before relay history com
     store.close();
     organizerPool.close();
     await relay.close();
+  }
+});
+
+test('same-second cleanup is durable before a real relay accepts the tombstone and deletion', async () => {
+  const { relay, organizer, organizerPool, compId, config, store } = await setup();
+  const cleanupJobs = new CleanupJobStore(memoryStorage());
+  const writer = new AuthorityWriter({ store, pool: organizerPool, signer: organizer, now, cleanupJobs });
+  try {
+    await writer.setStatus('cancelled');
+    const result = await writer.deleteCompetition();
+    assert.equal(result.complete, true);
+    assert.equal(result.tombstone.accepted, 1);
+    assert.equal(result.deletion.accepted, 1);
+    assert.equal(result.job.tombstone_event.created_at, config.created_at + 1,
+      'the tombstone must beat a definition signed in the same second');
+    assert.equal(cleanupJobs.get(organizer.pubkey, compId), null,
+      'only a full signed-relay acknowledgement clears the retry job');
+  } finally {
+    store.close(); organizerPool.close(); await relay.close();
   }
 });
 

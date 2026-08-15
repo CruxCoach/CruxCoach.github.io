@@ -22,7 +22,7 @@ import {
   checkinWindowOpen, competitionAddress, competitionRunning, registrationWindowOpen,
   effectiveTimeStateKey, isNewerReplaceable, parseIntentEvent,
 } from '../protocol/competition.mjs?v=20260814-7';
-import { EntrantWriter } from '../authority.mjs?v=20260814-8';
+import { EntrantWriter } from '../authority.mjs?v=20260815-1';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
