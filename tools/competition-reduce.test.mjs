@@ -7,7 +7,9 @@ import { fileURLToPath } from 'node:url';
 import { verifyEvent } from '../competitions/app/protocol/nostr-event.mjs';
 import { ccjHash } from '../competitions/app/protocol/ccj.mjs';
 import { parseCompetitionEvent, parseLogEvent } from '../competitions/app/protocol/competition.mjs';
-import { applyEntry, hashableState, reduce, REJECTION_CODES } from '../competitions/app/protocol/reduce.mjs';
+import {
+  applyEntry, automaticQueueOrder, hashableState, reduce, REJECTION_CODES,
+} from '../competitions/app/protocol/reduce.mjs';
 import { computeStandings } from '../competitions/app/protocol/scoring.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -470,6 +472,116 @@ test('retire preserves results and advances without leaving a dead queue slot', 
   assert.deepEqual({ cursor: state.cursor, opened: state.turn_opened_at, deadline: state.turn_deadline_at },
     { cursor: 1, opened: 10, deadline: 70 });
   assert.equal(state.rejected.length, 0);
+});
+
+const automaticParticipant = (pubkey, overrides = {}) => ({
+  pubkey, display: pubkey, division: 'open', registration: 'accepted', payment: 'not_required',
+  checkin: 'checked_in', result: 'active', selections: [], climbs: [], last_attempt_at: 0,
+  defers_used_this_round: 0, consecutive_defers: 0, ...overrides,
+});
+
+const automaticCompetition = (overrides = {}) => ({
+  comp_id: '0123456789abcdef', starts_at: 100, ends_at: 999, fee_msat: 0,
+  climbs: [{ id: 'a' }],
+  rules: {
+    queue_policy: 'automatic', climb_source: 'organizer_set', attempts_per_climb: 3,
+    min_rest_sec: 0, turn_deadline_sec: 60,
+  },
+  ...overrides,
+});
+
+function automaticState(participants, overrides = {}) {
+  return {
+    epoch: 1, status: 'checkin_open', round: 0, current_climb_id: '', order: [], cursor: -1,
+    turn_opened_at: 0, turn_deadline_at: 0, rejected: [], announcements: [],
+    participants, ...overrides,
+  };
+}
+
+test('automatic queue schedules the stable first turn and preserves legacy policy', () => {
+  const participants = [automaticParticipant('11'.repeat(32)), automaticParticipant('22'.repeat(32))];
+  const competition = automaticCompetition();
+  const state = automaticState(participants);
+  applyEntry(state, {
+    seq: 1, epoch: 1, at: 90, op: 'announcement', data: { text: 'Briefing complete' },
+  }, competition);
+  assert.deepEqual(state.order, automaticQueueOrder(competition.comp_id, participants.map((p) => p.pubkey)));
+  assert.equal(state.cursor, 0);
+  assert.equal(state.turn_opened_at, 100);
+  assert.equal(state.turn_deadline_at, 160);
+
+  const legacy = automaticState(participants.map((p) => ({ ...p })));
+  applyEntry(legacy, {
+    seq: 1, epoch: 1, at: 90, op: 'announcement', data: { text: 'Legacy briefing' },
+  }, { ...competition, rules: { ...competition.rules, queue_policy: undefined } });
+  assert.deepEqual(legacy.order, []);
+  assert.equal(legacy.cursor, -1);
+});
+
+test('automatic late entry never preempts and keeps the signed deadline', () => {
+  const all = ['11'.repeat(32), '22'.repeat(32), '33'.repeat(32), '44'.repeat(32)];
+  const competition = automaticCompetition();
+  const sorted = automaticQueueOrder(competition.comp_id, all);
+  const current = sorted[1];
+  const initial = sorted.filter((pubkey) => pubkey !== sorted[0]);
+  const state = automaticState(initial.map((pubkey) => automaticParticipant(pubkey)), {
+    status: 'running', round: 2, order: initial, cursor: initial.indexOf(current),
+    turn_opened_at: 120, turn_deadline_at: 180,
+  });
+  state.participants.push(automaticParticipant(sorted[0]));
+  applyEntry(state, {
+    seq: 1, epoch: 1, at: 130, op: 'announcement', data: { text: 'Late entrant accepted' },
+  }, competition);
+  assert.deepEqual(state.order, sorted);
+  assert.equal(state.order[state.cursor], current);
+  assert.equal(state.turn_opened_at, 120);
+  assert.equal(state.turn_deadline_at, 180);
+});
+
+test('automatic completion wraps and schedules the earliest rest expiry', () => {
+  const pubkeys = automaticQueueOrder('0123456789abcdef', ['11'.repeat(32), '22'.repeat(32)]);
+  const competition = automaticCompetition({ rules: {
+    queue_policy: 'automatic', climb_source: 'organizer_set', attempts_per_climb: 3,
+    min_rest_sec: 30, turn_deadline_sec: 60,
+  } });
+  const participants = pubkeys.map((pubkey, index) => automaticParticipant(pubkey, {
+    last_attempt_at: index === 1 ? 120 : 0,
+  }));
+  const state = automaticState(participants, {
+    status: 'running', round: 1, order: pubkeys, cursor: 0,
+    turn_opened_at: 100, turn_deadline_at: 160,
+  });
+  applyEntry(state, {
+    seq: 1, epoch: 1, at: 120, op: 'complete_turn',
+    data: { pubkey: pubkeys[0], climb_id: 'a', outcome: 'fall', attempt_no: 1 },
+  }, competition);
+  assert.equal(state.order[state.cursor], pubkeys[0], 'earliest rest expiry wins when nobody is ready');
+  assert.equal(state.round, 2);
+  assert.equal(state.turn_opened_at, 150);
+  assert.equal(state.turn_deadline_at, 210);
+  assert.equal(state.participants.find((p) => p.pubkey === pubkeys[0]).climbs[0].attempts_used, 1);
+});
+
+test('automatic eligibility loss advances and manual seeding is refused', () => {
+  const competition = automaticCompetition({ fee_msat: 1000 });
+  const pubkeys = automaticQueueOrder(competition.comp_id, ['11'.repeat(32), '22'.repeat(32)]);
+  const participants = pubkeys.map((pubkey) => automaticParticipant(pubkey, { payment: 'settled' }));
+  const state = automaticState(participants, {
+    status: 'running', round: 1, order: pubkeys, cursor: 0,
+    turn_opened_at: 110, turn_deadline_at: 170,
+  });
+  applyEntry(state, {
+    seq: 1, epoch: 1, at: 120, op: 'payment_decision',
+    data: { pubkey: pubkeys[0], state: 'failed' },
+  }, competition);
+  assert.deepEqual(state.order, [pubkeys[1]]);
+  assert.equal(state.order[state.cursor], pubkeys[1]);
+  assert.equal(state.turn_opened_at, 120);
+
+  applyEntry(state, {
+    seq: 2, epoch: 1, at: 121, op: 'queue', data: { action: 'seed_open', order: [pubkeys[1]] },
+  }, competition);
+  assert.equal(state.rejected.at(-1).code, 'manual_queue_forbidden');
 });
 
 test('counted N equal to available M is byte-for-byte standings compatible', () => {

@@ -12,30 +12,30 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-15';
+} from './common.mjs?v=20260815-1';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
-import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260815-1';
+import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260815-2';
 import {
   MUTABLE_CONFIG_FIELDS, NAMESPACE, configPatchImpact, newCompId,
   effectiveTimeStateKey, isNewerReplaceable, parseCompetitionEvent, parseIntentEvent,
   checkinWindowOpen, competitionRunning, registrationWindowOpen, validateCompetitionConfig,
-} from '../protocol/competition.mjs?v=20260814-7';
+} from '../protocol/competition.mjs?v=20260815-1';
 import { outstandingClaims, registrationOrder } from '../protocol/claims.mjs';
 import { verifyZapReceipt, receiptFilter, ZAP_RECEIPT_KIND } from '../protocol/zap.mjs';
 import { verifyClaim, eligibleWinner, claimDeadline } from '../protocol/prize.mjs';
 import { walletUri } from '../protocol/bolt11.mjs';
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
-import { competitionAddress } from '../protocol/competition.mjs?v=20260814-7';
+import { competitionAddress } from '../protocol/competition.mjs?v=20260815-1';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
-import { competitionToFormDraft, createCompetitionForm } from './organizer-form.mjs?v=20260814-3';
+import { competitionToFormDraft, createCompetitionForm } from './organizer-form.mjs?v=20260815-1';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
-import { KIND, compDTag } from '../protocol/competition.mjs?v=20260814-7';
+import { KIND, compDTag } from '../protocol/competition.mjs?v=20260815-1';
 import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-15';
+import { describeRejection } from '../ui/i18n.mjs?v=20260815-1';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
-import { activeParticipantClimb, syncHealth } from '../ui/live-view.mjs?v=20260814-3';
-import { CompetitionStore } from '../ui/store.mjs?v=20260814-10';
+import { activeParticipantClimb, syncHealth } from '../ui/live-view.mjs?v=20260815-1';
+import { CompetitionStore } from '../ui/store.mjs?v=20260815-1';
 import {
   createCoalescedRunner, createLatestRun, mapConcurrent, mergeProgressive,
 } from '../ui/concurrency.mjs?v=20260814-3';
@@ -1304,6 +1304,7 @@ function queuePanel(snapshot) {
     .filter((p) => p.registration === 'accepted' && p.checkin === 'checked_in' && p.result === 'active')
     .map((p) => p.pubkey);
   const current = store.currentClimber();
+  const turnScheduled = Boolean(current && state.turn_opened_at > now);
   const currentParticipant = current ? store.participant(current) : null;
   const next = store.nextClimber();
   const nextParticipant = next ? store.participant(next) : null;
@@ -1326,7 +1327,8 @@ function queuePanel(snapshot) {
     ]),
   ];
 
-  if (state.order.length !== eligible.length || state.order.length === 0) {
+  if (snapshot.competition.rules.queue_policy !== 'automatic'
+    && (state.order.length !== eligible.length || state.order.length === 0)) {
     rows.push(el('div', { className: 'host-empty-action' }, [
       el('strong', { text: t('org.queue_needed') }),
       el('span', { text: t('org.queue_needed.hint', { n: eligible.length }) }),
@@ -1346,7 +1348,7 @@ function queuePanel(snapshot) {
   if ((runningNow || state.status === 'paused') && state.order.length) {
     rows.push(el('div', { className: 'host-turn-hero' }, [
       el('div', {}, [
-        el('span', { className: 'host-turn-label', text: t('live.current') }),
+        el('span', { className: 'host-turn-label', text: t(turnScheduled ? 'live.scheduled' : 'live.current') }),
         el('strong', { className: 'host-current-name', text: currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
         el('span', { className: 'host-current-climb', text: participantChoice
           ? chosenClimb?.label || t('org.awaiting_climb_choice_short')
@@ -1355,10 +1357,12 @@ function queuePanel(snapshot) {
           : t('live.rotation_empty') }),
       ]),
       el('div', { className: 'host-turn-timer' }, [
-        el('span', { text: t('live.deadline') }),
+        el('span', { text: t(turnScheduled ? 'live.scheduled' : 'live.deadline') }),
         el('strong', {
           className: 'mono', attrs: { id: 'host-deadline' },
-          text: state.status === 'paused' ? t('live.paused') : formatSeconds(store.secondsToDeadline()),
+          text: state.status === 'paused' ? t('live.paused') : turnScheduled
+            ? t('live.starts_at', { time: formatDateTime(state.turn_opened_at, language, snapshot.competition.timezone) })
+            : formatSeconds(store.secondsToDeadline()),
         }),
       ]),
     ]));
@@ -1378,6 +1382,10 @@ function queuePanel(snapshot) {
     } else {
       if (state.status === 'paused') {
         rows.push(el('p', { className: 'host-paused-copy', text: t('org.paused.hint') }));
+      } else if (turnScheduled) {
+        rows.push(el('p', { className: 'host-paused-copy', text: t('live.starts_at', {
+          time: formatDateTime(state.turn_opened_at, language, snapshot.competition.timezone),
+        }) }));
       } else {
       // Under participant choice the climber is on a climb of their own, not on
       // `current_climb_id` — recording against the wrong one would score
@@ -1453,8 +1461,10 @@ function queuePanel(snapshot) {
           on: {
             click: () => act(async () => {
               await writer.nextClimb(climb.id);
-              await writer.nextRound();
-              await writer.seed(eligible);
+              if (snapshot.competition.rules.queue_policy !== 'automatic') {
+                await writer.nextRound();
+                await writer.seed(eligible);
+              }
             }),
           },
         }))),
@@ -1844,7 +1854,9 @@ async function start() {
     }
     const deadline = byId('host-deadline');
     if (deadline && store && effectiveStatus === 'running') {
-      deadline.textContent = formatSeconds(store.secondsToDeadline());
+      deadline.textContent = snapshot.state.turn_opened_at > now
+        ? t('live.starts_at', { time: formatDateTime(snapshot.state.turn_opened_at, language, snapshot.competition.timezone) })
+        : formatSeconds(store.secondsToDeadline());
     }
     const health = snapshot ? syncHealth(snapshot, Math.floor(Date.now() / 1000)) : null;
     if (health && health.kind !== lastHealthKind) render();

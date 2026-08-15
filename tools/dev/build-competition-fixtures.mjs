@@ -967,6 +967,92 @@ async function streamRejectionsPaid(keys) {
   );
 }
 
+async function streamAutomaticQueue(keys) {
+  const compId = 'a0700a7100000001';
+  const config = baseConfig({
+    compId,
+    authority: keys.organizer.pk,
+    overrides: {
+      title: 'Automatic queue convergence',
+      registration_closes_at: 1789005600,
+      checkin_closes_at: 1789005600,
+      fee_msat: 1000,
+      fee_lnurl: 'kellerwand@example.invalid',
+      rules: {
+        ...baseConfig({ compId, authority: keys.organizer.pk }).rules,
+        queue_policy: 'automatic',
+        late_entry_allowed: true,
+        min_rest_sec: 30,
+      },
+    },
+  });
+  const competitionEvent = await sign(buildCompetitionEvent(config, 1788900000), keys.organizer);
+  const log = new Log(compId, keys.organizer.pk, keys.organizer, competitionEvent.id);
+  const entrant = (key) => ({
+    pubkey: key.pk, decision: 'accepted', division: 'open', display: key.label,
+  });
+  const checkin = (key) => ({ pubkey: key.pk, state: 'checked_in' });
+  const paid = (key, state = 'settled') => ({ pubkey: key.pk, state });
+
+  await log.add('lifecycle', { status: 'published', at: 1789000500 }, 1789000500);
+  await log.add('lifecycle', { status: 'registration_open', at: 1789000501 }, 1789000501);
+  await log.add('registration_decision', entrant(keys.alice), 1789000510, { subjects: [keys.alice.pk] });
+  await log.add('registration_decision', entrant(keys.bob), 1789000511, { subjects: [keys.bob.pk] });
+  await log.add('payment_decision', paid(keys.alice), 1789000512, { subjects: [keys.alice.pk] });
+  await log.add('payment_decision', paid(keys.bob), 1789000513, { subjects: [keys.bob.pk] });
+  await log.add('lifecycle', { status: 'registration_closed', at: 1789005200 }, 1789005200);
+  await log.add('lifecycle', { status: 'checkin_open', at: 1789005201 }, 1789005201);
+  // These eligibility changes deterministically install Bob, Alice and a turn
+  // scheduled for starts_at; there is no seed_open operation in this stream.
+  await log.add('checkin', checkin(keys.alice), 1789005300, { subjects: [keys.alice.pk] });
+  await log.add('checkin', checkin(keys.bob), 1789005301, { subjects: [keys.bob.pk] });
+  await log.add('complete_turn', {
+    pubkey: keys.bob.pk, climb_id: 'c1', outcome: 'fall', attempt_no: 1,
+  }, 1789005399, { subjects: [keys.bob.pk] });
+  await log.add('lifecycle', { status: 'running', at: 1789005400 }, 1789005400);
+  await log.add('complete_turn', {
+    pubkey: keys.bob.pk, climb_id: 'c1', outcome: 'fall', attempt_no: 1,
+  }, 1789005410, { subjects: [keys.bob.pk] });
+
+  // Carla hashes behind the preserved Alice cursor and waits for the wrap;
+  // Dan hashes ahead and remains available in this round. Neither preempts.
+  await log.add('registration_decision', entrant(keys.carla), 1789005420, { subjects: [keys.carla.pk] });
+  await log.add('checkin', checkin(keys.carla), 1789005421, { subjects: [keys.carla.pk] });
+  await log.add('payment_decision', paid(keys.carla), 1789005422, { subjects: [keys.carla.pk] });
+  await log.add('registration_decision', entrant(keys.dan), 1789005423, { subjects: [keys.dan.pk] });
+  await log.add('checkin', checkin(keys.dan), 1789005424, { subjects: [keys.dan.pk] });
+  await log.add('payment_decision', paid(keys.dan), 1789005425, { subjects: [keys.dan.pk] });
+  await log.add('queue', {
+    action: 'seed_open', order: await seedOrder(compId, [keys.alice.pk, keys.bob.pk, keys.carla.pk, keys.dan.pk]),
+  }, 1789005426);
+  await log.add('defer_decision', {
+    pubkey: keys.alice.pk, decision: 'granted',
+  }, 1789005430, { subjects: [keys.alice.pk] });
+  await log.add('retire', { pubkey: keys.dan.pk }, 1789005431, {
+    reason: 'Participant left the venue', subjects: [keys.dan.pk],
+  });
+  await log.add('complete_turn', {
+    pubkey: keys.carla.pk, climb_id: 'c2', outcome: 'fall', attempt_no: 1,
+  }, 1789005432, { subjects: [keys.carla.pk] });
+  // Nobody is rested, so Bob is retained with a future open/deadline. Losing
+  // payment eligibility advances to the next fair turn without a click.
+  await log.add('complete_turn', {
+    pubkey: keys.bob.pk, climb_id: 'c1', outcome: 'fall', attempt_no: 2,
+  }, 1789005435, { subjects: [keys.bob.pk] });
+  await log.add('payment_decision', paid(keys.bob, 'failed'), 1789005440, { subjects: [keys.bob.pk] });
+  await log.add('complete_turn', {
+    pubkey: keys.alice.pk, climb_id: 'c1', outcome: 'top', attempt_no: 1,
+  }, 1789005460, { subjects: [keys.alice.pk] });
+
+  return finish(
+    'automatic-queue',
+    'Automatic stable queue creation without seed_open; late entrants before and after the cursor; '
+    + 'manual seed rejection; atomic completion, retire and payment-loss advancement; wrap and future min-rest scheduling.',
+    competitionEvent,
+    log,
+  );
+}
+
 /** The organizer console's default seeding rule (§9.1). Advisory, but pinned. */
 async function seedOrder(compId, pubkeys) {
   const scored = [];
@@ -1227,6 +1313,7 @@ async function main() {
 
   const streams = [
     await streamHappySync(keys),
+    await streamAutomaticQueue(keys),
     await streamAuthorityOperations(keys),
     await streamDeferAndTimeout(keys),
     await streamPaidUniqueAsync(keys),

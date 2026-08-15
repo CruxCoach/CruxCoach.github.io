@@ -85,7 +85,11 @@ should appear in all relevant windows within about a second and survive reload.
    Carla as no-show and verify she is omitted from the seeded queue. Change the
    plan only by starting a fresh demo—no-show is an audit entry, not an undoable
    local checkbox.
-5. **Queue and start.** Seed the queue, start, then call the first climber. The
+5. **Queue and start.** For a newly created competition, accept/payment/check-in
+   decisions create the stable order and schedule its first turn automatically;
+   no seed button is expected. Start, then call the displayed climber when the
+   signed opening time arrives. Legacy definitions without `queue_policy` still
+   use the seed control. The
    same person must be “now” on host, participant and live screens; the next
    person and countdown must agree too.
 6. **Deferral.** The current climber requests a deferral. Before the host acts,

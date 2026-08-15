@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-16';
+} from './common.mjs?v=20260815-1';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
@@ -21,16 +21,16 @@ import { buildClaimBody, validateClaimInput, eligibleWinner } from '../protocol/
 import {
   checkinWindowOpen, competitionAddress, competitionRunning, registrationWindowOpen,
   effectiveTimeStateKey, isNewerReplaceable, parseIntentEvent,
-} from '../protocol/competition.mjs?v=20260814-7';
-import { EntrantWriter } from '../authority.mjs?v=20260815-1';
+} from '../protocol/competition.mjs?v=20260815-1';
+import { EntrantWriter } from '../authority.mjs?v=20260815-2';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-16';
+import { describeRejection } from '../ui/i18n.mjs?v=20260815-1';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import {
   activeParticipantClimb, personalCue, queuePreview, rotationPreview, syncHealth, turnEstimate,
-} from '../ui/live-view.mjs?v=20260814-3';
+} from '../ui/live-view.mjs?v=20260815-1';
 import { loadCatalogueClimbs } from '../data/climb-catalogue.mjs?v=20260813-2';
 import {
   BOARD_TYPES, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
@@ -924,9 +924,11 @@ function livePanel(snapshot) {
   const currentParticipant = current ? store.participant(current) : null;
   const nextParticipant = next ? store.participant(next) : null;
   const mine = me();
-  const isMyTurn = Boolean(mine && current === mine.pubkey);
-  const runningNow = competitionRunning(snapshot.competition, state.status, Math.floor(Date.now() / 1000));
-  const cue = personalCue(state, mine?.pubkey, runningNow);
+  const now = Math.floor(Date.now() / 1000);
+  const turnScheduled = Boolean(current && state.turn_opened_at > now);
+  const isMyTurn = Boolean(mine && current === mine.pubkey && !turnScheduled);
+  const runningNow = competitionRunning(snapshot.competition, state.status, now);
+  const cue = personalCue(state, mine?.pubkey, runningNow, now);
   const estimate = turnEstimate(
     state, snapshot.competition, mine?.pubkey, Math.floor(Date.now() / 1000), runningNow,
   );
@@ -945,7 +947,10 @@ function livePanel(snapshot) {
     current ? store.remainingClimbs(current) : [],
   );
   const cueKey = `live.cue.${cue.kind}`;
-  const cueText = ['queued', 'next_round'].includes(cue.kind) ? t(cueKey, { n: cue.ahead }) : t(cueKey);
+  const cueText = ['queued', 'next_round'].includes(cue.kind) ? t(cueKey, { n: cue.ahead })
+    : cue.kind === 'scheduled' ? t(cueKey, {
+      time: formatDateTime(state.turn_opened_at, language, snapshot.competition.timezone),
+    }) : t(cueKey);
   const terminal = ['finished', 'cancelled'].includes(state.status);
   const rows = [
     el('div', { className: `participant-live-hero cue-${cue.kind}` }, [
@@ -959,10 +964,13 @@ function livePanel(snapshot) {
         estimate && el('p', { className: 'participant-eta', text: t('live.eta', { time: formatSeconds(estimate.seconds) }) }),
       ]),
       el('div', { className: 'participant-turn-facts' }, [
-        el('span', { className: 'participant-current-label', text: t('live.current') }),
+        el('span', { className: 'participant-current-label', text: t(turnScheduled ? 'live.scheduled' : 'live.current') }),
         el('strong', { className: 'participant-current-person', text: currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
         runningNow && el('strong', {
-          className: 'mono participant-deadline', attrs: { id: 'deadline', 'aria-label': t('live.deadline') }, text: formatSeconds(store.secondsToDeadline()),
+          className: 'mono participant-deadline', attrs: { id: 'deadline', 'aria-label': t(turnScheduled ? 'live.scheduled' : 'live.deadline') },
+          text: turnScheduled ? t('live.starts_at', {
+            time: formatDateTime(state.turn_opened_at, language, snapshot.competition.timezone),
+          }) : formatSeconds(store.secondsToDeadline()),
         }),
       ]),
     ]),
@@ -993,7 +1001,8 @@ function livePanel(snapshot) {
       queue.entries.length ? el('ol', { className: 'participant-queue' }, queue.entries.map((entry) => el('li', {
         className: [entry.pubkey === mine?.pubkey ? 'me' : '', entry.current ? 'is-current' : '', entry.nextRound ? 'is-next-round' : ''].filter(Boolean).join(' '),
       }, [
-        el('span', { text: entry.current ? t('live.now_short') : entry.nextRound ? t('live.next_round_short') : String(entry.queuePosition + 1) }),
+        el('span', { text: entry.current ? t(turnScheduled ? 'live.scheduled_short' : 'live.now_short')
+          : entry.nextRound ? t('live.next_round_short') : String(entry.queuePosition + 1) }),
         el('strong', { text: entry.participant ? displayName(entry.participant) : shortKey(entry.pubkey) }),
       ]))) : el('p', { className: 'small', text: t('live.queue_empty') }),
       queue.hidden > 0 && el('p', { className: 'small', text: t('live.more', { n: queue.hidden }) }),
@@ -1375,9 +1384,13 @@ function participantLiveContext(snapshot) {
   const runningNow = competitionRunning(
     snapshot.competition, snapshot.state.status, Math.floor(Date.now() / 1000),
   );
-  const cue = personalCue(snapshot.state, mine?.pubkey, runningNow);
+  const now = Math.floor(Date.now() / 1000);
+  const cue = personalCue(snapshot.state, mine?.pubkey, runningNow, now);
   const cueText = ['queued', 'next_round'].includes(cue.kind)
-    ? t(`live.cue.${cue.kind}`, { n: cue.ahead }) : t(`live.cue.${cue.kind}`);
+    ? t(`live.cue.${cue.kind}`, { n: cue.ahead }) : cue.kind === 'scheduled'
+    ? t('live.cue.scheduled', { time: formatDateTime(
+      snapshot.state.turn_opened_at, language, snapshot.competition.timezone,
+    ) }) : t(`live.cue.${cue.kind}`);
   const preparedId = mine ? preparedClimbs.get(`${snapshot.competition.comp_id}:${mine.pubkey}`) : '';
   const prepared = preparedId ? climbLabel(snapshot, preparedId) : t('live.no_next_climb');
   return el('section', { className: 'card participant-live-context', attrs: { 'aria-label': t('participant.live_context') } }, [
@@ -1597,7 +1610,10 @@ async function start() {
       return;
     }
     const node = byId('deadline');
-    if (node && store) node.textContent = formatSeconds(store.secondsToDeadline());
+    if (node && store) node.textContent = snapshot.state.turn_opened_at > Math.floor(Date.now() / 1000)
+      ? t('live.starts_at', { time: formatDateTime(
+        snapshot.state.turn_opened_at, language, snapshot.competition.timezone,
+      ) }) : formatSeconds(store.secondsToDeadline());
     const health = snapshot ? syncHealth(snapshot, Math.floor(Date.now() / 1000)) : null;
     if (health && health.kind !== lastHealthKind) render();
   }, 1000);

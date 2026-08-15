@@ -12,8 +12,10 @@ import {
   buildCompetitionTombstoneEvent, buildIntentEvent, buildLogEvent,
   buildResultsEvent, buildSnapshotEvent, configPatchImpact, MAX_FUTURE_SKEW_SECONDS,
   newNonce, parseIntentEvent,
-} from './protocol/competition.mjs?v=20260814-7';
-import { applyEntry, hashableState, reduce } from './protocol/reduce.mjs?v=20260814-5';
+} from './protocol/competition.mjs?v=20260815-1';
+import {
+  applyEntry, automaticQueueOrder, hashableState, reduce,
+} from './protocol/reduce.mjs?v=20260815-1';
 import { ccj, ccjHash } from './protocol/ccj.mjs';
 import {
   CleanupJobStore, executeCleanupJob, newCleanupJob,
@@ -441,14 +443,7 @@ export class AuthorityWriter {
    * the log — but reproducible, so any client can check it.
    */
   static async defaultOrder(compId, pubkeys) {
-    const scored = [];
-    for (const pubkey of pubkeys) {
-      // eslint-disable-next-line no-await-in-loop
-      scored.push({ pubkey, hash: await ccjHash({ k: `${compId}${pubkey}` }) });
-    }
-    scored.sort((a, b) => (a.hash < b.hash ? -1 : a.hash > b.hash ? 1 : 0)
-      || (a.pubkey < b.pubkey ? -1 : 1));
-    return scored.map((s) => s.pubkey);
+    return automaticQueueOrder(compId, pubkeys);
   }
 }
 

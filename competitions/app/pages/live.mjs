@@ -7,15 +7,15 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
-} from './common.mjs?v=20260814-15';
+} from './common.mjs?v=20260815-1';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
 import {
   competitionRunning, effectiveTimeStateKey, isNewerReplaceable, parseIntentEvent,
-} from '../protocol/competition.mjs?v=20260814-7';
+} from '../protocol/competition.mjs?v=20260815-1';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import {
   activeParticipantClimb, queuePreview, rotationPreview, syncHealth, tiedAt,
-} from '../ui/live-view.mjs?v=20260814-3';
+} from '../ui/live-view.mjs?v=20260815-1';
 
 const { t, language } = bootstrap();
 
@@ -134,6 +134,7 @@ function preStart(snapshot) {
 
 function queuePanel(snapshot, current) {
   const preview = queuePreview(snapshot.state, snapshot.state.participants, 7);
+  const turnScheduled = snapshot.state.turn_opened_at > Math.floor(Date.now() / 1000);
   return el('section', { className: 'projection-panel projection-queue' }, [
     el('div', { className: 'section-heading' }, [
       el('h2', { text: t('live.climber_queue') }),
@@ -143,7 +144,9 @@ function queuePanel(snapshot, current) {
       ? el('ol', { className: 'projection-list' }, preview.entries.map((entry) => el('li', {
         className: [entry.current ? 'is-current' : '', entry.next ? 'is-next' : '', entry.nextRound ? 'is-next-round' : ''].filter(Boolean).join(' '),
       }, [
-        el('span', { className: 'queue-number', text: entry.current ? t('live.now_short') : entry.nextRound ? t('live.next_round_short') : String(entry.queuePosition + 1) }),
+        el('span', { className: 'queue-number', text: entry.current
+          ? t(turnScheduled ? 'live.scheduled_short' : 'live.now_short')
+          : entry.nextRound ? t('live.next_round_short') : String(entry.queuePosition + 1) }),
         el('strong', { text: entry.participant ? displayName(entry.participant) : shortKey(entry.pubkey) }),
         entry.pubkey === current && el('span', { className: 'visually-hidden', text: t('live.current') }),
       ])))
@@ -172,12 +175,14 @@ function rotationPanel(snapshot, currentParticipant) {
 /** While it runs: wall first, then queues, then ranking. */
 function running(snapshot) {
   const state = snapshot.state;
+  const now = Math.floor(Date.now() / 1000);
   const current = store.currentClimber();
   const next = store.nextClimber();
   const currentParticipant = current ? store.participant(current) : null;
   const nextParticipant = next ? store.participant(next) : null;
   const paused = state.status === 'paused';
   const terminal = state.status === 'finished';
+  const turnScheduled = Boolean(current && state.turn_opened_at > now);
   const currentChoice = chosenClimb(snapshot, current);
   const nextChoice = chosenClimb(snapshot, next);
 
@@ -189,14 +194,18 @@ function running(snapshot) {
     ]) : null,
     el('section', { className: `projection-hero ${paused ? 'is-paused' : ''} ${terminal ? 'is-finished' : ''}` }, [
       el('div', { className: 'projection-current' }, [
-        el('p', { className: 'projection-kicker', text: terminal ? t('live.final') : paused ? t('live.paused') : t('live.current') }),
+        el('p', { className: 'projection-kicker', text: terminal ? t('live.final') : paused
+          ? t('live.paused') : t(turnScheduled ? 'live.scheduled' : 'live.current') }),
         el('p', { className: 'now', text: terminal ? t('live.finished') : currentParticipant ? displayName(currentParticipant) : t('live.nobody') }),
         !terminal && el('p', { className: 'current-climb', text: currentChoice?.label
           || (snapshot.competition.rules.climb_source === 'participant_choice'
             ? t('live.no_next_climb') : climbLabel(snapshot, state.current_climb_id)) }),
         !terminal && el('div', { className: 'turn-facts' }, [
           el('span', { text: t('live.round_value', { n: state.round }) }),
-          !terminal && el('span', { className: 'countdown', attrs: { id: 'deadline' }, text: paused ? t('live.paused') : formatSeconds(store.secondsToDeadline()) }),
+          !terminal && el('span', { className: 'countdown', attrs: { id: 'deadline' }, text: paused
+            ? t('live.paused') : turnScheduled ? t('live.starts_at', {
+              time: formatDateTime(state.turn_opened_at, language, snapshot.competition.timezone),
+            }) : formatSeconds(store.secondsToDeadline()) }),
         ]),
       ]),
       el('div', { className: 'projection-next' }, [
@@ -343,7 +352,10 @@ async function start() {
     }
     const node = byId('deadline');
     if (node && store && status === 'running') {
-      node.textContent = formatSeconds(store.secondsToDeadline());
+      node.textContent = snapshot.state.turn_opened_at > now
+        ? t('live.starts_at', { time: formatDateTime(
+          snapshot.state.turn_opened_at, language, snapshot.competition.timezone,
+        ) }) : formatSeconds(store.secondsToDeadline());
     }
     const health = snapshot ? syncHealth(snapshot, Math.floor(Date.now() / 1000)) : null;
     if (health && health.kind !== lastHealthKind) render();

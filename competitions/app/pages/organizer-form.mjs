@@ -15,7 +15,7 @@ import { el, replace } from '../ui/dom.mjs';
 import {
   buildClimbList, checkBoardCompatibility, climbEventFilter, describeClimbEvent, normalizeUuid, parseClimbRef,
 } from '../protocol/climb-ref.mjs';
-import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs?v=20260814-7';
+import { newCompId, validateCompetitionConfig } from '../protocol/competition.mjs?v=20260815-1';
 import { naddrEncode, verifyEvent } from '../protocol/nostr-event.mjs';
 import {
   BOARD_TYPES, boardType, catalogueBoardKey, catalogueClimbMatches, catalogueProductSizeId,
@@ -205,6 +205,7 @@ export function competitionToFormDraft(competition) {
     ascents: climb.ascents,
   }));
   return {
+    queuePolicy: competition.rules?.queue_policy || 'custom',
     fields: {
       title: competition.title, summary: competition.summary, description: competition.description,
       organizerName: competition.organizer?.name || '', contact: competition.organizer?.contact || '',
@@ -783,6 +784,7 @@ export function createCompetitionForm({
   persistDraft = true, onDraftDiscard = null, initialStep = null,
   onStepChange = () => {}, onStepBack = null,
 }) {
+  const queuePolicy = initialDraft?.queuePolicy || 'automatic';
   let notifyDraftChange = () => {};
   const f = {
     title: text('f-title', '', { maxlength: '120', required: 'required' }),
@@ -1498,6 +1500,7 @@ export function createCompetitionForm({
         counted_climb_count: Number(f.climbCount.value),
         selection_uniqueness: 'none',
         progression: f.progression.value,
+        queue_policy: queuePolicy,
         attempts_per_climb: Number(f.attempts.value),
         turn_deadline_sec: Number(f.turnDeadline.value),
         attempt_deadline_sec: 0,
@@ -2267,6 +2270,7 @@ export function createCompetitionForm({
     reviewActions,
   ]);
   const draftSnapshot = () => ({
+    queuePolicy,
     fields: Object.fromEntries(Object.entries(f).map(([name, control]) => [
       name,
       control.getAttribute('type') === 'checkbox' ? Boolean(control.checked) : control.value,

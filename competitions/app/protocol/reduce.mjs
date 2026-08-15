@@ -16,6 +16,8 @@ import {
   checkinWindowOpen, competitionRunning, configPatchImpact, registrationWindowOpen,
   validateCompetitionConfig,
 } from './competition.mjs';
+import { sha256 } from '../../../assets/vendor/nostr-crypto/hashes/sha2.js';
+import { bytesToHex, utf8ToBytes } from '../../../assets/vendor/nostr-crypto/hashes/utils.js';
 
 /** Build the zero state for a validated competition definition. */
 export function initialState(competition, competitionEventId) {
@@ -112,6 +114,8 @@ export const REJECTION_CODES = [
   'duplicate_in_order', 'empty_announcement', 'epoch_mismatch', 'illegal_transition',
   'incomplete_seed_order', 'index_out_of_range', 'ineligible_in_order', 'no_attempts_left',
   'no_fee', 'no_order', 'no_such_participant', 'not_accepted_registration', 'not_eligible',
+  'manual_queue_forbidden',
+  'turn_not_open',
   'no_open_turn', 'not_current_turn', 'not_in_order', 'participant_inactive', 'unknown_checkin_state', 'unknown_climb',
   'unknown_decision', 'unknown_division', 'unknown_op', 'unknown_outcome',
   'unknown_payment_state', 'unknown_prize', 'unknown_prize_state', 'unknown_queue_action',
@@ -303,6 +307,96 @@ function isEligible(state, competition, pubkey, atSeconds) {
   return true;
 }
 
+function isQueueMember(state, competition, pubkey) {
+  const participant = findParticipant(state, pubkey);
+  return Boolean(participant
+    && participant.registration === 'accepted'
+    && participant.checkin === 'checked_in'
+    && participant.result === 'active'
+    && (competition.fee_msat <= 0 || participant.payment === 'settled'));
+}
+
+function queueKey(compId, pubkey) {
+  return bytesToHex(sha256(utf8ToBytes(`${compId}${pubkey}`)));
+}
+
+/** Stable FEAT-058 default order, available synchronously inside reduction. */
+export function automaticQueueOrder(compId, pubkeys) {
+  return [...pubkeys].sort((left, right) => {
+    const leftKey = queueKey(compId, left);
+    const rightKey = queueKey(compId, right);
+    return (leftKey < rightKey ? -1 : leftKey > rightKey ? 1 : 0)
+      || (left < right ? -1 : left > right ? 1 : 0);
+  });
+}
+
+function readyAt(state, competition, pubkey, floor) {
+  const participant = findParticipant(state, pubkey);
+  const restReady = participant?.last_attempt_at > 0
+    ? participant.last_attempt_at + (competition.rules.min_rest_sec || 0) : floor;
+  return Math.max(floor, restReady);
+}
+
+function installAutomaticTurn(state, competition, at, anchorPubkey = null) {
+  const floor = Math.max(at, competition.starts_at || at);
+  if (state.order.length === 0) {
+    state.cursor = -1;
+    state.turn_opened_at = 0;
+    state.turn_deadline_at = 0;
+    return state;
+  }
+
+  const anchorKey = anchorPubkey ? queueKey(competition.comp_id, anchorPubkey) : null;
+  const afterAnchor = anchorKey === null
+    ? state.order.map((pubkey, index) => ({ pubkey, index }))
+    : [
+      ...state.order.map((pubkey, index) => ({ pubkey, index }))
+        .filter(({ pubkey }) => queueKey(competition.comp_id, pubkey) > anchorKey),
+      ...state.order.map((pubkey, index) => ({ pubkey, index }))
+        .filter(({ pubkey }) => queueKey(competition.comp_id, pubkey) <= anchorKey),
+    ];
+  let selected = afterAnchor.find(({ pubkey }) => readyAt(state, competition, pubkey, floor) <= floor);
+  if (!selected) {
+    selected = state.order.map((pubkey, index) => ({
+      pubkey, index, ready: readyAt(state, competition, pubkey, floor),
+    })).sort((left, right) => left.ready - right.ready || left.index - right.index)[0];
+  }
+  const openedAt = readyAt(state, competition, selected.pubkey, floor);
+  if (anchorKey !== null && queueKey(competition.comp_id, selected.pubkey) <= anchorKey) {
+    state.round += 1;
+    for (const participant of state.participants) {
+      participant.defers_used_this_round = 0;
+      participant.consecutive_defers = 0;
+    }
+  }
+  state.cursor = selected.index;
+  state.turn_opened_at = openedAt;
+  state.turn_deadline_at = openedAt + competition.rules.turn_deadline_sec;
+  return state;
+}
+
+function reconcileAutomaticQueue(state, competition, entry, before, preservePostCurrent) {
+  if (competition.rules.queue_policy !== 'automatic'
+    || ['finished', 'cancelled'].includes(state.status)) return state;
+  const members = state.participants
+    .filter((participant) => isQueueMember(state, competition, participant.pubkey))
+    .map((participant) => participant.pubkey);
+  const postCurrent = state.cursor >= 0 ? state.order[state.cursor] : null;
+  state.order = automaticQueueOrder(competition.comp_id, members);
+  if (state.round === 0 && state.order.length) {
+    state.round = 1;
+    if (!state.current_climb_id && competition.rules.climb_source === 'organizer_set') {
+      state.current_climb_id = competition.climbs?.[0]?.id || '';
+    }
+  }
+  const current = preservePostCurrent ? postCurrent : before.current;
+  if (current && state.order.includes(current)) {
+    state.cursor = state.order.indexOf(current);
+    return state;
+  }
+  return installAutomaticTurn(state, competition, entry.at, before.current);
+}
+
 function applyQueue(state, entry, competition) {
   const action = entry.data.action;
   if (!competitionRunning(competition, state.status, entry.at)
@@ -310,6 +404,10 @@ function applyQueue(state, entry, competition) {
     return reject(state, entry, 'wrong_status');
   }
   if (!QUEUE_ACTIONS.includes(action)) return reject(state, entry, 'unknown_queue_action');
+  if (competition.rules.queue_policy === 'automatic'
+    && ['seed', 'seed_open', 'open_turn', 'close_turn', 'advance', 'reorder', 'next_round'].includes(action)) {
+    return reject(state, entry, 'manual_queue_forbidden');
+  }
 
   if (state.round === 0) {
     state.round = 1;
@@ -385,6 +483,7 @@ function applyQueue(state, entry, competition) {
     if (state.cursor < 0 || state.cursor >= state.order.length || state.turn_opened_at <= 0) {
       return reject(state, entry, 'no_open_turn');
     }
+    if (entry.at < state.turn_opened_at) return reject(state, entry, 'turn_not_open');
     let next = nextEligibleIndex(state, competition, state.cursor, entry.at);
     if (next === -1) {
       state.round += 1;
@@ -455,6 +554,14 @@ function applyDeferDecision(state, entry, competition) {
   }
   const current = state.order.indexOf(pubkey);
   if (current === -1) return reject(state, entry, 'not_in_order');
+  if (competition.rules.queue_policy === 'automatic') {
+    if (state.cursor !== current) return reject(state, entry, 'not_current_turn');
+    if (state.turn_opened_at <= 0) return reject(state, entry, 'no_open_turn');
+    if (entry.at < state.turn_opened_at) return reject(state, entry, 'turn_not_open');
+    participant.defers_used_this_round += 1;
+    participant.consecutive_defers += 1;
+    return installAutomaticTurn(state, competition, entry.at, pubkey);
+  }
 
   // Move back by exactly defer_slots, never to the end of the round. §9.3.
   const target = Math.min(current + rules.defer_slots, state.order.length - 1);
@@ -531,6 +638,7 @@ function applyCompleteTurn(state, entry, competition) {
   if (state.cursor < 0 || state.cursor >= state.order.length || state.turn_opened_at <= 0) {
     return reject(state, entry, 'no_open_turn');
   }
+  if (entry.at < state.turn_opened_at) return reject(state, entry, 'turn_not_open');
   if (entry.data.pubkey !== state.order[state.cursor]) {
     return reject(state, entry, 'not_current_turn');
   }
@@ -538,6 +646,10 @@ function applyCompleteTurn(state, entry, competition) {
   const rejectedBefore = state.rejected.length;
   applyAttemptResult(state, entry, competition);
   if (state.rejected.length !== rejectedBefore) return state;
+
+  if (competition.rules.queue_policy === 'automatic') {
+    return installAutomaticTurn(state, competition, entry.at, entry.data.pubkey);
+  }
 
   let next = nextEligibleIndex(state, competition, state.cursor, entry.at);
   if (next === -1) {
@@ -584,6 +696,10 @@ function applyRetire(state, entry, competition) {
   const wasCurrent = removedIndex !== -1 && removedIndex === state.cursor;
   participant.result = 'finished';
   if (removedIndex !== -1) state.order.splice(removedIndex, 1);
+
+  // Automatic policy reconciles from the stable pre-operation anchor after
+  // this handler. Running the legacy advancement too would wrap twice.
+  if (competition.rules.queue_policy === 'automatic') return state;
 
   if (removedIndex !== -1 && removedIndex < state.cursor) state.cursor -= 1;
   if (wasCurrent) {
@@ -724,16 +840,23 @@ export function applyEntry(state, entry, competition) {
     return reject(state, entry, 'epoch_mismatch');
   }
 
+  const before = {
+    current: state.cursor >= 0 && state.cursor < state.order.length ? state.order[state.cursor] : null,
+    rejected: state.rejected.length,
+  };
+  let result;
+  let appliedOp = entry.op;
+  let appliedData = entry.data;
   if (entry.op === 'override') {
     // Same effect as the wrapped op, but always visible in the audit trail.
     state.audit.push({ seq: entry.seq, op: 'override', reason: entry.reason, at: entry.at });
     const wrapped = { ...entry, op: entry.data.op, data: entry.data.data };
     const handler = HANDLERS[wrapped.op];
     if (!handler) return reject(state, entry, 'unknown_op');
-    return handler(state, wrapped, competition);
-  }
-
-  if (entry.op === 'correction') {
+    appliedOp = wrapped.op;
+    appliedData = wrapped.data;
+    result = handler(state, wrapped, competition);
+  } else if (entry.op === 'correction') {
     state.audit.push({
       seq: entry.seq, op: 'correction', reason: entry.reason, at: entry.at,
       supersedes_seq: entry.data.supersedes_seq,
@@ -741,15 +864,17 @@ export function applyEntry(state, entry, competition) {
     if (!entry.data.replacement || typeof entry.data.replacement !== 'object') {
       return reject(state, entry, 'correction_missing_replacement');
     }
-    // A lone state has no earlier entry to replace. Full-history `reduce()`
-    // handles corrections; applying the body here at its later seq would be a
-    // different and unsafe operation.
     return reject(state, entry, 'correction_bad_target');
+  } else {
+    const handler = HANDLERS[entry.op];
+    if (!handler) return reject(state, entry, 'unknown_op');
+    result = handler(state, entry, competition);
   }
-
-  const handler = HANDLERS[entry.op];
-  if (!handler) return reject(state, entry, 'unknown_op');
-  return handler(state, entry, competition);
+  if (result.rejected.length !== before.rejected) return result;
+  const preservePostCurrent = appliedOp === 'complete_turn'
+    || appliedOp === 'defer_decision'
+    || (appliedOp === 'queue' && ['skip_turn', 'next_round'].includes(appliedData.action));
+  return reconcileAutomaticQueue(result, result.effective_config || competition, entry, before, preservePostCurrent);
 }
 
 /**

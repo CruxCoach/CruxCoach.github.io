@@ -984,10 +984,15 @@ test('host editing is prefilled from the effective competition including nested 
       }] }, capacity: 0, waitlist_enabled: true, fee_msat: 0,
       divisions: [{ id: 'open', label: 'Open' }], prizes: [], relays: [],
     };
+    const draft = competitionToFormDraft(competition);
+    assert.equal(draft.queuePolicy, 'custom', 'editing a legacy definition must preserve signed seed semantics');
+    assert.equal(competitionToFormDraft({
+      ...competition, rules: { ...competition.rules, queue_policy: 'automatic' },
+    }).queuePolicy, 'automatic');
     const form = createCompetitionForm({
       t: createTranslator('en'), pool: null, signerPubkey: '22'.repeat(32),
       defaultDisplayName: '', defaultLud16: '', relays: [], persistDraft: false,
-      initialDraft: competitionToFormDraft(competition), catalogueLoader: async () => ({ climbs: [] }),
+      initialDraft: draft, catalogueLoader: async () => ({ climbs: [] }),
     });
     assert.equal(form.node.querySelector('#f-title').value, 'Demo Comp');
     assert.equal(form.node.querySelector('#f-org').value, 'Madeira Climbing Center');
@@ -1053,6 +1058,7 @@ test('the unlimited capacity choice disables the numeric limit and publishes pro
     toggle.dispatch('change');
     assert.equal(capacity.disabled, true);
     assert.equal(form.build().capacity, 0);
+    assert.equal(form.build().rules.queue_policy, 'automatic');
 
     toggle.checked = false;
     toggle.dispatch('change');

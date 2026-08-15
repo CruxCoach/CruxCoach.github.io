@@ -106,6 +106,8 @@ export const ATTEMPT_OUTCOMES = ['top', 'zone', 'fall', 'pass', 'timeout'];
 export const CLIMB_SOURCES = ['organizer_set', 'participant_choice'];
 export const UNIQUENESS = ['none', 'unique_per_competition'];
 export const PROGRESSIONS = ['synchronous_rounds', 'asynchronous_turns'];
+/** Absent means the legacy v1 host-authored `seed_open` queue. */
+export const QUEUE_POLICIES = ['automatic', 'custom'];
 export const SCORINGS = ['tops_then_attempts', 'achievement_points', 'points_sum', 'hardest_n'];
 export const TIEBREAKS = ['fewest_attempts', 'most_zones', 'fewest_zone_attempts', 'earliest_finish', 'seed_order'];
 export const VISIBILITIES = ['public', 'unlisted'];
@@ -371,6 +373,7 @@ export function validateCompetitionConfig(config) {
     checkEnum(errors, rules, 'climb_source', CLIMB_SOURCES);
     checkEnum(errors, rules, 'selection_uniqueness', UNIQUENESS);
     checkEnum(errors, rules, 'progression', PROGRESSIONS);
+    checkEnum(errors, rules, 'queue_policy', QUEUE_POLICIES, false);
     checkEnum(errors, rules, 'scoring', SCORINGS);
     checkInt(errors, rules, 'climb_count');
     checkInt(errors, rules, 'counted_climb_count', false);

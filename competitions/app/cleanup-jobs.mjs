@@ -1,5 +1,5 @@
 /** Restart-safe relay-cleanup jobs. Contains public signed events only. */
-import { KIND, compDTag } from './protocol/competition.mjs?v=20260814-7';
+import { KIND, compDTag } from './protocol/competition.mjs?v=20260815-1';
 import { verifyEvent } from './protocol/nostr-event.mjs';
 import { isAllowedRelayUrl } from './protocol/relay-url.mjs';
 

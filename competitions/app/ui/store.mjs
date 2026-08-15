@@ -12,8 +12,8 @@ import { verifyEvent } from '../protocol/nostr-event.mjs';
 import {
   INTENT_OPS, KIND, NAMESPACE, competitionAddress, competitionRunning, compDTag,
   intentDTag, isNewerReplaceable, logDTag, parseCompetitionEvent, parseIntentEvent, parseLogEvent,
-} from '../protocol/competition.mjs?v=20260814-7';
-import { hashableState, reduce } from '../protocol/reduce.mjs?v=20260814-5';
+} from '../protocol/competition.mjs?v=20260815-1';
+import { hashableState, reduce } from '../protocol/reduce.mjs?v=20260815-1';
 import { computeStandings } from '../protocol/scoring.mjs?v=20260813-1';
 import { ccjHash } from '../protocol/ccj.mjs';
 import { usesDevelopmentRelay } from '../protocol/relay-url.mjs';

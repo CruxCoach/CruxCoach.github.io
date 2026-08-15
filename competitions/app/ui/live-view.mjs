@@ -75,14 +75,16 @@ export function activeParticipantClimb(
   return remainingClimbs.find((climb) => climb.id === choiceClimbId) || null;
 }
 
-export function personalCue(state, pubkey, running = state?.status === 'running') {
+export function personalCue(state, pubkey, running = state?.status === 'running', nowSeconds = Number.MAX_SAFE_INTEGER) {
   if (!state || !pubkey) return { kind: 'spectator', ahead: null, index: -1 };
   const index = state.order.indexOf(pubkey);
   if (TERMINAL.has(state.status)) return { kind: state.status, ahead: null, index };
   if (state.status === 'paused') return { kind: 'paused', ahead: null, index };
   if (!running) return { kind: 'waiting', ahead: null, index };
   if (index < 0) return { kind: 'not_queued', ahead: null, index };
-  if (state.cursor === index) return { kind: 'current', ahead: 0, index };
+  if (state.cursor === index) return {
+    kind: state.turn_opened_at > nowSeconds ? 'scheduled' : 'current', ahead: 0, index,
+  };
   const cursor = state.cursor < 0 ? 0 : state.cursor;
   if (state.cursor >= 0 && index < cursor) {
     return { kind: 'next_round', ahead: state.order.length - cursor + index, index };

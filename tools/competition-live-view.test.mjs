@@ -54,6 +54,9 @@ test('personal cues cover lifecycle and every queue relation without local state
   assert.deepEqual(personalCue({ ...running, status: 'registration_closed' }, 'b').kind, 'waiting');
   assert.deepEqual(personalCue({ ...running, status: 'checkin_open' }, 'b').kind, 'waiting');
   assert.deepEqual(personalCue(running, 'b'), { kind: 'current', ahead: 0, index: 1 });
+  assert.deepEqual(personalCue({ ...running, turn_opened_at: 200 }, 'b', true, 199), {
+    kind: 'scheduled', ahead: 0, index: 1,
+  });
   assert.deepEqual(personalCue(running, 'c'), { kind: 'next', ahead: 1, index: 2 });
   assert.deepEqual(personalCue(running, 'e'), { kind: 'queued', ahead: 3, index: 4 });
   assert.deepEqual(personalCue(running, 'a'), { kind: 'next_round', ahead: 4, index: 0 });
