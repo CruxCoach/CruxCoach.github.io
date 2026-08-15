@@ -8,7 +8,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260814-15';
+} from './common.mjs?v=20260814-16';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
@@ -16,6 +16,7 @@ import {
   resolvePayEndpoint, validatePayResponse, invoiceUrl, validateInvoiceResponse,
 } from '../protocol/lnurl.mjs';
 import { buildZapRequest } from '../protocol/zap.mjs';
+import { npubEncode } from '../protocol/nostr-event.mjs';
 import { buildClaimBody, validateClaimInput, eligibleWinner } from '../protocol/prize.mjs';
 import {
   checkinWindowOpen, competitionAddress, competitionRunning, registrationWindowOpen,
@@ -25,7 +26,7 @@ import { EntrantWriter } from '../authority.mjs?v=20260814-8';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
 } from '../ui/dom.mjs';
-import { describeRejection } from '../ui/i18n.mjs?v=20260814-15';
+import { describeRejection } from '../ui/i18n.mjs?v=20260814-16';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import {
   activeParticipantClimb, personalCue, queuePreview, rotationPreview, syncHealth, turnEstimate,
@@ -445,6 +446,32 @@ function participantDestinationIntro(destination) {
     el('p', { className: 'eyebrow', text: t(`participant.destination.${destination}`) }),
     el('h2', { text: t(`participant.${destination}.title`) }),
     el('p', { text: t(`participant.${destination}.hint`) }),
+  ]);
+}
+
+function participantIdentityCard() {
+  if (!signer) return null;
+  const mine = me();
+  const npub = npubEncode(signer.pubkey);
+  const fingerprint = `${npub.slice(0, 12)}…${npub.slice(-6)}`;
+  return el('section', { className: 'card participant-identity', attrs: {
+    'data-enrolled': String(Boolean(mine)),
+  } }, [
+    el('strong', { text: t('identity.signed_in', {
+      name: signIn.displayName || t('identity.unknown_name'), fingerprint,
+    }) }),
+    el('p', {
+      className: mine ? 'small' : 'small error',
+      attrs: { role: 'status', 'aria-live': 'polite' },
+      text: mine ? t(`reg.${mine.registration}`) : t('identity.not_registered'),
+    }),
+    !mine && el('p', { className: 'small', text: t('identity.registration_owner') }),
+    el('button', {
+      text: t('identity.manage'), on: { click: () => {
+        signInMount.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        signInMount.querySelector('button, input')?.focus();
+      } },
+    }),
   ]);
 }
 
@@ -1482,6 +1509,7 @@ function render() {
       'data-screen': screen, 'data-destination': destination,
     } }, [
       header(snapshot),
+      participantIdentityCard(),
       phaseNavigation(screen, snapshot),
       participantDestinationNavigation(snapshot, destination),
       ...primary,

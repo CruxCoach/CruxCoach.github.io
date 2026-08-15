@@ -171,6 +171,12 @@ test('all five participant jobs are focused history-backed destinations', () => 
   assert.match(join, /climb_source === 'participant_choice'[\s\S]*available\.add\('chooser'\)/,
     'organizer-set competitions must not expose a participant choice writer the protocol rejects');
   assert.match(join, /className: 'participant-phases'/);
+  assert.match(join, /participantIdentityCard\(\)[\s\S]*identity\.signed_in/,
+    'focused participant destinations must show the signer fingerprint separately from enrollment');
+  assert.match(join, /mine \? t\(`reg\.\$\{mine\.registration\}`\) : t\('identity\.not_registered'\)/,
+    'a familiar display name must not imply that this pubkey is enrolled');
+  assert.match(join, /signInMount\.scrollIntoView[\s\S]*querySelector\('button, input'\)\?\.focus/,
+    'identity recovery must be directly reachable without replacing the naddr fragment');
   assert.match(join, /className: 'participant-destination-nav'/);
   assert.match(join, /data-screen': screen/);
   assert.match(join, /'data-destination': destination/);
