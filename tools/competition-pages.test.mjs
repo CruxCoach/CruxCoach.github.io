@@ -149,8 +149,8 @@ test('live host, participant and projection surfaces keep state-specific action 
     'preparing the next boulder is the one dominant queued action');
   assert.match(live, /status === 'finished'[\s\S]*finished\(snapshot\)/,
     'a final projection must switch to its dedicated results hierarchy');
-  assert.match(live, /competitionRunning\(snapshot\.competition, snapshot\.state\.status, now\)/,
-    'the projection must derive running state from its scheduled window');
+  assert.match(live, /effectiveCompetitionStatus\(snapshot\.competition, snapshot\.state\.status, now\)/,
+    'the projection must derive running and finished states from its scheduled window');
   assert.match(live, /timeKey !== lastTimeStateKey[\s\S]*render\(\)/,
     'the projection must cross every scheduled phase boundary without a relay event');
   assert.match(organizer, /effectiveStatus === 'running'[\s\S]*secondsToDeadline/,

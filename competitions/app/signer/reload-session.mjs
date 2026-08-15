@@ -75,7 +75,11 @@ export class ReloadSessionCache {
     } : null);
   }
 
-  get available() { return Boolean(this.storage && this.recordStore && this.crypto?.subtle); }
+  // IndexedDB can exist while refusing to persist CryptoKey objects (notably
+  // in some private or older mobile browser contexts). sessionStorage is still
+  // sufficient for a reload-only fallback: it dies with the tab and never
+  // contains the nsec or raw signing key.
+  get available() { return Boolean(this.storage && this.crypto?.subtle); }
 
   readMetadata() {
     if (!this.storage) return null;
@@ -117,7 +121,31 @@ export class ReloadSessionCache {
       return true;
     } catch {
       await this.clear();
-      return false;
+      try {
+        // Compatibility path. The wrapping material and ciphertext are both
+        // tab-scoped, so this offers lifecycle isolation rather than the
+        // stronger storage separation of the preferred IndexedDB path.
+        const rawKey = new Uint8Array(32);
+        this.crypto.getRandomValues(rawKey);
+        const key = await this.crypto.subtle.importKey(
+          'raw', rawKey, { name: 'AES-GCM' }, false, ['encrypt', 'decrypt'],
+        );
+        const iv = new Uint8Array(12);
+        this.crypto.getRandomValues(iv);
+        const ciphertext = new Uint8Array(await this.crypto.subtle.encrypt(
+          { name: 'AES-GCM', iv }, key, secretKey,
+        ));
+        this.storage.setItem(this.key, JSON.stringify({
+          v: 1, token: randomToken(this.crypto), pubkey,
+          fallbackKey: encode(rawKey), iv: encode(iv), ciphertext: encode(ciphertext),
+          startedAt, touchedAt, hiddenAt: null,
+        }));
+        rawKey.fill(0);
+        return true;
+      } catch {
+        await this.clear();
+        return false;
+      }
     }
   }
 
@@ -135,10 +163,20 @@ export class ReloadSessionCache {
       return null;
     }
     try {
-      const record = await this.recordStore.get(metadata.token);
-      if (!record) throw new Error('Session record mismatch.');
+      let key;
+      if (typeof metadata.fallbackKey === 'string') {
+        const rawKey = decode(metadata.fallbackKey);
+        key = await this.crypto.subtle.importKey(
+          'raw', rawKey, { name: 'AES-GCM' }, false, ['decrypt'],
+        );
+        rawKey.fill(0);
+      } else {
+        const record = await this.recordStore?.get(metadata.token);
+        if (!record) throw new Error('Session record mismatch.');
+        key = record.key;
+      }
       const secretKey = new Uint8Array(await this.crypto.subtle.decrypt(
-        { name: 'AES-GCM', iv: decode(metadata.iv) }, record.key, decode(metadata.ciphertext),
+        { name: 'AES-GCM', iv: decode(metadata.iv) }, key, decode(metadata.ciphertext),
       ));
       if (secretKey.length !== 32) throw new Error('Invalid session key.');
       return { secretKey, startedAt: metadata.startedAt, touchedAt: metadata.touchedAt };

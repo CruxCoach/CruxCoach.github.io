@@ -13,7 +13,8 @@ import { ccj, ccjHash, sha256Hex } from '../competitions/app/protocol/ccj.mjs';
 import {
   buildCompetitionDeletionRequest, buildCompetitionEvent,
   buildCompetitionTombstoneEvent, buildIntentEvent, classifyEvent, compDTag, intentDTag,
-  checkinWindowOpen, effectiveTimeStateKey, logDTag, parseCompetitionEvent, parseDTag, parseIntentEvent,
+  checkinWindowOpen, effectiveCompetitionStatus, effectiveTimeStateKey,
+  logDTag, parseCompetitionEvent, parseDTag, parseIntentEvent,
   registrationWindowOpen, validateCompetitionConfig, KIND,
 } from '../competitions/app/protocol/competition.mjs';
 
@@ -290,6 +291,14 @@ test('effective time-state key changes at every inclusive UI boundary', () => {
   assert.match(effectiveTimeStateKey(
     competition, { ...state, status: 'cancelled' }, competition.starts_at,
   ), /^cancelled:0:0:0:/);
+});
+
+test('scheduled end becomes final on every client without a host status event', () => {
+  const competition = validConfig();
+  assert.equal(effectiveCompetitionStatus(competition, 'registration_open', competition.starts_at), 'running');
+  assert.equal(effectiveCompetitionStatus(competition, 'running', competition.ends_at + 1), 'finished');
+  assert.equal(effectiveCompetitionStatus(competition, 'paused', competition.ends_at + 1), 'finished');
+  assert.equal(effectiveCompetitionStatus(competition, 'cancelled', competition.ends_at + 1), 'cancelled');
 });
 
 test('validation names the field that is wrong', () => {

@@ -138,6 +138,34 @@ test('an unlocked ncryptsec identity survives a hard reload without plaintext st
   returning.lock();
 });
 
+test('reload resume falls back to tab storage when IndexedDB cannot persist CryptoKey', async () => {
+  const storage = fakeStorage();
+  const sessionStorage = fakeStorage();
+  const recordStore = {
+    put: async () => { throw new Error('CryptoKey cloning is unavailable'); },
+    get: async () => null,
+    delete: async () => {},
+  };
+  const first = new KeyVaultSession({
+    storage,
+    reloadCache: new ReloadSessionCache({ storageKey: STORAGE_KEY, sessionStorage, recordStore }),
+  });
+  const { pubkey } = first.generate();
+  const ncryptsec = await first.createNcryptsec('correct horse battery', { logN: 4 });
+  first.saveNcryptsec(ncryptsec);
+  assert.equal(await first.enableReloadResume(), true);
+  assert.doesNotMatch(sessionStorage.serialized, new RegExp(bytesToHex(first.secretKey), 'i'));
+  assert.equal(sessionStorage.serialized.includes(nsecEncode(first.secretKey)), false);
+
+  const returning = new KeyVaultSession({
+    storage,
+    reloadCache: new ReloadSessionCache({ storageKey: STORAGE_KEY, sessionStorage, recordStore }),
+  });
+  assert.equal(await returning.restoreAfterReload(), true);
+  assert.equal(returning.pubkey, pubkey);
+  returning.lock();
+});
+
 test('sign out removes the hard-reload session but keeps the encrypted ncryptsec', async () => {
   const storage = fakeStorage();
   const reload = fakeReloadCache();

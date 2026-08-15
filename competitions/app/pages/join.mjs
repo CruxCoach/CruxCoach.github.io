@@ -9,7 +9,7 @@ import {
   bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace, resolveRelays,
 } from './common.mjs?v=20260815-3';
-import { SignIn } from '../ui/shell.mjs?v=20260814-8';
+import { SignIn } from '../ui/shell.mjs?v=20260815-1';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { decodeInvoice, secondsLeft, walletUri } from '../protocol/bolt11.mjs';
 import {
@@ -20,8 +20,8 @@ import { npubEncode } from '../protocol/nostr-event.mjs';
 import { buildClaimBody, validateClaimInput, eligibleWinner } from '../protocol/prize.mjs';
 import {
   checkinWindowOpen, competitionAddress, competitionRunning, registrationWindowOpen,
-  effectiveTimeStateKey, isNewerReplaceable, parseIntentEvent,
-} from '../protocol/competition.mjs?v=20260815-1';
+  effectiveCompetitionStatus, effectiveTimeStateKey, isNewerReplaceable, parseIntentEvent,
+} from '../protocol/competition.mjs?v=20260815-2';
 import { EntrantWriter } from '../authority.mjs?v=20260815-2';
 import {
   announce, displayName, formatDateTime, formatSats, formatSeconds, shortKey,
@@ -296,11 +296,14 @@ function me() {
   return signer ? store?.participant(signer.pubkey) : null;
 }
 
+function effectiveStatus(snapshot, now = Math.floor(Date.now() / 1000)) {
+  return effectiveCompetitionStatus(snapshot.competition, snapshot.state.status, now);
+}
+
 function header(snapshot) {
   const competition = snapshot.competition;
   const now = Math.floor(Date.now() / 1000);
-  const status = competitionRunning(competition, snapshot.state.status, now)
-    ? 'running' : snapshot.state.status;
+  const status = effectiveStatus(snapshot, now);
   const board = competition.board || {};
   return el('section', { className: 'participant-comp-header' }, [
     el('div', { className: 'participant-comp-title' }, [
@@ -349,8 +352,7 @@ function header(snapshot) {
 
 function participantScreen(snapshot) {
   const now = Math.floor(Date.now() / 1000);
-  if (competitionRunning(snapshot.competition, snapshot.state.status, now)
-    || ['paused', 'finished', 'cancelled'].includes(snapshot.state.status)) return 'live';
+  if (['running', 'paused', 'finished', 'cancelled'].includes(effectiveStatus(snapshot, now))) return 'live';
   const mine = me();
   // Acceptance, not a mutually exclusive global phase, advances this person.
   // The check-in screen can therefore clearly say "not open yet" even while
@@ -365,7 +367,7 @@ function participantDestinations(snapshot) {
   const available = new Set(['registration']);
   if (mine?.registration === 'accepted') available.add('checkin');
   if (phase === 'live') {
-    if (snapshot.state.status === 'finished') {
+    if (effectiveStatus(snapshot) === 'finished') {
       available.add('results');
     } else {
       available.add('live');
@@ -416,7 +418,7 @@ function phaseNavigation(screen, snapshot) {
   const completed = {
     registration: mine?.registration === 'accepted',
     checkin: mine?.checkin === 'checked_in',
-    live: snapshot.state.status === 'finished',
+    live: effectiveStatus(snapshot) === 'finished',
   };
   return el('nav', { className: 'participant-phases', attrs: { 'aria-label': t('participant.progress') } }, [
     el('ol', {}, phases.map((phase, index) => el('li', {
@@ -1228,6 +1230,8 @@ function prizePanel(snapshot) {
   const competition = snapshot.competition;
   const prizes = competition.prizes || [];
   if (prizes.length === 0) return null;
+  // Prize claims require the authority's signed finalization, not only the
+  // wall-clock results view, because the results hash becomes contractual.
   if (snapshot.state.status !== 'finished') return null;
 
   const mine = me();
@@ -1489,7 +1493,7 @@ function render() {
   }
 
   const screen = participantScreen(snapshot);
-  const defaultDestination = snapshot.state.status === 'finished' ? 'results' : screen;
+  const defaultDestination = effectiveStatus(snapshot) === 'finished' ? 'results' : screen;
   lastTimeStateKey = effectiveTimeStateKey(
     snapshot.competition, snapshot.state, Math.floor(Date.now() / 1000),
   );

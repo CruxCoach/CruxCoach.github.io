@@ -10,8 +10,8 @@ import {
 } from './common.mjs?v=20260815-3';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
 import {
-  competitionRunning, effectiveTimeStateKey, isNewerReplaceable, parseIntentEvent,
-} from '../protocol/competition.mjs?v=20260815-1';
+  effectiveCompetitionStatus, effectiveTimeStateKey, isNewerReplaceable, parseIntentEvent,
+} from '../protocol/competition.mjs?v=20260815-2';
 import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs?v=20260813-1';
 import {
   activeParticipantClimb, queuePreview, rotationPreview, syncHealth, tiedAt,
@@ -32,8 +32,7 @@ const view = byId('view');
 const statusNode = byId('load-status');
 
 function effectiveStatus(snapshot, now = Math.floor(Date.now() / 1000)) {
-  return competitionRunning(snapshot.competition, snapshot.state.status, now)
-    ? 'running' : snapshot.state.status;
+  return effectiveCompetitionStatus(snapshot.competition, snapshot.state.status, now);
 }
 
 function climbLabel(snapshot, climbId) {
@@ -182,7 +181,7 @@ function running(snapshot) {
   const currentParticipant = current ? store.participant(current) : null;
   const nextParticipant = next ? store.participant(next) : null;
   const paused = state.status === 'paused';
-  const terminal = state.status === 'finished';
+  const terminal = effectiveStatus(snapshot, now) === 'finished';
   const turnScheduled = Boolean(current && state.turn_opened_at > now);
   const currentChoice = chosenClimb(snapshot, current);
   const nextChoice = chosenClimb(snapshot, next);

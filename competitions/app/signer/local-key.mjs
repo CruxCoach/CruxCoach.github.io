@@ -317,6 +317,12 @@ export class KeyVaultSession {
   /** Let a saved, unlocked identity survive reloads in this browser tab. */
   async enableReloadResume() {
     if (!this.secretKey || !this.hasStoredKey() || this.storedPubkey() !== this.pubkey) return false;
+    if (this.reloadResumeEnabled) {
+      this.reloadCache?.update?.({
+        startedAt: this.startedAt, touchedAt: this.touchedAt, hiddenAt: null,
+      });
+      return true;
+    }
     const secretKey = this.secretKey;
     const pubkey = this.pubkey;
     const saved = Boolean(await this.reloadCache?.save?.(secretKey, {
@@ -339,7 +345,13 @@ export class KeyVaultSession {
       hiddenMs: HIDDEN_SESSION_MS, expectedPubkey,
     });
     if (!restored) return false;
-    this.clear();
+    // This is a fresh page-level holder in normal use. Reset only its memory;
+    // clearing the cache here would destroy the record that was just restored
+    // and force a needless, timing-sensitive rewrite in SignIn.use().
+    this.disarm();
+    zeroize(this.secretKey);
+    this.secretKey = null;
+    this.pubkey = null;
     this.secretKey = restored.secretKey;
     this.pubkey = getPublicKey(restored.secretKey);
     if (this.pubkey !== expectedPubkey) {

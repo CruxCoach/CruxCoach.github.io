@@ -11,7 +11,7 @@
  * kind-0 profile at least one relay accepted. Until then the caller sees `null`
  * and offers no create, register or check-in.
  */
-import { KeyVaultSession } from '../signer/local-key.mjs?v=20260814-7';
+import { KeyVaultSession } from '../signer/local-key.mjs?v=20260815-1';
 import { decryptNcryptsec } from '../signer/nip49.mjs';
 import {
   buildNostrConnectUri, createLocalSigner, createNip07Signer, createNip46Signer,

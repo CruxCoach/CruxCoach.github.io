@@ -13,24 +13,24 @@ import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
 } from './common.mjs?v=20260815-3';
-import { SignIn } from '../ui/shell.mjs?v=20260814-8';
+import { SignIn } from '../ui/shell.mjs?v=20260815-1';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260815-2';
 import {
   MUTABLE_CONFIG_FIELDS, NAMESPACE, configPatchImpact, newCompId,
-  effectiveTimeStateKey, isNewerReplaceable, parseCompetitionEvent, parseIntentEvent,
+  effectiveCompetitionStatus, effectiveTimeStateKey, isNewerReplaceable, parseCompetitionEvent, parseIntentEvent,
   checkinWindowOpen, competitionRunning, registrationWindowOpen, validateCompetitionConfig,
-} from '../protocol/competition.mjs?v=20260815-1';
+} from '../protocol/competition.mjs?v=20260815-2';
 import { outstandingClaims, registrationOrder } from '../protocol/claims.mjs';
 import { verifyZapReceipt, receiptFilter, ZAP_RECEIPT_KIND } from '../protocol/zap.mjs';
 import { verifyClaim, eligibleWinner, claimDeadline } from '../protocol/prize.mjs';
 import { walletUri } from '../protocol/bolt11.mjs';
 import { resolvePayEndpoint, validatePayResponse } from '../protocol/lnurl.mjs';
-import { competitionAddress } from '../protocol/competition.mjs?v=20260815-1';
+import { competitionAddress } from '../protocol/competition.mjs?v=20260815-2';
 import { verifyEvent } from '../protocol/nostr-event.mjs';
 import { competitionToFormDraft, createCompetitionForm } from './organizer-form.mjs?v=20260815-1';
 import { naddrEncode } from '../protocol/nostr-event.mjs';
-import { KIND, compDTag } from '../protocol/competition.mjs?v=20260815-1';
+import { KIND, compDTag } from '../protocol/competition.mjs?v=20260815-2';
 import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '../ui/dom.mjs';
 import { describeRejection } from '../ui/i18n.mjs?v=20260815-2';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
@@ -495,7 +495,9 @@ function overviewSection() {
 function nextActionFor(listing) {
   const status = listing.state?.status || listing.competition.status;
   if (status === 'draft') return 'resume';
-  if (status === 'finished' || status === 'cancelled') return 'results';
+  if (['finished', 'cancelled'].includes(effectiveCompetitionStatus(
+    listing.competition, status, Math.floor(Date.now() / 1000),
+  ))) return 'results';
   return 'open';
 }
 
@@ -1543,8 +1545,7 @@ function hostOverview(snapshot, isAuthority, destination) {
   const openRequests = snapshot.intentHistoryComplete ? [...intents.values()]
     .filter((intent) => ['register', 'withdraw', 'checkin_request', 'defer_request', 'attempt_report'].includes(intent.intent.op))
     .filter((intent) => !requestAnswered(intent)).length : null;
-  const effectiveStatus = competitionRunning(snapshot.competition, snapshot.state.status, now)
-    ? 'running' : snapshot.state.status;
+  const effectiveStatus = effectiveCompetitionStatus(snapshot.competition, snapshot.state.status, now);
   const windowCard = (kind, opensAt, closesAt, open) => {
     const position = now < opensAt ? 'upcoming' : now > closesAt ? 'closed' : open ? 'open' : 'closed';
     return el('div', { className: `host-window state-${position}` }, [
@@ -1591,7 +1592,7 @@ function hostOverview(snapshot, isAuthority, destination) {
 
 function defaultHostDestination(snapshot) {
   const now = Math.floor(Date.now() / 1000);
-  if (snapshot.state.status === 'finished') return 'results';
+  if (effectiveCompetitionStatus(snapshot.competition, snapshot.state.status, now) === 'finished') return 'results';
   if (competitionRunning(snapshot.competition, snapshot.state.status, now)
     || snapshot.state.status === 'paused') return 'live';
   if (registrationWindowOpen(snapshot.competition, snapshot.state.status, now)
@@ -1611,6 +1612,9 @@ function selectHostDestination(destination, { replaceState = false } = {}) {
 }
 
 function hostDestinationNav(active, snapshot) {
+  const status = effectiveCompetitionStatus(
+    snapshot.competition, snapshot.state.status, Math.floor(Date.now() / 1000),
+  );
   return el('nav', {
     className: 'host-destination-nav',
     attrs: { 'aria-label': t('org.nav.label') },
@@ -1618,7 +1622,7 @@ function hostDestinationNav(active, snapshot) {
     text: t(`org.nav.${destination}`),
     attrs: {
       'aria-current': destination === active ? 'page' : null,
-      disabled: destination === active || (destination === 'results' && snapshot.state.status !== 'finished'),
+      disabled: destination === active || (destination === 'results' && status !== 'finished'),
     },
     on: { click: () => selectHostDestination(destination) },
   })));
@@ -1719,7 +1723,9 @@ function render() {
   if (isAuthority && (!HOST_DESTINATIONS.has(hostDestination)
     || (lastHostPrimary && hostPrimary !== lastHostPrimary && followedPreviousPrimary))) {
     const saved = history.state?.[HOST_HISTORY_KEY];
-    hostDestination = !lastHostPrimary && snapshot.state.status !== 'finished'
+    hostDestination = !lastHostPrimary && effectiveCompetitionStatus(
+      snapshot.competition, snapshot.state.status, Math.floor(Date.now() / 1000),
+    ) !== 'finished'
       && HOST_DESTINATIONS.has(saved) ? saved : hostPrimary;
     lastHostPrimary = hostPrimary;
     selectHostDestination(hostDestination, { replaceState: true });

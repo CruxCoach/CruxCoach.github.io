@@ -131,11 +131,19 @@ export function competitionRunning(competition, status, at) {
   return at >= competition.starts_at && at <= competition.ends_at;
 }
 
+/** Wall-clock status used by every screen; scheduled end needs no host action. */
+export function effectiveCompetitionStatus(competition, status, at) {
+  if (!competition || !Number.isInteger(at)) return status;
+  if (status === 'cancelled' || status === 'finished') return status;
+  if (Number.isInteger(competition.ends_at) && at > competition.ends_at) return 'finished';
+  return competitionRunning(competition, status, at) ? 'running' : status;
+}
+
 /** Every wall-clock boundary that can change a competition screen without an event. */
 export function effectiveTimeStateKey(competition, state, at) {
   if (!competition || !state || !Number.isInteger(at)) return '';
   return [
-    state.status,
+    effectiveCompetitionStatus(competition, state.status, at),
     registrationWindowOpen(competition, state.status, at) ? 1 : 0,
     checkinWindowOpen(competition, state.status, at) ? 1 : 0,
     competitionRunning(competition, state.status, at) ? 1 : 0,
