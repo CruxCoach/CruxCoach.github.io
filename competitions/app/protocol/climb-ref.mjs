@@ -185,6 +185,11 @@ export function checkBoardCompatibility(climb, board) {
  * Rejects duplicates: the same climb twice is either a paste error or a
  * competition where two rounds silently score the same problem.
  */
+const EDITOR_OWNED_CLIMB_FIELDS = new Set([
+  'id', 'climb_uuid', 'angle', 'label', 'points', 'naddr', 'zone_hold',
+  'setter', 'difficulty', 'quality', 'ascents', 'source',
+]);
+
 export function buildClimbList(entries) {
   const seen = new Set();
   const usedIds = new Set();
@@ -217,8 +222,10 @@ export function buildClimbList(entries) {
     if (requestedId) usedIds.add(requestedId);
     const raw = entry.raw && typeof entry.raw === 'object' && !Array.isArray(entry.raw)
       ? entry.raw : {};
+    const rawBase = Object.fromEntries(Object.entries(raw)
+      .filter(([key]) => !EDITOR_OWNED_CLIMB_FIELDS.has(key)));
     climbs.push({
-      ...raw,
+      ...rawBase,
       id,
       climb_uuid: uuid,
       angle: entry.angle,

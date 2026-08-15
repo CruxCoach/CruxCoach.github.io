@@ -174,6 +174,24 @@ test('editing preserves stable ids and unknown metadata across reorder and addit
   assert.equal(climbs[1].future_flag, true);
 });
 
+test('editing can clear every optional known field without losing unknown metadata', () => {
+  const raw = {
+    id: 'qual', climb_uuid: REAL, angle: 40, label: 'Old', points: 42,
+    naddr: 'naddr1old', zone_hold: 7, setter: 'Old Setter', difficulty: 17,
+    quality: 4.5, ascents: 99, source: 'community', extension: { keep: true },
+  };
+  const { climbs, errors } = buildClimbList([{
+    id: 'qual', raw, uuid: REAL, label: 'Current', angle: 45, points: 100,
+    naddr: '', zoneHold: null, setter: '', difficulty: null, quality: null,
+    ascents: null, kind: 'catalogue',
+  }]);
+  assert.deepEqual(errors, []);
+  assert.deepEqual(climbs[0], {
+    extension: { keep: true }, id: 'qual', climb_uuid: REAL, angle: 45,
+    label: 'Current', points: 100, source: 'catalogue',
+  });
+});
+
 test('a community climb is fetched by its own address, not by a search', () => {
   const filter = climbEventFilter({
     setterPubkey: SETTER, dTag: `cruxcoach:climb:${SETTER.slice(0, 8)}:${REAL}`,

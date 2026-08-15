@@ -678,6 +678,12 @@ function applyConfigUpdate(state, entry, competition) {
     return before && after && (before.climb_uuid !== after.climb_uuid
       || before.angle !== after.angle || before.board_cell_id !== after.board_cell_id);
   })) return reject(state, entry, 'config_referenced_climb');
+  const boardIdentity = (config) => ['brand', 'model', 'layout_id', 'size']
+    .map((key) => config.board?.[key]);
+  if (referencedClimbs.size > 0
+    && JSON.stringify(boardIdentity(competition)) !== JSON.stringify(boardIdentity(next))) {
+    return reject(state, entry, 'config_referenced_climb');
+  }
   const nextDivisions = new Set((next.divisions || []).map((division) => division.id));
   if (state.participants.some((p) => p.division && !nextDivisions.has(p.division))) {
     return reject(state, entry, 'config_referenced_division');
