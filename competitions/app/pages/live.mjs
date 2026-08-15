@@ -16,6 +16,7 @@ import { scoringExplanation, usesPointLeaderboard } from '../ui/scoring-copy.mjs
 import {
   activeParticipantClimb, queuePreview, rotationPreview, syncHealth, tiedAt,
 } from '../ui/live-view.mjs?v=20260815-1';
+import { resultsView } from '../ui/results-view.mjs?v=20260815-1';
 
 const { t, language } = bootstrap();
 
@@ -237,6 +238,10 @@ function cancelled(snapshot) {
   ];
 }
 
+function finished(snapshot) {
+  return [projectionHeader(snapshot), ...resultsView(snapshot, t)];
+}
+
 function leaderboard(snapshot, current) {
   if (!snapshot.standings.length || !snapshot.state.chain_complete || snapshot.state.fork_detected) return null;
   const points = usesPointLeaderboard(snapshot.competition);
@@ -300,7 +305,9 @@ function render() {
   );
   const body = status === 'cancelled'
     ? cancelled(snapshot)
-    : ['running', 'paused', 'finished'].includes(status)
+    : status === 'finished'
+      ? finished(snapshot)
+      : ['running', 'paused'].includes(status)
       ? running(snapshot)
       : preStart(snapshot);
   replace(view, projectionToolbar(), devRelayBanner(store, t), ...integrityNotices(snapshot, t), ...body);

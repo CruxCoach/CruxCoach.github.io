@@ -38,6 +38,7 @@ import {
 import {
   climbCard, filterCatalogue, gradeFilterOptions, saveGradeScale, storedGradeScale,
 } from '../ui/climb-card.mjs?v=20260813-6';
+import { resultsView } from '../ui/results-view.mjs?v=20260815-1';
 
 const { t, language } = bootstrap();
 
@@ -59,7 +60,7 @@ let preparedChoiceTrust = 'idle';
 let preparedChoiceToken = 0;
 const relayChoices = new Map();
 const preparedClimbs = new Map();
-const PARTICIPANT_DESTINATIONS = new Set(['registration', 'checkin', 'live', 'chooser', 'leaderboard']);
+const PARTICIPANT_DESTINATIONS = new Set(['registration', 'checkin', 'live', 'chooser', 'leaderboard', 'results']);
 const PARTICIPANT_HISTORY_KEY = 'cruxcoachCompetitionParticipantDestination';
 let participantDestination = '';
 
@@ -364,10 +365,14 @@ function participantDestinations(snapshot) {
   const available = new Set(['registration']);
   if (mine?.registration === 'accepted') available.add('checkin');
   if (phase === 'live') {
-    available.add('live');
-    available.add('leaderboard');
-    if (mine && snapshot.competition.rules.climb_source === 'participant_choice') {
-      available.add('chooser');
+    if (snapshot.state.status === 'finished') {
+      available.add('results');
+    } else {
+      available.add('live');
+      available.add('leaderboard');
+      if (mine && snapshot.competition.rules.climb_source === 'participant_choice') {
+        available.add('chooser');
+      }
     }
   }
   return available;
@@ -392,11 +397,12 @@ function participantDestinationNavigation(snapshot, active) {
   return el('nav', {
     className: 'participant-destination-nav',
     attrs: { 'aria-label': t('participant.navigation') },
-  }, [...PARTICIPANT_DESTINATIONS].map((destination) => el('button', {
+  }, [...PARTICIPANT_DESTINATIONS].filter((destination) => available.has(destination))
+    .map((destination) => el('button', {
     text: t(`participant.destination.${destination}`),
     attrs: {
       type: 'button',
-      disabled: !available.has(destination) || destination === active,
+      disabled: destination === active,
       'aria-current': destination === active ? 'page' : null,
     },
     on: { click: () => selectParticipantDestination(destination) },
@@ -1483,17 +1489,18 @@ function render() {
   }
 
   const screen = participantScreen(snapshot);
+  const defaultDestination = snapshot.state.status === 'finished' ? 'results' : screen;
   lastTimeStateKey = effectiveTimeStateKey(
     snapshot.competition, snapshot.state, Math.floor(Date.now() / 1000),
   );
   const available = participantDestinations(snapshot);
   const followedPreviousPhase = !participantDestination || participantDestination === lastParticipantScreen;
   if (!available.has(participantDestination) ||
-    (lastParticipantScreen && screen !== lastParticipantScreen && followedPreviousPhase)) {
-    participantDestination = screen;
+    (lastParticipantScreen && defaultDestination !== lastParticipantScreen && followedPreviousPhase)) {
+    participantDestination = defaultDestination;
     recordParticipantDestination(participantDestination, { replaceState: true });
   }
-  lastParticipantScreen = screen;
+  lastParticipantScreen = defaultDestination;
   const destination = participantDestination;
   const primary = destination === 'registration'
     ? [participantDestinationIntro(destination), registrationPanel(snapshot)]
@@ -1501,13 +1508,17 @@ function render() {
       ? [participantDestinationIntro(destination), checkinPanel(snapshot)]
       : destination === 'live'
         ? [participantDestinationIntro(destination), livePanel(snapshot), prizePanel(snapshot)]
-        : destination === 'chooser'
-          ? [participantDestinationIntro(destination), participantLiveContext(snapshot), nextClimbChooser(snapshot, me())]
-          : [participantDestinationIntro(destination), participantLiveContext(snapshot),
-            el('aside', { className: 'subcard scoring-explanation' }, [
-              el('h3', { text: t('scoring.info.title') }),
-              el('p', { text: scoringExplanation(t, snapshot.competition) }),
-            ]), leaderboard(snapshot)];
+        : destination === 'results'
+          ? [participantDestinationIntro(destination),
+            ...resultsView(snapshot, t, { currentPubkey: signer?.pubkey, mode: 'participant' }),
+            prizePanel(snapshot)]
+          : destination === 'chooser'
+            ? [participantDestinationIntro(destination), participantLiveContext(snapshot), nextClimbChooser(snapshot, me())]
+            : [participantDestinationIntro(destination), participantLiveContext(snapshot),
+              el('aside', { className: 'subcard scoring-explanation' }, [
+                el('h3', { text: t('scoring.info.title') }),
+                el('p', { text: scoringExplanation(t, snapshot.competition) }),
+              ]), leaderboard(snapshot)];
   const secondary = screen === 'live' && destination !== 'registration'
     ? el('details', { className: 'disclosure participant-past-phase' }, [
       el('summary', { text: t('participant.registration.details') }),

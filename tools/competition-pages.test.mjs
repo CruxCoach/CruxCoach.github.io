@@ -74,14 +74,14 @@ test('the competition front door and host workspace keep their distinct visual s
   assert.match(css, /\.competition-wizard \.board-preview\s*\{[^}]*position: sticky/s);
 });
 
-test('host setup, entrants and live operations are focused restorable destinations', () => {
+test('host setup, entrants, live operations and final results are focused restorable destinations', () => {
   const organizer = fs.readFileSync(path.join(root, 'competitions/app/pages/organizer.mjs'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'competitions/app/competitions.css'), 'utf8');
 
-  assert.match(organizer, /HOST_DESTINATIONS = new Set\(\['setup', 'entrants', 'live'\]\)/);
+  assert.match(organizer, /HOST_DESTINATIONS = new Set\(\['setup', 'entrants', 'live', 'results'\]\)/);
   assert.match(organizer, /HOST_HISTORY_KEY/);
   assert.match(organizer, /window\.addEventListener\('popstate'/);
-  assert.match(organizer, /function hostDestinationNav\(active\)/);
+  assert.match(organizer, /function hostDestinationNav\(active, snapshot\)/);
   assert.match(organizer, /function hostDestinationContent\(snapshot, destination\)/);
   assert.match(organizer, /requestsPanel\(snapshot, \['withdraw', 'checkin_request'\]\)/);
   assert.match(organizer, /requestsPanel\(snapshot, \['defer_request', 'attempt_report'\]\)/);
@@ -147,8 +147,8 @@ test('live host, participant and projection surfaces keep state-specific action 
     'paused and terminal participants need a status surface, not disabled controls');
   assert.match(join, /className: 'button primary'[\s\S]*live\.prepare_board/,
     'preparing the next boulder is the one dominant queued action');
-  assert.match(live, /!terminal && el\('div', \{ className: 'projection-middle'/,
-    'a final projection must not keep presenting an active queue or rotation');
+  assert.match(live, /status === 'finished'[\s\S]*finished\(snapshot\)/,
+    'a final projection must switch to its dedicated results hierarchy');
   assert.match(live, /competitionRunning\(snapshot\.competition, snapshot\.state\.status, now\)/,
     'the projection must derive running state from its scheduled window');
   assert.match(live, /timeKey !== lastTimeStateKey[\s\S]*render\(\)/,
@@ -157,17 +157,17 @@ test('live host, participant and projection surfaces keep state-specific action 
     'the host countdown must tick for an automatically started competition');
 });
 
-test('all five participant jobs are focused history-backed destinations', () => {
+test('all participant jobs including final results are focused history-backed destinations', () => {
   const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'competitions/app/competitions.css'), 'utf8');
 
   assert.match(join, /function participantScreen\(snapshot\)/);
   assert.match(join, /return 'live'/);
   assert.match(join, /mine\?\.registration === 'accepted'\) return 'checkin'/);
-  assert.match(join, /PARTICIPANT_DESTINATIONS = new Set\(\['registration', 'checkin', 'live', 'chooser', 'leaderboard'\]\)/);
+  assert.match(join, /PARTICIPANT_DESTINATIONS = new Set\(\['registration', 'checkin', 'live', 'chooser', 'leaderboard', 'results'\]\)/);
   assert.match(join, /PARTICIPANT_HISTORY_KEY/);
   assert.match(join, /window\.addEventListener\('popstate'/);
-  assert.match(join, /destination === 'registration'[\s\S]*registrationPanel\(snapshot\)[\s\S]*destination === 'checkin'[\s\S]*checkinPanel\(snapshot\)[\s\S]*destination === 'live'[\s\S]*livePanel\(snapshot\)[\s\S]*destination === 'chooser'[\s\S]*nextClimbChooser\(snapshot, me\(\)\)[\s\S]*leaderboard\(snapshot\)/);
+  assert.match(join, /destination === 'registration'[\s\S]*registrationPanel\(snapshot\)[\s\S]*destination === 'checkin'[\s\S]*checkinPanel\(snapshot\)[\s\S]*destination === 'live'[\s\S]*livePanel\(snapshot\)[\s\S]*destination === 'results'[\s\S]*resultsView\(snapshot[\s\S]*destination === 'chooser'[\s\S]*nextClimbChooser\(snapshot, me\(\)\)[\s\S]*leaderboard\(snapshot\)/);
   assert.match(join, /climb_source === 'participant_choice'[\s\S]*available\.add\('chooser'\)/,
     'organizer-set competitions must not expose a participant choice writer the protocol rejects');
   assert.match(join, /className: 'participant-phases'/);
