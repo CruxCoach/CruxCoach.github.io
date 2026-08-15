@@ -190,6 +190,69 @@ test('relay loss immediately makes a trusted projection stale until exact recove
   assert.equal(store.snapshot().stateHash, verifiedHash);
 });
 
+test('a missed final entry stays stale through a same-count wrong-relay reconnect', async () => {
+  const pool = new ClampedPool();
+  pool.urls = ['wss://signed-one.example', 'wss://signed-two.example'];
+  pool.connectedUrls = [...pool.urls];
+  let finalPublished = false;
+  let everySignedRelayAvailable = true;
+  pool.query = async (filters) => {
+    const filter = filters[0];
+    if (filter['#d']?.includes(definitionDTag)) {
+      return {
+        events: [fixture.competition_event], complete: everySignedRelayAvailable,
+        answered: everySignedRelayAvailable ? 2 : 1, failed: everySignedRelayAvailable ? 0 : 1,
+      };
+    }
+    const wanted = filter['#d'] || [];
+    pool.logQueries.push(filter);
+    const visible = finalPublished && everySignedRelayAvailable
+      ? fixture.log_events : fixture.log_events.slice(0, -1);
+    return {
+      events: visible.filter((event) => wanted.includes(
+        event.tags.find((tag) => tag[0] === 'd')?.[1],
+      )).slice(0, 20),
+      complete: everySignedRelayAvailable,
+      answered: everySignedRelayAvailable ? 2 : 1,
+      failed: everySignedRelayAvailable ? 0 : 1,
+    };
+  };
+
+  const store = new CompetitionStore({
+    pool,
+    organizerPubkey: fixture.competition_event.pubkey,
+    compId: payload.comp_id,
+    now: () => 1789020000,
+  });
+  assert.equal((await store.loadCompetition()).ok, true);
+  await store.follow();
+  const prefixSeq = store.snapshot().state.seq;
+  assert.equal(prefixSeq, fixture.expected.state.seq - 1);
+  assert.equal(store.snapshot().trustworthy, true);
+
+  finalPublished = true;
+  everySignedRelayAvailable = false;
+  pool.connectedUrls = ['wss://signed-one.example', 'wss://unrelated.example'];
+  store.connectionChanged('disconnected:wss://signed-two.example');
+  assert.equal(store.snapshot().connectedRelays, 2, 'raw connection count deliberately did not change');
+  assert.equal(store.snapshot().trustworthy, false);
+
+  pool.subscriptionOptions.onEose('wss://signed-one.example');
+  await new Promise((resolve) => setImmediate(resolve));
+  await store.historyHydrationPromise;
+  assert.equal(store.snapshot().state.seq, prefixSeq, 'the answering stale relay does not have the final entry');
+  assert.equal(store.snapshot().trustworthy, false, 'an unrelated replacement cannot satisfy signed scope');
+
+  everySignedRelayAvailable = true;
+  pool.connectedUrls = [...pool.urls];
+  pool.subscriptionOptions.onEose('wss://signed-two.example');
+  await new Promise((resolve) => setImmediate(resolve));
+  await store.historyHydrationPromise;
+  assert.equal(store.snapshot().state.seq, fixture.expected.state.seq);
+  assert.equal(store.snapshot().stateHash, fixture.expected.state_hash);
+  assert.equal(store.snapshot().trustworthy, true);
+});
+
 test('a burst while history is incomplete coalesces exact recovery walks', async () => {
   const pool = new ClampedPool({ incomplete: true, queryDelayMs: 10 });
   const store = new CompetitionStore({
