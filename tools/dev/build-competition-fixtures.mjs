@@ -666,6 +666,20 @@ async function streamAuthorityOperations(keys) {
     [{
       revision: 4,
       impact: 'scoring',
+      patch: {
+        climbs: config.climbs.map((climb, index) => index === 0
+          ? { ...climb, climb_uuid: '0d75e9c2-61a4-4fb8-b327-8e5c019a6d43' }
+          : climb),
+      },
+    }, 'Do not retarget a referenced logical climb to another catalogue climb.'],
+    [{
+      revision: 4,
+      impact: 'scoring',
+      patch: { board: { ...config.board, layout_id: 2 } },
+    }, 'Do not move historical results to another physical board layout.'],
+    [{
+      revision: 4,
+      impact: 'scoring',
       patch: { divisions: [{ id: 'masters', label: 'Masters' }] },
     }, 'Keep a division already referenced by entrants.'],
   ];
