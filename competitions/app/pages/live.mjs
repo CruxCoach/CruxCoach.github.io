@@ -7,7 +7,7 @@
 import {
   bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices, joinLink,
   openCompetition, openCompetitionForm, parseCompetitionRef, replace,
-} from './common.mjs?v=20260815-1';
+} from './common.mjs?v=20260815-2';
 import { displayName, formatDateTime, formatSeconds, qrSvg, shortKey } from '../ui/dom.mjs';
 import {
   competitionRunning, effectiveTimeStateKey, isNewerReplaceable, parseIntentEvent,

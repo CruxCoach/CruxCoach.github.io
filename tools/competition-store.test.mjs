@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 import {
-  CompetitionStore, LOG_PAGE_SIZE, boundedMissingSequence, logPageDTags,
+  CompetitionStore, LOG_PAGE_SIZE, boundedMissingSequence, logPageDTags, relayQuorum,
 } from '../competitions/app/ui/store.mjs';
 import {
   buildCompetitionEvent, buildIntentEvent, intentDTag,
@@ -326,13 +326,14 @@ test('own replaceable intent is restored only from a complete exact d-tag query'
     assert.equal(converged.intent.eventId, expected.id);
   }
 
-  pool.query = async () => ({ events: [event], complete: true, answered: 1, failed: 1 });
+  pool.urls = ['wss://one.invalid', 'wss://two.invalid', 'wss://three.invalid'];
+  pool.query = async () => ({ events: [event], complete: false, answered: 1, failed: 2 });
   assert.deepEqual(await store.loadOwnIntent(pubkey, 'climb_choice', nonce), {
     trustworthy: false, intent: null,
   });
 });
 
-test('the broad intent inbox is live-first, signature-checked and all-relay complete', async () => {
+test('the broad intent inbox is compatible, signature-checked and majority complete', async () => {
   const competition = JSON.parse(participantFixture.competition_event.content);
   const secret = hexToBytes('32'.repeat(32));
   const pubkey = getPublicKey(secret);
@@ -349,17 +350,21 @@ test('the broad intent inbox is live-first, signature-checked and all-relay comp
   const tampered = { ...event, content: event.content.replace('climb_choice', 'attempt_report') };
   const calls = [];
   const pool = {
-    urls: ['wss://one.invalid', 'wss://two.invalid'], connectedUrls: [],
+    urls: [
+      'wss://one.invalid', 'wss://two.invalid', 'wss://three.invalid',
+      'wss://four.invalid', 'wss://five.invalid',
+    ],
+    connectedUrls: [],
     subscribe(filters, options = {}) {
       calls.push({ kind: 'subscribe', filters });
-      for (const url of this.urls) options.onEose?.(url, this.urls.indexOf(url) + 1, {
-        failed: false, settled: this.urls.indexOf(url) + 1,
+      for (const [index, url] of this.urls.entries()) options.onEose?.(url, index + 1, {
+        failed: index >= 3, settled: index + 1,
       });
       return { ready: Promise.resolve(true), close() {} };
     },
     async query(filters) {
       calls.push({ kind: 'query', filters });
-      return { events: [event, tampered], complete: true, answered: 2, failed: 0 };
+      return { events: [event, tampered], complete: false, answered: 3, failed: 2 };
     },
   };
   const store = new CompetitionStore({
@@ -373,14 +378,17 @@ test('the broad intent inbox is live-first, signature-checked and all-relay comp
   assert.deepEqual(accepted, [event.id]);
   assert.equal(store.snapshot().intentHistoryComplete, true);
   assert.equal(calls[0].kind, 'subscribe', 'live delivery is armed before history is fetched');
-  assert.equal(calls[1].filters.length, 9, 'each intent operation receives its own bounded lane');
-  assert.equal(calls[1].filters.every((filter) => filter.limit === 1000), true);
+  assert.equal(calls[1].filters.length, 1, 'one broadly indexed request works across public relays');
+  assert.equal(calls[1].filters[0].limit, 1000);
+  assert.equal('#op' in calls[1].filters[0], false, 'operation tags are filtered locally');
+  assert.equal('#l' in calls[1].filters[0], false, 'label tags are filtered locally');
+  assert.equal(relayQuorum(pool.urls.length), 3);
 
-  store.connectionChanged('disconnected:wss://two.invalid');
+  store.connectionChanged('disconnected:wss://one.invalid');
   assert.equal(store.snapshot().intentHistoryComplete, false,
-    'a relay drop invalidates a previously complete inbox');
+    'dropping below the majority invalidates a previously complete inbox');
 
-  pool.query = async () => ({ events: [event], complete: true, answered: 1, failed: 1 });
+  pool.query = async () => ({ events: [event], complete: false, answered: 2, failed: 3 });
   await store.followIntents(() => {});
   assert.equal(store.snapshot().intentHistoryComplete, false);
   assert.ok(store.snapshot().problems.includes('intents_incomplete'));

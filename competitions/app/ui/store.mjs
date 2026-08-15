@@ -10,7 +10,7 @@
  */
 import { verifyEvent } from '../protocol/nostr-event.mjs';
 import {
-  INTENT_OPS, KIND, NAMESPACE, competitionAddress, competitionRunning, compDTag,
+  KIND, NAMESPACE, competitionAddress, competitionRunning, compDTag,
   intentDTag, isNewerReplaceable, logDTag, parseCompetitionEvent, parseIntentEvent, parseLogEvent,
 } from '../protocol/competition.mjs?v=20260815-1';
 import { hashableState, reduce } from '../protocol/reduce.mjs?v=20260815-1';
@@ -20,6 +20,22 @@ import { usesDevelopmentRelay } from '../protocol/relay-url.mjs';
 
 export const LOG_PAGE_SIZE = 20;
 export const MAX_LOG_SEQUENCE = 999999;
+
+/** A dead or incompatible minority must not stop a live competition. */
+export function relayQuorum(relayCount) {
+  return Math.max(1, Math.floor(relayCount / 2) + 1);
+}
+
+/**
+ * Intent tags such as `l` and `op` are not indexed consistently by public
+ * relays. Query the signed competition address and authority recipient, then
+ * verify and parse the returned event locally.
+ */
+export function intentInboxFilter(address, authority) {
+  return {
+    kinds: [KIND], '#a': [address], '#p': [authority], limit: 1000,
+  };
+}
 
 export function logPageDTags(compId, firstSeq) {
   return Array.from(
@@ -200,7 +216,8 @@ export class CompetitionStore {
       this.historyComplete = false;
       if (this.intentHistoryComplete !== null) {
         this.intentRelayEose.delete(status.slice('disconnected:'.length));
-        this.intentHistoryComplete = false;
+        this.intentHistoryComplete = this.intentBackfillComplete
+          && this.intentRelayEose.size >= relayQuorum(this.pool.urls.length);
       }
       this.note('history_incomplete');
     }
@@ -358,12 +375,7 @@ export class CompetitionStore {
     this.intentBackfillComplete = false;
     this.intentRelayEose.clear();
     this.emit();
-    const liveFilter = {
-      kinds: [KIND],
-      '#a': [this.address],
-      '#p': [this.competition.authority],
-      '#l': ['intent'],
-    };
+    const liveFilter = intentInboxFilter(this.address, this.competition.authority);
     const accept = async (event) => {
       if (await verifyEvent(event).catch(() => false)) onIntent(event);
     };
@@ -375,21 +387,19 @@ export class CompetitionStore {
         if (info.failed) this.intentRelayEose.delete(url);
         else this.intentRelayEose.add(url);
         this.intentHistoryComplete = this.intentBackfillComplete
-          && this.intentRelayEose.size === this.pool.urls.length;
+          && this.intentRelayEose.size >= relayQuorum(this.pool.urls.length);
         this.emit();
       },
     });
     this.subscriptions.push(subscription);
     await subscription.ready;
-    // One filter per operation gives every bounded inbox lane its own limit.
-    // Capacity is capped at 500 for finite competitions, so 1000 also leaves
-    // room for an identity that had to replace its stable local nonce.
-    const filters = INTENT_OPS.map((op) => ({ ...liveFilter, '#op': [op], limit: 1000 }));
-    const { events, complete, failed } = await this.pool.query(filters, { timeoutMs });
+    // Public relays commonly reject `#op` and `#l` as unindexed filters. The
+    // broad addressed result is bounded, signature-checked and parsed locally.
+    const { events, answered } = await this.pool.query([liveFilter], { timeoutMs });
     for (const event of events) await accept(event); // eslint-disable-line no-await-in-loop
-    this.intentBackfillComplete = complete && failed === 0;
+    this.intentBackfillComplete = answered >= relayQuorum(this.pool.urls.length);
     this.intentHistoryComplete = this.intentBackfillComplete
-      && this.intentRelayEose.size === this.pool.urls.length;
+      && this.intentRelayEose.size >= relayQuorum(this.pool.urls.length);
     if (!this.intentHistoryComplete) this.note('intents_incomplete');
     this.emit();
     return subscription;
@@ -405,11 +415,11 @@ export class CompetitionStore {
   async loadOwnIntent(pubkey, op, nonce, { timeoutMs = 12000 } = {}) {
     if (!this.competition) throw new Error('load the competition first');
     const dTag = intentDTag(this.compId, pubkey, nonce);
-    const { events, complete, failed } = await this.pool.query([{
+    const { events, answered } = await this.pool.query([{
       kinds: [KIND], authors: [pubkey], '#d': [dTag], '#a': [this.address],
-      '#p': [this.competition.authority], '#op': [op], limit: 8,
+      '#p': [this.competition.authority], limit: 8,
     }], { timeoutMs });
-    if (!complete || failed !== 0) return { trustworthy: false, intent: null };
+    if (answered < relayQuorum(this.pool.urls.length)) return { trustworthy: false, intent: null };
     const valid = [];
     for (const event of events) {
       if (!(await verifyEvent(event))) continue; // eslint-disable-line no-await-in-loop
