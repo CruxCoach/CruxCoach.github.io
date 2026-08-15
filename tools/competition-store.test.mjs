@@ -79,7 +79,7 @@ class ClampedPool {
   }
 }
 
-test('a definition candidate is not actionable until every signed relay answers', async () => {
+test('a definition candidate is actionable only after a signed relay majority answers', async () => {
   const pool = new ClampedPool();
   pool.urls = ['wss://signed-one.example', 'wss://signed-two.example'];
   pool.query = async () => ({
@@ -95,6 +95,12 @@ test('a definition candidate is not actionable until every signed relay answers'
   assert.deepEqual(await store.loadCompetition(), { ok: false, error: 'unreachable' });
   assert.equal(store.snapshot().competition, null);
   assert.equal((await store.loadCompetition({ requireAllRelays: false })).ok, true);
+
+  pool.urls = Array.from({ length: 5 }, (_, index) => `wss://signed-${index}.example`);
+  pool.query = async () => ({
+    events: [fixture.competition_event], complete: false, answered: 3, failed: 2,
+  });
+  assert.equal((await store.loadCompetition()).ok, true);
 });
 
 test('equal-second definitions converge on the NIP-01 lower event id in either arrival order', async () => {
@@ -188,6 +194,21 @@ test('relay loss immediately makes a trusted projection stale until exact recove
   await store.historyHydrationPromise;
   assert.equal(store.snapshot().trustworthy, true);
   assert.equal(store.snapshot().stateHash, verifiedHash);
+});
+
+test('one lost relay does not invalidate a five-relay majority projection', () => {
+  const pool = new ClampedPool();
+  pool.urls = Array.from({ length: 5 }, (_, index) => `wss://signed-${index}.example`);
+  pool.connectedUrls = pool.urls.slice(0, 4);
+  const store = new CompetitionStore({
+    pool, organizerPubkey: fixture.competition_event.pubkey, compId: payload.comp_id,
+  });
+  store.historyComplete = true;
+
+  store.connectionChanged(`disconnected:${pool.urls[4]}`);
+
+  assert.equal(store.snapshot().historyComplete, true);
+  assert.equal(store.snapshot().problems.includes('history_incomplete'), false);
 });
 
 test('a missed final entry stays stale through a same-count wrong-relay reconnect', async () => {
@@ -457,8 +478,10 @@ test('an incomplete stored query never becomes trustworthy personal state', asyn
   assert.ok(snapshot.problems.includes('history_incomplete'));
 });
 
-test('a partial multi-relay answer never proves complete history', async () => {
+test('a relay minority never proves complete history', async () => {
   const pool = new ClampedPool({ failed: 1 });
+  pool.urls = ['wss://one.invalid', 'wss://two.invalid', 'wss://three.invalid'];
+  pool.connectedUrls = [pool.urls[0]];
   const store = new CompetitionStore({
     pool,
     organizerPubkey: fixture.competition_event.pubkey,
@@ -466,7 +489,7 @@ test('a partial multi-relay answer never proves complete history', async () => {
     now: () => 1789020000,
   });
 
-  assert.equal((await store.loadCompetition()).ok, true);
+  assert.equal((await store.loadCompetition({ requireAllRelays: false })).ok, true);
   await store.follow();
 
   const snapshot = store.snapshot();

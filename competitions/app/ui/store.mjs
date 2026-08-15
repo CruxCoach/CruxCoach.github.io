@@ -153,18 +153,19 @@ export class CompetitionStore {
    * "loading…" that never ends is indistinguishable from a broken link.
    */
   async loadCompetition({ timeoutMs = 8000, requireAllRelays = true } = {}) {
-    const { events, complete, answered, failed } = await this.pool.query([{
+    const { events, answered } = await this.pool.query([{
       kinds: [KIND],
       authors: [this.organizerPubkey],
       '#d': [compDTag(this.compId)],
       limit: 1,
     }], { timeoutMs });
 
-    if (requireAllRelays && answered !== this.pool.urls.length) {
+    const enoughRelays = !requireAllRelays || answered >= relayQuorum(this.pool.urls.length);
+    if (!enoughRelays) {
       return { ok: false, error: 'unreachable' };
     }
     if (events.length === 0) {
-      return { ok: false, error: complete && failed === 0 ? 'not_found' : 'unreachable' };
+      return { ok: false, error: enoughRelays ? 'not_found' : 'unreachable' };
     }
     // Newest wins, never first-answer: a relay that missed the last edit still
     // answers, and answering first does not make it current.
@@ -213,13 +214,19 @@ export class CompetitionStore {
   /** Relay transport changed. Screens may update a local offline hint. */
   connectionChanged(status = '') {
     if (status.startsWith('disconnected:')) {
-      this.historyComplete = false;
+      const disconnected = status.slice('disconnected:'.length);
+      const connected = new Set(this.pool.connectedUrls);
+      connected.delete(disconnected);
+      const connectedSignedRelays = this.pool.urls.filter((url) => connected.has(url)).length;
+      if (connectedSignedRelays < relayQuorum(this.pool.urls.length)) {
+        this.historyComplete = false;
+        this.note('history_incomplete');
+      }
       if (this.intentHistoryComplete !== null) {
-        this.intentRelayEose.delete(status.slice('disconnected:'.length));
+        this.intentRelayEose.delete(disconnected);
         this.intentHistoryComplete = this.intentBackfillComplete
           && this.intentRelayEose.size >= relayQuorum(this.pool.urls.length);
       }
-      this.note('history_incomplete');
     }
     this.emit();
   }
@@ -339,7 +346,7 @@ export class CompetitionStore {
     let firstSeq = 1;
     while (firstSeq <= MAX_LOG_SEQUENCE) {
       const dTags = logPageDTags(this.compId, firstSeq);
-      const { events, complete, failed } = await this.pool.query([{
+      const { events, answered } = await this.pool.query([{
         kinds: [KIND],
         authors: [this.definitionCompetition.authority],
         '#a': [this.address],
@@ -347,10 +354,11 @@ export class CompetitionStore {
         limit: 100,
       }], { timeoutMs });
       for (const event of events) await this.ingest(event); // eslint-disable-line no-await-in-loop
-      // An answering stale relay cannot prove that a failed configured relay
-      // does not hold the next authority entry. Keep role and personal state
-      // blocked until every relay in this competition read set reached EOSE.
-      if (!complete || failed !== 0) {
+      // Signed entries from every answering relay are unioned and the reducer
+      // still requires one contiguous, fork-free authority chain. A dead
+      // minority cannot stop the event, but fewer than a majority cannot
+      // establish a trustworthy recovery boundary.
+      if (answered < relayQuorum(this.pool.urls.length)) {
         this.note('history_incomplete');
         return false;
       }

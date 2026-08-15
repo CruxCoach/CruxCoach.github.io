@@ -12,7 +12,7 @@
 import {
   DISCOVERY_RELAYS, bootstrap, byId, devRelayBanner, el, integrityGuard, integrityNotices,
   joinLink, openCompetition, parseCompetitionRef, replace, resolveRelays,
-} from './common.mjs?v=20260815-2';
+} from './common.mjs?v=20260815-3';
 import { SignIn } from '../ui/shell.mjs?v=20260814-8';
 import { RelayPool } from '../protocol/relay-pool.mjs';
 import { AuthorityWriter, publishCompetition } from '../authority.mjs?v=20260815-2';
@@ -35,7 +35,7 @@ import { announce, displayName, formatDateTime, formatSeconds, shortKey } from '
 import { describeRejection } from '../ui/i18n.mjs?v=20260815-2';
 import { scoringExplanation } from '../ui/scoring-copy.mjs?v=20260813-1';
 import { activeParticipantClimb, syncHealth } from '../ui/live-view.mjs?v=20260815-1';
-import { CompetitionStore } from '../ui/store.mjs?v=20260815-2';
+import { CompetitionStore } from '../ui/store.mjs?v=20260815-3';
 import {
   createCoalescedRunner, createLatestRun, mapConcurrent, mergeProgressive,
 } from '../ui/concurrency.mjs?v=20260814-3';
