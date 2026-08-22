@@ -241,9 +241,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 1103 |
-| Verified website links | 991 |
-| Rejected / ambiguous / private / closed | 112 |
+| Venues reviewed (linked + research entries) | 1115 |
+| Verified website links | 1000 |
+| Rejected / ambiguous / private / closed | 115 |
 | Countries covered | 22 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -252,16 +252,16 @@ Per-country coverage of eligible (public/commercial) venues:
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
 | US | 276 | 576 | 48% |
-| DE | 168 | 201 | 84% |
+| DE | 169 | 201 | 84% |
 | GB | 69 | 102 | 68% |
-| CA | 58 | 132 | 44% |
+| CA | 64 | 132 | 48% |
 | CH | 52 | 56 | 93% |
 | NL | 51 | 59 | 86% |
 | ES | 50 | 98 | 51% |
 | FR | 46 | 70 | 66% |
 | AT | 44 | 48 | 92% |
 | NO | 35 | 81 | 43% |
-| AU | 30 | 83 | 36% |
+| AU | 33 | 83 | 40% |
 | BE | 28 | 36 | 78% |
 | IT | 21 | 72 | 29% |
 | DK | 14 | 27 | 52% |
@@ -280,10 +280,12 @@ wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
 opened and read), 9 `ambiguous`, 5 `closed`, 4 `http-only`, 1 `duplicate`.
 
-- **Last completed batch:** the first American venues upstream gives no address
-  for at all — the address read off the operator's page, geocoded once, and
-  measured against the coordinate.
-- **Next batch:** the same pass over Europe, which is running now.
+- **Last completed batch:** the same address-less pass over Europe, Canada and
+  Australia. Its yield was much lower than the American one — 6 of 162 — and the
+  reason is in the numbers below.
+- **Next batch:** nothing cheap is left. What remains needs either a discovery
+  channel none of the four currently reaches, or a human opening pages one at a
+  time.
 
 ### What is actually gating the remaining countries
 
@@ -483,3 +485,31 @@ The distance still has to be read by a human. Four American venues came back
 `FAR` with a truncated address, and opening those pages recovered full addresses
 for all four — three of which then matched, while Aiguille's own address turned
 out to sit 3.5 km from its upstream coordinate, on the other side of Longwood.
+
+### Where the yield actually stopped
+
+The address-less pass is worth recording as a negative result as much as a
+positive one. Over the United States it turned 127 candidate sites into 19 links.
+Over Europe, Canada and Australia it turned 162 into 6.
+
+The difference is not the method, it is what the candidate domains were. American
+gyms are overwhelmingly `<name>climbing.com`, so a name-derived guess lands on the
+gym often enough to be worth checking. Elsewhere the guess lands on a municipality
+(`holbaek.dk`), a grain trader (`granit.fr`), a city portal (`nottingham.co.uk`),
+a charity (`suas.ie`) or nothing at all — and 147 of the 162 European pages
+printed no address the fetch could see, either because the domain was not the
+gym's or because the page renders client-side.
+
+So the four channels are now genuinely exhausted for the venues that remain, and
+the honest read of the ledger is that the next 200 links cost far more per link
+than the last 500 did. What would change that, roughly in order of value:
+
+1. **A rendering fetch.** A large minority of the "no address" pages are real gym
+   sites that serve an empty document to curl. Anything that executes the page
+   would convert them.
+2. **Overpass coverage where it is thin.** Italy returned no candidates at all,
+   and Japan, Korea and China have never had a run. A patient, low-rate crawl
+   over months rather than hours would do better than this session managed.
+3. **Reading the remaining research log again.** A third of it is sites that were
+   down, blocked or misconfigured on the day. That set only shrinks by being
+   re-read, which is cheap.
