@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 816 |
-| Verified website links | 723 |
-| Rejected / ambiguous / private / closed | 93 |
+| Venues reviewed (linked + research entries) | 835 |
+| Verified website links | 741 |
+| Rejected / ambiguous / private / closed | 94 |
 | Countries covered | 16 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -248,9 +248,9 @@ Per-country coverage of eligible (public/commercial) venues:
 | GB | 64 | 102 | 63% |
 | CH | 51 | 56 | 91% |
 | NL | 48 | 59 | 81% |
+| ES | 45 | 98 | 46% |
 | FR | 44 | 70 | 63% |
 | AT | 44 | 48 | 92% |
-| ES | 27 | 98 | 28% |
 | BE | 27 | 36 | 75% |
 | AU | 25 | 83 | 30% |
 | CA | 24 | 132 | 18% |
@@ -264,14 +264,12 @@ Research-log reasons so far: 80 `unverified` (59 of them operator sites that
 answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
 wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
-opened and read), 6 `ambiguous`, 3 `closed`, 3 `http-only`, 1 `duplicate`.
+opened and read), 6 `ambiguous`, 4 `http-only`, 3 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** Canada and Australia, both opened from their
-  operator indexes — Allez Up, Altitude, Bloc Shop, Boulderz, Coyote, Hub, Hive,
-  Seven Bays, Rock Oasis and Up The Bloc; 9 Degrees, Adrenaline Vault, Bayside
-  Rock, Beyond Bouldering, BlocHaus, Flow, Portside and Urban Climb.
-- **Next batch:** Spain off its finished Overpass run, then Norway and Italy off
-  the run now in flight.
+- **Last completed batch:** Spain off its Overpass discovery run — 18 of the 18
+  candidates it proposed verified and linked, taking Spain from 28% to 46%.
+- **Next batch:** Norway and Italy off the run now in flight, then Poland and
+  Portugal, which have had no discovery pass at all.
 
 ### What is actually gating the remaining countries
 

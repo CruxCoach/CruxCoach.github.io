@@ -5449,6 +5449,36 @@
     ]
   },
   {
+    "lat": 41.65539,
+    "lon": -0.90338,
+    "name": "Bulderland Zaragoza",
+    "country": "ES",
+    "website": "https://www.bulderland.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The operator runs two Zaragoza halls; this is Delicias at Av. de Navarra 22. Upstream's postcode 500017 has a digit too many."
+  },
+  {
+    "lat": 42.37675,
+    "lon": -3.70368,
+    "name": "Campo Base Escalada",
+    "country": "ES",
+    "website": "https://campobaseburgos.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 28.4752,
     "lon": -16.30612,
     "name": "Centro Escalada Tenerife",
@@ -5529,6 +5559,35 @@
     "note": "The gym publishes no street address; upstream spells the city \"Ovieda\"."
   },
   {
+    "lat": 41.60589,
+    "lon": 0.6407,
+    "name": "Fanatic Lleida",
+    "country": "ES",
+    "website": "https://fanaticlleida.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 41.6231,
+    "lon": -4.73601,
+    "name": "Geko Aventura",
+    "country": "ES",
+    "website": "https://gekoaventura.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ]
+  },
+  {
     "lat": 38.03211,
     "lon": -1.14918,
     "name": "GUD Climbing Gym",
@@ -5544,11 +5603,58 @@
     ]
   },
   {
+    "lat": 43.3499467,
+    "lon": -8.4193897,
+    "name": "Hangar4",
+    "country": "ES",
+    "website": "https://hangar4.es/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The coordinate falls on the Rúa Madame Curie 2-4 the site gives as Calle Marie Curie."
+  },
+  {
     "lat": 41.58233,
     "lon": 1.61461,
     "name": "Ingravita",
     "country": "ES",
     "website": "https://www.ingravita.cat/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 41.3039089,
+    "lon": 2.012894,
+    "name": "Kimera Climbing BCN",
+    "country": "ES",
+    "website": "https://kimeraclimbingbcn.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The hall stands in Gavà, not Viladecans as upstream's nearest-city guess suggests."
+  },
+  {
+    "lat": 42.61172607783265,
+    "lon": -5.569550348503698,
+    "name": "La Nave Centro de Escalada",
+    "country": "ES",
+    "website": "https://lanavecentrodeescalada.es/",
     "verified": "2026-08-22",
     "provenance": "official-site",
     "signals": [
@@ -5606,6 +5712,95 @@
     "note": "The operator's three halls share one site; it lists this one by street address."
   },
   {
+    "lat": 38.34201590000001,
+    "lon": -0.5246663,
+    "name": "Moon board",
+    "country": "ES",
+    "website": "https://www.indoorwall.com/centros-indoorwall-rocodromos/indoorwall-alicante/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "street-address",
+      "location-page"
+    ],
+    "note": "Upstream records this venue only as Moon board; the page's Avenida Mare Nostrum 8 resolves 44 m from the coordinate and no other gym is near it."
+  },
+  {
+    "lat": 37.35773,
+    "lon": -6.05579,
+    "name": "Move Climbing",
+    "country": "ES",
+    "website": "https://www.moveclimbing.es/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 39.45597,
+    "lon": -0.39767,
+    "name": "Natural Climb Valencia",
+    "country": "ES",
+    "website": "https://naturalclimb.es/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 42.1378979,
+    "lon": -0.3908812,
+    "name": "Nowa Moonboard",
+    "country": "ES",
+    "website": "https://salanowa.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "street-address"
+    ],
+    "note": "The operator trades as Sala Nowa and files as Sala Boulder Huesca; its Calle Zona Deportiva 21 resolves 6 m from this coordinate. The www host redirects to a members' app, so the apex is the public site."
+  },
+  {
+    "lat": 41.74104,
+    "lon": 1.85513,
+    "name": "p a t i • climb • coffee • community",
+    "country": "ES",
+    "website": "https://www.elpativertical.cat/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator runs two halls, pati gran in Sant Fruitós and pati xic in Manresa; this coordinate is on the Camí del Grau address of the first."
+  },
+  {
+    "lat": 37.392502956111336,
+    "lon": -5.957352871163623,
+    "name": "Rock & Wall Climbing",
+    "country": "ES",
+    "website": "https://www.rockandwallclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ]
+  },
+  {
     "lat": 37.21734,
     "lon": -3.62359,
     "name": "Rock and Bloc",
@@ -5638,6 +5833,34 @@
     "note": "Same physical gym as the Kilter entry ~20 m away; upstream lists the MoonBoard separately, and the site names both boards."
   },
   {
+    "lat": 39.5840837,
+    "lon": 2.6603085,
+    "name": "Rocodrom Es Cau",
+    "country": "ES",
+    "website": "https://es.rocodromescau.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ]
+  },
+  {
+    "lat": 40.00254575089308,
+    "lon": -6.121014742329483,
+    "name": "Rocódromo CerezaWall",
+    "country": "ES",
+    "website": "https://cerezawall.es/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ]
+  },
+  {
     "lat": 42.45613,
     "lon": -2.4121,
     "name": "Rocódromo Rawindoor",
@@ -5651,6 +5874,22 @@
       "board-mention"
     ],
     "note": "The gym publishes no street address; its Kilter and Moon boards include the board system this venue is listed for."
+  },
+  {
+    "lat": 43.41070009078681,
+    "lon": -3.832334913491663,
+    "name": "Rocódromo Treparriscos",
+    "country": "ES",
+    "website": "https://rocodromotreparriscos.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The bare treparriscos.com is a personal blog; this is the gym's own domain."
   },
   {
     "lat": 42.84629199344788,
@@ -5667,6 +5906,22 @@
       "city",
       "board-mention"
     ]
+  },
+  {
+    "lat": 41.52992,
+    "lon": 2.09888,
+    "name": "Sala Escalada Batec Sabadell",
+    "country": "ES",
+    "website": "https://salabatec.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The hall's page redirects to the site root. Upstream misspells the street as Costa i Dieu; the site prints Costa i Deu."
   },
   {
     "lat": 41.41643,
@@ -5715,6 +5970,21 @@
       "postal-code",
       "city",
       "location-page"
+    ]
+  },
+  {
+    "lat": 42.36115,
+    "lon": -3.70491,
+    "name": "SKALA ROCO",
+    "country": "ES",
+    "website": "https://www.skalaroco.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
     ]
   },
   {

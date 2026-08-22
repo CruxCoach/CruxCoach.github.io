@@ -333,6 +333,16 @@
     "candidate": "https://biwakclimbing.com/"
   },
   {
+    "lat": 40.3913437,
+    "lon": -3.6696679,
+    "name": "Boulder Madrid Moon Board",
+    "country": "ES",
+    "status": "http-only",
+    "checked": "2026-08-22",
+    "reason": "bouldermadrid.com serves the gym's site over HTTP only; both the apex and the www host time out on HTTPS, so there is no secure URL to publish.",
+    "candidate": "http://www.bouldermadrid.com/"
+  },
+  {
     "lat": 39.72222,
     "lon": 2.90134,
     "name": "esRocodrom",
