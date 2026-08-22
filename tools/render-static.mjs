@@ -276,7 +276,13 @@ function renderVenueHours(entry, lang, strings) {
       .map((line) => `          <dt>${esc(line.label)}</dt><dd>${esc(line.value)}</dd>`)
       .join('\n');
     body.push(`        <dl class="oh-lines">\n${rows}\n        </dl>`);
-    for (const note of display[lang].notes) {
+    // Venue-specific notes first, then the standing caveats from the sidecar's
+    // shared strings — the exceptions one applies to every schedule and is
+    // always last, because a weekly pattern is not a promise about any day.
+    const notes = [...display[lang].notes];
+    if (display.flags?.overnight) notes.push(S.noteOvernight);
+    notes.push(S.noteExceptions);
+    for (const note of notes) {
       body.push(`        <p class="oh-note">${esc(note)}</p>`);
     }
   } else {

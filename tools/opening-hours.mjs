@@ -40,8 +40,13 @@ export const DAY_TOKENS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 const DAY_INDEX = Object.fromEntries(DAY_TOKENS.map((d, i) => [d.toLowerCase(), i]));
 
 // ── Language tables ───────────────────────────────────────────────────────
-// Shared chrome (heading, attribution, source link) lives in `STRINGS` and is
-// written once into the sidecar; per-venue text is rendered per venue.
+// Shared chrome lives in `STRINGS` and is written into the sidecar once, not
+// once per venue. That includes the two standing caveats: "public holidays and
+// seasonal changes are not shown" is true of every schedule on the site, so
+// repeating it 772 times in both languages would be a quarter of a megabyte
+// saying one thing. The per-venue `notes` carry only what is true of that
+// venue — which days OpenStreetMap says nothing about — and `flags.overnight`
+// says whether the overnight caveat applies.
 export const STRINGS = {
   en: {
     heading: 'Opening hours according to OpenStreetMap',
@@ -49,6 +54,8 @@ export const STRINGS = {
     source: 'View or correct these hours on OpenStreetMap',
     rawLabel: 'Value as recorded in OpenStreetMap',
     unsupported: 'OpenStreetMap records these opening hours in a format this page does not translate. The unchanged value is shown here.',
+    noteOvernight: 'A range that ends earlier than it starts runs past midnight into the following day.',
+    noteExceptions: 'Public holidays, school holidays, seasonal changes and one-off closures are not shown here.',
   },
   de: {
     heading: 'Öffnungszeiten laut OpenStreetMap',
@@ -56,6 +63,8 @@ export const STRINGS = {
     source: 'Zeiten auf OpenStreetMap ansehen oder korrigieren',
     rawLabel: 'Wert wie in OpenStreetMap hinterlegt',
     unsupported: 'OpenStreetMap hinterlegt diese Öffnungszeiten in einem Format, das diese Seite nicht übersetzt. Hier steht der unveränderte Wert.',
+    noteOvernight: 'Endet eine Spanne früher als sie beginnt, reicht sie über Mitternacht in den Folgetag.',
+    noteExceptions: 'Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.',
   },
 };
 
@@ -71,8 +80,6 @@ const LANG = {
     timeJoin: ', ',
     timeRange: (a, b) => `${a}–${b}`,
     noteUnspecified: (days) => `OpenStreetMap records no hours for ${days}.`,
-    noteOvernight: 'A range that ends earlier than it starts runs past midnight into the following day.',
-    noteExceptions: 'Public holidays, school holidays, seasonal changes and one-off closures are not shown here.',
     freshnessChecked: (date) => `Hours last verified in OpenStreetMap on ${date}.`,
     freshnessEdited: (date) => `OpenStreetMap object last edited on ${date}.`,
     freshnessUnknown: 'OpenStreetMap does not record when these hours were last checked.',
@@ -88,8 +95,6 @@ const LANG = {
     timeJoin: ', ',
     timeRange: (a, b) => `${a}–${b}`,
     noteUnspecified: (days) => `Für ${days} sind in OpenStreetMap keine Zeiten hinterlegt.`,
-    noteOvernight: 'Endet eine Spanne früher als sie beginnt, reicht sie über Mitternacht in den Folgetag.',
-    noteExceptions: 'Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.',
     freshnessChecked: (date) => `Zeiten zuletzt in OpenStreetMap geprüft am ${date}.`,
     freshnessEdited: (date) => `OpenStreetMap-Objekt zuletzt bearbeitet am ${date}.`,
     freshnessUnknown: 'OpenStreetMap hält nicht fest, wann diese Zeiten zuletzt geprüft wurden.',
@@ -346,11 +351,6 @@ function renderParsed(parsed, lang) {
   if (unspecified.length && !parsed.allWeekAllDay) {
     notes.push(L.noteUnspecified(dayLabel(unspecified, L)));
   }
-  if (parsed.wrapsMidnight) notes.push(L.noteOvernight);
-  // Always last, and always present: this page shows a weekly pattern, and a
-  // weekly pattern is not a promise about any particular day.
-  notes.push(L.noteExceptions);
-
   return { lines, notes };
 }
 
@@ -358,6 +358,7 @@ function renderParsed(parsed, lang) {
  * Render an `opening_hours` value for both site languages.
  *
  * @returns {{kind: 'schedule'|'raw', reason: string|null, raw: string,
+ *            flags: {overnight: boolean},
  *            en: {lines: Array, notes: string[]}, de: {...}}}
  *   `kind: 'raw'` means the value is outside the supported subset: show
  *   `raw` unchanged and link the OSM object instead of interpreting it.
@@ -368,6 +369,10 @@ export function renderOpeningHours(raw, { languages = LANGS } = {}) {
     kind: parsed.ok ? 'schedule' : 'raw',
     reason: parsed.ok ? null : parsed.reason,
     raw: typeof raw === 'string' ? raw.trim() : '',
+    // Which of the standing caveats in STRINGS apply to this value. The
+    // exceptions caveat applies to every rendered schedule and is not flagged;
+    // consumers always append it.
+    flags: { overnight: Boolean(parsed.ok && parsed.wrapsMidnight) },
   };
   for (const lang of languages) {
     out[lang] = parsed.ok ? renderParsed(parsed, lang) : { lines: [], notes: [] };

@@ -472,7 +472,12 @@
           escapeHtml(lines[i].label) + '</span><span class="popup-oh-time">' +
           escapeHtml(lines[i].value) + '</span></div>');
       }
-      var notes = d[LANG].notes;
+      // Venue-specific notes, then the standing caveats from the sidecar's
+      // shared strings. The exceptions caveat applies to every schedule and is
+      // always last.
+      var notes = d[LANG].notes.slice();
+      if (d.flags && d.flags.overnight) notes.push(S.noteOvernight);
+      notes.push(S.noteExceptions);
       for (var j = 0; j < notes.length; j++) {
         parts.push('<div class="popup-oh-note">' + escapeHtml(notes[j]) + '</div>');
       }

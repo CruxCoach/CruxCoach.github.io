@@ -168,11 +168,17 @@ test('a refused value keeps the original text for the page to show unchanged', (
 
 // ── Notes ─────────────────────────────────────────────────────────────────
 
-test('every rendered schedule carries the exceptions caveat, in both languages', () => {
+test('the exceptions caveat lives in the shared strings, not in every venue', () => {
+  // It is true of every schedule on the site, so it is stated once and the
+  // consumers append it. Repeating it per venue would be a quarter of a
+  // megabyte of one sentence.
   for (const lang of ['en', 'de']) {
-    const r = renderOpeningHours('Mo-Su 10:00-22:00');
-    assert.match(r[lang].notes.at(-1), lang === 'de' ? /Feiertage/ : /Public holidays/);
+    assert.match(STRINGS[lang].noteExceptions, lang === 'de' ? /Feiertage/ : /Public holidays/);
+    assert.match(STRINGS[lang].noteOvernight, lang === 'de' ? /Mitternacht/ : /past midnight/);
   }
+  const r = renderOpeningHours('Mo-Su 10:00-22:00');
+  assert.deepEqual(r.en.notes, [], 'nothing venue-specific to say about a full week');
+  assert.equal(r.flags.overnight, false);
 });
 
 test('days with no rule are reported as unknown, never as closed', () => {
@@ -186,7 +192,8 @@ test('days with no rule are reported as unknown, never as closed', () => {
 test('a range crossing midnight is flagged rather than reordered', () => {
   const r = renderOpeningHours('Mo-Fr 22:00-02:00');
   assert.deepEqual(r.en.lines, [{ label: 'Mon–Fri', value: '22:00–02:00' }]);
-  assert.ok(r.en.notes.some((n) => n.includes('past midnight')), r.en.notes.join(' | '));
+  assert.equal(r.flags.overnight, true);
+  assert.equal(renderOpeningHours('Mo-Fr 09:00-22:00').flags.overnight, false);
 });
 
 // ── Freshness ─────────────────────────────────────────────────────────────

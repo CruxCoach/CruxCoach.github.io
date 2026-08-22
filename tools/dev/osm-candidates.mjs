@@ -94,6 +94,7 @@ function parseArgs(argv) {
     country: null, name: null, key: null, all: false,
     includeCurated: false, verbose: false, json: false,
     buckets: null, endpoints: [...ENDPOINTS], noCache: false, offline: false,
+    recheck: null, broad: false,
   };
   for (let i = 0; i < argv.length; i++) {
     switch (argv[i]) {
@@ -114,6 +115,15 @@ function parseArgs(argv) {
       case '--offline': opts.offline = true; break;
       case '--bucket': opts.buckets = String(argv[++i]).toUpperCase().split(','); break;
       case '--include-curated': opts.includeCurated = true; break;
+      // Re-examine venues that already have an outcome of this kind — the way
+      // to give the 900-odd "no-object" venues a second chance with a
+      // different question, without disturbing anything already matched.
+      case '--recheck': opts.recheck = String(argv[++i]); break;
+      // Ask for named objects of any kind, not just climbing-tagged ones: a
+      // gym mapped as a plain named building is invisible to the normal sweep.
+      // Only name matches are reported; at this breadth everything else is
+      // noise.
+      case '--broad': opts.broad = true; break;
       case '--verbose': opts.verbose = true; break;
       case '--json': opts.json = true; break;
       default:
@@ -186,17 +196,20 @@ function selectVenues(opts) {
   const data = JSON.parse(readFileSync(GEOJSON_FILE, 'utf-8'));
   // `settled` deliberately excludes the "unreachable" queue, so a venue whose
   // discovery failed last time is swept again rather than written off.
-  const { settled } = loadCuratedMatches(CURATED_FILE);
+  const { settled, decisions } = loadCuratedMatches(CURATED_FILE);
+  const byStatus = new Map(decisions.map((d) => [d.key, d.status]));
 
   const out = [];
   for (const feature of data.features ?? []) {
     const [lon, lat] = feature.geometry.coordinates;
     const key = venueKey(lat, lon);
     const props = feature.properties ?? {};
-    if (!opts.includeCurated && settled.has(key)) continue;
+    if (opts.recheck) {
+      if (byStatus.get(key) !== opts.recheck) continue;
+    } else if (!opts.includeCurated && settled.has(key)) continue;
     if (opts.key && key !== opts.key) continue;
     if (opts.country && props.country !== opts.country) continue;
-    if (!opts.country && !opts.all && !opts.name && !opts.key) continue;
+    if (!opts.country && !opts.all && !opts.name && !opts.key && !opts.recheck) continue;
     if (opts.name && !String(props.name ?? '').toLowerCase().includes(opts.name)) continue;
     const privacy = venueLooksPrivate(feature);
     if (privacy.private) continue; // home walls are never candidates
@@ -220,16 +233,25 @@ function selectVenues(opts) {
 // public instance: Overpass evaluates a coordinate list far less efficiently
 // than a union of single-centre lookups. This shape answers a 40-venue chunk
 // in a few seconds.
-function overpassQuery(venues, radius) {
+// Broad mode asks for anything named that could be a business or a building.
+// It deliberately does not ask for highways, benches or bus stops: a gym is
+// mapped as one of these six things or it is not mapped.
+const BROAD_FILTERS = ['["building"]', '["leisure"]', '["amenity"]', '["shop"]', '["office"]', '["club"]'];
+const NARROW_FILTERS = [
+  '["sport"~"climbing"]',
+  '["leisure"~"^(sports_centre|climbing|fitness_centre|sports_hall)$"]',
+  '["shop"="sports"]',
+  '["disused:leisure"~"^(sports_centre|climbing)$"]',
+];
+
+function overpassQuery(venues, radius, broad = false) {
   const clause = (filter) => venues
     .map((v) => `  nwr(around:${radius},${v.lat.toFixed(6)},${v.lon.toFixed(6)})${filter};`)
     .join('\n');
+  const filters = broad ? BROAD_FILTERS.map((f) => `["name"]${f}`) : NARROW_FILTERS;
   return `[out:json][timeout:180];
 (
-${clause('["sport"~"climbing"]')}
-${clause('["leisure"~"^(sports_centre|climbing|fitness_centre|sports_hall)$"]')}
-${clause('["shop"="sports"]')}
-${clause('["disused:leisure"~"^(sports_centre|climbing)$"]')}
+${filters.map(clause).join('\n')}
 );
 out tags center;`;
 }
@@ -387,7 +409,7 @@ async function main() {
 
   for (let i = 0; i < venues.length; i += opts.chunk) {
     const chunk = venues.slice(i, i + opts.chunk);
-    const query = overpassQuery(chunk, opts.radius);
+    const query = overpassQuery(chunk, opts.radius, opts.broad);
     const answer = await askOverpass(query, opts);
     if (!answer.body) {
       for (const venue of chunk) unreachable.push({ venue, reason: answer.reason });
@@ -400,7 +422,13 @@ async function main() {
       await sleep(opts.delayMs);
     }
     const elements = (answer.body.elements ?? []).map(summarize).filter((e) => e.lat != null);
-    for (const venue of chunk) results.push({ venue, ...classify(venue, elements, opts.radius) });
+    for (const venue of chunk) {
+      const result = classify(venue, elements, opts.radius);
+      // At this breadth "three unnamed buildings nearby" is not evidence of
+      // anything, so only rows with a name link are worth a person's time.
+      if (opts.broad && !result.best) continue;
+      results.push({ venue, ...result });
+    }
   }
 
   const wanted = opts.buckets ? results.filter((r) => opts.buckets.includes(r.bucket)) : results;
