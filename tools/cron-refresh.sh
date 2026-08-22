@@ -106,7 +106,9 @@ run() {
   # so it changes if and only if boards.geojson does.
   if git diff --quiet boards/data/boards.geojson; then
     echo "no dataset change; restoring generated files + exiting"
-    git checkout -- boards/data/boards.meta.json boards/list.html boards/index.html
+    git checkout -- boards/data/boards.meta.json \
+      boards/list.html boards/index.html \
+      de/boards/list.html de/boards/index.html
     return 0
   fi
 
@@ -117,7 +119,8 @@ run() {
   /usr/bin/node tools/update-sitemap-lastmod.mjs boards/index.html boards/list.html \
     || { echo "sitemap lastmod update failed"; return 3; }
   git add boards/data/boards.geojson boards/data/boards.meta.json \
-    boards/list.html boards/index.html sitemap.xml
+    boards/list.html boards/index.html \
+    de/boards/list.html de/boards/index.html sitemap.xml
   git -c user.name=CruxCoach -c user.email=dev@cruxcoach.de \
       commit -m "data(boards): daily refresh — $summary" \
     || { echo "commit failed"; return 3; }
