@@ -97,6 +97,16 @@
     "candidate": "https://www.hiveclimbing.com/locations"
   },
   {
+    "lat": 49.1824420014394,
+    "lon": -123.98420325192382,
+    "name": "The Bloc Bouldering",
+    "country": "CA",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "The coordinate shares 1870 Boxwood Road with WIP Climbing Nanaimo 19 m away, but WIP's site never uses the name The Bloc and no separate operator for it could be found, so the two entries cannot be told apart.",
+    "candidate": "https://wipclimbing.com/"
+  },
+  {
     "lat": 46.50714,
     "lon": 8.71072,
     "name": "Audan",
@@ -815,6 +825,26 @@
     "checked": "2026-08-22",
     "reason": "inwall.pt now redirects to wallnut.pt, whose only address is in Lisbon and which never mentions Setúbal, so no official page describes this Setúbal venue.",
     "candidate": "https://wallnut.pt/"
+  },
+  {
+    "lat": 40.2107084,
+    "lon": -8.433596399999999,
+    "name": "upa! Escalódromo de Coimbra",
+    "country": "PT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "upa.pt is an advertising agency called UPA Publicidade, not this Coimbra climbing wall, and no other official site for it was found.",
+    "candidate": "https://www.upa.pt/"
+  },
+  {
+    "lat": 37.14661226641366,
+    "lon": -8.482054452243313,
+    "name": "Vertical Escalada",
+    "country": "PT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "verticalescalada.pt serves a 6 KB stub with no address, town or contact detail, so nothing on it can be matched to this venue.",
+    "candidate": "https://verticalescalada.pt/"
   },
   {
     "lat": 55.5870295,

@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 898 |
-| Verified website links | 795 |
-| Rejected / ambiguous / private / closed | 103 |
+| Venues reviewed (linked + research entries) | 918 |
+| Verified website links | 812 |
+| Rejected / ambiguous / private / closed | 106 |
 | Countries covered | 20 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -251,9 +251,9 @@ Per-country coverage of eligible (public/commercial) venues:
 | ES | 45 | 98 | 46% |
 | FR | 44 | 70 | 63% |
 | AT | 44 | 48 | 92% |
+| CA | 40 | 132 | 30% |
 | BE | 27 | 36 | 75% |
 | AU | 25 | 83 | 30% |
-| CA | 24 | 132 | 18% |
 | NO | 16 | 81 | 20% |
 | IT | 15 | 72 | 21% |
 | DK | 13 | 27 | 48% |
@@ -262,18 +262,18 @@ Per-country coverage of eligible (public/commercial) venues:
 | IE | 5 | 10 | 50% |
 | CZ | 4 | 10 | 40% |
 | LU | 3 | 6 | 50% |
-| PT | 1 | 15 | 7% |
+| PT | 2 | 15 | 13% |
 
-Research-log reasons so far: 88 `unverified` (62 of them operator sites that
+Research-log reasons so far: 90 `unverified` (62 of them operator sites that
 answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
 wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
-opened and read), 8 `ambiguous`, 4 `http-only`, 3 `closed`, 1 `duplicate`.
+opened and read), 9 `ambiguous`, 4 `http-only`, 3 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** Ireland, Luxembourg and Czechia, plus the first
-  Portuguese venue — Awesome Walls, Gravity, BLOCX, Coque, CRUX, Vertikon,
-  Makak and Jungle. Four new countries.
-- **Next batch:** Norway and Italy off the run now in flight, then Poland and
+- **Last completed batch:** Canada's multi-site operators — Calgary Climbing
+  Centre, Klimat, Rose Bloc, BoulderHouse, WIP, Climber's Rock and Campus
+  Escalade — plus Madeira. Canada 18% → 30%.
+- **Next batch:** Canada off the Overpass run now in flight, then Poland and
   Portugal, which still have had no discovery pass.
 
 ### What is actually gating the remaining countries

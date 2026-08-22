@@ -1655,6 +1655,50 @@
     ]
   },
   {
+    "lat": 43.3836904,
+    "lon": -79.7625553,
+    "name": "Boardroom by Climber's Rock",
+    "country": "CA",
+    "website": "https://climbersrock.com/hours",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Upstream lists the Boardroom twice, 13 m apart."
+  },
+  {
+    "lat": 48.44353,
+    "lon": -123.52561,
+    "name": "BoulderHouse Langford",
+    "country": "CA",
+    "website": "https://boulderhouse.ca/langford/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "street-address"
+    ],
+    "note": "The page's 1109 Langford Pkwy resolves 35 m from this upstream coordinate."
+  },
+  {
+    "lat": 48.44048,
+    "lon": -123.3658,
+    "name": "BoulderHouse Victoria",
+    "country": "CA",
+    "website": "https://boulderhouse.ca/victoria/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ]
+  },
+  {
     "lat": 43.61934,
     "lon": -79.54964,
     "name": "Boulderz Climbing Center",
@@ -1685,6 +1729,69 @@
       "street-address"
     ],
     "note": "The operator trades this hall as The Cave; its 1705 Argentia Rd resolves 117 m from this upstream coordinate."
+  },
+  {
+    "lat": 50.99044,
+    "lon": -114.06805,
+    "name": "Calgary Climbing Center Chinook",
+    "country": "CA",
+    "website": "https://www.calgaryclimbing.com/locations/chinook/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 51.13652,
+    "lon": -114.03547,
+    "name": "Calgary Climbing Center Hanger",
+    "country": "CA",
+    "website": "https://www.calgaryclimbing.com/locations/hanger/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 46.34282,
+    "lon": -72.57676,
+    "name": "Campus Escalade Trois-Riviéres",
+    "country": "CA",
+    "website": "https://campusescalade.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 43.38284,
+    "lon": -79.76332,
+    "name": "Climbers Rock",
+    "country": "CA",
+    "website": "https://climbersrock.com/hours",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator gives both Burlington gyms one page; this is Climber's Rock at 5155 Harvester Rd Unit 1."
   },
   {
     "lat": 45.4055519,
@@ -1778,6 +1885,69 @@
     "note": "Upstream lists this MoonBoard separately, 15 m from its Kilter entry."
   },
   {
+    "lat": 45.64883,
+    "lon": -75.9264,
+    "name": "Klimat",
+    "country": "CA",
+    "website": "https://wakefield.klimat.ca/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 45.40876,
+    "lon": -75.71747,
+    "name": "Klimat 2",
+    "country": "CA",
+    "website": "https://ottawa.klimat.ca/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The page gives 265 City Centre Ave the postcode K1R 7R7; upstream carries K1R 6P1."
+  },
+  {
+    "lat": 45.48457,
+    "lon": -73.46174,
+    "name": "Rose Bloc Brossard",
+    "country": "CA",
+    "website": "https://www.rosebloc.com/brossard",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "postal-code"
+    ],
+    "note": "The location page gives postcode J4V 3R4 and no street line; the coordinate sits in that postcode."
+  },
+  {
+    "lat": 45.557,
+    "lon": -73.49448,
+    "name": "Rose Bloc Longueuil",
+    "country": "CA",
+    "website": "https://www.rosebloc.com/longueuil",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
     "lat": 44.6376,
     "lon": -63.66395,
     "name": "Seven Bays Bouldering Bayers Lake",
@@ -1791,6 +1961,55 @@
       "location-page"
     ],
     "note": "The page's 114 Chain Lake Dr resolves 53 m from this upstream coordinate."
+  },
+  {
+    "lat": 50.90048,
+    "lon": -114.0666,
+    "name": "SoCal Bouldering CCC",
+    "country": "CA",
+    "website": "https://www.calgaryclimbing.com/locations/socal-south-calgary/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The coordinate falls on 75 Shawville Link SE; the operator's page gives that address the postcode T2Y 3Z6 and upstream T2Y 3Z9."
+  },
+  {
+    "lat": 51.066412442598015,
+    "lon": -114.0646652,
+    "name": "Stronghold Kilter Board",
+    "country": "CA",
+    "website": "https://www.calgaryclimbing.com/locations/stronghold/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Upstream records this entry as a Kilter Board; the operator's Stronghold gym is at the 140 15th Ave NW address it carries."
+  },
+  {
+    "lat": 43.3838,
+    "lon": -79.76254,
+    "name": "The Boardroom x Climber's Rock",
+    "country": "CA",
+    "website": "https://climbersrock.com/hours",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "This is the operator's Boardroom at 5205 Harvester Rd Unit 7."
   },
   {
     "lat": 49.25311,
@@ -1869,6 +2088,36 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 49.6682875,
+    "lon": -124.9819345,
+    "name": "WIP Climbing",
+    "country": "CA",
+    "website": "https://wipclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "This is the operator's Courtenay gym; its #780 30th St resolves 14 m from the coordinate."
+  },
+  {
+    "lat": 49.1823,
+    "lon": -123.98438,
+    "name": "WIP Climbing Nanaimo",
+    "country": "CA",
+    "website": "https://wipclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The operator gives its two BC gyms one page; this is Nanaimo at 1870 Boxwood Rd."
   },
   {
     "lat": 47.52622,
@@ -9334,6 +9583,21 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 32.65129510000001,
+    "lon": -16.8985489,
+    "name": "Madeira Climbing Center",
+    "country": "PT",
+    "website": "https://www.madeiraclimbingcenter.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The island's only bouldering gym; its Rua Conde Carvalhal address resolves 79 m from this coordinate."
   },
   {
     "lat": 56.0597542,
