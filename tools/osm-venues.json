@@ -606,5 +606,165 @@
     "status": "rejected",
     "reason": "Ambiguous: two climbing objects describe the same Letňany site — node/13951890001 \"JUNGLE Letňany\" (33 m, no hours) and node/9377475599 \"Jungle\" (147 m, hours tagged, addr Veselská 699). Picking the one that happens to carry hours would be choosing by convenience, not by identity.",
     "reviewed_on": "2026-08-22"
+  },
+  {
+    "name": "ABLOK Voiron",
+    "lat": 45.38471,
+    "lon": 5.57895,
+    "status": "accepted",
+    "venue": "public",
+    "osm_type": "node",
+    "osm_id": 9384315590,
+    "match_method": "manual",
+    "verified_on": "2026-08-22",
+    "evidence": "node/9384315590 \"ABlok\", leisure=sports_centre + sport=climbing;yoga;pilates, 10 m away, addr Rue Jean Monnet 2 Voiron; the only other object in range is a fitness studio."
+  },
+  {
+    "name": "Altissimo Toulouse Portet",
+    "lat": 43.55127,
+    "lon": 1.40788,
+    "status": "accepted",
+    "venue": "public",
+    "osm_type": "node",
+    "osm_id": 9391681506,
+    "match_method": "manual",
+    "verified_on": "2026-08-22",
+    "evidence": "node/9391681506 \"Altissimo Portet\", leisure=sports_centre + sport=climbing, 54 m away; same operator and site name, only candidate in range."
+  },
+  {
+    "name": "Biwak Climbing",
+    "lat": 43.2903,
+    "lon": -2.88748,
+    "status": "accepted",
+    "venue": "public",
+    "osm_type": "way",
+    "osm_id": 287775103,
+    "match_method": "manual",
+    "verified_on": "2026-08-22",
+    "evidence": "way/287775103 \"Biwak Climbing\", leisure=sports_centre + sport=climbing;padel;padbol;yoga;fitness, 9 m away, addr Astintze kalea 4 Derio; identical name."
+  },
+  {
+    "name": "Bloc District Barcelona",
+    "lat": 41.39718,
+    "lon": 2.18866,
+    "status": "accepted",
+    "venue": "public",
+    "osm_type": "node",
+    "osm_id": 9231269517,
+    "match_method": "manual",
+    "verified_on": "2026-08-22",
+    "evidence": "node/9231269517 \"Bloc District\", leisure=sports_centre + sport=climbing, 40 m away, addr Carrer de Zamora 96-106 Barcelona; only candidate in range."
+  },
+  {
+    "name": "Boulder Indoor",
+    "lat": 41.61267,
+    "lon": 0.66268,
+    "status": "accepted",
+    "venue": "public",
+    "osm_type": "node",
+    "osm_id": 12406637622,
+    "match_method": "manual",
+    "verified_on": "2026-08-22",
+    "evidence": "node/12406637622 \"Boulder Indoor\", leisure=sports_centre + sport=climbing, 11 m away, addr Carrer de Térmens 3 Lleida; identical name."
+  },
+  {
+    "name": "Big Walls",
+    "lat": 45.5452,
+    "lon": 9.28872,
+    "status": "accepted",
+    "venue": "public",
+    "osm_type": "node",
+    "osm_id": 14075597569,
+    "match_method": "manual",
+    "verified_on": "2026-08-22",
+    "evidence": "node/14075597569 \"Big Wall\", sport=climbing, 36 m away in Brugherio; the only object of any kind within 250 m and the name differs only in the plural. No opening_hours tagged yet."
+  },
+  {
+    "name": "BigUp Climbing",
+    "lat": 44.4262,
+    "lon": 7.54135,
+    "status": "accepted",
+    "venue": "public",
+    "osm_type": "node",
+    "osm_id": 12389034827,
+    "match_method": "manual",
+    "verified_on": "2026-08-22",
+    "evidence": "node/12389034827 \"Big Up\", leisure=sports_centre + sport=climbing, 58 m away in Cuneo; only candidate in range."
+  },
+  {
+    "name": "Blocstation acsd",
+    "lat": 44.22727,
+    "lon": 12.04509,
+    "status": "accepted",
+    "venue": "public",
+    "osm_type": "node",
+    "osm_id": 3285774188,
+    "match_method": "manual",
+    "verified_on": "2026-08-22",
+    "evidence": "node/3285774188 \"BlocStation\", leisure=sports_centre + sport=climbing, 3 m away, addr Via Monte Santo 6 Forlì; identical name. No opening_hours tagged yet."
+  },
+  {
+    "name": "Boulder Garage",
+    "lat": 44.98179,
+    "lon": 7.37104,
+    "status": "accepted",
+    "venue": "public",
+    "osm_type": "node",
+    "osm_id": 12376253831,
+    "match_method": "manual",
+    "verified_on": "2026-08-22",
+    "evidence": "node/12376253831 \"Boulder Garage\", leisure=sports_centre + sport=climbing, 84 m away in Cumiana; identical name, only candidate in range. No opening_hours tagged yet."
+  },
+  {
+    "name": "Bside Climbing Park",
+    "lat": 45.07759,
+    "lon": 7.71364,
+    "status": "accepted",
+    "venue": "public",
+    "osm_type": "way",
+    "osm_id": 141412774,
+    "match_method": "manual",
+    "verified_on": "2026-08-22",
+    "evidence": "way/141412774 \"Associazione Sportiva Dilettantistica B-Side\", leisure=sports_centre, 16 m away in Turin — the sports association that runs this climbing park; only candidate in range. No opening_hours tagged yet."
+  },
+  {
+    "name": "45° Escalade",
+    "lat": 43.31385,
+    "lon": 5.40718,
+    "status": "rejected",
+    "reason": "Ambiguous: the same business appears twice in OSM at Rue des Linots 4 — node/12617951101 \"45° escalade\" (15 m, no hours) and node/13931761898 \"45 degrés escalade\" (38 m, hours tagged). Taking the one that carries hours would be choosing by convenience rather than by identity; the duplicate belongs to be merged upstream first.",
+    "reviewed_on": "2026-08-22"
+  },
+  {
+    "name": "ALPI360",
+    "lat": 47.58075164301288,
+    "lon": 7.520278057672328,
+    "status": "rejected",
+    "reason": "The only object in range is way/450213994 \"La Comête\", the leisure complex that houses the wall. It is not tagged for climbing and its hours would be the whole building's.",
+    "reviewed_on": "2026-08-22"
+  },
+  {
+    "name": "Altissimo Metz Loisirama",
+    "lat": 49.09259,
+    "lon": 6.13135,
+    "status": "rejected",
+    "reason": "No OSM object of any kind within 250 m of the venue coordinate. Nothing to match.",
+    "reviewed_on": "2026-08-22"
+  },
+  {
+    "name": "AtariA Boulder",
+    "lat": 43.05242,
+    "lon": -2.1872,
+    "status": "rejected",
+    "reason": "No OSM object of any kind within 250 m of the venue coordinate. Nothing to match.",
+    "reviewed_on": "2026-08-22"
+  },
+  {
+    "name": "Awesome Boulder Center",
+    "lat": 40.28517,
+    "lon": -3.78346,
+    "status": "rejected",
+    "reason": "No climbing object within 250 m; the only candidate is an unrelated fitness studio (\"Olympic gym\") 171 m away.",
+    "reviewed_on": "2026-08-22"
   }
 ]
