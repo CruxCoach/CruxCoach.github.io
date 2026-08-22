@@ -82,5 +82,174 @@
     "checked": "2026-08-22",
     "reason": "The candidate site answers HTTP 403 to our requests, so the official page could not be opened and verified first-hand.",
     "candidate": "https://www.spinnerei-indoor.ch/"
+  },
+  {
+    "lat": 52.503618,
+    "lon": 13.384007,
+    "name": "Basement Boulderstudio",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The candidate site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://basement-boulderstudio.de/"
+  },
+  {
+    "lat": 52.1131758,
+    "lon": 11.6080863,
+    "name": "BlocSchmiede",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "BlocSchmiede's published address resolves about 5.6 km from this MoonBoard entry and its site names no board, so no second independent signal could be established.",
+    "candidate": "https://blocschmiede-boulderhalle.de/"
+  },
+  {
+    "lat": 49.69046,
+    "lon": 11.62995,
+    "name": "Boulderhalle Zugzwang",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site is served with a TLS certificate that does not cover its hostname, so no page could be opened securely and read.",
+    "candidate": "https://www.zugzwang-auerbach.de/"
+  },
+  {
+    "lat": 49.88015,
+    "lon": 8.63595,
+    "name": "Boulderhaus Darmstadt",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "candidate": "https://www.boulderhaus.net/darmstadt/"
+  },
+  {
+    "lat": 49.88094719999999,
+    "lon": 8.6370545,
+    "name": "Boulderhaus Darmstadt",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "candidate": "https://www.boulderhaus.net/darmstadt/"
+  },
+  {
+    "lat": 49.38701,
+    "lon": 8.67916,
+    "name": "Boulderhaus Heidelberg",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "candidate": "https://www.boulderhaus.net/heidelberg/"
+  },
+  {
+    "lat": 49.5178159,
+    "lon": 8.5356193,
+    "name": "Boulderhaus Mannheim",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "candidate": "https://www.boulderhaus.net/mannheim/"
+  },
+  {
+    "lat": 49.51846,
+    "lon": 8.53509,
+    "name": "Boulderhaus Mannheim",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "candidate": "https://www.boulderhaus.net/mannheim/"
+  },
+  {
+    "lat": 48.49913,
+    "lon": 9.19966,
+    "name": "Boulderhaus Reutlingen",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "candidate": "https://www.boulderhaus.net/boulderhaus-reutlingen/"
+  },
+  {
+    "lat": 52.52000659999999,
+    "lon": 13.404954,
+    "name": "Boulderklub Kreuzberg",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Boulderklub Kreuzberg's published address resolves about 3.2 km from this MoonBoard entry and its site names no board, so no second independent signal could be established.",
+    "candidate": "https://boulderklub.de/"
+  },
+  {
+    "lat": 50.937531,
+    "lon": 6.9602786,
+    "name": "Boulderplanet",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Boulderplanet's published address resolves about 4 km from this MoonBoard entry and its site names no board, so no second independent signal ties this coordinate to the gym.",
+    "candidate": "https://boulderplanet.de/"
+  },
+  {
+    "lat": 49.41254,
+    "lon": 8.64456,
+    "name": "Crimp Boulderhalle",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.crimp-heidelberg.com/"
+  },
+  {
+    "lat": 50.13717,
+    "lon": 8.73259,
+    "name": "Dynochrom Boulderhalle",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://dynochrom.com/"
+  },
+  {
+    "lat": 48.1092285,
+    "lon": 11.2899694,
+    "name": "Kletter- und Boulderzentrum München",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "\"Kletter- und Boulderzentrum München\" matches three DAV halls of that name; this coordinate sits 1.2 km from the Gilching hall and 20 km from the others, so which one it means is not decidable."
+  },
+  {
+    "lat": 48.6471033,
+    "lon": 9.4519635,
+    "name": "Stuntwerk Kirchheim",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Upstream still calls this Stuntwerk Kirchheim; the hall now trades as TOP Boulder, whose site answers HTTP 403, so the identification could not be confirmed first-hand.",
+    "candidate": "https://topboulder-kirchheim.de/"
+  },
+  {
+    "lat": 48.65009,
+    "lon": 9.44131,
+    "name": "TOP Boulder Kirchheim",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The hall's own site answers HTTP 403 and the operator's location index gives no address for it, so nothing on an official page could be matched against this venue.",
+    "candidate": "https://topboulder-kirchheim.de/"
+  },
+  {
+    "lat": 51.29799,
+    "lon": 9.5247899,
+    "name": "Vertical World",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 500 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.verticalworld.de/"
   }
 ]

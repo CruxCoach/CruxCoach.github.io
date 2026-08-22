@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 167 |
-| Verified website links | 158 |
-| Rejected / ambiguous / private / closed | 9 |
+| Venues reviewed (linked + research entries) | 264 |
+| Verified website links | 238 |
+| Rejected / ambiguous / private / closed | 26 |
 | Countries covered | 3 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -243,11 +243,11 @@ Per-country coverage of eligible (public/commercial) venues:
 
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
-| DE | 63 | 201 | 31% |
+| DE | 143 | 201 | 71% |
 | CH | 51 | 56 | 91% |
 | AT | 44 | 48 | 92% |
 
-- **Last completed batch:** Germany, first pass — the multi-site operators
-  (Boulderwelt, Stuntwerk, Einstein, urban apes, Element Boulders, Neoliet,
-  Eifelblock, der steinbock, Mandala) plus the larger independents.
-- **Next batch:** the remaining German independents and DAV section halls.
+- **Last completed batch:** Germany, second pass — DAV section halls and the
+  independents, taking Germany to 71%.
+- **Next batch:** the remaining German entries (mostly MoonBoard-only records
+  with imprecise coordinates), then the rest of Europe.
