@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 939 |
-| Verified website links | 830 |
-| Rejected / ambiguous / private / closed | 109 |
+| Venues reviewed (linked + research entries) | 947 |
+| Verified website links | 836 |
+| Rejected / ambiguous / private / closed | 111 |
 | Countries covered | 21 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -255,7 +255,7 @@ Per-country coverage of eligible (public/commercial) venues:
 | BE | 27 | 36 | 75% |
 | AU | 25 | 83 | 30% |
 | NO | 22 | 81 | 27% |
-| IT | 15 | 72 | 21% |
+| IT | 21 | 72 | 29% |
 | DK | 13 | 27 | 48% |
 | PL | 12 | 45 | 27% |
 | SE | 7 | 37 | 19% |
@@ -265,17 +265,17 @@ Per-country coverage of eligible (public/commercial) venues:
 | LU | 3 | 6 | 50% |
 | PT | 2 | 15 | 13% |
 
-Research-log reasons so far: 93 `unverified` (65 of them operator sites that
+Research-log reasons so far: 95 `unverified` (65 of them operator sites that
 answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
 wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
 opened and read), 9 `ambiguous`, 4 `http-only`, 3 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** Poland, opened without a discovery run — Murall's
-  three Warsaw halls, Obiekto, Blok Line, West Bouldering, Lokal32, Problem
-  Bouldering, Bald Port, Skarpa Bytom and Climbing Spot.
-- **Next batch:** Canada off the Overpass run now in flight, then Italy, which
-  its own run returned nothing for.
+- **Last completed batch:** Italy's larger halls, read off their own sites after
+  the Overpass run over Italy returned nothing — Big Walls, B-Side, Level24,
+  S'Avanzada and Boulder Garage.
+- **Next batch:** Canada off the Overpass run now in flight, then the rest of
+  Italy and the remaining American independents.
 
 ### What is actually gating the remaining countries
 

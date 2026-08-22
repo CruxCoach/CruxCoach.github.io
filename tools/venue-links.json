@@ -8278,6 +8278,22 @@
     "note": "Upstream records this entry as The Training Room; it sits 16 m away at the same Unit 6, North Park address in D11 YP40."
   },
   {
+    "lat": 45.5452,
+    "lon": 9.28872,
+    "name": "Big Walls",
+    "country": "IT",
+    "website": "https://www.bigwalls.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
     "lat": 44.4262,
     "lon": 7.54135,
     "name": "BigUp Climbing",
@@ -8291,6 +8307,35 @@
       "city"
     ],
     "note": "The site's own footer gives the Cuneo hall an Ivrea postcode; upstream's 12100 is the correct one."
+  },
+  {
+    "lat": 44.98179,
+    "lon": 7.37104,
+    "name": "Boulder Garage",
+    "country": "IT",
+    "website": "https://www.bouldergarage.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site names the gym and places it in Cumiana but prints no street address."
+  },
+  {
+    "lat": 45.07759,
+    "lon": 7.71364,
+    "name": "Bside Climbing Park",
+    "country": "IT",
+    "website": "https://www.bsideclimbing.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The site gives Via Amedeo Ravina 28 the postcode 10152; upstream carries 10153."
   },
   {
     "lat": 46.27371,
@@ -8336,6 +8381,22 @@
       "city"
     ],
     "note": "The site gives Mattarello the 38122 postcode; upstream carries 38123."
+  },
+  {
+    "lat": 44.49092,
+    "lon": 11.25031,
+    "name": "Level 24",
+    "country": "IT",
+    "website": "https://www.level24.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
   },
   {
     "lat": 45.516286,
@@ -8408,6 +8469,35 @@
       "coordinates"
     ],
     "note": "The gym publishes no street address, but the map pin on its own page sits 54 m from this venue."
+  },
+  {
+    "lat": 39.2231,
+    "lon": 9.11749,
+    "name": "S'Avanzada Climbing Cagliari",
+    "country": "IT",
+    "website": "https://savanzadaclimbing.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The site prints Largo Giuseppe Dessì 1 without a postcode."
+  },
+  {
+    "lat": 39.2250145,
+    "lon": 9.1167578,
+    "name": "S'Avanzada Moonboard",
+    "country": "IT",
+    "website": "https://savanzadaclimbing.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Upstream lists this MoonBoard separately, 200 m from its Kilter entry."
   },
   {
     "lat": 46.47043,
