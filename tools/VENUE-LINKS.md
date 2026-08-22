@@ -233,8 +233,8 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 447 |
-| Verified website links | 391 |
+| Venues reviewed (linked + research entries) | 454 |
+| Verified website links | 398 |
 | Rejected / ambiguous / private / closed | 56 |
 | Countries covered | 7 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
@@ -249,16 +249,19 @@ Per-country coverage of eligible (public/commercial) venues:
 | NL | 46 | 59 | 78% |
 | AT | 44 | 48 | 92% |
 | BE | 23 | 36 | 64% |
-| FR | 9 | 70 | 13% |
+| FR | 16 | 70 | 23% |
 
 Research-log reasons so far: 47 `unverified` (41 of them operator sites that
 answer 403/401/500/526 or serve an expired or wrong-hostname certificate, so no
 page could be opened and read), 6 with no findable official site, 2 `ambiguous`,
 1 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** France, first pass — the multi-site operators.
-- **Next batch:** the rest of France off the OSM discovery run, then Italy, Spain
-  and the Nordics.
+- **Last completed batch:** France, second pass — The Roof, Bloc Session,
+  Vertical'Art, Altissimo and Climbing District.
+- **Next batch:** the rest of France, then Italy, Spain and the Nordics. Both
+  depend on an OSM discovery run: Overpass has been returning 429/502/504 for
+  most of the France/Italy attempt, so that queue is the gating item rather than
+  the verification work.
 
 ### A note on discovery after the search budget ran out
 

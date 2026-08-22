@@ -4427,6 +4427,23 @@
     "note": "Upstream carries no address for this entry; the location page's Boulevard Gay Lussac resolves to within 295 m of it."
   },
   {
+    "lat": 49.09259,
+    "lon": 6.13135,
+    "name": "Altissimo Metz Loisirama",
+    "country": "FR",
+    "website": "https://metz-loisirama.altissimo.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "The location page gives avenue Jean-Claude Théobald where upstream has Route de Jouy; postcode and town match."
+  },
+  {
     "lat": 45.90719,
     "lon": 6.13271,
     "name": "Atome",
@@ -4441,11 +4458,41 @@
     "note": "The gym publishes no street address on any page we could open."
   },
   {
+    "lat": 45.75495,
+    "lon": 4.86817,
+    "name": "Bloc Session Lyon Centre",
+    "country": "FR",
+    "website": "https://www.blocsession.com/salle-escalade/lyon-centre/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "The location page names the hall and its Kilter Board but publishes no street address."
+  },
+  {
     "lat": 48.87110783828508,
     "lon": 2.6809708770664056,
     "name": "Bloc Session Marne-la-Vallée",
     "country": "FR",
     "website": "https://www.blocsession.com/salle-escalade/marne-la-vallee/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "The location page names the hall and its Kilter Board but publishes no street address."
+  },
+  {
+    "lat": 49.44583,
+    "lon": 1.07746,
+    "name": "Bloc Session Rouen",
+    "country": "FR",
+    "website": "https://www.blocsession.com/salle-escalade/rouen/",
     "verified": "2026-08-22",
     "provenance": "official-location-page",
     "signals": [
@@ -4505,6 +4552,23 @@
     ]
   },
   {
+    "lat": 48.84782,
+    "lon": 2.37059,
+    "name": "Climbing District Bastille",
+    "country": "FR",
+    "website": "https://climbingdistrict.com/salle-escalade/paris-11-bastille/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ]
+  },
+  {
     "lat": 48.39182,
     "lon": -4.4872,
     "name": "The Roof Brest",
@@ -4535,6 +4599,52 @@
       "city",
       "location-page",
       "board-mention"
+    ]
+  },
+  {
+    "lat": 46.59753575187847,
+    "lon": 0.3241268455111726,
+    "name": "The Roof Poitiers",
+    "country": "FR",
+    "website": "https://poitiers.theroof.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "brand",
+      "city",
+      "location-page"
+    ],
+    "note": "The location page publishes no street address."
+  },
+  {
+    "lat": 48.49882,
+    "lon": -2.76647,
+    "name": "The Roof Saint-Brieuc",
+    "country": "FR",
+    "website": "https://saintbrieuc.theroof.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "brand",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator's per-location subdomain names Saint-Brieuc; upstream records the address in its suburb Ploufragan. Neither page publishes a street address."
+  },
+  {
+    "lat": 43.10903399343013,
+    "lon": 5.843577610433562,
+    "name": "Vertical’Art Six-Fours-les-plages",
+    "country": "FR",
+    "website": "https://toulon-ouest.vertical-art.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
     ]
   },
   {
