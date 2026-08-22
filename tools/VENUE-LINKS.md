@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 464 |
-| Verified website links | 405 |
-| Rejected / ambiguous / private / closed | 59 |
+| Venues reviewed (linked + research entries) | 472 |
+| Verified website links | 412 |
+| Rejected / ambiguous / private / closed | 60 |
 | Countries covered | 7 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -248,8 +248,8 @@ Per-country coverage of eligible (public/commercial) venues:
 | CH | 51 | 56 | 91% |
 | NL | 46 | 59 | 78% |
 | AT | 44 | 48 | 92% |
+| FR | 30 | 70 | 43% |
 | BE | 23 | 36 | 64% |
-| FR | 23 | 70 | 33% |
 
 Research-log reasons so far: 49 `unverified` (43 of them operator sites that
 answer 403/401/500/526, fail their TLS handshake, or serve an expired or

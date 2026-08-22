@@ -4444,6 +4444,22 @@
     "note": "The location page gives avenue Jean-Claude Théobald where upstream has Route de Jouy; postcode and town match."
   },
   {
+    "lat": 43.55127,
+    "lon": 1.40788,
+    "name": "Altissimo Toulouse Portet",
+    "country": "FR",
+    "website": "https://toulouse-portet.altissimo.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
     "lat": 45.90719,
     "lon": 6.13271,
     "name": "Atome",
@@ -4533,6 +4549,24 @@
       "location-page",
       "board-mention"
     ]
+  },
+  {
+    "lat": 43.42825,
+    "lon": 5.26475,
+    "name": "Block'Out Vitrolles",
+    "country": "FR",
+    "website": "https://www.blockout.fr/vitrolles/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "Same physical gym as the MoonBoard entry ~230 m away; upstream lists the two boards separately."
   },
   {
     "lat": 43.4301171,
@@ -4677,6 +4711,68 @@
     ]
   },
   {
+    "lat": 45.6197566,
+    "lon": 5.8886275,
+    "name": "La Zipette",
+    "country": "FR",
+    "website": "https://lazipette.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Same physical gym as the Kilter entry ~100 m away; upstream lists the MoonBoard separately."
+  },
+  {
+    "lat": 45.61898,
+    "lon": 5.88803,
+    "name": "La Zipette - Escalade & Snack",
+    "country": "FR",
+    "website": "https://lazipette.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 44.8881,
+    "lon": 4.8867202,
+    "name": "Minéral Spirit",
+    "country": "FR",
+    "website": "https://mineral-spirit.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 43.62005,
+    "lon": 1.42052,
+    "name": "Solo Escalade Toulouse",
+    "country": "FR",
+    "website": "https://soloescalade.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
     "lat": 48.39182,
     "lon": -4.4872,
     "name": "The Roof Brest",
@@ -4738,6 +4834,22 @@
       "location-page"
     ],
     "note": "The operator's per-location subdomain names Saint-Brieuc; upstream records the address in its suburb Ploufragan. Neither page publishes a street address."
+  },
+  {
+    "lat": 43.60026,
+    "lon": 1.40762,
+    "name": "The Roof Toulouse",
+    "country": "FR",
+    "website": "https://toulouse.theroof.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "The location page names the hall's quarter and its Kilter Board but publishes no street address."
   },
   {
     "lat": 43.10903399343013,
