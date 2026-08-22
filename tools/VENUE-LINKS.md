@@ -233,10 +233,10 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 1015 |
-| Verified website links | 910 |
+| Venues reviewed (linked + research entries) | 1041 |
+| Verified website links | 936 |
 | Rejected / ambiguous / private / closed | 105 |
-| Countries covered | 21 |
+| Countries covered | 22 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -246,14 +246,14 @@ Per-country coverage of eligible (public/commercial) venues:
 | US | 256 | 576 | 44% |
 | DE | 163 | 201 | 81% |
 | GB | 69 | 102 | 68% |
+| CA | 58 | 132 | 44% |
 | CH | 52 | 56 | 93% |
 | NL | 50 | 59 | 85% |
 | ES | 45 | 98 | 46% |
 | FR | 44 | 70 | 63% |
 | AT | 44 | 48 | 92% |
-| CA | 40 | 132 | 30% |
+| AU | 30 | 83 | 36% |
 | BE | 28 | 36 | 78% |
-| AU | 25 | 83 | 30% |
 | NO | 22 | 81 | 27% |
 | IT | 21 | 72 | 29% |
 | DK | 13 | 27 | 48% |
@@ -262,6 +262,7 @@ Per-country coverage of eligible (public/commercial) venues:
 | FI | 5 | 15 | 33% |
 | IE | 5 | 10 | 50% |
 | CZ | 4 | 10 | 40% |
+| ZA | 3 | 12 | 25% |
 | LU | 3 | 6 | 50% |
 | PT | 2 | 15 | 13% |
 
@@ -271,11 +272,11 @@ wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
 opened and read), 9 `ambiguous`, 5 `closed`, 4 `http-only`, 1 `duplicate`.
 
-- **Last completed batch:** 65 American independents, found by proposing candidate
-  domains from the venue name and checking every one of them against the street
-  number, road, ZIP and city upstream records. US 33% → 44%.
-- **Next batch:** Canada off the Overpass run now in flight, then the American
-  candidates whose homepage carries no address.
+- **Last completed batch:** Canada off its Overpass run, plus Australia, South
+  Africa and the Yukon from name-derived domains. Canada 30% → 44%, Australia
+  30% → 36%, South Africa new.
+- **Next batch:** the American, Canadian and Australian candidates whose homepage
+  carries no address — their contact and location subpages are being checked.
 
 ### What is actually gating the remaining countries
 
