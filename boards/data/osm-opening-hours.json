@@ -1,0 +1,2459 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "OpenStreetMap",
+    "url": "https://www.openstreetmap.org/",
+    "copyright_url": "https://www.openstreetmap.org/copyright",
+    "api": "https://api.openstreetmap.org/api/0.6/",
+    "license": "Open Database License (ODbL) v1.0",
+    "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+    "attribution": "© OpenStreetMap contributors",
+    "note": "Opening hours and the OSM object metadata in this file are derived from OpenStreetMap and are licensed ODbL 1.0. They are deliberately kept out of boards.geojson, which is CC-BY-4.0."
+  },
+  "refreshed_at": "2026-08-22T12:02:34.494Z",
+  "generator": "tools/refresh-osm-hours.mjs",
+  "matches_source": "tools/osm-venues.json",
+  "strings": {
+    "en": {
+      "heading": "Opening hours according to OpenStreetMap",
+      "attribution": "Opening hours © OpenStreetMap contributors, ODbL 1.0",
+      "source": "View or correct these hours on OpenStreetMap",
+      "rawLabel": "Value as recorded in OpenStreetMap",
+      "unsupported": "OpenStreetMap records these opening hours in a format this page does not translate. The unchanged value is shown here."
+    },
+    "de": {
+      "heading": "Öffnungszeiten laut OpenStreetMap",
+      "attribution": "Öffnungszeiten © OpenStreetMap-Mitwirkende, ODbL 1.0",
+      "source": "Zeiten auf OpenStreetMap ansehen oder korrigieren",
+      "rawLabel": "Wert wie in OpenStreetMap hinterlegt",
+      "unsupported": "OpenStreetMap hinterlegt diese Öffnungszeiten in einem Format, das diese Seite nicht übersetzt. Hier steht der unveränderte Wert."
+    }
+  },
+  "stats": {
+    "curated_accepted": 46,
+    "matched_to_venue": 46,
+    "unmatched_venue": 0,
+    "with_opening_hours": 35,
+    "rendered_schedule": 32,
+    "raw_only": 3,
+    "without_opening_hours": 11,
+    "gone": 0,
+    "not_a_public_venue": 0,
+    "unreachable": 0,
+    "countries_matched": {
+      "DE": 19,
+      "CH": 6,
+      "GB": 6,
+      "AT": 5,
+      "US": 4,
+      "CZ": 3,
+      "NL": 3
+    },
+    "countries_with_hours": {
+      "DE": 18,
+      "AT": 5,
+      "GB": 4,
+      "CH": 3,
+      "US": 3,
+      "NL": 2
+    }
+  },
+  "venues": [
+    {
+      "key": "30.4801|-84.2968",
+      "lat": 30.48009,
+      "lon": -84.29684,
+      "name": "Alchemy Climbing",
+      "country": "US",
+      "osm_type": "way",
+      "osm_id": 175342789,
+      "osm_url": "https://www.openstreetmap.org/way/175342789",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Alchemy Climbing",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-05-13T09:45:11Z",
+      "osm_version": 9,
+      "opening_hours": "Su 12:00-20:00; Mo 16:00-22:00; Tu-Sa 12:00-22:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Su 12:00-20:00; Mo 16:00-22:00; Tu-Sa 12:00-22:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon",
+              "value": "16:00–22:00"
+            },
+            {
+              "label": "Tue–Sat",
+              "value": "12:00–22:00"
+            },
+            {
+              "label": "Sun",
+              "value": "12:00–20:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo",
+              "value": "16:00–22:00"
+            },
+            {
+              "label": "Di–Sa",
+              "value": "12:00–22:00"
+            },
+            {
+              "label": "So",
+              "value": "12:00–20:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-05-13.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 13.05.2026."
+        }
+      }
+    },
+    {
+      "key": "33.2646|-111.8563",
+      "lat": 33.2646,
+      "lon": -111.85627,
+      "name": "Alta Boulders Chandler",
+      "country": "US",
+      "osm_type": "way",
+      "osm_id": 519274668,
+      "osm_url": "https://www.openstreetmap.org/way/519274668",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "Alta Boulders & Fitness",
+      "osm_kind": "leisure=fitness_centre",
+      "osm_timestamp": "2025-07-27T21:50:49Z",
+      "osm_version": 4
+    },
+    {
+      "key": "36.5656|-82.2015",
+      "lat": 36.56563,
+      "lon": -82.20146,
+      "name": "Appalachian Bouldering Center",
+      "country": "US",
+      "osm_type": "way",
+      "osm_id": 1536406009,
+      "osm_url": "https://www.openstreetmap.org/way/1536406009",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Appalachian Bouldering Center",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-07-08T02:37:04Z",
+      "osm_version": 1,
+      "opening_hours": "Mo 10:00-21:00; Tu 15:00-21:00; We-Sa 10:00-21:00; Su 13:00-19:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo 10:00-21:00; Tu 15:00-21:00; We-Sa 10:00-21:00; Su 13:00-19:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon, Wed–Sat",
+              "value": "10:00–21:00"
+            },
+            {
+              "label": "Tue",
+              "value": "15:00–21:00"
+            },
+            {
+              "label": "Sun",
+              "value": "13:00–19:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo, Mi–Sa",
+              "value": "10:00–21:00"
+            },
+            {
+              "label": "Di",
+              "value": "15:00–21:00"
+            },
+            {
+              "label": "So",
+              "value": "13:00–19:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-07-08.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 08.07.2026."
+        }
+      }
+    },
+    {
+      "key": "46.9467|7.4363",
+      "lat": 46.94673,
+      "lon": 7.43631,
+      "name": "BoulderBad Muubeeri",
+      "country": "CH",
+      "osm_type": "node",
+      "osm_id": 5233379038,
+      "osm_url": "https://www.openstreetmap.org/node/5233379038",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "BoulderBad Muubeeri",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-11-27T13:11:33Z",
+      "osm_version": 14,
+      "opening_hours": "Mo-We 07:00-22:30; Th 11:30-22:30; Fr 09:00-22:30; Sa 09:00-19:00; Su 09:00-19:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-We 07:00-22:30; Th 11:30-22:30; Fr 09:00-22:30; Sa 09:00-19:00; Su 09:00-19:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Wed",
+              "value": "07:00–22:30"
+            },
+            {
+              "label": "Thu",
+              "value": "11:30–22:30"
+            },
+            {
+              "label": "Fri",
+              "value": "09:00–22:30"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "09:00–19:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Mi",
+              "value": "07:00–22:30"
+            },
+            {
+              "label": "Do",
+              "value": "11:30–22:30"
+            },
+            {
+              "label": "Fr",
+              "value": "09:00–22:30"
+            },
+            {
+              "label": "Sa–So",
+              "value": "09:00–19:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-11-27.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 27.11.2025."
+        }
+      }
+    },
+    {
+      "key": "46.9591|7.4729",
+      "lat": 46.95906,
+      "lon": 7.47294,
+      "name": "Bimano Bern",
+      "country": "CH",
+      "osm_type": "node",
+      "osm_id": 5277779615,
+      "osm_url": "https://www.openstreetmap.org/node/5277779615",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "bimano",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2019-11-04T08:13:10Z",
+      "osm_version": 11
+    },
+    {
+      "key": "47.0507|15.4347",
+      "lat": 47.05068,
+      "lon": 15.43472,
+      "name": "BLOC house Graz",
+      "country": "AT",
+      "osm_type": "way",
+      "osm_id": 176701382,
+      "osm_url": "https://www.openstreetmap.org/way/176701382",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "BLOC house",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2023-07-04T10:34:49Z",
+      "osm_version": 13,
+      "opening_hours": "Mo-Fr 07:00-22:00; Sa,Su 09:00-22:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 07:00-22:00; Sa,Su 09:00-22:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "07:00–22:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "09:00–22:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "07:00–22:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "09:00–22:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2023-07-04.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 04.07.2023."
+        }
+      }
+    },
+    {
+      "key": "47.1987|8.5401",
+      "lat": 47.19867,
+      "lon": 8.54014,
+      "name": "BoulderBaar",
+      "country": "CH",
+      "osm_type": "node",
+      "osm_id": 12677696279,
+      "osm_url": "https://www.openstreetmap.org/node/12677696279",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "BoulderBaar",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-10-29T10:52:28Z",
+      "osm_version": 2,
+      "opening_hours": "Mo, Tu, Th 11:30-22:00; We, Fr 09:00-22:00, Sa-Su 10:00-19:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo, Tu, Th 11:30-22:00; We, Fr 09:00-22:00, Sa-Su 10:00-19:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Tue, Thu",
+              "value": "11:30–22:00"
+            },
+            {
+              "label": "Wed, Fri",
+              "value": "09:00–22:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "10:00–19:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Di, Do",
+              "value": "11:30–22:00"
+            },
+            {
+              "label": "Mi, Fr",
+              "value": "09:00–22:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "10:00–19:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-10-29.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 29.10.2025."
+        }
+      }
+    },
+    {
+      "key": "47.1992|7.5440",
+      "lat": 47.19916,
+      "lon": 7.54397,
+      "name": "Bimano Solothurn",
+      "country": "CH",
+      "osm_type": "node",
+      "osm_id": 12039060665,
+      "osm_url": "https://www.openstreetmap.org/node/12039060665",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Bimano Solothurn",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2024-07-07T05:30:37Z",
+      "osm_version": 1,
+      "opening_hours": "Mo-Fr 06:00-22:00; Sa, Su 09:00-18:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 06:00-22:00; Sa, Su 09:00-18:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "06:00–22:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "09:00–18:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "06:00–22:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "09:00–18:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2024-07-07.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 07.07.2024."
+        }
+      }
+    },
+    {
+      "key": "47.4692|8.3055",
+      "lat": 47.46919,
+      "lon": 8.30546,
+      "name": "BOUBA Boulder Baden",
+      "country": "CH",
+      "osm_type": "way",
+      "osm_id": 33786971,
+      "osm_url": "https://www.openstreetmap.org/way/33786971",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "BOUBA Boulder Baden",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-01-15T22:30:54Z",
+      "osm_version": 8
+    },
+    {
+      "key": "47.5262|7.6836",
+      "lat": 47.52622,
+      "lon": 7.68359,
+      "name": "B2 Boulders & Bar",
+      "country": "CH",
+      "osm_type": "node",
+      "osm_id": 2186264165,
+      "osm_url": "https://www.openstreetmap.org/node/2186264165",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "B2 Boulders & Bar",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2020-04-28T16:15:01Z",
+      "osm_version": 4
+    },
+    {
+      "key": "47.7920|9.6080",
+      "lat": 47.79203,
+      "lon": 9.60804,
+      "name": "Blöckle",
+      "country": "DE",
+      "osm_type": "way",
+      "osm_id": 193475273,
+      "osm_url": "https://www.openstreetmap.org/way/193475273",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Blöckle Boulderzentrum Ravensburg",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2023-11-23T06:48:13Z",
+      "osm_version": 9,
+      "opening_hours": "Mo 15:00-22:00; Tu, Th 10:00-22:00; We, Fr 08:00-22:00; Sa,Su,PH 10:00-20:30; PH 10:00-20:30 \"Variiert an Feiertagen\"",
+      "display": {
+        "kind": "raw",
+        "reason": "comment-or-fallback",
+        "raw": "Mo 15:00-22:00; Tu, Th 10:00-22:00; We, Fr 08:00-22:00; Sa,Su,PH 10:00-20:30; PH 10:00-20:30 \"Variiert an Feiertagen\"",
+        "en": {
+          "lines": [],
+          "notes": []
+        },
+        "de": {
+          "lines": [],
+          "notes": []
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2023-11-23.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 23.11.2023."
+        }
+      }
+    },
+    {
+      "key": "47.8796|11.9909",
+      "lat": 47.87958,
+      "lon": 11.99087,
+      "name": "Basislager Bad Aibling",
+      "country": "DE",
+      "osm_type": "way",
+      "osm_id": 1086217448,
+      "osm_url": "https://www.openstreetmap.org/way/1086217448",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Kletterhalle Basislager",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-01-01T09:37:29Z",
+      "osm_version": 12,
+      "opening_hours": "Mo,Tu,We,Fr 09:00-23:00; Th 07:00-23:00; Sa,Su,PH 09:00-21:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo,Tu,We,Fr 09:00-23:00; Th 07:00-23:00; Sa,Su,PH 09:00-21:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Wed, Fri",
+              "value": "09:00–23:00"
+            },
+            {
+              "label": "Thu",
+              "value": "07:00–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "09:00–21:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "09:00–21:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Mi, Fr",
+              "value": "09:00–23:00"
+            },
+            {
+              "label": "Do",
+              "value": "07:00–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "09:00–21:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "09:00–21:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-01-01.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 01.01.2026."
+        }
+      }
+    },
+    {
+      "key": "48.0413|11.6637",
+      "lat": 48.04129,
+      "lon": 11.6637,
+      "name": "Boulderwelt München Süd",
+      "country": "DE",
+      "osm_type": "node",
+      "osm_id": 8910298841,
+      "osm_url": "https://www.openstreetmap.org/node/8910298841",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Boulderwelt München Süd",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2023-10-15T14:05:31Z",
+      "osm_version": 4,
+      "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su,PH 08:00-23:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 07:00-23:00; Sa,Su,PH 08:00-23:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "07:00–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "08:00–23:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "08:00–23:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "07:00–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "08:00–23:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "08:00–23:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2023-10-15.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 15.10.2023."
+        }
+      }
+    },
+    {
+      "key": "48.1820|16.3850",
+      "lat": 48.18199,
+      "lon": 16.38501,
+      "name": "Boulderbar Hauptbahnhof",
+      "country": "AT",
+      "osm_type": "node",
+      "osm_id": 7231470885,
+      "osm_url": "https://www.openstreetmap.org/node/7231470885",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Boulderbar Hauptbahnhof",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-10-26T12:22:09Z",
+      "osm_version": 9,
+      "opening_hours": "Mo-Fr 09:00-23:00; Sa,Su,PH 09:00-22:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 09:00-23:00; Sa,Su,PH 09:00-22:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "09:00–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "09:00–22:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "09:00–22:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "09:00–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "09:00–22:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "09:00–22:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-10-26.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 26.10.2025."
+        }
+      }
+    },
+    {
+      "key": "48.1908|16.3597",
+      "lat": 48.19081,
+      "lon": 16.35973,
+      "name": "Blockfabrik",
+      "country": "AT",
+      "osm_type": "way",
+      "osm_id": 292355043,
+      "osm_url": "https://www.openstreetmap.org/way/292355043",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Blockfabrik",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-04-25T10:23:17Z",
+      "osm_version": 13,
+      "opening_hours": "Sa, Su, PH 07:30-22:00; Mo-Fr 07:30-23:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Sa, Su, PH 07:30-22:00; Mo-Fr 07:30-23:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "07:30–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "07:30–22:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "07:30–22:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "07:30–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "07:30–22:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "07:30–22:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-04-25.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 25.04.2026."
+        }
+      }
+    },
+    {
+      "key": "48.2106|16.3751",
+      "lat": 48.21057937040195,
+      "lon": 16.375051953580066,
+      "name": "Alpenverein Austria",
+      "country": "AT",
+      "osm_type": "node",
+      "osm_id": 9720945786,
+      "osm_url": "https://www.openstreetmap.org/node/9720945786",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Kletterzentrum Austria",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2022-05-06T16:02:58Z",
+      "osm_version": 1,
+      "opening_hours": "Mo 09:00-18:00; Tu-Fr 10:00-18:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo 09:00-18:00; Tu-Fr 10:00-18:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon",
+              "value": "09:00–18:00"
+            },
+            {
+              "label": "Tue–Fri",
+              "value": "10:00–18:00"
+            }
+          ],
+          "notes": [
+            "OpenStreetMap records no hours for Sat–Sun.",
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo",
+              "value": "09:00–18:00"
+            },
+            {
+              "label": "Di–Fr",
+              "value": "10:00–18:00"
+            }
+          ],
+          "notes": [
+            "Für Sa–So sind in OpenStreetMap keine Zeiten hinterlegt.",
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2022-05-06.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 06.05.2022."
+        }
+      }
+    },
+    {
+      "key": "48.2315|16.3686",
+      "lat": 48.23153,
+      "lon": 16.36862,
+      "name": "Boulderbar Hannovergasse",
+      "country": "AT",
+      "osm_type": "way",
+      "osm_id": 187290459,
+      "osm_url": "https://www.openstreetmap.org/way/187290459",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Boulderbar Hannovergasse",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-12-19T17:43:44Z",
+      "osm_version": 15,
+      "opening_hours": "Mo-Fr 09:00-23:00; Sa, Su, PH 09:00-22:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 09:00-23:00; Sa, Su, PH 09:00-22:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "09:00–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "09:00–22:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "09:00–22:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "09:00–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "09:00–22:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "09:00–22:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-12-19.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 19.12.2025."
+        }
+      }
+    },
+    {
+      "key": "48.5224|9.0834",
+      "lat": 48.52237,
+      "lon": 9.08345,
+      "name": "B12 Tübingen",
+      "country": "DE",
+      "osm_type": "way",
+      "osm_id": 282867302,
+      "osm_url": "https://www.openstreetmap.org/way/282867302",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "B12 – DAV Boulderzentrum Tübingen",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-03-27T19:08:37Z",
+      "osm_version": 19,
+      "opening_hours": "Mo,Tu,Fr 09:30-23:00, We 08:30-23:00, Th 12:30-23:00; Sa,Su,PH 10:00-22:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo,Tu,Fr 09:30-23:00, We 08:30-23:00, Th 12:30-23:00; Sa,Su,PH 10:00-22:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Tue, Fri",
+              "value": "09:30–23:00"
+            },
+            {
+              "label": "Wed",
+              "value": "08:30–23:00"
+            },
+            {
+              "label": "Thu",
+              "value": "12:30–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "10:00–22:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "10:00–22:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Di, Fr",
+              "value": "09:30–23:00"
+            },
+            {
+              "label": "Mi",
+              "value": "08:30–23:00"
+            },
+            {
+              "label": "Do",
+              "value": "12:30–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "10:00–22:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "10:00–22:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-03-27.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 27.03.2026."
+        }
+      }
+    },
+    {
+      "key": "48.8163|9.2991",
+      "lat": 48.8163,
+      "lon": 9.29915,
+      "name": "Active Garden Waiblingen",
+      "country": "DE",
+      "osm_type": "node",
+      "osm_id": 8972447217,
+      "osm_url": "https://www.openstreetmap.org/node/8972447217",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Active Garden - Waiblingen",
+      "osm_kind": "leisure=fitness_centre",
+      "osm_timestamp": "2026-08-13T08:04:58Z",
+      "osm_version": 6,
+      "opening_hours": "Mo,We 14:00-22:30; Tu,Th,Fr 10:00-22:30; PH,Sa,Su 10:00-21:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo,We 14:00-22:30; Tu,Th,Fr 10:00-22:30; PH,Sa,Su 10:00-21:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon, Wed",
+              "value": "14:00–22:30"
+            },
+            {
+              "label": "Tue, Thu–Fri",
+              "value": "10:00–22:30"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "10:00–21:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "10:00–21:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo, Mi",
+              "value": "14:00–22:30"
+            },
+            {
+              "label": "Di, Do–Fr",
+              "value": "10:00–22:30"
+            },
+            {
+              "label": "Sa–So",
+              "value": "10:00–21:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "10:00–21:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-08-13.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 13.08.2026."
+        }
+      }
+    },
+    {
+      "key": "49.0104|8.3951",
+      "lat": 49.01045,
+      "lon": 8.39506,
+      "name": "Boulderwelt Karlsruhe",
+      "country": "DE",
+      "osm_type": "node",
+      "osm_id": 10201637508,
+      "osm_url": "https://www.openstreetmap.org/node/10201637508",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Boulderwelt Karlsruhe",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-03-19T17:23:04Z",
+      "osm_version": 10,
+      "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su,PH 08:00-23:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 07:00-23:00; Sa,Su,PH 08:00-23:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "07:00–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "08:00–23:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "08:00–23:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "07:00–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "08:00–23:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "08:00–23:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-03-19.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 19.03.2026."
+        }
+      }
+    },
+    {
+      "key": "49.2304|17.6539",
+      "lat": 49.23045,
+      "lon": 17.65388,
+      "name": "Vertikon",
+      "country": "CZ",
+      "osm_type": "way",
+      "osm_id": 141853175,
+      "osm_url": "https://www.openstreetmap.org/way/141853175",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "Vertikon",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-02-20T10:37:12Z",
+      "osm_version": 4
+    },
+    {
+      "key": "49.8205|18.1795",
+      "lat": 49.82052,
+      "lon": 18.17953,
+      "name": "HANGAR Ostrava",
+      "country": "CZ",
+      "osm_type": "node",
+      "osm_id": 11195732989,
+      "osm_url": "https://www.openstreetmap.org/node/11195732989",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "Hangar Ostrava",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2024-12-09T15:41:03Z",
+      "osm_version": 4
+    },
+    {
+      "key": "50.1641|8.6849",
+      "lat": 50.16409,
+      "lon": 8.68487,
+      "name": "Boulderwelt Frankfurt",
+      "country": "DE",
+      "osm_type": "way",
+      "osm_id": 28299711,
+      "osm_url": "https://www.openstreetmap.org/way/28299711",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Boulderwelt Frankfurt",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-02-12T09:07:43Z",
+      "osm_version": 13,
+      "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-23:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 07:00-23:00; Sa-Su 08:00-23:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "07:00–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "08:00–23:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "07:00–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "08:00–23:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-02-12.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 12.02.2025."
+        }
+      }
+    },
+    {
+      "key": "50.5380|9.6970",
+      "lat": 50.53805,
+      "lon": 9.69699,
+      "name": "Block Barock Fulda",
+      "country": "DE",
+      "osm_type": "way",
+      "osm_id": 316063087,
+      "osm_url": "https://www.openstreetmap.org/way/316063087",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Block Barock",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-01-14T20:37:31Z",
+      "osm_version": 12,
+      "opening_hours": "Mo-Su,PH 10:00-23:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Su,PH 10:00-23:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Sun",
+              "value": "10:00–23:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "10:00–23:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–So",
+              "value": "10:00–23:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "10:00–23:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-01-14.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 14.01.2026."
+        }
+      }
+    },
+    {
+      "key": "50.7200|-3.5378",
+      "lat": 50.72,
+      "lon": -3.53781,
+      "name": "Boulder Exe",
+      "country": "GB",
+      "osm_type": "node",
+      "osm_id": 12647940538,
+      "osm_url": "https://www.openstreetmap.org/node/12647940538",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Boulder Exe",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-10-04T11:27:02Z",
+      "osm_version": 2,
+      "opening_hours": "Mo-Fr 10:00-22:00, Sa-Su 09:00-19:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 10:00-22:00, Sa-Su 09:00-19:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "10:00–22:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "09:00–19:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "10:00–22:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "09:00–19:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-10-04.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 04.10.2025."
+        }
+      }
+    },
+    {
+      "key": "50.7809|15.4206",
+      "lat": 50.780882755796554,
+      "lon": 15.420550728836115,
+      "name": "Crux 24",
+      "country": "CZ",
+      "osm_type": "node",
+      "osm_id": 14026479902,
+      "osm_url": "https://www.openstreetmap.org/node/14026479902",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "Crux 24",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-07-19T10:35:46Z",
+      "osm_version": 1
+    },
+    {
+      "key": "51.1704|6.9171",
+      "lat": 51.17039,
+      "lon": 6.91706,
+      "name": "Bergstation Kletter + Boulderzentrum",
+      "country": "DE",
+      "osm_type": "way",
+      "osm_id": 988928791,
+      "osm_url": "https://www.openstreetmap.org/way/988928791",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Bergstation",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-04-21T16:26:48Z",
+      "osm_version": 3,
+      "opening_hours": "Mo-Sa 10:00-23:00; Su,PH 10:00-22:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Sa 10:00-23:00; Su,PH 10:00-22:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Sat",
+              "value": "10:00–23:00"
+            },
+            {
+              "label": "Sun",
+              "value": "10:00–22:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "10:00–22:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Sa",
+              "value": "10:00–23:00"
+            },
+            {
+              "label": "So",
+              "value": "10:00–22:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "10:00–22:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-04-21.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 21.04.2025."
+        }
+      }
+    },
+    {
+      "key": "51.2660|7.1380",
+      "lat": 51.26601,
+      "lon": 7.13802,
+      "name": "Bahnhof Blo",
+      "country": "DE",
+      "osm_type": "node",
+      "osm_id": 5102477724,
+      "osm_url": "https://www.openstreetmap.org/node/5102477724",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Bahnhof Blo",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-01-16T12:31:17Z",
+      "osm_version": 7,
+      "opening_hours": "Mo-Tu, Th 15:00-23:00; We, Fr-Su 10:00-23:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Tu, Th 15:00-23:00; We, Fr-Su 10:00-23:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Tue, Thu",
+              "value": "15:00–23:00"
+            },
+            {
+              "label": "Wed, Fri–Sun",
+              "value": "10:00–23:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Di, Do",
+              "value": "15:00–23:00"
+            },
+            {
+              "label": "Mi, Fr–So",
+              "value": "10:00–23:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-01-16.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 16.01.2026."
+        }
+      }
+    },
+    {
+      "key": "51.3521|12.3955",
+      "lat": 51.35212,
+      "lon": 12.39553,
+      "name": "Bloc No Limit Boulderhalle Leipzig",
+      "country": "DE",
+      "osm_type": "way",
+      "osm_id": 98222084,
+      "osm_url": "https://www.openstreetmap.org/way/98222084",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Boulderhalle Leipzig BLOC NO LIMIT",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2024-06-01T13:58:00Z",
+      "osm_version": 15,
+      "opening_hours": "10:00-23:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "10:00-23:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Sun",
+              "value": "10:00–23:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–So",
+              "value": "10:00–23:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2024-06-01.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 01.06.2024."
+        }
+      }
+    },
+    {
+      "key": "51.4684|-2.5702",
+      "lat": 51.46842,
+      "lon": -2.57022,
+      "name": "Bloc Climbing Centre",
+      "country": "GB",
+      "osm_type": "way",
+      "osm_id": 405002457,
+      "osm_url": "https://www.openstreetmap.org/way/405002457",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Bloc Climbing",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2023-10-20T01:13:20Z",
+      "osm_version": 8,
+      "opening_hours": "Mo-Fr 10:00-22:00; Sa,Su 10:00-18:00; SH 10:00-22:00",
+      "display": {
+        "kind": "raw",
+        "reason": "unsupported-selector",
+        "raw": "Mo-Fr 10:00-22:00; Sa,Su 10:00-18:00; SH 10:00-22:00",
+        "en": {
+          "lines": [],
+          "notes": []
+        },
+        "de": {
+          "lines": [],
+          "notes": []
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2023-10-20.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 20.10.2023."
+        }
+      }
+    },
+    {
+      "key": "51.4947|7.3777",
+      "lat": 51.49471,
+      "lon": 7.37769,
+      "name": "Boulderwelt Dortmund",
+      "country": "DE",
+      "osm_type": "way",
+      "osm_id": 1493254990,
+      "osm_url": "https://www.openstreetmap.org/way/1493254990",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Boulderwelt",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-03-30T17:12:07Z",
+      "osm_version": 3,
+      "opening_hours": "Mo,We,Fr 10:00-23:00; Tu,Th 07:00-23:00; Sa,Su,PH 08:00-23:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo,We,Fr 10:00-23:00; Tu,Th 07:00-23:00; Sa,Su,PH 08:00-23:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon, Wed, Fri",
+              "value": "10:00–23:00"
+            },
+            {
+              "label": "Tue, Thu",
+              "value": "07:00–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "08:00–23:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "08:00–23:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo, Mi, Fr",
+              "value": "10:00–23:00"
+            },
+            {
+              "label": "Di, Do",
+              "value": "07:00–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "08:00–23:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "08:00–23:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-03-30.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 30.03.2026."
+        }
+      }
+    },
+    {
+      "key": "51.5472|9.9076",
+      "lat": 51.54719,
+      "lon": 9.90762,
+      "name": "BiG Boulderhalle",
+      "country": "DE",
+      "osm_type": "node",
+      "osm_id": 6420446437,
+      "osm_url": "https://www.openstreetmap.org/node/6420446437",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "BiG Bouldern in Göttingen",
+      "osm_kind": "leisure=sports_hall",
+      "osm_timestamp": "2026-07-09T11:06:36Z",
+      "osm_version": 7,
+      "opening_hours": "Mo-Fr 10:00-22:00; Sa,Su,PH 10:00-21:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 10:00-22:00; Sa,Su,PH 10:00-21:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "10:00–22:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "10:00–21:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "10:00–21:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "10:00–22:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "10:00–21:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "10:00–21:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-07-09.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 09.07.2026."
+        }
+      }
+    },
+    {
+      "key": "51.5960|4.7573",
+      "lat": 51.59598,
+      "lon": 4.75726,
+      "name": "Beest Boulders Breda",
+      "country": "NL",
+      "osm_type": "node",
+      "osm_id": 12206731830,
+      "osm_url": "https://www.openstreetmap.org/node/12206731830",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Beest Boulders Breda",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2024-10-20T10:16:39Z",
+      "osm_version": 5,
+      "opening_hours": "09:00-23:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "09:00-23:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Sun",
+              "value": "09:00–23:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–So",
+              "value": "09:00–23:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2024-10-20.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 20.10.2024."
+        }
+      }
+    },
+    {
+      "key": "51.8452|-2.1272",
+      "lat": 51.84518,
+      "lon": -2.12722,
+      "name": "270 Climbing Park",
+      "country": "GB",
+      "osm_type": "way",
+      "osm_id": 108616567,
+      "osm_url": "https://www.openstreetmap.org/way/108616567",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "270 Climbing",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-07-06T02:11:42Z",
+      "osm_version": 6,
+      "opening_hours": "Mo,Fr 09:30-20:00, Tu,Th 10:30-14:00, Sa,Su 10:00-16:00, We Off",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo,Fr 09:30-20:00, Tu,Th 10:30-14:00, Sa,Su 10:00-16:00, We Off",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon, Fri",
+              "value": "09:30–20:00"
+            },
+            {
+              "label": "Tue, Thu",
+              "value": "10:30–14:00"
+            },
+            {
+              "label": "Wed",
+              "value": "Closed"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "10:00–16:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo, Fr",
+              "value": "09:30–20:00"
+            },
+            {
+              "label": "Di, Do",
+              "value": "10:30–14:00"
+            },
+            {
+              "label": "Mi",
+              "value": "Geschlossen"
+            },
+            {
+              "label": "Sa–So",
+              "value": "10:00–16:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-07-06.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 06.07.2025."
+        }
+      }
+    },
+    {
+      "key": "51.9999|4.3560",
+      "lat": 51.99991,
+      "lon": 4.356,
+      "name": "Beest Boulders Delft",
+      "country": "NL",
+      "osm_type": "node",
+      "osm_id": 4015336270,
+      "osm_url": "https://www.openstreetmap.org/node/4015336270",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "Beest Boulder Delft",
+      "osm_kind": "leisure=fitness_centre",
+      "osm_timestamp": "2026-03-18T17:02:24Z",
+      "osm_version": 10
+    },
+    {
+      "key": "52.1626|11.6282",
+      "lat": 52.16263,
+      "lon": 11.62825,
+      "name": "BlocSchmiede Boulderhalle",
+      "country": "DE",
+      "osm_type": "node",
+      "osm_id": 5640601587,
+      "osm_url": "https://www.openstreetmap.org/node/5640601587",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Blocschmiede",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-02-22T20:00:40Z",
+      "osm_version": 7,
+      "opening_hours": "Mo-Su 10:00-22:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Su 10:00-22:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Sun",
+              "value": "10:00–22:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–So",
+              "value": "10:00–22:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-02-22.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 22.02.2026."
+        }
+      }
+    },
+    {
+      "key": "52.3852|13.1039",
+      "lat": 52.38519,
+      "lon": 13.10387,
+      "name": "7a+ Boulderhalle Potsdam",
+      "country": "DE",
+      "osm_type": "node",
+      "osm_id": 7353306217,
+      "osm_url": "https://www.openstreetmap.org/node/7353306217",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "7aplus Boulderhalle",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-11-01T13:41:40Z",
+      "osm_version": 8,
+      "opening_hours": "Mo-Fr 10:00-23:00; Sa-Su 09:00-22:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 10:00-23:00; Sa-Su 09:00-22:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "10:00–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "09:00–22:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "10:00–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "09:00–22:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-11-01.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 01.11.2025."
+        }
+      }
+    },
+    {
+      "key": "52.5640|13.4099",
+      "lat": 52.56398,
+      "lon": 13.40988,
+      "name": "Berta Block Boulderhalle Berlin",
+      "country": "DE",
+      "osm_type": "way",
+      "osm_id": 680456099,
+      "osm_url": "https://www.openstreetmap.org/way/680456099",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Berta Block",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-06-29T10:43:52Z",
+      "osm_version": 12,
+      "opening_hours": "Mo-Fr 09:00-23:00; Sa-Su 10:00-22:00; PH Mo-Fr 09:00-23:00; PH Sa-Su 10:00-22:00",
+      "display": {
+        "kind": "raw",
+        "reason": "unsupported-selector",
+        "raw": "Mo-Fr 09:00-23:00; Sa-Su 10:00-22:00; PH Mo-Fr 09:00-23:00; PH Sa-Su 10:00-22:00",
+        "en": {
+          "lines": [],
+          "notes": []
+        },
+        "de": {
+          "lines": [],
+          "notes": []
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-06-29.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 29.06.2026."
+        }
+      }
+    },
+    {
+      "key": "53.0756|8.7710",
+      "lat": 53.0756399,
+      "lon": 8.7709921,
+      "name": "Boulder Base Bremen - Tabakquartier",
+      "country": "DE",
+      "osm_type": "node",
+      "osm_id": 9537691218,
+      "osm_url": "https://www.openstreetmap.org/node/9537691218",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Boulder Base Bremen",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-11-13T18:52:27Z",
+      "osm_version": 4,
+      "opening_hours": "Mo 13:00-23:00; Tu-Fr 10:00-23:00; Sa,Su,PH 10:00-21:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo 13:00-23:00; Tu-Fr 10:00-23:00; Sa,Su,PH 10:00-21:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon",
+              "value": "13:00–23:00"
+            },
+            {
+              "label": "Tue–Fri",
+              "value": "10:00–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "10:00–21:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "10:00–21:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo",
+              "value": "13:00–23:00"
+            },
+            {
+              "label": "Di–Fr",
+              "value": "10:00–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "10:00–21:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "10:00–21:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-11-13.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 13.11.2025."
+        }
+      }
+    },
+    {
+      "key": "53.1386|-4.2528",
+      "lat": 53.13859,
+      "lon": -4.25283,
+      "name": "Beacon Climbing Center",
+      "country": "GB",
+      "osm_type": "way",
+      "osm_id": 335352481,
+      "osm_url": "https://www.openstreetmap.org/way/335352481",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "Beacon Climbing",
+      "osm_kind": "sport=climbing",
+      "osm_timestamp": "2015-03-29T12:50:05Z",
+      "osm_version": 1
+    },
+    {
+      "key": "53.2173|6.5386",
+      "lat": 53.21729,
+      "lon": 6.53861,
+      "name": "Apex Boulders",
+      "country": "NL",
+      "osm_type": "node",
+      "osm_id": 2739007652,
+      "osm_url": "https://www.openstreetmap.org/node/2739007652",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Apex Boulders",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-04-22T22:30:42Z",
+      "osm_version": 7,
+      "opening_hours": "Mo-Fr 09:00-23:00; Sa-Su 09:00-22:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 09:00-23:00; Sa-Su 09:00-22:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "09:00–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "09:00–22:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "09:00–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "09:00–22:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-04-22.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 22.04.2025."
+        }
+      }
+    },
+    {
+      "key": "53.3966|-2.2967",
+      "lat": 53.396622539640525,
+      "lon": -2.296682486507128,
+      "name": "Big Depot Manchester",
+      "country": "GB",
+      "osm_type": "node",
+      "osm_id": 12946392793,
+      "osm_url": "https://www.openstreetmap.org/node/12946392793",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "BIG Depot Manchester",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-04-25T07:20:23Z",
+      "osm_version": 2,
+      "opening_hours": "Mo-Fr 09:00-22:00; Sa-Su 09:00-21:00",
+      "check_date": "2026-04-25",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 09:00-22:00; Sa-Su 09:00-21:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "09:00–22:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "09:00–21:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "09:00–22:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "09:00–21:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "Hours last verified in OpenStreetMap on 2026-04-25.",
+          "de": "Zeiten zuletzt in OpenStreetMap geprüft am 25.04.2026."
+        }
+      }
+    },
+    {
+      "key": "53.3996|-1.4467",
+      "lat": 53.39957,
+      "lon": -1.44673,
+      "name": "Awesome Walls Sheffield",
+      "country": "GB",
+      "osm_type": "way",
+      "osm_id": 119967981,
+      "osm_url": "https://www.openstreetmap.org/way/119967981",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "Awesome Walls Sheffield",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-08-04T16:42:16Z",
+      "osm_version": 9
+    },
+    {
+      "key": "53.5540|10.0209",
+      "lat": 53.55395,
+      "lon": 10.02095,
+      "name": "Boulderwelt Hamburg",
+      "country": "DE",
+      "osm_type": "node",
+      "osm_id": 12398821312,
+      "osm_url": "https://www.openstreetmap.org/node/12398821312",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Boulderwelt Hamburg",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-09-02T09:55:20Z",
+      "osm_version": 3,
+      "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su,PH 08:00-23:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 07:00-23:00; Sa,Su,PH 08:00-23:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "07:00–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "08:00–23:00"
+            },
+            {
+              "label": "Public holidays",
+              "value": "08:00–23:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "07:00–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "08:00–23:00"
+            },
+            {
+              "label": "Feiertage",
+              "value": "08:00–23:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-09-02.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 02.09.2025."
+        }
+      }
+    },
+    {
+      "key": "54.0975|12.1027",
+      "lat": 54.09754,
+      "lon": 12.10269,
+      "name": "45 Grad",
+      "country": "DE",
+      "osm_type": "way",
+      "osm_id": 497986607,
+      "osm_url": "https://www.openstreetmap.org/way/497986607",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "45 Grad Kletterhalle",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2024-12-28T15:48:35Z",
+      "osm_version": 7
+    },
+    {
+      "key": "61.1914|-149.8710",
+      "lat": 61.19139,
+      "lon": -149.87105,
+      "name": "Alaska Rock Gym",
+      "country": "US",
+      "osm_type": "way",
+      "osm_id": 828281293,
+      "osm_url": "https://www.openstreetmap.org/way/828281293",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Alaska Rock Gym",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2026-01-27T17:47:29Z",
+      "osm_version": 4,
+      "opening_hours": "Mo-Fr 06:00-22:00, Sa-Su 09:00-21:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 06:00-22:00, Sa-Su 09:00-21:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "06:00–22:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "09:00–21:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "06:00–22:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "09:00–21:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2026-01-27.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 27.01.2026."
+        }
+      }
+    }
+  ],
+  "checked_at": "2026-08-22T12:02:34.494Z"
+}
