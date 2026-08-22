@@ -313,6 +313,34 @@
     "candidate": "https://www.verticalworld.de/"
   },
   {
+    "lat": 47.77882,
+    "lon": -3.35503,
+    "name": "B'wall Lorient",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site fails its TLS handshake, so no page could be opened securely and read.",
+    "candidate": "https://bwall.fr/"
+  },
+  {
+    "lat": 43.32440591741045,
+    "lon": -0.31775893125007443,
+    "name": "Beta-Bloc Escalade",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "beta-bloc.fr, the obvious domain for this gym, serves only a registrar's domain-created placeholder; no operator page could be found and opened."
+  },
+  {
+    "lat": 45.94472,
+    "lon": 6.04587,
+    "name": "Space Bloc",
+    "country": "FR",
+    "status": "http-only",
+    "checked": "2026-08-22",
+    "reason": "The gym's site redirects https to http://www.spacebloc.fr/, so there is no HTTPS URL to store."
+  },
+  {
     "lat": 52.52996899999999,
     "lon": -2.0246658,
     "name": "Boulder Central",
