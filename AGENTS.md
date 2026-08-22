@@ -209,6 +209,15 @@ for the full contract; the essentials:
   - `tools/wellpass.json` — flags DACH venues in the egym Wellpass network for the
     map's Wellpass filter. Only curated `name+coords+boolean` rows are committed;
     the matcher and raw scrape are gitignored.
+  - `tools/venue-links.json` — one manually verified **official website** per
+    venue, with the UTC date it was checked and the independent signals that
+    matched. Never inferred from a name or a search snippet; never attached to a
+    private/home setup; matching fails closed on any ambiguity. Rejected
+    candidates go to `tools/venue-links-research.json`, which is not production
+    data. Policy and the decision note for the link classes deliberately *not*
+    built: `tools/VENUE-LINKS.md`. `node tools/venue-links-report.mjs` validates a
+    batch; `node tools/build-boards-data.mjs --overlays-only` re-applies the
+    venue-level overlays and re-renders without pulling a new upstream dataset.
 - **Adapter guidelines**: drop free-form `description`/`bio` text at the adapter
   (historical MoonBoard entries contain SEO/casino spam); validate coordinate
   ranges; never propagate upstream email/phone.

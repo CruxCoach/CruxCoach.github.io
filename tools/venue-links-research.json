@@ -1,0 +1,1088 @@
+[
+  {
+    "lat": 48.20227277056378,
+    "lon": 16.3614044253851,
+    "name": "Alpenverein Wien",
+    "country": "AT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Rahlgasse 6 is an Alpenverein office address; the Landesverband's own site gives a different address and documents no climbing wall here, so the venue could not be tied to an official page."
+  },
+  {
+    "lat": 47.1484502,
+    "lon": 10.4093318,
+    "name": "Arlberg klettergruppe",
+    "country": "AT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "No official site could be found for a climbing group or boulder room of this name in the Arlberg region."
+  },
+  {
+    "lat": 47.27722,
+    "lon": 11.41339,
+    "name": "Kletterzentrum Innsbruck",
+    "country": "AT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.kletterzentrum-innsbruck.at/"
+  },
+  {
+    "lat": 47.80278999999999,
+    "lon": 16.23318,
+    "name": "Mondbrett",
+    "country": "AT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "No official site could be found for a climbing venue of this name near Wiener Neustadt."
+  },
+  {
+    "lat": 50.41619,
+    "lon": 4.43898,
+    "name": "Maniak Charleroi",
+    "country": "BE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Both Maniak centre sites we tried answer HTTP 403 to our requests, so no page could be opened and read.",
+    "candidate": "https://charleroi.maniak.club/"
+  },
+  {
+    "lat": 50.6198,
+    "lon": 4.33027,
+    "name": "Maniak Nivelles",
+    "country": "BE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Both Maniak centre sites we tried answer HTTP 403 to our requests, so no page could be opened and read.",
+    "candidate": "https://maniak.club/"
+  },
+  {
+    "lat": 50.82757,
+    "lon": 4.33196,
+    "name": "Maniak Padoue",
+    "country": "BE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Both Maniak centre sites we tried answer HTTP 403 to our requests, so no page could be opened and read.",
+    "candidate": "https://padoue.maniak.club/"
+  },
+  {
+    "lat": 50.8511,
+    "lon": 4.45897,
+    "name": "Stone Age",
+    "country": "BE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site publishes no address on any page we could open, and no geocoder we tried resolves the address upstream carries.",
+    "candidate": "https://stone-age.be/"
+  },
+  {
+    "lat": 49.2827291,
+    "lon": -123.1207375,
+    "name": "Hive: Vancouver",
+    "country": "CA",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "The operator runs two Vancouver halls 150 m apart on Industrial Avenue; this coordinate is 2.5 km from both, in the downtown financial district, so it cannot be assigned to one location page.",
+    "candidate": "https://www.hiveclimbing.com/locations"
+  },
+  {
+    "lat": 49.1824420014394,
+    "lon": -123.98420325192382,
+    "name": "The Bloc Bouldering",
+    "country": "CA",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "The coordinate shares 1870 Boxwood Road with WIP Climbing Nanaimo 19 m away, but WIP's site never uses the name The Bloc and no separate operator for it could be found, so the two entries cannot be told apart.",
+    "candidate": "https://wipclimbing.com/"
+  },
+  {
+    "lat": 46.50714,
+    "lon": 8.71072,
+    "name": "Audan",
+    "country": "CH",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Palestra Audan (SAT Ritom) is the only plausible match, but its official page publishes neither a street address nor a board mention, so no second independent signal could be established.",
+    "candidate": "https://www.satritom.ch/arrampicata/palestra/"
+  },
+  {
+    "lat": 46.63397,
+    "lon": 8.59349,
+    "name": "Boulder Halle Andermatt",
+    "country": "CH",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "Several unrelated climbing facilities are listed for Andermatt (a tourism-board page and an SAC Gotthard military hall); no single official venue site could be identified for this coordinate."
+  },
+  {
+    "lat": 47.07702,
+    "lon": 6.7591,
+    "name": "La Déglingue",
+    "country": "CH",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "No official site could be found for a climbing venue of this name in the La Chaux-de-Fonds area."
+  },
+  {
+    "lat": 47.3318164,
+    "lon": 9.4119026,
+    "name": "Möhli",
+    "country": "CH",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "No official site could be found for a climbing venue of this name near St. Gallen."
+  },
+  {
+    "lat": 49.1757401,
+    "lon": 16.6051193,
+    "name": "HANGAR climbing playground by Adam Ondra",
+    "country": "CZ",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "hangar.cz is an architecture studio, not this climbing centre, and no other official site for it was found.",
+    "candidate": "https://www.hangar.cz/"
+  },
+  {
+    "lat": 52.503618,
+    "lon": 13.384007,
+    "name": "Basement Boulderstudio",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The candidate site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://basement-boulderstudio.de/"
+  },
+  {
+    "lat": 52.1131758,
+    "lon": 11.6080863,
+    "name": "BlocSchmiede",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "BlocSchmiede's published address resolves about 5.6 km from this MoonBoard entry and its site names no board, so no second independent signal could be established.",
+    "candidate": "https://blocschmiede-boulderhalle.de/"
+  },
+  {
+    "lat": 51.73263739999999,
+    "lon": 10.6102795,
+    "name": "Bodebloc",
+    "country": "DE",
+    "status": "closed",
+    "checked": "2026-08-22",
+    "reason": "bodebloc.de now redirects to the operator's ski workshop, whose page states that the Bodebloc remains closed indefinitely.",
+    "candidate": "https://ski-baehr.de/"
+  },
+  {
+    "lat": 49.69046,
+    "lon": 11.62995,
+    "name": "Boulderhalle Zugzwang",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site is served with a TLS certificate that does not cover its hostname, so no page could be opened securely and read.",
+    "candidate": "https://www.zugzwang-auerbach.de/"
+  },
+  {
+    "lat": 49.88015,
+    "lon": 8.63595,
+    "name": "Boulderhaus Darmstadt",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "candidate": "https://www.boulderhaus.net/darmstadt/"
+  },
+  {
+    "lat": 49.88094719999999,
+    "lon": 8.6370545,
+    "name": "Boulderhaus Darmstadt",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "candidate": "https://www.boulderhaus.net/darmstadt/"
+  },
+  {
+    "lat": 49.38701,
+    "lon": 8.67916,
+    "name": "Boulderhaus Heidelberg",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "candidate": "https://www.boulderhaus.net/heidelberg/"
+  },
+  {
+    "lat": 49.5178159,
+    "lon": 8.5356193,
+    "name": "Boulderhaus Mannheim",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "candidate": "https://www.boulderhaus.net/mannheim/"
+  },
+  {
+    "lat": 49.51846,
+    "lon": 8.53509,
+    "name": "Boulderhaus Mannheim",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "candidate": "https://www.boulderhaus.net/mannheim/"
+  },
+  {
+    "lat": 48.49913,
+    "lon": 9.19966,
+    "name": "Boulderhaus Reutlingen",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "candidate": "https://www.boulderhaus.net/boulderhaus-reutlingen/"
+  },
+  {
+    "lat": 52.52000659999999,
+    "lon": 13.404954,
+    "name": "Boulderklub Kreuzberg",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Boulderklub Kreuzberg's published address resolves about 3.2 km from this MoonBoard entry and its site names no board, so no second independent signal could be established.",
+    "candidate": "https://boulderklub.de/"
+  },
+  {
+    "lat": 50.937531,
+    "lon": 6.9602786,
+    "name": "Boulderplanet",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Boulderplanet's published address resolves about 4 km from this MoonBoard entry and its site names no board, so no second independent signal ties this coordinate to the gym.",
+    "candidate": "https://boulderplanet.de/"
+  },
+  {
+    "lat": 49.41254,
+    "lon": 8.64456,
+    "name": "Crimp Boulderhalle",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.crimp-heidelberg.com/"
+  },
+  {
+    "lat": 50.13717,
+    "lon": 8.73259,
+    "name": "Dynochrom Boulderhalle",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://dynochrom.com/"
+  },
+  {
+    "lat": 49.18795369999999,
+    "lon": 8.1331486,
+    "name": "Fitz Rocks – Kletterarena der Südpfalz",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 500 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://fitzrocks.de/"
+  },
+  {
+    "lat": 48.1092285,
+    "lon": 11.2899694,
+    "name": "Kletter- und Boulderzentrum München",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "\"Kletter- und Boulderzentrum München\" matches three DAV halls of that name; this coordinate sits 1.2 km from the Gilching hall and 20 km from the others, so which one it means is not decidable."
+  },
+  {
+    "lat": 48.6471033,
+    "lon": 9.4519635,
+    "name": "Stuntwerk Kirchheim",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Upstream still calls this Stuntwerk Kirchheim; the hall now trades as TOP Boulder, whose site answers HTTP 403, so the identification could not be confirmed first-hand.",
+    "candidate": "https://topboulder-kirchheim.de/"
+  },
+  {
+    "lat": 48.65009,
+    "lon": 9.44131,
+    "name": "TOP Boulder Kirchheim",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The hall's own site answers HTTP 403 and the operator's location index gives no address for it, so nothing on an official page could be matched against this venue.",
+    "candidate": "https://topboulder-kirchheim.de/"
+  },
+  {
+    "lat": 51.29799,
+    "lon": 9.5247899,
+    "name": "Vertical World",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 500 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.verticalworld.de/"
+  },
+  {
+    "lat": 55.7203436012916,
+    "lon": 11.712128911084726,
+    "name": "Holbæk Klatreklub",
+    "country": "DK",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "holbaek.dk is Holbæk Kommune's municipal site, not this climbing club; its postcode and town matched only because the municipality shares them.",
+    "candidate": "https://holbaek.dk/"
+  },
+  {
+    "lat": 43.2903,
+    "lon": -2.88748,
+    "name": "Biwak Climbing",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site serves an incomplete certificate chain that we cannot verify, so no page could be opened securely and read.",
+    "candidate": "https://biwakclimbing.com/"
+  },
+  {
+    "lat": 40.3913437,
+    "lon": -3.6696679,
+    "name": "Boulder Madrid Moon Board",
+    "country": "ES",
+    "status": "http-only",
+    "checked": "2026-08-22",
+    "reason": "bouldermadrid.com serves the gym's site over HTTP only; both the apex and the www host time out on HTTPS, so there is no secure URL to publish.",
+    "candidate": "http://www.bouldermadrid.com/"
+  },
+  {
+    "lat": 39.72222,
+    "lon": 2.90134,
+    "name": "esRocodrom",
+    "country": "ES",
+    "status": "http-only",
+    "checked": "2026-08-22",
+    "reason": "The gym's site redirects https to http://www.esrocodrom.com/, so there is no HTTPS URL to store."
+  },
+  {
+    "lat": 39.722313033598525,
+    "lon": 2.9013102846544903,
+    "name": "esRocodrom",
+    "country": "ES",
+    "status": "http-only",
+    "checked": "2026-08-22",
+    "reason": "The gym's site redirects https to http://www.esrocodrom.com/, so there is no HTTPS URL to store."
+  },
+  {
+    "lat": 42.56289,
+    "lon": -0.56955,
+    "name": "Indoorwall Jaca",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Indoorwall's location list names nine centres and none in Jaca, so the operator no longer publishes a page describing this venue.",
+    "candidate": "https://www.indoorwall.com/"
+  },
+  {
+    "lat": 40.42839,
+    "lon": -3.7089,
+    "name": "Uadibloc Malasaña",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "uadibloc.com serves a hosting-account suspension notice, so there is no operator page to open and read.",
+    "candidate": "https://uadibloc.com/"
+  },
+  {
+    "lat": 40.53623976991643,
+    "lon": -3.616688244699811,
+    "name": "World Climbing",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "worldclimbing.com is the international federation formerly known as the IFSC, not this Madrid gym.",
+    "candidate": "https://worldclimbing.com/"
+  },
+  {
+    "lat": 45.38471,
+    "lon": 5.57895,
+    "name": "ABLOK Voiron",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "ablok.fr redirects to a Voiron subdomain whose page gives a Grenoble address 26 km from this venue, so the page could not be matched to the Voiron hall.",
+    "candidate": "https://voiron.ablok.fr/"
+  },
+  {
+    "lat": 45.27442,
+    "lon": 5.88808,
+    "name": "Au Perchoir",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "auperchoir.fr answers 403 or 429 to every automated request, so the page could not be opened and read; no other official source for this hall was found.",
+    "candidate": "https://auperchoir.fr/"
+  },
+  {
+    "lat": 47.77882,
+    "lon": -3.35503,
+    "name": "B'wall Lorient",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site fails its TLS handshake, so no page could be opened securely and read.",
+    "candidate": "https://bwall.fr/"
+  },
+  {
+    "lat": 43.32440591741045,
+    "lon": -0.31775893125007443,
+    "name": "Beta-Bloc Escalade",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "beta-bloc.fr, the obvious domain for this gym, serves only a registrar's domain-created placeholder; no operator page could be found and opened."
+  },
+  {
+    "lat": 43.61146,
+    "lon": 6.97223,
+    "name": "Blocparty Climbing",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "blocpartyclimbing.com redirects to a wpcomstaging.com hostname rather than serving the site under its own domain, so there is no canonical official URL to store.",
+    "candidate": "https://blocpartyclimbing.com/"
+  },
+  {
+    "lat": 43.59922983452772,
+    "lon": 3.8663012940657744,
+    "name": "Boulder Line 3",
+    "country": "FR",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "The operator's site renders client-side and prints no address that could be read; its own summary places the Kilter Board at BL2 while upstream files this Kilter under BL3, so the hall could not be identified.",
+    "candidate": "https://boulderline.fr/salles-escalade-montpellier-castelnau"
+  },
+  {
+    "lat": 16.21825,
+    "lon": -61.50041,
+    "name": "Gwada Grimpe",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "gwadagrimpe.com now serves a site branded Kaz a grimp with a kazagrimp.com contact address, prints no street address and never uses the name upstream records; only the commune matches.",
+    "candidate": "https://www.gwadagrimpe.com/"
+  },
+  {
+    "lat": 48.398573,
+    "lon": 2.722797,
+    "name": "Karma Fontainebleau",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "karma.ffme.fr does not resolve in DNS, so the only candidate page could not be opened.",
+    "candidate": "http://karma.ffme.fr/"
+  },
+  {
+    "lat": 45.94472,
+    "lon": 6.04587,
+    "name": "Space Bloc",
+    "country": "FR",
+    "status": "http-only",
+    "checked": "2026-08-22",
+    "reason": "The gym's site redirects https to http://www.spacebloc.fr/, so there is no HTTPS URL to store."
+  },
+  {
+    "lat": 52.52996899999999,
+    "lon": -2.0246658,
+    "name": "Boulder Central",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site publishes no address on any page we could open, so no second independent signal could be established.",
+    "candidate": "https://www.bouldercentral.co.uk/"
+  },
+  {
+    "lat": 51.23622,
+    "lon": -0.570409,
+    "name": "Craggy Island Moonboard",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The centre's site serves an expired TLS certificate, so no page could be opened securely and read.",
+    "candidate": "https://www.craggy-island.com/"
+  },
+  {
+    "lat": 51.830777,
+    "lon": -1.837254,
+    "name": "Far Peak Climbing Centre",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Far Peak Climbing's published estate address resolves about 2.2 km from this MoonBoard entry and its site names no board, so the name is the only signal available.",
+    "candidate": "https://www.farpeakclimbing.co.uk/"
+  },
+  {
+    "lat": 54.04698,
+    "lon": -2.82335,
+    "name": "Lakeland Climbing Centres - LancasterWall",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The centre's site answers HTTP 526 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.lancasterwall.co.uk/"
+  },
+  {
+    "lat": 53.73655,
+    "lon": -0.37978,
+    "name": "Rockcity Climbing",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Rockcity's site names the centre but publishes no address on any page we could open, so no second independent signal could be established.",
+    "candidate": "https://rockcity.co.uk/"
+  },
+  {
+    "lat": 52.40906,
+    "lon": -1.51112,
+    "name": "Social Climbing Coventry",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "socialclimbing.co.uk serves a domain-parking lander and socialclimbing.com shows a Launching Soon form, so neither domain carries a page describing this centre.",
+    "candidate": "https://socialclimbing.co.uk/"
+  },
+  {
+    "lat": 52.6373107,
+    "lon": -1.1361376,
+    "name": "Social Climbing Moonboard",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "socialclimbing.co.uk serves a domain-parking lander and socialclimbing.com shows a Launching Soon form, so neither domain carries a page describing this venue.",
+    "candidate": "https://socialclimbing.co.uk/"
+  },
+  {
+    "lat": 52.428,
+    "lon": -1.77499,
+    "name": "Social Climbing Solihull",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "socialclimbing.co.uk serves a domain-parking lander and socialclimbing.com shows a Launching Soon form, so neither domain carries a page describing this centre.",
+    "candidate": "https://socialclimbing.co.uk/"
+  },
+  {
+    "lat": 54.2857788,
+    "lon": -0.4034476,
+    "name": "Street Rocks",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's page answers HTTP 401 to our requests, so it could not be opened and read first-hand.",
+    "candidate": "https://cavca.org.uk/street-rocks/"
+  },
+  {
+    "lat": 54.91452529999999,
+    "lon": -1.4158507,
+    "name": "Sunderland Wall",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The centre's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://sunderlandwall.com/"
+  },
+  {
+    "lat": 51.42122,
+    "lon": -0.20453,
+    "name": "The Boardroom Climbing Ltd. Wimbledon",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's Wimbledon location page returns 404 and its site lists only the Queensferry centre, so this venue could not be matched against a page we could read.",
+    "candidate": "https://www.theboardroomclimbing.com/"
+  },
+  {
+    "lat": 51.42116559999999,
+    "lon": -0.2042062,
+    "name": "The Boardroom Wimbledon",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's Wimbledon location page returns 404 and its site lists only the Queensferry centre, so this venue could not be matched against a page we could read.",
+    "candidate": "https://www.theboardroomclimbing.com/"
+  },
+  {
+    "lat": 53.2514153,
+    "lon": -2.1184192,
+    "name": "The Chapel",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "thechapel.co.uk is a chain of hairdressing salons, not this climbing venue, and no other official site for it was found.",
+    "candidate": "https://www.thechapel.co.uk/"
+  },
+  {
+    "lat": 53.3185426,
+    "lon": -6.3456286,
+    "name": "Bloc Climbing Gym",
+    "country": "IE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "bloc.ie is a booking-software company, not this climbing gym, and no other official site for it was found.",
+    "candidate": "https://bloc.ie/"
+  },
+  {
+    "lat": 53.2884406,
+    "lon": -6.3692084,
+    "name": "The Dublin Climbing Centre",
+    "country": "IE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "dublinclimbing.com serves a Coming Soon page under construction, so no page describes this centre.",
+    "candidate": "https://www.dublinclimbing.com/"
+  },
+  {
+    "lat": 44.22727,
+    "lon": 12.04509,
+    "name": "Blocstation acsd",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "blocstation.it serves a page with no readable address, town or contact detail, so nothing on it can be matched to this venue.",
+    "candidate": "https://blocstation.it/"
+  },
+  {
+    "lat": 43.1093656,
+    "lon": 12.3608041,
+    "name": "Metropolitan Boulder",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "metropolitanboulder.it serves a maintenance placeholder, so no address or hall detail could be read.",
+    "candidate": "https://metropolitanboulder.it/"
+  },
+  {
+    "lat": 45.4654219,
+    "lon": 9.1859243,
+    "name": "Rockspot",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Rockspot's site describes one Milan gym and its map pin sits 5.4 km from this coordinate, beside the other upstream Rockspot entry, so this one matches no location the operator publishes.",
+    "candidate": "https://www.rockspot.it/"
+  },
+  {
+    "lat": 53.1406108,
+    "lon": 4.2517792,
+    "name": "Beacon Climbing Centre",
+    "country": "NL",
+    "status": "duplicate",
+    "checked": "2026-08-22",
+    "reason": "This is Beacon Climbing Centre in Caernarfon, Wales, recorded with its longitude sign flipped, which plots it in the North Sea and files it under NL; the correctly placed entry already carries the link."
+  },
+  {
+    "lat": 52.04968,
+    "lon": 4.25458,
+    "name": "Boulderhal de Campus",
+    "country": "NL",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.boulderhaldecampus.nl/"
+  },
+  {
+    "lat": 52.11019628136243,
+    "lon": 4.2836240000000005,
+    "name": "Boulderhal Nirvana",
+    "country": "NL",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.boulderhalnirvana.nl/"
+  },
+  {
+    "lat": 52.06192,
+    "lon": 4.31394,
+    "name": "Boulderhal Walhalla",
+    "country": "NL",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.boulderhalwalhalla.nl/"
+  },
+  {
+    "lat": 52.3385489,
+    "lon": 4.927047099999999,
+    "name": "Club Monk",
+    "country": "NL",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Monk's own site lists one Amsterdam hall, at Aambeeldstraat 26; this coordinate is 5 km away on H.J.E. Wenckebachweg and matches no location the operator publishes.",
+    "candidate": "https://monk.nl/amsterdam/"
+  },
+  {
+    "lat": 51.0006238,
+    "lon": 5.8864788,
+    "name": "GRAVITON",
+    "country": "NL",
+    "status": "closed",
+    "checked": "2026-08-22",
+    "reason": "Graviton Bouldergym in Sittard closed permanently in February 2024; there is no operator site left to link."
+  },
+  {
+    "lat": 53.23124,
+    "lon": 6.59009,
+    "name": "Gropo Bouldergym Groningen",
+    "country": "NL",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site publishes no address on any page we could open, so no second independent signal could be established.",
+    "candidate": "https://www.gropo.nl/"
+  },
+  {
+    "lat": 52.3679843,
+    "lon": 4.9035614,
+    "name": "Monk Amsterdam Moonboard",
+    "country": "NL",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Monk's Amsterdam gym resolves about 2.5 km from this MoonBoard entry, and the operator's site names no MoonBoard, so no second independent signal ties this coordinate to it.",
+    "candidate": "https://monk.nl/amsterdam/"
+  },
+  {
+    "lat": 68.44631,
+    "lon": 17.4505,
+    "name": "68° Nord Buldrehall",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The only candidate domain, narvikbuldrehall.no, does not resolve in DNS, so no page could be opened for this hall.",
+    "candidate": "https://narvikbuldrehall.no/"
+  },
+  {
+    "lat": 68.4463676,
+    "lon": 17.4498911,
+    "name": "68Nord Buldrehall",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The only candidate domain, narvikbuldrehall.no, does not resolve in DNS; upstream lists this MoonBoard 24 m from its Kilter entry.",
+    "candidate": "https://narvikbuldrehall.no/"
+  },
+  {
+    "lat": 59.91525,
+    "lon": 10.72374,
+    "name": "Ambassaden Trening",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "ambassaden.no is the Henrik Ibsens gate 48 venue's own site and gives exactly the address upstream carries, but it presents itself as an event venue and restaurant collective and never mentions training or climbing.",
+    "candidate": "https://ambassaden.no/"
+  },
+  {
+    "lat": 62.46913,
+    "lon": 6.18367,
+    "name": "Klatreklubben Ålesund",
+    "country": "NO",
+    "status": "http-only",
+    "checked": "2026-08-22",
+    "reason": "klatreklubben.no redirects to its www host over HTTP and offers no HTTPS, so there is no secure URL to publish.",
+    "candidate": "http://www.klatreklubben.no/"
+  },
+  {
+    "lat": 58.1472,
+    "lon": 7.98027,
+    "name": "Klatreverket Kristiansand",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "klatreverket.no is the Oslo operator's site and lists four Oslo centres, none in Kristiansand 320 km away.",
+    "candidate": "https://klatreverket.no/"
+  },
+  {
+    "lat": 60.38464,
+    "lon": 5.31154,
+    "name": "Rúngne Buldr",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "gneisbuldring.no answers 423 Locked, and the nearby OSM object carries a different operator's name, so this venue could not be tied to an official page.",
+    "candidate": "https://gneisbuldring.no/"
+  },
+  {
+    "lat": 38.7222524,
+    "lon": -9.1393366,
+    "name": "Crux - Climbing Center",
+    "country": "PT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "CRUX Climbing Center publishes one location, in São Domingos de Rana; this coordinate is 16 km away in central Lisbon and matches nothing the operator lists.",
+    "candidate": "https://www.cruxclimbing.pt/"
+  },
+  {
+    "lat": 38.53296,
+    "lon": -8.87263,
+    "name": "INWALL Climbing Center",
+    "country": "PT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "inwall.pt now redirects to wallnut.pt, whose only address is in Lisbon and which never mentions Setúbal, so no official page describes this Setúbal venue.",
+    "candidate": "https://wallnut.pt/"
+  },
+  {
+    "lat": 40.2107084,
+    "lon": -8.433596399999999,
+    "name": "upa! Escalódromo de Coimbra",
+    "country": "PT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "upa.pt is an advertising agency called UPA Publicidade, not this Coimbra climbing wall, and no other official site for it was found.",
+    "candidate": "https://www.upa.pt/"
+  },
+  {
+    "lat": 37.14661226641366,
+    "lon": -8.482054452243313,
+    "name": "Vertical Escalada",
+    "country": "PT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "verticalescalada.pt serves a 6 KB stub with no address, town or contact detail, so nothing on it can be matched to this venue.",
+    "candidate": "https://verticalescalada.pt/"
+  },
+  {
+    "lat": 55.5870295,
+    "lon": 13.0544454,
+    "name": "Klättercentret Malmö",
+    "country": "SE",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "Upstream lists two Klättercentret Malmö entries 1.8 km apart; the operator has one Malmö hall, at Kopparbergsgatan 8, which the other entry already carries. Which venue this coordinate means is not decidable."
+  },
+  {
+    "lat": 57.6409058,
+    "lon": 11.9426884,
+    "name": "Klattercentret Sisjon",
+    "country": "SE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The coordinate is in Sisjön, Askim, 15.7 km from the operator's only Göteborg-area hall in Partille, and Klättercentret's current list has no Sisjön location, so no official page describes this venue.",
+    "candidate": "https://klattercentret.se/"
+  },
+  {
+    "lat": 38.97134,
+    "lon": -95.23664,
+    "name": "Climb Lawrence",
+    "country": "US",
+    "status": "closed",
+    "checked": "2026-08-22",
+    "reason": "The gym's own site now shows only a We Are Closed notice and a thank-you message, so there is no page describing an operating venue.",
+    "candidate": "https://climblawrence.com/"
+  },
+  {
+    "lat": 32.800198,
+    "lon": -96.837839,
+    "name": "Dallas Bouldering Project",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The hall is not in Bouldering Project's location list, and dallasboulderingproject.com serves a 114-byte empty body, so no official page describes this venue.",
+    "candidate": "https://dallasboulderingproject.com/"
+  },
+  {
+    "lat": 37.96487,
+    "lon": -122.05327,
+    "name": "Diablo Rock Gym",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "touchstoneclimbing.com answers 403 and diablorockgym.com serves an incomplete certificate chain, so no page could be opened and read.",
+    "candidate": "https://touchstoneclimbing.com/"
+  },
+  {
+    "lat": 37.7567,
+    "lon": -122.38767,
+    "name": "Dogpatch Boulders",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "touchstoneclimbing.com answers 403 to every automated request and the gym has no separate domain that resolves, so no page could be opened and read.",
+    "candidate": "https://touchstoneclimbing.com/dogpatch-boulders/"
+  },
+  {
+    "lat": 42.09078035751713,
+    "lon": -88.0244765595274,
+    "name": "First Ascent Arlington Heights",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "faclimbing.com runs a country-blocker plugin that answers 403, so no First Ascent page could be opened and read.",
+    "candidate": "https://faclimbing.com/"
+  },
+  {
+    "lat": 41.88408,
+    "lon": -87.62865,
+    "name": "First Ascent Block 37",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "faclimbing.com runs a country-blocker plugin that answers 403, so no First Ascent page could be opened and read.",
+    "candidate": "https://faclimbing.com/"
+  },
+  {
+    "lat": 40.43301,
+    "lon": -80.00449,
+    "name": "First Ascent Climbing Station Square",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "faclimbing.com runs a country-blocker plugin that answers 403, so no First Ascent page could be opened and read.",
+    "candidate": "https://faclimbing.com/"
+  },
+  {
+    "lat": 41.88035,
+    "lon": -87.65213,
+    "name": "First Ascent West Loop",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "faclimbing.com runs a country-blocker plugin that answers 403, so no First Ascent page could be opened and read.",
+    "candidate": "https://faclimbing.com/"
+  },
+  {
+    "lat": 40.70857,
+    "lon": -74.06459,
+    "name": "Gravity Vault - Jersey City",
+    "country": "US",
+    "status": "closed",
+    "checked": "2026-08-22",
+    "reason": "The operator's own location page states that The Gravity Vault Jersey City is permanently closed; upstream lists the hall twice, 190 m apart.",
+    "candidate": "https://gravityvault.com/locations/jersey-city-nj"
+  },
+  {
+    "lat": 37.81005,
+    "lon": -122.27017,
+    "name": "Great Western Power Company",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "touchstoneclimbing.com answers 403 to every automated request and greatwesternpower.com does not resolve, so no page could be opened and read.",
+    "candidate": "https://touchstoneclimbing.com/"
+  },
+  {
+    "lat": 35.2270869,
+    "lon": -80.8431267,
+    "name": "Inner Peaks Climbing",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "innerpeaks.com answers 403 to every automated request, so no page could be opened and read.",
+    "candidate": "https://www.innerpeaks.com/"
+  },
+  {
+    "lat": 35.24204,
+    "lon": -80.82522,
+    "name": "Inner Peaks NoDa",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "innerpeaks.com answers 403 to every automated request, so no page could be opened and read.",
+    "candidate": "https://www.innerpeaks.com/"
+  },
+  {
+    "lat": 34.88329,
+    "lon": -82.60758,
+    "name": "ProjectROCK Easley",
+    "country": "US",
+    "status": "closed",
+    "checked": "2026-08-22",
+    "reason": "projectrockeasley.com redirects to the operator's projectrock.com/easley/ page, which states that the Easley location has closed.",
+    "candidate": "https://projectrock.com/easley/"
+  },
+  {
+    "lat": 38.801099,
+    "lon": -77.1263623,
+    "name": "Sportrock",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "Sportrock runs two adjacent Alexandria buildings 31 m apart, each with its own location page — 5308 Eisenhower Ave and the 5314 Performance Institute. This unnamed entry sits between them and the operator's board listings contradict the upstream ones, so it cannot be tied to one page.",
+    "candidate": "https://www.sportrock.com/alexandria"
+  },
+  {
+    "lat": 40.6255415,
+    "lon": -103.207709,
+    "name": "Sportrock - Sterling",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The coordinate is in Sterling, Colorado, about 2400 km from Sportrock's Sterling, Virginia centre; upstream has placed this MoonBoard in the wrong Sterling, so no venue can be verified here.",
+    "candidate": "https://www.sportrock.com/sterling"
+  },
+  {
+    "lat": 37.85118,
+    "lon": -122.29303,
+    "name": "Team Touchstone",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "touchstoneclimbing.com answers 403 to every automated request, so no page could be opened and read for this Berkeley team facility.",
+    "candidate": "https://touchstoneclimbing.com/"
+  },
+  {
+    "lat": 25.63776,
+    "lon": -80.42057,
+    "name": "The Edge Rock Gym Miami",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The Edge Rock Gym's own site lists two Florida gyms, Jacksonville and Melbourne, and no Miami location, so no official page describes this venue.",
+    "candidate": "https://theedgerockgym.com/home/"
+  },
+  {
+    "lat": 40.70779,
+    "lon": -74.06659,
+    "name": "The Gravity Vault Jersey City",
+    "country": "US",
+    "status": "closed",
+    "checked": "2026-08-22",
+    "reason": "The operator's own location page states that The Gravity Vault Jersey City is permanently closed, and Jersey City no longer appears in its location list.",
+    "candidate": "https://gravityvault.com/locations/jersey-city-nj"
+  },
+  {
+    "lat": 37.85155,
+    "lon": -122.2926806,
+    "name": "Touchstone Team Training Center",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "touchstoneclimbing.com answers 403 to every automated request; upstream lists this team training centre twice, 41 m apart.",
+    "candidate": "https://touchstoneclimbing.com/"
+  },
+  {
+    "lat": 47.8209301,
+    "lon": -122.3151314,
+    "name": "Vertical World",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "The coordinate sits on Pacific Highway in Lynnwood, roughly 7.5 km from both Vertical World North and the operator's Uplift gym in Shoreline, and upstream records only the bare operator name, so it cannot be assigned to one gym.",
+    "candidate": "https://verticalworld.com/"
+  },
+  {
+    "lat": 40.90139,
+    "lon": -77.36817,
+    "name": "Woodward PA",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "woodwardpa.com is Camp Woodward's own site and the coordinate is at its Sports Camp Drive address, but the site prints no street line and never mentions climbing, so only the name and town match.",
+    "candidate": "https://woodwardpa.com/"
+  }
+]

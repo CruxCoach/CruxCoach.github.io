@@ -259,6 +259,44 @@ curated venue identifiers (name + coordinates + boolean) live in this repo.
   the resulting JSON onto `tools/wellpass.json`.
 - Stats land in `boards.meta.json` under `wellpass`.
 
+## Venue website links
+
+`tools/venue-links.json` attaches one manually verified official website to a
+venue, at venue level rather than per board. `tools/venue-links-research.json`
+records every venue that was checked and got no link, with a reason. The full
+policy, the record schema and the decision note for the link classes that were
+*not* built live in [`tools/VENUE-LINKS.md`](VENUE-LINKS.md).
+
+```bash
+# Validate the curated file against the committed venue data (exits non-zero on
+# anything the build would refuse). Run before committing a batch.
+node tools/venue-links-report.mjs
+
+# Worklist for the next batch.
+node tools/venue-links-report.mjs --todo DE,AT,CH --limit 40 --with-address
+
+# Re-apply the venue-level overlays and re-render both directories, without
+# pulling a new upstream dataset into the same commit.
+node tools/build-boards-data.mjs --overlays-only
+```
+
+- **Matching**: `venueKey()` at 4 decimals like the other overlays, then a
+  proximity rematch within 250 m that also requires the country and the name to
+  agree. Anything ambiguous drops the link and logs it — a link on the wrong gym
+  is worse than no link, because a visitor cannot tell it is wrong.
+- **Never on private venues**: `classifyVenue()` refuses `commercial: false`
+  MoonBoard-only venues outright.
+- **URL policy**: HTTPS only, no credentials, no IP literals, no social or
+  aggregator hosts, tracking parameters and fragments stripped. Stored already
+  canonical, so a review diff shows the link a visitor actually gets.
+- **Shared URLs**: two venues pointing at one page is normal — upstream splits a
+  gym into a Kilter entry and a MoonBoard entry metres apart. Past
+  `SHARED_URL_SITE_LIMIT_M` (1 km) the build adds a second, louder note, because
+  at that distance it is more likely two of an operator's gyms and the records
+  should say `official-chain-page`. It is an advisory: only a curator can tell
+  that from a drifted upstream coordinate.
+- Counts land in `boards.meta.json` under `venue_links`.
+
 ## Place index (`build-cities-data.mjs`)
 
 ```bash
