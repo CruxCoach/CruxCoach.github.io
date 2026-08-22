@@ -233,10 +233,10 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 56 |
-| Verified website links | 51 |
-| Rejected / ambiguous / private / closed | 5 |
-| Countries covered | 1 |
+| Venues reviewed (linked + research entries) | 104 |
+| Verified website links | 95 |
+| Rejected / ambiguous / private / closed | 9 |
+| Countries covered | 2 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -244,8 +244,9 @@ Per-country coverage of eligible (public/commercial) venues:
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
 | CH | 51 | 56 | 91% |
+| AT | 44 | 48 | 92% |
 
-- **Last completed batch:** Switzerland — 51 links, 5 logged as not linkable
-  (1 ambiguous, 4 unverified: no official site found, or the site refuses our
-  requests).
-- **Next batch:** Austria (48 eligible), then Germany (201 eligible).
+- **Last completed batch:** Austria — 44 links, 4 logged as not linkable (one
+  operator site refuses our requests, one venue sits at an association office
+  with no documented wall, two have no findable official site).
+- **Next batch:** Germany (201 eligible).
