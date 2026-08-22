@@ -233,10 +233,10 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 277 |
-| Verified website links | 250 |
-| Rejected / ambiguous / private / closed | 27 |
-| Countries covered | 3 |
+| Venues reviewed (linked + research entries) | 299 |
+| Verified website links | 271 |
+| Rejected / ambiguous / private / closed | 28 |
+| Countries covered | 4 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -246,10 +246,18 @@ Per-country coverage of eligible (public/commercial) venues:
 | DE | 155 | 201 | 77% |
 | CH | 51 | 56 | 91% |
 | AT | 44 | 48 | 92% |
+| GB | 21 | 102 | 21% |
 
-- **Last completed batch:** Germany, third pass — the paired MoonBoard entries
-  that belong to gyms already in the dataset. DACH as a whole is at 82%.
-- **Next batch:** the rest of Europe, largest markets first. What remains in DACH
-  is the long tail: MoonBoard-only club and school setups whose upstream
-  coordinates are too imprecise to pin down, and a dozen operators whose sites
-  refuse automated requests.
+Research-log reasons so far: 20 `unverified` (17 of them operator sites that
+answer 403/500 or serve a certificate for the wrong hostname, so no page could
+be opened and read), 5 with no findable official site, 2 `ambiguous`, 1
+`social-only`.
+
+- **Last completed batch:** United Kingdom, first pass — the multi-site operators
+  (Awesome Walls, The Climbing Academy, Depot Climbing, The Climbing Hangar) and
+  the larger independents.
+- **Next batch:** the rest of the UK, then the Netherlands, France, Italy, Spain
+  and the Nordics, largest markets first. What remains in DACH is the long tail:
+  MoonBoard-only club and school setups whose upstream coordinates are too
+  imprecise to pin down, and a dozen operators whose sites refuse automated
+  requests.
