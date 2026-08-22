@@ -242,8 +242,8 @@ are maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (linked + research entries) | 1115 |
-| Verified website links | 1000 |
-| Rejected / ambiguous / private / closed | 115 |
+| Verified website links | 1001 |
+| Rejected / ambiguous / private / closed | 114 |
 | Countries covered | 22 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -512,4 +512,11 @@ than the last 500 did. What would change that, roughly in order of value:
    over months rather than hours would do better than this session managed.
 3. **Reading the remaining research log again.** A third of it is sites that were
    down, blocked or misconfigured on the day. That set only shrinks by being
-   re-read, which is cheap.
+   re-read, which is cheap — a second sweep this session recovered ten venues,
+   the last of them Sunderland Wall.
+
+   Read those reasons carefully rather than at face value. Five of the entries
+   blamed on a 403 or 429 came back with the same status from several unrelated
+   hosts in the same moment, which points at a limit on the fetching side rather
+   than anything about the operator. Those reasons now say so, because "the site
+   refuses us" and "we were being throttled" call for very different next steps.

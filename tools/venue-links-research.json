@@ -290,7 +290,7 @@
     "country": "DE",
     "status": "unverified",
     "checked": "2026-08-22",
-    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand. A later sweep got 429 from this host and from several unrelated ones at the same moment, so the refusal is probably on the fetching side rather than the operator's — worth retrying from elsewhere before concluding anything.",
     "candidate": "https://dynochrom.com/"
   },
   {
@@ -329,7 +329,7 @@
     "country": "DE",
     "status": "unverified",
     "checked": "2026-08-22",
-    "reason": "Upstream still calls this Stuntwerk Kirchheim; the hall now trades as TOP Boulder, whose site answers HTTP 403, so the identification could not be confirmed first-hand.",
+    "reason": "Upstream still calls this Stuntwerk Kirchheim; the hall now trades as TOP Boulder, whose site answers HTTP 403, so the identification could not be confirmed first-hand. A later sweep got 429 from this host and from several unrelated ones at the same moment, so the refusal is probably on the fetching side rather than the operator's — worth retrying from elsewhere before concluding anything.",
     "candidate": "https://topboulder-kirchheim.de/"
   },
   {
@@ -339,7 +339,7 @@
     "country": "DE",
     "status": "unverified",
     "checked": "2026-08-22",
-    "reason": "The hall's own site answers HTTP 403 and the operator's location index gives no address for it, so nothing on an official page could be matched against this venue.",
+    "reason": "The hall's own site answers HTTP 403 and the operator's location index gives no address for it, so nothing on an official page could be matched against this venue. A later sweep got 429 from this host and from several unrelated ones at the same moment, so the refusal is probably on the fetching side rather than the operator's — worth retrying from elsewhere before concluding anything.",
     "candidate": "https://topboulder-kirchheim.de/"
   },
   {
@@ -447,7 +447,7 @@
     "country": "FR",
     "status": "unverified",
     "checked": "2026-08-22",
-    "reason": "auperchoir.fr answers 403 or 429 to every automated request, so the page could not be opened and read; no other official source for this hall was found.",
+    "reason": "auperchoir.fr answers 403 or 429 to every automated request, so the page could not be opened and read; no other official source for this hall was found. Several unrelated hosts returned 429 in the same sweep, so the limit is probably on the fetching side rather than the operator's — worth retrying from elsewhere before concluding anything about the site.",
     "candidate": "https://auperchoir.fr/"
   },
   {
@@ -627,16 +627,6 @@
     "checked": "2026-08-22",
     "reason": "The operator's page answers HTTP 401 to our requests, so it could not be opened and read first-hand.",
     "candidate": "https://cavca.org.uk/street-rocks/"
-  },
-  {
-    "lat": 54.91452529999999,
-    "lon": -1.4158507,
-    "name": "Sunderland Wall",
-    "country": "GB",
-    "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The centre's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
-    "candidate": "https://sunderlandwall.com/"
   },
   {
     "lat": 51.42122,
