@@ -4410,6 +4410,21 @@
     ]
   },
   {
+    "lat": 41.39718,
+    "lon": 2.18866,
+    "name": "Bloc District Barcelona",
+    "country": "ES",
+    "website": "https://blocdistrict.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 40.33956,
     "lon": -3.84857,
     "name": "Climbat X-Madrid",
@@ -4424,6 +4439,23 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 38.33439,
+    "lon": -0.51639,
+    "name": "Climbpro Center",
+    "country": "ES",
+    "website": "https://www.climbprocenter.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "The centre gives Calle Ebanistería 36 where upstream has number 8; it resolves to within 65 m of this venue."
   },
   {
     "lat": 37.21734,
@@ -4456,6 +4488,22 @@
       "board-mention"
     ],
     "note": "Same physical gym as the Kilter entry ~20 m away; upstream lists the MoonBoard separately, and the site names both boards."
+  },
+  {
+    "lat": 42.84629199344788,
+    "lon": -1.6889318183199686,
+    "name": "Rocópolis",
+    "country": "ES",
+    "website": "https://www.rocopolis.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
   },
   {
     "lat": 41.41643,
@@ -4552,6 +4600,22 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 43.30261,
+    "lon": -1.94377,
+    "name": "The Factory Boulder",
+    "country": "ES",
+    "website": "https://www.thefactoryboulder.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gym gives Ursalto kalea 4 where upstream records only a pavilion number; it resolves to within 80 m of this venue."
   },
   {
     "lat": 43.33397,
