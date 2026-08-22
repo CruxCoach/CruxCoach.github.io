@@ -807,6 +807,36 @@
     "candidate": "https://monk.nl/amsterdam/"
   },
   {
+    "lat": 68.44631,
+    "lon": 17.4505,
+    "name": "68° Nord Buldrehall",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The only candidate domain, narvikbuldrehall.no, does not resolve in DNS, so no page could be opened for this hall.",
+    "candidate": "https://narvikbuldrehall.no/"
+  },
+  {
+    "lat": 68.4463676,
+    "lon": 17.4498911,
+    "name": "68Nord Buldrehall",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The only candidate domain, narvikbuldrehall.no, does not resolve in DNS; upstream lists this MoonBoard 24 m from its Kilter entry.",
+    "candidate": "https://narvikbuldrehall.no/"
+  },
+  {
+    "lat": 60.38464,
+    "lon": 5.31154,
+    "name": "Rúngne Buldr",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "gneisbuldring.no answers 423 Locked, and the nearby OSM object carries a different operator's name, so this venue could not be tied to an official page.",
+    "candidate": "https://gneisbuldring.no/"
+  },
+  {
     "lat": 38.7222524,
     "lon": -9.1393366,
     "name": "Crux - Climbing Center",

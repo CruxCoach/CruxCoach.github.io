@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 918 |
-| Verified website links | 812 |
-| Rejected / ambiguous / private / closed | 106 |
+| Venues reviewed (linked + research entries) | 927 |
+| Verified website links | 818 |
+| Rejected / ambiguous / private / closed | 109 |
 | Countries covered | 20 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -254,7 +254,7 @@ Per-country coverage of eligible (public/commercial) venues:
 | CA | 40 | 132 | 30% |
 | BE | 27 | 36 | 75% |
 | AU | 25 | 83 | 30% |
-| NO | 16 | 81 | 20% |
+| NO | 22 | 81 | 27% |
 | IT | 15 | 72 | 21% |
 | DK | 13 | 27 | 48% |
 | SE | 7 | 37 | 19% |
@@ -264,15 +264,15 @@ Per-country coverage of eligible (public/commercial) venues:
 | LU | 3 | 6 | 50% |
 | PT | 2 | 15 | 13% |
 
-Research-log reasons so far: 90 `unverified` (62 of them operator sites that
+Research-log reasons so far: 93 `unverified` (65 of them operator sites that
 answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
 wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
 opened and read), 9 `ambiguous`, 4 `http-only`, 3 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** Canada's multi-site operators — Calgary Climbing
-  Centre, Klimat, Rose Bloc, BoulderHouse, WIP, Climber's Rock and Campus
-  Escalade — plus Madeira. Canada 18% → 30%.
+- **Last completed batch:** Norway off its Overpass run — Kraft Narvik, Gneis
+  Lilleaker, Oslo Klatresenter, Playground, Buldreterminalen and Grip Leangen.
+  The same run over Italy returned no candidates at all.
 - **Next batch:** Canada off the Overpass run now in flight, then Poland and
   Portugal, which still have had no discovery pass.
 

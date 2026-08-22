@@ -9367,6 +9367,51 @@
     ]
   },
   {
+    "lat": 69.66855,
+    "lon": 18.92236,
+    "name": "Buldreterminalen AS",
+    "country": "NO",
+    "website": "https://www.buldreterminalen.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 59.91758,
+    "lon": 10.63072,
+    "name": "Gneis Lilleaker",
+    "country": "NO",
+    "website": "https://gneislilleaker.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 63.43269,
+    "lon": 10.4664,
+    "name": "Grip Klatring Leangen",
+    "country": "NO",
+    "website": "https://gripklatring.no/vaare-sentre/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The operator gives its two Trondheim centres one page; this is Leangen at Travbanevegen 7. The page gives postcode 7061 and upstream 7044."
+  },
+  {
     "lat": 59.28207,
     "lon": 10.32679,
     "name": "Høyt Under Taket Klatresenter Tønsberg",
@@ -9522,6 +9567,51 @@
       "location-page"
     ],
     "note": "The page prints Peter Møllers vei 4, 0585 Oslo; upstream drops the leading zero from the postcode."
+  },
+  {
+    "lat": 68.43582769999999,
+    "lon": 17.4347111,
+    "name": "Kraft Treningsenter Narvik",
+    "country": "NO",
+    "website": "https://narvik.kraftsportssenter.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "street-address"
+    ],
+    "note": "The operator runs two Narvik sites; the coordinate is 56 m from Kraft Narvik at Lodve Langes gate 2 and 1.4 km from Kraft Stadion."
+  },
+  {
+    "lat": 59.8679,
+    "lon": 10.84182,
+    "name": "Oslo Klatresenter",
+    "country": "NO",
+    "website": "https://www.osloklatresenter.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The site gives the postcode as 0694; upstream carries 00694."
+  },
+  {
+    "lat": 58.89624,
+    "lon": 5.7014,
+    "name": "Playground",
+    "country": "NO",
+    "website": "https://playground.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
   },
   {
     "lat": 59.27998270000001,
