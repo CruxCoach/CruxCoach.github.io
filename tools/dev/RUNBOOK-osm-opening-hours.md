@@ -99,6 +99,12 @@ node tools/dev/osm-candidates.mjs --name "boulderwelt"
 node tools/dev/osm-candidates.mjs --key 48.1070|11.5457
 ```
 
+It reads the public Overpass API, which is a shared resource: keep the batches
+small, leave the delays alone, and expect 429 (slot exhausted) and 504 (query
+timed out) under load — both are waited out automatically. If the instance
+stops answering entirely, `--endpoint https://…/api/interpreter` points it at a
+mirror. None of this touches the refresh path, which reads the OSM API directly.
+
 The helper prints candidates with the evidence needed to decide — name,
 distance, classifying tags, address, whether hours are tagged — and writes
 nothing. Venues already decided (accepted *or* rejected) are skipped, and

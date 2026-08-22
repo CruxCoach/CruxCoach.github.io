@@ -414,10 +414,12 @@ async function main() {
     nearest_city_max_km: NEAREST_CITY_MAX_KM,
     overrides: overrideStats,
     wellpass: wellpassStats,
-    // A pointer, not a copy: the OSM-derived values and their ODbL notice
-    // live only in boards/data/osm-opening-hours.json.
+    // A pointer, not a copy: the OSM-derived values, their counts and their
+    // ODbL notice live only in boards/data/osm-opening-hours.json. No number
+    // from there is mirrored here — this file is rewritten on a different
+    // schedule, so a copied count would go stale without anyone noticing.
     osm_opening_hours: hours
-      ? { file: 'boards/data/osm-opening-hours.json', license: hours.source.license, displayed: hours.index.size }
+      ? { file: 'boards/data/osm-opening-hours.json', license: hours.source.license }
       : null,
     per_board: perBoard,
     per_source: perSource,

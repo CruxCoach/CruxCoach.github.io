@@ -101,10 +101,14 @@ five of the latter are fixable in OpenStreetMap rather than here.
 In rough order of value per unit of attention:
 
 1. **Poland, the Nordics, Canada, Australia.** Nothing curated in any of them.
-   The batch stopped there only because Overpass started answering 429 — it is
-   a rate limit, not a dead end. `node tools/dev/osm-candidates.mjs --country
-   PL --limit 5` picks up where it left off; already-decided venues are skipped
-   automatically. Go gently: a few countries per session, well spaced.
+   The batch stopped there because the public Overpass instance first answered
+   429 and then stopped accepting connections altogether — a rate limit and an
+   outage, not a dead end. `node tools/dev/osm-candidates.mjs --country PL
+   --limit 5` picks up where it left off; already-decided venues are skipped
+   automatically, and `--endpoint` points it at a mirror when the main instance
+   is unwell. Go gently: a few countries per session, well spaced. Note that
+   this affects curation only — the refresh command reads the OSM API directly
+   and does not depend on Overpass at all.
 2. **Finish the large German and Austrian chains** — Boulderwelt Regensburg,
    München Ost/West, the remaining DAV centres. Same operator, same tagging
    conventions, high hit rate.
