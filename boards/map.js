@@ -45,6 +45,8 @@
       loadError: 'Could not load map data ({err}).',
       unnamed: '(unnamed)',
       addressLabel: 'Address:',
+      websiteLabel: 'Official website:',
+      websiteChecked: 'checked {date}',
       instagramLabel: 'Instagram:',
       userLabel: 'User:',
       notOnWellpass: 'Not on egym Wellpass',
@@ -121,6 +123,8 @@
       loadError: 'Kartendaten konnten nicht geladen werden ({err}).',
       unnamed: '(ohne Namen)',
       addressLabel: 'Adresse:',
+      websiteLabel: 'Offizielle Website:',
+      websiteChecked: 'geprüft {date}',
       instagramLabel: 'Instagram:',
       userLabel: 'Nutzer:',
       notOnWellpass: 'Nicht bei egym Wellpass',
@@ -431,6 +435,39 @@
     return '';
   }
 
+  // Curated official-website links (tools/venue-links.json) arrive through
+  // boards.geojson. The curation pipeline already refuses anything that is not
+  // a credential-free https URL on a real host, but the map re-checks before
+  // building an href: this value came out of a fetched file, and a popup is
+  // exactly where a bad one would do its damage. Anything unexpected renders
+  // as no link at all rather than as a link somewhere unexpected.
+  function safeSiteUrl(raw) {
+    if (typeof raw !== 'string' || raw.length > 300) return null;
+    var u;
+    try { u = new URL(raw); } catch (e) { return null; }
+    if (u.protocol !== 'https:') return null;
+    if (u.username || u.password || u.port) return null;
+    if (!/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/.test(u.hostname)) return null;
+    return u;
+  }
+
+  // ISO date as stored, or '' — never reformatted, so a malformed value cannot
+  // turn into a confident-looking wrong date.
+  function checkedDate(raw) {
+    return (typeof raw === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(raw)) ? raw : '';
+  }
+
+  function renderSiteLine(props) {
+    var url = safeSiteUrl(props.website);
+    if (!url) return '';
+    var checked = checkedDate(props.website_checked);
+    return '<div class="popup-site"><span class="label">' + T.websiteLabel + '</span> ' +
+      '<a href="' + escapeHtml(url.href) + '" target="_blank" rel="noopener" referrerpolicy="origin">' +
+      escapeHtml(url.hostname.replace(/^www\./, '')) + '</a>' +
+      (checked ? '<span class="checked">' + escapeHtml(tf(T.websiteChecked, { date: checked })) + '</span>' : '') +
+      '</div>';
+  }
+
   function buildPopupHtml(lat, lon, props) {
     var subtitleParts = [];
     if (props.city) subtitleParts.push(escapeHtml(props.city));
@@ -461,6 +498,7 @@
       '<div class="popup">' +
         '<h4>' + escapeHtml(props.name || T.unnamed) + '</h4>' +
         subtitle +
+        renderSiteLine(props) +
         wellpassLine +
         '<div class="popup-boards">' + sections + '</div>' +
         '<div class="popup-foot">' +
@@ -575,6 +613,7 @@
         .setContent(buildPopupHtml(rec.lat, rec.lon, {
           name: rec.name, city: rec.city, country: rec.country,
           wellpass: rec.wellpass, boards: rec.boards,
+          website: rec.website, website_checked: rec.websiteChecked,
         }))
         .openOn(map);
     }
@@ -1648,6 +1687,8 @@
           country: country,            // ISO code — drives the country filter
           countryName: cName,          // localized name — for search + display
           wellpass: wellpass,
+          website: props.website || null,
+          websiteChecked: props.website_checked || null,
           nName: normalizeText(venueName),
           nCity: props.city ? normalizeText(props.city) : '',
           nCountry: cName ? normalizeText(cName) : '',

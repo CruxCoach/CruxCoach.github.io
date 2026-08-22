@@ -371,7 +371,7 @@ test('privacy notices distinguish private analytics operations from public app s
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v34';/);
+  assert.match(source, /var VERSION = 'cc-v35';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
   // The share QR names this page and nothing else, so a visitor who scans it

@@ -19,6 +19,8 @@
 // nightly cron never makes a no-op commit. Volatile metadata (build time)
 // stays in boards.meta.json, which the page already links to.
 
+import { isCanonicalVenueUrl } from './venue-links.mjs';
+
 // board id → human label, in the project's preferred spelling.
 export const BOARD_LABELS = {
   kilter: 'Kilter Board',
@@ -69,6 +71,8 @@ const STRINGS = {
       search by location and filter; this page lists everything as plain text.`,
     jumpToCountry: 'Jump to a country',
     nearCity: (city) => `near ${city}`,
+    officialSiteAria: (venue) => `${venue} — official website`,
+    linkedVenues: (n) => `<strong>${n}</strong> of them link to a manually verified official website.`,
     backToMap: '← Back to the interactive map',
     footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Data CC-BY-4.0. Hosted by Codeberg e.V.',
     footerLinks: '<a href="/support.html">Support</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a>',
@@ -102,6 +106,8 @@ const STRINGS = {
       nach Ort zu suchen und zu filtern; diese Seite listet alles als reinen Text.`,
     jumpToCountry: 'Zum Land springen',
     nearCity: (city) => `bei ${city}`,
+    officialSiteAria: (venue) => `${venue} — offizielle Website`,
+    linkedVenues: (n) => `Bei <strong>${n}</strong> davon ist eine manuell geprüfte offizielle Website verlinkt.`,
     backToMap: '← Zurück zur interaktiven Karte',
     footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Daten CC-BY-4.0. Gehostet bei Codeberg e.V.',
     footerLinks: '<a href="/de/support.html">Unterstützen</a> · <a href="/de/imprint.html">Impressum</a> · <a href="/de/privacy.html">Datenschutz</a>',
@@ -161,6 +167,13 @@ function esc(s) {
     .replace(/"/g, '&quot;');
 }
 
+// esc() is enough for text and for double-quoted attributes; escAttr()
+// additionally neutralizes the apostrophe so an attribute stays inert even if
+// someone later switches a quote style.
+function escAttr(s) {
+  return esc(s).replace(/'/g, '&#39;');
+}
+
 function fmt(n, lang) {
   return n.toLocaleString(lang);
 }
@@ -210,13 +223,53 @@ export function renderStatsBlock(features, meta, lang = 'en') {
   const S = STRINGS[lang];
   const P = PAGES[lang];
   const nCountries = countryCodes(features).size;
+  const nLinked = linkedVenueCount(features);
+  const linked = nLinked > 0 ? `
+    <p>${S.linkedVenues(fmt(nLinked, lang))}</p>` : '';
   return `<p>
       ${S.statsIntro(fmt(meta.venue_features, lang), fmt(nCountries, lang))}
     </p>
-    ${boardCountsTable(meta, lang)}
+    ${boardCountsTable(meta, lang)}${linked}
     <p>
       ${S.listTeaser(P.listHref, fmt(meta.venue_features, lang))}
     </p>`;
+}
+
+// Display form of a curated official-website URL: the host without a leading
+// "www.". The full URL lives in the href; the visible text stays short enough
+// to sit at the end of a directory line without wrapping it.
+function siteHost(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}
+
+// Number of venues carrying a curated official-website link.
+function linkedVenueCount(features) {
+  let n = 0;
+  for (const f of features) {
+    if (typeof f.properties.website === 'string' && f.properties.website) n++;
+  }
+  return n;
+}
+
+// The curated official-website link for one venue, or '' when it has none.
+//
+// The URL reached the geojson through tools/venue-links.mjs, which already
+// refused anything that is not a credential-free https URL on a real host —
+// but it is re-checked and escaped here anyway. A renderer that trusts its
+// input is one bad merge away from writing an attacker's href into 2,800
+// directory entries, and this is the last place that can still say no.
+function venueSiteLink(props, lang) {
+  const url = props.website;
+  if (typeof url !== 'string' || !isCanonicalVenueUrl(url)) return '';
+  const host = siteHost(url);
+  if (!host) return '';
+  const label = STRINGS[lang].officialSiteAria(props.name || '');
+  return ` <a class="vsite" href="${esc(url)}" target="_blank" rel="noopener"`
+    + ` referrerpolicy="origin" aria-label="${escAttr(label)}">${esc(host)}</a>`;
 }
 
 // board id badges for a single venue, e.g. "Kilter Board · MoonBoard".
@@ -258,6 +311,10 @@ export function renderListPage(features, meta, lang = 'en') {
   const groups = groupByCountry(features, lang);
   const nCountries = fmt(countryCodes(features).size, lang);
   const total = fmt(meta.venue_features, lang);
+  const nLinked = linkedVenueCount(features);
+  const linkedNote = nLinked > 0
+    ? `\n    <p class="linked-note">${S.linkedVenues(fmt(nLinked, lang))}</p>`
+    : '';
 
   const toc = groups
     .map(g => `<li><a href="#${anchorFor(g.code)}">${esc(g.name)}</a> <span class="muted">(${fmt(g.venues.length, lang)})</span></li>`)
@@ -279,7 +336,7 @@ export function renderListPage(features, meta, lang = 'en') {
       const boards = venueBoards(p)
         .map(b => `<span class="bt">${esc(b)}</span>`)
         .join(' ');
-      return `        <li><strong>${esc(p.name)}</strong>${city} ${boards}</li>`;
+      return `        <li><strong>${esc(p.name)}</strong>${city} ${boards}${venueSiteLink(p, lang)}</li>`;
     }).join('\n');
     return `    <section aria-labelledby="${anchorFor(g.code)}">
       <h2 id="${anchorFor(g.code)}">${esc(g.name)} <span class="muted">(${fmt(g.venues.length, lang)})</span></h2>
@@ -404,6 +461,12 @@ ${LIST_HREFLANG}
   ul.venues li { padding: 0.35rem 0; border-bottom: 1px solid var(--rule); color: var(--fg-soft); }
   ul.venues strong { color: var(--fg); font-weight: 600; }
   .bt { display: inline-block; font-size: 0.72rem; color: var(--fg-mute); border: 1px solid var(--rule); border-radius: 4px; padding: 0.05em 0.4em; margin-left: 0.25rem; white-space: nowrap; }
+  /* Curated official-website link. Quieter than a body link — it repeats on
+     every line that has one — but still unmistakably a link. */
+  a.vsite { font-size: 0.8rem; color: var(--fg-soft); border-bottom: 1px dotted var(--rule); white-space: nowrap; }
+  a.vsite:hover, a.vsite:focus { color: var(--accent); border-bottom-color: var(--accent); }
+  a.vsite::before { content: "\\2197\\a0"; color: var(--fg-mute); }
+  .linked-note { color: var(--fg-soft); font-size: 0.95rem; }
   .backlink { display: inline-block; margin: 1.5rem 0; }
   footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; margin-top: 2rem; color: var(--fg-mute); font-size: 0.85rem; }
   footer .container { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
@@ -429,7 +492,7 @@ ${LIST_HREFLANG}
       ${S.lede(P.mapHref, total, nCountries, esc(perBoardSentence))}
     </p>
 
-    ${boardCountsTable(meta, lang)}
+    ${boardCountsTable(meta, lang)}${linkedNote}
 
     <h2 style="border-top:0;margin-top:1.5rem;padding-top:0">${S.jumpToCountry}</h2>
     <ul class="toc">

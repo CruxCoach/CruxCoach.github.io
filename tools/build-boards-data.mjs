@@ -26,6 +26,7 @@ import { dirname, join } from 'node:path';
 import * as hangtime from './sources/hangtime.mjs';
 import { renderListPage, renderStatsBlock, injectBetweenMarkers } from './render-static.mjs';
 import { findNearestCity, loadCityIndex } from './nearest-city.mjs';
+import { applyVenueLinks, loadVenueLinks } from './venue-links.mjs';
 
 const COUNTRY_CODER_PACKAGE = '@rapideditor/country-coder';
 const COUNTRY_CACHE = join(tmpdir(), 'cruxcoach-build-deps');
@@ -76,6 +77,7 @@ const OVERRIDES_FILE = join(REPO_ROOT, 'tools', 'overrides.json');
 // an hour's drive away.
 const NEAREST_CITY_MAX_KM = 25;
 const WELLPASS_FILE = join(REPO_ROOT, 'tools', 'wellpass.json');
+const VENUE_LINKS_FILE = join(REPO_ROOT, 'tools', 'venue-links.json');
 
 // 4-decimal precision ≈ 11 m at the equator. Tight enough to keep
 // neighbouring gyms separate, loose enough to collapse multi-board
@@ -223,7 +225,7 @@ function applyWellpass(features) {
   return stats;
 }
 
-async function main() {
+async function buildFromSources() {
   const allEntries = [];
   const sourceMeta = {};
 
@@ -346,14 +348,7 @@ async function main() {
     if (seenBoards.size > 1) venuesWithMulti++;
   }
 
-  const wellpassStats = applyWellpass(features);
-  process.stderr.write(
-    `[build] wellpass: ${wellpassStats.applied} applied, ` +
-    `${wellpassStats.unmatched} unmatched (of ${wellpassStats.defined} defined)\n`,
-  );
-
-  const collection = { type: 'FeatureCollection', features };
-  writeFileSync(OUT_GEOJSON, JSON.stringify(collection) + '\n');
+  const overlayStats = applyVenueOverlays(features);
 
   const meta = {
     generated_at: new Date().toISOString(),
@@ -368,11 +363,53 @@ async function main() {
     city_missing: cityMissing,
     nearest_city_max_km: NEAREST_CITY_MAX_KM,
     overrides: overrideStats,
-    wellpass: wellpassStats,
+    wellpass: overlayStats.wellpass,
+    venue_links: overlayStats.venue_links,
     per_board: perBoard,
     per_source: perSource,
     sources: sourceMeta,
   };
+
+  writeOutputs(features, meta);
+
+  process.stderr.write(`[build] wrote ${features.length} venues (from ${allEntries.length} raw entries) → ${OUT_GEOJSON}\n`);
+  process.stderr.write(`[build]   ${venuesWithMulti} venues host more than one board type\n`);
+  process.stderr.write(`[build]   country resolved: ${countryFromCoder} via coder, ${countryFallback} via fallback, ${features.length - countryFromCoder - countryFallback} unresolved\n`);
+  process.stderr.write(`[build]   city: ${cityUpstream} upstream, ${cityNearest} nearest-town (<=${NEAREST_CITY_MAX_KM} km), ${cityMissing} none\n`);
+  process.stderr.write(`[build]   meta → ${OUT_META}\n`);
+  for (const [b, n] of Object.entries(perBoard)) {
+    if (n > 0) process.stderr.write(`[build]   ${b.padEnd(12)} ${n}\n`);
+  }
+}
+
+// Curated venue-level overlays, applied to assembled features. Kept in one
+// place because the full build and the --overlays-only rebuild must apply
+// exactly the same set in exactly the same order; a curation-only run that
+// diverged from the nightly one would be worse than no shortcut at all.
+function applyVenueOverlays(features) {
+  const wellpass = applyWellpass(features);
+  process.stderr.write(
+    `[build] wellpass: ${wellpass.applied} applied, ` +
+    `${wellpass.unmatched} unmatched (of ${wellpass.defined} defined)\n`,
+  );
+
+  const { entries, errors } = loadVenueLinks(VENUE_LINKS_FILE);
+  for (const err of errors) process.stderr.write(`[build]   WARN ${err}\n`);
+  const { stats: venueLinks, problems, notes } = applyVenueLinks(features, entries);
+  for (const note of notes) process.stderr.write(`[build]   note: ${note}\n`);
+  for (const problem of problems) process.stderr.write(`[build]   WARN ${problem}\n`);
+  process.stderr.write(
+    `[build] venue links: ${venueLinks.applied} applied across ${venueLinks.countries} countries, ` +
+    `${venueLinks.unmatched} unmatched, ${venueLinks.ambiguous} ambiguous, ` +
+    `${venueLinks.rejected} rejected (of ${venueLinks.defined} defined)\n`,
+  );
+
+  return { wellpass, venue_links: venueLinks };
+}
+
+// Write the geojson, the meta, and both languages of static HTML.
+function writeOutputs(features, meta) {
+  writeFileSync(OUT_GEOJSON, JSON.stringify({ type: 'FeatureCollection', features }) + '\n');
   writeFileSync(OUT_META, JSON.stringify(meta, null, 2) + '\n');
 
   // Static HTML so non-JS crawlers (AI assistants read HTML snapshots, not the
@@ -398,15 +435,37 @@ async function main() {
       process.stderr.write(`[build]   WARN ${index}: GENERATED:board-stats markers not found — stats block NOT injected\n`);
     }
   }
+}
 
-  process.stderr.write(`[build] wrote ${features.length} venues (from ${allEntries.length} raw entries) → ${OUT_GEOJSON}\n`);
-  process.stderr.write(`[build]   ${venuesWithMulti} venues host more than one board type\n`);
-  process.stderr.write(`[build]   country resolved: ${countryFromCoder} via coder, ${countryFallback} via fallback, ${features.length - countryFromCoder - countryFallback} unresolved\n`);
-  process.stderr.write(`[build]   city: ${cityUpstream} upstream, ${cityNearest} nearest-town (<=${NEAREST_CITY_MAX_KM} km), ${cityMissing} none\n`);
-  process.stderr.write(`[build]   meta → ${OUT_META}\n`);
-  for (const [b, n] of Object.entries(perBoard)) {
-    if (n > 0) process.stderr.write(`[build]   ${b.padEnd(12)} ${n}\n`);
+// Re-apply the curated overlays to the venue data already committed under
+// boards/data/, then re-render. No network, no npm, no upstream refresh: a
+// curator editing wellpass.json or venue-links.json gets their change into the
+// map and both directories without pulling a new upstream dataset into the
+// same commit. `generated_at` is deliberately left alone — the upstream data it
+// describes did not change.
+function overlaysOnlyRebuild() {
+  if (!existsSync(OUT_GEOJSON) || !existsSync(OUT_META)) {
+    throw new Error('--overlays-only needs an existing boards/data/boards.geojson and boards.meta.json — run a full build first');
   }
+  const collection = JSON.parse(readFileSync(OUT_GEOJSON, 'utf-8'));
+  const meta = JSON.parse(readFileSync(OUT_META, 'utf-8'));
+  const features = collection.features ?? [];
+  process.stderr.write(`[build] --overlays-only: ${features.length} venues from ${OUT_GEOJSON}\n`);
+
+  const overlayStats = applyVenueOverlays(features);
+  meta.wellpass = overlayStats.wellpass;
+  meta.venue_links = overlayStats.venue_links;
+
+  writeOutputs(features, meta);
+  process.stderr.write('[build] --overlays-only: geojson, meta and both directories rewritten\n');
+}
+
+async function main() {
+  if (process.argv.includes('--overlays-only')) {
+    overlaysOnlyRebuild();
+    return;
+  }
+  await buildFromSources();
 }
 
 main().catch(err => { console.error(err); process.exit(1); });

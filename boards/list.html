@@ -106,6 +106,12 @@
   ul.venues li { padding: 0.35rem 0; border-bottom: 1px solid var(--rule); color: var(--fg-soft); }
   ul.venues strong { color: var(--fg); font-weight: 600; }
   .bt { display: inline-block; font-size: 0.72rem; color: var(--fg-mute); border: 1px solid var(--rule); border-radius: 4px; padding: 0.05em 0.4em; margin-left: 0.25rem; white-space: nowrap; }
+  /* Curated official-website link. Quieter than a body link — it repeats on
+     every line that has one — but still unmistakably a link. */
+  a.vsite { font-size: 0.8rem; color: var(--fg-soft); border-bottom: 1px dotted var(--rule); white-space: nowrap; }
+  a.vsite:hover, a.vsite:focus { color: var(--accent); border-bottom-color: var(--accent); }
+  a.vsite::before { content: "\2197\a0"; color: var(--fg-mute); }
+  .linked-note { color: var(--fg-soft); font-size: 0.95rem; }
   .backlink { display: inline-block; margin: 1.5rem 0; }
   footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; margin-top: 2rem; color: var(--fg-mute); font-size: 0.85rem; }
   footer .container { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }

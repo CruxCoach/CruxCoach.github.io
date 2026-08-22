@@ -493,6 +493,11 @@
   }
   .popup-wellpass-yes { color: #2a8e3d; }
   .popup-wellpass-no  { color: #999; font-weight: 500; }
+  /* Curated official-website link, plus the UTC date it was last verified —
+     this is hand-checked data, so the popup says how fresh the check is. */
+  .popup-site { margin: 4px 0 2px; font-size: 12px; }
+  .popup-site .label { color: #999; margin-right: 4px; }
+  .popup-site .checked { color: #999; font-size: 11px; margin-left: 4px; }
 
   /* About / attribution panel under the map — collapsed by default so the
      map gets the vertical space; click the summary to expand. */
@@ -793,7 +798,7 @@
 
 <script src="/assets/vendor/leaflet/leaflet.js"></script>
 <script src="/assets/vendor/leaflet/leaflet.markercluster.js"></script>
-<script src="/boards/map.js?v=20260813-1"></script>
+<script src="/boards/map.js?v=20260822-1"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 
 <script>
