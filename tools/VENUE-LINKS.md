@@ -233,10 +233,10 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 389 |
-| Verified website links | 337 |
-| Rejected / ambiguous / private / closed | 52 |
-| Countries covered | 5 |
+| Venues reviewed (linked + research entries) | 438 |
+| Verified website links | 382 |
+| Rejected / ambiguous / private / closed | 56 |
+| Countries covered | 6 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -246,13 +246,23 @@ Per-country coverage of eligible (public/commercial) venues:
 | DE | 163 | 201 | 81% |
 | GB | 55 | 102 | 54% |
 | CH | 51 | 56 | 91% |
+| NL | 46 | 59 | 78% |
 | AT | 44 | 48 | 92% |
-| NL | 24 | 59 | 41% |
+| BE | 23 | 36 | 64% |
 
-Research-log reasons so far: 43 `unverified` (37 of them operator sites that
+Research-log reasons so far: 47 `unverified` (41 of them operator sites that
 answer 403/401/500/526 or serve an expired or wrong-hostname certificate, so no
 page could be opened and read), 6 with no findable official site, 2 `ambiguous`,
 1 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** Netherlands, first pass.
-- **Next batch:** Belgium, France, Italy, Spain and the Nordics.
+- **Last completed batch:** Belgium, and a second Netherlands pass off the
+  Benelux OSM discovery run.
+- **Next batch:** France, Italy, Spain and the Nordics.
+
+### A note on discovery after the search budget ran out
+
+Partway through Belgium this session exhausted its web-search allowance. That
+turned out to matter less than expected: OSM discovery plus first-hand
+verification is the sanctioned path anyway, and the Benelux run alone carried 43
+candidates that search had not surfaced. Search was only ever the fallback for
+countries whose OSM coverage is thin.

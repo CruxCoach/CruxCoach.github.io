@@ -37,6 +37,56 @@
     "reason": "No official site could be found for a climbing venue of this name near Wiener Neustadt."
   },
   {
+    "lat": 50.41619,
+    "lon": 4.43898,
+    "name": "Maniak Charleroi",
+    "country": "BE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Both Maniak centre sites we tried answer HTTP 403 to our requests, so no page could be opened and read.",
+    "candidate": "https://charleroi.maniak.club/"
+  },
+  {
+    "lat": 50.6198,
+    "lon": 4.33027,
+    "name": "Maniak Nivelles",
+    "country": "BE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Both Maniak centre sites we tried answer HTTP 403 to our requests, so no page could be opened and read.",
+    "candidate": "https://maniak.club/"
+  },
+  {
+    "lat": 50.82757,
+    "lon": 4.33196,
+    "name": "Maniak Padoue",
+    "country": "BE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Both Maniak centre sites we tried answer HTTP 403 to our requests, so no page could be opened and read.",
+    "candidate": "https://padoue.maniak.club/"
+  },
+  {
+    "lat": 50.91724,
+    "lon": 4.34541,
+    "name": "Pink Peaks Climbing",
+    "country": "BE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.pinkpeaks.be/"
+  },
+  {
+    "lat": 50.8511,
+    "lon": 4.45897,
+    "name": "Stone Age",
+    "country": "BE",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site publishes no address on any page we could open, and no geocoder we tried resolves the address upstream carries.",
+    "candidate": "https://stone-age.be/"
+  },
+  {
     "lat": 46.50714,
     "lon": 8.71072,
     "name": "Audan",
@@ -412,74 +462,34 @@
     "reason": "This is Beacon Climbing Centre in Caernarfon, Wales, recorded with its longitude sign flipped, which plots it in the North Sea and files it under NL; the correctly placed entry already carries the link."
   },
   {
-    "lat": 51.5955,
-    "lon": 4.75718,
-    "name": "Beest Boulders Breda",
+    "lat": 51.90855,
+    "lon": 4.43368,
+    "name": "Bolder Neoliet Rotterdam",
     "country": "NL",
     "status": "unverified",
     "checked": "2026-08-22",
-    "reason": "The operator's site is served with a TLS certificate that does not cover its hostname, so no page could be opened securely and read.",
-    "candidate": "https://beestboulders.nl/"
+    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.neoliet.nl/"
   },
   {
-    "lat": 51.59598,
-    "lon": 4.75726,
-    "name": "Beest Boulders Breda",
+    "lat": 52.04968,
+    "lon": 4.25458,
+    "name": "Boulderhal de Campus",
     "country": "NL",
     "status": "unverified",
     "checked": "2026-08-22",
-    "reason": "The operator's site is served with a TLS certificate that does not cover its hostname, so no page could be opened securely and read.",
-    "candidate": "https://beestboulders.nl/"
+    "reason": "The gym's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.boulderhaldecampus.nl/"
   },
   {
-    "lat": 51.99991,
-    "lon": 4.356,
-    "name": "Beest Boulders Delft",
+    "lat": 52.11019628136243,
+    "lon": 4.2836240000000005,
+    "name": "Boulderhal Nirvana",
     "country": "NL",
     "status": "unverified",
     "checked": "2026-08-22",
-    "reason": "The operator's site is served with a TLS certificate that does not cover its hostname, so no page could be opened securely and read.",
-    "candidate": "https://beestboulders.nl/"
-  },
-  {
-    "lat": 52.0695268,
-    "lon": 4.323769899999999,
-    "name": "Beest Boulders Den Haag",
-    "country": "NL",
-    "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site is served with a TLS certificate that does not cover its hostname, so no page could be opened securely and read.",
-    "candidate": "https://beestboulders.nl/"
-  },
-  {
-    "lat": 52.07613,
-    "lon": 4.3106,
-    "name": "Beest Boulders Den Haag Centrum",
-    "country": "NL",
-    "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site is served with a TLS certificate that does not cover its hostname, so no page could be opened securely and read.",
-    "candidate": "https://beestboulders.nl/"
-  },
-  {
-    "lat": 52.392482,
-    "lon": 4.8512706,
-    "name": "Beest Boulders Het Lab",
-    "country": "NL",
-    "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site is served with a TLS certificate that does not cover its hostname, so no page could be opened securely and read.",
-    "candidate": "https://beestboulders.nl/"
-  },
-  {
-    "lat": 52.3925,
-    "lon": 4.8513889,
-    "name": "Boulderhal het Lab Amsterdam",
-    "country": "NL",
-    "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site is served with a TLS certificate that does not cover its hostname, so no page could be opened securely and read.",
-    "candidate": "https://beestboulders.nl/"
+    "reason": "The gym's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.boulderhalnirvana.nl/"
   },
   {
     "lat": 52.61783,
@@ -492,6 +502,26 @@
     "candidate": "https://www.boulderhalsendmast.nl/"
   },
   {
+    "lat": 52.06192,
+    "lon": 4.31394,
+    "name": "Boulderhal Walhalla",
+    "country": "NL",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.boulderhalwalhalla.nl/"
+  },
+  {
+    "lat": 52.22304,
+    "lon": 6.90367,
+    "name": "Cube Bouldergym",
+    "country": "NL",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://cubebouldergym.nl/"
+  },
+  {
     "lat": 51.0006238,
     "lon": 5.8864788,
     "name": "GRAVITON",
@@ -499,6 +529,16 @@
     "status": "closed",
     "checked": "2026-08-22",
     "reason": "Graviton Bouldergym in Sittard closed permanently in February 2024; there is no operator site left to link."
+  },
+  {
+    "lat": 53.23124,
+    "lon": 6.59009,
+    "name": "Gropo Bouldergym Groningen",
+    "country": "NL",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The gym's site publishes no address on any page we could open, so no second independent signal could be established.",
+    "candidate": "https://www.gropo.nl/"
   },
   {
     "lat": 52.3679843,
