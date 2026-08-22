@@ -141,6 +141,14 @@ referrerpolicy="origin"`, no `nofollow`. `referrerpolicy="origin"` means an
 operator learns only that the visit came from `https://cruxcoach.org`, never
 which venue page was open. Both privacy pages disclose this.
 
+**What this costs the directory page.** Each rendered link is about 180 bytes of
+markup, so a fully linked directory is materially heavier than an unlinked one:
+`boards/list.html` went from 406 KB to 592 KB uncompressed, 53 KB to 69 KB
+gzipped. That is the page whose entire purpose is to put this data where a
+non-JS crawler can read it, so the weight is the feature — but it scales with
+coverage, and if it ever needs capping the answer is to split the directory by
+country, not to drop the links.
+
 ## Commands
 
 ```bash
