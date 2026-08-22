@@ -233,10 +233,10 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 512 |
-| Verified website links | 446 |
-| Rejected / ambiguous / private / closed | 66 |
-| Countries covered | 11 |
+| Venues reviewed (linked + research entries) | 608 |
+| Verified website links | 540 |
+| Rejected / ambiguous / private / closed | 68 |
+| Countries covered | 12 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -244,6 +244,7 @@ Per-country coverage of eligible (public/commercial) venues:
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
 | DE | 163 | 201 | 81% |
+| US | 94 | 576 | 16% |
 | GB | 55 | 102 | 54% |
 | CH | 51 | 56 | 91% |
 | NL | 46 | 59 | 78% |
@@ -255,16 +256,17 @@ Per-country coverage of eligible (public/commercial) venues:
 | NO | 1 | 81 | 1% |
 | IT | 1 | 72 | 1% |
 
-Research-log reasons so far: 52 `unverified` (46 of them operator sites that
+Research-log reasons so far: 59 `unverified` (46 of them operator sites that
 answer 403/401/500/526, fail their TLS handshake, serve an expired,
 wrong-hostname or unverifiable certificate, or show a suspension notice, so no
-page could be opened and read), 6 with no findable official site, 3 `http-only`,
-2 `ambiguous`, 1 `closed`, 1 `duplicate`.
+page could be opened and read), 4 `ambiguous`, 3 `http-only`, 1 `closed`,
+1 `duplicate`.
 
-- **Last completed batch:** Sweden and Norway, first pass — Klättercentret,
-  Klätterdomen, Klatreverket.
-- **Next batch:** the rest of the Nordics and Spain, then Italy off the OSM
-  discovery run.
+- **Last completed batch:** the six largest United States operators — Movement
+  (35 entries), Central Rock Gym (29), Momentum (14), Sender One (7), Vital (5)
+  and Sportrock (4). Ninety-four US venues, no discovery run needed.
+- **Next batch:** France and Italy off the OSM discovery run that has now
+  finished, then the next tier of US operators.
 
 ### What is actually gating the remaining countries
 
@@ -292,3 +294,32 @@ turned out to matter less than expected: OSM discovery plus first-hand
 verification is the sanctioned path anyway, and the Benelux run alone carried 43
 candidates that search had not surfaced. Search was only ever the fallback for
 countries whose OSM coverage is thin.
+
+### The operator index, and why the US went quickly
+
+The United States needed no discovery run at all. Its 576 eligible venues are
+unusually concentrated: six operators account for 94 of them, and each publishes
+a location index with a per-location page and a printed street address. The whole
+pass was therefore read straight off the operators' own sites.
+
+Two habits made that safe rather than fast-and-loose:
+
+- **Open every location page, not just the index.** All 30 Movement pages and all
+  21 Central Rock pages were fetched and their printed address checked. The index
+  is a claim about the pages; only the page is the page.
+- **Tie the address to the coordinate, not to the name.** Where upstream carries
+  an address the two strings are compared directly. Where it does not — Tension
+  and MoonBoard entries almost never do — the address is geocoded once and
+  measured against the venue, or the venue's own coordinate is reverse-geocoded
+  and its street, city and ZIP compared. Both directions are needed: Utah's grid
+  addresses (`220 W 10600 S`) defeat a forward lookup, and Central Rock Kennesaw's
+  forward lookup lands 3 km from the gym while the reverse lookup lands on the
+  gym's own street number.
+
+It also produced the session's cleanest fail-closed case. Sportrock runs two
+Alexandria buildings 31 m apart, each with its own location page, and the
+operator's board listings contradict the upstream ones — `/alexandria` advertises
+a MoonBoard while `/srpi` advertises a Kilter room, the opposite of what upstream
+records. The named Kilter entry is at 5308 Eisenhower Ave by both upstream and a
+reverse lookup, so it is linked; the unnamed MoonBoard entry between the two
+buildings cannot be assigned to one page and is logged `ambiguous` instead.

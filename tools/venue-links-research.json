@@ -644,5 +644,25 @@
     "status": "ambiguous",
     "checked": "2026-08-22",
     "reason": "Upstream lists two Klättercentret Malmö entries 1.8 km apart; the operator has one Malmö hall, at Kopparbergsgatan 8, which the other entry already carries. Which venue this coordinate means is not decidable."
+  },
+  {
+    "lat": 38.801099,
+    "lon": -77.1263623,
+    "name": "Sportrock",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "Sportrock runs two adjacent Alexandria buildings 31 m apart, each with its own location page — 5308 Eisenhower Ave and the 5314 Performance Institute. This unnamed entry sits between them and the operator's board listings contradict the upstream ones, so it cannot be tied to one page.",
+    "candidate": "https://www.sportrock.com/alexandria"
+  },
+  {
+    "lat": 40.6255415,
+    "lon": -103.207709,
+    "name": "Sportrock - Sterling",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The coordinate is in Sterling, Colorado, about 2400 km from Sportrock's Sterling, Virginia centre; upstream has placed this MoonBoard in the wrong Sterling, so no venue can be verified here.",
+    "candidate": "https://www.sportrock.com/sterling"
   }
 ]
