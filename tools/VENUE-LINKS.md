@@ -233,10 +233,10 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 927 |
-| Verified website links | 818 |
+| Venues reviewed (linked + research entries) | 939 |
+| Verified website links | 830 |
 | Rejected / ambiguous / private / closed | 109 |
-| Countries covered | 20 |
+| Countries covered | 21 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -257,6 +257,7 @@ Per-country coverage of eligible (public/commercial) venues:
 | NO | 22 | 81 | 27% |
 | IT | 15 | 72 | 21% |
 | DK | 13 | 27 | 48% |
+| PL | 12 | 45 | 27% |
 | SE | 7 | 37 | 19% |
 | FI | 5 | 15 | 33% |
 | IE | 5 | 10 | 50% |
@@ -270,11 +271,11 @@ wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
 opened and read), 9 `ambiguous`, 4 `http-only`, 3 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** Norway off its Overpass run — Kraft Narvik, Gneis
-  Lilleaker, Oslo Klatresenter, Playground, Buldreterminalen and Grip Leangen.
-  The same run over Italy returned no candidates at all.
-- **Next batch:** Canada off the Overpass run now in flight, then Poland and
-  Portugal, which still have had no discovery pass.
+- **Last completed batch:** Poland, opened without a discovery run — Murall's
+  three Warsaw halls, Obiekto, Blok Line, West Bouldering, Lokal32, Problem
+  Bouldering, Bald Port, Skarpa Bytom and Climbing Spot.
+- **Next batch:** Canada off the Overpass run now in flight, then Italy, which
+  its own run returned nothing for.
 
 ### What is actually gating the remaining countries
 
