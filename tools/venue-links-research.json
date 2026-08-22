@@ -263,12 +263,143 @@
     "candidate": "https://www.verticalworld.de/"
   },
   {
-    "lat": 53.20094109999999,
-    "lon": -3.0087738,
-    "name": "The Boardroom Climbing Ltd",
+    "lat": 52.52996899999999,
+    "lon": -2.0246658,
+    "name": "Boulder Central",
     "country": "GB",
-    "status": "social-only",
+    "status": "unverified",
     "checked": "2026-08-22",
-    "reason": "The centre's only web presence we could find is a Facebook page; this field holds official websites, not social profiles."
+    "reason": "The gym's site publishes no address on any page we could open, so no second independent signal could be established.",
+    "candidate": "https://www.bouldercentral.co.uk/"
+  },
+  {
+    "lat": 51.23622,
+    "lon": -0.570409,
+    "name": "Craggy Island Moonboard",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The centre's site serves an expired TLS certificate, so no page could be opened securely and read.",
+    "candidate": "https://www.craggy-island.com/"
+  },
+  {
+    "lat": 51.830777,
+    "lon": -1.837254,
+    "name": "Far Peak Climbing Centre",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Far Peak Climbing's published estate address resolves about 2.2 km from this MoonBoard entry and its site names no board, so the name is the only signal available.",
+    "candidate": "https://www.farpeakclimbing.co.uk/"
+  },
+  {
+    "lat": 51.44587,
+    "lon": -2.58109,
+    "name": "Flashpoint Bristol",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Every Flashpoint site we tried — the group site and the Bristol, Cardiff and Swansea centre sites — answers HTTP 403 to our requests, so no page could be opened and read.",
+    "candidate": "https://flashpointbristol.com/"
+  },
+  {
+    "lat": 51.4489657,
+    "lon": -2.5835347,
+    "name": "Flashpoint Bristol",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Every Flashpoint site we tried answers HTTP 403 to our requests, so no page could be opened and read.",
+    "candidate": "https://flashpointbristol.com/"
+  },
+  {
+    "lat": 51.46194,
+    "lon": -3.19767,
+    "name": "Flashpoint Cardiff",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Every Flashpoint site we tried answers HTTP 403 to our requests, so no page could be opened and read.",
+    "candidate": "https://flashpointcardiff.com/"
+  },
+  {
+    "lat": 51.62199,
+    "lon": -3.93954,
+    "name": "Flashpoint Swansea",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Every Flashpoint site we tried answers HTTP 403 to our requests, so no page could be opened and read.",
+    "candidate": "https://flashpointswansea.com/"
+  },
+  {
+    "lat": 54.04698,
+    "lon": -2.82335,
+    "name": "Lakeland Climbing Centres - LancasterWall",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The centre's site answers HTTP 526 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.lancasterwall.co.uk/"
+  },
+  {
+    "lat": 52.21725,
+    "lon": 0.15704,
+    "name": "Rainbow Rocket North",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://rainbowrocket.cc/centre/north/"
+  },
+  {
+    "lat": 53.73655,
+    "lon": -0.37978,
+    "name": "Rockcity Climbing",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Rockcity's site names the centre but publishes no address on any page we could open, so no second independent signal could be established.",
+    "candidate": "https://rockcity.co.uk/"
+  },
+  {
+    "lat": 54.2857788,
+    "lon": -0.4034476,
+    "name": "Street Rocks",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's page answers HTTP 401 to our requests, so it could not be opened and read first-hand.",
+    "candidate": "https://cavca.org.uk/street-rocks/"
+  },
+  {
+    "lat": 54.91452529999999,
+    "lon": -1.4158507,
+    "name": "Sunderland Wall",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The centre's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://sunderlandwall.com/"
+  },
+  {
+    "lat": 51.42122,
+    "lon": -0.20453,
+    "name": "The Boardroom Climbing Ltd. Wimbledon",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's Wimbledon location page returns 404 and its site lists only the Queensferry centre, so this venue could not be matched against a page we could read.",
+    "candidate": "https://www.theboardroomclimbing.com/"
+  },
+  {
+    "lat": 51.42116559999999,
+    "lon": -0.2042062,
+    "name": "The Boardroom Wimbledon",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's Wimbledon location page returns 404 and its site lists only the Queensferry centre, so this venue could not be matched against a page we could read.",
+    "candidate": "https://www.theboardroomclimbing.com/"
   }
 ]

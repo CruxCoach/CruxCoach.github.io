@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 299 |
-| Verified website links | 271 |
-| Rejected / ambiguous / private / closed | 28 |
+| Venues reviewed (linked + research entries) | 354 |
+| Verified website links | 313 |
+| Rejected / ambiguous / private / closed | 41 |
 | Countries covered | 4 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -243,21 +243,19 @@ Per-country coverage of eligible (public/commercial) venues:
 
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
-| DE | 155 | 201 | 77% |
+| DE | 163 | 201 | 81% |
+| GB | 55 | 102 | 54% |
 | CH | 51 | 56 | 91% |
 | AT | 44 | 48 | 92% |
-| GB | 21 | 102 | 21% |
 
-Research-log reasons so far: 20 `unverified` (17 of them operator sites that
-answer 403/500 or serve a certificate for the wrong hostname, so no page could
-be opened and read), 5 with no findable official site, 2 `ambiguous`, 1
-`social-only`.
+Research-log reasons so far: 33 `unverified` (28 of them operator sites that
+answer 403/401/500/526 or serve an expired or wrong-hostname certificate, so no
+page could be opened and read), 5 with no findable official site, 2 `ambiguous`.
 
-- **Last completed batch:** United Kingdom, first pass — the multi-site operators
-  (Awesome Walls, The Climbing Academy, Depot Climbing, The Climbing Hangar) and
-  the larger independents.
-- **Next batch:** the rest of the UK, then the Netherlands, France, Italy, Spain
-  and the Nordics, largest markets first. What remains in DACH is the long tail:
-  MoonBoard-only club and school setups whose upstream coordinates are too
-  imprecise to pin down, and a dozen operators whose sites refuse automated
-  requests.
+- **Last completed batch:** United Kingdom, second pass — the OSM discovery run
+  finally came back and carried 22 more candidates, all verified against the
+  operator's own page.
+- **Next batch:** the Netherlands, France, Italy, Spain and the Nordics. What
+  remains in DACH and the UK is the long tail: MoonBoard-only club and school
+  setups whose upstream coordinates are too imprecise to pin down, and roughly
+  thirty operators whose sites refuse automated requests.

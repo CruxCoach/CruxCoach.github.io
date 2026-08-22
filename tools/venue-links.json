@@ -1750,6 +1750,21 @@
     "note": "Same physical gym as the Kilter entry ~20 m away; upstream lists the MoonBoard separately."
   },
   {
+    "lat": 50.9615266,
+    "lon": 11.0146655,
+    "name": "Blockpark Moonboard",
+    "country": "DE",
+    "website": "https://www.blockpark.de/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 52.16263,
     "lon": 11.62825,
     "name": "BlocSchmiede Boulderhalle",
@@ -1955,6 +1970,20 @@
     "note": "The hall has moved to Gertrud-Knebusch-Straße; that address resolves about 320 m from this upstream coordinate."
   },
   {
+    "lat": 49.6088,
+    "lon": 11.1345,
+    "name": "Boulderia",
+    "country": "DE",
+    "website": "https://www.boulderia.de/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The site names the Grasshopper board this venue is listed for but publishes no street address on the pages we could read."
+  },
+  {
     "lat": 47.99075,
     "lon": 7.79521,
     "name": "Boulderkitchen Freiburg",
@@ -1969,6 +1998,22 @@
       "city",
       "board-mention"
     ]
+  },
+  {
+    "lat": 47.84413,
+    "lon": 12.96669,
+    "name": "Boulderlabor",
+    "country": "DE",
+    "website": "https://www.boulderlabor.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Address verified on the site's own directions page."
   },
   {
     "lat": 50.81768,
@@ -3007,6 +3052,37 @@
     "note": "The site names the hall and Forchheim but publishes no street address; the address upstream carries resolves to within 190 m of this venue."
   },
   {
+    "lat": 51.5327941,
+    "lon": 7.630979599999999,
+    "name": "Glücksgriff Moonboard",
+    "country": "DE",
+    "website": "https://www.gluecksgriff-boulderhalle.de/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 49.85502,
+    "lon": 7.89228,
+    "name": "Gravity Boulderhalle GmbH",
+    "country": "DE",
+    "website": "https://www.gravity-kh.de/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Upstream carries no address for this entry; the site's Industriestraße 12 resolves to within 35 m of it."
+  },
+  {
     "lat": 47.65225,
     "lon": 9.50302,
     "name": "Greifbar-Boulderhalle Friedrichshafen",
@@ -3102,6 +3178,22 @@
     "note": "The university's sports-facility page places its Kletterhalle at this address."
   },
   {
+    "lat": 54.16781,
+    "lon": 8.87204,
+    "name": "Hold On Tide",
+    "country": "DE",
+    "website": "https://holdontide.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
     "lat": 47.84749,
     "lon": 12.1654,
     "name": "Kletter & Boulderhalle Rosenheim",
@@ -3193,6 +3285,37 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 47.86567,
+    "lon": 11.7899,
+    "name": "KletterZ'",
+    "country": "DE",
+    "website": "https://www.kletterz.de/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 47.62212,
+    "lon": 12.97599,
+    "name": "Kletterzentrum Bergsteigerhaus Ganz",
+    "country": "DE",
+    "website": "https://www.kletterzentrum-berchtesgaden.de/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The centre trades as DAV Kletterzentrum Berchtesgaden and, as its contact page confirms, also as Bergsteigerhaus GANZ — the name upstream carries."
   },
   {
     "lat": 53.2500572,
@@ -3921,6 +4044,56 @@
     ]
   },
   {
+    "lat": 51.84518,
+    "lon": -2.12722,
+    "name": "270 Climbing Park",
+    "country": "GB",
+    "website": "https://www.270climbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 51.4931952,
+    "lon": -0.0608,
+    "name": "Arch Climbing Wall",
+    "country": "GB",
+    "website": "https://www.archclimbingwall.com/building-one",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "Upstream carries no address for this entry; the location page's Drummond Road resolves to within 105 m of it."
+  },
+  {
+    "lat": 53.39957,
+    "lon": -1.44673,
+    "name": "Awesome Walls Sheffield",
+    "country": "GB",
+    "website": "https://www.awesomewalls.co.uk/sheffield/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Same physical centre as the MoonBoard entry ~30 m away; upstream lists the two boards separately."
+  },
+  {
     "lat": 53.3992904,
     "lon": -1.4467433,
     "name": "Awesome Walls Sheffield 40",
@@ -3968,6 +4141,38 @@
     "note": "The centre gives its town as Caernarfon; upstream records only the industrial estate."
   },
   {
+    "lat": 53.396622539640525,
+    "lon": -2.296682486507128,
+    "name": "Big Depot Manchester",
+    "country": "GB",
+    "website": "https://www.depotclimbing.co.uk/big-depot-manchester/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 51.46842,
+    "lon": -2.57022,
+    "name": "Bloc Climbing Centre",
+    "country": "GB",
+    "website": "https://blocclimbing.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "The centre now trades as Flashpoint Bristol - Easton; upstream still carries its former name, Bloc Climbing."
+  },
+  {
     "lat": 50.8356417,
     "lon": -0.2115089,
     "name": "Boulder Brighton",
@@ -3981,6 +4186,39 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 50.72,
+    "lon": -3.53781,
+    "name": "Boulder Exe",
+    "country": "GB",
+    "website": "https://boulderexe.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 50.7206401,
+    "lon": -3.5382779,
+    "name": "Boulder Exe MoonBoard 2024",
+    "country": "GB",
+    "website": "https://boulderexe.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "Same physical centre as the Kilter/Tension entry ~75 m away; upstream lists the 2024 MoonBoard separately, and the site names all three boards."
   },
   {
     "lat": 51.4927989,
@@ -4045,6 +4283,85 @@
     ]
   },
   {
+    "lat": 55.86758,
+    "lon": -4.24007,
+    "name": "Brushworks Climbing",
+    "country": "GB",
+    "website": "https://www.brushworksclimbing.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 53.78606,
+    "lon": -1.53372,
+    "name": "City Bloc",
+    "country": "GB",
+    "website": "https://www.citybloc.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 51.51512,
+    "lon": -0.07473,
+    "name": "City Bouldering Aldgate",
+    "country": "GB",
+    "website": "https://www.citybouldering.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator's four centres share one site; it lists this one by street address."
+  },
+  {
+    "lat": 51.53705,
+    "lon": -0.00358,
+    "name": "City Bouldering Stratford",
+    "country": "GB",
+    "website": "https://www.citybouldering.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator's four centres share one site; it lists this one by street address."
+  },
+  {
+    "lat": 51.53460965827556,
+    "lon": -0.05972554372710284,
+    "name": "Climbing District London Fields",
+    "country": "GB",
+    "website": "https://climbingdistrict.uk/climbing-gym/london-fields/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ]
+  },
+  {
     "lat": 53.79844,
     "lon": -1.57338,
     "name": "Depot Climbing Armley",
@@ -4093,6 +4410,69 @@
     ]
   },
   {
+    "lat": 55.883763345387,
+    "lon": -3.1498773637450537,
+    "name": "Eden Rock Edinburgh",
+    "country": "GB",
+    "website": "https://www.edenrockclimbing.com/edinburgh-home",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 54.98585,
+    "lon": -1.56064,
+    "name": "Eden Rock Newcastle",
+    "country": "GB",
+    "website": "https://www.edenrockclimbing.com/newcastle",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 51.5244,
+    "lon": -0.13964,
+    "name": "EustonWall Climbing Centre",
+    "country": "GB",
+    "website": "https://londonclimbingcentres.co.uk/centre/eustonwall/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The centre gives 350 Euston Road where upstream has number 338."
+  },
+  {
+    "lat": 51.58083,
+    "lon": -0.34436,
+    "name": "HarroWall Climbing Centre",
+    "country": "GB",
+    "website": "https://londonclimbingcentres.co.uk/centre/harrowall/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
     "lat": 53.04573019999999,
     "lon": -2.1967011,
     "name": "Kilnworx Climbing Centre",
@@ -4107,6 +4487,70 @@
       "city"
     ],
     "note": "Address verified on the centre's own contact page."
+  },
+  {
+    "lat": 54.34214,
+    "lon": -2.73989,
+    "name": "Lakeland Climbing Centres - KendalWall",
+    "country": "GB",
+    "website": "https://lakelandclimbingcentres.co.uk/centre/kendalwall/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Upstream carries no address for this entry; the location page's Mint Bridge Road resolves to within 115 m of it."
+  },
+  {
+    "lat": 51.39647859999999,
+    "lon": -1.3164998,
+    "name": "Northway's Moonboard",
+    "country": "GB",
+    "website": "https://northwayclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "Upstream carries no address for this entry; the centre's York Road resolves to within 30 m of it."
+  },
+  {
+    "lat": 51.45496,
+    "lon": -0.193,
+    "name": "Parthian Climbing Wandsworth",
+    "country": "GB",
+    "website": "https://www.the-font.co.uk/wandsworth-2-0",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The centre now trades as The Font Wandsworth; upstream still carries its former name, Parthian Climbing Wandsworth."
+  },
+  {
+    "lat": 52.193636,
+    "lon": -2.221575,
+    "name": "Redpoint Worcester",
+    "country": "GB",
+    "website": "https://redpointworcester.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Address verified on the centre's own contact page; it resolves about 830 m from this upstream coordinate."
   },
   {
     "lat": 51.51126,
@@ -4138,6 +4582,37 @@
       "board-mention"
     ],
     "note": "Same physical gym as the Tension entry ~20 m away; upstream lists the 2016 MoonBoard separately, and the site names both boards."
+  },
+  {
+    "lat": 51.5822099,
+    "lon": -1.753619,
+    "name": "Rockstar Climbing",
+    "country": "GB",
+    "website": "https://www.rockstarclimbing.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 51.58198,
+    "lon": -1.754,
+    "name": "Rockstar Climbing & Bouldering",
+    "country": "GB",
+    "website": "https://www.rockstarclimbing.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Same physical centre as the MoonBoard entry ~35 m away; upstream lists the two boards separately."
   },
   {
     "lat": 51.4717891,
@@ -4172,6 +4647,37 @@
     ]
   },
   {
+    "lat": 53.34023200000001,
+    "lon": -1.693494,
+    "name": "The Adventure Hub",
+    "country": "GB",
+    "website": "https://adventure-hub.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The hub is in Bamford, not the Sheffield suburb upstream's nearest-town guess names; its address resolves to within 120 m of this venue."
+  },
+  {
+    "lat": 53.20094109999999,
+    "lon": -3.0087738,
+    "name": "The Boardroom Climbing Ltd",
+    "country": "GB",
+    "website": "https://www.theboardroomclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
     "lat": 51.45539,
     "lon": -2.56917,
     "name": "The Climbing Academy - The Mothership",
@@ -4187,6 +4693,121 @@
       "location-page"
     ],
     "note": "Same physical gym as the MoonBoard entry ~10 m away; upstream lists the Tension board separately."
+  },
+  {
+    "lat": 51.45626,
+    "lon": -2.59105,
+    "name": "The Climbing Hangar Bristol",
+    "country": "GB",
+    "website": "https://theclimbinghangar.com/locations/bristol",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 55.9563,
+    "lon": -3.12426,
+    "name": "The Climbing Hangar Edinburgh",
+    "country": "GB",
+    "website": "https://theclimbinghangar.com/locations/edinburgh",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 50.70919,
+    "lon": -3.52788,
+    "name": "The Climbing Hangar Exeter",
+    "country": "GB",
+    "website": "https://theclimbinghangar.com/locations/exeter",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 53.34996,
+    "lon": -2.8864,
+    "name": "The Climbing Hangar Liverpool Matchworks",
+    "country": "GB",
+    "website": "https://theclimbinghangar.com/locations/liverpool-south",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 51.46358,
+    "lon": -1.01319,
+    "name": "The Climbing Hangar Reading",
+    "country": "GB",
+    "website": "https://theclimbinghangar.com/locations/reading",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 53.39072,
+    "lon": -1.45063,
+    "name": "The Climbing Hangar Sheffield",
+    "country": "GB",
+    "website": "https://theclimbinghangar.com/locations/sheffield",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 50.91406,
+    "lon": -1.45032,
+    "name": "The Climbing Hangar Southampton",
+    "country": "GB",
+    "website": "https://theclimbinghangar.com/locations/southampton",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "The location page's Third Avenue address resolves about 370 m from this upstream coordinate."
   },
   {
     "lat": 51.6565615,
@@ -4219,6 +4840,21 @@
     "note": "The site names the gym and Leeds but publishes no street address on the pages we could read."
   },
   {
+    "lat": 51.50729,
+    "lon": -0.09706,
+    "name": "The Font Climbing Borough",
+    "country": "GB",
+    "website": "https://www.the-font.co.uk/borough",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "The location page gives Triptych Place, Bankside, which no geocoder we tried resolves."
+  },
+  {
     "lat": 53.390203,
     "lon": -1.471551,
     "name": "The Foundry",
@@ -4232,6 +4868,37 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 52.25702039999999,
+    "lon": -0.8355785,
+    "name": "The Pinnacle Bouldering Centre",
+    "country": "GB",
+    "website": "https://thepinnaclecentre.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Address verified on the centre's own opening-times page."
+  },
+  {
+    "lat": 53.384714,
+    "lon": -2.0650029,
+    "name": "The Ridge Climbing Centre",
+    "country": "GB",
+    "website": "https://www.theridgeclimbing.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The centre is in Marple, not the Stockport suburb upstream's nearest-town guess names; its address resolves to within 135 m of this venue."
   },
   {
     "lat": 52.98182990000001,
