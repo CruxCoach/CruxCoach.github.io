@@ -2646,6 +2646,65 @@
     ]
   },
   {
+    "lat": 50.1057962,
+    "lon": 14.4345863,
+    "name": "Jungle Holešovice",
+    "country": "CZ",
+    "website": "https://holesovice.jungle.cz/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "street-address"
+    ],
+    "note": "The page's U Výstaviště 11 resolves 5 m from this upstream coordinate."
+  },
+  {
+    "lat": 50.14204,
+    "lon": 14.51789,
+    "name": "Jungle Sport Park",
+    "country": "CZ",
+    "website": "https://www.jungleletnany.cz/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "location-page"
+    ],
+    "note": "The operator files this hall as Jungle Letňany; upstream records it as Jungle Sport Park at the same Veselská 699."
+  },
+  {
+    "lat": 50.7220528,
+    "lon": 15.1703135,
+    "name": "MAKAK ARENA",
+    "country": "CZ",
+    "website": "https://www.makakarena.cz/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The arena's Liberecká address resolves about 1.6 km from this coordinate; both sit in Jablonec nad Nisou."
+  },
+  {
+    "lat": 49.23045,
+    "lon": 17.65388,
+    "name": "Vertikon",
+    "country": "CZ",
+    "website": "https://www.vertikon.cz/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 48.1067623,
     "lon": 11.5456929,
     "name": "@kbthalkirchen",
@@ -7894,6 +7953,82 @@
     ]
   },
   {
+    "lat": 51.88996,
+    "lon": -8.53863,
+    "name": "Awesome Walls Cork",
+    "country": "IE",
+    "website": "https://awesomewalls.ie/cork/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 51.8985143,
+    "lon": -8.4756035,
+    "name": "Awesome Walls Cork",
+    "country": "IE",
+    "website": "https://awesomewalls.ie/cork/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "city"
+    ],
+    "note": "The operator has one Cork centre, on Model Farm Road; this coordinate sits 4.8 km away on Grand Parade in the city centre."
+  },
+  {
+    "lat": 53.401808327278275,
+    "lon": -6.31650732883577,
+    "name": "Awesome Walls Dublin",
+    "country": "IE",
+    "website": "https://awesomewalls.ie/dublin/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 53.33588,
+    "lon": -6.32355,
+    "name": "Gravity Climbing Centre",
+    "country": "IE",
+    "website": "https://www.gravityclimbing.ie/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ]
+  },
+  {
+    "lat": 53.401674,
+    "lon": -6.3164966,
+    "name": "The Training Room",
+    "country": "IE",
+    "website": "https://awesomewalls.ie/dublin/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "location-page",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "Upstream records this entry as The Training Room; it sits 16 m away at the same Unit 6, North Park address in D11 YP40."
+  },
+  {
     "lat": 44.4262,
     "lon": 7.54135,
     "name": "BigUp Climbing",
@@ -8121,6 +8256,52 @@
       "city"
     ],
     "note": "The address is a Via Pontina kilometre marker, so the coordinate's own street, ZIP and commune were checked instead of a forward lookup."
+  },
+  {
+    "lat": 49.49443,
+    "lon": 5.96847,
+    "name": "BlocX - Urban Fitness",
+    "country": "LU",
+    "website": "https://en.blocx.lu/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "Upstream lists this hall twice, 35 m apart."
+  },
+  {
+    "lat": 49.49416,
+    "lon": 5.96838,
+    "name": "BLOCX Urban Fitness",
+    "country": "LU",
+    "website": "https://en.blocx.lu/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 49.62358,
+    "lon": 6.15194,
+    "name": "Coque Luxembourg",
+    "country": "LU",
+    "website": "https://www.coque.lu/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The national sports centre runs the wall as part of the Coque; its site has a dedicated Escalade section."
   },
   {
     "lat": 53.21729,
@@ -9138,6 +9319,21 @@
       "city"
     ],
     "note": "Upstream lists this hall twice, 60 m apart."
+  },
+  {
+    "lat": 38.72189,
+    "lon": -9.33071,
+    "name": "Crux Climbing Center",
+    "country": "PT",
+    "website": "https://www.cruxclimbing.pt/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
   },
   {
     "lat": 56.0597542,
