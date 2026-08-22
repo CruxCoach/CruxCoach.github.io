@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 835 |
-| Verified website links | 741 |
-| Rejected / ambiguous / private / closed | 94 |
+| Venues reviewed (linked + research entries) | 880 |
+| Verified website links | 782 |
+| Rejected / ambiguous / private / closed | 98 |
 | Countries covered | 16 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -243,8 +243,8 @@ Per-country coverage of eligible (public/commercial) venues:
 
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
+| US | 191 | 576 | 33% |
 | DE | 163 | 201 | 81% |
-| US | 150 | 576 | 26% |
 | GB | 64 | 102 | 63% |
 | CH | 51 | 56 | 91% |
 | NL | 48 | 59 | 81% |
@@ -260,14 +260,16 @@ Per-country coverage of eligible (public/commercial) venues:
 | SE | 7 | 37 | 19% |
 | FI | 5 | 15 | 33% |
 
-Research-log reasons so far: 80 `unverified` (59 of them operator sites that
+Research-log reasons so far: 83 `unverified` (62 of them operator sites that
 answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
 wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
-opened and read), 6 `ambiguous`, 4 `http-only`, 3 `closed`, 1 `duplicate`.
+opened and read), 8 `ambiguous`, 4 `http-only`, 3 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** Spain off its Overpass discovery run — 18 of the 18
-  candidates it proposed verified and linked, taking Spain from 28% to 46%.
+- **Last completed batch:** the third and fourth tiers of United States
+  operators — Rock Spot, Crimper's, Grotto, Mesa Rim, The Front, Triangle Rock
+  Club, Vertical World, High Point, Salt Pump, Terra Firma, Synergy, Rock Solid,
+  The Edge, Rocknasium, Spire and Threshold. US 26% → 33%.
 - **Next batch:** Norway and Italy off the run now in flight, then Poland and
   Portugal, which have had no discovery pass at all.
 

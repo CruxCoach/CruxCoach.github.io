@@ -876,6 +876,26 @@
     "candidate": "https://touchstoneclimbing.com/"
   },
   {
+    "lat": 35.2270869,
+    "lon": -80.8431267,
+    "name": "Inner Peaks Climbing",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "innerpeaks.com answers 403 to every automated request, so no page could be opened and read.",
+    "candidate": "https://www.innerpeaks.com/"
+  },
+  {
+    "lat": 35.24204,
+    "lon": -80.82522,
+    "name": "Inner Peaks NoDa",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "innerpeaks.com answers 403 to every automated request, so no page could be opened and read.",
+    "candidate": "https://www.innerpeaks.com/"
+  },
+  {
     "lat": 38.801099,
     "lon": -77.1263623,
     "name": "Sportrock",
@@ -906,6 +926,16 @@
     "candidate": "https://touchstoneclimbing.com/"
   },
   {
+    "lat": 25.63776,
+    "lon": -80.42057,
+    "name": "The Edge Rock Gym Miami",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The Edge Rock Gym's own site lists two Florida gyms, Jacksonville and Melbourne, and no Miami location, so no official page describes this venue.",
+    "candidate": "https://theedgerockgym.com/home/"
+  },
+  {
     "lat": 40.70779,
     "lon": -74.06659,
     "name": "The Gravity Vault Jersey City",
@@ -924,5 +954,15 @@
     "checked": "2026-08-22",
     "reason": "touchstoneclimbing.com answers 403 to every automated request; upstream lists this team training centre twice, 41 m apart.",
     "candidate": "https://touchstoneclimbing.com/"
+  },
+  {
+    "lat": 47.8209301,
+    "lon": -122.3151314,
+    "name": "Vertical World",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "The coordinate sits on Pacific Highway in Lynnwood, roughly 7.5 km from both Vertical World North and the operator's Uplift gym in Shoreline, and upstream records only the bare operator name, so it cannot be assigned to one gym.",
+    "candidate": "https://verticalworld.com/"
   }
 ]

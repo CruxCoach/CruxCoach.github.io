@@ -9938,6 +9938,49 @@
     ]
   },
   {
+    "lat": 37.15166,
+    "lon": -80.41082,
+    "name": "Crimper's Climbing",
+    "country": "US",
+    "website": "https://www.crimpersclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 37.1514055,
+    "lon": -80.41115889999999,
+    "name": "Crimper's Climbing Gym",
+    "country": "US",
+    "website": "https://www.crimpersclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Upstream lists this gym three times within 40 m."
+  },
+  {
+    "lat": 37.15165,
+    "lon": -80.41111,
+    "name": "Crimper's Climbing Gym",
+    "country": "US",
+    "website": "https://www.crimpersclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Upstream lists this gym three times within 40 m."
+  },
+  {
     "lat": 30.32642,
     "lon": -97.71691,
     "name": "Crux Climbing Center Central",
@@ -10147,6 +10190,51 @@
     ]
   },
   {
+    "lat": 32.78099,
+    "lon": -117.0983,
+    "name": "Grotto Climbing & Yoga Alvarado",
+    "country": "US",
+    "website": "https://www.grottoclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The page files the Alvarado Canyon gym under Mission Valley and gives it ZIP 92120; upstream carries 92126."
+  },
+  {
+    "lat": 32.89573,
+    "lon": -117.12735,
+    "name": "Grotto Climbing & Yoga Miramar",
+    "country": "US",
+    "website": "https://www.grottoclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator gives its two San Diego gyms one page and lists each by address."
+  },
+  {
+    "lat": 32.89512,
+    "lon": -117.12762,
+    "name": "Grotto Climbing & Yoga Miramar G2",
+    "country": "US",
+    "website": "https://www.grottoclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Upstream lists the Miramar gym twice, 72 m apart."
+  },
+  {
     "lat": 33.9917,
     "lon": -117.3407,
     "name": "Hangar 18 East Riverside",
@@ -10257,6 +10345,101 @@
       "postal-code"
     ],
     "note": "The location page gives only Hawthorne, CA 90250 — the town and ZIP upstream records — and no street line."
+  },
+  {
+    "lat": 35.18317,
+    "lon": -84.87391,
+    "name": "High Point Climbing Cleveland",
+    "country": "US",
+    "website": "https://www.highpointclimbing.com/locations/cleveland",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 34.73803,
+    "lon": -86.66691,
+    "name": "High Point Climbing Huntsville",
+    "country": "US",
+    "website": "https://www.highpointclimbing.com/locations/midcity",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator runs two Huntsville gyms; this is Mid City at 1020 Nunnahsae, the address upstream carries."
+  },
+  {
+    "lat": 28.56808,
+    "lon": -81.40843,
+    "name": "High Point Climbing Orlando",
+    "country": "US",
+    "website": "https://www.highpointclimbing.com/locations/orlando",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 30.34335,
+    "lon": -97.68532,
+    "name": "Mesa Rim Climbing Center Austin",
+    "country": "US",
+    "website": "https://mesarim.com/austin",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 32.76039,
+    "lon": -117.16135,
+    "name": "Mesa Rim Climbing Center Mission Valley",
+    "country": "US",
+    "website": "https://mesarim.com/missionvalley",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 39.51523,
+    "lon": -119.78559,
+    "name": "Mesa Rim Climbing Center Reno",
+    "country": "US",
+    "website": "https://mesarim.com/reno",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "location-page"
+    ],
+    "note": "The page prints 970 Harvard Way without a ZIP; upstream's matches it."
   },
   {
     "lat": 40.7082,
@@ -11102,6 +11285,174 @@
     ]
   },
   {
+    "lat": 32.33042,
+    "lon": -111.04925,
+    "name": "Rock Solid Climbing",
+    "country": "US",
+    "website": "https://www.rocksolidclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site gives the same address as both Tucson and Marana; upstream records Tucson."
+  },
+  {
+    "lat": 32.33046,
+    "lon": -111.04919,
+    "name": "Rock Solid Climbing + Fitness",
+    "country": "US",
+    "website": "https://www.rocksolidclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code"
+    ],
+    "note": "Upstream lists this gym three times within 30 m; the coordinate sits in ZIP 85741, the one the site prints."
+  },
+  {
+    "lat": 32.330193,
+    "lon": -111.0493008,
+    "name": "Rock Solid Climbing + Fitness MoonBoard",
+    "country": "US",
+    "website": "https://www.rocksolidclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code"
+    ],
+    "note": "Upstream lists this gym three times within 30 m; the coordinate sits in ZIP 85741, the one the site prints."
+  },
+  {
+    "lat": 42.35021,
+    "lon": -71.1147,
+    "name": "Rock Spot Climbing Brookline",
+    "country": "US",
+    "website": "https://brookline.rockspotclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 42.42676,
+    "lon": -71.07332,
+    "name": "Rock Spot Climbing Malden",
+    "country": "US",
+    "website": "https://malden.rockspotclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "city"
+    ],
+    "note": "The location's own subdomain gives Malden, MA 02148 and no street line; the coordinate sits in Malden."
+  },
+  {
+    "lat": 41.30293,
+    "lon": -72.92083,
+    "name": "Rock Spot Climbing New Haven",
+    "country": "US",
+    "website": "https://newhaven.rockspotclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "city",
+      "postal-code"
+    ],
+    "note": "The location's own subdomain gives New Haven, CT 06511 and no street line; the coordinate sits in that ZIP."
+  },
+  {
+    "lat": 41.81529,
+    "lon": -71.42277,
+    "name": "Rock Spot Providence",
+    "country": "US",
+    "website": "https://providence.rockspotclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 38.538353,
+    "lon": -121.73875,
+    "name": "Rocknasium",
+    "country": "US",
+    "website": "https://www.rocknasium.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Upstream lists this gym twice, 17 m apart."
+  },
+  {
+    "lat": 38.538504731767624,
+    "lon": -121.73876766245867,
+    "name": "Rocknasium",
+    "country": "US",
+    "website": "https://www.rocknasium.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 43.59293,
+    "lon": -70.36218,
+    "name": "Salt Pump Climbing Co Scarborough",
+    "country": "US",
+    "website": "https://www.saltpumpclimbing.com/scarborough-maine/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 43.03634,
+    "lon": -70.78911,
+    "name": "Salt Pump Climbing Co. Portsmouth",
+    "country": "US",
+    "website": "https://www.saltpumpclimbing.com/portsmouth-new-hampshire/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
     "lat": 47.65055,
     "lon": -122.34171,
     "name": "Seattle Bouldering Project Fremont",
@@ -11242,6 +11593,37 @@
     ]
   },
   {
+    "lat": 45.67642,
+    "lon": -111.14422,
+    "name": "Spire Climbing + Fitness Training Center",
+    "country": "US",
+    "website": "https://www.spireclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "This coordinate is the actual training centre, on Innovation Lane, 6.8 km from the main gym."
+  },
+  {
+    "lat": 45.656304,
+    "lon": -111.069708,
+    "name": "Spire Climbing Center Training Facility",
+    "country": "US",
+    "website": "https://www.spireclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator runs a main gym and a training centre off one page; upstream labels this entry the training facility, but its 13 Enterprise Blvd address is the main gym's."
+  },
+  {
     "lat": 38.80115,
     "lon": -77.126,
     "name": "Sportrock Alexandria",
@@ -11305,6 +11687,82 @@
       "location-page"
     ],
     "note": "The page prints Washingtonian Blvd; upstream abbreviates it to Washington Blvd."
+  },
+  {
+    "lat": 35.0343,
+    "lon": -85.30197,
+    "name": "Synergy Climbing + Ninja",
+    "country": "US",
+    "website": "https://synergyclimbingandninja.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Upstream lists this gym twice, 6 m apart."
+  },
+  {
+    "lat": 35.03435,
+    "lon": -85.30195,
+    "name": "Synergy Climbing and Ninja",
+    "country": "US",
+    "website": "https://synergyclimbingandninja.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 42.9347612,
+    "lon": -85.6466583,
+    "name": "TERRA FIRMA",
+    "country": "US",
+    "website": "https://www.climbterrafirma.com/grandrapids",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "street-address"
+    ],
+    "note": "Upstream lists this gym twice, 19 m apart."
+  },
+  {
+    "lat": 42.72423973418426,
+    "lon": -84.44852295396556,
+    "name": "Terra Firma Bouldering Co",
+    "country": "US",
+    "website": "https://www.climbterrafirma.com/east-lansing-home",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 42.93491845270286,
+    "lon": -85.64672357301721,
+    "name": "Terra Firma Bouldering Co",
+    "country": "US",
+    "website": "https://www.climbterrafirma.com/grandrapids",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
   },
   {
     "lat": 44.09001,
@@ -11383,6 +11841,80 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 30.3321838,
+    "lon": -81.655651,
+    "name": "The Edge Rock Gym",
+    "country": "US",
+    "website": "https://theedgerockgym.com/home/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The page gives Jacksonville, FL 32207 and no street line; this coordinate sits in Jacksonville but in ZIP 32202."
+  },
+  {
+    "lat": 28.1057,
+    "lon": -80.69141,
+    "name": "The Edge Rock Gym Melbourne",
+    "country": "US",
+    "website": "https://ontheedgerockclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "The operator's Melbourne gym trades as On The Edge; its 200 West Drive resolves 25 m from this coordinate."
+  },
+  {
+    "lat": 41.2311,
+    "lon": -111.97512,
+    "name": "The Front Climbing Club Ogden",
+    "country": "US",
+    "website": "https://thefrontclimbingclub.com/ogden/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "street-address"
+    ],
+    "note": "The page's 225 20th St resolves 12 m from this upstream coordinate."
+  },
+  {
+    "lat": 40.73787,
+    "lon": -111.9029,
+    "name": "The Front Climbing Club SLC",
+    "country": "US",
+    "website": "https://thefrontclimbingclub.com/slc/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 40.68148,
+    "lon": -111.89143,
+    "name": "The Front Climbing Club South Main",
+    "country": "US",
+    "website": "https://thefrontclimbingclub.com/southmain/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The coordinate falls on the page's own 4140 Main Street, 84107; a forward lookup of that address lands 5 km away."
   },
   {
     "lat": 40.05867,
@@ -11526,6 +12058,94 @@
       "postal-code",
       "city",
       "location-page"
+    ]
+  },
+  {
+    "lat": 35.60764,
+    "lon": -97.62456,
+    "name": "Threshold Climbing, Fitness & Yoga",
+    "country": "US",
+    "website": "https://www.thresholdclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site's contact page gives Oklahoma City, OK 73142 and no street line."
+  },
+  {
+    "lat": 35.6075,
+    "lon": -97.6244,
+    "name": "Threshold Climbing, Fitness + Yoga",
+    "country": "US",
+    "website": "https://www.thresholdclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code"
+    ],
+    "note": "Upstream lists this gym twice, 22 m apart."
+  },
+  {
+    "lat": 35.9512,
+    "lon": -78.92458,
+    "name": "Triangle Rock Club Durham",
+    "country": "US",
+    "website": "https://trianglerockclub.com/durham/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 35.81018,
+    "lon": -78.61697,
+    "name": "Triangle Rock Club Salvage Yard",
+    "country": "US",
+    "website": "https://trianglerockclub.com/salvage-yard/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "street-address"
+    ],
+    "note": "The page's 2330 Salvage Yard Drive resolves 21 m from this upstream coordinate."
+  },
+  {
+    "lat": 47.88684,
+    "lon": -122.27934,
+    "name": "Vertical World North",
+    "country": "US",
+    "website": "https://north.verticalworld.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page"
+    ],
+    "note": "The operator's page for this gym prints no address; its name and subdomain identify it as Vertical World North."
+  },
+  {
+    "lat": 47.66171,
+    "lon": -122.38669,
+    "name": "Vertical World Seattle",
+    "country": "US",
+    "website": "https://seattle.verticalworld.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "city"
     ]
   },
   {
