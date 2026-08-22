@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 1042 |
-| Verified website links | 937 |
-| Rejected / ambiguous / private / closed | 105 |
+| Venues reviewed (linked + research entries) | 1075 |
+| Verified website links | 965 |
+| Rejected / ambiguous / private / closed | 110 |
 | Countries covered | 22 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -243,23 +243,23 @@ Per-country coverage of eligible (public/commercial) venues:
 
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
-| US | 256 | 576 | 44% |
+| US | 257 | 576 | 45% |
 | DE | 163 | 201 | 81% |
 | GB | 69 | 102 | 68% |
 | CA | 58 | 132 | 44% |
 | CH | 52 | 56 | 93% |
+| ES | 50 | 98 | 51% |
 | NL | 50 | 59 | 85% |
-| ES | 45 | 98 | 46% |
-| FR | 44 | 70 | 63% |
+| FR | 46 | 70 | 66% |
 | AT | 44 | 48 | 92% |
+| NO | 35 | 81 | 43% |
 | AU | 30 | 83 | 36% |
 | BE | 28 | 36 | 78% |
-| NO | 22 | 81 | 27% |
 | IT | 21 | 72 | 29% |
-| DK | 13 | 27 | 48% |
+| DK | 14 | 27 | 52% |
 | PL | 12 | 45 | 27% |
-| SE | 7 | 37 | 19% |
-| FI | 5 | 15 | 33% |
+| SE | 11 | 37 | 30% |
+| FI | 8 | 15 | 53% |
 | IE | 5 | 10 | 50% |
 | CZ | 4 | 10 | 40% |
 | ZA | 3 | 12 | 25% |
@@ -272,11 +272,10 @@ wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
 opened and read), 9 `ambiguous`, 5 `closed`, 4 `http-only`, 1 `duplicate`.
 
-- **Last completed batch:** Canada off its Overpass run, plus Australia, South
-  Africa and the Yukon from name-derived domains. Canada 30% → 44%, Australia
-  30% → 36%, South Africa new.
-- **Next batch:** the American, Canadian and Australian candidates whose homepage
-  carries no address — their contact and location subpages are being checked.
+- **Last completed batch:** Europe's remaining independents from name-derived
+  domains — 28 linked across Norway, Sweden, Denmark, Finland, Spain and France,
+  and five rejected by hand after the comparison had passed them.
+- **Next batch:** Australia and Sweden off the Overpass run now in flight.
 
 ### What is actually gating the remaining countries
 
@@ -427,3 +426,22 @@ caught three the automated comparison could not:
 A fourth was a provenance error rather than a wrong link: Upper Limits runs three
 gyms and lists all three by address, so its record is an `official-chain-page`,
 not an `official-site`.
+
+Running the same pipeline over Europe made the point again, and harder. Thirty-four
+candidates passed the address comparison; hand-checking rejected five of them:
+
+- **holbaek.dk** is Holbæk Kommune's municipal site. Its postcode and town matched
+  the climbing club's because the municipality shares them.
+- **worldclimbing.com** is the international federation formerly known as the
+  IFSC, not the Madrid gym called World Climbing.
+- **klatreverket.no** lists four Oslo centres and none in Kristiansand, 320 km
+  away, where upstream has a venue of that name.
+- **klatreklubben.no** offers no HTTPS at all.
+- **ambassaden.no** gives exactly the Henrik Ibsens gate 48 address upstream
+  carries — and is an event venue and restaurant collective that never mentions
+  training or climbing.
+
+The comparison is doing real work: it rejected 68 of the 102 European candidates
+outright. But four matching address components are evidence that *a* building
+matches, not that the site belongs to the gym, and only reading the page tells
+those apart.

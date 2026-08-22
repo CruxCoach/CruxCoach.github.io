@@ -5902,6 +5902,19 @@
     "note": "The coordinate falls on Ankersgade in 8000 Aarhus C, the page's Aarhus City address."
   },
   {
+    "lat": 56.158950834556414,
+    "lon": 10.134842157670375,
+    "name": "Aarhus klatreklub",
+    "country": "DK",
+    "website": "https://aarhusklatreklub.dk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code"
+    ]
+  },
+  {
     "lat": 55.68352849999999,
     "lon": 12.4912407,
     "name": "Beta Boulders Copenhagen",
@@ -6252,6 +6265,34 @@
     ]
   },
   {
+    "lat": 41.5625,
+    "lon": 1.99852,
+    "name": "GeoBoulder",
+    "country": "ES",
+    "website": "https://geoboulder.es/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 42.83755,
+    "lon": -2.66905,
+    "name": "Gimnasio K2",
+    "country": "ES",
+    "website": "https://gimnasiok2.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 38.03211,
     "lon": -1.14918,
     "name": "GUD Climbing Gym",
@@ -6281,6 +6322,19 @@
       "city"
     ],
     "note": "The coordinate falls on the Rúa Madame Curie 2-4 the site gives as Calle Marie Curie."
+  },
+  {
+    "lat": 39.5735,
+    "lon": 2.69071,
+    "name": "In Rock Escalada",
+    "country": "ES",
+    "website": "https://inrockescalada.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ]
   },
   {
     "lat": 41.58233,
@@ -6374,6 +6428,19 @@
       "city"
     ],
     "note": "The operator's three halls share one site; it lists this one by street address."
+  },
+  {
+    "lat": 41.3666,
+    "lon": 2.13958,
+    "name": "Monobloc Sants",
+    "country": "ES",
+    "website": "https://monobloc.es/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code"
+    ]
   },
   {
     "lat": 38.34201590000001,
@@ -6777,6 +6844,20 @@
     "note": "The gym gives Ursalto kalea 4 where upstream records only a pavilion number; it resolves to within 80 m of this venue."
   },
   {
+    "lat": 38.86872,
+    "lon": -6.95472,
+    "name": "Zima Escalada",
+    "country": "ES",
+    "website": "https://zimaescalada.es/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 60.16612,
     "lon": 24.70167,
     "name": "Boulderkeskus Espoo",
@@ -6853,6 +6934,48 @@
     "note": "The page lists BK PASILA at Veturitallinkuja 4; this coordinate sits 2.9 km away in central Helsinki, nearer that hall than any other the operator runs."
   },
   {
+    "lat": 64.99112,
+    "lon": 25.45804,
+    "name": "Kaamos Climbing",
+    "country": "FI",
+    "website": "https://kaamosclimbing.fi/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 60.23941,
+    "lon": 24.84934,
+    "name": "KiipeilyAreena Ristikko",
+    "country": "FI",
+    "website": "https://kiipeilyareena.fi/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 65.04533,
+    "lon": 25.43448,
+    "name": "Oulun Kiipeilykeskus",
+    "country": "FI",
+    "website": "https://oulunkiipeilykeskus.fi/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 43.31385,
     "lon": 5.40718,
     "name": "45° Escalade",
@@ -6865,6 +6988,20 @@
       "city"
     ],
     "note": "The single-page site names the hall and Marseille but prints no street address."
+  },
+  {
+    "lat": 47.58075164301288,
+    "lon": 7.520278057672328,
+    "name": "ALPI360",
+    "country": "FR",
+    "website": "https://alpi360.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The club runs two walls, La Comète in Hésingue and the COSEC in Village-Neuf; this is the Hésingue one."
   },
   {
     "lat": 43.33397,
@@ -7321,6 +7458,21 @@
       "postal-code",
       "city",
       "board-mention"
+    ]
+  },
+  {
+    "lat": 47.51288184647128,
+    "lon": 6.8354212514257595,
+    "name": "GRAVITY BLOC",
+    "country": "FR",
+    "website": "https://gravitybloc.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
     ]
   },
   {
@@ -9934,6 +10086,60 @@
     ]
   },
   {
+    "lat": 60.78878,
+    "lon": 11.09001,
+    "name": "Espern Aktivitetspark",
+    "country": "NO",
+    "website": "https://espern.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The operator runs centres in Hamar and Lillehammer off one site; its climbing and bouldering section is named in the navigation."
+  },
+  {
+    "lat": 61.44946,
+    "lon": 5.90513,
+    "name": "Førde Klatresenter",
+    "country": "NO",
+    "website": "https://fordeklatresenter.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 59.23275,
+    "lon": 10.9109,
+    "name": "Fredrikstad Buldresenter",
+    "country": "NO",
+    "website": "https://fredrikstadbuldresenter.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code"
+    ]
+  },
+  {
+    "lat": 60.53655,
+    "lon": 8.22586,
+    "name": "Geilo Klatreklubb",
+    "country": "NO",
+    "website": "https://geiloklatreklubb.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ]
+  },
+  {
     "lat": 59.91758,
     "lon": 10.63072,
     "name": "Gneis Lilleaker",
@@ -9962,6 +10168,20 @@
       "city"
     ],
     "note": "The operator gives its two Trondheim centres one page; this is Leangen at Travbanevegen 7. The page gives postcode 7061 and upstream 7044."
+  },
+  {
+    "lat": 61.21709,
+    "lon": 6.06983,
+    "name": "Høyanger Klatreklubb",
+    "country": "NO",
+    "website": "https://hoyangerklatreklubb.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ]
   },
   {
     "lat": 59.28207,
@@ -10040,6 +10260,19 @@
       "postal-code",
       "city",
       "location-page"
+    ]
+  },
+  {
+    "lat": 63.06181,
+    "lon": 7.48804,
+    "name": "I.L. Havørn Klatring",
+    "country": "NO",
+    "website": "https://ilhavorn.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "postal-code",
+      "city"
     ]
   },
   {
@@ -10136,6 +10369,20 @@
     "note": "The operator runs two Narvik sites; the coordinate is 56 m from Kraft Narvik at Lodve Langes gate 2 and 1.4 km from Kraft Stadion."
   },
   {
+    "lat": 62.56787,
+    "lon": 7.69012,
+    "name": "Norsk Tindesenter",
+    "country": "NO",
+    "website": "https://norsktindesenter.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 59.8679,
     "lon": 10.84182,
     "name": "Oslo Klatresenter",
@@ -10166,6 +10413,19 @@
     ]
   },
   {
+    "lat": 66.31997,
+    "lon": 14.19856,
+    "name": "Rana Klatresenter",
+    "country": "NO",
+    "website": "https://ranaklatresenter.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ]
+  },
+  {
     "lat": 59.27998270000001,
     "lon": 10.3159612,
     "name": "Sem/Tønsberg HUT",
@@ -10179,6 +10439,34 @@
       "street-address"
     ],
     "note": "Upstream lists this hall twice; this coordinate is the one 7 m from the page's Andebuveien 78, 3170 Sem."
+  },
+  {
+    "lat": 58.13775,
+    "lon": 7.99995,
+    "name": "Sørlandet Klatresenter",
+    "country": "NO",
+    "website": "https://sorlandetklatresenter.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 64.02071,
+    "lon": 11.5117,
+    "name": "Steinkjerhallen",
+    "country": "NO",
+    "website": "https://steinkjerhallen.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ]
   },
   {
     "lat": 60.293389018785966,
@@ -10210,6 +10498,45 @@
       "city"
     ],
     "note": "Upstream lists this hall twice, 60 m apart."
+  },
+  {
+    "lat": 65.48496,
+    "lon": 12.22288,
+    "name": "Stupbratt Klatreklubb",
+    "country": "NO",
+    "website": "https://stupbratt.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ]
+  },
+  {
+    "lat": 59.91952,
+    "lon": 10.95448,
+    "name": "Triaden Klatresenter",
+    "country": "NO",
+    "website": "https://triadenklatresenter.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ]
+  },
+  {
+    "lat": 60.96871,
+    "lon": 9.29742,
+    "name": "Valdres Storhall",
+    "country": "NO",
+    "website": "https://valdresstorhall.no/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code"
+    ]
   },
   {
     "lat": 53.40676,
@@ -10423,6 +10750,22 @@
     "note": "The island's only bouldering gym; its Rua Conde Carvalhal address resolves 79 m from this coordinate."
   },
   {
+    "lat": 63.39554,
+    "lon": 13.08567,
+    "name": "JumpYard Åre",
+    "country": "SE",
+    "website": "https://jumpyard.se/are",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
     "lat": 56.0597542,
     "lon": 12.7071127,
     "name": "Klättercentret Helsingborg",
@@ -10534,6 +10877,46 @@
       "location-page"
     ],
     "note": "The page gives Marcusplatsen 17 as 131 34 Nacka; upstream records no postcode."
+  },
+  {
+    "lat": 59.31302,
+    "lon": 18.07344,
+    "name": "Moumo Skrapan",
+    "country": "SE",
+    "website": "https://moumo.se/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 57.39706,
+    "lon": 14.6648,
+    "name": "Sävsjö Klätterklubb",
+    "country": "SE",
+    "website": "https://savsjoklatterklubb.se/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ]
+  },
+  {
+    "lat": 58.42014,
+    "lon": 15.61749,
+    "name": "Urban Boulders",
+    "country": "SE",
+    "website": "https://urbanboulders.se/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ]
   },
   {
     "lat": 36.97181,

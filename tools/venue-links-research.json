@@ -323,6 +323,16 @@
     "candidate": "https://www.verticalworld.de/"
   },
   {
+    "lat": 55.7203436012916,
+    "lon": 11.712128911084726,
+    "name": "Holbæk Klatreklub",
+    "country": "DK",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "holbaek.dk is Holbæk Kommune's municipal site, not this climbing club; its postcode and town matched only because the municipality shares them.",
+    "candidate": "https://holbaek.dk/"
+  },
+  {
     "lat": 43.2903,
     "lon": -2.88748,
     "name": "Biwak Climbing",
@@ -379,6 +389,16 @@
     "checked": "2026-08-22",
     "reason": "uadibloc.com serves a hosting-account suspension notice, so there is no operator page to open and read.",
     "candidate": "https://uadibloc.com/"
+  },
+  {
+    "lat": 40.53623976991643,
+    "lon": -3.616688244699811,
+    "name": "World Climbing",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "worldclimbing.com is the international federation formerly known as the IFSC, not this Madrid gym.",
+    "candidate": "https://worldclimbing.com/"
   },
   {
     "lat": 45.38471,
@@ -755,6 +775,36 @@
     "checked": "2026-08-22",
     "reason": "The only candidate domain, narvikbuldrehall.no, does not resolve in DNS; upstream lists this MoonBoard 24 m from its Kilter entry.",
     "candidate": "https://narvikbuldrehall.no/"
+  },
+  {
+    "lat": 59.91525,
+    "lon": 10.72374,
+    "name": "Ambassaden Trening",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "ambassaden.no is the Henrik Ibsens gate 48 venue's own site and gives exactly the address upstream carries, but it presents itself as an event venue and restaurant collective and never mentions training or climbing.",
+    "candidate": "https://ambassaden.no/"
+  },
+  {
+    "lat": 62.46913,
+    "lon": 6.18367,
+    "name": "Klatreklubben Ålesund",
+    "country": "NO",
+    "status": "http-only",
+    "checked": "2026-08-22",
+    "reason": "klatreklubben.no redirects to its www host over HTTP and offers no HTTPS, so there is no secure URL to publish.",
+    "candidate": "http://www.klatreklubben.no/"
+  },
+  {
+    "lat": 58.1472,
+    "lon": 7.98027,
+    "name": "Klatreverket Kristiansand",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "klatreverket.no is the Oslo operator's site and lists four Oslo centres, none in Kristiansand 320 km away.",
+    "candidate": "https://klatreverket.no/"
   },
   {
     "lat": 60.38464,
