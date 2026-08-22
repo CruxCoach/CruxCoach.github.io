@@ -635,5 +635,14 @@
     "checked": "2026-08-22",
     "reason": "Monk's Amsterdam gym resolves about 2.5 km from this MoonBoard entry, and the operator's site names no MoonBoard, so no second independent signal ties this coordinate to it.",
     "candidate": "https://monk.nl/amsterdam/"
+  },
+  {
+    "lat": 55.5870295,
+    "lon": 13.0544454,
+    "name": "Klättercentret Malmö",
+    "country": "SE",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "Upstream lists two Klättercentret Malmö entries 1.8 km apart; the operator has one Malmö hall, at Kopparbergsgatan 8, which the other entry already carries. Which venue this coordinate means is not decidable."
   }
 ]

@@ -6945,5 +6945,88 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 59.92947,
+    "lon": 10.75802,
+    "name": "Klatreverket Løkka",
+    "country": "NO",
+    "website": "https://klatreverket.no/lokka-klatresenter/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Upstream carries no address for this entry; the operator's Thorvald Meyers gate 9 resolves to within 35 m of it."
+  },
+  {
+    "lat": 56.0597542,
+    "lon": 12.7071127,
+    "name": "Klättercentret Helsingborg",
+    "country": "SE",
+    "website": "https://klattercentret.se/helsingborg",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Upstream carries no address for this entry; the operator's Juelsgatan 5 resolves to within 15 m of it."
+  },
+  {
+    "lat": 55.5874446,
+    "lon": 13.0251295,
+    "name": "Klättercentret Malmo",
+    "country": "SE",
+    "website": "https://klattercentret.se/malmo",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Upstream lists two Malmö entries 1.8 km apart; this is the one at the operator's Kopparbergsgatan 8, which resolves to within 10 m of it."
+  },
+  {
+    "lat": 59.29908940000001,
+    "lon": 17.9915352,
+    "name": "Klättercentret Telefonplan",
+    "country": "SE",
+    "website": "https://klattercentret.se/telefonplan",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Upstream carries no address for this entry; the operator's Tellusgången 22-24 resolves to within 85 m of it."
+  },
+  {
+    "lat": 57.73633,
+    "lon": 12.03056,
+    "name": "Klätterdomen",
+    "country": "SE",
+    "website": "https://www.klatterdomen.se/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
   }
 ]

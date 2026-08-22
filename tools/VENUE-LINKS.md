@@ -233,10 +233,10 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 506 |
-| Verified website links | 441 |
-| Rejected / ambiguous / private / closed | 65 |
-| Countries covered | 9 |
+| Venues reviewed (linked + research entries) | 512 |
+| Verified website links | 446 |
+| Rejected / ambiguous / private / closed | 66 |
+| Countries covered | 11 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -251,6 +251,8 @@ Per-country coverage of eligible (public/commercial) venues:
 | FR | 31 | 70 | 44% |
 | ES | 27 | 98 | 28% |
 | BE | 23 | 36 | 64% |
+| SE | 4 | 37 | 11% |
+| NO | 1 | 81 | 1% |
 | IT | 1 | 72 | 1% |
 
 Research-log reasons so far: 52 `unverified` (46 of them operator sites that
@@ -259,9 +261,9 @@ wrong-hostname or unverifiable certificate, or show a suspension notice, so no
 page could be opened and read), 6 with no findable official site, 3 `http-only`,
 2 `ambiguous`, 1 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** Spain, second and third passes — Monobloc, GUD,
-  Centro Escalada Tenerife, Boulder Indoor, RAW INDOOR, La Ola, El Roko.
-- **Next batch:** the rest of Spain, then Italy and the Nordics off the OSM
+- **Last completed batch:** Sweden and Norway, first pass — Klättercentret,
+  Klätterdomen, Klatreverket.
+- **Next batch:** the rest of the Nordics and Spain, then Italy off the OSM
   discovery run.
 
 ### What is actually gating the remaining countries
