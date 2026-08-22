@@ -4834,6 +4834,20 @@
     "note": "The gym gives Ursalto kalea 4 where upstream records only a pavilion number; it resolves to within 80 m of this venue."
   },
   {
+    "lat": 43.31385,
+    "lon": 5.40718,
+    "name": "45° Escalade",
+    "country": "FR",
+    "website": "https://45escalade.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The single-page site names the hall and Marseille but prints no street address."
+  },
+  {
     "lat": 43.33397,
     "lon": 5.37314,
     "name": "Altissimo Marseille",
@@ -4884,6 +4898,83 @@
     ]
   },
   {
+    "lat": 48.80399,
+    "lon": 2.36549,
+    "name": "Antrebloc",
+    "country": "FR",
+    "website": "https://antrebloc.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 48.8040901,
+    "lon": 2.3653312,
+    "name": "Antrebloc",
+    "country": "FR",
+    "website": "https://antrebloc.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Upstream lists this MoonBoard separately, 13 m from its Kilter entry; the site names its Moonboard."
+  },
+  {
+    "lat": 46.11474,
+    "lon": 3.43687,
+    "name": "Arca Bloc",
+    "country": "FR",
+    "website": "https://www.arcabloc.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 43.71040163145131,
+    "lon": 7.19328332618448,
+    "name": "Art Bloc Escalade",
+    "country": "FR",
+    "website": "https://www.art-bloc.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 43.71032,
+    "lon": 7.19327,
+    "name": "ArtBloc Salle d'Escalade",
+    "country": "FR",
+    "website": "https://www.art-bloc.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Upstream lists this hall twice, 9 m apart, as Art Bloc Escalade and ArtBloc Salle d'Escalade."
+  },
+  {
     "lat": 45.90719,
     "lon": 6.13271,
     "name": "Atome",
@@ -4896,6 +4987,22 @@
       "city"
     ],
     "note": "The gym publishes no street address on any page we could open."
+  },
+  {
+    "lat": 47.63811,
+    "lon": -2.76552,
+    "name": "B'wall Vannes",
+    "country": "FR",
+    "website": "https://www.b-wall.fr/salle-escalade/vannes/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
   },
   {
     "lat": 45.75495,
@@ -5026,6 +5133,21 @@
     "note": "Upstream carries no address for this entry; the location page's Rue de la Bastide Blanche resolves to within 300 m of it."
   },
   {
+    "lat": 43.5753976,
+    "lon": 3.9382142,
+    "name": "Bs7_Moonboard",
+    "country": "FR",
+    "website": "https://www.blocsession.com/salle-escalade/montpellier-sud/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "city"
+    ],
+    "note": "The hall trades as BS.7 Montpellier sud and the page places it in Pérols, where this coordinate sits; it prints no street address."
+  },
+  {
     "lat": 47.68163,
     "lon": -2.80001,
     "name": "Capt'N Hablock",
@@ -5052,6 +5174,38 @@
       "street-address",
       "postal-code",
       "city"
+    ]
+  },
+  {
+    "lat": 43.52859,
+    "lon": 4.95816,
+    "name": "Climb Up Istres",
+    "country": "FR",
+    "website": "https://istres.climb-up.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 43.83249,
+    "lon": 4.36785,
+    "name": "Climb Up Nîmes",
+    "country": "FR",
+    "website": "https://nimes.climb-up.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
     ]
   },
   {
@@ -5151,6 +5305,22 @@
     ]
   },
   {
+    "lat": 49.15363,
+    "lon": -0.28923,
+    "name": "Isatix",
+    "country": "FR",
+    "website": "https://www.isatix.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
     "lat": 45.6197566,
     "lon": 5.8886275,
     "name": "La Zipette",
@@ -5180,6 +5350,21 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 45.08821,
+    "lon": 5.56088,
+    "name": "Le Bloc de l'Ours",
+    "country": "FR",
+    "website": "https://www.blocdelours.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The site places the hall at Les Geymonds in Villard-de-Lans, where this coordinate sits, and names its Tension 2 board."
   },
   {
     "lat": 44.8881,
@@ -5290,6 +5475,22 @@
       "board-mention"
     ],
     "note": "The location page names the hall's quarter and its Kilter Board but publishes no street address."
+  },
+  {
+    "lat": 43.64077,
+    "lon": 7.13232,
+    "name": "Val de Grimpe",
+    "country": "FR",
+    "website": "https://valdegrimpe.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
   },
   {
     "lat": 43.10903399343013,
@@ -6198,6 +6399,124 @@
     ]
   },
   {
+    "lat": 44.4262,
+    "lon": 7.54135,
+    "name": "BigUp Climbing",
+    "country": "IT",
+    "website": "https://bigupclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The site's own footer gives the Cuneo hall an Ivrea postcode; upstream's 12100 is the correct one."
+  },
+  {
+    "lat": 46.27371,
+    "lon": 12.30335,
+    "name": "Climbing Zoo",
+    "country": "IT",
+    "website": "https://palasportlongarone.it/sport/climbing-zoo-longarone/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "The Palasport runs the hall as Climbing Zoo Longarone and its page names the kilterboard; no street address is printed."
+  },
+  {
+    "lat": 46.7901,
+    "lon": 11.92805,
+    "name": "HELIKS Bruneck",
+    "country": "IT",
+    "website": "https://heliks.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 45.99849,
+    "lon": 11.12495,
+    "name": "Infinity Boulder",
+    "country": "IT",
+    "website": "https://infinityboulder.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The site gives Mattarello the 38122 postcode; upstream carries 38123."
+  },
+  {
+    "lat": 45.516286,
+    "lon": 9.222550400000001,
+    "name": "MANGA climbing B 2024",
+    "country": "IT",
+    "website": "https://mangaclimbing.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 45.021136,
+    "lon": 9.7442984,
+    "name": "New MACACO",
+    "country": "IT",
+    "website": "https://macaco.tv/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ]
+  },
+  {
+    "lat": 45.69573,
+    "lon": 9.61979,
+    "name": "Orobia Climbing",
+    "country": "IT",
+    "website": "https://orobiaclimbing.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 44.812988645630455,
+    "lon": 10.279608813490865,
+    "name": "Pareti Sport Center",
+    "country": "IT",
+    "website": "https://paretisportcenter.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ]
+  },
+  {
     "lat": 45.45312,
     "lon": 9.25211,
     "name": "Rockspot",
@@ -6210,6 +6529,103 @@
       "coordinates"
     ],
     "note": "The gym publishes no street address, but the map pin on its own page sits 54 m from this venue."
+  },
+  {
+    "lat": 46.47043,
+    "lon": 11.31389,
+    "name": "Salewa Cube Waltherpark",
+    "country": "IT",
+    "website": "https://www.salewa-cube.com/de/waltherpark",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator's second Bolzano hall is 2 km away; this page is the Waltherpark one and prints the Südtiroler Platz address upstream records."
+  },
+  {
+    "lat": 44.40557007188392,
+    "lon": 8.933108505553752,
+    "name": "Sisport Genova",
+    "country": "IT",
+    "website": "https://www.sisportgym.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 45.61478,
+    "lon": 8.99049,
+    "name": "Stone Age Climbing Park",
+    "country": "IT",
+    "website": "https://stoneageclimb.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 45.6147133,
+    "lon": 8.9904088,
+    "name": "Stone Age Moon Board",
+    "country": "IT",
+    "website": "https://stoneageclimb.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "board-mention"
+    ],
+    "note": "Upstream lists this MoonBoard separately, 10 m from its Kilter entry; the site names both boards."
+  },
+  {
+    "lat": 37.0766896,
+    "lon": 15.2906457,
+    "name": "Vertical Climbing Center",
+    "country": "IT",
+    "website": "https://www.verticalclimbingcenter.it/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 41.5781,
+    "lon": 12.65474,
+    "name": "Vertigini Climbing Aprilia",
+    "country": "IT",
+    "website": "https://www.vertiginiclimbing.it/aprilia",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The address is a Via Pontina kilometre marker, so the coordinate's own street, ZIP and commune were checked instead of a forward lookup."
   },
   {
     "lat": 53.21729,

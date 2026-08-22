@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 608 |
-| Verified website links | 540 |
-| Rejected / ambiguous / private / closed | 68 |
+| Venues reviewed (linked + research entries) | 641 |
+| Verified website links | 567 |
+| Rejected / ambiguous / private / closed | 74 |
 | Countries covered | 12 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -248,25 +248,24 @@ Per-country coverage of eligible (public/commercial) venues:
 | GB | 55 | 102 | 54% |
 | CH | 51 | 56 | 91% |
 | NL | 46 | 59 | 78% |
+| FR | 44 | 70 | 63% |
 | AT | 44 | 48 | 92% |
-| FR | 31 | 70 | 44% |
 | ES | 27 | 98 | 28% |
 | BE | 23 | 36 | 64% |
+| IT | 15 | 72 | 21% |
 | SE | 4 | 37 | 11% |
 | NO | 1 | 81 | 1% |
-| IT | 1 | 72 | 1% |
 
-Research-log reasons so far: 59 `unverified` (46 of them operator sites that
-answer 403/401/500/526, fail their TLS handshake, serve an expired,
-wrong-hostname or unverifiable certificate, or show a suspension notice, so no
-page could be opened and read), 4 `ambiguous`, 3 `http-only`, 1 `closed`,
-1 `duplicate`.
+Research-log reasons so far: 64 `unverified` (50 of them operator sites that
+answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
+wrong-hostname or unverifiable certificate, redirect to a hosting-platform
+staging hostname, or show a maintenance or suspension notice, so no page could be
+opened and read), 5 `ambiguous`, 3 `http-only`, 1 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** the six largest United States operators — Movement
-  (35 entries), Central Rock Gym (29), Momentum (14), Sender One (7), Vital (5)
-  and Sportrock (4). Ninety-four US venues, no discovery run needed.
-- **Next batch:** France and Italy off the OSM discovery run that has now
-  finished, then the next tier of US operators.
+- **Last completed batch:** France and Italy, off the Overpass discovery run that
+  finished this session — 13 French and 14 Italian halls linked, 6 candidates
+  logged instead.
+- **Next batch:** the next tier of US operators, then Spain and the Nordics.
 
 ### What is actually gating the remaining countries
 

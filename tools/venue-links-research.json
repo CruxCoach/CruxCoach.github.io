@@ -371,6 +371,16 @@
     "candidate": "https://voiron.ablok.fr/"
   },
   {
+    "lat": 45.27442,
+    "lon": 5.88808,
+    "name": "Au Perchoir",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "auperchoir.fr answers 403 or 429 to every automated request, so the page could not be opened and read; no other official source for this hall was found.",
+    "candidate": "https://auperchoir.fr/"
+  },
+  {
     "lat": 47.77882,
     "lon": -3.35503,
     "name": "B'wall Lorient",
@@ -388,6 +398,46 @@
     "status": "unverified",
     "checked": "2026-08-22",
     "reason": "beta-bloc.fr, the obvious domain for this gym, serves only a registrar's domain-created placeholder; no operator page could be found and opened."
+  },
+  {
+    "lat": 43.61146,
+    "lon": 6.97223,
+    "name": "Blocparty Climbing",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "blocpartyclimbing.com redirects to a wpcomstaging.com hostname rather than serving the site under its own domain, so there is no canonical official URL to store.",
+    "candidate": "https://blocpartyclimbing.com/"
+  },
+  {
+    "lat": 43.59922983452772,
+    "lon": 3.8663012940657744,
+    "name": "Boulder Line 3",
+    "country": "FR",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "The operator's site renders client-side and prints no address that could be read; its own summary places the Kilter Board at BL2 while upstream files this Kilter under BL3, so the hall could not be identified.",
+    "candidate": "https://boulderline.fr/salles-escalade-montpellier-castelnau"
+  },
+  {
+    "lat": 16.21825,
+    "lon": -61.50041,
+    "name": "Gwada Grimpe",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "gwadagrimpe.com now serves a site branded Kaz a grimp with a kazagrimp.com contact address, prints no street address and never uses the name upstream records; only the commune matches.",
+    "candidate": "https://www.gwadagrimpe.com/"
+  },
+  {
+    "lat": 48.398573,
+    "lon": 2.722797,
+    "name": "Karma Fontainebleau",
+    "country": "FR",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "karma.ffme.fr does not resolve in DNS, so the only candidate page could not be opened.",
+    "candidate": "http://karma.ffme.fr/"
   },
   {
     "lat": 45.94472,
@@ -537,6 +587,16 @@
     "checked": "2026-08-22",
     "reason": "The operator's Wimbledon location page returns 404 and its site lists only the Queensferry centre, so this venue could not be matched against a page we could read.",
     "candidate": "https://www.theboardroomclimbing.com/"
+  },
+  {
+    "lat": 43.1093656,
+    "lon": 12.3608041,
+    "name": "Metropolitan Boulder",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "metropolitanboulder.it serves a maintenance placeholder, so no address or hall detail could be read.",
+    "candidate": "https://metropolitanboulder.it/"
   },
   {
     "lat": 53.1406108,
