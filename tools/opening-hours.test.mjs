@@ -238,3 +238,14 @@ test('parseOpeningHours reports the week without deciding anything about today',
   assert.equal(parsed.week[5], undefined, 'Saturday is unspecified, not closed');
   assert.deepEqual(parsed.week[0], [{ from: '09:00', to: '22:00' }]);
 });
+
+test('an end time of 00:00 is midnight, not the next day', () => {
+  // `18:00-00:00` and `18:00-24:00` are the same statement; only a genuine
+  // wrap continues into the following day.
+  assert.equal(renderOpeningHours('Mo-Fr 09:00-00:00').flags.overnight, false);
+  assert.equal(renderOpeningHours('Mo-Fr 09:00-24:00').flags.overnight, false);
+  assert.equal(renderOpeningHours('Mo-Fr 22:00-02:00').flags.overnight, true);
+  // The value still reads exactly as OpenStreetMap wrote it.
+  assert.deepEqual(renderOpeningHours('Mo-Fr 09:00-00:00').en.lines,
+    [{ label: 'Mon–Fri', value: '09:00–00:00' }]);
+});

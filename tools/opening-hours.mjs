@@ -276,10 +276,13 @@ export function parseOpeningHours(raw) {
 
   if (!sawRule) return { ok: false, reason: 'empty' };
 
+  // `18:00-00:00` ends AT midnight, not after it — the same thing mappers
+  // elsewhere write as `18:00-24:00`. Only a genuine wrap (`22:00-02:00`)
+  // continues into the next day and needs saying so.
   let wrapsMidnight = false;
   for (const entry of [...week, ph]) {
     if (!Array.isArray(entry)) continue;
-    for (const r of entry) if (r.to < r.from) wrapsMidnight = true;
+    for (const r of entry) if (r.to !== '00:00' && r.to < r.from) wrapsMidnight = true;
   }
 
   const allWeekAllDay = week.every(
