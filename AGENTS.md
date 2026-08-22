@@ -32,6 +32,11 @@ python3 -m http.server          # then open http://localhost:8000
 node tools/build-boards-data.mjs
 # → rewrites boards/data/boards.geojson + boards.meta.json; commit both after.
 
+# Re-read OpenStreetMap for the hand-curated venue opening hours
+node tools/refresh-osm-hours.mjs            # --offline re-renders without network
+node tools/build-boards-data.mjs --static-only   # re-render the directories after
+# → rewrites boards/data/osm-opening-hours.json + both list.html files.
+
 # Regenerate the cross-client competition fixtures (shared with the Android app)
 node tools/dev/build-competition-fixtures.mjs
 # → also update the pinned digest in tools/competition-fixtures.test.mjs AND in
@@ -57,8 +62,11 @@ the repo.
   only allowlisted dimensions to an immediate daily aggregate counter. Leaflet is
   **vendored** under `assets/vendor/leaflet/`. Deliberate third-party requests are
   limited to OSM map tiles and the Nostr WebSocket calls in `404.html`; install
-  destinations are contacted only after a click. All are disclosed on the privacy
-  page.
+  destinations are contacted only after a click. Venue **opening hours** are an
+  OpenStreetMap product but not a runtime request: they are read at build time by
+  `tools/refresh-osm-hours.mjs` and served from our own origin, so no visitor is
+  ever announced to a third party for looking at a gym. All are disclosed on the
+  privacy page.
 - **The site is JS-free except for five deliberate exceptions:**
   1. `404.html` runs inline JS on `/c/<naddr>` paths to fetch climb metadata from
      public Nostr relays (`relay.damus.io`, `nos.lol`, `relay.primal.net`) over
@@ -209,6 +217,40 @@ for the full contract; the essentials:
   - `tools/wellpass.json` — flags DACH venues in the egym Wellpass network for the
     map's Wellpass filter. Only curated `name+coords+boolean` rows are committed;
     the matcher and raw scrape are gitignored.
+- **OpenStreetMap opening hours** live in a *separate*, ODbL-licensed sidecar,
+  `boards/data/osm-opening-hours.json`, and never inside `boards.geojson` —
+  ODbL is share-alike, the venue dataset is CC-BY-4.0, and one file cannot be
+  both. A test asserts no OSM-derived field appears in the GeoJSON. Rules:
+  - **Matches are curated by hand, never inferred.** `tools/osm-venues.json`
+    binds a venue to one exact `osm_type`/`osm_id` with `verified_on` and
+    written `evidence`. Nothing attaches "the nearest climbing gym" — a wrong
+    match publishes a neighbour's hours under a real venue's name. The loader
+    fails the build on an invalid entry, a venue decided twice, or one OSM
+    object claimed by two venues. Two plausible candidates is a recorded
+    **rejection**, not a coin flip.
+  - **Private and home setups are never enriched**: the curator must assert
+    `"venue": "public"`, `venueLooksPrivate()` refuses anything with a home
+    signal and no commercial one, and the OSM object itself must still carry a
+    public sports-venue tag when the refresh reads it.
+  - **`tools/refresh-osm-hours.mjs` is the only code that contacts OSM**, on
+    demand at build time: batched multi-fetch by id, sequential, identifying
+    User-Agent, timeouts, graceful failure (unreachable → keep the last value
+    and flag it; deleted or retagged → lose the hours). It reads
+    `opening_hours`, `check_date:opening_hours`, `name`, the classifying tag,
+    `timestamp` and `version` — nothing else, no phone/e-mail/contact data.
+    Tests never run a live refresh.
+  - **The site never says "open now".** It says "Opening hours according to
+    OpenStreetMap" / "Öffnungszeiten laut OpenStreetMap", with the freshness
+    date and a link to the exact object. `tools/opening-hours.mjs` renders a
+    deliberately bounded subset and falls back to the unmodified OSM value for
+    anything else (months, `SH`, sunrise/sunset, comments, `||`) rather than
+    misrepresenting it. There is no vendored `opening_hours` parser.
+  - **Rendered once, shown twice.** Every user-facing string, both languages,
+    is produced at refresh time into the sidecar; the map popup and the static
+    directories only place it. Editing the renderer leaves the committed file
+    stale — re-run `--offline`; `scripts/check` fails if you don't.
+  - Operations: `tools/dev/RUNBOOK-osm-opening-hours.md`. Review record and
+    coverage: `tools/OSM-OPENING-HOURS-LEDGER.md`.
 - **Adapter guidelines**: drop free-form `description`/`bio` text at the adapter
   (historical MoonBoard entries contain SEO/casino spam); validate coordinate
   ranges; never propagate upstream email/phone.
@@ -246,6 +288,17 @@ way. Visitors on such a host are counted nowhere and handed to a third party for
 the download. `mirror.cruxcoach.org` sat in exactly that state from publication
 until 2026-08-08, i.e. during the outage it exists to absorb; a test now reads
 `mirrors.json` and asserts the two lists agree.
+
+The OpenStreetMap opening-hours refresh is wired into the same script but is
+**off unless `CRUXCOACH_OSM_HOURS=1`** is in the crontab entry: reading a
+third-party API on a schedule is an operator decision, not something that starts
+happening because the script was updated. It paces itself with a stamp file in
+`~/.cache/cruxcoach-pages-cron/` (7 days), reverts the sidecar when only its
+"last checked" timestamp moved so there is no daily no-op commit, and on a real
+change re-renders the two directories with `--static-only` and commits
+`data(osm): refresh venue opening hours from OpenStreetMap`. Every failure path
+is non-fatal — the boards refresh must never be blocked by OpenStreetMap.
+
 If anything was pushed to origin, it finally runs `tools/indexnow-ping.sh`
 (non-fatal), which submits every sitemap URL to api.indexnow.org so Bing/Yandex &
 co. re-crawl promptly. IndexNow needs no account: ownership is proven by the
