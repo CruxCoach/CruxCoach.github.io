@@ -150,7 +150,21 @@ review in stages: the venue list then stays stable, so chunk boundaries — and
 therefore the cache — survive the decisions you record along the way.
 
 Re-run `--radius 600` over whatever is left as `NONE`: a venue whose upstream
-coordinate is off by 300 m looks like "nothing there" at 250 m.
+coordinate is off by 300 m looks like "nothing there" at 250 m. Eight venues
+were found that way, one of them 566 m from its own object.
+
+`--recheck no-object` re-examines venues that already ended with an outcome of
+that kind, which is how to give them a second chance without disturbing
+anything already matched.
+
+**The sweep asks for exactly the tags the refresh will accept**, no more. Wider
+questions find objects whose hours can never be published: `--broad` asks for
+any named building, shop, office or club, and it does turn up gyms — mapped as
+a plain named building with no venue tag at all — but `classifyOsmTags()`
+refuses those, so a match there would publish nothing. It is a last-resort look
+for "is this gym mapped at all", not a source of hours. A test asserts the two
+lists agree, because widening the acceptance list without widening the sweep
+would leave venues undiscoverable and nobody any the wiser.
 
 ### When one venue is listed twice
 

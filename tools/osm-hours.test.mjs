@@ -8,8 +8,10 @@ import { fileURLToPath } from 'node:url';
 
 import {
   buildSidecar, classifyOsmTags, DECISIONS, indexSidecar, loadCuratedMatches, loadSidecar,
-  MATCH_METHODS, osmObjectUrl, rerenderSidecar, SCHEMA_VERSION, STATUS, venueLooksPrivate,
+  MATCH_METHODS, osmObjectUrl, PUBLIC_VENUE_TAGS, rerenderSidecar, SCHEMA_VERSION, STATUS,
+  venueLooksPrivate,
 } from './osm-hours.mjs';
+import { NARROW_FILTERS } from './dev/osm-candidates.mjs';
 import { venueKey } from './venue-key.mjs';
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -489,4 +491,21 @@ test('every venue on the map carries exactly one outcome right now', () => {
   }
   assert.deepEqual(missing.slice(0, 10), [],
     `${missing.length} venue(s) have no decision — sweep them: node tools/dev/osm-candidates.mjs --all`);
+});
+
+test('discovery asks for every tag the refresh is willing to accept', () => {
+  // A venue can only ever get hours if the sweep finds its object AND
+  // classifyOsmTags accepts it. Widening the acceptance list without widening
+  // the sweep leaves venues undiscoverable and nobody any the wiser — which is
+  // how `sport=bouldering` and `amenity=gym` sat unqueried through a full pass
+  // over the map.
+  const filters = NARROW_FILTERS.join(' ');
+  for (const [key, values] of PUBLIC_VENUE_TAGS) {
+    for (const value of values) {
+      const asked = filters.includes(`"${key}"="${value}"`)
+        || new RegExp(`"${key}"~"[^"]*\\b${value}`).test(filters)
+        || new RegExp(`"${key}"~"[^"]*${value.slice(0, 6)}`).test(filters);
+      assert.ok(asked, `tools/dev/osm-candidates.mjs never asks for ${key}=${value}`);
+    }
+  }
 });

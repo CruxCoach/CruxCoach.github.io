@@ -237,9 +237,15 @@ function selectVenues(opts) {
 // It deliberately does not ask for highways, benches or bus stops: a gym is
 // mapped as one of these six things or it is not mapped.
 const BROAD_FILTERS = ['["building"]', '["leisure"]', '["amenity"]', '["shop"]', '["office"]', '["club"]'];
-const NARROW_FILTERS = [
+// These mirror PUBLIC_VENUE_TAGS in tools/osm-hours.mjs, which is the list the
+// refresh will accept. Asking for anything wider finds objects whose hours can
+// never be published — `sport=bouldering` and `amenity=gym` are in here
+// because they are in that list and were missed by an earlier, narrower query.
+export const NARROW_FILTERS = [
   '["sport"~"climbing"]',
+  '["sport"~"boulder"]',
   '["leisure"~"^(sports_centre|climbing|fitness_centre|sports_hall)$"]',
+  '["amenity"="gym"]',
   '["shop"="sports"]',
   '["disused:leisure"~"^(sports_centre|climbing)$"]',
 ];

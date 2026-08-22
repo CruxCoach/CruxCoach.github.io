@@ -71,7 +71,7 @@ export const SOURCE_BLOCK = {
 // opening hours belong on a public map. A curated match whose object stops
 // matching this list loses its hours on the next refresh — that is what
 // catches a retagged, demolished or re-purposed object.
-const PUBLIC_VENUE_TAGS = [
+export const PUBLIC_VENUE_TAGS = [
   ['leisure', ['sports_centre', 'climbing', 'fitness_centre', 'sports_hall']],
   ['sport', ['climbing', 'climbing_adventure', 'bouldering']],
   ['shop', ['sports']],

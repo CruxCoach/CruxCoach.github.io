@@ -84,6 +84,24 @@ stands — those objects *are* those venues — but `classifyOsmTags()` refuses
 them and the refresh publishes no hours. This is the fail-closed path working
 on real data, found on the first full refresh.
 
+### How thoroughly the 984 were checked
+
+Four passes, each asking a different question:
+
+1. **250 m, venue tags** — the main sweep, 55 requests over the whole map.
+2. **600 m, venue tags** — for everything the first pass found nothing near.
+   Turned 8 into matches; the rest saw only pools, gymnastics halls and gyms
+   sharing a town name.
+3. **150 m, any named building/shop/office/club** (`--broad`) — proves that
+   some of these gyms *are* in OpenStreetMap, as plain named buildings with no
+   venue tag: CityROCK Pretoria, Dolinas Climbing Center, Climb Again Iasi,
+   Alpenverein Wien. `classifyOsmTags()` refuses objects like that, so matching
+   them would publish nothing. Recorded here rather than acted on.
+4. **250 m with the tag list widened to exactly what the refresh accepts** —
+   `sport=bouldering` and `amenity=gym` had never been asked for. The re-sweep
+   found no new candidate, which is the answer that makes discovery exhausted
+   rather than merely finished. A test now keeps the two lists in step.
+
 ## Limitations
 
 - **984 venues have no OSM object.** Two thirds of them have nothing at all
