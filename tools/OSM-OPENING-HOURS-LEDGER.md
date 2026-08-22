@@ -89,8 +89,9 @@ on real data, found on the first full refresh.
 Four passes, each asking a different question:
 
 1. **250 m, venue tags** — the main sweep, 55 requests over the whole map.
-2. **600 m, venue tags** — for everything the first pass found nothing near.
-   Turned 8 into matches; the rest saw only pools, gymnastics halls and gyms
+2. **600 m, venue tags** — for the 620 the first pass found nothing near.
+   Turned 8 into matches and 5 into ambiguities; of the rest, 351 had no object
+   of any kind in range and 256 had only pools, gymnastics halls and gyms
    sharing a town name.
 3. **150 m, any named building/shop/office/club** (`--broad`) — proves that
    some of these gyms *are* in OpenStreetMap, as plain named buildings with no
@@ -104,10 +105,10 @@ Four passes, each asking a different question:
 
 ## Limitations
 
-- **984 venues have no OSM object.** Two thirds of them have nothing at all
-  within 600 m; the rest have only a Decathlon, a yoga studio, or the leisure
-  centre that houses the wall. The fix is upstream: map the gym in
-  OpenStreetMap and the next refresh picks it up.
+- **984 venues have no OSM object.** 351 of them have nothing at all within
+  600 m. The other 633 have neighbours — a Decathlon, a yoga studio, the
+  leisure centre that houses the wall — but nothing that is the venue. The fix
+  is upstream: map the gym in OpenStreetMap and the next refresh picks it up.
 - **401 matched venues have no hours tagged.** Nothing to do in this
   repository either — tag them in OpenStreetMap.
 - **No "open now", anywhere.** The site shows the weekly pattern OSM records
