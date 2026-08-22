@@ -233,10 +233,10 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 474 |
-| Verified website links | 414 |
+| Venues reviewed (linked + research entries) | 483 |
+| Verified website links | 423 |
 | Rejected / ambiguous / private / closed | 60 |
-| Countries covered | 8 |
+| Countries covered | 9 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -250,6 +250,7 @@ Per-country coverage of eligible (public/commercial) venues:
 | AT | 44 | 48 | 92% |
 | FR | 31 | 70 | 44% |
 | BE | 23 | 36 | 64% |
+| ES | 9 | 98 | 9% |
 | IT | 1 | 72 | 1% |
 
 Research-log reasons so far: 49 `unverified` (43 of them operator sites that
