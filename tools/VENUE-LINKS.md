@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 947 |
-| Verified website links | 845 |
-| Rejected / ambiguous / private / closed | 102 |
+| Venues reviewed (linked + research entries) | 1015 |
+| Verified website links | 910 |
+| Rejected / ambiguous / private / closed | 105 |
 | Countries covered | 21 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -243,7 +243,7 @@ Per-country coverage of eligible (public/commercial) venues:
 
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
-| US | 191 | 576 | 33% |
+| US | 256 | 576 | 44% |
 | DE | 163 | 201 | 81% |
 | GB | 69 | 102 | 68% |
 | CH | 52 | 56 | 93% |
@@ -265,17 +265,17 @@ Per-country coverage of eligible (public/commercial) venues:
 | LU | 3 | 6 | 50% |
 | PT | 2 | 15 | 13% |
 
-Research-log reasons so far: 86 `unverified` (56 of them operator sites that
+Research-log reasons so far: 87 `unverified` (56 of them operator sites that
 answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
 wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
-opened and read), 9 `ambiguous`, 4 `http-only`, 3 `closed`, 1 `duplicate`.
+opened and read), 9 `ambiguous`, 5 `closed`, 4 `http-only`, 1 `duplicate`.
 
-- **Last completed batch:** a re-check of every research entry logged because its
-  site would not answer. Nine had recovered and are now linked — Spinnerei,
-  three Flashpoints, Rainbow Rocket North, Sendmast, Cube and Pink Peaks.
+- **Last completed batch:** 65 American independents, found by proposing candidate
+  domains from the venue name and checking every one of them against the street
+  number, road, ZIP and city upstream records. US 33% → 44%.
 - **Next batch:** Canada off the Overpass run now in flight, then the American
-  independents whose candidate domains are being checked.
+  candidates whose homepage carries no address.
 
 ### What is actually gating the remaining countries
 
@@ -375,3 +375,32 @@ One re-check went the other way and improved a reason rather than a status:
 Indoorwall Jaca was logged because the site was down, but the site is up now and
 its location list names nine centres, none of them in Jaca. The entry stays, with
 a reason that says what is actually true.
+
+### Guessing a domain is fine; believing it is not
+
+The American long tail has no operator index to read and no usable Overpass
+coverage, so this pass proposed candidate domains from each venue's own name —
+`agilityboulders.com`, `comorocks.com`, `blockerboulders.com` — and probed them.
+132 of 167 answered. That number is the trap: a domain that answers proves
+nothing, and the ones that answer include `climb.com`, `boulders.com`,
+`beaches.com` and `class.com`.
+
+So every candidate that answered was fetched and its text checked against four
+things upstream records separately — the house number, the road name, the ZIP
+and the city — and only the components that actually matched were claimed as
+signals. Sixty-five passed with at least two. The rest are still open, not
+linked on the strength of a plausible domain.
+
+Even that was not quite enough on its own. Hand-checking a sample of what passed
+caught three the automated comparison could not:
+
+- **Climb Lawrence** and **projectROCK Easley** have closed. Both sites still
+  resolve; one shows a "We Are Closed" notice, the other redirects to a page on
+  the operator's main domain saying the same. Both are logged `closed`.
+- **Woodward PA** is Camp Woodward's own site, and the coordinate really is at
+  its Sports Camp Drive address — but the site prints no street line and never
+  mentions climbing, so only the name and the town matched. Logged.
+
+A fourth was a provenance error rather than a wrong link: Upper Limits runs three
+gyms and lists all three by address, so its record is an `official-chain-page`,
+not an `official-site`.

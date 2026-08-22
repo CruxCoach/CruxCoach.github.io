@@ -826,6 +826,16 @@
     "candidate": "https://klattercentret.se/"
   },
   {
+    "lat": 38.97134,
+    "lon": -95.23664,
+    "name": "Climb Lawrence",
+    "country": "US",
+    "status": "closed",
+    "checked": "2026-08-22",
+    "reason": "The gym's own site now shows only a We Are Closed notice and a thank-you message, so there is no page describing an operating venue.",
+    "candidate": "https://climblawrence.com/"
+  },
+  {
     "lat": 32.800198,
     "lon": -96.837839,
     "name": "Dallas Bouldering Project",
@@ -936,6 +946,16 @@
     "candidate": "https://www.innerpeaks.com/"
   },
   {
+    "lat": 34.88329,
+    "lon": -82.60758,
+    "name": "ProjectROCK Easley",
+    "country": "US",
+    "status": "closed",
+    "checked": "2026-08-22",
+    "reason": "projectrockeasley.com redirects to the operator's projectrock.com/easley/ page, which states that the Easley location has closed.",
+    "candidate": "https://projectrock.com/easley/"
+  },
+  {
     "lat": 38.801099,
     "lon": -77.1263623,
     "name": "Sportrock",
@@ -1004,5 +1024,15 @@
     "checked": "2026-08-22",
     "reason": "The coordinate sits on Pacific Highway in Lynnwood, roughly 7.5 km from both Vertical World North and the operator's Uplift gym in Shoreline, and upstream records only the bare operator name, so it cannot be assigned to one gym.",
     "candidate": "https://verticalworld.com/"
+  },
+  {
+    "lat": 40.90139,
+    "lon": -77.36817,
+    "name": "Woodward PA",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "woodwardpa.com is Camp Woodward's own site and the coordinate is at its Sports Camp Drive address, but the site prints no street line and never mentions climbing, so only the name and town match.",
+    "candidate": "https://woodwardpa.com/"
   }
 ]
