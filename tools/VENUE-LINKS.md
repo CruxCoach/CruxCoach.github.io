@@ -241,9 +241,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 1075 |
-| Verified website links | 965 |
-| Rejected / ambiguous / private / closed | 110 |
+| Venues reviewed (linked + research entries) | 1081 |
+| Verified website links | 970 |
+| Rejected / ambiguous / private / closed | 111 |
 | Countries covered | 22 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -252,7 +252,7 @@ Per-country coverage of eligible (public/commercial) venues:
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
 | US | 257 | 576 | 45% |
-| DE | 163 | 201 | 81% |
+| DE | 168 | 201 | 84% |
 | GB | 69 | 102 | 68% |
 | CA | 58 | 132 | 44% |
 | CH | 52 | 56 | 93% |
@@ -280,10 +280,11 @@ wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
 opened and read), 9 `ambiguous`, 5 `closed`, 4 `http-only`, 1 `duplicate`.
 
-- **Last completed batch:** Europe's remaining independents from name-derived
-  domains — 28 linked across Norway, Sweden, Denmark, Finland, Spain and France,
-  and five rejected by hand after the comparison had passed them.
-- **Next batch:** Australia and Sweden off the Overpass run now in flight.
+- **Last completed batch:** five of Germany's last twenty — Boulder Hall
+  Burgoberbach, YOYO Heidenau, Dolomiti Albstadt, Kletterzentrum Würzburg and the
+  DAV Taufkirchen Boulderhalle. Bodebloc is logged `closed`.
+- **Next batch:** the venues upstream gives no address for at all, which need the
+  address read off the page and geocoded rather than string-matched.
 
 ### What is actually gating the remaining countries
 
