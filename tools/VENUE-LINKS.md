@@ -234,8 +234,8 @@ are maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (linked + research entries) | 947 |
-| Verified website links | 836 |
-| Rejected / ambiguous / private / closed | 111 |
+| Verified website links | 845 |
+| Rejected / ambiguous / private / closed | 102 |
 | Countries covered | 21 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -245,14 +245,14 @@ Per-country coverage of eligible (public/commercial) venues:
 | --- | --- | --- | --- |
 | US | 191 | 576 | 33% |
 | DE | 163 | 201 | 81% |
-| GB | 64 | 102 | 63% |
-| CH | 51 | 56 | 91% |
-| NL | 48 | 59 | 81% |
+| GB | 69 | 102 | 68% |
+| CH | 52 | 56 | 93% |
+| NL | 50 | 59 | 85% |
 | ES | 45 | 98 | 46% |
 | FR | 44 | 70 | 63% |
 | AT | 44 | 48 | 92% |
 | CA | 40 | 132 | 30% |
-| BE | 27 | 36 | 75% |
+| BE | 28 | 36 | 78% |
 | AU | 25 | 83 | 30% |
 | NO | 22 | 81 | 27% |
 | IT | 21 | 72 | 29% |
@@ -265,17 +265,17 @@ Per-country coverage of eligible (public/commercial) venues:
 | LU | 3 | 6 | 50% |
 | PT | 2 | 15 | 13% |
 
-Research-log reasons so far: 95 `unverified` (65 of them operator sites that
+Research-log reasons so far: 86 `unverified` (56 of them operator sites that
 answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
 wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
 opened and read), 9 `ambiguous`, 4 `http-only`, 3 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** Italy's larger halls, read off their own sites after
-  the Overpass run over Italy returned nothing — Big Walls, B-Side, Level24,
-  S'Avanzada and Boulder Garage.
-- **Next batch:** Canada off the Overpass run now in flight, then the rest of
-  Italy and the remaining American independents.
+- **Last completed batch:** a re-check of every research entry logged because its
+  site would not answer. Nine had recovered and are now linked — Spinnerei,
+  three Flashpoints, Rainbow Rocket North, Sendmast, Cube and Pink Peaks.
+- **Next batch:** Canada off the Overpass run now in flight, then the American
+  independents whose candidate domains are being checked.
 
 ### What is actually gating the remaining countries
 
@@ -357,3 +357,21 @@ The same pass turned up three more shapes worth recording:
   and First Ascent runs a country-blocker plugin that does the same. Nine venues
   between them are logged `unverified` rather than linked on the strength of a
   domain name that looks right.
+
+### Re-checking what was logged as unreachable
+
+Roughly half the research log is venues whose operator site would not answer
+when it was first tried — 403, 429, 500, an expired certificate, a TLS handshake
+that failed. Those are not permanent facts about a venue, they are facts about
+one moment, so the log is worth re-reading periodically.
+
+A sweep of the 39 distinct candidate URLs logged for that reason found nine that
+now answer, and all nine verified: Spinnerei Indoor, Flashpoint Bristol, Cardiff
+and Swansea, Rainbow Rocket North, Boulderhal Sendmast, Cube Bouldergym and Pink
+Peaks. `tools/venue-links.mjs` keeps the two files mutually exclusive, so moving
+a venue across means withdrawing its research entry first.
+
+One re-check went the other way and improved a reason rather than a status:
+Indoorwall Jaca was logged because the site was down, but the site is up now and
+its location list names nine centres, none of them in Jaca. The entry stays, with
+a reason that says what is actually true.

@@ -1467,6 +1467,21 @@
     ]
   },
   {
+    "lat": 50.91724,
+    "lon": 4.34541,
+    "name": "Pink Peaks Climbing",
+    "country": "BE",
+    "website": "https://www.pinkpeaks.be/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 51.0546802,
     "lon": 3.6987364,
     "name": "Rhino Boulder Gym Moonboard",
@@ -2801,6 +2816,22 @@
       "city",
       "board-mention"
     ]
+  },
+  {
+    "lat": 47.0081764,
+    "lon": 8.6471354,
+    "name": "Spinnerei Indoor",
+    "country": "CH",
+    "website": "https://www.spinnerei-indoor.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The coordinate falls on the Asetstrasse 35 the site prints as Assetstrasse 35, 6438 Ibach."
   },
   {
     "lat": 46.344441391849095,
@@ -7618,6 +7649,66 @@
     "note": "The centre gives 350 Euston Road where upstream has number 338."
   },
   {
+    "lat": 51.44587,
+    "lon": -2.58109,
+    "name": "Flashpoint Bristol",
+    "country": "GB",
+    "website": "https://flashpointbristol.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site gives Mead Street, BS3 4RP; upstream carries Unit 2A Templegate Park in the same postcode."
+  },
+  {
+    "lat": 51.4489657,
+    "lon": -2.5835347,
+    "name": "Flashpoint Bristol",
+    "country": "GB",
+    "website": "https://flashpointbristol.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Upstream lists this hall twice, 370 m apart; the operator has one Bristol gym."
+  },
+  {
+    "lat": 51.46194,
+    "lon": -3.19767,
+    "name": "Flashpoint Cardiff",
+    "country": "GB",
+    "website": "https://flashpointcardiff.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site gives Cardiff CF11 8EQ, the postcode upstream carries for Freemans Parc."
+  },
+  {
+    "lat": 51.62199,
+    "lon": -3.93954,
+    "name": "Flashpoint Swansea",
+    "country": "GB",
+    "website": "https://flashpointswansea.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site's Parc Tawe, SA1 2AL resolves 65 m from this upstream coordinate."
+  },
+  {
     "lat": 51.4696554,
     "lon": -0.3616119,
     "name": "Hang Moon Board",
@@ -7777,6 +7868,22 @@
       "location-page"
     ],
     "note": "The centre now trades as The Font Wandsworth; upstream still carries its former name, Parthian Climbing Wandsworth."
+  },
+  {
+    "lat": 52.21725,
+    "lon": 0.15704,
+    "name": "Rainbow Rocket North",
+    "country": "GB",
+    "website": "https://rainbowrocket.cc/centre/north/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "postal-code",
+      "city"
+    ],
+    "note": "The page's Cambridge CB5 8PD resolves 29 m from this upstream coordinate."
   },
   {
     "lat": 52.193636,
@@ -9019,6 +9126,21 @@
     ]
   },
   {
+    "lat": 52.61783,
+    "lon": 4.76679,
+    "name": "Boulderhal Sendmaat",
+    "country": "NL",
+    "website": "https://www.boulderhalsendmast.nl/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The hall's domain spells it Sendmast and upstream Sendmaat; both give Koelmalaan 354 in Alkmaar."
+  },
+  {
     "lat": 52.076403,
     "lon": 5.1085322,
     "name": "Boulderhal Sterk",
@@ -9078,6 +9200,21 @@
       "board-mention"
     ],
     "note": "The gym publishes no street address on any page we could open; its Kilterboard matches the board system this venue is listed for."
+  },
+  {
+    "lat": 52.22304,
+    "lon": 6.90367,
+    "name": "Cube Bouldergym",
+    "country": "NL",
+    "website": "https://cubebouldergym.nl/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
   },
   {
     "lat": 52.0115769,
