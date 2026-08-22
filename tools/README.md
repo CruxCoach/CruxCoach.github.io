@@ -289,6 +289,12 @@ node tools/build-boards-data.mjs --overlays-only
 - **URL policy**: HTTPS only, no credentials, no IP literals, no social or
   aggregator hosts, tracking parameters and fragments stripped. Stored already
   canonical, so a review diff shows the link a visitor actually gets.
+- **Shared URLs**: two venues pointing at one page is normal — upstream splits a
+  gym into a Kilter entry and a MoonBoard entry metres apart. Past
+  `SHARED_URL_SITE_LIMIT_M` (1 km) the build adds a second, louder note, because
+  at that distance it is more likely two of an operator's gyms and the records
+  should say `official-chain-page`. It is an advisory: only a curator can tell
+  that from a drifted upstream coordinate.
 - Counts land in `boards.meta.json` under `venue_links`.
 
 ## Place index (`build-cities-data.mjs`)
