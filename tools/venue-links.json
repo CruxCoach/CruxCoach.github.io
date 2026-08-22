@@ -9455,6 +9455,23 @@
     "note": "Address and MoonBoards verified on the gym's own facilities page."
   },
   {
+    "lat": 51.90855,
+    "lon": 4.43368,
+    "name": "Bolder Neoliet Rotterdam",
+    "country": "NL",
+    "website": "https://boulderneoliet.nl/nl/rotterdam/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator runs its bouldering halls under a separate brand and domain from its rope centres; upstream records this one as Bolder Neoliet Rotterdam."
+  },
+  {
     "lat": 51.69594,
     "lon": 5.28177,
     "name": "Bossche Boulders",
@@ -9490,17 +9507,16 @@
     "lon": 5.45634,
     "name": "Boulder Neoliet Eindhoven",
     "country": "NL",
-    "website": "https://www.neoliet.nl/nl/eindhovennoord/",
+    "website": "https://boulderneoliet.nl/nl/eindhoven/",
     "verified": "2026-08-22",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
-      "postal-code",
       "city",
       "location-page"
     ],
-    "note": "The operator runs two Eindhoven halls; this is Noord, at the Vijfkamplaan address upstream carries."
+    "note": "The bouldering brand's own page for the Vijfkamplaan hall, which its rope-centre site also lists as Eindhoven Noord."
   },
   {
     "lat": 51.56567,
