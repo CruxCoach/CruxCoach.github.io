@@ -227,7 +227,20 @@ for the full contract; the essentials:
     match publishes a neighbour's hours under a real venue's name. The loader
     fails the build on an invalid entry, a venue decided twice, or one OSM
     object claimed by two venues. Two plausible candidates is a recorded
-    **rejection**, not a coin flip.
+    **ambiguity**, not a coin flip.
+  - **Every venue on the map carries exactly one outcome**: `accepted`,
+    `private`, `no-object`, `ambiguous`, `closed` or `unreachable`. Only
+    `accepted` is enriched; the rest are the record of having looked, which is
+    what stops the same venue being re-examined every sweep. `unreachable` is
+    the retry queue and the only status a sweep does not skip.
+  - **`match_method` is `manual` or `manual-exact-name`** — a venue
+    investigated on its own, or one the sweep proposed on an exact name match
+    and a person then read. There is no third value.
+  - **One venue listed twice** (upstream registers a hall once per board
+    system) may share an OSM object when the names are identical within 150 m,
+    or when the second row carries an explicit `duplicate_listing_of`. Two
+    different halls of one operator do not, which is why "Boulderbar
+    Hauptbahnhof Plus" is `ambiguous`.
   - **Private and home setups are never enriched**: the curator must assert
     `"venue": "public"`, `venueLooksPrivate()` refuses anything with a home
     signal and no commercial one, and the OSM object itself must still carry a

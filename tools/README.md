@@ -281,10 +281,30 @@ asserts that no `opening_hours`/`osm_id` ever appears in the GeoJSON.
 **Matches are curated, never inferred.** `tools/osm-venues.json` binds a venue
 to an exact `osm_type`/`osm_id`, with `verified_on` and free-text `evidence`
 saying what was compared. Nothing attaches the nearest climbing gym: a wrong
-match publishes a neighbour's hours under a real venue's name. Rejections are
-recorded too, with a reason — "two plausible objects" is a decision, not a
-gap. The loader fails the build on a structurally invalid entry, a venue
-decided twice, or one OSM object claimed by two venues.
+match publishes a neighbour's hours under a real venue's name. The loader fails
+the build on a structurally invalid entry, a venue decided twice, or one OSM
+object claimed by two venues.
+
+**Every venue on the map carries exactly one outcome** — `accepted`, `private`,
+`no-object`, `ambiguous`, `closed` or `unreachable` — because "we looked and
+there is nothing" is as much a result as a match, and it is what stops the same
+venue being re-examined every sweep. `unreachable` is the retry queue: it is the
+only status a sweep does not skip. `tools/refresh-osm-hours.mjs` prints how many
+venues still have no outcome at all.
+
+**Two match methods, both a person's decision.** `manual` is a venue
+investigated on its own. `manual-exact-name` is one the sweep proposed because
+exactly one candidate's name was identical (or contained) and no other candidate
+in range shared a distinctive word with it, then read line by line before being
+recorded. There is no third value, and nothing proximity-based is accepted.
+
+**One venue listed twice.** The upstream dataset registers a hall once per board
+system, so a single gym can arrive as two rows metres apart under slightly
+different names. They may share an OSM object when the names are identical, or
+when the second row carries an explicit `duplicate_listing_of` naming the first
+— a curator saying "these two rows are one gym". Everything else stays
+`ambiguous`, which is the right answer for two halls of one operator in one
+building.
 
 **Private setups are never enriched**, by three independent rules: the curator
 has to write `"venue": "public"`, `venueLooksPrivate()` refuses a venue with a

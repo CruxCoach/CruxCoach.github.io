@@ -87,6 +87,24 @@ commit behind. A run that finds a change re-renders the two directories,
 refreshes the sitemap `lastmod` and pushes one commit. Every failure path is
 non-fatal: the boards refresh must never be blocked by OpenStreetMap.
 
+## The outcome every venue carries
+
+`tools/osm-venues.json` holds exactly one decision per venue on the map. Only
+`accepted` is ever enriched; the rest exist so that "we looked" is written down
+and the same venue is not re-examined from scratch every sweep.
+
+| status | means |
+|---|---|
+| `accepted` | bound to one exact OSM object — which may or may not carry hours |
+| `private` | a home or garage setup; never enriched, whatever OpenStreetMap says |
+| `no-object` | documented checks found no object that IS this venue |
+| `ambiguous` | two or more plausible objects, or an identity that is not established |
+| `closed` | the venue is gone, or its object is tagged disused |
+| `unreachable` | discovery could not complete — this is the retry queue |
+
+`unreachable` is the only status the sweep does not skip, so a bad afternoon at
+Overpass comes back round instead of becoming a permanent gap.
+
 ## Adding a batch of matches
 
 This is the part that cannot be automated, and the reason the data is worth
@@ -98,6 +116,60 @@ node tools/dev/osm-candidates.mjs --country FR --limit 6 --radius 200
 node tools/dev/osm-candidates.mjs --name "boulderwelt"
 node tools/dev/osm-candidates.mjs --key 48.1070|11.5457
 ```
+
+### Sweeping at scale
+
+For a whole country — or the whole map — the helper batches 40 venues into one
+Overpass request, caches every response on disk, and sorts the answers into
+buckets so the reading is tractable:
+
+```bash
+node tools/dev/osm-candidates.mjs --all --chunk 40 --json > /tmp/sweep.json
+node tools/dev/osm-candidates.mjs --country DE --bucket MULTI --verbose
+node tools/dev/osm-candidates.mjs --all --offline          # cache only, no network
+```
+
+| bucket | what it means | what it can become |
+|---|---|---|
+| `EXACT` | one candidate whose name is identical, nothing else shares a word | accepted, after reading the line |
+| `STRONG` | one candidate whose name contains or is contained by the venue's | accepted, after reading the line |
+| `MULTI` | two or more candidates with a name link | read individually; often `ambiguous` |
+| `WEAK` | candidates exist, none whose name relates to the venue's | `no-object`, unless a person argues otherwise |
+| `NONE` | nothing in range | `no-object` |
+
+Buckets are about **names**, never distance. `EXACT` and `STRONG` are
+*proposals*: they still have to be read, because a shared word can be a city
+("Toronto Climbing Academy" against "Toronto City Sports Centre" is a soccer
+pitch) and because the object is sometimes the building rather than the venue —
+a university recreation centre, a municipal pool, a ski arena. `WEAK` is not a
+dead end either: "INWALL Climbing Center" and "In Wall Climbing Center" share
+no whole word and are one gym.
+
+Sweep first, review after. Use `--include-curated` for a sweep you intend to
+review in stages: the venue list then stays stable, so chunk boundaries — and
+therefore the cache — survive the decisions you record along the way.
+
+Re-run `--radius 600` over whatever is left as `NONE`: a venue whose upstream
+coordinate is off by 300 m looks like "nothing there" at 250 m.
+
+### When one venue is listed twice
+
+The upstream dataset registers a venue once per board system, so a single hall
+can arrive as two rows a few metres apart — "Steil Boulderhalle" and "Steil
+Boulderhalle Karlsruhe", "VELS Boulderhalle Stuttgart" and "VELS Moonboard24".
+Both rows are the same business and both may point at the same OSM object.
+
+Identical names within 150 m need no ceremony. Anything else needs the second
+row to say so:
+
+```json
+{ "status": "accepted", "duplicate_listing_of": "48.7194|9.1284", "…": "…" }
+```
+
+That is a curator asserting "I looked, and these two rows are one gym". Without
+it the second row is `ambiguous`, which is the right answer for the case this
+guard exists for: "Boulderbar Hauptbahnhof" and "Boulderbar Hauptbahnhof Plus"
+are 60 m apart with one name inside the other, and they are two halls.
 
 It reads the public Overpass API, which is a shared resource: keep the batches
 small, leave the delays alone, and expect 429 (slot exhausted) and 504 (query

@@ -27,6 +27,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   buildSidecar, classifyOsmTags, loadCuratedMatches, loadSidecar, rerenderSidecar, STATUS,
+  venueLooksPrivate,
 } from './osm-hours.mjs';
 import { venueKey } from './venue-key.mjs';
 
@@ -103,6 +104,27 @@ function log(opts, message) {
 }
 
 const sleep = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+
+// Every venue on the map should carry exactly one outcome. This does not fail
+// the build — upstream adds venues nightly and the sweep runs on its own
+// schedule — but an undecided venue is work, so it is counted out loud.
+function reportCoverage(opts, decisions, features) {
+  const decided = new Set(decisions.map((d) => d.key));
+  const stale = decisions.filter((d) => !features.has(d.key)).length;
+  let undecided = 0;
+  let privateNowCommercial = 0;
+  const byKey = new Map(decisions.map((d) => [d.key, d]));
+  for (const [key, feature] of features) {
+    const decision = byKey.get(key);
+    if (!decision) { undecided++; continue; }
+    if (decision.status === 'private' && !venueLooksPrivate(feature).private) privateNowCommercial++;
+  }
+  log(opts, `coverage: ${decided.size} decided, ${undecided} venue(s) still without an outcome` +
+    `${stale ? `, ${stale} decision(s) no longer resolve to a venue` : ''}`);
+  if (privateNowCommercial) {
+    log(opts, `WARN ${privateNowCommercial} venue(s) recorded as private no longer look private upstream — re-review them`);
+  }
+}
 
 function loadFeatures() {
   const data = JSON.parse(readFileSync(GEOJSON_FILE, 'utf-8'));
@@ -253,9 +275,11 @@ async function main() {
     return;
   }
 
-  const { accepted, rejected } = loadCuratedMatches(CURATED_FILE);
-  log(opts, `curated matches: ${accepted.length} accepted, ${rejected.length} rejected`);
+  const { accepted, decisions, counts } = loadCuratedMatches(CURATED_FILE);
+  log(opts, `decisions: ${decisions.length} venue(s) — ` +
+    Object.entries(counts).filter(([, n]) => n > 0).map(([k, n]) => `${k} ${n}`).join(', '));
   const features = loadFeatures();
+  reportCoverage(opts, decisions, features);
   const previous = loadSidecar(SIDECAR_FILE);
   const previousByKey = new Map((previous?.venues ?? []).map((v) => [v.key, v]));
 

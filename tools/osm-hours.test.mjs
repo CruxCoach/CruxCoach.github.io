@@ -7,8 +7,8 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
-  buildSidecar, classifyOsmTags, indexSidecar, loadCuratedMatches, loadSidecar,
-  osmObjectUrl, rerenderSidecar, SCHEMA_VERSION, STATUS, venueLooksPrivate,
+  buildSidecar, classifyOsmTags, DECISIONS, indexSidecar, loadCuratedMatches, loadSidecar,
+  MATCH_METHODS, osmObjectUrl, rerenderSidecar, SCHEMA_VERSION, STATUS, venueLooksPrivate,
 } from './osm-hours.mjs';
 import { venueKey } from './venue-key.mjs';
 
@@ -86,9 +86,10 @@ function build(over = {}) {
 // ── The curated match file ────────────────────────────────────────────────
 
 test('a well-formed curated file loads', () => {
-  const { accepted, rejected } = loadCuratedMatches(writeCurated([curatedEntry()]));
+  const { accepted, decisions, counts } = loadCuratedMatches(writeCurated([curatedEntry()]));
   assert.equal(accepted.length, 1);
-  assert.equal(rejected.length, 0);
+  assert.equal(decisions.length, 1);
+  assert.equal(counts.accepted, 1);
   assert.equal(accepted[0].osm_url, 'https://www.openstreetmap.org/way/123456');
   assert.equal(accepted[0].key, venueKey(GYM.lat, GYM.lon));
 });
@@ -99,10 +100,18 @@ test('a missing file is not an error — it just means no venue is enriched', ()
 });
 
 test('an automatic match method is refused outright', () => {
-  assert.throws(
-    () => loadCuratedMatches(writeCurated([curatedEntry({ match_method: 'nearest' })])),
-    /must be "manual"/,
-  );
+  for (const method of ['nearest', 'auto', 'closest', 'fuzzy', '']) {
+    assert.throws(
+      () => loadCuratedMatches(writeCurated([curatedEntry({ match_method: method })])),
+      /matched by proximity/, method,
+    );
+  }
+  // The two allowed values differ only in how a person was shown the
+  // candidate, never in whether a person decided.
+  assert.deepEqual(MATCH_METHODS, ['manual', 'manual-exact-name']);
+  for (const method of MATCH_METHODS) {
+    assert.equal(loadCuratedMatches(writeCurated([curatedEntry({ match_method: method })])).accepted.length, 1);
+  }
 });
 
 test('an accepted entry without an exact object id is refused', () => {
@@ -129,30 +138,101 @@ test('an entry that does not assert a public venue is refused', () => {
 test('two decisions about the same venue are refused', () => {
   assert.throws(
     () => loadCuratedMatches(writeCurated([curatedEntry(), curatedEntry({ osm_id: 999 })])),
-    /already claimed/,
+    /one venue, one outcome/,
   );
 });
 
-test('one OSM object claimed by two venues is refused as ambiguous', () => {
+test('one OSM object claimed by two venues is refused', () => {
   const other = curatedEntry({ name: 'Neighbour Hall', lat: GYM.lat + 0.01 });
-  assert.throws(() => loadCuratedMatches(writeCurated([curatedEntry(), other])), /ambiguous/);
+  assert.throws(() => loadCuratedMatches(writeCurated([curatedEntry(), other])), /too far apart/);
 });
 
-test('a rejection has to say why, and when it was looked at', () => {
-  const rejection = { name: 'Nothing There', lat: 1, lon: 2, status: 'rejected' };
-  assert.throws(() => loadCuratedMatches(writeCurated([rejection])), /needs a "reason"/);
-  assert.throws(
-    () => loadCuratedMatches(writeCurated([{ ...rejection, reason: 'no candidate object' }])),
-    /reviewed_on/,
-  );
-  const { rejected } = loadCuratedMatches(writeCurated([
-    { ...rejection, reason: 'no candidate object', reviewed_on: '2026-08-22' },
-  ]));
-  assert.equal(rejected.length, 1);
+test('a declared duplicate listing may share its object, but only a real one', () => {
+  const primary = curatedEntry();
+  const other = venueKey(GYM.lat + 0.0005, GYM.lon);
+  // "Steil Boulderhalle" / "Steil Boulderhalle Karlsruhe": one gym, two rows.
+  const second = curatedEntry({
+    name: 'Fixture Boulder Hall Moonboard',
+    lat: GYM.lat + 0.0005,
+    duplicate_listing_of: venueKey(GYM.lat, GYM.lon),
+  });
+  assert.equal(loadCuratedMatches(writeCurated([primary, second])).accepted.length, 2);
+
+  // Naming a venue that is not there is refused rather than ignored.
+  assert.throws(() => loadCuratedMatches(writeCurated([
+    { ...second, osm_id: 555, duplicate_listing_of: '1.0000|1.0000' },
+  ])), /names no accepted venue/);
+
+  // Pointing at a venue matched to a different object is refused too.
+  assert.throws(() => loadCuratedMatches(writeCurated([
+    primary, { ...second, osm_id: 555 },
+  ])), /matched to a different OSM object/);
+
+  // And no assertion reaches across the distance limit.
+  assert.throws(() => loadCuratedMatches(writeCurated([
+    primary, { ...second, lat: GYM.lat + 0.05 },
+  ])), /too far apart/);
+
+  // The assertion may point forwards as easily as backwards: three listings
+  // of one gym, all linked to a primary that comes last in the file.
+  const trio = [
+    curatedEntry({ name: 'A', lat: GYM.lat + 0.0002, duplicate_listing_of: venueKey(GYM.lat, GYM.lon) }),
+    curatedEntry({ name: 'B', lat: GYM.lat + 0.0004, duplicate_listing_of: venueKey(GYM.lat, GYM.lon) }),
+    primary,
+  ];
+  assert.equal(loadCuratedMatches(writeCurated(trio)).accepted.length, 3);
+  assert.ok(other);
 });
 
-test('an unknown status is refused rather than treated as one of the two', () => {
-  assert.throws(() => loadCuratedMatches(writeCurated([curatedEntry({ status: 'maybe' })])), /status/);
+test('the same venue listed twice may share its object; two venues may not', () => {
+  // Upstream registers a few halls twice, metres apart, because two board
+  // systems were submitted separately. Both rows are the same business.
+  const twin = curatedEntry({ lat: GYM.lat + 0.0005 }); // ~55 m, identical name
+  assert.equal(loadCuratedMatches(writeCurated([curatedEntry(), twin])).accepted.length, 2);
+
+  // Same name but far apart is two gyms of a chain, not one listed twice.
+  const faraway = curatedEntry({ lat: GYM.lat + 0.05 });
+  assert.throws(() => loadCuratedMatches(writeCurated([curatedEntry(), faraway])), /too far apart/);
+
+  // Next door but differently named is the neighbouring hall — the case that
+  // made "Boulderbar Hauptbahnhof Plus" a rejection in the first place.
+  const neighbour = curatedEntry({ name: 'Fixture Boulder Hall Plus', lat: GYM.lat + 0.0005 });
+  assert.throws(() => loadCuratedMatches(writeCurated([curatedEntry(), neighbour])), /ambiguous/);
+});
+
+test('every non-accepted outcome has to say why, and when it was looked at', () => {
+  for (const status of DECISIONS.filter((d) => d !== 'accepted')) {
+    const entry = { name: 'Nothing There', lat: 1, lon: 2, status };
+    assert.throws(() => loadCuratedMatches(writeCurated([entry])), /needs a "reason"/, status);
+    assert.throws(
+      () => loadCuratedMatches(writeCurated([{ ...entry, reason: 'documented check found nothing' }])),
+      /reviewed_on/, status,
+    );
+    const { accepted, decisions, counts } = loadCuratedMatches(writeCurated([
+      { ...entry, reason: 'documented check found nothing', reviewed_on: '2026-08-22' },
+    ]));
+    assert.equal(accepted.length, 0, status);
+    assert.equal(decisions.length, 1, status);
+    assert.equal(counts[status], 1, status);
+  }
+});
+
+test('an unreachable venue stays in the queue; every other outcome settles it', () => {
+  // The sweep skips settled venues. A venue whose discovery failed must come
+  // back round, or a bad afternoon at Overpass turns into a permanent gap.
+  const base = { name: 'Somewhere', lat: 1, lon: 2, reason: 'documented', reviewed_on: '2026-08-22' };
+  const { settled: queued } = loadCuratedMatches(writeCurated([{ ...base, status: 'unreachable' }]));
+  assert.equal(queued.size, 0);
+  for (const status of ['private', 'no-object', 'ambiguous', 'closed']) {
+    const { settled } = loadCuratedMatches(writeCurated([{ ...base, status }]));
+    assert.equal(settled.size, 1, status);
+  }
+});
+
+test('an unknown status is refused rather than treated as one of the known ones', () => {
+  for (const status of ['maybe', 'rejected', 'todo', '']) {
+    assert.throws(() => loadCuratedMatches(writeCurated([curatedEntry({ status })])), /status/, status);
+  }
 });
 
 // ── Guards ────────────────────────────────────────────────────────────────
@@ -269,10 +349,30 @@ test('loadSidecar refuses a file from a different schema generation', () => {
 // ── The committed files ───────────────────────────────────────────────────
 
 test('the committed curated match file is valid', () => {
-  const { accepted, rejected } = loadCuratedMatches(CURATED_FILE);
+  const { accepted, decisions } = loadCuratedMatches(CURATED_FILE);
   assert.ok(accepted.length > 0, 'expected at least one accepted match');
-  for (const entry of [...accepted, ...rejected]) {
+  for (const entry of decisions) {
     assert.ok(entry.name.trim().length > 0);
+    assert.ok(DECISIONS.includes(entry.status), entry.name);
+  }
+});
+
+test('no venue recorded as private is enriched, and no accepted venue is private', () => {
+  const { decisions } = loadCuratedMatches(CURATED_FILE);
+  const features = new Map();
+  for (const f of JSON.parse(readFileSync(GEOJSON_FILE, 'utf-8')).features) {
+    const [lon, lat] = f.geometry.coordinates;
+    features.set(venueKey(lat, lon), f);
+  }
+  for (const decision of decisions) {
+    if (decision.status !== 'private') continue;
+    assert.equal(decision.osm_id, undefined, `${decision.name}: a private setup carries no OSM object`);
+  }
+  // The build refuses a private venue outright; this catches it in review.
+  for (const decision of decisions.filter((d) => d.status === 'accepted')) {
+    const f = features.get(decision.key);
+    if (!f) continue;
+    assert.equal(venueLooksPrivate(f).private, false, decision.name);
   }
 });
 
@@ -292,7 +392,7 @@ test('every venue in the committed sidecar carries its exact object and provenan
     assert.ok(['node', 'way', 'relation'].includes(entry.osm_type), entry.name);
     assert.ok(Number.isInteger(entry.osm_id) && entry.osm_id > 0, entry.name);
     assert.equal(entry.osm_url, osmObjectUrl(entry.osm_type, entry.osm_id), entry.name);
-    assert.equal(entry.match.method, 'manual', entry.name);
+    assert.ok(MATCH_METHODS.includes(entry.match.method), `${entry.name}: ${entry.match.method}`);
     assert.match(entry.match.verified_on, /^\d{4}-\d{2}-\d{2}$/, entry.name);
     if (entry.display) {
       assert.ok(entry.opening_hours, entry.name);

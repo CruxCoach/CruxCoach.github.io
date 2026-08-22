@@ -26,6 +26,36 @@ export const SCHEMA_VERSION = 1;
 
 export const OSM_TYPES = ['node', 'way', 'relation'];
 
+// Ways a curated match may have been established. Both are a person's
+// decision; they differ in how the candidate was put in front of that person.
+// Nothing proximity-based is allowed here, and there is no third value.
+export const MATCH_METHODS = [
+  // Investigated on its own: candidates read one by one.
+  'manual',
+  // Proposed by the sweep because exactly one candidate's name was identical
+  // (or contained) and no other candidate shared a distinctive word with it,
+  // then read line by line before being recorded. See
+  // tools/dev/RUNBOOK-osm-opening-hours.md, "Sweeping a country".
+  'manual-exact-name',
+];
+
+/**
+ * The outcome every venue on the map ends up with. Exactly one of these, and
+ * only `accepted` is ever enriched.
+ *
+ *   accepted     bound to one exact OSM object (which may or may not carry hours)
+ *   private      a home or garage setup — never enriched, whatever OSM says
+ *   no-object    documented checks found no object that IS this venue
+ *   ambiguous    two or more plausible objects; picking one would be a guess
+ *   closed       the venue is gone, or its object is tagged disused
+ *   unreachable  discovery could not complete — this is the retry queue
+ */
+export const DECISIONS = ['accepted', 'private', 'no-object', 'ambiguous', 'closed', 'unreachable'];
+
+// A venue with one of these is settled; the sweep skips it. `unreachable` is
+// deliberately absent — it is a queue entry, so the next sweep picks it up.
+export const SETTLED = DECISIONS.filter((d) => d !== 'unreachable');
+
 export const SOURCE_BLOCK = {
   name: 'OpenStreetMap',
   url: 'https://www.openstreetmap.org/',
@@ -50,6 +80,52 @@ const PUBLIC_VENUE_TAGS = [
 
 export const OSM_URL_BASE = 'https://www.openstreetmap.org';
 
+/**
+ * Names compared the way a person compares them: case, accents, punctuation
+ * and ß/ss are noise. Used for the duplicate-listing rule below and by the
+ * curation sweep, which must agree with it.
+ */
+export function normalizeName(value) {
+  return String(value ?? '')
+    .replace(/ß/g, 'ss')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
+}
+
+function metresBetween(aLat, aLon, bLat, bLon) {
+  const R = 6371000;
+  const rad = (d) => (d * Math.PI) / 180;
+  const dLat = rad(bLat - aLat);
+  const dLon = rad(bLon - aLon);
+  const h = Math.sin(dLat / 2) ** 2
+    + Math.cos(rad(aLat)) * Math.cos(rad(bLat)) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+// Upstream lists a good number of gyms twice — the source registers a venue
+// once per board system, so one hall arrives as "Steil Boulderhalle" and
+// "Steil Boulderhalle Karlsruhe", or as "VELS Boulderhalle Stuttgart" and
+// "VELS Moonboard24", at coordinates a few metres apart and just far enough
+// not to collapse into one venue. Both rows are the same business, so both may
+// point at the same OSM object; refusing the second would leave one of two
+// adjacent markers mysteriously without hours.
+//
+// Two ways to establish it, both narrow:
+//
+//   1. Identical names within DUPLICATE_LISTING_MAX_M. No judgement needed.
+//   2. An explicit `duplicate_listing_of` on the second entry, naming the
+//      other listing. That is a curator saying "I looked, and these two rows
+//      are one gym" — the same standard as the match itself.
+//
+// What neither allows is two DIFFERENT venues sharing an object. "Boulderbar
+// Hauptbahnhof" and "… Hauptbahnhof Plus" are 60 m apart with one name inside
+// the other, and are still two halls; they stay refused unless somebody
+// deliberately writes the assertion, which for that pair would be wrong.
+const DUPLICATE_LISTING_MAX_M = 150;
+
 export function osmObjectUrl(type, id) {
   return `${OSM_URL_BASE}/${type}/${id}`;
 }
@@ -65,13 +141,14 @@ function fail(where, message) {
 /**
  * Read and validate tools/osm-venues.json.
  *
- * Throws on anything structurally wrong, duplicated or ambiguous. Returns
- * `{ accepted, rejected }`; rejected entries are kept because a documented
- * "we looked and could not tell" is the part of the record that stops the
- * same venue being re-examined every batch.
+ * Throws on anything structurally wrong, duplicated or contradictory. Returns
+ * `{ accepted, decisions, counts, settled }` — `decisions` is every venue that
+ * has an outcome, because a documented "we looked and could not tell" is the
+ * part of the record that stops the same venue being re-examined every sweep,
+ * and `settled` is the subset the next sweep may skip.
  */
 export function loadCuratedMatches(file) {
-  if (!existsSync(file)) return { accepted: [], rejected: [] };
+  if (!existsSync(file)) return { accepted: [], decisions: [], counts: {}, settled: new Set() };
 
   let raw;
   try {
@@ -79,10 +156,12 @@ export function loadCuratedMatches(file) {
   } catch (err) {
     throw new Error(`tools/osm-venues.json is not valid JSON: ${err.message}`);
   }
-  if (!Array.isArray(raw)) fail('file', 'must be a JSON array of match objects');
+  if (!Array.isArray(raw)) fail('file', 'must be a JSON array of decision objects');
 
   const accepted = [];
-  const rejected = [];
+  const decisions = [];
+  const counts = Object.fromEntries(DECISIONS.map((d) => [d, 0]));
+  const settled = new Set();
   const seenVenue = new Map();
   const seenObject = new Map();
 
@@ -94,25 +173,27 @@ export function loadCuratedMatches(file) {
     if (entry.lat < -90 || entry.lat > 90 || entry.lon < -180 || entry.lon > 180) {
       fail(where, 'coordinates out of range');
     }
-    if (entry.status !== 'accepted' && entry.status !== 'rejected') {
-      fail(where, '"status" must be "accepted" or "rejected"');
+    if (!DECISIONS.includes(entry.status)) {
+      fail(where, `"status" must be one of ${DECISIONS.join(', ')}`);
     }
 
     const key = venueKey(entry.lat, entry.lon);
     const previous = seenVenue.get(key);
     if (previous !== undefined) {
-      fail(where, `venue ${key} is already claimed by entry ${previous} — one venue, one decision`);
+      fail(where, `venue ${key} is already decided by entry ${previous} — one venue, one outcome`);
     }
     seenVenue.set(key, i);
+    counts[entry.status]++;
+    decisions.push({ ...entry, key });
+    if (entry.status !== 'unreachable') settled.add(key);
 
-    if (entry.status === 'rejected') {
+    if (entry.status !== 'accepted') {
       if (typeof entry.reason !== 'string' || !entry.reason.trim()) {
-        fail(where, 'a rejected entry needs a "reason"');
+        fail(where, `a "${entry.status}" entry needs a "reason"`);
       }
       if (!ISO_DATE.test(entry.reviewed_on ?? '')) {
-        fail(where, 'a rejected entry needs "reviewed_on" as YYYY-MM-DD');
+        fail(where, `a "${entry.status}" entry needs "reviewed_on" as YYYY-MM-DD`);
       }
-      rejected.push({ ...entry, key });
       return;
     }
 
@@ -122,8 +203,8 @@ export function loadCuratedMatches(file) {
     if (!Number.isInteger(entry.osm_id) || entry.osm_id <= 0) {
       fail(where, '"osm_id" must be a positive integer');
     }
-    if (entry.match_method !== 'manual') {
-      fail(where, '"match_method" must be "manual" — nothing here may be matched automatically');
+    if (!MATCH_METHODS.includes(entry.match_method)) {
+      fail(where, `"match_method" must be one of ${MATCH_METHODS.join(', ')} — nothing here may be matched by proximity`);
     }
     if (!ISO_DATE.test(entry.verified_on ?? '')) {
       fail(where, '"verified_on" must be YYYY-MM-DD');
@@ -137,17 +218,84 @@ export function loadCuratedMatches(file) {
       fail(where, '"venue" must be "public" — private and home setups are never enriched');
     }
 
-    const objectId = `${entry.osm_type}/${entry.osm_id}`;
-    const objectOwner = seenObject.get(objectId);
-    if (objectOwner !== undefined) {
-      fail(where, `OSM object ${objectId} is already matched by entry ${objectOwner} — ambiguous`);
+    if (entry.duplicate_listing_of !== undefined
+        && (typeof entry.duplicate_listing_of !== 'string' || !entry.duplicate_listing_of.includes('|'))) {
+      fail(where, '"duplicate_listing_of" must name the other listing of the same venue');
     }
-    seenObject.set(objectId, i);
+
+    // Whether several listings may share one object is decided below, once
+    // every entry has been read: the assertion can point forwards as easily as
+    // backwards, so it cannot be judged in file order.
+    const objectId = `${entry.osm_type}/${entry.osm_id}`;
+    if (!seenObject.has(objectId)) seenObject.set(objectId, []);
+    seenObject.get(objectId).push({ index: i, id: key, name: entry.name, entry });
 
     accepted.push({ ...entry, key, osm_url: osmObjectUrl(entry.osm_type, entry.osm_id) });
   });
 
-  return { accepted, rejected };
+  // One object, one venue — unless the listings are demonstrably the same
+  // venue. Every listing on an object must be within DUPLICATE_LISTING_MAX_M
+  // of every other, and the "same venue" links (identical names, or an
+  // explicit duplicate_listing_of in either direction) must connect the whole
+  // group. A listing that is merely near the others, with a name of its own
+  // and nobody vouching for it, is the ambiguous case and is refused.
+  for (const [objectId, claimants] of seenObject) {
+    if (claimants.length < 2) continue;
+    for (let a = 0; a < claimants.length; a++) {
+      for (let b = a + 1; b < claimants.length; b++) {
+        const x = claimants[a];
+        const y = claimants[b];
+        const metres = metresBetween(x.entry.lat, x.entry.lon, y.entry.lat, y.entry.lon);
+        if (metres > DUPLICATE_LISTING_MAX_M) {
+          fail(`entry ${y.index} ("${y.name}")`,
+            `OSM object ${objectId} is also matched by entry ${x.index} ("${x.name}", `
+            + `${Math.round(metres)} m away) — too far apart to be one venue listed twice `
+            + `(limit ${DUPLICATE_LISTING_MAX_M} m)`);
+        }
+      }
+    }
+    // Connectivity: walk the links out from the first listing.
+    const byId = new Map(claimants.map((c) => [c.id, c]));
+    const reached = new Set([claimants[0].id]);
+    let grew = true;
+    while (grew) {
+      grew = false;
+      for (const c of claimants) {
+        if (reached.has(c.id)) continue;
+        const linked = claimants.some((other) => reached.has(other.id) && (
+          normalizeName(other.name) === normalizeName(c.name)
+          || c.entry.duplicate_listing_of === other.id
+          || other.entry.duplicate_listing_of === c.id));
+        if (linked) { reached.add(c.id); grew = true; }
+      }
+    }
+    for (const c of claimants) {
+      if (reached.has(c.id)) continue;
+      fail(`entry ${c.index} ("${c.name}")`,
+        `OSM object ${objectId} is also matched by entry ${claimants[0].index} `
+        + `("${claimants[0].name}") — ambiguous unless the two are the same venue listed `
+        + `twice, which needs identical names or an explicit "duplicate_listing_of"`);
+    }
+    if (byId.size !== claimants.length) fail(`object ${objectId}`, 'duplicate venue listing');
+  }
+
+  // A declared duplicate has to name a venue that exists, is accepted, and
+  // carries the same OSM object — otherwise the assertion is decoration.
+  const acceptedById = new Map(accepted.map((e) => [e.key, e]));
+  for (const entry of accepted) {
+    if (!entry.duplicate_listing_of) continue;
+    const partner = acceptedById.get(entry.duplicate_listing_of);
+    const where = `entry "${entry.name}"`;
+    if (!partner) {
+      fail(where, `"duplicate_listing_of": "${entry.duplicate_listing_of}" names no accepted venue`);
+    }
+    if (partner.osm_type !== entry.osm_type || partner.osm_id !== entry.osm_id) {
+      fail(where, `"duplicate_listing_of" points at "${partner.name}", which is matched to a different OSM object`);
+    }
+    if (partner.key === entry.key) fail(where, '"duplicate_listing_of" points at itself');
+  }
+
+  return { accepted, decisions, counts, settled };
 }
 
 // ── Guards ────────────────────────────────────────────────────────────────
