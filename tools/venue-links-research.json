@@ -706,6 +706,96 @@
     "reason": "Upstream lists two Klättercentret Malmö entries 1.8 km apart; the operator has one Malmö hall, at Kopparbergsgatan 8, which the other entry already carries. Which venue this coordinate means is not decidable."
   },
   {
+    "lat": 32.800198,
+    "lon": -96.837839,
+    "name": "Dallas Bouldering Project",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The hall is not in Bouldering Project's location list, and dallasboulderingproject.com serves a 114-byte empty body, so no official page describes this venue.",
+    "candidate": "https://dallasboulderingproject.com/"
+  },
+  {
+    "lat": 37.96487,
+    "lon": -122.05327,
+    "name": "Diablo Rock Gym",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "touchstoneclimbing.com answers 403 and diablorockgym.com serves an incomplete certificate chain, so no page could be opened and read.",
+    "candidate": "https://touchstoneclimbing.com/"
+  },
+  {
+    "lat": 37.7567,
+    "lon": -122.38767,
+    "name": "Dogpatch Boulders",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "touchstoneclimbing.com answers 403 to every automated request and the gym has no separate domain that resolves, so no page could be opened and read.",
+    "candidate": "https://touchstoneclimbing.com/dogpatch-boulders/"
+  },
+  {
+    "lat": 42.09078035751713,
+    "lon": -88.0244765595274,
+    "name": "First Ascent Arlington Heights",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "faclimbing.com runs a country-blocker plugin that answers 403, so no First Ascent page could be opened and read.",
+    "candidate": "https://faclimbing.com/"
+  },
+  {
+    "lat": 41.88408,
+    "lon": -87.62865,
+    "name": "First Ascent Block 37",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "faclimbing.com runs a country-blocker plugin that answers 403, so no First Ascent page could be opened and read.",
+    "candidate": "https://faclimbing.com/"
+  },
+  {
+    "lat": 40.43301,
+    "lon": -80.00449,
+    "name": "First Ascent Climbing Station Square",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "faclimbing.com runs a country-blocker plugin that answers 403, so no First Ascent page could be opened and read.",
+    "candidate": "https://faclimbing.com/"
+  },
+  {
+    "lat": 41.88035,
+    "lon": -87.65213,
+    "name": "First Ascent West Loop",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "faclimbing.com runs a country-blocker plugin that answers 403, so no First Ascent page could be opened and read.",
+    "candidate": "https://faclimbing.com/"
+  },
+  {
+    "lat": 40.70857,
+    "lon": -74.06459,
+    "name": "Gravity Vault - Jersey City",
+    "country": "US",
+    "status": "closed",
+    "checked": "2026-08-22",
+    "reason": "The operator's own location page states that The Gravity Vault Jersey City is permanently closed; upstream lists the hall twice, 190 m apart.",
+    "candidate": "https://gravityvault.com/locations/jersey-city-nj"
+  },
+  {
+    "lat": 37.81005,
+    "lon": -122.27017,
+    "name": "Great Western Power Company",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "touchstoneclimbing.com answers 403 to every automated request and greatwesternpower.com does not resolve, so no page could be opened and read.",
+    "candidate": "https://touchstoneclimbing.com/"
+  },
+  {
     "lat": 38.801099,
     "lon": -77.1263623,
     "name": "Sportrock",
@@ -724,5 +814,35 @@
     "checked": "2026-08-22",
     "reason": "The coordinate is in Sterling, Colorado, about 2400 km from Sportrock's Sterling, Virginia centre; upstream has placed this MoonBoard in the wrong Sterling, so no venue can be verified here.",
     "candidate": "https://www.sportrock.com/sterling"
+  },
+  {
+    "lat": 37.85118,
+    "lon": -122.29303,
+    "name": "Team Touchstone",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "touchstoneclimbing.com answers 403 to every automated request, so no page could be opened and read for this Berkeley team facility.",
+    "candidate": "https://touchstoneclimbing.com/"
+  },
+  {
+    "lat": 40.70779,
+    "lon": -74.06659,
+    "name": "The Gravity Vault Jersey City",
+    "country": "US",
+    "status": "closed",
+    "checked": "2026-08-22",
+    "reason": "The operator's own location page states that The Gravity Vault Jersey City is permanently closed, and Jersey City no longer appears in its location list.",
+    "candidate": "https://gravityvault.com/locations/jersey-city-nj"
+  },
+  {
+    "lat": 37.85155,
+    "lon": -122.2926806,
+    "name": "Touchstone Team Training Center",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "touchstoneclimbing.com answers 403 to every automated request; upstream lists this team training centre twice, 41 m apart.",
+    "candidate": "https://touchstoneclimbing.com/"
   }
 ]

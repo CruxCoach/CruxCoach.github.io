@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 641 |
-| Verified website links | 567 |
-| Rejected / ambiguous / private / closed | 74 |
+| Venues reviewed (linked + research entries) | 709 |
+| Verified website links | 623 |
+| Rejected / ambiguous / private / closed | 86 |
 | Countries covered | 12 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -244,7 +244,7 @@ Per-country coverage of eligible (public/commercial) venues:
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
 | DE | 163 | 201 | 81% |
-| US | 94 | 576 | 16% |
+| US | 150 | 576 | 26% |
 | GB | 55 | 102 | 54% |
 | CH | 51 | 56 | 91% |
 | NL | 46 | 59 | 78% |
@@ -256,16 +256,18 @@ Per-country coverage of eligible (public/commercial) venues:
 | SE | 4 | 37 | 11% |
 | NO | 1 | 81 | 1% |
 
-Research-log reasons so far: 64 `unverified` (50 of them operator sites that
+Research-log reasons so far: 74 `unverified` (59 of them operator sites that
 answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
 wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
-opened and read), 5 `ambiguous`, 3 `http-only`, 1 `closed`, 1 `duplicate`.
+opened and read), 5 `ambiguous`, 3 `closed`, 3 `http-only`, 1 `duplicate`.
 
-- **Last completed batch:** France and Italy, off the Overpass discovery run that
-  finished this session — 13 French and 14 Italian halls linked, 6 candidates
-  logged instead.
-- **Next batch:** the next tier of US operators, then Spain and the Nordics.
+- **Last completed batch:** the second tier of United States operators — Gravity
+  Vault, Bouldering Project, Hangar 18, The Circuit, MetroRock, Armadillo,
+  Edgeworks, Crux, The Spot and Boardworks. Fifty-six halls linked, twelve
+  logged.
+- **Next batch:** Spain and the Nordics, then the long tail of independent US
+  gyms, which will need a discovery run.
 
 ### What is actually gating the remaining countries
 
@@ -322,3 +324,28 @@ a MoonBoard while `/srpi` advertises a Kilter room, the opposite of what upstrea
 records. The named Kilter entry is at 5308 Eisenhower Ave by both upstream and a
 reverse lookup, so it is linked; the unnamed MoonBoard entry between the two
 buildings cannot be assigned to one page and is logged `ambiguous` instead.
+
+### Why the index is never the evidence
+
+The second US pass produced the clearest example yet of why every location page
+gets opened. Crux Climbing Center's own location index lists Central Austin at
+220 Ralph Ablanedo Dr — but that is the South Austin hall's address. The Central
+page prints 6015 Dillard Circle Unit B, and upstream agrees. Trusting the index
+would have pointed two venues at each other's page, with a matching street
+address to make it look verified.
+
+The same pass turned up three more shapes worth recording:
+
+- **A hall the operator no longer has.** Gravity Vault's Jersey City page is
+  still served, and still says "permanently closed"; Jersey City is gone from the
+  location list. Two upstream venues sit there. They are logged `closed`, not
+  linked to a page that disowns them.
+- **Upstream coordinates that contradict upstream addresses.** Both Montclair and
+  Crux South have two entries for one gym, and in both cases the entry that
+  *carries* the street address is the one whose coordinate is ~750 m from it. The
+  unnamed sibling is the accurate one. Neither is dropped; the note says which is
+  which.
+- **Sites that refuse to be read at all.** Touchstone answers 403 to everything,
+  and First Ascent runs a country-blocker plugin that does the same. Nine venues
+  between them are logged `unverified` rather than linked on the strength of a
+  domain name that looks right.
