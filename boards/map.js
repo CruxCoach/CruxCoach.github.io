@@ -468,6 +468,70 @@
       '</div>';
   }
 
+  // ── Opening hours (OpenStreetMap, ODbL) ───────────────────────────
+  // Read from /boards/data/osm-opening-hours.json, a first-party file built
+  // by tools/refresh-osm-hours.mjs. The browser never asks OpenStreetMap
+  // anything: looking up a gym's hours must not announce the reader to a
+  // third party, and the map has to keep working when OSM does not.
+  //
+  // Every user-visible string in there was rendered at build time by
+  // tools/opening-hours.mjs, in both languages, so this file only places
+  // text — it cannot disagree with the static directory about what a
+  // schedule says. Nothing here computes whether a venue is open now.
+  var openingHours = null;
+
+  function setOpeningHours(sidecar) {
+    if (!sidecar || !Array.isArray(sidecar.venues) || !sidecar.strings) return;
+    var index = {};
+    for (var i = 0; i < sidecar.venues.length; i++) {
+      var v = sidecar.venues[i];
+      if (v && v.key && v.display && v.opening_hours) index[v.key] = v;
+    }
+    openingHours = { index: index, strings: sidecar.strings };
+  }
+
+  function venueKey(lat, lon) {
+    return lat.toFixed(4) + '|' + lon.toFixed(4);
+  }
+
+  function renderOpeningHours(lat, lon) {
+    if (!openingHours) return '';
+    var entry = openingHours.index[venueKey(lat, lon)];
+    if (!entry) return '';
+    var S = openingHours.strings[LANG];
+    var d = entry.display;
+    var parts = ['<div class="popup-oh-head">' + escapeHtml(S.heading) + '</div>'];
+
+    if (d.kind === 'schedule') {
+      var lines = d[LANG].lines;
+      for (var i = 0; i < lines.length; i++) {
+        parts.push('<div class="popup-oh-row"><span class="popup-oh-days">' +
+          escapeHtml(lines[i].label) + '</span><span class="popup-oh-time">' +
+          escapeHtml(lines[i].value) + '</span></div>');
+      }
+      // Venue-specific notes, then the standing caveats from the sidecar's
+      // shared strings. The exceptions caveat applies to every schedule and is
+      // always last.
+      var notes = d[LANG].notes.slice();
+      if (d.flags && d.flags.overnight) notes.push(S.noteOvernight);
+      notes.push(S.noteExceptions);
+      for (var j = 0; j < notes.length; j++) {
+        parts.push('<div class="popup-oh-note">' + escapeHtml(notes[j]) + '</div>');
+      }
+    } else {
+      // Outside the renderable subset — show OSM's value unchanged rather
+      // than an interpretation of it.
+      parts.push('<div class="popup-oh-note">' + escapeHtml(S.unsupported) + '</div>');
+      parts.push('<div class="popup-oh-raw"><code>' + escapeHtml(d.raw) + '</code></div>');
+    }
+
+    parts.push('<div class="popup-oh-note">' + escapeHtml(d.freshness[LANG]) + '</div>');
+    parts.push('<div class="popup-oh-src"><a href="' + escapeHtml(entry.osm_url) +
+      '" target="_blank" rel="nofollow noopener">' + escapeHtml(S.source) + ' →</a></div>');
+    parts.push('<div class="popup-oh-attr">' + escapeHtml(S.attribution) + '</div>');
+    return '<div class="popup-oh">' + parts.join('') + '</div>';
+  }
+
   function buildPopupHtml(lat, lon, props) {
     var subtitleParts = [];
     if (props.city) subtitleParts.push(escapeHtml(props.city));
@@ -501,6 +565,7 @@
         renderSiteLine(props) +
         wellpassLine +
         '<div class="popup-boards">' + sections + '</div>' +
+        renderOpeningHours(lat, lon) +
         '<div class="popup-foot">' +
           '<a href="https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lon +
             '#map=17/' + lat + '/' + lon + '" target="_blank" rel="noopener">' + T.openOsm + '</a>' +
@@ -1608,12 +1673,21 @@
   }
 
   // ── Data load ─────────────────────────────────────────────────────
-  fetch('/boards/data/boards.geojson')
-    .then(function (res) {
+  // The opening-hours sidecar is optional in every sense: it is fetched
+  // alongside the venues, and a missing or broken one leaves the map exactly
+  // as it was before hours existed. It is never allowed to fail the page.
+  Promise.all([
+    fetch('/boards/data/boards.geojson').then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.json();
-    })
-    .then(function (data) {
+    }),
+    fetch('/boards/data/osm-opening-hours.json')
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .catch(function () { return null; }),
+  ])
+    .then(function (loaded) {
+      var data = loaded[0];
+      setOpeningHours(loaded[1]);
       var perBoardCounts = Object.fromEntries(BOARDS.map(function (b) { return [b.id, 0]; }));
       var layoutCounts = { Original: 0, Homewall: 0, other: 0 };
       var adjCounts = { adjustable: 0, fixed: 0, unknown: 0 };

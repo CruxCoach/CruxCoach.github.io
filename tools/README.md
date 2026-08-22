@@ -296,6 +296,93 @@ node tools/build-boards-data.mjs --overlays-only
   should say `official-chain-page`. It is an advisory: only a curator can tell
   that from a drifted upstream coordinate.
 - Counts land in `boards.meta.json` under `venue_links`.
+## OpenStreetMap opening hours (`refresh-osm-hours.mjs`)
+
+```bash
+node tools/refresh-osm-hours.mjs            # read OSM for the curated venues
+node tools/refresh-osm-hours.mjs --offline  # re-render committed values, no network
+node tools/refresh-osm-hours.mjs --check    # verify the committed file is current
+node tools/build-boards-data.mjs --static-only   # re-render the directories after a change
+```
+
+Shows opening hours for venues that a person has matched, by hand, to one exact
+OpenStreetMap object. Full operations note: `tools/dev/RUNBOOK-osm-opening-hours.md`.
+Current coverage and the review record: `tools/OSM-OPENING-HOURS-LEDGER.md`.
+
+**Separate file, separate licence.** OSM data is ODbL 1.0, a share-alike
+licence; `boards.geojson` is CC-BY-4.0. Mixing them would misdeclare one or
+relicense the other, so everything OSM-derived lives in
+`boards/data/osm-opening-hours.json` with its own `source` block, and a test
+asserts that no `opening_hours`/`osm_id` ever appears in the GeoJSON.
+
+**Matches are curated, never inferred.** `tools/osm-venues.json` binds a venue
+to an exact `osm_type`/`osm_id`, with `verified_on` and free-text `evidence`
+saying what was compared. Nothing attaches the nearest climbing gym: a wrong
+match publishes a neighbour's hours under a real venue's name. The loader fails
+the build on a structurally invalid entry, a venue decided twice, or one OSM
+object claimed by two venues.
+
+**Every venue on the map carries exactly one outcome** — `accepted`, `private`,
+`no-object`, `ambiguous`, `closed` or `unreachable` — because "we looked and
+there is nothing" is as much a result as a match, and it is what stops the same
+venue being re-examined every sweep. `unreachable` is the retry queue: it is the
+only status a sweep does not skip. `tools/refresh-osm-hours.mjs` prints how many
+venues still have no outcome at all.
+
+**Two match methods, both a person's decision.** `manual` is a venue
+investigated on its own. `manual-exact-name` is one the sweep proposed because
+exactly one candidate's name was identical (or contained) and no other candidate
+in range shared a distinctive word with it, then read line by line before being
+recorded. There is no third value, and nothing proximity-based is accepted.
+
+**One venue listed twice.** The upstream dataset registers a hall once per board
+system, so a single gym can arrive as two rows metres apart under slightly
+different names. They may share an OSM object when the names are identical, or
+when the second row carries an explicit `duplicate_listing_of` naming the first
+— a curator saying "these two rows are one gym". Everything else stays
+`ambiguous`, which is the right answer for two halls of one operator in one
+building.
+
+**Private setups are never enriched**, by three independent rules: the curator
+has to write `"venue": "public"`, `venueLooksPrivate()` refuses a venue with a
+home signal and no commercial one, and the OSM object itself has to still carry
+a public sports-venue tag when the refresh reads it.
+
+**Build time only, from our own origin.** The refresh command is the only thing
+that contacts OpenStreetMap — batched multi-fetch (≤ 40 ids), sequential, 1.2 s
+apart, 20 s timeout, identifying User-Agent; the whole current set is two
+requests. It reads `opening_hours`, `check_date:opening_hours`, `name`, the
+classifying tag, `timestamp` and `version`, and drops everything else where the
+response is parsed — no phone numbers, no e-mail, no contact details. Visitors
+read the committed sidecar from this site, so nobody is announced to a third
+party for looking at a gym's hours, and the map still works when OSM does not.
+An unreachable object keeps its last committed value and is flagged; a deleted
+or retagged one loses its hours.
+
+**No "open now".** `tools/opening-hours.mjs` renders the weekly pattern and
+labels it "Opening hours according to OpenStreetMap". Answering "is it open
+right now" correctly needs the venue's timezone, public holidays, school
+holidays, overnight ranges, seasonal rules and one-off closures to all be
+right; they are not, so the site does not answer it. Every rendered schedule
+carries that caveat, plus the freshness date (`check_date:opening_hours` when a
+mapper recorded one, otherwise the object's last edit) and a link to the exact
+object.
+
+**A bounded renderer instead of a vendored parser.** The reference
+implementation covers the entire specification and is several hundred kilobytes
+plus a holiday database — too much for a repository with no runtime
+dependencies, and it would invite the "open now" claim. So the supported subset
+is small and explicit (weekday selectors and ranges, time lists, `off`/`closed`,
+`PH`, `24/7`, the `,` rule separator) and everything outside it — months, week
+numbers, `SH`, sunrise/sunset, `Mo[1]`, open-ended times, comments, `||`
+fallbacks — falls back to the unmodified OSM value plus the object link.
+Refusing is a supported outcome, not a failure.
+
+**Rendered once, shown twice.** Every user-visible string, in both languages, is
+produced by the renderer at refresh time and stored in the sidecar. The map
+popup and the static directories only place that text, so they cannot drift
+apart. Editing the renderer therefore leaves the committed file stale — re-run
+with `--offline`; `scripts/check` fails if you forget.
 
 ## Place index (`build-cities-data.mjs`)
 
