@@ -241,9 +241,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 1100 |
-| Verified website links | 990 |
-| Rejected / ambiguous / private / closed | 110 |
+| Venues reviewed (linked + research entries) | 1103 |
+| Verified website links | 991 |
+| Rejected / ambiguous / private / closed | 112 |
 | Countries covered | 22 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
