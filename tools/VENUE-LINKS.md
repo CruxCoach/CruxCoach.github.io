@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 746 |
-| Verified website links | 659 |
-| Rejected / ambiguous / private / closed | 87 |
+| Venues reviewed (linked + research entries) | 766 |
+| Verified website links | 674 |
+| Rejected / ambiguous / private / closed | 92 |
 | Countries covered | 14 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -245,31 +245,30 @@ Per-country coverage of eligible (public/commercial) venues:
 | --- | --- | --- | --- |
 | DE | 163 | 201 | 81% |
 | US | 150 | 576 | 26% |
-| GB | 55 | 102 | 54% |
+| GB | 64 | 102 | 63% |
 | CH | 51 | 56 | 91% |
-| NL | 46 | 59 | 78% |
+| NL | 48 | 59 | 81% |
 | FR | 44 | 70 | 63% |
 | AT | 44 | 48 | 92% |
 | ES | 27 | 98 | 28% |
-| BE | 23 | 36 | 64% |
+| BE | 27 | 36 | 75% |
 | NO | 16 | 81 | 20% |
 | IT | 15 | 72 | 21% |
 | DK | 13 | 27 | 48% |
 | SE | 7 | 37 | 19% |
 | FI | 5 | 15 | 33% |
 
-Research-log reasons so far: 75 `unverified` (59 of them operator sites that
+Research-log reasons so far: 80 `unverified` (59 of them operator sites that
 answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
 wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
 opened and read), 5 `ambiguous`, 3 `closed`, 3 `http-only`, 1 `duplicate`.
 
-- **Last completed batch:** the Nordic operators — Boulders and Beta Boulders in
-  Denmark, Klatreverket, Høyt Under Taket, Bergen Klatresenter and Studio
-  Vertikal in Norway, Klätterverket and Klättercentret in Sweden, Boulderkeskus
-  in Finland. Denmark and Finland are new countries; 36 halls linked.
-- **Next batch:** Spain, then the long tail of independent gyms in the US,
-  Norway and Italy, which will need discovery runs.
+- **Last completed batch:** the operators still open in the UK, the Netherlands
+  and Belgium — The Font, Tide, Parthian, Chimera, Luma, High Sports, The Weedon
+  Project, Neoliet, Climbing Network, BeBloc, Hall9 and Gustaaf Klimt.
+- **Next batch:** Spain off the Overpass run now finishing, then the long tail of
+  independent gyms in the US, Norway and Italy.
 
 ### What is actually gating the remaining countries
 

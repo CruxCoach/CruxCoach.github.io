@@ -693,6 +693,36 @@
     "note": "Upstream records only \"GAV-Center\"; the operator's Lehmgrubenweg 19 resolves to within 115 m of this venue."
   },
   {
+    "lat": 50.45016,
+    "lon": 4.87515,
+    "name": "BeBloc",
+    "country": "BE",
+    "website": "https://www.bebloc.be/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site files the hall under Jambes, the Namur district upstream records as Namur."
+  },
+  {
+    "lat": 50.45032,
+    "lon": 4.87511,
+    "name": "BeBloc",
+    "country": "BE",
+    "website": "https://www.bebloc.be/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Upstream lists this hall twice, 18 m apart."
+  },
+  {
     "lat": 51.23389,
     "lon": 4.4036,
     "name": "Beest Boulders Antwerpen",
@@ -785,6 +815,36 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 51.3321805,
+    "lon": 4.9470475,
+    "name": "Gustaaf Klimt",
+    "country": "BE",
+    "website": "https://gustaafklimt.be/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 50.926454,
+    "lon": 4.4258375,
+    "name": "Hall9",
+    "country": "BE",
+    "website": "https://hall9.be/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "postal-code"
+    ],
+    "note": "The site places the hall in Vilvoorde's ASIAT Park at Kerkhofstraat 8b; this coordinate sits 1.7 km away, still inside Vilvoorde 1800."
   },
   {
     "lat": 50.62304,
@@ -6053,6 +6113,22 @@
     ]
   },
   {
+    "lat": 51.40267,
+    "lon": 0.53477,
+    "name": "Chimera Climbing Chatham",
+    "country": "GB",
+    "website": "https://www.chimeraclimbingchatham.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The centre's own site prints no address; the operator's index gives Chatham exactly the address upstream carries and links to this site."
+  },
+  {
     "lat": 53.78606,
     "lon": -1.53372,
     "name": "City Bloc",
@@ -6212,6 +6288,38 @@
     "note": "The centre gives 350 Euston Road where upstream has number 338."
   },
   {
+    "lat": 51.4696554,
+    "lon": -0.3616119,
+    "name": "Hang Moon Board",
+    "country": "GB",
+    "website": "https://www.the-font.co.uk/hounslow",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "street-address"
+    ],
+    "note": "Upstream lists this MoonBoard separately, 100 m from its Kilter entry; the page names Hang."
+  },
+  {
+    "lat": 51.47055,
+    "lon": -0.36189,
+    "name": "Hang.",
+    "country": "GB",
+    "website": "https://www.the-font.co.uk/hounslow",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The page announces that Hang, the name upstream records, is now part of The Font."
+  },
+  {
     "lat": 51.58083,
     "lon": -0.34436,
     "name": "HarroWall Climbing Centre",
@@ -6226,6 +6334,21 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 50.85264,
+    "lon": -0.16024,
+    "name": "High Sports Brighton",
+    "country": "GB",
+    "website": "https://www.high-sports.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The site is the Brighton centre's own; its sister brands in East Grinstead and Guildford have separate domains. The Withdean Sports Complex address resolves 90 m from this coordinate."
   },
   {
     "lat": 53.04573019999999,
@@ -6261,6 +6384,22 @@
     "note": "Upstream carries no address for this entry; the location page's Mint Bridge Road resolves to within 115 m of it."
   },
   {
+    "lat": 51.379625,
+    "lon": -2.353975,
+    "name": "Luma Climbing",
+    "country": "GB",
+    "website": "https://www.lumaclimbing.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
     "lat": 51.39647859999999,
     "lon": -1.3164998,
     "name": "Northway's Moonboard",
@@ -6276,6 +6415,22 @@
       "board-mention"
     ],
     "note": "Upstream carries no address for this entry; the centre's York Road resolves to within 30 m of it."
+  },
+  {
+    "lat": 50.93992,
+    "lon": -1.47019,
+    "name": "Parthian Climbing Southampton",
+    "country": "GB",
+    "website": "https://parthianclimbing.com/southampton/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
   },
   {
     "lat": 51.45496,
@@ -6654,6 +6809,51 @@
       "postal-code"
     ],
     "note": "The centre is in Marple, not the Stockport suburb upstream's nearest-town guess names; its address resolves to within 135 m of this venue."
+  },
+  {
+    "lat": 52.23095,
+    "lon": -1.08366,
+    "name": "The Weedon Project",
+    "country": "GB",
+    "website": "https://www.theweedonproject.co.uk/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code"
+    ],
+    "note": "The site places the gym at The Depot, Weedon in Northamptonshire; upstream files it under Northampton, 12 km away."
+  },
+  {
+    "lat": 50.516654,
+    "lon": -4.836456,
+    "name": "Tide Climbing",
+    "country": "GB",
+    "website": "https://www.tideclimbing.com/locations/padstow/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "city"
+    ],
+    "note": "The operator's other centre is 100 km away in Helston; this coordinate sits in Wadebridge, 7.9 km from the Padstow centre's St Issey address."
+  },
+  {
+    "lat": 50.09999,
+    "lon": -5.27124,
+    "name": "Tide Climbing Helston",
+    "country": "GB",
+    "website": "https://www.tideclimbing.com/locations/helston/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
   },
   {
     "lat": 52.98182990000001,
@@ -7083,6 +7283,23 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 51.4755,
+    "lon": 5.45634,
+    "name": "Boulder Neoliet Eindhoven",
+    "country": "NL",
+    "website": "https://www.neoliet.nl/nl/eindhovennoord/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator runs two Eindhoven halls; this is Noord, at the Vijfkamplaan address upstream carries."
   },
   {
     "lat": 51.56567,
@@ -7539,6 +7756,21 @@
       "street-address",
       "city"
     ]
+  },
+  {
+    "lat": 52.3666969,
+    "lon": 4.8945398,
+    "name": "Mountain Network Amsterdam",
+    "country": "NL",
+    "website": "https://www.climbingnetwork.nl/indoor/locatie/climbingcenter-amsterdam",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "city"
+    ],
+    "note": "The operator has one Amsterdam hall, at Erasmusgracht 297; this coordinate sits 3.7 km away in the city centre."
   },
   {
     "lat": 52.37517,
