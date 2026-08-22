@@ -108,6 +108,16 @@
   ul.venues strong { color: var(--fg); font-weight: 600; }
   .bt { display: inline-block; font-size: 0.72rem; color: var(--fg-mute); border: 1px solid var(--rule); border-radius: 4px; padding: 0.05em 0.4em; margin-left: 0.25rem; white-space: nowrap; }
   .backlink { display: inline-block; margin: 1.5rem 0; }
+  /* Opening hours from OpenStreetMap (ODbL) — collapsed so a directory of
+     thousands of venues stays scannable, but present in the HTML either way. */
+  details.oh { margin: 0.35rem 0 0.15rem; font-size: 0.9rem; }
+  details.oh summary { cursor: pointer; color: var(--fg-mute); }
+  details.oh summary:hover { color: var(--fg-soft); }
+  dl.oh-lines { display: grid; grid-template-columns: max-content 1fr; gap: 0.1rem 1rem; margin: 0.5rem 0; }
+  dl.oh-lines dt { color: var(--fg-soft); }
+  dl.oh-lines dd { margin: 0; color: var(--fg); font-variant-numeric: tabular-nums; }
+  .oh-note, .oh-src, .oh-raw { margin: 0.35rem 0 0; color: var(--fg-mute); font-size: 0.85rem; }
+  .oh-raw code { color: var(--fg-soft); word-break: break-word; }
   footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; margin-top: 2rem; color: var(--fg-mute); font-size: 0.85rem; }
   footer .container { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
 </style>
@@ -133,7 +143,7 @@
       <a href="/de/boards/">CruxCoach-Kletterboard-Karte</a>: <strong>2.830 Standorte</strong>
       in <strong>85 Ländern</strong> und neun Board-Systemen
       (MoonBoard (1.514), Kilter Board (1.116), Tension Board (362), Grasshopper (42), Decoy (24), So iLL (12), Touchstone (5), 12climb (4), Aurora (3)). Nutze die <a href="/de/boards/">interaktive Karte</a>, um
-      nach Ort zu suchen und zu filtern; diese Seite listet alles als reinen Text.
+      nach Ort zu suchen und zu filtern; diese Seite listet alles als reinen Text. Für 35 davon zeigt diese Seite Öffnungszeiten aus handgeprüften OpenStreetMap-Objekten.
     </p>
 
     <table class="board-counts">
@@ -259,8 +269,29 @@
         <li><strong>Aggro Crag</strong> <span class="muted">— bei Ventura</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Agility Boulders</strong> <span class="muted">— Capitola</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Aiguille Rock Climbing Center</strong> <span class="muted">— bei Casselberry</span> <span class="bt">Tension Board</span></li>
-        <li><strong>Alaska Rock Gym</strong> <span class="muted">— Anchorage</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Alchemy Climbing</strong> <span class="muted">— Tallahassee</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Alaska Rock Gym</strong> <span class="muted">— Anchorage</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>06:00–22:00</dd>
+          <dt>Sa–So</dt><dd>09:00–21:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 27.01.2026.
+          <a href="https://www.openstreetmap.org/way/828281293" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
+        <li><strong>Alchemy Climbing</strong> <span class="muted">— Tallahassee</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo</dt><dd>16:00–22:00</dd>
+          <dt>Di–Sa</dt><dd>12:00–22:00</dd>
+          <dt>So</dt><dd>12:00–20:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 13.05.2026.
+          <a href="https://www.openstreetmap.org/way/175342789" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>ALI Dixon Climbing Center</strong> <span class="muted">— Corvalis</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Alta Boulders Chandler</strong> <span class="muted">— Chandler</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Alta Climbing and Fitness Gilbert</strong> <span class="muted">— bei Queen Creek</span> <span class="bt">Tension Board</span></li>
@@ -268,7 +299,18 @@
         <li><strong>Ape Index Rock Climbing</strong> <span class="muted">— bei Peoria</span> <span class="bt">Tension Board</span></li>
         <li><strong>Apex Climbing Gym MoonBoard</strong> <span class="muted">— bei South Bend</span> <span class="bt">Tension Board</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Apex MoonBoard</strong> <span class="muted">— bei Overland Park</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>Appalachian Bouldering Center</strong> <span class="muted">— Bristol</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Appalachian Bouldering Center</strong> <span class="muted">— Bristol</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo, Mi–Sa</dt><dd>10:00–21:00</dd>
+          <dt>Di</dt><dd>15:00–21:00</dd>
+          <dt>So</dt><dd>13:00–19:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 08.07.2026.
+          <a href="https://www.openstreetmap.org/way/1536406009" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Approach Climbing Gym</strong> <span class="muted">— bei Omaha</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Arce Garage</strong> <span class="muted">— bei Salt Lake City</span> <span class="bt">MoonBoard</span></li>
         <li><strong>ARCH MoonBoard</strong> <span class="muted">— bei Amarillo</span> <span class="bt">MoonBoard</span></li>
@@ -1014,34 +1056,167 @@
       <h2 id="c-de">Deutschland <span class="muted">(233)</span></h2>
       <ul class="venues">
         <li><strong>@kbthalkirchen</strong> <span class="muted">— bei München</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>7a+ Boulderhalle Potsdam</strong> <span class="muted">— Potsdam</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>7a+ Boulderhalle Potsdam</strong> <span class="muted">— Potsdam</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>10:00–23:00</dd>
+          <dt>Sa–So</dt><dd>09:00–22:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 01.11.2025.
+          <a href="https://www.openstreetmap.org/node/7353306217" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>45 Grad</strong> <span class="muted">— Rostock</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Active Garden Waiblingen</strong> <span class="muted">— Waiblingen</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Active Garden Waiblingen</strong> <span class="muted">— Waiblingen</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo, Mi</dt><dd>14:00–22:30</dd>
+          <dt>Di, Do–Fr</dt><dd>10:00–22:30</dd>
+          <dt>Sa–So</dt><dd>10:00–21:00</dd>
+          <dt>Feiertage</dt><dd>10:00–21:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 13.08.2026.
+          <a href="https://www.openstreetmap.org/node/8972447217" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Adamsdorf</strong> <span class="muted">— bei Neustrelitz</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>B12 Tübingen</strong> <span class="muted">— Tübingen</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Bahnhof Blo</strong> <span class="muted">— Wuppertal</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>B12 Tübingen</strong> <span class="muted">— Tübingen</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Di, Fr</dt><dd>09:30–23:00</dd>
+          <dt>Mi</dt><dd>08:30–23:00</dd>
+          <dt>Do</dt><dd>12:30–23:00</dd>
+          <dt>Sa–So</dt><dd>10:00–22:00</dd>
+          <dt>Feiertage</dt><dd>10:00–22:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 27.03.2026.
+          <a href="https://www.openstreetmap.org/way/282867302" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
+        <li><strong>Bahnhof Blo</strong> <span class="muted">— Wuppertal</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Di, Do</dt><dd>15:00–23:00</dd>
+          <dt>Mi, Fr–So</dt><dd>10:00–23:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 16.01.2026.
+          <a href="https://www.openstreetmap.org/node/5102477724" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>BAMBULE</strong> <span class="muted">— bei Nürnberg</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Basement Boulderstudio</strong> <span class="muted">— bei Kreuzberg</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>Basislager Bad Aibling</strong> <span class="muted">— Bad Aibling</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Bergstation Kletter + Boulderzentrum</strong> <span class="muted">— Hilden</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Berta Block Boulderhalle Berlin</strong> <span class="muted">— Berlin</span> <span class="bt">Kilter Board</span> <span class="bt">Tension Board</span></li>
-        <li><strong>BiG Boulderhalle</strong> <span class="muted">— Göttingen</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Basislager Bad Aibling</strong> <span class="muted">— Bad Aibling</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Mi, Fr</dt><dd>09:00–23:00</dd>
+          <dt>Do</dt><dd>07:00–23:00</dd>
+          <dt>Sa–So</dt><dd>09:00–21:00</dd>
+          <dt>Feiertage</dt><dd>09:00–21:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 01.01.2026.
+          <a href="https://www.openstreetmap.org/way/1086217448" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
+        <li><strong>Bergstation Kletter + Boulderzentrum</strong> <span class="muted">— Hilden</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Sa</dt><dd>10:00–23:00</dd>
+          <dt>So</dt><dd>10:00–22:00</dd>
+          <dt>Feiertage</dt><dd>10:00–22:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 21.04.2025.
+          <a href="https://www.openstreetmap.org/way/988928791" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
+        <li><strong>Berta Block Boulderhalle Berlin</strong> <span class="muted">— Berlin</span> <span class="bt">Kilter Board</span> <span class="bt">Tension Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <p class="oh-note">OpenStreetMap hinterlegt diese Öffnungszeiten in einem Format, das diese Seite nicht übersetzt. Hier steht der unveränderte Wert.</p>
+        <p class="oh-raw"><span class="oh-raw-label">Wert wie in OpenStreetMap hinterlegt:</span> <code>Mo-Fr 09:00-23:00; Sa-Su 10:00-22:00; PH Mo-Fr 09:00-23:00; PH Sa-Su 10:00-22:00</code></p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 29.06.2026.
+          <a href="https://www.openstreetmap.org/way/680456099" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
+        <li><strong>BiG Boulderhalle</strong> <span class="muted">— Göttingen</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>10:00–22:00</dd>
+          <dt>Sa–So</dt><dd>10:00–21:00</dd>
+          <dt>Feiertage</dt><dd>10:00–21:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 09.07.2026.
+          <a href="https://www.openstreetmap.org/node/6420446437" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>BigFrictionBoard</strong> <span class="muted">— bei Erfurt</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>Bloc No Limit Boulderhalle Leipzig</strong> <span class="muted">— Leipzig</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Bloc No Limit Boulderhalle Leipzig</strong> <span class="muted">— Leipzig</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–So</dt><dd>10:00–23:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 01.06.2024.
+          <a href="https://www.openstreetmap.org/way/98222084" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Bloc-Hütte Augsburg</strong> <span class="muted">— bei Augsburg</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Blocbuster Paderborn</strong> <span class="muted">— bei Paderborn</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>Block Barock Fulda</strong> <span class="muted">— Fulda</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Block Barock Fulda</strong> <span class="muted">— Fulda</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–So</dt><dd>10:00–23:00</dd>
+          <dt>Feiertage</dt><dd>10:00–23:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 14.01.2026.
+          <a href="https://www.openstreetmap.org/way/316063087" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>BLOCKHELDEN Erlangen</strong> <span class="muted">— bei Erlangen</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>Blöckle</strong> <span class="muted">— Ravenburg</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Blöckle</strong> <span class="muted">— Ravenburg</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <p class="oh-note">OpenStreetMap hinterlegt diese Öffnungszeiten in einem Format, das diese Seite nicht übersetzt. Hier steht der unveränderte Wert.</p>
+        <p class="oh-raw"><span class="oh-raw-label">Wert wie in OpenStreetMap hinterlegt:</span> <code>Mo 15:00-22:00; Tu, Th 10:00-22:00; We, Fr 08:00-22:00; Sa,Su,PH 10:00-20:30; PH 10:00-20:30 &quot;Variiert an Feiertagen&quot;</code></p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 23.11.2023.
+          <a href="https://www.openstreetmap.org/way/193475273" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>blöckle Moonboard</strong> <span class="muted">— bei Ravensburg</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Blockpark Moonboard</strong> <span class="muted">— bei Erfurt</span> <span class="bt">MoonBoard</span></li>
         <li><strong>BlocSchmiede</strong> <span class="muted">— bei Magdeburg</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>BlocSchmiede Boulderhalle</strong> <span class="muted">— Magdeburg</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>BlocSchmiede Boulderhalle</strong> <span class="muted">— Magdeburg</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–So</dt><dd>10:00–22:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 22.02.2026.
+          <a href="https://www.openstreetmap.org/node/5640601587" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Blocschokolade</strong> <span class="muted">— bei Trier</span> <span class="bt">Tension Board</span></li>
         <li><strong>Blocschokolade bouldern &amp; backen</strong> <span class="muted">— bei Trier</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Bodebloc</strong> <span class="muted">— bei Wernigerode</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Bonobozimmer</strong> <span class="muted">— bei Chemnitz</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>Boulder Base Bremen - Tabakquartier</strong> <span class="muted">— Bremen</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Boulder Base Bremen - Tabakquartier</strong> <span class="muted">— Bremen</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo</dt><dd>13:00–23:00</dd>
+          <dt>Di–Fr</dt><dd>10:00–23:00</dd>
+          <dt>Sa–So</dt><dd>10:00–21:00</dd>
+          <dt>Feiertage</dt><dd>10:00–21:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 13.11.2025.
+          <a href="https://www.openstreetmap.org/node/9537691218" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Boulder Factory Münster</strong> <span class="muted">— Münster</span> <span class="bt">Kilter Board</span></li>
         <li><strong>BOULDER HALL - Burgoberbach</strong> <span class="muted">— bei Ansbach</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Boulderbar Neoliet Essen</strong> <span class="muted">— Essen</span> <span class="bt">Kilter Board</span></li>
@@ -1067,11 +1242,66 @@
         <li><strong>Boulderlounge Chemnitz</strong> <span class="muted">— Chemnitz</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Boulderplanet</strong> <span class="muted">— Köln</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Boulderplanet</strong> <span class="muted">— bei Altstadt Nord</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>Boulderwelt Dortmund</strong> <span class="muted">— Dortmund</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Boulderwelt Frankfurt</strong> <span class="muted">— Frankfurt am Main</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Boulderwelt Hamburg</strong> <span class="muted">— bei Bezirk Hamburg-Mitte</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Boulderwelt Karlsruhe</strong> <span class="muted">— Karlsruhe</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Boulderwelt München Süd</strong> <span class="muted">— bei Ottobrunn bei München</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Boulderwelt Dortmund</strong> <span class="muted">— Dortmund</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo, Mi, Fr</dt><dd>10:00–23:00</dd>
+          <dt>Di, Do</dt><dd>07:00–23:00</dd>
+          <dt>Sa–So</dt><dd>08:00–23:00</dd>
+          <dt>Feiertage</dt><dd>08:00–23:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 30.03.2026.
+          <a href="https://www.openstreetmap.org/way/1493254990" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
+        <li><strong>Boulderwelt Frankfurt</strong> <span class="muted">— Frankfurt am Main</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>07:00–23:00</dd>
+          <dt>Sa–So</dt><dd>08:00–23:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 12.02.2025.
+          <a href="https://www.openstreetmap.org/way/28299711" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
+        <li><strong>Boulderwelt Hamburg</strong> <span class="muted">— bei Bezirk Hamburg-Mitte</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>07:00–23:00</dd>
+          <dt>Sa–So</dt><dd>08:00–23:00</dd>
+          <dt>Feiertage</dt><dd>08:00–23:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 02.09.2025.
+          <a href="https://www.openstreetmap.org/node/12398821312" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
+        <li><strong>Boulderwelt Karlsruhe</strong> <span class="muted">— Karlsruhe</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>07:00–23:00</dd>
+          <dt>Sa–So</dt><dd>08:00–23:00</dd>
+          <dt>Feiertage</dt><dd>08:00–23:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 19.03.2026.
+          <a href="https://www.openstreetmap.org/node/10201637508" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
+        <li><strong>Boulderwelt München Süd</strong> <span class="muted">— bei Ottobrunn bei München</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>07:00–23:00</dd>
+          <dt>Sa–So</dt><dd>08:00–23:00</dd>
+          <dt>Feiertage</dt><dd>08:00–23:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 15.10.2023.
+          <a href="https://www.openstreetmap.org/node/8910298841" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Boulderwelt Regensburg</strong> <span class="muted">— Regensburg</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Boulderwerk Saarbrücken</strong> <span class="muted">— Saarbrücken</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Boulderzimmer</strong> <span class="muted">— bei Zehlendorf</span> <span class="bt">Tension Board</span></li>
@@ -1418,7 +1648,19 @@
       <h2 id="c-gb">Vereinigtes Königreich <span class="muted">(138)</span></h2>
       <ul class="venues">
         <li><strong>@betaclimb.co.uk board</strong> <span class="muted">— bei Cambridge</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>270 Climbing Park</strong> <span class="muted">— Witcombe</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>270 Climbing Park</strong> <span class="muted">— Witcombe</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo, Fr</dt><dd>09:30–20:00</dd>
+          <dt>Di, Do</dt><dd>10:30–14:00</dd>
+          <dt>Mi</dt><dd>Geschlossen</dd>
+          <dt>Sa–So</dt><dd>10:00–16:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 06.07.2025.
+          <a href="https://www.openstreetmap.org/way/108616567" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Anti Climb Attic</strong> <span class="muted">— bei Birmingham</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Aonach Eagach</strong> <span class="muted">— bei Fort William</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Arch Climbing Wall</strong> <span class="muted">— bei Shadwell</span> <span class="bt">MoonBoard</span></li>
@@ -1429,12 +1671,39 @@
         <li><strong>Ballroom Moonboard</strong> <span class="muted">— bei Coventry</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Bassetts Moonboard</strong> <span class="muted">— bei Solihull</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Beacon Climbing Center</strong> <span class="muted">— bei Bangor</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Big Depot Manchester</strong> <span class="muted">— Manchester</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Bloc Climbing Centre</strong> <span class="muted">— Bristol</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Big Depot Manchester</strong> <span class="muted">— Manchester</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>09:00–22:00</dd>
+          <dt>Sa–So</dt><dd>09:00–21:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">Zeiten zuletzt in OpenStreetMap geprüft am 25.04.2026.
+          <a href="https://www.openstreetmap.org/node/12946392793" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
+        <li><strong>Bloc Climbing Centre</strong> <span class="muted">— Bristol</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <p class="oh-note">OpenStreetMap hinterlegt diese Öffnungszeiten in einem Format, das diese Seite nicht übersetzt. Hier steht der unveränderte Wert.</p>
+        <p class="oh-raw"><span class="oh-raw-label">Wert wie in OpenStreetMap hinterlegt:</span> <code>Mo-Fr 10:00-22:00; Sa,Su 10:00-18:00; SH 10:00-22:00</code></p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 20.10.2023.
+          <a href="https://www.openstreetmap.org/way/405002457" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Boulder Brighton</strong> <span class="muted">— bei Portslade</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Boulder Bunker</strong> <span class="muted">— bei Long Eaton</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Boulder Central</strong> <span class="muted">— bei Wednesbury</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>Boulder Exe</strong> <span class="muted">— Exeter</span> <span class="bt">Kilter Board</span> <span class="bt">Tension Board</span></li>
+        <li><strong>Boulder Exe</strong> <span class="muted">— Exeter</span> <span class="bt">Kilter Board</span> <span class="bt">Tension Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>10:00–22:00</dd>
+          <dt>Sa–So</dt><dd>09:00–19:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 04.10.2025.
+          <a href="https://www.openstreetmap.org/node/12647940538" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Boulder Exe MoonBoard 2024</strong> <span class="muted">— bei Exeter</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Boulders Cardiff</strong> <span class="muted">— bei Cardiff</span> <span class="bt">MoonBoard</span></li>
         <li><strong>BoulderWorld Belfast</strong> <span class="muted">— Belfast</span> <span class="bt">Kilter Board</span></li>
@@ -2124,9 +2393,28 @@
     <section aria-labelledby="c-nl">
       <h2 id="c-nl">Niederlande <span class="muted">(72)</span></h2>
       <ul class="venues">
-        <li><strong>Apex Boulders</strong> <span class="muted">— Groningen</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Apex Boulders</strong> <span class="muted">— Groningen</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>09:00–23:00</dd>
+          <dt>Sa–So</dt><dd>09:00–22:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 22.04.2025.
+          <a href="https://www.openstreetmap.org/node/2739007652" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Beacon Climbing Centre</strong> <span class="muted">— Caernarfon</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Beest Boulders Breda</strong> <span class="muted">— Breda</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Beest Boulders Breda</strong> <span class="muted">— Breda</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–So</dt><dd>09:00–23:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 20.10.2024.
+          <a href="https://www.openstreetmap.org/node/12206731830" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Beest Boulders Breda</strong> <span class="muted">— bei Breda</span> <span class="bt">So iLL</span></li>
         <li><strong>Beest Boulders Delft</strong> <span class="muted">— Delft</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Beest Boulders Den Haag</strong> <span class="muted">— bei Den Haag</span> <span class="bt">MoonBoard</span></li>
@@ -2203,20 +2491,74 @@
       <h2 id="c-at">Österreich <span class="muted">(64)</span></h2>
       <ul class="venues">
         <li><strong>=III Moonboard</strong> <span class="bt">MoonBoard</span></li>
-        <li><strong>Alpenverein Austria</strong> <span class="muted">— Vienna</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Alpenverein Austria</strong> <span class="muted">— Vienna</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo</dt><dd>09:00–18:00</dd>
+          <dt>Di–Fr</dt><dd>10:00–18:00</dd>
+        </dl>
+        <p class="oh-note">Für Sa–So sind in OpenStreetMap keine Zeiten hinterlegt.</p>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 06.05.2022.
+          <a href="https://www.openstreetmap.org/node/9720945786" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Alpenverein Wien</strong> <span class="muted">— Wien</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Arlberg klettergruppe</strong> <span class="bt">MoonBoard</span></li>
         <li><strong>Bergstation / Kletterzentrum Telfs</strong> <span class="muted">— bei Telfs</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>BLOC house Graz</strong> <span class="muted">— Graz</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>BLOC house Graz</strong> <span class="muted">— Graz</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>07:00–22:00</dd>
+          <dt>Sa–So</dt><dd>09:00–22:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 04.07.2023.
+          <a href="https://www.openstreetmap.org/way/176701382" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Bloc Spot Murtal</strong> <span class="muted">— Zeltweg</span> <span class="bt">Kilter Board</span></li>
         <li><strong>BlocBox-Training</strong> <span class="muted">— bei Pradl</span> <span class="bt">Grasshopper</span></li>
         <li><strong>Block Monkey</strong> <span class="muted">— bei Feldkirch</span> <span class="bt">Tension Board</span></li>
-        <li><strong>Blockfabrik</strong> <span class="muted">— Vienna</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Blockfabrik</strong> <span class="muted">— Vienna</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>07:30–23:00</dd>
+          <dt>Sa–So</dt><dd>07:30–22:00</dd>
+          <dt>Feiertage</dt><dd>07:30–22:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 25.04.2026.
+          <a href="https://www.openstreetmap.org/way/292355043" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Blockfabrik</strong> <span class="muted">— bei Margareten</span> <span class="bt">Tension Board</span></li>
         <li><strong>Boulder Monkeys</strong> <span class="muted">— bei Landstraße</span> <span class="bt">Tension Board</span></li>
         <li><strong>Boulderama Klagenfurt</strong> <span class="muted">— bei Klagenfurt am Wörthersee</span> <span class="bt">MoonBoard</span></li>
-        <li><strong>Boulderbar Hannovergasse</strong> <span class="muted">— Vienna</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Boulderbar Hauptbahnhof</strong> <span class="muted">— Vienna</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Boulderbar Hannovergasse</strong> <span class="muted">— Vienna</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>09:00–23:00</dd>
+          <dt>Sa–So</dt><dd>09:00–22:00</dd>
+          <dt>Feiertage</dt><dd>09:00–22:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 19.12.2025.
+          <a href="https://www.openstreetmap.org/way/187290459" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
+        <li><strong>Boulderbar Hauptbahnhof</strong> <span class="muted">— Vienna</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>09:00–23:00</dd>
+          <dt>Sa–So</dt><dd>09:00–22:00</dd>
+          <dt>Feiertage</dt><dd>09:00–22:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 26.10.2025.
+          <a href="https://www.openstreetmap.org/node/7231470885" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Boulderbar Hauptbahnhof Plus</strong> <span class="muted">— Wien</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Boulderbar Linz</strong> <span class="muted">— Leonding</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Boulderbar Seestadt</strong> <span class="muted">— Vienna</span> <span class="bt">Kilter Board</span></li>
@@ -2275,15 +2617,48 @@
         <li><strong>Audan</strong> <span class="bt">MoonBoard</span></li>
         <li><strong>B2 Boulders &amp; Bar</strong> <span class="muted">— Pratteln</span> <span class="bt">Kilter Board</span> <span class="bt">Tension Board</span></li>
         <li><strong>Bimano Bern</strong> <span class="muted">— Bern</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>Bimano Solothurn</strong> <span class="muted">— Biberist</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>Bimano Solothurn</strong> <span class="muted">— Biberist</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Fr</dt><dd>06:00–22:00</dd>
+          <dt>Sa–So</dt><dd>09:00–18:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 07.07.2024.
+          <a href="https://www.openstreetmap.org/node/12039060665" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Blockchäfer</strong> <span class="muted">— bei Baden AG</span> <span class="bt">MoonBoard</span></li>
         <li><strong>BLOCKFELD Boulderpark</strong> <span class="muted">— bei Stadt Winterthur (Kreis 1)</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Bloczone</strong> <span class="muted">— bei Freiburg</span> <span class="bt">MoonBoard</span></li>
         <li><strong>BOUBA Boulder Baden</strong> <span class="muted">— Baden</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Boulder Arena Sursee</strong> <span class="muted">— bei Emmen</span> <span class="bt">Tension Board</span></li>
         <li><strong>Boulder Halle Andermatt</strong> <span class="bt">Tension Board</span></li>
-        <li><strong>BoulderBaar</strong> <span class="muted">— Baar</span> <span class="bt">Kilter Board</span></li>
-        <li><strong>BoulderBad Muubeeri</strong> <span class="muted">— Bern</span> <span class="bt">Kilter Board</span></li>
+        <li><strong>BoulderBaar</strong> <span class="muted">— Baar</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Di, Do</dt><dd>11:30–22:00</dd>
+          <dt>Mi, Fr</dt><dd>09:00–22:00</dd>
+          <dt>Sa–So</dt><dd>10:00–19:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 29.10.2025.
+          <a href="https://www.openstreetmap.org/node/12677696279" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
+        <li><strong>BoulderBad Muubeeri</strong> <span class="muted">— Bern</span> <span class="bt">Kilter Board</span>
+      <details class="oh">
+        <summary>Öffnungszeiten laut OpenStreetMap</summary>
+        <dl class="oh-lines">
+          <dt>Mo–Mi</dt><dd>07:00–22:30</dd>
+          <dt>Do</dt><dd>11:30–22:30</dd>
+          <dt>Fr</dt><dd>09:00–22:30</dd>
+          <dt>Sa–So</dt><dd>09:00–19:00</dd>
+        </dl>
+        <p class="oh-note">Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet.</p>
+        <p class="oh-src">OpenStreetMap-Objekt zuletzt bearbeitet am 27.11.2025.
+          <a href="https://www.openstreetmap.org/node/5233379038" rel="nofollow noopener" target="_blank">Zeiten auf OpenStreetMap ansehen oder korrigieren →</a></p>
+      </details></li>
         <li><strong>Bouldergate Ettiswil</strong> <span class="muted">— bei Emmen</span> <span class="bt">MoonBoard</span></li>
         <li><strong>Boulderlounge Schlieren</strong> <span class="muted">— Schlieren</span> <span class="bt">Kilter Board</span></li>
         <li><strong>Boulderlounge Schlieren</strong> <span class="muted">— bei Zürich (Kreis 9) / Altstetten</span> <span class="bt">MoonBoard</span></li>
@@ -3595,6 +3970,7 @@
 <footer>
   <div class="container">
     <span>© 2026 CruxCoach Contributors. Site CC-BY-4.0. Daten CC-BY-4.0. Gehostet bei Codeberg e.V.</span>
+    <span>Öffnungszeiten © OpenStreetMap-Mitwirkende, ODbL 1.0 — <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a></span>
     <span><a href="/de/support.html">Unterstützen</a> · <a href="/de/imprint.html">Impressum</a> · <a href="/de/privacy.html">Datenschutz</a></span>
   </div>
 </footer>

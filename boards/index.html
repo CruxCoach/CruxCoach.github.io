@@ -57,6 +57,22 @@
       }
     },
     {
+      "@type": "Dataset",
+      "@id": "https://cruxcoach.org/boards/#opening-hours",
+      "name": "Opening Hours for Climbing Board Venues (from OpenStreetMap)",
+      "description": "Opening hours for climbing-board venues, taken from hand-verified OpenStreetMap objects and refreshed at build time. Kept separate from the venue dataset because it is licensed ODbL.",
+      "url": "https://cruxcoach.org/boards/",
+      "license": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "isAccessibleForFree": true,
+      "creator": { "@type": "Organization", "name": "OpenStreetMap contributors", "url": "https://www.openstreetmap.org/" },
+      "isBasedOn": "https://www.openstreetmap.org/",
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://cruxcoach.org/boards/data/osm-opening-hours.json"
+      }
+    },
+    {
       "@type": "FAQPage",
       "@id": "https://cruxcoach.org/boards/#faq",
       "mainEntity": [
@@ -494,6 +510,23 @@
   .popup-wellpass-yes { color: #2a8e3d; }
   .popup-wellpass-no  { color: #999; font-weight: 500; }
 
+  /* Opening hours from OpenStreetMap (ODbL). Kept visually separate from the
+     board details above it, because it comes from a different source under a
+     different licence — see /boards/data/osm-opening-hours.json. */
+  .popup-oh {
+    margin-top: 6px; padding-top: 6px; border-top: 1px solid #eaeaea;
+  }
+  .popup-oh-head { font-weight: 600; font-size: 12px; color: #1a1a1a; margin-bottom: 3px; }
+  .popup-oh-row { display: flex; gap: 10px; font-size: 12px; color: #333; }
+  .popup-oh-days { flex: 0 0 auto; min-width: 78px; color: #666; }
+  .popup-oh-time { font-variant-numeric: tabular-nums; }
+  .popup-oh-note { font-size: 11px; color: #888; margin-top: 3px; }
+  .popup-oh-raw { font-size: 11px; margin-top: 3px; }
+  .popup-oh-raw code { color: #444; word-break: break-word; }
+  .popup-oh-src { margin-top: 4px; }
+  .popup-oh-src a { font-size: 11px; }
+  .popup-oh-attr { font-size: 10.5px; color: #999; margin-top: 3px; }
+
   /* About / attribution panel under the map — collapsed by default so the
      map gets the vertical space; click the summary to expand. */
   .info {
@@ -715,6 +748,7 @@
       <li><strong>Filter by country</strong> to check coverage in a specific region.</li>
       <li><strong>"Boards in view"</strong> lists every venue currently on screen — click an entry to jump straight to it.</li>
       <li><strong>Click any marker</strong> for that venue's boards, wall details and a link to open the spot in OpenStreetMap.</li>
+      <li><strong>Opening hours</strong> appear in the popup for venues that have been matched by hand to an exact OpenStreetMap object. They are what OpenStreetMap records, not a live status — the map never claims a gym is open right now.</li>
     </ul>
     <p>Your map position and filter choices are saved in your browser, so reloading the page returns you to the same view.</p>
 
@@ -753,6 +787,14 @@
       <li>
         Map tiles by <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.
         Privacy implications are described on the <a href="/privacy.html">privacy page</a>.
+      </li>
+      <li>
+        <strong>Opening hours</strong> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>,
+        licensed <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL 1.0</a>. They are kept in a separate file,
+        <a href="/boards/data/osm-opening-hours.json"><code>osm-opening-hours.json</code></a>, so the share-alike
+        licence stays with the data it covers and out of the CC-BY venue dataset. Each venue there is bound by hand to
+        one exact OpenStreetMap object, with the date it was verified; your browser reads that file from this site and
+        never contacts OpenStreetMap for it.
       </li>
     </ul>
 
@@ -793,7 +835,7 @@
 
 <script src="/assets/vendor/leaflet/leaflet.js"></script>
 <script src="/assets/vendor/leaflet/leaflet.markercluster.js"></script>
-<script src="/boards/map.js?v=20260813-1"></script>
+<script src="/boards/map.js?v=20260822-1"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 
 <script>

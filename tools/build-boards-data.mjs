@@ -26,6 +26,8 @@ import { dirname, join } from 'node:path';
 import * as hangtime from './sources/hangtime.mjs';
 import { renderListPage, renderStatsBlock, injectBetweenMarkers } from './render-static.mjs';
 import { findNearestCity, loadCityIndex } from './nearest-city.mjs';
+import { indexSidecar, loadSidecar } from './osm-hours.mjs';
+import { venueKey } from './venue-key.mjs';
 
 const COUNTRY_CODER_PACKAGE = '@rapideditor/country-coder';
 const COUNTRY_CACHE = join(tmpdir(), 'cruxcoach-build-deps');
@@ -70,19 +72,13 @@ const BOARDS_INDEX = join(REPO_ROOT, 'boards', 'index.html');
 const BOARDS_INDEX_DE = join(REPO_ROOT, 'de', 'boards', 'index.html');
 const CITIES_FILE = join(REPO_ROOT, 'boards', 'data', 'cities.json');
 const OVERRIDES_FILE = join(REPO_ROOT, 'tools', 'overrides.json');
+const OSM_HOURS_FILE = join(REPO_ROOT, 'boards', 'data', 'osm-opening-hours.json');
 
 // How far a town may sit from a venue and still be a fair label for it. 25 km
 // covers a metro area and its suburbs without pinning a rural gym to a city
 // an hour's drive away.
 const NEAREST_CITY_MAX_KM = 25;
 const WELLPASS_FILE = join(REPO_ROOT, 'tools', 'wellpass.json');
-
-// 4-decimal precision ≈ 11 m at the equator. Tight enough to keep
-// neighbouring gyms separate, loose enough to collapse multi-board
-// installations that almost always share coordinates.
-function venueKey(lat, lon) {
-  return `${lat.toFixed(4)}|${lon.toFixed(4)}`;
-}
 
 function stripInternal(entry) {
   const { source: _s, board: _b, lat: _lt, lon: _ln, name: _n, ...rest } = entry;
@@ -223,6 +219,54 @@ function applyWellpass(features) {
   return stats;
 }
 
+// Opening hours are read from the committed ODbL sidecar and never fetched
+// here: this build has to work offline and produce identical bytes from
+// identical inputs. tools/refresh-osm-hours.mjs is the only thing that talks
+// to OpenStreetMap, and it runs on its own schedule.
+function loadOpeningHours() {
+  const sidecar = loadSidecar(OSM_HOURS_FILE);
+  if (!sidecar) {
+    process.stderr.write('[build]   no OSM opening-hours sidecar — directories render without hours\n');
+    return null;
+  }
+  const index = indexSidecar(sidecar);
+  process.stderr.write(`[build] opening hours: ${index.size} venue(s) from OpenStreetMap (ODbL)\n`);
+  return { index, strings: sidecar.strings, source: sidecar.source, stats: sidecar.stats };
+}
+
+// Rendered once per language; the geojson + meta stay language-neutral and
+// are written by main() only.
+function renderStaticPages(features, meta, hours) {
+  const RENDER_TARGETS = [
+    { lang: 'en', list: OUT_LIST, index: BOARDS_INDEX },
+    { lang: 'de', list: OUT_LIST_DE, index: BOARDS_INDEX_DE },
+  ];
+  for (const { lang, list, index } of RENDER_TARGETS) {
+    writeFileSync(list, renderListPage(features, meta, lang, hours));
+    process.stderr.write(`[build]   directory (${lang}) → ${list}\n`);
+
+    const statsBlock = renderStatsBlock(features, meta, lang);
+    const indexHtml = readFileSync(index, 'utf-8');
+    const { html: injected, replaced } = injectBetweenMarkers(indexHtml, 'board-stats', statsBlock);
+    if (replaced) {
+      if (injected !== indexHtml) writeFileSync(index, injected);
+      process.stderr.write(`[build]   stats block (${lang}) → ${index}\n`);
+    } else {
+      process.stderr.write(`[build]   WARN ${index}: GENERATED:board-stats markers not found — stats block NOT injected\n`);
+    }
+  }
+}
+
+// Re-render the generated HTML from what is already committed, without
+// touching the network or the dataset. This is what a change to the opening-
+// hours sidecar needs: the venues did not move, only the text under them.
+function staticOnly() {
+  const collection = JSON.parse(readFileSync(OUT_GEOJSON, 'utf-8'));
+  const meta = JSON.parse(readFileSync(OUT_META, 'utf-8'));
+  process.stderr.write(`[build] --static-only: re-rendering from ${collection.features.length} committed venues\n`);
+  renderStaticPages(collection.features, meta, loadOpeningHours());
+}
+
 async function main() {
   const allEntries = [];
   const sourceMeta = {};
@@ -346,6 +390,7 @@ async function main() {
     if (seenBoards.size > 1) venuesWithMulti++;
   }
 
+  const hours = loadOpeningHours();
   const wellpassStats = applyWellpass(features);
   process.stderr.write(
     `[build] wellpass: ${wellpassStats.applied} applied, ` +
@@ -369,6 +414,11 @@ async function main() {
     nearest_city_max_km: NEAREST_CITY_MAX_KM,
     overrides: overrideStats,
     wellpass: wellpassStats,
+    // A pointer, not a copy: the OSM-derived values and their ODbL notice
+    // live only in boards/data/osm-opening-hours.json.
+    osm_opening_hours: hours
+      ? { file: 'boards/data/osm-opening-hours.json', license: hours.source.license, displayed: hours.index.size }
+      : null,
     per_board: perBoard,
     per_source: perSource,
     sources: sourceMeta,
@@ -378,26 +428,8 @@ async function main() {
   // Static HTML so non-JS crawlers (AI assistants read HTML snapshots, not the
   // runtime-fetched geojson) can see the venues. Pure function of the data —
   // no timestamp — so an unchanged dataset yields byte-identical output and the
-  // nightly cron makes no no-op commit. Rendered once per language; the
-  // geojson + meta above stay language-neutral and are written only once.
-  const RENDER_TARGETS = [
-    { lang: 'en', list: OUT_LIST, index: BOARDS_INDEX },
-    { lang: 'de', list: OUT_LIST_DE, index: BOARDS_INDEX_DE },
-  ];
-  for (const { lang, list, index } of RENDER_TARGETS) {
-    writeFileSync(list, renderListPage(features, meta, lang));
-    process.stderr.write(`[build]   directory (${lang}) → ${list}\n`);
-
-    const statsBlock = renderStatsBlock(features, meta, lang);
-    const indexHtml = readFileSync(index, 'utf-8');
-    const { html: injected, replaced } = injectBetweenMarkers(indexHtml, 'board-stats', statsBlock);
-    if (replaced) {
-      if (injected !== indexHtml) writeFileSync(index, injected);
-      process.stderr.write(`[build]   stats block (${lang}) → ${index}\n`);
-    } else {
-      process.stderr.write(`[build]   WARN ${index}: GENERATED:board-stats markers not found — stats block NOT injected\n`);
-    }
-  }
+  // nightly cron makes no no-op commit.
+  renderStaticPages(features, meta, hours);
 
   process.stderr.write(`[build] wrote ${features.length} venues (from ${allEntries.length} raw entries) → ${OUT_GEOJSON}\n`);
   process.stderr.write(`[build]   ${venuesWithMulti} venues host more than one board type\n`);
@@ -409,4 +441,13 @@ async function main() {
   }
 }
 
-main().catch(err => { console.error(err); process.exit(1); });
+if (process.argv.includes('--static-only')) {
+  try {
+    staticOnly();
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+} else {
+  main().catch(err => { console.error(err); process.exit(1); });
+}

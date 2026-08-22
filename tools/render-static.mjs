@@ -14,10 +14,18 @@
 // STRINGS table below, so the nightly rebuild keeps both language versions
 // fresh from the same data.
 //
+// Opening hours reach these pages as finished strings from the ODbL sidecar
+// boards/data/osm-opening-hours.json (see tools/osm-hours.mjs). Nothing here
+// interprets an `opening_hours` value; it only places already-rendered text,
+// so the directory and the map popup can never disagree about what a schedule
+// says. The site never claims a venue is open now — see tools/opening-hours.mjs.
+//
 // Output is a pure function of the venue data only — NO build timestamp — so
 // re-running on an unchanged dataset produces byte-identical HTML and the
 // nightly cron never makes a no-op commit. Volatile metadata (build time)
 // stays in boards.meta.json, which the page already links to.
+
+import { venueKey } from './venue-key.mjs';
 
 // board id → human label, in the project's preferred spelling.
 export const BOARD_LABELS = {
@@ -70,6 +78,7 @@ const STRINGS = {
     jumpToCountry: 'Jump to a country',
     nearCity: (city) => `near ${city}`,
     backToMap: '← Back to the interactive map',
+    hoursIntro: (n) => `Opening hours are shown for ${n} of them, from hand-verified OpenStreetMap objects.`,
     footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Data CC-BY-4.0. Hosted by Codeberg e.V.',
     footerLinks: '<a href="/support.html">Support</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a>',
   },
@@ -103,6 +112,7 @@ const STRINGS = {
     jumpToCountry: 'Zum Land springen',
     nearCity: (city) => `bei ${city}`,
     backToMap: '← Zurück zur interaktiven Karte',
+    hoursIntro: (n) => `Für ${n} davon zeigt diese Seite Öffnungszeiten aus handgeprüften OpenStreetMap-Objekten.`,
     footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Daten CC-BY-4.0. Gehostet bei Codeberg e.V.',
     footerLinks: '<a href="/de/support.html">Unterstützen</a> · <a href="/de/imprint.html">Impressum</a> · <a href="/de/privacy.html">Datenschutz</a>',
   },
@@ -252,7 +262,40 @@ function anchorFor(code) {
   return 'c-' + (code || 'unknown').toLowerCase();
 }
 
-export function renderListPage(features, meta, lang = 'en') {
+// One venue's opening hours, from the sidecar's pre-rendered strings.
+// Collapsed by default: a directory of thousands of venues stays readable,
+// and <details> content is still in the HTML for a crawler to read.
+function renderVenueHours(entry, lang, strings) {
+  const S = strings?.[lang];
+  const display = entry?.display;
+  if (!S || !display) return '';
+
+  const body = [];
+  if (display.kind === 'schedule') {
+    const rows = display[lang].lines
+      .map((line) => `          <dt>${esc(line.label)}</dt><dd>${esc(line.value)}</dd>`)
+      .join('\n');
+    body.push(`        <dl class="oh-lines">\n${rows}\n        </dl>`);
+    for (const note of display[lang].notes) {
+      body.push(`        <p class="oh-note">${esc(note)}</p>`);
+    }
+  } else {
+    // Outside the renderable subset: show OSM's own value, unchanged and
+    // unexplained, rather than a guess at what it means.
+    body.push(`        <p class="oh-note">${esc(S.unsupported)}</p>`);
+    body.push(`        <p class="oh-raw"><span class="oh-raw-label">${esc(S.rawLabel)}:</span> <code>${esc(display.raw)}</code></p>`);
+  }
+  body.push(`        <p class="oh-src">${esc(display.freshness[lang])}
+          <a href="${esc(entry.osm_url)}" rel="nofollow noopener" target="_blank">${esc(S.source)} →</a></p>`);
+
+  return `
+      <details class="oh">
+        <summary>${esc(S.heading)}</summary>
+${body.join('\n')}
+      </details>`;
+}
+
+export function renderListPage(features, meta, lang = 'en', hours = null) {
   const S = STRINGS[lang];
   const P = PAGES[lang];
   const groups = groupByCountry(features, lang);
@@ -279,7 +322,9 @@ export function renderListPage(features, meta, lang = 'en') {
       const boards = venueBoards(p)
         .map(b => `<span class="bt">${esc(b)}</span>`)
         .join(' ');
-      return `        <li><strong>${esc(p.name)}</strong>${city} ${boards}</li>`;
+      const [flon, flat] = f.geometry.coordinates;
+      const oh = renderVenueHours(hours?.index.get(venueKey(flat, flon)), lang, hours?.strings);
+      return `        <li><strong>${esc(p.name)}</strong>${city} ${boards}${oh}</li>`;
     }).join('\n');
     return `    <section aria-labelledby="${anchorFor(g.code)}">
       <h2 id="${anchorFor(g.code)}">${esc(g.name)} <span class="muted">(${fmt(g.venues.length, lang)})</span></h2>
@@ -294,6 +339,16 @@ ${items}
   const perBoardSentence = boardCounts(meta)
     .map(({ label, count }) => `${label} (${fmt(count, lang)})`)
     .join(', ');
+
+  // Opening hours are ODbL, the rest of this page is not, so the attribution
+  // names exactly what it covers and appears only when hours are on the page.
+  const hoursCount = hours ? hours.index.size : 0;
+  const hoursSentence = hoursCount
+    ? ` ${esc(S.hoursIntro(fmt(hoursCount, lang)))}`
+    : '';
+  const hoursAttribution = hoursCount && hours.strings?.[lang]
+    ? `\n    <span>${esc(hours.strings[lang].attribution)} — <a href="${esc(hours.source.copyright_url)}">${esc(hours.source.name)}</a></span>`
+    : '';
 
   const inLanguage = lang === 'en' ? '' : `
       "inLanguage": "${lang}",`;
@@ -405,6 +460,16 @@ ${LIST_HREFLANG}
   ul.venues strong { color: var(--fg); font-weight: 600; }
   .bt { display: inline-block; font-size: 0.72rem; color: var(--fg-mute); border: 1px solid var(--rule); border-radius: 4px; padding: 0.05em 0.4em; margin-left: 0.25rem; white-space: nowrap; }
   .backlink { display: inline-block; margin: 1.5rem 0; }
+  /* Opening hours from OpenStreetMap (ODbL) — collapsed so a directory of
+     thousands of venues stays scannable, but present in the HTML either way. */
+  details.oh { margin: 0.35rem 0 0.15rem; font-size: 0.9rem; }
+  details.oh summary { cursor: pointer; color: var(--fg-mute); }
+  details.oh summary:hover { color: var(--fg-soft); }
+  dl.oh-lines { display: grid; grid-template-columns: max-content 1fr; gap: 0.1rem 1rem; margin: 0.5rem 0; }
+  dl.oh-lines dt { color: var(--fg-soft); }
+  dl.oh-lines dd { margin: 0; color: var(--fg); font-variant-numeric: tabular-nums; }
+  .oh-note, .oh-src, .oh-raw { margin: 0.35rem 0 0; color: var(--fg-mute); font-size: 0.85rem; }
+  .oh-raw code { color: var(--fg-soft); word-break: break-word; }
   footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; margin-top: 2rem; color: var(--fg-mute); font-size: 0.85rem; }
   footer .container { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
 </style>
@@ -426,7 +491,7 @@ ${LIST_HREFLANG}
   <div class="container">
     <h1>${S.h1}</h1>
     <p class="lede">
-      ${S.lede(P.mapHref, total, nCountries, esc(perBoardSentence))}
+      ${S.lede(P.mapHref, total, nCountries, esc(perBoardSentence))}${hoursSentence}
     </p>
 
     ${boardCountsTable(meta, lang)}
@@ -444,7 +509,7 @@ ${sections}
 
 <footer>
   <div class="container">
-    <span>${S.footerCopyright}</span>
+    <span>${S.footerCopyright}</span>${hoursAttribution}
     <span>${S.footerLinks}</span>
   </div>
 </footer>
