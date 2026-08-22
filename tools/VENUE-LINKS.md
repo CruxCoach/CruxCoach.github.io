@@ -241,8 +241,8 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 1081 |
-| Verified website links | 971 |
+| Venues reviewed (linked + research entries) | 1100 |
+| Verified website links | 990 |
 | Rejected / ambiguous / private / closed | 110 |
 | Countries covered | 22 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
@@ -251,13 +251,13 @@ Per-country coverage of eligible (public/commercial) venues:
 
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
-| US | 257 | 576 | 45% |
+| US | 276 | 576 | 48% |
 | DE | 168 | 201 | 84% |
 | GB | 69 | 102 | 68% |
 | CA | 58 | 132 | 44% |
 | CH | 52 | 56 | 93% |
+| NL | 51 | 59 | 86% |
 | ES | 50 | 98 | 51% |
-| NL | 50 | 59 | 85% |
 | FR | 46 | 70 | 66% |
 | AT | 44 | 48 | 92% |
 | NO | 35 | 81 | 43% |
@@ -280,11 +280,10 @@ wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
 opened and read), 9 `ambiguous`, 5 `closed`, 4 `http-only`, 1 `duplicate`.
 
-- **Last completed batch:** five of Germany's last twenty — Boulder Hall
-  Burgoberbach, YOYO Heidenau, Dolomiti Albstadt, Kletterzentrum Würzburg and the
-  DAV Taufkirchen Boulderhalle. Bodebloc is logged `closed`.
-- **Next batch:** the venues upstream gives no address for at all, which need the
-  address read off the page and geocoded rather than string-matched.
+- **Last completed batch:** the first American venues upstream gives no address
+  for at all — the address read off the operator's page, geocoded once, and
+  measured against the coordinate.
+- **Next batch:** the same pass over Europe, which is running now.
 
 ### What is actually gating the remaining countries
 
@@ -454,3 +453,33 @@ The comparison is doing real work: it rejected 68 of the 102 European candidates
 outright. But four matching address components are evidence that *a* building
 matches, not that the site belongs to the gym, and only reading the page tells
 those apart.
+
+### When upstream gives no address at all
+
+Roughly two-thirds of what is still unlinked has no upstream address to compare
+against — Tension and MoonBoard entries almost never carry one. For those the
+comparison runs the other way: read the address the operator's page prints,
+geocode it once, and measure the result against the venue's coordinate. Same
+evidence, opposite direction, and it is the method that was already being used by
+hand for individual venues.
+
+Automating it exposed a pitfall worth writing down. A first pass reported *no
+address found* on 121 of 122 American pages, which was obviously wrong. The
+regex was finding the postcode correctly and then taking the 70 characters before
+it — which on a gym homepage is opening hours and navigation:
+
+```
+' | 10am - 9pm Sat - Sunday  | 10am - 6pm 1404 38th Ave Capitola, CA 95010'
+```
+
+Nominatim geocodes none of that. A street line starts at a house number, so
+rewinding from the postcode to the last digit-led token and cutting there yields
+`1404 38th Ave Capitola, CA 95010`, and the pass went from one match to fifteen.
+The lesson is not about regexes: an automated check that rejects everything looks
+exactly like an automated check that is working, and the only way to tell is to
+know what the answer should roughly be before running it.
+
+The distance still has to be read by a human. Four American venues came back
+`FAR` with a truncated address, and opening those pages recovered full addresses
+for all four — three of which then matched, while Aiguille's own address turned
+out to sit 3.5 km from its upstream coordinate, on the other side of Longwood.
