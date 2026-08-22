@@ -233,10 +233,10 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 709 |
-| Verified website links | 623 |
-| Rejected / ambiguous / private / closed | 86 |
-| Countries covered | 12 |
+| Venues reviewed (linked + research entries) | 746 |
+| Verified website links | 659 |
+| Rejected / ambiguous / private / closed | 87 |
+| Countries covered | 14 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -252,22 +252,24 @@ Per-country coverage of eligible (public/commercial) venues:
 | AT | 44 | 48 | 92% |
 | ES | 27 | 98 | 28% |
 | BE | 23 | 36 | 64% |
+| NO | 16 | 81 | 20% |
 | IT | 15 | 72 | 21% |
-| SE | 4 | 37 | 11% |
-| NO | 1 | 81 | 1% |
+| DK | 13 | 27 | 48% |
+| SE | 7 | 37 | 19% |
+| FI | 5 | 15 | 33% |
 
-Research-log reasons so far: 74 `unverified` (59 of them operator sites that
+Research-log reasons so far: 75 `unverified` (59 of them operator sites that
 answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
 wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
 opened and read), 5 `ambiguous`, 3 `closed`, 3 `http-only`, 1 `duplicate`.
 
-- **Last completed batch:** the second tier of United States operators — Gravity
-  Vault, Bouldering Project, Hangar 18, The Circuit, MetroRock, Armadillo,
-  Edgeworks, Crux, The Spot and Boardworks. Fifty-six halls linked, twelve
-  logged.
-- **Next batch:** Spain and the Nordics, then the long tail of independent US
-  gyms, which will need a discovery run.
+- **Last completed batch:** the Nordic operators — Boulders and Beta Boulders in
+  Denmark, Klatreverket, Høyt Under Taket, Bergen Klatresenter and Studio
+  Vertikal in Norway, Klätterverket and Klättercentret in Sweden, Boulderkeskus
+  in Finland. Denmark and Finland are new countries; 36 halls linked.
+- **Next batch:** Spain, then the long tail of independent gyms in the US,
+  Norway and Italy, which will need discovery runs.
 
 ### What is actually gating the remaining countries
 
