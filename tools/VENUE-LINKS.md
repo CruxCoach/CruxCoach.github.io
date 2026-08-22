@@ -233,10 +233,10 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 438 |
-| Verified website links | 382 |
+| Venues reviewed (linked + research entries) | 447 |
+| Verified website links | 391 |
 | Rejected / ambiguous / private / closed | 56 |
-| Countries covered | 6 |
+| Countries covered | 7 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -249,15 +249,16 @@ Per-country coverage of eligible (public/commercial) venues:
 | NL | 46 | 59 | 78% |
 | AT | 44 | 48 | 92% |
 | BE | 23 | 36 | 64% |
+| FR | 9 | 70 | 13% |
 
 Research-log reasons so far: 47 `unverified` (41 of them operator sites that
 answer 403/401/500/526 or serve an expired or wrong-hostname certificate, so no
 page could be opened and read), 6 with no findable official site, 2 `ambiguous`,
 1 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** Belgium, and a second Netherlands pass off the
-  Benelux OSM discovery run.
-- **Next batch:** France, Italy, Spain and the Nordics.
+- **Last completed batch:** France, first pass — the multi-site operators.
+- **Next batch:** the rest of France off the OSM discovery run, then Italy, Spain
+  and the Nordics.
 
 ### A note on discovery after the search budget ran out
 

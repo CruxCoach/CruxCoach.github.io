@@ -4410,6 +4410,151 @@
     ]
   },
   {
+    "lat": 43.33397,
+    "lon": 5.37314,
+    "name": "Altissimo Marseille",
+    "country": "FR",
+    "website": "https://marseille.altissimo.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Upstream carries no address for this entry; the location page's Boulevard Gay Lussac resolves to within 295 m of it."
+  },
+  {
+    "lat": 45.90719,
+    "lon": 6.13271,
+    "name": "Atome",
+    "country": "FR",
+    "website": "https://www.atome-annecy.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The gym publishes no street address on any page we could open."
+  },
+  {
+    "lat": 48.87110783828508,
+    "lon": 2.6809708770664056,
+    "name": "Bloc Session Marne-la-Vallée",
+    "country": "FR",
+    "website": "https://www.blocsession.com/salle-escalade/marne-la-vallee/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "The location page names the hall and its Kilter Board but publishes no street address."
+  },
+  {
+    "lat": 48.61244,
+    "lon": 2.42529,
+    "name": "Block'Out Evry-Lisses",
+    "country": "FR",
+    "website": "https://www.blockout.fr/evry/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 43.4301171,
+    "lon": 5.2632917,
+    "name": "Block'Out Vitrolles",
+    "country": "FR",
+    "website": "https://www.blockout.fr/vitrolles/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Upstream carries no address for this entry; the location page's Rue de la Bastide Blanche resolves to within 300 m of it."
+  },
+  {
+    "lat": 48.95432,
+    "lon": 2.18778,
+    "name": "Climb Arena",
+    "country": "FR",
+    "website": "https://www.climbarena.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 48.39182,
+    "lon": -4.4872,
+    "name": "The Roof Brest",
+    "country": "FR",
+    "website": "https://brest.theroof.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 43.49155,
+    "lon": -1.49372,
+    "name": "The Roof Pays Basque",
+    "country": "FR",
+    "website": "https://bayonne.theroof.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 43.1391146,
+    "lon": 6.0002828,
+    "name": "Vertical'Art Toulon",
+    "country": "FR",
+    "website": "https://toulon.vertical-art.fr/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Upstream carries no address for this entry; the operator's Avenue Lavoisier resolves to within 90 m of it."
+  },
+  {
     "lat": 51.84518,
     "lon": -2.12722,
     "name": "270 Climbing Park",
