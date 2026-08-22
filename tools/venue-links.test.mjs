@@ -7,8 +7,8 @@ import { fileURLToPath } from 'node:url';
 import {
   applyVenueLinks, classifyVenue, clearVenueLinkProperties, isCanonicalVenueUrl,
   loadVenueLinks, MATCH_RADIUS_M, nameSimilarity, normalizeName, normalizeVenueUrl,
-  RESEARCH_STATUS, suspiciousParams, validateResearchEntry, validateVenueLink,
-  venueKey,
+  RESEARCH_STATUS, SHARED_URL_SITE_LIMIT_M, suspiciousParams, validateResearchEntry,
+  validateVenueLink, venueKey,
 } from './venue-links.mjs';
 import { renderListPage } from './render-static.mjs';
 
@@ -461,6 +461,62 @@ test('the popup website line escapes every value it interpolates', () => {
 });
 
 // ── the committed data ──────────────────────────────────────────────
+
+function sharedVenue(name, lat, lon) {
+  return {
+    geometry: { coordinates: [lon, lat] },
+    properties: { name, country: 'AT', boards: [{ board: 'kilter' }] },
+  };
+}
+
+function sharedRecord(name, lat, lon, provenance) {
+  return {
+    lat, lon, name, country: 'AT', website: 'https://example.org/',
+    verified: '2026-08-22', provenance, signals: ['name', 'city'],
+  };
+}
+
+test('one URL over two distant venues is an advisory, never a build failure', () => {
+  // Two of an operator's halls, 40 km apart, both claiming a single-location page.
+  const features = [sharedVenue('Newton Graz', 47.06581, 15.43051),
+                    sharedVenue('Newton Kapfenberg', 47.42831, 15.26809)];
+  const entries = [sharedRecord('Newton Graz', 47.06581, 15.43051, 'official-site'),
+                   sharedRecord('Newton Kapfenberg', 47.42831, 15.26809, 'official-site')];
+  const { problems, notes } = applyVenueLinks(features, entries);
+  assert.deepEqual(problems, [], 'a shared URL must not fail the build');
+  const advisory = notes.filter(n => n.includes('covers venues'));
+  assert.equal(advisory.length, 1);
+  assert.match(advisory[0], /Newton Graz, Newton Kapfenberg/);
+  assert.match(advisory[0], /official-chain-page/);
+});
+
+test('a chain page that says so draws no advisory', () => {
+  const features = [sharedVenue('Newton Graz', 47.06581, 15.43051),
+                    sharedVenue('Newton Kapfenberg', 47.42831, 15.26809)];
+  const entries = [sharedRecord('Newton Graz', 47.06581, 15.43051, 'official-chain-page'),
+                   sharedRecord('Newton Kapfenberg', 47.42831, 15.26809, 'official-chain-page')];
+  const { notes } = applyVenueLinks(features, entries);
+  assert.equal(notes.filter(n => n.includes('covers venues')).length, 0);
+});
+
+test('two upstream entries for one hall draw no distance advisory', () => {
+  // Upstream splits a hall's Kilter and MoonBoard into entries metres apart; that
+  // is not a second location and must not be reported as one.
+  const features = [sharedVenue('Blockfabrik', 48.17000, 16.35000),
+                    sharedVenue('Blockfabrik MoonBoard', 48.17015, 16.35010)];
+  const entries = [sharedRecord('Blockfabrik', 48.17000, 16.35000, 'official-site'),
+                   sharedRecord('Blockfabrik MoonBoard', 48.17015, 16.35010, 'official-site')];
+  const { notes } = applyVenueLinks(features, entries);
+  assert.equal(notes.filter(n => n.includes('covers venues')).length, 0);
+  assert.equal(notes.filter(n => n.includes('venues share')).length, 1,
+    'the plain shared-URL note still fires');
+});
+
+test('the distance that separates a second hall from a drifted coordinate is a named constant', () => {
+  assert.equal(typeof SHARED_URL_SITE_LIMIT_M, 'number');
+  assert.ok(SHARED_URL_SITE_LIMIT_M >= MATCH_RADIUS_M,
+    'a venue that rematched by proximity must never also count as a second hall');
+});
 
 test('tools/venue-links.json validates as a whole', () => {
   const { entries, errors } = loadVenueLinks(LINKS_FILE);

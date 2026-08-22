@@ -376,6 +376,28 @@ Indoorwall Jaca was logged because the site was down, but the site is up now and
 its location list names nine centres, none of them in Jaca. The entry stays, with
 a reason that says what is actually true.
 
+### One URL, two venues
+
+The build has always noted when two venues share a URL, because upstream routinely
+splits one gym into a Kilter entry and a MoonBoard entry a few metres apart and
+both should point at the same page. What it did not notice is the other reason a
+URL gets shared: the operator has two gyms and one page covering both. That is
+not a data error, but it does mean the record's provenance should say
+`official-chain-page` rather than claiming a single location.
+
+`applyVenueLinks` now measures how far apart the venues sharing a URL actually
+are. Past `SHARED_URL_SITE_LIMIT_M` (1 km — comfortably beyond the 250 m the
+proximity rematch allows), it adds a second note naming the records that still
+claim a single location.
+
+It is deliberately an advisory and not a build failure, because the distance
+alone cannot tell the two cases apart: Awesome Walls Cork, Central Rock Cambridge
+and Gravity Vault Upper Saddle River each have two upstream entries kilometres
+apart that really are one gym with a drifted coordinate. Only a curator can say
+which is which — the note tells them where to look. It found one real error on
+introduction: Newton Boulderhalle Graz, whose site covers the Kapfenberg hall
+42 km away and which was filed as an `official-site`.
+
 ### Guessing a domain is fine; believing it is not
 
 The American long tail has no operator index to read and no usable Overpass

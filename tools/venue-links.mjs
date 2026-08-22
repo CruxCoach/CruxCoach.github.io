@@ -267,6 +267,10 @@ const REDUNDANT_SIGNAL_PAIRS = [['name', 'brand']];
 
 export const MIN_SIGNALS = 2;
 
+// Two upstream entries for one gym sit metres apart; two of an operator's gyms do
+// not. Past this, one URL covering both means the page is a chain page.
+export const SHARED_URL_SITE_LIMIT_M = 1000;
+
 const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const COUNTRY_RE = /^[A-Z]{2}$/;
 
@@ -634,14 +638,32 @@ export function applyVenueLinks(features, entries) {
       notes.push(`venue-links "${entry.name}": coordinate drifted — rematched by name/proximity (similarity ${similarity.toFixed(2)})`);
     }
     const list = urlUsers.get(entry.website) ?? [];
-    list.push(entry.name);
+    list.push({ name: entry.name, lat: entry.lat, lon: entry.lon, provenance: entry.provenance });
     urlUsers.set(entry.website, list);
   }
   stats.countries = countries.size;
 
   for (const [url, users] of urlUsers) {
-    if (users.length > 1) {
-      notes.push(`venue-links: ${users.length} venues share ${url} (${users.join(', ')}) — prefer a per-location page where one exists`);
+    if (users.length < 2) continue;
+    const names = users.map(u => u.name);
+    notes.push(`venue-links: ${users.length} venues share ${url} (${names.join(', ')}) — prefer a per-location page where one exists`);
+    // A URL shared by venues kilometres apart is a second location, not a second
+    // upstream entry for one gym — so a provenance that claims a single location
+    // is wrong, whatever the note on the record says.
+    let apart = 0;
+    for (const a of users) {
+      for (const b of users) apart = Math.max(apart, distanceMeters(a.lat, a.lon, b.lat, b.lon));
+    }
+    if (apart <= SHARED_URL_SITE_LIMIT_M) continue;
+    // Kilometres apart is either two of the operator's gyms sharing one page — in
+    // which case the provenance should say official-chain-page — or one gym whose
+    // upstream entries disagree about where it is. Only a curator can tell those
+    // apart, so this is an advisory, not a build failure.
+    const claiming = users.filter(u => u.provenance !== 'official-chain-page').map(u => u.name);
+    if (claiming.length) {
+      notes.push(`venue-links: ${url} covers venues ${Math.round(apart)} m apart, but `
+        + `${claiming.join(', ')} still claim a single location — confirm whether that is a `
+        + `second gym (use official-chain-page) or a drifted upstream coordinate`);
     }
   }
 
