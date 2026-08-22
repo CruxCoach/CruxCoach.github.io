@@ -233,8 +233,8 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 1041 |
-| Verified website links | 936 |
+| Venues reviewed (linked + research entries) | 1042 |
+| Verified website links | 937 |
 | Rejected / ambiguous / private / closed | 105 |
 | Countries covered | 22 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
@@ -280,30 +280,30 @@ opened and read), 9 `ambiguous`, 5 `closed`, 4 `http-only`, 1 `duplicate`.
 
 ### What is actually gating the remaining countries
 
-Not verification effort. Every candidate the German and British discovery runs
-proposed has been either verified and linked or logged with a reason, and the
-same is now nearly true of the Benelux. What each further country needs first is
-a discovery pass, and both channels for that are constrained:
+Not verification effort, and — since this session found two more channels — no
+longer discovery alone either. There are now four ways to find a venue's official
+page, and which ones are available is what decides how fast a country goes:
 
-- **OSM/Overpass** is the primary channel and still works, but the public
-  endpoints have been returning 429/502/504 to sustained use. Cutting the query
-  chunk from 25 venues to 8 got requests through again; a France/Italy run at
-  that size takes hours rather than minutes.
-- **Web search** was the fallback for regions with thin OSM coverage. This
-  session exhausted its allowance partway through Belgium.
+1. **The operator's own location index.** Fastest by far, and the reason the
+   United States, Canada, Australia and the Nordics moved in single passes. Only
+   works where climbing is concentrated in named multi-site operators.
+2. **OSM/Overpass `around:400` per venue.** The original channel, and still the
+   only one that finds independents nobody could have guessed — it produced every
+   Spanish link in this file. The public endpoints return 429/502/504 to
+   sustained use, so a run is measured in hours, and the yield varies wildly by
+   country: Spain gave 18 candidates and 18 links; Italy gave none at all.
+3. **Domains derived from the venue's own name**, then fetched and compared
+   against the address upstream records. Cheap, and it opened the American long
+   tail. Its hit rate only means anything *after* the comparison — see below.
+4. **Web search.** Exhausted early in this session, and not much missed: it was
+   only ever the fallback for regions with thin OSM coverage.
 
-Guessing domains instead is not a substitute: a round of eight guesses for French
-independents returned one usable site, and one of the misses — artbloc.fr for Art
-Bloc Escalade — is a paving contractor in a different département. Opening the
-page is what catches that.
-
-### A note on discovery after the search budget ran out
-
-Partway through Belgium this session exhausted its web-search allowance. That
-turned out to matter less than expected: OSM discovery plus first-hand
-verification is the sanctioned path anyway, and the Benelux run alone carried 43
-candidates that search had not surfaced. Search was only ever the fallback for
-countries whose OSM coverage is thin.
+What is still unlinked splits into three groups. Venues whose operator has no
+website at all, or only a social page — nothing to link, and the log says so.
+Venues whose site exists but cannot be read: a 403, a country-blocker, a
+client-side renderer that serves an empty document to a fetch. And venues in
+countries none of the four channels reach, most obviously Japan, Korea and China,
+where the name yields no domain and OSM's coverage of climbing gyms is thin.
 
 ### The operator index, and why the US went quickly
 
