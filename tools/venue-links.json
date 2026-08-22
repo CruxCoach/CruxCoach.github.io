@@ -4425,6 +4425,54 @@
     ]
   },
   {
+    "lat": 41.61267,
+    "lon": 0.66268,
+    "name": "Boulder Indoor",
+    "country": "ES",
+    "website": "https://www.boulderindoor.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 28.4752,
+    "lon": -16.30612,
+    "name": "Centro Escalada Tenerife",
+    "country": "ES",
+    "website": "https://centroescaladatenerife.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 28.4752283,
+    "lon": -16.3063194,
+    "name": "Centro Escalada Tenerife",
+    "country": "ES",
+    "website": "https://centroescaladatenerife.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "Same physical gym as the Kilter entry ~20 m away; upstream lists the MoonBoard separately, and the site names both."
+  },
+  {
     "lat": 40.33956,
     "lon": -3.84857,
     "name": "Climbat X-Madrid",
@@ -4458,6 +4506,35 @@
     "note": "The centre gives Calle Ebanistería 36 where upstream has number 8; it resolves to within 65 m of this venue."
   },
   {
+    "lat": 43.36508,
+    "lon": -5.83337,
+    "name": "El Roko Centro de Escalada",
+    "country": "ES",
+    "website": "https://elroko.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The gym publishes no street address; upstream spells the city \"Ovieda\"."
+  },
+  {
+    "lat": 38.03211,
+    "lon": -1.14918,
+    "name": "GUD Climbing Gym",
+    "country": "ES",
+    "website": "https://gudclimbing.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 41.58233,
     "lon": 1.61461,
     "name": "Ingravita",
@@ -4471,6 +4548,53 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 40.94711,
+    "lon": -5.65646,
+    "name": "La Ola Escalada",
+    "country": "ES",
+    "website": "https://laolaescalada.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The gym gives postcode 37188 where upstream has 37188 for Carbajosa de la Sagrada; the street and town match."
+  },
+  {
+    "lat": 41.42486,
+    "lon": 2.18593,
+    "name": "Monobloc La Sagrera",
+    "country": "ES",
+    "website": "https://monobloc.es/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator's three halls share one site; it lists this one by street address."
+  },
+  {
+    "lat": 41.15835,
+    "lon": 1.12149,
+    "name": "Monobloc Reus",
+    "country": "ES",
+    "website": "https://monobloc.es/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator's three halls share one site; it lists this one by street address."
   },
   {
     "lat": 37.21734,
@@ -4503,6 +4627,21 @@
       "board-mention"
     ],
     "note": "Same physical gym as the Kilter entry ~20 m away; upstream lists the MoonBoard separately, and the site names both boards."
+  },
+  {
+    "lat": 42.45613,
+    "lon": -2.4121,
+    "name": "Rocódromo Rawindoor",
+    "country": "ES",
+    "website": "https://www.rawindoor.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The gym publishes no street address; its Kilter and Moon boards include the board system this venue is listed for."
   },
   {
     "lat": 42.84629199344788,
