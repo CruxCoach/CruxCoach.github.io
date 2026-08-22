@@ -233,8 +233,8 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 472 |
-| Verified website links | 412 |
+| Venues reviewed (linked + research entries) | 473 |
+| Verified website links | 413 |
 | Rejected / ambiguous / private / closed | 60 |
 | Countries covered | 7 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
@@ -248,7 +248,7 @@ Per-country coverage of eligible (public/commercial) venues:
 | CH | 51 | 56 | 91% |
 | NL | 46 | 59 | 78% |
 | AT | 44 | 48 | 92% |
-| FR | 30 | 70 | 43% |
+| FR | 31 | 70 | 44% |
 | BE | 23 | 36 | 64% |
 
 Research-log reasons so far: 49 `unverified` (43 of them operator sites that
@@ -256,10 +256,29 @@ answer 403/401/500/526, fail their TLS handshake, or serve an expired or
 wrong-hostname certificate, so no page could be opened and read), 6 with no
 findable official site, 2 `ambiguous`, 1 `closed`, 1 `duplicate`, 1 `http-only`.
 
-- **Last completed batch:** France, third pass — Escapad, Blocabrac, El Cap,
-  Goat Rocks, Capt'N Hablock.
+- **Last completed batch:** France, fourth pass — Altissimo, The Roof, Solo
+  Escalade, La Zipette, Minéral Spirit, Bloc Session Strasbourg.
 - **Next batch:** the rest of France off the OSM discovery run, then Italy, Spain
   and the Nordics.
+
+### What is actually gating the remaining countries
+
+Not verification effort. Every candidate the German and British discovery runs
+proposed has been either verified and linked or logged with a reason, and the
+same is now nearly true of the Benelux. What each further country needs first is
+a discovery pass, and both channels for that are constrained:
+
+- **OSM/Overpass** is the primary channel and still works, but the public
+  endpoints have been returning 429/502/504 to sustained use. Cutting the query
+  chunk from 25 venues to 8 got requests through again; a France/Italy run at
+  that size takes hours rather than minutes.
+- **Web search** was the fallback for regions with thin OSM coverage. This
+  session exhausted its allowance partway through Belgium.
+
+Guessing domains instead is not a substitute: a round of eight guesses for French
+independents returned one usable site, and one of the misses — artbloc.fr for Art
+Bloc Escalade — is a paving contractor in a different département. Opening the
+page is what catches that.
 
 ### A note on discovery after the search budget ran out
 
