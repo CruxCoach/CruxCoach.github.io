@@ -233,10 +233,10 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 766 |
-| Verified website links | 674 |
-| Rejected / ambiguous / private / closed | 92 |
-| Countries covered | 14 |
+| Venues reviewed (linked + research entries) | 816 |
+| Verified website links | 723 |
+| Rejected / ambiguous / private / closed | 93 |
+| Countries covered | 16 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -252,6 +252,8 @@ Per-country coverage of eligible (public/commercial) venues:
 | AT | 44 | 48 | 92% |
 | ES | 27 | 98 | 28% |
 | BE | 27 | 36 | 75% |
+| AU | 25 | 83 | 30% |
+| CA | 24 | 132 | 18% |
 | NO | 16 | 81 | 20% |
 | IT | 15 | 72 | 21% |
 | DK | 13 | 27 | 48% |
@@ -262,13 +264,14 @@ Research-log reasons so far: 80 `unverified` (59 of them operator sites that
 answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
 wrong-hostname or unverifiable certificate, redirect to a hosting-platform
 staging hostname, or show a maintenance or suspension notice, so no page could be
-opened and read), 5 `ambiguous`, 3 `closed`, 3 `http-only`, 1 `duplicate`.
+opened and read), 6 `ambiguous`, 3 `closed`, 3 `http-only`, 1 `duplicate`.
 
-- **Last completed batch:** the operators still open in the UK, the Netherlands
-  and Belgium — The Font, Tide, Parthian, Chimera, Luma, High Sports, The Weedon
-  Project, Neoliet, Climbing Network, BeBloc, Hall9 and Gustaaf Klimt.
-- **Next batch:** Spain off the Overpass run now finishing, then the long tail of
-  independent gyms in the US, Norway and Italy.
+- **Last completed batch:** Canada and Australia, both opened from their
+  operator indexes — Allez Up, Altitude, Bloc Shop, Boulderz, Coyote, Hub, Hive,
+  Seven Bays, Rock Oasis and Up The Bloc; 9 Degrees, Adrenaline Vault, Bayside
+  Rock, Beyond Bouldering, BlocHaus, Flow, Portside and Urban Climb.
+- **Next batch:** Spain off its finished Overpass run, then Norway and Italy off
+  the run now in flight.
 
 ### What is actually gating the remaining countries
 
