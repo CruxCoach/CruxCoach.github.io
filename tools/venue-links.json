@@ -1594,6 +1594,21 @@
     "note": "Address verified on the site's own contact page."
   },
   {
+    "lat": 51.17039,
+    "lon": 6.91706,
+    "name": "Bergstation Kletter + Boulderzentrum",
+    "country": "DE",
+    "website": "https://bergstation.nrw/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 52.56398,
     "lon": 13.40988,
     "name": "Berta Block Boulderhalle Berlin",
@@ -1625,6 +1640,21 @@
     "note": "Address verified on the site's own imprint page."
   },
   {
+    "lat": 51.35212,
+    "lon": 12.39553,
+    "name": "Bloc No Limit Boulderhalle Leipzig",
+    "country": "DE",
+    "website": "https://boulderhalle-leipzig.de/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 48.3896024,
     "lon": 10.8874895,
     "name": "Bloc-Hütte Augsburg",
@@ -1639,6 +1669,22 @@
       "city"
     ],
     "note": "Upstream carries no address for this entry; the site's Austraße 35 resolves to within 50 m of it."
+  },
+  {
+    "lat": 51.7168083,
+    "lon": 8.776686999999999,
+    "name": "Blocbuster Paderborn",
+    "country": "DE",
+    "website": "https://bb.blocbuster.net/bouldern-in-paderborn",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
   },
   {
     "lat": 50.53805,
@@ -2067,6 +2113,21 @@
     "note": "Address verified on the site's own contact page."
   },
   {
+    "lat": 52.44968,
+    "lon": 13.25183,
+    "name": "Boulderzimmer",
+    "country": "DE",
+    "website": "https://boulderzimmer.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "board-mention"
+    ],
+    "note": "Upstream carries no address for this entry; Onkel-Tom-Straße 99 resolves to within 25 m of it, and the site names the Tension Board this venue is listed for."
+  },
+  {
     "lat": 49.24812,
     "lon": 11.09202,
     "name": "Box-X Arena",
@@ -2218,6 +2279,23 @@
       "street-address",
       "postal-code",
       "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 47.84818,
+    "lon": 12.82114,
+    "name": "DAV Boulderhalle Teisendorf",
+    "country": "DE",
+    "website": "https://www.dav-teisendorf.de/Kletteranlagen/Boulderhalle-Teisendorf",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
       "board-mention"
     ]
   },
@@ -3039,6 +3117,20 @@
     ]
   },
   {
+    "lat": 49.172197,
+    "lon": 9.208495,
+    "name": "Kletterarena",
+    "country": "DE",
+    "website": "https://www.diekletterarena.de/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "The hall's postal address is in Heilbronn rather than neighbouring Neckarsulm, and resolves to within 26 m of this venue."
+  },
+  {
     "lat": 51.97887,
     "lon": 7.60992,
     "name": "KletterBar Münster",
@@ -3199,6 +3291,38 @@
       "city"
     ],
     "note": "Upstream carries no address for this entry; the site's Berliner Straße 25 resolves to within 15 m of it."
+  },
+  {
+    "lat": 52.2680906,
+    "lon": 8.0587081,
+    "name": "Moonboard ZENIT Osnabrück",
+    "country": "DE",
+    "website": "https://www.zenit-klettern.de/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Same physical gym as the Kilter entry ~50 m away; upstream lists the MoonBoard separately."
+  },
+  {
+    "lat": 51.1703524,
+    "lon": 6.9169772,
+    "name": "Moonboard-Bergstation",
+    "country": "DE",
+    "website": "https://bergstation.nrw/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Same physical gym as the Kilter entry ~10 m away; upstream lists the MoonBoard separately."
   },
   {
     "lat": 48.56053,
@@ -3558,6 +3682,38 @@
     "note": "Address verified on the site's own directions page."
   },
   {
+    "lat": 47.84814,
+    "lon": 12.82113,
+    "name": "TeisendorfMoon",
+    "country": "DE",
+    "website": "https://www.dav-teisendorf.de/Kletteranlagen/Boulderhalle-Teisendorf",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "Same physical gym as the Kilter entry ~5 m away; upstream lists the MoonBoard separately."
+  },
+  {
+    "lat": 49.0068901,
+    "lon": 8.4036527,
+    "name": "THE ROCK Boulderhalle",
+    "country": "DE",
+    "website": "https://www.boulderhallekarlsruhe.de/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The gym's own address is in Karlsruhe-Durlach, about 3.5 km from this upstream MoonBoard coordinate."
+  },
+  {
     "lat": 52.52233,
     "lon": 13.43686,
     "name": "Urban Apes Berlin Fhain",
@@ -3620,6 +3776,20 @@
       "city",
       "location-page",
       "board-mention"
+    ]
+  },
+  {
+    "lat": 52.32893,
+    "lon": 9.78353,
+    "name": "Urban Apes Hannover",
+    "country": "DE",
+    "website": "https://www.urbanapes.de/hannover/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "brand",
+      "city",
+      "location-page"
     ]
   },
   {
@@ -3734,5 +3904,20 @@
       "city"
     ],
     "note": "The hall trades as XXL' DIE WAND."
+  },
+  {
+    "lat": 52.26831,
+    "lon": 8.05914,
+    "name": "ZENIT Boulderhalle Osnabrück",
+    "country": "DE",
+    "website": "https://www.zenit-klettern.de/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
   }
 ]

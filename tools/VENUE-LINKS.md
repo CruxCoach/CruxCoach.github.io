@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 264 |
-| Verified website links | 238 |
-| Rejected / ambiguous / private / closed | 26 |
+| Venues reviewed (linked + research entries) | 277 |
+| Verified website links | 250 |
+| Rejected / ambiguous / private / closed | 27 |
 | Countries covered | 3 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -243,11 +243,13 @@ Per-country coverage of eligible (public/commercial) venues:
 
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
-| DE | 143 | 201 | 71% |
+| DE | 155 | 201 | 77% |
 | CH | 51 | 56 | 91% |
 | AT | 44 | 48 | 92% |
 
-- **Last completed batch:** Germany, second pass — DAV section halls and the
-  independents, taking Germany to 71%.
-- **Next batch:** the remaining German entries (mostly MoonBoard-only records
-  with imprecise coordinates), then the rest of Europe.
+- **Last completed batch:** Germany, third pass — the paired MoonBoard entries
+  that belong to gyms already in the dataset. DACH as a whole is at 82%.
+- **Next batch:** the rest of Europe, largest markets first. What remains in DACH
+  is the long tail: MoonBoard-only club and school setups whose upstream
+  coordinates are too imprecise to pin down, and a dozen operators whose sites
+  refuse automated requests.
