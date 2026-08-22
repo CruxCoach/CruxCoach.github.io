@@ -1,2 +1,49 @@
 [
+  {
+    "lat": 46.50714,
+    "lon": 8.71072,
+    "name": "Audan",
+    "country": "CH",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "Palestra Audan (SAT Ritom) is the only plausible match, but its official page publishes neither a street address nor a board mention, so no second independent signal could be established.",
+    "candidate": "https://www.satritom.ch/arrampicata/palestra/"
+  },
+  {
+    "lat": 46.63397,
+    "lon": 8.59349,
+    "name": "Boulder Halle Andermatt",
+    "country": "CH",
+    "status": "ambiguous",
+    "checked": "2026-08-22",
+    "reason": "Several unrelated climbing facilities are listed for Andermatt (a tourism-board page and an SAC Gotthard military hall); no single official venue site could be identified for this coordinate."
+  },
+  {
+    "lat": 47.07702,
+    "lon": 6.7591,
+    "name": "La Déglingue",
+    "country": "CH",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "No official site could be found for a climbing venue of this name in the La Chaux-de-Fonds area."
+  },
+  {
+    "lat": 47.3318164,
+    "lon": 9.4119026,
+    "name": "Möhli",
+    "country": "CH",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "No official site could be found for a climbing venue of this name near St. Gallen."
+  },
+  {
+    "lat": 47.0081764,
+    "lon": 8.6471354,
+    "name": "Spinnerei Indoor",
+    "country": "CH",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The candidate site answers HTTP 403 to our requests, so the official page could not be opened and verified first-hand.",
+    "candidate": "https://www.spinnerei-indoor.ch/"
+  }
 ]

@@ -158,15 +158,35 @@ node tools/venue-links-report.mjs --todo DE,AT,CH --limit 40 --with-address
 node tools/build-boards-data.mjs --overlays-only
 ```
 
+### How a batch is done
+
+1. **Discover candidates.** OpenStreetMap objects tagged `sport=climbing` /
+   `sport=bouldering` that carry a `website` or `contact:website` tag are pulled
+   in bulk and matched to venues by proximity and name. This proposes a URL and
+   nothing else — the tag is a pointer, not evidence.
+2. **Open the page.** Every candidate is fetched and read: the gym name, the
+   street address and town it publishes, and whether it names the board system
+   the venue is listed for.
+3. **Match two independent signals** against the venue's own record (upstream
+   street address for Kilter venues, city, board type, name).
+4. **Cross-check the geography where the strings do not settle it.** When a
+   venue carries no upstream address, the address printed on the *official page*
+   is geocoded once (OSM Nominatim, rate-limited, identifying User-Agent) and
+   compared to the venue's coordinate. A hit inside ~300 m establishes that the
+   address on that page is this venue's address, which is what `street-address`
+   records. The geocoder's output is never stored — only the accept/reject
+   decision it supports.
+5. **Everything else goes to the research log** with a status and a reason.
+
+Steps 1 and 4 both talk to third-party services and both live **outside** this
+repo, exactly as the Wellpass matcher does: only the verified result is
+committed, never the scrape.
+
 `--overlays-only` reads the existing `boards/data/boards.geojson`, re-applies the
 venue-level overlays (Wellpass and links) and re-renders — no network, no npm, no
 upstream refresh, and `generated_at` is left alone because the upstream data it
 describes did not change. The full nightly build applies exactly the same
 overlays through the same function, so the shortcut cannot diverge from it.
-
-The discovery step that proposes candidates from OpenStreetMap deliberately lives
-**outside** this repo, exactly as the Wellpass matcher does: only the verified
-result is committed, never the scrape.
 
 ## Other link classes: evaluated, not implemented
 
@@ -213,11 +233,19 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 0 |
-| Verified website links | 0 |
-| Rejected / ambiguous / private / closed | 0 |
-| Countries covered | 0 |
+| Venues reviewed (linked + research entries) | 56 |
+| Verified website links | 51 |
+| Rejected / ambiguous / private / closed | 5 |
+| Countries covered | 1 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
-- **Last completed batch:** — (infrastructure only; no links curated yet)
-- **Next batch:** DACH public/commercial venues — DE (201), AT (48), CH (56)
+Per-country coverage of eligible (public/commercial) venues:
+
+| country | linked | eligible | share |
+| --- | --- | --- | --- |
+| CH | 51 | 56 | 91% |
+
+- **Last completed batch:** Switzerland — 51 links, 5 logged as not linkable
+  (1 ambiguous, 4 unverified: no official site found, or the site refuses our
+  requests).
+- **Next batch:** Austria (48 eligible), then Germany (201 eligible).

@@ -1,2 +1,777 @@
 [
+  {
+    "lat": 47.52622,
+    "lon": 7.68359,
+    "name": "B2 Boulders & Bar",
+    "country": "CH",
+    "website": "https://www.bzwei.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 46.95906,
+    "lon": 7.47294,
+    "name": "Bimano Bern",
+    "country": "CH",
+    "website": "https://www.bimano.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "brand",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 47.19916,
+    "lon": 7.54397,
+    "name": "Bimano Solothurn",
+    "country": "CH",
+    "website": "https://bimanosolothurn.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 47.4831911,
+    "lon": 8.2313602,
+    "name": "Blockchäfer",
+    "country": "CH",
+    "website": "https://www.blockchaefer.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ]
+  },
+  {
+    "lat": 47.4988196,
+    "lon": 8.723688899999999,
+    "name": "BLOCKFELD Boulderpark",
+    "country": "CH",
+    "website": "https://blockfeld.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The site publishes no street address; the upstream coordinate sits about 1.7 km from the gym's postal address."
+  },
+  {
+    "lat": 46.816021,
+    "lon": 7.123333199999999,
+    "name": "Bloczone",
+    "country": "CH",
+    "website": "https://www.grimper.ch/salles-descalade/givisiez/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "Upstream still calls this Bloczone; the address on the Grimper.ch Givisiez page resolves to within 32 m of this venue."
+  },
+  {
+    "lat": 47.46919,
+    "lon": 8.30546,
+    "name": "BOUBA Boulder Baden",
+    "country": "CH",
+    "website": "https://boulder-baden.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 47.18413,
+    "lon": 8.10923,
+    "name": "Boulder Arena Sursee",
+    "country": "CH",
+    "website": "https://www.arenasursee.ch/boulder",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "boulder-arena.ch redirects here; the address comes from the same site's contact page."
+  },
+  {
+    "lat": 47.19867,
+    "lon": 8.54014,
+    "name": "BoulderBaar",
+    "country": "CH",
+    "website": "https://boulderbaar.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 46.94673,
+    "lon": 7.43631,
+    "name": "BoulderBad Muubeeri",
+    "country": "CH",
+    "website": "https://www.muubeeri.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 47.1532331,
+    "lon": 8.0267847,
+    "name": "Bouldergate Ettiswil",
+    "country": "CH",
+    "website": "https://www.bouldergate.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 47.39912,
+    "lon": 8.4528,
+    "name": "Boulderlounge Schlieren",
+    "country": "CH",
+    "website": "https://www.boulderlounge.ch/schlieren/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "brand",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 47.3994122,
+    "lon": 8.454455600000001,
+    "name": "Boulderlounge Schlieren",
+    "country": "CH",
+    "website": "https://www.boulderlounge.ch/schlieren/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "brand",
+      "city",
+      "location-page"
+    ],
+    "note": "Same physical gym as the Kilter entry 126 m away; upstream lists the MoonBoard separately."
+  },
+  {
+    "lat": 47.41511,
+    "lon": 9.33957,
+    "name": "Boulderlounge St Gallen",
+    "country": "CH",
+    "website": "https://www.boulderlounge.ch/st-gallen/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "brand",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 47.03089684368702,
+    "lon": 8.297610741818875,
+    "name": "City Boulder AG",
+    "country": "CH",
+    "website": "https://www.cityboulder.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 47.40872,
+    "lon": 9.30892,
+    "name": "Die Kletterhalle St. Gallen AG",
+    "country": "CH",
+    "website": "https://kletterzentrum-sg.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "The gym now trades as Kletterzentrum St. Gallen AG; the street address on the site matches this venue exactly."
+  },
+  {
+    "lat": 47.57459,
+    "lon": 7.57384,
+    "name": "ELYS Boulderloft",
+    "country": "CH",
+    "website": "https://boulderloft.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Same physical gym as the Kilter entry 13 m away; upstream lists the Tension board separately."
+  },
+  {
+    "lat": 47.57471,
+    "lon": 7.5738,
+    "name": "ELYS Boulderloft",
+    "country": "CH",
+    "website": "https://boulderloft.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 47.10766871104924,
+    "lon": 9.065064049074039,
+    "name": "GLKB Boulderhalle / Lintharena",
+    "country": "CH",
+    "website": "https://www.lintharena.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site names its bouldering hall GLKB Boulderhalle."
+  },
+  {
+    "lat": 47.36121,
+    "lon": 8.7256,
+    "name": "GRIFFIG",
+    "country": "CH",
+    "website": "https://www.griffig.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Address verified on the site's Impressum page."
+  },
+  {
+    "lat": 46.52936,
+    "lon": 6.62476,
+    "name": "Grimper.ch Lausanne-Beaulieu",
+    "country": "CH",
+    "website": "https://www.grimper.ch/salles-descalade/lausanne-beaulieu/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 46.22459,
+    "lon": 6.05331,
+    "name": "Grimper.ch Satigny",
+    "country": "CH",
+    "website": "https://www.grimper.ch/salles-descalade/satigny/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 47.3300611,
+    "lon": 7.9035474,
+    "name": "Kletterhalle Isatis AG",
+    "country": "CH",
+    "website": "https://isatis.ag/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ]
+  },
+  {
+    "lat": 47.40031,
+    "lon": 8.06503,
+    "name": "Kraftreaktor Aarau",
+    "country": "CH",
+    "website": "https://kraftreaktor-aarau.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 47.39503,
+    "lon": 8.17719,
+    "name": "Kraftreaktor Lenzburg",
+    "country": "CH",
+    "website": "https://kraftreaktor.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Two-location operator; kraftreaktor-lenzburg.ch redirects here, so this is the Lenzburg gym's own page."
+  },
+  {
+    "lat": 46.62682,
+    "lon": 7.0669939,
+    "name": "L'Entrepôt",
+    "country": "CH",
+    "website": "https://lentrepot.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Same physical gym as the Kilter entry 65 m away; upstream lists the MoonBoard separately."
+  },
+  {
+    "lat": 46.6274,
+    "lon": 7.06666,
+    "name": "L'Entrepôt",
+    "country": "CH",
+    "website": "https://lentrepot.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 46.78714,
+    "lon": 6.63162,
+    "name": "La Pile SA",
+    "country": "CH",
+    "website": "https://lapile.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 46.54329,
+    "lon": 6.62947,
+    "name": "Le Cube - Escalade & Bar",
+    "country": "CH",
+    "website": "https://lecube.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 46.80012,
+    "lon": 7.1482,
+    "name": "Le Hangar Bouldering Fribourg",
+    "country": "CH",
+    "website": "https://www.grimper.ch/salles-descalade/fribourg/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The Grimper.ch Fribourg location page names the gym Le Hangar."
+  },
+  {
+    "lat": 47.21589,
+    "lon": 7.78395,
+    "name": "Manola Boulder Langenthal",
+    "country": "CH",
+    "website": "https://www.manola-boulder.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ]
+  },
+  {
+    "lat": 47.38186,
+    "lon": 8.49534,
+    "name": "Minimum Flüela",
+    "country": "CH",
+    "website": "https://minimum.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "Two Zurich locations share one site; the site lists this one by street address."
+  },
+  {
+    "lat": 47.41604,
+    "lon": 8.55452,
+    "name": "Minimum Leutsch",
+    "country": "CH",
+    "website": "https://minimum.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Two Zurich locations share one site; the site lists this one by street address."
+  },
+  {
+    "lat": 47.3807,
+    "lon": 8.50559,
+    "name": "Mitō Bouldering",
+    "country": "CH",
+    "website": "https://www.mito-bouldering.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "Same physical gym as the Kilter entry 8 m away; upstream lists the Tension board separately."
+  },
+  {
+    "lat": 47.38077156036091,
+    "lon": 8.50559518406294,
+    "name": "Mitō Bouldering",
+    "country": "CH",
+    "website": "https://www.mito-bouldering.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 47.36269,
+    "lon": 7.91604,
+    "name": "Momentum Olten",
+    "country": "CH",
+    "website": "https://www.momentumolten.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 46.6543456,
+    "lon": 6.503461,
+    "name": "Moon Venga Bloc",
+    "country": "CH",
+    "website": "https://www.vengabloc.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ]
+  },
+  {
+    "lat": 46.96234,
+    "lon": 7.48369,
+    "name": "O-Bloc",
+    "country": "CH",
+    "website": "https://obloc.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site publishes Parkareal Milchstrasse 2-6 as its navigation address; the venue's own street line differs, but postcode and town match."
+  },
+  {
+    "lat": 46.67113880148077,
+    "lon": 7.878928299999998,
+    "name": "Orbit Interlaken",
+    "country": "CH",
+    "website": "https://orbit-interlaken.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 46.190825110299706,
+    "lon": 6.111380637625461,
+    "name": "Planet Climbing",
+    "country": "CH",
+    "website": "https://planetclimbing.ch/lancy",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "brand",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Same physical gym as the entry 52 m away that upstream names \"Planet Climbing Lancy\"."
+  },
+  {
+    "lat": 46.19127,
+    "lon": 6.11122,
+    "name": "Planet Climbing Lancy",
+    "country": "CH",
+    "website": "https://planetclimbing.ch/lancy",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Same physical gym as the entry 52 m away that upstream names \"Planet Climbing\"."
+  },
+  {
+    "lat": 46.16612,
+    "lon": 6.10352,
+    "name": "Planet Climbing Plan-les-Ouates",
+    "country": "CH",
+    "website": "https://planetclimbing.ch/plan-les-ouates",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 47.2242898,
+    "lon": 8.8431787,
+    "name": "Quergang",
+    "country": "CH",
+    "website": "https://www.quergang.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ]
+  },
+  {
+    "lat": 46.0944,
+    "lon": 7.77947,
+    "name": "Randa Boulder",
+    "country": "CH",
+    "website": "https://www.randaboulder.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ]
+  },
+  {
+    "lat": 47.17239,
+    "lon": 9.48265,
+    "name": "Sparta Bouldering & Bar",
+    "country": "CH",
+    "website": "https://www.sparta-bouldering.com/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 46.344441391849095,
+    "lon": 8.606540654763847,
+    "name": "Splüia boulder",
+    "country": "CH",
+    "website": "https://spluia.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
+    "lat": 46.81798,
+    "lon": 8.40471,
+    "name": "Sporting Park Engelberg",
+    "country": "CH",
+    "website": "https://www.sportingpark.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 46.81957073854385,
+    "lon": 8.402384722090277,
+    "name": "Südwand Engelberg",
+    "country": "CH",
+    "website": "https://suedwand.ch/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 46.21936,
+    "lon": 6.10238,
+    "name": "TOTEM Le Môll",
+    "country": "CH",
+    "website": "https://totem.ch/ve",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 46.2876938,
+    "lon": 6.1657813,
+    "name": "Totem Versoix",
+    "country": "CH",
+    "website": "https://totem.ch/versoix",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "The location page names TOTEM Versoix and its MoonBoard; the upstream coordinate sits about 1.4 km from the published street address."
+  },
+  {
+    "lat": 46.4628333,
+    "lon": 6.8419192,
+    "name": "Totem Vevey Moonboard",
+    "country": "CH",
+    "website": "https://totem.ch/vevey",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention",
+      "location-page"
+    ]
+  }
 ]
