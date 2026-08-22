@@ -124,6 +124,7 @@ function reportCoverage(opts, decisions, features) {
   if (privateNowCommercial) {
     log(opts, `WARN ${privateNowCommercial} venue(s) recorded as private no longer look private upstream — re-review them`);
   }
+  return { venues_on_map: features.size, venues_decided: features.size - undecided };
 }
 
 function loadFeatures() {
@@ -279,7 +280,7 @@ async function main() {
   log(opts, `decisions: ${decisions.length} venue(s) — ` +
     Object.entries(counts).filter(([, n]) => n > 0).map(([k, n]) => `${k} ${n}`).join(', '));
   const features = loadFeatures();
-  reportCoverage(opts, decisions, features);
+  const coverage = reportCoverage(opts, decisions, features);
   const previous = loadSidecar(SIDECAR_FILE);
   const previousByKey = new Map((previous?.venues ?? []).map((v) => [v.key, v]));
 
@@ -355,7 +356,7 @@ async function main() {
   }
 
   const now = new Date().toISOString();
-  const sidecar = buildSidecar({ accepted, features, fetched, refreshedAt: now });
+  const sidecar = buildSidecar({ accepted, features, fetched, refreshedAt: now, coverage });
   sidecar.checked_at = now;
 
   const changed = !previous || withoutTimestamps(sidecar) !== withoutTimestamps(previous);

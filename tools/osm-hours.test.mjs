@@ -465,3 +465,28 @@ test('the refresh command rejects an unknown option instead of guessing', () => 
   assert.equal(res.status, 2);
   assert.match(res.stderr, /unknown option/);
 });
+
+test('the committed sidecar records that every venue on the map had an outcome', () => {
+  // The number is recorded, not recomputed: it is a statement about the moment
+  // the file was written, and upstream adds venues on its own schedule. A
+  // refresh recomputes it, so a gap shows up there rather than failing an
+  // unrelated contributor's `scripts/check`.
+  const { stats } = loadSidecar(SIDECAR_FILE);
+  assert.equal(stats.venues_without_decision, 0,
+    `${stats.venues_without_decision} venue(s) had no outcome at the last refresh — `
+    + 'sweep them: node tools/dev/osm-candidates.mjs --all');
+  assert.equal(stats.venues_decided, stats.venues_on_map);
+  assert.ok(stats.venues_on_map > 0);
+});
+
+test('every venue on the map carries exactly one outcome right now', () => {
+  const { decisions } = loadCuratedMatches(CURATED_FILE);
+  const byKey = new Map(decisions.map((d) => [d.key, d]));
+  const missing = [];
+  for (const f of JSON.parse(readFileSync(GEOJSON_FILE, 'utf-8')).features) {
+    const [lon, lat] = f.geometry.coordinates;
+    if (!byKey.has(venueKey(lat, lon))) missing.push(f.properties.name);
+  }
+  assert.deepEqual(missing.slice(0, 10), [],
+    `${missing.length} venue(s) have no decision — sweep them: node tools/dev/osm-candidates.mjs --all`);
+});

@@ -15,119 +15,124 @@ jq 'group_by(.status) | map({status: .[0].status, n: length})' tools/osm-venues.
 
 ## Status — 2026-08-22
 
+**Every venue on the map has exactly one outcome.** 2,830 of 2,830.
+
+| Outcome | Venues | |
+|---|---:|---|
+| **accepted** — bound to one exact OSM object | **1,175** | of which 772 carry opening hours |
+| **private** — home or garage setup, never enriched | **640** | |
+| **no-object** — documented checks found nothing that IS this venue | **984** | |
+| **ambiguous** — two plausible objects, or identity not established | **31** | |
+| **closed** | 0 | |
+| **unreachable** — retry queue | **0** | the sweep completed everywhere |
+
+Of the 1,175 accepted matches:
+
 | | |
-|---|---|
-| Venues reviewed | **68** of 2,830 on the map |
-| Accepted (exact OSM object, verified by hand) | **56** |
-| Rejected (documented, never enriched) | **12** |
-| Accepted matches carrying `opening_hours` | **41** |
-| — rendered as a weekly schedule | **37** |
-| — shown as the unmodified OSM value | **4** |
-| Accepted matches with no hours tagged in OSM yet | **15** |
-| Objects gone / retagged / unreachable at the last refresh | 0 / 0 / 0 |
-| Last OpenStreetMap read | **2026-08-22T12:23Z** |
+|---|---:|
+| Carrying `opening_hours` | **772** |
+| — rendered as a weekly schedule | **733** |
+| — shown as the unmodified OSM value | **39** |
+| No hours tagged in OpenStreetMap yet | **401** |
+| Object retagged since curation (hours withheld) | **2** |
+| Object gone, or unreachable at the last refresh | 0 / 0 |
+| Matched by `manual-exact-name` (sweep proposal, then read) | 890 |
+| Matched by `manual` (investigated individually) | 285 |
+| Second listing of a venue already matched | 51 |
+| Carrying `check_date:opening_hours` | 29 |
 
-Countries with at least one matched venue (10): DE 19, CH 6, GB 6, AT 5, IT 5,
-US 4, CZ 3, ES 3, NL 3, FR 2. Hours are displayed in nine of them: DE 18, AT 5,
-GB 4, CH 3, ES 3, US 3, FR 2, NL 2, IT 1 — the three Czech venues are matched
-but nobody has tagged their hours in OSM yet.
+Last OpenStreetMap read: **2026-08-22**. Countries with at least one matched
+venue: **57**. Countries where hours are displayed: **44** — US 180, DE 139,
+CA 47, FR 40, NL 40, ES 34, GB 34, BE 28, AT 26, AU 26, CH 26, PL 18, NO 16,
+DK 14, and thirty more.
 
-### The four values shown raw rather than rendered
+### The 39 values shown raw rather than rendered
 
-They are not failures; they are the fallback doing its job. Each one shows the
-unchanged OSM value plus a link to the object.
+Not failures — the fallback doing its job. Each shows the unchanged OSM value
+and a link to the object.
 
-| Venue | Why | Value |
-|---|---|---|
-| Blöckle (Ravensburg) | `comment-or-fallback` | `… PH 10:00-20:30 "Variiert an Feiertagen"` — a free-text comment changes what the rule means |
-| Bloc Climbing Centre (Bristol) | `unsupported-selector` | `… SH 10:00-22:00` — school-holiday terms are not knowable from the tag |
-| Berta Block (Berlin) | `unsupported-selector` | `PH Mo-Fr 09:00-23:00; PH Sa-Su 10:00-22:00` — a public-holiday × weekday intersection |
-| Biwak Climbing (Derio) | `unsupported-selector` | `… Aug 10:00-21:00` — a month selector, i.e. different hours in August |
+| Reason | Count | What it looks like |
+|---|---:|---|
+| `unsupported-selector` | 26 | `SH 10:00-22:00`, `Aug 10:00-21:00`, `PH Mo-Fr 09:00-23:00` — school holidays, months, holiday × weekday |
+| `comment-or-fallback` | 6 | `… "Variiert an Feiertagen"` — free text changes what the rule means |
+| `unsupported-time` | 3 | extended times past `24:00`, or an ambiguous `00:00-00:00` |
+| `too-long` | 2 | a seasonal timetable rather than a weekly schedule |
+| `unsupported-rule` | 2 | sunrise/sunset, open-ended `18:00+` |
 
-### The twelve rejections
+### What the 31 ambiguities are
 
-Every one is a recorded decision, so the same venue is not re-examined from
-scratch next batch. Reasons in full are in `tools/osm-venues.json`.
+- **Two OSM objects for one venue with different hours** (El Roko, Beyond The
+  Wall Climbing). OpenStreetMap contradicts itself; neither value can be
+  preferred. Fixable upstream by merging the duplicate.
+- **Two listings of one venue too far apart to link** (Block'Out Vitrolles
+  239 m, Gravity Vault Jersey City 190 m, BoulderWorld Belfast 220 m, Hangar
+  Ostrava 250 m, Gravetat Zero 260 m, Flashpoint Bristol 390 m, Sender One SNA
+  400 m, S'Avanzada 222 m, VietClimb 177 m). One of the two coordinates is
+  wrong upstream.
+- **A second brand on the same site** (The Boardroom at Climber's Rock,
+  Boulderbar Hauptbahnhof Plus, AVATAR Sikorki, Rock & Board at Rock & Wall).
+- **Identity resting on an inference this file may not make** — a rename
+  (Movement Harlem against "The Cliffs at Harlem"), an abbreviation (ULI
+  against "Upper Limits Rock Climbing Gym"), or nothing but a town name (K7
+  Västerås, Skarpa Bytom, Mountain Network Amsterdam).
 
-| Venue | Reason |
-|---|---|
-| Alpenverein Wien | No climbing object within 200 m |
-| Bloc Spot Murtal | No OSM object of any kind within 200 m |
-| Boulderbar Hauptbahnhof Plus (Wien) | Ambiguous — the only nearby object carries the neighbouring venue's name and is matched there |
-| ALI Dixon Climbing Center (Corvallis) | Only the university recreation building, not tagged for climbing; its hours are the building's |
-| Agility Boulders (Capitola) | No climbing object within 250 m |
-| Beacon Climbing Centre (the NL duplicate) | Upstream coordinate has a flipped longitude sign; the real venue is already matched under its GB coordinate |
-| Jungle Sport Park (Praha-Letňany) | Ambiguous — two climbing objects describe the same site, only one has hours |
-| 45° Escalade (Marseille) | Ambiguous — the same business is in OSM twice; the duplicate wants merging upstream first |
-| ALPI360 (Hésingue) | Only the leisure complex that houses the wall, not tagged for climbing |
-| Altissimo Metz Loisirama | No OSM object within 250 m |
-| AtariA Boulder (Gipuzkoa) | No OSM object within 250 m |
-| Awesome Boulder Center (Fuenlabrada) | No climbing object within 250 m; the only candidate is an unrelated gym |
+### The two objects whose hours are withheld
 
-Three of the twelve are "nobody has mapped this yet", four are "the only
-candidate is the building, not the venue", and five are genuine ambiguity. All
-five of the latter are fixable in OpenStreetMap rather than here.
+`The School Room` (node/11888595333) and `Boulderkeskus Kino`
+(node/7947586930) both carry `access=private` in OpenStreetMap. The match
+stands — those objects *are* those venues — but `classifyOsmTags()` refuses
+them and the refresh publishes no hours. This is the fail-closed path working
+on real data, found on the first full refresh.
 
 ## Limitations
 
-- **Coverage is deliberately thin.** 56 of 2,830 venues. Every row costs a
-  person's attention, and that is the point: the alternative — attaching the
-  nearest climbing object automatically — publishes a neighbour's hours under a
-  real gym's name, which is worse than publishing nothing.
+- **984 venues have no OSM object.** Two thirds of them have nothing at all
+  within 600 m; the rest have only a Decathlon, a yoga studio, or the leisure
+  centre that houses the wall. The fix is upstream: map the gym in
+  OpenStreetMap and the next refresh picks it up.
+- **401 matched venues have no hours tagged.** Nothing to do in this
+  repository either — tag them in OpenStreetMap.
 - **No "open now", anywhere.** The site shows the weekly pattern OSM records
   and says so. Deciding whether a venue is open at this moment needs the
   venue's timezone, the local public-holiday calendar, school-holiday terms,
   seasonal rules and one-off closures to all be right; they are not.
 - **The renderer covers a bounded subset** (weekday selectors, time ranges,
-  `off`/`closed`, `PH`, `24/7`). Months, week numbers, `SH`, sunrise/sunset,
-  nth-weekday, open-ended times, comments and `||` fallbacks fall back to the
-  raw value. See the header of `tools/opening-hours.mjs`.
-- **Freshness is OSM's, not ours.** `check_date:opening_hours` is a mapper
-  saying they stood in front of the place; without it the page shows the
-  object's last edit date instead, and says which of the two it is showing.
-  Only one venue in the current set (Big Depot Manchester) carries a check
-  date, so nearly every block reads "last edited on …" — which is a weaker
-  statement, and deliberately worded as one.
+  `off`/`closed`, `PH`, `24/7`, the `,` rule separator). Everything else falls
+  back to the raw value. See the header of `tools/opening-hours.mjs`.
+- **Freshness is OSM's, not ours.** Only 29 of 772 carry
+  `check_date:opening_hours`, so most blocks read "last edited on …", which is
+  a weaker statement and deliberately worded as one.
+- **A name match is not proof.** The sweep proposes on names and a person
+  approves, but a gym that renamed itself, or an object that shares only a town
+  name, is refused rather than guessed at. That is why 31 venues sit in
+  `ambiguous` with an object visible a few metres away.
 - **Venue identity is a rounded coordinate** (`tools/venue-key.mjs`, ~11 m). If
-  upstream moves a venue by more than that, its curated match stops resolving;
-  the refresh reports it as `unmatched_venue` rather than guessing.
+  upstream moves a venue further than that, its decision stops resolving; the
+  refresh reports it.
 - **Home and garage setups are never enriched**, by three independent rules:
-  the curator has to assert `"venue": "public"`, `venueLooksPrivate()` refuses
-  anything with a home signal and no commercial signal, and the OSM object
-  itself has to still carry a public sports-venue tag at refresh time.
+  the curator asserts `"venue": "public"`, `venueLooksPrivate()` refuses a home
+  signal with no commercial one, and the OSM object must still carry a public
+  sports-venue tag at refresh time.
 
 ## Next batch
 
-In rough order of value per unit of attention:
-
-1. **Poland, the Nordics, Canada, Australia.** Nothing curated in any of them.
-   The batch stopped there because the public Overpass instance first answered
-   429 and then stopped accepting connections altogether — a rate limit and an
-   outage, not a dead end. `node tools/dev/osm-candidates.mjs --country PL
-   --limit 5` picks up where it left off; already-decided venues are skipped
-   automatically, and `--endpoint` points it at a mirror when the main instance
-   is unwell. Go gently: a few countries per session, well spaced. Note that
-   this affects curation only — the refresh command reads the OSM API directly
-   and does not depend on Overpass at all.
-2. **Finish the large German and Austrian chains** — Boulderwelt Regensburg,
-   München Ost/West, the remaining DAV centres. Same operator, same tagging
-   conventions, high hit rate.
-3. **Re-visit the 15 accepted venues with no hours tagged.** Nothing to do in
-   this repository — if the hours matter, tag them in OpenStreetMap and the
-   next refresh picks them up on its own. That is the intended direction of
-   travel: the fix belongs upstream.
-4. **UK and US chains** (Awesome Walls, Big Depot, Touchstone): several sites
-   per operator, and the objects are usually already tagged.
-5. Consider whether `PH <weekday>` intersections are worth supporting in the
-   renderer. It has an unambiguous meaning and would render one of the four raw
-   values; month selectors (`Aug 10:00-21:00`) would render a second, but only
-   by picking a season to show, which is the kind of choice this renderer
-   deliberately does not make.
+1. **Re-sweep when upstream adds venues.** The refresh prints how many venues
+   have no outcome; `node tools/dev/osm-candidates.mjs --all` picks up exactly
+   those, because settled venues are skipped.
+2. **Re-check the 401 matched venues with no hours**, and the 984 with no
+   object, a few months from now. Both change through other people's edits, and
+   both are already bound to a venue, so a re-sweep is cheap.
+3. **Work the ambiguities upstream.** Nine of the 31 are one venue listed twice
+   at coordinates 180–400 m apart; four are one venue mapped twice in OSM. Both
+   are worth fixing where they are wrong rather than worked around here.
+4. Consider whether `PH <weekday>` intersections are worth rendering — the
+   commonest single refusal reason with an unambiguous meaning. Month selectors
+   are not: rendering one would mean picking a season to show.
 
 ## How to add a batch
 
-See `tools/dev/RUNBOOK-osm-opening-hours.md`. Short version: run the candidate
-helper, decide each venue by hand, append accepted **and** rejected entries to
-`tools/osm-venues.json`, run `node tools/refresh-osm-hours.mjs --force`, then
-`node tools/build-boards-data.mjs --static-only`, then `scripts/check`, then
-update the counts above.
+See `tools/dev/RUNBOOK-osm-opening-hours.md`, "Sweeping at scale". Short
+version: sweep, read the proposals, append accepted **and** non-accepted
+outcomes to `tools/osm-venues.json`, run `node tools/refresh-osm-hours.mjs
+--force`, then `node tools/build-boards-data.mjs --static-only`, then
+`scripts/check`, then update the counts above.

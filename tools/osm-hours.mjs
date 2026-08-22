@@ -363,6 +363,10 @@ export const STATUS = {
  * @param {Map}    args.features  venueKey → GeoJSON feature
  * @param {Map}    args.fetched   venueKey → { status, tags?, timestamp?, version?, kind? }
  * @param {string} args.refreshedAt ISO timestamp of the fetch this reflects
+ * @param {object} [args.coverage]  { venues_on_map, venues_decided } — how much
+ *   of the map had an outcome when this file was written. Recorded rather than
+ *   recomputed by readers: it is a statement about that moment, and upstream
+ *   adds venues on its own schedule.
  */
 function bump(counter, code) {
   const cc = code ?? 'ZZ';
@@ -375,7 +379,7 @@ function sortCounts(counter) {
   );
 }
 
-export function buildSidecar({ accepted, features, fetched, refreshedAt }) {
+export function buildSidecar({ accepted, features, fetched, refreshedAt, coverage }) {
   const venues = [];
   const stats = {
     curated_accepted: accepted.length,
@@ -466,6 +470,12 @@ export function buildSidecar({ accepted, features, fetched, refreshedAt }) {
 
   stats.countries_matched = sortCounts(stats.countries_matched);
   stats.countries_with_hours = sortCounts(stats.countries_with_hours);
+
+  if (coverage) {
+    stats.venues_on_map = coverage.venues_on_map;
+    stats.venues_decided = coverage.venues_decided;
+    stats.venues_without_decision = coverage.venues_on_map - coverage.venues_decided;
+  }
 
   return {
     schema_version: SCHEMA_VERSION,

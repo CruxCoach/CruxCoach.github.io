@@ -10,7 +10,7 @@
     "attribution": "© OpenStreetMap contributors",
     "note": "Opening hours and the OSM object metadata in this file are derived from OpenStreetMap and are licensed ODbL 1.0. They are deliberately kept out of boards.geojson, which is CC-BY-4.0."
   },
-  "refreshed_at": "2026-08-22T15:10:54.409Z",
+  "refreshed_at": "2026-08-22T15:24:02.274Z",
   "generator": "tools/refresh-osm-hours.mjs",
   "matches_source": "tools/osm-venues.json",
   "strings": {
@@ -30,22 +30,22 @@
     }
   },
   "stats": {
-    "curated_accepted": 1167,
-    "matched_to_venue": 1167,
+    "curated_accepted": 1175,
+    "matched_to_venue": 1175,
     "unmatched_venue": 0,
-    "with_opening_hours": 769,
-    "rendered_schedule": 731,
-    "raw_only": 38,
-    "without_opening_hours": 396,
+    "with_opening_hours": 772,
+    "rendered_schedule": 733,
+    "raw_only": 39,
+    "without_opening_hours": 401,
     "gone": 0,
     "not_a_public_venue": 2,
     "unreachable": 0,
     "countries_matched": {
-      "US": 328,
-      "DE": 159,
+      "US": 330,
+      "DE": 161,
       "CA": 81,
       "ES": 59,
-      "GB": 56,
+      "GB": 57,
       "FR": 48,
       "NL": 48,
       "AU": 45,
@@ -53,11 +53,11 @@
       "BE": 32,
       "NO": 32,
       "AT": 30,
-      "IT": 27,
+      "IT": 28,
       "PL": 24,
       "DK": 21,
       "SE": 18,
-      "FI": 9,
+      "FI": 10,
       "PT": 9,
       "NZ": 8,
       "IE": 7,
@@ -79,6 +79,7 @@
       "RU": 2,
       "TH": 2,
       "TW": 2,
+      "VN": 2,
       "AM": 1,
       "BG": 1,
       "CL": 1,
@@ -96,17 +97,16 @@
       "MT": 1,
       "MW": 1,
       "PE": 1,
-      "PH": 1,
-      "VN": 1
+      "PH": 1
     },
     "countries_with_hours": {
       "US": 180,
-      "DE": 137,
+      "DE": 139,
       "CA": 47,
       "FR": 40,
       "NL": 40,
       "ES": 34,
-      "GB": 33,
+      "GB": 34,
       "BE": 28,
       "AT": 26,
       "AU": 26,
@@ -144,7 +144,10 @@
       "LV": 1,
       "RO": 1,
       "TH": 1
-    }
+    },
+    "venues_on_map": 2830,
+    "venues_decided": 2830,
+    "venues_without_decision": 0
   },
   "venues": [
     {
@@ -3616,6 +3619,25 @@
       }
     },
     {
+      "key": "10.7876|106.7337",
+      "lat": 10.787627,
+      "lon": 106.733678,
+      "name": "Vertical District",
+      "country": "VN",
+      "osm_type": "node",
+      "osm_id": 13819748528,
+      "osm_url": "https://www.openstreetmap.org/node/13819748528",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "Vertical District",
+      "osm_kind": "leisure=fitness_centre",
+      "osm_timestamp": "2026-05-12T02:28:29Z",
+      "osm_version": 1
+    },
+    {
       "key": "13.7363|100.5764",
       "lat": 13.73627,
       "lon": 100.57645,
@@ -4843,6 +4865,25 @@
       "osm_kind": "leisure=sports_centre",
       "osm_timestamp": "2021-07-29T19:26:32Z",
       "osm_version": 2
+    },
+    {
+      "key": "28.6868|-81.3465",
+      "lat": 28.68676,
+      "lon": -81.34652,
+      "name": "Aiguille Rock Climbing Center",
+      "country": "US",
+      "osm_type": "node",
+      "osm_id": 2853709364,
+      "osm_url": "https://www.openstreetmap.org/node/2853709364",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "Aiguille Rock Climbing Center",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2014-05-12T19:48:10Z",
+      "osm_version": 1
     },
     {
       "key": "29.4397|-98.4841",
@@ -6569,6 +6610,25 @@
       "osm_kind": "leisure=sports_centre",
       "osm_timestamp": "2026-03-22T00:43:43Z",
       "osm_version": 1
+    },
+    {
+      "key": "33.4042|-111.9546",
+      "lat": 33.4042,
+      "lon": -111.95457,
+      "name": "Bouldering Project Tempe",
+      "country": "US",
+      "osm_type": "way",
+      "osm_id": 224009426,
+      "osm_url": "https://www.openstreetmap.org/way/224009426",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "Bouldering Project",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2024-05-27T04:57:23Z",
+      "osm_version": 2
     },
     {
       "key": "33.4818|-82.1403",
@@ -22269,6 +22329,25 @@
       "osm_kind": "leisure=sports_centre",
       "osm_timestamp": "2018-04-08T21:05:24Z",
       "osm_version": 3
+    },
+    {
+      "key": "44.6868|7.8961",
+      "lat": 44.6867594,
+      "lon": 7.8960573,
+      "name": "Vertigo Moon Board",
+      "country": "IT",
+      "osm_type": "node",
+      "osm_id": 12568580101,
+      "osm_url": "https://www.openstreetmap.org/node/12568580101",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "ASD Vertigo Climbing Village",
+      "osm_kind": "leisure=climbing",
+      "osm_timestamp": "2025-12-24T04:03:29Z",
+      "osm_version": 4
     },
     {
       "key": "44.8130|10.2796",
@@ -42338,6 +42417,43 @@
       "osm_version": 10
     },
     {
+      "key": "51.2980|9.5248",
+      "lat": 51.29799,
+      "lon": 9.5247899,
+      "name": "Vertical World",
+      "country": "DE",
+      "osm_type": "way",
+      "osm_id": 197714021,
+      "osm_url": "https://www.openstreetmap.org/way/197714021",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Kletterhalle Vertical World",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2021-04-12T13:53:04Z",
+      "osm_version": 6,
+      "opening_hours": "Su 10:00-20:00; Mo,We,Sa 10:00-22:30; Oct-Apr: Tu,Th,Fr 10:00-22:30; May-Sep: Tu,Th,Fr 14:00-22:00",
+      "display": {
+        "kind": "raw",
+        "reason": "unsupported-selector",
+        "raw": "Su 10:00-20:00; Mo,We,Sa 10:00-22:30; Oct-Apr: Tu,Th,Fr 10:00-22:30; May-Sep: Tu,Th,Fr 14:00-22:00",
+        "en": {
+          "lines": [],
+          "notes": []
+        },
+        "de": {
+          "lines": [],
+          "notes": []
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2021-04-12.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 12.04.2021."
+        }
+      }
+    },
+    {
       "key": "51.3061|-116.9744",
       "lat": 51.30614,
       "lon": -116.97441,
@@ -47814,6 +47930,65 @@
       }
     },
     {
+      "key": "52.3881|9.7287",
+      "lat": 52.388056,
+      "lon": 9.7286783,
+      "name": "Boulderhalle Beta Hannover",
+      "country": "DE",
+      "osm_type": "relation",
+      "osm_id": 17530496,
+      "osm_url": "https://www.openstreetmap.org/relation/17530496",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Beta Boulderhalle",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2025-09-08T00:06:41Z",
+      "osm_version": 3,
+      "opening_hours": "Mo-Fr 10:00-23:00; Sa,Su 09:00-22:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 10:00-23:00; Sa,Su 09:00-22:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "10:00–23:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "09:00–22:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "10:00–23:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "09:00–22:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2025-09-08.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 08.09.2025."
+        }
+      }
+    },
+    {
       "key": "52.3920|4.6479",
       "lat": 52.39204,
       "lon": 4.64789,
@@ -49046,6 +49221,65 @@
       "osm_kind": "leisure=sports_centre",
       "osm_timestamp": "2021-05-18T15:04:25Z",
       "osm_version": 3
+    },
+    {
+      "key": "53.0457|-2.1967",
+      "lat": 53.04573019999999,
+      "lon": -2.1967011,
+      "name": "Kilnworx Climbing Centre",
+      "country": "GB",
+      "osm_type": "way",
+      "osm_id": 385747263,
+      "osm_url": "https://www.openstreetmap.org/way/385747263",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "ok",
+      "osm_name": "Kilnworx",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2022-05-14T08:50:22Z",
+      "osm_version": 3,
+      "opening_hours": "Mo-Fr 12:00-22:00; Sa, Su 10:00-20:00",
+      "display": {
+        "kind": "schedule",
+        "reason": null,
+        "raw": "Mo-Fr 12:00-22:00; Sa, Su 10:00-20:00",
+        "en": {
+          "lines": [
+            {
+              "label": "Mon–Fri",
+              "value": "12:00–22:00"
+            },
+            {
+              "label": "Sat–Sun",
+              "value": "10:00–20:00"
+            }
+          ],
+          "notes": [
+            "Public holidays, school holidays, seasonal changes and one-off closures are not shown here."
+          ]
+        },
+        "de": {
+          "lines": [
+            {
+              "label": "Mo–Fr",
+              "value": "12:00–22:00"
+            },
+            {
+              "label": "Sa–So",
+              "value": "10:00–20:00"
+            }
+          ],
+          "notes": [
+            "Feiertage, Schulferien, saisonale Änderungen und einzelne Schließtage sind hier nicht abgebildet."
+          ]
+        },
+        "freshness": {
+          "en": "OpenStreetMap object last edited on 2022-05-14.",
+          "de": "OpenStreetMap-Objekt zuletzt bearbeitet am 14.05.2022."
+        }
+      }
     },
     {
       "key": "53.0756|8.7710",
@@ -54217,6 +54451,25 @@
       }
     },
     {
+      "key": "62.7877|22.8504",
+      "lat": 62.787735,
+      "lon": 22.8504337,
+      "name": "Murikka ry",
+      "country": "FI",
+      "osm_type": "node",
+      "osm_id": 4606934970,
+      "osm_url": "https://www.openstreetmap.org/node/4606934970",
+      "match": {
+        "method": "manual",
+        "verified_on": "2026-08-22"
+      },
+      "status": "no-opening-hours",
+      "osm_name": "Murikka",
+      "osm_kind": "leisure=sports_centre",
+      "osm_timestamp": "2020-07-08T19:02:59Z",
+      "osm_version": 2
+    },
+    {
       "key": "63.1621|14.6552",
       "lat": 63.16214050000001,
       "lon": 14.6551623,
@@ -54872,5 +55125,5 @@
       }
     }
   ],
-  "checked_at": "2026-08-22T15:10:54.409Z"
+  "checked_at": "2026-08-22T15:24:02.274Z"
 }
