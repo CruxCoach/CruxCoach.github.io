@@ -233,10 +233,10 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 354 |
-| Verified website links | 313 |
-| Rejected / ambiguous / private / closed | 41 |
-| Countries covered | 4 |
+| Venues reviewed (linked + research entries) | 389 |
+| Verified website links | 337 |
+| Rejected / ambiguous / private / closed | 52 |
+| Countries covered | 5 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -247,15 +247,12 @@ Per-country coverage of eligible (public/commercial) venues:
 | GB | 55 | 102 | 54% |
 | CH | 51 | 56 | 91% |
 | AT | 44 | 48 | 92% |
+| NL | 24 | 59 | 41% |
 
-Research-log reasons so far: 33 `unverified` (28 of them operator sites that
+Research-log reasons so far: 43 `unverified` (37 of them operator sites that
 answer 403/401/500/526 or serve an expired or wrong-hostname certificate, so no
-page could be opened and read), 5 with no findable official site, 2 `ambiguous`.
+page could be opened and read), 6 with no findable official site, 2 `ambiguous`,
+1 `closed`, 1 `duplicate`.
 
-- **Last completed batch:** United Kingdom, second pass — the OSM discovery run
-  finally came back and carried 22 more candidates, all verified against the
-  operator's own page.
-- **Next batch:** the Netherlands, France, Italy, Spain and the Nordics. What
-  remains in DACH and the UK is the long tail: MoonBoard-only club and school
-  setups whose upstream coordinates are too imprecise to pin down, and roughly
-  thirty operators whose sites refuse automated requests.
+- **Last completed batch:** Netherlands, first pass.
+- **Next batch:** Belgium, France, Italy, Spain and the Nordics.
