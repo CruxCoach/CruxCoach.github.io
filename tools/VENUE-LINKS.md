@@ -233,9 +233,9 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 488 |
-| Verified website links | 427 |
-| Rejected / ambiguous / private / closed | 61 |
+| Venues reviewed (linked + research entries) | 497 |
+| Verified website links | 432 |
+| Rejected / ambiguous / private / closed | 65 |
 | Countries covered | 9 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -250,13 +250,14 @@ Per-country coverage of eligible (public/commercial) venues:
 | AT | 44 | 48 | 92% |
 | FR | 31 | 70 | 44% |
 | BE | 23 | 36 | 64% |
-| ES | 13 | 98 | 13% |
+| ES | 18 | 98 | 18% |
 | IT | 1 | 72 | 1% |
 
-Research-log reasons so far: 49 `unverified` (43 of them operator sites that
-answer 403/401/500/526, fail their TLS handshake, or serve an expired or
-wrong-hostname certificate, so no page could be opened and read), 6 with no
-findable official site, 2 `ambiguous`, 1 `closed`, 1 `duplicate`, 1 `http-only`.
+Research-log reasons so far: 52 `unverified` (46 of them operator sites that
+answer 403/401/500/526, fail their TLS handshake, serve an expired,
+wrong-hostname or unverifiable certificate, or show a suspension notice, so no
+page could be opened and read), 6 with no findable official site, 3 `http-only`,
+2 `ambiguous`, 1 `closed`, 1 `duplicate`.
 
 - **Last completed batch:** France, fourth pass — Altissimo, The Roof, Solo
   Escalade, La Zipette, Minéral Spirit, Bloc Session Strasbourg.

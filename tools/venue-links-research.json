@@ -323,6 +323,44 @@
     "candidate": "https://biwakclimbing.com/"
   },
   {
+    "lat": 39.72222,
+    "lon": 2.90134,
+    "name": "esRocodrom",
+    "country": "ES",
+    "status": "http-only",
+    "checked": "2026-08-22",
+    "reason": "The gym's site redirects https to http://www.esrocodrom.com/, so there is no HTTPS URL to store."
+  },
+  {
+    "lat": 39.722313033598525,
+    "lon": 2.9013102846544903,
+    "name": "esRocodrom",
+    "country": "ES",
+    "status": "http-only",
+    "checked": "2026-08-22",
+    "reason": "The gym's site redirects https to http://www.esrocodrom.com/, so there is no HTTPS URL to store."
+  },
+  {
+    "lat": 42.56289,
+    "lon": -0.56955,
+    "name": "Indoorwall Jaca",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "candidate": "https://www.indoorwall.com/"
+  },
+  {
+    "lat": 40.42839,
+    "lon": -3.7089,
+    "name": "Uadibloc Malasaña",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-22",
+    "reason": "uadibloc.com serves a hosting-account suspension notice, so there is no operator page to open and read.",
+    "candidate": "https://uadibloc.com/"
+  },
+  {
     "lat": 45.38471,
     "lon": 5.57895,
     "name": "ABLOK Voiron",

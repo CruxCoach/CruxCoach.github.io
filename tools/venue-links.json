@@ -4458,6 +4458,21 @@
     "note": "The centre gives Calle Ebanistería 36 where upstream has number 8; it resolves to within 65 m of this venue."
   },
   {
+    "lat": 41.58233,
+    "lon": 1.61461,
+    "name": "Ingravita",
+    "country": "ES",
+    "website": "https://www.ingravita.cat/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ]
+  },
+  {
     "lat": 37.21734,
     "lon": -3.62359,
     "name": "Rock and Bloc",
@@ -4539,6 +4554,22 @@
     ]
   },
   {
+    "lat": 40.43856,
+    "lon": -3.61989,
+    "name": "Sharma Climbing Madrid",
+    "country": "ES",
+    "website": "https://sharmaclimbing.com/espana/madrid-centro/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ]
+  },
+  {
     "lat": 40.5359935,
     "lon": -3.6567195,
     "name": "Sputnik Climbing Alcobendas",
@@ -4571,6 +4602,22 @@
     ]
   },
   {
+    "lat": 40.49892,
+    "lon": -3.89055,
+    "name": "Sputnik Climbing Center Las Rozas",
+    "country": "ES",
+    "website": "https://sputnikclimbing.com/rocodromo-madrid/las-rozas/",
+    "verified": "2026-08-22",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The centre gives postcode 28232 where upstream has 28108."
+  },
+  {
     "lat": 40.43972,
     "lon": -3.70834,
     "name": "Sputnik Climbing Chamberí",
@@ -4600,6 +4647,36 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 40.3468176,
+    "lon": -3.801027599999999,
+    "name": "The Climb - Centro Escalada Madrid",
+    "country": "ES",
+    "website": "https://theclimb.es/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "Same physical gym as the Kilter entry ~13 m away; upstream lists the MoonBoard separately."
+  },
+  {
+    "lat": 40.34687,
+    "lon": -3.80091,
+    "name": "The Climb Madrid",
+    "country": "ES",
+    "website": "https://theclimb.es/",
+    "verified": "2026-08-22",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The centre gives its location as the San José de Valderas industrial estate between Alcorcón and Leganés; upstream files it under Leganés."
   },
   {
     "lat": 43.30261,
