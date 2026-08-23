@@ -12402,6 +12402,32 @@
   "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 18:00"
  },
  {
+  "lat": -8.63688,
+  "lon": 115.13838,
+  "name": "Rock Island Bali",
+  "country": "ID",
+  "source": "https://rockisland.id/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-21:00",
+   "tue": "10:00-21:00",
+   "wed": "10:00-21:00",
+   "thu": "10:00-21:00",
+   "fri": "10:00-21:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "WORKING HOURS Monday - Sunday 10:00 AM - 9:00 PM",
+  "note": "Stated as one window for the whole week, beside the gym's address."
+ },
+ {
   "lat": 51.88996,
   "lon": -8.53863,
   "name": "Awesome Walls Cork",
@@ -12893,6 +12919,56 @@
   "note": "The MoonBoard entry the dataset files under Saronno is the same hall as the Kilter entry about 10 m away in Uboldo; both carry Stone Age's address."
  },
  {
+  "lat": 34.6551456,
+  "lon": 133.9195019,
+  "name": "BoulderGarden SaBo",
+  "country": "JP",
+  "source": "https://www.bouldergardensabo.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "closed",
+   "tue": "14:00-23:00",
+   "wed": "14:00-23:00",
+   "thu": "14:00-23:00",
+   "fri": "14:00-23:00",
+   "sat": "12:00-21:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "OPEN TIMES 平日 14:00ｰ23:00 土 12:00ｰ21:00 日祝 10:00ｰ20:00 月 定休日",
+  "note": "The gym gives a weekday band, a Saturday, a Sunday-and-holiday line, and then 月 定休日 — Monday is its regular closing day — so Monday is taken out of the weekday band. The Saturday 11:00-12:00 kids school sits inside the Saturday opening."
+ },
+ {
+  "lat": 34.78667,
+  "lon": 135.81206,
+  "name": "カルコロ CAL-COLO",
+  "country": "JP",
+  "source": "https://cal-colo.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "14:00-22:00",
+   "tue": "14:00-22:00",
+   "wed": "14:00-22:00",
+   "thu": "14:00-22:00",
+   "fri": "14:00-22:00",
+   "sat": "12:00-22:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Hours 営業時間 平日 14:00–22:00 土曜日 12:00–22:00 日曜日・祝日 10:00–20:00",
+  "note": "The block headed 営業時間 is the opening. The cleaning windows the gym lists (平日13時–14時, 土11時–12時, 日祝9時–10時) each fall in the hour before that day opens, and the day- and night-pass validity bands are membership products rather than opening times."
+ },
+ {
   "lat": 49.49443,
   "lon": 5.96847,
   "name": "BlocX - Urban Fitness",
@@ -12991,6 +13067,32 @@
   },
   "evidence": "Opening hours Monday, Wednesday, Friday 14:00 - 22:00 Tuesday, Thursday 10:00 - 22:00 Saturday, Sunday, public holidays 09:00 - 19:00",
   "note": "The centre groups its days itself: Monday, Wednesday and Friday open in the afternoon, Tuesday and Thursday in the morning. Public holidays are grouped with the weekend."
+ },
+ {
+  "lat": 3.1006116,
+  "lon": 101.6320434,
+  "name": "BHub Bouldering 2024 Moonboard",
+  "country": "MY",
+  "source": "https://bhubbouldering.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "11:00-23:00",
+   "tue": "11:00-23:00",
+   "wed": "11:00-23:00",
+   "thu": "11:00-23:00",
+   "fri": "11:00-23:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Mon - Fri: 11:00 - 23:00 Sat, Sun, PH: 09:00 - 20:00",
+  "note": "Stated beside the gym's address. Public holidays are grouped with the weekend."
  },
  {
   "lat": 53.21729,
@@ -14525,6 +14627,31 @@
   "evidence": "10am-10pm Weekdays | 8am-8pm Weekends | 9am-8pm Public Holidays"
  },
  {
+  "lat": -37.6572354,
+  "lon": 176.1890824,
+  "name": "Rocktopia",
+  "country": "NZ",
+  "source": "https://rocktopia.co.nz/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "09:30-21:00",
+   "tue": "09:30-21:00",
+   "wed": "09:30-21:00",
+   "thu": "09:30-21:00",
+   "fri": "09:30-19:00",
+   "sat": "09:30-19:00",
+   "sun": "09:30-19:00"
+  },
+  "evidence": "Opening Hours Monday 9:30 AM – 9:00 PM Tuesday 9:30 AM – 9:00 PM Wednesday 9:30 AM – 9:00 PM Thursday 9:30 AM – 9:00 PM Friday 9:30 AM – 7:00 PM Saturday 9:30 AM – 7:00 PM Sunday 9:30 AM – 7:00 PM",
+  "note": "Every day is listed separately; only the closing time changes, from Friday onwards."
+ },
+ {
   "lat": -41.2715,
   "lon": 173.28177,
   "name": "The Gravity Well",
@@ -14644,6 +14771,56 @@
   "note": "A second line on the same page gives the bar's longer hours."
  },
  {
+  "lat": 52.2251954,
+  "lon": 21.0097981,
+  "name": "Crux Boulder Moonboard",
+  "country": "PL",
+  "source": "https://www.crux.boulder.pl/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "08:00-23:00",
+   "tue": "08:00-23:00",
+   "wed": "08:00-23:00",
+   "thu": "08:00-23:00",
+   "fri": "08:00-23:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Opening Hours Monday-Friday: 8:00 - 23:00 Saturday-Sunday: 10:00 - 21:00",
+  "note": "Stated on the gym's contact page beside its telephone number."
+ },
+ {
+  "lat": 51.097688,
+  "lon": 16.9824829,
+  "name": "Fabryczna Boulder",
+  "country": "PL",
+  "source": "https://www.noise-boulder.pl/kontakt",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "12:30-22:30",
+   "tue": "07:30-22:30",
+   "wed": "07:30-22:30",
+   "thu": "07:30-22:30",
+   "fri": "07:30-22:30",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Godziny otwarcia Poniedziałek 12:30 - 22:30 Wtorek - Piątek 07:30 - 22:30 Sobota - Niedziela 10:00 - 22:00",
+  "note": "Monday is stated on its own and the rest as two bands; all seven days are covered."
+ },
+ {
   "lat": 51.13489,
   "lon": 17.06328,
   "name": "Flow Climbing Space",
@@ -14759,6 +14936,31 @@
    "sun": "08:00-23:00"
   },
   "evidence": "Godziny otwarcia Codziennie: 8:00 - 23:00"
+ },
+ {
+  "lat": 38.53296,
+  "lon": -8.87263,
+  "name": "INWALL Climbing Center",
+  "country": "PT",
+  "source": "https://inwallclimbing.pt/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "HORÁRIOS De segunda a sexta 12h00 – 22h00 Sábados domingos e feriados 10h00 – 18h00 ONDE ESTAMOS Av. do Alentejo 20E, 2910-381 Setúbal",
+  "note": "Stated directly above the centre's address. Public holidays are grouped with the weekend."
  },
  {
   "lat": 32.65129510000001,

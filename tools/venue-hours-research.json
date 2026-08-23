@@ -4215,10 +4215,10 @@
   "lon": 6.04587,
   "name": "Space Bloc",
   "country": "FR",
-  "status": "no-hours-on-official-site",
+  "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The site carries the address and no schedule.",
-  "source": "https://www.spacebloc.fr/"
+  "source": "https://www.spacebloc.fr/",
+  "reason": "The only week the hall states is an exception to one: \"HORAIRES EXCEPTIONNELS CHAQUE SAMEDI (JUILLET / AOÛT) 10H00 - 19H00\", a summer Saturday arrangement with a happy hour attached. No regular week is published anywhere on the site to put it against."
  },
  {
   "lat": 49.11961,
@@ -4760,6 +4760,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 47.5085995,
+  "lon": 19.0259772,
+  "name": "Gravity Moonboard",
+  "country": "HU",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://gravitybudapest.com/",
+  "reason": "The site publishes a training timetable — \"Hétfő: Új kezdő edzés Kari vezetésével 17:30-19 között\", and so on for the other days — and no opening hours for the gym itself. A course schedule is not an opening."
  },
  {
   "lat": 47.2306851,
@@ -5535,16 +5545,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 34.6551456,
-  "lon": 133.9195019,
-  "name": "BoulderGarden SaBo",
-  "country": "JP",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "No schedule appears in the served document.",
-  "source": "https://www.bouldergardensabo.com/"
  },
  {
   "lat": 36.60036,
@@ -7692,6 +7692,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 50.04933,
+  "lon": 19.97025,
+  "name": "MOOD",
+  "country": "PL",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://hellomood.pl/contact",
+  "reason": "The weekend is described around a competition rather than as an opening. Monday to Friday are plain enough (Monday 15:00-23:00, Tuesday to Friday 07:00-23:00), but Saturday reads \"From 9:00 to 16:00 — Championship qualifiers; during this time, the hall capacity is limited to 40 people. After that, we operate as usual\", with no closing time given at all, and Sunday is \"09:00-23:00: 09:00-13:00 Polish Championships\". A week cannot be read off that."
+ },
+ {
   "lat": 52.17105,
   "lon": 20.9334,
   "name": "Murall Krakowska Warszawa",
@@ -7849,16 +7859,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 38.53296,
-  "lon": -8.87263,
-  "name": "INWALL Climbing Center",
-  "country": "PT",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "The site carries the address (Av. do Alentejo 20E, Setúbal) and no schedule.",
-  "source": "https://inwallclimbing.pt/"
  },
  {
   "lat": 41.3660623,
