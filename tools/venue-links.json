@@ -6547,6 +6547,20 @@
     ]
   },
   {
+    "lat": 49.18795369999999,
+    "lon": 8.1331486,
+    "name": "Fitz Rocks – Kletterarena der Südpfalz",
+    "country": "DE",
+    "website": "https://felswerk-landau.de/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The hall was renamed. Upstream calls it Fitz Rocks – Kletterarena der Südpfalz and fitzrocks.de answers 500; OSM carries felswerk-landau.de on the climbing object at this venue, and that site gives Landau in der Pfalz, the town upstream records."
+  },
+  {
     "lat": 53.56363,
     "lon": 9.91261,
     "name": "FLASHH Hamburg",
@@ -6938,6 +6952,20 @@
       "location-page",
       "board-mention"
     ]
+  },
+  {
+    "lat": 49.4690662,
+    "lon": 7.1531582,
+    "name": "Moonboard 2016 Rocklands St Wendel",
+    "country": "DE",
+    "website": "https://www.rocklands-wnd.de/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Rocklands in Sankt Wendel: one named hall in one town, whose own site prints that town. The town is part of the venue's name, so on its own it would not be a second signal — what makes it one here is that OSM carries this exact domain on the climbing object at these coordinates, so the site and the building are tied together independently of the name."
   },
   {
     "lat": 50.13489,
@@ -8651,6 +8679,22 @@
     "note": "The operator runs two halls, pati gran in Sant Fruitós and pati xic in Manresa; this coordinate is on the Camí del Grau address of the first."
   },
   {
+    "lat": 37.3927903,
+    "lon": -5.956768200000001,
+    "name": "Rock & Board",
+    "country": "ES",
+    "website": "https://www.rockandwallclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "Rock & Wall Climbing in Seville, which embeds a map of itself 78 m from this venue and names the Kilter Board it is listed for. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
+  },
+  {
     "lat": 37.392502956111336,
     "lon": -5.957352871163623,
     "name": "Rock & Wall Climbing",
@@ -9135,6 +9179,20 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 60.739042,
+    "lon": 24.8000213,
+    "name": "Riihimäen Rocklands",
+    "country": "FI",
+    "website": "https://rocklands.fi/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Riihimäen Rocklands: one named hall in one town, whose own site prints that town. The town is part of the venue's name, so on its own it would not be a second signal — what makes it one here is that OSM carries this exact domain on the climbing object at these coordinates, so the site and the building are tied together independently of the name."
   },
   {
     "lat": 43.31385,
@@ -11703,6 +11761,20 @@
     "note": "The site is Megalab Climbing ASD and prints Via Roma 55 - 18019 - Vallecrosia (IM); geocoding that address lands 45 m from this venue's coordinate. The upstream city is Ventimiglia, the next town along the coast. megalab.it is an unrelated casino-affiliate site."
   },
   {
+    "lat": 43.1093656,
+    "lon": 12.3608041,
+    "name": "Metropolitan Boulder",
+    "country": "IT",
+    "website": "https://metropolitanboulder.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Metropolitan Boulder's own site, giving Perugia — the town upstream records, which the venue name does not carry. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
+  },
+  {
     "lat": 42.3539044,
     "lon": 13.3422517,
     "name": "Moonboard BLOCKLAND",
@@ -14062,6 +14134,20 @@
     ]
   },
   {
+    "lat": 50.2724967,
+    "lon": 19.0407248,
+    "name": "BlOKatowice",
+    "country": "PL",
+    "website": "https://blokatowice.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "BlOKatowice: one named hall in one town, whose own site prints that town. The town is part of the venue's name, so on its own it would not be a second signal — what makes it one here is that OSM carries this exact domain on the climbing object at these coordinates, so the site and the building are tied together independently of the name."
+  },
+  {
     "lat": 52.4173693,
     "lon": 16.922555,
     "name": "CLIMBING SPOT - PUŁASKIEGO",
@@ -14301,6 +14387,20 @@
     ]
   },
   {
+    "lat": 52.18297690000001,
+    "lon": 21.0878391,
+    "name": "Volt Moon",
+    "country": "PL",
+    "website": "https://www.voltboulderownia.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Volt Boulderownia's own site, giving Mokotów — the district upstream records, which the venue name does not carry. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
+  },
+  {
     "lat": 52.19239,
     "lon": 20.93527,
     "name": "WEST Bouldering",
@@ -14387,6 +14487,35 @@
     "note": "The West Climbing Center's own site, embedding a map of itself 201 m from this venue and labelled with the centre's own name."
   },
   {
+    "lat": 40.2107084,
+    "lon": -8.433596399999999,
+    "name": "upa! Escalódromo de Coimbra",
+    "country": "PT",
+    "website": "https://upaclimbing.pt/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "upa! Escalódromo de Coimbra: one named hall in one town, whose own site prints that town. The town is part of the venue's name, so on its own it would not be a second signal — what makes it one here is that OSM carries this exact domain on the climbing object at these coordinates, so the site and the building are tied together independently of the name."
+  },
+  {
+    "lat": 41.11153,
+    "lon": -8.62096,
+    "name": "Zone Climb",
+    "country": "PT",
+    "website": "https://zone.com.pt/climb",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "Zone's own climbing page, printing the 4405 postal code and Vila Nova de Gaia — the town upstream records for Tv Joaquim Lopes Pintor 81. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
+  },
+  {
     "lat": 44.38974,
     "lon": 26.12165,
     "name": "Climb Again Centrul",
@@ -14442,6 +14571,21 @@
       "city"
     ],
     "note": "Natural High's own site for its Bucharest hall, the city upstream records."
+  },
+  {
+    "lat": 45.7983273,
+    "lon": 24.1255826,
+    "name": "Panoul de Catzarat Sibiu",
+    "country": "RO",
+    "website": "https://arkapark.ro/indoor-climbing-sibiu",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Arka Park's own page for its Sibiu indoor climbing hall, the town upstream records, with a map of itself 337 m from the venue. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
   },
   {
     "lat": 44.4485,
@@ -14644,6 +14788,20 @@
     "note": "The hall's own site, carrying the Norrkoping name this venue is filed under and embedding a map of itself within the coordinates signal's range."
   },
   {
+    "lat": 65.6036398,
+    "lon": 22.1386911,
+    "name": "Klätterhuset Luleå",
+    "country": "SE",
+    "website": "https://klatterhuset.se/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Klätterhuset in Luleå: one named hall in one town, whose own site prints that town. The town is part of the venue's name, so on its own it would not be a second signal — what makes it one here is that OSM carries this exact domain on the climbing object at these coordinates, so the site and the building are tied together independently of the name."
+  },
+  {
     "lat": 59.35825,
     "lon": 18.09016,
     "name": "Klatterverket Gasverket",
@@ -14689,6 +14847,34 @@
     "note": "Linkopings Klatterklubb's own site — a single club with a single hall, whose name is unique to one town — giving Linkoping, the town upstream records for Rydsvagen 5A."
   },
   {
+    "lat": 60.5917084,
+    "lon": 15.6424559,
+    "name": "Mono Loco",
+    "country": "SE",
+    "website": "https://monoloco.se/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Mono Loco's own site, giving Falun — the town upstream records, which the venue name does not carry. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
+  },
+  {
+    "lat": 59.31260400000001,
+    "lon": 18.0734204,
+    "name": "Moumo Skrapan",
+    "country": "SE",
+    "website": "https://www.moumo.se/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Moumo's own site, giving Södermalm — the district upstream records for the Skrapan hall. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
+  },
+  {
     "lat": 59.31302,
     "lon": 18.07344,
     "name": "Moumo Skrapan",
@@ -14700,6 +14886,20 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 63.16214050000001,
+    "lon": 14.6551623,
+    "name": "Östersunds Klättercenter",
+    "country": "SE",
+    "website": "https://ostersundsklattercenter.se/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Östersunds Klättercenter: one named hall in one town, whose own site prints that town. The town is part of the venue's name, so on its own it would not be a second signal — what makes it one here is that OSM carries this exact domain on the climbing object at these coordinates, so the site and the building are tied together independently of the name."
   },
   {
     "lat": 57.39706,
@@ -14861,6 +15061,21 @@
     "note": "Bolder Scena publishes a page per hall; the Kranj page prints the 4000 postal code and the town upstream records."
   },
   {
+    "lat": 46.0731693,
+    "lon": 14.4972189,
+    "name": "Bolder Scena Moonboard",
+    "country": "SI",
+    "website": "https://bolderscena.si/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Bolder Scena's own site, giving Ljubljana and naming the MoonBoard this venue is listed for. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
+  },
+  {
     "lat": 45.92772330549454,
     "lon": 13.639153740355331,
     "name": "DES Climbing Gym",
@@ -14947,6 +15162,21 @@
     "note": "Ovcin Boulder & Bistro's own site, printing Horne Jaseno 160 — the street line upstream records."
   },
   {
+    "lat": 48.2895169,
+    "lon": 18.077119,
+    "name": "pralez.me",
+    "country": "SK",
+    "website": "https://pralez.me/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "pralez.me is both the venue's name and its domain; the site gives Nitra, the town upstream records, and names the MoonBoard this venue is listed for. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
+  },
+  {
     "lat": 48.69571,
     "lon": 21.23896,
     "name": "Steam Factory",
@@ -14959,6 +15189,21 @@
       "street-address"
     ],
     "note": "Steam Factory's own site, printing Moldavska cesta 32 — the street line upstream records."
+  },
+  {
+    "lat": 48.15260749999999,
+    "lon": 17.1390924,
+    "name": "Vertigo",
+    "country": "SK",
+    "website": "https://lezeckecentrum.sk/en/home/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Lezecké centrum Vertigo's own site, giving Bratislava and naming the MoonBoard this venue is listed for. This is the twin of the Vertigo entry 25 m away that already carries the same link. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
   },
   {
     "lat": 13.73627,

@@ -1637,16 +1637,6 @@
     "candidate": "https://peissenberg.de/"
   },
   {
-    "lat": 49.18795369999999,
-    "lon": 8.1331486,
-    "name": "Fitz Rocks – Kletterarena der Südpfalz",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "fitzrocks.de answers 500 on both hosts, to every header set tried, so the page the first pass identified cannot be read. The one chain sibling named Kletterarena is a different gym 78 km away in Neckarsulm.",
-    "candidate": "https://fitzrocks.de/"
-  },
-  {
     "lat": 48.3031965,
     "lon": 10.3627835,
     "name": "Kletterzentrum Krumbach",
@@ -1675,16 +1665,6 @@
     "checked": "2026-08-23",
     "reason": "linie.de does not answer and linie.com is a Norwegian aquavit brand. \"Linie 9 Boulderlounge\" in Freudenberg yields nothing else.",
     "candidate": "https://linie.com/"
-  },
-  {
-    "lat": 49.4690662,
-    "lon": 7.1531582,
-    "name": "Moonboard 2016 Rocklands St Wendel",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "rocklands.de answers 403 to every fetcher and rocklands.com is a barbecue company in Virginia. The dataset name is a board model plus a hall nickname.",
-    "candidate": "https://rocklands.de/"
   },
   {
     "lat": 54.096812,
@@ -2046,16 +2026,6 @@
     "candidate": "https://resilientrehab.com/"
   },
   {
-    "lat": 37.3927903,
-    "lon": -5.956768200000001,
-    "name": "Rock & Board",
-    "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The OSM node 75 m away is Rock & Wall Climbing, which is a different venue already curated in this file, and rockboard.com, rock.com and rock.cat are a pedalboard maker, a family office and a Catalan radio station. Nothing found names \"Rock & Board\" in Seville.",
-    "candidate": "https://www.rockandwallclimbing.com/"
-  },
-  {
     "lat": 42.05786,
     "lon": 1.26798,
     "name": "Rocodromo Peramola",
@@ -2182,16 +2152,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no candidate could be opened — www.kiipeilyverstas.fi → no answer. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 60.739042,
-    "lon": 24.8000213,
-    "name": "Riihimäen Rocklands",
-    "country": "FI",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — rocklands.fi → \"Rocklands – Riihimäen Kiipeilykeskus\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://rocklands.fi/"
   },
   {
     "lat": 60.0970945,
@@ -3116,16 +3076,6 @@
     "checked": "2026-08-23",
     "reason": "mare.it is a biodiversity project and mare.com an industrial-process firm. \"Mare Verticale Moon Board\" leaves only the generic word mare once the board model is stripped, and nothing else resolves.",
     "candidate": "https://mare.it/"
-  },
-  {
-    "lat": 43.1093656,
-    "lon": 12.3608041,
-    "name": "Metropolitan Boulder",
-    "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Re-checked: metropolitanboulder.it and metropolitanboulder.com both still serve \"Site is undergoing maintenance\" and nothing else, so no address or hall detail can be read. The OSM node 32 m away carries the same domain.",
-    "candidate": "https://metropolitanboulder.it/"
   },
   {
     "lat": 45.0515199,
@@ -4844,16 +4794,6 @@
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 50.2724967,
-    "lon": 19.0407248,
-    "name": "BlOKatowice",
-    "country": "PL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — blokatowice.pl → \"BLOKatowice – Boulderownia w Katowicach – BLOKatowice – \". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://blokatowice.pl/"
-  },
-  {
     "lat": 52.406374,
     "lon": 16.9251681,
     "name": "BLOKHAUS",
@@ -5020,16 +4960,6 @@
     "candidate": "https://www.hugedomains.com/domain_profile.cfm?d=unitedclimbing.com"
   },
   {
-    "lat": 52.18297690000001,
-    "lon": 21.0878391,
-    "name": "Volt Moon",
-    "country": "PL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.voltboulderownia.pl → \"VOLT Boulderownia - Ściana wspinaczkowa w Warszawie, Łod\"; volt.com.pl → \"a page with no title\"; volt.com → \"Workforce and Recruiting solutions - Volt\", the rest could not be opened — volt.pl → a certificate that does not cover its hostname; voltmoon.com → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://voltboulderownia.pl/"
-  },
-  {
     "lat": 38.7222524,
     "lon": -9.1393366,
     "name": "Crux - Climbing Center",
@@ -5097,16 +5027,6 @@
     "candidate": "https://rainbowrocket.cc/centre/north/"
   },
   {
-    "lat": 40.2107084,
-    "lon": -8.433596399999999,
-    "name": "upa! Escalódromo de Coimbra",
-    "country": "PT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — upaclimbing.pt → \"upa! Escalódromo de Coimbra\"; www.upa.pt → \"UPA Publicidade\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.upaclimbing.pt/"
-  },
-  {
     "lat": 37.14661226641366,
     "lon": -8.482054452243313,
     "name": "Vertical Escalada",
@@ -5115,16 +5035,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — verticalescalada.pt → \"Vertical\"; vertical.com → \"Home - Vertical Communications\", the rest could not be opened — verticalescalada.com → a certificate that does not cover its hostname / no answer; vertical.pt → no answer, the venue's whole name as one label, verticalescalada.pt, answers 200 (\"Vertical\") but its pages print no street, postal code or town matching this venue. Upstream records Rua Eça de Queiroz, 8400-018, Estombar, and nothing opened printed it.",
     "candidate": "https://verticalescalada.pt/"
-  },
-  {
-    "lat": 41.11153,
-    "lon": -8.62096,
-    "name": "Zone Climb",
-    "country": "PT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.climbzone.fr → \"Salle Escalade Multi-niveau à Montauban\"; zone.pt → \"zone.pt | fruits\"; zone.com → \"Microsoft Casual Games - The Zone\", the rest could not be opened — zone.com.pt/climb → 404; zoneclimb.com → no answer, the venue's whole name as one label, zoneclimb.com, does not resolve. Upstream records Tv Joaquim Lopes Pintor 81, 4405-869, Vila Nova de Gaia, and nothing opened printed it.",
-    "candidate": "https://www.climbzone.fr/"
   },
   {
     "lat": 46.55842,
@@ -5165,16 +5075,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — www.moveclimbing.es → \"MOVE Climbing – Tu nuevo rocódromo en Sevilla\"; onemove.ro → \"Sala de cățărat One Move – Din pasiune pentru cățărat\"; onemove.com → \"Global Legal Technology | Dye & Durham - Dye & Durham\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.moveclimbing.es/"
-  },
-  {
-    "lat": 45.7983273,
-    "lon": 24.1255826,
-    "name": "Panoul de Catzarat Sibiu",
-    "country": "RO",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — arkapark.ro/indoor-climbing-sibiu → \"Parcul de aventură Arka Park Paltinis, Vâlcea & Indoor c\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.arkapark.ro/indoor-climbing-sibiu/"
   },
   {
     "lat": 47.8063969,
@@ -5517,36 +5417,6 @@
     "candidate": "https://www.klattercentret.se/"
   },
   {
-    "lat": 65.6036398,
-    "lon": 22.1386911,
-    "name": "Klätterhuset Luleå",
-    "country": "SE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — klatterhuset.se → \"- Klätterhuset\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://klatterhuset.se/"
-  },
-  {
-    "lat": 60.5917084,
-    "lon": 15.6424559,
-    "name": "Mono Loco",
-    "country": "SE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — monoloco.se → \"Mono Loco Falun\"; monoboulder.nl → \"Home - MONO Boulder\", the rest could not be opened — monoloco.com → 200; mono-loco.com → 200; mono.se → 403, the venue's whole name as one label, monoloco.se, answers 200 (\"Mono Loco Falun\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://monoloco.se/"
-  },
-  {
-    "lat": 59.31260400000001,
-    "lon": 18.0734204,
-    "name": "Moumo Skrapan",
-    "country": "SE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.moumo.se → \"Moumo | Join Moumo's Active Community\", the rest could not be opened — moumo.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.moumo.se/"
-  },
-  {
     "lat": 59.2761633,
     "lon": 15.2337493,
     "name": "Örebro Klättergym",
@@ -5555,16 +5425,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — orebroklattergym.se → \"Örebro Klättergym - Inomhusklättring i centrala Örebro\"; orebro.se → \"Välkommen till Örebro kommun - orebro.se\", the rest could not be opened — orebro.com → 403, the venue's whole name as one label, orebroklattergym.se, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.orebroklattergym.se/"
-  },
-  {
-    "lat": 63.16214050000001,
-    "lon": 14.6551623,
-    "name": "Östersunds Klättercenter",
-    "country": "SE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — ostersundsklattercenter.se → \"Östersunds klättercenter – klätterhall i centrala Östers\", the venue's whole name as one label, ostersundsklattercenter.se, answers 200 (\"Östersunds klättercenter &#8211; klätterhall i centrala Öste\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://ostersundsklattercenter.se/"
   },
   {
     "lat": 57.3989958,
@@ -5627,16 +5487,6 @@
     "candidate": "https://www.climba.sg/"
   },
   {
-    "lat": 46.0731693,
-    "lon": 14.4972189,
-    "name": "Bolder Scena Moonboard",
-    "country": "SI",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — bolderscena.si → \"Bolder Scena - Plezaj. Gibaj se. Uživaj.\", the rest could not be opened — bolder-scena.si → a certificate that does not cover its hostname; bolder.si → 200; bolder.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://bolderscena.si/"
-  },
-  {
     "lat": 46.39187,
     "lon": 15.56615,
     "name": "Plezalni Center Slovenska Bistrica",
@@ -5667,16 +5517,6 @@
     "candidate": "https://climbingwall.sk/en/home/"
   },
   {
-    "lat": 48.2895169,
-    "lon": 18.077119,
-    "name": "pralez.me",
-    "country": "SK",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — pralez.me → \"PRALEZ climbing gym Nitra | Lezecké centrum s bouldering\"; pralez.sk → \"Registrácia domén, hosting a servery :: Websupport.sk\"; pralez.com → \"Plesk Obsidian 18.0.62\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.pralez.me/"
-  },
-  {
     "lat": 48.1527147,
     "lon": 17.8689204,
     "name": "Rebelia",
@@ -5694,16 +5534,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — spot.sk → \"Solution architecture and design for your IT\", the rest could not be opened — spotclimbing.com → 200; spot.com → 403. Upstream records Devínska Nová Ves 7466 objekt C, 841 07, Devínska Nová Ves, and nothing opened printed it.",
     "candidate": "https://spot.sk/"
-  },
-  {
-    "lat": 48.15260749999999,
-    "lon": 17.1390924,
-    "name": "Vertigo",
-    "country": "SK",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — lezeckecentrum.sk → \"Vertigo - climbing center | Vertigo\"; www.vertigoclimb.com → \"ASD Vertigo\"; vertigo.sk → \"Vertigo - Ponuka akrobaticko-tanečných vystúpení zoskupe\", the rest could not be opened — vertigo.com → a timeout / no answer; vertigoclimbing.com → no answer, the venue's whole name as one label, vertigo.sk, answers 200 (\"Vertigo - Ponuka akrobaticko-tanečných vystúpení zoskupenia \") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://lezeckecentrum.sk/en/home/"
   },
   {
     "lat": 33.503683607357665,
