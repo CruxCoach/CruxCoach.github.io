@@ -130,6 +130,24 @@
   "reason": "Re-read: unchanged. No schedule appears on the homepage or on any page linked from it."
  },
  {
+  "lat": -33.89914,
+  "lon": 151.0434,
+  "name": "1UP Bouldering",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -25.215260569377044,
+  "lon": 153.1519274200911,
+  "name": "7x10 HW NK",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": -31.95621,
   "lon": 115.92525,
   "name": "Adrenaline Vault Belmont",
@@ -160,6 +178,26 @@
   "source": "https://adrenalinevault.com.au/locations/belmont/"
  },
  {
+  "lat": -28.0806683,
+  "lon": 153.3875897,
+  "name": "Alpine Indoor Climbing",
+  "country": "AU",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.alpineindoorclimbing.com/",
+  "reason": "Same operator page as the Currumbin hall: no opening times anywhere on it."
+ },
+ {
+  "lat": -28.1455,
+  "lon": 153.47779,
+  "name": "Alpine Indoor Climbing Currumbin",
+  "country": "AU",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.alpineindoorclimbing.com/",
+  "reason": "The operator publishes no opening times on the homepage, and the per-location paths its own navigation implies answer 404."
+ },
+ {
   "lat": -38.09379,
   "lon": 145.1689,
   "name": "Bayside Rock",
@@ -170,14 +208,80 @@
   "source": "https://baysiderock.com.au/"
  },
  {
+  "lat": -26.807137,
+  "lon": 153.070112,
+  "name": "Boulder Heads",
+  "country": "AU",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://boulder-heads.com/",
+  "reason": "The visible block says \"Mon + Tues 12:30 - 9:30pm, Wed 9am - 9:30pm, Thurs + Fri 12:30 - 9:30pm, Sat 9am - 7pm, Sun 10am - 6pm\" while the page's own openingHours markup puts Wednesday with the rest at 12:30-21:30."
+ },
+ {
+  "lat": -26.80713,
+  "lon": 153.07039,
+  "name": "Boulder Heads",
+  "country": "AU",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://boulder-heads.com/",
+  "reason": "Same page and the same conflict as its twin: Wednesday is 9am in the text and 12:30 in the markup."
+ },
+ {
+  "lat": -33.8184459,
+  "lon": 151.1893579,
+  "name": "Climb Fit St Leonards",
+  "country": "AU",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.climbfit.com.au/",
+  "reason": "The operator publishes a per-location hours block for Macquarie only; the St Leonards location path answers 404 and no week for it appears anywhere on the site."
+ },
+ {
+  "lat": -33.76538,
+  "lon": 150.90848,
+  "name": "Climb Oz",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": -28.03656,
   "lon": 153.3533,
   "name": "Core Climbing",
   "country": "AU",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The homepage says MON, WED, FRI 12 PM-10 PM and TUE, THU 6PM-10PM while the contact page says Monday 6 am–10 pm, Wednesday 12 pm–10 pm and Friday 12 pm–10 pm.",
-  "source": "https://www.coreclimbing.com.au/"
+  "source": "https://coreclimbing.com.au/contact/",
+  "reason": "Two weeks on one site: the homepage says \"MON | WED | FRI 12 PM- 10 PM, TUE | THU 6PM- 10PM\" while the contact page says Monday 6 am – 10 pm, Tuesday 6 am – 10 pm, Wednesday 12 pm – 10 pm, Thursday 6 am – 10 pm, Friday 12 pm – 10 pm. Four of the five weekdays disagree."
+ },
+ {
+  "lat": -27.5624,
+  "lon": 153.0687,
+  "name": "Crank Indoor Climbing",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -34.55774,
+  "lon": 150.79166,
+  "name": "Dynomite Gym Albion Park Rail",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -34.40612,
+  "lon": 150.89504,
+  "name": "Dynomite Gym North Wollongong",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": -37.9598854,
@@ -186,8 +290,26 @@
   "country": "AU",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The Saturday row reads \"Saturday: 1 0PM – 10PM\" — the opening time is mangled on the page itself and cannot be read.",
-  "source": "https://flowclimbing.com.au/"
+  "source": "https://flowclimbing.com.au/",
+  "reason": "One of the seven rows cannot be read: the week runs \"Monday: 2PM – 10PM, Tuesday – Friday: 1PM – 10PM, Saturday: 1 0PM – 10PM, Sunday: 10AM – 7PM\", and the Saturday opening is a broken token — 10AM and 1PM are both plausible and the page does not say which."
+ },
+ {
+  "lat": -33.8688197,
+  "lon": 151.2092955,
+  "name": "Illyria's Board",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -32.0608694,
+  "lon": 115.918019,
+  "name": "Iris Boulders Canning Vale",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": -37.9255978,
@@ -200,14 +322,106 @@
   "source": "https://laroca.com.au/"
  },
  {
+  "lat": -32.51346,
+  "lon": 115.75291,
+  "name": "Mandurah Indoor Rock Climbing Center",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -37.7695238,
+  "lon": 144.997369,
+  "name": "Northside Boulders Northcote",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -34.563868,
+  "lon": 150.819243,
+  "name": "Oak Flats Schojo",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -26.7275358,
+  "lon": 153.1208034,
+  "name": "Rockit 25 2019",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -26.7276342,
+  "lon": 153.1207776,
+  "name": "Rockit Climbing Gym QLD",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -33.83547,
+  "lon": 151.05313,
+  "name": "Sandbox Bouldering",
+  "country": "AU",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://sandboxbouldering.com.au/",
+  "reason": "Same page and the same control: the staffed hours are not in the fetched document."
+ },
+ {
   "lat": -33.83541,
   "lon": 151.05309,
   "name": "Sandbox Bouldering",
   "country": "AU",
-  "status": "no-hours-on-official-site",
+  "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://sandboxbouldering.com.au/"
+  "source": "https://sandboxbouldering.com.au/",
+  "reason": "The site tells first-time visitors to \"come at staffed hours\" behind a \"Check Staffed Hours\" control, and the times themselves are not in the fetched document."
+ },
+ {
+  "lat": -33.8791418,
+  "lon": 150.9775568,
+  "name": "SICG Villawood",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -36.78204239034518,
+  "lon": 144.26338550176908,
+  "name": "The Hold Co, Ltd.",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -38.1617913,
+  "lon": 144.3439997,
+  "name": "The Rock Adventure Centre",
+  "country": "AU",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -34.048437,
+  "lon": 150.828968,
+  "name": "Top Out Bouldering Gym",
+  "country": "AU",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://topout.com.au/",
+  "reason": "The visible week is Monday 9am-10pm, Tuesday 6am-10pm, Wednesday 9am-10pm, Thursday 6am-10pm, Friday 9am-10pm, Saturday and Sunday 8am-9pm, while the page's own openingHours markup says Mo-Su 06:00-22:00."
  },
  {
   "lat": -27.45127,
@@ -216,8 +430,8 @@
   "country": "AU",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The only schedule in the fetched document is schema.org openingHours (Mo-Fr 05:00-20:00, Sa 06:00-17:00, Su 07:30-17:00); nothing a reader can see carries times.",
-  "source": "https://totalfusion.com.au/"
+  "source": "https://totalfusion.com.au/",
+  "reason": "The only schedule in the fetched document is a chain-wide openingHours block (Monday–Friday 05:00-20:00, Saturday 06:00-17:00, Sunday 07:30-17:00) with nothing tying it to Newstead, and no times a reader can see."
  },
  {
   "lat": -34.92305,
@@ -254,10 +468,10 @@
   "lon": 153.2033032,
   "name": "Wall Walkers Bouldering",
   "country": "AU",
-  "status": "ambiguous",
+  "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The contact page says \"Mon-Wed, Fri 3pm - 8pm | Sat-Sun 9am - 7pm | Thursday 24/7 Access\", the locations page drops the Thursday line, and the site’s schema.org says 24/7.",
-  "source": "https://wallwalkers.com.au/"
+  "source": "https://wallwalkersbouldering.com.au/",
+  "reason": "The gym calls itself a 24/7 climbing gym and the only schedule in the fetched document is an openingHours block reading 00:00 to 23:59 every day; no staffed or public window is stated where a reader can see it."
  },
  {
   "lat": 51.23389,

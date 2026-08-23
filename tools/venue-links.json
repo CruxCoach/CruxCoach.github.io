@@ -831,6 +831,35 @@
     "note": "Upstream lists this MoonBoard separately, 52 m from its Kilter entry."
   },
   {
+    "lat": -28.0806683,
+    "lon": 153.3875897,
+    "name": "Alpine Indoor Climbing",
+    "country": "AU",
+    "website": "https://www.alpineindoorclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "city"
+    ],
+    "note": "The same operator page names Robina as one of its two halls; geocoding \"Alpine Indoor Climbing, Robina\" lands 162 m from this venue. There is no per-location page — the Robina and Currumbin paths both answer 404."
+  },
+  {
+    "lat": -28.1455,
+    "lon": 153.47779,
+    "name": "Alpine Indoor Climbing Currumbin",
+    "country": "AU",
+    "website": "https://www.alpineindoorclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The operator names both its halls — Robina and Currumbin — and the site prints the 1 Stewart Rd, QLD 4223 address upstream records for this one. The OSM node 24 m away carries the same domain."
+  },
+  {
     "lat": -38.09379,
     "lon": 145.1689,
     "name": "Bayside Rock",
@@ -844,6 +873,21 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": -33.87073,
+    "lon": 151.00728,
+    "name": "Beta One Bouldering Gym",
+    "country": "AU",
+    "website": "https://betaone.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "board-mention"
+    ],
+    "note": "The site is Beta One Bouldering Gym, prints 1E/62 Ferndell St, South Granville NSW 2142 and names a Tension Board — the board system this entry is listed for. The dataset's other Beta One entry 17 m away already carries this link."
   },
   {
     "lat": -33.87058,
@@ -904,6 +948,22 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": -33.90788,
+    "lon": 151.16757,
+    "name": "Bloc Haus MKV",
+    "country": "AU",
+    "website": "https://syd.blochaus.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "board-mention"
+    ],
+    "note": "BlocHaus gives its Sydney halls a subdomain and labels them MKV and LCT; the page prints the 49 Fitzroy St, 2204 Marrickville address upstream records for the MKV hall and names a Kilter Board. The OSM node 39 m away carries the same domain."
   },
   {
     "lat": -35.3209807,
@@ -981,6 +1041,36 @@
     ]
   },
   {
+    "lat": -26.807137,
+    "lon": 153.070112,
+    "name": "Boulder Heads",
+    "country": "AU",
+    "website": "https://boulder-heads.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates"
+    ],
+    "note": "The site is Boulder Heads Indoor Rock Climbing and prints 19 Edison Cres, Baringa QLD 4551; geocoding that address lands 193 m from this venue. boulderheads.com does not resolve."
+  },
+  {
+    "lat": -26.80713,
+    "lon": 153.07039,
+    "name": "Boulder Heads",
+    "country": "AU",
+    "website": "https://boulder-heads.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates"
+    ],
+    "note": "Same hall as the venue a few metres away — the Tension entry beside the MoonBoard one — and the same site."
+  },
+  {
     "lat": -37.77623,
     "lon": 144.96197,
     "name": "Boulder Lab Brunswick",
@@ -992,6 +1082,36 @@
       "street-address",
       "city"
     ]
+  },
+  {
+    "lat": -37.92972,
+    "lon": 145.12806,
+    "name": "Boulder Lab Clayton",
+    "country": "AU",
+    "website": "https://boulderlab.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "Boulder Lab publishes both Melbourne halls with an address each, and the Clayton South block prints 1418a Centre Rd — the street line upstream records. Reached only after the domain guesser learned to drop a branch suffix; boulderlabclayton.com is an unrelated backpacking shop."
+  },
+  {
+    "lat": -37.88366,
+    "lon": 145.26925,
+    "name": "Boulder Lab Ferntree Gully",
+    "country": "AU",
+    "website": "https://boulderlab.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The same operator page prints \"Ferntree Gully 8/1821 Ferntree Gully Road\", which is the street line upstream records for this hall."
   },
   {
     "lat": -36.5623611,
@@ -1010,6 +1130,51 @@
     "note": "The coordinate falls on Myrtle Street in Myrtleford 3737, the street the gym prints."
   },
   {
+    "lat": -34.02845,
+    "lon": 151.07911,
+    "name": "Climb Fit Kirrawee",
+    "country": "AU",
+    "website": "https://www.climbfit.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "street-address",
+      "city"
+    ],
+    "note": "Climb Fit's locations page lists Kirrawee with \"23 Waratah St\", which is the street line upstream records. The climbfitkirrawee.com domain the OSM node carries has been taken over and now serves an unrelated lottery-results site."
+  },
+  {
+    "lat": -33.78746,
+    "lon": 151.13315,
+    "name": "Climb Fit Macquarie",
+    "country": "AU",
+    "website": "https://www.climbfit.com.au/location/climb-fit-macquarie/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "board-mention"
+    ],
+    "note": "The Macquarie location page prints 3 Waterloo Rd in 2113 — the address upstream records — and names a Kilter Board. The OSM node 75 m away carries the same URL."
+  },
+  {
+    "lat": -33.8184459,
+    "lon": 151.1893579,
+    "name": "Climb Fit St Leonards",
+    "country": "AU",
+    "website": "https://www.climbfit.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "city"
+    ],
+    "note": "Climb Fit names St Leonards as one of its three Sydney locations, and geocoding \"Climb Fit St Leonards, Sydney\" lands 35 m from this venue; the OSM node 35 m away carries the same domain. The operator publishes no street line and no working per-location page for this hall."
+  },
+  {
     "lat": -37.85835,
     "lon": 144.81001,
     "name": "Climb West Melbourne",
@@ -1022,6 +1187,50 @@
       "street-address",
       "city"
     ]
+  },
+  {
+    "lat": -28.03656,
+    "lon": 153.3533,
+    "name": "Core Climbing",
+    "country": "AU",
+    "website": "https://coreclimbing.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "The site is Core Climbing and prints \"122 Eastlake Street, Carrara, QLD\", which is the street line upstream records. The OSM node 11 m away carries the same domain; Whistler Core is a different operator in British Columbia."
+  },
+  {
+    "lat": -27.85168,
+    "lon": 153.30187,
+    "name": "Cutloose Indoor Climbing",
+    "country": "AU",
+    "website": "https://cutlooseindoorclimbing.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The site prints \"5/15 City Centre Dr, Upper Coomera 4209 QLD\", exactly the address upstream records; the OSM node 31 m away carries the same domain."
+  },
+  {
+    "lat": -33.87924,
+    "lon": 150.97865,
+    "name": "Elevate Climbing Villawood",
+    "country": "AU",
+    "website": "https://www.elevateclimbing.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "postal-code"
+    ],
+    "note": "The site is Elevate Climbing Gym Villawood and prints a Villawood NSW 2163 address; the OSM node 8 m away carries the same domain."
   },
   {
     "lat": -26.67386,
@@ -1053,6 +1262,50 @@
     ]
   },
   {
+    "lat": -37.9598854,
+    "lon": 145.0733036,
+    "name": "Flow Climbing",
+    "country": "AU",
+    "website": "https://flowclimbing.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates"
+    ],
+    "note": "The site prints \"89 Argus St, Cheltenham 3192\"; geocoding that address lands 10 m from this venue. The OSM node 11 m away carries the same domain. Flow Bouldering on the Sunshine Coast, 1,458 km away, is a different operator with a similar name."
+  },
+  {
+    "lat": -37.57745,
+    "lon": 143.82605,
+    "name": "Friction Bouldering",
+    "country": "AU",
+    "website": "https://frictionbouldering.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The site prints \"7 Laidlaw Drive, Delacombe Victoria 3356\", exactly the address upstream records, and names a Kilter Board."
+  },
+  {
+    "lat": -38.1972684,
+    "lon": 144.346459,
+    "name": "Industry Boulders",
+    "country": "AU",
+    "website": "https://industryboulders.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "The site is Industry Boulders, \"Indoor Bouldering - Geelong\"; geocoding it as a place lands 75 m from this venue, and the OSM node 75 m away carries the same domain."
+  },
+  {
     "lat": -37.9255978,
     "lon": 145.0951545,
     "name": "La Roca Boulders",
@@ -1066,6 +1319,36 @@
       "city"
     ],
     "note": "The gym's 2 Natalia Ave is 1.4 km from this coordinate; both sit in Oakleigh South 3167."
+  },
+  {
+    "lat": -34.91352,
+    "lon": 138.62827,
+    "name": "Laneway Boulders",
+    "country": "AU",
+    "website": "https://lanewayboulders.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates"
+    ],
+    "note": "The site prints \"41 Henry St. Stepney, Adelaide\"; geocoding that address lands 450 m from this venue, which upstream records only as \"Adelaide\". laneway.com.au answers 423."
+  },
+  {
+    "lat": -35.3297909,
+    "lon": 149.1824626,
+    "name": "Mountain Strong",
+    "country": "AU",
+    "website": "https://www.mountainstrongcbr.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "The site is Mountain Strong, Canberra, names a MoonBoard — the board system this entry is listed for — and the OSM node 21 m away carries the same domain. Its Fyshwick page prints 66-68 Townsville St, Fyshwick ACT 2609."
   },
   {
     "lat": -31.91396,
@@ -1114,6 +1397,126 @@
     "note": "The operator gives its four Perth gyms one page and lists each by address."
   },
   {
+    "lat": -32.94153,
+    "lon": 151.71773,
+    "name": "Pulse Climbing Adamstown",
+    "country": "AU",
+    "website": "https://pulseclimbing.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "Pulse Climbing gives each of its three halls a location page; the Adamstown one prints the 122 Garden Grove Parade, NSW 2289 address upstream records. Reached only after the guesser learned to drop a branch suffix. The www host serves a certificate that does not cover it; the apex is what is stored."
+  },
+  {
+    "lat": -33.4190224,
+    "lon": 151.3202408,
+    "name": "Pulse Climbing Gosford",
+    "country": "AU",
+    "website": "https://pulseclimbing.com.au/locations/gosford/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "brand",
+      "city",
+      "location-page"
+    ],
+    "note": "Pulse Climbing names Gosford as one of its three halls and gives it its own page; this venue is the Gosford entry."
+  },
+  {
+    "lat": -32.9624388,
+    "lon": 151.660896,
+    "name": "Pulse Climbing Warners Bay",
+    "country": "AU",
+    "website": "https://pulseclimbing.com.au/locations/warners-bay/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "brand",
+      "city",
+      "location-page"
+    ],
+    "note": "Pulse Climbing names Warners Bay as one of its three halls and gives it its own page, which prints a Hillsborough Road address in Lake Macquarie."
+  },
+  {
+    "lat": -42.8336,
+    "lon": 147.29469,
+    "name": "Rock It Climbing Centre - Derwent Park",
+    "country": "AU",
+    "website": "https://rockitbouldering.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The site is Rock It Derwent Park and prints \"4-6 Elmsleigh Road, Derwent Park, TAS 7009\", exactly the address upstream records."
+  },
+  {
+    "lat": -37.7870301,
+    "lon": 144.885586,
+    "name": "Rocket",
+    "country": "AU",
+    "website": "https://rocket-climbing.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "Same hall as the venue a few metres away — the MoonBoard entry beside the Kilter one — and the same site and address."
+  },
+  {
+    "lat": -37.78692,
+    "lon": 144.88556,
+    "name": "Rocket Climbing",
+    "country": "AU",
+    "website": "https://rocket-climbing.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The site prints \"21 MEPHAN STREET, FOOTSCRAY VIC 3011\", exactly the address upstream records, and names a Kilter Board. The Rainbow Rocket halls the chain matcher offered are in Germany and England."
+  },
+  {
+    "lat": -27.4577161,
+    "lon": 153.0311127,
+    "name": "Rocksports",
+    "country": "AU",
+    "website": "https://www.rocksports.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention",
+      "city"
+    ],
+    "note": "The site is Rocksports, Brisbane's indoor climbing gym, and names both a MoonBoard and a Tension Board — the two board systems the pair of entries here is listed for. The OSM node 6 m away carries the same domain."
+  },
+  {
+    "lat": -27.45766,
+    "lon": 153.03119,
+    "name": "Rocksports Indoor Climbing",
+    "country": "AU",
+    "website": "https://www.rocksports.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention",
+      "city"
+    ],
+    "note": "Same hall as the venue a metre away — the Tension entry beside the MoonBoard one — and the same site."
+  },
+  {
     "lat": -23.37473390979055,
     "lon": 150.50910055119093,
     "name": "Rocky Climb",
@@ -1141,6 +1544,95 @@
       "street-address"
     ],
     "note": "Upstream lists this MoonBoard separately, 31 m from its Kilter entry."
+  },
+  {
+    "lat": -33.83547,
+    "lon": 151.05313,
+    "name": "Sandbox Bouldering",
+    "country": "AU",
+    "website": "https://sandboxbouldering.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "Same hall as the venue a metre away — the Grasshopper entry beside the Kilter and Tension one — and the same site."
+  },
+  {
+    "lat": -33.83541,
+    "lon": 151.05309,
+    "name": "Sandbox Bouldering",
+    "country": "AU",
+    "website": "https://sandboxbouldering.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The site prints \"Unit A2, 27-29 Fariola Street, Silverwater\", exactly the address upstream records, and names every board system the pair of entries here is listed for."
+  },
+  {
+    "lat": -37.73092,
+    "lon": 144.95295,
+    "name": "The Crux",
+    "country": "AU",
+    "website": "https://thecrux.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention",
+      "city"
+    ],
+    "note": "The site is The Crux, \"a bouldering gym in Coburg, Melbourne\", and names a Grasshopper Board — the board system this entry is listed for. The OSM node 26 m away carries thecruxclimbing.com.au, which redirects here over HTTPS; the three Crux halls the chain matcher offered are in Austin, Texas."
+  },
+  {
+    "lat": -34.048437,
+    "lon": 150.828968,
+    "name": "Top Out Bouldering Gym",
+    "country": "AU",
+    "website": "https://topout.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates"
+    ],
+    "note": "The site is Top Out Bouldering Gym and prints an Airds Rd, Leumeah 2560 address; geocoding it lands 198 m from this venue."
+  },
+  {
+    "lat": -27.45127,
+    "lon": 153.0454,
+    "name": "TotalFusion Platinum Newstead",
+    "country": "AU",
+    "website": "https://totalfusion.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "city"
+    ],
+    "note": "TotalFusion lists Newstead among its clubs, and this venue is the Newstead entry; the operator publishes no per-location page a fetch can read."
+  },
+  {
+    "lat": -37.86987,
+    "lon": 144.99438,
+    "name": "UP Climbing",
+    "country": "AU",
+    "website": "https://upclimbing.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "The site is UP Climbing, a Melbourne bouldering gym, and names a Decoy Board — the board system this entry is listed for. It prints a William St, Balaclava address, which geocodes 16 m from this venue."
   },
   {
     "lat": -34.92305,
@@ -1187,6 +1679,21 @@
       "street-address"
     ],
     "note": "The page's 5 Morse St resolves 11 m from this upstream coordinate."
+  },
+  {
+    "lat": -27.5146928,
+    "lon": 153.2033032,
+    "name": "Wall Walkers Bouldering",
+    "country": "AU",
+    "website": "https://wallwalkersbouldering.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The site is Wall Walkers Bouldering Brisbane and prints \"Unit 10/6 Jones Rd, Capalaba, QLD 4157\" — the town upstream records — and names a MoonBoard."
   },
   {
     "lat": 50.45016,

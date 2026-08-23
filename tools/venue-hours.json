@@ -1078,6 +1078,31 @@
   "evidence": "THEBARTON. | OPEN HOURS. | MONDAY: 6:00am – 10:00pm | TUESDAY: 6:00am – 10:00pm | WEDNESDAY: 6:00am – 10:00pm | THURSDAY: 6:00am – 10:00pm | FRIDAY: 6:00am – 10:00pm | SATURDAY: 8:00am – 8:00pm | SUNDAY: 8:00am – 8:00pm"
  },
  {
+  "lat": -33.90788,
+  "lon": 151.16757,
+  "name": "Bloc Haus MKV",
+  "country": "AU",
+  "source": "https://syd.blochaus.com.au/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "hours-scope",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-23:00",
+   "wed": "06:00-23:00",
+   "thu": "06:00-23:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-22:00",
+   "sun": "08:00-22:00"
+  },
+  "evidence": "MKV: mon & fri: 6am–10pm, tue, wed & thurs: 6am–11pm, sat & sun: 8am–10pm. LCT: mon, tue, thurs & fri: 10am–10pm, wed: 6am–10pm, sat & sun: 8am–10pm.",
+  "note": "The page states both Sydney halls and labels each; this is the MKV block. The only exception it notes is Christmas and New Year's Day."
+ },
+ {
   "lat": -35.3209807,
   "lon": 149.1646271,
   "name": "Blochaus",
@@ -1324,6 +1349,31 @@
   "evidence": "OPENING HOURS | Monday | 6am - 10pm | Tuesday | 6am - 10pm | Wednesday | 6am - 10pm | Thursday | 6am - 10pm | Friday | 6am - 10pm | Saturday | 8am - 8pm | Sunday | 8am - 8pm | PUBLIC HOLIDAYS | 9AM - 9PM"
  },
  {
+  "lat": -33.78746,
+  "lon": 151.13315,
+  "name": "Climb Fit Macquarie",
+  "country": "AU",
+  "source": "https://www.climbfit.com.au/location/climb-fit-macquarie/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "OPENING HOURS Monday 6am - 10pm, Tuesday 6am - 10pm, Wednesday 6am - 10pm, Thursday 6am - 10pm, Friday 6am - 10pm, Saturday 8am - 8pm, Sunday 8am - 8pm",
+  "note": "The dated notice above it closes one named Saturday for a competition, which is the kind of exception the on-page caveat covers."
+ },
+ {
   "lat": -37.85835,
   "lon": 144.81001,
   "name": "Climb West Melbourne",
@@ -1370,6 +1420,31 @@
    "sun": "10:00-17:00"
   },
   "evidence": "Monday Wednesday 9:00am 8:00pm | Thursday Friday 12:00pm 8:00pm | Saturday Sunday 10:00am 5:00pm | 5/15 City Centre Dr, Upper Coomera 4209 QLD"
+ },
+ {
+  "lat": -33.87924,
+  "lon": 150.97865,
+  "name": "Elevate Climbing Villawood",
+  "country": "AU",
+  "source": "https://www.elevateclimbing.com.au/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "city",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:30-22:00",
+   "tue": "10:30-22:00",
+   "wed": "10:30-22:00",
+   "thu": "10:30-22:00",
+   "fri": "10:30-22:00",
+   "sat": "09:30-21:00",
+   "sun": "09:30-21:00"
+  },
+  "evidence": "Opening hours: Weekdays: 10:30 am - 10 pm. Weekends: 9:30 am - 9 pm. Public holidays: 10 am - 7pm. Contact us: villawood@elevateclimbing.com.au",
+  "note": "Stated identically on the homepage and the contact page; public holidays are the only exception and are what the on-page caveat covers."
  },
  {
   "lat": -26.67386,
@@ -1422,6 +1497,56 @@
   "note": "The site’s own schema.org openingHoursSpecification agrees."
  },
  {
+  "lat": -37.57745,
+  "lon": 143.82605,
+  "name": "Friction Bouldering",
+  "country": "AU",
+  "source": "https://frictionbouldering.com/contact-us",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "closed",
+   "tue": "16:00-22:00",
+   "wed": "16:00-22:00",
+   "thu": "16:00-22:00",
+   "fri": "14:00-20:00",
+   "sat": "10:00-17:00",
+   "sun": "10:00-17:00"
+  },
+  "evidence": "Trading Hours — Mon CLOSED, Tues 4pm - 10pm, Wed 4pm - 10pm, Thurs 4pm - 10pm, Fri 2pm - 8pm, Sat 10am - 5pm, Sun 10am - 5pm. School bookings are available upon request from 9am daily.",
+  "note": "School bookings from 9am are by arrangement and are not part of the published week."
+ },
+ {
+  "lat": -38.1972684,
+  "lon": 144.346459,
+  "name": "Industry Boulders",
+  "country": "AU",
+  "source": "https://industryboulders.com.au/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "16:00-21:30",
+   "tue": "12:00-21:30",
+   "wed": "16:00-21:30",
+   "thu": "12:00-21:30",
+   "fri": "16:00-21:30",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Opening hours: Monday: 4pm – 9:30pm, Tuesday: 12pm – 9:30pm, Wednesday: 4pm – 9:30pm, Thursday: 12pm – 9:30pm, Friday: 4pm – 9:30pm, Weekends: 10am – 6pm",
+  "note": "Stated once, day by day, with the weekend as one row."
+ },
+ {
   "lat": -34.91352,
   "lon": 138.62827,
   "name": "Laneway Boulders",
@@ -1443,6 +1568,31 @@
    "sun": "08:00-18:00"
   },
   "evidence": "Weekdays 6am - 10pm | Saturday 8am - 8pm | Sunday 8am - 6pm"
+ },
+ {
+  "lat": -35.3297909,
+  "lon": 149.1824626,
+  "name": "Mountain Strong",
+  "country": "AU",
+  "source": "https://www.mountainstrongcbr.com/bouldering-fyshwick",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "10:00-17:00",
+   "sun": "10:00-17:00"
+  },
+  "evidence": "Opening Hours — Public Access. Staffed Hours (Casual Access & Bouldering): Monday: 6am – 10pm, Tuesday: 9am – 10pm, Wednesday: 6am – 10pm, Thursday: 9am – 10pm, Friday: 6am – 10pm, Saturday & Sunday: 10am – 5pm. Open to the public every day except Christmas Day and New Year's Day.",
+  "note": "The operator's own openingHoursSpecification says the same thing — Monday, Wednesday, Friday 06:00-22:00, Tuesday and Thursday 09:00-22:00, Saturday and Sunday 10:00-17:00 — which is the cheapest confirmation available and it agrees."
  },
  {
   "lat": -31.91396,
@@ -1592,6 +1742,56 @@
   "note": "The operator lists its four gyms as tabs, each with its own week; school-holiday weekdays and public holidays are listed separately."
  },
  {
+  "lat": -42.8336,
+  "lon": 147.29469,
+  "name": "Rock It Climbing Centre - Derwent Park",
+  "country": "AU",
+  "source": "https://rockitbouldering.com.au/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "Hours of Operation — Monday–Friday 7am–10pm. Saturday–Sunday & Public Holidays 8am–8pm. 4-6 Elmsleigh Rd Derwent Park, Tas 7009",
+  "note": "Stated twice on the page, identically."
+ },
+ {
+  "lat": -37.7870301,
+  "lon": 144.885586,
+  "name": "Rocket",
+  "country": "AU",
+  "source": "https://rocket-climbing.com.au/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "06:30-22:00",
+   "tue": "11:00-22:00",
+   "wed": "06:30-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Opening Hours — 21 MEPHAN STREET, FOOTSCRAY VIC 3011. MONDAY, WEDNESDAY 630AM - 10PM. TUESDAY & THURSDAY & FRIDAY 11AM - 10PM. SATURDAY & SUNDAY 9AM - 9PM",
+  "note": "Same page as the Kilter entry a few metres away."
+ },
+ {
   "lat": -37.78692,
   "lon": 144.88556,
   "name": "Rocket Climbing",
@@ -1614,6 +1814,56 @@
    "sun": "09:00-21:00"
   },
   "evidence": "MONDAY, WEDNESDAY | 630AM - 10PM | TUESDAY & THURSDAY & FRIDAY | 11AM - 10PM | SATURDAY & SUNDAY | 9AM - 9PM | 21 Mephan Street, Footscray VIC 3011"
+ },
+ {
+  "lat": -27.4577161,
+  "lon": 153.0311127,
+  "name": "Rocksports",
+  "country": "AU",
+  "source": "https://www.rocksports.com.au/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "10:00-21:00",
+   "tue": "10:00-21:00",
+   "wed": "10:00-21:00",
+   "thu": "10:00-21:00",
+   "fri": "10:00-21:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "opening hours — Mon - Fri 10AM - 9PM. Sat - Sun 10AM - 6PM",
+  "note": "Stated once in the site footer."
+ },
+ {
+  "lat": -27.45766,
+  "lon": 153.03119,
+  "name": "Rocksports Indoor Climbing",
+  "country": "AU",
+  "source": "https://www.rocksports.com.au/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "10:00-21:00",
+   "tue": "10:00-21:00",
+   "wed": "10:00-21:00",
+   "thu": "10:00-21:00",
+   "fri": "10:00-21:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "opening hours — Mon - Fri 10AM - 9PM. Sat - Sun 10AM - 6PM",
+  "note": "Same page as its twin."
  },
  {
   "lat": -23.37473390979055,
@@ -1687,6 +1937,31 @@
    "sun": "09:00-20:00"
   },
   "evidence": "Mon - Fri: 10am - 10pm | Sat - Sun: 9am - 8pm"
+ },
+ {
+  "lat": -37.86987,
+  "lon": 144.99438,
+  "name": "UP Climbing",
+  "country": "AU",
+  "source": "https://upclimbing.com.au/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "board-mention",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "Opening Hours — Monday – Friday: 6am – 10pm. Saturday – Sunday: 8am – 8pm. Public Holidays: 8am – 8pm",
+  "note": "Public holidays take the weekend hours, which the page states."
  },
  {
   "lat": 50.45016,

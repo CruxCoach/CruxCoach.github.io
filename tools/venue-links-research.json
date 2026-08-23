@@ -37,6 +37,158 @@
     "reason": "No official site could be found for a climbing venue of this name near Wiener Neustadt."
   },
   {
+    "lat": -33.89914,
+    "lon": 151.0434,
+    "name": "1UP Bouldering",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "None of the six name-derived domains for 1UP Bouldering resolves on .com.au, .au or .com, no OSM climbing object within 500 m carries a website, and nothing curated is within 200 m of Unit 1/4 Brunker Rd, Chullora."
+  },
+  {
+    "lat": -25.215260569377044,
+    "lon": 153.1519274200911,
+    "name": "7x10 HW NK",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "\"7x10 HW NK\" is a board size and an owner's initials rather than a business name; 7x10.com answers with nothing that names a climbing venue in Queensland, and no other domain resolves.",
+    "candidate": "https://7x10.com/"
+  },
+  {
+    "lat": -33.76538,
+    "lon": 150.90848,
+    "name": "Climb Oz",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "climboz.com is titled Climb Oz and is very likely this gym, but neither its homepage nor its contact page prints an address, a suburb or a postcode — the name is the only observation the site offers. The upstream address, Level 2, 40 Third Ave, Blacktown, geocodes 302 m from this venue, so the coordinate is right and the page simply does not confirm it.",
+    "candidate": "https://climboz.com/"
+  },
+  {
+    "lat": -27.5624,
+    "lon": 153.0687,
+    "name": "Crank Indoor Climbing",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "crank.com.au is CRANK, an accessibility organisation, crankclimbing.com.au answers 403 to every fetcher and crankclimbing.com carries nothing that names Kessel Rd or Macgregor.",
+    "candidate": "https://crankclimbing.com.au/"
+  },
+  {
+    "lat": -34.55774,
+    "lon": 150.79166,
+    "name": "Dynomite Gym Albion Park Rail",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "dynomite.com.au and dynomite.com do not answer on either host, and the one chain sibling offered is 270 Climbing Park in England. Nothing found names a gym at Albion Park Rail."
+  },
+  {
+    "lat": -34.40612,
+    "lon": 150.89504,
+    "name": "Dynomite Gym North Wollongong",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "Same operator as the Albion Park Rail venue and the same outcome: dynomite.com.au and dynomite.com do not answer on either host."
+  },
+  {
+    "lat": -33.8688197,
+    "lon": 151.2092955,
+    "name": "Illyria's Board",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "illyria.com.au presents a certificate that does not cover its hostname, illyria.au carries nothing and illyria.com is an empty page. \"Illyria's Board\" is a personal name plus a board model, and the coordinate is the centre of Sydney.",
+    "candidate": "https://illyria.com/"
+  },
+  {
+    "lat": -32.0608694,
+    "lon": 115.918019,
+    "name": "Iris Boulders Canning Vale",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "iris.com presents a certificate that does not cover its hostname and irisboulders.com.au does not resolve. Nothing found names a bouldering venue in Canning Vale."
+  },
+  {
+    "lat": -32.51346,
+    "lon": 115.75291,
+    "name": "Mandurah Indoor Rock Climbing Center",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "mandurah.com.au is a city portal and mandurah.com does not answer usably. Nothing found names 2 & 3/12 Thornborough Rd in Greenfields.",
+    "candidate": "https://mandurah.com.au/"
+  },
+  {
+    "lat": -37.7695238,
+    "lon": 144.997369,
+    "name": "Northside Boulders Northcote",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "northside.au is a placeholder carrying the domain name, northside.com.au presents a certificate that does not cover its hostname, northside.com answers 403 and northsideboulders.com.au does not resolve."
+  },
+  {
+    "lat": -34.563868,
+    "lon": 150.819243,
+    "name": "Oak Flats Schojo",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "oakflats.au presents a certificate that does not cover its hostname, oakflats.com carries nothing and oakflats.com.au does not resolve. \"Oak Flats Schojo\" is a suburb plus a nickname."
+  },
+  {
+    "lat": -26.7275358,
+    "lon": 153.1208034,
+    "name": "Rockit 25 2019",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "Every Rock It that answers belongs to Tasmania: rockitbouldering.com.au is Rock It Derwent Park and rockitclimbing.com.au is Rock It Hobart, both about 1,870 km from this Maroochydore coordinate. rockit.au is an IT firm and rockit.com an IT consultancy.",
+    "candidate": "https://rockitbouldering.com.au/"
+  },
+  {
+    "lat": -26.7276342,
+    "lon": 153.1207776,
+    "name": "Rockit Climbing Gym QLD",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "Same venue as the entry a metre away, and the same outcome: the Rock It domains that answer are the Tasmanian gyms, not this Queensland one.",
+    "candidate": "https://rockitclimbing.com.au/"
+  },
+  {
+    "lat": -33.8791418,
+    "lon": 150.9775568,
+    "name": "SICG Villawood",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "This is very probably the same hall as the Elevate Climbing Villawood entry 90 m away — SICG is Sydney Indoor Climbing Gym, the name the Villawood hall traded under before it became Elevate — but the only signal the operator's page offers for this entry is the suburb, and one observation is not two. sicg.com presents a certificate that does not cover its hostname.",
+    "candidate": "https://www.elevateclimbing.com.au/"
+  },
+  {
+    "lat": -36.78204239034518,
+    "lon": 144.26338550176908,
+    "name": "The Hold Co, Ltd.",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "hold.com.au and hold.au answer 500 and 302 behind certificates that do not cover their hostnames, and hold.com does not resolve. The one chain sibling named Hold is Hold On Tide in Germany. Nothing found names 80 Hattam St in Golden Gully."
+  },
+  {
+    "lat": -38.1617913,
+    "lon": 144.3439997,
+    "name": "The Rock Adventure Centre",
+    "country": "AU",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "therockadventure.com.au and therockadventurecentre.com.au do not resolve; adventure.com is a travel magazine and adventureclimbing.com an unrelated site. The chain siblings named Adventure are Adventure Rock in Wisconsin and The Adventure Hub in Sheffield."
+  },
+  {
     "lat": 50.41619,
     "lon": 4.43898,
     "name": "Maniak Charleroi",
