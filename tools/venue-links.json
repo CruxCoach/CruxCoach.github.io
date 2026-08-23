@@ -3883,6 +3883,38 @@
     "note": "True North Climbing's own site, whose embedded map of itself sits 97 m from this venue; it gives 75 Carl Hall Road, Unit 14, Toronto M3K 2B9. Upstream records no address and files the venue under the Bathurst Manor neighbourhood."
   },
   {
+    "lat": 51.0779562,
+    "lon": -114.1337454,
+    "name": "University of Calgary Moonboard",
+    "country": "CA",
+    "website": "https://www.ucalgary.ca/active-living/facilities/outdoor-centre",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "This venue is the MoonBoard 60 m from the Outdoor Centre entry, in the same building. The university's own facilities page for the Outdoor Centre prints 2500 University Drive NW, Calgary — the address upstream records. The first pass tried /recreation/facilities/climbing, /recreation/climbing and /recreation/facilities/climbing-gym, all of which are 404, and the Active Living section was never reached."
+  },
+  {
+    "lat": 51.07767,
+    "lon": -114.13419,
+    "name": "University of Calgary Outdoor Centre",
+    "country": "CA",
+    "website": "https://www.ucalgary.ca/active-living/facilities/outdoor-centre",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "This venue is the Outdoor Centre itself. The university's own facilities page for the Outdoor Centre prints 2500 University Drive NW, Calgary — the address upstream records. The first pass tried /recreation/facilities/climbing, /recreation/climbing and /recreation/facilities/climbing-gym, all of which are 404, and the Active Living section was never reached."
+  },
+  {
     "lat": 43.60385,
     "lon": -79.58441,
     "name": "Up The Bloc",
@@ -15215,6 +15247,20 @@
       "board-mention"
     ],
     "note": "The venue's whole name as one domain label, which the guesser had not tried. The site carries this venue's name and names the MoonBoard it is listed for; upstream records no street address, so those are the two signals available."
+  },
+  {
+    "lat": 57.7322471,
+    "lon": 12.9269672,
+    "name": "Borås Klätterklubb",
+    "country": "SE",
+    "website": "https://borasklatterklubb.se/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Borås Klätterklubb's own site, giving Borås. One named club in one town, listed in Svenska Klätterförbundet's member directory with this site, and mapped by OSM 4 m from this venue at Armbågavägen 16."
   },
   {
     "lat": 60.6771808,

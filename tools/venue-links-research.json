@@ -750,34 +750,14 @@
     "candidate": "https://therock.ca/"
   },
   {
-    "lat": 51.0779562,
-    "lon": -114.1337454,
-    "name": "University of Calgary Moonboard",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.ulsport.ie/climbing-wall → \"UL Climbing Wall – Just another UL Sport Sites site\"; university.ca → \"University.ca for sale | Spaceship.com\"; university.com → \"University.com | The Modern Degree That Actually Pays\", the rest could not be opened — universityofcalgary.ca → 200; universityofcalgary.com → no answer. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.ulsport.ie/climbing-wall/"
-  },
-  {
-    "lat": 51.07767,
-    "lon": -114.13419,
-    "name": "University of Calgary Outdoor Centre",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.ulsport.ie/climbing-wall → \"UL Climbing Wall – Just another UL Sport Sites site\"; university.ca → \"University.ca for sale | Spaceship.com\"; university.com → \"University.com | The Modern Degree That Actually Pays\", the rest could not be opened — universityofcalgary.ca → 200; universityofcalgary.com → no answer. Upstream records 2500 University Drive NW, T2N1N4, Calgary, and nothing opened printed it.",
-    "candidate": "https://www.ulsport.ie/climbing-wall/"
-  },
-  {
     "lat": 49.80656,
     "lon": -97.13846,
     "name": "University of Manitoba Active Living Center",
     "country": "CA",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.ulsport.ie/climbing-wall → \"UL Climbing Wall – Just another UL Sport Sites site\"; university.ca → \"University.ca for sale | Spaceship.com\"; university.com → \"University.com | The Modern Degree That Actually Pays\". Upstream records 145 Frank Kennedy Center, R3T 2N2, Winnipeg, and nothing opened printed it.",
-    "candidate": "https://www.ulsport.ie/climbing-wall/"
+    "reason": "umanitoba.ca answers, but no page for the Active Living Centre could be reached on it: /recreation-services/active-living-centre, /active-living-centre and /campus-recreation are all 404, and the first pass's /recreation-services and /recreation-services/active-living-centre were too. The university is certainly the operator; its page for this facility is what could not be found. Retry when it can.",
+    "candidate": "https://umanitoba.ca/"
   },
   {
     "lat": 42.3149367,
@@ -4181,8 +4161,8 @@
     "country": "NO",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "lofotentindeklubb.no is the club's own site, but the only address on it is a post box — \"Postboks 85, 8301 Svolvær\" — whose town is 4.9 km from this venue, and nothing on the site names the hall in Kabelvåg. The name alone is one observation.",
-    "candidate": "https://lofotentindeklubb.no/"
+    "reason": "lofotentindeklubb.no is Lofoten Tindeklubb's own site and matches this venue's name exactly, but that is all it supplies: the page prints no street, no postal code, no town and no board, and upstream records none of those either. One signal, and no second one to be had from the page.",
+    "candidate": "https://www.lofotentindeklubb.no/"
   },
   {
     "lat": 58.02586,
@@ -4932,16 +4912,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 57.7322471,
-    "lon": 12.9269672,
-    "name": "Borås Klätterklubb",
-    "country": "SE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — borasklatterklubb.se → \"Borås Klätterklubb\"; boras.se → \"Borås Stad - Borås Stad\"; boras.com → \"Borås - en stad full av design, textil, mode, kreativite\", the venue's whole name as one label, borasklatterklubb.se, answers 200 (\"Borås Klätterklubb\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://borasklatterklubb.se/"
   },
   {
     "lat": 59.36,
