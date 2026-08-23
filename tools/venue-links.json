@@ -15102,6 +15102,20 @@
     "note": "Vertical Spirit's own site, printing Baicului 80 in Bucharest — the street line upstream records."
   },
   {
+    "lat": 59.96842762347872,
+    "lon": 30.29279685344697,
+    "name": "Severnaya stena Petrogradskaya",
+    "country": "RU",
+    "website": "https://severnayastena.ru/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Severnaya Stena's own site, printing 10 — the building number upstream records for the Petrogradskaya hall. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
+  },
+  {
     "lat": 21.61947,
     "lon": 39.135,
     "name": "Arena Fitness Innovation/Saudi Climbing & Hiking Federation",
@@ -15972,6 +15986,20 @@
       "location-page"
     ],
     "note": "Alta's own page for its Gilbert gym, which names the Tension Board this venue is listed for and embeds a map of itself 155 m from these coordinates. The operator's contact page gives that gym's address as 3193 South Ranch House Court, Gilbert, Arizona 85297, separately from its Chandler and Scottsdale gyms."
+  },
+  {
+    "lat": 33.5727,
+    "lon": -112.2557,
+    "name": "Ape Index Rock Climbing",
+    "country": "US",
+    "website": "https://climbapeindex.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Ape Index's own site, giving Peoria — the town upstream records. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
   },
   {
     "lat": 36.56563,
@@ -17566,6 +17594,34 @@
     "note": "The Ralph Ablanedo address this entry carries resolves about 760 m away; the gym's other upstream entry sits on it."
   },
   {
+    "lat": 33.23228,
+    "lon": -87.61066,
+    "name": "Crux Climbing LLC",
+    "country": "US",
+    "website": "https://www.cruxclimbingal.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Crux Climbing's own Alabama site, giving Northport — the town upstream records, which the venue name does not carry. The two entries a metre apart are the same hall. The first pass had reached cruxclimbingcenter.com/pflugerville, which is a Texas gym. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
+  },
+  {
+    "lat": 33.2322148,
+    "lon": -87.6106539,
+    "name": "Crux Climbing MoonBoard",
+    "country": "US",
+    "website": "https://www.cruxclimbingal.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Crux Climbing's own Alabama site, giving Northport — the town upstream records, which the venue name does not carry. The two entries a metre apart are the same hall. The first pass had reached cruxclimbingcenter.com/pflugerville, which is a Texas gym. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
+  },
+  {
     "lat": 30.47847,
     "lon": -97.61623,
     "name": "Crux Climbing Pflugerville",
@@ -17779,6 +17835,20 @@
     ]
   },
   {
+    "lat": 18.42857,
+    "lon": -66.0561,
+    "name": "El Bloque Bouldering Gym",
+    "country": "US",
+    "website": "https://www.elbloquepr.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "El Bloque's own site, embedding a map of itself 30 m from this venue. Upstream records no street for it. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
+  },
+  {
     "lat": 41.76405,
     "lon": -111.82847,
     "name": "Elevation Rock Gym",
@@ -17819,6 +17889,21 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 43.6888571,
+    "lon": -70.2999399,
+    "name": "EVO Rock + Fitness",
+    "country": "US",
+    "website": "https://www.evorock.com/portland-me/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "EVO publishes a page per gym; this is the Portland, Maine one, and Portland is the town upstream records. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
   },
   {
     "lat": 36.10815,
@@ -18353,6 +18438,20 @@
     ]
   },
   {
+    "lat": 40.1119,
+    "lon": -88.27943,
+    "name": "Horizon Climbing",
+    "country": "US",
+    "website": "https://www.climbhorizon.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Horizon Climbing's own site, giving Champaign — the town upstream records. The first pass had reached horizon.com. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
+  },
+  {
     "lat": 29.96117,
     "lon": -95.71066,
     "name": "InSPIRE Rock Cypress",
@@ -18438,6 +18537,21 @@
       "city"
     ],
     "note": "The operator runs two Virginia gyms 32 km apart and lists both by address; this is Hampton."
+  },
+  {
+    "lat": 42.445438,
+    "lon": -76.4766356,
+    "name": "Lindseth Climbing Center Moonboard",
+    "country": "US",
+    "website": "https://scl.cornell.edu/coe/lindseth-climbing-center",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Cornell's own page for the Lindseth Climbing Center, which is this venue's name in full, giving Ithaca — the town upstream records. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
   },
   {
     "lat": 34.71138,
@@ -19712,6 +19826,20 @@
     ]
   },
   {
+    "lat": 41.07565,
+    "lon": -81.49776,
+    "name": "Rock Mill Climbing, Yoga + Fitness",
+    "country": "US",
+    "website": "https://rockmillclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Rock Mill Climbing's own site, giving Akron — the town upstream records. The first pass had reached millyoga.com. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
+  },
+  {
     "lat": 32.33042,
     "lon": -111.04925,
     "name": "Rock Solid Climbing",
@@ -19968,6 +20096,20 @@
       "location-page"
     ],
     "note": "The candidate's own pages carry the street line \"3625 interlake ave\", the town Seattle, under the venue's name. Bouldering Project publishes a page per hall; this is the Fremont upper-walls page, and 3625 Interlake Ave N is the street upstream records."
+  },
+  {
+    "lat": 42.79448,
+    "lon": -86.11016,
+    "name": "Scrapyard Climbing Collective",
+    "country": "US",
+    "website": "https://scrapyardclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Scrapyard Climbing Collective's own site, giving Holland — the town upstream records. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
   },
   {
     "lat": 43.00892,
@@ -20417,6 +20559,21 @@
     "note": "The site is Steepworld and gives its town as Billings, the town upstream records; the venue name carries no town of its own."
   },
   {
+    "lat": 35.10552,
+    "lon": -106.59967,
+    "name": "Stone Age Climbing Gym Midtown",
+    "country": "US",
+    "website": "https://climbstoneage.com/locations/stone-age-midtown/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Stone Age publishes a page per hall and this is the Midtown one, at 4130 Cutler Ave NE, Albuquerque. The operator's North hall was linked earlier in this audit from its own block on the same site. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
+  },
+  {
     "lat": 35.18458,
     "lon": -106.5756,
     "name": "Stone Age Climbing Gym North",
@@ -20610,6 +20767,22 @@
       "board-mention"
     ],
     "note": "The candidate's own pages carry the town Fort Worth, a map of itself 32 m away, the kilter board this venue is listed for, under the venue's name."
+  },
+  {
+    "lat": 34.4358336,
+    "lon": -119.8029211,
+    "name": "The Board Room (The Pad)",
+    "country": "US",
+    "website": "https://thepadclimbing.org/santa-barbara/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "The Pad publishes a page per gym; this venue is the Santa Barbara one, and the page gives Goleta — the town upstream records — and names the MoonBoard it is listed for. Upstream calls the venue \"The Board Room (The Pad)\". OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
   },
   {
     "lat": 38.5384717,
