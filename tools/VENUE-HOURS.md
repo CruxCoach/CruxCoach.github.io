@@ -407,6 +407,13 @@ CityROCK, De Fabriek, Boulderhal Sterk. That is what `official-chain-page` plus
 the `hours-scope` signal is for, and the schema enforces it: the Konala record was
 refused until it carried something tying the page to that specific hall.
 
+**A sample re-read found nothing wrong.** Eight published records spread evenly
+through the file — Boulderbar Hauptbahnhof Plus, ELYS Boulderloft, Bouldergarten,
+EnergieWände Weimar, Boulders Aarhus Syd, Bloc Bristol, New MACACO, Klatreverket
+Løren — were fetched again and compared against their sources day by day. All
+eight matched. That is not proof the file is clean, but it is the check worth
+repeating whenever a batch introduces a new shape of source.
+
 **The evidence cross-check keeps finding notation, not errors.** Every failure so
 far has been the matcher's, not the data's: `22h30` in Switzerland, `9u30` in
 Flanders, `10pm` in Britain, `08H30` in France. Each one taught it a spelling, and
