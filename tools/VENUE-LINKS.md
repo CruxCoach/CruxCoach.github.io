@@ -242,51 +242,56 @@ are maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (linked + research entries) | 1115 |
-| Verified website links | 1001 |
-| Rejected / ambiguous / private / closed | 114 |
-| Countries covered | 22 |
+| Venues reviewed (linked + research entries) | 2190 |
+| Verified website links | 1335 |
+| Rejected / ambiguous / private / closed / unavailable | 855 |
+| Countries covered | 49 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
-Per-country coverage of eligible (public/commercial) venues:
+Every eligible venue that lacked a link has now been opened individually and
+carries an outcome — see **The second-pass gap audit** below for what the
+outcomes mean and which of them stay in the retry queue.
+
+Per-country coverage of eligible (public/commercial) venues (top 25):
 
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
-| US | 276 | 576 | 48% |
-| DE | 169 | 201 | 84% |
-| GB | 69 | 102 | 68% |
-| CA | 64 | 132 | 48% |
+| US | 355 | 576 | 62% |
+| DE | 176 | 201 | 88% |
+| CA | 96 | 132 | 73% |
+| GB | 78 | 102 | 76% |
+| AU | 67 | 83 | 81% |
+| ES | 64 | 98 | 65% |
+| FR | 59 | 70 | 84% |
+| NO | 57 | 81 | 70% |
+| NL | 52 | 59 | 88% |
 | CH | 52 | 56 | 93% |
-| NL | 51 | 59 | 86% |
-| ES | 50 | 98 | 51% |
-| FR | 46 | 70 | 66% |
-| AT | 44 | 48 | 92% |
-| NO | 35 | 81 | 43% |
-| AU | 33 | 83 | 40% |
-| BE | 28 | 36 | 78% |
-| IT | 21 | 72 | 29% |
-| DK | 14 | 27 | 52% |
-| PL | 12 | 45 | 27% |
-| SE | 11 | 37 | 30% |
-| FI | 8 | 15 | 53% |
-| IE | 5 | 10 | 50% |
-| CZ | 4 | 10 | 40% |
-| ZA | 3 | 12 | 25% |
-| LU | 3 | 6 | 50% |
-| PT | 2 | 15 | 13% |
+| AT | 45 | 48 | 94% |
+| IT | 39 | 72 | 54% |
+| BE | 30 | 36 | 83% |
+| DK | 25 | 27 | 93% |
+| PL | 21 | 45 | 47% |
+| SE | 17 | 37 | 46% |
+| FI | 9 | 15 | 60% |
+| BR | 8 | 26 | 31% |
+| CZ | 7 | 10 | 70% |
+| SG | 7 | 9 | 78% |
+| IE | 6 | 10 | 60% |
+| PT | 5 | 15 | 33% |
+| RO | 5 | 13 | 38% |
+| ZA | 5 | 12 | 42% |
+| NZ | 5 | 11 | 45% |
 
-Research-log reasons so far: 87 `unverified` (56 of them operator sites that
-answer 403/429/401/500/526, fail their TLS handshake, serve an expired,
-wrong-hostname or unverifiable certificate, redirect to a hosting-platform
-staging hostname, or show a maintenance or suspension notice, so no page could be
-opened and read), 9 `ambiguous`, 5 `closed`, 4 `http-only`, 1 `duplicate`.
+Research-log reasons: 851 `unverified`, 2 `ambiguous`, 1 `closed`, 1
+`social-only`, 1 `unavailable`. `unverified` is deliberately the large bucket:
+it is retryable, and it is what a venue gets when a page could not be opened, a
+site renders only in a browser, or the only candidate that answered belongs to
+somebody else.
 
-- **Last completed batch:** the same address-less pass over Europe, Canada and
-  Australia. Its yield was much lower than the American one — 6 of 162 — and the
-  reason is in the numbers below.
-- **Next batch:** nothing cheap is left. What remains needs either a discovery
-  channel none of the four currently reaches, or a human opening pages one at a
-  time.
+- **Last completed batch:** the second-pass gap audit (below), which closed the
+  worklist.
+- **Next batch:** the retry queue, which is the 851 `unverified` rows and is
+  described at the end of this file.
 
 ### What is actually gating the remaining countries
 
@@ -521,3 +526,80 @@ than the last 500 did. What would change that, roughly in order of value:
    hosts in the same moment, which points at a limit on the fetching side rather
    than anything about the operator. Those reasons now say so, because "the site
    refuses us" and "we were being throttled" call for very different next steps.
+
+## The second-pass gap audit
+
+Every eligible venue without a verified link — 1,190 of them across 79
+countries — was opened again, one at a time, and every previous negative
+outcome was treated as a hypothesis rather than a fact. The worklist was frozen
+in `tools/venue-audit-ledger.json` before the pass started so the denominator
+could not drift, and `node tools/venue-audit.mjs` refuses to pass while any row
+on it is still `pending`.
+
+It exists because the first pass missed `https://zugzwang-auerbach.de/`. It had
+tried `https://www.zugzwang-auerbach.de/`, seen a certificate that does not
+cover the www hostname, and stopped — while the HTTPS apex works and matches
+the hall's name, its street in Auerbach and its Kilter Board. Every host is now
+probed at the apex *and* at www independently, and a failure on one is never
+allowed to reject the other. That rule found the reverse case three times:
+`treelab.com.br`, `delirescalade.com` and `altrock.ca` fail at the apex and
+answer at www.
+
+### What the pass changed about how candidates are found
+
+- **The whole venue name as one domain label.** The guesser drops generic words
+  before it builds a domain, so "Climb Nashville" never became
+  climbnashville.com and "Duluth Climbing and Fitness" never became its own
+  name. Sweeping the full name in `.com` and the country's TLD found 214 hosts
+  that answer.
+- **A map the venue embeds of itself.** A page with a Google Maps embed has
+  published its own coordinates, first-party, with no geocoder contacted. That
+  is what places The Core Climbing Gym at 0 m, Guelph Grotto at 1 m, Atelier
+  Bloc at 20 m and a few dozen others, and what tells Bolder Climbing's two
+  Calgary halls apart — 184 m against 10.4 km.
+- **National federation club directories.** Klatring Danmark publishes its
+  member clubs with each club's own site at `klatringdanmark.dk/klubliste`.
+  Nine of Denmark's eleven links came from it, including Holbæk, whose domain
+  is `hkk4300.dk` after the town's postal code and which no name-derived guess
+  would ever have reached.
+- **A plain-browser User-Agent on 403/429.** Hostinger and LiteSpeed hosts
+  refuse the audit's UA and serve a browser's.
+
+### Where it still fails, and why those rows stay open
+
+851 venues are recorded `unverified`, which is retryable by design. The
+recurring shapes, in rough order of frequency:
+
+1. **Upstream carries no address.** With no street, no postal code and often a
+   town-level coordinate, a candidate cannot be tested against a location even
+   when it is obviously the right business. This is the single largest cause.
+2. **The site renders in the browser.** A few hundred characters of navigation
+   and nothing else. Shaker Rocks, Dallas Bouldering Project and Climb World
+   are all real gyms whose own domains serve no readable content.
+3. **An anti-bot interstitial.** Maniak's three Belgian halls, Boulderhaus's
+   five German ones, Touchstone and Kletterzentrum Innsbruck all answer 403
+   behind Cloudflare to every header set tried.
+4. **A generic word in the venue's name.** "Apex", "Gravity", "Planet", "West",
+   "City" and "University of" all match a gym on another continent. A
+   foreign-ccTLD guard now flags those before they can be accepted.
+
+### Three dataset bugs the audit surfaced
+
+Worth reporting upstream rather than working around:
+
+- **Beacon Climbing Centre** is filed at 53.1406,**4.2518** — the North Sea off
+  Texel — and classified as Dutch, with the address Zone 5, Cibyn Estate, LL55
+  2BD, Caernarfon. Caernarfon is at 53.1406,**-4.2518**: the longitude sign.
+- **Up The Bloc** is filed at **-79.5856,43.6045** and classified as Antarctic.
+  Those are the Mississauga gym's latitude and longitude the wrong way round.
+- **Fitbloc** sits at 0,0 with no country, which no resolver can place; it is
+  recorded in the ledger's `unresolvable` bucket with a note on each field.
+
+### The one link this audit accepted and then withdrew
+
+`poweruptandangsora.com` prints Power Up Tandang Sora's address and looks like
+the gym's own domain. It is "Patikim · Philippine Venue Guide", a third-party
+visit guide that describes itself as "An independent field guide" and tells
+readers to "Treat the official channel as the final source". Every one of the
+336 links the audit accepted was then re-read against that pattern, and this
+was the only one.

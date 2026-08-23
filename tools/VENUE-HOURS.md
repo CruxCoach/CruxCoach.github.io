@@ -314,55 +314,55 @@ maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (published + outcome entries) | 1243 |
-| Published schedules | 808 |
-| Recorded outcomes without hours | 435 |
-| Countries covered | 28 |
+| Venues reviewed (published + outcome entries) | 2190 |
+| Published schedules | 942 |
+| Recorded outcomes without hours | 1248 |
+| Countries covered | 40 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
-Per-country coverage of eligible (public/commercial) venues:
+Every eligible venue has now been reviewed for hours — 2190 of 2191, the one
+exception being a venue at coordinates 0,0 that no resolver can place. What is
+*published* is 43%; the rest carry a recorded reason, and the reasons are the
+point of this file.
+
+Outcomes without hours: 820 `no-official-site`, 142 `ambiguous`, 103
+`no-hours-on-official-site`, 93 `seasonal`, 62 `inaccessible`, 27
+`appointment-only`, 1 `closed`.
+
+Per-country coverage of eligible (public/commercial) venues (top 30):
 
 | country | published | reviewed | eligible | share |
 | --- | --- | --- | --- | --- |
-| US | 267 | 349 | 576 | 46% |
-| DE | 136 | 176 | 201 | 68% |
-| CA | 60 | 90 | 132 | 45% |
-| GB | 53 | 74 | 102 | 52% |
-| NL | 38 | 53 | 59 | 64% |
-| AU | 36 | 49 | 83 | 43% |
-| CH | 35 | 52 | 56 | 63% |
-| AT | 31 | 45 | 48 | 65% |
-| FR | 28 | 56 | 70 | 40% |
-| ES | 19 | 58 | 98 | 19% |
-| NO | 19 | 50 | 81 | 23% |
-| BE | 19 | 28 | 36 | 53% |
-| DK | 12 | 18 | 27 | 44% |
-| IT | 9 | 27 | 72 | 13% |
-| PL | 9 | 19 | 45 | 20% |
-| SE | 6 | 28 | 37 | 16% |
-| ZA | 6 | 6 | 12 | 50% |
-| FI | 5 | 9 | 15 | 33% |
-| IE | 5 | 6 | 10 | 50% |
-| CZ | 4 | 7 | 10 | 40% |
-| NZ | 3 | 5 | 11 | 27% |
-| SG | 2 | 2 | 9 | 22% |
-| LU | 2 | 3 | 6 | 33% |
-| BR | 1 | 3 | 26 | 4% |
-| PT | 1 | 5 | 15 | 7% |
-| CO | 1 | 1 | 6 | 17% |
-| SI | 1 | 1 | 6 | 17% |
-| TR | 1 | 2 | 3 | 33% |
-| JP | 0 | 4 | 48 | 0% |
-
-- **Last completed batch:** the same guess run over the remaining 1,550 link-less
-  venues, using the offline place index to supply a city where the dataset has
-  none. 101 proposals survived the page-side check; 33 published, 67 logged.
-- **What is left:** roughly 950 eligible venues, almost all of them with no name
-  the guess can turn into a domain (a board model, a gym chain's initials, a
-  Japanese or Chinese name our slug rules mangle) or with a site the check could
-  not confirm. They need a link established the careful way — `tools/VENUE-LINKS.md`
-  is the policy — and nothing here may publish hours from a site that policy has
-  not been applied to.
+| US | 303 | 576 | 576 | 53% |
+| DE | 137 | 201 | 201 | 68% |
+| CA | 68 | 132 | 132 | 52% |
+| GB | 60 | 102 | 102 | 59% |
+| AU | 47 | 83 | 83 | 57% |
+| NL | 39 | 59 | 59 | 66% |
+| CH | 35 | 56 | 56 | 63% |
+| FR | 34 | 70 | 70 | 49% |
+| AT | 33 | 48 | 48 | 69% |
+| ES | 28 | 98 | 98 | 29% |
+| NO | 21 | 81 | 81 | 26% |
+| BE | 19 | 36 | 36 | 53% |
+| DK | 16 | 27 | 27 | 59% |
+| IT | 14 | 72 | 72 | 19% |
+| PL | 13 | 45 | 45 | 29% |
+| SE | 8 | 37 | 37 | 22% |
+| ZA | 7 | 12 | 12 | 58% |
+| BR | 6 | 26 | 26 | 23% |
+| CZ | 6 | 10 | 10 | 60% |
+| IE | 6 | 10 | 10 | 60% |
+| FI | 5 | 15 | 15 | 33% |
+| NZ | 5 | 11 | 11 | 45% |
+| SG | 5 | 9 | 9 | 56% |
+| CO | 4 | 6 | 6 | 67% |
+| LU | 4 | 6 | 6 | 67% |
+| JP | 2 | 48 | 48 | 4% |
+| PT | 2 | 15 | 15 | 13% |
+| RO | 2 | 13 | 13 | 15% |
+| SK | 2 | 11 | 11 | 18% |
+| MY | 1 | 13 | 13 | 8% |
 
 ### The second guess run, and what it says about the tail
 
@@ -638,3 +638,57 @@ repeating whenever a batch introduces a new shape of source.
 far has been the matcher's, not the data's: `22h30` in Switzerland, `9u30` in
 Flanders, `10pm` in Britain, `08H30` in France. Each one taught it a spelling, and
 the direction that matters still fails — `10pm` does not cover 22:30.
+
+## The second-pass gap audit
+
+The same pass that closed the website worklist read a week off every link it
+found. It also re-read the hours of every venue that had a link but no hours
+decision. `node tools/venue-audit.mjs` refuses to pass while any row is
+`pending`; none is.
+
+### The shapes that decide an outcome
+
+These recur often enough to be worth stating as rules, because each of them
+looks like a schedule until it is read carefully:
+
+- **The hours belong to something else.** Boulderstation Enschede's "by
+  appointment Thursdays" was the Mad Rock shop upstairs. Kaamos Climbing's
+  "Ma Suljettu, Ti–To 17–20" is headed *Asiakaspalvelu palvelee* — the
+  customer-service desk — and is dated to one week; the hall itself is ticketed
+  24/7. Gwada Grimpe and Gravity Budapest publish yoga and beginner-class
+  timetables and no opening at all. Vertical Spirit's only times are when its
+  telephone is answered.
+- **The wrong branch's week.** Natural High publishes Brașov's block first and
+  Bucharest's further down. AVATAR gives Balicka and Sikorki different weeks on
+  one page. Bolder Climbing, Aspire, Alta, Fabrica, Bison, UBT, Project Rock
+  and Beta all do the same. Taking the first block found would have been wrong
+  in every one of those cases.
+- **Members against the public.** Black Rock Bouldering labels Sunday "Members
+  & Punch Pass Holders ONLY"; Top Out Climbing Co-op separates "Public
+  climbing" from "Member access"; Vertical eXcape's Sunday is "Closed to
+  General Public"; Bridges Rock Gym opens to members at 6:00am and to everyone
+  else at noon. Only the public half is ever published.
+- **An exception published in place of a week.** Space Bloc has only
+  "HORAIRES EXCEPTIONNELS" for summer Saturdays; K2 Žilina dates its schedule
+  "Leto 30.06. - 01.09. 2026"; Ovčín heads its "leto 2026"; Portland Rock Gym
+  Beaverton and The Notch state only Summer Hours. All are `seasonal`.
+- **Markup that disagrees with the page.** Beta Bouldering's text says weekdays
+  from 7am and its own markup says 10am. Up The Bloc carries two blocks that
+  differ on every day. Active Climbing Augusta's header and footer disagree on
+  Monday and Friday. All are `ambiguous` — with one exception worth naming:
+  Bison Boulders' markup is a single site-wide business record whose address is
+  Tobaksbyen's and whose hours are Kødbyen's, so it contradicts Tobaksbyen and
+  says nothing about Kødbyen.
+- **Markup as the only source.** Approach Climbing, Dino Moves and Island Rock
+  publish a week in structured data and nowhere in words. Markup is supporting
+  evidence and never the sole source, so those are
+  `no-hours-on-official-site`.
+
+### One matcher change
+
+`evidenceMentionsTime` could not read a range that carries one meridiem for
+both ends. "Public climbing Wednesday & Friday: 2–8 pm" is a whole afternoon,
+and the cross-check called 14:00 unsupported. The opening time may now borrow
+the closing marker, but only when the pair does not cross noon: in "10–2 pm"
+the 10 is still morning, and a claim of 10 p.m. against that text is still
+rejected. Tests cover all three readings.

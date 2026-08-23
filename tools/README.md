@@ -340,6 +340,50 @@ node tools/build-boards-data.mjs --overlays-only
   it as the venue's own, and link the page it came from.
 - Counts land in `boards.meta.json` under `venue_hours`.
 
+## Coverage audit (`venue-audit.mjs`, `venue-audit-ledger.json`)
+
+```bash
+# Validate the ledger and print coverage; exits non-zero while any row is
+# still pending or unbacked by a real curated or research record.
+node tools/venue-audit.mjs
+
+# What is still open, and the next N rows to work on.
+node tools/venue-audit.mjs --queue DE
+node tools/venue-audit.mjs --next 20 --country US
+node tools/venue-audit.mjs --json
+```
+
+The two overlays above answer "what do we know?"; this answers "what have we
+looked at?", which is a different question and the one that decides whether a
+gap is real or merely unexamined.
+
+- **The worklist is frozen.** `venue-audit-ledger.json` holds one row per
+  eligible venue that lacked a website or hours when the audit opened — 1,475
+  of them — so the denominator cannot drift as venues are added upstream.
+  `computeWorklist()` recomputes it from the committed data and the test fails
+  if the two disagree.
+- **Every row must resolve to exactly one venue**, through the same
+  `resolveVenueRecord()` the overlays use. The one venue it cannot place —
+  Fitbloc, at coordinates 0,0 with no country — sits in an `unresolvable`
+  bucket, is exempt from the backing rule, and must carry a `note` on each
+  field it needs.
+- **Every decided outcome must be backed** by a real record in the matching
+  curated or research file. A row cannot claim `accepted` without a link, or
+  `seasonal` without an outcome record saying so.
+- **Retryable outcomes stay in the queue.** `unverified`, `unavailable` and
+  `pending` for websites; `inaccessible` and `pending` for hours. Those are
+  facts about one moment — a 403, a TLS failure, a page that renders in the
+  browser — rather than facts about the venue, so they are recorded and kept
+  open rather than closed as absent.
+- **The ledger never ships.** It is a working file: `venue-audit.test.mjs`
+  greps every published artifact for each row's contents and asserts no served
+  file references it.
+
+The audit's own findings — what it changed about candidate discovery, the
+shapes that decide an hours outcome, and the three upstream coordinate bugs it
+surfaced — are written up at the end of
+[`VENUE-LINKS.md`](VENUE-LINKS.md) and [`VENUE-HOURS.md`](VENUE-HOURS.md).
+
 ## Place index (`build-cities-data.mjs`)
 
 ```bash
