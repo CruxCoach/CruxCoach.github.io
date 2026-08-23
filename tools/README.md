@@ -297,6 +297,49 @@ node tools/build-boards-data.mjs --overlays-only
   that from a drifted upstream coordinate.
 - Counts land in `boards.meta.json` under `venue_links`.
 
+## Venue opening hours
+
+`tools/venue-hours.json` attaches a manually verified weekly opening schedule to
+a venue, read from that venue's own official page.
+`tools/venue-hours-research.json` is the other half: every venue that was
+reviewed and got no hours, with a status and a reason. The full policy, the
+record schema, the day grammar and the decision note for the fields deliberately
+*not* built live in [`tools/VENUE-HOURS.md`](VENUE-HOURS.md).
+
+```bash
+# Validate the curated file against the committed venue data (exits non-zero on
+# anything the build would refuse). Run before committing a batch.
+node tools/venue-hours-report.mjs
+
+# Worklist for the next batch, and the schedules already published.
+node tools/venue-hours-report.mjs --todo DE,AT,CH --limit 40
+node tools/venue-hours-report.mjs --show
+
+# Re-apply the venue-level overlays and re-render, without pulling a new
+# upstream dataset into the same commit.
+node tools/build-boards-data.mjs --overlays-only
+```
+
+- **Matching**: the same `resolveVenueRecord()` the website links use — the
+  4-decimal `venueKey()`, then a 250 m proximity rematch that also requires the
+  country and the name to agree. Both overlays share one resolver so neither can
+  drift into being laxer than the other.
+- **Never on private venues**: `classifyVenue()` refuses `commercial: false`
+  MoonBoard-only venues, exactly as it does for links.
+- **Fail closed**: a schedule that is partial, contradictory, seasonal,
+  appointment-only or unreadable produces an outcome record, not hours. The
+  schema will not accept a week with a day missing, and it will not accept a day
+  it cannot spell canonically.
+- **The verification date and the evidence quote never ship.** `toPublicHours()`
+  passes exactly the seven-day array and the source URL into the dataset; the
+  `checked` date, the `evidence` quote, the `signals` and the `provenance` stay
+  in the curated file. Tests grep the published geojson and both directories for
+  each record's own date and evidence.
+- **No open-now state, ever.** The data has no timezone, no holiday calendar and
+  no notion of a one-off closure. Both renderers state the published week, label
+  it as the venue's own, and link the page it came from.
+- Counts land in `boards.meta.json` under `venue_hours`.
+
 ## Place index (`build-cities-data.mjs`)
 
 ```bash

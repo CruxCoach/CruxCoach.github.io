@@ -113,6 +113,13 @@
   a.vsite:hover, a.vsite:focus { color: var(--accent); border-bottom-color: var(--accent); }
   a.vsite::before { content: "\2197\a0"; color: var(--fg-mute); }
   .linked-note { color: var(--fg-soft); font-size: 0.95rem; }
+  /* Curated opening hours. A venue line is already dense, so the schedule sits
+     on its own row underneath rather than fighting the board badges for the
+     end of the line. */
+  .vhours { display: block; font-size: 0.8rem; color: var(--fg-soft); margin-top: 0.15rem; }
+  .vhours-label { color: var(--fg-mute); }
+  a.vhours-src { color: var(--fg-mute); border-bottom: 1px dotted var(--rule); }
+  a.vhours-src:hover, a.vhours-src:focus { color: var(--accent); border-bottom-color: var(--accent); }
   .backlink { display: inline-block; margin: 1.5rem 0; }
   footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; margin-top: 2rem; color: var(--fg-mute); font-size: 0.85rem; }
   footer .container { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }

@@ -510,10 +510,26 @@ export function clearVenueLinkProperties(features) {
   }
 }
 
-// Resolve one record against the venue features. Never guesses: returns either
-// a single unambiguous feature or a reason it refused.
-function resolveOne(entry, index, byKey, features) {
-  const where = `venue-links[${index}] "${entry.name}"`;
+// Index the venue features by the same 4-decimal key the build groups them
+// with, so every overlay addresses a venue the same way.
+export function buildVenueIndex(features) {
+  const byKey = new Map();
+  for (const f of features) {
+    const [lon, lat] = f.geometry.coordinates;
+    byKey.set(venueKey(lat, lon), f);
+  }
+  return byKey;
+}
+
+// Resolve one curated record against the venue features. Never guesses: returns
+// either a single unambiguous feature or a reason it refused.
+//
+// Exported because every venue-level overlay has to fail closed in exactly the
+// same way. `where` is the caller's label for the record, so a refusal reads in
+// that overlay's own terms; everything the decision rests on — the 4-decimal
+// key, the 250 m proximity rematch, the name-similarity floor, the country
+// guard and the private-venue refusal — is shared rather than reimplemented.
+export function resolveVenueRecord(entry, where, byKey, features) {
   const exact = byKey.get(venueKey(entry.lat, entry.lon));
 
   let candidate = exact;
@@ -548,10 +564,14 @@ function resolveOne(entry, index, byKey, features) {
   }
 
   if (classifyVenue(candidate.properties) === 'private') {
-    return { status: 'private-venue', reason: `${where}: venue is a non-commercial home setup — no website link is published for private venues` };
+    return { status: 'private-venue', reason: `${where}: venue is a non-commercial home setup — curated data is not published for private venues` };
   }
 
   return { status: 'ok', feature: candidate, how, similarity };
+}
+
+function resolveOne(entry, index, byKey, features) {
+  return resolveVenueRecord(entry, `venue-links[${index}] "${entry.name}"`, byKey, features);
 }
 
 // Apply every curated record onto `features`, in place.
@@ -577,11 +597,7 @@ export function applyVenueLinks(features, entries) {
 
   clearVenueLinkProperties(features);
 
-  const byKey = new Map();
-  for (const f of features) {
-    const [lon, lat] = f.geometry.coordinates;
-    byKey.set(venueKey(lat, lon), f);
-  }
+  const byKey = buildVenueIndex(features);
 
   // Pass 1 — validate and resolve, without writing anything.
   const resolved = [];

@@ -496,10 +496,20 @@
   }
   .popup-wellpass-yes { color: #2a8e3d; }
   .popup-wellpass-no  { color: #999; font-weight: 500; }
-  /* Curated official-website link, plus the UTC date it was last verified —
-     this is hand-checked data, so the popup says how fresh the check is. */
+  /* Curated official-website link. The UTC date it was verified is curation
+     metadata and stays in tools/venue-links.json — it is never rendered. */
   .popup-site { margin: 4px 0 2px; font-size: 12px; }
   .popup-site .label { color: #999; margin-right: 4px; }
+  /* Curated opening hours: a small two-column block of day-run → times, with
+     the venue-supplied caveat and the source link underneath. Same rule as the
+     link above — the date it was checked lives in tools/venue-hours.json. */
+  .popup-hours { margin: 6px 0 2px; font-size: 12px; }
+  .popup-hours-head .label { color: #999; font-weight: 600; }
+  .popup-hours-row { display: flex; gap: 8px; line-height: 1.45; }
+  .popup-hours-days { color: #666; min-width: 58px; flex-shrink: 0; }
+  .popup-hours-time { color: #1a1a1a; }
+  .popup-hours-note { color: #888; font-size: 11px; margin-top: 3px; }
+  .popup-hours-note a { font-size: 11px; }
 
   /* About / attribution panel under the map — collapsed by default so the
      map gets the vertical space; click the summary to expand. */
@@ -802,7 +812,7 @@
 
 <script src="/assets/vendor/leaflet/leaflet.js"></script>
 <script src="/assets/vendor/leaflet/leaflet.markercluster.js"></script>
-<script src="/boards/map.js?v=20260822-1"></script>
+<script src="/boards/map.js?v=20260823-1"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 
 <script>
