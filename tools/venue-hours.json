@@ -2069,6 +2069,55 @@
     "evidence": "Neue Öffnungszeiten gültig ab dem 05.01.2025: Montag Ruhetag | Dienstag 10:00-18:00 | Mittwoch 10:00-18:00 | Donnerstag 10:00-18:00 | Freitag 10:00-18:00 | Samstag 9:00-18:00 | Sonntag 9:00-18:00"
   },
   {
+    "lat": 50.1057962,
+    "lon": 14.4345863,
+    "name": "Jungle Holešovice",
+    "country": "CZ",
+    "source": "https://holesovice.jungle.cz/kontakt",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-14:30,17:45-22:00",
+      "tue": "09:00-14:30,17:45-22:00",
+      "wed": "09:00-14:30,17:45-22:00",
+      "thu": "09:00-14:30,17:45-22:00",
+      "fri": "09:00-14:30,16:45-22:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Pondělí - Čtvrtek 9:00 - 14:30 & 17:45 - 22:00 | Pátek 9:00 - 14:30 & 16:45 - 22:00 | Sobota - Neděle 9:00 - 22:00",
+    "note": "The gap is explicit: Pondělí - čtvrtek 14:30 - 17:45 a v pátek 14:30 - 16:45 je celá lezecká hala uzavřena veřejnosti."
+  },
+  {
+    "lat": 49.23045,
+    "lon": 17.65388,
+    "name": "Vertikon",
+    "country": "CZ",
+    "source": "https://www.vertikon.cz/kontakt/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-22:00",
+      "tue": "08:00-22:00",
+      "wed": "08:00-22:00",
+      "thu": "08:00-22:00",
+      "fri": "08:00-22:00",
+      "sat": "08:00-22:00",
+      "sun": "08:00-22:00"
+    },
+    "evidence": "Otevírací doba Pondělí 8:00 – 22:00 | Úterý 8:00 – 22:00 | Středa 8:00 – 22:00 | Čtvrtek 8:00 – 22:00 | Pátek 8:00 – 23:00 | Sobota 8:00 – 22:00 | Neděle 8:00 – 22:00"
+  },
+  {
     "lat": 48.1067623,
     "lon": 11.5456929,
     "name": "@kbthalkirchen",
@@ -5291,6 +5340,270 @@
     "evidence": "Montag: 12 – 23 Uhr | Dienstag: 12 – 23 Uhr | Mittwoch: 10 – 23 Uhr | Donnerstag: 10 – 23 Uhr | Freitag: 10 – 23 Uhr | Samstag: 10 – 21 Uhr | Sonntag: 10 – 21 Uhr"
   },
   {
+    "lat": 56.1482377,
+    "lon": 10.1912306,
+    "name": "Aarhus City Boulders",
+    "country": "DK",
+    "source": "https://boulders.dk/gyms",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "08:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "08:00-23:00",
+      "sat": "08:00-23:00",
+      "sun": "08:00-23:00"
+    },
+    "evidence": "Aarhus City, Ankersgade 12C, 8000 Aarhus C — Åbningstider Hver dag 08:00 - 23:00",
+    "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
+  },
+  {
+    "lat": 57.03035,
+    "lon": 9.97521,
+    "name": "Boulders Aalborg",
+    "country": "DK",
+    "source": "https://boulders.dk/gyms",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "street-address",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Aalborg, Skjernvej 4A, 9220 Aalborg — Åbningstider Hver dag 10.00 - 22.00",
+    "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
+  },
+  {
+    "lat": 56.15082,
+    "lon": 10.16688,
+    "name": "Boulders Aarhus Aaby",
+    "country": "DK",
+    "source": "https://boulders.dk/gyms",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "street-address",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "08:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "08:00-23:00",
+      "sat": "08:00-23:00",
+      "sun": "08:00-23:00"
+    },
+    "evidence": "Aarhus Aaby, Søren Frichs Vej 54, 8230 Aabyhøj — Åbningstider Hver dag 08:00 - 23:00",
+    "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
+  },
+  {
+    "lat": 56.205163,
+    "lon": 10.181689,
+    "name": "Boulders Aarhus Nord",
+    "country": "DK",
+    "source": "https://boulders.dk/gyms",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "hours-scope",
+      "street-address"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Aarhus Nord, Graham Bells Vej 18A, 8200 Aarhus N — Åbningstider Hver dag 10:00 - 22:00",
+    "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
+  },
+  {
+    "lat": 56.11068,
+    "lon": 10.15457,
+    "name": "Boulders Aarhus Sud",
+    "country": "DK",
+    "source": "https://boulders.dk/gyms",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "street-address",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Aarhus Syd, Søren Nymarks Vej 6A, 8270 Højbjerg — Åbningstider Hver dag 10:00 - 22:00",
+    "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
+  },
+  {
+    "lat": 55.61953,
+    "lon": 12.63058,
+    "name": "Boulders Amager",
+    "country": "DK",
+    "source": "https://boulders.dk/gyms",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "street-address",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Amager, Amager Landevej 233, 2770 Kastrup — Åbningstider Hver dag 10:00 - 22:00",
+    "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
+  },
+  {
+    "lat": 55.6271,
+    "lon": 12.48416,
+    "name": "Boulders Hvidovre",
+    "country": "DK",
+    "source": "https://boulders.dk/gyms",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "street-address",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Hvidovre, Strandmarksvej 20, 2650 Hvidovre — Åbningstider Hver dag 10:00 - 22:00",
+    "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
+  },
+  {
+    "lat": 55.40258979999999,
+    "lon": 10.3731341,
+    "name": "Boulders Odense",
+    "country": "DK",
+    "source": "https://boulders.dk/gyms",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Odense, Wichmandsgade 11, 5000 Odense C — Åbningstider Hver dag 10:00 - 22:00",
+    "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
+  },
+  {
+    "lat": 55.66153,
+    "lon": 12.51526,
+    "name": "Boulders Valby",
+    "country": "DK",
+    "source": "https://boulders.dk/gyms",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Valby, Pakkerivej 27, 2500 Valby — Åbningstider Hver dag 09:00 - 22:00",
+    "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's. Upstream still carries the hall's older Vigerslev Allé address."
+  },
+  {
+    "lat": 55.68776,
+    "lon": 12.4909,
+    "name": "Boulders Vanløse",
+    "country": "DK",
+    "source": "https://boulders.dk/gyms",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "street-address",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "08:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "08:00-23:00",
+      "sat": "08:00-23:00",
+      "sun": "08:00-23:00"
+    },
+    "evidence": "Vanløse, Vanløse Torv 1, Krone 2720 Vanløse — Åbningstider Hver dag 08:00 - 23:00",
+    "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
+  },
+  {
     "lat": 40.33956,
     "lon": -3.84857,
     "name": "Climbat X-Madrid",
@@ -5682,6 +5995,134 @@
       "sun": "10:00-21:00"
     },
     "evidence": "De lunes a viernes de 10.00 a 22.00h. | Sábados, domingos y festivos. de 10.00 a 21.00h."
+  },
+  {
+    "lat": 60.16612,
+    "lon": 24.70167,
+    "name": "Boulderkeskus Espoo",
+    "country": "FI",
+    "source": "https://www.boulderkeskus.com/en/content/9-all-locations",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "10:00-21:00",
+      "tue": "10:00-21:00",
+      "wed": "10:00-21:00",
+      "thu": "10:00-21:00",
+      "fri": "10:00-21:00",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Espoo and Flash — Mon - Fri 10.00 - 21.00 | Sat 10.00 - 18.00 | Sun 10.00 - 18.00",
+    "note": "The all-locations page groups its gyms by name — Pasila, Konala and Herttoniemi in one block, Espoo and Flash in another."
+  },
+  {
+    "lat": 60.204509,
+    "lon": 25.0476,
+    "name": "Boulderkeskus Herttoniemi",
+    "country": "FI",
+    "source": "https://www.boulderkeskus.com/en/content/9-all-locations",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "10:00-21:00",
+      "tue": "10:00-21:00",
+      "wed": "10:00-21:00",
+      "thu": "10:00-21:00",
+      "fri": "10:00-21:00",
+      "sat": "12:00-18:00",
+      "sun": "12:00-18:00"
+    },
+    "evidence": "Pasila, Konala and Herttoniemi — Mon - Fri 10.00 - 21.00 | Sat 12.00 - 18.00 | Sun 12.00 - 18.00",
+    "note": "The all-locations page groups its gyms by name — Pasila, Konala and Herttoniemi in one block, Espoo and Flash in another."
+  },
+  {
+    "lat": 60.23692,
+    "lon": 24.8595,
+    "name": "Boulderkeskus Konala",
+    "country": "FI",
+    "source": "https://www.boulderkeskus.com/en/content/9-all-locations",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "10:00-21:00",
+      "tue": "10:00-21:00",
+      "wed": "10:00-21:00",
+      "thu": "10:00-21:00",
+      "fri": "10:00-21:00",
+      "sat": "12:00-18:00",
+      "sun": "12:00-18:00"
+    },
+    "evidence": "BK KONALA, Ruosilantie 1, 00390 Helsinki — Pasila, Konala and Herttoniemi: Mon - Fri 10.00 - 21.00 | Sat 12.00 - 18.00 | Sun 12.00 - 18.00",
+    "note": "The all-locations page groups its gyms by name — Pasila, Konala and Herttoniemi in one block, Espoo and Flash in another."
+  },
+  {
+    "lat": 60.1698557,
+    "lon": 24.938379,
+    "name": "Boulderkeskus Pasila",
+    "country": "FI",
+    "source": "https://www.boulderkeskus.com/en/content/9-all-locations",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "10:00-21:00",
+      "tue": "10:00-21:00",
+      "wed": "10:00-21:00",
+      "thu": "10:00-21:00",
+      "fri": "10:00-21:00",
+      "sat": "12:00-18:00",
+      "sun": "12:00-18:00"
+    },
+    "evidence": "Pasila, Konala and Herttoniemi — Mon - Fri 10.00 - 21.00 | Sat 12.00 - 18.00 | Sun 12.00 - 18.00",
+    "note": "The all-locations page groups its gyms by name — Pasila, Konala and Herttoniemi in one block, Espoo and Flash in another."
+  },
+  {
+    "lat": 64.99112,
+    "lon": 25.45804,
+    "name": "Kaamos Climbing",
+    "country": "FI",
+    "source": "https://kaamosclimbing.fi/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "closed",
+      "tue": "17:00-20:00",
+      "wed": "17:00-20:00",
+      "thu": "17:00-20:00",
+      "fri": "closed",
+      "sat": "11:00-16:00",
+      "sun": "closed"
+    },
+    "evidence": "Ma Suljettu | Ti–To 17–20 | Pe Suljettu | La 11–16 | Su Suljettu"
   },
   {
     "lat": 43.33397,
@@ -7924,6 +8365,55 @@
     "evidence": "Lun – Ven: 10.00 – 22.00 | Sab: 11.00 – 19.00 | Dom: 15.00 – 19.00"
   },
   {
+    "lat": 49.49443,
+    "lon": 5.96847,
+    "name": "BlocX - Urban Fitness",
+    "country": "LU",
+    "source": "https://en.blocx.lu/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-22:30",
+      "tue": "08:00-22:30",
+      "wed": "08:00-22:30",
+      "thu": "08:00-22:30",
+      "fri": "08:00-22:30",
+      "sat": "08:00-22:30",
+      "sun": "08:00-22:30"
+    },
+    "evidence": "Monday - Sunday 8:00 - 22:30 | Open All Holidays",
+    "note": "Upstream carries this gym twice, about 30 m apart."
+  },
+  {
+    "lat": 49.49416,
+    "lon": 5.96838,
+    "name": "BLOCX Urban Fitness",
+    "country": "LU",
+    "source": "https://en.blocx.lu/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-22:30",
+      "tue": "08:00-22:30",
+      "wed": "08:00-22:30",
+      "thu": "08:00-22:30",
+      "fri": "08:00-22:30",
+      "sat": "08:00-22:30",
+      "sun": "08:00-22:30"
+    },
+    "evidence": "Monday - Sunday 8:00 - 22:30 | Open All Holidays"
+  },
+  {
     "lat": 53.21729,
     "lon": 6.53861,
     "name": "Apex Boulders",
@@ -8833,6 +9323,549 @@
     "evidence": "Reguliere openingstijden Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 21:00 | Zondag 09:00 – 21:00"
   },
   {
+    "lat": 60.293586,
+    "lon": 5.265044,
+    "name": "Bergen Klatresenter Fana",
+    "country": "NO",
+    "source": "https://www.bergenklatresenter.no/fana/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "07:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "07:00-22:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Vanlig åpningstider: Man, ons, fre: kl 07.00 - 22.00 | Tirs og tors: kl 09.00 - 22.00 | Lør: kl 09.00 - 18.00 | Søn: kl 09.00 - 22.00",
+    "note": "The operator's two apningstider pages carry one week each; this is the Fana location page. Upstream carries the gym twice, about 30 m apart."
+  },
+  {
+    "lat": 60.29386,
+    "lon": 5.265,
+    "name": "Bergen Klatresenter Fana",
+    "country": "NO",
+    "source": "https://www.bergenklatresenter.no/fana/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "street-address",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "07:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "07:00-22:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Vanlig åpningstider: Man, ons, fre: kl 07.00 - 22.00 | Tirs og tors: kl 09.00 - 22.00 | Lør: kl 09.00 - 18.00 | Søn: kl 09.00 - 22.00"
+  },
+  {
+    "lat": 60.3924,
+    "lon": 5.2823,
+    "name": "Bergen Klatresenter Laksevåg",
+    "country": "NO",
+    "source": "https://www.bergenklatresenter.no/bks-laksevag/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "street-address",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "07:00-22:00",
+      "fri": "09:00-21:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "Man og ons: kl. 09:00 - 22:00 | Tirs og tors: kl 07.00-22.00 | Fre: 09.00 - 21.00 | Lør: kl. 09:00 - 18:00 | Søn: kl. 09:00 - 20:00"
+  },
+  {
+    "lat": 60.78878,
+    "lon": 11.09001,
+    "name": "Espern Aktivitetspark",
+    "country": "NO",
+    "source": "https://espern.no/kontaktoss/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "06:30-22:00",
+      "tue": "06:30-22:00",
+      "wed": "06:30-22:00",
+      "thu": "06:30-22:00",
+      "fri": "06:30-20:00",
+      "sat": "09:00-18:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Mandag 06:30-22:00 | Tirsdag 06:30 – 22:00 | Onsdag 06:30-22:00 | Torsdag 06:30-22:00 | Fredag 06:30–20:00 | Lørdag 09:00 – 18:00 | Søndag 10:00 – 20:00",
+    "note": "The operator's two Express gyms keep separate, longer hours on the same page."
+  },
+  {
+    "lat": 61.44946,
+    "lon": 5.90513,
+    "name": "Førde Klatresenter",
+    "country": "NO",
+    "source": "https://fordeklatresenter.no/apningstider/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "10:00-20:00",
+      "sat": "10:00-18:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Mandag 09.00 - 22.00 | Tysdag 09.00 - 22.00 | Onsdag 09.00 - 22.00 | Torsdag 09.00 - 22.00 | Fredag 10.00 - 20.00 | Laurdag 10.00 - 18.00 | Søndag 10.00 - 20.00",
+    "note": "A summer week ran from 22 June to 22 August and has ended; the regular one is repeated on the homepage."
+  },
+  {
+    "lat": 59.91758,
+    "lon": 10.63072,
+    "name": "Gneis Lilleaker",
+    "country": "NO",
+    "source": "https://gneislilleaker.no/apningstider",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "07:00-23:00",
+      "tue": "07:00-23:00",
+      "wed": "07:00-23:00",
+      "thu": "07:00-23:00",
+      "fri": "07:00-21:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Mandag 07:00-23:00 | Tirsdag 07:00-23:00 | Onsdag 07:00-23:00 | Torsdag 07:00-23:00 | Fredag 07:00-21:00 | Lørdag 09:00-21:00 | Søndag 09:00-21:00"
+  },
+  {
+    "lat": 60.29332,
+    "lon": 5.25244,
+    "name": "Høyt Under Taket Kokstad",
+    "country": "NO",
+    "source": "https://studiovertikal.no/apningstider/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-22:00",
+      "tue": "08:00-22:00",
+      "wed": "08:00-22:00",
+      "thu": "08:00-22:00",
+      "fri": "08:00-20:00",
+      "sat": "11:00-20:00",
+      "sun": "11:00-20:00"
+    },
+    "evidence": "Mandag–torsdag 08:00–22:00 | Fredag 08:00–20:00 | Lørdag–søndag 11:00–20:00",
+    "note": "A summer block on the same page ran until 7 August and has ended; the regular week matches the page's schema.org openingHours. Upstream still carries the hall's former name; the site is now Studio Vertikal at the same address."
+  },
+  {
+    "lat": 59.9101,
+    "lon": 10.81134,
+    "name": "Klatreverket Bryn",
+    "country": "NO",
+    "source": "https://klatreverket.no/apningstider/",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "07:00-22:30",
+      "tue": "07:00-22:30",
+      "wed": "07:00-22:30",
+      "thu": "07:00-22:30",
+      "fri": "07:00-21:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "Bryn — Man-tor 7 – 22.30 | Fre 7 – 21 | Lør 10 – 19 | Søn 10 – 21",
+    "note": "One page lists each Klatreverket centre under its own heading."
+  },
+  {
+    "lat": 59.92947,
+    "lon": 10.75802,
+    "name": "Klatreverket Løkka",
+    "country": "NO",
+    "source": "https://klatreverket.no/apningstider/",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "10:00-21:00",
+      "sat": "09:00-20:00",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "Løkka — Man 10 – 23 | Tirs 8 – 23 | Ons 10 – 23 | Tor 8 – 23 | Fre 10 – 21 | Lør 9 – 20 | Søn 10 – 21",
+    "note": "One page lists each Klatreverket centre under its own heading."
+  },
+  {
+    "lat": 59.93158127,
+    "lon": 10.7925199815953,
+    "name": "Klatreverket Løren / Kanonhallen",
+    "country": "NO",
+    "source": "https://klatreverket.no/apningstider/",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "08:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "08:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-20:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "Løren — Man 8 – 22 | Tirs 9 – 22 | Ons 8 – 22 | Tor 9 – 22 | Fre 9 – 20 | Lør 9 – 18 | Søn 9 – 20",
+    "note": "One page lists each Klatreverket centre under its own heading."
+  },
+  {
+    "lat": 59.8679,
+    "lon": 10.84182,
+    "name": "Oslo Klatresenter",
+    "country": "NO",
+    "source": "https://www.osloklatresenter.no/informasjon/apningstider",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:30",
+      "tue": "07:00-22:30",
+      "wed": "09:00-22:30",
+      "thu": "07:00-22:30",
+      "fri": "09:00-21:00",
+      "sat": "09:00-20:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Mandag 09:00 - 22:30 | Tirsdag 07:00 - 22:30 | Onsdag 09:00 - 22:30 | Torsdag 07:00 - 22:30 | Fredag 09:00 - 21:00 | Lørdag 09:00 - 20:00 | Søndag 09:00 - 21:00"
+  },
+  {
+    "lat": 66.31997,
+    "lon": 14.19856,
+    "name": "Rana Klatresenter",
+    "country": "NO",
+    "source": "https://ranaklatresenter.no/kontakt/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-20:00",
+      "tue": "09:00-20:00",
+      "wed": "09:00-20:00",
+      "thu": "09:00-20:00",
+      "fri": "09:00-20:00",
+      "sat": "11:00-17:00",
+      "sun": "11:00-17:00"
+    },
+    "evidence": "Mandag–fredag 09:00–20:00 | Lørdag–søndag 11:00–17:00",
+    "note": "The site's schema.org openingHours states the same week."
+  },
+  {
+    "lat": 58.13775,
+    "lon": 7.99995,
+    "name": "Sørlandet Klatresenter",
+    "country": "NO",
+    "source": "https://sorlandetklatresenter.no/apningstider",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-20:00",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Mandag 09:00 - 22:00 | Tirsdag 09:00 - 22:00 | Onsdag 09:00 - 22:00 | Torsdag 09:00 - 22:00 | Fredag 09:00 - 20:00 | Lørdag 10:00 - 18:00 | Søndag 10:00 - 18:00",
+    "note": "A summer week for 22.06–09.08 is published below the regular one and has ended."
+  },
+  {
+    "lat": 60.293389018785966,
+    "lon": 5.253067886000761,
+    "name": "Studio Vertikal Klatresenter",
+    "country": "NO",
+    "source": "https://studiovertikal.no/apningstider/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-22:00",
+      "tue": "08:00-22:00",
+      "wed": "08:00-22:00",
+      "thu": "08:00-22:00",
+      "fri": "08:00-20:00",
+      "sat": "11:00-20:00",
+      "sun": "11:00-20:00"
+    },
+    "evidence": "Mandag–torsdag 08:00–22:00 | Fredag 08:00–20:00 | Lørdag–søndag 11:00–20:00",
+    "note": "A summer block on the same page ran until 7 August and has ended; the regular week matches the page's schema.org openingHours."
+  },
+  {
+    "lat": 60.29345,
+    "lon": 5.25202,
+    "name": "Studio Vertikal Klatresenter",
+    "country": "NO",
+    "source": "https://studiovertikal.no/apningstider/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "08:00-22:00",
+      "tue": "08:00-22:00",
+      "wed": "08:00-22:00",
+      "thu": "08:00-22:00",
+      "fri": "08:00-20:00",
+      "sat": "11:00-20:00",
+      "sun": "11:00-20:00"
+    },
+    "evidence": "Mandag–torsdag 08:00–22:00 | Fredag 08:00–20:00 | Lørdag–søndag 11:00–20:00",
+    "note": "A summer block on the same page ran until 7 August and has ended; the regular week matches the page's schema.org openingHours. Upstream carries this hall three times within about 100 m, once under its former name."
+  },
+  {
+    "lat": 53.40676,
+    "lon": 14.51759,
+    "name": "Bald Port",
+    "country": "PL",
+    "source": "https://baldport.pl/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "12:00-22:00",
+      "tue": "12:00-22:00",
+      "wed": "12:00-22:00",
+      "thu": "12:00-22:00",
+      "fri": "12:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "pon.–pt.: 12:00–22:00 | sob. i niedz.: 10:00–22:00"
+  },
+  {
+    "lat": 52.37399,
+    "lon": 16.98068,
+    "name": "Blok Line Poznań",
+    "country": "PL",
+    "source": "https://blokline.pl/kontakt/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "08:00-23:00",
+      "sun": "08:00-23:00"
+    },
+    "evidence": "Poniedziałek 9:00 - 23:00 | Wtorek 9:00 - 23:00 | Środa 9:00 - 23:00 | Czwartek 9:00 - 23:00 | Piątek 9:00 - 23:00 | Sobota 08:00 - 23:00 | Niedziela 08:00 - 23:00"
+  },
+  {
+    "lat": 52.4173693,
+    "lon": 16.922555,
+    "name": "CLIMBING SPOT - PUŁASKIEGO",
+    "country": "PL",
+    "source": "https://www.climbingspot.pl/kontakt/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-22:30",
+      "tue": "08:00-22:30",
+      "wed": "08:00-22:30",
+      "thu": "08:00-22:30",
+      "fri": "08:00-22:30",
+      "sat": "08:00-22:30",
+      "sun": "08:00-22:30"
+    },
+    "evidence": "08:00 - 22:30 poniedziałek - niedziela",
+    "note": "A second line on the same page gives the bar's longer hours."
+  },
+  {
+    "lat": 51.08947,
+    "lon": 17.0123,
+    "name": "Lokal 32",
+    "country": "PL",
+    "source": "https://lokal32.pl/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "12:00-23:00",
+      "tue": "07:00-23:00",
+      "wed": "07:00-23:00",
+      "thu": "07:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "pn: 12:00 - 23:00 | wt, śr, czw: 07:00 - 23:00 | pt: 09:00 - 23:00 | sb 09:00 - 22:00 | ndz: 09:00 - 21:00"
+  },
+  {
+    "lat": 52.25121,
+    "lon": 21.06708,
+    "name": "Obiekto",
+    "country": "PL",
+    "source": "https://obiekto.pl/kontakt",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "08:00-22:30",
+      "tue": "08:00-22:30",
+      "wed": "08:00-22:30",
+      "thu": "08:00-22:30",
+      "fri": "08:00-22:30",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "GODZINY OTWARCIA: PON-PT: 08:00-22:30 | WEEKENDY: 09:00-22:00",
+    "note": "Upstream carries this gym twice, about 20 m apart."
+  },
+  {
+    "lat": 52.251055,
+    "lon": 21.0678,
+    "name": "Obiekto Moon",
+    "country": "PL",
+    "source": "https://obiekto.pl/kontakt",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "08:00-22:30",
+      "tue": "08:00-22:30",
+      "wed": "08:00-22:30",
+      "thu": "08:00-22:30",
+      "fri": "08:00-22:30",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "GODZINY OTWARCIA: PON-PT: 08:00-22:30 | WEEKENDY: 09:00-22:00"
+  },
+  {
+    "lat": 52.19239,
+    "lon": 20.93527,
+    "name": "WEST Bouldering",
+    "country": "PL",
+    "source": "https://westbouldering.pl/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "08:00-23:00",
+      "sat": "08:00-23:00",
+      "sun": "08:00-23:00"
+    },
+    "evidence": "Godziny otwarcia Codziennie: 8:00 - 23:00"
+  },
+  {
     "lat": 32.65129510000001,
     "lon": -16.8985489,
     "name": "Madeira Climbing Center",
@@ -8855,5 +9888,180 @@
     },
     "evidence": "Seg. a Sex. 16:00h — 21:00h | Sábados 10:00h — 18:00h | Domingos Encerrado",
     "note": "The site's schema.org openingHoursSpecification states the same week."
+  },
+  {
+    "lat": 55.5874446,
+    "lon": 13.0251295,
+    "name": "Klättercentret Malmo",
+    "country": "SE",
+    "source": "https://klattercentret.se/malmo/kontakt-oppettider/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "07:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Mån – Tis – Tors kl 09.00-22.00 | Onsdag & Fredag kl 07.00-22.00 | Helger kl 10.00-20.00"
+  },
+  {
+    "lat": 59.29908940000001,
+    "lon": 17.9915352,
+    "name": "Klättercentret Telefonplan",
+    "country": "SE",
+    "source": "https://klattercentret.se/telefonplan/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "07:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "07:00-22:00",
+      "fri": "07:00-22:00",
+      "sat": "09:00-20:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Vardagar kl 07.00-22.00 | Lördagar kl 09.00-20.00 | Söndagar kl 09.00-22.00"
+  },
+  {
+    "lat": 59.8561303,
+    "lon": 17.708122,
+    "name": "Klattercentret Uppsala AB",
+    "country": "SE",
+    "source": "https://klattercentret.se/uppsala/kontakt-oppettider/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "11:00-22:00",
+      "tue": "11:00-22:00",
+      "wed": "11:00-22:00",
+      "thu": "11:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Måndagar – Torsdagar kl 11.00-22.00 | Fredagar kl 09.00-22.00 | Helger kl 10.00-20.00"
+  },
+  {
+    "lat": 57.73633,
+    "lon": 12.03056,
+    "name": "Klätterdomen",
+    "country": "SE",
+    "source": "https://www.klatterdomen.se/info/%C3%B6ppettider-37955937",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "11:00-22:00",
+      "tue": "11:00-22:00",
+      "wed": "11:00-22:00",
+      "thu": "11:00-22:00",
+      "fri": "11:00-21:00",
+      "sat": "11:00-19:00",
+      "sun": "11:00-19:00"
+    },
+    "evidence": "MÅNDAG - TORSDAG: 11.00 - 22.00 | FREDAG: 11.00 - 21.00 | LÖRDAG - SÖNDAG: 11.00 - 19.00"
+  },
+  {
+    "lat": -33.91024,
+    "lon": 18.47255,
+    "name": "Bloc 11 Paarden Eiland",
+    "country": "ZA",
+    "source": "https://www.bloc11.co.za/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday | Public holidays — 9am - 10pm | 9am - 10pm | 9am - 10pm | 9am - 10pm | 9am - 10pm | 9am - 7pm | 9am - 7pm | 9am - 7pm"
+  },
+  {
+    "lat": -26.10627,
+    "lon": 27.97596,
+    "name": "CityROCK JHB",
+    "country": "ZA",
+    "source": "https://cityrock.co.za/",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "street-address",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "11:00-22:00",
+      "tue": "11:00-22:00",
+      "wed": "11:00-22:00",
+      "thu": "11:00-22:00",
+      "fri": "09:00-18:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "CityROCK Johannesburg, 46 Fourth Avenue South, Fontainebleau, Randburg — Opening hours Monday to Thursday: 11am to 10pm | Friday to Sunday: 9am to 6pm",
+    "note": "The homepage lists each CityROCK gym with its address and its own opening-hours block."
+  },
+  {
+    "lat": -25.85158,
+    "lon": 28.25072,
+    "name": "CityROCK Pretoria",
+    "country": "ZA",
+    "source": "https://cityrock.co.za/",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "street-address",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "11:00-22:00",
+      "tue": "11:00-22:00",
+      "wed": "11:00-22:00",
+      "thu": "11:00-22:00",
+      "fri": "09:00-18:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "CityROCK Pretoria, Saltus Street, Guernsey North Business Park, CityROCK Unit B, Irene, Centurion — Opening hours Monday to Thursday: 11am to 10pm | Friday to Sunday: 9am to 6pm",
+    "note": "The homepage lists each CityROCK gym with its address and its own opening-hours block."
   }
 ]

@@ -314,10 +314,10 @@ maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (published + outcome entries) | 537 |
-| Published schedules | 362 |
-| Recorded outcomes without hours | 175 |
-| Countries covered | 11 |
+| Venues reviewed (published + outcome entries) | 627 |
+| Published schedules | 410 |
+| Recorded outcomes without hours | 217 |
+| Countries covered | 19 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -327,69 +327,61 @@ Per-country coverage of eligible (public/commercial) venues:
 | DE | 132 | 169 | 201 | 66% |
 | GB | 52 | 70 | 102 | 51% |
 | NL | 37 | 51 | 59 | 63% |
-| CH | 35 | 52 | 56 | 63% |
+| CH | 35 | 52 | 56 | 62% |
 | AT | 31 | 44 | 48 | 65% |
 | FR | 25 | 46 | 70 | 36% |
 | BE | 19 | 28 | 36 | 53% |
 | ES | 16 | 49 | 98 | 16% |
-| IT | 9 | 21 | 72 | 13% |
+| NO | 15 | 35 | 81 | 19% |
+| DK | 10 | 14 | 27 | 37% |
+| IT | 9 | 21 | 72 | 12% |
+| PL | 7 | 12 | 45 | 16% |
+| FI | 5 | 8 | 15 | 33% |
 | IE | 5 | 5 | 10 | 50% |
+| SE | 4 | 11 | 37 | 11% |
+| ZA | 3 | 3 | 12 | 25% |
+| CZ | 2 | 4 | 10 | 20% |
+| LU | 2 | 3 | 6 | 33% |
 | PT | 1 | 2 | 15 | 7% |
 
-- **Last completed batch:** Spain, France, Italy and Portugal — every linked
-  venue in all four. 51 published, 67 logged, and the lowest yield of any batch
-  so far at 43%.
-- **Next batch:** the Nordics, Poland, Czechia, Luxembourg and South Africa.
+- **Last completed batch:** the Nordics, Poland, Czechia, Luxembourg and South
+  Africa. **Every linked venue in Europe has now been reviewed** — 410 published,
+  217 logged.
+- **Next batch:** the United States, then Canada and Australia.
 
-### Why Spain and Italy publish so much less
+### What Europe taught
 
-Southern Europe is the first place where the refusal rate is the story. Spain
-published 16 of 49 reviewed and Italy 9 of 21, against two thirds in DACH, and it
-is not one cause but three, each roughly a third of the gap.
+**Seasonal is the biggest single reason a gym gets no hours** — 60 of the 217
+outcomes, and it is the same shape in every language: `Schulferien`, `BUITEN DE
+VAKANTIE PERIODES`, `Zomervakantie`, `Term-time hours (from September)`, `horaire
+d'été`, `Horario agosto`, `ORARI ESTIVI`, `Sommeråpningstid`, `Sommar stängt
+vecka 28-31`, `Åpningstider 1. Mai - 15. August`. The most expensive single case
+was Beest Boulders: all seven halls publish nothing but a block headed
+`Zomerperiode juli & augustus`, and six of them look like ordinary weekly tables
+until you read the heading two lines above.
 
-**A summer week instead of a week.** Indoorwall Alicante, The Climb Madrid, Rock
-& Wall Sevilla, Rocodrom Es Cau, La Ola Salamanca, Rocópolis, Pareti Parma, Bside
-Turin, Art Bloc Nice, Le Bloc de l'Ours, Rockspot Milan — all publish an August
-or seasonal regime, several of them *instead of* the regular one. Rocópolis
-closes on Sundays for a quarter of the year; Bside labels its weekend rows
-`Sab(Ott-mag)` and `DOM(GEN-FEB)`, which is a schedule that describes four months.
-
-**A site that renders its hours rather than writing them.** Sharma's three halls,
-all five Bloc Session locations, Escapad Champigny, Boulder Garage, Campo Base —
-the heading is in the document and the times are not. Where an operator does this
-it costs every one of its centres at once, which is the operator index working in
-reverse.
-
-**Contradictions, and more of them than anywhere else.** Rawindoor publishes two
-weeks that disagree about which days it is open at all; SKALA ROCO, Hangar4,
-Natural Climb, Vertigini, Climbing Zoo, Solo Escalade and The Roof Toulouse each
-state one day two ways. S'Avanzada is the extreme: seven different weeks on one
-page, differing in both the opening and the closing times.
-
-What worked, where it worked, is what worked everywhere: an operator with real
-per-location pages. Sputnik's five Spanish centres, The Roof's four French ones,
-Altissimo, Block'Out, Vertical'Art and Climb Up all publish a labelled week per
-hall, and every one of them was a clean read.
-
-### What the first eleven countries taught
-
-**Seasonal is the biggest single reason a gym gets no hours** — 53 of the 175
-outcomes, and it is the same shape in every language: `Schulferien`, `BINNEN`/
-`BUITEN DE VAKANTIE PERIODES`, `Zomervakantie`, `Term-time hours (from
-September)`, `horaire d'été`, `Horario agosto`, `ORARI ESTIVI`, `Sab(Ott-mag)`.
-The most expensive single case was Beest Boulders: all seven halls publish nothing
-but a block headed `Zomerperiode juli & augustus`, and six of them look like
-ordinary weekly tables until you read the heading two lines above.
+Not every seasonal note costs a record. Where the season is a *dated window that
+has ended* and the regular week is published beside it — Førde, Sørlandet, Studio
+Vertikal, Orobia, Kletterakademie Mitterdorf — the regular week is what is
+recorded and the note says the window existed. The line is whether the page still
+leaves you two answers for the same Tuesday.
 
 **Contradictions come in three shapes**, all caught by opening a second page of
-the same site — the cheapest quality step there is: markup against text; page
-against page; and notice against table, where DAV Landshut's timetable says Friday
-14:00 and a notice on the same page says it moved to 10:00 in April.
+the same site — the cheapest quality step there is. Markup against text is the
+most common, and Norway and Poland produced its purest form: five Høyt Under
+Taket halls and three Muralls all carry the schema.org placeholder
+`09:00-17:00, all seven days` under a perfectly clear visible timetable. Page
+against page is next: Bergen Klatresenter publishes two `apningstider` pages that
+swap Monday and Tuesday between the two halls, and Buldreterminalen swaps Tuesday
+and Wednesday between its homepage and its directions page. And notice against
+table, where DAV Landshut's timetable says Friday 14:00 and a notice on the same
+page says it moved to 10:00 in April.
 
 **A stated week is not always an opening.** DAV Erlangen publishes Mo–So
 07:00–23:00 for an unstaffed hall you cannot enter without a key; Quergang is
-public on Tuesday evenings and subscriber-only otherwise; The Adventure Hub opens
-to the public on a Friday and a Saturday afternoon.
+public on Tuesday evenings and subscriber-only otherwise; Boulderkeskus Kino is
+Premium-card-only; The Adventure Hub opens to the public on a Friday and a
+Saturday afternoon.
 
 **Two access regimes, one answer.** Where a venue publishes staffed hours *and* a
 wider card, badge or booking window, the record takes the staffed ones — the ones
@@ -399,15 +391,21 @@ Luma in Bath), that is the schedule, and the note says how entry works.
 
 **Facility hours versus venue hours.** Bergstation Hilden's table has three
 columns; Flashpoint Bristol publishes the wall and the café as two tables; Delfts
-Bleau's second column is when the building closes; HELIKS' bar closes half an hour
-after the hall. Bimano Bern is logged precisely because four tabs and four tables
-cannot be paired up from the fetched text.
+Bleau's second column is when the building closes; Coque Luxembourg publishes four
+weeks and none of them is labelled as the climbing wall's, which is why it is
+logged rather than guessed.
 
 **Markup is a witness, not a source.** Where a site publishes `openingHours` and
 nothing a reader can see, the record is refused. Where markup and text agree it
 goes in the note, because it is the cheapest confirmation available and it settles
-ambiguous table layouts — Boulder Factory Münster's table prints its values above
-its labels, and only the markup says which way round.
+ambiguous table layouts.
+
+**Chain pages that do the right thing** are what made the good countries fast, and
+they are not rare: Newton, Minimum, City Bouldering, Boulders (eleven Danish halls
+with an address and an `Åbningstider` row each), Boulderkeskus, Klatreverket,
+CityROCK, De Fabriek, Boulderhal Sterk. That is what `official-chain-page` plus
+the `hours-scope` signal is for, and the schema enforces it: the Konala record was
+refused until it carried something tying the page to that specific hall.
 
 **The evidence cross-check keeps finding notation, not errors.** Every failure so
 far has been the matcher's, not the data's: `22h30` in Switzerland, `9u30` in
