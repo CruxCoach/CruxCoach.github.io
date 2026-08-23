@@ -16636,6 +16636,34 @@
   "evidence": "Monday- Saturday: 12:00pm-10:00pm | Sunday: 12:00pm-7:00pm"
  },
  {
+  "lat": 35.65458,
+  "lon": -97.48122,
+  "name": "Blocworks Edmond",
+  "country": "US",
+  "source": "https://www.climbblocworks.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "13:00-18:00"
+  },
+  "evidence": "Hours MON-SAT | 10A-10P SUN | 1P-6P Member Only Hours (Edmond Only): TUE & THUR | 7-10 AM",
+  "note": "The operator states one week for both gyms and then one exception that names this one: \"Member Only Hours (Edmond Only): TUE & THUR | 7-10 AM\". That window is members-only and is not published here."
+ },
+ {
   "lat": 38.90609,
   "lon": -119.99937,
   "name": "Blue Granite Climbing Gym",
@@ -20944,6 +20972,33 @@
   "note": "The gym's openingHoursSpecification states the identical week alongside its address, so text and markup agree. A second, generic markup block on the same page carries the template default of 09:00-17:00 for all seven days and is not a claim about this gym."
  },
  {
+  "lat": 36.96815,
+  "lon": -122.00665,
+  "name": "Pacific Edge",
+  "country": "US",
+  "source": "https://pacificedgeclimbinggym.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Hours Monday 3:00 PM - 10:00 PM Tuesday 6:00 AM - 10:00 PM Wednesday 6:00 AM - 10:00 PM Thursday 6:00 AM - 10:00 PM Friday 6:00 AM - 10:00 PM Saturday 9:00 AM - 9:00 PM Sunday 9:00 AM - 9:00 PM",
+  "note": "Every day is listed separately, directly under the gym's address. Monday alone opens in the afternoon."
+ },
+ {
   "lat": 35.93733,
   "lon": -79.01967,
   "name": "Progression Climbing",
@@ -21335,6 +21390,32 @@
   },
   "evidence": "ROCKREATION LA | 11866 La Grange Ave. | Los Angeles, CA 90025 | Los Angeles Gym Hours | Monday: 12 PM 10 PM | Tuesday: 6 AM 10 PM | Wednesday: 12 PM 10 PM | Thursday: 6 AM 10 PM | Friday: 12 PM 10 PM | Saturday: 10 AM 4 PM | Sunday: 10 AM 4 PM",
   "note": "The operator runs two gyms and publishes a block for each; this is the Los Angeles one."
+ },
+ {
+  "lat": 38.0412153,
+  "lon": -78.4784356,
+  "name": "Rocky Top Moonboard",
+  "country": "US",
+  "source": "https://www.rockytopclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "06:00-21:00",
+   "tue": "06:00-21:00",
+   "wed": "06:00-21:00",
+   "thu": "06:00-21:00",
+   "fri": "06:00-21:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Hours: 6 AM - 9 PM Monday - Friday 9 AM - 9 PM Saturday/Sunday",
+  "note": "Stated directly beneath the gym's address, with the weekend given separately."
  },
  {
   "lat": 43.15484,

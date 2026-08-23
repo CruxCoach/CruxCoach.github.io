@@ -15779,6 +15779,22 @@
     "note": "Boulderhane's own site, printing the 34330 postal code upstream records for Büyükdere Cd. in Levent."
   },
   {
+    "lat": 39.9658623,
+    "lon": -105.1168505,
+    "name": "2019 Masters",
+    "country": "US",
+    "website": "https://www.thespotgym.com/louisville",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page",
+      "coordinates"
+    ],
+    "note": "The Spot publishes a page per gym; this venue sits 8 m from the map on its Louisville page, and Louisville is the town upstream records. Upstream calls the venue \"2019 Masters\", which is the board rather than the hall, so the hall name is not claimed as a signal."
+  },
+  {
     "lat": 40.02126,
     "lon": -105.25115,
     "name": "ABC Kid's Climbing",
@@ -16061,6 +16077,23 @@
     "note": "The candidate's own pages carry the town Garden City, a map of itself 91 m away, under the venue's name."
   },
   {
+    "lat": 40.45091,
+    "lon": -79.89598,
+    "name": "Ascend Climbing Point Breeze",
+    "country": "US",
+    "website": "https://www.ascendclimbing.com/locations/point-breeze",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "Ascend's own page for its Point Breeze gym, printing 7443 and the 15208 postal code in Pittsburgh that upstream records, and naming the Kilter Board this venue is listed for. The first pass tried /point-breeze, which is 404; the path is /locations/point-breeze."
+  },
+  {
     "lat": 41.31563,
     "lon": -72.90534,
     "name": "Ascent Climbing Gym",
@@ -16137,6 +16170,22 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 43.07687,
+    "lon": -89.42004,
+    "name": "Bakke Recreation & Wellbeing Center",
+    "country": "US",
+    "website": "https://recwell.wisc.edu/bakke/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The University of Wisconsin's own page for the Bakke Recreation & Wellbeing Center, printing 1976 and the 53706 postal code in Madison that upstream records."
   },
   {
     "lat": 30.32726,
@@ -16231,6 +16280,22 @@
     ]
   },
   {
+    "lat": 44.11073,
+    "lon": -103.17213,
+    "name": "Black Hills Basecamp",
+    "country": "US",
+    "website": "https://www.bhbasecamp.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "Black Hills Basecamp's own site, giving Rapid City, naming the Tension Board this venue is listed for, and embedding a map of itself 3 m away."
+  },
+  {
     "lat": 33.5812861,
     "lon": -112.0135902,
     "name": "Black Rock Bouldering Gym",
@@ -16243,6 +16308,23 @@
       "coordinates"
     ],
     "note": "The site carries this venue's name and embeds a map of itself — Black Rock Bouldering Gym — 14 m from these coordinates. Upstream records no street address for the venue, so the name and the point the site publishes of itself are what carry the match."
+  },
+  {
+    "lat": 39.95047,
+    "lon": -83.00785,
+    "name": "Bloc Garten",
+    "country": "US",
+    "website": "https://5.life/bg/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates"
+    ],
+    "note": "Bloc Garten's own page on its operator's site, printing 512 and the 43215 postal code in Columbus that upstream records, with a map of itself 10 m from this venue."
   },
   {
     "lat": 34.83659,
@@ -16272,6 +16354,22 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 35.65458,
+    "lon": -97.48122,
+    "name": "Blocworks Edmond",
+    "country": "US",
+    "website": "https://www.climbblocworks.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Blocworks publishes two Oklahoma gyms and gives each its own address; this venue is the Edmond one, at the 73034 postal code upstream records."
   },
   {
     "lat": 38.90609,
@@ -17959,6 +18057,23 @@
     ]
   },
   {
+    "lat": 43.03304,
+    "lon": -89.38128,
+    "name": "Greater Heights Climbing",
+    "country": "US",
+    "website": "https://www.ghclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates"
+    ],
+    "note": "Greater Heights Climbing's own site, printing 322 and the 53713 postal code in Fitchburg that upstream records, with a map of itself 211 m from this venue. The first pass had reached greaterheights.org, a Houston organisation."
+  },
+  {
     "lat": 39.1082,
     "lon": -108.63747,
     "name": "Grip Bouldering",
@@ -19405,6 +19520,22 @@
     ]
   },
   {
+    "lat": 36.96815,
+    "lon": -122.00665,
+    "name": "Pacific Edge",
+    "country": "US",
+    "website": "https://pacificedgeclimbinggym.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Pacific Edge Climbing Gym's own site, printing 104 Bronson Street #12, Santa Cruz, CA 95062 — the street and postal code upstream records."
+  },
+  {
     "lat": 45.5136,
     "lon": -122.78896,
     "name": "Portland Rock Gym Beaverton",
@@ -19731,6 +19862,21 @@
       "street-address"
     ],
     "note": "The operator lists more than one gym; its page gives this one as 11866 La Grange Ave. Los Angeles, CA 90025, which resolves 215 m from the coordinate."
+  },
+  {
+    "lat": 38.0412153,
+    "lon": -78.4784356,
+    "name": "Rocky Top Moonboard",
+    "country": "US",
+    "website": "https://www.rockytopclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "coordinates"
+    ],
+    "note": "Rocky Top Climbing's own site, giving 1729 Allied St, Charlottesville, VA 22903 and embedding a map of itself that falls on this venue to the metre."
   },
   {
     "lat": 43.15484,
@@ -20932,6 +21078,21 @@
     ]
   },
   {
+    "lat": 34.06397,
+    "lon": -118.21683,
+    "name": "The Stronghold Climbing Gym Lincoln Heights",
+    "country": "US",
+    "website": "https://www.strongholdclimb.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "coordinates"
+    ],
+    "note": "The Stronghold's own site, giving Los Angeles and embedding a map of itself 243 m from this venue."
+  },
+  {
     "lat": 35.60764,
     "lon": -97.62456,
     "name": "Threshold Climbing, Fitness & Yoga",
@@ -21150,6 +21311,22 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 40.0986191,
+    "lon": -82.9955726,
+    "name": "Vertical Adventures",
+    "country": "US",
+    "website": "https://5.life/va/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Vertical Adventures' own page on the same operator's site, printing 6513 and the 43229 postal code in Columbus that upstream records. The first pass had reached verticaladventures.ca, a Canadian gym."
   },
   {
     "lat": 42.9956397,
