@@ -28,6 +28,20 @@
     "note": "Mountain Extreme's own site, printing 4th Street Al Quoz — the street line upstream records."
   },
   {
+    "lat": -79.5855917,
+    "lon": 43.6044775,
+    "name": "Up The Bloc",
+    "country": "AQ",
+    "website": "https://upthebloc.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "Up The Bloc's own site, naming both the Kilter and the MoonBoard, which covers the MoonBoard this venue is listed for. The coordinates cannot corroborate it and are not claimed: upstream files this venue at -79.5856,43.6045 and classifies it as Antarctic, which is the Mississauga gym's latitude and longitude the wrong way round — 43.6045,-79.5856."
+  },
+  {
     "lat": 48.21057937040195,
     "lon": 16.375051953580066,
     "name": "Alpenverein Austria",
@@ -3353,6 +3367,21 @@
       "location-page"
     ],
     "note": "Project Climbing runs a Cloverdale and an Abbotsford centre with a contact page each. The Cloverdale page carries this venue's hours and its own phone number, and the map on the site sits 36 m from the venue in Surrey, the city upstream records."
+  },
+  {
+    "lat": 44.01773,
+    "lon": -79.44974,
+    "name": "Reach Indoor Climbing",
+    "country": "CA",
+    "website": "https://reachindoorclimbing.ca/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "Reach Indoor Climbing's own site, printing 212 Earl Stewart Drive in Aurora — the street line upstream records. The domain is the venue's whole name as one label, which the guesser had not tried."
   },
   {
     "lat": 43.65367,
@@ -9378,6 +9407,22 @@
     "note": "Upstream carries no address for this entry; the location page's Rue de la Bastide Blanche resolves to within 300 m of it."
   },
   {
+    "lat": 43.61146,
+    "lon": 6.97223,
+    "name": "Blocparty Climbing",
+    "country": "FR",
+    "website": "https://blocpartyclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city",
+      "coordinates"
+    ],
+    "note": "Blocparty Climbing's own domain, printing the 06250 postal code and Mougins, and embedding a map of itself 208 m from this venue. This replaces the wpcomstaging.com host the earlier pass had recorded, which is the same site on its hosting provider's staging domain rather than its own."
+  },
+  {
     "lat": 43.59922983452772,
     "lon": 3.8663012940657744,
     "name": "Boulder Line 3",
@@ -9623,6 +9668,20 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 49.9026632,
+    "lon": 2.2852224,
+    "name": "Grimp A Bloc",
+    "country": "FR",
+    "website": "https://grimpabloc.fr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Grimp A Bloc's own site, giving Amiens — the city upstream records. The venue name carries no town of its own."
   },
   {
     "lat": 16.21825,
@@ -9902,6 +9961,22 @@
       "location-page"
     ],
     "note": "Upstream carries no address for this entry; the operator's Avenue Lavoisier resolves to within 90 m of it."
+  },
+  {
+    "lat": -21.33367,
+    "lon": 55.45546,
+    "name": "Vertikaz",
+    "country": "FR",
+    "website": "https://vertikaz.fr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Vertikaz's own site; its contact page prints 7 Allee du Commerce, 97410 Saint-Pierre — the whole address upstream records. vertikaz.com, which also answers, is only a short-link domain."
   },
   {
     "lat": 51.84518,
@@ -11258,6 +11333,20 @@
       "board-mention"
     ],
     "note": "UL Sport (Plassey Campus Arena CLG) runs the university's sports facilities and gives the wall its own page. The page names the University of Limerick, describes the 18 m wall as the tallest in Ireland and lists 'A 40 degree Moonboard' — which is the board system this venue is in the dataset for. ul.ie itself is the university's site and carries no page for the wall."
+  },
+  {
+    "lat": 32.06496,
+    "lon": 34.78945,
+    "name": "Isaac Climbing",
+    "country": "IL",
+    "website": "https://isaacclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Isaac Climbing's own site; its home and about pages print 41, the building number in Yitzhak Sadeh St 41 that upstream records."
   },
   {
     "lat": 45.5452,

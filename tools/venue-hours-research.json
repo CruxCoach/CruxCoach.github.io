@@ -5833,24 +5833,14 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 41.31563,
-  "lon": -72.90534,
-  "name": "Ascent Climbing Gym",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The page states Monday to Friday 9am - 10pm and weekends 10am - 8pm, while its own schema.org openingHours says Mo-Fr 06:00-20:00, Sa 07:00-14:00 and Su 08:00-12:00.",
-  "source": "https://ascentclimbinggym.com/"
- },
- {
   "lat": 39.19324,
   "lon": -106.82066,
   "name": "Aspen Red Brick Recreation Center",
   "country": "US",
-  "status": "ambiguous",
+  "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The candidate domain is parked for sale; no official site is established for this venue.",
-  "source": "https://www.hugedomains.com/domain_profile.cfm?d=aspenred.com"
+  "source": "https://www.redbrickaspen.com/contact",
+  "reason": "The centre publishes \"Monday – Friday: 9am - 5pm\" and then a Saturday that changes with the season: \"Saturdays: 10am – 4pm (Summer) | Closed on Saturdays in the winter\". Sunday is not stated at all. There is no single regular week behind it."
  },
  {
   "lat": 32.70606,
@@ -6035,8 +6025,8 @@
   "country": "US",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The site carries the address and no schedule.",
-  "source": "https://bouldersandbrews.com/"
+  "source": "https://bouldersandbrews.com/",
+  "reason": "The site is a Shopify storefront for the gym's shop and states no opening hours on any page reachable from it."
  },
  {
   "lat": 44.50247,
@@ -6144,8 +6134,8 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The site states \"M-F: 12PM-9pm | Sun: Closed\" and says nothing at all about Saturday.",
-  "source": "https://www.climbmoabgym.com/"
+  "source": "https://www.climbmoabgym.com/",
+  "reason": "The gym states \"Hours M-F: 12PM-9pm\" and \"Sun: Closed (route setting every other week on Sundays, check our calendar for details)\" and never mentions Saturday at all, on any page. A week with a day the source does not state cannot be published."
  },
  {
   "lat": 36.1626638,
@@ -6327,10 +6317,10 @@
   "lon": -105.50807,
   "name": "Dino Moves Gym",
   "country": "US",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The only schedule in the fetched document is schema.org openingHours (09:00-21:00 every day); nothing a reader can see carries times.",
-  "source": "https://www.dinomovesgym.com/"
+  "source": "https://www.dinomovesgym.com/",
+  "reason": "The only week the site states is in its markup (all seven days 09:00-21:00) and no page prints opening hours in words. Markup on its own is not a source a schedule may be published from."
  },
  {
   "lat": 37.7567,
@@ -6608,16 +6598,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 40.70857,
-  "lon": -74.06459,
-  "name": "Gravity Vault - Jersey City",
-  "country": "US",
-  "status": "closed",
-  "checked": "2026-08-23",
-  "reason": "The operator’s own location page says \"The Gravity Vault Jersey City is permanently closed — our final day of operation was Friday, July 31, 2026\".",
-  "source": "https://gravityvault.com/"
- },
- {
   "lat": 37.81005,
   "lon": -122.27017,
   "name": "Great Western Power Company",
@@ -6789,6 +6769,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 40.7876564,
+  "lon": -73.4654844,
+  "name": "Island Rock",
+  "country": "US",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.islandrock.com/",
+  "reason": "The only week the site states is in its markup; no page prints opening hours in words, and markup on its own is not a source a schedule may be published from."
+ },
+ {
   "lat": 40.78776,
   "lon": -73.46546,
   "name": "Island Rock Climbing Gym",
@@ -6906,6 +6896,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 40.74322,
+  "lon": -74.16852,
+  "name": "Method Climbing + Fitness",
+  "country": "US",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://methodclimb.com/",
+  "reason": "The gym's site states no opening hours on any page reachable from its navigation."
  },
  {
   "lat": 40.7082,
@@ -7741,6 +7741,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 39.72003,
+  "lon": -105.19289,
+  "name": "The Climb Clinic Golden",
+  "country": "US",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.theclimbclinic.com/",
+  "reason": "The clinic's site describes its coaching and its rates and states no opening hours on any page reachable from its navigation."
+ },
+ {
   "lat": 35.95974,
   "lon": -86.82784,
   "name": "The Crag Franklin",
@@ -7767,16 +7777,6 @@
   "checked": "2026-08-23",
   "reason": "Re-read 2026-08-23: unchanged. The week is published without a meridiem — \"Monday 2-9 | Tuesday 11-9 | Wednesday 2-9 | Thursday 11-9 | Friday 2-10 | Saturday 10-7 | Sunday 1-7\" — so every one of those times would have to be guessed.",
   "source": "https://ontheedgerockclimbing.com/"
- },
- {
-  "lat": 40.10515,
-  "lon": -75.33066,
-  "name": "The Factory at Reach",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The only candidate site, thefactoryboulder.com, is a Spanish operator (\"De lunes a viernes de 10.00 a 22.00h\"); no official site is established for this venue.",
-  "source": "https://www.thefactoryboulder.com/"
  },
  {
   "lat": 40.10454,
@@ -8198,8 +8198,8 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states Monday 12-2 pm & 4-9 pm and Tuesday: Closed, while its own schema.org openingHours says Monday 11:00-21:00 and omits Tuesday entirely.",
-  "source": "https://www.warehouseclimbingco.com/"
+  "source": "https://www.warehouseclimbingco.com/whattoexpect",
+  "reason": "The gym's hours block runs \"Monday: 12-2 pm & 4-9 pm, Tuesday: Closed, Wednesday: 12-2 pm & 4-9 pm, Thursday: 12-2 pm & 4-9 pm, Friday: 12-2 pm & 4-9 pm, Saturday: 10 am - 6 pm\" and stops there — Sunday is never stated in words. The page markup gives Sunday 13:00-18:00, so Sunday is neither stated nor closed, and markup alone cannot supply it."
  },
  {
   "lat": 39.88806,
@@ -8235,7 +8235,7 @@
   "country": "US",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The camp’s site publishes session and camp dates, not an opening week for the climbing facility.",
-  "source": "https://www.woodwardpa.com/"
+  "source": "https://www.woodwardpa.com/",
+  "reason": "Woodward PA is a camp: its site sells sessions and describes programmes by date, and publishes no daily opening hours for the climbing facility."
  }
 ]

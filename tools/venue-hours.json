@@ -15416,6 +15416,33 @@
   "evidence": "ASCEND Point Breeze | 7443 Thomas Blvd | Pittsburgh, PA 15208 | Regular Hours | Monday: 6:00 AM – 11:00 PM | Tuesday: 6:00 AM – 11:00 PM | Wednesday: 6:00 AM – 11:00 PM | Thursday: 6:00 AM – 11:00 PM | Friday: 6:00 AM – 11:00 PM | Saturday: 8:00 AM – 8:00 PM | Sunday: 8:00 AM – 8:00 PM"
  },
  {
+  "lat": 41.31563,
+  "lon": -72.90534,
+  "name": "Ascent Climbing Gym",
+  "country": "US",
+  "source": "https://ascentclimbinggym.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "REGULAR HOURS Monday to Friday | 9am - 10pm Saturday and Sunday | 10am - 8pm",
+  "note": "The gym labels this block REGULAR HOURS and states a separate MEMBER ONLY window beneath it; the same block appears on the home page and the first-visit page. The page also carries an unlabelled markup week (Mo-Fr 06:00-20:00, Sa 07:00-14:00, Su 08:00-12:00) that matches neither block and is noted rather than published."
+ },
+ {
   "lat": 40.55941,
   "lon": -105.04117,
   "name": "Ascent Studio Climbing & Fitness",
@@ -15922,6 +15949,56 @@
   "evidence": "Sunday: 8am - 10pm Monday: 6am - 11pm Tuesday: 6am - 11pm Wednesday: 6am - 11pm Thursday: 6am - 11pm Friday: 6am - 11pm Saturday: 8am - 10pm"
  },
  {
+  "lat": 37.9000185,
+  "lon": -122.3070755,
+  "name": "Bridges Rock Gym",
+  "country": "US",
+  "source": "https://www.bridgesrockgym.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "08:45-19:30",
+   "sun": "08:45-19:30"
+  },
+  "evidence": "Mon-Fri Members : 6:00am - 10:00pm Non-Members : 12:00pm - 10:00pm Sat-Sun 8:45am-7:30pm",
+  "note": "The gym splits the weekday itself: members from 6:00am, non-members from 12:00pm. Only the non-member window is published. The weekend line carries no such split."
+ },
+ {
+  "lat": 37.90018,
+  "lon": -122.3074,
+  "name": "Bridges Rock Gym",
+  "country": "US",
+  "source": "https://www.bridgesrockgym.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "08:45-19:30",
+   "sun": "08:45-19:30"
+  },
+  "evidence": "Mon-Fri Members : 6:00am - 10:00pm Non-Members : 12:00pm - 10:00pm Sat-Sun 8:45am-7:30pm",
+  "note": "The gym splits the weekday itself: members from 6:00am, non-members from 12:00pm. Only the non-member window is published. The weekend line carries no such split."
+ },
+ {
   "lat": 45.7085,
   "lon": -121.51707,
   "name": "Brimstone Boulders",
@@ -16041,6 +16118,31 @@
    "sun": "10:00-19:00"
   },
   "evidence": "Mon – Fri 12:00 pm – 10:00 pm Sat 10:00 am – 8:00 pm Sun 10:00 am – 7:00 pm"
+ },
+ {
+  "lat": 36.2139102,
+  "lon": -81.63668659999999,
+  "name": "Center 45",
+  "country": "US",
+  "source": "https://www.center45.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "15:00-21:00",
+   "tue": "10:00-21:00",
+   "wed": "10:00-21:00",
+   "thu": "10:00-21:00",
+   "fri": "10:00-21:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "200 Den Mac Dr. Boone, NC 28607 Tues - Sat: 10am - 9pm Sunday: 10am - 7pm Monday: 3-9pm",
+  "note": "All seven days are covered: a Tuesday-to-Saturday band, then Sunday and Monday stated separately beside the address."
  },
  {
   "lat": 26.52731,
@@ -16963,6 +17065,31 @@
   "note": "The page’s own schema.org openingHours agrees."
  },
  {
+  "lat": 39.5048453,
+  "lon": -77.9652098,
+  "name": "Climbing New Heights Moonboard",
+  "country": "US",
+  "source": "https://climbingnewheights.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "15:00-22:00",
+   "wed": "15:00-22:00",
+   "thu": "15:00-22:00",
+   "fri": "15:00-22:00",
+   "sat": "09:00-17:00",
+   "sun": "09:00-17:00"
+  },
+  "evidence": "Hours Mon 3pm - 10pm Tue 3pm - 10pm Wed 3pm - 10pm Thu 3pm - 10pm Fri 3pm - 10pm Sat 9am - 5pm Sun 9am - 5pm",
+  "note": "Every day listed separately in the footer, summarised in the banner as \"Open Monday-Friday 3-10pm | Saturday and Sunday 9-5pm\", and the site's markup states the identical week. All three agree."
+ },
+ {
   "lat": 35.94278,
   "lon": -83.88968,
   "name": "Climbing Roots",
@@ -16985,6 +17112,31 @@
    "sun": "09:00-19:00"
   },
   "evidence": "Mon, Wed, Fri: 9:00 am - 10:00 pm | Tues, Thurs: 5:30 am - 10:00 pm | Sat, Sun: 9:00 am - 7:00 pm"
+ },
+ {
+  "lat": 40.2358146,
+  "lon": -77.08198850000001,
+  "name": "Climbnasium!",
+  "country": "US",
+  "source": "https://www.climbnasium.net/hours",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "10:00-21:00",
+   "tue": "13:00-21:00",
+   "wed": "13:00-21:00",
+   "thu": "13:00-21:00",
+   "fri": "10:00-21:00",
+   "sat": "09:00-21:00",
+   "sun": "12:00-20:00"
+  },
+  "evidence": "HOURS Sunday: 12pm to 8pm Monday: 10am to 9pm Tuesday: 1pm-9pm Wednesday: 1pm-9pm Thursday: 1pm to 9pm Friday: 10am to 9pm Saturday: 9am to 9pm",
+  "note": "Every day is listed separately on the gym's own hours page and the same block appears in its footer. The separate list of instruction times (Sunday 12noon, 2pm, 4pm, 6pm and so on) is a class timetable inside these hours."
  },
  {
   "lat": 32.79952,
@@ -17715,6 +17867,32 @@
    "sun": "09:00-20:00"
   },
   "evidence": "Sun Sunday 9:00 AM - 8:00 PM | Mon Monday 9:00 AM - 10:00 PM | Tue Tuesday 9:00 AM - 10:00 PM | Wed Wednesday 9:00 AM - 10:00 PM | Thu Thursday 9:00 AM - 10:00 PM | Fri Friday 9:00 AM - 10:00 PM | Sat Saturday 9:00 AM - 8:00 PM"
+ },
+ {
+  "lat": 40.70857,
+  "lon": -74.06459,
+  "name": "Gravity Vault - Jersey City",
+  "country": "US",
+  "source": "https://gravityvault.com/locations/jersey-city-nj",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "11:00-23:00",
+   "tue": "11:00-23:00",
+   "wed": "11:00-23:00",
+   "thu": "11:00-23:00",
+   "fri": "11:00-23:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Hours of Operation Sunday 10:00 am - 6:00 pm Monday 11:00 am - 11:00 pm Tuesday 11:00 am - 11:00 pm Wednesday 11:00 am - 11:00 pm Thursday 11:00 am - 11:00 pm Friday 11:00 am - 11:00 pm Saturday 10:00 am - 7:00 pm",
+  "note": "Every day listed separately under the heading \"Follow this Location\", on the operator's page for this gym alone."
  },
  {
   "lat": 40.8124034,
@@ -19678,6 +19856,33 @@
   "evidence": "Monday: 4PM - 11PM | Tuesday: 11am - 11PM | Wednesday: 4PM - 11PM | Thursday: 11am - 11PM | Friday: 4PM - 11PM Saturday: 10AM - 10PM | Sunday: 10AM - 8PM"
  },
  {
+  "lat": 40.8825,
+  "lon": -74.29436,
+  "name": "NJ Rock Gym",
+  "country": "US",
+  "source": "https://njrockgym.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-23:00",
+   "tue": "12:00-23:00",
+   "wed": "12:00-23:00",
+   "thu": "12:00-23:00",
+   "fri": "12:00-23:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "HOURS Monday – Friday 12:00pm – 11:00pm Saturday 10:00am – 10:00pm Sunday 10:00am – 8:00pm",
+  "note": "The gym's openingHoursSpecification states the identical week alongside its address, so text and markup agree. A second, generic markup block on the same page carries the template default of 09:00-17:00 for all seven days and is not a claim about this gym."
+ },
+ {
   "lat": 35.93733,
   "lon": -79.01967,
   "name": "Progression Climbing",
@@ -20362,6 +20567,60 @@
   "evidence": "Mon – Fri: 8am - 10pm | Sat: 10am - 6pm | Sun: 10am - 6pm | Sender City hours differ or vary per location"
  },
  {
+  "lat": 39.09262,
+  "lon": -94.58999,
+  "name": "Sequence Climbing",
+  "country": "US",
+  "source": "https://www.sequenceclimb.com/location-hours-parking/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Hours Monday – Friday: 10am-10pm Saturday: 10am-8pm Sunday: 10am-8pm",
+  "note": "Stated on the gym's own hours page with Saturday and Sunday listed separately, and again on the home page and in the footer as \"MON-FRI: 10:00am-10:00pm SAT/SUN: 10:00am-8:00pm\". This venue and its twin 40 m away are the same hall."
+ },
+ {
+  "lat": 39.09314,
+  "lon": -94.5898,
+  "name": "Sequence Climbing",
+  "country": "US",
+  "source": "https://www.sequenceclimb.com/location-hours-parking/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Hours Monday – Friday: 10am-10pm Saturday: 10am-8pm Sunday: 10am-8pm",
+  "note": "Stated on the gym's own hours page with Saturday and Sunday listed separately, and again on the home page and in the footer as \"MON-FRI: 10:00am-10:00pm SAT/SUN: 10:00am-8:00pm\". This venue and its twin 40 m away are the same hall."
+ },
+ {
   "lat": 42.81658,
   "lon": -86.08664,
   "name": "Shift Climbing",
@@ -20735,6 +20994,33 @@
   "note": "The play structure closes earlier on weekdays (9am–7pm) and is listed separately; the climbing hours are what is recorded."
  },
  {
+  "lat": 39.53287,
+  "lon": -119.80141,
+  "name": "The Block Climbing and Fitness",
+  "country": "US",
+  "source": "https://theblockclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "postal-code",
+   "city",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "06:00-22:00",
+   "sun": "06:00-22:00"
+  },
+  "evidence": "Note: The Block is unstaffed most hours of the day. Day passes are available 6am-10pm daily.",
+  "note": "The gym runs unstaffed and sells day passes to anyone for a 6am-10pm window every day, which is the public opening. Its separate \"Walk-in Hours M-Thu 3:30-7:30 PM\" are when staff are on site to sell in person, not a narrower opening, and are noted rather than published."
+ },
+ {
   "lat": 32.71538,
   "lon": -97.40054,
   "name": "The Blok Climbing Co.",
@@ -20759,6 +21045,32 @@
   },
   "evidence": "Hours of operation Walk-ins Welcome 10 AM - 8 PM Daily Extended access hours available for members",
   "note": "Stated as a single daily window for walk-ins, with the same 10AM-8PM given again beside the address as GENERAL HOURS. The extended access the gym offers members is not published here."
+ },
+ {
+  "lat": 38.5384717,
+  "lon": -121.4015707,
+  "name": "The Boulder Field",
+  "country": "US",
+  "source": "https://www.theboulderfield.com/location-and-hours",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "08:00-18:00",
+   "sun": "08:00-18:00"
+  },
+  "evidence": "Location 8425 Belvedere Avenue, Suite 100 Sacramento, CA 95826 Hours Weekdays: 8am - 10pm Weekends: 8am - 6pm",
+  "note": "The gym's own Location and Hours page, and its markup states the identical week (Mo-Fr 08:00-22:00, Sa-Su 08:00-18:00), so the two agree."
  },
  {
   "lat": 35.9999,
@@ -20978,6 +21290,33 @@
   },
   "evidence": "Hours of Operation 11:00 AM - 10:00 PM | MON - FRI 11:00 AM - 9:00 PM | SATURDAYS 11:00 AM - 8:00 PM | SUNDAYS",
   "note": "The same block appears on the home page and the contact page. The gym publishes a separate 2025-2026 holiday list of early closures and one late opening; those are exceptions to this week, not a competing schedule."
+ },
+ {
+  "lat": 40.10515,
+  "lon": -75.33066,
+  "name": "The Factory at Reach",
+  "country": "US",
+  "source": "https://reachclimbing.com/contact/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "Hours Monday-Friday: 6am – 10pm Weekends: 8am – 8pm 484.704.7612 401 E 4th St",
+  "note": "Stated on the contact page beside the address and repeated in the footer of every page."
  },
  {
   "lat": 41.2311,
@@ -21536,6 +21875,32 @@
    "sun": "11:00-19:00"
   },
   "evidence": "Hours: Mon-Fri 3pm–9pm | Sat 11am–8pm | Sun 11am–7pm"
+ },
+ {
+  "lat": 37.98894,
+  "lon": -87.48165,
+  "name": "Vertical eXcape Evansville",
+  "country": "US",
+  "source": "https://www.verticalexcape.com/evansville/about/hours/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-21:00",
+   "tue": "12:00-21:00",
+   "wed": "12:00-21:00",
+   "thu": "12:00-21:00",
+   "fri": "12:00-21:00",
+   "sat": "10:00-19:00",
+   "sun": "closed"
+  },
+  "evidence": "Hours Monday-Friday 12p – 9p Saturday 10a – 7p Sunday Closed to General Public (open to members)",
+  "note": "Sunday is recorded closed because the gym states it as closed to the general public and open to members only. The page also lists named holidays as closed and a handful with special 12p-9p hours; those are exceptions to this week."
  },
  {
   "lat": 47.88684,
