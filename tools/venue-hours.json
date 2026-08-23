@@ -14987,6 +14987,57 @@
   "note": "The site's schema.org openingHoursSpecification states the same week."
  },
  {
+  "lat": 44.42102,
+  "lon": 26.0954,
+  "name": "Fabrica de Căţărat",
+  "country": "RO",
+  "source": "https://www.fabricadecatarat.ro/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "17:00-22:00",
+   "tue": "17:00-22:00",
+   "wed": "17:00-22:00",
+   "thu": "17:00-22:00",
+   "fri": "17:00-22:00",
+   "sat": "13:00-20:00",
+   "sun": "13:00-16:00"
+  },
+  "evidence": "PROGRAM Luni, Marti, Miercuri, Joi: 17.00 - 22.00 Vineri: 17.00 - 22.00 Sambata: 13.00 - 20.00 Duminica: 13.00 - 16.00",
+  "note": "All seven days are covered, with Saturday and Sunday stated separately and differently."
+ },
+ {
+  "lat": 44.4343,
+  "lon": 26.05349,
+  "name": "Natural High Bucuresti",
+  "country": "RO",
+  "source": "https://naturalhigh.ro/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "07:30-22:00",
+   "tue": "07:30-22:00",
+   "wed": "07:30-22:00",
+   "thu": "07:30-22:00",
+   "fri": "07:30-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Sala de catarat Bucuresti Program sala catarat Luni: 7.30 - 22.00 Marti: 7.30 - 22.00 Miercuri: 7.30 - 22.00 Joi: 7.30 - 22.00 Vineri: 7.30 - 22.00 Sambata-Duminica:10.00 - 21.00",
+  "note": "The operator runs two halls on one page and this block is headed Bucuresti; the Brasov block above it gives a different week (Luni-Vineri 16.00-22.00). The separate \"Program zona joaca copii\" is the children's play area inside these hours."
+ },
+ {
   "lat": 63.39079,
   "lon": 12.9147,
   "name": "Åre Klätterhall",
@@ -15228,6 +15279,82 @@
   },
   "evidence": "Weekdays (The Kallang): 11am to 11pm | Weekdays (Funan): 11am to 11pm | Weekdays (Novena/SAFRA Choa Chu Kang): 1pm to 11pm | Weekends and Public Holidays (The Kallang) : 9am to 9pm | Weekends and Public Holidays (All Other Outlets) : 9am to 9pm",
   "note": "The operator states which outlets each line covers."
+ },
+ {
+  "lat": 1.31563,
+  "lon": 103.85604,
+  "name": "Ground Up Climbing",
+  "country": "SG",
+  "source": "https://www.groundupsg.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "17:00-22:30",
+   "tue": "12:00-22:30",
+   "wed": "12:00-22:30",
+   "thu": "12:00-22:30",
+   "fri": "12:00-22:30",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Opening Hours Monday : 5 – 10.30pm Tuesday : 12 – 10.30pm Wednesday : 12 – 10.30pm Thursday : 12 – 10.30pm Friday : 12 – 10.30pm Weekend & PHs : 10am – 9pm",
+  "note": "Every weekday is listed separately beside the gym's address; public holidays are grouped with the weekend."
+ },
+ {
+  "lat": 1.3147264,
+  "lon": 103.8573584,
+  "name": "Kinetics Climbing",
+  "country": "SG",
+  "source": "https://www.kineticsclimbing.com.sg/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "16:00-22:00",
+   "tue": "13:00-22:00",
+   "wed": "13:00-22:00",
+   "thu": "13:00-22:00",
+   "fri": "13:00-22:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Opening hours Monday 4pm - 10pm Tuesday - Friday 1pm - 10pm PH / Weekends 10am - 7pm",
+  "note": "Monday is stated on its own; public holidays are grouped with the weekend."
+ },
+ {
+  "lat": 1.27571,
+  "lon": 103.79443,
+  "name": "Lighthouse Climbing PTE",
+  "country": "SG",
+  "source": "https://www.lighthouseclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Opening Hours* Weekdays: 10am - 10pm Weekends: 10am – 10pm",
+  "note": "The same window every day, stated beside the address. The asterisk points to route resetting every Monday and Thursday between 8am and 3pm, during which parts of the walls are closed; that is a partial closure inside the opening, not a change to it."
  },
  {
   "lat": 45.92772330549454,

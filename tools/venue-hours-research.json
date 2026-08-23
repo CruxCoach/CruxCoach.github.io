@@ -7981,16 +7981,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 44.42102,
-  "lon": 26.0954,
-  "name": "Fabrica de Căţărat",
-  "country": "RO",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://fabricadecatarat.ro/"
- },
- {
   "lat": 46.5382673,
   "lon": 24.5981647,
   "name": "Hangout",
@@ -7998,16 +7988,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 44.4343,
-  "lon": 26.05349,
-  "name": "Natural High Bucuresti",
-  "country": "RO",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://naturalhigh.ro/"
  },
  {
   "lat": 46.1620524,
@@ -8245,6 +8225,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 21.61947,
+  "lon": 39.135,
+  "name": "Arena Fitness Innovation/Saudi Climbing & Hiking Federation",
+  "country": "SA",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://arena.sa/contact",
+  "reason": "Six of the seven days are chain-wide — \"Saturday to Thursday All Branches 7:00 AM - 11:00 PM\" — but Friday is stated per branch, and which branch this venue is cannot be settled. The operator lists Friday hours for Jeddah Nahda, Riyadh Al-Mathar and Riyadh Boulevard, and gives its Jeddah address as 6502 Ibn Al Tajj Street, Al Nahdah, 23615, where upstream records 5500 Abdulrahman Al Dakhil, 23611 — a different street and a different postal code in the same city."
+ },
+ {
   "lat": 26.3778913,
   "lon": 50.1487871,
   "name": "Dyno Climbing Center",
@@ -8417,10 +8407,10 @@
   "lon": 15.55453,
   "name": "Linköpings Klätterklubb",
   "country": "SE",
-  "status": "seasonal",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The club publishes a summer regime for weeks 26–31 (Mån–fre 13–17, weekend closed) alongside a term week, and adds that volunteers open the hall at sporadic extra times.",
-  "source": "https://linkopingsklatterklubb.se/"
+  "source": "https://linkopingsklatterklubb.se/",
+  "reason": "The club's site carries news — a notice that the changing rooms are being renovated after water damage from Monday 11/5 — and no opening hours for the hall on any page reachable from its navigation."
  },
  {
   "lat": 60.5917084,
