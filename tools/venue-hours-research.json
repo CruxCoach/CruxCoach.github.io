@@ -5211,9 +5211,10 @@
   "lon": 12.3608041,
   "name": "Metropolitan Boulder",
   "country": "IT",
-  "status": "no-official-site",
+  "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://metropolitanboulder.it/",
+  "reason": "The only week the gym publishes is headed \"DA SETTEMBRE A MAGGIO\" — September to May — running Lunedì 14:00-22:00, Martedì 15:00-22:00 and so on. The page is read in August, outside that season, and states nothing for it."
  },
  {
   "lat": 45.0515199,
@@ -5789,15 +5790,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 35.01308,
-  "lon": 138.44605,
-  "name": "クライミングジム アソボル Asoboru Climbing Gym",
-  "country": "JP",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 34.75463,
   "lon": 135.4994,
   "name": "クラックス大阪 CRUX Osaka",
@@ -6249,15 +6241,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 35.88554,
-  "lon": 14.47372,
-  "name": "Crashpad Climbing Centre",
-  "country": "MT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": -13.9427314,
   "lon": 33.7777146,
   "name": "Climb Centre Malawi",
@@ -6335,15 +6318,6 @@
   "lat": 29.0926081,
   "lon": -110.9655659,
   "name": "Boulder Grid",
-  "country": "MX",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 21.9082665,
-  "lon": -102.2948845,
-  "name": "Drop Climbing",
   "country": "MX",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -7523,9 +7497,10 @@
   "lon": 19.0407248,
   "name": "BlOKatowice",
   "country": "PL",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://blokatowice.pl/",
+  "reason": "The site publishes a price list that distinguishes weekdays before and after 15:00 and weekends, but never states an opening time on any page."
  },
  {
   "lat": 52.406374,
@@ -7887,9 +7862,10 @@
   "lon": -8.62096,
   "name": "Zone Climb",
   "country": "PT",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://zone.com.pt/climb",
+  "reason": "The page carries a class timetable by weekday and no opening hours for the wall itself."
  },
  {
   "lat": 44.38974,
@@ -8367,9 +8343,10 @@
   "lon": 15.6424559,
   "name": "Mono Loco",
   "country": "SE",
-  "status": "no-official-site",
+  "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://monoloco.se/",
+  "reason": "The gym states \"Ordinarie öppettider kör igång 31/8\" — the ordinary hours start on 31 August — and lists them for after that date, with a separate block of AVVIKANDE ÖPPETTIDER for June. Nothing covers the day the page is read."
  },
  {
   "lat": 59.31260400000001,
@@ -8394,9 +8371,10 @@
   "lon": 14.6551623,
   "name": "Östersunds Klättercenter",
   "country": "SE",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://ostersundsklattercenter.se/oppettider",
+  "reason": "The page says two things about the same days. One line reads \"vi öppet 12:00-19:00 på vardagar och 11:00-17:00 på helger\"; the table beneath it gives Måndag to Torsdag 11.30-19.30, Fredag 08.00-19.30 and the weekend 11:00-17:00. The weekdays differ in both directions and the page does not say which is current."
  },
  {
   "lat": 57.39706,
@@ -8503,15 +8481,6 @@
   "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
-  "lat": 46.0731693,
-  "lon": 14.4972189,
-  "name": "Bolder Scena Moonboard",
-  "country": "SI",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 46.0497,
   "lon": 14.54866,
   "name": "Plezalni Center Ljubljana",
@@ -8583,9 +8552,10 @@
   "lon": 18.077119,
   "name": "pralez.me",
   "country": "SK",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://pralez.me/",
+  "reason": "The only times the site states are for reaching its staff — \"Tréningová činnosť: Pondelok - Piatok: 9:00 - 18:00\" and the same window for event organisation — which is when the office answers, not when the wall is open."
  },
  {
   "lat": 48.1527147,
@@ -8600,15 +8570,6 @@
   "lat": 48.21503,
   "lon": 17.01176,
   "name": "SPOT Climbing Gym Bratislava",
-  "country": "SK",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 48.15260749999999,
-  "lon": 17.1390924,
-  "name": "Vertigo",
   "country": "SK",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -8868,22 +8829,14 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 39.9658623,
-  "lon": -105.1168505,
-  "name": "2019 Masters",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 40.02126,
   "lon": -105.25115,
   "name": "ABC Kid's Climbing",
   "country": "US",
-  "status": "no-official-site",
+  "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://abckidsboulder.com/",
+  "reason": "The week is dated forward: \"Regular Open Gym Hours start Monday 9/17! Monday - Friday 9:00am-12:00pm, Saturday & Sunday 12:30pm-5:00pm\". It has not begun on the day the page is read and no schedule is given for the period before it."
  },
  {
   "lat": 33.48183,
@@ -8959,15 +8912,6 @@
   "checked": "2026-08-23",
   "source": "https://www.redbrickaspen.com/contact",
   "reason": "The centre publishes \"Monday – Friday: 9am - 5pm\" and then a Saturday that changes with the season: \"Saturdays: 10am – 4pm (Summer) | Closed on Saturdays in the winter\". Sunday is not stated at all. There is no single regular week behind it."
- },
- {
-  "lat": 32.70606,
-  "lon": -117.14702,
-  "name": "Asylum Bouldering",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 33.7626877,

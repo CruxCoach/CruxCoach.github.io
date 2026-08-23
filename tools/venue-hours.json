@@ -13358,6 +13358,33 @@
   "note": "The block headed 営業時間 is the opening. The cleaning windows the gym lists (平日13時–14時, 土11時–12時, 日祝9時–10時) each fall in the hour before that day opens, and the day- and night-pass validity bands are membership products rather than opening times."
  },
  {
+  "lat": 35.01308,
+  "lon": 138.44605,
+  "name": "クライミングジム アソボル Asoboru Climbing Gym",
+  "country": "JP",
+  "source": "https://www.asoboru.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "13:00-22:30",
+   "tue": "13:00-22:30",
+   "wed": "13:00-22:30",
+   "thu": "13:00-22:30",
+   "fri": "closed",
+   "sat": "12:00-18:00",
+   "sun": "12:00-18:00"
+  },
+  "evidence": "営業時間 月曜～木曜 13:00～22:30 土日 12:00～18:00 (2026年1月より12:00~18:00へ変更) 定休日：金曜日",
+  "note": "Friday is the gym's stated regular closing day — 定休日：金曜日 — so it comes out of the weekday band rather than being left unstated. The note that members may use the wall outside opening hours is a members' arrangement and is not published here."
+ },
+ {
   "lat": 49.49443,
   "lon": 5.96847,
   "name": "BlocX - Urban Fitness",
@@ -13456,6 +13483,57 @@
   },
   "evidence": "Opening hours Monday, Wednesday, Friday 14:00 - 22:00 Tuesday, Thursday 10:00 - 22:00 Saturday, Sunday, public holidays 09:00 - 19:00",
   "note": "The centre groups its days itself: Monday, Wednesday and Friday open in the afternoon, Tuesday and Thursday in the morning. Public holidays are grouped with the weekend."
+ },
+ {
+  "lat": 35.88554,
+  "lon": 14.47372,
+  "name": "Crashpad Climbing Centre",
+  "country": "MT",
+  "source": "https://crashpad.com.mt/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Opening Hours: 10AM - 11PM Week Days, 10AM - 8PM Weekends",
+  "note": "Stated as two bands covering all seven days. The Minipad and youth clubs listed beneath keep their own 10AM-8PM window inside the opening."
+ },
+ {
+  "lat": 21.9082665,
+  "lon": -102.2948845,
+  "name": "Drop Climbing",
+  "country": "MX",
+  "source": "https://dropclimbing.mx/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-14:00,17:00-23:00",
+   "tue": "09:00-14:00,17:00-23:00",
+   "wed": "09:00-14:00,17:00-23:00",
+   "thu": "09:00-14:00,17:00-23:00",
+   "fri": "09:00-14:00,17:00-23:00",
+   "sat": "closed",
+   "sun": "closed"
+  },
+  "evidence": "Horarios de Acceso Lunes a Viernes: 9:00 a.m. - 2:00 p.m. y 5:00 p.m. - 11:00 p.m. Sábados y Domingos: Disponible bajo previa cita",
+  "note": "The midday break is the gym's own. Saturday and Sunday are recorded closed because the page offers them only \"bajo previa cita\" — by prior appointment — which is not a public opening."
  },
  {
   "lat": 3.1006116,
@@ -15931,6 +16009,32 @@
   "note": "The same window every day, stated beside the address. The asterisk points to route resetting every Monday and Thursday between 8am and 3pm, during which parts of the walls are closed; that is a partial closure inside the opening, not a change to it."
  },
  {
+  "lat": 46.0731693,
+  "lon": 14.4972189,
+  "name": "Bolder Scena Moonboard",
+  "country": "SI",
+  "source": "https://bolderscena.si/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "09:00-22:30",
+   "tue": "09:00-22:30",
+   "wed": "09:00-22:30",
+   "thu": "09:00-22:30",
+   "fri": "09:00-22:30",
+   "sat": "09:00-22:30",
+   "sun": "09:00-22:30"
+  },
+  "evidence": "Monday – Sunday: 9:00 AM – 10:30 PM",
+  "note": "One window for the whole week, stated as a single line."
+ },
+ {
   "lat": 45.92772330549454,
   "lon": 13.639153740355331,
   "name": "DES Climbing Gym",
@@ -16004,6 +16108,32 @@
   "note": "Every day listed separately; Friday, Saturday and Sunday each differ from the Monday-to-Thursday block."
  },
  {
+  "lat": 48.15260749999999,
+  "lon": 17.1390924,
+  "name": "Vertigo",
+  "country": "SK",
+  "source": "https://lezeckecentrum.sk/en/home/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Opening hours Monday: 15:00 - 22:00 Tuesday: 07:00 - 22:00 Wednesday: 07:00 - 22:00 Thursday: 07:00 - 22:00 Friday: 09:00 - 22:00 Saturday: 09:00 - 21:00 Sunday: 09:00 - 21:00",
+  "note": "The same hall as the Lezecké centrum Vertigo entry 25 m away, which carries this week already; every day is listed separately."
+ },
+ {
   "lat": 13.71681,
   "lon": 100.59302,
   "name": "Stonegoat Climbing Gym",
@@ -16053,6 +16183,33 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Pazartesi 10:00 – 22:00 | Salı | 10:00 – 22:00 | Çarşamba | 10:00 – 22:00 | Perşembe | 10:00 – 22:00 | Cuma | 10:00 – 22:00 | Cumartesi | 10:00 – 20:00 | Pazar | 10:00 – 20:00 | A: Levent, Büyükdere Cd. No:171, Metrocity AVM -1. Kat No. 127, 34330 Şişli/İstanbul"
+ },
+ {
+  "lat": 39.9658623,
+  "lon": -105.1168505,
+  "name": "2019 Masters",
+  "country": "US",
+  "source": "https://www.thespotgym.com/louisville",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "06:00-23:00",
+   "tue": "06:00-23:00",
+   "wed": "06:00-23:00",
+   "thu": "06:00-23:00",
+   "fri": "06:00-23:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "The Spot Louisville 1754 Dogwood Street Louisville CO 80027 (303) 317-3770 Monday – Friday: 6:00am – 11:00pm Saturday – Sunday: 8:00am – 8:00pm",
+  "note": "Stated on this gym's own page beneath its address. The separate holiday-hours link is an exception list."
  },
  {
   "lat": 34.073207,
@@ -16548,6 +16705,33 @@
    "sun": "08:00-20:00"
   },
   "evidence": "Monday - Friday | Open to public: 6:00am-10:00pm | Saturday & Sunday | Open to public: 8:00am - 8:00pm"
+ },
+ {
+  "lat": 32.70606,
+  "lon": -117.14702,
+  "name": "Asylum Bouldering",
+  "country": "US",
+  "source": "https://climbasylum.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "board-mention",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "14:00-21:00",
+   "tue": "14:00-21:00",
+   "wed": "14:00-21:00",
+   "thu": "14:00-21:00",
+   "fri": "14:00-21:00",
+   "sat": "11:00-18:00",
+   "sun": "11:00-18:00"
+  },
+  "evidence": "Visit Us Monday to Friday: 2 - 9pm Saturday and Sunday: 11am - 6pm 46 19th St. San Diego",
+  "note": "Stated directly above the gym's address."
  },
  {
   "lat": 30.26332,
