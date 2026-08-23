@@ -245,6 +245,37 @@ export function formatWeeklyHours(week, lang = 'en') {
 // same time as "10", "10:00", "10.00", "10h00" and "10 Uhr", and strict about
 // the number, because the number is the thing that can be wrong. Returns the
 // times the evidence does not account for; empty means the record checks out.
+// True when `evidence` contains this time in any of the notations gyms use.
+//
+// Continental pages write 22:30, 22.30, 22h30 or "22 Uhr"; British, Irish and
+// American ones write 10pm, 10.30pm or "10:30 PM". The number is what must be
+// right, so the separator and the clock convention are both allowed to vary —
+// and 12-hour forms are matched against the same 24-hour value, which is the
+// step where a transcription actually goes wrong.
+function evidenceMentionsTime(evidence, minutes) {
+  const h24 = Math.floor(minutes / 60) % 24;
+  const m = minutes % 60;
+  const mm = String(m).padStart(2, '0');
+  // `h` is a separator too, so a curator quoting a French page does not have to
+  // transliterate 22h30.
+  const sep = '[:.h]';
+  const patterns = [
+    m === 0
+      // A whole hour may be written bare: "10", "10:00", "10.00", "10h".
+      ? new RegExp(`(^|[^0-9])0?${h24}([^0-9:.h]|${sep}00([^0-9]|$)|h([^0-9]|$)|$)`)
+      : new RegExp(`(^|[^0-9])0?${h24}${sep}${mm}([^0-9]|$)`),
+  ];
+  const h12 = h24 % 12 === 0 ? 12 : h24 % 12;
+  const meridiem = h24 < 12 ? 'a' : 'p';
+  patterns.push(m === 0
+    ? new RegExp(`(^|[^0-9])0?${h12}\\s*(${sep}00\\s*)?${meridiem}\\.?m\\.?`, 'i')
+    : new RegExp(`(^|[^0-9])0?${h12}${sep}${mm}\\s*${meridiem}\\.?m\\.?`, 'i'));
+  // Words, for the two times that have them.
+  if (minutes === 0 || minutes === 24 * 60) patterns.push(/midnight/i);
+  if (minutes === 12 * 60) patterns.push(/noon|midday/i);
+  return patterns.some(re => re.test(evidence));
+}
+
 export function timesMissingFromEvidence(entry) {
   const evidence = typeof entry?.evidence === 'string' ? entry.evidence : '';
   const missing = new Set();
@@ -258,17 +289,7 @@ export function timesMissingFromEvidence(entry) {
     try { ranges = parseDaySpec(spec); } catch { continue; }
     for (const r of ranges) {
       for (const minutes of [r.start, r.end]) {
-        const h = Math.floor(minutes / 60) % 24;
-        const m = minutes % 60;
-        const hour = `0?${h}`;
-        // `h` is a separator too: French and Swiss pages write 22h30, and a
-        // curator quoting such a page should not have to transliterate it.
-        const sep = '[:.h]';
-        const pattern = m === 0
-          // A whole hour may be written bare: "10", "10:00", "10.00", "10h".
-          ? new RegExp(`(^|[^0-9])${hour}([^0-9:.h]|${sep}00([^0-9]|$)|h([^0-9]|$)|$)`)
-          : new RegExp(`(^|[^0-9])${hour}${sep}${String(m).padStart(2, '0')}([^0-9]|$)`);
-        if (!pattern.test(evidence)) missing.add(formatTime(minutes));
+        if (!evidenceMentionsTime(evidence, minutes)) missing.add(formatTime(minutes));
       }
     }
   }

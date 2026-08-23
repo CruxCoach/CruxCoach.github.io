@@ -574,6 +574,32 @@ test('the evidence cross-check finds a mistyped time and forgives spelling', () 
     hours: { ...WEEKDAYS_9_23, mon: '09:30-23:00' },
     evidence: 'Mo 9 - 23 Uhr, Di-Fr 09:00–23:00, Sa 10:00–22:00',
   })), ['09:30']);
+  // The 12-hour clock counts as the same time, because British and Irish pages
+  // write 10pm where German ones write 22:00.
+  assert.deepEqual(timesMissingFromEvidence({
+    evidence: 'Mon-Fri 9am - 10pm, Sat 10am - 8pm, Sun closed',
+    hours: {
+      mon: '09:00-22:00', tue: '09:00-22:00', wed: '09:00-22:00', thu: '09:00-22:00',
+      fri: '09:00-22:00', sat: '10:00-20:00', sun: 'closed',
+    },
+  }), []);
+  assert.deepEqual(timesMissingFromEvidence({
+    evidence: 'Monday to Friday 6.30am – 10.30pm | Weekend 9.00am – 7.00pm',
+    hours: {
+      mon: '06:30-22:30', tue: '06:30-22:30', wed: '06:30-22:30', thu: '06:30-22:30',
+      fri: '06:30-22:30', sat: '09:00-19:00', sun: '09:00-19:00',
+    },
+  }), []);
+  // "noon" and "midnight" are times too.
+  assert.deepEqual(timesMissingFromEvidence({
+    evidence: 'Open daily 12 noon until midnight',
+    hours: Object.fromEntries(DAY_KEYS.map(d => [d, '12:00-24:00'])),
+  }), []);
+  // ...but 10pm still does not cover 22:30.
+  assert.deepEqual(timesMissingFromEvidence({
+    evidence: 'Mon-Fri 9am - 10pm',
+    hours: { ...Object.fromEntries(DAY_KEYS.map(d => [d, 'closed'])), mon: '09:00-22:30' },
+  }), ['22:30']);
   // ...and an h-separated half hour is found, so 22h30 in a French quote counts.
   assert.deepEqual(timesMissingFromEvidence(record({
     hours: { ...WEEKDAYS_9_23, sat: '10:00-22:30' },
