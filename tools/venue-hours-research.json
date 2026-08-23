@@ -2200,6 +2200,16 @@
     "source": "https://www.boardworksclimbing.com/"
   },
   {
+    "lat": 38.91182,
+    "lon": -92.33687,
+    "name": "CoMo Rocks",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Three of the four rows give a meridiem only on the closing time — \"M, W, F 12 - 9 PM\", \"Saturday 10 - 7 PM\", \"Sunday 12 - 7 PM\" — so each opening time would have to be guessed (and the same digit needs the opposite meridiem on Saturday as on Monday).",
+    "source": "https://comorocks.com/"
+  },
+  {
     "lat": 37.15166,
     "lon": -80.41082,
     "name": "Crimper's Climbing",
@@ -2230,6 +2240,56 @@
     "source": "https://www.crimpersclimbing.com/"
   },
   {
+    "lat": 40.3834,
+    "lon": -105.50223,
+    "name": "Estes Park Rock Climbing",
+    "country": "US",
+    "status": "appointment-only",
+    "checked": "2026-08-23",
+    "reason": "The gym page states \"5am - 10pm. No reservations needed. We are a members only facility!\" and hands out a personal pin code; there is no public access to record.",
+    "source": "https://estesparkrockclimbing.com/"
+  },
+  {
+    "lat": 35.20247,
+    "lon": -111.61827,
+    "name": "Flagstaff Climbing - Main Street Boulders",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The only open hours stated for this hall are \"6-10 PM Tues, Wed and Thurs\", with \"Premium After Hours Access: 24 hours a day, 7 days a week\" alongside; the other four days are neither stated as open nor as closed.",
+    "source": "https://flagstaffclimbing.com/"
+  },
+  {
+    "lat": 39.21917,
+    "lon": -121.03081,
+    "name": "Gold Crush Climbing Gym",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The site states \"Public Hours are Wednesday-Fridays 4-9pm & Saturdays 10-3pm\" and says nothing about Monday, Tuesday or Sunday, which are neither stated as open nor as closed.",
+    "source": "https://goldcrushclimbing.com/"
+  },
+  {
+    "lat": 25.681666663169874,
+    "lon": -80.31642357116426,
+    "name": "Las Rocas",
+    "country": "US",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "The site's own FAQ answers the hours question with \"M – F // TBD; S – S // TBD\" — the gym has not published a schedule yet.",
+    "source": "https://lasrocasclimbing.com/"
+  },
+  {
+    "lat": 40.16257,
+    "lon": -105.04174,
+    "name": "Longmont Climbing Collective",
+    "country": "US",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The site serves no times a reader can see; the only schedule in the fetched document is schema.org openingHours (Mo-Fr 06:00-22:00, Sa-Su 08:00-20:00).",
+    "source": "https://longmontclimbingcollective.com/"
+  },
+  {
     "lat": 40.7082,
     "lon": -73.92041,
     "name": "MetroRock Bushwick",
@@ -2238,6 +2298,36 @@
     "checked": "2026-08-23",
     "reason": "The hours page states Monday - Friday 8AM - 10PM and Saturday + Sunday 9AM - 10PM, while the site's own schema.org openingHours says 09:00-22:00 every day.",
     "source": "https://bushwick.metrorock.com/bushwick-home"
+  },
+  {
+    "lat": 42.40822,
+    "lon": -71.06694,
+    "name": "MetroRock Everett",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The hours page states Monday - Friday 10:00AM - 10:00PM and Saturday, Sunday 9:00AM - 8:00PM, while the location home page's schema.org openingHours says Tu and Th open at 07:00 and both weekend days close at 22:00.",
+    "source": "https://metrorock.com/everett-home"
+  },
+  {
+    "lat": 42.55321,
+    "lon": -71.47254,
+    "name": "MetroROCK Littleton",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The hours page states Saturday & Sunday 9:00AM - 7:00PM, while the location home page's schema.org openingHours says Sa-Su 09:00-21:00.",
+    "source": "https://littleton.metrorock.com/littleton-home"
+  },
+  {
+    "lat": 29.77515,
+    "lon": -95.81617,
+    "name": "Momentum Climbing Katy",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The page states MONDAY – FRIDAY 8AM – 11PM, SATURDAY 8AM – 10PM and SUNDAY 8AM – 8PM, while its own schema.org openingHoursSpecification says Monday-Saturday 08:00-23:00 and Sunday 10:00-20:00.",
+    "source": "https://momentumclimbing.com/katy/"
   },
   {
     "lat": 40.03007,
@@ -2270,6 +2360,36 @@
     "source": "https://northmassboulder.com/"
   },
   {
+    "lat": 39.78605,
+    "lon": -86.13363,
+    "name": "North Mass Boulder",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The homepage (and its schema.org openingHours) says Mon-Sun 6am-11pm, while the hours-rates page says Monday-Friday 5am-11pm and Saturday-Sunday 6am-11pm, and adds that the gym is closed to non-members every Tuesday 6pm-9pm.",
+    "source": "https://northmassboulder.com/"
+  },
+  {
+    "lat": 44.08939,
+    "lon": -92.51209,
+    "name": "Roca Climbing & Fitness",
+    "country": "US",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The page carries two weeks — a regular one (Mon-Fri 12pm-9:30pm, Sat 10am-8pm, Sun 10am-6pm) and a \"June-August Hours\" one that shortens Saturday to 6:00pm — and the second is the one in force at the time of checking.",
+    "source": "https://rocaclimbingfitness.com/"
+  },
+  {
+    "lat": 32.33042,
+    "lon": -111.04925,
+    "name": "Rock Solid Climbing",
+    "country": "US",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The only week on the site is headed \"FALL HOURS Aug 1st - Dec 15th\" (Mon-Fri 3PM-10PM, Sat 10AM-8PM, Sun 10AM-6PM); no regular year-round week is stated.",
+    "source": "https://www.rocksolidclimbing.com/"
+  },
+  {
     "lat": 32.33046,
     "lon": -111.04919,
     "name": "Rock Solid Climbing + Fitness",
@@ -2288,6 +2408,36 @@
     "checked": "2026-08-23",
     "reason": "The only week on the site is headed \"FALL HOURS Aug 1st - Dec 15th\" (Mon-Fri 3PM-10PM, Sat 10AM-8PM, Sun 10AM-6PM); no regular year-round week is stated.",
     "source": "https://www.rocksolidclimbing.com/"
+  },
+  {
+    "lat": 43.00892,
+    "lon": -70.80167,
+    "name": "Seacoast Climb",
+    "country": "US",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The site serves a 1.8 kB JavaScript shell; no schedule reaches the document at all.",
+    "source": "https://seacoastclimb.com/"
+  },
+  {
+    "lat": 33.73223,
+    "lon": -117.83726,
+    "name": "Sender One Training Center SA",
+    "country": "US",
+    "status": "appointment-only",
+    "checked": "2026-08-23",
+    "reason": "The operator's own page states \"The Training Center is accessible to our Youth Programs and active members only\" — the Santa Ana hours belong to the main gym next door, not to this facility.",
+    "source": "https://www.senderoneclimbing.com/santa-ana/"
+  },
+  {
+    "lat": 38.42959,
+    "lon": -122.71441,
+    "name": "Session Climbing",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The page states Mon - Fri 6AM – 10PM and Sat - Sun 7AM – 8PM, while its schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
+    "source": "https://sessionclimbing.com/"
   },
   {
     "lat": 45.67642,
@@ -2320,9 +2470,49 @@
     "source": "https://www.sportrock.com/sterling"
   },
   {
+    "lat": 38.47173,
+    "lon": -77.99525,
+    "name": "State Climb",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The page states Mon-Fri 3PM-10PM and Sat-Sun 10AM-8PM, while its own schema.org openingHours says Mo-Fr 15:00-20:00 and Sa-Su 10:00-20:00.",
+    "source": "https://stateclimb.com/"
+  },
+  {
+    "lat": 40.50759,
+    "lon": -106.85771,
+    "name": "Steamboat Climbing Collective",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The homepage carries two weeks that disagree: \"Mon-Fri 9a-8p | Sat Closed | Sun 10:30a-6p\" against \"Monday-Thursday: 12:00p - 8:00p Open Gym for Everyone | Friday: 10:30a-8:00p | Saturday & Sunday: 10:30a-6:00p\".",
+    "source": "https://steamboatclimbingcollective.com/"
+  },
+  {
+    "lat": 42.79586306525299,
+    "lon": -77.81768163626862,
+    "name": "Sunrise Bouldering",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The hours list runs Tuesday to Sunday and has no Monday row at all — neither a time nor a closed marker — and the site's schema.org openingHours has the same gap.",
+    "source": "https://sunrisebouldering.com/"
+  },
+  {
     "lat": 42.9347612,
     "lon": -85.6466583,
     "name": "TERRA FIRMA",
+    "country": "US",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The Hours & Locations page renders its schedule client-side; the served document contains no times at all, only the two location addresses.",
+    "source": "https://www.climbterrafirma.com/grandrapids"
+  },
+  {
+    "lat": 42.93491845270286,
+    "lon": -85.64672357301721,
+    "name": "Terra Firma Bouldering Co",
     "country": "US",
     "status": "inaccessible",
     "checked": "2026-08-23",
@@ -2338,6 +2528,16 @@
     "checked": "2026-08-23",
     "reason": "The week is published without a meridiem — \"Monday 2-9 | Tuesday 11-9 | Wednesday 2-9 | Thursday 11-9 | Friday 2-10 | Saturday 10-7 | Sunday 1-7\" — so every one of those times would have to be guessed.",
     "source": "https://ontheedgerockclimbing.com/"
+  },
+  {
+    "lat": 35.60764,
+    "lon": -97.62456,
+    "name": "Threshold Climbing, Fitness & Yoga",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The contact page states Monday - Friday 12:00 PM - 10:00 PM, Saturday 9:00 AM - 8:00 PM, Sunday 12:00 PM - 8:00 PM, while the site's own schema.org openingHours says Mo-Fr 11:00-22:00, Sa 09:00-20:00, Su 12:00-20:00.",
+    "source": "https://www.thresholdclimbing.com/"
   },
   {
     "lat": 35.6075,
@@ -2368,5 +2568,15 @@
     "checked": "2026-08-23",
     "reason": "The page states Mon-Fri 10am-10pm and Sat & Sun 10am-9pm, while its own schema.org openingHours says Mo-Fr 12:00-21:00 and Sa-Su 10:00-20:00.",
     "source": "https://urbanaboulders.com/"
+  },
+  {
+    "lat": 44.46648,
+    "lon": -68.36104,
+    "name": "Volta Climbing Gym",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The hours page states MON 4-9pm, TUES 8am-9pm, WED 12-9pm, THU 8am-9pm, FRI 12-9pm, SAT 9am-6pm, SUN 9am-6pm, while the site's schema.org openingHours says Tu 06:00-21:00, We 10:00-21:00, Th 06:00-21:00, Fr 10:00-21:00 and Sa 09:00-20:00.",
+    "source": "https://voltaclimbing.com/"
   }
 ]

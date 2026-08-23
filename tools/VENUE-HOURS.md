@@ -314,9 +314,9 @@ maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (published + outcome entries) | 767 |
-| Published schedules | 530 |
-| Recorded outcomes without hours | 237 |
+| Venues reviewed (published + outcome entries) | 903 |
+| Published schedules | 645 |
+| Recorded outcomes without hours | 258 |
 | Countries covered | 20 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -324,8 +324,8 @@ Per-country coverage of eligible (public/commercial) venues:
 
 | country | published | reviewed | eligible | share |
 | --- | --- | --- | --- | --- |
+| US | 235 | 276 | 576 | 41% |
 | DE | 132 | 169 | 201 | 66% |
-| US | 120 | 140 | 576 | 21% |
 | GB | 52 | 70 | 102 | 51% |
 | NL | 37 | 51 | 59 | 63% |
 | CH | 35 | 52 | 56 | 62% |
@@ -345,10 +345,10 @@ Per-country coverage of eligible (public/commercial) venues:
 | LU | 2 | 3 | 6 | 33% |
 | PT | 1 | 2 | 15 | 7% |
 
-- **Last completed batch:** the first 140 linked United States venues — 120
-  published, 20 logged. Every linked venue in Europe was reviewed before it.
-- **Next batch:** the remaining 136 linked US venues, then Canada (64) and
-  Australia (33).
+- **Last completed batch:** the United States. **Every linked US venue has now
+  been reviewed** — 235 published, 41 logged, across two batches.
+- **Next batch:** Canada (64) and Australia (33), the last two countries with
+  linked venues left.
 
 ### What the first US batch taught
 
@@ -396,6 +396,40 @@ are both "Central Rock Gym Cambridge" with the same verified link, and Central
 Rock runs one Cambridge gym; the report's shared-source note fires on the sloppy
 coordinate, not on a real second branch. It joins Eifelblock, Awesome Walls Cork
 and Mountain Network Amsterdam in that category.
+
+### What the second US batch added
+
+**A range needs a meridiem on its opening time.** CoMo Rocks writes "M, W, F
+12 - 9 PM" and "Saturday 10 - 7 PM" — the same bare digit needs PM on one row and
+AM on the next, and neither is stated. The Edge Melbourne drops it from both ends.
+Both are logged. The rule, so a later curator applies it the same way: **a bare
+opening number is not a stated time, whatever the closing time says.**
+
+**Some of the members-only cases are the whole week.** Estes Park ("5am - 10pm.
+No reservations needed. We are a members only facility!"), Sender One's Santa Ana
+Training Center ("accessible to our Youth Programs and active members only"),
+Gold Crush and Flagstaff's Main Street Boulders (open hours on three or four days,
+24/7 premium access on the rest) publish no public week at all, so they are logged
+rather than published. That is the line: an earlier or later members' window over
+a stated public week is a note; a members' regime *instead of* a public week is an
+outcome.
+
+**MetroRock disagrees with itself four times out of five.** Everett, Littleton and
+Bushwick each publish a location hours page whose times its own `schema.org`
+markup contradicts, and all three are logged. Essex is the one that agrees — its
+`vt-hour-and-rates` page and its markup say the same thing, so it is published.
+The same shape sank State Climb, Momentum Katy, Volta, Session Climbing (theme
+default again) and Urbana Boulders. Sixteen of the 41 US outcomes are a site
+arguing with its own markup.
+
+**Bouldering Project publishes the two-tier week properly.** Its Salt Lake page
+prints "Members: Open 24 Hours | Public: 6am - 11pm" on every row, which is the
+cleanest statement of that arrangement anywhere in the data so far — no inference
+needed, the public window is simply labelled.
+
+**A second shared-source note is expected.** Two dataset entries 1.7 km apart both
+resolve to Gravity Vault's Upper Saddle River page, the way the two Cambridge
+entries both resolve to Central Rock's; the operator runs one gym in each case.
 
 ### What Europe taught
 
