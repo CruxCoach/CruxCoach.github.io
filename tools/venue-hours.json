@@ -1,5 +1,30 @@
 [
  {
+  "lat": 25.16322,
+  "lon": 55.23868,
+  "name": "Mountain Extreme",
+  "country": "AE",
+  "source": "https://www.mtnextreme.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Operational Hours Monday to Friday: 11 am to 10 pm Saturday to Sunday: 10 am to 10 pm",
+  "note": "Stated beside the directions on the gym's own page. The page adds that hours \"may differ\" during certain periods without naming any, which is a caveat rather than a competing schedule."
+ },
+ {
   "lat": 47.30391299999999,
   "lon": 11.067052,
   "name": "Bergstation / Kletterzentrum Telfs",
@@ -10672,6 +10697,31 @@
   "evidence": "DU LUNDI AU VENDREDI 10H – 22H | WEEK-END & JOURS FÉRIÉS 10H – 19H"
  },
  {
+  "lat": 14.6157,
+  "lon": -61.03342,
+  "name": "Madinina Bloc",
+  "country": "FR",
+  "source": "https://www.madinina-bloc.fr/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "16:00-21:00",
+   "tue": "16:00-21:00",
+   "wed": "12:30-21:00",
+   "thu": "17:00-22:00",
+   "fri": "16:00-21:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Nos horaires Lundi : 16h00 - 21h00 Mardi : 16h00 - 21h00 Mercredi : 12h30 - 21h00 Jeudi : 17h00 - 22h00 Vendredi : 16h00 - 21h00 Samedi - dimanche : 10h00 - 18h00",
+  "note": "Every day is stated. The \"Créneau 3 - 6 ans\" on Sunday mornings 9h-10h is a session for under-sixes before the hall opens and is not published here, and the \"Horaires du 15 au 23 mai\" block elsewhere on the page is a past dated exception rather than the week."
+ },
+ {
   "lat": 48.39182,
   "lon": -4.4872,
   "name": "The Roof Brest",
@@ -10845,6 +10895,33 @@
    "sun": "09:00-21:00"
   },
   "evidence": "Du lundi au vendredi 11h00 – 23h00 | Samedi, dimanche et jours fériés 09h00 – 21h00"
+ },
+ {
+  "lat": -21.33367,
+  "lon": 55.45546,
+  "name": "Vertikaz",
+  "country": "FR",
+  "source": "https://vertikaz.fr/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "11:30-22:30",
+   "tue": "11:30-22:30",
+   "wed": "11:30-22:30",
+   "thu": "11:30-22:30",
+   "fri": "11:30-22:30",
+   "sat": "13:00-21:00",
+   "sun": "13:00-21:00"
+  },
+  "evidence": "Du lundi au vendredi : de 11H30 à 22H30 Samedi, dimanche et jours fériés : de 13H00 à 21H00",
+  "note": "Stated on the contact page beside the address. Public holidays are grouped with the weekend."
  },
  {
   "lat": 51.4931952,
@@ -12888,6 +12965,32 @@
   },
   "evidence": "Horaires d'ouverture — Lundi, Mercredi, Vendredi 12h00 - 22h00 ; Mardi, Jeudi 16h00 - 22h00 ; Samedi, Dimanche 10h00 - 19h00. Dernière entrée 1h avant et dernière montée 30min avant la fermeture.",
   "note": "Logged ambiguous on the first pass because none of the four weeks on the homepage looked like the wall's. One of them is: the tabbed block on the homepage is headed 'Mur d'Escalade', and the wall's own Horaires & Tarifs page states the same week again. The asterisk on that homepage block marks 'Des fermetures exceptionnelles peuvent avoir lieux en raison d'événements sportifs', which is a caveat rather than a second schedule; the building's own 06h30-22h00 is stated separately and is not the wall's."
+ },
+ {
+  "lat": 49.51655,
+  "lon": 5.92713,
+  "name": "RedRock Climbing Center",
+  "country": "LU",
+  "source": "https://redrock-climbingcenter.lu/en/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "postal-code",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "14:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "14:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "14:00-22:00",
+   "sat": "09:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "Opening hours Monday, Wednesday, Friday 14:00 - 22:00 Tuesday, Thursday 10:00 - 22:00 Saturday, Sunday, public holidays 09:00 - 19:00",
+  "note": "The centre groups its days itself: Monday, Wednesday and Friday open in the afternoon, Tuesday and Thursday in the morning. Public holidays are grouped with the weekend."
  },
  {
   "lat": 53.21729,

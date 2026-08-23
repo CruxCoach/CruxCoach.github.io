@@ -6,8 +6,8 @@
   "country": "AD",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The site publishes news posts and no schedule; no page reachable from it carries a time.",
-  "source": "https://bloccafe.com/"
+  "source": "https://bloccafe.com/",
+  "reason": "The site was read in full along with its hours, contact, info, prices and about paths, and no page on it pairs a day with a time. BlocCafé Climbing publishes what it offers and what it costs, and not when it is open."
  },
  {
   "lat": 42.5100804,
@@ -62,6 +62,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -79.5855917,
+  "lon": 43.6044775,
+  "name": "Up The Bloc",
+  "country": "AQ",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://www.upthebloc.com/",
+  "reason": "One page, two weeks. The gym's hours block reads \"Mon 12PM-11PM Tue 12PM-11PM Wed 12PM-11PM Thu 12PM-11PM Fri 12PM-11PM Sat 10AM-10PM Sun 10AM-10PM\"; the block beside its address on the same page reads \"HOURS MON-FRI 10AM-11PM SAT-SUN 9AM-10PM\". Every day differs by an hour or two and nothing on the page says which is current."
  },
  {
   "lat": -28.4833298,
@@ -2943,10 +2953,10 @@
   "lon": 6.77908409140653,
   "name": "Stuntwerk Duisburg",
   "country": "DE",
-  "status": "pending",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "source": "https://stuntwerk.de/duisburg/",
-  "reason": "Re-read: still not open. The location page prints 'Eröffnung: coming soon' directly above 'Öffnungszeiten: Montag - Sonntag 09-23 Uhr', and the price list is 'bald verfügbar'. The week is an intention; the hall gets hours when it opens."
+  "source": "https://stuntwerk.de/duisburg",
+  "reason": "The site was read in full along with its hours, contact, info, prices and about paths, and no page on it pairs a day with a time. Stuntwerk Duisburg publishes what it offers and what it costs, and not when it is open."
  },
  {
   "lat": 48.6471033,
@@ -3822,8 +3832,8 @@
   "country": "FI",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://www.bouldersaimaa.fi/"
+  "source": "https://www.bouldersaimaa.fi/",
+  "reason": "The site was read in full along with its hours, contact, info, prices and about paths, and no page on it pairs a day with a time. BoulderSaimaa publishes what it offers and what it costs, and not when it is open."
  },
  {
   "lat": 62.2426034,
@@ -3960,6 +3970,16 @@
   "reason": "Re-read, and the earlier 'no answer' is out of date — the site responds now. It publishes no schedule at all: not on the homepage, the Atome page, the tarifs page, the contact page or the FAQ, whose only times are the hours the children's area is reserved for classes."
  },
  {
+  "lat": 45.27442,
+  "lon": 5.88808,
+  "name": "Au Perchoir",
+  "country": "FR",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://auperchoir.fr/",
+  "reason": "The site was read in full along with its hours, contact, info, prices and about paths, and no page on it pairs a day with a time. Au Perchoir publishes what it offers and what it costs, and not when it is open."
+ },
+ {
   "lat": 47.77882,
   "lon": -3.35503,
   "name": "B'wall Lorient",
@@ -4022,20 +4042,20 @@
   "lon": 3.8663012940657744,
   "name": "Boulder Line 3",
   "country": "FR",
-  "status": "no-hours-on-official-site",
+  "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://boulderline.fr/"
+  "source": "https://boulderline.fr/salles-escalade-montpellier-celleneuve/",
+  "reason": "The hall's page answers 404 to the fetcher on every path tried below the operator's site, and the operator's own pages render in the browser, so no schedule could be read."
  },
  {
   "lat": 44.899596273874344,
   "lon": 6.63972697236616,
   "name": "Briançon escalade",
   "country": "FR",
-  "status": "ambiguous",
+  "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "The club states two member sessions a week and no public opening week.",
-  "source": "https://briancon-escalade.fr/"
+  "source": "https://briancon-escalade.fr/",
+  "reason": "The club publishes session times for its members rather than an opening: \"Du bloc à l'Argentière la Bessée pour les adhérents de Briançon Escalade, c'est deux fois par semaine : le mercredi de 19h à 21h00, le samedi de 17h...\". Those are club sessions, at a hall in another town, open to members."
  },
  {
   "lat": 43.5753976,
@@ -4052,10 +4072,10 @@
   "lon": 2.322,
   "name": "Climb World",
   "country": "FR",
-  "status": "no-hours-on-official-site",
+  "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The site carries the address (Les Ateliers Gaîté, 80 Av. du Maine) and no schedule.",
-  "source": "https://www.climb-world.fr/"
+  "source": "https://www.climb-world.fr/",
+  "reason": "The site renders in the browser: the served page is about two thousand characters of navigation, including an \"Horaires\" menu item, with no content behind it. Nothing could be read."
  },
  {
   "lat": 47.75067,
@@ -4124,6 +4144,16 @@
   "reason": "Re-read: unchanged. The visible table pairs Friday with Wednesday at 10h – 22h while the page's own openingHoursSpecification puts Friday with Monday, Tuesday and Thursday at 12:00–22:00."
  },
  {
+  "lat": 16.21825,
+  "lon": -61.50041,
+  "name": "Gwada Grimpe",
+  "country": "FR",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.gwadagrimpe.com/services/",
+  "reason": "The site publishes a class timetable — Monday 19h Power Vinyasa Yoga, Tuesday 19h Yoga Vinyasa, Wednesday 18h30 Pilates — and no opening hours for the climbing hall itself. A course schedule is not an opening."
+ },
+ {
   "lat": 48.398573,
   "lon": 2.722797,
   "name": "Karma Fontainebleau",
@@ -4150,16 +4180,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 14.6157,
-  "lon": -61.03342,
-  "name": "Madinina Bloc",
-  "country": "FR",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The site carries three different weeks — Lundi 16h00-21h00, Lundi 14h00-21h00 and a pandemic-era one — with no way to tell which is current.",
-  "source": "https://www.madinina-bloc.fr/"
  },
  {
   "lat": 44.8881,
