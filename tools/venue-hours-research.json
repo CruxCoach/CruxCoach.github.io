@@ -7510,6 +7510,15 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 14.66455,
+  "lon": 121.07012,
+  "name": "Power Up Tandang Sora",
+  "country": "PH",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "The page that had been recorded for this venue is a third-party visit guide, not the operator's, and the operator's own site serves nothing readable. There is no official page to read a schedule from."
+ },
+ {
   "lat": 14.6596839,
   "lon": 121.0347226,
   "name": "PowerUp TS",
@@ -7642,8 +7651,8 @@
   "country": "PL",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The site publishes a regular week (PON-PT 14:00-22:00) and a \"Wakacje / Ferie zimowe\" one (PON-PT 11:00-22:00); the holiday regime is the one in force at the time of checking.",
-  "source": "https://flywall.pl/"
+  "source": "https://flywall.pl/",
+  "reason": "The centre publishes two regimes side by side and says which is which: \"Dni powszednie: PON - PT: 14:00 - 22:00, SB - ND: 10:00 - 21:00\" and \"Wakacje / Ferie zimowe: PON - PT: 11:00 - 22:00, SB - ND: 10:00 - 21:00\". Term-time and school-holiday weeks differ on weekdays and the page gives no dates for either, so which is in force on a given day cannot be read off it."
  },
  {
   "lat": 53.0137902,
@@ -8379,8 +8388,8 @@
   "country": "SE",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The page publishes \"Sommaröppettider (juni-augusti) Mån-Tors: 14-22 | Fre-Lör: Stängt | Sön: 10-16\" beside the ordinary week; the summer regime is the one in force.",
-  "source": "https://klatterhallen.com/"
+  "source": "https://klatterhallen.com/priser-och-oppettider/",
+  "reason": "The only week the hall states is headed \"Sommaröppettider (juni-augusti)\" — Mån-Tors 14-22, Fre-Lör stängt, Sön 10-16 — and no regular-season week is published beside it. It adds that the bouldering hall is always available without booking, which is a statement about access rather than a set of times."
  },
  {
   "lat": 59.35825,

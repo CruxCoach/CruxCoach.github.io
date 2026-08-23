@@ -14675,6 +14675,60 @@
   "evidence": "OPENING HOURS Monday 3pm - 9pm Tuesday 9am - 12pm & 3pm - 9pm Wednesday 3pm - 9pm Thursday 9am - 12pm & 3pm - 9pm Friday 12pm - 9pm Saturday 10am - 6pm Sunday 10am - 6 pm Public Holidays Closed"
  },
  {
+  "lat": 50.0616,
+  "lon": 20.01703,
+  "name": "AVATAR Central Ruchu",
+  "country": "PL",
+  "source": "https://myavatar.pl/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "07:00-23:00",
+   "tue": "07:00-23:00",
+   "wed": "07:00-23:00",
+   "thu": "07:00-23:00",
+   "fri": "07:00-23:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "AVATAR Climbing Gym ul. Sikorki 21A, 31-589 Kraków GODZINY OTWARCIA Pn-Pt: 7:00 – 23:00 Sob-Nd: 9:00 – 22:00",
+  "note": "The block sits under this hall's own address, Sikorki 21A. The operator's other Kraków hall, AVATAR Balicka at ul. Balicka 100, carries a different week on the same page (Pn-Pt 9:00-22:00, Sob-Nd 9:00-21:00), which is what makes each block specific."
+ },
+ {
+  "lat": 50.0613959,
+  "lon": 20.0169419,
+  "name": "AVATAR SIKORKI",
+  "country": "PL",
+  "source": "https://myavatar.pl/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "07:00-23:00",
+   "tue": "07:00-23:00",
+   "wed": "07:00-23:00",
+   "thu": "07:00-23:00",
+   "fri": "07:00-23:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "AVATAR Climbing Gym ul. Sikorki 21A, 31-589 Kraków GODZINY OTWARCIA Pn-Pt: 7:00 – 23:00 Sob-Nd: 9:00 – 22:00",
+  "note": "The block sits under this hall's own address, Sikorki 21A. The operator's other Kraków hall, AVATAR Balicka at ul. Balicka 100, carries a different week on the same page (Pn-Pt 9:00-22:00, Sob-Nd 9:00-21:00), which is what makes each block specific."
+ },
+ {
   "lat": 53.40676,
   "lon": 14.51759,
   "name": "Bald Port",
@@ -16653,6 +16707,31 @@
    "sun": "10:00-19:00"
   },
   "evidence": "Mon – Fri 12:00 pm – 10:00 pm Sat 10:00 am – 8:00 pm Sun 10:00 am – 7:00 pm"
+ },
+ {
+  "lat": 47.544867,
+  "lon": -122.344753,
+  "name": "Castle Climbing Club",
+  "country": "US",
+  "source": "https://www.castleclimbingclub.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "06:00-24:00",
+   "tue": "06:00-24:00",
+   "wed": "06:00-24:00",
+   "thu": "06:00-24:00",
+   "fri": "06:00-24:00",
+   "sat": "09:00-24:00",
+   "sun": "09:00-24:00"
+  },
+  "evidence": "Club Hours: Weekdays: 6am - Midnight Weekends: 9am - Midnight",
+  "note": "The sauna hours listed beneath (weekdays noon to midnight, weekends 9am to midnight) are an amenity window inside the club opening, and the 6am-4pm weekday slot mentioned there is for private groups on enquiry."
  },
  {
   "lat": 36.2139102,
