@@ -24,6 +24,104 @@
     "note": "The kitchen keeps separate, shorter hours; these are the centre's."
   },
   {
+    "lat": 47.87958,
+    "lon": 11.99087,
+    "name": "Basislager Bad Aibling",
+    "country": "DE",
+    "source": "https://kletterhalle-basislager.de/anfahrt-und-oeffnungszeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:30",
+      "tue": "09:00-22:30",
+      "wed": "09:00-22:30",
+      "thu": "09:00-22:30",
+      "fri": "09:00-22:30",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Mo – Fr 9.00 – 22.30 Uhr | Sa, So, Feiertage 9.00 – 21.00 Uhr"
+  },
+  {
+    "lat": 52.56398,
+    "lon": 13.40988,
+    "name": "Berta Block Boulderhalle Berlin",
+    "country": "DE",
+    "source": "https://www.bertablock.de/zeiten",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Montag 09:00 - 23:00 | Dienstag 09:00 - 23:00 | Mittwoch 09:00 - 23:00 | Donnerstag 09:00 - 23:00 | Freitag 09:00 - 23:00 | Samstag 10:00 - 22:00 | Sonntag 10:00 - 22:00",
+    "note": "Registered users can additionally self-check-in from 07:00; the hall's own opening times are what is recorded."
+  },
+  {
+    "lat": 51.7168083,
+    "lon": 8.776686999999999,
+    "name": "Blocbuster Paderborn",
+    "country": "DE",
+    "source": "https://bb.blocbuster.net/bouldern-in-paderborn",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "15:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "15:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "15:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "ÖFFNUNGSZEITEN Mo, Mi, Fr: 15 bis 22 Uhr | Di, Do, Sa, So, Feiertage: 10 bis 22 Uhr"
+  },
+  {
+    "lat": 50.53805,
+    "lon": 9.69699,
+    "name": "Block Barock Fulda",
+    "country": "DE",
+    "source": "https://block-barock.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "10:00-23:00",
+      "sun": "10:00-23:00"
+    },
+    "evidence": "Montag – Sonntag 10:00 – 23:00 Uhr (Abweichungen an Feiertagen möglich)"
+  },
+  {
     "lat": 49.6281245,
     "lon": 11.016205,
     "name": "BLOCKHELDEN Erlangen",
@@ -47,6 +145,31 @@
       "sun": "09:00-23:00"
     },
     "evidence": "Öffnungszeiten — Jeden Tag von 9 – 23 Uhr"
+  },
+  {
+    "lat": 47.79186079999999,
+    "lon": 9.6080275,
+    "name": "blöckle Moonboard",
+    "country": "DE",
+    "source": "https://www.boulderhalle-ravensburg.de/oeffnungszeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "15:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "08:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "08:00-22:00",
+      "sat": "10:00-20:30",
+      "sun": "10:00-20:30"
+    },
+    "evidence": "Montag | Dienstag | Mittwoch | Donnerstag | Freitag | Samstag, Sonn- & Feiertags — 15:00 – 22:00 | 10:00 – 22:00 | 08:00 – 22:00 | 10:00 – 22:00 | 08:00 – 22:00 | 10:00 – 20:30",
+    "note": "Six column headings followed by six values in the same order; read off the hours page itself rather than the homepage summary."
   },
   {
     "lat": 50.9615266,
@@ -73,6 +196,80 @@
     "evidence": "täglich von 10-22 Uhr geöffnet, auch an allen Feiertagen wie Ostern, Pfingsten, Männertag etc."
   },
   {
+    "lat": 49.77637,
+    "lon": 6.69406,
+    "name": "Blocschokolade",
+    "country": "DE",
+    "source": "https://blocschokolade.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Fr-Mo 10-22 Uhr | Di-Do 10-23 Uhr — auch an Sonn- und Feiertagen"
+  },
+  {
+    "lat": 49.7769583,
+    "lon": 6.694437199999999,
+    "name": "Blocschokolade bouldern & backen",
+    "country": "DE",
+    "source": "https://blocschokolade.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Fr-Mo 10-22 Uhr | Di-Do 10-23 Uhr — auch an Sonn- und Feiertagen"
+  },
+  {
+    "lat": 53.0756399,
+    "lon": 8.7709921,
+    "name": "Boulder Base Bremen - Tabakquartier",
+    "country": "DE",
+    "source": "https://www.boulderbasebremen.de/tabakquartier",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "14:00-22:00",
+      "tue": "14:00-22:00",
+      "wed": "14:00-22:00",
+      "thu": "14:00-22:00",
+      "fri": "14:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "Reguläre Öffnungszeiten: Montag - Freitag 14:00 - 22:00 Uhr | Samstag 10:00 - 22:00 Uhr | Sonn- und Feiertage 10:00 - 21:00 Uhr",
+    "note": "The operator's unscoped neu-hier page shows a different week (Mo 13:00, Di–Sa 10:00); the location page is what is used, and it is the one that names Tabakquartier."
+  },
+  {
     "lat": 49.2386079,
     "lon": 10.6036822,
     "name": "BOULDER HALL - Burgoberbach",
@@ -95,6 +292,127 @@
     },
     "evidence": "MONTAG – SONNTAG 10:00 Uhr – 22:00 UHR. Auch an Feiertagen",
     "note": "Route setting runs Monday mornings and closes individual sectors; the hall itself stays open, so it is not reflected here."
+  },
+  {
+    "lat": 51.44823,
+    "lon": 6.98695,
+    "name": "Boulderbar Neoliet Essen",
+    "country": "DE",
+    "source": "https://www.neoliet.de/boulderbar-essen/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "12:00-22:00",
+      "tue": "12:00-22:00",
+      "wed": "12:00-22:00",
+      "thu": "12:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Mo, Di, Mi, Do: 12:00 – 22:00 Uhr | Fr, Sa, So und Feiertags: 10:00 – 22:00 Uhr"
+  },
+  {
+    "lat": 51.52223,
+    "lon": 7.08503,
+    "name": "Boulderbar Neoliet Gelsenkirchen",
+    "country": "DE",
+    "source": "https://www.neoliet.de/boulderbar-gelsenkirchen/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "12:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "12:00-22:00",
+      "thu": "12:00-22:00",
+      "fri": "12:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Mo, Mi, Do, Fr: 12:00 – 22:00 Uhr | Di, Sa, So und Feiertags: 10:00 – 22:00 Uhr"
+  },
+  {
+    "lat": 52.4797091,
+    "lon": 13.4528508,
+    "name": "bouldergarten",
+    "country": "DE",
+    "source": "https://bouldergarten.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "08:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "08:00-23:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Mo-Fr 8-23 Uhr | Sa, So, Feiertag 10-22 Uhr",
+    "note": "Upstream splits this gym into three entries within about 150 m; all three carry the same schedule from the same page."
+  },
+  {
+    "lat": 52.47998,
+    "lon": 13.45175,
+    "name": "Bouldergarten",
+    "country": "DE",
+    "source": "https://bouldergarten.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "08:00-23:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Mo-Fr 8-23 Uhr | Sa, So, Feiertag 10-22 Uhr"
+  },
+  {
+    "lat": 52.47997,
+    "lon": 13.45145,
+    "name": "Bouldergarten GmbH",
+    "country": "DE",
+    "source": "https://bouldergarten.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "08:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "08:00-23:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Mo-Fr 8-23 Uhr | Sa, So, Feiertag 10-22 Uhr"
   },
   {
     "lat": 49.6088,
@@ -121,6 +439,30 @@
     "evidence": "Wir haben täglich von 9.00 – 22.00 Uhr für dich geöffnet. Auch in den Schulferien und an Feiertagen."
   },
   {
+    "lat": 47.99075,
+    "lon": 7.79521,
+    "name": "Boulderkitchen Freiburg",
+    "country": "DE",
+    "source": "https://www.freiburg-boulderkitchen.de/preise-offnungszeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Montag 09:00 - 23:00 | Dienstag 09:00 - 23:00 | Mittwoch 09:00 - 23:00 | Donnerstag 09:00 - 23:00 | Freitag 09:00 - 23:00 | Samstag 09:00 - 22:00 | Sonntag/Feiertag 09:00 - 22:00 Uhr"
+  },
+  {
     "lat": 47.84413,
     "lon": 12.96669,
     "name": "Boulderlabor",
@@ -143,6 +485,78 @@
     },
     "evidence": "Öffnungszeiten Halle: Montag 12:00 – 22:00 | Dienstag 8:00 – 22:00 | Mittwoch 12:00 – 22:00 | Donnerstag 8:00 – 22:00 | Freitag 12:00 – 22:00 | Samstag 9:00 – 22:00 | Sonntag 9:00 – 21:00 Uhr",
     "note": "Staff/café and route-setting times are listed separately on the same page and are not the hall's hours."
+  },
+  {
+    "lat": 50.81768,
+    "lon": 12.92085,
+    "name": "Boulderlounge Chemnitz",
+    "country": "DE",
+    "source": "https://www.boulderlounge-chemnitz.de/preise-oeffnungszeiten.html",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "15:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-23:00",
+      "sun": "09:00-23:00"
+    },
+    "evidence": "MONTAG 15:00 - 23:00 Uhr | DIENSTAG - FREITAG 09:00 - 23:00 Uhr | SAMSTAG, SONNTAG, FEIERTAGE: 09:00 - 23:00 Uhr",
+    "note": "The two footnotes close parts of the hall on Thursday and Sunday evenings; the venue stays open."
+  },
+  {
+    "lat": 51.49471,
+    "lon": 7.37769,
+    "name": "Boulderwelt Dortmund",
+    "country": "DE",
+    "source": "https://www.boulderwelt-dortmund.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "07:00-23:00",
+      "tue": "07:00-23:00",
+      "wed": "07:00-23:00",
+      "thu": "07:00-23:00",
+      "fri": "07:00-23:00",
+      "sat": "08:00-23:00",
+      "sun": "08:00-23:00"
+    },
+    "evidence": "Mo-Fr 07:00 – 23:00 Uhr | Sa, So & Feiertag 08:00 – 23:00 Uhr"
+  },
+  {
+    "lat": 50.16409,
+    "lon": 8.68487,
+    "name": "Boulderwelt Frankfurt",
+    "country": "DE",
+    "source": "https://www.boulderwelt-frankfurt.de/kontakt/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "07:00-23:00",
+      "tue": "07:00-23:00",
+      "wed": "07:00-23:00",
+      "thu": "07:00-23:00",
+      "fri": "07:00-23:00",
+      "sat": "08:00-23:00",
+      "sun": "08:00-23:00"
+    },
+    "evidence": "Mo.-Fr. 7:00 – 23:00 Uhr | Sa., So. und Feiertag 8:00 – 23:00 Uhr"
   },
   {
     "lat": 53.55395,
@@ -169,6 +583,126 @@
     "evidence": "Mo-Fr 07:00 – 23:00 Uhr | Sa, So & Feiertag 08:00 – 23:00 Uhr"
   },
   {
+    "lat": 48.04129,
+    "lon": 11.6637,
+    "name": "Boulderwelt München Süd",
+    "country": "DE",
+    "source": "https://www.boulderwelt-muenchen-sued.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "07:00-23:00",
+      "tue": "07:00-23:00",
+      "wed": "07:00-23:00",
+      "thu": "07:00-23:00",
+      "fri": "07:00-23:00",
+      "sat": "08:00-23:00",
+      "sun": "08:00-23:00"
+    },
+    "evidence": "Mo-Fr 07:00 – 23:00 Uhr | Sa, So & Feiertag 08:00 – 23:00 Uhr"
+  },
+  {
+    "lat": 49.2251315,
+    "lon": 7.3985812,
+    "name": "Camp4 Kletterzentrum",
+    "country": "DE",
+    "source": "https://www.campvier.de/preise-und-oeffnungszeiten",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "11:00-22:00",
+      "tue": "11:00-22:00",
+      "wed": "11:00-22:00",
+      "thu": "11:00-22:00",
+      "fri": "11:00-22:00",
+      "sat": "11:00-21:00",
+      "sun": "11:00-21:00"
+    },
+    "evidence": "Montag bis Freitag von 11:00 bis 22:00 Uhr; Samstag, Sonntag und an Feiertagen von 11:00 bis 21:00 Uhr (Gültig ab 01.11.2024)"
+  },
+  {
+    "lat": 50.78416,
+    "lon": 6.1302,
+    "name": "Campus Boulderhalle",
+    "country": "DE",
+    "source": "https://www.campusboulderhalle.de/offnungszeiten",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "street-address",
+      "city"
+    ],
+    "hours": {
+      "mon": "14:30-23:00",
+      "tue": "14:30-23:00",
+      "wed": "14:30-23:00",
+      "thu": "14:30-23:00",
+      "fri": "14:30-23:00",
+      "sat": "12:00-20:00",
+      "sun": "12:00-20:00"
+    },
+    "evidence": "Montag: 14:30 – 23:00 | Dienstag: 14:30 – 23:00 | Mittwoch: 14:30 – 23:00 | Donnerstag: 14:30 – 23:00 | Freitag: 14:30 – 23:00 | Samstag: 12:00 – 20:00 | Sonntag: 12:00 – 20:00",
+    "note": "The site prints Tempelhofer Straße 16, 52068 Aachen — the address upstream carries. Holiday hours are announced elsewhere and are not recorded."
+  },
+  {
+    "lat": 51.93543,
+    "lon": 8.56031,
+    "name": "Center of Gravity Boulderhalle",
+    "country": "DE",
+    "source": "https://center-of-gravity-boulderhalle.de/preise/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "15:00-21:30",
+      "tue": "15:00-21:30",
+      "wed": "15:00-21:30",
+      "thu": "15:00-21:30",
+      "fri": "15:00-21:30",
+      "sat": "10:00-21:00",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "Montag bis Freitag 15.00 – 21.30 Uhr | Samstag und Sonntag 10.00 – 21.00 Uhr",
+    "note": "The site prints Paul-Gerhardt-Weg, 33689 Bielefeld while upstream carries Heidegrundweg 104-108 in the same postcode; the postcode and town match and the venue link is verified, the street line is not claimed as a signal."
+  },
+  {
+    "lat": 50.90932,
+    "lon": 6.81915,
+    "name": "Chimpanzodrome Kletter und Boulderhalle",
+    "country": "DE",
+    "source": "https://chimpanzodrome.de/kontakt/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Mo bis Fr: 10:00-23:00 Uhr | Sa & So: 10:00-22:00 Uhr",
+    "note": "The same gym as the venue about 25 m away; upstream carries both."
+  },
+  {
     "lat": 50.90912119999999,
     "lon": 6.819058,
     "name": "Chimpanzodrome Kletter- und Boulderhalle",
@@ -191,6 +725,201 @@
       "sun": "10:00-22:00"
     },
     "evidence": "Mo bis Fr: 10:00-23:00 Uhr | Sa & So: 10:00-22:00 Uhr"
+  },
+  {
+    "lat": 52.01464,
+    "lon": 8.5717,
+    "name": "DAV Alpinzentrum Bielefeld",
+    "country": "DE",
+    "source": "https://alpinzentrum-bielefeld.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:30",
+      "tue": "10:00-22:30",
+      "wed": "10:00-22:30",
+      "thu": "10:00-22:30",
+      "fri": "10:00-22:30",
+      "sat": "10:00-21:00",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "Mo. bis Fr. 10–22:30 Uhr (Kletterschluss 22 Uhr) | Sa., So. und an Feiertagen 10–21 Uhr (Kletterschluss 20:45 Uhr)",
+    "note": "Climbing stops shortly before closing; the hall's opening times are what is recorded."
+  },
+  {
+    "lat": 47.48262,
+    "lon": 11.0916,
+    "name": "DAV Boulderhalle Garmisch-Partenkirhen",
+    "country": "DE",
+    "source": "https://boulderhalle-gapa.de/kontakt/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "street-address",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Mo. - Fr. 10:00 - 22:00 Uhr | Sa. - So. 10:00 - 20:00 Uhr | An Feiertagen von 10:00 - 20:00 Uhr geöffnet!"
+  },
+  {
+    "lat": 48.82413,
+    "lon": 10.02661,
+    "name": "DAV Boulderzentrum Ostalb",
+    "country": "DE",
+    "source": "https://www.boulderzentrum-ostalb.de/oeffnungszeiten",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "13:00-23:00",
+      "tue": "13:00-23:00",
+      "wed": "13:00-23:00",
+      "thu": "13:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Montag–Donnerstag 13–23 Uhr | Freitag 9–23 Uhr | Samstag, Sonntag, Feiertage 9–22 Uhr"
+  },
+  {
+    "lat": 49.93608301069035,
+    "lon": 11.59888321140746,
+    "name": "DAV Climbing Center Bayreuth",
+    "country": "DE",
+    "source": "https://kletterzentrum-bayreuth.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "street-address",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "11:00-22:00",
+      "sun": "11:00-22:00"
+    },
+    "evidence": "Montag - Freitag: 10:00 - 22:00 Uhr | Samstag - Sonntag: 11:00 - 22:00 Uhr",
+    "note": "Two upstream entries about 18 m apart are the same centre; both carry this schedule."
+  },
+  {
+    "lat": 47.75974,
+    "lon": 11.57895,
+    "name": "DAV Kletter & Boulderzentrum Bad Tölz",
+    "country": "DE",
+    "source": "https://kbtoelz.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "14:30-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Mo: 14:30–23:00 Uhr | Di, Mi, Do, Fr: 09:00-23:00 Uhr | Sa, So: 09:00–21:00 Uhr | Feiertags: 09:00–21:00 Uhr"
+  },
+  {
+    "lat": 48.10135,
+    "lon": 11.30113,
+    "name": "DAV Kletter & Boulderzentrum München-West",
+    "country": "DE",
+    "source": "https://www.kbgilching.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "14:00-23:00",
+      "tue": "07:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Mo: 14:00 – 23:00 | Di: 07:00 – 23:00 | Mi, Do, Fr: 09:00 – 23:00 | Sa, So, Feiertag: 09:00 – 21:00",
+    "note": "The DAV service desk in the same building keeps shorter hours; these are the centre's."
+  },
+  {
+    "lat": 49.93592,
+    "lon": 11.5988,
+    "name": "DAV Kletterzentrum Bayreuth",
+    "country": "DE",
+    "source": "https://kletterzentrum-bayreuth.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "street-address",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "11:00-22:00",
+      "sun": "11:00-22:00"
+    },
+    "evidence": "Montag - Freitag: 10:00 - 22:00 Uhr | Samstag - Sonntag: 11:00 - 22:00 Uhr"
+  },
+  {
+    "lat": 49.57437,
+    "lon": 10.99732,
+    "name": "Der Steinbock Erlangen",
+    "country": "DE",
+    "source": "https://www.dersteinbock-erlangen.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Mo-Fr: 09:00 bis 23:00 Uhr | Sa+So: 09:00 bis 22:00 Uhr"
   },
   {
     "lat": 50.7860629,
@@ -313,6 +1042,56 @@
     "evidence": "Öffnungszeiten — Wann haben wir geöffnet? Täglich 11 – 22 Uhr (Niederkircher Straße 10, 54294 Trier)"
   },
   {
+    "lat": 51.43236,
+    "lon": 6.7432,
+    "name": "Einstein Boulderhalle Duisburg",
+    "country": "DE",
+    "source": "https://duisburg.einstein-boulder.com/preisezeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "10:00-23:00",
+      "sun": "10:00-23:00"
+    },
+    "evidence": "Unsere Öffnungszeiten sind täglich von 10 – 23 Uhr (Letzter Check-In 21 Uhr)",
+    "note": "The site's schema.org openingHours agrees: Monday–Sunday 10:00–23:00."
+  },
+  {
+    "lat": 51.21367,
+    "lon": 6.82183,
+    "name": "Einstein Boulderhalle Düsseldorf",
+    "country": "DE",
+    "source": "https://einstein-boulder-duesseldorf.de/preise-und-zeiten/preise-und-zeiten",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "10:00-23:00",
+      "sun": "10:00-23:00"
+    },
+    "evidence": "Montag bis Sonntag von 10-23 Uhr"
+  },
+  {
     "lat": 50.94488,
     "lon": 6.90256,
     "name": "Einstein Boulderhalle Köln",
@@ -359,6 +1138,54 @@
     "evidence": "Montag - Freitag 8–23 Uhr | Samstag + Sonntag 10–22 Uhr | Feiertage 10–22 Uhr"
   },
   {
+    "lat": 52.541323274297916,
+    "lon": 13.386934904624612,
+    "name": "Elektra Boulderhalle",
+    "country": "DE",
+    "source": "https://daselektra.de/zeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "08:00-23:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Montag - Freitag 8–23 Uhr | Samstag + Sonntag 10–22 Uhr | Feiertage 10–22 Uhr"
+  },
+  {
+    "lat": 51.5327941,
+    "lon": 7.630979599999999,
+    "name": "Glücksgriff Moonboard",
+    "country": "DE",
+    "source": "https://www.gluecksgriff-boulderhalle.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "12:00-23:00",
+      "tue": "12:00-23:00",
+      "wed": "12:00-23:00",
+      "thu": "12:00-23:00",
+      "fri": "12:00-23:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Montag – Freitag: 12:00 – 23:00 Uhr | Samstag – Sonntag und an Feiertagen: 10:00 – 22:00 Uhr"
+  },
+  {
     "lat": 49.85502,
     "lon": 7.89228,
     "name": "Gravity Boulderhalle GmbH",
@@ -381,6 +1208,54 @@
       "sun": "11:00-21:00"
     },
     "evidence": "Öffnungszeiten: Dienstag bis Freitag 11:00 - 22:00 Uhr; Montag, Samstag, Sonntag und an Feiertagen 11:00 - 21:00 Uhr. Wir haben an allen Tagen für dich geöffnet."
+  },
+  {
+    "lat": 47.65225,
+    "lon": 9.50302,
+    "name": "Greifbar-Boulderhalle Friedrichshafen",
+    "country": "DE",
+    "source": "https://greifbar-bouldern.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "12:00-22:00",
+      "tue": "12:00-22:00",
+      "wed": "12:00-22:00",
+      "thu": "12:00-22:00",
+      "fri": "12:00-22:00",
+      "sat": "10:00-20:30",
+      "sun": "10:00-20:30"
+    },
+    "evidence": "Montag – Freitag 12:00 – 22:00 Uhr | Samstag, Sonntag und Feiertage 10:00 – 20:30 Uhr"
+  },
+  {
+    "lat": 52.27931,
+    "lon": 10.52019,
+    "name": "Greifhaus Braunschweig",
+    "country": "DE",
+    "source": "https://www.greifhaus.de/454-2/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "10:00-21:00",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "Mo – Fr: 10:00 – 23:00 Uhr | Sa – So: 10:00 – 21:00 Uhr | An Feiertagen: 14:00 – 20:00 Uhr | Geschlossen an: Heiligabend, Silvester und Karfreitag"
   },
   {
     "lat": 47.86567,
@@ -429,6 +1304,30 @@
     },
     "evidence": "Montag bis Freitag 10.00 bis 22.00 Uhr | Sa, So, Feiertage 10.00 bis 20.00 Uhr",
     "note": "The page also lists Sperrzeiten during which the OLD hall is closed for youth training; the centre stays open, so the venue hours are unaffected."
+  },
+  {
+    "lat": 50.58771,
+    "lon": 8.65829,
+    "name": "Level 8 Boulderhalle Gießen",
+    "country": "DE",
+    "source": "https://www.levelacht.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "14:00-22:30",
+      "tue": "10:00-22:30",
+      "wed": "10:00-22:30",
+      "thu": "10:00-22:30",
+      "fri": "10:00-22:30",
+      "sat": "10:00-22:30",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "Öffnungszeiten: Montag 14:00 – 22:30 Uhr* | Dienstag – Samstag 10:00 – 22:30 Uhr* | Sonntag 10:00 – 21:00 Uhr* (*Sportbetrieb endet je 10 Minuten vor Hallenschließung)"
   },
   {
     "lat": 50.13489,
@@ -503,6 +1402,53 @@
     },
     "evidence": "Tag | Halle: Montag 10:00 – 23:00 | Dienstag 10:00 – 23:00 | Mittwoch 10:00 – 23:00 | Donnerstag 10:00 – 23:00 | Freitag 10:00 – 23:00 | Samstag 10:00 – 22:00 | Sonntag 10:00 – 22:00 Uhr",
     "note": "The table's other two columns are the Kursbüro and the shop, which keep shorter hours; the Halle column is public access."
+  },
+  {
+    "lat": 48.56053,
+    "lon": 12.16662,
+    "name": "PEAK7 Boulderhalle Landshut",
+    "country": "DE",
+    "source": "https://boulderhalle-landshut.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:30-22:30",
+      "tue": "09:30-22:30",
+      "wed": "09:30-22:30",
+      "thu": "09:30-22:30",
+      "fri": "09:30-22:30",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "MO - FR 9:30 - 22:30 | SA & SO, Feiertag 9 - 21"
+  },
+  {
+    "lat": 48.8347817,
+    "lon": 9.164027899999999,
+    "name": "rockerei",
+    "country": "DE",
+    "source": "https://rockerei-stuttgart.de/infos/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "13:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "13:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Montag 13 - 23 Uhr | Dienstag 9 - 23 | Mittwoch 9 - 23 | Donnerstag 13 - 23 | Freitag 9 - 23 | Samstag & Sonntag 9 - 22 | Feiertage 9 - 22 Uhr"
   },
   {
     "lat": 48.998968,
@@ -580,6 +1526,31 @@
     "evidence": "Zeiten & Preise — Wir haben täglich von 10:00 bis 23:00 Uhr geöffnet! (Studio Bloc Mannheim)"
   },
   {
+    "lat": 51.42705348363851,
+    "lon": 6.77908409140653,
+    "name": "Stuntwerk Duisburg",
+    "country": "DE",
+    "source": "https://stuntwerk.de/duisburg/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-23:00",
+      "sun": "09:00-23:00"
+    },
+    "evidence": "Montag - Sonntag 09-23 Uhr (Stuntwerk Duisburg, 47057 Duisburg)"
+  },
+  {
     "lat": 51.46335,
     "lon": 7.00239,
     "name": "Stuntwerk Essen",
@@ -654,6 +1625,30 @@
     "evidence": "Montag - Freitag 10-23 Uhr | Samstag & Sonntag 9–21 Uhr (Stuntwerk Rosenheim, 83026 Rosenheim)"
   },
   {
+    "lat": 52.44004,
+    "lon": 13.37965,
+    "name": "Südbloc Boulderhalle",
+    "country": "DE",
+    "source": "https://www.xn--sdbloc-3ya.de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-23:00",
+      "sun": "09:00-23:00"
+    },
+    "evidence": "Mo-So 9 bis 23:00 Uhr. Der Südbloc hat an allen Werktagen, Feiertagen und in allen Ferien für euch geöffnet."
+  },
+  {
     "lat": 49.0068901,
     "lon": 8.4036527,
     "name": "THE ROCK Boulderhalle",
@@ -676,6 +1671,56 @@
       "sun": "09:00-22:00"
     },
     "evidence": "Mo, Mi, Fr: 10:00 bis 23:00 Uhr | Di, Do: 08:00 bis 23:00 Uhr | Sa, So, Feiertage: 09:00 bis 22:00 Uhr"
+  },
+  {
+    "lat": 52.52233,
+    "lon": 13.43686,
+    "name": "Urban Apes Berlin Fhain",
+    "country": "DE",
+    "source": "https://www.urbanapes.de/fhain/preise-zeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-21:45",
+      "tue": "09:00-21:45",
+      "wed": "09:00-21:45",
+      "thu": "09:00-21:45",
+      "fri": "09:00-21:45",
+      "sat": "09:00-21:45",
+      "sun": "09:00-21:45"
+    },
+    "evidence": "ÖFFNUNGSZEITEN Montag – Sonntag: 09:00 – 21:45 Uhr"
+  },
+  {
+    "lat": 52.4818529,
+    "lon": 13.3653674,
+    "name": "Urban Apes Bright Site",
+    "country": "DE",
+    "source": "https://www.urbanapes.de/brightsite/preise-zeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-23:00",
+      "sun": "09:00-23:00"
+    },
+    "evidence": "ÖFFNUNGSZEITEN Montag – Sonntag: 09:00 – 23:00 Uhr"
   },
   {
     "lat": 53.84966989999999,
@@ -701,6 +1746,31 @@
       "sun": "10:00-22:00"
     },
     "evidence": "ÖFFNUNGSZEITEN Mo – Do: 14:30 – 22:30 Uhr | Fr – So & an Feiertagen: 10:00 – 22:00 Uhr"
+  },
+  {
+    "lat": 52.55226,
+    "lon": 13.35118,
+    "name": "Urban Apes Wedding",
+    "country": "DE",
+    "source": "https://www.urbanapes.de/wedding/preise-zeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "ÖFFNUNGSZEITEN Montag – Sonntag: 09:00 – 22:00 Uhr | An Feiertagen: 09:00 – 22:00 Uhr"
   },
   {
     "lat": 48.71913259999999,

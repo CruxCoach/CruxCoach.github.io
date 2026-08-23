@@ -20,6 +20,16 @@
     "reason": "The site states two different schedules. Every page shows Montag 13.00–22.30 … Sonntag 09.00–21.00 in its text, while the schema.org node for the gym itself (ExerciseGym #organization) carries openingHours \"Monday,…,Sunday 09:00-17:00\". Two official statements by the same venue disagree, so nothing is published."
   },
   {
+    "lat": 50.79399,
+    "lon": 6.78411,
+    "name": "BoulderEck Erftstadt",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The published week (Mo–Do 15:00–22:00, Fr 09:00–22:00, Sa/So 10:00–21:00) is followed by \"Erweiterte Ferienzeiten beachten! Feiertage und Ferien in NRW ab 10:00 Uhr geöffnet\", which changes the weekday opening for the whole of every NRW school holiday.",
+    "source": "https://bouldereck.de/besuch-and-zeiten"
+  },
+  {
     "lat": 52.388056,
     "lon": 9.7286783,
     "name": "Boulderhalle Beta Hannover",
@@ -30,6 +40,46 @@
     "reason": "Same conflict as Bloc-Hütte Augsburg: the text says Mo–Fr 10:00–23:00 and Sa/So/Feiertag 09:00–22:00 on every page, while the site's schema.org openingHours says \"Monday,…,Sunday 09:00-17:00\". Two official statements, no way to rank them."
   },
   {
+    "lat": 52.44968,
+    "lon": 13.25183,
+    "name": "Boulderzimmer",
+    "country": "DE",
+    "status": "appointment-only",
+    "checked": "2026-08-23",
+    "reason": "Registration is compulsory before a first visit and entry runs through a booking page; the only times on the site are a booking widget's configuration (Mo–Su 06:00–23:00), not a published opening schedule.",
+    "source": "https://boulderzimmer.com/"
+  },
+  {
+    "lat": 49.59284,
+    "lon": 11.03079,
+    "name": "DAV Boulderzentrum Erlangen",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The stated Mo–So 7:00–23:00 is a window rather than an opening: the site is unstaffed, and the page says that if the hall or the outdoor area has not been unlocked and you have no access key, you cannot use it. Whether it is open at a given hour is not something the page states.",
+    "source": "https://www.alpenverein-erlangen.de/kletteranlagen/dav-boulderzentrum-erlangen/"
+  },
+  {
+    "lat": 49.37692,
+    "lon": 11.20295,
+    "name": "DAV Feucht",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "A club hall with a saisonale reguläre Öffnungsperiode: the page lists öffentlicher Kletterbetrieb slots per weekday and then states that from June, apart from Mittwochsklettern and Familienklettern, no public climbing takes place at fixed times. Holidays are closed or by arrangement.",
+    "source": "https://www.dav-feucht.de/kletterhalle"
+  },
+  {
+    "lat": 47.98119,
+    "lon": 7.81845,
+    "name": "DAV Kletterzentrum Freiburg",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "Hours are published as Hauptsaison (October–May) and Nebensaison (June–September) behind script-driven tabs, so neither week can be read from the fetched page; the site also reserves the right to close early when few people are in.",
+    "source": "https://kletterzentrum-freiburg.de/infos"
+  },
+  {
     "lat": 48.33433,
     "lon": 12.14156,
     "name": "DAV Taufkirchen (Vils)",
@@ -38,6 +88,56 @@
     "checked": "2026-08-23",
     "source": "https://www.dav-taufkirchen.de/",
     "reason": "Wix site whose navigation is script-driven: the homepage fetches as readable text but carries no schedule, and no subpage can be reached without executing the page. Worth re-reading with something that renders."
+  },
+  {
+    "lat": 49.7967105,
+    "lon": 9.902870300000002,
+    "name": "DAV-Kletterzentrum Würzburg",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The only schedule on the page is headed \"geänderte Öffnungszeiten in den Sommerferien (3. August bis zum 14. September 2026)\". The regular week is not published anywhere the site could be read.",
+    "source": "https://www.dav-wuerzburg.de/kletterzentrum-wuerzburg"
+  },
+  {
+    "lat": 49.443067,
+    "lon": 10.9598136,
+    "name": "der steinbock Zirndorf Moon Board",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "Two published weeks: Mo–Do 14:00–23:00 outside the holidays and Mo–Do 10:00–23:00 während der Ferien, with Fr–So 09:00–22:00 in both. Same reason as the other school-holiday cases.",
+    "source": "https://www.dersteinbock-zirndorf.de/"
+  },
+  {
+    "lat": 51.45539,
+    "lon": 6.98552,
+    "name": "Element Boulders Essen",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Monday is stated two ways on one page — \"Mo: (09:00 Uhr*) 15:00 Uhr bis 23:00 Uhr\" with a footnote that bouldering is possible from 09:00 but the hall is only fully accessible from 15:00 — and a third version, Mo–So 09:00–23:00, is published beside it for Mondays in the summer holidays.",
+    "source": "https://essen.element-boulders.de/preise-oeffnungszeiten-essen.html"
+  },
+  {
+    "lat": 49.71407,
+    "lon": 11.09393,
+    "name": "Frankenjura Academy",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The site shows two different weeks — DI–DO 17–22 in one block and DI–DO 12–22 in another — neither of which mentions Monday or Friday, and it is currently under Betriebsferien bis 30.08.26 with no public days.",
+    "source": "https://www.frankenjura-academy.de/"
+  },
+  {
+    "lat": 50.75227115333487,
+    "lon": 7.097093895509357,
+    "name": "Hochschulsport Uni Bonn",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "University sports facility whose hours are published per term (Sommersemester and Wintersemester) with a separate Ferienprogramm variant inside each. There is no single regular week.",
+    "source": "https://www.sport.uni-bonn.de/sportstaetten"
   },
   {
     "lat": 54.16781,
@@ -80,6 +180,56 @@
     "reason": "The operator runs two Dresden halls (Zeitenströmung and Postplatz) and publishes one Preise & Öffnungszeiten page (Mo–Fr 8–23, Sa/So/Feiertage 9–22) that never says which of them it applies to. The Zeitenströmung location page itself prints no schedule."
   },
   {
+    "lat": 51.05051,
+    "lon": 13.73109,
+    "name": "Mandala Postplatz",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Same as the operator's other Dresden hall: the Postplatz location page prints no schedule, and the single Preise & Öffnungszeiten page (Mo–Fr 8–23, Sa/So/Feiertage 9–22) never says which of the two halls it describes.",
+    "source": "https://boulderhalle-dresden.de/preise-oeffnungszeiten/preise-oeffnungszeiten.html"
+  },
+  {
+    "lat": 48.3336544,
+    "lon": 10.0371952,
+    "name": "Moonboard Stuntwerk Senden",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The published week is Mo–Fr 14–22 and Sa/So & Feiertage 10–20, with \"Schulferien: 10 – 22 Uhr\" beside it. Which of the two applies depends on the Bavarian school-holiday calendar, and this overlay cannot expire one in favour of the other.",
+    "source": "https://stuntwerk-senden.de/zeiten-und-preise/"
+  },
+  {
+    "lat": 48.69621,
+    "lon": 9.02313,
+    "name": "Roccadion",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The weekly table gives Di and Do as 14–23, and immediately qualifies it: \"An Feiertagen und in den Schulferien ist Dienstag und Donnerstag von 10:00-23:00 Uhr geöffnet.\" Two of the seven days depend on the Baden-Württemberg school calendar.",
+    "source": "https://www.roccadion.de/"
+  },
+  {
+    "lat": 51.68709,
+    "lon": 12.73925,
+    "name": "SchmiedeBloc Boulderhalle",
+    "country": "DE",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "The club's site describes the project and lists supervised training slots (Dienstags 17:30–20:00, Mittwochs 18:00–20:00, Freitags 16:00–18:00) but publishes no opening hours for public access.",
+    "source": "https://www.schmiedebloc.de/"
+  },
+  {
+    "lat": 48.3681,
+    "lon": 10.8718,
+    "name": "Sport Sheds Augsburg",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The same page states the weekend twice and differently: the prose says Samstagen, Sonntagen und Feiertagen von 10.00 bis 20.00 Uhr, the ÖFFNUNGSZEITEN block says Samstag, Sonntag & Feiertage 09.30 — 20.00 Uhr.",
+    "source": "https://www.sport-sheds.de/boulder-sheds/"
+  },
+  {
     "lat": 47.84814,
     "lon": 12.82113,
     "name": "TeisendorfMoon",
@@ -88,5 +238,15 @@
     "checked": "2026-08-23",
     "source": "https://www.dav-teisendorf.de/Kletteranlagen/Boulderhalle-Teisendorf",
     "reason": "The page states Montag bis Sonntag 07:00–22:00 and then qualifies it away: reservation is compulsory whenever the school may use the hall (Mo–Do 8:00–15:30, Fr 8:00–13:00), club training closes it at unlisted times, and it cannot be used at all while the Turnhalle is shut in the holidays. There is no regular week left to publish."
+  },
+  {
+    "lat": 51.01574,
+    "lon": 13.8046,
+    "name": "XXL Klettern Dresden",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The homepage carries two versions of the same week and they disagree about Sunday: one block says Sonntag 09.00 – 21.00 Uhr, the other Sonntag 09.00 – 20.00 Uhr.",
+    "source": "https://www.xxl-klettern.de/"
   }
 ]

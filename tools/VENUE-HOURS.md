@@ -314,9 +314,9 @@ maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (published + outcome entries) | 40 |
-| Published schedules | 31 |
-| Recorded outcomes without hours | 9 |
+| Venues reviewed (published + outcome entries) | 100 |
+| Published schedules | 75 |
+| Recorded outcomes without hours | 25 |
 | Countries covered | 1 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -324,39 +324,44 @@ Per-country coverage of eligible (public/commercial) venues:
 
 | country | published | reviewed | eligible | share |
 | --- | --- | --- | --- | --- |
-| DE | 31 | 40 | 201 | 15% |
+| DE | 75 | 100 | 201 | 37% |
 
-- **Last completed batch:** Germany, the first 40 venues of the worklist that
-  already carry a verified official website. 31 published, 9 logged: 5
-  `ambiguous`, 3 `seasonal`, 1 `inaccessible`.
+- **Last completed batch:** Germany, venues 41–100 of the worklist. 44 published,
+  16 logged.
 - **Next batch:** the rest of Germany's linked venues, then Austria and
   Switzerland.
 
-### What the first German batch taught
+### What the German batches taught
 
-Three of the nine refusals are the seasonal rule doing its job — Kraftwerk
-Lüneburg publishes a summer and a winter regime, Kletterarena a summer schedule
-with no end date, and Hold On Tide a week explicitly headed "outside the
-holidays". None of those is a week that stays true, and all three would have
-looked perfectly publishable to a curator reading only the times.
+**Seasonal is the single biggest reason a German gym gets no hours** — 11 of the
+25 outcomes so far. It is almost always the school holidays: `Schulferien: 10 – 22
+Uhr` under a term-time week (Stuntwerk Senden, der steinbock Zirndorf, Roccadion,
+BoulderEck Erftstadt), a `Sommer`/`Winter` split with dates (Kraftwerk Lüneburg),
+or a summer schedule published *instead of* the regular one (DAV Würzburg,
+Kletterarena). A curator reading only the times would publish every one of them.
+The tell is a second time next to the first, and it is worth looking for
+specifically.
 
-Three more are the markup conflict described above (Bloc-Hütte Augsburg,
-Boulderhalle Beta Hannover, BAMBULE). BAMBULE is the one that shows why the rule
-is worth its cost: its visible row reads "Samstag/Sonntag 09:00 – 21:00/21:30",
-two closing times for one day, *and* its markup disagrees with both.
+**Contradictions are usually markup versus text** (Bloc-Hütte Augsburg, Beta
+Hannover, BAMBULE), but not always: Sport Sheds Augsburg states its own weekend
+as both `10.00 – 20.00` and `09.30 – 20.00` in two places on one page, and XXL
+Klettern Dresden gives Sunday as both 21:00 and 20:00. Reading a second page of
+the same site is what catches those, and it is the cheapest quality step in the
+whole process.
 
-The remaining shapes are worth naming because they recur:
+**A stated week is not always an opening.** DAV Boulderzentrum Erlangen publishes
+Mo–So 07:00–23:00 for an unstaffed hall you cannot enter unless somebody has
+unlocked it and you hold a key; DAV Teisendorf's Mo–So 07:00–22:00 is fenced by
+compulsory reservation during school hours; Boulderzimmer Berlin has no published
+week at all, only a booking widget. Those read like schedules and are not.
 
-- **One operator, two halls, one schedule page.** Mandala Dresden runs
-  Zeitenströmung and Postplatz and publishes a single Preise & Öffnungszeiten
-  page that never says which hall it describes. That is exactly the case the
-  chain-page rule exists for, and the answer is no hours rather than a coin flip.
-- **A schedule that is really an availability.** DAV Teisendorf states
-  Mo–So 07:00–22:00 and then removes most of it: reservation is compulsory
-  during school hours, club training closes it at unlisted times, and the whole
-  hall shuts when the Turnhalle does in the holidays.
-- **Facility hours versus venue hours.** Bergstation Hilden's table has three
-  columns — Halle, Kursbüro, Shop — and only the first is public access;
-  Sportpark Kelkheim opens at 9 but its climbing hall at 10; Boulderlabor lists
-  the hall, then the café, then route-setting days. Reading the first row of a
-  table without reading its heading is how a plausible wrong answer gets in.
+**Facility hours versus venue hours.** Bergstation Hilden's table has three
+columns — Halle, Kursbüro, Shop; Sportpark Kelkheim opens at 9 but its climbing
+hall at 10; Boulderlabor lists the hall, then the café, then setting days;
+Bad Tölz and Gilching both print a DAV service desk beside the centre. Taking the
+first row without its heading is how a plausible wrong answer gets in.
+
+**What the operator index gives you here.** Germany's chains — Boulderwelt,
+Stuntwerk, urban apes, Neoliet's Boulderbar, Einstein, Eifelblock — all publish a
+real per-location page with its own week, so they cost one fetch each and need no
+chain-page provenance. That is most of the reason this country moved quickly.
