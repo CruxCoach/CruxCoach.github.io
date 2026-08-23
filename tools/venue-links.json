@@ -14868,10 +14868,9 @@
     "provenance": "official-location-page",
     "signals": [
       "name",
-      "postal-code",
-      "city"
+      "street-address"
     ],
-    "note": "Urban Playground's climbing page on its operator's site, printing the 10110 postal code and the Khwaeng upstream records for Sukhumvit 49/9 Alley."
+    "note": "The page is titled \"URBAN PLAYGROUND Rock Climbing | RQ Club | สุขุมวิท 49/9\" — the venue name and, in Thai script, Sukhumvit 49/9, which is the street upstream records as \"6 8 Sukhumvit 49/9 Alley\". The record previously claimed the postal code and the district instead; neither is on the page, and the sample QA caught it. The street in Thai is the signal that is actually there."
   },
   {
     "lat": 41.07611175615464,
