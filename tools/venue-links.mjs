@@ -499,7 +499,9 @@ export function classifyVenue(props) {
 
 // Properties this overlay owns. Cleared before every application so that
 // deleting a record actually removes its link, including in the overlay-only
-// rebuild that starts from an already-populated boards.geojson.
+// rebuild that starts from an already-populated boards.geojson. The legacy
+// `website_checked` property is cleared as well: verification dates are
+// curation metadata and must not be shipped in the public GeoJSON.
 export const MANAGED_PROPERTIES = ['website', 'website_checked'];
 
 export function clearVenueLinkProperties(features) {
@@ -629,7 +631,6 @@ export function applyVenueLinks(features, entries) {
   const urlUsers = new Map();
   for (const { entry, feature, how, similarity } of accepted) {
     feature.properties.website = entry.website;
-    feature.properties.website_checked = entry.verified;
     stats.applied++;
     countries.add(entry.country);
     stats.by_provenance[entry.provenance] = (stats.by_provenance[entry.provenance] ?? 0) + 1;

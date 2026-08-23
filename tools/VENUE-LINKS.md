@@ -123,11 +123,12 @@ stopwords removed, so `Boulderwelt München Ost` still matches
 
 ## Where the links appear
 
-- **`boards/data/boards.geojson`** — `website` and `website_checked` on the venue
-  feature. Nothing else about the record is published; provenance and signals
-  stay in the curated file, which is the reviewable record.
-- **The map popup** (`boards/map.js`) — label, host name, and the check date, in
-  both languages. `safeSiteUrl()` re-validates the URL before building an href.
+- **`boards/data/boards.geojson`** — only `website` on the venue feature.
+  Verification dates, provenance and signals stay in the curated file and are
+  not shipped to the map; they are review metadata, not visitor-facing data.
+- **The map popup** (`boards/map.js`) — label and host name in both languages.
+  `safeSiteUrl()` re-validates the URL before building an href; the internal
+  verification date is deliberately not rendered.
 - **The static directories** (`boards/list.html`, `de/boards/list.html`) — so
   crawlers that do not run JavaScript can see them. `render-static.mjs`
   re-validates through `isCanonicalVenueUrl()` before rendering.

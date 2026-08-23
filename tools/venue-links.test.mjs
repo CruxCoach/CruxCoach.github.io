@@ -216,7 +216,7 @@ test('classifyVenue keeps home walls out of the linkable set', () => {
 
 // ── matching ────────────────────────────────────────────────────────
 
-test('applyVenueLinks attaches the URL and the verification date', () => {
+test('applyVenueLinks attaches the URL but keeps the verification date internal', () => {
   const features = [feature(48.1234, 11.5678, 'Boulderwelt München Ost')];
   const { stats, problems } = applyVenueLinks(features, [link()]);
   assert.deepEqual(problems, []);
@@ -224,7 +224,7 @@ test('applyVenueLinks attaches the URL and the verification date', () => {
   assert.equal(stats.countries, 1);
   assert.deepEqual(stats.by_provenance, { 'official-site': 1 });
   assert.equal(features[0].properties.website, 'https://www.boulderwelt-muenchen-ost.de/');
-  assert.equal(features[0].properties.website_checked, '2026-08-22');
+  assert.equal(features[0].properties.website_checked, undefined);
 });
 
 test('applyVenueLinks rematches a venue whose coordinate drifted', () => {
@@ -404,12 +404,11 @@ function callSafeSiteUrl(raw) {
 
 function callRenderSiteLine(props, lang = 'en') {
   const T = lang === 'de'
-    ? { websiteLabel: 'Offizielle Website:', websiteChecked: 'geprüft {date}' }
-    : { websiteLabel: 'Official website:', websiteChecked: 'checked {date}' };
+    ? { websiteLabel: 'Offizielle Website:' }
+    : { websiteLabel: 'Official website:' };
   const body = [
     liftFunction('escapeHtml'),
     liftFunction('safeSiteUrl'),
-    liftFunction('checkedDate'),
     liftFunction('renderSiteLine'),
   ].join('\n');
   const fn = new Function('props', 'T', 'tf', `${body}; return renderSiteLine(props);`);
@@ -427,22 +426,22 @@ test('the popup guard accepts only credential-free https URLs', () => {
   }
 });
 
-test('the popup renders the link with target, noopener and an origin referrer', () => {
+test('the popup renders the link without internal verification metadata', () => {
   const html = callRenderSiteLine({ website: 'https://www.example.org/gym/', website_checked: '2026-08-22' });
   assert.match(html, /href="https:\/\/www\.example\.org\/gym\/"/);
   assert.match(html, /target="_blank"/);
   assert.match(html, /rel="noopener"/);
   assert.match(html, /referrerpolicy="origin"/);
   assert.match(html, />example\.org</);
-  assert.match(html, /checked 2026-08-22/);
+  assert.doesNotMatch(html, /2026-08-22|class="checked"/);
 });
 
-test('the popup shows no link and no date for uncurated or malformed values', () => {
+test('the popup shows no link for uncurated or malformed values', () => {
   assert.equal(callRenderSiteLine({ website: 'javascript:alert(1)' }), '');
   assert.equal(callRenderSiteLine({}), '');
-  const noDate = callRenderSiteLine({ website: 'https://example.org/', website_checked: 'yesterday' });
-  assert.match(noDate, /href="https:\/\/example\.org\/"/);
-  assert.doesNotMatch(noDate, /class="checked"/, 'a malformed date is dropped, not printed');
+  const linked = callRenderSiteLine({ website: 'https://example.org/', website_checked: 'yesterday' });
+  assert.match(linked, /href="https:\/\/example\.org\/"/);
+  assert.doesNotMatch(linked, /yesterday|class="checked"/, 'internal metadata is never printed');
 });
 
 test('the popup translates its label', () => {
@@ -576,7 +575,8 @@ test('the committed geojson carries only links the curation would still accept',
       `${f.properties.name} carries a non-canonical website ${website}`);
     assert.notEqual(classifyVenue(f.properties), 'private',
       `${f.properties.name} is a private setup but carries a website link`);
-    assert.match(f.properties.website_checked ?? '', /^\d{4}-\d{2}-\d{2}$/);
+    assert.equal(f.properties.website_checked, undefined,
+      `${f.properties.name} leaks an internal verification date`);
   }
   assert.equal(found, curated.size,
     'boards.geojson and tools/venue-links.json disagree — rerun node tools/build-boards-data.mjs --overlays-only');

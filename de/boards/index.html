@@ -59,23 +59,6 @@
       }
     },
     {
-      "@type": "Dataset",
-      "@id": "https://cruxcoach.org/de/boards/#opening-hours",
-      "name": "Öffnungszeiten der Kletterboard-Standorte (aus OpenStreetMap)",
-      "description": "Öffnungszeiten von Kletterboard-Standorten, aus handgeprüften OpenStreetMap-Objekten übernommen und beim Build aktualisiert. Getrennt vom Standortdatensatz, weil sie unter ODbL stehen.",
-      "url": "https://cruxcoach.org/de/boards/",
-      "inLanguage": "de",
-      "license": "https://opendatacommons.org/licenses/odbl/1-0/",
-      "isAccessibleForFree": true,
-      "creator": { "@type": "Organization", "name": "OpenStreetMap contributors", "url": "https://www.openstreetmap.org/" },
-      "isBasedOn": "https://www.openstreetmap.org/",
-      "distribution": {
-        "@type": "DataDownload",
-        "encodingFormat": "application/json",
-        "contentUrl": "https://cruxcoach.org/boards/data/osm-opening-hours.json"
-      }
-    },
-    {
       "@type": "FAQPage",
       "@id": "https://cruxcoach.org/de/boards/#faq",
       "inLanguage": "de",
@@ -517,24 +500,6 @@
      this is hand-checked data, so the popup says how fresh the check is. */
   .popup-site { margin: 4px 0 2px; font-size: 12px; }
   .popup-site .label { color: #999; margin-right: 4px; }
-  .popup-site .checked { color: #999; font-size: 11px; margin-left: 4px; }
-
-  /* Opening hours from OpenStreetMap (ODbL). Kept visually separate from the
-     board details above it, because it comes from a different source under a
-     different licence — see /boards/data/osm-opening-hours.json. */
-  .popup-oh {
-    margin-top: 6px; padding-top: 6px; border-top: 1px solid #eaeaea;
-  }
-  .popup-oh-head { font-weight: 600; font-size: 12px; color: #1a1a1a; margin-bottom: 3px; }
-  .popup-oh-row { display: flex; gap: 10px; font-size: 12px; color: #333; }
-  .popup-oh-days { flex: 0 0 auto; min-width: 78px; color: #666; }
-  .popup-oh-time { font-variant-numeric: tabular-nums; }
-  .popup-oh-note { font-size: 11px; color: #888; margin-top: 3px; }
-  .popup-oh-raw { font-size: 11px; margin-top: 3px; }
-  .popup-oh-raw code { color: #444; word-break: break-word; }
-  .popup-oh-src { margin-top: 4px; }
-  .popup-oh-src a { font-size: 11px; }
-  .popup-oh-attr { font-size: 10.5px; color: #999; margin-top: 3px; }
 
   /* About / attribution panel under the map — collapsed by default so the
      map gets the vertical space; click the summary to expand. */
@@ -758,7 +723,6 @@
       <li><strong>Nach Land filtern</strong>, um die Abdeckung in einer bestimmten Region zu prüfen.</li>
       <li><strong>„Boards in der Ansicht“</strong> listet jeden gerade sichtbaren Standort — ein Klick auf einen Eintrag springt direkt dorthin.</li>
       <li><strong>Beliebigen Marker anklicken</strong> für die Boards des Standorts, Wand-Details und einen Link, der den Spot in OpenStreetMap öffnet.</li>
-      <li><strong>Öffnungszeiten</strong> stehen im Popup, wenn ein Standort von Hand einem exakten OpenStreetMap-Objekt zugeordnet wurde. Sie geben wieder, was in OpenStreetMap hinterlegt ist — die Karte behauptet nie, dass eine Halle gerade geöffnet hat.</li>
     </ul>
     <p>Kartenposition und Filterauswahl werden im Browser gespeichert — nach einem Neuladen der Seite landest du wieder in derselben Ansicht.</p>
 
@@ -798,14 +762,6 @@
         Kartenkacheln von <a href="https://www.openstreetmap.org/copyright">OpenStreetMap-Mitwirkenden</a>.
         Was das für den Datenschutz bedeutet, steht auf der
         <a href="/de/privacy.html">Datenschutzseite</a>.
-      </li>
-      <li>
-        <strong>Öffnungszeiten</strong> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap-Mitwirkende</a>,
-        lizenziert unter <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL 1.0</a>. Sie liegen in einer eigenen
-        Datei, <a href="/boards/data/osm-opening-hours.json"><code>osm-opening-hours.json</code></a>, damit die
-        Share-alike-Lizenz bei den Daten bleibt, die sie betrifft, und nicht auf den CC-BY-Standortdatensatz übergreift.
-        Jeder Standort dort ist von Hand genau einem OpenStreetMap-Objekt zugeordnet, mit dem Datum der Prüfung; dein
-        Browser lädt diese Datei von dieser Seite und fragt dafür nie bei OpenStreetMap an.
       </li>
     </ul>
 
