@@ -10071,15 +10071,16 @@
    "city"
   ],
   "hours": {
-   "mon": "closed",
-   "tue": "17:00-20:00",
-   "wed": "17:00-20:00",
-   "thu": "17:00-20:00",
-   "fri": "closed",
-   "sat": "11:00-16:00",
-   "sun": "closed"
+   "mon": "00:00-24:00",
+   "tue": "00:00-24:00",
+   "wed": "00:00-24:00",
+   "thu": "00:00-24:00",
+   "fri": "00:00-24:00",
+   "sat": "00:00-24:00",
+   "sun": "00:00-24:00"
   },
-  "evidence": "Ma Suljettu | Ti–To 17–20 | Pe Suljettu | La 11–16 | Su Suljettu"
+  "evidence": "Kaamos Climbing Oy, Kallisenhaara 3 B5, 90400 Oulu — Verkkokaupan kautta lipuilla kiipeily 24/7. Asiakaspalvelu palvelee 17.-23.8. Ma Suljettu Ti–To 17–20 Pe Suljettu La 11–16 Su Suljettu",
+  "note": "Corrects what this record used to say. The week it published — \"Ma Suljettu, Ti–To 17–20, Pe Suljettu, La 11–16, Su Suljettu\" — is headed \"Asiakaspalvelu palvelee\", which is the customer-service desk and not the hall, and it is dated to a single week, 17-23 August. The line directly above it is the hall's own access: \"Verkkokaupan kautta lipuilla kiipeily 24/7\" — climbing on tickets bought through the web shop, around the clock. That is the public opening and it is what is published here; the desk's dated hours are not."
  },
  {
   "lat": 43.33397,
