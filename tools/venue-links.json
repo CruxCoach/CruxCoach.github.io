@@ -8277,6 +8277,20 @@
     "note": "The site is Club d'Escalada Safor and names a MoonBoard, which is the board system this entry is listed for. Its address is Polígono 10, 89, 46720 Villalonga — in the Safor comarca, about 8 km from Oliva, which is the town upstream files the venue under."
   },
   {
+    "lat": 43.109892891666874,
+    "lon": -2.0969699508931994,
+    "name": "Egurre Errokodromoa",
+    "country": "ES",
+    "website": "https://egurre.es/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Egurre Errokodromoa's own site, printing 12 — the building number in \"Polígono Bazurka, 12-13, 20260\" that upstream records."
+  },
+  {
     "lat": 38.97546,
     "lon": -3.93344,
     "name": "El Plafón",
@@ -8973,6 +8987,20 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 40.4167754,
+    "lon": -3.7037902,
+    "name": "The Climb",
+    "country": "ES",
+    "website": "https://theclimb.es/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The Climb's own site, \"THE CLIMB ROCODROMO\", giving Madrid — the city upstream records. Its hours markup carries the WordPress template default of 09:00-17:00 on all seven days and is not a statement about this gym."
   },
   {
     "lat": 40.3468176,
@@ -11333,6 +11361,20 @@
     ]
   },
   {
+    "lat": 45.7778053,
+    "lon": 15.9752288,
+    "name": "Fothia",
+    "country": "HR",
+    "website": "https://fothia.hr/hr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Fothia's own site, giving Zagreb — the city upstream records, which the venue name does not carry."
+  },
+  {
     "lat": 47.51476813536509,
     "lon": 19.11432501487862,
     "name": "Fless!",
@@ -11359,6 +11401,20 @@
       "coordinates"
     ],
     "note": "Gravity Budapest's own site, embedding a map of itself 164 m from this venue and labelled with the gym's own name."
+  },
+  {
+    "lat": 47.497912,
+    "lon": 19.040235,
+    "name": "Ujjerő Moonboard",
+    "country": "HU",
+    "website": "https://www.ujjero.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Ujjerő's own site, giving Budapest — the city upstream records, which the venue name does not carry."
   },
   {
     "lat": -8.63688,
@@ -11626,6 +11682,20 @@
       "city"
     ],
     "note": "The page names Gekoclimb and says it is \"punto di riferimento per gli appassionati di Modena e provincia\"; the upstream city is Modena."
+  },
+  {
+    "lat": 45.65702,
+    "lon": 13.81049,
+    "name": "Gravità Zero",
+    "country": "IT",
+    "website": "https://gravitazero.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Gravità Zero's own site, printing 55 — the building number in \"Via alle cave, 55, 34128, Trieste\" that upstream records."
   },
   {
     "lat": 46.7901,
@@ -12127,6 +12197,22 @@
       "board-mention"
     ],
     "note": "CAL-COLO's own site, matching the venue's name and naming the board it is listed for."
+  },
+  {
+    "lat": 35.01308,
+    "lon": 138.44605,
+    "name": "クライミングジム アソボル Asoboru Climbing Gym",
+    "country": "JP",
+    "website": "https://www.asoboru.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "coordinates"
+    ],
+    "note": "Read through the platform routes, the gym's own site prints 241 and 424-0065 — the building number and postal code in 清水区長崎241, 424-0065 that upstream records — and embeds a map of itself 173 m from this venue."
   },
   {
     "lat": 54.66982,

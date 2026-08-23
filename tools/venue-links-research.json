@@ -1533,7 +1533,7 @@
     "country": "DE",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "blocschmiede-boulderhalle.de is the right operator, and that is the problem: the dataset carries two BlocSchmiede entries 5.9 km apart, the operator publishes one address, and nothing here says which coordinate is the hall. The other entry already carries this link.",
+    "reason": "Refused before on the shape of the data and now on a measurement. BlocSchmiede appears twice in the dataset, 5.9 km apart, and the operator publishes one hall; blocschmiede-boulderhalle.de embeds a map of itself 5,636 m from this entry, which puts the hall at the other one — where the link already is. This entry is not the building.",
     "candidate": "https://blocschmiede-boulderhalle.de/"
   },
   {
@@ -1613,7 +1613,7 @@
     "country": "DE",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "boulderplanet.de is the right operator, and the dataset carries two Boulderplanet entries 4.1 km apart while the operator publishes one hall, in Köln-Ehrenfeld. The other entry already carries this link; this coordinate is the centre of Köln, and nothing says which is the hall.",
+    "reason": "The same shape, now measured. Boulderplanet appears twice, 4.1 km apart, and boulderplanet.de gives one address — Oskar-Jäger-Str. 143h, 50825 Köln — with a map of itself 3,715 m from this entry. The hall is at the other entry, which carries the link; upstream places this one in Altstadt Nord, which is the city centre.",
     "candidate": "https://boulderplanet.de/"
   },
   {
@@ -1870,16 +1870,6 @@
     "reason": "No candidate resolved at all: none of the name-derived domains for CRISPADERO exists, and no OSM climbing object within 500 m of Monzón carries a website."
   },
   {
-    "lat": 43.109892891666874,
-    "lon": -2.0969699508931994,
-    "name": "Egurre Errokodromoa",
-    "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "egurre.es sells firewood in Bizkaia and egurre.com answers with no title and no content. Nothing found names the Polígono Bazurka address in Gipuzkoa that upstream records.",
-    "candidate": "https://egurre.es/"
-  },
-  {
     "lat": 43.3099628,
     "lon": -1.9937363,
     "name": "Fortuna Pio Baroja",
@@ -2064,16 +2054,6 @@
     "checked": "2026-08-23",
     "reason": "Same operator as the venue about 70 m away, and the same 526 from tagorock.com on both hosts.",
     "candidate": "https://tagorock.com/"
-  },
-  {
-    "lat": 40.4167754,
-    "lon": -3.7037902,
-    "name": "The Climb",
-    "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "theclimb.es is The Climb's site, and The Climb's hall is the pair of venues already curated 12 km away in Leganés/Alcorcón. This entry sits on Puerta del Sol, the centre of Madrid — an upstream coordinate taken at the city — and nothing on the site describes a hall there.",
-    "candidate": "https://theclimb.es/"
   },
   {
     "lat": 42.1737408,
@@ -2590,16 +2570,6 @@
     "candidate": "https://sigurna-zona.com//"
   },
   {
-    "lat": 45.7778053,
-    "lon": 15.9752288,
-    "name": "Fothia",
-    "country": "HR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — fothia.hr → \"Fothia HR | Dvorane za slobodno penjanje Zagreb i Velika\", the venue's whole name as one label, fothia.hr, answers 301 (\"301 Moved Permanently\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://fothia.hr/hr/"
-  },
-  {
     "lat": 45.80684120000001,
     "lon": 16.0055825,
     "name": "Hive Zagreb",
@@ -2666,16 +2636,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 47.497912,
-    "lon": 19.040235,
-    "name": "Ujjerő Moonboard",
-    "country": "HU",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — ujjero.com → \"Ujjerő Hegymászó és Sport Egyesület\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.ujjero.com/"
   },
   {
     "lat": -6.190983137451172,
@@ -2987,16 +2947,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No candidate resolved at all: gasarzignano and gas-arzignano exist on neither .it nor .com, and no OSM climbing object within 500 m of Arzignano carries a website."
-  },
-  {
-    "lat": 45.65702,
-    "lon": 13.81049,
-    "name": "Gravità Zero",
-    "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Re-checked, and the same trap as before: gravitazero.it and gravita-zero.it are Gravita Zero, a science-communication agency, and gravita.com is a firm of chartered accountants. gravitazero.com and gravita.it present certificates that do not cover their hostnames. Nothing found names Via alle cave 55 in Trieste.",
-    "candidate": "https://gravitazero.it/"
   },
   {
     "lat": 45.6570925,
@@ -3535,16 +3485,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — vortex.jp → \"杉並区のWeb制作・運用と不動産 | 有限会社ボーテックス\"; vortex.co.jp → \"杉並区のWeb制作・運用と不動産 | 有限会社ボーテックス\", the rest could not be opened — vortexclimb.com → a certificate that does not cover its hostname, the venue's whole name as one label, vortex.jp, answers 301 (\"301 Moved Permanently\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.vortex.co.jp/"
-  },
-  {
-    "lat": 35.01308,
-    "lon": 138.44605,
-    "name": "クライミングジム アソボル Asoboru Climbing Gym",
-    "country": "JP",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — asoboru.com → \"a page with no title\". Upstream records 清水区長崎241, 424-0065, Shizuoka, and nothing opened printed it.",
-    "candidate": "https://www.asoboru.com/"
   },
   {
     "lat": 34.75463,
