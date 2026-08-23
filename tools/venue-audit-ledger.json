@@ -10829,12 +10829,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "osm-website-tag",
+     "name-guess",
+     "apex",
+     "www",
+     "previous-record"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "inaccessible",
+    "channels": [
+     "osm-website-tag",
+     "name-guess"
+    ]
    }
   },
   {
@@ -10847,12 +10858,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "web-search",
+     "apex",
+     "www",
+     "previous-record"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "inaccessible",
+    "channels": [
+     "name-guess",
+     "web-search"
+    ]
    }
   },
   {
@@ -10865,12 +10887,24 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "co-located",
+     "previous-record"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www"
+    ]
    }
   },
   {
@@ -10883,12 +10917,22 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "osm-website-tag",
+     "name-guess",
+     "apex",
+     "www"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "inaccessible",
+    "channels": [
+     "osm-website-tag",
+     "name-guess"
+    ]
    }
   },
   {
@@ -10901,12 +10945,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "name-guess",
+     "apex",
+     "www",
+     "operator-index"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11171,12 +11226,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11189,12 +11258,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11207,12 +11287,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-hours-on-official-site",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11225,12 +11316,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11260,12 +11365,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11295,12 +11414,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11313,12 +11443,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11331,12 +11475,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11349,12 +11507,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11384,12 +11556,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11402,12 +11588,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11420,12 +11620,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11438,12 +11652,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11456,12 +11684,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11474,12 +11713,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11492,12 +11745,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11510,12 +11777,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11528,12 +11809,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11546,12 +11838,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11564,12 +11870,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11582,12 +11902,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11600,12 +11934,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11618,12 +11966,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11636,12 +11998,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11654,12 +12030,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11672,12 +12059,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11690,12 +12088,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11708,12 +12120,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11726,12 +12152,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-hours-on-official-site",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11761,12 +12198,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-hours-on-official-site",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11779,12 +12227,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11797,12 +12259,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-hours-on-official-site",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11815,12 +12288,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11833,12 +12320,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11851,12 +12352,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11869,12 +12381,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11887,12 +12413,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11905,12 +12445,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11940,12 +12491,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -11958,12 +12520,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -11993,12 +12569,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -12045,12 +12635,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -12098,12 +12702,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -12116,12 +12734,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -12134,12 +12766,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -12152,12 +12795,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -12170,12 +12827,26 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    }
   },
   {
@@ -12188,12 +12859,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -12240,12 +12922,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -12258,12 +12951,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -12276,12 +12980,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "osm-website-tag",
+     "co-located"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-23",
+    "result": "inaccessible",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {

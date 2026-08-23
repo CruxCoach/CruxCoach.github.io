@@ -11289,6 +11289,31 @@
   "note": "Upstream still calls this venue The Training Room; it is the Awesome Walls Dublin hall at the same address."
  },
  {
+  "lat": 52.6732997,
+  "lon": -8.5653528,
+  "name": "University of Limerick Climbing Wall",
+  "country": "IE",
+  "source": "https://www.ulsport.ie/climbing-wall/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "name",
+   "location-page",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "10:00-20:00",
+   "tue": "10:00-20:00",
+   "wed": "10:00-19:00",
+   "thu": "10:00-20:00",
+   "fri": "10:00-20:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Opening hours: (Subject to change – check the UL Sport App for session times). Monday – Friday 10am – 8pm *. *Wednesdays close at 7pm. Saturday & Sunday 10am – 6pm. Christmas Hours: Check our social media pages.",
+  "note": "First review of this venue. The Wednesday asterisk is stated on the same line and is carried through; Christmas is the only period the page sends elsewhere."
+ },
+ {
   "lat": 45.5452,
   "lon": 9.28872,
   "name": "Big Walls",
@@ -11337,6 +11362,56 @@
   "evidence": "Dal Lunedì al Venerdì 10:00 alle ore 23:00. | Sabato e Domenica dalle ore 10:00 alle ore 19:00."
  },
  {
+  "lat": 44.8169827,
+  "lon": 11.5975534,
+  "name": "Deva Wall",
+  "country": "IT",
+  "source": "https://www.devawall.com/contatti/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "closed",
+   "sun": "closed"
+  },
+  "evidence": "I nostri orari — Palestra Lun-Ven: 10:00 – 22:00. Bar Lun-Ven: 10:00 – 23:00. Sab-Dom CHIUSO",
+  "note": "The page separates the hall (\"Palestra\") from the bar, which closes an hour later; the weekend closure applies to both."
+ },
+ {
+  "lat": 44.647128,
+  "lon": 10.9252269,
+  "name": "GEKOCLIMB MOONBOARD",
+  "country": "IT",
+  "source": "https://www.gekoclimb.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "18:00-23:00",
+   "tue": "18:00-23:00",
+   "wed": "18:00-23:00",
+   "thu": "18:00-23:00",
+   "fri": "18:00-23:00",
+   "sat": "closed",
+   "sun": "closed"
+  },
+  "evidence": "ORARI PALESTRA DAL 04/09/2023: LUN-VEN 18:00 - 23:00 SAB-DOM Chiuso",
+  "note": "The block carries a start date and no end, and states all seven days."
+ },
+ {
   "lat": 46.7901,
   "lon": 11.92805,
   "name": "HELIKS Bruneck",
@@ -11383,6 +11458,31 @@
    "sun": "closed"
   },
   "evidence": "Lunedì 17:00-23:00 | Martedì 8:00-23:00 | Mercoledì 9:00-23:00 | Giovedì 8:00-23:00 | Venerdì 9:00-23:00 | Sabato CHIUSO | Domenica CHIUSO"
+ },
+ {
+  "lat": 45.4064349,
+  "lon": 11.8767611,
+  "name": "Intellighenzia Project",
+  "country": "IT",
+  "source": "https://intellighenziaproject.it/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:30-22:30",
+   "tue": "12:30-22:30",
+   "wed": "12:30-22:30",
+   "thu": "12:30-22:30",
+   "fri": "12:30-22:30",
+   "sat": "14:30-19:30",
+   "sun": "14:30-19:30"
+  },
+  "evidence": "Gli orari della palestra — DAL LUNEDÌ AL VENERDÌ 12:30 22:30. SABATO E DOMENICA 14:30 19:30",
+  "note": "Stated once, plainly, on the homepage."
  },
  {
   "lat": 45.516286,

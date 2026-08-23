@@ -2160,14 +2160,81 @@
   "source": "https://boulder-zona.com/"
  },
  {
-  "lat": 52.6732997,
-  "lon": -8.5653528,
-  "name": "University of Limerick Climbing Wall",
+  "lat": 53.3185426,
+  "lon": -6.3456286,
+  "name": "Bloc Climbing Gym",
   "country": "IE",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://blocdublin.ie/",
+  "reason": "No readable official page: the venue's likely site answers 403 to every fetcher tried, so there is nothing to read a schedule from."
+ },
+ {
+  "lat": 52.6835403,
+  "lon": -8.5782165,
+  "name": "Suas Climbing",
+  "country": "IE",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://suasclimbing.ie/",
+  "reason": "The centre's own site is behind HTTP authentication (401 on every attempt), so no page of theirs can be read."
+ },
+ {
+  "lat": 53.2884406,
+  "lon": -6.3692084,
+  "name": "The Dublin Climbing Centre",
+  "country": "IE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this centre, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 53.277778,
+  "lon": -6.2096515,
+  "name": "The Wall MoonBoard",
+  "country": "IE",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://thewall.ie/",
+  "reason": "The venue's likely site answers 403 to every fetcher tried, so no schedule can be read from it."
+ },
+ {
+  "lat": 43.87544219999999,
+  "lon": 10.2541854,
+  "name": "Air Climbing Moonboard",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 43.4104405,
+  "lon": 11.16032,
+  "name": "Block To Rock",
+  "country": "IT",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://www.blocktorock.it/",
+  "reason": "Two weeks on one site, and a closure on top of both: the homepage block gives Lunedì 16.30–22.00, Mercoledì 18.00–22.00 and Venerdì 16.00–21.00 while the site-wide footer gives LUNEDI' 17:00–22.30, MERCOLEDI' 18:00–22.30 and VENERDI' 16:00–21:00, and the page is currently headed \"CHIUSI PER L'ESTATE! RIAPRIREMO LUNEDI' 7 SETTEMBRE!\"."
+ },
+ {
+  "lat": 44.22727,
+  "lon": 12.04509,
+  "name": "Blocstation acsd",
+  "country": "IT",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The university’s site publishes catering and campus-service hours, nothing for the climbing wall.",
-  "source": "https://www.ul.ie/"
+  "source": "https://blocstation.it/",
+  "reason": "The site's own Orario page says only \"APERTURA 3 SETTEMBRE 2026\" — a reopening date, with no weekly schedule anywhere on the site."
+ },
+ {
+  "lat": 46.31051859999999,
+  "lon": 9.3982751,
+  "name": "boulder factory",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 44.98179,
@@ -2180,6 +2247,15 @@
   "source": "https://www.bouldergarage.it/"
  },
  {
+  "lat": 45.1114724,
+  "lon": 7.6866838,
+  "name": "BoulderBarBoard",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": 45.07759,
   "lon": 7.71364,
   "name": "Bside Climbing Park",
@@ -2188,6 +2264,43 @@
   "checked": "2026-08-23",
   "reason": "Re-read 2026-08-23: unchanged. The weekend rows are labelled by season — \"Sab(Ott-mag)\" and \"DOM(GEN-FEB)\" — so the published week only describes part of the year.",
   "source": "https://www.bsideclimbing.it/"
+ },
+ {
+  "lat": 45.69436,
+  "lon": 9.41328,
+  "name": "CAI Merate",
+  "country": "IT",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://www.caimerate.it/palestra-arrampicata/",
+  "reason": "The wall page states three evenings — Martedì 20–22:30, Mercoledì 19:30–22, Giovedì 20–22:30 — and says nothing about the other four days, which are neither stated as open nor as closed."
+ },
+ {
+  "lat": 45.611892,
+  "lon": 8.8531265,
+  "name": "Capanno Boulder",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 46.4090018,
+  "lon": 13.0144271,
+  "name": "Chiodo fisso",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 42.8536043,
+  "lon": 13.5749442,
+  "name": "Climb AP",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 46.27371,
@@ -2200,24 +2313,121 @@
   "source": "https://palasportlongarone.it/orari/"
  },
  {
-  "lat": 44.8169827,
-  "lon": 11.5975534,
-  "name": "Deva Wall",
+  "lat": 44.2968832,
+  "lon": 12.1074763,
+  "name": "CoccoBlocco",
   "country": "IT",
-  "status": "ambiguous",
+  "status": "no-official-site",
   "checked": "2026-08-23",
-  "reason": "The site states \"Lun-Ven: 10.00-23.00\" and says nothing about Saturday or Sunday.",
-  "source": "https://www.devawall.com/"
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 46.5580169,
+  "lon": 12.5496237,
+  "name": "Comelico Climb MOON",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 45.072977,
+  "lon": 6.6954096,
+  "name": "CuboBardo",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 45.1992371,
+  "lon": 9.1400311,
+  "name": "Cus Pavia Climbing",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 43.108311,
+  "lon": 12.366431,
+  "name": "Dreamtime",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 42.7635254,
+  "lon": 11.1123634,
+  "name": "Fondino Moon",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 45.5107903,
+  "lon": 11.337712,
+  "name": "GAS ARZIGNANO",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 45.65702,
   "lon": 13.81049,
   "name": "Gravità Zero",
   "country": "IT",
-  "status": "ambiguous",
+  "status": "no-official-site",
   "checked": "2026-08-23",
-  "reason": "The candidate site gravita-zero.it is a science news magazine, not the Trieste gym.",
-  "source": "http://www.gravita-zero.it/"
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 45.6570925,
+  "lon": 13.8102992,
+  "name": "Gravità Zero MOON BOARD",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 44.55963,
+  "lon": 10.91238,
+  "name": "Grip Climbing Gym",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 40.6031306,
+  "lon": 17.2146724,
+  "name": "I rampicanti climbing farm",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 45.6139298,
+  "lon": 8.929656399999999,
+  "name": "Ikigai Climbing",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 46.01495,
+  "lon": 11.87572,
+  "name": "IL DADO",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 41.4833353,
@@ -2226,18 +2436,36 @@
   "country": "IT",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The site states \"Dal lunedì al venerdì, dalle 10:00 alle 22:00\" and says nothing about Saturday or Sunday.",
-  "source": "https://junglerock.it/"
+  "source": "https://junglerock.it/orari-e-contributi",
+  "reason": "The orari page contradicts itself in consecutive lines — \"dal Lunedì al Venerdi: 10:00-20:00\" above a day-by-day table reading Lunedì to Venerdì 10:00 - 22:00 — and neither states Saturday or Sunday. The homepage says 10:00 to 22:00."
+ },
+ {
+  "lat": 44.6191558,
+  "lon": 11.2578173,
+  "name": "KRO Board",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 44.8845906,
+  "lon": 7.3306676,
+  "name": "KUOTA 8.10",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 45.0677516,
   "lon": 7.559449499999999,
   "name": "La MOLE Sports Academy",
   "country": "IT",
-  "status": "ambiguous",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The site carries a Rivoli address, this venue sits in Collegno, and no schedule appears anywhere on it.",
-  "source": "https://lamolesportsacademy.com/"
+  "source": "https://lamolesportsacademy.com/",
+  "reason": "The academy covers CrossFit, climbing, martial arts, Equilibrium and dance and states no opening hours on the homepage or on the contact page."
  },
  {
   "lat": 44.49092,
@@ -2250,6 +2478,91 @@
   "source": "https://www.level24.it/contatti-info-level24/"
  },
  {
+  "lat": 45.5415526,
+  "lon": 10.2118019,
+  "name": "Mad Climbers",
+  "country": "IT",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.madclimbers.com/",
+  "reason": "No schedule appears on the homepage or on the contact page; the site carries an address, an e-mail and a shop."
+ },
+ {
+  "lat": 42.0440032,
+  "lon": 14.7339367,
+  "name": "Mare Verticale Moon Board",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 43.7874963,
+  "lon": 7.6409199,
+  "name": "Megalab",
+  "country": "IT",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.megalabclimbing.it/",
+  "reason": "No schedule appears on the homepage, the contact page or chi-siamo."
+ },
+ {
+  "lat": 43.1093656,
+  "lon": 12.3608041,
+  "name": "Metropolitan Boulder",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 45.0515199,
+  "lon": 7.303860099999999,
+  "name": "MONKEYBOARD",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 42.3539044,
+  "lon": 13.3422517,
+  "name": "Moonboard BLOCKLAND",
+  "country": "IT",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://www.blockland.it/",
+  "reason": "The visible week is Lun, Mer, Ven 16:00–23:00, Mar, Gio 11:00–23:00, Sabato 14:00–21:00, Domenica CHIUSO, while the page's own openingHours markup is the schema.org example value, Monday–Sunday 09:00-17:00."
+ },
+ {
+  "lat": 41.583844,
+  "lon": 14.5940809,
+  "name": "Morgia - Climbing Experience",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 46.7198,
+  "lon": 12.22205,
+  "name": "Nordic Arena Climbing Center",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 45.694395,
+  "lon": 9.412587,
+  "name": "Palestra CAI Merate",
+  "country": "IT",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://www.caimerate.it/palestra-arrampicata/",
+  "reason": "Same page and same gap as the venue about 50 m away: three evenings stated, four days unstated."
+ },
+ {
   "lat": 44.812988645630455,
   "lon": 10.279608813490865,
   "name": "Pareti Sport Center",
@@ -2258,6 +2571,25 @@
   "checked": "2026-08-23",
   "reason": "Re-read 2026-08-23: unchanged. The week carries the note \"In luglio chiuso la domenica; in agosto chiusi il sabato e la domenica\" — two months of the year have a different week.",
   "source": "https://paretisportcenter.com/"
+ },
+ {
+  "lat": 44.643321,
+  "lon": 10.9011822,
+  "name": "Rock And Fire's Moonboard",
+  "country": "IT",
+  "status": "seasonal",
+  "checked": "2026-08-23",
+  "source": "https://www.rockandfire.it/orari/",
+  "reason": "The gym publishes its week a month at a time and nothing else: \"AGOSTO 2026 CHIUSURA DAL 01 al 23 AGOSTO\", then a block for 24–31 August, then \"SETTEMBRE 2026 Dal 1 al 13 Settembre\". There is no regular week to record."
+ },
+ {
+  "lat": 43.9303475,
+  "lon": 10.9078587,
+  "name": "ROCK TIME CENTER Pistoia",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 45.45312,
@@ -2274,10 +2606,9 @@
   "lon": 9.1859243,
   "name": "Rockspot",
   "country": "IT",
-  "status": "ambiguous",
+  "status": "no-official-site",
   "checked": "2026-08-23",
-  "reason": "The operator runs several halls and no schedule for any of them reaches the served document; no per-branch page is established for this venue.",
-  "source": "https://www.rockspot.it/"
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 39.2231,
@@ -2300,14 +2631,69 @@
   "reason": "Same operator as the venue about 220 m away, and the same page, which states that its hours follow the seasons and change periodically."
  },
  {
+  "lat": 41.9027835,
+  "lon": 12.4963655,
+  "name": "Stitch MoonBoard",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 44.1689028,
+  "lon": 8.3416211,
+  "name": "Supergiu1",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 45.5832245,
+  "lon": 8.1028176,
+  "name": "The Care",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 44.43099,
+  "lon": 8.86085,
+  "name": "The ForGe Climb",
+  "country": "IT",
+  "status": "seasonal",
+  "checked": "2026-08-23",
+  "source": "https://theforgeclimb.it/contatti/",
+  "reason": "Two dated regimes on the contact page: the regular week (LUNEDI 11:00–22:00, MARTEDI–GIOVEDI 10:00–22:00, VENERDI 10:00–20:00, SABATO e DOMENICA CHIUSO) and \"Orario d'apertura MAGGIO - AGOSTO\" (Lunedì CHIUSO, Martedì–Giovedì 12:00–22:00, Venerdì CHIUSO, weekend closed), the second of which is in force on the day of this check."
+ },
+ {
+  "lat": 45.7127423,
+  "lon": 6.9514436,
+  "name": "Up and Down Boulder Point",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 45.5565542,
+  "lon": 9.4348624,
+  "name": "Vert Climb",
+  "country": "IT",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": 45.73009330000001,
   "lon": 9.138741699999999,
   "name": "Vertical Block",
   "country": "IT",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The site states \"Lunedì al Venerdì 18:00 – 23:00\" and says nothing about Saturday or Sunday.",
-  "source": "https://verticalblock.it/"
+  "source": "https://verticalblock.it/orari-e-tariffe-2/",
+  "reason": "The only statement is \"Siamo aperti dal Lunedì al Venerdì 18:00 – 23:00\". Saturday and Sunday are neither stated as open nor as closed, and access also requires joining the ASD."
  },
  {
   "lat": 37.0766896,
@@ -2328,6 +2714,36 @@
   "checked": "2026-08-23",
   "source": "https://www.vertiginiclimbing.it/aprilia",
   "reason": "Re-read, and the two weeks are labelled after all — the earlier reading did not carry the headings. One is 'ORARIO ESTIVO' (Lunedì, Mercoledì, Venerdì 16.00-22.00, Martedì, Giovedì 10.00-22.00, Sabato 10.00-19.00, Domenica chiusi) and the other 'ORARI APERTURA da Settembre a Giugno' (Lunedì-Venerdì 10.00-22.00, Sabato e Domenica 10.00-19.00). Two regimes with dates, one of them in force today."
+ },
+ {
+  "lat": 44.6867594,
+  "lon": 7.8960573,
+  "name": "Vertigo Moon Board",
+  "country": "IT",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://www.vertigoclimb.com/dove-siamo-e-contatti",
+  "reason": "Two weeks on one site: the footer gives Lun 18:00-22:30, Mar–Gio 17:00-22:30, Ven Chiuso, Sab 14:00-18:00, Dom Chiuso, while the contact page gives LUNEDÌ, MERCOLEDÌ E VENERDÌ 17:00-22:30, MARTEDÌ E GIOVEDÌ 12:00-22:30, sabato 12:00-18:00. A third block sets August to Tuesday and Thursday only."
+ },
+ {
+  "lat": 45.3093145,
+  "lon": 8.8389179,
+  "name": "Vigevano Climbing",
+  "country": "IT",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://www.vigevanoclimbing.it/",
+  "reason": "The only opening stated is \"La palestra è aperta: Adulti Martedì: 19:00 - 23:00, Giovedì: 19:00 - 23:00\", with a children's slot on Tuesday. Five days are neither stated as open nor as closed, and the calendar beside it runs from late September to June."
+ },
+ {
+  "lat": 44.0678288,
+  "lon": 12.5695158,
+  "name": "WAVEROCK",
+  "country": "IT",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://www.waverockrimini.com/prezzi-orari",
+  "reason": "The prezzi-orari page has an ORARI heading and no times in the fetched document — the Wix site renders the table client-side. What is readable is only that subscribers may enter outside opening hours."
  },
  {
   "lat": 34.6551456,

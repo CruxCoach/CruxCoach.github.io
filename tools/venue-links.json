@@ -9114,6 +9114,21 @@
     "note": "Upstream records this entry as The Training Room; it sits 16 m away at the same Unit 6, North Park address in D11 YP40."
   },
   {
+    "lat": 52.6732997,
+    "lon": -8.5653528,
+    "name": "University of Limerick Climbing Wall",
+    "country": "IE",
+    "website": "https://www.ulsport.ie/climbing-wall/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "UL Sport (Plassey Campus Arena CLG) runs the university's sports facilities and gives the wall its own page. The page names the University of Limerick, describes the 18 m wall as the tallest in Ireland and lists 'A 40 degree Moonboard' — which is the board system this venue is in the dataset for. ul.ie itself is the university's site and carries no page for the wall."
+  },
+  {
     "lat": 45.5452,
     "lon": 9.28872,
     "name": "Big Walls",
@@ -9145,6 +9160,35 @@
     "note": "The site's own footer gives the Cuneo hall an Ivrea postcode; upstream's 12100 is the correct one."
   },
   {
+    "lat": 43.4104405,
+    "lon": 11.16032,
+    "name": "Block To Rock",
+    "country": "IT",
+    "website": "https://www.blocktorock.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The page is headed \"Block To Rock: palestra arrampicata a Siena e Colle Val d'Elsa\" and says \"Siamo a Colle Val D'elsa (vicini alla Decathlon)\"; the upstream city is Colle di Val d'Elsa and the entry is a MoonBoard, which the page names."
+  },
+  {
+    "lat": 44.22727,
+    "lon": 12.04509,
+    "name": "Blocstation acsd",
+    "country": "IT",
+    "website": "https://blocstation.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "blocstation.it is the club's own domain and frames its live site (eleonora80.wixsite.com/blocstation), which names Blocstation asd and Forlì. Logged unverified on the first pass because the framing page itself carries no readable text."
+  },
+  {
     "lat": 44.98179,
     "lon": 7.37104,
     "name": "Boulder Garage",
@@ -9174,6 +9218,21 @@
     "note": "The site gives Via Amedeo Ravina 28 the postcode 10152; upstream carries 10153."
   },
   {
+    "lat": 45.69436,
+    "lon": 9.41328,
+    "name": "CAI Merate",
+    "country": "IT",
+    "website": "https://www.caimerate.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "postal-code"
+    ],
+    "note": "CAI Sezione Merate publishes a Palestra di arrampicata page; reverse-geocoding this venue's coordinate returns Merate, Lecco, 23807, which is the section's own town and postcode. The upstream city is Vimercate, a larger town 12 km away."
+  },
+  {
     "lat": 46.27371,
     "lon": 12.30335,
     "name": "Climbing Zoo",
@@ -9187,6 +9246,34 @@
       "board-mention"
     ],
     "note": "The Palasport runs the hall as Climbing Zoo Longarone and its page names the kilterboard; no street address is printed."
+  },
+  {
+    "lat": 44.8169827,
+    "lon": 11.5975534,
+    "name": "Deva Wall",
+    "country": "IT",
+    "website": "https://www.devawall.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The page is headed \"Palestra arrampicata Ferrara | Devawall - Climbing - Bouldering\"; the upstream city is Ferrara. The name-derived guess only reached it once the guesser stopped truncating the full-name variant."
+  },
+  {
+    "lat": 44.647128,
+    "lon": 10.9252269,
+    "name": "GEKOCLIMB MOONBOARD",
+    "country": "IT",
+    "website": "https://www.gekoclimb.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The page names Gekoclimb and says it is \"punto di riferimento per gli appassionati di Modena e provincia\"; the upstream city is Modena."
   },
   {
     "lat": 46.7901,
@@ -9219,6 +9306,49 @@
     "note": "The site gives Mattarello the 38122 postcode; upstream carries 38123."
   },
   {
+    "lat": 45.4064349,
+    "lon": 11.8767611,
+    "name": "Intellighenzia Project",
+    "country": "IT",
+    "website": "https://intellighenziaproject.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The page is headed \"Palestra di arrampicata a Padova - Intellighenzia Project\" and prints Corso Tre Venezie, 20/int.6, 35135 Padova. Geocoding that address puts the gym 1.8 km from this venue's coordinate, which is the centre of Padua — an upstream coordinate taken at the city, not at the hall."
+  },
+  {
+    "lat": 41.4833353,
+    "lon": 12.8580469,
+    "name": "Junglerock",
+    "country": "IT",
+    "website": "https://junglerock.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The page says \"La prima palestra e scuola di arrampicata sportiva a Latina\" and the club is A.S.D. JungleRock; the upstream city is Latina."
+  },
+  {
+    "lat": 45.0677516,
+    "lon": 7.559449499999999,
+    "name": "La MOLE Sports Academy",
+    "country": "IT",
+    "website": "https://lamolesportsacademy.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates"
+    ],
+    "note": "The site is La Mole Sports Academy and prints Via Chivasso, 8 10098 Rivoli (TO); geocoding that address lands 99 m from this venue's coordinate. The upstream city is Collegno, the neighbouring town."
+  },
+  {
     "lat": 44.49092,
     "lon": 11.25031,
     "name": "Level 24",
@@ -9235,6 +9365,20 @@
     ]
   },
   {
+    "lat": 45.5415526,
+    "lon": 10.2118019,
+    "name": "Mad Climbers",
+    "country": "IT",
+    "website": "https://www.madclimbers.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is Mad Climbers and its contact line reads Via Triumplina, 251, 25136 Brescia BS; the upstream city is Brescia. That address geocodes 4.4 km from this venue's coordinate, which sits at the city rather than the hall."
+  },
+  {
     "lat": 45.516286,
     "lon": 9.222550400000001,
     "name": "MANGA climbing B 2024",
@@ -9248,6 +9392,36 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 43.7874963,
+    "lon": 7.6409199,
+    "name": "Megalab",
+    "country": "IT",
+    "website": "https://www.megalabclimbing.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates"
+    ],
+    "note": "The site is Megalab Climbing ASD and prints Via Roma 55 - 18019 - Vallecrosia (IM); geocoding that address lands 45 m from this venue's coordinate. The upstream city is Ventimiglia, the next town along the coast. megalab.it is an unrelated casino-affiliate site."
+  },
+  {
+    "lat": 42.3539044,
+    "lon": 13.3422517,
+    "name": "Moonboard BLOCKLAND",
+    "country": "IT",
+    "website": "https://www.blockland.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The page is headed \"Home - BlockLand\", prints Via Enrico Berlinguer, 67100 L'Aquila (which geocodes 35 m from this venue) and names a MoonBoard, which is the board system this entry is listed for."
   },
   {
     "lat": 45.021136,
@@ -9279,6 +9453,21 @@
     ]
   },
   {
+    "lat": 45.694395,
+    "lon": 9.412587,
+    "name": "Palestra CAI Merate",
+    "country": "IT",
+    "website": "https://www.caimerate.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "postal-code"
+    ],
+    "note": "Same hall as the venue about 50 m away, and the same section: CAI Sezione Merate, whose town and postcode the venue coordinate reverse-geocodes to."
+  },
+  {
     "lat": 44.812988645630455,
     "lon": 10.279608813490865,
     "name": "Pareti Sport Center",
@@ -9291,6 +9480,20 @@
       "street-address",
       "city"
     ]
+  },
+  {
+    "lat": 44.643321,
+    "lon": 10.9011822,
+    "name": "Rock And Fire's Moonboard",
+    "country": "IT",
+    "website": "https://www.rockandfire.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is Rock'n Fire, run by \"Amici dell'arrampicata dei Vigili del Fuoco di Modena\"; the upstream city is Modena. The OSM node 127 m from this venue is named Rock 'N Fire and carries the same domain."
   },
   {
     "lat": 45.45312,
@@ -9400,6 +9603,35 @@
     "note": "Upstream lists this MoonBoard separately, 10 m from its Kilter entry; the site names both boards."
   },
   {
+    "lat": 44.43099,
+    "lon": 8.86085,
+    "name": "The ForGe Climb",
+    "country": "IT",
+    "website": "https://theforgeclimb.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The site prints \"Via Borzoli 39 Lotto G - 16153 Genova\", which is the address upstream records for this venue. The server sends an incomplete certificate chain — the leaf is a genuine Sectigo certificate for theforgeclimb.it, valid to October 2026, but the intermediate is missing, so curl refuses it while browsers fetch it over AIA. Reached only after the domain guesser stopped truncating the full-name variant."
+  },
+  {
+    "lat": 45.73009330000001,
+    "lon": 9.138741699999999,
+    "name": "Vertical Block",
+    "country": "IT",
+    "website": "https://verticalblock.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is Vertical Block and describes itself as \"Palestra di arrampicata e centro polivalente a Cantù (CO)\"; the upstream city is Cantù."
+  },
+  {
     "lat": 37.0766896,
     "lon": 15.2906457,
     "name": "Vertical Climbing Center",
@@ -9431,6 +9663,48 @@
       "city"
     ],
     "note": "The address is a Via Pontina kilometre marker, so the coordinate's own street, ZIP and commune were checked instead of a forward lookup."
+  },
+  {
+    "lat": 44.6867594,
+    "lon": 7.8960573,
+    "name": "Vertigo Moon Board",
+    "country": "IT",
+    "website": "https://www.vertigoclimb.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is A.S.D. Vertigo and prints Strada Crociera Burdina, Pollenzo; reverse-geocoding this venue's own coordinate returns Pollenzo, Bra, Cuneo 12069. The OSM node 400 m away is named ASD Vertigo Climbing Village and carries the same domain."
+  },
+  {
+    "lat": 45.3093145,
+    "lon": 8.8389179,
+    "name": "Vigevano Climbing",
+    "country": "IT",
+    "website": "https://www.vigevanoclimbing.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The site is Vigevano Climbing, in the town this venue is recorded in, and names a MoonBoard — the board system this entry is listed for. The apex serves a certificate that does not cover the hostname while www is fine, which is the same shape as the zugzwang-auerbach.de miss; www is what is recorded."
+  },
+  {
+    "lat": 44.0678288,
+    "lon": 12.5695158,
+    "name": "WAVEROCK",
+    "country": "IT",
+    "website": "https://www.waverockrimini.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is \"Waverock | Sala di arrampicata Rimini\" and prints Via Norvegia, 11, 47921 Rimini RN; the upstream city is Rimini. waverock.it is an unrelated cap shop."
   },
   {
     "lat": 49.49443,

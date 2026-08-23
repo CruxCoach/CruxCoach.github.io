@@ -654,9 +654,9 @@
     "name": "Bloc Climbing Gym",
     "country": "IE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "bloc.ie is a booking-software company, not this climbing gym, and no other official site for it was found.",
-    "candidate": "https://bloc.ie/"
+    "checked": "2026-08-23",
+    "candidate": "https://blocdublin.ie/",
+    "reason": "A better candidate than the bloc.ie logged before — the OSM node 87 m from this venue is named Bloc and carries blocdublin.ie — but it cannot be opened: apex and www both answer 403 to an identifying User-Agent, to a plain browser one and to a second unrelated fetcher. bloc.ie itself now serves a 'Bloc — Coming Soon' holding page and is a booking-software company's domain. blocclimbing.com is parked for sale."
   },
   {
     "lat": 52.6835403,
@@ -664,9 +664,9 @@
     "name": "Suas Climbing",
     "country": "IE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "suas.ie is a Dublin-based charity 170 km away, not this Limerick climbing venue.",
-    "candidate": "https://suas.ie/"
+    "checked": "2026-08-23",
+    "candidate": "https://suasclimbing.ie/",
+    "reason": "suasclimbing.ie is the centre's own domain and cannot be read: apex and www both answer 401, to an identifying User-Agent, to a plain browser one and to a second fetcher — the site is behind HTTP authentication. The suas.ie logged before now redirects to stand.ie, a Dublin charity 170 km away."
   },
   {
     "lat": 53.2884406,
@@ -674,19 +674,232 @@
     "name": "The Dublin Climbing Centre",
     "country": "IE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "dublinclimbing.com serves a Coming Soon page under construction, so no page describes this centre.",
-    "candidate": "https://www.dublinclimbing.com/"
+    "checked": "2026-08-23",
+    "candidate": "https://www.dublinclimbing.com/",
+    "reason": "Re-read: unchanged. dublinclimbing.com still serves a 'Coming Soon' page with nothing on it that describes this centre. dublin.ie is the city's official information portal. The nearest chain page, Awesome Walls Dublin, is a different operator 13 km away."
   },
   {
-    "lat": 44.22727,
-    "lon": 12.04509,
-    "name": "Blocstation acsd",
+    "lat": 53.277778,
+    "lon": -6.2096515,
+    "name": "The Wall MoonBoard",
+    "country": "IE",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "candidate": "https://thewall.ie/",
+    "reason": "First review of this venue. The OSM node 6 m away is named The Wall and carries thewall.ie, which is a strong pointer and unreadable: 403 from every fetcher and header set tried. thewall.com does not complete a TLS handshake."
+  },
+  {
+    "lat": 43.87544219999999,
+    "lon": 10.2541854,
+    "name": "Air Climbing Moonboard",
     "country": "IT",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "blocstation.it serves a page with no readable address, town or contact detail, so nothing on it can be matched to this venue.",
-    "candidate": "https://blocstation.it/"
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all — the dataset name is the board model appended to \"Air Climbing\", and neither airclimbingmoonboard nor air-climbing-moonboard resolves on .it or .com. No OSM climbing object within 500 m carries a website, and nothing in the curated file is within 200 m."
+  },
+  {
+    "lat": 46.31051859999999,
+    "lon": 9.3982751,
+    "name": "boulder factory",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The venue is named after the board, not a business: \"boulder factory\" reduces to the single token \"factory\", and every domain that answered is somebody else — factory.it is a digital agency, factory.com an AI software firm, boulderfactory.com is parked. The two chain siblings named Factory are in Münster (643 km) and Donostia (954 km).",
+    "candidate": "https://www.boulderfactory.de/"
+  },
+  {
+    "lat": 45.1114724,
+    "lon": 7.6866838,
+    "name": "BoulderBarBoard",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: none of the fourteen name-derived domains for \"BoulderBarBoard\" exists, no OSM climbing object within 500 m carries a website, and nothing curated is within 200 m."
+  },
+  {
+    "lat": 45.611892,
+    "lon": 8.8531265,
+    "name": "Capanno Boulder",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "capanno.it answers with a placeholder page carrying nothing but the domain name — no gym, no address, no town — and capanno.com does not present a usable certificate. Nothing ties either to Busto Arsizio.",
+    "candidate": "https://capanno.it/"
+  },
+  {
+    "lat": 46.4090018,
+    "lon": 13.0144271,
+    "name": "Chiodo fisso",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "None of the Chiodo fisso guesses can be read or matched: chiodofisso.it and chiodo-fisso.it present certificates that do not cover their hostnames, chiodofisso.com answers 403 to every fetcher, and chiodo.it is a furniture maker in Catanzaro.",
+    "candidate": "https://chiodofisso.it/"
+  },
+  {
+    "lat": 42.8536043,
+    "lon": 13.5749442,
+    "name": "Climb AP",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all — climbap.it, climbap.com, climb-ap.it and climb-ap.com do not exist, and no OSM climbing object within 500 m of Ascoli Piceno carries a website."
+  },
+  {
+    "lat": 44.2968832,
+    "lon": 12.1074763,
+    "name": "CoccoBlocco",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: none of the fourteen name-derived domains for CoccoBlocco exists, and no OSM climbing object within 500 m carries a website."
+  },
+  {
+    "lat": 46.5580169,
+    "lon": 12.5496237,
+    "name": "Comelico Climb MOON",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "comelico.it does not resolve and comelico.com is a holiday-apartment site for the Val Comelico. The dataset name is \"Comelico Climb MOON\" — a valley plus a board model — and gives nothing else to guess from.",
+    "candidate": "https://comelico.com/"
+  },
+  {
+    "lat": 45.072977,
+    "lon": 6.6954096,
+    "name": "CuboBardo",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: none of the ten name-derived domains for CuboBardo exists, and no OSM climbing object within 500 m carries a website."
+  },
+  {
+    "lat": 45.1992371,
+    "lon": 9.1400311,
+    "name": "Cus Pavia Climbing",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "cuspavia.it does not answer on either host — the connection times out on the apex and is refused on www. CUS Pavia is the university sports centre; no readable page was reached, so nothing could be matched.",
+    "candidate": "https://cuspavia.it/"
+  },
+  {
+    "lat": 43.108311,
+    "lon": 12.366431,
+    "name": "Dreamtime",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The only pointer is an OSM node 447 m away named Metropolitan Boulder, whose site metropolitanboulder.it serves \"Site is undergoing maintenance\" and nothing else. dreamtime.it answers 403 to every fetcher and dreamtime.com does not resolve.",
+    "candidate": "https://metropolitanboulder.it/"
+  },
+  {
+    "lat": 42.7635254,
+    "lon": 11.1123634,
+    "name": "Fondino Moon",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "fondino.com is listed for sale on BrandBucket and fondino.it does not resolve. \"Fondino Moon\" is a nickname plus a board model, with no business name to guess from.",
+    "candidate": "https://fondino.com/"
+  },
+  {
+    "lat": 45.5107903,
+    "lon": 11.337712,
+    "name": "GAS ARZIGNANO",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: gasarzignano and gas-arzignano exist on neither .it nor .com, and no OSM climbing object within 500 m of Arzignano carries a website."
+  },
+  {
+    "lat": 45.65702,
+    "lon": 13.81049,
+    "name": "Gravità Zero",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "Re-checked, and the same trap as before: gravitazero.it and gravita-zero.it are Gravita Zero, a science-communication agency, and gravita.com is a firm of chartered accountants. gravitazero.com and gravita.it present certificates that do not cover their hostnames. Nothing found names Via alle cave 55 in Trieste.",
+    "candidate": "https://gravitazero.it/"
+  },
+  {
+    "lat": 45.6570925,
+    "lon": 13.8102992,
+    "name": "Gravità Zero MOON BOARD",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "Same hall as the venue a few metres away, and the same outcome: every gravitazero/gravita domain that answers belongs to somebody else.",
+    "candidate": "https://gravitazero.it/"
+  },
+  {
+    "lat": 44.55963,
+    "lon": 10.91238,
+    "name": "Grip Climbing Gym",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "Every Grip that answers is a different gym — GriP Kletterzentrum Göppingen, GRIP Boulderhal Nijmegen, Grip Bouldering in Grand Junction, Grip Klatring in Trondheim — and grip.it is a creative agency in Italy. gripclimbing.com and gripclimb.com answer with no title and no content that names Montale or Via Zenzalose.",
+    "candidate": "https://gripclimbing.com/"
+  },
+  {
+    "lat": 40.6031306,
+    "lon": 17.2146724,
+    "name": "I rampicanti climbing farm",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "rampicanti.it presents a certificate that does not cover its hostname on either host, and rampicanti.com is parked for sale. Nothing else resolves for \"I rampicanti climbing farm\".",
+    "candidate": "https://rampicanti.it/"
+  },
+  {
+    "lat": 45.6139298,
+    "lon": 8.929656399999999,
+    "name": "Ikigai Climbing",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "ikigai-climbing.it is very likely this gym — the www host serves a site titled IKIGAI Climbing with a climbing-hall opening table — but it is a single page with no address, no town and no second signal of any kind: only a VAT number, a phone number and an Instagram link. The name alone is one observation.",
+    "candidate": "https://www.ikigai-climbing.it/"
+  },
+  {
+    "lat": 46.01495,
+    "lon": 11.87572,
+    "name": "IL DADO",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "ildado.it presents a certificate that does not cover its hostname on either host, and ildado.com is a gambling-advice site. Nothing found names Via Culiada 82/b in Feltre.",
+    "candidate": "https://ildado.it/"
+  },
+  {
+    "lat": 44.6191558,
+    "lon": 11.2578173,
+    "name": "KRO Board",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: kroboard and kro-board exist on neither .it nor .com, and no OSM climbing object within 500 m carries a website."
+  },
+  {
+    "lat": 44.8845906,
+    "lon": 7.3306676,
+    "name": "KUOTA 8.10",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The only pointer is an OSM node 234 m away belonging to the Club Alpino Italiano section in Pinerolo, which is a different organisation from \"KUOTA 8.10\"; kuota.it does not answer and kuota.com carries nothing that names this venue.",
+    "candidate": "https://www.caipinerolo.it/"
+  },
+  {
+    "lat": 42.0440032,
+    "lon": 14.7339367,
+    "name": "Mare Verticale Moon Board",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "mare.it is a biodiversity project and mare.com an industrial-process firm. \"Mare Verticale Moon Board\" leaves only the generic word mare once the board model is stripped, and nothing else resolves.",
+    "candidate": "https://mare.it/"
   },
   {
     "lat": 43.1093656,
@@ -694,9 +907,49 @@
     "name": "Metropolitan Boulder",
     "country": "IT",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "metropolitanboulder.it serves a maintenance placeholder, so no address or hall detail could be read.",
+    "checked": "2026-08-23",
+    "reason": "Re-checked: metropolitanboulder.it and metropolitanboulder.com both still serve \"Site is undergoing maintenance\" and nothing else, so no address or hall detail can be read. The OSM node 32 m away carries the same domain.",
     "candidate": "https://metropolitanboulder.it/"
+  },
+  {
+    "lat": 45.0515199,
+    "lon": 7.303860099999999,
+    "name": "MONKEYBOARD",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "monkeyboard.com is parked for sale and monkeyboard.it does not resolve. The dataset name is a board model, and Piossasco yields no OSM climbing object with a website within 500 m.",
+    "candidate": "https://monkeyboard.com/"
+  },
+  {
+    "lat": 41.583844,
+    "lon": 14.5940809,
+    "name": "Morgia - Climbing Experience",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "morgia.it does not complete a TLS handshake on either host and morgia.com is a domain broker. Nothing else resolves for \"Morgia - Climbing Experience\".",
+    "candidate": "https://morgia.com/"
+  },
+  {
+    "lat": 46.7198,
+    "lon": 12.22205,
+    "name": "Nordic Arena Climbing Center",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "nordicarena.com answers with a placeholder carrying nothing but the domain name; nordic.it presents a certificate that does not cover its hostname and nordic.com answers 403. The one chain sibling named Arena is Climb Arena in Cormeilles-en-Parisis, 788 km away.",
+    "candidate": "https://nordicarena.com/"
+  },
+  {
+    "lat": 43.9303475,
+    "lon": 10.9078587,
+    "name": "ROCK TIME CENTER Pistoia",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The name reduces to the generic word \"time\": time.it presents a certificate that does not cover its hostname and time.com is the magazine. Nothing found names a climbing centre in Pistoia.",
+    "candidate": "https://time.com/"
   },
   {
     "lat": 45.4654219,
@@ -704,9 +957,58 @@
     "name": "Rockspot",
     "country": "IT",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "Rockspot's site describes one Milan gym and its map pin sits 5.4 km from this coordinate, beside the other upstream Rockspot entry, so this one matches no location the operator publishes.",
+    "checked": "2026-08-23",
+    "reason": "Re-checked: rockspot.it describes one Milan gym whose address sits 5.4 km from this coordinate, beside the other upstream Rockspot entry, and rockspotclimbing.com is Rock Spot Climbing in New England. Nothing on either names a second Milan hall in Brera.",
     "candidate": "https://www.rockspot.it/"
+  },
+  {
+    "lat": 41.9027835,
+    "lon": 12.4963655,
+    "name": "Stitch MoonBoard",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "stitch.it answers 404 on both hosts and stitch.com is a textile-software company. \"Stitch MoonBoard\" is a nickname plus a board model; the coordinate is the centre of Rome.",
+    "candidate": "https://stitch.com/"
+  },
+  {
+    "lat": 44.1689028,
+    "lon": 8.3416211,
+    "name": "Supergiu1",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: none of the fourteen name-derived domains for Supergiu1 exists, and no OSM climbing object within 500 m of Albenga carries a website."
+  },
+  {
+    "lat": 45.5832245,
+    "lon": 8.1028176,
+    "name": "The Care",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The name reduces to the generic word \"care\": care.it is a placeholder, care.com is the American caregiving marketplace and careclimb.com is a product called Pulse. Nothing found names a climbing venue in Biella.",
+    "candidate": "https://care.com/"
+  },
+  {
+    "lat": 45.7127423,
+    "lon": 6.9514436,
+    "name": "Up and Down Boulder Point",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "updown.it and updown.com do not answer, and the one chain sibling named Up is Up The Bloc in Mississauga, 6,492 km away. \"Up and Down Boulder Point\" yields nothing else to guess from.",
+    "candidate": "https://www.upthebloc.com/"
+  },
+  {
+    "lat": 45.5565542,
+    "lon": 9.4348624,
+    "name": "Vert Climb",
+    "country": "IT",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "vertclimb.com redirects to invertclimb.com, which is a real climbing gym — but it is InVert Climb at Via E. Fermi 31 in Gessate, and geocoding that address puts it 1,017 m away in the next municipality, while this venue is recorded in Gorgonzola. One letter of difference in the name and a kilometre of difference in the place is not two independent signals; vert.it is an import-export firm.",
+    "candidate": "https://www.invertclimb.com/"
   },
   {
     "lat": 53.1406108,
