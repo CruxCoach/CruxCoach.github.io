@@ -559,6 +559,8 @@ test('the evidence cross-check finds a mistyped time and forgives spelling', () 
     'Mo–Fr 09.00 bis 23.00 Uhr | Sa 10.00 – 22.00 | So geschlossen',
     'Montag bis Freitag von 9:00 bis 23:00, Samstag 10:00-22:00',
     'Mo-Fr 09:00-23:00 · Sa 10:00-22:00',
+    // French and Swiss pages write the separator as an h.
+    'lu - ve : 09h00 - 23h00 | sa : 10h00 - 22h00 | di : fermé',
   ]) {
     assert.deepEqual(timesMissingFromEvidence(record({ evidence })), [], evidence);
   }
@@ -572,6 +574,11 @@ test('the evidence cross-check finds a mistyped time and forgives spelling', () 
     hours: { ...WEEKDAYS_9_23, mon: '09:30-23:00' },
     evidence: 'Mo 9 - 23 Uhr, Di-Fr 09:00–23:00, Sa 10:00–22:00',
   })), ['09:30']);
+  // ...and an h-separated half hour is found, so 22h30 in a French quote counts.
+  assert.deepEqual(timesMissingFromEvidence(record({
+    hours: { ...WEEKDAYS_9_23, sat: '10:00-22:30' },
+    evidence: 'lu - ve : 09h00 - 23h00 | sa : 10h00 - 22h30 | di : fermé',
+  })), []);
 });
 
 test('every committed schedule is traceable to its own evidence quote', () => {

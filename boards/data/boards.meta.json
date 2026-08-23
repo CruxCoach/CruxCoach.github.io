@@ -95,18 +95,19 @@
     }
   },
   "venue_hours": {
-    "defined": 132,
-    "applied": 132,
+    "defined": 198,
+    "applied": 198,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
     "private_refused": 0,
     "rejected": 0,
-    "countries": 1,
-    "open_24h_days": 0,
+    "countries": 3,
+    "open_24h_days": 14,
     "by_provenance": {
-      "official-location-page": 38,
-      "official-site": 94
+      "official-chain-page": 4,
+      "official-location-page": 55,
+      "official-site": 139
     }
   }
 }

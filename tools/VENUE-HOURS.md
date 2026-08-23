@@ -314,10 +314,10 @@ maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (published + outcome entries) | 169 |
-| Published schedules | 132 |
-| Recorded outcomes without hours | 37 |
-| Countries covered | 1 |
+| Venues reviewed (published + outcome entries) | 265 |
+| Published schedules | 198 |
+| Recorded outcomes without hours | 67 |
+| Countries covered | 3 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -325,61 +325,76 @@ Per-country coverage of eligible (public/commercial) venues:
 | country | published | reviewed | eligible | share |
 | --- | --- | --- | --- | --- |
 | DE | 132 | 169 | 201 | 66% |
+| CH | 35 | 52 | 56 | 63% |
+| AT | 31 | 44 | 48 | 65% |
 
-- **Last completed batch:** Germany's remaining linked venues. Every German venue
-  that carries a verified official website has now been reviewed: 132 published,
-  37 logged. The 32 still untouched are the ones with no website link yet, and
-  they need one before they can have hours.
-- **Next batch:** Austria and Switzerland, then the rest of Europe.
+- **Last completed batch:** Austria and Switzerland — every linked venue in both.
+  66 published, 30 logged.
+- **Next batch:** the Netherlands, Belgium, the United Kingdom and Ireland.
 
-### What the German pass taught
+### What DACH taught
 
-**Seasonal is the biggest single reason a German gym gets no hours** — 13 of the
-37 outcomes. It is almost always the school holidays: a `Schulferien: 10 – 22 Uhr`
-line under a term-time week (Stuntwerk Senden, der steinbock Zirndorf, Roccadion,
-BoulderEck Erftstadt, Swoboda Alpin), a `Sommer`/`Winter` split with dates
-(Kraftwerk Lüneburg, Active Garden Waiblingen), or a summer schedule published
-*instead of* the regular one (DAV Würzburg, Kletterarena). A curator reading only
-the first set of times would publish every one of them. The tell is a second time
-near the first.
+**Seasonal is the biggest single reason a gym here gets no hours** — 18 of the 67
+outcomes. In Germany it is almost always the school holidays: a `Schulferien:
+10 – 22 Uhr` line under a term-time week, a `Sommer`/`Winter` split with dates,
+or a summer schedule published *instead of* the regular one. Austria and
+Switzerland do the same thing in their own words (`Im Sommer vom 01.07. bis
+31.08.`, `Sommeröffnungszeiten: 1.6.–4.9.`), and La Pile in Yverdon says the
+quiet part out loud: *nous adaptons nos horaires d'ouverture en fonction des
+saisons*. A curator reading only the first set of times would publish every one
+of them. The tell is a second time near the first.
 
-**Contradictions come in three shapes**, and all of them are caught by opening a
-second page of the same site — the cheapest quality step there is:
-markup against text (Bloc-Hütte Augsburg, Beta Hannover, BAMBULE, and BAMBULE's
-visible row disagrees with itself: `09:00 – 21:00/21:30`); page against page
-(Sport Sheds Augsburg's weekend, XXL Klettern Dresden's Sunday, Siegerland's
-entire week, Der Steinbock Nürnberg's Tuesday and Friday); and notice against
-table, where DAV Landshut's timetable says Friday 14:00 and a notice on the same
-page says it moved to 10:00 in April.
+**Contradictions come in three shapes**, all caught by opening a second page of
+the same site — the cheapest quality step there is: markup against text
+(Bloc-Hütte Augsburg, Beta Hannover, BAMBULE, L'Entrepôt, Planet Climbing Lancy);
+page against page (Sport Sheds Augsburg's weekend, XXL Klettern Dresden's Sunday,
+Siegerland's entire week); and notice against table, where DAV Landshut's
+timetable says Friday 14:00 and a notice on the same page says it moved to 10:00
+in April.
 
 **A stated week is not always an opening.** DAV Boulderzentrum Erlangen publishes
 Mo–So 07:00–23:00 for an unstaffed hall you cannot enter unless somebody has
-unlocked it and you hold a key; DAV Teisendorf's Mo–So 07:00–22:00 is fenced by
-compulsory reservation during school hours; Kletterwache Rehau and DAV Schwabach
-publish club slots rather than opening times; Boulderzimmer Berlin has no week at
-all, only a booking widget.
+unlocked it and you hold a key; DAV Teisendorf's week is fenced by compulsory
+reservation during school hours; Quergang in Jona opens to the public on Tuesday
+evenings and is subscriber-only the rest of the week; Kletterwache Rehau, DAV
+Schwabach and Kletterhalle Mixnitz publish club slots rather than opening times.
 
-**Two access regimes, one answer.** Berta Block Berlin, Rainbow Rocket Kempten and
-Griffwerk Ludwigsburg each publish staffed hours *and* an earlier self-check-in
-window for registered users. The record takes the staffed hours — the ones that
-need nothing but turning up — and says so in a note. Under-reporting availability
+**Two access regimes, one answer.** Berta Block Berlin, Rainbow Rocket Kempten,
+Griffwerk Ludwigsburg, Greifbar Bregenz, Boulderlounge Schlieren and Momentum
+Olten each publish staffed hours *and* an earlier or wider window for card,
+badge or app holders. The record takes the staffed hours — the ones that need
+nothing but turning up — and says so in a note. Under-reporting availability
 costs a visitor a possible session; over-reporting costs them a locked door.
+Where the venue itself publishes the wide window as its Öffnungszeiten with no
+staffed alternative — Die Knäpperei's 0–24, Bloc Spot Murtal's 06:00–23:00,
+Randa's 07h00–22h00 — that is the schedule, and the note says how entry works.
 
 **Facility hours versus venue hours.** Bergstation Hilden's table has three
-columns — Halle, Kursbüro, Shop; Sportpark Kelkheim opens at 9 but its climbing
-hall at 10; Boulderlabor lists the hall, then the café, then setting days;
-Fingerfood Lingen's sauna keeps its own week. Taking the first row without its
-heading is how a plausible wrong answer gets in.
+columns; Sportpark Kelkheim opens at 9 but its climbing hall at 10; Bergstation
+Telfs' Bistro runs to midnight while the hall closes at 22; Lintharena publishes
+a table per facility and only one of them is the boulder hall. Taking the first
+row without its heading is how a plausible wrong answer gets in — and Bimano Bern
+is logged precisely because four tabs and four tables cannot be paired up from
+the fetched text.
 
-**Markup alone is not a source.** Where a site publishes `openingHours` and
-nothing a reader can see (Projekt Eins), the record is refused. Where markup and
-text agree — FLASHH, Boulderplanet, Bloc No Limit, Boulder Factory Münster — the
-markup is worth recording in the note, because it is the cheapest confirmation
-available and it settles ambiguous table layouts.
+**Markup is a witness, not a source.** Where a site publishes `openingHours` and
+nothing a reader can see, the record is refused: Projekt Eins in Neutraubling,
+and all three TOTEM halls in Geneva and Vevey, whose own FAQ says the hours are
+rendered live at the top of the page. Where markup and text agree — FLASHH,
+Boulderplanet, Bloc No Limit, Boulder Factory Münster, Das Flash, ELYS
+Boulderloft, Planet Climbing Plan-les-Ouates — it goes in the note, because it is
+the cheapest confirmation available and it settles ambiguous table layouts.
 
-**What the operator index gives you here.** Germany's chains — Boulderwelt,
-Stuntwerk, urban apes, Neoliet's Boulderbar, Einstein, Element Boulders, Studio
-Bloc, Eifelblock, Monkeyspot — all publish a real per-location page with its own
-week, so they cost one fetch each and need no chain-page provenance. That is most
-of the reason this country moved quickly, and it is what the next countries will
-be measured against.
+**Chain pages that do the right thing.** Newton (Graz and Kapfenberg) and Minimum
+(Flüela and Leutschenbach) publish both of their halls' weeks on one page under
+explicit per-hall headings. That is exactly what `official-chain-page` plus the
+`hours-scope` signal is for, and it is the only shape in which one page may speak
+for two venues. Newton also shows why the schema.org block cannot be trusted to
+speak for both: it repeats the Graz week only.
+
+**What the operator index gives you here.** DACH's chains — Boulderwelt,
+Stuntwerk, urban apes, Neoliet, Einstein, Element Boulders, Studio Bloc,
+Eifelblock, Monkeyspot, Boulderbar, Steinblock, grimper.ch, Boulderlounge — nearly
+all publish a real per-location page with its own week. That is most of the
+reason these three countries moved quickly, and it is what the next ones will be
+measured against.

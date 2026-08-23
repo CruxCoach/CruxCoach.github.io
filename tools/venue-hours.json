@@ -1,5 +1,1614 @@
 [
   {
+    "lat": 47.30391299999999,
+    "lon": 11.067052,
+    "name": "Bergstation / Kletterzentrum Telfs",
+    "country": "AT",
+    "source": "https://bergstation.tirol/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "ÖFFNUNGSZEITEN - KLETTERHALLE: Mo–Fr: 10:00 – 22:00 | Sa, So & Feiertage: 10:00 – 22:00",
+    "note": "Bistro and Kasse keep different hours (Mo–Fr 14:00–24:00) on the same page; Hohe-Munde members may enter from 07:00."
+  },
+  {
+    "lat": 47.19601,
+    "lon": 14.73238,
+    "name": "Bloc Spot Murtal",
+    "country": "AT",
+    "source": "https://www.blocspot.at/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "06:00-23:00",
+      "tue": "06:00-23:00",
+      "wed": "06:00-23:00",
+      "thu": "06:00-23:00",
+      "fri": "06:00-23:00",
+      "sat": "06:00-23:00",
+      "sun": "06:00-23:00"
+    },
+    "evidence": "Öffnungszeiten: Mo-So: 06:00 Uhr - 23:00 Uhr"
+  },
+  {
+    "lat": 48.19046,
+    "lon": 16.36009,
+    "name": "Blockfabrik",
+    "country": "AT",
+    "source": "https://www.blockfabrik.at/kontakt",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "07:30-23:00",
+      "tue": "07:30-23:00",
+      "wed": "07:30-23:00",
+      "thu": "07:30-23:00",
+      "fri": "07:30-23:00",
+      "sat": "07:30-22:00",
+      "sun": "07:30-22:00"
+    },
+    "evidence": "Montag - Freitag 7:30 - 23:00 Uhr | Sa, So & Feiertag 7:30 - 22:00 Uhr",
+    "note": "Upstream carries this gym twice, about 55 m apart."
+  },
+  {
+    "lat": 48.19081,
+    "lon": 16.35973,
+    "name": "Blockfabrik",
+    "country": "AT",
+    "source": "https://www.blockfabrik.at/kontakt",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "07:30-23:00",
+      "tue": "07:30-23:00",
+      "wed": "07:30-23:00",
+      "thu": "07:30-23:00",
+      "fri": "07:30-23:00",
+      "sat": "07:30-22:00",
+      "sun": "07:30-22:00"
+    },
+    "evidence": "Montag - Freitag 7:30 - 23:00 Uhr | Sa, So & Feiertag 7:30 - 22:00 Uhr"
+  },
+  {
+    "lat": 48.20107,
+    "lon": 16.40177,
+    "name": "Boulder Monkeys",
+    "country": "AT",
+    "source": "https://bouldermonkeys.at/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-23:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Montag–Samstag 09:00–23:00 Uhr | Sonn- und Feiertags 09:00–22:00 Uhr"
+  },
+  {
+    "lat": 48.23153,
+    "lon": 16.36862,
+    "name": "Boulderbar Hannovergasse",
+    "country": "AT",
+    "source": "https://boulderbar.net/standorte/wien-hannovergasse/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Mo.-Fr. 9:00 - 23:00 | Sa. So./Feiertag 9:00 - 22:00"
+  },
+  {
+    "lat": 48.18199,
+    "lon": 16.38501,
+    "name": "Boulderbar Hauptbahnhof",
+    "country": "AT",
+    "source": "https://boulderbar.net/standorte/wien-hauptbahnhof/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Mo.-Fr. 9:00 - 23:00 | Sa. So./Feiertag 9:00 - 22:00"
+  },
+  {
+    "lat": 48.18139,
+    "lon": 16.38472,
+    "name": "Boulderbar Hauptbahnhof Plus",
+    "country": "AT",
+    "source": "https://boulderbar.net/standorte/wien-hauptbahnhof/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Mo.-Fr. 9:00 - 23:00 | Sa. So./Feiertag 9:00 - 22:00",
+    "note": "The Plus hall shares the Hauptbahnhof location page and its schedule; upstream lists the two about 70 m apart."
+  },
+  {
+    "lat": 48.24757,
+    "lon": 14.23284,
+    "name": "Boulderbar Linz",
+    "country": "AT",
+    "source": "https://boulderbar.net/standorte/linz/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Mo.-Fr. 9:00 - 22:00 | Sa. 9:00 - 22:00 | So./Feiertag 9:00 - 21:00"
+  },
+  {
+    "lat": 48.23048,
+    "lon": 16.50966,
+    "name": "Boulderbar Seestadt",
+    "country": "AT",
+    "source": "https://boulderbar.net/standorte/wien-seestadt/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Mo.-Fr. 9:00 - 22:00 | Sa. So./Feiertag 9:00 - 22:00"
+  },
+  {
+    "lat": 48.21651,
+    "lon": 15.63578,
+    "name": "Boulderbar St. Pölten",
+    "country": "AT",
+    "source": "https://boulderbar.net/standorte/st-poelten/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "14:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Mo. 14:00 - 22:00 | Di. 09:00 - 22:00 | Mi. 09:00 - 22:00 | Do. 09:00 - 22:00 | Fr. 09:00 - 22:00 | Sa. So./Feiertag 09:00 - 22:00"
+  },
+  {
+    "lat": 48.16135,
+    "lon": 16.33576,
+    "name": "Boulderbar Wienerberg",
+    "country": "AT",
+    "source": "https://boulderbar.net/standorte/wien-wienerberg/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Mo.-Fr. 9:00 - 23:00 | Sa. So./Feiertag 9:00 - 22:00"
+  },
+  {
+    "lat": 47.02564,
+    "lon": 15.43638,
+    "name": "Boulderclub Graz",
+    "country": "AT",
+    "source": "https://www.boulderclub.at/kontakt/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Öffnungszeiten Mo-So 9-22 Uhr | Feiertags 9-22 Uhr"
+  },
+  {
+    "lat": 48.66507970052178,
+    "lon": 14.838631194315278,
+    "name": "Boulderoase St. Martin",
+    "country": "AT",
+    "source": "https://dorfzentrum.st-martin.eu/boulderoase/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "closed",
+      "tue": "08:00-18:00",
+      "wed": "08:00-18:00",
+      "thu": "08:00-18:00",
+      "fri": "08:00-18:00",
+      "sat": "08:00-18:00",
+      "sun": "08:00-13:00"
+    },
+    "evidence": "Mo geschlossen | Di-Sa 08:00 - 18:00 | So 08:00 - 13:00",
+    "note": "The café in the same building publishes separate served and self-service times."
+  },
+  {
+    "lat": 48.23312,
+    "lon": 16.37618,
+    "name": "Das Flash",
+    "country": "AT",
+    "source": "https://dasflash.at/contact",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "08:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Montag–Freitag 8:00 – 23:00 Uhr | Samstag, Sonntag, Feiertag 9:00 – 22:00 Uhr",
+    "note": "The site's schema.org openingHoursSpecification states the same week."
+  },
+  {
+    "lat": 48.29891,
+    "lon": 14.2749,
+    "name": "Der Steinbock Linz",
+    "country": "AT",
+    "source": "https://www.dersteinbock-linz.at/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "07:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "07:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Mo, Mi & Fr 09:00 Uhr bis 23:00 Uhr | Di & Do 07:00 Uhr bis 23:00 Uhr | Sa & So 09:00 Uhr bis 22:00 Uhr"
+  },
+  {
+    "lat": 48.19613,
+    "lon": 16.31488,
+    "name": "Die Knäpperei",
+    "country": "AT",
+    "source": "https://dieknaepperei.at/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "00:00-24:00",
+      "tue": "00:00-24:00",
+      "wed": "00:00-24:00",
+      "thu": "00:00-24:00",
+      "fri": "00:00-24:00",
+      "sat": "00:00-24:00",
+      "sun": "00:00-24:00"
+    },
+    "evidence": "Öffnungszeiten: Montag - Sonntag: 0 - 24 Uhr",
+    "note": "Round the clock; entry runs through the venue's own session booking, which the page links beside the hours."
+  },
+  {
+    "lat": 48.196208449388536,
+    "lon": 16.315214120473954,
+    "name": "Die Knäpperei",
+    "country": "AT",
+    "source": "https://dieknaepperei.at/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "00:00-24:00",
+      "tue": "00:00-24:00",
+      "wed": "00:00-24:00",
+      "thu": "00:00-24:00",
+      "fri": "00:00-24:00",
+      "sat": "00:00-24:00",
+      "sun": "00:00-24:00"
+    },
+    "evidence": "Öffnungszeiten: Montag - Sonntag: 0 - 24 Uhr",
+    "note": "The same Flachgasse 30 hall as the venue about 500 m away; upstream carries both."
+  },
+  {
+    "lat": 46.81814,
+    "lon": 14.84421,
+    "name": "Fläsh Die Boulderhalle",
+    "country": "AT",
+    "source": "https://flaesh.at/kontakt-anfahrt/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-22:00",
+      "tue": "08:00-22:00",
+      "wed": "08:00-22:00",
+      "thu": "08:00-22:00",
+      "fri": "08:00-22:00",
+      "sat": "08:00-22:00",
+      "sun": "08:00-22:00"
+    },
+    "evidence": "Mo – So: 08:00 – 22:00 Uhr",
+    "note": "A separate line offers staffed sessions Di & Do 17:00–22:00; the hall's own week is what is recorded."
+  },
+  {
+    "lat": 47.4945,
+    "lon": 9.70972,
+    "name": "Greifbar Boulderhalle Bregenz",
+    "country": "AT",
+    "source": "https://greifbar-bouldern.at/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "15:00-22:00",
+      "tue": "15:00-22:00",
+      "wed": "15:00-22:00",
+      "thu": "15:00-22:00",
+      "fri": "15:00-22:00",
+      "sat": "10:00-20:30",
+      "sun": "10:00-20:30"
+    },
+    "evidence": "Montag – Freitag 15:00 – 22:00 Uhr | Samstag, Sonntag und Feiertage 10:00 – 20:30 Uhr",
+    "note": "An automated access system additionally admits Mo–Fr 6:00–15:00; the staffed opening times are what is recorded."
+  },
+  {
+    "lat": 47.82591,
+    "lon": 13.03308,
+    "name": "Kletter & Boulderhalle Salzburg",
+    "country": "AT",
+    "source": "https://kletterhallesalzburg.at/kletterhalle",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-21:00",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "Mo-Fr: 10.00 – 22.00 Uhr | Sa, So und Feiertage: 10.00 – 21.00 Uhr"
+  },
+  {
+    "lat": 47.54721,
+    "lon": 15.52454,
+    "name": "Kletterakademie Mitterdorf - Sport und Funpark Mürztal",
+    "country": "AT",
+    "source": "https://sf14.at/oeffnungszeiten-kletterhalle/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "closed",
+      "tue": "09:00-18:00",
+      "wed": "09:00-18:00",
+      "thu": "09:00-18:00",
+      "fri": "09:00-18:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Öffnungszeiten Kletterhalle: Montag Geschlossen | Dienstag 9:00 – 18:00 | Mittwoch 9:00 – 18:00 | Donnerstag 9:00 – 18:00 | Freitag 9:00 – 18:00 | Samstag 9:00 – 18:00 | Sonntag 9:00 – 18:00",
+    "note": "A Dauerkarte-only summer window ran 13.07.–16.08.2026 and has ended; the golf facility on the same site keeps different hours."
+  },
+  {
+    "lat": 47.9755596,
+    "lon": 16.3225762,
+    "name": "Klettercenter Rotpunkt",
+    "country": "AT",
+    "source": "https://www.klettercenter.at/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "15:00-22:00",
+      "tue": "15:00-22:00",
+      "wed": "15:00-22:00",
+      "thu": "15:00-22:00",
+      "fri": "15:00-22:00",
+      "sat": "13:00-20:00",
+      "sun": "13:00-20:00"
+    },
+    "evidence": "Montag bis Freitag 15:00 – 22:00 Uhr | Sa, So & Feiertag 13:00 – 20:00 Uhr"
+  },
+  {
+    "lat": 47.157655,
+    "lon": 9.806525,
+    "name": "Klimmerei Boulder",
+    "country": "AT",
+    "source": "https://www.klimmerei.at/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "06:00-22:00",
+      "tue": "06:00-22:00",
+      "wed": "06:00-22:00",
+      "thu": "06:00-22:00",
+      "fri": "06:00-22:00",
+      "sat": "06:00-22:00",
+      "sun": "06:00-22:00"
+    },
+    "evidence": "Mo – So 6:00 – 22:00",
+    "note": "The Bistro keeps separate, seasonal service times on the same page; the hall's own week is what is recorded."
+  },
+  {
+    "lat": 47.26657,
+    "lon": 11.90066,
+    "name": "Kraftreich Aufenfeld",
+    "country": "AT",
+    "source": "https://www.kraftreich-aufenfeld.at/de/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "07:30-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-23:00",
+      "sun": "09:00-23:00"
+    },
+    "evidence": "Montag bis Sonntag 09.00 bis 23.00 Uhr | DIENSTAGS ab 7:30 Uhr"
+  },
+  {
+    "lat": 47.06581,
+    "lon": 15.43051,
+    "name": "Newton Boulderhalle Graz",
+    "country": "AT",
+    "source": "https://www.newton-graz.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "07:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "07:00-22:00",
+      "fri": "07:00-22:00",
+      "sat": "09:30-22:00",
+      "sun": "09:30-22:00"
+    },
+    "evidence": "Öffnungszeiten Graz: Mo - Fr 7:00 - 22:00 | SA + SO 9:30 - 22:00",
+    "note": "One page carries both Newton halls under explicit Graz and Kapfenberg headings; the site's schema.org openingHours repeats the Graz week."
+  },
+  {
+    "lat": 47.42831,
+    "lon": 15.26809,
+    "name": "Newton Boulderhalle Kapfenberg",
+    "country": "AT",
+    "source": "https://www.newton-graz.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "16:00-22:00",
+      "tue": "16:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "16:00-22:00",
+      "fri": "16:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Öffnungszeiten Kapfenberg: MO + DI + DO + FR 16:00-22:00 | MI 10:00-22:00 | SA + SO 10:00-22:00",
+    "note": "The site's schema.org openingHours states the Graz week only; the visible page labels each hall separately and is what is recorded."
+  },
+  {
+    "lat": 47.42143,
+    "lon": 9.74776,
+    "name": "Steinblock Boulderhallen Dornbirn",
+    "country": "AT",
+    "source": "https://steinblock.at/dornbirn/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "14:00-22:30",
+      "tue": "14:00-22:30",
+      "wed": "14:00-22:30",
+      "thu": "14:00-22:30",
+      "fri": "14:00-22:30",
+      "sat": "10:00-22:30",
+      "sun": "10:00-22:30"
+    },
+    "evidence": "Montag bis Freitag 14:00 – 22:30 Uhr | Samstag und Sonntag 10:00 – 22:30 Uhr"
+  },
+  {
+    "lat": 47.27658,
+    "lon": 9.65725,
+    "name": "Steinblock Boulderhallen Rankweil",
+    "country": "AT",
+    "source": "https://steinblock.at/rankweil/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "14:00-22:30",
+      "tue": "14:00-22:30",
+      "wed": "14:00-22:30",
+      "thu": "14:00-22:30",
+      "fri": "14:00-22:30",
+      "sat": "10:00-22:30",
+      "sun": "10:00-22:30"
+    },
+    "evidence": "Montag bis Freitag 14:00 – 22:30 Uhr | Samstag und Sonntag 10:00 – 22:30 Uhr",
+    "note": "A separate line covers the bar, which opens Monday to Sunday 17:30–22:30 in wet weather."
+  },
+  {
+    "lat": 47.92844,
+    "lon": 13.79816,
+    "name": "Stoablock Gmunden",
+    "country": "AT",
+    "source": "https://stoablock.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "09:00-21:30",
+      "sat": "09:00-21:00",
+      "sun": "09:00-20:30"
+    },
+    "evidence": "Mo 09:00 - 22:00 | Di 10:00 - 22:00 | Mi 10:00 - 22:00 | Do 10:00 - 22:00 | Fr 09:00 - 21:30 | Sa 09:00 - 21:00 | So 09:00 - 20:30 Uhr"
+  },
+  {
+    "lat": 46.59652,
+    "lon": 13.8481,
+    "name": "Volume Bouldern Villach",
+    "country": "AT",
+    "source": "https://volume.wtf/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "16:00-22:00",
+      "wed": "16:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "16:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Montag 10:00 – 22:00 Uhr | Dienstag, Mittwoch, Freitag 16:00 – 22:00 Uhr | Donnerstag 10:00 – 22:00 Uhr | Samstag, Sonntag, Feiertag 10:00 – 22:00 Uhr"
+  },
+  {
+    "lat": 47.52622,
+    "lon": 7.68359,
+    "name": "B2 Boulders & Bar",
+    "country": "CH",
+    "source": "https://www.bzwei.ch/infos/oeffnungszeiten",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:30",
+      "tue": "09:00-22:30",
+      "wed": "09:00-22:30",
+      "thu": "09:00-22:30",
+      "fri": "09:00-22:30",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Montag 09.00 — 22.30 Uhr | Dienstag 09.00 — 22.30 Uhr | Mittwoch 09.00 — 22.30 Uhr | Donnerstag 09.00 — 22.30 Uhr | Freitag 09.00 — 22.30 Uhr | Samstag 09.00 — 19.00 Uhr | Sonntag 09.00 — 19.00 Uhr"
+  },
+  {
+    "lat": 47.4988196,
+    "lon": 8.723688899999999,
+    "name": "BLOCKFELD Boulderpark",
+    "country": "CH",
+    "source": "https://blockfeld.ch/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "12:00-22:00",
+      "tue": "12:00-22:00",
+      "wed": "12:00-22:00",
+      "thu": "12:00-22:00",
+      "fri": "12:00-22:00",
+      "sat": "12:00-18:30",
+      "sun": "12:00-18:30"
+    },
+    "evidence": "Öffnungszeiten Mo – Fr 12-22 | Sa 12-18.30 | So 12-18.30"
+  },
+  {
+    "lat": 46.816021,
+    "lon": 7.123333199999999,
+    "name": "Bloczone",
+    "country": "CH",
+    "source": "https://www.grimper.ch/salles-descalade/givisiez/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-22:30",
+      "tue": "09:00-22:30",
+      "wed": "09:00-22:30",
+      "thu": "09:00-22:30",
+      "fri": "09:00-22:30",
+      "sat": "09:00-20:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "Salle et horaires d'ouverture — lu - ve : 09h00 - 22h30 | sa - di : 09h00 - 20h00"
+  },
+  {
+    "lat": 47.46919,
+    "lon": 8.30546,
+    "name": "BOUBA Boulder Baden",
+    "country": "CH",
+    "source": "https://boulder-baden.ch/oeffnungszeiten-preise/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "11:00-23:00",
+      "tue": "11:00-23:00",
+      "wed": "11:00-23:00",
+      "thu": "11:00-23:00",
+      "fri": "11:00-23:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "Montag 11:00 – 23:00 | Dienstag 11:00 – 23:00 | Mittwoch 11:00 – 23:00 | Donnerstag 11:00 – 23:00 | Freitag 11:00 – 23:00 | Samstag 10:00 – 19:00 | Sonntag 10:00 – 19:00"
+  },
+  {
+    "lat": 47.19867,
+    "lon": 8.54014,
+    "name": "BoulderBaar",
+    "country": "CH",
+    "source": "https://boulderbaar.ch/kontakt-und-anfahrt/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "11:30-22:00",
+      "tue": "11:30-22:00",
+      "wed": "09:00-22:00",
+      "thu": "11:30-22:00",
+      "fri": "09:00-22:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "Montag 11:30 – 22:00 Uhr | Dienstag 11:30 – 22:00 Uhr | Mittwoch 09:00 – 22:00 Uhr | Donnerstag 11:30 – 22:00 Uhr | Freitag 09:00 – 22:00 Uhr | Samstag 10:00 – 19:00 Uhr | Sonntage und Zuger Feiertage 10:00 – 19:00 Uhr",
+    "note": "The bistro on the same page closes half an hour later on weekdays."
+  },
+  {
+    "lat": 46.94673,
+    "lon": 7.43631,
+    "name": "BoulderBad Muubeeri",
+    "country": "CH",
+    "source": "https://www.muubeeri.ch/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "07:00-22:30",
+      "tue": "07:00-22:30",
+      "wed": "07:00-22:30",
+      "thu": "11:30-22:30",
+      "fri": "09:00-22:30",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Montag 07:00 – 22:30 | Dienstag 07:00 – 22:30 | Mittwoch 07:00 – 22:30 | Donnerstag 11:30 – 22:30 | Freitag 09:00 – 22:30 | Samstag 09:00 – 19:00 | Sonntag 09:00 – 19:00"
+  },
+  {
+    "lat": 47.39912,
+    "lon": 8.4528,
+    "name": "Boulderlounge Schlieren",
+    "country": "CH",
+    "source": "https://www.boulderlounge.ch/schlieren/zeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "11:30-22:30",
+      "tue": "11:30-22:30",
+      "wed": "11:30-22:30",
+      "thu": "11:30-22:30",
+      "fri": "11:30-22:30",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "ÖFFNUNGSZEITEN SCHLIEREN: Montag 11:30 - 22:30 | Dienstag 11:30 - 22:30 | Mittwoch 11:30 - 22:30 | Donnerstag 11:30 - 22:30 | Freitag 11:30 - 22:30 | Samstag / Sonntag / Feiertage 10:00 - 20:00"
+  },
+  {
+    "lat": 47.3994122,
+    "lon": 8.454455600000001,
+    "name": "Boulderlounge Schlieren",
+    "country": "CH",
+    "source": "https://www.boulderlounge.ch/schlieren/zeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "11:30-22:30",
+      "tue": "11:30-22:30",
+      "wed": "11:30-22:30",
+      "thu": "11:30-22:30",
+      "fri": "11:30-22:30",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "ÖFFNUNGSZEITEN SCHLIEREN: Montag 11:30 - 22:30 | Dienstag 11:30 - 22:30 | Mittwoch 11:30 - 22:30 | Donnerstag 11:30 - 22:30 | Freitag 11:30 - 22:30 | Samstag / Sonntag / Feiertage 10:00 - 20:00",
+    "note": "Card holders may additionally enter from 06:15; the staffed week is what is recorded."
+  },
+  {
+    "lat": 47.41511,
+    "lon": 9.33957,
+    "name": "Boulderlounge St Gallen",
+    "country": "CH",
+    "source": "https://www.boulderlounge.ch/st-gallen/zeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "11:30-22:30",
+      "tue": "11:30-22:30",
+      "wed": "11:30-22:30",
+      "thu": "11:30-22:30",
+      "fri": "11:30-22:30",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Montag 11:30 - 22:30 | Dienstag 11:30 - 22:30 | Mittwoch 11:30 - 22:30 | Donnerstag 11:30 - 22:30 | Freitag 11:30 - 22:30 | Samstag / Sonntag / Feiertage 10:00 - 20:00"
+  },
+  {
+    "lat": 47.03089684368702,
+    "lon": 8.297610741818875,
+    "name": "City Boulder AG",
+    "country": "CH",
+    "source": "https://www.cityboulder.ch/index.php/infos/oeffnungszeiten",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "MONTAG - FREITAG 9.00 - 22.00 Uhr | SAMSTAG + SONNTAG 9.00 - 18.00 Uhr"
+  },
+  {
+    "lat": 47.40872,
+    "lon": 9.30892,
+    "name": "Die Kletterhalle St. Gallen AG",
+    "country": "CH",
+    "source": "https://kletterzentrum-sg.ch/infos/oeffnungszeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Montag bis Freitag 09h – 22h | Wochenende 09h – 18h"
+  },
+  {
+    "lat": 47.57459,
+    "lon": 7.57384,
+    "name": "ELYS Boulderloft",
+    "country": "CH",
+    "source": "https://boulderloft.ch/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "MO 09.00 bis 23.00 | DI 09.00 bis 23.00 | MI 09.00 bis 23.00 | DO 09.00 bis 23.00 | FR 09.00 bis 23.00 | SA 09.00 bis 21.00 | SO 09.00 bis 21.00",
+    "note": "The site's schema.org openingHoursSpecification states the same week."
+  },
+  {
+    "lat": 47.57471,
+    "lon": 7.5738,
+    "name": "ELYS Boulderloft",
+    "country": "CH",
+    "source": "https://boulderloft.ch/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "MO 09.00 bis 23.00 | DI 09.00 bis 23.00 | MI 09.00 bis 23.00 | DO 09.00 bis 23.00 | FR 09.00 bis 23.00 | SA 09.00 bis 21.00 | SO 09.00 bis 21.00",
+    "note": "Upstream carries this gym twice, about 14 m apart."
+  },
+  {
+    "lat": 47.10766871104924,
+    "lon": 9.065064049074039,
+    "name": "GLKB Boulderhalle / Lintharena",
+    "country": "CH",
+    "source": "https://www.lintharena.ch/Oeffnungszeiten",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-22:00",
+      "tue": "08:00-22:00",
+      "wed": "06:00-22:00",
+      "thu": "06:00-22:00",
+      "fri": "06:00-22:00",
+      "sat": "08:00-20:00",
+      "sun": "08:00-18:00"
+    },
+    "evidence": "GLKB Boulderhalle, Kletterhalle: Montag, Dienstag 08.00 - 22.00 | Mittwoch - Freitag 06.00 - 22.00 | Samstag 08.00 - 20.00 | Sonntag 08.00 - 18.00",
+    "note": "The sports centre publishes a separate table per facility; this is the one headed GLKB Boulderhalle, Kletterhalle."
+  },
+  {
+    "lat": 47.36121,
+    "lon": 8.7256,
+    "name": "GRIFFIG",
+    "country": "CH",
+    "source": "https://www.griffig.com/%C3%B6ffnungszeiten.html",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:30",
+      "tue": "09:00-22:30",
+      "wed": "10:00-22:30",
+      "thu": "09:00-22:30",
+      "fri": "10:00-22:30",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Montag, Mittwoch und Freitag: 10:00 - 22:30 | Dienstag und Donnerstag: 09:00 - 22:30 | Samstag und Sonntag: 09:00 - 18:00"
+  },
+  {
+    "lat": 46.52936,
+    "lon": 6.62476,
+    "name": "Grimper.ch Lausanne-Beaulieu",
+    "country": "CH",
+    "source": "https://www.grimper.ch/salles-descalade/lausanne-beaulieu/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-22:30",
+      "tue": "09:00-22:30",
+      "wed": "09:00-22:30",
+      "thu": "09:00-22:30",
+      "fri": "09:00-22:30",
+      "sat": "09:00-20:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "Salle et horaires d'ouverture — lu - ve : 09h00 - 22h30 | sa - di : 09h00 - 20h00"
+  },
+  {
+    "lat": 46.22459,
+    "lon": 6.05331,
+    "name": "Grimper.ch Satigny",
+    "country": "CH",
+    "source": "https://www.grimper.ch/salles-descalade/satigny/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-22:30",
+      "tue": "09:00-22:30",
+      "wed": "09:00-22:30",
+      "thu": "09:00-22:30",
+      "fri": "09:00-22:30",
+      "sat": "09:00-20:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "Salle et horaires d'ouverture — lu - ve : 09h00 - 22h30 | sa - di : 09h00 - 20h00"
+  },
+  {
+    "lat": 47.3300611,
+    "lon": 7.9035474,
+    "name": "Kletterhalle Isatis AG",
+    "country": "CH",
+    "source": "https://isatis.ag/oeffnungszeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "16:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "13:00-22:00",
+      "thu": "13:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Montag 16.00 – 22.00 Uhr | Dienstag 09.00 – 22.00 Uhr | Mittwoch 13.00 – 22.00 Uhr | Donnerstag 13.00 – 22.00 Uhr | Freitag 09.00 – 22.00 Uhr | Samstag 09.00 – 18.00 Uhr | Sonntag 09.00 – 18.00 Uhr"
+  },
+  {
+    "lat": 47.40031,
+    "lon": 8.06503,
+    "name": "Kraftreaktor Aarau",
+    "country": "CH",
+    "source": "https://kraftreaktor-aarau.ch/ueber/oeffnungszeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "11:30-22:00",
+      "tue": "11:30-22:00",
+      "wed": "11:30-22:00",
+      "thu": "11:30-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "Mo – Do 11:30 – 22:00 | Fr 10:00 – 22:00 | Sa + So 10:00 – 19:00"
+  },
+  {
+    "lat": 47.39503,
+    "lon": 8.17719,
+    "name": "Kraftreaktor Lenzburg",
+    "country": "CH",
+    "source": "https://kraftreaktor.ch/ueber/oeffnungszeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "13:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "13:00-22:00",
+      "sat": "09:00-20:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "Mo + Fr 13:00 – 22:00 | Di – Do 09:00 – 22:00 | Sa + So 09:00 – 20:00"
+  },
+  {
+    "lat": 46.54329,
+    "lon": 6.62947,
+    "name": "Le Cube - Escalade & Bar",
+    "country": "CH",
+    "source": "https://lecube.ch/horaires-tarifs/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:30",
+      "tue": "09:00-22:30",
+      "wed": "09:00-22:30",
+      "thu": "09:00-22:30",
+      "fri": "09:00-22:30",
+      "sat": "09:00-20:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "Lundi → Vendredi 09:00 22:30 | Weekend 09:00 20:00"
+  },
+  {
+    "lat": 46.80012,
+    "lon": 7.1482,
+    "name": "Le Hangar Bouldering Fribourg",
+    "country": "CH",
+    "source": "https://www.grimper.ch/salles-descalade/fribourg/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-22:30",
+      "tue": "09:00-22:30",
+      "wed": "09:00-22:30",
+      "thu": "09:00-22:30",
+      "fri": "09:00-22:30",
+      "sat": "09:00-20:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "Salle et horaires d'ouverture — lu - ve : 09h00 - 22h30 | sa - di : 09h00 - 20h00"
+  },
+  {
+    "lat": 47.21589,
+    "lon": 7.78395,
+    "name": "Manola Boulder Langenthal",
+    "country": "CH",
+    "source": "https://www.manola-boulder.ch/infos",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "Montag 09:00–22:00 | Dienstag 09:00–22:00 | Mittwoch 09:00–22:00 | Donnerstag 09:00–22:00 | Freitag 09:00–22:00 | Samstag 10:00–19:00 | Sonntag 10:00–19:00"
+  },
+  {
+    "lat": 47.38186,
+    "lon": 8.49534,
+    "name": "Minimum Flüela",
+    "country": "CH",
+    "source": "https://minimum.ch/bouldern/oeffnungszeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "08:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "08:00-23:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Flüela: Mo – Fr 08:00 – 23:00 | Sa – So 10:00 – 20:00",
+    "note": "One page carries both Zürich halls under explicit Flüela and Leutschenbach headings, with the same week for each."
+  },
+  {
+    "lat": 47.41604,
+    "lon": 8.55452,
+    "name": "Minimum Leutsch",
+    "country": "CH",
+    "source": "https://minimum.ch/bouldern/oeffnungszeiten/",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "08:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "08:00-23:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Leutschenbach: Mo – Fr 08:00 – 23:00 | Sa – So 10:00 – 20:00"
+  },
+  {
+    "lat": 47.3807,
+    "lon": 8.50559,
+    "name": "Mitō Bouldering",
+    "country": "CH",
+    "source": "https://www.mito-bouldering.ch/de/hours",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "07:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "07:00-22:00",
+      "fri": "07:00-22:00",
+      "sat": "08:00-20:00",
+      "sun": "08:00-18:00"
+    },
+    "evidence": "Reguläre Öffnungszeiten: Montag – Freitag 07:00 – 22:00 | Samstag 08:00 – 20:00 | Sonntag 08:00 – 18:00"
+  },
+  {
+    "lat": 47.38077156036091,
+    "lon": 8.50559518406294,
+    "name": "Mitō Bouldering",
+    "country": "CH",
+    "source": "https://www.mito-bouldering.ch/de/hours",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "07:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "07:00-22:00",
+      "fri": "07:00-22:00",
+      "sat": "08:00-20:00",
+      "sun": "08:00-18:00"
+    },
+    "evidence": "Reguläre Öffnungszeiten: Montag – Freitag 07:00 – 22:00 | Samstag 08:00 – 20:00 | Sonntag 08:00 – 18:00",
+    "note": "Upstream carries this gym twice, about 8 m apart."
+  },
+  {
+    "lat": 47.36269,
+    "lon": 7.91604,
+    "name": "Momentum Olten",
+    "country": "CH",
+    "source": "https://www.momentumolten.ch/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "17:30-21:30",
+      "tue": "17:30-21:30",
+      "wed": "14:00-21:30",
+      "thu": "17:30-21:30",
+      "fri": "closed",
+      "sat": "14:00-18:30",
+      "sun": "10:00-18:30"
+    },
+    "evidence": "Montag, 17.30 – 21.30 Uhr | Dienstag, 17.30 – 21.30 Uhr | Mittwoch, 14.00 – 21.30 Uhr | Donnerstag, 17.30 – 21.30 Uhr | Freitag, geschlossen | Samstag, 14.00 – 18.30 Uhr | Sonntag, 10.00 – 18.30 Uhr",
+    "note": "Subscribers with an access badge get in at any time; the staffed week is what is recorded. On the last Sunday of the month the arena opens to sport at 12:00."
+  },
+  {
+    "lat": 46.96234,
+    "lon": 7.48369,
+    "name": "O-Bloc",
+    "country": "CH",
+    "source": "https://obloc.ch/kontakt",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "08:00-23:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Mo, Di & Do: 10.00–23.00 | Mi & Fr: 08.00–23.00 | Sa & So: 09.00–19.00"
+  },
+  {
+    "lat": 46.67113880148077,
+    "lon": 7.878928299999998,
+    "name": "Orbit Interlaken",
+    "country": "CH",
+    "source": "https://orbit-interlaken.ch/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-22:00",
+      "tue": "08:00-22:00",
+      "wed": "08:00-22:00",
+      "thu": "08:00-22:00",
+      "fri": "08:00-22:00",
+      "sat": "08:00-20:00",
+      "sun": "08:00-20:00"
+    },
+    "evidence": "Mo 08:00 – 22.00 | Di 08:00 – 22:00 | Mi 08:00 – 22:00 | Do 08:00 – 22:00 | Fr 08:00 – 22:00 | Sa 08:00 – 20:00 | So 08:00 – 20:00"
+  },
+  {
+    "lat": 46.16612,
+    "lon": 6.10352,
+    "name": "Planet Climbing Plan-les-Ouates",
+    "country": "CH",
+    "source": "https://planetclimbing.ch/plan-les-ouates/heures-douverture-et-tarifs/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-21:00",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "Lundi, Mardi, Mercredi, Jeudi & Vendredi : 10h00-22h00 | Samedi & Dimanche : 10h00-21h00",
+    "note": "The page's schema.org openingHours states the same week."
+  },
+  {
+    "lat": 46.0944,
+    "lon": 7.77947,
+    "name": "Randa Boulder",
+    "country": "CH",
+    "source": "https://www.randaboulder.ch/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "07:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "07:00-22:00",
+      "fri": "07:00-22:00",
+      "sat": "07:00-22:00",
+      "sun": "07:00-22:00"
+    },
+    "evidence": "ÖFFNUNGSZEITEN MONTAG - SONNTAG 07h00 - 22h00",
+    "note": "Entry is bought through the venue's own app; the published week is unconditional."
+  },
+  {
+    "lat": 47.17239,
+    "lon": 9.48265,
+    "name": "Sparta Bouldering & Bar",
+    "country": "CH",
+    "source": "https://www.sparta-bouldering.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "11:30-22:30",
+      "tue": "11:30-22:30",
+      "wed": "09:00-22:30",
+      "thu": "11:30-22:30",
+      "fri": "11:30-22:30",
+      "sat": "09:30-18:00",
+      "sun": "09:30-18:00"
+    },
+    "evidence": "Montag, Dienstag, Donnerstag & Freitag 11.30 Uhr bis 22.30 Uhr | Mittwoch 09.00 Uhr bis 22.30 Uhr | Samstag, Sonntag & gesetzliche Feiertage 09.30 Uhr bis 18.00 Uhr"
+  },
+  {
+    "lat": 47.0081764,
+    "lon": 8.6471354,
+    "name": "Spinnerei Indoor",
+    "country": "CH",
+    "source": "https://www.spinnerei-indoor.ch/%C3%B6ffnungszeiten",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "11:00-22:00",
+      "tue": "11:00-22:00",
+      "wed": "11:00-22:00",
+      "thu": "11:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Montag bis Donnerstag 11:00 - 22:00 | Freitag 09:00 - 22:00 | Samstag & Sonntag 10:00 - 18:00"
+  },
+  {
+    "lat": 46.81957073854385,
+    "lon": 8.402384722090277,
+    "name": "Südwand Engelberg",
+    "country": "CH",
+    "source": "https://suedwand.ch/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "closed",
+      "tue": "10:00-18:00",
+      "wed": "10:00-18:00",
+      "thu": "10:00-18:00",
+      "fri": "10:00-18:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Neue Öffnungszeiten gültig ab dem 05.01.2025: Montag Ruhetag | Dienstag 10:00-18:00 | Mittwoch 10:00-18:00 | Donnerstag 10:00-18:00 | Freitag 10:00-18:00 | Samstag 9:00-18:00 | Sonntag 9:00-18:00"
+  },
+  {
     "lat": 48.1067623,
     "lon": 11.5456929,
     "name": "@kbthalkirchen",

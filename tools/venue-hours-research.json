@@ -1,5 +1,305 @@
 [
   {
+    "lat": 48.21057937040195,
+    "lon": 16.375051953580066,
+    "name": "Alpenverein Austria",
+    "country": "AT",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "No schedule appears on the homepage or on any of the pages linked from it. The only times are the section office's, Mo-Do 10:00-18:00 and Fr 10:00-17:00.",
+    "source": "https://www.alpenverein-austria.at/kletterzentrum/"
+  },
+  {
+    "lat": 47.05068,
+    "lon": 15.43472,
+    "name": "BLOC house Graz",
+    "country": "AT",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The visible week is labelled SOMMERÖFFNUNGSZEITEN (Mo-Di 16-22, Mi-Fr 7-13 and 16-22, Sa-So 9-21) and the site's schema.org openingHours states a different, unlabelled one (Mo 9:00-22:00, Di-Fr 7:00-22:00, Sa-So 9:00-21:00).",
+    "source": "https://bloc-house.at/"
+  },
+  {
+    "lat": 47.27285,
+    "lon": 11.40696,
+    "name": "BlocBox-Training",
+    "country": "AT",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+    "source": "https://blocbox-training.com/"
+  },
+  {
+    "lat": 47.26832,
+    "lon": 9.59202,
+    "name": "Block Monkey",
+    "country": "AT",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "Two published regimes — a term-time one and \"Im Sommer vom 01.07. bis 31.08.\" — each with its own staffed Kassa/Bistro hours, over a 6:00–22:30 badge-access window. The site's schema.org openingHours adds a third answer, Monday to Sunday 09:00–17:00.",
+    "source": "https://www.blockmonkey.at/"
+  },
+  {
+    "lat": 46.60513640000001,
+    "lon": 14.304813,
+    "name": "Boulderama Klagenfurt",
+    "country": "AT",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The Öffnungszeiten page is headed with both \"Winter Öffnungszeiten ab 15.09.2025\" and \"Sommer Öffnungszeiten ab 1.6.2026\", and the single table below cannot be tied to either.",
+    "source": "https://boulderama.at/oeffnungszeiten/"
+  },
+  {
+    "lat": 46.7978307,
+    "lon": 13.7076291,
+    "name": "Boulderbox Radenthein",
+    "country": "AT",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+    "source": "https://www.alpenverein.at/radenthein/klettern/boulderbox.php"
+  },
+  {
+    "lat": 47.68248,
+    "lon": 13.10037,
+    "name": "Boulderhallein",
+    "country": "AT",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The Öffnungszeiten page states one staffed slot, Mittwoch 17:00–19:30. Everything else runs on a registered magnet card whose access hours the site does not publish.",
+    "source": "https://boulderhallein.com/boulderhalle/oeffnungszeiten"
+  },
+  {
+    "lat": 47.4427795,
+    "lon": 13.9034303,
+    "name": "boulderraum.at | Alpenverein Gröbming",
+    "country": "AT",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "No schedule appears on the homepage or on any of the pages linked from it. The site is a small club page whose only times are event announcements.",
+    "source": "https://www.boulderraum.at/"
+  },
+  {
+    "lat": 46.78353,
+    "lon": 15.54574,
+    "name": "Kletterhalle Alpenverein Leibnitz",
+    "country": "AT",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "No schedule appears on the homepage or on any of the pages linked from it. The only times published are the shop hours of the two outlets that sell tickets.",
+    "source": "https://www.alpenverein.at/jugend-leibnitz/klettern/index.php"
+  },
+  {
+    "lat": 47.46782442061603,
+    "lon": 11.984181870524345,
+    "name": "Kletterhalle Kundl",
+    "country": "AT",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Access runs on a Zutritts-Chip and the page publishes three overlapping blocks for it — Di/Do/Fr/So 10:00–22:00, Mo/Mi/Sa 06:00–17:00 and Mo/Mi/Sa 17:00–22:00 — beside separate café times. Which of them a visitor without a chip can use is not stated.",
+    "source": "https://www.alpenverein.at/mittleres-unterinntal-kundl-breitenbach/kletterhalle/index.php"
+  },
+  {
+    "lat": 47.3313516,
+    "lon": 15.3614209,
+    "name": "Kletterhalle Mixnitz",
+    "country": "AT",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The section's page states \"Öffnungszeiten: Mittwoch 18 Uhr bis 20 Uhr\" and nothing about the other six days, which are neither stated as open nor as closed.",
+    "source": "https://www.alpenverein.at/mixnitz/kletterhalle/Kletterhalle.php"
+  },
+  {
+    "lat": 47.4435946,
+    "lon": 12.3996585,
+    "name": "KLETTERKITZ",
+    "country": "AT",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Two regimes and a missing day: the staffed week is Di-Fr 17:00–21:00 and Sa-So & Feiertage 14:00–19:00 with no Monday, while cash- or annual-card holders may climb daily 07:00–22:00.",
+    "source": "https://www.kletterkitz.at/"
+  },
+  {
+    "lat": 47.0314,
+    "lon": 10.74694,
+    "name": "Quellalpin Kaunertal",
+    "country": "AT",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+    "source": "https://www.quellalpin.at/"
+  },
+  {
+    "lat": 46.95906,
+    "lon": 7.47294,
+    "name": "Bimano Bern",
+    "country": "CH",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The Öffnungszeiten page carries four tables behind four tabs labelled skate, kids, boulder and zent, and the fetched document gives no way to tell which table belongs to which tab. One of them is Mo-Fr 10:00-22:00 with 10:00-18:00 at the weekend, but which is a guess.",
+    "source": "https://www.bimano.ch/oeffnungszeiten"
+  },
+  {
+    "lat": 47.19916,
+    "lon": 7.54397,
+    "name": "Bimano Solothurn",
+    "country": "CH",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The weekly table (Mo-Fr 05:00-22:00, Sa-So 09:00-18:00) is followed by \"Achtung: Im Sommer können diese Zeiten abweichen. Sommeröffnungszeiten: 1.6.26.-4.9.26\", a window that is open right now.",
+    "source": "https://bimanosolothurn.ch/oeffnungszeiten"
+  },
+  {
+    "lat": 47.4831911,
+    "lon": 8.2313602,
+    "name": "Blockchäfer",
+    "country": "CH",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "The volunteer-run hall's new site says \"jeden Tag geöffnet\" and gives no times; no schedule appears on the homepage or on any of the pages linked from it.",
+    "source": "https://www.blockchaefer.ch/"
+  },
+  {
+    "lat": 47.18413,
+    "lon": 8.10923,
+    "name": "Boulder Arena Sursee",
+    "country": "CH",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The boulder page publishes no opening hours; the only times on the site are subscription access windows on the price page (Montag bis Sonntag 06:00 bis 24:00, Montag bis Freitag 06:00 bis 16:00, Freitag ab 16:00 bis Sonntag 24:00), which are tariff bands rather than a stated opening.",
+    "source": "https://www.arenasursee.ch/boulder"
+  },
+  {
+    "lat": 47.1532331,
+    "lon": 8.0267847,
+    "name": "Bouldergate Ettiswil",
+    "country": "CH",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+    "source": "https://www.bouldergate.ch/"
+  },
+  {
+    "lat": 46.62682,
+    "lon": 7.0669939,
+    "name": "L'Entrepôt",
+    "country": "CH",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The page states Du lundi au vendredi 09h00 à 22h00 and Samedi et dimanche 09h00 à 20h00, while its schema.org openingHoursSpecification says all seven days 09:00–22:00.",
+    "source": "https://lentrepot.ch/infos-pratiques/"
+  },
+  {
+    "lat": 46.6274,
+    "lon": 7.06666,
+    "name": "L'Entrepôt",
+    "country": "CH",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Same hall as the venue about 60 m away, and the same conflict: 09h00–20h00 at the weekend in the text, 09:00–22:00 every day in the markup.",
+    "source": "https://lentrepot.ch/infos-pratiques/"
+  },
+  {
+    "lat": 46.78714,
+    "lon": 6.63162,
+    "name": "La Pile SA",
+    "country": "CH",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The hall says outright that it adapts its opening hours to the seasons (\"nous adaptons nos horaires d'ouverture en fonction des saisons\") and asks visitors to re-check before coming; Mondays additionally change during Vaud school holidays.",
+    "source": "https://lapile.ch/acces-et-horaires/"
+  },
+  {
+    "lat": 46.6543456,
+    "lon": 6.503461,
+    "name": "Moon Venga Bloc",
+    "country": "CH",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+    "source": "https://www.vengabloc.ch/"
+  },
+  {
+    "lat": 46.190825110299706,
+    "lon": 6.111380637625461,
+    "name": "Planet Climbing",
+    "country": "CH",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The Lancy hours page states Lundi–Vendredi 12h00-22h00 and Samedi & Dimanche 14h00-21h00, while the schema.org openingHours on that same page says Monday–Friday 10:00-22:00 and Saturday–Sunday 10:00-21:00.",
+    "source": "https://planetclimbing.ch/lancy/heures-douverture-et-tarifs/"
+  },
+  {
+    "lat": 46.19127,
+    "lon": 6.11122,
+    "name": "Planet Climbing Lancy",
+    "country": "CH",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Same hall as the venue about 50 m away, and the same conflict between the page's visible times (12h00-22h00 on weekdays) and its own schema.org markup (10:00-22:00).",
+    "source": "https://planetclimbing.ch/lancy/heures-douverture-et-tarifs/"
+  },
+  {
+    "lat": 47.2242898,
+    "lon": 8.8431787,
+    "name": "Quergang",
+    "country": "CH",
+    "status": "appointment-only",
+    "checked": "2026-08-23",
+    "reason": "The hall states that public bouldering is Tuesday evenings 18–22 Uhr only and that \"an allen anderen Tagen ist die Boulderhalle nur für Abonnent*innen zugänglich\" — the rest of the week is subscriber access, which is not a public opening.",
+    "source": "https://www.quergang.ch/oeffnungszeiten"
+  },
+  {
+    "lat": 46.344441391849095,
+    "lon": 8.606540654763847,
+    "name": "Splüia boulder",
+    "country": "CH",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+    "source": "https://spluia.ch/"
+  },
+  {
+    "lat": 46.81798,
+    "lon": 8.40471,
+    "name": "Sporting Park Engelberg",
+    "country": "CH",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "The sports centre publishes a day-by-day event calendar for its ice rink and group reservations of the climbing wall, but no opening hours for the wall itself.",
+    "source": "https://www.sportingpark.ch/"
+  },
+  {
+    "lat": 46.21936,
+    "lon": 6.10238,
+    "name": "TOTEM Le Môll",
+    "country": "CH",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "Same as the operator's other halls: the hours are rendered client-side and appear in the fetched document only as schema.org markup.",
+    "source": "https://totem.ch/vernier"
+  },
+  {
+    "lat": 46.2876938,
+    "lon": 6.1657813,
+    "name": "Totem Versoix",
+    "country": "CH",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The hall's own FAQ says the precise hours are displayed at the top of the page and kept up to date automatically; they are rendered client-side, so the fetched document carries them only as schema.org markup.",
+    "source": "https://totem.ch/versoix"
+  },
+  {
+    "lat": 46.4628333,
+    "lon": 6.8419192,
+    "name": "Totem Vevey Moonboard",
+    "country": "CH",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "Same as the operator's other halls: the hours are rendered client-side and appear in the fetched document only as schema.org markup.",
+    "source": "https://totem.ch/vevey"
+  },
+  {
     "lat": 48.8163,
     "lon": 9.29915,
     "name": "Active Garden Waiblingen",

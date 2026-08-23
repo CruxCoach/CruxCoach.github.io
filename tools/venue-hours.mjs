@@ -242,9 +242,9 @@ export function formatWeeklyHours(week, lang = 'en') {
 // sourcing catches that.
 //
 // The comparison is deliberately loose about spelling, because pages write the
-// same time as "10", "10:00", "10.00" and "10 Uhr", and strict about the number,
-// because the number is the thing that can be wrong. Returns the times the
-// evidence does not account for; empty means the record checks out.
+// same time as "10", "10:00", "10.00", "10h00" and "10 Uhr", and strict about
+// the number, because the number is the thing that can be wrong. Returns the
+// times the evidence does not account for; empty means the record checks out.
 export function timesMissingFromEvidence(entry) {
   const evidence = typeof entry?.evidence === 'string' ? entry.evidence : '';
   const missing = new Set();
@@ -261,10 +261,13 @@ export function timesMissingFromEvidence(entry) {
         const h = Math.floor(minutes / 60) % 24;
         const m = minutes % 60;
         const hour = `0?${h}`;
+        // `h` is a separator too: French and Swiss pages write 22h30, and a
+        // curator quoting such a page should not have to transliterate it.
+        const sep = '[:.h]';
         const pattern = m === 0
-          // A whole hour may be written bare: "10", "10:00", "10.00".
-          ? new RegExp(`(^|[^0-9])${hour}([^0-9:.]|[:.]00([^0-9]|$)|$)`)
-          : new RegExp(`(^|[^0-9])${hour}[:.]${String(m).padStart(2, '0')}([^0-9]|$)`);
+          // A whole hour may be written bare: "10", "10:00", "10.00", "10h".
+          ? new RegExp(`(^|[^0-9])${hour}([^0-9:.h]|${sep}00([^0-9]|$)|h([^0-9]|$)|$)`)
+          : new RegExp(`(^|[^0-9])${hour}${sep}${String(m).padStart(2, '0')}([^0-9]|$)`);
         if (!pattern.test(evidence)) missing.add(formatTime(minutes));
       }
     }
