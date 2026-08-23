@@ -8783,6 +8783,20 @@
     ]
   },
   {
+    "lat": 42.05786,
+    "lon": 1.26798,
+    "name": "Rocodromo Peramola",
+    "country": "ES",
+    "website": "https://rocodromo.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "The centre's own site, printing 9 — the building number in Carrer Frederic Ribó, 9, 25790 Peramola that upstream records."
+  },
+  {
     "lat": 42.45613,
     "lon": -2.4121,
     "name": "Rocódromo Rawindoor",
@@ -12232,6 +12246,20 @@
     "note": "Read through the platform routes, the gym's own site prints 241 and 424-0065 — the building number and postal code in 清水区長崎241, 424-0065 that upstream records — and embeds a map of itself 173 m from this venue."
   },
   {
+    "lat": 37.79381,
+    "lon": 128.91532,
+    "name": "원더 스카이 Wonder Sky _ 강릉",
+    "country": "KR",
+    "website": "https://www.wondersky.co.kr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Wonder Sky's own site, printing 248 — the building number in 난설헌로 248, Gangneung, that upstream records."
+  },
+  {
     "lat": 54.66982,
     "lon": 25.26907,
     "name": "Bonobo Climbing",
@@ -13666,6 +13694,23 @@
     "note": "The operator's other Drammen hall is on Strømsø at Tollbugata 115; this coordinate sits 1.8 km from it, on Bragernes torg."
   },
   {
+    "lat": 58.1472,
+    "lon": 7.98027,
+    "name": "Klatreverket Kristiansand",
+    "country": "NO",
+    "website": "https://klatreverket.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "Klatreverket publishes its Kristiansand hall on its own site, printing Jørgen Moes gate 10 and the 4616 postal code upstream records, and naming the boards this venue is listed for. The operator runs several halls, so this is a chain page."
+  },
+  {
     "lat": 59.92947,
     "lon": 10.75802,
     "name": "Klatreverket Løkka",
@@ -14325,6 +14370,21 @@
     "note": "Delta Climb's own site, naming the Tension Board this venue is listed for and embedding a map of itself 64 m away. Upstream records no street for the venue."
   },
   {
+    "lat": 51.1078852,
+    "lon": 17.0385376,
+    "name": "Eiger",
+    "country": "PL",
+    "website": "https://eiger.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Eiger's own site, giving Wrocław — the city upstream records, which the venue name does not carry — and naming the MoonBoard this venue is listed for."
+  },
+  {
     "lat": 51.097688,
     "lon": 16.9824829,
     "name": "Fabryczna Boulder",
@@ -14646,6 +14706,21 @@
       "city"
     ],
     "note": "Zone's own climbing page, printing the 4405 postal code and Vila Nova de Gaia — the town upstream records for Tv Joaquim Lopes Pintor 81. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
+  },
+  {
+    "lat": 46.55842,
+    "lon": 24.56646,
+    "name": "Blokx Mures",
+    "country": "RO",
+    "website": "https://blokx.ro/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "board-mention"
+    ],
+    "note": "Blokx's own site, printing 2 — the building number in Strada Caprioarei 2 that upstream records — and naming the MoonBoard this venue is listed for."
   },
   {
     "lat": 44.38974,

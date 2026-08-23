@@ -15120,6 +15120,32 @@
   "note": "The site's schema.org openingHoursSpecification states the same week."
  },
  {
+  "lat": 46.55842,
+  "lon": 24.56646,
+  "name": "Blokx Mures",
+  "country": "RO",
+  "source": "https://blokx.ro/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Program: Luni – Vineri: 11:00-22:00 Sambata, Duminica: 09:00-20:00",
+  "note": "Stated on the contact page above the telephone number, with the weekend given separately."
+ },
+ {
   "lat": 44.42102,
   "lon": 26.0954,
   "name": "Fabrica de Căţărat",
