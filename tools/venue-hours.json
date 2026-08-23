@@ -15380,6 +15380,56 @@
   "evidence": "Open: Ponedeljek → Nedelja / 17h → 22h | 5290 — Šempeter pri Gorici (Slo)"
  },
  {
+  "lat": 48.15243,
+  "lon": 17.13899,
+  "name": "Lezecké centrum Vertigo",
+  "country": "SK",
+  "source": "https://lezeckecentrum.sk/en/home/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Opening hours Monday: 15:00 - 22:00 Tuesday: 07:00 - 22:00 Wednesday: 07:00 - 22:00 Thursday: 07:00 - 22:00 Friday: 09:00 - 22:00 Saturday: 09:00 - 21:00 Sunday: 09:00 - 21:00",
+  "note": "Every day listed separately, and the page confirms it against the day it is read on (\"We're open today from 09:00 to 21:00\"). The Easter hours in its news list are a dated exception."
+ },
+ {
+  "lat": 48.69571,
+  "lon": 21.23896,
+  "name": "Steam Factory",
+  "country": "SK",
+  "source": "https://steamfactory.sk/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "10:30-20:30",
+   "tue": "10:30-20:30",
+   "wed": "10:30-20:30",
+   "thu": "10:30-20:30",
+   "fri": "10:30-21:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Otváracie hodiny Pondelok 10:30 - 20:30 Utorok 10:30 - 20:30 Streda 10:30 - 20:30 Štvrtok 10:30 - 20:30 Piatok 10:30 - 21:00 Sobota 09:00 - 21:00 Nedeľa 09:00 - 20:00",
+  "note": "Every day listed separately; Friday, Saturday and Sunday each differ from the Monday-to-Thursday block."
+ },
+ {
   "lat": 41.07611175615464,
   "lon": 29.01340927116426,
   "name": "Boulderhane",
@@ -16405,6 +16455,33 @@
    "sun": "08:00-22:00"
   },
   "evidence": "Sunday: 8am - 10pm Monday: 6am - 11pm Tuesday: 6am - 11pm Wednesday: 6am - 11pm Thursday: 6am - 11pm Friday: 6am - 11pm Saturday: 8am - 10pm"
+ },
+ {
+  "lat": 43.07327,
+  "lon": -89.38326,
+  "name": "Boulders Climbing Gym Downtown",
+  "country": "US",
+  "source": "https://www.bouldersgym.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "postal-code",
+   "city",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Hours Members Only Hours: 7am - 9am Regular Hours: Monday - Saturday 9am - 10pm Sunday 9am - 6pm",
+  "note": "The gym labels the two itself: the 7am-9am window is members only and is not published here; the block headed Regular Hours is."
  },
  {
   "lat": 37.9000185,
@@ -17472,6 +17549,33 @@
   },
   "evidence": "Monday-Friday*: 11am – 10pm | Saturday: 10am – 9pm | Sunday: 10am – 6pm | *Member Only Hours | Tuesday & Thursday: 6am-11am",
   "note": "Members additionally get in from 6am on Tuesday and Thursday at this location; the public week is what is recorded."
+ },
+ {
+  "lat": 42.29166,
+  "lon": -85.58329,
+  "name": "Climb Kalamazoo",
+  "country": "US",
+  "source": "https://www.climbkalamazoo.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "postal-code",
+   "city",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "HOURS Mon - Fri 12:00 pm - 10:00 pm Sat - Sun 10:00 am - 10:00 pm",
+  "note": "Stated beside the gym's parking information and map link."
  },
  {
   "lat": 38.2523376,
@@ -20911,6 +21015,33 @@
   "evidence": "Monday through Friday | 12 PM - 10 PM | Saturday | 10 AM - 8 PM | Sunday | 10 AM - 6 PM | Holiday Hours | Salt Pump will be closed on the following holidays: New Years Day, Memorial Day, July 4th, Labor Day, Thanksgiving, and Christmas."
  },
  {
+  "lat": 47.65153,
+  "lon": -122.34175,
+  "name": "SBP Upper Walls",
+  "country": "US",
+  "source": "https://boulderingproject.com/location/fremont-upper-walls/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "07:00-22:00",
+   "sun": "07:00-22:00"
+  },
+  "evidence": "Hours: 6am – 10pm Monday – Friday, 7am – 10pm Saturday – Sunday",
+  "note": "Stated on the operator's page for this hall, beside its own telephone number and email. The July 4 and July 5 lines beneath are dated holiday exceptions."
+ },
+ {
   "lat": 47.65055,
   "lon": -122.34171,
   "name": "Seattle Bouldering Project Fremont",
@@ -21430,6 +21561,31 @@
   },
   "evidence": "Opening Hours | Hours | Mon: 10:00 a.m. – 9:30 p.m. | Tue: 10:00 a.m. – 9:30 p.m. | Wed: 10:00 a.m. – 9:30 p.m. | Thu: 10:00 a.m. – 9:30 p.m. | Fri: 10:00 a.m. – 9:30 p.m. | Sat: 10:00 a.m. – 6:00 p.m. | Sun: 10:00 a.m. – 6:00 p.m.",
   "note": "A separate \"Member Hours (18+ only)\" block opens the gym to members from 6:00 a.m. on weekdays; the public week is what is recorded."
+ },
+ {
+  "lat": 42.4513689,
+  "lon": -75.06316799999999,
+  "name": "Table Rock Bouldering",
+  "country": "US",
+  "source": "https://www.tablerockbouldering.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "15:00-22:00",
+   "wed": "15:00-22:00",
+   "thu": "15:00-22:00",
+   "fri": "14:00-22:00",
+   "sat": "15:00-22:00",
+   "sun": "12:00-17:00"
+  },
+  "evidence": "Hours Mon 3pm - 10pm Tue 3pm - 10pm Wed 3pm - 10pm Thu 3pm - 10pm Fri 2pm - 10pm Sat 3pm - 10pm Sun 12pm - 5pm",
+  "note": "Every day listed separately beside the gym's telephone number; Friday and Sunday each differ from the rest."
  },
  {
   "lat": 42.9347612,
@@ -22635,6 +22791,33 @@
   "note": "The page splits the weekday morning off as members-only; the public week is what is recorded."
  },
  {
+  "lat": 21.05562,
+  "lon": 105.83981,
+  "name": "VietClimb",
+  "country": "VN",
+  "source": "https://vietclimb.vn/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Hours Monday - Friday: 10am-10pm Saturday-Sunday: 9am-10pm Address 2 Ng. 76 An Dương, Yên Phụ, Tây Hồ, Hà Nội",
+  "note": "Stated directly above the gym's address."
+ },
+ {
   "lat": -33.910389,
   "lon": 18.4726632,
   "name": "Bloc 11 - Paarden Eiland",
@@ -22786,5 +22969,30 @@
   },
   "evidence": "CityROCK Pretoria, Saltus Street, Guernsey North Business Park, CityROCK Unit B, Irene, Centurion — Opening hours Monday to Thursday: 11am to 10pm | Friday to Sunday: 9am to 6pm",
   "note": "The homepage lists each CityROCK gym with its address and its own opening-hours block."
+ },
+ {
+  "lat": -26.0820582,
+  "lon": 27.9732248,
+  "name": "Friends and Allies",
+  "country": "ZA",
+  "source": "https://friendsandallies.co.za/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-21:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Hours Mon-Thu: 9am - 10pm Friday: 9am - 9pm Sat-Sun: 9am - 6pm Public Holidays: 9am - 10pm",
+  "note": "Friday is stated separately from the rest of the week. Public holidays keep the Monday-to-Thursday window and are an exception rather than part of the week."
  }
 ]
