@@ -2969,16 +2969,6 @@
     "candidate": "https://www.ikigai-climbing.it/"
   },
   {
-    "lat": 46.01495,
-    "lon": 11.87572,
-    "name": "IL DADO",
-    "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "ildado.it presents a certificate that does not cover its hostname on either host, and ildado.com is a gambling-advice site. Nothing found names Via Culiada 82/b in Feltre.",
-    "candidate": "https://ildado.it/"
-  },
-  {
     "lat": 44.6191558,
     "lon": 11.2578173,
     "name": "KRO Board",
@@ -4885,16 +4875,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no candidate could be opened — saorock.com → a timeout, the venue's whole name as one label, saorock.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 41.18527,
-    "lon": -8.6218,
-    "name": "The North Wall",
-    "country": "PT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — rainbowrocket.cc/centre/north → \"North - Rainbow Rocket\"; northmassboulder.com → \"NORTH MASS BOULDER - Climbing, Yoga, Fitness, Community \"; north.verticalworld.com → \"North Vertical World | America's First Climbing Gym!\", the rest could not be opened — northboulder.com → 200, the venue's whole name as one label, thenorthwall.pt, answers 200 (\"The North Wall Rock climbing gym\") but its pages print no street, postal code or town matching this venue. Upstream records Rua do Tronco 375, WO, 5, 4465, São Mamede de Infesta, and nothing opened printed it.",
-    "candidate": "https://rainbowrocket.cc/centre/north/"
   },
   {
     "lat": 37.14661226641366,
@@ -7163,16 +7143,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — sessions.com → \"Sessions.com\"; sessionsclimbingfitness.com → \"Coming Soon\", the rest could not be opened — sessions.org → a certificate that does not cover its hostname; sessionsclimbing.com → 403, the venue's whole name as one label, sessionsclimbingfitness.com, answers 200 (\"Coming Soon\") but its pages print no street, postal code or town matching this venue. Upstream records 1775 Cimarron Rialto Square, 79912, El Paso, and nothing opened printed it.",
     "candidate": "https://www.sessions.com/"
-  },
-  {
-    "lat": 41.4684,
-    "lon": -81.53548,
-    "name": "Shaker Rocks",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "shakerrocks.com is the venue's own domain and answers 200, but serves a client-rendered page from which no content could be parsed — no title, no address, no text. shaker.org, which the guesser reached first, is a different Shaker Heights organisation. Retry when the site serves readable content.",
-    "candidate": "https://shakerrocks.com/"
   },
   {
     "lat": 40.64901,

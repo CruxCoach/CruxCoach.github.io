@@ -11744,6 +11744,22 @@
     ]
   },
   {
+    "lat": 46.01495,
+    "lon": 11.87572,
+    "name": "IL DADO",
+    "country": "IT",
+    "website": "https://ildadoboulder.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "Il Dado's own site, printing the 32032 postal code and Feltre — the town upstream records — and naming both the Moonboard and the Kilter this venue is listed for."
+  },
+  {
     "lat": 45.99849,
     "lon": 11.12495,
     "name": "Infinity Boulder",
@@ -14663,6 +14679,22 @@
       "coordinates"
     ],
     "note": "Proa Climbing Center's own site, embedding a map of itself that falls within 6 m of this venue."
+  },
+  {
+    "lat": 41.18527,
+    "lon": -8.6218,
+    "name": "The North Wall",
+    "country": "PT",
+    "website": "https://thenorthwall.pt/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "board-mention"
+    ],
+    "note": "The North Wall's own site, printing 375 and the 4465 postal code — the street number and postcode in Rua do Tronco 375, 4465 São Mamede de Infesta that upstream records — and naming the Kilter Board this venue is listed for."
   },
   {
     "lat": 39.3643407,
@@ -19596,6 +19628,22 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 41.4684,
+    "lon": -81.53548,
+    "name": "Shaker Rocks",
+    "country": "US",
+    "website": "https://shakerrocksclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gym's domain is shakerrocksclimbing.com, not shakerrocks.com. The latter is a parked host that answers 200 with a single script redirecting to /lander, which is why the first pass could read nothing off it; the real site prints 3377 Warrensville Center Rd, Shaker Heights 44122 — the whole address upstream records."
   },
   {
     "lat": 30.5949808,

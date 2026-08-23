@@ -5185,15 +5185,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 46.01495,
-  "lon": 11.87572,
-  "name": "IL DADO",
-  "country": "IT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 41.4833353,
   "lon": 12.8580469,
   "name": "Junglerock",
@@ -7941,9 +7932,10 @@
   "lon": -8.6218,
   "name": "The North Wall",
   "country": "PT",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://thenorthwall.pt/contact",
+  "reason": "The only opening the site states is \"Segunda- Sexta: 07:00 – 21:00\". Saturday and Sunday are not mentioned anywhere on it, and the timetable further down the page is a class schedule for Monday to Friday rather than an opening, so the week cannot be completed."
  },
  {
   "lat": 39.3643407,
@@ -10697,15 +10689,6 @@
   "lat": 31.88792,
   "lon": -106.57378,
   "name": "Sessions Climbing + Fitness",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 41.4684,
-  "lon": -81.53548,
-  "name": "Shaker Rocks",
   "country": "US",
   "status": "no-official-site",
   "checked": "2026-08-23",

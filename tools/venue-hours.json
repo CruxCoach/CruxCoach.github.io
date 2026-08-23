@@ -12859,6 +12859,33 @@
   "note": "The bar closes half an hour after the hall on both rows."
  },
  {
+  "lat": 46.01495,
+  "lon": 11.87572,
+  "name": "IL DADO",
+  "country": "IT",
+  "source": "https://ildadoboulder.it/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "postal-code",
+   "city",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "17:00-22:30",
+   "tue": "17:00-22:30",
+   "wed": "17:00-22:30",
+   "thu": "17:00-22:30",
+   "fri": "17:00-22:30",
+   "sat": "closed",
+   "sun": "closed"
+  },
+  "evidence": "ORARI LUNEDÌ 17:00 - 22:30 MARTEDÌ 17:00 - 22:30 MERCOLEDÌ 17:00 - 22:30 GIOVEDÌ 17:00 - 22:30 VENERDÌ 17:00 - 22:30 SABATO CHIUSO DOMENICA CHIUSO",
+  "note": "Every day is listed, with both weekend days stated closed rather than left out."
+ },
+ {
   "lat": 45.99849,
   "lon": 11.12495,
   "name": "Infinity Boulder",
@@ -21603,6 +21630,33 @@
   },
   "evidence": "Hours Monday – Friday: 10am-10pm Saturday: 10am-8pm Sunday: 10am-8pm",
   "note": "Stated on the gym's own hours page with Saturday and Sunday listed separately, and again on the home page and in the footer as \"MON-FRI: 10:00am-10:00pm SAT/SUN: 10:00am-8:00pm\". This venue and its twin 40 m away are the same hall."
+ },
+ {
+  "lat": 41.4684,
+  "lon": -81.53548,
+  "name": "Shaker Rocks",
+  "country": "US",
+  "source": "https://shakerrocksclimbing.com/contact-us",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Hours Monday: 9 AM – 10 PM Tuesday: 7 AM – 10 PM Wednesday: 9 AM – 10 PM Thursday: 7 AM – 10 PM Friday-Saturday: 9 AM – 10 PM Sunday: 9 AM – 6 PM",
+  "note": "Tuesday and Thursday open two hours earlier than the rest, and Sunday closes four hours earlier; the same block appears on the home page and the contact page."
  },
  {
   "lat": 42.81658,
