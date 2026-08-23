@@ -1009,16 +1009,6 @@
   "reason": "The visible page shows a booking calendar under the heading \"Regular Hours\" and no times. The only week the site states is in its LocalBusiness markup (all seven days 08:00-23:00), and markup on its own is not a source a schedule may be published from."
  },
  {
-  "lat": 46.4491391,
-  "lon": -80.9990673,
-  "name": "ARC Climbing Sudbury",
-  "country": "CA",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://arcclimbing.ca/contact/",
-  "reason": "The Contact + Hours page computes and shows only \"Today's Hours\" in the browser; the served HTML contains that one line and no weekly table, so no week could be read."
- },
- {
   "lat": 49.53477,
   "lon": -115.76467,
   "name": "ARQ Mountain Center",
@@ -1168,36 +1158,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 46.79569,
-  "lon": -71.1795,
-  "name": "DÉLIRE Escalade Lévis",
-  "country": "CA",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The gym list renders each hall's schedule from a bundled JavaScript payload; the served document carries the Lévis address and an openingHours array whose day labels are minified references, alongside a banner about a temporary schedule.",
-  "source": "https://www.delirescalade.com/"
- },
- {
-  "lat": 46.82717,
-  "lon": -71.27568,
-  "name": "DÈLIRE Escalade Pierre-Bertrand",
-  "country": "CA",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://www.delirescalade.com/",
-  "reason": "The operator runs several centres from one site and the only time the front page states is \"Parc ouvert 10h a 21h\", which is neither labelled for a centre nor a week. No per-centre schedule could be reached."
- },
- {
-  "lat": 46.80062,
-  "lon": -71.3259,
-  "name": "DÉLIRE Escalade Sainte-Foy",
-  "country": "CA",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://www.delirescalade.com/",
-  "reason": "As for the operator's other centre: the site states only \"Parc ouvert 10h a 21h\" on its front page, unattached to any centre or day, and no per-centre schedule could be reached."
  },
  {
   "lat": 46.07393,

@@ -2874,6 +2874,31 @@
   "evidence": "Monday to Friday : 10 h 00 à 23 h 00 | Saturday to Sunday : 9 h 00 à 22 h 00"
  },
  {
+  "lat": 46.4491391,
+  "lon": -80.9990673,
+  "name": "ARC Climbing Sudbury",
+  "country": "CA",
+  "source": "https://arcclimbing.ca/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "10:30-22:00",
+   "thu": "12:00-22:00",
+   "fri": "10:30-22:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "MONDAY 10:00 am – 10:00 pm TUESDAY 12:00 pm – 10:00 pm WEDNESDAY 10:30 am – 10:00 pm THURSDAY 12:00 pm – 10:00 pm FRIDAY 10:30 am – 10:00 pm SATURDAY 9:00 am – 6:00 pm SUNDAY 9:00 am – 6:00 pm",
+  "note": "Replaces an \"inaccessible\" outcome. The page computes a \"Today's Hours\" line in the browser, which is all the first pass could see; the week behind it is in the document and every day differs from the one before it."
+ },
+ {
   "lat": 43.51374599053669,
   "lon": -79.89567089814535,
   "name": "Aspire Climbing Milton",
@@ -3457,6 +3482,86 @@
    "sun": "11:00-21:00"
   },
   "evidence": "Monday – Friday 11am – 11pm | Saturday & Sunday 11am – 9pm | Holiday Hours | We are open as usual other than the following dates: | Christmas Eve (Close at 6pm) | Christmas Day (Closed all day)"
+ },
+ {
+  "lat": 46.79569,
+  "lon": -71.1795,
+  "name": "DÉLIRE Escalade Lévis",
+  "country": "CA",
+  "source": "https://www.delirescalade.com/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Lévis 44 Rte du Président-Kennedy Lundi au vendredi 11h00-22h00 Samedi et dimanche 9h00-21h00",
+  "note": "Lévis opens an hour later than the operator's Québec branches and closes an hour earlier at weekends, which is why each branch's block has to be read separately. The same page records the Beauport branch as permanently closed."
+ },
+ {
+  "lat": 46.82717,
+  "lon": -71.27568,
+  "name": "DÈLIRE Escalade Pierre-Bertrand",
+  "country": "CA",
+  "source": "https://www.delirescalade.com/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Pierre-Bertrand 955, boul. Pierre-Bertrand, Suite 150, Québec, G1M 2E8 Lundi au vendredi 10h00 - 23h00 Samedi et dimanche 9h00 - 22h00",
+  "note": "Replaces an \"ambiguous\" outcome. The first pass could reach only the front page, whose \"Parc ouvert 10h a 21h\" is neither a branch nor a week; the contact page gives each branch its own address and hours, and Lévis on the same page keeps different ones, which is what makes these per-branch."
+ },
+ {
+  "lat": 46.80062,
+  "lon": -71.3259,
+  "name": "DÉLIRE Escalade Sainte-Foy",
+  "country": "CA",
+  "source": "https://www.delirescalade.com/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Sainte-Foy 950, av. St-Jean-Baptiste, Suite 150, Québec, G2E 5E9 Lundi au vendredi 10h00 - 23h00 Samedi et dimanche 9h00 - 22h00",
+  "note": "Replaces an \"ambiguous\" outcome, from the same contact page as the operator's other branches. The address printed above the hours is the one upstream records for this venue, postal code included."
  },
  {
   "lat": 43.64433,
