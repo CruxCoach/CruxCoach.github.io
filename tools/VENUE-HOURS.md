@@ -315,8 +315,8 @@ maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (published + outcome entries) | 1243 |
-| Published schedules | 809 |
-| Recorded outcomes without hours | 434 |
+| Published schedules | 808 |
+| Recorded outcomes without hours | 435 |
 | Countries covered | 28 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -606,6 +606,15 @@ with an address and an `Åbningstider` row each), Boulderkeskus, Klatreverket,
 CityROCK, De Fabriek, Boulderhal Sterk. That is what `official-chain-page` plus
 the `hours-scope` signal is for, and the schema enforces it: the Konala record was
 refused until it carried something tying the page to that specific hall.
+
+**A later random re-read found something.** Six published records drawn at random
+were re-fetched; five matched. The sixth, Stuntwerk Duisburg, prints "Eröffnung:
+coming soon" directly above its "Öffnungszeiten: Montag - Sonntag 09-23 Uhr" —
+the hall has not opened, and the week is an intention. It is now logged `pending`
+instead of published. Nothing in the day grammar or the evidence check could have
+caught that: the times were real and quoted correctly. Only re-reading the page
+around them caught it, which is the argument for doing this periodically rather
+than once.
 
 **A sample re-read found nothing wrong.** Eight published records spread evenly
 through the file — Boulderbar Hauptbahnhof Plus, ELYS Boulderloft, Bouldergarten,
