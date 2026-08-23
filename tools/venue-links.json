@@ -3030,6 +3030,21 @@
     "note": "CragX's own site, giving its address in Victoria, BC V8W1N9 — the city upstream records as Victoria-Downtown."
   },
   {
+    "lat": 45.27562330000001,
+    "lon": -72.1767643,
+    "name": "D-Vert",
+    "country": "CA",
+    "website": "https://d-vert.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "coordinates"
+    ],
+    "note": "D-Vert's own site, giving \"50, chemin de la plage des Cantons, Magog, QC J1X 5X8\" — the town upstream records — and embedding a map of itself 12 m from this venue. The first pass had scored this venue against invertclimb.com, an Italian gym reached on a name fragment, and never opened d-vert.com itself."
+  },
+  {
     "lat": 46.79569,
     "lon": -71.1795,
     "name": "DÉLIRE Escalade Lévis",
@@ -8791,6 +8806,21 @@
     "note": "The site is \"Oceanus Climbing – Climbing Center – Telde – Gran Canaria\", prints C/Simón Bolivar 17, Telde, and names a MoonBoard — the board system this entry is listed for."
   },
   {
+    "lat": 43.53308,
+    "lon": -5.69682,
+    "name": "One Move",
+    "country": "ES",
+    "website": "https://www.moveclimbing.es/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "board-mention"
+    ],
+    "note": "Move Climbing's own site, printing 20 — the building number upstream records — and naming the Kilter Board this venue is listed for."
+  },
+  {
     "lat": 41.74104,
     "lon": 1.85513,
     "name": "p a t i • climb • coffee • community",
@@ -12525,6 +12555,20 @@
     "note": "Crashpad Climbing Centre's own site, giving Qormi — the town upstream records — and embedding a map of itself 4 m from this venue."
   },
   {
+    "lat": -13.9427314,
+    "lon": 33.7777146,
+    "name": "Climb Centre Malawi",
+    "country": "MW",
+    "website": "https://www.climbmalawi.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The same operator as the Climb Malawi entry already linked, and the site gives Lilongwe — the town upstream records."
+  },
+  {
     "lat": -13.93661,
     "lon": 33.77632,
     "name": "Climb Malawi",
@@ -12652,6 +12696,20 @@
       "city"
     ],
     "note": "Camp5 publishes its KL Eco City gym on its own site, with the 59200 postal code and the city upstream records. The operator runs several gyms, so this is a chain page."
+  },
+  {
+    "lat": 3.09145,
+    "lon": 101.55978,
+    "name": "Camp5 Utropolis",
+    "country": "MY",
+    "website": "https://camp5.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "city"
+    ],
+    "note": "Camp5 publishes its Utropolis gym on its own site, giving Shah Alam — the town upstream records. Two of the operator's other gyms are already linked from the same site."
   },
   {
     "lat": 5.4372,
@@ -15517,6 +15575,21 @@
     "note": "Plezalni Center Ljubljana's own site, printing the 1000 postal code and the city upstream records for Pesarska cesta 10."
   },
   {
+    "lat": 46.39187,
+    "lon": 15.56615,
+    "name": "Plezalni Center Slovenska Bistrica",
+    "country": "SI",
+    "website": "https://www.plezalnicenter.si/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "board-mention"
+    ],
+    "note": "Plezalni Center publishes its Slovenska Bistrica hall on its own site, printing 4 — the building number upstream records — and naming the Kilter Board this venue is listed for. Its Ljubljana hall was linked earlier in this audit from the same site."
+  },
+  {
     "lat": 49.22087,
     "lon": 18.72795,
     "name": "K2 Žilina",
@@ -16002,6 +16075,23 @@
       "city"
     ],
     "note": "The candidate's own pages carry the postal code 81611, the town Aspen, under the venue's name."
+  },
+  {
+    "lat": 30.26332,
+    "lon": -97.69628,
+    "name": "Austin Bouldering Porject Springdale",
+    "country": "US",
+    "website": "https://boulderingproject.com/location/springdale/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Bouldering Project publishes a page per gym; the Springdale one prints 979 Springdale Rd #150, Austin, TX 78702 — the whole address upstream records. The operator's Seattle hall was linked earlier in this audit, which is what pointed here."
   },
   {
     "lat": 30.23066,
@@ -17365,6 +17455,22 @@
     ]
   },
   {
+    "lat": 35.57594,
+    "lon": -82.56538,
+    "name": "Cultivate Climbing - Foundy",
+    "country": "US",
+    "website": "https://cultivateclimbing.com/contact",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Cultivate publishes each of its halls with its own address and hours; this venue is the Foundy Street one, at 37 Foundy Street, Asheville, NC 28801. The map on the site's front page points at The Bunker, 6.6 km away, which is why the first pass could not place this entry."
+  },
+  {
     "lat": 35.59211,
     "lon": -82.55935,
     "name": "Cultivate Climbing - The Bunker",
@@ -18143,6 +18249,21 @@
       "board-mention"
     ],
     "note": "The site carries this venue's name and names the MoonBoard it is listed for. Upstream records no street address for the venue, so the name and the board are the two signals available; the domain is the venue's own name taken as one label, which the guesser had not tried."
+  },
+  {
+    "lat": 40.78776,
+    "lon": -73.46546,
+    "name": "Island Rock Climbing Gym",
+    "country": "US",
+    "website": "https://www.islandrock.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The same hall as the Island Rock entry a few metres away that already carries this link: the site gives Plainview, the town upstream records, and names the Tension Board this venue is listed for."
   },
   {
     "lat": 25.681666663169874,
@@ -21313,6 +21434,20 @@
       "city"
     ],
     "note": "The operator runs gyms in Johannesburg, Pretoria and Cape Town off one site; this is the Johannesburg one."
+  },
+  {
+    "lat": -25.8529878,
+    "lon": 28.2480558,
+    "name": "CityROCK Pretoria",
+    "country": "ZA",
+    "website": "https://cityrock.co.za/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "city"
+    ],
+    "note": "CityROCK publishes its gyms on one site with an address block each; this venue is the Pretoria one, and the site gives Centurion, the town upstream records. Three of the operator's other gyms were linked earlier in this audit."
   },
   {
     "lat": -25.85158,

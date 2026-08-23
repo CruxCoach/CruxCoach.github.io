@@ -25,8 +25,8 @@
     "country": "AE",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — rockrepublic.com → \"The premium domain name rockrepublic.com is for sale. Bu\"; rock.com → \"ROCK Family Office\"; republical.com → \"Republical – Your Republic of Organized Living\", the rest could not be opened — rock.ae → a certificate that does not cover its hostname; republic.com → 403. Upstream records Amman St, Al Qusais Industrial Area, 0000, Dubai, and nothing opened printed it.",
-    "candidate": "https://www.rockrepublic.com/"
+    "reason": "Rock Republic's own site was reached through its other Dubai venue, which this audit has linked, but it publishes one address only — Street 77, Dubai Investment Park 1 — and never mentions Al Qusais, which is where upstream places this venue. The operator is right and the branch is not on the site.",
+    "candidate": "https://www.rockrepublicdubai.com/"
   },
   {
     "lat": 24.453884,
@@ -618,16 +618,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — cubebouldergym.nl → \"Cube Bouldergym Enschede - Cube Bouldergym\"; lecube.ch → \"Le Cube – Escalade et Bar\"; www.salewa-cube.com/de/waltherpark → \"Salewa Cube\", the rest could not be opened — cube.ca → a certificate that does not cover its hostname; cube.com → no answer; cubeclimb.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://cubebouldergym.nl/"
-  },
-  {
-    "lat": 45.27562330000001,
-    "lon": -72.1767643,
-    "name": "D-Vert",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — vertclimb.com → \"InVert Climb | palestra arrampicata sportiva | Via E. Fe\", the rest could not be opened — vert.ca → no answer; vert.com → no answer. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.invertclimb.com/"
   },
   {
     "lat": 43.4757042,
@@ -1525,8 +1515,8 @@
     "country": "DE",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read.",
-    "candidate": "https://www.boulderhaus.net/mannheim/"
+    "reason": "mannheim.studiobloc.de is a Studio Bloc hall in Mannheim and shares the town and a building number 3 with this venue, but it never prints Abraham-Lincoln-Allee, which is the street upstream records, and Boulderhaus is a different operator. A bare 3 is not a street match. boulderhaus.net and boulderhaus.de both still answer 403.",
+    "candidate": "https://mannheim.studiobloc.de/"
   },
   {
     "lat": 48.49913,
@@ -1888,16 +1878,6 @@
     "checked": "2026-08-23",
     "reason": "moonkey.es answers with a single word and no content — no gym, no address, no town — and moonkey.com carries nothing readable. Nothing ties either to Ponteareas.",
     "candidate": "https://moonkey.es/"
-  },
-  {
-    "lat": 43.53308,
-    "lon": -5.69682,
-    "name": "One Move",
-    "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "onemove.es is a sustainable-mobility campus, one-move.com sells skateboards and onemove.com is a legal-technology firm. The one chain sibling named Move is MOVE Climbing in Seville, 687 km away. Nothing found names Esperanza 20 in Gijón.",
-    "candidate": "https://onemove.es/"
   },
   {
     "lat": 42.1012595,
@@ -3805,16 +3785,6 @@
     "candidate": "https://www.chisinau.md/ro"
   },
   {
-    "lat": -13.9427314,
-    "lon": 33.7777146,
-    "name": "Climb Centre Malawi",
-    "country": "MW",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — malawi.mw → \"Guatemala.GT\"; climb.com → \"climb.com\", the rest could not be opened — malawi.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://guatemala.gt/"
-  },
-  {
     "lat": 25.67869,
     "lon": -100.35028,
     "name": "Adamanta Gonzalitos",
@@ -3991,16 +3961,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — www.camp5.com → \"Camp5 Indoor Climbing KL Malaysia\"; www.cityboulder.ch → \"Home\"; www.citybloc.co.uk → \"City Bloc Climbing Wall Leeds\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.camp5.com/"
-  },
-  {
-    "lat": 3.09145,
-    "lon": 101.55978,
-    "name": "Camp5 Utropolis",
-    "country": "MY",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — camp5.my → \"camp5 - Kasino Dalam Talian Malaysia, nikmati cashback b\"; camp5.com → \"Camp5 Indoor Climbing KL Malaysia\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://camp5.my/"
   },
   {
     "lat": 5.4163935,
@@ -5209,16 +5169,6 @@
     "candidate": "https://www.climba.sg/"
   },
   {
-    "lat": 46.39187,
-    "lon": 15.56615,
-    "name": "Plezalni Center Slovenska Bistrica",
-    "country": "SI",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — plezalnicenter.si → \"Plezalni center Ljubljana – Največji plezalni center v S\". Upstream records Prežihova ulica 4, 2310, Slovenska Bistrica, and nothing opened printed it.",
-    "candidate": "https://www.plezalnicenter.si/"
-  },
-  {
     "lat": 48.1485965,
     "lon": 17.1077478,
     "name": "Block Dock",
@@ -5603,15 +5553,6 @@
     "candidate": "https://atlanta.com/"
   },
   {
-    "lat": 30.26332,
-    "lon": -97.69628,
-    "name": "Austin Bouldering Porject Springdale",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — austinbouldering.com → 404 / no answer; austin.com → a timeout / 502; austin.net → a timeout. Upstream records 979 Springdale Rd #150, 78702, Austin, and nothing opened printed it."
-  },
-  {
     "lat": 43.07687,
     "lon": -89.42004,
     "name": "Bakke Recreation & Wellbeing Center",
@@ -5944,16 +5885,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — www.cruxclimbingcenter.com/pflugerville → \"Crux Climbing Center - Austin Rock Climbing and Boulderi\"; www.cruxclimbingcenter.com/central-austin → \"Crux Climbing Center - Austin Rock Climbing and Boulderi\"; www.cruxclimbingcenter.com/south-austin → \"- South Austin\", the rest could not be opened — crux.net → 200; cruxclimbing.com → 200; cruxbouldering.com → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.cruxclimbingcenter.com/pflugerville/"
-  },
-  {
-    "lat": 35.57594,
-    "lon": -82.56538,
-    "name": "Cultivate Climbing - Foundy",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — cultivateclimbing.com → \"Cultivate Climbing\", the rest could not be opened — cultivate.com → 403; cultivate.org → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://cultivateclimbing.com/"
   },
   {
     "lat": 31.4645298,
@@ -6433,16 +6364,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — insidemoves.com → \"Inside Moves Indoor Rock Climbing\"; insidemoves.net → \"Web hosting services by EarthLink Web Hosting\"; insidemoves.org → \"Welcome!\", the rest could not be opened — inside-moves.com → a certificate that does not cover its hostname; inside.org → no answer, the venue's whole name as one label, insidemoves.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.insidemoves.com/"
-  },
-  {
-    "lat": 40.78776,
-    "lon": -73.46546,
-    "name": "Island Rock Climbing Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — bigislandbouldering.com → \"Big Island Bouldering | Indoor Rock Climbing & Fitness\"; boulderzaaltheisland.be → \"Klimmen en boulderen in Antwerpen | Boulderzaal The Isla\"; island.org → \"t (@rundns) / X\", the rest could not be opened — island.com → a timeout; island.net → no answer / a timeout; islandrockclimbinggym.com → 200 / a certificate that does not cover its hostname, the venue's whole name as one label, islandrockclimbinggym.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.bigislandbouldering.com/"
   },
   {
     "lat": 43.881466,
@@ -7611,16 +7532,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — fourways.com → \"Fourways IT Solutions for Application Support and Develo\"; bloc11.co.za → \"Bloc11 Climbing and Fitness | Cape Town, South Africa\"; bloc11.com → \"HugeDomains.com\", the rest could not be opened — fourways.co.za → 200; bloc.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://fourways.com/"
-  },
-  {
-    "lat": -25.8529878,
-    "lon": 28.2480558,
-    "name": "CityROCK Pretoria",
-    "country": "ZA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — cityrock.co.za → \"CityROCK\"; cityrock.com → \"CityROCK Climbing Gym | Colorado Springs\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://cityrock.co.za/"
   },
   {
     "lat": -33.93792,
