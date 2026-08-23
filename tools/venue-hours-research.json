@@ -227,7 +227,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://www.kletterzentrum-innsbruck.at/",
-  "reason": "The venue's likely official page is behind a Cloudflare interstitial that answers 403 to every request, so no schedule could be read."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use. It stays in the retry queue."
  },
  {
   "lat": 47.80278999999999,
@@ -490,20 +490,20 @@
   "lon": 151.05313,
   "name": "Sandbox Bouldering",
   "country": "AU",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://sandboxbouldering.com.au/",
-  "reason": "Same page and the same control: the staffed hours are not in the fetched document."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,262 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": -33.83541,
   "lon": 151.05309,
   "name": "Sandbox Bouldering",
   "country": "AU",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://sandboxbouldering.com.au/",
-  "reason": "The site tells first-time visitors to \"come at staffed hours\" behind a \"Check Staffed Hours\" control, and the times themselves are not in the fetched document."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,262 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": -33.8791418,
@@ -547,50 +547,50 @@
   "lon": 153.0454,
   "name": "TotalFusion Platinum Newstead",
   "country": "AU",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://totalfusion.com.au/",
-  "reason": "The only schedule in the fetched document is a chain-wide openingHours block (Monday–Friday 05:00-20:00, Saturday 06:00-17:00, Sunday 07:30-17:00) with nothing tying it to Newstead, and no times a reader can see."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 235,447 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": -34.92305,
   "lon": 138.59481,
   "name": "Urban Climb Adelaide",
   "country": "AU",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The location page renders its schedule client-side; the served document carries only a bundled JSON payload with several conflicting Bouldering and Ropes blocks and no way to tell which belongs to this gym.",
-  "source": "https://urbanclimb.com.au/locations/adelaide/"
+  "source": "https://urbanclimb.com.au/locations/adelaide/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 30,717 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": -37.80267,
   "lon": 144.98764,
   "name": "Urban Climb Collingwood",
   "country": "AU",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The location page renders its schedule client-side; the served document carries only a bundled JSON payload with several conflicting Bouldering and Ropes blocks and no way to tell which belongs to this gym.",
-  "source": "https://urbanclimb.com.au/locations/collingwood/"
+  "source": "https://urbanclimb.com.au/locations/collingwood/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 30,977 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": -27.45492,
   "lon": 153.04053,
   "name": "Urban Climb Newstead",
   "country": "AU",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The location page renders its schedule client-side; the served document carries only a bundled JSON payload with several conflicting Bouldering and Ropes blocks and no way to tell which belongs to this gym.",
-  "source": "https://urbanclimb.com.au/locations/newstead/"
+  "source": "https://urbanclimb.com.au/locations/newstead/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 31,541 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": -27.5146928,
   "lon": 153.2033032,
   "name": "Wall Walkers Bouldering",
   "country": "AU",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://wallwalkersbouldering.com.au/",
-  "reason": "The gym calls itself a 24/7 climbing gym and the only schedule in the fetched document is an openingHours block reading 00:00 to 23:59 every day; no staffed or public window is stated where a reader can see it."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,053 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 51.23389,
@@ -893,7 +893,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://mantiqueiraescalada.com.br/",
-  "reason": "The only page that could be this venue's cannot be served over a valid https connection — its certificate expired on 11 July 2024 — so no schedule was read from it."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use. It stays in the retry queue."
  },
  {
   "lat": -18.4730894,
@@ -958,7 +958,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://www.treelab.com.br/",
-  "reason": "The candidate site renders entirely in the browser and serves no readable text beyond a single line, so no schedule could be read from it."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 46 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": -25.3956182,
@@ -996,7 +996,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://altrock.ca/",
-  "reason": "The only candidate host fails its TLS handshake, so no page and no schedule could be read."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 44 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 49.19171,
@@ -1016,7 +1016,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://climbarq.com/",
-  "reason": "The operator's host answers but serves no parseable page, so no schedule could be read."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 25 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 43.6497875,
@@ -1420,8 +1420,8 @@
   "country": "CA",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The location page renders its schedule client-side; the served document contains no times at all.",
-  "source": "https://www.hiveclimbing.com/locations/port-coquitlam"
+  "source": "https://www.hiveclimbing.com/locations/port-coquitlam",
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 149 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 49.2048,
@@ -1430,8 +1430,8 @@
   "country": "CA",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The location page renders its schedule client-side; the served document contains no times at all.",
-  "source": "https://www.hiveclimbing.com/locations/surrey"
+  "source": "https://www.hiveclimbing.com/locations/surrey",
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 167 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 49.8457,
@@ -1440,8 +1440,8 @@
   "country": "CA",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The location page renders its schedule client-side; the served document contains no times at all.",
-  "source": "https://www.hiveclimbing.com/locations/winnipeg"
+  "source": "https://www.hiveclimbing.com/locations/winnipeg",
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 167 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 49.2193226,
@@ -1718,30 +1718,30 @@
   "lon": 6.10238,
   "name": "TOTEM Le Môll",
   "country": "CH",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "source": "https://totem.ch/vernier",
-  "reason": "Re-read: unchanged. The location page carries the week only as schema.org markup (Mo-Fr 09:00-23:00, Sa 09:00-23:00, Su 09:00-21:00); the rendered document a reader without JavaScript receives states no times, and markup is a witness, never the source."
+  "source": "https://totem.ch/ve",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,246 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 46.2876938,
   "lon": 6.1657813,
   "name": "Totem Versoix",
   "country": "CH",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://totem.ch/versoix",
-  "reason": "Re-read: unchanged. Same operator, same shape - the week appears only as schema.org markup (Mo-Fr 10:00-22:30, Sa-Su 13:30-20:00) and nowhere in the readable page."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 5,919 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 46.4628333,
   "lon": 6.8419192,
   "name": "Totem Vevey Moonboard",
   "country": "CH",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://totem.ch/vevey",
-  "reason": "Re-read: unchanged. Same operator, same shape - the week appears only as schema.org markup (Mo-Fr 10:00-22:30, Sa-Su 13:30-20:00) and nowhere in the readable page."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 5,937 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": -33.44107,
@@ -2383,10 +2383,10 @@
   "lon": 13.59201,
   "name": "Boulderdrome",
   "country": "DE",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://www.boulderdrome.de/",
-  "reason": "Re-read: unchanged. The site renders client-side; the fetched document is navigation and nothing else, with no schedule anywhere in it and no subpage reachable without executing the page."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 7,112 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 50.79399,
@@ -2604,10 +2604,10 @@
   "lon": 12.14156,
   "name": "DAV Taufkirchen (Vils)",
   "country": "DE",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://www.dav-taufkirchen.de/",
-  "reason": "Re-read: unchanged. Wix site whose navigation is script-driven — the homepage fetches as readable text but carries no schedule, and no subpage can be reached without executing the page."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,134 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 49.7967105,
@@ -2673,10 +2673,10 @@
   "lon": 13.36222,
   "name": "Greifsbloc e.V. Boulderverein",
   "country": "DE",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "source": "https://greifsbloc.jimdofree.com/%C3%B6ffnungszeiten-angebote/",
-  "reason": "Re-read: unchanged. The Öffnungszeiten page introduces the shifts and then carries only the special slots (FLINTA*-Bouldern Montag 15-17 Uhr, Kinderbouldern); the ordinary shift times are not in the fetched document."
+  "source": "https://greifsbloc.jimdofree.com/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 11,768 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 50.75227115333487,
@@ -3123,10 +3123,10 @@
   "lon": -3.70368,
   "name": "Campo Base Escalada",
   "country": "ES",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The only schedule in the fetched document is schema.org openingHours; nothing a reader can see states a week.",
-  "source": "https://campobaseburgos.com/"
+  "source": "https://campobaseburgos.com/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 188,172 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 41.11489,
@@ -3609,30 +3609,30 @@
   "lon": 2.21085,
   "name": "Sharma Climbing Barcelona",
   "country": "ES",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The page carries an opening-hours heading but no times in the fetched document; the schedule is rendered client-side.",
-  "source": "https://sharmaclimbing.com/espana/barcelona-poble-nou/horarios-y-tarifas/"
+  "source": "https://sharmaclimbing.com/espana/barcelona-poble-nou/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 288,842 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 41.30179,
   "lon": 2.01269,
   "name": "Sharma Climbing Gavà",
   "country": "ES",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The page carries an opening-hours heading but no times in the fetched document; the schedule is rendered client-side.",
-  "source": "https://sharmaclimbing.com/espana/barcelona-gava/horarios-y-tarifas/"
+  "source": "https://sharmaclimbing.com/espana/barcelona-gava/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 288,842 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 40.43856,
   "lon": -3.61989,
   "name": "Sharma Climbing Madrid",
   "country": "ES",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The page carries an opening-hours heading but no times in the fetched document; the schedule is rendered client-side.",
-  "source": "https://sharmaclimbing.com/espana/madrid-centro/horarios-y-tarifas/"
+  "source": "https://sharmaclimbing.com/espana/madrid-centro/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 288,842 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 42.36115,
@@ -3934,40 +3934,40 @@
   "lon": 4.86817,
   "name": "Bloc Session Lyon Centre",
   "country": "FR",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://www.blocsession.com/salle-escalade/lyon-centre/",
-  "reason": "Re-read: unchanged. The location page carries a 'Les horaires de …' heading and no times in the fetched document; the schedule is rendered client-side."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 299,025 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 48.87110783828508,
   "lon": 2.6809708770664056,
   "name": "Bloc Session Marne-la-Vallée",
   "country": "FR",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://www.blocsession.com/salle-escalade/marne-la-vallee/",
-  "reason": "Re-read: unchanged. Same operator, same shape — a 'Les horaires de …' heading with the times rendered client-side."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 299,025 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 49.44583,
   "lon": 1.07746,
   "name": "Bloc Session Rouen",
   "country": "FR",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://www.blocsession.com/salle-escalade/rouen/",
-  "reason": "Re-read: unchanged. Same operator, same shape — a 'Les horaires de …' heading with the times rendered client-side."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 299,025 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 48.53288,
   "lon": 7.73108,
   "name": "Bloc Session Strasbourg Illkirch",
   "country": "FR",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://www.blocsession.com/salle-escalade/strasbourg/",
-  "reason": "Re-read: unchanged. Same operator, same shape — a 'Les horaires de …' heading with the times rendered client-side."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 299,025 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 43.59922983452772,
@@ -3977,7 +3977,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://boulderline.fr/salles-escalade-montpellier-celleneuve/",
-  "reason": "The hall's page answers 404 to the fetcher on every path tried below the operator's site, and the operator's own pages render in the browser, so no schedule could be read."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 20 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 44.899596273874344,
@@ -3994,20 +3994,20 @@
   "lon": 3.9382142,
   "name": "Bs7_Moonboard",
   "country": "FR",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://www.blocsession.com/salle-escalade/montpellier-sud/",
-  "reason": "Re-read: unchanged. Same operator, same shape — a 'Les horaires de …' heading with the times rendered client-side."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 299,025 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 48.83901,
   "lon": 2.322,
   "name": "Climb World",
   "country": "FR",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://www.climb-world.fr/",
-  "reason": "The site renders in the browser: the served page is about two thousand characters of navigation, including an \"Horaires\" menu item, with no content behind it. Nothing could be read."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 2,158 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 47.75067,
@@ -4051,10 +4051,10 @@
   "lon": 2.526181806746637,
   "name": "Escapad Paris Est",
   "country": "FR",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://www.escapad.fr/club-champigny",
-  "reason": "Re-read: unchanged. The club opened on 28 July 2026 and its page shows an Ouvert badge with no times; the only schedule in the fetched document is schema.org openingHours (Mo-Su 10:00-22:00). The one readable sentence about times — 'En août, ouverture de 10h00 à 22h00, les horaires 9h00-23h00 s'appliquent dès le 1er septembre' — is in the padel section, not the climbing one."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 4,621 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 48.6080475097524,
@@ -4280,20 +4280,20 @@
   "lon": -3.1498773637450537,
   "name": "Eden Rock Edinburgh",
   "country": "GB",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The Edinburgh page carries Opening Times headings with no times in the fetched document; the only readable week on the site belongs to the operator's Carlisle centre.",
-  "source": "https://www.edenrockclimbing.com/edinburgh-home"
+  "source": "https://www.edenrockclimbing.com/edinburgh-home",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 11,464 characters of content across 6 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 54.98585,
   "lon": -1.56064,
   "name": "Eden Rock Newcastle",
   "country": "GB",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. Same as the operator's Edinburgh centre: no times in the fetched document, and the only readable week on the site is Carlisle's.",
-  "source": "https://www.edenrockclimbing.com/newcastle"
+  "source": "https://www.edenrockclimbing.com/newcastle",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 3,297 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 60.5296507,
@@ -4309,10 +4309,10 @@
   "lon": -0.13964,
   "name": "EustonWall Climbing Centre",
   "country": "GB",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. Same as the operator's other centres: the Opening times control reveals nothing in the fetched document.",
-  "source": "https://londonclimbingcentres.co.uk/centre/eustonwall/"
+  "source": "https://londonclimbingcentres.co.uk/centre/eustonwall/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 291,097 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 51.830777,
@@ -4329,20 +4329,20 @@
   "lon": -0.34436,
   "name": "HarroWall Climbing Centre",
   "country": "GB",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The centre page has an Opening times control that reveals nothing in the fetched document; the operator's price page lists only its Magic Time windows.",
-  "source": "https://londonclimbingcentres.co.uk/centre/harrowall/"
+  "source": "https://londonclimbingcentres.co.uk/centre/harrowall/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 291,097 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 50.85264,
   "lon": -0.16024,
   "name": "High Sports Brighton",
   "country": "GB",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The site carries Opening Times headings but no times in the fetched document, and states it changed owners in July 2025.",
-  "source": "https://www.high-sports.co.uk/"
+  "source": "https://www.high-sports.co.uk/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,879 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 57.2822544,
@@ -4386,10 +4386,10 @@
   "lon": 0.15704,
   "name": "Rainbow Rocket North",
   "country": "GB",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The centre page carries prices but no readable schedule; nothing on the fetched pages states a week.",
-  "source": "https://rainbowrocket.cc/centre/north/"
+  "source": "https://rainbowrocket.cc/centre/north/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 295,616 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 51.5822099,
@@ -4712,7 +4712,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://fless.hu/",
-  "reason": "The venue's own site renders in the browser: it answers 200 and serves 55 characters of text, which is navigation and no more. No schedule could be read from it."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 251 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 47.5625993,
@@ -4795,7 +4795,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://blocdublin.ie/",
-  "reason": "No readable official page: the venue's likely site answers 403 to every fetcher tried, so there is nothing to read a schedule from."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use. It stays in the retry queue."
  },
  {
   "lat": 52.6835403,
@@ -4805,7 +4805,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://suasclimbing.ie/",
-  "reason": "The centre's own site is behind HTTP authentication (401 on every attempt), so no page of theirs can be read."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use. It stays in the retry queue."
  },
  {
   "lat": 53.2884406,
@@ -4824,7 +4824,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://thewall.ie/",
-  "reason": "The venue's likely site answers 403 to every fetcher tried, so no schedule can be read from it."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use. It stays in the retry queue."
  },
  {
   "lat": 31.75221,
@@ -4998,8 +4998,8 @@
   "country": "IT",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The only schedule in the fetched document is schema.org openingHours; nothing a reader can see states a week.",
-  "source": "https://www.bouldergarage.it/"
+  "source": "https://www.bouldergarage.it/",
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 306 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 45.1114724,
@@ -5488,8 +5488,8 @@
   "country": "IT",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "source": "https://www.waverockrimini.com/prezzi-orari",
-  "reason": "The prezzi-orari page has an ORARI heading and no times in the fetched document — the Wix site renders the table client-side. What is readable is only that subscribers may enter outside opening hours."
+  "source": "https://www.waverockrimini.com/",
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 491 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 31.88255,
@@ -6412,7 +6412,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://madcomplex.mx/",
-  "reason": "The venue's own site renders in the browser: it answers 200 and serves 1226 characters of text, which is navigation and no more. No schedule could be read from it."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 1100 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 20.1027782,
@@ -6910,7 +6910,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://gripklatring.no/vaare-sentre/",
-  "reason": "Re-read, and the earlier reading no longer applies: the host does not answer at all now — the TLS connection times out after eight seconds, on two attempts an hour apart. Nothing about the venue follows from that, so it stays in the retry queue."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use. It stays in the retry queue."
  },
  {
   "lat": 61.90488,
@@ -7225,10 +7225,10 @@
   "lon": 5.7014,
   "name": "Playground",
   "country": "NO",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The only schedule in the fetched document is schema.org openingHoursSpecification; nothing a reader can see states a week.",
-  "source": "https://playground.no/"
+  "source": "https://playground.no/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 5,947 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 60.38464,
@@ -8234,10 +8234,10 @@
   "lon": 11.950726,
   "name": "Backa Boulder",
   "country": "SE",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://backaboulder.se/",
-  "reason": "The venue's own site renders in the browser: it answers 200 and serves 1295 characters of text, which is navigation and no more. No schedule could be read from it."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 4,710 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 59.37023,
@@ -8262,10 +8262,10 @@
   "lon": 17.1673619,
   "name": "Fyshuset Klätterhall",
   "country": "SE",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://www.fyshusetklatterhall.se/",
-  "reason": "The venue's own site renders in the browser: it answers 200 and serves 1130 characters of text, which is navigation and no more. No schedule could be read from it."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 93,426 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 60.6748796,
@@ -8514,10 +8514,10 @@
   "lon": 103.85142,
   "name": "Boulder Movement Rochor",
   "country": "SG",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
   "source": "https://www.boulderm.com/",
-  "reason": "The venue's own site renders in the browser: it answers 200 and serves 869 characters of text, which is navigation and no more. No schedule could be read from it."
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 2,004 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 1.27917,
@@ -10010,10 +10010,10 @@
   "lon": -105.04174,
   "name": "Longmont Climbing Collective",
   "country": "US",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The site serves no times a reader can see; the only schedule in the fetched document is schema.org openingHours (Mo-Fr 06:00-22:00, Sa-Su 08:00-20:00).",
-  "source": "https://longmontclimbingcollective.com/"
+  "source": "https://longmontclimbingcollective.com/",
+  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 67,425 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 33.93541,
@@ -10579,8 +10579,8 @@
   "country": "US",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The site serves a 1.8 kB JavaScript shell; no schedule reaches the document at all.",
-  "source": "https://seacoastclimb.com/"
+  "source": "https://seacoastclimb.com/",
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 47 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 33.73223,
@@ -11357,7 +11357,7 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "source": "https://whetstoneclimbing.com/",
-  "reason": "The venue's own site renders in the browser: it answers nothing to the fetcher. No schedule could be read from it."
+  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use. It stays in the retry queue."
  },
  {
   "lat": 37.99022,
