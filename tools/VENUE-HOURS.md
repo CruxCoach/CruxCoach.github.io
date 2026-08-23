@@ -314,9 +314,9 @@ maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (published + outcome entries) | 1000 |
-| Published schedules | 717 |
-| Recorded outcomes without hours | 283 |
+| Venues reviewed (published + outcome entries) | 1034 |
+| Published schedules | 733 |
+| Recorded outcomes without hours | 301 |
 | Countries covered | 22 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -324,35 +324,62 @@ Per-country coverage of eligible (public/commercial) venues:
 
 | country | published | reviewed | eligible | share |
 | --- | --- | --- | --- | --- |
-| US | 235 | 276 | 576 | 41% |
-| DE | 132 | 169 | 201 | 66% |
-| CA | 47 | 64 | 132 | 36% |
-| AU | 25 | 33 | 83 | 30% |
-| GB | 52 | 70 | 102 | 51% |
-| NL | 37 | 51 | 59 | 63% |
-| CH | 35 | 52 | 56 | 62% |
+| US | 240 | 288 | 576 | 42% |
+| DE | 134 | 171 | 201 | 67% |
+| GB | 52 | 71 | 102 | 51% |
+| CA | 49 | 70 | 132 | 37% |
+| NL | 38 | 52 | 59 | 64% |
+| CH | 35 | 52 | 56 | 63% |
 | AT | 31 | 44 | 48 | 65% |
+| AU | 28 | 36 | 83 | 34% |
 | FR | 25 | 46 | 70 | 36% |
 | BE | 19 | 28 | 36 | 53% |
-| ES | 16 | 49 | 98 | 16% |
-| NO | 15 | 35 | 81 | 19% |
+| ES | 16 | 50 | 98 | 16% |
+| NO | 16 | 36 | 81 | 20% |
 | DK | 10 | 14 | 27 | 37% |
-| IT | 9 | 21 | 72 | 12% |
+| IT | 9 | 22 | 72 | 13% |
 | PL | 7 | 12 | 45 | 16% |
 | FI | 5 | 8 | 15 | 33% |
+| ZA | 5 | 5 | 12 | 42% |
 | IE | 5 | 5 | 10 | 50% |
-| SE | 4 | 11 | 37 | 11% |
-| ZA | 3 | 3 | 12 | 25% |
+| SE | 4 | 14 | 37 | 11% |
 | CZ | 2 | 4 | 10 | 20% |
 | LU | 2 | 3 | 6 | 33% |
-| PT | 1 | 2 | 15 | 7% |
+| PT | 1 | 3 | 15 | 7% |
 
-- **Last completed batch:** Canada and Australia. **Every venue on the map that
-  carries a verified official website has now been reviewed** — 1000 venues, 717
-  published, 283 logged, in 22 countries.
-- **Next:** the ~1190 eligible venues that carry no verified website link yet.
-  Those need a link established first (`tools/VENUE-LINKS.md` is the policy), and
-  the link is the cheaper half — the hours follow from it.
+- **Last completed batch:** the first 35 venues that carry *no* verified website
+  link — the ones our own data already points at (a twin entry a few metres away,
+  or a sibling branch of a chain we have curated). 16 published, 19 logged.
+- **Next:** the rest of the ~1150 link-less eligible venues. They need a site
+  established first, one venue at a time, and `tools/VENUE-LINKS.md` is the policy
+  for that; nothing in this file may publish hours from a site that policy has not
+  been applied to.
+
+### The first pass beyond the verified links
+
+Every venue with a verified official website has been read. The obvious next
+group is the one our own data already reaches without a search engine:
+
+- **A twin entry a few metres away.** The dataset lists some halls twice — one
+  entry per board system, or with a coordinate taken at the car park — and only
+  one of the two carries the link. `co-located` is the signal for that: it says
+  "the hall next door is this hall", a test checks that a venue-links record of a
+  matching name really is within 150 m, and the record then reads the same page.
+  Seven halls, including a CRG Cambridge and a Sportrock that had been sitting
+  unlinked next to their own published records.
+- **A sibling branch of a chain already curated.** Boulder Lab's Clayton and
+  Ferntree Gully halls, Bouldering Project Springdale, Cultivate's Foundy Street,
+  Latitude Virginia Beach, CityROCK Pretoria — each named on a chain page that
+  already supplies its siblings' hours, verified by the branch name plus the city.
+- **And the brand matches that are not.** thefactoryboulder.com is a Spanish
+  operator, not the Pennsylvania gym; theedgerockgym.com is Jacksonville's and
+  says nothing about a Miami hall; gravityhamilton.com is 60 km from the Niagara
+  venue that shares its name. Those are logged as `ambiguous` with the candidate
+  named, so the next curator does not re-run the same dead end.
+
+**The most useful find in the batch was a closure.** The Gravity Vault's own
+Jersey City page says the gym shut for good on 31 July 2026 — two dataset entries
+that will never have hours again, and now say so.
 
 ### What Canada and Australia added
 

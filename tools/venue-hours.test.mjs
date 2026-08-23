@@ -5,13 +5,13 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
-  applyVenueHours, canonicalDaySpec, clearVenueHoursProperties, DAY_KEYS,
+  applyVenueHours, canonicalDaySpec, clearVenueHoursProperties, CO_LOCATED_LIMIT_M, DAY_KEYS,
   formatDayHours, formatWeeklyGroups, formatWeeklyHours, isPublicWeek,
   loadHoursResearch, loadVenueHours, MANAGED_PROPERTIES, parseDaySpec,
   RESEARCH_STATUS, safePublicHours, sourceIsDistinct, timesMissingFromEvidence,
   toPublicHours, toPublicWeek, validateHoursResearchEntry, validateVenueHours, venueKey,
 } from './venue-hours.mjs';
-import { loadVenueLinks } from './venue-links.mjs';
+import { distanceMeters, loadVenueLinks, nameTokens } from './venue-links.mjs';
 import { renderListPage } from './render-static.mjs';
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -149,7 +149,7 @@ test('a chain page may only speak for a branch when it says it does', () => {
   // ...and it still has to name the location, exactly like a website link does.
   assert.match(
     validateVenueHours(record({ provenance: 'official-chain-page', signals: ['brand', 'hours-scope'] })).join('\n'),
-    /street-address, city or location-page/,
+    /street-address, city, location-page or co-located/,
   );
 });
 
@@ -686,6 +686,41 @@ test('the curated hours never contradict the curated website links', () => {
 // established this domain is this venue's. It is the signal most often used as
 // one of the two, so it is the one worth checking mechanically — a record may
 // not lean on a link record that does not exist or points somewhere else.
+// Containment, not Jaccard: one of the two entries usually carries a board suffix
+// the other does not ("Guelph Grotto Moon Board (2016)" beside "The Guelph Grotto
+// Climbing Co."), which drags a symmetric score below any useful floor while the
+// distinctive tokens still line up. venue-links compares an upstream name with a
+// curated one and can afford the symmetric measure; this compares two dataset
+// entries for the same hall.
+function sameHallName(a, b) {
+  const A = nameTokens(a);
+  const B = nameTokens(b);
+  if (!A.size || !B.size) return false;
+  let shared = 0;
+  for (const t of A) if (B.has(t)) shared += 1;
+  return shared / Math.min(A.size, B.size) >= 0.5;
+}
+
+// `co-located` is the other claim about another file: that the hall this record
+// describes is the same hall as a venue-links record a few metres away. The
+// dataset lists some gyms twice — one entry per board system, or with a
+// coordinate taken at the car park — and only one of the two carries the link.
+// Same standard as `venue-link`: if the neighbour is not there, the record may
+// not lean on it.
+test('every record claiming the co-located signal has a linked twin nearby', () => {
+  const { entries: hours } = loadVenueHours(HOURS_FILE);
+  const { entries: links } = loadVenueLinks(LINKS_FILE);
+  for (const e of hours) {
+    if (!e.signals?.includes('co-located')) continue;
+    const twin = links.find(l => distanceMeters(e.lat, e.lon, l.lat, l.lon) <= CO_LOCATED_LIMIT_M
+      && sameHallName(e.name, l.name));
+    assert.ok(twin, `"${e.name}" claims the co-located signal but no linked venue of that name`
+      + ` is within ${CO_LOCATED_LIMIT_M} m`);
+    assert.ok(sameSite(e.source, twin.website),
+      `"${e.name}" reads hours from a different site than the twin it claims`);
+  }
+});
+
 test('every record claiming the venue-link signal has the link it claims', () => {
   const { entries: hours } = loadVenueHours(HOURS_FILE);
   const { entries: links } = loadVenueLinks(LINKS_FILE);

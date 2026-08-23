@@ -328,7 +328,17 @@ export const SIGNALS = new Set([
   'board-mention',   // the page names the board system the venue is listed for
   'venue-link',      // the already-verified venue-links record for this venue
   'hours-scope',     // the page states which location(s) these hours apply to
+  // A venue-links record for the same venue sits within CO_LOCATED_LIMIT_M and
+  // its name matches. The dataset lists some gyms twice — one entry per board,
+  // or with a coordinate a few metres apart — and only one of the two carries
+  // the verified link. This says "the hall next door is this hall", which is a
+  // claim a test can check, and does the work `venue-link` does for the twin.
+  'co-located',
 ]);
+
+// How far apart two dataset entries may be and still be the same hall. A large
+// gym is ~50 m across; 150 m allows for a coordinate taken at the car park.
+export const CO_LOCATED_LIMIT_M = 150;
 
 // Signals that restate one observation may not both count toward the minimum.
 const REDUNDANT_SIGNAL_PAIRS = [['name', 'brand']];
@@ -429,8 +439,10 @@ export function validateVenueHours(entry, index = 0) {
         + ' only be published for a branch when the page itself says they apply to it');
     }
     if (entry.provenance === 'official-chain-page'
-      && !signalSet.has('street-address') && !signalSet.has('city') && !signalSet.has('location-page')) {
-      fail('"official-chain-page" requires street-address, city or location-page among its signals');
+      && !signalSet.has('street-address') && !signalSet.has('city')
+      && !signalSet.has('location-page') && !signalSet.has('co-located')) {
+      fail('"official-chain-page" requires street-address, city, location-page or co-located'
+        + ' among its signals');
     }
   }
 
