@@ -189,13 +189,22 @@
     "reason": "therockadventure.com.au and therockadventurecentre.com.au do not resolve; adventure.com is a travel magazine and adventureclimbing.com an unrelated site. The chain siblings named Adventure are Adventure Rock in Wisconsin and The Adventure Hub in Sheffield."
   },
   {
+    "lat": 50.8503463,
+    "lon": 4.3517211,
+    "name": "Gravity Lab",
+    "country": "BE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The venue cannot be placed. Upstream gives no address and the coordinates are 50.8503,4.3517, the Brussels city centroid rather than a building, so no candidate can be tested against a location. gravitylab.be and www.gravitylab.be do not resolve; the only Gravity sites that answer are Gravity Bloc in Sochaux (413 km away) and Gravity Climbing in Ireland. With nothing to match a page against, a link here could not be shown to be this venue rather than another Brussels wall."
+  },
+  {
     "lat": 50.41619,
     "lon": 4.43898,
     "name": "Maniak Charleroi",
     "country": "BE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "Both Maniak centre sites we tried answer HTTP 403 to our requests, so no page could be opened and read.",
+    "checked": "2026-08-23",
+    "reason": "Inaccessible rather than absent. OSM tags charleroi.maniak.club on the climbing object 15 m from this venue, so the host is very likely the hall's own page, but charleroi.maniak.club, maniak.club and www.maniak.club all answer 403 with a Cloudflare \"Just a moment...\" interstitial to every request, including a full browser header set. Nothing readable was ever served, so the two independent location signals the policy requires could not be obtained. maniak.com is an unrelated domain listed for sale. Retry when the page can be opened.",
     "candidate": "https://charleroi.maniak.club/"
   },
   {
@@ -204,9 +213,9 @@
     "name": "Maniak Nivelles",
     "country": "BE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "Both Maniak centre sites we tried answer HTTP 403 to our requests, so no page could be opened and read.",
-    "candidate": "https://maniak.club/"
+    "checked": "2026-08-23",
+    "reason": "Inaccessible rather than absent. OSM tags nivelles.maniak.club on the climbing object 15 m from this venue, so the host is very likely the hall's own page, but nivelles.maniak.club, maniak.club and www.maniak.club all answer 403 with a Cloudflare \"Just a moment...\" interstitial to every request, including a full browser header set. Nothing readable was ever served, so the two independent location signals the policy requires could not be obtained. maniak.com is an unrelated domain listed for sale. Retry when the page can be opened.",
+    "candidate": "https://nivelles.maniak.club/"
   },
   {
     "lat": 50.82757,
@@ -214,19 +223,75 @@
     "name": "Maniak Padoue",
     "country": "BE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "Both Maniak centre sites we tried answer HTTP 403 to our requests, so no page could be opened and read.",
+    "checked": "2026-08-23",
+    "reason": "Inaccessible rather than absent. OSM tags padoue.maniak.club on the climbing object 15 m from this venue, so the host is very likely the hall's own page, but padoue.maniak.club, maniak.club and www.maniak.club all answer 403 with a Cloudflare \"Just a moment...\" interstitial to every request, including a full browser header set. Nothing readable was ever served, so the two independent location signals the policy requires could not be obtained. maniak.com is an unrelated domain listed for sale. Retry when the page can be opened.",
     "candidate": "https://padoue.maniak.club/"
   },
   {
-    "lat": 50.8511,
-    "lon": 4.45897,
-    "name": "Stone Age",
+    "lat": 51.0297,
+    "lon": 5.03716,
+    "name": "The Attic",
     "country": "BE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The gym's site publishes no address on any page we could open, and no geocoder we tried resolves the address upstream carries.",
-    "candidate": "https://stone-age.be/"
+    "checked": "2026-08-23",
+    "reason": "No official site. attic.be answers 200 with an empty body — no title, no text, nothing to verify against. theattic.be and the-attic.be are \"Coworking & flexibele kantoren in Antwerpen\", a different business 55 km away; the-attic.com is a HugeDomains parking page; attic.com and theattic.com are unrelated. No OSM climbing object near Diest carries a website.",
+    "candidate": "https://attic.be/"
+  },
+  {
+    "lat": 50.58334,
+    "lon": 5.85265,
+    "name": "The Wall Verviers",
+    "country": "BE",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. thewall.be serves a Hetzner \"HTTPS Not Available\" placeholder behind a *.your-server.de certificate that does not cover the hostname, and answers 401 over HTTP; thewall.eu is a bare 301 to nothing; thewall-verviers.be, wallverviers.be, the-wall.be, thewallclimbing.be and escaladeverviers.be do not resolve. verviers.be is the city council's own site and its front page mentions neither the hall nor climbing, and /sports is 404. OSM has no website on any climbing object near Rue de Liege 148."
+  },
+  {
+    "lat": 42.6977082,
+    "lon": 23.3218675,
+    "name": "Bonsist",
+    "country": "BG",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. None of bonsist.bg, bonsist.com, bonsistclimbing.bg/.com, bonsistboulder.bg/.com or bonsistbouldering.bg/.com resolves, nor does bonsist.eu. No OSM climbing object within 500 m of the venue carries a website tag, and nothing curated sits within 200 m."
+  },
+  {
+    "lat": 43.4170423,
+    "lon": 24.6066847,
+    "name": "EMO_MUXI",
+    "country": "BG",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. emomuxi.bg, emomuxi.com, emo-muxi.bg and emo-muxi.com do not resolve. No OSM climbing object near Pleven carries a website tag. The upstream record gives no address to test a candidate against either."
+  },
+  {
+    "lat": 42.66773,
+    "lon": 23.36823,
+    "name": "Momentum Climbing Sofia",
+    "country": "BG",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The chain page exists but cannot be tied to this hall. momentumclimbing.bg is the Bulgarian Momentum landing page — \"Momentum e veriga katerachni zali, sazdadena ot Walltopia\" — but it publishes no address, no postal code and no branch list anywhere on the page, so nothing on it can be matched to Blvd \"Tsarigradsko shose\" 111, 1784 Sofia. momentum.bg is an unrelated psychotherapy practice.",
+    "candidate": "https://momentumclimbing.bg/"
+  },
+  {
+    "lat": 26.22361,
+    "lon": 50.58759,
+    "name": "The Climbing Boardroom",
+    "country": "BH",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. The only Boardroom climbing site that answers is theboardroomclimbing.com, \"The Boardroom Climbing Ltd\", which is a hall in Queensferry in the United Kingdom, 5,000 km away and unconnected to Zinj. theclimbingboardroom.com, climbingboardroom.com, boardroom.bh and theboardroom.bh do not resolve. Upstream gives only the district, so there is no street to test against.",
+    "candidate": "https://www.theboardroomclimbing.com/"
+  },
+  {
+    "lat": 53.8980663,
+    "lon": 30.3325337,
+    "name": "BULL STONE",
+    "country": "BY",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. bullstone.by does not resolve and no other name-derived domain answers; the only \"Stone Climbing\" site that does is a climbing gym in northeast Florida. No OSM climbing object near Mahilyow carries a website tag, and upstream gives no address."
   },
   {
     "lat": 49.2827291,
@@ -254,18 +319,18 @@
     "name": "Audan",
     "country": "CH",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "Palestra Audan (SAT Ritom) is the only plausible match, but its official page publishes neither a street address nor a board mention, so no second independent signal could be established.",
-    "candidate": "https://www.satritom.ch/arrampicata/palestra/"
+    "checked": "2026-08-23",
+    "reason": "The operator page was found and still cannot place the wall. www.satritom.ch/arrampicata/palestra is Societa Alpinistica Ticinese sezione Ritom's own page for \"Palestra Audan\", so the club and the wall are confirmed, but neither that page, nor the club home page, publishes a street, a postal code or a town for it — only an email, three phone numbers and a payment account. audan.ch is Grotto Audan, a restaurant. With upstream carrying no address either, there is no second signal to match on and the link could not be shown to be this venue rather than another SAT wall.",
+    "candidate": "https://www.satritom.ch/arrampicata/palestra"
   },
   {
     "lat": 46.63397,
     "lon": 8.59349,
     "name": "Boulder Halle Andermatt",
     "country": "CH",
-    "status": "ambiguous",
-    "checked": "2026-08-22",
-    "reason": "Several unrelated climbing facilities are listed for Andermatt (a tourism-board page and an SAC Gotthard military hall); no single official venue site could be identified for this coordinate."
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. boulderhalle-andermatt.ch, andermatt-boulder.ch, bouldern-andermatt.ch, bergsteigerzentrum-andermatt.ch and sportzentrum-andermatt.ch do not resolve or refuse the connection. andermatt.ch is the tourism region and andermatt.com is Andermatt Group AG, a property developer; neither is a climbing operator. As before, several unrelated facilities are listed for Andermatt and none can be tied to these coordinates."
   },
   {
     "lat": 47.07702,
@@ -273,8 +338,8 @@
     "name": "La Déglingue",
     "country": "CH",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "No official site could be found for a climbing venue of this name in the La Chaux-de-Fonds area."
+    "checked": "2026-08-23",
+    "reason": "No official site. ladeglingue.ch and deglingue.ch do not resolve; deglingue.com times out behind a certificate that does not cover the hostname; ladeglingue.com is a clothing shop. No OSM climbing object near La Chaux-de-Fonds carries a website tag and upstream gives no address."
   },
   {
     "lat": 47.3318164,
@@ -282,8 +347,54 @@
     "name": "Möhli",
     "country": "CH",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "No official site could be found for a climbing venue of this name near St. Gallen."
+    "checked": "2026-08-23",
+    "reason": "No official site. moehli.ch, the punycode xn--mhli-loa.ch and moehli-boulder.ch do not resolve; mohli.com answers 200 with nothing on it. No OSM climbing object near St. Gallen carries a website tag and upstream gives no address."
+  },
+  {
+    "lat": 9.93965,
+    "lon": -84.15605,
+    "name": "Eskalar",
+    "country": "CR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. eskalar.com is a HugeDomains parking page; eskalar.cr, eskalar.co.cr and eskalarcr.com do not resolve. No OSM climbing object near Escazu carries a website tag, so Centro Comercial Llamado Elspot, 10203 Escazu could not be matched against anything."
+  },
+  {
+    "lat": 9.887011856968725,
+    "lon": -83.90448881843531,
+    "name": "Raccoon",
+    "country": "CR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. raccoon.com answers 403 and is an unrelated domain; raccoonclimbing.com serves a certificate that does not cover the hostname; raccoonclimbing.cr and raccooncr.com do not resolve. Nothing could be opened to test against Calle 19, 30106 Cartago."
+  },
+  {
+    "lat": 10.33361,
+    "lon": -85.79444,
+    "name": "TamaRocks Climbing + Fitness",
+    "country": "CR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. tamarocks.com answers with a bare placeholder carrying only the domain name; tamarocks.cr, tamarocksclimbing.com and tamarocks.co.cr do not resolve. Upstream gives no address, and no OSM climbing object nearby carries a website tag."
+  },
+  {
+    "lat": 34.6912057,
+    "lon": 33.0574943,
+    "name": "Limassol Climbing Club",
+    "country": "CY",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. limassol.com.cy times out, limassolclimbing.com answers 404, and limassolclimbingclub.com and climbinglimassol.com do not resolve. No OSM climbing object near Limassol carries a website tag and upstream gives no address."
+  },
+  {
+    "lat": 35.1804178,
+    "lon": 33.3940639,
+    "name": "RedpointCY",
+    "country": "CY",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The site is almost certainly this venue's and still cannot be verified. www.redpointcy.com is \"Cyprus' first European Standard Parkour & Bouldering Academy\" and its name matches exactly, but it publishes no address anywhere: the contact page carries only an email and a phone number, and the LOCATION heading on its own \"Open Hours & Location\" page is an empty embed with no text under it. It never names the MoonBoard either. Upstream gives no street for Aglantzia, so the name is the only signal available and the policy needs two.",
+    "candidate": "https://www.redpointcy.com/"
   },
   {
     "lat": 49.1757401,
@@ -552,6 +663,24 @@
     "checked": "2026-08-22",
     "reason": "holbaek.dk is Holbæk Kommune's municipal site, not this climbing club; its postcode and town matched only because the municipality shares them.",
     "candidate": "https://holbaek.dk/"
+  },
+  {
+    "lat": -2.90054,
+    "lon": -79.01702,
+    "name": "C-TR3S Climbing + Fitness",
+    "country": "EC",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. tr3s.com.ec, tr3s.ec, tr3sclimbingfitness.com.ec/.ec, tr3s-climbing-fitness.com.ec/.ec, tr3sclimbing.com.ec/.ec, ctres.ec, ctr3s.com and c-tr3s.com all fail to resolve. No OSM climbing object near Cuenca carries a website tag, so Guayas 4-90, 0100150 Cuenca could not be matched against anything."
+  },
+  {
+    "lat": -0.21926596177731264,
+    "lon": -78.44734262883618,
+    "name": "El Muro",
+    "country": "EC",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. muro.com.ec, muro.ec, elmuro.com.ec, elmuro.ec, el-muro.com.ec, el-muro.ec, muroclimbing.com.ec, muroclimbing.ec, elmuroquito.com and muroquito.com all fail to resolve. No OSM climbing object near Quito carries a website tag."
   },
   {
     "lat": 43.2630126,

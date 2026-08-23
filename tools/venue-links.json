@@ -1805,6 +1805,21 @@
     ]
   },
   {
+    "lat": 50.67039479401434,
+    "lon": 4.600441957672755,
+    "name": "Entre Ciel & Terre | Blocry",
+    "country": "BE",
+    "website": "https://www.entrecieletterre.be/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The contact page prints Place des Sports 1, 1348 Ottignies-Louvain-la-Neuve, the address upstream records, and the hall is the climbing wall of the Blocry sports centre at that address."
+  },
+  {
     "lat": 50.459092047240844,
     "lon": 3.976567968979885,
     "name": "Face Nord",
@@ -2121,6 +2136,21 @@
     ]
   },
   {
+    "lat": 50.8511,
+    "lon": 4.45897,
+    "name": "Stone Age",
+    "country": "BE",
+    "website": "https://stone-age.be/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The contact page prints Avenue E. Mounier 87, 1200 Woluwe-Saint-Lambert, the address upstream records. The site titles itself the climbing hall and climbing school of the Woluwe sports centre, which is that address."
+  },
+  {
     "lat": 51.07393,
     "lon": 3.72326,
     "name": "Walden Bouldering",
@@ -2135,6 +2165,37 @@
       "city"
     ],
     "note": "The gym trades simply as Walden; upstream carries Walden Bouldering."
+  },
+  {
+    "lat": 42.62433,
+    "lon": 23.36199,
+    "name": "Balkan Climbing",
+    "country": "BG",
+    "website": "https://balkanclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "board-mention"
+    ],
+    "note": "The contacts page prints ul. \"187-ma\" 9, 1756 Sofia, which is the address upstream records, and the site names the Kilter Board this venue is listed for."
+  },
+  {
+    "lat": 53.9006011,
+    "lon": 27.558972,
+    "name": "Plato Climbing Gym",
+    "country": "BY",
+    "website": "https://plato.by/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The site is \"Skalodrom Plato\", climbing in Minsk, and its contacts page gives Minsk, ul. Kuibysheva 22 — the city upstream records. Its equipment list names the MoonBoard (\"MUNBORD\"), the board this venue is listed for. Upstream carries no street address for this venue, so the match rests on the name, the city and the board rather than on a street line."
   },
   {
     "lat": 45.52790299999999,
@@ -3886,6 +3947,21 @@
       "board-mention",
       "location-page"
     ]
+  },
+  {
+    "lat": 35.1398,
+    "lon": 33.36784,
+    "name": "Rockstar Climbing",
+    "country": "CY",
+    "website": "https://rockstarclimbing.cy/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "board-mention"
+    ],
+    "note": "The site prints Andrea Avraamidi 26, the street line upstream records for this venue, on the home, contact, member and about pages, and names the Kilter Board this venue is listed for."
   },
   {
     "lat": 50.1057962,
@@ -6925,6 +7001,23 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 59.42448,
+    "lon": 24.79473,
+    "name": "Ronimisministeerium T1",
+    "country": "EE",
+    "website": "https://ronimisministeerium.ee/tallinn/ronminsaalid",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator's halls page carries a section headed \"T1 Ronimisministeerium\" whose own \"KUIDAS MEID LEIDA?\" line reads Peterburi tee 2, 11415 Tallinn — the venue name and the full address upstream records. The chain's three other Tallinn halls are described in their own sections with their own different addresses on the same page, so the page is per-location even though the four share one URL."
   },
   {
     "lat": 43.05242,

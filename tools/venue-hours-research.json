@@ -484,6 +484,16 @@
   "reason": "Re-read: unchanged. Only a 'Zomerperiode juli & augustus' block (Weekdagen 9:00-23:00, Weekend 9:00-23:00); the operator publishes no term-time week for any of its halls."
  },
  {
+  "lat": 50.67039479401434,
+  "lon": 4.600441957672755,
+  "name": "Entre Ciel & Terre | Blocry",
+  "country": "BE",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://www.entrecieletterre.be/horaires-tarifs/horaires/",
+  "reason": "Two official pages disagree. The Horaires page says the hall opens \"tous les jours des 16 heures et des 13 heures le mercredi et le week-end\" and states no closing time at all; the site's own \"Horaires ETE\" post of 1 July 2026 gives a complete week as Monday-Friday 16h-21h30 and Saturday-Sunday 13h-20h30, with no Wednesday exception. The Horaires page additionally warns that \"les horaires sont adaptes en periode de conges scolaires\" and its exception list still names December 2018, so it cannot be read as the schedule in force either."
+ },
+ {
   "lat": 50.459092047240844,
   "lon": 3.976567968979885,
   "name": "Face Nord",
@@ -492,6 +502,15 @@
   "checked": "2026-08-23",
   "source": "https://facenord.be/infos-pratiques/",
   "reason": "Re-read: unchanged. 'Lun. - Ven. : 10h00* - 22h30' with the footnote '*13h de juin à septembre (horaire d'été)' — the weekday opening moves by three hours for four months of the year — plus an annual closure 'Du 21 au 31 juillet'."
+ },
+ {
+  "lat": 50.8503463,
+  "lon": 4.3517211,
+  "name": "Gravity Lab",
+  "country": "BE",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "reason": "The venue cannot be placed (city-centroid coordinates, no address), so no page can be confirmed to be its page and no schedule can be attributed to it."
  },
  {
   "lat": 50.926454,
@@ -564,24 +583,95 @@
   "reason": "Re-read: unchanged, and blocked unconditionally rather than only by the season. The page's week is followed by 'Aangepaste openingsuren in de schoolvakanties!', and its own openingHours markup is a third answer again — Monday–Saturday 11:00-23:00, Sunday 11:00-20:00."
  },
  {
-  "lat": 42.62433,
-  "lon": 23.36199,
-  "name": "Balkan Climbing",
-  "country": "BG",
-  "status": "no-hours-on-official-site",
+  "lat": 50.41619,
+  "lon": 4.43898,
+  "name": "Maniak Charleroi",
+  "country": "BE",
+  "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://balkanclimbing.com/"
+  "reason": "The venue's likely official page, charleroi.maniak.club, is behind a Cloudflare interstitial that answers 403 to every request, so no schedule could be read. The town upstream records is Dampremy."
+ },
+ {
+  "lat": 50.6198,
+  "lon": 4.33027,
+  "name": "Maniak Nivelles",
+  "country": "BE",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "reason": "The venue's likely official page, nivelles.maniak.club, is behind a Cloudflare interstitial that answers 403 to every request, so no schedule could be read. The town upstream records is Nivelles."
+ },
+ {
+  "lat": 50.82757,
+  "lon": 4.33196,
+  "name": "Maniak Padoue",
+  "country": "BE",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "reason": "The venue's likely official page, padoue.maniak.club, is behind a Cloudflare interstitial that answers 403 to every request, so no schedule could be read. The town upstream records is Forest."
+ },
+ {
+  "lat": 50.8511,
+  "lon": 4.45897,
+  "name": "Stone Age",
+  "country": "BE",
+  "status": "seasonal",
+  "checked": "2026-08-23",
+  "source": "https://stone-age.be/heures-douverture/",
+  "reason": "The hours page carries two dated regimes, \"Horaire d'ouverture jusqu'au 30/06/26\" and \"Horaire d'ouverture 07 & 08/2026\", and both weekly tables are images rather than text. The only times the page states in words are the holiday rule (\"comme un dimanche (10h a 21h30)\", \"l'horaire du samedi s'appliquant (13h30-20h)\"), which is an exception rule and not the week. The lead hall is also \"fermee du 16/06 jusque probablement le 15/08/2026 pour transformation totale\", and the later of the two regimes runs out at the end of August with nothing published after it."
+ },
+ {
+  "lat": 51.0297,
+  "lon": 5.03716,
+  "name": "The Attic",
+  "country": "BE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 50.58334,
+  "lon": 5.85265,
+  "name": "The Wall Verviers",
+  "country": "BE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 42.6977082,
+  "lon": 23.3218675,
+  "name": "Bonsist",
+  "country": "BG",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 43.4170423,
+  "lon": 24.6066847,
+  "name": "EMO_MUXI",
+  "country": "BG",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 42.66773,
   "lon": 23.36823,
   "name": "Momentum Climbing Sofia",
   "country": "BG",
-  "status": "ambiguous",
+  "status": "no-official-site",
   "checked": "2026-08-23",
-  "reason": "The candidate site momentumclimbing.com is the American operator of the same name — Utah addresses and phone numbers — not this Sofia gym.",
-  "source": "https://momentumclimbing.com/"
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 26.22361,
+  "lon": 50.58759,
+  "name": "The Climbing Boardroom",
+  "country": "BH",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": -18.4730894,
@@ -602,6 +692,15 @@
   "checked": "2026-08-23",
   "reason": "The homepage says Segunda-feira das 15 às 21h, Terça a Sexta 15 às 22h and Sábado das 08 às 19h while the como-funciona page says Segunda a Sexta 15h às 21h and Sábado 13h às 19h.",
   "source": "https://powerbloc.com.br/"
+ },
+ {
+  "lat": 53.8980663,
+  "lon": 30.3325337,
+  "name": "BULL STONE",
+  "country": "BY",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 49.19171,
@@ -904,6 +1003,15 @@
   "reason": "Same site as the Courtenay hall, and the same blocker: this hall's own block reads 'Regular Hours: Monday - Saturday: 10am - 10pm, Sunday: 10am - 8pm', while the site's openingHours markup says Monday to Sunday 10:00-22:00."
  },
  {
+  "lat": 46.50714,
+  "lon": 8.71072,
+  "name": "Audan",
+  "country": "CH",
+  "status": "appointment-only",
+  "checked": "2026-08-23",
+  "reason": "The club's own page states the wall is unstaffed — \"la palestra non e custodita e che non ci sono monitori presenti\" — and that access is by key requested from the wall managers (\"Per informazioni e richiedere la chiave\"). It publishes day and annual rates but no opening hours, because there are none to publish: entry is arranged individually."
+ },
+ {
   "lat": 46.95906,
   "lon": 7.47294,
   "name": "Bimano Bern",
@@ -944,6 +1052,15 @@
   "reason": "Re-read, and the reason is sharper than 'ambiguous': the only times the site states are subscription access windows - 'Montag bis Sonntag (06:00 bis 24:00 Uhr)' for the trial subscription and 'Freitag ab 16:00 Uhr bis Sonntag 24:00 Uhr' for the weekend one - and a single entry is bought online. No staffed or walk-in week is published."
  },
  {
+  "lat": 46.63397,
+  "lon": 8.59349,
+  "name": "Boulder Halle Andermatt",
+  "country": "CH",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": 47.1532331,
   "lon": 8.0267847,
   "name": "Bouldergate Ettiswil",
@@ -974,6 +1091,15 @@
   "reason": "Same hall as the venue about 60 m away, and the same conflict: 09h00-20h00 at the weekend in the text, 09:00-22:00 every day in the page's own markup."
  },
  {
+  "lat": 47.07702,
+  "lon": 6.7591,
+  "name": "La Déglingue",
+  "country": "CH",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": 46.78714,
   "lon": 6.63162,
   "name": "La Pile SA",
@@ -982,6 +1108,15 @@
   "checked": "2026-08-23",
   "source": "https://lapile.ch/acces-et-horaires/",
   "reason": "Re-read: unchanged. The page is headed 'Des horaires adaptés au rythme des saisons' and says the hall adapts its hours to the season and to observed footfall, asking visitors to re-check before coming; Mondays additionally differ during Vaud school holidays."
+ },
+ {
+  "lat": 47.3318164,
+  "lon": 9.4119026,
+  "name": "Möhli",
+  "country": "CH",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 46.6543456,
@@ -1072,6 +1207,51 @@
   "checked": "2026-08-23",
   "source": "https://totem.ch/vevey",
   "reason": "Re-read: unchanged. Same operator, same shape - the week appears only as schema.org markup (Mo-Fr 10:00-22:30, Sa-Su 13:30-20:00) and nowhere in the readable page."
+ },
+ {
+  "lat": 9.93965,
+  "lon": -84.15605,
+  "name": "Eskalar",
+  "country": "CR",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 9.887011856968725,
+  "lon": -83.90448881843531,
+  "name": "Raccoon",
+  "country": "CR",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 10.33361,
+  "lon": -85.79444,
+  "name": "TamaRocks Climbing + Fitness",
+  "country": "CR",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 34.6912057,
+  "lon": 33.0574943,
+  "name": "Limassol Climbing Club",
+  "country": "CY",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 35.1804178,
+  "lon": 33.3940639,
+  "name": "RedpointCY",
+  "country": "CY",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 50.780882755796554,
@@ -1748,6 +1928,24 @@
   "checked": "2026-08-23",
   "reason": "The club’s booking module publishes team session times only, not an opening week.",
   "source": "https://koldingklatreklub.klub-modul.dk/default.aspx"
+ },
+ {
+  "lat": -2.90054,
+  "lon": -79.01702,
+  "name": "C-TR3S Climbing + Fitness",
+  "country": "EC",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": -0.21926596177731264,
+  "lon": -78.44734262883618,
+  "name": "El Muro",
+  "country": "EC",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 43.2630126,

@@ -2424,6 +2424,32 @@
   "evidence": "Monday 10:30 AM – 11:00 PM | Tuesday 11:30 AM – 11:00 PM | Wednesday 10:30 AM – 11:00 PM | Thursday 10:30 AM – 11:00 PM | Friday 10:30 AM – 11:00 PM | Saturday 10:00 AM – 8:00 PM | Sunday 10:00 AM – 10:00 PM. Open every day (including public holidays)"
  },
  {
+  "lat": 42.62433,
+  "lon": 23.36199,
+  "name": "Balkan Climbing",
+  "country": "BG",
+  "source": "https://balkanclimbing.com/contacts",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "07:30-23:00",
+   "tue": "07:30-23:00",
+   "wed": "07:30-23:00",
+   "thu": "07:30-23:00",
+   "fri": "07:30-23:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Работно време Понеделник - Петък - 07.30 - 23.00 Събота - 09.00 - 22.00 Неделя - 09.00 - 22.00",
+  "note": "The single-hall site states the whole week in one block, repeated identically in the page body and the footer. No seasonal or holiday variation is stated anywhere on the site."
+ },
+ {
   "lat": -22.9068467,
   "lon": -43.1728965,
   "name": "Evolução Indoor",
@@ -2446,6 +2472,32 @@
    "sun": "12:00-18:00"
   },
   "evidence": "Abrimos de segunda a sexta de 07h às 22h | Sábado e feriados de 10h às 18h | Domingo de 12h às 18h | Travessa Dona Marciana, 31, Botafogo, Rio de Janeiro - RJ"
+ },
+ {
+  "lat": 53.9006011,
+  "lon": 27.558972,
+  "name": "Plato Climbing Gym",
+  "country": "BY",
+  "source": "https://plato.by/contacts",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "09:00-23:00",
+   "tue": "09:00-23:00",
+   "wed": "09:00-23:00",
+   "thu": "09:00-23:00",
+   "fri": "09:00-23:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Время работы C 9:00 до 23:00, пн-пт C 10:00 до 21:00, сб C 10:00 до 21:00, вс",
+  "note": "The single-hall site states all seven days. No seasonal rule and no holiday exception is given."
  },
  {
   "lat": 45.52790299999999,
@@ -4774,6 +4826,31 @@
    "sun": "10:00-17:00"
   },
   "evidence": "Lunes a Viernes de 6:00 a.m. a 9:45 p.m. | Sábados de 8:00 a.m. a 8:00 p.m. | Domingos y Festivos de 10:00 a.m. a 5:00 p.m."
+ },
+ {
+  "lat": 35.1398,
+  "lon": 33.36784,
+  "name": "Rockstar Climbing",
+  "country": "CY",
+  "source": "https://rockstarclimbing.cy/contact-us/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "10:00-13:00,15:00-21:00",
+   "tue": "10:00-13:00,15:00-21:00",
+   "wed": "10:00-21:00",
+   "thu": "10:00-21:00",
+   "fri": "10:00-13:00,15:00-21:00",
+   "sat": "10:00-14:00",
+   "sun": "closed"
+  },
+  "evidence": "Opening Hours Monday / Tuesday 10:00 a.m. – 1:00 p.m. 3:00 p.m. – 9:00 p.m. Wednesday / Thursday 10:00 a.m. – 9:00 p.m. Friday 10:00 a.m. – 1:00 p.m. 3:00 p.m. – 9:00 p.m. Saturday 10:00– 14:00 Sunday Open for pre-booked parties & events",
+  "note": "The midday break on Monday, Tuesday and Friday is the site's own split and is preserved. Sunday is recorded closed because the page offers it only for pre-booked parties and events, which is not a public opening. The same block appears identically on the contact page and the member page."
  },
  {
   "lat": 49.82052,
@@ -8603,6 +8680,34 @@
   },
   "evidence": "Vanløse, Vanløse Torv 1, Krone 2720 Vanløse — Åbningstider Hver dag 08:00 - 23:00",
   "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
+ },
+ {
+  "lat": 59.42448,
+  "lon": 24.79473,
+  "name": "Ronimisministeerium T1",
+  "country": "EE",
+  "source": "https://ronimisministeerium.ee/tallinn/ronminsaalid",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "00:00-24:00",
+   "tue": "00:00-24:00",
+   "wed": "00:00-24:00",
+   "thu": "00:00-24:00",
+   "fri": "00:00-24:00",
+   "sat": "00:00-24:00",
+   "sun": "00:00-24:00"
+  },
+  "evidence": "Ronisministeerium T1 — Suurim rahnuronimissaal Eestis! Avatud 24/7. … T1 Ronimisministeerium … KUIDAS MEID LEIDA? Peterburi tee 2, 11415 Tallinn. Avatud 24/7! Asume T1 kaubanduskeskuse 3. korrusel, kesk-aatriumis. Väljaspool kaubanduskeskuse lahtiolekut, kasuta oma piletit, et siseneda ja väljuda 3. korruse parkla kaudu.",
+  "note": "Stated twice for this hall: once in the hall list and once in its own location block. Outside the shopping centre's own hours entry is by the ticket the visitor already bought, through the third-floor car park, so the 24/7 opening is the public one and not a members-only window. The sauna in the changing rooms is separately noted as heated Mon-Sun 9-22; that is an amenity window inside the opening, not the opening itself."
  },
  {
   "lat": 43.05242,
