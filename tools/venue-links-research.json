@@ -690,16 +690,6 @@
     "candidate": "https://www.hiveclimbing.com/locations"
   },
   {
-    "lat": 49.5017396,
-    "lon": -119.5908379,
-    "name": "Hoodoo Adventures",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — verticaladventures.ca → \"Vertical Adventures\"; hoodooadventures.ca → \"Home - Hoodoo Adventures\"; hoodoo.com → \"Hoodoo Ski Resort Home Page - Hoodoo Ski Area\", the rest could not be opened — hoodooadventures.com → no answer; hoodoo.ca → a timeout, the venue's whole name as one label, hoodooadventures.ca, answers 200 (\"Home - Hoodoo Adventures\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.verticaladventures.ca/"
-  },
-  {
     "lat": 44.24168,
     "lon": -76.4828,
     "name": "Kingston Bouldering Co-operative",
@@ -807,16 +797,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — therock.ca → \"TheRock.ca for sale | Spaceship.com\", the rest could not be opened — therock.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://therock.ca/"
-  },
-  {
-    "lat": 43.70887,
-    "lon": -79.31537,
-    "name": "Toronto Climbing Academy",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — toronto.ca → \"City of Toronto\"; toronto.com → \"Toronto’s Lifestyle Guide: Food, Events, Things To Do | \", the rest could not be opened — torontotoronto.com → a timeout. Upstream records 11 Curity Ave Unit 3, M4B 1X4, Toronto, and nothing opened printed it.",
-    "candidate": "https://www.toronto.ca/"
   },
   {
     "lat": 51.0779562,
@@ -1443,16 +1423,6 @@
     "reason": "No official site. everyday.com.co, everyday.co, everydaywall.com.co, everydaywall.co, everyday-wall.com.co, everyday-wall.co, everydayclimbing.com.co and everydayclimbing.co all fail to resolve. Upstream gives no address for this Bogota venue and no OSM climbing object nearby carries a website tag."
   },
   {
-    "lat": 4.638923400703702,
-    "lon": -74.07231190130578,
-    "name": "Zona de Bloque",
-    "country": "CO",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. zona.com.co and zona.co both resolve to \"Amaral Editores\", a design and photography studio, and zona.co answers a bare 301. No compound of the venue name resolves, upstream gives no address, and no OSM climbing object near these Bogota coordinates carries a website tag.",
-    "candidate": "https://zona.co/"
-  },
-  {
     "lat": 9.93965,
     "lon": -84.15605,
     "name": "Eskalar",
@@ -2072,8 +2042,8 @@
     "country": "ES",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "urbanboulder.com answers 403 to every fetcher and urban-boulder.com returns 444 then 520; urban.es is an estate agency and urban.cat a 503. The chain siblings named Urban are BlocX in Luxembourg and two urban apes halls in Germany. Nothing readable names Bulevar de Salburua 4 in Vitoria.",
-    "candidate": "https://urbanboulder.com/"
+    "reason": "urban.es is a generic single-word domain, and the only thing it shares with this venue is the word Urban and the number 4, which is the building number in Bulevar de Salburua Kalea, 4 and far too common to carry a match on its own. Nothing on it places a climbing wall in Salburua.",
+    "candidate": "https://urban.es/"
   },
   {
     "lat": 40.53623976991643,
@@ -2570,16 +2540,6 @@
     "candidate": "https://gripnijmegen.nl/boulderhal/"
   },
   {
-    "lat": 47.656168,
-    "lon": 19.066999,
-    "name": "2BFit Boulder Gym",
-    "country": "HU",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — 2bfit.com → \"2bFit Health Centre | Integrated Rehabilitation & Fitnes\"; 2bfitbouldergym.hu → \"Home - 2BFit Boulder Gym\", the venue's whole name as one label, 2bfitbouldergym.hu, answers 200 (\"Home - 2BFit Boulder Gym\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.2bfit.com/"
-  },
-  {
     "lat": 47.5625993,
     "lon": 19.0324136,
     "name": "fless! Buda",
@@ -2684,8 +2644,8 @@
     "country": "IL",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — alle.co.il → \"CREO | בונים חוויה חדשה\"; alle.com → \"a page with no title\"; alleclimb.com → \"Allé › מרכז פעילויות טיפוס בירושלים הבירה\", the rest could not be opened — alleclimbing.com → 200. Upstream records האומן 20, ירושלים, and nothing opened printed it.",
-    "candidate": "https://alle.co.il/"
+    "reason": "allclimbing.com carries the venue's Latin name and the number 20, which is the building number in האומן 20; a bare 20 on a generic climbing domain is not a street match. Nothing on it prints the street name or places the wall in Jerusalem.",
+    "candidate": "https://allclimbing.com/"
   },
   {
     "lat": 32.78973879999999,
@@ -3971,16 +3931,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — grid.com → \"Electric Vehicle (EV) Charging Stations overview - GRID \"; boulder.com → \"Denver Media\", the rest could not be opened — grid.com.mx → a certificate that does not cover its hostname; bouldergrid.com → 200; boulder.com.mx → 200, the venue's whole name as one label, bouldergrid.com, answers 200 (\"Boulder Grid\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://grid.com/en"
-  },
-  {
-    "lat": 21.9082665,
-    "lon": -102.2948845,
-    "name": "Drop Climbing",
-    "country": "MX",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — drop.com → \"Drop - Gaming Collaborations by Corsair\"; dropclimbing.mx → \"Drop Climbing - Centro de entrenamiento para escaladores\"; dropclimbing.com → \"Drop Climbing - Centro de entrenamiento para escaladores\", the rest could not be opened — drop.com.mx → a certificate that does not cover its hostname; drop.mx → no answer, the venue's whole name as one label, dropclimbing.mx, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://drop.com/"
   },
   {
     "lat": 32.6297526,
@@ -5452,16 +5402,6 @@
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 36.92433980000001,
-    "lon": 30.7220622,
-    "name": "Boulder Jungle",
-    "country": "TR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.jungleletnany.cz → \"Jungle sport park | Praha Letňany\"; holesovice.jungle.cz → \"Novinky | Jungle Holešovice\"; jungle.com.tr → \"Fermente, Probiyotik, Canlı Gıda - Jungle Healthy Food\", the venue's whole name as one label, boulderjungle.com, answers 200 (\"Boulder Jungle\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.jungleletnany.cz/"
-  },
-  {
     "lat": 38.4523313,
     "lon": 27.204487,
     "name": "Climbinn Moonboard",
@@ -5642,26 +5582,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no candidate could be opened — masters.com → 301 / nothing; masters.net → a certificate that does not cover its hostname; masters.org → 301 / nothing. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 40.02126,
-    "lon": -105.25115,
-    "name": "ABC Kid's Climbing",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — abckid.com → \"Checking your browser...\"; abc-kid.com → \"ABC-KID | Premium Kids Clothing, Footwear & Accessories\"; abc-kid.net → \"a page with no title\", the venue's whole name as one label, abckidsclimbing.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://abckid.com/"
-  },
-  {
-    "lat": 33.66522,
-    "lon": -117.66397,
-    "name": "Aesthetic Climbing Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — aesthetic.com → \"Aesthetic.com\"; aesthetic.net → \"a page with no title\"; aesthetic.org → \"Checking your browser...\", the venue's whole name as one label, aestheticclimbinggym.com, answers 200 (\"Aesthetic Climbing Gym | Indoor Rock Climbing Gym\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.aesthetic.com/"
   },
   {
     "lat": 44.56317,
@@ -5906,16 +5826,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — capitalclimbing.com → \"Capital Climbing\"; capital.com → \"Online Trading with Our Award-winning Platform | Capital\", the rest could not be opened — capital.org → a certificate that does not cover its hostname / 200. Upstream records 901 State St, 29033, Cayce, and nothing opened printed it.",
     "candidate": "https://capitalclimbing.com/"
-  },
-  {
-    "lat": 42.47299,
-    "lon": -76.40842,
-    "name": "Cayuga Climbs",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — cayuga.org → \"Checking your browser...\"; cayugaclimbs.com → \"Cayuga Climbs\", the rest could not be opened — cayuga.net → 520, the venue's whole name as one label, cayugaclimbs.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://cayuga.org/"
   },
   {
     "lat": 39.99335,
@@ -6882,16 +6792,6 @@
     "reason": "No official site could be established: no candidate could be opened — purdue.com → a certificate that does not cover its hostname; purdue.net → 200. Upstream records 355 N Martin Jischke Dr, 47906, West Lafayette, and nothing opened printed it."
   },
   {
-    "lat": 38.81398069999999,
-    "lon": -104.8400848,
-    "name": "Pure Bouldering Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — pure.com → \"PURE\"; pure.net → \"Kinex Telecom Transition | Experience Faster Connectivit\"; pureboulderinggym.com → \"PureBoulderingGym | Join Climbing Today — Elevate Your F\", the rest could not be opened — pure.org → 200; pureclimbing.com → 200; pureboulder.com → 200, the venue's whole name as one label, pureboulderinggym.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.pure.com/"
-  },
-  {
     "lat": 36.1699412,
     "lon": -115.1398296,
     "name": "R2C2 Gym",
@@ -7175,16 +7075,6 @@
     "candidate": "https://socialclimber.com/"
   },
   {
-    "lat": 30.1862645,
-    "lon": -92.064216,
-    "name": "Southern Stone",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — stoneclimbing.com → \"Stone Climbing | Climbing Gym in Northeast Florida\"; southernstone.org → \"Coming Soon\", the rest could not be opened — southernstone.com → a certificate that does not cover its hostname; southern.com → 403; southern.net → a certificate that does not cover its hostname, the venue's whole name as one label, southernstone.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.stoneclimbing.com/"
-  },
-  {
     "lat": 40.6255415,
     "lon": -103.207709,
     "name": "Sportrock - Sterling",
@@ -7193,16 +7083,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — www.sportrock.com/sterling → \"Sterling | Sportrock Climbing\"; sportrock.com → \"Sportrock Climbing Centers | Climbing Gym\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.sportrock.com/sterling"
-  },
-  {
-    "lat": 38.89912,
-    "lon": -104.82728,
-    "name": "Springs Climbing Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — springsclimbingcenter.com → \"Springs Climbing Center\", the rest could not be opened — springs.com → a certificate that does not cover its hostname; springs.org → 200, the venue's whole name as one label, springsclimbingcenter.com, answers 200 (\"Springs Climbing Center\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://springsclimbingcenter.com/"
   },
   {
     "lat": 35.66688,
@@ -7410,16 +7290,6 @@
     "candidate": "https://gravityvault.com/locations/jersey-city-nj"
   },
   {
-    "lat": 47.6739881,
-    "lon": -122.121512,
-    "name": "The Jug Rock Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — thejugrockgym.com → \"The Gym\"; thejug.net → \"a page with no title\", the rest could not be opened — thejug.com → a timeout; thejug.org → a certificate that does not cover its hostname, the venue's whole name as one label, thejugrockgym.com, answers 200 (\"The Gym\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://thejugrockgym.com/"
-  },
-  {
     "lat": 40.0166469,
     "lon": -105.2246372,
     "name": "The Lab Climbing",
@@ -7577,16 +7447,6 @@
     "candidate": "https://strongdomains.com/domain/thrashin.com"
   },
   {
-    "lat": 34.40973,
-    "lon": -118.50891,
-    "name": "Top Out Climbing",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — topout.com → \"Top Out – Construction Management\"; topout.net → \"とっぷあうとの趣味 | Topout HOBBY －とっぷあうとの趣味－\"; topout.org → \"Climb Calabogie – A Guide to Climbing around Calabogie, \", the rest could not be opened — top-out.com → 200, the venue's whole name as one label, topoutclimbing.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://topoutcm.com/"
-  },
-  {
     "lat": 37.85155,
     "lon": -122.2926806,
     "name": "Touchstone Team Training Center",
@@ -7711,16 +7571,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — vertical.com → \"Home - Vertical Communications\", the rest could not be opened — verticalventures.com → 403; verticalventures.net → 200; verticalventures.org → a timeout / a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.vertical.com/"
-  },
-  {
-    "lat": 47.8209301,
-    "lon": -122.3151314,
-    "name": "Vertical World",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — verticalworld.com → \"Vertical World | America's First Climbing Gym!\"; north.verticalworld.com → \"North Vertical World | America's First Climbing Gym!\"; seattle.verticalworld.com → \"Seattle Vertical World | America's First Climbing Gym!\", the rest could not be opened — world.net → no answer / a certificate that does not cover its hostname; verticalworld.org → 500 / a certificate that does not cover its hostname, the venue's whole name as one label, verticalworld.com, answers 200 (\"Vertical World | America&#039;s First Climbing Gym!\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://verticalworld.com/"
   },
   {
     "lat": 21.39166,

@@ -3206,6 +3206,20 @@
     "note": "The site prints 238 Lesmill Rd — the street upstream records — and names the Kilter, MoonBoard and Tension boards, which covers the Kilter and Tension this venue is listed for. Its embedded map sits 208 m away and is labelled with the same street."
   },
   {
+    "lat": 49.5017396,
+    "lon": -119.5908379,
+    "name": "Hoodoo Adventures",
+    "country": "CA",
+    "website": "https://hoodooadventures.ca/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Penticton, the town upstream records."
+  },
+  {
     "lat": 45.57792,
     "lon": -73.33714,
     "name": "Hook Bouldering",
@@ -3749,6 +3763,20 @@
       "board-mention"
     ],
     "note": "The site prints 284 Orenda Rd Unit 8, Brampton, ON — the town upstream records — and names the MoonBoard this venue is listed for."
+  },
+  {
+    "lat": 43.70887,
+    "lon": -79.31537,
+    "name": "Toronto Climbing Academy",
+    "country": "CA",
+    "website": "https://torontoacademy.ca/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Toronto Climbing Academy's own site, printing 11 — the building number in 11 Curity Ave that upstream records. Toronto is part of the venue's name, so the town it shares with the site is not claimed as a second signal; the street number is."
   },
   {
     "lat": 52.19682,
@@ -4737,6 +4765,20 @@
       "coordinates"
     ],
     "note": "The site is \"Trepa: La Casa de la Escalada\", the venue name in full, and its structured data publishes latitude 4.633826, longitude -74.071246 — the same point to four decimals as this venue — alongside the address Dg 45D # 16A - 23, Bogota."
+  },
+  {
+    "lat": 4.638923400703702,
+    "lon": -74.07231190130578,
+    "name": "Zona de Bloque",
+    "country": "CO",
+    "website": "https://zonadebloque.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Bogotá, the town upstream records."
   },
   {
     "lat": 35.1398,
@@ -11406,6 +11448,20 @@
     "note": "Fothia's own site, giving Zagreb — the city upstream records, which the venue name does not carry."
   },
   {
+    "lat": 47.656168,
+    "lon": 19.066999,
+    "name": "2BFit Boulder Gym",
+    "country": "HU",
+    "website": "https://2bfitbouldergym.hu/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Szentendre, the town upstream records."
+  },
+  {
     "lat": 47.51476813536509,
     "lon": 19.11432501487862,
     "name": "Fless!",
@@ -12406,6 +12462,20 @@
       "board-mention"
     ],
     "note": "The venue's whole name as one domain label, which the guesser had not tried. The site carries this venue's name and names the MoonBoard it is listed for; upstream records no street address, so those are the two signals available."
+  },
+  {
+    "lat": 21.9082665,
+    "lon": -102.2948845,
+    "name": "Drop Climbing",
+    "country": "MX",
+    "website": "https://dropclimbing.mx/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Aguascalientes, the town upstream records."
   },
   {
     "lat": 25.7034572,
@@ -15475,6 +15545,21 @@
     "note": "The page is titled \"URBAN PLAYGROUND Rock Climbing | RQ Club | สุขุมวิท 49/9\" — the venue name and, in Thai script, Sukhumvit 49/9, which is the street upstream records as \"6 8 Sukhumvit 49/9 Alley\". The record previously claimed the postal code and the district instead; neither is on the page, and the sample QA caught it. The street in Thai is the signal that is actually there."
   },
   {
+    "lat": 36.92433980000001,
+    "lon": 30.7220622,
+    "name": "Boulder Jungle",
+    "country": "TR",
+    "website": "https://boulderjungle.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "coordinates"
+    ],
+    "note": "Boulder Jungle's own site, giving Antalya and embedding a map of itself 418 m from this venue. The distance is outside the coordinates signal's usual range, so it is recorded as corroboration of the town rather than in place of it."
+  },
+  {
     "lat": 41.07611175615464,
     "lon": 29.01340927116426,
     "name": "Boulderhane",
@@ -15487,6 +15572,20 @@
       "postal-code"
     ],
     "note": "Boulderhane's own site, printing the 34330 postal code upstream records for Büyükdere Cd. in Levent."
+  },
+  {
+    "lat": 40.02126,
+    "lon": -105.25115,
+    "name": "ABC Kid's Climbing",
+    "country": "US",
+    "website": "https://abckidsboulder.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Boulder, the town upstream records."
   },
   {
     "lat": 33.48183,
@@ -15545,6 +15644,20 @@
       "street-address"
     ],
     "note": "The operator lists more than one gym; its page gives this one as 613 S 2nd St, Milwaukee, WI 53204, which resolves 92 m from the coordinate."
+  },
+  {
+    "lat": 33.66522,
+    "lon": -117.66397,
+    "name": "Aesthetic Climbing Gym",
+    "country": "US",
+    "website": "https://aestheticclimbinggym.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Lake Forest, the town upstream records."
   },
   {
     "lat": 36.97181,
@@ -16297,6 +16410,20 @@
       "board-mention"
     ],
     "note": "The site carries this venue's name and names the Tension Board it is listed for. Upstream records no street address for the venue, so the name and the board are the two signals available; the domain is the venue's own name taken as one label, which the guesser had not tried."
+  },
+  {
+    "lat": 42.47299,
+    "lon": -76.40842,
+    "name": "Cayuga Climbs",
+    "country": "US",
+    "website": "https://cayugaclimbs.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Ithaca, the town upstream records."
   },
   {
     "lat": 36.2139102,
@@ -19102,6 +19229,20 @@
     "note": "Upstream carries no address; the page's own 58 Glenroyal Dr. Pueblo, CO 81005 resolves 127 m from the coordinate."
   },
   {
+    "lat": 38.81398069999999,
+    "lon": -104.8400848,
+    "name": "Pure Bouldering Gym",
+    "country": "US",
+    "website": "https://pureboulderinggym.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Colorado Springs, the town upstream records."
+  },
+  {
     "lat": 40.8626711,
     "lon": -74.6150636,
     "name": "Randolph Climbing Center",
@@ -19692,6 +19833,21 @@
     "note": "Southern Illinois University's own recreation site, printing 300 E Grand Ave, Carbondale 62901 — the whole address upstream records. The first pass had reached southernillinois.com, which is a Jefferson County tourism site contactable at 123 S. 10th St, Mt. Vernon, and matched only because it names the region."
   },
   {
+    "lat": 30.1862645,
+    "lon": -92.064216,
+    "name": "Southern Stone",
+    "country": "US",
+    "website": "https://southernstoneclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Southern Stone's own site, giving Lafayette — the town upstream records — and naming the MoonBoard this venue is listed for."
+  },
+  {
     "lat": 45.67642,
     "lon": -111.14422,
     "name": "Spire Climbing + Fitness Training Center",
@@ -19802,6 +19958,20 @@
       "location-page"
     ],
     "note": "The page prints Washingtonian Blvd; upstream abbreviates it to Washington Blvd."
+  },
+  {
+    "lat": 38.89912,
+    "lon": -104.82728,
+    "name": "Springs Climbing Center",
+    "country": "US",
+    "website": "https://springsclimbingcenter.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Colorado Springs, the town upstream records."
   },
   {
     "lat": 38.47173,
@@ -20399,6 +20569,20 @@
     ]
   },
   {
+    "lat": 47.6739881,
+    "lon": -122.121512,
+    "name": "The Jug Rock Gym",
+    "country": "US",
+    "website": "https://thejugrockgym.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Redmond, the town upstream records."
+  },
+  {
     "lat": 43.65539,
     "lon": -72.241,
     "name": "The Notch Climbing Gym",
@@ -20551,6 +20735,20 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 34.40973,
+    "lon": -118.50891,
+    "name": "Top Out Climbing",
+    "country": "US",
+    "website": "https://topoutclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Santa Clarita, the town upstream records."
   },
   {
     "lat": 35.9512,
@@ -20728,6 +20926,20 @@
       "location-page"
     ],
     "note": "Vertical eXcape publishes a page per gym; this is the Evansville one, and Evansville is the town upstream records."
+  },
+  {
+    "lat": 47.8209301,
+    "lon": -122.3151314,
+    "name": "Vertical World",
+    "country": "US",
+    "website": "https://verticalworld.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Lynnwood, the town upstream records."
   },
   {
     "lat": 47.88684,
