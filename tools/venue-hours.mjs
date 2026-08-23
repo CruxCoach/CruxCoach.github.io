@@ -275,6 +275,9 @@ function evidenceMentionsTime(evidence, minutes) {
   patterns.push(m === 0
     ? new RegExp(`(^|[^0-9])0?${h12}\\s*(${sep}00\\s*)?${ampm}`, 'i')
     : new RegExp(`(^|[^0-9])0?${h12}${sep}${mm}\\s*${ampm}`, 'i'));
+  // "630AM" — the separator dropped as well. Only with a meridiem attached: a
+  // bare 630 in running text is a number, not half past six.
+  if (m !== 0) patterns.push(new RegExp(`(^|[^0-9])${h12}${mm}\\s*${ampm}`, 'i'));
   // Words, for the two times that have them.
   if (minutes === 0 || minutes === 24 * 60) patterns.push(/midnight/i);
   if (minutes === 12 * 60) patterns.push(/noon|midday/i);

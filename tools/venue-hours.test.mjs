@@ -631,6 +631,16 @@ test('the evidence cross-check finds a mistyped time and forgives spelling', () 
       fri: '10:00-22:00', sat: '10:00-20:00', sun: '10:00-20:00',
     },
   }), []);
+  // The separator goes missing too: "630AM - 10PM".
+  assert.deepEqual(timesMissingFromEvidence({
+    evidence: 'MONDAY, WEDNESDAY | 630AM - 10PM | TUESDAY & THURSDAY & FRIDAY | 11AM - 10PM',
+    hours: { ...Object.fromEntries(DAY_KEYS.map(d => [d, 'closed'])), mon: '06:30-22:00' },
+  }), []);
+  // ...but only with the meridiem attached: a bare 630 is a number.
+  assert.deepEqual(timesMissingFromEvidence({
+    evidence: '630 climbers came through the door',
+    hours: { ...Object.fromEntries(DAY_KEYS.map(d => [d, 'closed'])), mon: '06:30-07:00' },
+  }), ['06:30', '07:00']);
   // ...but a bare letter may not eat a word: "9 pages" is not 9 p.m.
   assert.deepEqual(timesMissingFromEvidence({
     evidence: '9 pages of routes, 10 apples',

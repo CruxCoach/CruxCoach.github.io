@@ -314,46 +314,84 @@ maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (published + outcome entries) | 1034 |
-| Published schedules | 733 |
-| Recorded outcomes without hours | 301 |
-| Countries covered | 22 |
+| Venues reviewed (published + outcome entries) | 1149 |
+| Published schedules | 776 |
+| Recorded outcomes without hours | 373 |
+| Countries covered | 26 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
 
 | country | published | reviewed | eligible | share |
 | --- | --- | --- | --- | --- |
-| US | 240 | 288 | 576 | 42% |
-| DE | 134 | 171 | 201 | 67% |
-| GB | 52 | 71 | 102 | 51% |
-| CA | 49 | 70 | 132 | 37% |
-| NL | 38 | 52 | 59 | 64% |
+| US | 252 | 318 | 576 | 44% |
+| DE | 134 | 173 | 201 | 67% |
+| CA | 59 | 86 | 132 | 45% |
+| GB | 52 | 72 | 102 | 51% |
+| NL | 38 | 53 | 59 | 64% |
 | CH | 35 | 52 | 56 | 63% |
-| AT | 31 | 44 | 48 | 65% |
-| AU | 28 | 36 | 83 | 34% |
-| FR | 25 | 46 | 70 | 36% |
+| AU | 31 | 42 | 83 | 37% |
+| AT | 31 | 45 | 48 | 65% |
+| FR | 27 | 55 | 70 | 39% |
+| NO | 19 | 45 | 81 | 23% |
 | BE | 19 | 28 | 36 | 53% |
-| ES | 16 | 50 | 98 | 16% |
-| NO | 16 | 36 | 81 | 20% |
-| DK | 10 | 14 | 27 | 37% |
-| IT | 9 | 22 | 72 | 13% |
-| PL | 7 | 12 | 45 | 16% |
+| ES | 18 | 55 | 98 | 18% |
+| DK | 11 | 16 | 27 | 41% |
+| IT | 9 | 23 | 72 | 13% |
+| PL | 8 | 14 | 45 | 18% |
+| ZA | 6 | 6 | 12 | 50% |
+| SE | 5 | 17 | 37 | 14% |
 | FI | 5 | 8 | 15 | 33% |
-| ZA | 5 | 5 | 12 | 42% |
 | IE | 5 | 5 | 10 | 50% |
-| SE | 4 | 14 | 37 | 11% |
-| CZ | 2 | 4 | 10 | 20% |
+| CZ | 3 | 6 | 10 | 30% |
+| NZ | 2 | 2 | 11 | 18% |
+| SG | 2 | 2 | 9 | 22% |
 | LU | 2 | 3 | 6 | 33% |
-| PT | 1 | 3 | 15 | 7% |
+| PT | 1 | 4 | 15 | 7% |
+| SI | 1 | 1 | 6 | 17% |
+| TR | 1 | 1 | 3 | 33% |
+| JP | 0 | 3 | 48 | 0% |
 
-- **Last completed batch:** the first 35 venues that carry *no* verified website
-  link — the ones our own data already points at (a twin entry a few metres away,
-  or a sibling branch of a chain we have curated). 16 published, 19 logged.
-- **Next:** the rest of the ~1150 link-less eligible venues. They need a site
-  established first, one venue at a time, and `tools/VENUE-LINKS.md` is the policy
-  for that; nothing in this file may publish hours from a site that policy has not
-  been applied to.
+- **Last completed batch:** the 437 link-less venues that carry an address or a
+  city, put through a name-to-domain guess whose only job is to *propose* a site.
+  116 proposals survived a page-side check (the page has to carry the venue's name
+  and its street or city); of those, 46 published and 69 logged.
+- **Next:** the ~1,350 link-less venues with neither an address nor a city in the
+  dataset. A name-to-domain guess cannot be checked for those, so they need a site
+  established some other way first — `tools/VENUE-LINKS.md` is the policy — and
+  nothing here may publish hours from a site that policy has not been applied to.
+
+### Guessing a domain, and letting the page do the verifying
+
+The 437 link-less venues that carry an address or a city were put through a
+name-to-domain guess: strip the generic words out of the venue name, join what is
+left, try the country's TLDs. **The guess proves nothing.** What decides is the
+page it lands on: the venue's name has to appear on it, and so does its street or
+its city, or the candidate is dropped. 116 of 437 survived that; 46 of those 116
+became records and 69 became outcomes.
+
+**The failures are the interesting half, and they are why the page-side check is
+not optional.** `thecoliseum.co.uk` is the right gym. `fairfield.com` is Fairfield
+Maxwell. `torontoacademy.ca` is a school. `gravita-zero.it` is a science magazine.
+`winchester.com` sells ammunition. `universityofcoloradoboulder.com` and
+`aspenred.com` are parked for sale. `mulhouse.fr` is a town hall, and
+`momentumclimbing.com` is an American chain that has never been to Sofia. Every
+one of those cleared a name-token match and was caught by the address or by a
+human reading the evidence; each is logged with the candidate named, so the next
+curator does not walk the same path.
+
+**Two of the guesses were better than the data.** TOP Boulder's Kirchheim hall has
+its own domain and its own week, which is not the one on the group site — the
+group site's block belongs to Malmsheim. And the Beacon Climbing Centre entry
+carries a positive longitude, which puts a Welsh climbing wall in the North Sea and
+files it under NL; the hours are the venue's, the coordinate is upstream's problem.
+
+**Three published records were withdrawn again.** BlocSchmiede, Boulderplanet and
+Monk Amsterdam each turned out to have a second dataset entry several kilometres
+from the linked one, and the operator publishes a single address. Which coordinate
+is the hall cannot be settled from here, so the entry that carries the verified
+link keeps its hours and the other is logged. The report's shared-source note is
+what found all three.
 
 ### The first pass beyond the verified links
 
