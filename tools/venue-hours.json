@@ -14627,6 +14627,31 @@
   "evidence": "10am-10pm Weekdays | 8am-8pm Weekends | 9am-8pm Public Holidays"
  },
  {
+  "lat": -45.8753685,
+  "lon": 170.5019641,
+  "name": "Resistance Climbing",
+  "country": "NZ",
+  "source": "https://resistanceclimbing.co.nz/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Open hours: Weekdays 10am-10pm Weekends 10am-8pm",
+  "note": "Stated at the top of the gym's own page, above its description of itself as Dunedin's bouldering gym."
+ },
+ {
   "lat": -37.6572354,
   "lon": 176.1890824,
   "name": "Rocktopia",
@@ -22598,6 +22623,56 @@
   },
   "evidence": "Climbing Center hours Climbing Center Weekdays | 12 p.m. to 9 p.m. Weekends | 12 p.m. to 7 p.m.",
   "note": "The youth window (weekdays 1-6 p.m., weekends 12-7 p.m.) sits inside this one and is an age restriction rather than a separate opening. The page adds that Student Recreation Center closures may affect these hours; that is a general caveat, not a competing schedule."
+ },
+ {
+  "lat": 47.754739,
+  "lon": -122.3142869,
+  "name": "Uplift Climbing",
+  "country": "US",
+  "source": "https://www.upliftclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "gym hours mon-wed-fri 12p-10p tues-thurs 6a-10p sat-sun 8a-8p address 17229 15th Ave NE Shoreline, WA 98155",
+  "note": "The gym groups its days as Monday/Wednesday/Friday and Tuesday/Thursday, which alternate between a noon and a 6am opening, with the weekend stated separately. The block sits directly above its address."
+ },
+ {
+  "lat": 47.75546,
+  "lon": -122.31409,
+  "name": "Uplift Climbing",
+  "country": "US",
+  "source": "https://www.upliftclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "gym hours mon-wed-fri 12p-10p tues-thurs 6a-10p sat-sun 8a-8p address 17229 15th Ave NE Shoreline, WA 98155",
+  "note": "The gym groups its days as Monday/Wednesday/Friday and Tuesday/Thursday, which alternate between a noon and a 6am opening, with the weekend stated separately. The block sits directly above its address."
  },
  {
   "lat": 25.81284,

@@ -126,8 +126,8 @@
   "country": "AT",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The section’s site publishes no schedule for the wall; the only hours are the section office’s.",
-  "source": "https://www.alpenverein.at/wien/"
+  "source": "https://www.alpenverein.at/wien/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 47.1484502,
@@ -3924,10 +3924,10 @@
   "lon": 5.57895,
   "name": "ABLOK Voiron",
   "country": "FR",
-  "status": "ambiguous",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The contact page carries two Sunday answers — 10h-18h and 10h-20h — the address shown is the Grenoble hall’s, and a \"Salle fermée: de 27 juillet - 17 août\" line sits alongside.",
-  "source": "https://ablok.fr/"
+  "source": "https://voiron.ablok.fr/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 47.58075164301288,
@@ -4096,6 +4096,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 46.2592589,
+  "lon": 6.0295648,
+  "name": "cortigrimpe01",
+  "country": "FR",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://cortigrimpe01.fr/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
+ },
+ {
   "lat": 45.91751,
   "lon": 6.85405,
   "name": "EMHM",
@@ -4199,6 +4209,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 48.10577,
+  "lon": 7.37538,
+  "name": "Salle D'Escalade Les Freres Mawem",
+  "country": "FR",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://lesfreresmawem.fr/",
+  "reason": "The hall states only that it is open seven days a week — \"7j/7 Ouvert\" — and its Horaires & Contact page carries no times. A frequency is not a schedule."
  },
  {
   "lat": 43.62005,
@@ -4753,6 +4773,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 47.51476813536509,
+  "lon": 19.11432501487862,
+  "name": "Fless!",
+  "country": "HU",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://fless.hu/",
+  "reason": "The venue's own site renders in the browser: it answers 200 and serves 55 characters of text, which is navigation and no more. No schedule could be read from it."
+ },
+ {
   "lat": 47.5625993,
   "lon": 19.0324136,
   "name": "fless! Buda",
@@ -4881,6 +4911,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 32.06496,
+  "lon": 34.78945,
+  "name": "Isaac Climbing",
+  "country": "IL",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://isaacclimbing.com/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 32.27738,
@@ -5551,10 +5591,10 @@
   "lon": 137.19879,
   "name": "Bouldering Gym leTruss",
   "country": "JP",
-  "status": "no-hours-on-official-site",
+  "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://letruss.jp/"
+  "source": "https://letruss.jp/",
+  "reason": "The venue's own site renders in the browser: it answers 200 and serves 671 characters of text, which is navigation and no more. No schedule could be read from it."
  },
  {
   "lat": 35.00033250000001,
@@ -5813,10 +5853,10 @@
   "lon": 140.70229,
   "name": "Rhythm Japan Niseko",
   "country": "JP",
-  "status": "ambiguous",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The candidate site is a ski-and-snowboard rental operator’s; nothing on it publishes hours for a climbing facility.",
-  "source": "https://rhythmjapan.com/"
+  "source": "https://rhythmjapan.com/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 35.18145060000001,
@@ -6287,6 +6327,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 54.66982,
+  "lon": 25.26907,
+  "name": "Bonobo Climbing",
+  "country": "LT",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.bonobo.lt/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
+ },
+ {
   "lat": 49.815273,
   "lon": 6.129583,
   "name": "B.K.L.",
@@ -6356,8 +6406,8 @@
   "country": "MW",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://www.climbmalawi.com/"
+  "source": "https://www.climbmalawi.com/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 25.67869,
@@ -6396,6 +6446,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 25.7773245,
+  "lon": -109.0155187,
+  "name": "ASCEND Climbing",
+  "country": "MX",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://ascendclimbing.com/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
+ },
+ {
   "lat": 21.1305471,
   "lon": -86.860124,
   "name": "Boulder Corp",
@@ -6430,6 +6490,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 25.7034572,
+  "lon": -100.3703552,
+  "name": "Mad Complex",
+  "country": "MX",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://madcomplex.mx/",
+  "reason": "The venue's own site renders in the browser: it answers 200 and serves 1226 characters of text, which is navigation and no more. No schedule could be read from it."
  },
  {
   "lat": 20.1027782,
@@ -6483,8 +6553,8 @@
   "country": "MX",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The site carries the address and no schedule.",
-  "source": "https://piconorte.mx/"
+  "source": "https://piconorte.mx/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 20.5887932,
@@ -6556,8 +6626,8 @@
   "country": "MY",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The site serves blog posts; no schedule reaches the document.",
-  "source": "https://www.camp5.com/"
+  "source": "https://www.camp5.com/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 3.12049,
@@ -6603,6 +6673,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 5.4372,
+  "lon": 100.30895,
+  "name": "Project Rock Gurney",
+  "country": "MY",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://www.projectrock.com.my/locations/",
+  "reason": "The operator's Opening Hours and Locations page lists three gyms — IKEA Batu Kawan, Gurney Plaza and Bayana — and carries a single \"Daily 10am to 10pm\" that is not attached to any of them. Which gyms it covers is not stated, and Bayana is announced on the same page as newly opened, so it cannot be read as this hall's week."
  },
  {
   "lat": 1.5800393,
@@ -7455,16 +7535,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": -45.8753685,
-  "lon": 170.5019641,
-  "name": "Resistance Climbing",
-  "country": "NZ",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://www.resistanceclimbing.co.nz/"
- },
- {
   "lat": 23.6453963,
   "lon": 58.148331,
   "name": "Adventure-World-Muscat",
@@ -7636,6 +7706,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 54.371873,
+  "lon": 18.508669,
+  "name": "Delta Climb",
+  "country": "PL",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://deltaclimb.pl/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
+ },
+ {
   "lat": 51.1078852,
   "lon": 17.0385376,
   "name": "Eiger",
@@ -7688,8 +7768,8 @@
   "country": "PL",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://www.limbobouldering.pl/"
+  "source": "https://www.limbobouldering.pl/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 52.2962378,
@@ -7883,10 +7963,10 @@
   "lon": -8.6822,
   "name": "Proa Climbing Center",
   "country": "PT",
-  "status": "ambiguous",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The page states Sábado a Segunda 10:00-20:00, Terça 16:00-22:00 and Quarta a Sexta 10:00-14:00 / 16:00-22:00, while its schema.org openingHours carries the untouched theme default, \"Monday,…,Sunday 09:00-17:00\".",
-  "source": "https://proaclimbingcenter.com/"
+  "source": "https://proaclimbingcenter.com/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 38.7426421,
@@ -7923,6 +8003,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 39.3643407,
+  "lon": -9.3745488,
+  "name": "The West Climbing Center",
+  "country": "PT",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.thewestclimbing.com/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 40.2107084,
@@ -7967,8 +8057,8 @@
   "country": "RO",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://climbagain.ro/"
+  "source": "https://climbagain.ro/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 47.12658,
@@ -7977,8 +8067,8 @@
   "country": "RO",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://climbagain.ro/"
+  "source": "https://climbagain.ro/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 47.046159,
@@ -8253,6 +8343,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 57.7200187,
+  "lon": 11.950726,
+  "name": "Backa Boulder",
+  "country": "SE",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://backaboulder.se/",
+  "reason": "The venue's own site renders in the browser: it answers 200 and serves 1295 characters of text, which is navigation and no more. No schedule could be read from it."
+ },
+ {
   "lat": 59.37023,
   "lon": 18.00481,
   "name": "BLX Bouldering Club",
@@ -8275,10 +8375,10 @@
   "lon": 17.1673619,
   "name": "Fyshuset Klätterhall",
   "country": "SE",
-  "status": "no-hours-on-official-site",
+  "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The site publishes a beginners’ session on Wednesdays and no opening week.",
-  "source": "https://www.fyshusetklatterhall.se/"
+  "source": "https://www.fyshusetklatterhall.se/",
+  "reason": "The venue's own site renders in the browser: it answers 200 and serves 1130 characters of text, which is navigation and no more. No schedule could be read from it."
  },
  {
   "lat": 60.6748796,
@@ -8342,8 +8442,8 @@
   "country": "SE",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule reaches the served document.",
-  "source": "https://jumpyard.se/"
+  "source": "https://jumpyard.se/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 59.63657229999999,
@@ -8523,6 +8623,26 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 1.30508,
+  "lon": 103.85142,
+  "name": "Boulder Movement Rochor",
+  "country": "SG",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://www.boulderm.com/",
+  "reason": "The venue's own site renders in the browser: it answers 200 and serves 869 characters of text, which is navigation and no more. No schedule could be read from it."
+ },
+ {
+  "lat": 1.33109,
+  "lon": 103.74827,
+  "name": "Boulder+ The Chevrons",
+  "country": "SG",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://www.boulderplusclimbing.com/",
+  "reason": "The venue's own site renders in the browser: it answers 200 and serves 810 characters of text, which is navigation and no more. No schedule could be read from it."
+ },
+ {
   "lat": 1.27917,
   "lon": 103.84651,
   "name": "fit • bloc Telok Ayer",
@@ -8532,6 +8652,26 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 46.0682733,
+  "lon": 14.5194972,
+  "name": "BALVANIJA MOONBOARD",
+  "country": "SI",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://balvanija.si/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
+ },
+ {
+  "lat": 46.23628,
+  "lon": 14.37418,
+  "name": "Bolder Scena Kranj",
+  "country": "SI",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://bolderscena.si/kranj/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
+ },
+ {
   "lat": 46.0731693,
   "lon": 14.4972189,
   "name": "Bolder Scena Moonboard",
@@ -8539,6 +8679,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 46.0497,
+  "lon": 14.54866,
+  "name": "Plezalni Center Ljubljana",
+  "country": "SI",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.plezalnicenter.si/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 46.39187,
@@ -8695,6 +8845,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 13.73627,
+  "lon": 100.57645,
+  "name": "Urban Playground Climbing",
+  "country": "TH",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.rqclub.com/rockclimbing",
+  "reason": "The page describes the wall, its courses and their prerequisites, and states no opening hours for the climbing area."
  },
  {
   "lat": 15.9717357,
@@ -10148,6 +10308,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 47.49201,
+  "lon": -121.7955,
+  "name": "North Bend FIT",
+  "country": "US",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://www.northbendfit.com/",
+  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
+ },
+ {
   "lat": 44.2545,
   "lon": -71.84068,
   "name": "North Country Climbing Center",
@@ -10833,6 +11003,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 43.7222436,
+  "lon": -111.11193,
+  "name": "Teton Rock Gym",
+  "country": "US",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://tetonrockgym.com/",
+  "reason": "The gym publishes members' access and then sends everyone else elsewhere: \"Hours: 24 Hour gym access for members. See GOOGLE for non-member gym hours\". The non-member week is not on the site at all, and a third-party listing is not a source this curation reads from."
+ },
+ {
   "lat": 33.58284,
   "lon": -101.88363,
   "name": "Texas Tech University",
@@ -11208,26 +11388,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 47.754739,
-  "lon": -122.3142869,
-  "name": "Uplift Climbing",
-  "country": "US",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "reason": "The only schedule in the fetched document is schema.org openingHours (Mo-Fr 08:00-22:00, Sa-Su 08:00-20:00); nothing a reader can see carries times.",
-  "source": "https://www.upliftclimbing.com/"
- },
- {
-  "lat": 47.75546,
-  "lon": -122.31409,
-  "name": "Uplift Climbing",
-  "country": "US",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "reason": "The only schedule in the fetched document is schema.org openingHours (Mo-Fr 08:00-22:00, Sa-Su 08:00-20:00); nothing a reader can see carries times.",
-  "source": "https://www.upliftclimbing.com/"
- },
- {
   "lat": 38.66385,
   "lon": -90.60581,
   "name": "Upper Limits Chesterfied",
@@ -11365,6 +11525,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 40.50654,
+  "lon": -105.07388,
+  "name": "Whetstone Climbing",
+  "country": "US",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://whetstoneclimbing.com/",
+  "reason": "The venue's own site renders in the browser: it answers nothing to the fetcher. No schedule could be read from it."
  },
  {
   "lat": 37.99022,
