@@ -50,6 +50,29 @@ dataset.
   things this file takes from a page, plus a short quote of the schedule as
   evidence, which stays internal.
 
+### When a page states the week twice
+
+A site can carry its week in more than one place: the text a visitor reads, a
+Squarespace business-hours setting, a schema.org `openingHours` block. **The
+text is the statement.** The other two are published once from a settings
+screen and then left behind, so treating them as equal claims would demote a
+correct week because nobody revisited an admin form.
+`node tools/venue-hours-conflict.mjs` re-reads every published source and
+reports where they differ; the difference is recorded in the record's note, not
+acted on. It is the one hours tool that touches the network, so it is run by
+hand after a batch and is never part of `scripts/check`.
+
+The week is withdrawn only when the text itself fails: it leaves a day
+unstated, it contradicts itself, or it sits under a live notice that the hours
+are changing. Crux Climbing states Monday to Saturday and never Sunday; Southern
+Stone's three versions disagree beneath an announcement bar reading NEW FALL
+HOURS BEGIN TUESDAY AUGUST 18TH. Both are outcomes, not records.
+
+Markup on its own is not a schedule either. Where a site says nothing in words,
+what its settings hold is not published — Island Rock Climbing Gym's week
+exists only as schema.org and a Squarespace setting that agree with it, and is
+recorded rather than published for that reason.
+
 ### Fail closed
 
 Publishing nothing is always an available answer, and it is the right one more
@@ -262,6 +285,11 @@ node tools/venue-hours-report.mjs --show          # print every published schedu
 # hours and no recorded outcome. --unlinked shows the ones needing a site first.
 node tools/venue-hours-report.mjs --todo DE,AT,CH --limit 40
 node tools/venue-hours-report.mjs --todo IT --limit 40 --unlinked
+
+# Re-read every published source and report where a Squarespace or schema.org
+# block on the same page states a different week. Makes network requests.
+node tools/venue-hours-conflict.mjs
+node tools/venue-hours-conflict.mjs 51.5074,-0.1278
 
 # Apply the overlay to the committed dataset and re-render both directories,
 # without pulling a new upstream dataset into the same commit.

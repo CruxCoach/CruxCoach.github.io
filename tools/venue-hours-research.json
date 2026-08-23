@@ -506,15 +506,6 @@
   "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,262 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
-  "lat": -33.8791418,
-  "lon": 150.9775568,
-  "name": "SICG Villawood",
-  "country": "AU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": -36.78204239034518,
   "lon": 144.26338550176908,
   "name": "The Hold Co, Ltd.",
@@ -1108,9 +1099,10 @@
   "lon": -79.3168139,
   "name": "Climb Muskoka Moon",
   "country": "CA",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.climbmuskoka.com/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 2,217 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 60.77956528162924,
@@ -1175,9 +1167,10 @@
   "lon": -66.65681,
   "name": "Fredericton Bouldering Co-op",
   "country": "CA",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://fbcwall.com/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 1,972 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 43.4757042,
@@ -1462,18 +1455,20 @@
   "lon": -114.1337454,
   "name": "University of Calgary Moonboard",
   "country": "CA",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.ucalgary.ca/active-living/facilities/outdoor-centre/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 5,198 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 51.07767,
   "lon": -114.13419,
   "name": "University of Calgary Outdoor Centre",
   "country": "CA",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.ucalgary.ca/active-living/facilities/outdoor-centre/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 5,198 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 49.80656,
@@ -2759,9 +2754,10 @@
   "lon": 7.1531582,
   "name": "Moonboard 2016 Rocklands St Wendel",
   "country": "DE",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.rocklands-wnd.de/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 1,959 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 48.3336544,
@@ -3188,9 +3184,10 @@
   "lon": -2.0969699508931994,
   "name": "Egurre Errokodromoa",
   "country": "ES",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://egurre.es/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 185,389 characters carrying 326 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 38.97546,
@@ -3792,9 +3789,10 @@
   "lon": 24.8000213,
   "name": "Riihimäen Rocklands",
   "country": "FI",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://rocklands.fi/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 1,505 characters carrying 8 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 60.0970945,
@@ -4713,9 +4711,10 @@
   "lon": 19.040235,
   "name": "Ujjerő Moonboard",
   "country": "HU",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.ujjero.com/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 78,645 characters carrying 320 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": -6.190983137451172,
@@ -5084,9 +5083,10 @@
   "lon": 13.81049,
   "name": "Gravità Zero",
   "country": "IT",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://gravitazero.it/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 44,815 characters carrying 120 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 45.6570925,
@@ -6077,9 +6077,10 @@
   "lon": 128.91532,
   "name": "원더 스카이 Wonder Sky _ 강릉",
   "country": "KR",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.wondersky.co.kr/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 419 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 35.22902,
@@ -6240,9 +6241,10 @@
   "lon": 33.7777146,
   "name": "Climb Centre Malawi",
   "country": "MW",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.climbmalawi.com/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 2,214 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": -13.93661,
@@ -6286,9 +6288,10 @@
   "lon": -103.39662,
   "name": "Ameyalli",
   "country": "MX",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://ameyalli.com.mx/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 10,590 characters carrying 5 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 25.7773245,
@@ -6451,9 +6454,10 @@
   "lon": 101.61625,
   "name": "Camp5 1 Utama",
   "country": "MY",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://camp5.com/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 86,507 characters carrying 300 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 3.12019,
@@ -6479,9 +6483,10 @@
   "lon": 101.55978,
   "name": "Camp5 Utropolis",
   "country": "MY",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://camp5.com/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 86,507 characters carrying 300 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 5.4163935,
@@ -6986,9 +6991,10 @@
   "lon": 7.98027,
   "name": "Klatreverket Kristiansand",
   "country": "NO",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://klatreverket.no/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 305,855 characters carrying 984 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 68.33297,
@@ -7330,9 +7336,10 @@
   "lon": 174.77275,
   "name": "Faultline Climbing",
   "country": "NZ",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://wellingtonclimbing.co.nz/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 29 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": -38.1380496,
@@ -7535,15 +7542,6 @@
   "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
-  "lat": 51.1078852,
-  "lon": 17.0385376,
-  "name": "Eiger",
-  "country": "PL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 50.0465613,
   "lon": 22.0123834,
   "name": "FlyWall",
@@ -7736,9 +7734,10 @@
   "lon": 21.0878391,
   "name": "Volt Moon",
   "country": "PL",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://voltboulderownia.pl/faq",
+  "reason": "The operator runs three halls — Warszawa, Łódź and Toruń — and its FAQ answers most questions once per hall: prices, INTRO sessions and reception contacts are each broken out by city. The opening-hours answer is not. \"Jakie są godziny otwarcia? Poniedziałek – piątek od godz. 8:00 do 23:00 Sobota i niedziela od godz. 9:00 do 22:00\" is stated once with no city attached, and the Warsaw hall's own page states no hours at all, so nothing on the site says this week is Warsaw's."
  },
  {
   "lat": 38.7222524,
@@ -7835,15 +7834,6 @@
   "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
-  "lat": 40.2107084,
-  "lon": -8.433596399999999,
-  "name": "upa! Escalódromo de Coimbra",
-  "country": "PT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 37.14661226641366,
   "lon": -8.482054452243313,
   "name": "Vertical Escalada",
@@ -7914,9 +7904,10 @@
   "lon": 24.1255826,
   "name": "Panoul de Catzarat Sibiu",
   "country": "RO",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://arkapark.ro/indoor-climbing-sibiu/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 1,211 characters carrying 4 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 47.8063969,
@@ -8059,9 +8050,10 @@
   "lon": 30.29279685344697,
   "name": "Severnaya stena Petrogradskaya",
   "country": "RU",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://severnayastena.ru/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 5,146 characters carrying 4 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 55.755826,
@@ -8178,9 +8170,10 @@
   "lon": 12.9269672,
   "name": "Borås Klätterklubb",
   "country": "SE",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://borasklatterklubb.se/",
+  "reason": "The club states \"Öppettider Vardagar: 15:00 - 21:30\" and then two Sunday windows — 15:00-16:00 for Familjeklättring and 16:00-19:00 where \"Alla är välkomna\". Saturday appears nowhere on the page, neither as an opening nor as a closure."
  },
  {
   "lat": 60.6771808,
@@ -8197,9 +8190,10 @@
   "lon": 17.1412726,
   "name": "Gästrike Klätterklubb/DOME",
   "country": "SE",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://gastrikekk.se/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 410 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 59.36,
@@ -8215,9 +8209,10 @@
   "lon": 12.6945121,
   "name": "Helsingborgs K2",
   "country": "SE",
-  "status": "no-official-site",
+  "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.helsingborgsk2.se/lokalen/",
+  "reason": "The club states one week twice and agrees with itself — its FAQ answers \"Vilka öppettider har ni? Tisdag 18.00-20.00 Torsdag 18.00-20.00\" and /lokalen reads \"De vanliga öppettiderna är tisdagar och torsdagar från 18:00 till 20:00\" — but the same sentence continues \"Klättergymmet har dock stängt under sommaren och semestertider\". The wall is closed for a summer and holiday period the page never dates, and the page is read on 23 August."
  },
  {
   "lat": 56.8790044,
@@ -8233,9 +8228,10 @@
   "lon": 20.3192457,
   "name": "IKSU Sport",
   "country": "SE",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.iksu.se/sv/sektioner/iksu-klattring/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 623 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 63.39554,
@@ -8262,9 +8258,10 @@
   "lon": 16.5672185,
   "name": "K7 Västerås",
   "country": "SE",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://vkkclimbing.se/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 57,029 characters carrying 288 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 59.2903756,
@@ -8344,22 +8341,14 @@
   "reason": "The gym states \"Ordinarie öppettider kör igång 31/8\" — the ordinary hours start on 31 August — and lists them for after that date, with a separate block of AVVIKANDE ÖPPETTIDER for June. Nothing covers the day the page is read."
  },
  {
-  "lat": 59.31260400000001,
-  "lon": 18.0734204,
-  "name": "Moumo Skrapan",
-  "country": "SE",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 59.2761633,
   "lon": 15.2337493,
   "name": "Örebro Klättergym",
   "country": "SE",
-  "status": "no-official-site",
+  "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://orebroklatterklubb.com/",
+  "reason": "The site answers a request but yields no readable text on any route: the document, its Wix, Next.js and Nuxt payloads, its JSON-LD and its WordPress and Squarespace endpoints are all empty of content. Nothing on it can be read, including a schedule."
  },
  {
   "lat": 63.16214050000001,
@@ -8424,9 +8413,10 @@
   "lon": 12.2759508,
   "name": "Varbergs Klätterklubb",
   "country": "SE",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.varbergsklatterklubb.se/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 1,846 characters carrying 1 clock time, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 1.34359,
@@ -8491,9 +8481,10 @@
   "lon": 15.56615,
   "name": "Plezalni Center Slovenska Bistrica",
   "country": "SI",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.plezalnicenter.si/",
+  "reason": "The only times the centre publishes are its coordinators' office hours — \"Uradne ure koordinatorke za odrasle: ponedeljek, torek, četrtek, 8.00 do 10.00\" and \"Uradne ure koordinatorja za otroke: ponedeljek-četrtek, 9.00 do 11.00 petek, 12.00-14.00\" — which is when those two people answer, not when the wall is open."
  },
  {
   "lat": 48.1485965,
@@ -8658,9 +8649,10 @@
   "lon": 30.7220622,
   "name": "Boulder Jungle",
   "country": "TR",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://boulderjungle.com/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 1,794 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 38.4523313,
@@ -8988,9 +8980,10 @@
   "lon": -103.17213,
   "name": "Black Hills Basecamp",
   "country": "US",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.bhbasecamp.com/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 2,448 characters carrying 1 clock time, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 44.03886,
@@ -9399,9 +9392,10 @@
   "lon": -66.0561,
   "name": "El Bloque Bouldering Gym",
   "country": "US",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.elbloquepr.com/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 3,122 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 42.83385,
@@ -9772,9 +9766,10 @@
   "lon": -73.46546,
   "name": "Island Rock Climbing Gym",
   "country": "US",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.islandrock.com/",
+  "reason": "The gym states its week only in machine-readable markup — a schema.org block reading \"Mo 09:00-22:00, Tu 09:00-22:00, We 09:00-23:00, Th 09:00-22:00, Fr 09:00-22:00, Sa 09:00-22:00, Su 09:00-22:00\" and a Squarespace business-hours setting that agrees with it. No page says any of this in words. This audit publishes what a venue tells its visitors, not what its settings screen holds, so the week is recorded and not published."
  },
  {
   "lat": 43.881466,
@@ -10622,9 +10617,10 @@
   "lon": -122.29303,
   "name": "Team Touchstone",
   "country": "US",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://teamtouchstone.com/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 920 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 39.81416,
@@ -10751,9 +10747,10 @@
   "lon": -122.121512,
   "name": "The Jug Rock Gym",
   "country": "US",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://thejugrockgym.com/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 1,573 characters carrying 2 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
   "lat": 40.0166469,
@@ -10921,16 +10918,6 @@
   "source": "https://www.thresholdclimbing.com/"
  },
  {
-  "lat": 34.40973,
-  "lon": -118.50891,
-  "name": "Top Out Climbing",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://topoutclimbing.com/locationandhours",
-  "reason": "The same page states the week twice and the two disagree. Its text reads \"Monday - Friday: 9:00am - 11:00pm Saturday: 8:00am - 9:00pm Sunday: 8:00am - 7:00pm\"; the Squarespace business-hours setting it ships carries 10am to 11pm on weekdays, 10am to 9pm on Saturday and 10am to 7pm on Sunday. Every opening time differs by an hour or two and nothing says which is current."
- },
- {
   "lat": 37.85155,
   "lon": -122.2926806,
   "name": "Touchstone Team Training Center",
@@ -11064,9 +11051,10 @@
   "lon": -122.3151314,
   "name": "Vertical World",
   "country": "US",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://verticalworld.com/",
+  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 1,583 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 21.39166,

@@ -1966,6 +1966,33 @@
   "note": "The café next door keeps its own longer week (Wed–Fri from 6:30 AM, weekends 6:30 AM–2 PM) and is listed separately; the page’s two schema.org blocks match the two facilities."
  },
  {
+  "lat": -33.8791418,
+  "lon": 150.9775568,
+  "name": "SICG Villawood",
+  "country": "AU",
+  "source": "https://www.elevateclimbing.com.au/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:30-22:00",
+   "tue": "10:30-22:00",
+   "wed": "10:30-22:00",
+   "thu": "10:30-22:00",
+   "fri": "10:30-22:00",
+   "sat": "09:30-21:00",
+   "sun": "09:30-21:00"
+  },
+  "evidence": "Unit 5, 850 Woodville Road Villawood NSW 2163 … Opening hours: Weekdays: 10:30 am - 10 pm Weekends: 9:30 am - 9 pm Public holidays: 10 am - 7pm",
+  "note": "Stated beside the hall's address on its contact page and repeated in the site footer. Public holidays are given their own window and are not part of the week."
+ },
+ {
   "lat": -37.73092,
   "lon": 144.95295,
   "name": "The Crux",
@@ -15423,6 +15450,32 @@
   "note": "Stated on the gym's contact page beside its telephone number."
  },
  {
+  "lat": 51.1078852,
+  "lon": 17.0385376,
+  "name": "Eiger",
+  "country": "PL",
+  "source": "https://eiger.pl/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "15:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "15:00-22:00",
+   "fri": "15:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Eiger Wrocław, ul. Fabryczna 10 … Godziny otwarcia Poniedziałki i Środy: 08:00 - 22:00 Wtorki, Czwartki i Piątki: 15:00 - 22:00 Soboty i Niedziele: 10:00 - 22:00",
+  "note": "Three bands covering all seven days, stated beneath the hall's address. Monday and Wednesday open seven hours earlier than the other weekdays, which is why the week cannot be collapsed."
+ },
+ {
   "lat": 51.097688,
   "lon": 16.9824829,
   "name": "Fabryczna Boulder",
@@ -15612,6 +15665,32 @@
   },
   "evidence": "Seg. a Sex. 16:00h — 21:00h | Sábados 10:00h — 18:00h | Domingos Encerrado",
   "note": "The site's schema.org openingHoursSpecification states the same week."
+ },
+ {
+  "lat": 40.2107084,
+  "lon": -8.433596399999999,
+  "name": "upa! Escalódromo de Coimbra",
+  "country": "PT",
+  "source": "https://upaclimbing.pt/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Rua DOS oleiros N.76, 3000-302 … HORÁRIOS: Seg-Sex 10:00-22:00 / Sáb-Dom 10:00-20:00",
+  "note": "Two bands covering all seven days, printed beside the address in the footer of every page."
  },
  {
   "lat": 46.55842,
@@ -15857,6 +15936,33 @@
    "sun": "11:00-20:00"
   },
   "evidence": "Vardagar: 11:00-21:30 | Lördagar: 9:00-16:00 | Söndagar: 11:00-20:00 | Vid stängningstiden ska man vara klar att lämna hallen."
+ },
+ {
+  "lat": 59.31260400000001,
+  "lon": 18.0734204,
+  "name": "Moumo Skrapan",
+  "country": "SE",
+  "source": "https://www.moumo.se/hours",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:30-23:00",
+   "tue": "06:30-23:00",
+   "wed": "06:30-23:00",
+   "thu": "06:30-23:00",
+   "fri": "06:30-23:00",
+   "sat": "09:00-23:00",
+   "sun": "09:00-23:00"
+  },
+  "evidence": "Skrapan, Götgatan 78 118 30 Stockholm Open Summer Hours weekdays 08.00 - 22.00 weekends 09.00 - 21.00 (summer until Aug 10) Ordinary Hours Weekdays 06:30 - 23:00 Weekends: 09:00 - 23:00",
+  "note": "The gym publishes both weeks and dates the exception: the summer hours it lists above run \"until Aug 10\", which has passed, so the ordinary week is the one in force. That end date is what makes this publishable where an undated seasonal notice would not be."
  },
  {
   "lat": 59.31302,
@@ -23734,6 +23840,32 @@
   },
   "evidence": "11-11 Monday - Friday | 10-11 Saturday & Sunday | 1315 NW Overton Street | Portland, OR 97209 — the page’s own schema.org openingHours reads \"Mo 11:00-23:00, Tu 11:00-23:00, We 11:00-23:00, Th 11:00-23:00, Fr 11:00-23:00, Sa 10:00-23:00, Su 10:00-23:00\"",
   "note": "The visible times are written without a meridiem (\"11-11\"); the page’s own markup settles them and the two agree."
+ },
+ {
+  "lat": 34.40973,
+  "lon": -118.50891,
+  "name": "Top Out Climbing",
+  "country": "US",
+  "source": "https://topoutclimbing.com/locationandhours",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-23:00",
+   "tue": "09:00-23:00",
+   "wed": "09:00-23:00",
+   "thu": "09:00-23:00",
+   "fri": "09:00-23:00",
+   "sat": "08:00-21:00",
+   "sun": "08:00-19:00"
+  },
+  "evidence": "Monday - Friday: 9:00am - 11:00pm Saturday: 8:00am - 9:00pm Sunday: 8:00am - 7:00pm Santa Clarita 26332 Ferry Court Santa Clarita, CA 91350",
+  "note": "The Squarespace business-hours setting the same page ships opens an hour or two later on every day — 10am throughout — while agreeing on all three closing times. The visible week is what the page tells a visitor and is what is published; the setting is recorded here because it disagrees."
  },
  {
   "lat": 35.9512,
