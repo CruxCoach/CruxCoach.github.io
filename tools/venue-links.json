@@ -28,6 +28,20 @@
     "note": "Mountain Extreme's own site, printing 4th Street Al Quoz — the street line upstream records."
   },
   {
+    "lat": 24.98024,
+    "lon": 55.17409,
+    "name": "Rock Republic Bouldering",
+    "country": "AE",
+    "website": "https://www.rockrepublicdubai.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Rock Republic's own site, whose contact page gives \"Street 77, Dubai Investment Park 1, Dubai\" — the district upstream records as this venue's city. OSM carries the same domain 19 m away."
+  },
+  {
     "lat": -79.5855917,
     "lon": 43.6044775,
     "name": "Up The Bloc",
@@ -4953,6 +4967,20 @@
       "city",
       "board-mention"
     ]
+  },
+  {
+    "lat": 52.503618,
+    "lon": 13.384007,
+    "name": "Basement Boulderstudio",
+    "country": "DE",
+    "website": "https://www.urbanapes.de/basement/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The hall changed hands. basement-boulderstudio.de now redirects to itself fifty times, which is why the first pass could not read it; OSM carries \"urban apes Basement Berlin\" 31 m from this venue, and urbanapes.de/basement is that hall's own page, naming the MoonBoard this venue is listed for."
   },
   {
     "lat": 47.87958,
@@ -12176,6 +12204,20 @@
     "note": "BHub Bouldering's own site, naming the MoonBoard this venue is listed for and embedding a map of itself within the coordinates signal's range."
   },
   {
+    "lat": 3.14992,
+    "lon": 101.61625,
+    "name": "Camp5 1 Utama",
+    "country": "MY",
+    "website": "https://camp5.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "city"
+    ],
+    "note": "Camp5 publishes its 1 Utama gym on its own site, giving Bandar Utama — the town upstream records. OSM carries the domain on the climbing object at this venue. The operator runs several gyms, so this is a chain page."
+  },
+  {
     "lat": 3.12019,
     "lon": 101.67444,
     "name": "Camp5 Eco City",
@@ -13887,6 +13929,20 @@
       "location-page"
     ],
     "note": "Boulder Co publishes a page per gym; the Christchurch page prints 179 Blenheim Rd and the 8041 postal code upstream records."
+  },
+  {
+    "lat": -41.29287,
+    "lon": 174.77275,
+    "name": "Faultline Climbing",
+    "country": "NZ",
+    "website": "https://wellingtonclimbing.co.nz/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Faultline Climbing trades on wellingtonclimbing.co.nz, which OSM carries on the climbing object at this venue, and the site gives Wellington — the city upstream records."
   },
   {
     "lat": -36.77531,
@@ -20352,6 +20408,20 @@
       "city"
     ],
     "note": "VietClimb's own site, printing the 100000 postal code and Hanoi, the city upstream records."
+  },
+  {
+    "lat": -33.910389,
+    "lon": 18.4726632,
+    "name": "Bloc 11 - Paarden Eiland",
+    "country": "ZA",
+    "website": "https://bloc11.co.za/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Bloc 11's own site, giving Cape Town — the city upstream records. OSM carries the domain on a climbing object beside this venue. Its twin entry a few metres away already carries the same link."
   },
   {
     "lat": -33.91024,
