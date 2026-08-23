@@ -5486,6 +5486,31 @@
   "evidence": "Lunes a Viernes de 6:00 a.m. a 9:45 p.m. | Sábados de 8:00 a.m. a 8:00 p.m. | Domingos y Festivos de 10:00 a.m. a 5:00 p.m."
  },
  {
+  "lat": 10.33361,
+  "lon": -85.79444,
+  "name": "TamaRocks Climbing + Fitness",
+  "country": "CR",
+  "source": "https://tamarockscr.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "07:00-20:00",
+   "tue": "07:00-20:00",
+   "wed": "07:00-20:00",
+   "thu": "07:00-20:00",
+   "fri": "07:00-18:00",
+   "sat": "09:00-17:00",
+   "sun": "09:00-17:00"
+  },
+  "evidence": "Hours Monday - Thursday Open 7am - 8pm Friday 7am - 6pm Saturday - Sunday 9am - 5pm",
+  "note": "Friday closes two hours earlier than the rest of the week and is stated on its own."
+ },
+ {
   "lat": 35.1398,
   "lon": 33.36784,
   "name": "Rockstar Climbing",
@@ -5802,6 +5827,32 @@
    "sun": "10:00-23:00"
   },
   "evidence": "Montags, dienstags & donnerstags 15.00 bis 23.00 Uhr | Mittwochs, freitags, samstags, sonntags & feiertags 10.00 bis 23.00 Uhr"
+ },
+ {
+  "lat": 52.503618,
+  "lon": 13.384007,
+  "name": "Basement Boulderstudio",
+  "country": "DE",
+  "source": "https://www.urbanapes.de/basement/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "08:00-23:00",
+   "tue": "08:00-23:00",
+   "wed": "08:00-23:00",
+   "thu": "08:00-23:00",
+   "fri": "08:00-23:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Öffnungszeiten Montag 8:00 – 23:00 Uhr Dienstag 8:00 – 23:00 Uhr Mittwoch 8:00 – 23:00 Uhr Donnerstag 8:00 – 23:00 Uhr Freitag 8:00 – 23:00 Uhr Samstag 10:00 – 22:00 Uhr Sonn- & Feiertage 10:00 – 22:00 Uhr",
+  "note": "Every day is listed separately on the hall's own page, above its address at Stresemannstraße 72. Public holidays are grouped with Sunday."
  },
  {
   "lat": 47.87958,
@@ -8211,6 +8262,31 @@
   "note": "The table's other two columns are the Kursbüro and the shop, which keep shorter hours; the Halle column is public access."
  },
  {
+  "lat": 54.096812,
+  "lon": 12.103011,
+  "name": "Moonshine",
+  "country": "DE",
+  "source": "https://45grad.ro/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "city",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Öffnungszeiten Montag – Freitag 11:00 – 22:00 Sa, So und Feiertage 10:00 – 21:00",
+  "note": "Public holidays are grouped with the weekend. The hall separately announces that it is closed on 29 and 30 August for a team outing, which is a dated exception rather than part of the week."
+ },
+ {
   "lat": 48.56053,
   "lon": 12.16662,
   "name": "PEAK7 Boulderhalle Landshut",
@@ -9959,6 +10035,31 @@
   "evidence": "Lunes – Miércoles – Viernes: 10:00 a 13:00 y 16:00 a 22:00 | Martes – Jueves – Sábado: 10:00 a 22:00 | Domingo: 10:00 a 20:00 | Festivos: 10:00 a 16:00"
  },
  {
+  "lat": 40.4319,
+  "lon": -3.65416,
+  "name": "Rocódromos Espacio Acción",
+  "country": "ES",
+  "source": "https://espacioaccion.es/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "09:00-22:30",
+   "tue": "09:00-22:30",
+   "wed": "09:00-22:30",
+   "thu": "09:00-22:30",
+   "fri": "09:00-22:30",
+   "sat": "11:00-20:00",
+   "sun": "11:00-20:00"
+  },
+  "evidence": "Lunes a viernes 9.00 a 22.30 h. Sábados y domingos 11.00 a 20.00 h. Festivos abierto 11.00 a 20.00 h.",
+  "note": "Public holidays are stated separately and keep the weekend window."
+ },
+ {
   "lat": 41.52992,
   "lon": 2.09888,
   "name": "Sala Escalada Batec Sabadell",
@@ -10408,6 +10509,33 @@
    "sun": "14:00-20:00"
   },
   "evidence": "Lundi, vendredi, samedi & dimanche : 14h – 20h | Mardi, mercredi & jeudi : 10h30 – 21h30"
+ },
+ {
+  "lat": 47.77882,
+  "lon": -3.35503,
+  "name": "B'wall Lorient",
+  "country": "FR",
+  "source": "https://www.b-wall.fr/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "B'WALL LORIENT 482 route de Kerviec 56600 LANESTER Horaires : Du lundi au vendredi : 10:00 – 23:00 Week-End & jours fériés : 09:00 – 20:00",
+  "note": "Stated directly beneath the hall's address. Public holidays are grouped with the weekend."
  },
  {
   "lat": 47.63811,
@@ -12584,6 +12712,31 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 18:00"
+ },
+ {
+  "lat": 38.01049,
+  "lon": 23.8073,
+  "name": "Mono by Athens Climbing Project",
+  "country": "GR",
+  "source": "https://monoclimb.gr/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "10:00-23:30",
+   "tue": "10:00-23:30",
+   "wed": "10:00-23:30",
+   "thu": "10:00-23:30",
+   "fri": "10:00-23:30",
+   "sat": "10:00-22:30",
+   "sun": "10:00-22:30"
+  },
+  "evidence": "Opening hours Monday-Friday: 10:00-23:30 Saturday & Sunday: 10:00-22:30",
+  "note": "The gym adds that the bouldering area stays open thirty minutes later than the rest of the building; the published week is the building's stated opening."
  },
  {
   "lat": -8.63688,
