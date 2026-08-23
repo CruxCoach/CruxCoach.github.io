@@ -4349,11 +4349,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -4967,19 +4966,22 @@
     "pass": "2026-08-23",
     "result": "accepted",
     "channels": [
-     "osm-website-tag",
+     "venue-link",
      "apex",
      "www",
-     "path-probe"
+     "path-probe",
+     "previous-record"
     ]
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
+     "venue-link",
      "apex",
-     "www"
+     "www",
+     "path-probe",
+     "previous-record"
     ]
    }
   },
@@ -4996,19 +4998,22 @@
     "pass": "2026-08-23",
     "result": "accepted",
     "channels": [
-     "osm-website-tag",
+     "venue-link",
      "apex",
      "www",
-     "path-probe"
+     "path-probe",
+     "previous-record"
     ]
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
+     "venue-link",
      "apex",
-     "www"
+     "www",
+     "path-probe",
+     "previous-record"
     ]
    }
   },
@@ -5573,7 +5578,7 @@
     "pass": "2026-08-23",
     "result": "accepted",
     "channels": [
-     "name-guess",
+     "venue-link",
      "apex",
      "www",
      "path-probe",
@@ -5582,11 +5587,13 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
+     "venue-link",
      "apex",
-     "www"
+     "www",
+     "path-probe",
+     "previous-record"
     ]
    }
   },
@@ -12213,9 +12220,9 @@
    ],
    "website": {
     "pass": "2026-08-23",
-    "result": "accepted",
+    "result": "unverified",
     "channels": [
-     "name-guess",
+     "venue-link",
      "apex",
      "www",
      "path-probe",
@@ -12226,11 +12233,11 @@
     "pass": "2026-08-23",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
+     "venue-link",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "path-probe",
+     "previous-record"
     ]
    }
   },
@@ -15654,11 +15661,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "no-hours-on-official-site",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -28200,11 +28206,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -30483,11 +30488,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "inaccessible",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -30818,11 +30822,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -31291,11 +31294,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "no-hours-on-official-site",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -32073,11 +32075,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -32102,11 +32103,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -32605,11 +32605,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -33168,11 +33167,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -33286,11 +33284,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -33346,11 +33343,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -33634,11 +33630,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -34169,11 +34164,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "seasonal",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -34818,11 +34812,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -35569,11 +35562,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -36115,11 +36107,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -36511,11 +36502,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -36745,11 +36735,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -37271,11 +37260,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -37663,11 +37651,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -38190,11 +38177,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -38344,11 +38330,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -38794,11 +38779,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -38823,11 +38807,10 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "no-official-site",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },

@@ -1155,9 +1155,10 @@
   "lon": -72.1767643,
   "name": "D-Vert",
   "country": "CA",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://d-vert.com/horaire/",
+  "reason": "The centre does not state a closing time. Its week reads \"Lundi 5h30 à F (min. 22h)\" through to \"Dimanche 8h00 à F (min. 20h)\" — an opening time and a guaranteed minimum, with the closing itself left as a letter the page never expands. A minimum is not a schedule."
  },
  {
   "lat": 46.07393,
@@ -1308,18 +1309,20 @@
   "lon": -73.54049,
   "name": "Monolithe Bloc",
   "country": "CA",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.escalademonolithe.com/",
+  "reason": "The site states two different weeks and does not say which hall either belongs to. /heures gives 8 h à 23 h every day under a footer address for the Dickson hall; /monolithe-voie gives 8 h à 22 h every day for that same Dickson hall. The operator also states that \"une partie des installations de Monolithe Bloc sera transférée vers Monolithe Voie\" and that the bloc stays open through the transition \"avec des options offertes chaque jour\", so neither week can be read as this hall's."
  },
  {
   "lat": 45.56273,
   "lon": -73.54047,
   "name": "Monolithe Bloc",
   "country": "CA",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.escalademonolithe.com/",
+  "reason": "The site states two different weeks and does not say which hall either belongs to. /heures gives 8 h à 23 h every day under a footer address for the Dickson hall; /monolithe-voie gives 8 h à 22 h every day for that same Dickson hall. The operator also states that \"une partie des installations de Monolithe Bloc sera transférée vers Monolithe Voie\" and that the bloc stays open through the transition \"avec des options offertes chaque jour\", so neither week can be read as this hall's."
  },
  {
   "lat": 50.03376,
@@ -1449,15 +1452,6 @@
   "lat": 49.2193226,
   "lon": -122.5983981,
   "name": "The Rock Wall Climbing Gym",
-  "country": "CA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 43.70887,
-  "lon": -79.31537,
-  "name": "Toronto Climbing Academy",
   "country": "CA",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -4653,9 +4647,10 @@
   "lon": 19.066999,
   "name": "2BFit Boulder Gym",
   "country": "HU",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://2bfitbouldergym.hu/",
+  "reason": "The only day-and-time table on the site is a price grid: a column per weekday and a row per hour from 10:00, with a forint amount in each cell. It prices bookable slots and never states when the gym is open."
  },
  {
   "lat": 47.51476813536509,
@@ -8391,9 +8386,10 @@
   "lon": 14.6658136,
   "name": "Sävsjö Klätterklubb",
   "country": "SE",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.savsjoklatterklubb.se/",
+  "reason": "The club lists \"Måndagar 17:30-20 Torsdagar 17:30-20 Lördagar 10-13\" and calls them its ordinary hours, but the same paragraph sends readers elsewhere for the rest — \"För övriga tider se vår facebooksida\" — so four days are neither stated nor stated closed. The page also says of its own week \"Dom kan ändras utan att detta uppdateras\"."
  },
  {
   "lat": 59.2897391,
@@ -8927,9 +8923,10 @@
   "lon": -89.42004,
   "name": "Bakke Recreation & Wellbeing Center",
   "country": "US",
-  "status": "no-official-site",
+  "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://recwell.wisc.edu/bakke/",
+  "reason": "The university publishes its hours through a live-usage widget rather than as text: /bakke/, /bakke/hours/ and /locations/climbing/ all return the same navigation and no day carries a time on any of them. The only weekday-with-time the pages do state — \"Controlled 7am – 4:30pm Monday – Friday, Free after 4:30pm\" — is about the car park."
  },
  {
   "lat": 39.5278562,
@@ -8990,15 +8987,6 @@
   "lat": 44.11073,
   "lon": -103.17213,
   "name": "Black Hills Basecamp",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 39.95047,
-  "lon": -83.00785,
-  "name": "Bloc Garten",
   "country": "US",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -9104,9 +9092,10 @@
   "lon": -76.40842,
   "name": "Cayuga Climbs",
   "country": "US",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://cayugaclimbs.com/",
+  "reason": "The only weekday-with-time on the site is inside a job advertisement — \"The camps run from 9am to 1pm Mon-Fri\" — which is when the summer camp runs, not when the wall is open."
  },
  {
   "lat": 39.99335,
@@ -9307,18 +9296,20 @@
   "lon": -87.61066,
   "name": "Crux Climbing LLC",
   "country": "US",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.cruxclimbingal.com/",
+  "reason": "The site states two different weeks. The page reads \"Monday through Friday: 12pm - 10pm Saturday: 10am - 10pm\", while the Squarespace business-hours setting the same page ships carries Monday to Thursday 10am-8pm, Friday and Saturday 10am-10pm and Sunday Closed. Nothing says which is current, and the settings block is the only one of the two that mentions Sunday at all."
  },
  {
   "lat": 33.2322148,
   "lon": -87.6106539,
   "name": "Crux Climbing MoonBoard",
   "country": "US",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://www.cruxclimbingal.com/",
+  "reason": "The site states two different weeks. The page reads \"Monday through Friday: 12pm - 10pm Saturday: 10am - 10pm\", while the Squarespace business-hours setting the same page ships carries Monday to Thursday 10am-8pm, Friday and Saturday 10am-10pm and Sunday Closed. Nothing says which is current, and the settings block is the only one of the two that mentions Sunday at all."
  },
  {
   "lat": 31.4645298,
@@ -9457,15 +9448,6 @@
   "checked": "2026-08-23",
   "reason": "Re-read 2026-08-23: unchanged. The gym page states \"5am - 10pm. No reservations needed. We are a members only facility!\" and hands out a personal pin code; there is no public access to record.",
   "source": "https://estesparkrockclimbing.com/"
- },
- {
-  "lat": 43.6888571,
-  "lon": -70.2999399,
-  "name": "EVO Rock + Fitness",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 38.74188,
@@ -9623,15 +9605,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 36.15595,
-  "lon": -95.98299,
-  "name": "GRAVITY BEAR Bouldering Gym",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 37.22925,
   "lon": -107.80896,
   "name": "Gravity Lab",
@@ -9650,27 +9623,9 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 43.03304,
-  "lon": -89.38128,
-  "name": "Greater Heights Climbing",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 43.61992,
   "lon": -72.95569,
   "name": "Green Mountain Rock Climbing Center",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 38.92234,
-  "lon": -104.71875,
-  "name": "Gripstone Colorado Springs",
   "country": "US",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -9734,15 +9689,6 @@
   "lat": 42.83654,
   "lon": -108.73918,
   "name": "High Mountain Fitness",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 40.1119,
-  "lon": -88.27943,
-  "name": "Horizon Climbing",
   "country": "US",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -9899,9 +9845,10 @@
   "lon": -76.4766356,
   "name": "Lindseth Climbing Center Moonboard",
   "country": "US",
-  "status": "no-official-site",
+  "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://scl.cornell.edu/coe/lindseth-climbing-center",
+  "reason": "The only week the centre publishes is headed \"Summer Hours (begins 5/26)\" — Monday, Wednesday and Friday 11:15am-1:15pm, Monday through Friday 5:00pm-9:00pm, Saturday and Sunday 1:00pm-5:00pm. It is a dated season with no stated end, and the page adds that hours change with special programming and closures."
  },
  {
   "lat": 40.16257,
@@ -10123,15 +10070,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 41.36546,
-  "lon": -82.20958,
-  "name": "On The Rocks Climbing Gym",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 36.1664,
   "lon": -94.12313,
   "name": "Ozark Climbing",
@@ -10315,15 +10253,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 41.07565,
-  "lon": -81.49776,
-  "name": "Rock Mill Climbing, Yoga + Fitness",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 38.04551,
   "lon": -78.51579,
   "name": "Rock Revolution",
@@ -10462,15 +10391,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 42.79448,
-  "lon": -86.11016,
-  "name": "Scrapyard Climbing Collective",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 43.00892,
   "lon": -70.80167,
   "name": "Seacoast Climb",
@@ -10560,9 +10480,10 @@
   "lon": -92.064216,
   "name": "Southern Stone",
   "country": "US",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://southernstoneclimbing.com/",
+  "reason": "The gym states its week three times on one page and the three disagree on Friday and Saturday. The text reads \"Friday 12:00 - 8:00 Saturday 12:00 - 6:00\"; the Squarespace business-hours setting the page ships carries 12pm-7pm on Friday; and its schema.org block carries \"Fr 12:00-19:00, Sa 12:00-19:00\". An announcement bar above them all reads \"NEW FALL HOURS BEGIN TUESDAY AUGUST 18TH\", so the disagreement is live rather than stale in a known direction."
  },
  {
   "lat": 45.67642,
@@ -10631,15 +10552,6 @@
   "checked": "2026-08-23",
   "source": "https://steamboatclimbingcollective.com/",
   "reason": "Re-read, and the two weeks are labelled now: the block in force is headed 'Summer:' (Mon-Fri 9a-8p, Sat Closed, Sun 10:30a-6p), with the term-time one beside it. Which applies depends on the date, and the summer heading carries no end."
- },
- {
-  "lat": 35.10552,
-  "lon": -106.59967,
-  "name": "Stone Age Climbing Gym Midtown",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 30.2478,
@@ -10752,15 +10664,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 34.4358336,
-  "lon": -119.8029211,
-  "name": "The Board Room (The Pad)",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 38.53886,
   "lon": -121.3946,
   "name": "The Boulder Field Climbing + Fitness",
@@ -10829,15 +10732,6 @@
   "lat": 40.10454,
   "lon": -75.33213,
   "name": "The Factory By Reach",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 34.10217,
-  "lon": -117.78999,
-  "name": "The Forge",
   "country": "US",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -10980,15 +10874,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 34.06397,
-  "lon": -118.21683,
-  "name": "The Stronghold Climbing Gym Lincoln Heights",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 34.0522342,
   "lon": -118.2436849,
   "name": "The Stronghold Moonboard",
@@ -11040,9 +10925,10 @@
   "lon": -118.50891,
   "name": "Top Out Climbing",
   "country": "US",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://topoutclimbing.com/locationandhours",
+  "reason": "The same page states the week twice and the two disagree. Its text reads \"Monday - Friday: 9:00am - 11:00pm Saturday: 8:00am - 9:00pm Sunday: 8:00am - 7:00pm\"; the Squarespace business-hours setting it ships carries 10am to 11pm on weekdays, 10am to 9pm on Saturday and 10am to 7pm on Sunday. Every opening time differs by an hour or two and nothing says which is current."
  },
  {
   "lat": 37.85155,
@@ -11150,24 +11036,6 @@
   "lat": 34.18374,
   "lon": -118.31093,
   "name": "Verdigo Boulders",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 38.47252,
-  "lon": -122.74325,
-  "name": "Vertex Climbing Center",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 40.0986191,
-  "lon": -82.9955726,
-  "name": "Vertical Adventures",
   "country": "US",
   "status": "no-official-site",
   "checked": "2026-08-23",

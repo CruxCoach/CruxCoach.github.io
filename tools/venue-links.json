@@ -3446,29 +3446,28 @@
     "lon": -73.54049,
     "name": "Monolithe Bloc",
     "country": "CA",
-    "website": "https://www.horizonroc.com/",
+    "website": "https://www.escalademonolithe.com/",
     "verified": "2026-08-23",
-    "provenance": "official-site",
+    "provenance": "official-chain-page",
     "signals": [
       "name",
-      "board-mention"
+      "city"
     ],
-    "note": "The same hall as the entry 22 m away, which upstream records twice; the operator's site names it and the MoonBoard it is listed for."
+    "note": "The site this venue carried, horizonroc.com, publishes one sentence — \"Horizon Roc a fermé ses portes\" — and points readers to \"les nouveaux locataires\", of whom Monolithe Escalade is the one offering \"l'escalade libre de bloc ou de voie\". Monolithe's own site names this hall: its /demenagement page reads \"plusieurs d'entre vous ont pu découvrir nos deux espaces : Monolithe Bloc et Monolithe Voie\", and gives Montréal. It prints only the Voie hall's address, 2350 rue Dickson, so this is the operator's site rather than a page for this hall."
   },
   {
     "lat": 45.56273,
     "lon": -73.54047,
     "name": "Monolithe Bloc",
     "country": "CA",
-    "website": "https://www.horizonroc.com/",
+    "website": "https://www.escalademonolithe.com/",
     "verified": "2026-08-23",
-    "provenance": "official-site",
+    "provenance": "official-chain-page",
     "signals": [
       "name",
-      "city",
-      "board-mention"
+      "city"
     ],
-    "note": "Horizon Roc runs Monolithe Escalade - Bloc, and its site gives Montréal — the city upstream records — and names the MoonBoard this venue is listed for."
+    "note": "The site this venue carried, horizonroc.com, publishes one sentence — \"Horizon Roc a fermé ses portes\" — and points readers to \"les nouveaux locataires\", of whom Monolithe Escalade is the one offering \"l'escalade libre de bloc ou de voie\". Monolithe's own site names this hall: its /demenagement page reads \"plusieurs d'entre vous ont pu découvrir nos deux espaces : Monolithe Bloc et Monolithe Voie\", and gives Montréal. It prints only the Voie hall's address, 2350 rue Dickson, so this is the operator's site rather than a page for this hall."
   },
   {
     "lat": 53.507648757633206,
@@ -3842,14 +3841,17 @@
     "lon": -79.31537,
     "name": "Toronto Climbing Academy",
     "country": "CA",
-    "website": "https://torontoacademy.ca/",
+    "website": "https://climbingacademy.com/",
     "verified": "2026-08-23",
     "provenance": "official-site",
     "signals": [
       "name",
-      "street-address"
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
     ],
-    "note": "Toronto Climbing Academy's own site, printing 11 — the building number in 11 Curity Ave that upstream records. Toronto is part of the venue's name, so the town it shares with the site is not claimed as a second signal; the street number is."
+    "note": "The site this venue carried, torontoacademy.ca, is the Toronto Academy of Education — a college running PSW, ECE and first-aid programmes, whose news page is what the audit was reading. Toronto Climbing Academy's own site is climbingacademy.com; its Contacts page prints \"11 Curity Ave, Unit 3, Toronto, On M4B 1X4\", the address and postal code upstream records, and the site names the Kilter board this venue is listed for."
   },
   {
     "lat": 52.19682,
@@ -8985,20 +8987,6 @@
       "street-address",
       "city"
     ]
-  },
-  {
-    "lat": 42.05786,
-    "lon": 1.26798,
-    "name": "Rocodromo Peramola",
-    "country": "ES",
-    "website": "https://rocodromo.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address"
-    ],
-    "note": "The centre's own site, printing 9 — the building number in Carrer Frederic Ribó, 9, 25790 Peramola that upstream records."
   },
   {
     "lat": 42.45613,

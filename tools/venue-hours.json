@@ -4355,6 +4355,33 @@
   "evidence": "Monday - 11am - 11pm | Tuesday - 11am - 11pm | Wednesday - 4pm - 11pm | Thursday - 11am - 11pm | Friday - 11am - 11pm | Saturday - 9am - 10pm | Sunday - 9am - 8pm"
  },
  {
+  "lat": 43.70887,
+  "lon": -79.31537,
+  "name": "Toronto Climbing Academy",
+  "country": "CA",
+  "source": "https://climbingacademy.com/en/info/i18/Hours-of-Operation.html",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Hours of Operation 2026 GYM HOURS Mondays to Fridays: 10 am – 11 pm Saturdays & Sundays: 10 am – 8 pm",
+  "note": "The holidays line beneath — \"*Holidays: TBA varying from 10 am – 6 pm / 12 pm - 8 pm\" — is an exception list and is not part of the week."
+ },
+ {
   "lat": 52.19682,
   "lon": -113.81868,
   "name": "Trailhead Climbing + Fitness",
@@ -16951,6 +16978,32 @@
   "note": "The gym separates the two itself. Monday to Saturday are headed \"General Public\"; Sunday is headed \"Members & Punch Pass Holders ONLY\", so it is recorded closed rather than published as a public opening."
  },
  {
+  "lat": 39.95047,
+  "lon": -83.00785,
+  "name": "Bloc Garten",
+  "country": "US",
+  "source": "https://5.life/bg/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Hours Monday - Friday 12PM - 10PM Saturday 9AM - 6PM Sunday 9AM - 6PM",
+  "note": "The separate Holiday Hours link beside it is an exception list."
+ },
+ {
   "lat": 34.83659,
   "lon": -82.42932,
   "name": "BlocHaven",
@@ -19052,6 +19105,33 @@
   "evidence": "Open Climb Hours | Monday-Friday 9 am-3 pm & 7:30 pm-9:30 pm | Saturday and Sunday 9am-3pm"
  },
  {
+  "lat": 43.6888571,
+  "lon": -70.2999399,
+  "name": "EVO Rock + Fitness",
+  "country": "US",
+  "source": "https://www.evorock.com/portland-me/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "10:00-21:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-21:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "65 Warren Ave, Portland • 207-780-6370 Sunday: 10am-6pm Monday: 10am-9pm Tuesday: 10am-10pm (Members Only 7am-10am) Wednesday: 10am-10pm (Members Only 7am-10am) Thursday: 10am-10pm (Members Only 7am-10am) Friday: 10am-9pm Saturday: 10am-6pm",
+  "note": "Every day is listed separately beneath this hall's own address. The members-only 7-10am windows on Tuesday, Wednesday and Thursday are a membership arrangement inside the morning and are not public opening."
+ },
+ {
   "lat": 36.10815,
   "lon": -80.24359,
   "name": "FirstHand Climbing",
@@ -19271,6 +19351,32 @@
   "evidence": "Weekdays: 9am 9pm Weekends: 9am 8pm | HOLIDAY HOURS | Memorial Day: Closed Independence Day: Closed"
  },
  {
+  "lat": 36.15595,
+  "lon": -95.98299,
+  "name": "GRAVITY BEAR Bouldering Gym",
+  "country": "US",
+  "source": "https://climbgravitybear.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "15:00-21:00",
+   "tue": "15:00-21:00",
+   "wed": "15:00-21:00",
+   "thu": "15:00-21:00",
+   "fri": "15:00-21:00",
+   "sat": "12:00-18:00",
+   "sun": "12:00-18:00"
+  },
+  "evidence": "HOURS: MONDAY - FRIDAY 3pm - 9pm SATURDAY - SUNDAY 12pm - 6pm",
+  "note": "Stated on the location page beneath the gym's address and phone number. The weekly community events listed elsewhere — college night, new sets — sit inside these hours."
+ },
+ {
   "lat": 41.0584299,
   "lon": -74.0984756,
   "name": "GRAVITY VAULT",
@@ -19391,6 +19497,31 @@
   "evidence": "Sun Sunday 9:00 AM - 8:00 PM | Mon Monday 9:00 AM - 10:00 PM | Tue Tuesday 9:00 AM - 10:00 PM | Wed Wednesday 9:00 AM - 10:00 PM | Thu Thursday 9:00 AM - 10:00 PM | Fri Friday 9:00 AM - 10:00 PM | Sat Saturday 9:00 AM - 8:00 PM"
  },
  {
+  "lat": 43.03304,
+  "lon": -89.38128,
+  "name": "Greater Heights Climbing",
+  "country": "US",
+  "source": "https://www.ghclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Regular Hours: Monday-Sunday: 10:00am-10:00pm . Member-Only Hours: Tuesday & Thursday: 6:00am-10:00am Saturday & Sunday: 8:00am-10:00am",
+  "note": "The gym labels the one window \"Regular Hours\"; the member-only mornings listed beneath are a membership arrangement and not public opening."
+ },
+ {
   "lat": 39.1082,
   "lon": -108.63747,
   "name": "Grip Bouldering",
@@ -19461,6 +19592,31 @@
    "sun": "11:00-19:00"
   },
   "evidence": "HOURS OF OPERATION | Mon-Fri: 11AM to 9PM | Sat-Sun: 11AM to 7PM"
+ },
+ {
+  "lat": 38.92234,
+  "lon": -104.71875,
+  "name": "Gripstone Colorado Springs",
+  "country": "US",
+  "source": "https://gripstonecs.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "HOURS WEEKDAYS: 12 PM – 10 PM WEEKENDS: 10AM – 8PM MEMBERS ONLY HOURS TUESDAY, WEDNESDAY, THURSDAY: 6 AM – 12 PM WEEKENDS: 8 AM – 10 AM",
+  "note": "The members-only mornings are stated separately from the hours and are not public opening."
  },
  {
   "lat": 32.78099,
@@ -19828,6 +19984,31 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Monday: 10 am - 10 pm | Tuesday: 10 am - 10 pm | Wednesday: 10 am - 10 pm | Thursday: 10 am - 10 pm | Friday: 10 am - 10 pm | Saturday: 10 am - 10 pm | Sunday 10 am - 8 pm"
+ },
+ {
+  "lat": 40.1119,
+  "lon": -88.27943,
+  "name": "Horizon Climbing",
+  "country": "US",
+  "source": "https://www.climbhorizon.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Hours Monday through Saturday 10am — 10pm Sunday 10am — 8pm",
+  "note": "Two bands covering all seven days."
  },
  {
   "lat": 29.96117,
@@ -21336,6 +21517,32 @@
   "note": "The gym's openingHoursSpecification states the identical week alongside its address, so text and markup agree. A second, generic markup block on the same page carries the template default of 09:00-17:00 for all seven days and is not a claim about this gym."
  },
  {
+  "lat": 41.36546,
+  "lon": -82.20958,
+  "name": "On The Rocks Climbing Gym",
+  "country": "US",
+  "source": "https://climbontherocks.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "11:00-21:00",
+   "tue": "15:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "15:00-21:00",
+   "fri": "11:00-21:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Location 8701 Leavitt Rd. Elyria, OH. 44035 Gym Hours Monday : 11am - 9pm Tuesday: 3pm - 9pm Wednesday: 9am - 9pm Thursday: 3pm - 9pm Friday : 11am- 9pm Saturday : 9am - 6pm Sunday : 9am - 6pm",
+  "note": "Every day is listed separately beneath the gym's address; no two weekdays are alike."
+ },
+ {
   "lat": 36.96815,
   "lon": -122.00665,
   "name": "Pacific Edge",
@@ -21583,6 +21790,33 @@
   },
   "evidence": "Mon – Fri 10 am-10 pm | Saturday 12-7:30 pm | Sunday 12-7:30 pm | Member Only Hours: | Wednesday 6:30-10 am | Saturday 9 am-noon",
   "note": "Members additionally get in Wednesday 6:30–10am and Saturday 9am–noon; the public week is what is recorded."
+ },
+ {
+  "lat": 41.07565,
+  "lon": -81.49776,
+  "name": "Rock Mill Climbing, Yoga + Fitness",
+  "country": "US",
+  "source": "https://rockmillclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "677 Carroll St. Akron, OH 44304 Monday-Friday: 9 AM - 10 PM Saturday: 9 AM - 8 PM Sunday: 9 AM - 6 PM",
+  "note": "Stated beside the gym's address on its Contact & Hours page."
  },
  {
   "lat": 42.35021,
@@ -21931,6 +22165,31 @@
   },
   "evidence": "Hours: 6am – 10pm Monday – Friday, 7am – 10pm Saturday – Sunday",
   "note": "Stated on the operator's page for this hall, beside its own telephone number and email. The July 4 and July 5 lines beneath are dated holiday exceptions."
+ },
+ {
+  "lat": 42.79448,
+  "lon": -86.11016,
+  "name": "Scrapyard Climbing Collective",
+  "country": "US",
+  "source": "https://scrapyardclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "12:00-20:00"
+  },
+  "evidence": "Here's when we're open for you to come hang out with us. Monday 12pm - 10pm Tuesday 12pm - 10pm Wednesday 12pm - 10pm Thursday 12pm - 10pm Friday 12pm - 10pm Saturday 10am - 8pm Sunday 12pm - 8pm",
+  "note": "Every day is listed separately under a sentence that names them as the opening hours."
  },
  {
   "lat": 47.65055,
@@ -22407,6 +22666,34 @@
   "evidence": "MONDAY 3:00pm- 9:00pm | TUESDAY 9:00am – 9:00pm | WEDNESDAY 9:00am – 9:00pm | THURSDAY 9:00am – 9:00pm | FRIDAY 9:00am – 10:00pm | SATURDAY 10:00am – 10:00pm | SUNDAY 10:00am – 6:00pm | 1230 S 31st St W Billings, MT 59102"
  },
  {
+  "lat": 35.10552,
+  "lon": -106.59967,
+  "name": "Stone Age Climbing Gym Midtown",
+  "country": "US",
+  "source": "https://climbstoneage.com/locations/stone-age-midtown/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Stone Age Midtown (505) 341-2016 4130 Cutler Ave NE, Albuquerque, NM 87110 Mon-Fri: 12 pm to 10 pm Sat: 9 am to 8 pm Sun: 9 am to 6 pm Member-only hours: 6 am to 12 pm on weekdays",
+  "note": "This hall's own page, with its address above the week. The member-only weekday mornings are a membership arrangement; the monthly Senior Sender morning is a dated event."
+ },
+ {
   "lat": 35.18458,
   "lon": -106.5756,
   "name": "Stone Age Climbing Gym North",
@@ -22685,6 +22972,32 @@
   "note": "Stated as a single daily window for walk-ins, with the same 10AM-8PM given again beside the address as GENERAL HOURS. The extended access the gym offers members is not published here."
  },
  {
+  "lat": 34.4358336,
+  "lon": -119.8029211,
+  "name": "The Board Room (The Pad)",
+  "country": "US",
+  "source": "https://thepadclimbing.org/santa-barbara/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Come VISIT US IN THE MAGNOLIA CENTER 11 am – 10 pm M – F and 10 am – 9 pm on the weekends!",
+  "note": "Stated on this hall's own page. The physical-therapy and drop-in session times listed further down are programmes inside the opening."
+ },
+ {
   "lat": 38.5384717,
   "lon": -121.4015707,
   "name": "The Boulder Field",
@@ -22955,6 +23268,33 @@
   },
   "evidence": "Hours Monday-Friday: 6am – 10pm Weekends: 8am – 8pm 484.704.7612 401 E 4th St",
   "note": "Stated on the contact page beside the address and repeated in the footer of every page."
+ },
+ {
+  "lat": 34.10217,
+  "lon": -117.78999,
+  "name": "The Forge",
+  "country": "US",
+  "source": "https://trainwithforge.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-17:00",
+   "sun": "09:00-14:00"
+  },
+  "evidence": "Address 968 Palomares Ave La Verne, CA 91750 Hours Monday-Friday: 9am-10pm Saturday: 9am-5pm Sunday: 9am-2pm",
+  "note": "Stated on the contact page beneath the address."
  },
  {
   "lat": 41.2311,
@@ -23319,6 +23659,33 @@
   "evidence": "Monday – Friday: 8:00am – 11:00pm | Saturday – Sunday: 8:00am – 8:00pm | See Holiday Hours"
  },
  {
+  "lat": 34.06397,
+  "lon": -118.21683,
+  "name": "The Stronghold Climbing Gym Lincoln Heights",
+  "country": "US",
+  "source": "https://www.strongholdclimb.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-23:00",
+   "tue": "06:00-23:00",
+   "wed": "06:00-23:00",
+   "thu": "06:00-23:00",
+   "fri": "06:00-23:00",
+   "sat": "08:00-21:00",
+   "sun": "08:00-21:00"
+  },
+  "evidence": "650 South Avenue 21 Los Angeles, CA 90031 Directions | (323) 505-7000 Monday – Friday 6:00AM – 11:00PM Saturday & Sunday 8:00AM – 9:00PM",
+  "note": "The operator lists both halls with a week each; this is the block headed by the Lincoln Heights address at 650 South Avenue 21. The Echo Park hall beneath it closes an hour earlier on weekdays, which is what makes the two blocks distinguishable."
+ },
+ {
   "lat": 45.5323985,
   "lon": -122.6851445,
   "name": "Tomo Bouldering Club",
@@ -23539,6 +23906,59 @@
   },
   "evidence": "Monday: 3 PM – 10 PM | Tuesday: 10 AM – 10 PM | Wednesday: 3 PM – 10 PM | Thursday: 10 AM – 10 PM | Friday: 3 PM – 10 PM | Saturday: 9 AM – 10 PM | Sunday: 9 AM – 8 PM | Special Members Only Hours: | Monday, Wednesday, Friday: 12PM – 3PM",
   "note": "Members additionally get in 12–3PM on Monday, Wednesday and Friday; the public week is what is recorded."
+ },
+ {
+  "lat": 38.47252,
+  "lon": -122.74325,
+  "name": "Vertex Climbing Center",
+  "country": "US",
+  "source": "https://climbvertex.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "3358a Coffey Lane Santa Rosa, CA 95403 707-573-1608 HOURS Mon-Fri: 9am to 10pm Sat-Sun: 9am to 9pm Open Mon/Wed/Fri 5:30am for members only",
+  "note": "The 5:30am members-only opening on Monday, Wednesday and Friday is a membership arrangement and is not public opening."
+ },
+ {
+  "lat": 40.0986191,
+  "lon": -82.9955726,
+  "name": "Vertical Adventures",
+  "country": "US",
+  "source": "https://5.life/va/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "11:00-18:00"
+  },
+  "evidence": "Hours Mon, Wed & Fri 11 AM- 10 PM Tue & Thur 7 AM - 10PM Saturday 9 AM - 8 PM Sunday 11 AM - 6 PM",
+  "note": "Tuesday and Thursday open four hours earlier than the other weekdays. The separate Holiday Hours link beside it is an exception list."
  },
  {
   "lat": 42.9956397,
