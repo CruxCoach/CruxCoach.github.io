@@ -1,14 +1,5 @@
 [
   {
-    "lat": 48.20227277056378,
-    "lon": 16.3614044253851,
-    "name": "Alpenverein Wien",
-    "country": "AT",
-    "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "Rahlgasse 6 is an Alpenverein office address; the Landesverband's own site gives a different address and documents no climbing wall here, so the venue could not be tied to an official page."
-  },
-  {
     "lat": 47.1484502,
     "lon": 10.4093318,
     "name": "Arlberg klettergruppe",
@@ -23,8 +14,8 @@
     "name": "Kletterzentrum Innsbruck",
     "country": "AT",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "checked": "2026-08-23",
+    "reason": "Inaccessible rather than absent. kletterzentrum-innsbruck.at is very likely this venue's own site, but it answers 403 with a Cloudflare \"Just a moment...\" interstitial to every request tried, including a full browser header set, so nothing readable was ever served and the two signals the policy requires could not be obtained. kletterzentrum.at times out. innsbruck.at, which the guesser reached, is the city council's site and matched only on the town. Retry when the page can be opened.",
     "candidate": "https://www.kletterzentrum-innsbruck.at/"
   },
   {
@@ -2015,15 +2006,6 @@
     "candidate": "https://www.invertclimb.com/"
   },
   {
-    "lat": 53.1406108,
-    "lon": 4.2517792,
-    "name": "Beacon Climbing Centre",
-    "country": "NL",
-    "status": "duplicate",
-    "checked": "2026-08-22",
-    "reason": "This is Beacon Climbing Centre in Caernarfon, Wales, recorded with its longitude sign flipped, which plots it in the North Sea and files it under NL; the correctly placed entry already carries the link."
-  },
-  {
     "lat": 52.04968,
     "lon": 4.25458,
     "name": "Boulderhal de Campus",
@@ -2568,16 +2550,6 @@
     "checked": "2026-08-22",
     "reason": "CRUX Climbing Center publishes one location, in São Domingos de Rana; this coordinate is 16 km away in central Lisbon and matches nothing the operator lists.",
     "candidate": "https://www.cruxclimbing.pt/"
-  },
-  {
-    "lat": 38.53296,
-    "lon": -8.87263,
-    "name": "INWALL Climbing Center",
-    "country": "PT",
-    "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "inwall.pt now redirects to wallnut.pt, whose only address is in Lisbon and which never mentions Setúbal, so no official page describes this Setúbal venue.",
-    "candidate": "https://wallnut.pt/"
   },
   {
     "lat": 40.2107084,

@@ -1,5 +1,19 @@
 [
   {
+    "lat": 25.16322,
+    "lon": 55.23868,
+    "name": "Mountain Extreme",
+    "country": "AE",
+    "website": "https://www.mtnextreme.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Mountain Extreme's own site, printing 4th Street Al Quoz — the street line upstream records."
+  },
+  {
     "lat": 48.21057937040195,
     "lon": 16.375051953580066,
     "name": "Alpenverein Austria",
@@ -15,6 +29,22 @@
       "board-mention"
     ],
     "note": "The centre trades as Kletterzentrum Basislager Austria; its Kilter Board 8x12 matches this venue's wall."
+  },
+  {
+    "lat": 48.20227277056378,
+    "lon": 16.3614044253851,
+    "name": "Alpenverein Wien",
+    "country": "AT",
+    "website": "https://www.alpenverein.at/wien/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The Alpenverein's own section page for Vienna, printing Rahlgasse 6 and the 1060 postal code upstream records."
   },
   {
     "lat": 47.30391299999999,
@@ -8934,6 +8964,20 @@
     "note": "The page lists BK PASILA at Veturitallinkuja 4; this coordinate sits 2.9 km away in central Helsinki, nearer that hall than any other the operator runs."
   },
   {
+    "lat": 61.04051879999999,
+    "lon": 28.1146457,
+    "name": "BoulderSaimaa",
+    "country": "FI",
+    "website": "https://www.bouldersaimaa.fi/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "BoulderSaimaa's own site, naming the MoonBoard this venue is listed for. Upstream records no street for it."
+  },
+  {
     "lat": 64.99112,
     "lon": 25.45804,
     "name": "Kaamos Climbing",
@@ -11068,6 +11112,49 @@
     ]
   },
   {
+    "lat": 47.51476813536509,
+    "lon": 19.11432501487862,
+    "name": "Fless!",
+    "country": "HU",
+    "website": "https://fless.hu/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Fless!'s own site, giving Budapest — the city upstream records for Kover Lajos u. 23. The venue name carries no town of its own."
+  },
+  {
+    "lat": 47.5085995,
+    "lon": 19.0259772,
+    "name": "Gravity Moonboard",
+    "country": "HU",
+    "website": "https://gravitybudapest.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "Gravity Budapest's own site, embedding a map of itself 164 m from this venue and labelled with the gym's own name."
+  },
+  {
+    "lat": -8.63688,
+    "lon": 115.13838,
+    "name": "Rock Island Bali",
+    "country": "ID",
+    "website": "https://rockisland.id/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "street-address"
+    ],
+    "note": "Rock Island Bali's own site, printing Jl. Sempol No. 25 Pererenan and the 80351 postal code upstream records."
+  },
+  {
     "lat": 51.88996,
     "lon": -8.53863,
     "name": "Awesome Walls Cork",
@@ -11737,6 +11824,62 @@
     "note": "The site is \"Waverock | Sala di arrampicata Rimini\" and prints Via Norvegia, 11, 47921 Rimini RN; the upstream city is Rimini. waverock.it is an unrelated cap shop."
   },
   {
+    "lat": 34.6551456,
+    "lon": 133.9195019,
+    "name": "BoulderGarden SaBo",
+    "country": "JP",
+    "website": "https://www.bouldergardensabo.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "BoulderGarden SaBo's own site, giving Okayama — the city upstream records."
+  },
+  {
+    "lat": 36.60036,
+    "lon": 137.19879,
+    "name": "Bouldering Gym leTruss",
+    "country": "JP",
+    "website": "https://letruss.jp/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Bouldering Gym leTruss's own site. Its home, contact and about pages all print 1666, the building number in 富山県富山市上大久保1666-1 that upstream records."
+  },
+  {
+    "lat": 42.86238,
+    "lon": 140.70229,
+    "name": "Rhythm Japan Niseko",
+    "country": "JP",
+    "website": "https://rhythmjapan.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Rhythm Japan's own site for its Niseko operation, giving Hokkaido — the region upstream records for Yamada, Kutchan."
+  },
+  {
+    "lat": 34.78667,
+    "lon": 135.81206,
+    "name": "カルコロ CAL-COLO",
+    "country": "JP",
+    "website": "https://cal-colo.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "CAL-COLO's own site, matching the venue's name and naming the board it is listed for."
+  },
+  {
     "lat": 49.49443,
     "lon": 5.96847,
     "name": "BlocX - Urban Fitness",
@@ -11783,6 +11926,21 @@
     "note": "The national sports centre runs the wall as part of the Coque; its site has a dedicated Escalade section."
   },
   {
+    "lat": 49.51655,
+    "lon": 5.92713,
+    "name": "RedRock Climbing Center",
+    "country": "LU",
+    "website": "https://redrock-climbingcenter.lu/en/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "board-mention"
+    ],
+    "note": "RedRock Climbing Center's own site, printing the 4413 postal code upstream records for Soleuvre and naming the board this venue is listed for."
+  },
+  {
     "lat": 25.6527,
     "lon": -100.27474,
     "name": "Pico Norte Zona Tec",
@@ -11796,6 +11954,51 @@
       "city"
     ],
     "note": "Pico Norte's own site, printing Av. Revolucion 2703 in Monterrey — the street line upstream records for the Zona Tec hall."
+  },
+  {
+    "lat": 3.1006116,
+    "lon": 101.6320434,
+    "name": "BHub Bouldering 2024 Moonboard",
+    "country": "MY",
+    "website": "https://bhubbouldering.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "BHub Bouldering's own site, naming the MoonBoard this venue is listed for and embedding a map of itself within the coordinates signal's range."
+  },
+  {
+    "lat": 3.12019,
+    "lon": 101.67444,
+    "name": "Camp5 Eco City",
+    "country": "MY",
+    "website": "https://www.camp5.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "postal-code",
+      "city"
+    ],
+    "note": "Camp5 publishes its KL Eco City gym on its own site, with the 59200 postal code and the city upstream records. The operator runs several gyms, so this is a chain page."
+  },
+  {
+    "lat": 5.4372,
+    "lon": 100.30895,
+    "name": "Project Rock Gurney",
+    "country": "MY",
+    "website": "https://www.projectrock.com.my/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "postal-code",
+      "city"
+    ],
+    "note": "Project Rock publishes its Gurney gym on its own site, with the 10250 postal code and the city upstream records."
   },
   {
     "lat": 53.21729,
@@ -11812,6 +12015,22 @@
       "city",
       "board-mention"
     ]
+  },
+  {
+    "lat": 53.1406108,
+    "lon": 4.2517792,
+    "name": "Beacon Climbing Centre",
+    "country": "NL",
+    "website": "https://www.beaconclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The name and the whole address match: the site is Beacon Climbing Centre and prints Zone 5, Cibyn Estate, LL55 2BD, Caernarfon, which is what upstream records for this venue. The coordinates do not, and cannot: upstream files it at 53.1406,4.2518, a point in the North Sea off Texel, and classifies it as Dutch. Caernarfon is at 53.1406,-4.2518 — the same latitude with the longitude sign flipped. The link is recorded on the name and the address, which agree completely, and the coordinates are deliberately not claimed as a signal."
   },
   {
     "lat": 51.5955,
@@ -13449,6 +13668,65 @@
     "note": "The site is Ville Krefter and prints \"6213 Tafjord\", which is the place this venue is named after."
   },
   {
+    "lat": -43.53832,
+    "lon": 172.59476,
+    "name": "Boulder Co Christchurch",
+    "country": "NZ",
+    "website": "https://www.boulderco.co.nz/locations/christchurch/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "location-page"
+    ],
+    "note": "Boulder Co publishes a page per gym; the Christchurch page prints 179 Blenheim Rd and the 8041 postal code upstream records."
+  },
+  {
+    "lat": -37.6572354,
+    "lon": 176.1890824,
+    "name": "Rocktopia",
+    "country": "NZ",
+    "website": "https://rocktopia.co.nz/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "Rocktopia's own site, embedding a map of itself 22 m from this venue and labelled with the gym's own name."
+  },
+  {
+    "lat": -41.2715,
+    "lon": 173.28177,
+    "name": "The Gravity Well",
+    "country": "NZ",
+    "website": "https://www.gravitywell.co.nz/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The Gravity Well's own site, giving Nelson — the town upstream records — and naming the board this venue is listed for."
+  },
+  {
+    "lat": 14.66455,
+    "lon": 121.07012,
+    "name": "Power Up Tandang Sora",
+    "country": "PH",
+    "website": "https://poweruptandangsora.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The gym's own site for its Tandang Sora branch, giving Quezon City — the city upstream records, which the venue name does not carry."
+  },
+  {
     "lat": 50.0616,
     "lon": 20.01703,
     "name": "AVATAR Central Ruchu",
@@ -13777,6 +14055,20 @@
     ]
   },
   {
+    "lat": 38.53296,
+    "lon": -8.87263,
+    "name": "INWALL Climbing Center",
+    "country": "PT",
+    "website": "https://inwallclimbing.pt/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "The centre's own site, printing Av do Alentejo 20E — the street line upstream records."
+  },
+  {
     "lat": 32.65129510000001,
     "lon": -16.8985489,
     "name": "Madeira Climbing Center",
@@ -13790,6 +14082,106 @@
       "city"
     ],
     "note": "The island's only bouldering gym; its Rua Conde Carvalhal address resolves 79 m from this coordinate."
+  },
+  {
+    "lat": 41.17873,
+    "lon": -8.6822,
+    "name": "Proa Climbing Center",
+    "country": "PT",
+    "website": "https://proaclimbingcenter.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "Proa Climbing Center's own site, embedding a map of itself that falls within 6 m of this venue."
+  },
+  {
+    "lat": 39.3643407,
+    "lon": -9.3745488,
+    "name": "The West Climbing Center",
+    "country": "PT",
+    "website": "https://www.thewestclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "The West Climbing Center's own site, embedding a map of itself 201 m from this venue and labelled with the centre's own name."
+  },
+  {
+    "lat": 44.38974,
+    "lon": 26.12165,
+    "name": "Climb Again Centrul",
+    "country": "RO",
+    "website": "https://climbagain.ro/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "Climb Again's own site, printing Soseaua Berceni 8 in Bucharest — the street line upstream records for the Centrul hall. The association runs a second hall in Iasi, so this is recorded as a chain page."
+  },
+  {
+    "lat": 47.12658,
+    "lon": 27.62568,
+    "name": "Climb Again Iasi",
+    "country": "RO",
+    "website": "https://climbagain.ro/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The same association's site, which names its Iasi hall and the town upstream records for it. Its Bucharest hall is described separately on the same site."
+  },
+  {
+    "lat": 44.42102,
+    "lon": 26.0954,
+    "name": "Fabrica de Căţărat",
+    "country": "RO",
+    "website": "https://www.fabricadecatarat.ro/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Fabrica de Catarat's own site, giving Bucharest — the city upstream records for Strada 11 Iunie 50. The venue name carries no town of its own, so the two are independent."
+  },
+  {
+    "lat": 44.4343,
+    "lon": 26.05349,
+    "name": "Natural High Bucuresti",
+    "country": "RO",
+    "website": "https://naturalhigh.ro/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Natural High's own site for its Bucharest hall, the city upstream records."
+  },
+  {
+    "lat": 44.4485,
+    "lon": 26.15137,
+    "name": "Vertical Spirit",
+    "country": "RO",
+    "website": "https://verticalspirit.ro/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "Vertical Spirit's own site, printing Baicului 80 in Bucharest — the street line upstream records."
   },
   {
     "lat": 63.39079,
@@ -14031,6 +14423,253 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 1.30508,
+    "lon": 103.85142,
+    "name": "Boulder Movement Rochor",
+    "country": "SG",
+    "website": "https://www.boulderm.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "postal-code",
+      "street-address"
+    ],
+    "note": "Boulder Movement publishes its Rochor gym on its own site, with the 218227 postal code and 2 Serangoon Rd upstream records."
+  },
+  {
+    "lat": 1.33109,
+    "lon": 103.74827,
+    "name": "Boulder+ The Chevrons",
+    "country": "SG",
+    "website": "https://www.boulderplusclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Boulder+ publishes its Chevrons gym on its own site, printing 48 Boon Lay Way — the street line upstream records."
+  },
+  {
+    "lat": 1.29201,
+    "lon": 103.8502,
+    "name": "Climb Central Funan",
+    "country": "SG",
+    "website": "https://www.climbcentral.sg/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "postal-code",
+      "street-address"
+    ],
+    "note": "Climb Central publishes its Funan gym on its own site, with the 179105 postal code and 107 North Bridge Rd upstream records."
+  },
+  {
+    "lat": 1.38877,
+    "lon": 103.74727,
+    "name": "Climb Central SAFRA Choa Chu Kang",
+    "country": "SG",
+    "website": "https://www.climbcentral.sg/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "postal-code",
+      "street-address"
+    ],
+    "note": "The same operator's SAFRA Choa Chu Kang gym, with the 689964 postal code and 28 Choa Chu Kang Dr upstream records — a different postal code and street from its Funan gym on the same site."
+  },
+  {
+    "lat": 1.31563,
+    "lon": 103.85604,
+    "name": "Ground Up Climbing",
+    "country": "SG",
+    "website": "https://www.groundupsg.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Ground Up Climbing's own site, printing 60 Tessensohn Rd — the street line upstream records."
+  },
+  {
+    "lat": 1.3147264,
+    "lon": 103.8573584,
+    "name": "Kinetics Climbing",
+    "country": "SG",
+    "website": "https://www.kineticsclimbing.com.sg/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "Kinetics Climbing's own site, embedding a map of itself that falls on this venue to the metre."
+  },
+  {
+    "lat": 1.27571,
+    "lon": 103.79443,
+    "name": "Lighthouse Climbing PTE",
+    "country": "SG",
+    "website": "https://www.lighthouseclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "street-address"
+    ],
+    "note": "Lighthouse Climbing's own site, printing 44 Pasir Panjang Rd and the 118504 postal code upstream records."
+  },
+  {
+    "lat": 46.0682733,
+    "lon": 14.5194972,
+    "name": "BALVANIJA MOONBOARD",
+    "country": "SI",
+    "website": "https://balvanija.si/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "Balvanija's own site, embedding a map of itself 244 m from this venue. Upstream records no street for it."
+  },
+  {
+    "lat": 46.23628,
+    "lon": 14.37418,
+    "name": "Bolder Scena Kranj",
+    "country": "SI",
+    "website": "https://bolderscena.si/kranj/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Bolder Scena publishes a page per hall; the Kranj page prints the 4000 postal code and the town upstream records."
+  },
+  {
+    "lat": 45.92772330549454,
+    "lon": 13.639153740355331,
+    "name": "DES Climbing Gym",
+    "country": "SI",
+    "website": "https://desclimbing.com/si/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "postal-code",
+      "street-address"
+    ],
+    "note": "DES Climbing Gym's own site, printing Ulica Andreja Gabrscka 1 and the 5290 postal code upstream records."
+  },
+  {
+    "lat": 46.0497,
+    "lon": 14.54866,
+    "name": "Plezalni Center Ljubljana",
+    "country": "SI",
+    "website": "https://www.plezalnicenter.si/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "Plezalni Center Ljubljana's own site, printing the 1000 postal code and the city upstream records for Pesarska cesta 10."
+  },
+  {
+    "lat": 49.22087,
+    "lon": 18.72795,
+    "name": "K2 Žilina",
+    "country": "SK",
+    "website": "https://www.k2zilina.sk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The centre's own site for Zilina, the town upstream records, naming the board this venue is listed for."
+  },
+  {
+    "lat": 48.15243,
+    "lon": 17.13899,
+    "name": "Lezecké centrum Vertigo",
+    "country": "SK",
+    "website": "https://lezeckecentrum.sk/en/home/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "Lezecke centrum Vertigo's own site — the venue name in full — naming the board this venue is listed for."
+  },
+  {
+    "lat": 49.02877,
+    "lon": 18.99251,
+    "name": "Ovčin Boulder & Bistro",
+    "country": "SK",
+    "website": "https://www.ovcin.sk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Ovcin Boulder & Bistro's own site, printing Horne Jaseno 160 — the street line upstream records."
+  },
+  {
+    "lat": 48.69571,
+    "lon": 21.23896,
+    "name": "Steam Factory",
+    "country": "SK",
+    "website": "https://steamfactory.sk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Steam Factory's own site, printing Moldavska cesta 32 — the street line upstream records."
+  },
+  {
+    "lat": 13.73627,
+    "lon": 100.57645,
+    "name": "Urban Playground Climbing",
+    "country": "TH",
+    "website": "https://www.rqclub.com/rockclimbing",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "Urban Playground's climbing page on its operator's site, printing the 10110 postal code and the Khwaeng upstream records for Sukhumvit 49/9 Alley."
+  },
+  {
+    "lat": 41.07611175615464,
+    "lon": 29.01340927116426,
+    "name": "Boulderhane",
+    "country": "TR",
+    "website": "https://boulderhane.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code"
+    ],
+    "note": "Boulderhane's own site, printing the 34330 postal code upstream records for Büyükdere Cd. in Levent."
   },
   {
     "lat": 33.48183,
@@ -19406,6 +20045,21 @@
     "note": "The site carries this venue's name and embeds a map of itself — Zenith Climbing Center — 194 m from these coordinates. Upstream records no street address for the venue, so the name and the point the site publishes of itself are what carry the match."
   },
   {
+    "lat": 21.05562,
+    "lon": 105.83981,
+    "name": "VietClimb",
+    "country": "VN",
+    "website": "https://vietclimb.vn/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "VietClimb's own site, printing the 100000 postal code and Hanoi, the city upstream records."
+  },
+  {
     "lat": -33.91024,
     "lon": 18.47255,
     "name": "Bloc 11 Paarden Eiland",
@@ -19417,6 +20071,22 @@
       "street-address",
       "city"
     ]
+  },
+  {
+    "lat": -33.89869,
+    "lon": 18.48122,
+    "name": "CityROCK Cape Town",
+    "country": "ZA",
+    "website": "https://cityrock.co.za/cape-town/activities/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "CityROCK publishes a page per gym; the Cape Town one prints 9 Milner St, Paarden Eiland — the street line upstream records."
   },
   {
     "lat": -26.10627,
