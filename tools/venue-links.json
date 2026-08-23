@@ -8891,16 +8891,15 @@
     "lon": -3.9077879,
     "name": "The Climbing Hangar Swansea",
     "country": "GB",
-    "website": "https://theclimbinghangar.com/locations/swansea",
-    "verified": "2026-08-22",
-    "provenance": "official-location-page",
+    "website": "https://www.thehiveclimbingswansea.co.uk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
     "signals": [
       "street-address",
       "postal-code",
-      "city",
-      "location-page"
+      "coordinates"
     ],
-    "note": "The hall now trades as The Climbing Hive; upstream still carries its former name, The Climbing Hangar Swansea."
+    "note": "Replaces a link to theclimbinghangar.com/locations/swansea, which is the former operator's page and now says 'As of July 2026, The Climbing Hangar Swansea is operated by Cullen Climbing as The Climbing Hive' — a page that disowns the venue. The new site publishes Unit 3, Castell Close, Swansea Enterprise Park, SA7 9FH; reverse-geocoding this venue's own coordinate returns Castell Close, Llansamlet, Swansea, SA7 9FH, about 40 m away. The dataset name is still the old operator's and is upstream's to fix."
   },
   {
     "lat": 53.803373,

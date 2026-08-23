@@ -4575,6 +4575,31 @@
   "note": "The gap is explicit: Pondělí - čtvrtek 14:30 - 17:45 a v pátek 14:30 - 16:45 je celá lezecká hala uzavřena veřejnosti."
  },
  {
+  "lat": 50.14204,
+  "lon": 14.51789,
+  "name": "Jungle Sport Park",
+  "country": "CZ",
+  "source": "https://www.jungleletnany.cz/kontakty",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "07:30-23:00",
+   "tue": "07:30-23:00",
+   "wed": "07:30-23:00",
+   "thu": "07:30-23:00",
+   "fri": "07:30-23:00",
+   "sat": "07:30-22:00",
+   "sun": "07:30-22:00"
+  },
+  "evidence": "Otevírací doba — Lezecká stěna - Po - Pá 7.30 - 23.00, So - Ne 7.30 - 22.00 (1. a 8. 5. 7.30 - 22.00). Pohybová hala - přes léto zavřeno. Lezecká prodejna - Po - Pá 11.00 - 19.00, So - Ne 9.00 - 17.00.",
+  "note": "Logged ambiguous on the first pass on the strength of a Recepce line. The site does publish a per-facility table, and the climbing wall has its own row — 'Lezecká stěna' — separate from the gymnastics hall (shut for the summer), the shop and the bistro. Only the two named May dates deviate."
+ },
+ {
   "lat": 49.23045,
   "lon": 17.65388,
   "name": "Vertikon",
@@ -7941,6 +7966,58 @@
   "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
  },
  {
+  "lat": 55.65605,
+  "lon": 12.55064,
+  "name": "Beta Boulders Copenhagen South",
+  "country": "DK",
+  "source": "https://betaboulders.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "hours-scope",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "beta boulders south — Pladehals Alle 26, 2450 Copenhagen SV. Opening Hours: Monday to Friday: 07:00-22:00. Saturday to Sunday: 09:00-21:00.",
+  "note": "Logged seasonal on the first pass, for a reason that belongs to the Vanløse hall above it. This block is headed plainly 'Opening Hours', carries this hall's own address, and its 'Special Opening Hours – Beta Boulders Sydhavn' list is nine dated days around Christmas."
+ },
+ {
+  "lat": 55.70698,
+  "lon": 12.56107,
+  "name": "Beta Boulders Østerbro",
+  "country": "DK",
+  "source": "https://betaboulders.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "hours-scope",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "beta boulders ØSTERBRO — Aldersrogade 6C, 2100 København. Opening Hours: Monday to Friday: 07:00-22:00. Saturday to Sunday: 09:00-21:00.",
+  "note": "Same correction as the Sydhavn hall: this block is headed 'Opening Hours', not a summer one, and carries this hall's address. Its exceptions are dated single days plus a stated closure from 20 to 29 July."
+ },
+ {
   "lat": 55.66739,
   "lon": 12.56083,
   "name": "Bison Boulders Kødbyen",
@@ -10916,6 +10993,31 @@
   "evidence": "Monday 10am - 10pm Tuesday 10am - 10pm Wednesday 10am - 10pm Thursday 10am - 10pm Friday 10am - 9pm Saturday 9am - 7pm Sunday 9am - 7pm"
  },
  {
+  "lat": 51.6565615,
+  "lon": -3.9077879,
+  "name": "The Climbing Hangar Swansea",
+  "country": "GB",
+  "source": "https://www.thehiveclimbingswansea.co.uk/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "Address: Unit 3, Castell Close, Swansea Enterprise Park, Swansea, SA7 9FH. Opening Hours: Monday - Friday 10:00 - 22:00, Saturday & Sunday 09:00 - 19:00",
+  "note": "Logged 'no official site' on the first pass, correctly: the link then on file was the former operator's. The hall reopened as The Hive under Cullen Climbing in July 2026 and states the same week on its homepage and its contact page."
+ },
+ {
   "lat": 53.803373,
   "lon": -1.5795904,
   "name": "The Climbing Lab",
@@ -11500,6 +11602,31 @@
    "sun": "08:00-22:30"
   },
   "evidence": "Monday - Sunday 8:00 - 22:30 | Open All Holidays"
+ },
+ {
+  "lat": 49.62358,
+  "lon": 6.15194,
+  "name": "Coque Luxembourg",
+  "country": "LU",
+  "source": "https://www.coque.lu/le-mur-descalade/horaires-tarifs",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "postal-code",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "16:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "16:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Horaires d'ouverture — Lundi, Mercredi, Vendredi 12h00 - 22h00 ; Mardi, Jeudi 16h00 - 22h00 ; Samedi, Dimanche 10h00 - 19h00. Dernière entrée 1h avant et dernière montée 30min avant la fermeture.",
+  "note": "Logged ambiguous on the first pass because none of the four weeks on the homepage looked like the wall's. One of them is: the tabbed block on the homepage is headed 'Mur d'Escalade', and the wall's own Horaires & Tarifs page states the same week again. The asterisk on that homepage block marks 'Des fermetures exceptionnelles peuvent avoir lieux en raison d'événements sportifs', which is a caveat rather than a second schedule; the building's own 06h30-22h00 is stated separately and is not the wall's."
  },
  {
   "lat": 53.21729,
@@ -12562,6 +12689,31 @@
   "evidence": "Man og ons: kl. 09:00 - 22:00 | Tirs og tors: kl 07.00-22.00 | Fre: 09.00 - 21.00 | Lør: kl. 09:00 - 18:00 | Søn: kl. 09:00 - 20:00"
  },
  {
+  "lat": 69.66855,
+  "lon": 18.92236,
+  "name": "Buldreterminalen AS",
+  "country": "NO",
+  "source": "https://www.buldreterminalen.no/finne-frem/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "06:30-22:00",
+   "wed": "09:00-22:00",
+   "thu": "06:30-22:00",
+   "fri": "09:00-20:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Buldreterminalen, Kvaløyvegen 329, 9016 Tromsø. Åpningstider: Mandag: 09:00 - 22:00, Tirsdag: 06:30 - 22:00 (frokostbuffet fra 7 til 10), Onsdag: 09:00 - 22:00, Torsdag: 06:30 - 22:00 (frokostbuffet fra 7 til 10), Fredag: 09:00 - 20:00, Lørdag: 09:00 - 18:00, Søndag: 09:00 - 22:00",
+  "note": "Logged ambiguous on the first pass because the homepage and the finne-frem page swapped Tuesday and Wednesday. The operator has fixed it: both pages now open at 06.30 on Tuesday and Thursday, which is also what the breakfast-buffet note beside them says."
+ },
+ {
   "lat": 60.78878,
   "lon": 11.09001,
   "name": "Espern Aktivitetspark",
@@ -13267,6 +13419,31 @@
   "evidence": "ÖPPETTIDER: | Mån–Tor: 11–21 | Fre: 11–19 | Lör–Sön: 09–19 | 83771 Duved"
  },
  {
+  "lat": 56.0597542,
+  "lon": 12.7071127,
+  "name": "Klättercentret Helsingborg",
+  "country": "SE",
+  "source": "https://www.klattercentret.se/helsingborg/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Telefon: 042-442 42 20. E-post: helsingborg@klattercentret.se. Öppettider: Vardagar kl 09.00-22.00. Helger kl 10.00-20.00. Adress: Juelsgatan 5",
+  "note": "Logged inaccessible on the first pass, on the grounds that the only readable week belonged to another of the operator's centres. It does not: this block sits in the Helsingborg location page's own footer, beside the Helsingborg phone number, e-mail and street. The centre also publishes an Avvikande öppettider list of single dated exceptions, which is what the on-page caveat covers."
+ },
+ {
   "lat": 55.5874446,
   "lon": 13.0251295,
   "name": "Klättercentret Malmo",
@@ -13385,6 +13562,31 @@
    "sun": "11:00-20:00"
   },
   "evidence": "Vardagar: 11:00-21:30 | Lördagar: 9:00-16:00 | Söndagar: 11:00-20:00 | Vid stängningstiden ska man vara klar att lämna hallen."
+ },
+ {
+  "lat": 59.31302,
+  "lon": 18.07344,
+  "name": "Moumo Skrapan",
+  "country": "SE",
+  "source": "https://www.moumo.se/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:30-23:00",
+   "tue": "06:30-23:00",
+   "wed": "06:30-23:00",
+   "thu": "06:30-23:00",
+   "fri": "06:30-23:00",
+   "sat": "09:00-23:00",
+   "sun": "09:00-23:00"
+  },
+  "evidence": "Skrapan, Götgatan 78, 118 30 Stockholm. Summer Hours weekdays 08.00 - 22.00 weekends 09.00 - 21.00 (summer until Aug 10). Ordinary Hours Weekdays 06:30 - 23:00 Weekends: 09:00 - 23:00",
+  "note": "Logged as 'no schedule' on the first pass. Both weeks are on the homepage, and the summer one is a dated window that closed on 10 August — so the Ordinary Hours beside it are the week in force, which is the case the policy allows to be recorded with the window noted."
  },
  {
   "lat": 1.29201,
@@ -19043,6 +19245,31 @@
   "note": "A separate \"Member Hours (18+ only)\" block opens the gym to members from 6:00 a.m. on weekdays; the public week is what is recorded."
  },
  {
+  "lat": 42.9347612,
+  "lon": -85.6466583,
+  "name": "TERRA FIRMA",
+  "country": "US",
+  "source": "https://www.climbterrafirma.com/grandrapids",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "co-located",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "08:00-18:00",
+   "sun": "08:00-18:00"
+  },
+  "evidence": "Hours — M,F ⌇ 10a.m. - 10p.m.; W ⌇ 8a.m. - 10p.m.; T,TH ⌇ 7a.m. - 10p.m.; S,SU⌇ 8a.m. - 6p.m. Location 1555 Marshall Ave SE, Grand Rapids, MI 49507",
+  "note": "The MoonBoard entry is the same hall as the Kilter entry about 18 m away; both resolve to Terra Firma's Grand Rapids page and its 1555 Marshall Ave SE address."
+ },
+ {
   "lat": 42.72423973418426,
   "lon": -84.44852295396556,
   "name": "Terra Firma Bouldering Co",
@@ -19065,6 +19292,31 @@
    "sun": "08:00-20:00"
   },
   "evidence": "MON: 8am - 10pm | TUE: 8am - 10pm | WED: 8am - 10pm | THU: 8am - 10pm | FRI: 8am - 10pm | SAT: 8am - 8pm | SUN: 8am - 8pm"
+ },
+ {
+  "lat": 42.93491845270286,
+  "lon": -85.64672357301721,
+  "name": "Terra Firma Bouldering Co",
+  "country": "US",
+  "source": "https://www.climbterrafirma.com/grandrapids",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "08:00-18:00",
+   "sun": "08:00-18:00"
+  },
+  "evidence": "Hours — M,F ⌇ 10a.m. - 10p.m.; W ⌇ 8a.m. - 10p.m.; T,TH ⌇ 7a.m. - 10p.m.; S,SU⌇ 8a.m. - 6p.m. Location 1555 Marshall Ave SE, Grand Rapids, MI 49507",
+  "note": "Logged inaccessible on the first pass, when the schedule rendered client-side. It is in the fetched document now, on the Grand Rapids location page, directly above that hall's own address — 1555 Marshall Ave SE, which is the address upstream records. The day labels are compressed (M,F / T,TH / W / S,SU) but each names its days."
  },
  {
   "lat": 39.72295,

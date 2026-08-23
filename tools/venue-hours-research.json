@@ -44,10 +44,10 @@
   "lon": 11.40696,
   "name": "BlocBox-Training",
   "country": "AT",
-  "status": "no-hours-on-official-site",
+  "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
-  "source": "https://blocbox-training.com/"
+  "source": "https://blocbox-training.com/",
+  "reason": "Re-read after the fetch stopped being refused, and the reason changes: the hall does state a window — 'The BlocBox is open from 9:00 to 24:00' — but every visit is a booked slot. Sessions start every half hour and come as a Private Session (the gym is yours), a Single Ticket or a Quick Sesh, each capped at six climbers; only an Early Bird subscription gets in from 5:00 without a reservation. There is no walk-in week."
  },
  {
   "lat": 47.26832,
@@ -136,7 +136,7 @@
   "country": "AU",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The location page states Monday 10am–10pm, Wednesday 6am–10pm and Saturday–Sunday 8am–7pm, while its own schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
+  "reason": "Re-read 2026-08-23: unchanged. The location page states Monday 10am–10pm, Wednesday 6am–10pm and Saturday–Sunday 8am–7pm, while its own schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
   "source": "https://adrenalinevault.com.au/locations/belmont/"
  },
  {
@@ -146,7 +146,7 @@
   "country": "AU",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The location page states Monday–Friday 10am–9:30pm and Saturday–Sunday 9am–7pm, while its own schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
+  "reason": "Re-read 2026-08-23: unchanged. The location page states Monday–Friday 10am–9:30pm and Saturday–Sunday 9am–7pm, while its own schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
   "source": "https://adrenalinevault.com.au/locations/cockburn/"
  },
  {
@@ -156,7 +156,7 @@
   "country": "AU",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The location page states Monday 10am–10pm, Wednesday 6am–10pm and Saturday–Sunday 8am–7pm, while its own schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
+  "reason": "Re-read 2026-08-23: unchanged. The location page states Monday 10am–10pm, Wednesday 6am–10pm and Saturday–Sunday 8am–7pm, while its own schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
   "source": "https://adrenalinevault.com.au/locations/belmont/"
  },
  {
@@ -166,7 +166,7 @@
   "country": "AU",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The site carries three answers: \"Monday to Friday - 12pm to 9:30pm, Saturdays 9am to 6pm, Sundays 9am to 5pm\", a second block reading \"Mon 10am to 9:30pm … Sat 10am to 8pm\", and schema.org openingHours saying Mo-Fr 16:00-21:30.",
+  "reason": "Re-read 2026-08-23: unchanged. The site carries three answers: \"Monday to Friday - 12pm to 9:30pm, Saturdays 9am to 6pm, Sundays 9am to 5pm\", a second block reading \"Mon 10am to 9:30pm … Sat 10am to 8pm\", and schema.org openingHours saying Mo-Fr 16:00-21:30.",
   "source": "https://baysiderock.com.au/"
  },
  {
@@ -196,7 +196,7 @@
   "country": "AU",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The homepage says WEEKENDS : 9AM TO 7PM while the contact page says Saturday - Sunday: 10 am - 7 pm.",
+  "reason": "Re-read 2026-08-23: unchanged. The homepage says WEEKENDS : 9AM TO 7PM while the contact page says Saturday - Sunday: 10 am - 7 pm.",
   "source": "https://laroca.com.au/"
  },
  {
@@ -226,7 +226,7 @@
   "country": "AU",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The location page renders its schedule client-side; the served document carries only a bundled JSON payload with several conflicting Bouldering and Ropes blocks and no way to tell which belongs to this gym.",
+  "reason": "Re-read 2026-08-23: unchanged. The location page renders its schedule client-side; the served document carries only a bundled JSON payload with several conflicting Bouldering and Ropes blocks and no way to tell which belongs to this gym.",
   "source": "https://urbanclimb.com.au/locations/adelaide/"
  },
  {
@@ -236,7 +236,7 @@
   "country": "AU",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The location page renders its schedule client-side; the served document carries only a bundled JSON payload with several conflicting Bouldering and Ropes blocks and no way to tell which belongs to this gym.",
+  "reason": "Re-read 2026-08-23: unchanged. The location page renders its schedule client-side; the served document carries only a bundled JSON payload with several conflicting Bouldering and Ropes blocks and no way to tell which belongs to this gym.",
   "source": "https://urbanclimb.com.au/locations/collingwood/"
  },
  {
@@ -246,7 +246,7 @@
   "country": "AU",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The location page renders its schedule client-side; the served document carries only a bundled JSON payload with several conflicting Bouldering and Ropes blocks and no way to tell which belongs to this gym.",
+  "reason": "Re-read 2026-08-23: unchanged. The location page renders its schedule client-side; the served document carries only a bundled JSON payload with several conflicting Bouldering and Ropes blocks and no way to tell which belongs to this gym.",
   "source": "https://urbanclimb.com.au/locations/newstead/"
  },
  {
@@ -406,7 +406,7 @@
   "country": "CA",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The location page says Monday–Wednesday 10:00 am - 10:00 pm and Thursday 4:00 pm - 10:00 pm, while the gym's own hours page says the same days run to 11:00 PM.",
+  "reason": "Re-read 2026-08-23: unchanged. The location page says Monday–Wednesday 10:00 am - 10:00 pm and Thursday 4:00 pm - 10:00 pm, while the gym's own hours page says the same days run to 11:00 PM.",
   "source": "https://boulderhouse.ca/langford/"
  },
  {
@@ -416,7 +416,7 @@
   "country": "CA",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The page carries two regimes — \"Mon - Fri: 10 am-11 pm\" and \"Summer Facility Hours (start July 2). Mon - Fri: 8:30 am-11 pm\" — with a start date and no end, and a third block for ClimbPark on top.",
+  "reason": "Re-read 2026-08-23: unchanged. The page carries two regimes — \"Mon - Fri: 10 am-11 pm\" and \"Summer Facility Hours (start July 2). Mon - Fri: 8:30 am-11 pm\" — with a start date and no end, and a third block for ClimbPark on top.",
   "source": "https://www.calgaryclimbing.com/locations/hanger/"
  },
  {
@@ -426,7 +426,7 @@
   "country": "CA",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any page reachable from it, including Première visite, FAQ, Tarifs and Nous joindre.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any page reachable from it, including Première visite, FAQ, Tarifs and Nous joindre.",
   "source": "https://campusescalade.com/"
  },
  {
@@ -446,7 +446,7 @@
   "country": "CA",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The only current week is labelled \"SUMMER hours - Monday to Friday 1-8:30pm, Saturday 12-5pm\", and the first-visit page still carries a different one (Mon-Fri 12 pm - 9 pm, Sat 10 am - 7 pm).",
+  "reason": "Re-read 2026-08-23: unchanged. The only current week is labelled \"SUMMER hours - Monday to Friday 1-8:30pm, Saturday 12-5pm\", and the first-visit page still carries a different one (Mon-Fri 12 pm - 9 pm, Sat 10 am - 7 pm).",
   "source": "https://climbyukon.com/"
  },
  {
@@ -466,7 +466,7 @@
   "country": "CA",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The gym list renders each hall's schedule from a bundled JavaScript payload; the served document carries the Lévis address and an openingHours array whose day labels are minified references, alongside a banner about a temporary schedule.",
+  "reason": "Re-read 2026-08-23: unchanged. The gym list renders each hall's schedule from a bundled JavaScript payload; the served document carries the Lévis address and an openingHours array whose day labels are minified references, alongside a banner about a temporary schedule.",
   "source": "https://www.delirescalade.com/"
  },
  {
@@ -506,7 +506,7 @@
   "country": "CA",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The week is published without any meridiem — \"Mon: 4:00 - 11:00 | Tues: 12:00 - 11:00 | … | Sat: 9:00 - 9:00\" — so every opening and closing time would have to be guessed.",
+  "reason": "Re-read 2026-08-23: unchanged. The week is published without any meridiem — \"Mon: 4:00 - 11:00 | Tues: 12:00 - 11:00 | … | Sat: 9:00 - 9:00\" — so every opening and closing time would have to be guessed.",
   "source": "https://gravityhamilton.com/"
  },
  {
@@ -524,10 +524,10 @@
   "lon": -123.152754,
   "name": "Ground Up Climbing Centre",
   "country": "CA",
-  "status": "ambiguous",
+  "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The homepage carries two weeks that disagree: \"Monday & Tuesday: 12:00PM – 10:00PM | Wednesday-Friday: 6:00AM – 10:00PM | Saturday & Sunday: 9:00AM – 7:00PM\" against \"Monday: 12:00PM – 10:00PM | Tuesday – Friday: 6:00AM – 10:00 PM | Saturday: 10:00AM – 9:00PM | Sunday: 10:00AM – 7:00PM\".",
-  "source": "https://climbgroundup.com/"
+  "source": "https://climbgroundup.com/",
+  "reason": "Re-read, and the two weeks are a season rather than a contradiction — the block now carries its dates: 'SUMMER HOURS (June 8th – September 13th): Monday & Tuesday 12:00PM – 10:00PM, Wednesday-Friday 6:00AM – 10:00PM, Saturday & Sunday 9:00AM – 7:00PM'. The window is still open on the day of this check."
  },
  {
   "lat": 49.5017396,
@@ -556,7 +556,7 @@
   "country": "CA",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states Monday - Friday: 12:00pm to 10:30pm, Saturday: 10:00am to 7:00pm and Sunday 10:00am to 6:00pm, while its own schema.org openingHours says Mo-Fr 12:00-22:00 and Sa-Su 10:00-18:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The page states Monday - Friday: 12:00pm to 10:30pm, Saturday: 10:00am to 7:00pm and Sunday 10:00am to 6:00pm, while its own schema.org openingHours says Mo-Fr 12:00-22:00 and Sa-Su 10:00-18:00.",
   "source": "https://www.junctionclimbing.com/"
  },
  {
@@ -576,7 +576,7 @@
   "country": "CA",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states Lundi au vendredi: 8h-22h and Samedi et dimanche: 10h - 20h, while its own schema.org openingHours says Mo-Fr 10:00-22:00 and Su 12:00-20:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The page states Lundi au vendredi: 8h-22h and Samedi et dimanche: 10h - 20h, while its own schema.org openingHours says Mo-Fr 10:00-22:00 and Su 12:00-20:00.",
   "source": "https://shaktirockgym.com/"
  },
  {
@@ -586,7 +586,7 @@
   "country": "CA",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The staffed week is published without a meridiem — \"Monday: 1:00 – 7:00 | Wednesday: 1:00 – 7:00 | Thursday: 1:00 – 7:00 | Saturday: 12:00 – 5:00\" — while Tuesday, Friday and Sunday are fob-access only. Drop-ins and punch cards are allowed during staffed hours only, so those four times are the whole public week and every one of them would have to be guessed.",
+  "reason": "Re-read 2026-08-23: unchanged. The staffed week is published without a meridiem — \"Monday: 1:00 – 7:00 | Wednesday: 1:00 – 7:00 | Thursday: 1:00 – 7:00 | Saturday: 12:00 – 5:00\" — while Tuesday, Friday and Sunday are fob-access only. Drop-ins and punch cards are allowed during staffed hours only, so those four times are the whole public week and every one of them would have to be guessed.",
   "source": "https://squamishathleticclub.ca/"
  },
  {
@@ -596,7 +596,7 @@
   "country": "CA",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The location page renders its schedule client-side; the served document contains no times at all.",
+  "reason": "Re-read 2026-08-23: unchanged. The location page renders its schedule client-side; the served document contains no times at all.",
   "source": "https://www.hiveclimbing.com/locations/port-coquitlam"
  },
  {
@@ -606,7 +606,7 @@
   "country": "CA",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The location page renders its schedule client-side; the served document contains no times at all.",
+  "reason": "Re-read 2026-08-23: unchanged. The location page renders its schedule client-side; the served document contains no times at all.",
   "source": "https://www.hiveclimbing.com/locations/surrey"
  },
  {
@@ -616,7 +616,7 @@
   "country": "CA",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The location page renders its schedule client-side; the served document contains no times at all.",
+  "reason": "Re-read 2026-08-23: unchanged. The location page renders its schedule client-side; the served document contains no times at all.",
   "source": "https://www.hiveclimbing.com/locations/winnipeg"
  },
  {
@@ -656,7 +656,7 @@
   "country": "CA",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The homepage carries two weeks that disagree — \"Mon 12PM-11PM … Sat 10AM-10PM | Sun 10AM-10PM\" against \"MON-FRI 10AM-11PM | SAT-SUN 9AM-10PM\" — and the find-us page repeats the second.",
+  "reason": "Re-read 2026-08-23: unchanged. The homepage carries two weeks that disagree — \"Mon 12PM-11PM … Sat 10AM-10PM | Sun 10AM-10PM\" against \"MON-FRI 10AM-11PM | SAT-SUN 9AM-10PM\" — and the find-us page repeats the second.",
   "source": "https://www.upthebloc.com/"
  },
  {
@@ -666,7 +666,7 @@
   "country": "CA",
   "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "The venue presents itself as a climbing bar for private hire (\"UN BAR D'ESCALADE CONVIVIAL ET PRIVATISABLE\"); the only times published are the privatisation window, du mardi au samedi de 17h à 3h.",
+  "reason": "Re-read 2026-08-23: unchanged. The venue presents itself as a climbing bar for private hire (\"UN BAR D'ESCALADE CONVIVIAL ET PRIVATISABLE\"); the only times published are the privatisation window, du mardi au samedi de 17h à 3h.",
   "source": "https://verticalbloc.ca/"
  },
  {
@@ -676,8 +676,8 @@
   "country": "CA",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The info page carries two weeks that disagree — \"Monday - Friday: 10am - 10pm | Saturday/Sunday: 10am - 8pm\" against \"Monday - Saturday: 10am - 10pm | Sunday: 10am - 8pm\" — and the site's schema.org openingHours gives a third answer, 10:00-22:00 every day.",
-  "source": "https://wipclimbing.com/"
+  "source": "https://wipclimbing.com/",
+  "reason": "Re-read, and the two weeks are not a contradiction after all — the first belongs to Courtenay and the second sits under the 'WIP Climbing Nanaimo / 1870 Boxwood Road' heading. What still blocks both is the site's own openingHours markup, which says Monday to Sunday 10:00-22:00 while both halls close at 8pm on a Sunday."
  },
  {
   "lat": 49.1823,
@@ -686,8 +686,8 @@
   "country": "CA",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The info page carries two weeks that disagree — \"Monday - Friday: 10am - 10pm | Saturday/Sunday: 10am - 8pm\" against \"Monday - Saturday: 10am - 10pm | Sunday: 10am - 8pm\" — and the site's schema.org openingHours gives a third answer, 10:00-22:00 every day.",
-  "source": "https://wipclimbing.com/"
+  "source": "https://wipclimbing.com/",
+  "reason": "Same site as the Courtenay hall, and the same blocker: this hall's own block reads 'Regular Hours: Monday - Saturday: 10am - 10pm, Sunday: 10am - 8pm', while the site's openingHours markup says Monday to Sunday 10:00-22:00."
  },
  {
   "lat": 46.95906,
@@ -816,8 +816,8 @@
   "country": "CH",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
-  "source": "https://spluia.ch/"
+  "source": "https://spluia.ch/",
+  "reason": "Re-read after the fetch stopped being refused. The site answers and reads cleanly — palestra, check-in, prezzi, prima volta, corsi — and carries no time of day anywhere on any of them, in either language."
  },
  {
   "lat": 46.81798,
@@ -870,23 +870,13 @@
   "source": "https://crux24.cz/"
  },
  {
-  "lat": 50.14204,
-  "lon": 14.51789,
-  "name": "Jungle Sport Park",
-  "country": "CZ",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The only times on the site are a Recepce line (9:00 - 22:00) beside the office, production and marketing desks; no weekly opening schedule for the hall is published.",
-  "source": "https://www.jungleletnany.cz/kontakty"
- },
- {
   "lat": 50.7220528,
   "lon": 15.1703135,
   "name": "MAKAK ARENA",
   "country": "CZ",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://www.makakarena.cz/"
  },
  {
@@ -1316,7 +1306,7 @@
   "country": "DK",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The volunteer-run club states only \"Kig forbi hver fredag kl. 16:00-19:00\" with exceptions announced ad hoc; the other six days are neither stated as open nor as closed.",
+  "reason": "Re-read 2026-08-23: unchanged. The volunteer-run club states only \"Kig forbi hver fredag kl. 16:00-19:00\" with exceptions announced ad hoc; the other six days are neither stated as open nor as closed.",
   "source": "https://aarhusklatreklub.dk/"
  },
  {
@@ -1324,30 +1314,10 @@
   "lon": 12.4912407,
   "name": "Beta Boulders Copenhagen",
   "country": "DK",
-  "status": "seasonal",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The site publishes a regular week and \"Special Summer Hours\" beside it, per hall, with the weekday opening moving from 09:00 to 07:00 and one hall closed outright for part of July.",
-  "source": "https://betaboulders.com/"
- },
- {
-  "lat": 55.65605,
-  "lon": 12.55064,
-  "name": "Beta Boulders Copenhagen South",
-  "country": "DK",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "reason": "The site publishes a regular week and \"Special Summer Hours\" beside it, per hall, with the weekday opening moving from 09:00 to 07:00 and one hall closed outright for part of July.",
-  "source": "https://betaboulders.com/"
- },
- {
-  "lat": 55.70698,
-  "lon": 12.56107,
-  "name": "Beta Boulders Østerbro",
-  "country": "DK",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "reason": "The site publishes a regular week and \"Special Summer Hours\" beside it, per hall, with the weekday opening moving from 09:00 to 07:00 and one hall closed outright for part of July.",
-  "source": "https://betaboulders.com/"
+  "source": "https://betaboulders.com/",
+  "reason": "Re-read, and the Vanløse hall is the one of the three that cannot be published — not for the season but for a contradiction. The page gives it two blocks at once: 'Summer Opening Hours: Monday to Friday 09:00-22:00' and, directly beneath, 'Special Summer Hours – Beta Boulders Vanløse: Monday to Friday 07:00-22:00'. Both are labelled summer, they disagree by two hours on the weekday opening, and no term-time week is published for this hall at all."
  },
  {
   "lat": 55.48333,
@@ -1706,7 +1676,7 @@
   "country": "FI",
   "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "The operator's own list says of this hall only: \"Access with Premium card and yearly memberships only\" — there is no public opening schedule.",
+  "reason": "Re-read 2026-08-23: unchanged. The operator's own list says of this hall only: \"Access with Premium card and yearly memberships only\" — there is no public opening schedule.",
   "source": "https://www.boulderkeskus.com/en/content/9-all-locations"
  },
  {
@@ -1726,7 +1696,7 @@
   "country": "FI",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://kiipeilyareena.fi/"
  },
  {
@@ -1736,7 +1706,7 @@
   "country": "FI",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://oulunkiipeilykeskus.fi/"
  },
  {
@@ -1986,7 +1956,7 @@
   "country": "GB",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The times page is a multi-column table (climbing, bouldering, and a bracketed third set) that cannot be resolved into one week from the fetched text, and the site's schema.org openingHours is the placeholder Monday–Sunday 09:00-17:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The times page is a multi-column table (climbing, bouldering, and a bracketed third set) that cannot be resolved into one week from the fetched text, and the site's schema.org openingHours is the placeholder Monday–Sunday 09:00-17:00.",
   "source": "https://www.270climbing.com/contact/times/"
  },
  {
@@ -1996,7 +1966,7 @@
   "country": "GB",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "Three different weeks on one site: the homepage gives Fri 10am-9pm and Sat/Sun 10am-6pm, a second block on the same page gives Friday 10:00-22:00 and Saturday 09:00-18:30, and the times-prices page gives Saturday 09:00-20:30.",
+  "reason": "Re-read 2026-08-23: unchanged. Three different weeks on one site: the homepage gives Fri 10am-9pm and Sat/Sun 10am-6pm, a second block on the same page gives Friday 10:00-22:00 and Saturday 09:00-18:30, and the times-prices page gives Saturday 09:00-20:30.",
   "source": "https://bouldersuk.com/times-prices"
  },
  {
@@ -2006,7 +1976,7 @@
   "country": "GB",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The only week on the page is headed \"Summer Opening Hours\" and footed \"Summer Opening Hours operate in June, July, August\".",
+  "reason": "Re-read 2026-08-23: unchanged. The only week on the page is headed \"Summer Opening Hours\" and footed \"Summer Opening Hours operate in June, July, August\".",
   "source": "https://www.broomhillclimbingworks.com/"
  },
  {
@@ -2016,7 +1986,7 @@
   "country": "GB",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The Edinburgh page carries Opening Times headings with no times in the fetched document; the only readable week on the site belongs to the operator's Carlisle centre.",
+  "reason": "Re-read 2026-08-23: unchanged. The Edinburgh page carries Opening Times headings with no times in the fetched document; the only readable week on the site belongs to the operator's Carlisle centre.",
   "source": "https://www.edenrockclimbing.com/edinburgh-home"
  },
  {
@@ -2026,7 +1996,7 @@
   "country": "GB",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "Same as the operator's Edinburgh centre: no times in the fetched document, and the only readable week on the site is Carlisle's.",
+  "reason": "Re-read 2026-08-23: unchanged. Same as the operator's Edinburgh centre: no times in the fetched document, and the only readable week on the site is Carlisle's.",
   "source": "https://www.edenrockclimbing.com/newcastle"
  },
  {
@@ -2036,7 +2006,7 @@
   "country": "GB",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "Same as the operator's other centres: the Opening times control reveals nothing in the fetched document.",
+  "reason": "Re-read 2026-08-23: unchanged. Same as the operator's other centres: the Opening times control reveals nothing in the fetched document.",
   "source": "https://londonclimbingcentres.co.uk/centre/eustonwall/"
  },
  {
@@ -2046,7 +2016,7 @@
   "country": "GB",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The centre page has an Opening times control that reveals nothing in the fetched document; the operator's price page lists only its Magic Time windows.",
+  "reason": "Re-read 2026-08-23: unchanged. The centre page has an Opening times control that reveals nothing in the fetched document; the operator's price page lists only its Magic Time windows.",
   "source": "https://londonclimbingcentres.co.uk/centre/harrowall/"
  },
  {
@@ -2056,7 +2026,7 @@
   "country": "GB",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The site carries Opening Times headings but no times in the fetched document, and states it changed owners in July 2025.",
+  "reason": "Re-read 2026-08-23: unchanged. The site carries Opening Times headings but no times in the fetched document, and states it changed owners in July 2025.",
   "source": "https://www.high-sports.co.uk/"
  },
  {
@@ -2076,7 +2046,7 @@
   "country": "GB",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The location page says Mon–Friday 10:00–21:00 and Saturday and Sunday 10:00–18:00; the operator's Southampton price page says MONDAY - FRIDAY 10:00 - 22:00 and SATURDAY & SUNDAY 10:00-19:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The location page says Mon–Friday 10:00–21:00 and Saturday and Sunday 10:00–18:00; the operator's Southampton price page says MONDAY - FRIDAY 10:00 - 22:00 and SATURDAY & SUNDAY 10:00-19:00.",
   "source": "https://parthianclimbing.com/southampton/"
  },
  {
@@ -2086,7 +2056,7 @@
   "country": "GB",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The centre page carries prices but no readable schedule; nothing on the fetched pages states a week.",
+  "reason": "Re-read 2026-08-23: unchanged. The centre page carries prices but no readable schedule; nothing on the fetched pages states a week.",
   "source": "https://rainbowrocket.cc/centre/north/"
  },
  {
@@ -2096,7 +2066,7 @@
   "country": "GB",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page says Monday to Friday 10:30-22:00 and its own schema.org openingHours says Mo-Fr 06:30-22:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The page says Monday to Friday 10:30-22:00 and its own schema.org openingHours says Mo-Fr 06:30-22:00.",
   "source": "https://www.rockstarclimbing.co.uk/"
  },
  {
@@ -2106,7 +2076,7 @@
   "country": "GB",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "Same hall as the venue about 20 m away, and the same conflict: 10:30 on the page, 06:30 in its markup.",
+  "reason": "Re-read 2026-08-23: unchanged. Same hall as the venue about 20 m away, and the same conflict: 10:30 on the page, 06:30 in its markup.",
   "source": "https://www.rockstarclimbing.co.uk/"
  },
  {
@@ -2116,7 +2086,7 @@
   "country": "GB",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page's schema.org openingHoursSpecification says Saturday and Sunday 09:00–18:00 while its visible block says Sat-Sun 9am-4pm; the weekday hours agree but the weekend does not.",
+  "reason": "Re-read 2026-08-23: unchanged. The page's schema.org openingHoursSpecification says Saturday and Sunday 09:00–18:00 while its visible block says Sat-Sun 9am-4pm; the weekday hours agree but the weekend does not.",
   "source": "https://www.theclimbingacademy.com/locations/the-church/"
  },
  {
@@ -2124,20 +2094,10 @@
   "lon": -1.693494,
   "name": "The Adventure Hub",
   "country": "GB",
-  "status": "ambiguous",
+  "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "Public opening is Friday 10am-4pm and Saturday 1pm-5pm only; the rest of the week (Mon 6.30am-4pm, Tue-Fri 6.30am-10pm, Sat-Sun in two blocks) is explicitly \"Member Only\" access.",
-  "source": "https://adventure-hub.com/pages/prices-and-memberships"
- },
- {
-  "lat": 51.6565615,
-  "lon": -3.9077879,
-  "name": "The Climbing Hangar Swansea",
-  "country": "GB",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "The former operator’s page says \"As of July 2026, The Climbing Hangar Swansea is operated by Cullen Climbing as The Climbing Hive\" and publishes no hours for it; no site for the new operator resolves (climbinghive.co.uk, theclimbinghive.co.uk, climbinghive.com, cullenclimbing.com all fail to answer).",
-  "source": "https://theclimbinghangar.com/locations/swansea"
+  "source": "https://adventure-hub.com/pages/prices-and-memberships",
+  "reason": "Re-read, and filed the way Quergang and Kletterwache are. The wall says of itself 'As you can see from our limited opening hours, we are largely a membership based climbing wall': public opening is Friday 10am-4pm and Saturday 1-5pm 'OR Call us for a private rental OR to set up a membership', and the rest of the week — Mon 6.30am-4pm, Tue-Fri 6.30am-10pm, Sat-Sun 6.30-9am AND 12pm-10pm — is 'Member Only' access through an electronic door. Five days that are neither open to the public nor closed."
  },
  {
   "lat": 55.166849930629446,
@@ -2164,10 +2124,10 @@
   "lon": -1.471551,
   "name": "The Foundry",
   "country": "GB",
-  "status": "inaccessible",
+  "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The only schedule in the fetched document is schema.org openingHours; the site's own opening-times page returns a not-found page and no visible week could be read.",
-  "source": "https://www.foundryclimbing.com/"
+  "source": "https://www.foundryclimbing.com/",
+  "reason": "Re-read, and the week is readable now — 'Openings: Mon - Fri 10:00am - 10:00pm, Sat - Sun 10:00am - 18:00pm', which the page's own openingHours markup agrees with exactly. What blocks it is the line directly beneath: 'Winter Opening Hours Begin 24th October', with the winter week itself published nowhere."
  },
  {
   "lat": 52.25702039999999,
@@ -2176,7 +2136,7 @@
   "country": "GB",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The page publishes a current week and \"Term-time hours (from September)\" beside it, for two facilities at once, and its schema.org openingHours states the term-time one.",
+  "reason": "Re-read 2026-08-23: unchanged. The page publishes a current week and \"Term-time hours (from September)\" beside it, for two facilities at once, and its schema.org openingHours states the term-time one.",
   "source": "https://thepinnaclecentre.co.uk/"
  },
  {
@@ -2186,7 +2146,7 @@
   "country": "GB",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "Thursday is stated twice and differently: 17:30–22:00 in the visible table, 17:40–22:00 in the page's schema.org openingHoursSpecification. The visible table also carries eight rows for seven days.",
+  "reason": "Re-read 2026-08-23: unchanged. Thursday is stated twice and differently: 17:30–22:00 in the visible table, 17:40–22:00 in the page's schema.org openingHoursSpecification. The visible table also carries eight rows for seven days.",
   "source": "https://www.theweedonproject.co.uk/"
  },
  {
@@ -2408,16 +2368,6 @@
   "checked": "2026-08-23",
   "reason": "No schedule appears in the served document.",
   "source": "https://www.asoboru.com/"
- },
- {
-  "lat": 49.62358,
-  "lon": 6.15194,
-  "name": "Coque Luxembourg",
-  "country": "LU",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The national sports centre publishes four different weeks on one page — pool, Centre de Détente, fitness and restaurant — and none of them is labelled as the climbing wall's.",
-  "source": "https://www.coque.lu/"
  },
  {
   "lat": -13.93661,
@@ -2650,23 +2600,13 @@
   "source": "https://www.buldrehallen.no/"
  },
  {
-  "lat": 69.66855,
-  "lon": 18.92236,
-  "name": "Buldreterminalen AS",
-  "country": "NO",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Tuesday and Wednesday are swapped between two blocks on the site: the homepage opens Tuesday at 06:30 and Wednesday at 09:00, the finne-frem page the other way round.",
-  "source": "https://www.buldreterminalen.no/finne-frem/"
- },
- {
   "lat": 59.23275,
   "lon": 10.9109,
   "name": "Fredrikstad Buldresenter",
   "country": "NO",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://fredrikstadbuldresenter.no/"
  },
  {
@@ -2676,7 +2616,7 @@
   "country": "NO",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it. The only times are supervised club sessions.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it. The only times are supervised club sessions.",
   "source": "https://geiloklatreklubb.no/"
  },
  {
@@ -2684,10 +2624,10 @@
   "lon": 10.4664,
   "name": "Grip Klatring Leangen",
   "country": "NO",
-  "status": "no-hours-on-official-site",
+  "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
-  "source": "https://gripklatring.no/vaare-sentre/"
+  "source": "https://gripklatring.no/vaare-sentre/",
+  "reason": "Re-read, and the earlier reading no longer applies: the host does not answer at all now — the TLS connection times out after eight seconds, on two attempts an hour apart. Nothing about the venue follows from that, so it stays in the retry queue."
  },
  {
   "lat": 61.90488,
@@ -2706,7 +2646,7 @@
   "country": "NO",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://hoyangerklatreklubb.no/"
  },
  {
@@ -2716,7 +2656,7 @@
   "country": "NO",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
+  "reason": "Re-read 2026-08-23: unchanged. The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
   "source": "https://hoytundertaket.no/tonsberg/informasjon/aapningstider/"
  },
  {
@@ -2726,7 +2666,7 @@
   "country": "NO",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
+  "reason": "Re-read 2026-08-23: unchanged. The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
   "source": "https://hoytundertaket.no/letohallen/informasjon/apningstider/"
  },
  {
@@ -2736,7 +2676,7 @@
   "country": "NO",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
+  "reason": "Re-read 2026-08-23: unchanged. The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
   "source": "https://hoytundertaket.no/moss/informasjon/apningstider/"
  },
  {
@@ -2746,7 +2686,7 @@
   "country": "NO",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
+  "reason": "Re-read 2026-08-23: unchanged. The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
   "source": "https://hoytundertaket.no/skien/informasjon/apningstider/"
  },
  {
@@ -2766,7 +2706,7 @@
   "country": "NO",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://ilhavorn.no/"
  },
  {
@@ -2786,7 +2726,7 @@
   "country": "NO",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The site publishes a staffed week and an unstaffed 06:00–23:00 window with staffed hours in brackets, and the homepage and the apningstider page disagree about both — Friday 10:00–20:00 against kun ubetjent, Wednesday 13:00–20:00 against 13:00–17:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The site publishes a staffed week and an unstaffed 06:00–23:00 window with staffed hours in brackets, and the homepage and the apningstider page disagree about both — Friday 10:00–20:00 against kun ubetjent, Wednesday 13:00–20:00 against 13:00–17:00.",
   "source": "https://klatreverketdrammen.no/apningstider/"
  },
  {
@@ -2796,7 +2736,7 @@
   "country": "NO",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The site publishes a staffed week and an unstaffed 06:00–23:00 window with staffed hours in brackets, and the homepage and the apningstider page disagree about both — Friday 10:00–20:00 against kun ubetjent, Wednesday 13:00–20:00 against 13:00–17:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The site publishes a staffed week and an unstaffed 06:00–23:00 window with staffed hours in brackets, and the homepage and the apningstider page disagree about both — Friday 10:00–20:00 against kun ubetjent, Wednesday 13:00–20:00 against 13:00–17:00.",
   "source": "https://klatreverketdrammen.no/apningstider/"
  },
  {
@@ -2816,7 +2756,7 @@
   "country": "NO",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The site covers two Narvik centres and publishes an ALLE dager 05.00 - 24.00 access window with two different sets of reception hours; which belongs to which address is not stated.",
+  "reason": "Re-read 2026-08-23: unchanged. The site covers two Narvik centres and publishes an ALLE dager 05.00 - 24.00 access window with two different sets of reception hours; which belongs to which address is not stated.",
   "source": "https://narvik.kraftsportssenter.no/"
  },
  {
@@ -2866,7 +2806,7 @@
   "country": "NO",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page publishes staffed reception hours and the café's, but no opening schedule for the climbing hall itself.",
+  "reason": "Re-read 2026-08-23: unchanged. The page publishes staffed reception hours and the café's, but no opening schedule for the climbing hall itself.",
   "source": "https://norsktindesenter.no/"
  },
  {
@@ -2876,7 +2816,7 @@
   "country": "NO",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The only schedule in the fetched document is schema.org openingHoursSpecification; nothing a reader can see states a week.",
+  "reason": "Re-read 2026-08-23: unchanged. The only schedule in the fetched document is schema.org openingHoursSpecification; nothing a reader can see states a week.",
   "source": "https://playground.no/"
  },
  {
@@ -2886,7 +2826,7 @@
   "country": "NO",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
+  "reason": "Re-read 2026-08-23: unchanged. The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
   "source": "https://hoytundertaket.no/tonsberg/informasjon/aapningstider/"
  },
  {
@@ -2896,7 +2836,7 @@
   "country": "NO",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The only week on the page is headed \"Åpningstider 1. Mai - 15. August\", a window that has already closed.",
+  "reason": "Re-read 2026-08-23: unchanged. The only week on the page is headed \"Åpningstider 1. Mai - 15. August\", a window that has already closed.",
   "source": "https://steinkjerhallen.no/kontakt/"
  },
  {
@@ -2906,7 +2846,7 @@
   "country": "NO",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The club states outright that \"Åpningstidene følger i utgangspunktet skoleruten\" and that the hall may also be closed for courses, and publishes no week.",
+  "reason": "Re-read 2026-08-23: unchanged. The club states outright that \"Åpningstidene følger i utgangspunktet skoleruten\" and that the hall may also be closed for courses, and publishes no week.",
   "source": "https://stupbratt.no/"
  },
  {
@@ -2916,7 +2856,7 @@
   "country": "NO",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "Every row on the page is labelled Sommertid uke 27–32, and the page's schema.org openingHoursSpecification carries validFrom 2026-06-29 and validThrough 2026-08-09; no term-time week is published beside it.",
+  "reason": "Re-read 2026-08-23: unchanged. Every row on the page is labelled Sommertid uke 27–32, and the page's schema.org openingHoursSpecification carries validFrom 2026-06-29 and validThrough 2026-08-09; no term-time week is published beside it.",
   "source": "https://triadenklatresenter.no/"
  },
  {
@@ -2926,7 +2866,7 @@
   "country": "NO",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://valdresstorhall.no/"
  },
  {
@@ -3006,7 +2946,7 @@
   "country": "PL",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states Pon – Pt: 7:00 – 23:00 and Sob – Niedz: 7:00 – 23:00 while its own schema.org openingHours is the placeholder Monday–Sunday 09:00-17:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The page states Pon – Pt: 7:00 – 23:00 and Sob – Niedz: 7:00 – 23:00 while its own schema.org openingHours is the placeholder Monday–Sunday 09:00-17:00.",
   "source": "https://krakowska.murall.pl/"
  },
  {
@@ -3016,7 +2956,7 @@
   "country": "PL",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states Pon – Pt: 7:00 – 23:00 and Sob – Niedz: 7:00 – 23:00 while its own schema.org openingHours is the placeholder Monday–Sunday 09:00-17:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The page states Pon – Pt: 7:00 – 23:00 and Sob – Niedz: 7:00 – 23:00 while its own schema.org openingHours is the placeholder Monday–Sunday 09:00-17:00.",
   "source": "https://annopol.murall.pl/"
  },
  {
@@ -3026,7 +2966,7 @@
   "country": "PL",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states Pon – Pt: 7:00 – 23:00 and Sob – Niedz: 7:00 – 23:00 while its own schema.org openingHours is the placeholder Monday–Sunday 09:00-17:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The page states Pon – Pt: 7:00 – 23:00 and Sob – Niedz: 7:00 – 23:00 while its own schema.org openingHours is the placeholder Monday–Sunday 09:00-17:00.",
   "source": "https://gorczewska.murall.pl/"
  },
  {
@@ -3036,7 +2976,7 @@
   "country": "PL",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page says od poniedziałku do piątku 8:00 — 22:00 and sobota i niedziela 9:00 — 22:00 while its schema.org openingHours says Mo-Th 10:00-22:00, Fr-Sa 10:00-23:00 and Su 10:00-21:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The page says od poniedziałku do piątku 8:00 — 22:00 and sobota i niedziela 9:00 — 22:00 while its schema.org openingHours says Mo-Th 10:00-22:00, Fr-Sa 10:00-23:00 and Su 10:00-21:00.",
   "source": "https://www.problembouldering.pl/"
  },
  {
@@ -3046,7 +2986,7 @@
   "country": "PL",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://skarpa.bytom.pl/"
  },
  {
@@ -3216,7 +3156,7 @@
   "country": "SE",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The oppettider page carries two weeks — Mån-fre 10.00–20.00 and Mån-fre 10.00–19.00 — the second under \"Avvikande öppettider på sommaren\".",
+  "reason": "Re-read 2026-08-23: unchanged. The oppettider page carries two weeks — Mån-fre 10.00–20.00 and Mån-fre 10.00–19.00 — the second under \"Avvikande öppettider på sommaren\".",
   "source": "https://jumpyard.se/are/oppettider/"
  },
  {
@@ -3228,16 +3168,6 @@
   "checked": "2026-08-23",
   "reason": "No schedule reaches the served document.",
   "source": "https://jumpyard.se/"
- },
- {
-  "lat": 56.0597542,
-  "lon": 12.7071127,
-  "name": "Klättercentret Helsingborg",
-  "country": "SE",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "reason": "The location page carries only its exception list; the only regular week the fetch could read on the site belongs to another of the operator's centres.",
-  "source": "https://klattercentret.se/helsingborg/"
  },
  {
   "lat": 55.5870295,
@@ -3266,7 +3196,7 @@
   "country": "SE",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://www.klatterverket.se/gasverket"
  },
  {
@@ -3276,7 +3206,7 @@
   "country": "SE",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://www.klatterverket.se/sickla"
  },
  {
@@ -3310,16 +3240,6 @@
   "source": "https://moumo.se/"
  },
  {
-  "lat": 59.31302,
-  "lon": 18.07344,
-  "name": "Moumo Skrapan",
-  "country": "SE",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
-  "source": "https://moumo.se/"
- },
- {
   "lat": 59.2761633,
   "lon": 15.2337493,
   "name": "Örebro Klättergym",
@@ -3346,7 +3266,7 @@
   "country": "SE",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The club publishes three staffed slots — Måndagar 17:30-20, Torsdagar 17:30-20, Lördagar 10-13 — plus \"Sommar stängt vecka 28-31\"; the other four days are neither stated as open nor as closed.",
+  "reason": "Re-read 2026-08-23: unchanged. The club publishes three staffed slots — Måndagar 17:30-20, Torsdagar 17:30-20, Lördagar 10-13 — plus \"Sommar stängt vecka 28-31\"; the other four days are neither stated as open nor as closed.",
   "source": "https://savsjoklatterklubb.se/"
  },
  {
@@ -3366,7 +3286,7 @@
   "country": "SE",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it. The contact page lists only the days the centre is closed.",
+  "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it. The contact page lists only the days the centre is closed.",
   "source": "https://urbanboulders.se/kontakt/"
  },
  {
@@ -3456,7 +3376,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The only stated schedule is \"Open Hours: Tuesday - Thursday: 4p-8p\". Monday, Friday, Saturday and Sunday are neither stated as open nor as closed, and the gym otherwise runs on barcode access.",
+  "reason": "Re-read 2026-08-23: unchanged. The only stated schedule is \"Open Hours: Tuesday - Thursday: 4p-8p\". Monday, Friday, Saturday and Sunday are neither stated as open nor as closed, and the gym otherwise runs on barcode access.",
   "source": "https://www.boardworksclimbing.com/"
  },
  {
@@ -3466,7 +3386,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The only stated schedule is \"Open Hours: Tuesday - Thursday: 4p-8p\". Monday, Friday, Saturday and Sunday are neither stated as open nor as closed, and the gym otherwise runs on barcode access.",
+  "reason": "Re-read 2026-08-23: unchanged. The only stated schedule is \"Open Hours: Tuesday - Thursday: 4p-8p\". Monday, Friday, Saturday and Sunday are neither stated as open nor as closed, and the gym otherwise runs on barcode access.",
   "source": "https://www.boardworksclimbing.com/"
  },
  {
@@ -3476,7 +3396,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The only stated schedule is \"Open Hours: Tuesday - Thursday: 4p-8p\". Monday, Friday, Saturday and Sunday are neither stated as open nor as closed, and the gym otherwise runs on barcode access.",
+  "reason": "Re-read 2026-08-23: unchanged. The only stated schedule is \"Open Hours: Tuesday - Thursday: 4p-8p\". Monday, Friday, Saturday and Sunday are neither stated as open nor as closed, and the gym otherwise runs on barcode access.",
   "source": "https://www.boardworksclimbing.com/"
  },
  {
@@ -3546,7 +3466,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "Three of the four rows give a meridiem only on the closing time — \"M, W, F 12 - 9 PM\", \"Saturday 10 - 7 PM\", \"Sunday 12 - 7 PM\" — so each opening time would have to be guessed (and the same digit needs the opposite meridiem on Saturday as on Monday).",
+  "reason": "Re-read 2026-08-23: unchanged. Three of the four rows give a meridiem only on the closing time — \"M, W, F 12 - 9 PM\", \"Saturday 10 - 7 PM\", \"Sunday 12 - 7 PM\" — so each opening time would have to be guessed (and the same digit needs the opposite meridiem on Saturday as on Monday).",
   "source": "https://comorocks.com/"
  },
  {
@@ -3556,7 +3476,7 @@
   "country": "US",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The hours table is headed \"Summer Hours\" and no other week is published. It also splits members-only mornings from public hours, and a second table (hoursTanks.html) is a different facility again.",
+  "reason": "Re-read 2026-08-23: unchanged. The hours table is headed \"Summer Hours\" and no other week is published. It also splits members-only mornings from public hours, and a second table (hoursTanks.html) is a different facility again.",
   "source": "https://www.crimpersclimbing.com/"
  },
  {
@@ -3566,7 +3486,7 @@
   "country": "US",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The hours table is headed \"Summer Hours\" and no other week is published. It also splits members-only mornings from public hours, and a second table (hoursTanks.html) is a different facility again.",
+  "reason": "Re-read 2026-08-23: unchanged. The hours table is headed \"Summer Hours\" and no other week is published. It also splits members-only mornings from public hours, and a second table (hoursTanks.html) is a different facility again.",
   "source": "https://www.crimpersclimbing.com/"
  },
  {
@@ -3576,7 +3496,7 @@
   "country": "US",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The hours table is headed \"Summer Hours\" and no other week is published. It also splits members-only mornings from public hours, and a second table (hoursTanks.html) is a different facility again.",
+  "reason": "Re-read 2026-08-23: unchanged. The hours table is headed \"Summer Hours\" and no other week is published. It also splits members-only mornings from public hours, and a second table (hoursTanks.html) is a different facility again.",
   "source": "https://www.crimpersclimbing.com/"
  },
  {
@@ -3606,7 +3526,7 @@
   "country": "US",
   "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "The gym page states \"5am - 10pm. No reservations needed. We are a members only facility!\" and hands out a personal pin code; there is no public access to record.",
+  "reason": "Re-read 2026-08-23: unchanged. The gym page states \"5am - 10pm. No reservations needed. We are a members only facility!\" and hands out a personal pin code; there is no public access to record.",
   "source": "https://estesparkrockclimbing.com/"
  },
  {
@@ -3626,7 +3546,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The only open hours stated for this hall are \"6-10 PM Tues, Wed and Thurs\", with \"Premium After Hours Access: 24 hours a day, 7 days a week\" alongside; the other four days are neither stated as open nor as closed.",
+  "reason": "Re-read 2026-08-23: unchanged. The only open hours stated for this hall are \"6-10 PM Tues, Wed and Thurs\", with \"Premium After Hours Access: 24 hours a day, 7 days a week\" alongside; the other four days are neither stated as open nor as closed.",
   "source": "https://flagstaffclimbing.com/"
  },
  {
@@ -3646,7 +3566,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The site states \"Public Hours are Wednesday-Fridays 4-9pm & Saturdays 10-3pm\" and says nothing about Monday, Tuesday or Sunday, which are neither stated as open nor as closed.",
+  "reason": "Re-read 2026-08-23: unchanged. The site states \"Public Hours are Wednesday-Fridays 4-9pm & Saturdays 10-3pm\" and says nothing about Monday, Tuesday or Sunday, which are neither stated as open nor as closed.",
   "source": "https://goldcrushclimbing.com/"
  },
  {
@@ -3674,10 +3594,10 @@
   "lon": -80.31642357116426,
   "name": "Las Rocas",
   "country": "US",
-  "status": "no-hours-on-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The site's own FAQ answers the hours question with \"M – F // TBD; S – S // TBD\" — the gym has not published a schedule yet.",
-  "source": "https://lasrocasclimbing.com/"
+  "source": "https://lasrocasclimbing.com/",
+  "reason": "Re-read, and the gym has published a week since — 'HOURS & LOCATION: Regular Hours: 9a - 11p on weekdays; 10a - 10p on weekends' — but its own FAQ still answers the same question with 'M – F // TBD; S – S // TBD', twice, on the same page. Two answers, and the older one says the gym has not decided."
  },
  {
   "lat": 40.16257,
@@ -3686,7 +3606,7 @@
   "country": "US",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The site serves no times a reader can see; the only schedule in the fetched document is schema.org openingHours (Mo-Fr 06:00-22:00, Sa-Su 08:00-20:00).",
+  "reason": "Re-read 2026-08-23: unchanged. The site serves no times a reader can see; the only schedule in the fetched document is schema.org openingHours (Mo-Fr 06:00-22:00, Sa-Su 08:00-20:00).",
   "source": "https://longmontclimbingcollective.com/"
  },
  {
@@ -3696,7 +3616,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The hours page states Monday - Friday 8AM - 10PM and Saturday + Sunday 9AM - 10PM, while the site's own schema.org openingHours says 09:00-22:00 every day.",
+  "reason": "Re-read 2026-08-23: unchanged. The hours page states Monday - Friday 8AM - 10PM and Saturday + Sunday 9AM - 10PM, while the site's own schema.org openingHours says 09:00-22:00 every day.",
   "source": "https://bushwick.metrorock.com/bushwick-home"
  },
  {
@@ -3706,7 +3626,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The hours page states Monday - Friday 10:00AM - 10:00PM and Saturday, Sunday 9:00AM - 8:00PM, while the location home page's schema.org openingHours says Tu and Th open at 07:00 and both weekend days close at 22:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The hours page states Monday - Friday 10:00AM - 10:00PM and Saturday, Sunday 9:00AM - 8:00PM, while the location home page's schema.org openingHours says Tu and Th open at 07:00 and both weekend days close at 22:00.",
   "source": "https://metrorock.com/everett-home"
  },
  {
@@ -3716,7 +3636,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The hours page states Saturday & Sunday 9:00AM - 7:00PM, while the location home page's schema.org openingHours says Sa-Su 09:00-21:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The hours page states Saturday & Sunday 9:00AM - 7:00PM, while the location home page's schema.org openingHours says Sa-Su 09:00-21:00.",
   "source": "https://littleton.metrorock.com/littleton-home"
  },
  {
@@ -3726,7 +3646,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states MONDAY – FRIDAY 8AM – 11PM, SATURDAY 8AM – 10PM and SUNDAY 8AM – 8PM, while its own schema.org openingHoursSpecification says Monday-Saturday 08:00-23:00 and Sunday 10:00-20:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The page states MONDAY – FRIDAY 8AM – 11PM, SATURDAY 8AM – 10PM and SUNDAY 8AM – 8PM, while its own schema.org openingHoursSpecification says Monday-Saturday 08:00-23:00 and Sunday 10:00-20:00.",
   "source": "https://momentumclimbing.com/katy/"
  },
  {
@@ -3736,7 +3656,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The location page contradicts itself: the hours block says M-F 6 am-10:30 pm, Sat 8 am-8 pm, Sun 8 am-8 pm while the FAQ text below says Monday–Friday 6am–11pm, Saturday 8 am–8 pm and Sunday 8am-6pm.",
+  "reason": "Re-read 2026-08-23: unchanged. The location page contradicts itself: the hours block says M-F 6 am-10:30 pm, Sat 8 am-8 pm, Sun 8 am-8 pm while the FAQ text below says Monday–Friday 6am–11pm, Saturday 8 am–8 pm and Sunday 8am-6pm.",
   "source": "https://movementgyms.com/boulder/"
  },
  {
@@ -3746,7 +3666,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The location page contradicts itself: the hours block says M-F 6 am-10 pm while the FAQ text below says \"Movement Hampden is open Monday through Friday from 9am to 10pm\".",
+  "reason": "Re-read 2026-08-23: unchanged. The location page contradicts itself: the hours block says M-F 6 am-10 pm while the FAQ text below says \"Movement Hampden is open Monday through Friday from 9am to 10pm\".",
   "source": "https://movementgyms.com/hampden/"
  },
  {
@@ -3756,7 +3676,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The homepage (and its schema.org openingHours) says Mon-Sun 6am-11pm, while the hours-rates page says Monday-Friday 5am-11pm and Saturday-Sunday 6am-11pm, and adds that the gym is closed to non-members every Tuesday 6pm-9pm.",
+  "reason": "Re-read 2026-08-23: unchanged. The homepage (and its schema.org openingHours) says Mon-Sun 6am-11pm, while the hours-rates page says Monday-Friday 5am-11pm and Saturday-Sunday 6am-11pm, and adds that the gym is closed to non-members every Tuesday 6pm-9pm.",
   "source": "https://northmassboulder.com/"
  },
  {
@@ -3766,7 +3686,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The homepage (and its schema.org openingHours) says Mon-Sun 6am-11pm, while the hours-rates page says Monday-Friday 5am-11pm and Saturday-Sunday 6am-11pm, and adds that the gym is closed to non-members every Tuesday 6pm-9pm.",
+  "reason": "Re-read 2026-08-23: unchanged. The homepage (and its schema.org openingHours) says Mon-Sun 6am-11pm, while the hours-rates page says Monday-Friday 5am-11pm and Saturday-Sunday 6am-11pm, and adds that the gym is closed to non-members every Tuesday 6pm-9pm.",
   "source": "https://northmassboulder.com/"
  },
  {
@@ -3786,7 +3706,7 @@
   "country": "US",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The page carries two weeks — a regular one (Mon-Fri 12pm-9:30pm, Sat 10am-8pm, Sun 10am-6pm) and a \"June-August Hours\" one that shortens Saturday to 6:00pm — and the second is the one in force at the time of checking.",
+  "reason": "Re-read 2026-08-23: unchanged. The page carries two weeks — a regular one (Mon-Fri 12pm-9:30pm, Sat 10am-8pm, Sun 10am-6pm) and a \"June-August Hours\" one that shortens Saturday to 6:00pm — and the second is the one in force at the time of checking.",
   "source": "https://rocaclimbingfitness.com/"
  },
  {
@@ -3806,7 +3726,7 @@
   "country": "US",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The only week on the site is headed \"FALL HOURS Aug 1st - Dec 15th\" (Mon-Fri 3PM-10PM, Sat 10AM-8PM, Sun 10AM-6PM); no regular year-round week is stated.",
+  "reason": "Re-read 2026-08-23: unchanged. The only week on the site is headed \"FALL HOURS Aug 1st - Dec 15th\" (Mon-Fri 3PM-10PM, Sat 10AM-8PM, Sun 10AM-6PM); no regular year-round week is stated.",
   "source": "https://www.rocksolidclimbing.com/"
  },
  {
@@ -3816,7 +3736,7 @@
   "country": "US",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The only week on the site is headed \"FALL HOURS Aug 1st - Dec 15th\" (Mon-Fri 3PM-10PM, Sat 10AM-8PM, Sun 10AM-6PM); no regular year-round week is stated.",
+  "reason": "Re-read 2026-08-23: unchanged. The only week on the site is headed \"FALL HOURS Aug 1st - Dec 15th\" (Mon-Fri 3PM-10PM, Sat 10AM-8PM, Sun 10AM-6PM); no regular year-round week is stated.",
   "source": "https://www.rocksolidclimbing.com/"
  },
  {
@@ -3826,7 +3746,7 @@
   "country": "US",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The only week on the site is headed \"FALL HOURS Aug 1st - Dec 15th\" (Mon-Fri 3PM-10PM, Sat 10AM-8PM, Sun 10AM-6PM); no regular year-round week is stated.",
+  "reason": "Re-read 2026-08-23: unchanged. The only week on the site is headed \"FALL HOURS Aug 1st - Dec 15th\" (Mon-Fri 3PM-10PM, Sat 10AM-8PM, Sun 10AM-6PM); no regular year-round week is stated.",
   "source": "https://www.rocksolidclimbing.com/"
  },
  {
@@ -3856,7 +3776,7 @@
   "country": "US",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The site serves a 1.8 kB JavaScript shell; no schedule reaches the document at all.",
+  "reason": "Re-read 2026-08-23: unchanged. The site serves a 1.8 kB JavaScript shell; no schedule reaches the document at all.",
   "source": "https://seacoastclimb.com/"
  },
  {
@@ -3866,7 +3786,7 @@
   "country": "US",
   "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "The operator's own page states \"The Training Center is accessible to our Youth Programs and active members only\" — the Santa Ana hours belong to the main gym next door, not to this facility.",
+  "reason": "Re-read 2026-08-23: unchanged. The operator's own page states \"The Training Center is accessible to our Youth Programs and active members only\" — the Santa Ana hours belong to the main gym next door, not to this facility.",
   "source": "https://www.senderoneclimbing.com/santa-ana/"
  },
  {
@@ -3876,7 +3796,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states Mon - Fri 6AM – 10PM and Sat - Sun 7AM – 8PM, while its schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
+  "reason": "Re-read 2026-08-23: unchanged. The page states Mon - Fri 6AM – 10PM and Sat - Sun 7AM – 8PM, while its schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
   "source": "https://sessionclimbing.com/"
  },
  {
@@ -3896,7 +3816,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The operator runs two Bozeman facilities — a Main Facility (13 Enterprise Blvd, Mon-Fri 6am-10pm) and a Training Center (10 Innovation Ln, Mon-Fri 3pm-8pm) — and the two dataset entries carry names that fit either. The Training Center page adds \"Hours at this facility fluctuate\".",
+  "reason": "Re-read 2026-08-23: unchanged. The operator runs two Bozeman facilities — a Main Facility (13 Enterprise Blvd, Mon-Fri 6am-10pm) and a Training Center (10 Innovation Ln, Mon-Fri 3pm-8pm) — and the two dataset entries carry names that fit either. The Training Center page adds \"Hours at this facility fluctuate\".",
   "source": "https://www.spireclimbing.com/"
  },
  {
@@ -3906,7 +3826,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The operator runs two Bozeman facilities — a Main Facility (13 Enterprise Blvd, Mon-Fri 6am-10pm) and a Training Center (10 Innovation Ln, Mon-Fri 3pm-8pm) — and the two dataset entries carry names that fit either. The Training Center page adds \"Hours at this facility fluctuate\".",
+  "reason": "Re-read 2026-08-23: unchanged. The operator runs two Bozeman facilities — a Main Facility (13 Enterprise Blvd, Mon-Fri 6am-10pm) and a Training Center (10 Innovation Ln, Mon-Fri 3pm-8pm) — and the two dataset entries carry names that fit either. The Training Center page adds \"Hours at this facility fluctuate\".",
   "source": "https://www.spireclimbing.com/"
  },
  {
@@ -3916,7 +3836,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states Monday 6am-10pm, Tuesday 6am-11pm, Wednesday 6am-10pm, Thursday 6am-11pm, Friday 6am-10pm, while its own schema.org openingHoursSpecification says Monday-Friday 06:00-22:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The page states Monday 6am-10pm, Tuesday 6am-11pm, Wednesday 6am-10pm, Thursday 6am-11pm, Friday 6am-10pm, while its own schema.org openingHoursSpecification says Monday-Friday 06:00-22:00.",
   "source": "https://www.sportrock.com/sterling"
  },
  {
@@ -3926,7 +3846,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states Mon-Fri 3PM-10PM and Sat-Sun 10AM-8PM, while its own schema.org openingHours says Mo-Fr 15:00-20:00 and Sa-Su 10:00-20:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The page states Mon-Fri 3PM-10PM and Sat-Sun 10AM-8PM, while its own schema.org openingHours says Mo-Fr 15:00-20:00 and Sa-Su 10:00-20:00.",
   "source": "https://stateclimb.com/"
  },
  {
@@ -3934,10 +3854,10 @@
   "lon": -106.85771,
   "name": "Steamboat Climbing Collective",
   "country": "US",
-  "status": "ambiguous",
+  "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The homepage carries two weeks that disagree: \"Mon-Fri 9a-8p | Sat Closed | Sun 10:30a-6p\" against \"Monday-Thursday: 12:00p - 8:00p Open Gym for Everyone | Friday: 10:30a-8:00p | Saturday & Sunday: 10:30a-6:00p\".",
-  "source": "https://steamboatclimbingcollective.com/"
+  "source": "https://steamboatclimbingcollective.com/",
+  "reason": "Re-read, and the two weeks are labelled now: the block in force is headed 'Summer:' (Mon-Fri 9a-8p, Sat Closed, Sun 10:30a-6p), with the term-time one beside it. Which applies depends on the date, and the summer heading carries no end."
  },
  {
   "lat": 30.2478,
@@ -3956,28 +3876,8 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The hours list runs Tuesday to Sunday and has no Monday row at all — neither a time nor a closed marker — and the site's schema.org openingHours has the same gap.",
+  "reason": "Re-read 2026-08-23: unchanged. The hours list runs Tuesday to Sunday and has no Monday row at all — neither a time nor a closed marker — and the site's schema.org openingHours has the same gap.",
   "source": "https://sunrisebouldering.com/"
- },
- {
-  "lat": 42.9347612,
-  "lon": -85.6466583,
-  "name": "TERRA FIRMA",
-  "country": "US",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "reason": "The Hours & Locations page renders its schedule client-side; the served document contains no times at all, only the two location addresses.",
-  "source": "https://www.climbterrafirma.com/grandrapids"
- },
- {
-  "lat": 42.93491845270286,
-  "lon": -85.64672357301721,
-  "name": "Terra Firma Bouldering Co",
-  "country": "US",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "reason": "The Hours & Locations page renders its schedule client-side; the served document contains no times at all, only the two location addresses.",
-  "source": "https://www.climbterrafirma.com/grandrapids"
  },
  {
   "lat": 33.58284,
@@ -3996,7 +3896,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The week is published without a meridiem — \"Monday 2-9 | Tuesday 11-9 | Wednesday 2-9 | Thursday 11-9 | Friday 2-10 | Saturday 10-7 | Sunday 1-7\" — so every one of those times would have to be guessed.",
+  "reason": "Re-read 2026-08-23: unchanged. The week is published without a meridiem — \"Monday 2-9 | Tuesday 11-9 | Wednesday 2-9 | Thursday 11-9 | Friday 2-10 | Saturday 10-7 | Sunday 1-7\" — so every one of those times would have to be guessed.",
   "source": "https://ontheedgerockclimbing.com/"
  },
  {
@@ -4086,7 +3986,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The contact page states Monday - Friday 12:00 PM - 10:00 PM, Saturday 9:00 AM - 8:00 PM, Sunday 12:00 PM - 8:00 PM, while the site's own schema.org openingHours says Mo-Fr 11:00-22:00, Sa 09:00-20:00, Su 12:00-20:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The contact page states Monday - Friday 12:00 PM - 10:00 PM, Saturday 9:00 AM - 8:00 PM, Sunday 12:00 PM - 8:00 PM, while the site's own schema.org openingHours says Mo-Fr 11:00-22:00, Sa 09:00-20:00, Su 12:00-20:00.",
   "source": "https://www.thresholdclimbing.com/"
  },
  {
@@ -4096,7 +3996,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The contact page states Monday - Friday 12:00 PM - 10:00 PM, Saturday 9:00 AM - 8:00 PM, Sunday 12:00 PM - 8:00 PM, while the site's own schema.org openingHours says Mo-Fr 11:00-22:00, Sa 09:00-20:00, Su 12:00-20:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The contact page states Monday - Friday 12:00 PM - 10:00 PM, Saturday 9:00 AM - 8:00 PM, Sunday 12:00 PM - 8:00 PM, while the site's own schema.org openingHours says Mo-Fr 11:00-22:00, Sa 09:00-20:00, Su 12:00-20:00.",
   "source": "https://www.thresholdclimbing.com/"
  },
  {
@@ -4146,7 +4046,7 @@
   "country": "US",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The operator's site lists all three gyms with address and phone but publishes no schedule for any of them; no page reachable from it carries a time.",
+  "reason": "Re-read 2026-08-23: unchanged. The operator's site lists all three gyms with address and phone but publishes no schedule for any of them; no page reachable from it carries a time.",
   "source": "https://upperlimits.com/"
  },
  {
@@ -4156,7 +4056,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states Mon-Fri 10am-10pm and Sat & Sun 10am-9pm, while its own schema.org openingHours says Mo-Fr 12:00-21:00 and Sa-Su 10:00-20:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The page states Mon-Fri 10am-10pm and Sat & Sun 10am-9pm, while its own schema.org openingHours says Mo-Fr 12:00-21:00 and Sa-Su 10:00-20:00.",
   "source": "https://urbanaboulders.com/"
  },
  {
@@ -4176,7 +4076,7 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The hours page states MON 4-9pm, TUES 8am-9pm, WED 12-9pm, THU 8am-9pm, FRI 12-9pm, SAT 9am-6pm, SUN 9am-6pm, while the site's schema.org openingHours says Tu 06:00-21:00, We 10:00-21:00, Th 06:00-21:00, Fr 10:00-21:00 and Sa 09:00-20:00.",
+  "reason": "Re-read 2026-08-23: unchanged. The hours page states MON 4-9pm, TUES 8am-9pm, WED 12-9pm, THU 8am-9pm, FRI 12-9pm, SAT 9am-6pm, SUN 9am-6pm, while the site's schema.org openingHours says Tu 06:00-21:00, We 10:00-21:00, Th 06:00-21:00, Fr 10:00-21:00 and Sa 09:00-20:00.",
   "source": "https://voltaclimbing.com/"
  },
  {
