@@ -1371,26 +1371,6 @@
     "candidate": "https://worldclimbing.com/"
   },
   {
-    "lat": 45.38471,
-    "lon": 5.57895,
-    "name": "ABLOK Voiron",
-    "country": "FR",
-    "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "ablok.fr redirects to a Voiron subdomain whose page gives a Grenoble address 26 km from this venue, so the page could not be matched to the Voiron hall.",
-    "candidate": "https://voiron.ablok.fr/"
-  },
-  {
-    "lat": 45.27442,
-    "lon": 5.88808,
-    "name": "Au Perchoir",
-    "country": "FR",
-    "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "auperchoir.fr answers 403 or 429 to every automated request, so the page could not be opened and read; no other official source for this hall was found. Several unrelated hosts returned 429 in the same sweep, so the limit is probably on the fetching side rather than the operator's — worth retrying from elsewhere before concluding anything about the site.",
-    "candidate": "https://auperchoir.fr/"
-  },
-  {
     "lat": 47.77882,
     "lon": -3.35503,
     "name": "B'wall Lorient",
@@ -1420,16 +1400,6 @@
     "candidate": "https://blocpartyclimbing.com/"
   },
   {
-    "lat": 43.59922983452772,
-    "lon": 3.8663012940657744,
-    "name": "Boulder Line 3",
-    "country": "FR",
-    "status": "ambiguous",
-    "checked": "2026-08-22",
-    "reason": "The operator's site renders client-side and prints no address that could be read; its own summary places the Kilter Board at BL2 while upstream files this Kilter under BL3, so the hall could not be identified.",
-    "candidate": "https://boulderline.fr/salles-escalade-montpellier-castelnau"
-  },
-  {
     "lat": 48.8835799,
     "lon": 2.1913342,
     "name": "GRANIT Rueil",
@@ -1440,16 +1410,6 @@
     "candidate": "https://granit.fr/"
   },
   {
-    "lat": 16.21825,
-    "lon": -61.50041,
-    "name": "Gwada Grimpe",
-    "country": "FR",
-    "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "gwadagrimpe.com now serves a site branded Kaz a grimp with a kazagrimp.com contact address, prints no street address and never uses the name upstream records; only the commune matches.",
-    "candidate": "https://www.gwadagrimpe.com/"
-  },
-  {
     "lat": 48.398573,
     "lon": 2.722797,
     "name": "Karma Fontainebleau",
@@ -1458,15 +1418,6 @@
     "checked": "2026-08-22",
     "reason": "karma.ffme.fr does not resolve in DNS, so the only candidate page could not be opened.",
     "candidate": "http://karma.ffme.fr/"
-  },
-  {
-    "lat": 45.94472,
-    "lon": 6.04587,
-    "name": "Space Bloc",
-    "country": "FR",
-    "status": "http-only",
-    "checked": "2026-08-22",
-    "reason": "The gym's site redirects https to http://www.spacebloc.fr/, so there is no HTTPS URL to store."
   },
   {
     "lat": 52.406822,
@@ -2373,6 +2324,240 @@
     "checked": "2026-08-23",
     "reason": "ytre.no answers with an empty page and ytre.com with nothing readable. Nothing found names Vennastrandveien 1829 in Ytre Snillfjord.",
     "candidate": "https://ytre.no/"
+  },
+  {
+    "lat": 50.8710312,
+    "lon": 15.8796267,
+    "name": "9UP Stodoła",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+  },
+  {
+    "lat": 50.0982854,
+    "lon": 19.0851399,
+    "name": "Adrenalina",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — adrenalina.pl → \"Aftermarket.eu\", the rest could not be opened — adrenalina.com.pl → a certificate that does not cover its hostname; adrenalina.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://t2910.am-track.pl/redir.php?panel=Market_Listing&params=id%3D3559957%26utm_source%3Dmarket_redirect%26utm_medium%3Dorganic&type=listing&id=3559957&medium=direct:direct"
+  },
+  {
+    "lat": 51.53491,
+    "lon": 20.03198,
+    "name": "Akademia Sportu Proem",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — akademiasportu.com.pl → \"Krakowska Akademia Sportu\"; akademiasportu.com → \"Akademia Sportu – Bezpieczne i niezapomniane wakacje!\"; akademia.pl → \"Akademia.pl, gotowe prompty i checklisty do AI w firmie\", the rest could not be opened — akademiasportu.pl → no answer; akademia.com.pl → 200. Upstream records Sosnowa 62, 97-200, Tomaszów Mazowiecki, and nothing opened printed it.",
+    "candidate": "https://akademiasportu.com.pl/"
+  },
+  {
+    "lat": 50.07906570000001,
+    "lon": 19.8703194,
+    "name": "Avatar Balicka Boulder",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — avatar.pl → \"Drukarnia cyfrowa i wielkoformatowa pod Warszawą | Baner\"; avatar.com → \"Avatar.com | The Official Avatar Website for Avatar News\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://www.avatar.pl/"
+  },
+  {
+    "lat": 51.919438,
+    "lon": 19.145136,
+    "name": "balazs0315",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+  },
+  {
+    "lat": 50.2724967,
+    "lon": 19.0407248,
+    "name": "BlOKatowice",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — blokatowice.pl → \"BLOKatowice – Boulderownia w Katowicach – BLOKatowice – \". Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://blokatowice.pl/"
+  },
+  {
+    "lat": 52.406374,
+    "lon": 16.9251681,
+    "name": "BLOKHAUS",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: no candidate could be opened — blokhaus.pl → no answer; blokhaus.com.pl → a certificate that does not cover its hostname; blokhaus.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against."
+  },
+  {
+    "lat": 49.6174535,
+    "lon": 20.7153326,
+    "name": "Boulder zone",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — www.climbzone.fr → \"Salle Escalade Multi-niveau à Montauban\"; zone.com.pl → \"Aftermarket.eu :: Domain zone.com.pl\"; zone.com → \"Microsoft Casual Games - The Zone\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://www.climbzone.fr/"
+  },
+  {
+    "lat": 52.3771,
+    "lon": 16.94313,
+    "name": "Boulderownia Groto Poznań",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: no candidate could be opened — boulderownia.pl → 200; boulderownia.com.pl → 200 / a certificate that does not cover its hostname. Upstream records Romana Maya 1, 61-371, Poznań, and nothing opened printed it."
+  },
+  {
+    "lat": 49.5668942,
+    "lon": 22.2042044,
+    "name": "Centrum Sportów Ekstremalnych - Sanok",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — centrumsportow.pl → \"Oferta sprzedaży domeny centrumsportow.pl (centrum sport\"; centrum.pl → \"wiadomości i opinie prawdziwe i ciekawe - CENTRUM\"; centrum.com → \"Complete Multivitamins with Micronutrients | Centrum\", the rest could not be opened — centrumsportowekstremalnych.com → a certificate that does not cover its hostname; centrum.com.pl → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://premium.pl/centrumsportow.pl"
+  },
+  {
+    "lat": 51.1078852,
+    "lon": 17.0385376,
+    "name": "Eiger",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — eiger.pl → \"Strona główna - Eiger Ścianka Wspinaczkowa Wrocław\"; eiger.com.pl → \"Aftermarket.eu :: Domain eiger.com.pl\"; eiger.com → \"Eiger.com for sale\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://eiger.pl/"
+  },
+  {
+    "lat": 53.0137902,
+    "lon": 18.5984437,
+    "name": "Gato",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — gato.pl → \"GATO Wycinarka plazmowa Polski producent maszyn CNC\", the rest could not be opened — gato.com.pl → a certificate that does not cover its hostname; gato.com → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://gato.pl/"
+  },
+  {
+    "lat": 51.2510308,
+    "lon": 22.5120581,
+    "name": "Kotłownia",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: no candidate could be opened — kotlownia.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
+  },
+  {
+    "lat": 51.2464536,
+    "lon": 22.5684463,
+    "name": "LCW Paderewski",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+  },
+  {
+    "lat": 52.2962378,
+    "lon": 20.907711,
+    "name": "Makak",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — arenamakak.pl → \"Arena Wspinaczkowa Makak\"; www.makakarena.cz → \"Úvodní stránka — MakakAréna\", the rest could not be opened — makak.pl → a certificate that does not cover its hostname; makak.com → 200; makakclimbing.com → 404. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://arenamakak.pl/"
+  },
+  {
+    "lat": 50.0646501,
+    "lon": 19.9449799,
+    "name": "PARBAT",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — parbat.com → \"Checking your browser...\", the rest could not be opened — parbat.pl → 999. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://parbat.com/"
+  },
+  {
+    "lat": 52.5463446,
+    "lon": 19.7065364,
+    "name": "Płockie Centrum Wspinaczkowe - Orlen Arena",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — www.climbarena.fr → \"Climb Arena : Salle d'escalade de bloc à Cormeilles-en-P\"; plockie.pl → \"Filokartystyka. Stare poczt�wki - P�ock i okolice. O poc\", the rest could not be opened — plockie.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://www.climbarena.fr/"
+  },
+  {
+    "lat": 49.8223768,
+    "lon": 19.0583845,
+    "name": "Primaroca",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — primaroca.pl → \"Aftermarket.eu\"; primaroca.com.pl → \"HOMEPAGE - PRIMAROCA\", the rest could not be opened — primaroca.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://t2947.am-track.pl/redir.php?panel=Market_Listing&params=id%3D3938186%26utm_source%3Dmarket_redirect%26utm_medium%3Dorganic&type=listing&id=3938186&medium=direct:direct&site=pl"
+  },
+  {
+    "lat": 53.12348040000001,
+    "lon": 18.0084378,
+    "name": "SpiderMoon",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — spidermoon.com → \"SpiderMoon.com is for sale | HugeDomains\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://www.hugedomains.com/domain_profile.cfm?d=spidermoon.com"
+  },
+  {
+    "lat": 51.7592485,
+    "lon": 19.4559833,
+    "name": "Spot Boulder Caffe",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — spot.com.pl → \"spot.com.pl for sale | Spaceship.com\", the rest could not be opened — spotboulder.pl → a certificate that does not cover its hostname; spotboulder.com → 200; spot.pl → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://spot.com.pl/"
+  },
+  {
+    "lat": 51.7806999,
+    "lon": 19.4478,
+    "name": "Stratosfera",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — stratosfera.com.pl → \"a page with no title\"; stratosfera.com → \"a page with no title\", the rest could not be opened — stratosfera.pl → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://stratosfera.com.pl/"
+  },
+  {
+    "lat": 50.5638534,
+    "lon": 19.5340252,
+    "name": "Trafo Base Camp",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — www.adrenalinapark.pl → \"AdrenaLinaPark – Park linowy w Podzamczu i Podlesicach\"; www.lecampdebase.be → \"Le camp de Base | Salles d'escalade à Bruxelles\"; www.campvier.de → \"Kletterhalle | Camp4 Kletterzentrum | Rheinland-Pfalz\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://adrenalinapark.pl/"
+  },
+  {
+    "lat": 52.3727688,
+    "lon": 16.9513208,
+    "name": "United Climbing",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — unitedclimbing.com → \"HugeDomains.com\", the rest could not be opened — united.pl → a timeout / no answer; united.com → 302 / nothing. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://www.hugedomains.com/domain_profile.cfm?d=unitedclimbing.com"
+  },
+  {
+    "lat": 52.18297690000001,
+    "lon": 21.0878391,
+    "name": "Volt Moon",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — www.voltboulderownia.pl → \"VOLT Boulderownia - Ściana wspinaczkowa w Warszawie, Łod\"; volt.com.pl → \"a page with no title\"; volt.com → \"Workforce and Recruiting solutions - Volt\", the rest could not be opened — volt.pl → a certificate that does not cover its hostname; voltmoon.com → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "candidate": "https://voltboulderownia.pl/"
   },
   {
     "lat": 38.7222524,

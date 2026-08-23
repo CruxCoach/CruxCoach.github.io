@@ -8990,6 +8990,22 @@
     "note": "The single-page site names the hall and Marseille but prints no street address."
   },
   {
+    "lat": 45.38471,
+    "lon": 5.57895,
+    "name": "ABLOK Voiron",
+    "country": "FR",
+    "website": "https://voiron.ablok.fr/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "ABLOK gives each hall its own subdomain; this is the Voiron one, printing the 38500 postal code and the town upstream records."
+  },
+  {
     "lat": 47.58075164301288,
     "lon": 7.520278057672328,
     "name": "ALPI360",
@@ -9145,6 +9161,21 @@
     "note": "The gym publishes no street address on any page we could open."
   },
   {
+    "lat": 45.27442,
+    "lon": 5.88808,
+    "name": "Au Perchoir",
+    "country": "FR",
+    "website": "https://auperchoir.fr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Au Perchoir's own site, giving Crolles — the town upstream records — and naming the Kilter Board this venue is listed for."
+  },
+  {
     "lat": 47.63811,
     "lon": -2.76552,
     "name": "B'wall Vannes",
@@ -9289,6 +9320,36 @@
     "note": "Upstream carries no address for this entry; the location page's Rue de la Bastide Blanche resolves to within 300 m of it."
   },
   {
+    "lat": 43.59922983452772,
+    "lon": 3.8663012940657744,
+    "name": "Boulder Line 3",
+    "country": "FR",
+    "website": "https://boulderline.fr/salles-escalade-montpellier-celleneuve/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Boulder Line publishes a page per hall; this is the Montpellier Celleneuve one, and Montpellier is the town upstream records for 27 avenue de Toulouse."
+  },
+  {
+    "lat": 44.899596273874344,
+    "lon": 6.63972697236616,
+    "name": "Briançon escalade",
+    "country": "FR",
+    "website": "https://briancon-escalade.fr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The club's own site for Briancon, the town upstream records, naming the Kilter Board this venue is listed for."
+  },
+  {
     "lat": 43.5753976,
     "lon": 3.9382142,
     "name": "Bs7_Moonboard",
@@ -9365,6 +9426,22 @@
     ]
   },
   {
+    "lat": 48.83901,
+    "lon": 2.322,
+    "name": "Climb World",
+    "country": "FR",
+    "website": "https://www.climb-world.fr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "The gym's own site, printing the 75014 postal code in Paris — the arrondissement upstream records for 68 Avenue du Maine — and naming the board this venue is listed for."
+  },
+  {
     "lat": 43.99270161681986,
     "lon": 1.336295113494226,
     "name": "Climb’Zone",
@@ -9396,6 +9473,20 @@
       "location-page",
       "board-mention"
     ]
+  },
+  {
+    "lat": 46.2592589,
+    "lon": 6.0295648,
+    "name": "cortigrimpe01",
+    "country": "FR",
+    "website": "https://cortigrimpe01.fr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "The club's own site — its name is the venue's in full — embedding a map of itself 150 m from these coordinates."
   },
   {
     "lat": 47.2238304,
@@ -9476,6 +9567,20 @@
     ]
   },
   {
+    "lat": 16.21825,
+    "lon": -61.50041,
+    "name": "Gwada Grimpe",
+    "country": "FR",
+    "website": "https://www.gwadagrimpe.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "Gwada Grimpe's own site, embedding a map of itself 91 m from this venue and labelled with the gym's own name."
+  },
+  {
     "lat": 49.15363,
     "lon": -0.28923,
     "name": "Isatix",
@@ -9538,6 +9643,20 @@
     "note": "The site places the hall at Les Geymonds in Villard-de-Lans, where this coordinate sits, and names its Tension 2 board."
   },
   {
+    "lat": 14.6157,
+    "lon": -61.03342,
+    "name": "Madinina Bloc",
+    "country": "FR",
+    "website": "https://www.madinina-bloc.fr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Madinina Bloc's own site, giving Le Lamentin — the commune upstream records for the Zone Industrielle de la Jambette."
+  },
+  {
     "lat": 44.8881,
     "lon": 4.8867202,
     "name": "Minéral Spirit",
@@ -9551,6 +9670,21 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 48.10577,
+    "lon": 7.37538,
+    "name": "Salle D'Escalade Les Freres Mawem",
+    "country": "FR",
+    "website": "https://lesfreresmawem.fr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The Mawem brothers' own climbing hall site, printing the 68000 postal code and the town upstream records."
   },
   {
     "lat": 43.62005,
@@ -9567,6 +9701,21 @@
       "city",
       "board-mention"
     ]
+  },
+  {
+    "lat": 45.94472,
+    "lon": 6.04587,
+    "name": "Space Bloc",
+    "country": "FR",
+    "website": "https://www.spacebloc.fr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "Space Bloc's own site, printing the 74330 postal code and Sillingy, the town upstream records."
   },
   {
     "lat": 48.39182,
@@ -11634,6 +11783,21 @@
     "note": "The national sports centre runs the wall as part of the Coque; its site has a dedicated Escalade section."
   },
   {
+    "lat": 25.6527,
+    "lon": -100.27474,
+    "name": "Pico Norte Zona Tec",
+    "country": "MX",
+    "website": "https://piconorte.mx/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "Pico Norte's own site, printing Av. Revolucion 2703 in Monterrey — the street line upstream records for the Zona Tec hall."
+  },
+  {
     "lat": 53.21729,
     "lon": 6.53861,
     "name": "Apex Boulders",
@@ -13285,6 +13449,36 @@
     "note": "The site is Ville Krefter and prints \"6213 Tafjord\", which is the place this venue is named after."
   },
   {
+    "lat": 50.0616,
+    "lon": 20.01703,
+    "name": "AVATAR Central Ruchu",
+    "country": "PL",
+    "website": "https://myavatar.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The centre's own site, printing Sikorki 21A in Kraków — the street line upstream records."
+  },
+  {
+    "lat": 50.0613959,
+    "lon": 20.0169419,
+    "name": "AVATAR SIKORKI",
+    "country": "PL",
+    "website": "https://myavatar.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "The same centre, 25 m from its other entry: the site carries the Sikorki name this venue is filed under, names the MoonBoard it is listed for, and embeds a map of itself within the coordinates signal's range."
+  },
+  {
     "lat": 53.40676,
     "lon": 14.51759,
     "name": "Bald Port",
@@ -13331,6 +13525,93 @@
     "note": "The coordinate falls on the site's own ul. Kazimierza Pułaskiego 30, 60-607 Poznań."
   },
   {
+    "lat": 52.2251954,
+    "lon": 21.0097981,
+    "name": "Crux Boulder Moonboard",
+    "country": "PL",
+    "website": "https://www.crux.boulder.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "Crux Boulder's own site, embedding a map of itself 79 m from this venue. Upstream records no street for it."
+  },
+  {
+    "lat": 54.371873,
+    "lon": 18.508669,
+    "name": "Delta Climb",
+    "country": "PL",
+    "website": "https://deltaclimb.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "Delta Climb's own site, naming the Tension Board this venue is listed for and embedding a map of itself 64 m away. Upstream records no street for the venue."
+  },
+  {
+    "lat": 51.097688,
+    "lon": 16.9824829,
+    "name": "Fabryczna Boulder",
+    "country": "PL",
+    "website": "https://www.noise-boulder.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "The site embeds a map of itself 191 m away, labelled Fabryczna Boulder, which is this venue's name; the operator runs it under the noise-boulder.pl domain."
+  },
+  {
+    "lat": 51.13489,
+    "lon": 17.06328,
+    "name": "Flow Climbing Space",
+    "country": "PL",
+    "website": "https://flowclimbingspace.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The gym's own domain, which the guesser had not tried: \"Flow Climbing Space | Scianka wspinaczkowa Wroclaw\", printing Jana Dlugosza 46 in Wroclaw — the street line upstream records. The candidate the guesser did reach, wroclaw.dlugosza.gojump.pl, is a GOjump trampoline park on the neighbouring stretch of the same street (ul. Dlugosza 59-75) and is a different business."
+  },
+  {
+    "lat": 50.0465613,
+    "lon": 22.0123834,
+    "name": "FlyWall",
+    "country": "PL",
+    "website": "https://flywall.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "FlyWall's own site, embedding a map of itself 215 m from this venue and labelled with the centre's own name."
+  },
+  {
+    "lat": 50.23033,
+    "lon": 18.97163,
+    "name": "LIMBO Bouldering",
+    "country": "PL",
+    "website": "https://www.limbobouldering.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The gym's own site, printing Piotrowicka 90 in Katowice — the street line upstream records."
+  },
+  {
     "lat": 51.08947,
     "lon": 17.0123,
     "name": "Lokal 32",
@@ -13343,6 +13624,21 @@
       "street-address",
       "city"
     ]
+  },
+  {
+    "lat": 50.04933,
+    "lon": 19.97025,
+    "name": "MOOD",
+    "country": "PL",
+    "website": "https://hellomood.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "MOOD's own site; its contact page prints Klimeckiego in Kraków, the street upstream records."
   },
   {
     "lat": 52.17105,
@@ -13496,6 +13792,35 @@
     "note": "The island's only bouldering gym; its Rua Conde Carvalhal address resolves 79 m from this coordinate."
   },
   {
+    "lat": 63.39079,
+    "lon": 12.9147,
+    "name": "Åre Klätterhall",
+    "country": "SE",
+    "website": "https://areklatterhall.se/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The hall's own site, printing Sagvagen 17A in Duved — the street line and town upstream records."
+  },
+  {
+    "lat": 60.6771808,
+    "lon": 17.1673619,
+    "name": "Fyshuset Klätterhall",
+    "country": "SE",
+    "website": "https://www.fyshusetklatterhall.se/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "The hall's own site, embedding a map of itself 119 m from this venue. Upstream records no street for it."
+  },
+  {
     "lat": 63.39554,
     "lon": 13.08567,
     "name": "JumpYard Åre",
@@ -13510,6 +13835,21 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 59.38186,
+    "lon": 13.53526,
+    "name": "JumpYard Karlstad",
+    "country": "SE",
+    "website": "https://jumpyard.se/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "city",
+      "board-mention"
+    ],
+    "note": "JumpYard publishes its Karlstad park on its own site, naming the town upstream records and the board this venue is listed for. The operator runs several parks, so this is recorded as a chain page rather than a per-location one."
   },
   {
     "lat": 56.0597542,
@@ -13594,6 +13934,20 @@
     ]
   },
   {
+    "lat": 58.59750709999999,
+    "lon": 16.2015297,
+    "name": "Klätterhallen i Norrköping",
+    "country": "SE",
+    "website": "https://klatterhallen.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "The hall's own site, carrying the Norrkoping name this venue is filed under and embedding a map of itself within the coordinates signal's range."
+  },
+  {
     "lat": 59.35825,
     "lon": 18.09016,
     "name": "Klatterverket Gasverket",
@@ -13623,6 +13977,20 @@
       "location-page"
     ],
     "note": "The page gives Marcusplatsen 17 as 131 34 Nacka; upstream records no postcode."
+  },
+  {
+    "lat": 58.40993,
+    "lon": 15.55453,
+    "name": "Linköpings Klätterklubb",
+    "country": "SE",
+    "website": "https://linkopingsklatterklubb.se/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Linkopings Klatterklubb's own site — a single club with a single hall, whose name is unique to one town — giving Linkoping, the town upstream records for Rydsvagen 5A."
   },
   {
     "lat": 59.31302,
