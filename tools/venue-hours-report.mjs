@@ -18,7 +18,8 @@ import {
   buildVenueIndex, classifyVenue, resolveVenueRecord, venueKey,
 } from './venue-links.mjs';
 import {
-  applyVenueHours, formatWeeklyHours, loadHoursResearch, loadVenueHours, toPublicWeek,
+  applyVenueHours, formatWeeklyHours, loadHoursResearch, loadVenueHours,
+  timesMissingFromEvidence, toPublicWeek,
 } from './venue-hours.mjs';
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -26,6 +27,10 @@ const GEOJSON = join(REPO_ROOT, 'boards', 'data', 'boards.geojson');
 const HOURS = join(REPO_ROOT, 'tools', 'venue-hours.json');
 const RESEARCH = join(REPO_ROOT, 'tools', 'venue-hours-research.json');
 const LINKS = join(REPO_ROOT, 'tools', 'venue-links.json');
+
+// Piping a worklist into `head` is the normal way to use --todo, and closing the
+// pipe early would otherwise crash the process with an unhandled EPIPE.
+process.stdout.on('error', err => { if (err.code === 'EPIPE') process.exit(0); });
 
 function readJson(file) {
   return JSON.parse(readFileSync(file, 'utf-8'));
@@ -145,7 +150,20 @@ function main() {
     seenResearch.add(k);
   }
 
-  const hard = errors.length + problems.length + research.errors.length + conflicts.length + stale.length;
+  // A time in the schedule that is nowhere in the record's own evidence quote is
+  // a transcription slip, and it is the one kind of error careful sourcing does
+  // not catch on its own.
+  const untraceable = [];
+  for (const [i, e] of entries.entries()) {
+    const missing = timesMissingFromEvidence(e);
+    if (missing.length) {
+      untraceable.push(`venue-hours[${i}] "${e.name}": ${missing.join(', ')} appear`
+        + ' in the schedule but not in the quoted evidence');
+    }
+  }
+
+  const hard = errors.length + problems.length + research.errors.length
+    + conflicts.length + stale.length + untraceable.length;
   const rows = [...coverage.values()]
     .sort((a, b) => b.published - a.published || b.eligible - a.eligible || a.code.localeCompare(b.code));
 
@@ -158,6 +176,7 @@ function main() {
       notes,
       research_errors: research.errors,
       stale_outcomes: stale,
+      untraceable_times: untraceable,
       conflicts,
       research: researchByStatus,
       coverage: rows,
@@ -210,6 +229,10 @@ function main() {
   if (research.errors.length) {
     process.stdout.write('\noutcome-log errors\n');
     for (const e of research.errors) process.stdout.write(`  ${e}\n`);
+  }
+  if (untraceable.length) {
+    process.stdout.write('\ntimes that do not appear in their own evidence\n');
+    for (const u of untraceable) process.stdout.write(`  ${u}\n`);
   }
   if (stale.length) {
     process.stdout.write('\noutcome records that no longer name a venue\n');

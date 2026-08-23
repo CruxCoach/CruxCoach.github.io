@@ -1,5 +1,15 @@
 [
   {
+    "lat": 48.8163,
+    "lon": 9.29915,
+    "name": "Active Garden Waiblingen",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The site publishes a term-time week and an explicit \"Öffnungszeiten Sommerferien 30.07. – 13.09.\" week beside it, for two locations at once, with a further footnote moving two individual Fridays to 14:00.",
+    "source": "https://active-garden.de/active-garden-oeffnungszeiten"
+  },
+  {
     "lat": 49.4315536,
     "lon": 11.0587013,
     "name": "BAMBULE",
@@ -18,6 +28,16 @@
     "checked": "2026-08-23",
     "source": "https://bloc-huette.de/preise-oeffnungszeiten/",
     "reason": "The site states two different schedules. Every page shows Montag 13.00–22.30 … Sonntag 09.00–21.00 in its text, while the schema.org node for the gym itself (ExerciseGym #organization) carries openingHours \"Monday,…,Sunday 09:00-17:00\". Two official statements by the same venue disagree, so nothing is published."
+  },
+  {
+    "lat": 51.12048,
+    "lon": 13.59201,
+    "name": "Boulderdrome",
+    "country": "DE",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The site renders client-side: every fetched page returns navigation and nothing else, with no schedule anywhere in the document.",
+    "source": "https://www.boulderdrome.de/"
   },
   {
     "lat": 50.79399,
@@ -50,6 +70,36 @@
     "source": "https://boulderzimmer.com/"
   },
   {
+    "lat": 47.72,
+    "lon": 10.28977,
+    "name": "DAV Alpinzentrum Swoboda Alpin",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The published week (Mo–Fr 11–22.30, Sa 9–22.30, Sonn- und Feiertage 9–21) is followed by \"Ferien (Bayern) ab 9 Uhr geöffnet\", which changes the weekday opening for every Bavarian school holiday.",
+    "source": "https://www.dav-kempten.de/swoboda-alpin/oeffnungszeiten-preise-formulare"
+  },
+  {
+    "lat": 47.84818,
+    "lon": 12.82114,
+    "name": "DAV Boulderhalle Teisendorf",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Same hall as the venue about 5 m away: the stated Mo–So 07:00–22:00 is qualified away by compulsory reservation during school hours, unlisted club-training closures and holiday shutdowns of the Turnhalle.",
+    "source": "https://www.dav-teisendorf.de/Kletteranlagen/Boulderhalle-Teisendorf"
+  },
+  {
+    "lat": 48.06344,
+    "lon": 12.23375,
+    "name": "DAV Boulderhalle Wasserburg",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The only times published for the hall are two supervised slots, Tuesday and Thursday 15–18 Uhr. The rest of the week is neither stated as open nor as closed.",
+    "source": "https://www.alpenverein-wasserburg.de/boulderhalle/"
+  },
+  {
     "lat": 49.59284,
     "lon": 11.03079,
     "name": "DAV Boulderzentrum Erlangen",
@@ -70,6 +120,16 @@
     "source": "https://www.dav-feucht.de/kletterhalle"
   },
   {
+    "lat": 48.54807,
+    "lon": 12.18221,
+    "name": "DAV Kletter Boulder Zentrum Landshut",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Friday is stated twice and differently on the same site: the table says 14:00–22:00 while a notice on the same page and on the homepage says \"Ab 17.04.2026 öffnen wir freitags um 10:00 Uhr\". Which one is current cannot be read off the page.",
+    "source": "https://www.kletterzentrum-landshut.de/service"
+  },
+  {
     "lat": 47.98119,
     "lon": 7.81845,
     "name": "DAV Kletterzentrum Freiburg",
@@ -78,6 +138,26 @@
     "checked": "2026-08-23",
     "reason": "Hours are published as Hauptsaison (October–May) and Nebensaison (June–September) behind script-driven tabs, so neither week can be read from the fetched page; the site also reserves the right to close early when few people are in.",
     "source": "https://kletterzentrum-freiburg.de/infos"
+  },
+  {
+    "lat": 50.86894011939988,
+    "lon": 8.004782526563105,
+    "name": "DAV Kletterzentrum Siegerland",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The homepage and the Kontakt page publish different weeks — 15:00–22:00 weekdays with a split Wednesday and a 13:00–18:00 Saturday on one, 16:00–22:00 weekdays and 10:00–22:00 weekends on the other.",
+    "source": "https://www.kletterzentrum-siegerland.de/Kontakt-%C3%96ffnungszeiten"
+  },
+  {
+    "lat": 49.33552,
+    "lon": 11.01591,
+    "name": "DAV Schwabach",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The hall publishes weekday slots (Mo 19:00–21:00, Di 16:00–22:00, Mi 09:30–11:00 and 20:00–22:00, Do 18:00–21:00, Fr 20:00–21:00) interleaved with a \"Nach Anmeldung\" block, and says nothing about Saturday or Sunday. Which of the slots a visitor can simply turn up to is not stated.",
+    "source": "https://www.dav-sc.de/kletterhalle"
   },
   {
     "lat": 48.33433,
@@ -98,6 +178,16 @@
     "checked": "2026-08-23",
     "reason": "The only schedule on the page is headed \"geänderte Öffnungszeiten in den Sommerferien (3. August bis zum 14. September 2026)\". The regular week is not published anywhere the site could be read.",
     "source": "https://www.dav-wuerzburg.de/kletterzentrum-wuerzburg"
+  },
+  {
+    "lat": 49.4515,
+    "lon": 11.02867,
+    "name": "Der Steinbock Nürnberg",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The homepage carries two weeks that disagree about Tuesday and Friday: one says \"Mo, Mi & Do: 10:00 bis 23:00 | Di & Fr: 07:00 bis 23:00\", the other \"Montag bis Freitag 10 bis 23 Uhr\".",
+    "source": "https://www.dersteinbock-nuernberg.de/"
   },
   {
     "lat": 49.443067,
@@ -130,6 +220,16 @@
     "source": "https://www.frankenjura-academy.de/"
   },
   {
+    "lat": 54.09661,
+    "lon": 13.36222,
+    "name": "Greifsbloc e.V. Boulderverein",
+    "country": "DE",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The Öffnungszeiten page introduces the shifts (\"für die normalen Schichten ist keine Buchung nötig\") but the times themselves are not in the fetched document; only the Kinderbouldern and FLINTA* slots come through as text.",
+    "source": "https://greifsbloc.jimdofree.com/%C3%B6ffnungszeiten-angebote/"
+  },
+  {
     "lat": 50.75227115333487,
     "lon": 7.097093895509357,
     "name": "Hochschulsport Uni Bonn",
@@ -158,6 +258,16 @@
     "checked": "2026-08-23",
     "source": "https://www.diekletterarena.de/infos/oeffnungszeiten-anfahrt",
     "reason": "The only schedule on the page is \"Ab 13.07.2026 geänderte Sommer-Öffnungszeiten\" (Mo–Fr 08:00–13:00 and 15:00–23:00, Sa/So 08:00–20:00) with no end date and no regular week beside it. Publishing it would publish a temporary schedule that reverts without notice."
+  },
+  {
+    "lat": 50.2491,
+    "lon": 12.02964,
+    "name": "Kletterwache 95111",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The only public access the site states is \"öffentliches Klettern immer mittwochs von 17:00 – 21:00 Uhr\"; the remaining days carry club, youth and Bundeswehr slots and are never stated as open or closed to visitors.",
+    "source": "https://www.dav-hof.de/kletterwache95111/oeffnungszeiten-kurse/"
   },
   {
     "lat": 53.2500572,
@@ -198,6 +308,16 @@
     "checked": "2026-08-23",
     "reason": "The published week is Mo–Fr 14–22 and Sa/So & Feiertage 10–20, with \"Schulferien: 10 – 22 Uhr\" beside it. Which of the two applies depends on the Bavarian school-holiday calendar, and this overlay cannot expire one in favour of the other.",
     "source": "https://stuntwerk-senden.de/zeiten-und-preise/"
+  },
+  {
+    "lat": 48.98238,
+    "lon": 12.1954,
+    "name": "Projekt Eins",
+    "country": "DE",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The page's only schedule is a schema.org openingHours block (Mo–Su 10:00–23:00); no opening times appear in the document a reader gets. Markup alone is not something this overlay publishes — too many of them turn out to be theme defaults.",
+    "source": "https://www.boulderhalle-projekt-eins.de/"
   },
   {
     "lat": 48.69621,

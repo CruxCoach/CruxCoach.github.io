@@ -233,6 +233,45 @@ export function formatWeeklyHours(week, lang = 'en') {
   return formatWeeklyGroups(week, lang).map(g => `${g.days} ${g.hours}`).join(' · ');
 }
 
+// ── Evidence cross-check ────────────────────────────────────────────
+//
+// The `evidence` field quotes the schedule as the page states it, and the
+// `hours` field is a human's transcription of that same quote. So every clock
+// time in the transcription has to appear in the quote — if it does not,
+// somebody typed 22:30 where the page said 22:00, and no amount of careful
+// sourcing catches that.
+//
+// The comparison is deliberately loose about spelling, because pages write the
+// same time as "10", "10:00", "10.00" and "10 Uhr", and strict about the number,
+// because the number is the thing that can be wrong. Returns the times the
+// evidence does not account for; empty means the record checks out.
+export function timesMissingFromEvidence(entry) {
+  const evidence = typeof entry?.evidence === 'string' ? entry.evidence : '';
+  const missing = new Set();
+  for (const day of DAY_KEYS) {
+    const spec = entry?.hours?.[day];
+    if (typeof spec !== 'string' || spec === CLOSED) continue;
+    // "24 hours" is normally written as a word ("täglich geöffnet", "24/7"),
+    // so its two boundary times are not expected to appear as digits.
+    if (isAllDay(spec)) continue;
+    let ranges;
+    try { ranges = parseDaySpec(spec); } catch { continue; }
+    for (const r of ranges) {
+      for (const minutes of [r.start, r.end]) {
+        const h = Math.floor(minutes / 60) % 24;
+        const m = minutes % 60;
+        const hour = `0?${h}`;
+        const pattern = m === 0
+          // A whole hour may be written bare: "10", "10:00", "10.00".
+          ? new RegExp(`(^|[^0-9])${hour}([^0-9:.]|[:.]00([^0-9]|$)|$)`)
+          : new RegExp(`(^|[^0-9])${hour}[:.]${String(m).padStart(2, '0')}([^0-9]|$)`);
+        if (!pattern.test(evidence)) missing.add(formatTime(minutes));
+      }
+    }
+  }
+  return [...missing].sort();
+}
+
 // ── Record schema ───────────────────────────────────────────────────
 
 export const PROVENANCE = new Set([

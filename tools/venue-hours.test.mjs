@@ -8,8 +8,8 @@ import {
   applyVenueHours, canonicalDaySpec, clearVenueHoursProperties, DAY_KEYS,
   formatDayHours, formatWeeklyGroups, formatWeeklyHours, isPublicWeek,
   loadHoursResearch, loadVenueHours, MANAGED_PROPERTIES, parseDaySpec,
-  RESEARCH_STATUS, safePublicHours, sourceIsDistinct, toPublicHours,
-  toPublicWeek, validateHoursResearchEntry, validateVenueHours, venueKey,
+  RESEARCH_STATUS, safePublicHours, sourceIsDistinct, timesMissingFromEvidence,
+  toPublicHours, toPublicWeek, validateHoursResearchEntry, validateVenueHours, venueKey,
 } from './venue-hours.mjs';
 import { loadVenueLinks } from './venue-links.mjs';
 import { renderListPage } from './render-static.mjs';
@@ -542,6 +542,63 @@ test('nothing a browser fetches carries the internal verification metadata', () 
   }
 });
 
+test('the evidence cross-check finds a mistyped time and forgives spelling', () => {
+  assert.deepEqual(timesMissingFromEvidence(record()), [],
+    'every time in the fixture appears in its own evidence');
+  // The page says 22:00; the schedule says 22:30.
+  assert.deepEqual(
+    timesMissingFromEvidence(record({
+      hours: { ...WEEKDAYS_9_23, sat: '10:00-22:30' },
+      evidence: 'Mo–Fr 09:00–23:00, Sa 10:00–22:00, So geschlossen',
+    })),
+    ['22:30'],
+  );
+  // The same times, written the four ways German gyms actually write them.
+  for (const evidence of [
+    'Mo-Fr 9-23 Uhr, Sa 10-22 Uhr, So geschlossen',
+    'Mo–Fr 09.00 bis 23.00 Uhr | Sa 10.00 – 22.00 | So geschlossen',
+    'Montag bis Freitag von 9:00 bis 23:00, Samstag 10:00-22:00',
+    'Mo-Fr 09:00-23:00 · Sa 10:00-22:00',
+  ]) {
+    assert.deepEqual(timesMissingFromEvidence(record({ evidence })), [], evidence);
+  }
+  // Round-the-clock days are usually words, not digits, so they are exempt.
+  assert.deepEqual(timesMissingFromEvidence(record({
+    hours: Object.fromEntries(DAY_KEYS.map(d => [d, '00:00-24:00'])),
+    evidence: 'Rund um die Uhr geöffnet',
+  })), []);
+  // A half-hour must be spelled out; the bare hour does not cover it.
+  assert.deepEqual(timesMissingFromEvidence(record({
+    hours: { ...WEEKDAYS_9_23, mon: '09:30-23:00' },
+    evidence: 'Mo 9 - 23 Uhr, Di-Fr 09:00–23:00, Sa 10:00–22:00',
+  })), ['09:30']);
+});
+
+test('every committed schedule is traceable to its own evidence quote', () => {
+  const { entries } = loadVenueHours(HOURS_FILE);
+  for (const e of entries) {
+    assert.deepEqual(timesMissingFromEvidence(e), [],
+      `"${e.name}" records a time its evidence quote does not contain`);
+  }
+});
+
+// Two URLs belong to the same site when they share a host, or when one host is
+// a subdomain of the other: an operator that verifies its apex as a venue's
+// official website routinely publishes that venue's hours on
+// `<location>.operator.tld`, and that is the same claim, not a different one.
+function sameSite(a, b) {
+  const ha = new URL(a).hostname;
+  const hb = new URL(b).hostname;
+  return ha === hb || ha.endsWith(`.${hb}`) || hb.endsWith(`.${ha}`);
+}
+
+test('sameSite accepts a location subdomain and refuses a different operator', () => {
+  assert.ok(sameSite('https://darmstadt.studiobloc.de/zeiten/', 'https://studiobloc.de/'));
+  assert.ok(sameSite('https://studiobloc.de/', 'https://darmstadt.studiobloc.de/'));
+  assert.ok(!sameSite('https://studiobloc.de/', 'https://studiobloc.com/'));
+  assert.ok(!sameSite('https://notstudiobloc.de/', 'https://studiobloc.de/'));
+});
+
 test('the curated hours never contradict the curated website links', () => {
   const { entries: hours } = loadVenueHours(HOURS_FILE);
   const { entries: links } = loadVenueLinks(LINKS_FILE);
@@ -549,8 +606,8 @@ test('the curated hours never contradict the curated website links', () => {
   for (const e of hours) {
     const link = byKey.get(venueKey(e.lat, e.lon));
     if (!link) continue;
-    assert.equal(new URL(e.source).hostname, new URL(link.website).hostname,
-      `"${e.name}" reads hours from a different host than its verified official website`);
+    assert.ok(sameSite(e.source, link.website),
+      `"${e.name}" reads hours from a different site than its verified official website`);
     assert.ok(sourceIsDistinct({ hours_src: e.source, website: link.website })
       || e.source === link.website);
   }
@@ -568,7 +625,7 @@ test('every record claiming the venue-link signal has the link it claims', () =>
     if (!e.signals?.includes('venue-link')) continue;
     const link = byKey.get(venueKey(e.lat, e.lon));
     assert.ok(link, `"${e.name}" claims the venue-link signal but has no venue-links record`);
-    assert.equal(new URL(e.source).hostname, new URL(link.website).hostname,
-      `"${e.name}" claims the venue-link signal for a different host than the link it points at`);
+    assert.ok(sameSite(e.source, link.website),
+      `"${e.name}" claims the venue-link signal for a different site than the link it points at`);
   }
 });
