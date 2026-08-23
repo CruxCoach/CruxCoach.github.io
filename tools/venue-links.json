@@ -3193,6 +3193,20 @@
     "note": "Grip It Climbing runs two Saskatoon halls, Caswell and Nelson, and the site prints 431 Nelson Rd — the street upstream records for this venue — with the Kilter Board it is listed for."
   },
   {
+    "lat": 52.1304786,
+    "lon": -106.6771632,
+    "name": "Grip It Climbing Moonboard",
+    "country": "CA",
+    "website": "https://gripitclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "city"
+    ],
+    "note": "Grip It publishes two Saskatoon halls, Caswell and Nelson, on one site. The Nelson one is linked at its own entry 6 km away; this venue is the other, and the site gives Saskatoon, the town upstream records. The site prints no street for either hall, so the town and the brand are the two signals."
+  },
+  {
     "lat": 49.723956,
     "lon": -123.152754,
     "name": "Ground Up Climbing Centre",
@@ -14496,6 +14510,21 @@
       "board-mention"
     ],
     "note": "The Gravity Well's own site, giving Nelson — the town upstream records — and naming the board this venue is listed for."
+  },
+  {
+    "lat": 50.07906570000001,
+    "lon": 19.8703194,
+    "name": "Avatar Balicka Boulder",
+    "country": "PL",
+    "website": "https://myavatar.pl/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "AVATAR runs two Kraków halls on one site and gives each its own block; this venue is the Balicka one, at \"AVATAR Balicka Boulder & AcroPark Balicka, ul. Balicka 100, 30-149 Kraków\". The Sikorki hall was linked earlier in this audit from the same site, which is what pointed here."
   },
   {
     "lat": 50.0616,

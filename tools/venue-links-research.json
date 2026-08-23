@@ -640,16 +640,6 @@
     "candidate": "https://www.niagaraclimbingcenter.com/"
   },
   {
-    "lat": 52.1304786,
-    "lon": -106.6771632,
-    "name": "Grip It Climbing Moonboard",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — gripbouldering.com → \"GRIP BOULDERING\"; gripnijmegen.nl/boulderhal → \"GRIP Boulderhal Nijmegen - 5.000 m2 puur boulderen\"; gripit.ca → \"Cloud Hosting & Security Services | Managed IT | Canadia\", the rest could not be opened — gripit.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.gripbouldering.com/"
-  },
-  {
     "lat": 48.7877546,
     "lon": -123.7105629,
     "name": "Hangout Duncan",
@@ -4229,8 +4219,8 @@
     "country": "NO",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "mandal.no does not answer and mandal.com is a placeholder carrying the domain name. Nothing found names Fridtjof Nansens vei 13 in Mandal.",
-    "candidate": "https://mandal.com/"
+    "reason": "The sibling match was spurious: geiloklatreklubb.no is Geilo Klatreklubb, 283 km away, and shares only the word Klatreklubb with this venue. No name-derived domain for Mandal & Lindesnes Klatreklubb resolves, and upstream records no address for it.",
+    "candidate": "https://geiloklatreklubb.no/"
   },
   {
     "lat": 67.28667,
@@ -4487,16 +4477,6 @@
     "candidate": "https://akademiasportu.com.pl/"
   },
   {
-    "lat": 50.07906570000001,
-    "lon": 19.8703194,
-    "name": "Avatar Balicka Boulder",
-    "country": "PL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — avatar.pl → \"Drukarnia cyfrowa i wielkoformatowa pod Warszawą | Baner\"; avatar.com → \"Avatar.com | The Official Avatar Website for Avatar News\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.avatar.pl/"
-  },
-  {
     "lat": 51.919438,
     "lon": 19.145136,
     "name": "balazs0315",
@@ -4628,8 +4608,8 @@
     "country": "PL",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — spot.com.pl → \"spot.com.pl for sale | Spaceship.com\", the rest could not be opened — spotboulder.pl → a certificate that does not cover its hostname; spotboulder.com → 200; spot.pl → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://spot.com.pl/"
+    "reason": "climbingspot.pl is a Łódź climbing operator and shares the word Spot with this venue, but nothing on it prints an address, and \"Spot Boulder Caffe\" is not a name the site uses. The town match comes from navigation text rather than a location block, so the site cannot be tied to this venue.",
+    "candidate": "https://www.climbingspot.pl/"
   },
   {
     "lat": 51.7806999,
