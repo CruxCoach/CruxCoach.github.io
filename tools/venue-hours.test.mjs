@@ -622,6 +622,20 @@ test('the evidence cross-check finds a mistyped time and forgives spelling', () 
     evidence: 'Mon-Fri 9am - 10pm',
     hours: { ...Object.fromEntries(DAY_KEYS.map(d => [d, 'closed'])), mon: '09:00-22:30' },
   }), ['22:30']);
+  // US pages shorten the meridiem to a single letter — "10A-11P", "4p-8p",
+  // "6a-10p" — and that is still a stated time.
+  assert.deepEqual(timesMissingFromEvidence({
+    evidence: 'Hours M, W, F: 10A-10P | Tue/Thu: 7A-10P | S/Su: 10A-8P',
+    hours: {
+      mon: '10:00-22:00', tue: '07:00-22:00', wed: '10:00-22:00', thu: '07:00-22:00',
+      fri: '10:00-22:00', sat: '10:00-20:00', sun: '10:00-20:00',
+    },
+  }), []);
+  // ...but a bare letter may not eat a word: "9 pages" is not 9 p.m.
+  assert.deepEqual(timesMissingFromEvidence({
+    evidence: '9 pages of routes, 10 apples',
+    hours: { ...Object.fromEntries(DAY_KEYS.map(d => [d, 'closed'])), mon: '21:00-22:00' },
+  }), ['21:00', '22:00']);
   // ...and an h-separated half hour is found, so 22h30 in a French quote counts.
   assert.deepEqual(timesMissingFromEvidence(record({
     hours: { ...WEEKDAYS_9_23, sat: '10:00-22:30' },

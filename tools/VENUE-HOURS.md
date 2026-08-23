@@ -314,10 +314,10 @@ maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (published + outcome entries) | 627 |
-| Published schedules | 410 |
-| Recorded outcomes without hours | 217 |
-| Countries covered | 19 |
+| Venues reviewed (published + outcome entries) | 767 |
+| Published schedules | 530 |
+| Recorded outcomes without hours | 237 |
+| Countries covered | 20 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -325,6 +325,7 @@ Per-country coverage of eligible (public/commercial) venues:
 | country | published | reviewed | eligible | share |
 | --- | --- | --- | --- | --- |
 | DE | 132 | 169 | 201 | 66% |
+| US | 120 | 140 | 576 | 21% |
 | GB | 52 | 70 | 102 | 51% |
 | NL | 37 | 51 | 59 | 63% |
 | CH | 35 | 52 | 56 | 62% |
@@ -344,10 +345,57 @@ Per-country coverage of eligible (public/commercial) venues:
 | LU | 2 | 3 | 6 | 33% |
 | PT | 1 | 2 | 15 | 7% |
 
-- **Last completed batch:** the Nordics, Poland, Czechia, Luxembourg and South
-  Africa. **Every linked venue in Europe has now been reviewed** — 410 published,
-  217 logged.
-- **Next batch:** the United States, then Canada and Australia.
+- **Last completed batch:** the first 140 linked United States venues — 120
+  published, 20 logged. Every linked venue in Europe was reviewed before it.
+- **Next batch:** the remaining 136 linked US venues, then Canada (64) and
+  Australia (33).
+
+### What the first US batch taught
+
+**Two-tier access is the American shape of the problem.** Where Europe hid its
+hours behind seasons, the US hides them behind membership: Crux South Austin,
+Rocknasium, Climb Iowa, MetroROCK, Coeur, Synergy, Adventure Rock, Armadillo,
+Momentum, Climb Bentonville and The Edge all publish one week for the public and
+an earlier or later one for members. That is not a contradiction and it is not a
+reason to refuse — it is the same case as Greifbar's badge system, and it gets
+the same answer: **publish the public week, put the members' window in the note.**
+Crux South Austin is the sharpest version, because the headline says 6AM–11PM and
+the FAQ says no walk-in, guest pass or punch pass holder may enter before 11AM.
+Publishing 6AM there would send a visitor to a locked door at dawn, which is
+exactly the failure the OSM hours were withdrawn for.
+
+**The meridiem gets shortened away.** `10A-11P`, `4p-8p`, `mon-fri 6a-10p` —
+three sites in one batch, so `evidenceMentionsTime` now accepts a bare `a`/`p`
+with a lookahead that stops it swallowing "9 pages". The Edge Melbourne drops the
+letter entirely (`Monday 2-9 | Tuesday 11-9`) and is logged `ambiguous`: every one
+of those times would have to be guessed, and the guess is not written down
+anywhere on the page.
+
+**Chain sites here list every branch on one page, with its address.** Armadillo,
+Adventure Rock, Cultivate, Rockreation, Grotto, Vital and The Circuit all publish
+address-plus-hours per location, which is what `official-chain-page` and the
+`hours-scope` signal exist for — and what lets Adventure Rock's three-tab table
+resolve to Walker's Point (613 S 2nd St) rather than to whichever block the text
+extractor happened to flatten first.
+
+**Movement contradicts itself twice.** Its location pages carry a compact hours
+widget and, further down, an FAQ sentence that repeats the week in prose. At
+Hampden and Boulder the two disagree (6am against 9am; 10:30pm against 11pm and a
+different Sunday), so both are logged rather than guessed — while the other
+fourteen Movement gyms in this batch agree with themselves and are published.
+
+**Spire is the branch-identity case in its purest form.** The operator runs a Main
+Facility and a Training Center with completely different weeks, and the two
+dataset entries are named "Spire Climbing + Fitness Training Center" and "Spire
+Climbing Center Training Facility". One of them carries the main facility's street
+address. Nothing in the data disambiguates them, and the training centre's own
+page says its hours fluctuate, so both are logged.
+
+**One warning is left standing on purpose.** Two dataset entries a kilometre apart
+are both "Central Rock Gym Cambridge" with the same verified link, and Central
+Rock runs one Cambridge gym; the report's shared-source note fires on the sloppy
+coordinate, not on a real second branch. It joins Eifelblock, Awesome Walls Cork
+and Mountain Network Amsterdam in that category.
 
 ### What Europe taught
 

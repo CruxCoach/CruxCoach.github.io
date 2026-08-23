@@ -268,9 +268,13 @@ function evidenceMentionsTime(evidence, minutes) {
   ];
   const h12 = h24 % 12 === 0 ? 12 : h24 % 12;
   const meridiem = h24 < 12 ? 'a' : 'p';
+  // The `m` is optional because US gyms shorten it away — "M-F: 10A-11P" (The
+  // Circuit), "4p-8p" (Boardworks), "mon-fri 6a-10p" (beargrass). The trailing
+  // lookahead keeps that from swallowing a word: "9 pages" is not 9 p.m.
+  const ampm = `${meridiem}\\.?m?\\.?(?![a-z])`;
   patterns.push(m === 0
-    ? new RegExp(`(^|[^0-9])0?${h12}\\s*(${sep}00\\s*)?${meridiem}\\.?m\\.?`, 'i')
-    : new RegExp(`(^|[^0-9])0?${h12}${sep}${mm}\\s*${meridiem}\\.?m\\.?`, 'i'));
+    ? new RegExp(`(^|[^0-9])0?${h12}\\s*(${sep}00\\s*)?${ampm}`, 'i')
+    : new RegExp(`(^|[^0-9])0?${h12}${sep}${mm}\\s*${ampm}`, 'i'));
   // Words, for the two times that have them.
   if (minutes === 0 || minutes === 24 * 60) patterns.push(/midnight/i);
   if (minutes === 12 * 60) patterns.push(/noon|midday/i);
