@@ -4478,6 +4478,31 @@
   "evidence": "Monday – Friday: 7:00 am - 10:00 pm | Saturdays: 7 am – 9 pm | Sunday: 8 am – 9 pm | Holiday hours may vary."
  },
  {
+  "lat": 42.3152901,
+  "lon": -83.0034458,
+  "name": "WRG MoonBoard (Use other)",
+  "country": "CA",
+  "source": "https://www.windsorrockgym.com/hours",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "brand",
+   "city"
+  ],
+  "hours": {
+   "mon": "closed",
+   "tue": "14:00-23:00",
+   "wed": "14:00-23:00",
+   "thu": "14:00-23:00",
+   "fri": "14:00-23:00",
+   "sat": "12:00-18:00",
+   "sun": "12:00-18:00"
+  },
+  "evidence": "Hours of Operation Monday closed (for now) Tuesday - Friday 2 PM to 11 PM Saturday + Sunday noon to 6 PM",
+  "note": "Monday is stated closed rather than left out. The front page carries the same block with \"Monday - CLOSED\"; the hours page adds \"(for now)\", which is a note about the closure rather than a different schedule."
+ },
+ {
   "lat": 47.52622,
   "lon": 7.68359,
   "name": "B2 Boulders & Bar",

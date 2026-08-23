@@ -3119,6 +3119,21 @@
     "note": "The site is \"Fit Rocks Climbing Gym Moncton\" and the map it embeds of itself sits 204 m from this venue. Upstream records no address, and files the venue under Riverview across the river from Moncton."
   },
   {
+    "lat": 45.95638,
+    "lon": -66.65681,
+    "name": "Fredericton Bouldering Co-op",
+    "country": "CA",
+    "website": "https://fbcwall.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "coordinates"
+    ],
+    "note": "The co-op's own site, giving Fredericton and embedding a map of itself 44 m from this venue. The first pass had reached fredericton.ca, the city council, whose hours block belongs to City Hall."
+  },
+  {
     "lat": 49.7016339,
     "lon": -123.1558121,
     "name": "Grand Wall Bouldering Co-operative",
@@ -3396,6 +3411,35 @@
       "city"
     ],
     "note": "The site is Momentum Movement Academy and gives 1961 McLean Avenue Unit 2 and 3, Port Coquitlam, V3C 1N1 — the town upstream records. momentummovement.com is a domain broker and momentum.com is an unrelated company."
+  },
+  {
+    "lat": 45.56248,
+    "lon": -73.54049,
+    "name": "Monolithe Bloc",
+    "country": "CA",
+    "website": "https://www.horizonroc.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The same hall as the entry 22 m away, which upstream records twice; the operator's site names it and the MoonBoard it is listed for."
+  },
+  {
+    "lat": 45.56273,
+    "lon": -73.54047,
+    "name": "Monolithe Bloc",
+    "country": "CA",
+    "website": "https://www.horizonroc.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Horizon Roc runs Monolithe Escalade - Bloc, and its site gives Montréal — the city upstream records — and names the MoonBoard this venue is listed for."
   },
   {
     "lat": 53.507648757633206,
@@ -3911,6 +3955,20 @@
       "city"
     ],
     "note": "The operator gives its two BC gyms one page; this is Nanaimo at 1870 Boxwood Rd."
+  },
+  {
+    "lat": 42.3152901,
+    "lon": -83.0034458,
+    "name": "WRG MoonBoard (Use other)",
+    "country": "CA",
+    "website": "https://www.windsorrockgym.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "brand",
+      "city"
+    ],
+    "note": "WRG is Windsor Rock Gym, and this is its own site, giving Windsor — the city upstream records. The venue name carries the initials rather than the town."
   },
   {
     "lat": 47.52622,
@@ -7086,6 +7144,20 @@
     "note": "Same physical gym as the Kilter entry ~10 m away; upstream lists the MoonBoard separately."
   },
   {
+    "lat": 54.096812,
+    "lon": 12.103011,
+    "name": "Moonshine",
+    "country": "DE",
+    "website": "https://45grad.ro/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "city",
+      "board-mention"
+    ],
+    "note": "45 Grad Kletterhalle's own site — \"Die 45 Grad befindet sich zentral in Rostock\" — naming both the Moonboard and the Kilter this venue is listed for. Upstream calls the venue Moonshine and places it in a Rostock district, so the hall's name is not a signal here; the town and the board are."
+  },
+  {
     "lat": 48.56053,
     "lon": 12.16662,
     "name": "PEAK7 Boulderhalle Landshut",
@@ -9479,6 +9551,23 @@
     "note": "Au Perchoir's own site, giving Crolles — the town upstream records — and naming the Kilter Board this venue is listed for."
   },
   {
+    "lat": 47.77882,
+    "lon": -3.35503,
+    "name": "B'wall Lorient",
+    "country": "FR",
+    "website": "https://www.b-wall.fr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "B'wall's own site, printing 482 and 56600 Lanester — the street number, postal code and town upstream records — and naming the Kilter Board this venue is listed for."
+  },
+  {
     "lat": 47.63811,
     "lon": -2.76552,
     "name": "B'wall Vannes",
@@ -11432,6 +11521,20 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 38.01049,
+    "lon": 23.8073,
+    "name": "Mono by Athens Climbing Project",
+    "country": "GR",
+    "website": "https://monoclimb.gr/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "Mono by Athens Climbing Project's own site, matching this venue's name and naming the Tension Board it is listed for."
   },
   {
     "lat": 45.7778053,

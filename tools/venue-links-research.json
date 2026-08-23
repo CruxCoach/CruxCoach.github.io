@@ -557,7 +557,7 @@
     "country": "CA",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "basecampclimbing.ca is \"Basecamp Climbing - Toronto Indoor Rock Climbing\", which matches this venue's name, but the served page is a client-rendered shell: no address, no map, no structured data, and no board is named. Upstream records no street for the Kensington-Chinatown coordinates either, so the name is the only signal available and the policy needs two. basecamp.com and basecampboulder.com are unrelated businesses.",
+    "reason": "The operator is right and the branch is not settled. basecampclimbing.ca is Basecamp Climbing in Toronto and OSM maps a \"Basecamp\" object 54 m from this venue with that domain, but the site publishes two halls, Queen West and Bloor West, and neither its pages nor its WordPress REST output prints an address for either. Upstream records Kensington-Chinatown and no street, so which hall this is cannot be established from the page.",
     "candidate": "https://basecampclimbing.ca/"
   },
   {
@@ -630,16 +630,6 @@
     "candidate": "https://www.invertclimb.com/"
   },
   {
-    "lat": 45.95638,
-    "lon": -66.65681,
-    "name": "Fredericton Bouldering Co-op",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — fredericton.ca → \"City of Fredericton\"; fredericton.com → \"fredericton.com High Value and Premium Domain Names\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.fredericton.ca/"
-  },
-  {
     "lat": 43.4757042,
     "lon": -80.52031579999999,
     "name": "Grand River Rocks Waterloo",
@@ -696,27 +686,8 @@
     "country": "CA",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — kingston.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 45.56248,
-    "lon": -73.54049,
-    "name": "Monolithe Bloc",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — monolithe.ca → \"Monolithe Multimedia | Monolithe Multimedia\", the rest could not be opened — monolithe.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://monolithe.ca/"
-  },
-  {
-    "lat": 45.56273,
-    "lon": -73.54047,
-    "name": "Monolithe Bloc",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — monolithe.ca → \"Monolithe Multimedia | Monolithe Multimedia\", the rest could not be opened — monolithe.com → 403. Upstream records 2404 Rue Vimont, H1V 3L5, Montréal, and nothing opened printed it.",
-    "candidate": "https://monolithe.ca/"
+    "reason": "kingstonboulderingcoop.com is the co-op's own site and OSM maps it 2 m from this venue, but the only signals the page supplies are the venue's name and Kingston — and Kingston is part of that name, so it adds nothing independent. The page prints no street, no postal code and no board, and upstream records no address either.",
+    "candidate": "https://kingstonboulderingcoop.com/"
   },
   {
     "lat": 50.03376,
@@ -755,7 +726,7 @@
     "country": "CA",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "rockhausclimbing.com is RockHaus Climbing Inc. and matches this venue's name, but it places itself at 167 Chrislea Road, Unit 5, Vaughan, Ontario L4L 8N6 — about 1.2 km from these coordinates and in a different municipality from the Black Creek neighbourhood upstream records. It names no board either. One location signal that disagrees is not two that agree.",
+    "reason": "Still contradictory, and now visibly so. OSM maps \"RockHaus Climbing\" 7 m from this venue and tags it with rockhausclimbing.com, but that site gives its own address as 167 Chrislea Road, Unit 5, Vaughan L4L 8N6, which geocodes about 1.2 km away in a different municipality from the Black Creek neighbourhood upstream records. The page itself supplies only the name; one of the two positions is wrong and the page does not say which, so the OSM tag stays a pointer rather than becoming the evidence.",
     "candidate": "https://rockhausclimbing.com/"
   },
   {
@@ -832,15 +803,6 @@
     "lat": 42.3149367,
     "lon": -83.03636329999999,
     "name": "WRG MoonBoard",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 42.3152901,
-    "lon": -83.0034458,
-    "name": "WRG MoonBoard (Use other)",
     "country": "CA",
     "status": "unverified",
     "checked": "2026-08-23",
@@ -1637,16 +1599,6 @@
     "candidate": "https://linie.com/"
   },
   {
-    "lat": 54.096812,
-    "lon": 12.103011,
-    "name": "Moonshine",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "moonshine.de is a spirits brand and moonshine.com does not answer. The one curated venue within 200 m is 45 Grad, a different hall 84 m away whose site is Romanian-hosted and names no second wall.",
-    "candidate": "https://45grad.ro/"
-  },
-  {
     "lat": 48.12819,
     "lon": 11.55968,
     "name": "MTV München von 1879 e.V.",
@@ -1759,8 +1711,8 @@
     "country": "EE",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — kiviclimbing.ee → \"Kivi Climbing\", the rest could not be opened — kivi.ee → a certificate that does not cover its hostname / no answer, the venue's whole name as one label, kiviclimbing.ee, answers 302 (\"Redirecting to https://kiviclimbing.ee/et\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://kiviclimbing.ee/et"
+    "reason": "OSM maps \"KIVI climbing\" 77 m from this venue and tags it with kiviclimbing.ee, which is almost certainly right — but the page itself yields only the venue name. It gives its address as Pärnu mnt 139e, Tallinn, where upstream records the Kristiine district and no street, so there is nothing on the page to set against the coordinates. The OSM position is a pointer, not the second signal.",
+    "candidate": "https://kiviclimbing.ee/"
   },
   {
     "lat": 43.2630126,
@@ -2104,16 +2056,6 @@
     "candidate": "https://matrix.fi/"
   },
   {
-    "lat": 47.77882,
-    "lon": -3.35503,
-    "name": "B'wall Lorient",
-    "country": "FR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — wall.fr → \"Wall.fr : wallbox, borne recharge à domicile\", the rest could not be opened — bwall.fr → a certificate that does not cover its hostname; lorient.fr → a timeout; lorient.com → no answer / a timeout. Upstream records 482 Route de Kerviec, 56600, Lanester, and nothing opened printed it.",
-    "candidate": "https://www.wall.fr/"
-  },
-  {
     "lat": 48.20484,
     "lon": 2.47222,
     "name": "Bloc Lodge",
@@ -2451,16 +2393,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — www.crux24.cz → \"CRUX 24 - Lezecké centrum Harrachov\"; www.cruxclimbing.pt → \"Escalada | CRUX - Climbing Center | São Domingos de Rana\"; thecrux.com.au → \"Melbourne Indoor Bouldering / Rock Climbing Coburg, Brun\", the rest could not be opened — crux.gr → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.crux24.cz/"
-  },
-  {
-    "lat": 38.01049,
-    "lon": 23.8073,
-    "name": "Mono by Athens Climbing Project",
-    "country": "GR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — monoclimb.gr → \"Mono by Athens Climbing Project\"; monoboulder.nl → \"Home - MONO Boulder\"; monoby.com → \"HugeDomains.com\", the rest could not be opened — mono.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://monoclimb.gr/en/main-home-en/"
   },
   {
     "lat": 36.9533092,
