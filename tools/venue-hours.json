@@ -7431,7 +7431,8 @@
    "sat": "11:00-22:00",
    "sun": "11:00-22:00"
   },
-  "evidence": "Öffnungszeiten — Wann haben wir geöffnet? Mo – So 11- 22 Uhr (Rübenacher Str. 104, 56072 Metternich)"
+  "evidence": "Öffnungszeiten — Wann haben wir geöffnet? Mo – So 11- 22 Uhr (Rübenacher Str. 104, 56072 Metternich)",
+  "note": "The Eifelblock Metternich entry 2,165 m away carries the same page. Eifelblock lists three halls — Koblenz-Kids, Koblenz-Metternich and Trier — and its own pages give the two Koblenz halls one address, Rübenacher Str. 104 in Metternich, so the pair is one building. This entry comes from the MoonBoard registry, which records no address and places the hall roughly."
  },
  {
   "lat": 50.3698,
@@ -8070,7 +8071,7 @@
    "sun": "09:00-21:00"
   },
   "evidence": "Öffnungszeiten DAV Kletter- und Boulderzentrum München-West: Mo: 14:00 – 23:00, Di: 07:00 – 23:00, Mi, Do, Fr: 09:00 – 23:00, Sa, So, Feiertag: 09:00 – 21:00. DAV-Servicestelle der Sektion München: Mo – Fr: 14:00-19:30, Sa – So: 09:00-18:00.",
-  "note": "The centre and the section's service desk have separate blocks and the centre's is the one recorded; holidays take the weekend hours."
+  "note": "The centre and the section's service desk have separate blocks and the centre's is the one recorded; holidays take the weekend hours. The DAV Kletter & Boulderzentrum München-West entry 1,206 m away carries the same page and the address it prints, Frühlingstraße 18 in Gilching; this entry comes from the MoonBoard registry, which records no address and places the hall roughly. The section's other Munich centres are in Thalkirchen and Freimann, tens of kilometres away, so there is no second hall this could be."
  },
  {
   "lat": 51.97887,
@@ -12867,7 +12868,7 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 22:00",
-  "note": "Upstream carries this gym twice, about 1.2 km apart."
+  "note": "Upstream carries this gym twice, about 1.2 km apart. The Awesome Walls Cork entry 4,428 m away carries the same page and the address it prints, Eden Hall on Model Farm Road. Awesome Walls lists six centres and only one in Cork, so this entry — from the MoonBoard registry, which records no address — is that centre placed roughly."
  },
  {
   "lat": 53.401808327278275,
@@ -14472,7 +14473,7 @@
    "sun": "09:00-19:00"
   },
   "evidence": "Ma-Vr 15:00-23:00 | Za-Zo 9:00-19:00",
-  "note": "Upstream carries this centre twice, about 3.7 km apart; the operator's contact page lists every centre, so the location page is what is used."
+  "note": "Upstream carries this centre twice, about 3.7 km apart; the operator's contact page lists every centre, so the location page is what is used. The Mountain Network Amsterdam entry 3,689 m away carries the same page. The operator lists seven indoor locations and only one in Amsterdam, so this entry — from the MoonBoard registry, which records no address — is that hall placed roughly."
  },
  {
   "lat": 52.37517,
@@ -17794,7 +17795,8 @@
    "sat": "10:00-18:00",
    "sun": "10:00-18:00"
   },
-  "evidence": "Monday: 7am-10:30pm | Tuesday: 7am-10:30pm | Wednesday: 7am-10:30pm | Thursday: 7am-10:30pm | Friday: 11am-10:30pm | Saturday: 10am-6pm | Sunday: 10am-6pm"
+  "evidence": "Monday: 7am-10:30pm | Tuesday: 7am-10:30pm | Wednesday: 7am-10:30pm | Thursday: 7am-10:30pm | Friday: 11am-10:30pm | Saturday: 10am-6pm | Sunday: 10am-6pm",
+  "note": "The Central Rock Gym Cambridge entry 1,049 m away carries the same page and the address it prints, 170 Alewife Brook Pkwy. The operator brands its other hall in this city Harvard Square, at 20 Brattle St about 2.6 km from here, so the Cambridge hall is the nearer of the two by a wide margin. This entry comes from the Tension registry, which records no address."
  },
  {
   "lat": 42.39436,
@@ -19503,7 +19505,8 @@
    "sat": "09:00-20:00",
    "sun": "09:00-20:00"
   },
-  "evidence": "Sun Sunday 9:00 AM - 8:00 PM | Mon Monday 9:00 AM - 10:00 PM | Tue Tuesday 9:00 AM - 10:00 PM | Wed Wednesday 9:00 AM - 10:00 PM | Thu Thursday 9:00 AM - 10:00 PM | Fri Friday 9:00 AM - 10:00 PM | Sat Saturday 9:00 AM - 8:00 PM"
+  "evidence": "Sun Sunday 9:00 AM - 8:00 PM | Mon Monday 9:00 AM - 10:00 PM | Tue Tuesday 9:00 AM - 10:00 PM | Wed Wednesday 9:00 AM - 10:00 PM | Thu Thursday 9:00 AM - 10:00 PM | Fri Friday 9:00 AM - 10:00 PM | Sat Saturday 9:00 AM - 8:00 PM",
+  "note": "The Gravity Vault Upper Saddle River entry 1,749 m away carries the same page and the address it prints, 107 Pleasant Ave. Gravity Vault lists ten New Jersey gyms and the next nearest is tens of kilometres away, so this entry — from the MoonBoard registry, which records no address — is Upper Saddle River placed roughly."
  },
  {
   "lat": 40.70857,
@@ -23374,6 +23377,34 @@
   },
   "evidence": "Hours Monday-Friday: 6am – 10pm Weekends: 8am – 8pm 484.704.7612 401 E 4th St",
   "note": "Stated on the contact page beside the address and repeated in the footer of every page."
+ },
+ {
+  "lat": 40.10454,
+  "lon": -75.33213,
+  "name": "The Factory By Reach",
+  "country": "US",
+  "source": "https://reachclimbing.com/contact/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "co-located"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "Address: 401 E 4th St Bridgeport, PA 19405 Phone Number: 484-704-7612 Hours Monday-Friday: 6am – 10pm Weekends: 8am – 8pm",
+  "note": "The same hall as The Factory at Reach entry 142 m away, which carries this week already; Reach runs one building and states one week for it."
  },
  {
   "lat": 34.10217,

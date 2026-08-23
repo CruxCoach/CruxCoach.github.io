@@ -73,6 +73,25 @@ what its settings hold is not published — Island Rock Climbing Gym's week
 exists only as schema.org and a Squarespace setting that agree with it, and is
 recorded rather than published for that reason.
 
+### One hall, two registries
+
+A gym that owns a Kilter board and a MoonBoard is registered twice, once by
+each registry, and the two entries do not agree on where it is: the Kilter row
+carries a street address and the MoonBoard row carries none and a rough point.
+Six halls land more than a kilometre apart that way, which trips the shared-URL
+check — the same page supplying hours for venues that far apart is normally a
+chain page attached to the wrong branch.
+
+Each of the six was resolved the same way: read the operator's own list of
+halls and see whether a second one could be the distant twin. None could —
+Awesome Walls has one Cork centre, Mountain Network one in Amsterdam, Gravity
+Vault's next New Jersey gym is tens of kilometres from Upper Saddle River, the
+DAV's other Munich centres are in Thalkirchen and Freimann, Eifelblock gives
+both its Koblenz halls one address, and Central Rock Gym brands its second
+Cambridge hall Harvard Square, 2.6 km further off than the one this entry sits
+beside. The finding is written into each record's note, and the check keeps
+warning, which is what it is for.
+
 ### Fail closed
 
 Publishing nothing is always an available answer, and it is the right one more
