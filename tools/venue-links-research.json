@@ -2434,13 +2434,33 @@
     "candidate": "https://klattercentret.se/"
   },
   {
+    "lat": 33.2646,
+    "lon": -111.85627,
+    "name": "Alta Boulders Chandler",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "altachandler.com is Alta's Chandler branch and matches this venue's name, but it publishes no address, no postal code and no board anywhere on the page that answered. Chandler is part of the venue's own name, so the town it shares with the site adds nothing independent, and the policy needs a second signal.",
+    "candidate": "https://altachandler.com/"
+  },
+  {
+    "lat": 40.45091,
+    "lon": -79.89598,
+    "name": "Ascend Climbing Point Breeze",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "Ascend Climbing runs more than one Pittsburgh gym and ascendclimbing.com prints the city for all of them; the Point Breeze page could not be located (/point-breeze answers 404) and nothing on the pages reached prints 7443 Thomas Blvd. One town shared by several halls of the same operator is not a location signal.",
+    "candidate": "https://www.ascendclimbing.com/"
+  },
+  {
     "lat": 38.97134,
     "lon": -95.23664,
     "name": "Climb Lawrence",
     "country": "US",
-    "status": "closed",
-    "checked": "2026-08-22",
-    "reason": "The gym's own site now shows only a We Are Closed notice and a thank-you message, so there is no page describing an operating venue.",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "climblawrence.com is the venue's own domain and matches its name, but publishes no address or postal code; Lawrence is part of the venue's name, so the town adds nothing independent of it.",
     "candidate": "https://climblawrence.com/"
   },
   {
@@ -2449,8 +2469,8 @@
     "name": "Dallas Bouldering Project",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The hall is not in Bouldering Project's location list, and dallasboulderingproject.com serves a 114-byte empty body, so no official page describes this venue.",
+    "checked": "2026-08-23",
+    "reason": "dallasboulderingproject.com is the venue's own domain and answers 200, but serves a client-rendered page from which no content could be parsed. dallas-project.org, which the guesser reached first, prints Dallas but is not this gym. Retry when the site serves readable content.",
     "candidate": "https://dallasboulderingproject.com/"
   },
   {
@@ -2469,9 +2489,9 @@
     "name": "Dogpatch Boulders",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "touchstoneclimbing.com answers 403 to every automated request and the gym has no separate domain that resolves, so no page could be opened and read.",
-    "candidate": "https://touchstoneclimbing.com/dogpatch-boulders/"
+    "checked": "2026-08-23",
+    "reason": "opengtm.com is the booking platform Touchstone gyms use, not the venue's page; it prints San Francisco for that reason. touchstoneclimbing.com, which publishes the Dogpatch Boulders page, answers 403 with a Cloudflare interstitial to every request tried. Retry when that page can be opened.",
+    "candidate": "https://touchstoneclimbing.com/dogpatch/"
   },
   {
     "lat": 42.09078035751713,
@@ -2514,16 +2534,6 @@
     "candidate": "https://faclimbing.com/"
   },
   {
-    "lat": 40.70857,
-    "lon": -74.06459,
-    "name": "Gravity Vault - Jersey City",
-    "country": "US",
-    "status": "closed",
-    "checked": "2026-08-22",
-    "reason": "The operator's own location page states that The Gravity Vault Jersey City is permanently closed; upstream lists the hall twice, 190 m apart.",
-    "candidate": "https://gravityvault.com/locations/jersey-city-nj"
-  },
-  {
     "lat": 37.81005,
     "lon": -122.27017,
     "name": "Great Western Power Company",
@@ -2532,6 +2542,16 @@
     "checked": "2026-08-22",
     "reason": "touchstoneclimbing.com answers 403 to every automated request and greatwesternpower.com does not resolve, so no page could be opened and read.",
     "candidate": "https://touchstoneclimbing.com/"
+  },
+  {
+    "lat": 42.96643,
+    "lon": -85.89038,
+    "name": "GVSU Climbing Center",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The operator is right and the page is not. gvsu.com redirects to www.gvsu.edu, Grand Valley State University, whose site does print the 49401 postal code and Allendale — but that is the university's home page, not the climbing centre's, and no page for the centre itself could be located: /reccenter/, /reccenter/climbing-center.htm and /reccenter/climbing-center-4.htm all answer 404 and the home page exposes no recreation link to follow. Retry when the centre's own page can be found.",
+    "candidate": "https://www.gvsu.edu/"
   },
   {
     "lat": 35.2270869,
@@ -2554,24 +2574,44 @@
     "candidate": "https://www.innerpeaks.com/"
   },
   {
-    "lat": 34.88329,
-    "lon": -82.60758,
-    "name": "ProjectROCK Easley",
+    "lat": 36.1664,
+    "lon": -94.12313,
+    "name": "Ozark Climbing",
     "country": "US",
-    "status": "closed",
-    "checked": "2026-08-22",
-    "reason": "projectrockeasley.com redirects to the operator's projectrock.com/easley/ page, which states that the Easley location has closed.",
-    "candidate": "https://projectrock.com/easley/"
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The town and the postal code matched a bus company. ozark.org is Ozark Regional Transit, \"Transit in Northwest Arkansas\", which serves Springdale and prints the 72764 postal code for that reason; it is not a climbing venue. No other name-derived domain resolves, so 875 E Robinson Ave could not be matched against anything.",
+    "candidate": "https://www.ozark.org/"
   },
   {
-    "lat": 38.801099,
-    "lon": -77.1263623,
-    "name": "Sportrock",
+    "lat": 40.37632,
+    "lon": -75.93075,
+    "name": "Reading Rocks Climbing & Fitness",
     "country": "US",
-    "status": "ambiguous",
-    "checked": "2026-08-22",
-    "reason": "Sportrock runs two adjacent Alexandria buildings 31 m apart, each with its own location page — 5308 Eisenhower Ave and the 5314 Performance Institute. This unnamed entry sits between them and the operator's board listings contradict the upstream ones, so it cannot be tied to one page.",
-    "candidate": "https://www.sportrock.com/alexandria"
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The city matched the wrong Reading. theclimbinghangar.com/locations/reading is The Climbing Hangar's hall in Reading, Berkshire, England — the map it publishes of itself is 5,470 km from this venue — while this venue is 550 George St, 19605, Reading, Pennsylvania. Nothing else answered for it.",
+    "candidate": "https://www.theclimbinghangar.com/locations/reading"
+  },
+  {
+    "lat": 41.14187,
+    "lon": -73.26536,
+    "name": "Rock Climbing Fairfield",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "fairfield.com is a generic town-name domain and not this gym; it matched only because it prints the word Fairfield. No name-derived domain for a climbing venue at 85 Mill Plain Rd, 06824 resolves.",
+    "candidate": "https://www.fairfield.com/"
+  },
+  {
+    "lat": 41.4684,
+    "lon": -81.53548,
+    "name": "Shaker Rocks",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "shakerrocks.com is the venue's own domain and answers 200, but serves a client-rendered page from which no content could be parsed — no title, no address, no text. shaker.org, which the guesser reached first, is a different Shaker Heights organisation. Retry when the site serves readable content.",
+    "candidate": "https://shakerrocks.com/"
   },
   {
     "lat": 40.6255415,
@@ -2594,14 +2634,14 @@
     "candidate": "https://touchstoneclimbing.com/"
   },
   {
-    "lat": 25.63776,
-    "lon": -80.42057,
-    "name": "The Edge Rock Gym Miami",
+    "lat": 35.95974,
+    "lon": -86.82784,
+    "name": "The Crag Franklin",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The Edge Rock Gym's own site lists two Florida gyms, Jacksonville and Melbourne, and no Miami location, so no official page describes this venue.",
-    "candidate": "https://theedgerockgym.com/home/"
+    "checked": "2026-08-23",
+    "reason": "thecragnashville.com answers 200 but yields a single page with no address, no town and no board; franklin.com, which the guesser reached first, is a generic town-name domain. Neither could be matched against 1850 General George Patton Dr, 37067 Franklin.",
+    "candidate": "https://thecragnashville.com/"
   },
   {
     "lat": 40.70779,
@@ -2612,6 +2652,16 @@
     "checked": "2026-08-22",
     "reason": "The operator's own location page states that The Gravity Vault Jersey City is permanently closed, and Jersey City no longer appears in its location list.",
     "candidate": "https://gravityvault.com/locations/jersey-city-nj"
+  },
+  {
+    "lat": 38.55057428350317,
+    "lon": -121.71676532883576,
+    "name": "The Stack Climbing Davis",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "thestackclimbing.com matches this venue's name but publishes no address or postal code; Davis is part of the venue's name, so the town adds nothing independent of it.",
+    "candidate": "https://www.thestackclimbing.com/"
   },
   {
     "lat": 37.85155,
@@ -2634,13 +2684,23 @@
     "candidate": "https://verticalworld.com/"
   },
   {
-    "lat": 40.90139,
-    "lon": -77.36817,
-    "name": "Woodward PA",
+    "lat": 37.99022,
+    "lon": -84.17964,
+    "name": "Winchester Board (Private)",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "woodwardpa.com is Camp Woodward's own site and the coordinate is at its Sports Camp Drive address, but the site prints no street line and never mentions climbing, so only the name and town match.",
-    "candidate": "https://woodwardpa.com/"
+    "checked": "2026-08-23",
+    "reason": "winchester.com is a generic town-name domain and not this board; upstream marks the venue \"(Private)\" and records no address, so there is nothing to match a page against.",
+    "candidate": "https://winchester.com/"
+  },
+  {
+    "lat": 42.35458,
+    "lon": -71.05706,
+    "name": "Winthrop Square Boston",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "winthropsquareboston.com is a commercial office building at Winthrop Square, not a climbing venue, and matched only on the venue's name, which is the square itself. Nothing published could be found for a wall at 115 Federal St, 02110.",
+    "candidate": "https://winthropsquareboston.com/"
   }
 ]
