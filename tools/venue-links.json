@@ -8792,6 +8792,21 @@
     ]
   },
   {
+    "lat": 52.52996899999999,
+    "lon": -2.0246658,
+    "name": "Boulder Central",
+    "country": "GB",
+    "website": "https://www.bouldercentral.co.uk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates"
+    ],
+    "note": "The OSM node 4 m from this venue carries bouldercentral.co.uk, and the site's contact page prints \"Boulder Central, Unit 4, Richmond Street\"; geocoding that street lands 155 m away. The Central Rock halls the chain matcher offered are in Massachusetts."
+  },
+  {
     "lat": 50.72,
     "lon": -3.53781,
     "name": "Boulder Exe",
@@ -8982,6 +8997,51 @@
     ]
   },
   {
+    "lat": 51.49843,
+    "lon": -0.11382,
+    "name": "Climbing Gym Sen",
+    "country": "GB",
+    "website": "https://climbinggymsen.co.uk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site is Climbing Gym Sen and prints \"London, SE1 7DR — 3 min walk from Lambeth North Station\", which is where this venue sits."
+  },
+  {
+    "lat": 53.2939,
+    "lon": -2.91813,
+    "name": "Climbing Hut Ellesmere Port",
+    "country": "GB",
+    "website": "https://www.climbinghut.com/ellesmereport/contact",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The operator's Ellesmere Port contact page prints \"Poole Hall Rd, Ellesmere Port CH66 1ST\" — the street and postcode upstream records. None of the name-derived guesses reached the site; the operator page for the Shrewsbury hall did."
+  },
+  {
+    "lat": 52.73845739999999,
+    "lon": -2.7190273,
+    "name": "Climbing Hut Shrewsbury",
+    "country": "GB",
+    "website": "https://www.climbinghut.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Climbing Hut runs two centres and names both; the Shrewsbury block gives that centre's own e-mail and phone, and the site names a Kilter Board and a MoonBoard. The OSM node 415 m away carries the same domain, and geocoding \"Climbing Hut Shrewsbury\" lands 415 m from this venue."
+  },
+  {
     "lat": 53.79844,
     "lon": -1.57338,
     "name": "Depot Climbing Armley",
@@ -9075,6 +9135,21 @@
       "location-page"
     ],
     "note": "The centre gives 350 Euston Road where upstream has number 338."
+  },
+  {
+    "lat": 51.830777,
+    "lon": -1.837254,
+    "name": "Far Peak Climbing Centre",
+    "country": "GB",
+    "website": "https://www.farpeakclimbing.co.uk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates"
+    ],
+    "note": "The contact page prints \"Far Peak Climbing Centre, 1 The Hayloft, Far Peak, Northleach, Gloucestershire, GL54 3AP\"; geocoding that lands 93 m from this venue. Upstream files it under Cirencester, the nearest town. farpeak.co.uk is the same estate's hospitality site."
   },
   {
     "lat": 51.44587,
@@ -9233,6 +9308,21 @@
     "note": "Upstream carries no address for this entry; the location page's Mint Bridge Road resolves to within 115 m of it."
   },
   {
+    "lat": 54.04698,
+    "lon": -2.82335,
+    "name": "Lakeland Climbing Centres - LancasterWall",
+    "country": "GB",
+    "website": "https://lakelandclimbingcentres.co.uk/centre/lancasterwall/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "Lakeland Climbing Centres gives each of its three walls a page, and the LancasterWall page matches the Europa Way, Lancaster address upstream records. The OSM node 20 m away carries lancasterwall.co.uk, which answers 526."
+  },
+  {
     "lat": 51.379625,
     "lon": -2.353975,
     "name": "Luma Climbing",
@@ -9357,6 +9447,21 @@
       "board-mention"
     ],
     "note": "Same physical gym as the Tension entry ~20 m away; upstream lists the 2016 MoonBoard separately, and the site names both boards."
+  },
+  {
+    "lat": 53.73655,
+    "lon": -0.37978,
+    "name": "Rockcity Climbing",
+    "country": "GB",
+    "website": "https://rockcity.co.uk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "coordinates"
+    ],
+    "note": "The OSM node 50 m from this venue carries rockcity.co.uk, and geocoding \"Rockcity Climbing, Hull\" lands 50 m away. rockcityclimbing.com is a different Rock City in North America."
   },
   {
     "lat": 51.5822099,
@@ -9626,6 +9731,21 @@
       "city"
     ],
     "note": "The site names the gym and Leeds but publishes no street address on the pages we could read."
+  },
+  {
+    "lat": 55.166849930629446,
+    "lon": -1.6902527140646504,
+    "name": "The Coliseum Bouldering Centre",
+    "country": "GB",
+    "website": "https://thecoliseum.co.uk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The site is \"The Coliseum – Northumberland Bouldering Centre\" and prints 11a New Market, Morpeth, Northumberland NE61 1PS — exactly the address upstream records. coliseum.co.uk is an unrelated charity."
   },
   {
     "lat": 51.50729,

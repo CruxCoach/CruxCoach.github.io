@@ -936,14 +936,43 @@
     "reason": "The gym's site redirects https to http://www.spacebloc.fr/, so there is no HTTPS URL to store."
   },
   {
-    "lat": 52.52996899999999,
-    "lon": -2.0246658,
-    "name": "Boulder Central",
+    "lat": 52.406822,
+    "lon": -1.519693,
+    "name": "Ballroom Moonboard",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The gym's site publishes no address on any page we could open, so no second independent signal could be established.",
-    "candidate": "https://www.bouldercentral.co.uk/"
+    "checked": "2026-08-23",
+    "reason": "ballroom.com answers 522 on www and carries nothing that names Coventry; ballroomclimbing.co.uk and ballroomclimbing.com both answer 404. \"Ballroom Moonboard\" is a room nickname plus a board model.",
+    "candidate": "https://ballroom.com/"
+  },
+  {
+    "lat": 51.5072178,
+    "lon": -0.1275862,
+    "name": "Caffeine Heights (aka Ben's Moon Board)",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "caffeine.co.uk and caffeine.uk answer 403 to every fetcher and caffeine.com answers 500. The dataset name — \"Caffeine Heights (aka Ben's Moon Board)\" — is a private board under a nickname, and the coordinate is the centre of London.",
+    "candidate": "https://caffeine.co.uk/"
+  },
+  {
+    "lat": 19.29568,
+    "lon": -81.36538,
+    "name": "Cayman Climbing Gym",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "caymanclimbing.com is Rock Iguana Ltd on Cayman Brac — outdoor climbing on a different island from this George Town coordinate — and cayman.co.uk is a French maintenance-software firm. Nothing found names an indoor gym in George Town.",
+    "candidate": "https://caymanclimbing.com/"
+  },
+  {
+    "lat": 51.72019,
+    "lon": -2.19443,
+    "name": "Climbing Commons Stroud",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "commons.co.uk does not answer, commons.com presents a certificate that does not cover its hostname and commons.uk carries nothing about Stroud. Nothing else resolves for Climbing Commons Stroud."
   },
   {
     "lat": 51.23622,
@@ -951,29 +980,45 @@
     "name": "Craggy Island Moonboard",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The centre's site serves an expired TLS certificate, so no page could be opened securely and read.",
-    "candidate": "https://www.craggy-island.com/"
+    "checked": "2026-08-23",
+    "reason": "craggy-island.co.uk and craggy-island.uk serve the same \"Welcome to craggy-island.uk\" page, which renders client-side: no address, no town and no second signal reaches the fetched document. craggy-island.com presents a certificate that does not cover its hostname, which is what the first pass logged.",
+    "candidate": "https://craggy-island.co.uk/"
   },
   {
-    "lat": 51.830777,
-    "lon": -1.837254,
-    "name": "Far Peak Climbing Centre",
+    "lat": 52.938636,
+    "lon": -1.1951582,
+    "name": "David Ross Sports Village",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "Far Peak Climbing's published estate address resolves about 2.2 km from this MoonBoard entry and its site names no board, so the name is the only signal available.",
-    "candidate": "https://www.farpeakclimbing.co.uk/"
+    "checked": "2026-08-23",
+    "reason": "david.com and davidross.com carry nothing about Nottingham; the David Ross Sports Village is a University of Nottingham facility and no page of the university's describing it was reached by any guess."
   },
   {
-    "lat": 54.04698,
-    "lon": -2.82335,
-    "name": "Lakeland Climbing Centres - LancasterWall",
+    "lat": 60.5296507,
+    "lon": -1.2659408,
+    "name": "Eshaness Schoolroom",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The centre's site answers HTTP 526 to our requests, so the official page could not be opened and read first-hand.",
-    "candidate": "https://www.lancasterwall.co.uk/"
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: the name \"Eshaness Schoolroom\" yields no domain, no OSM climbing object within 500 m of this Shetland coordinate carries a website, and nothing curated is within 200 m."
+  },
+  {
+    "lat": 57.2822544,
+    "lon": -2.3782185,
+    "name": "Inverurie Campus",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "inverurie.co.uk answers 403 and inverurie.com carries nothing about a climbing wall; the one chain sibling named Campus is a bouldering hall in Germany. Inverurie Campus is a school campus in Aberdeenshire and no page of its own was reached."
+  },
+  {
+    "lat": 54.328006,
+    "lon": -2.74629,
+    "name": "Kendal Board",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "kendal.co.uk and kendal.uk answer with nothing that names a climbing venue, and kendal.com presents a certificate that does not cover its hostname. \"Kendal Board\" is a board in a town, not a business name — the Lakeland operator's KendalWall is a separate, already-curated venue."
   },
   {
     "lat": 52.94775,
@@ -981,19 +1026,19 @@
     "name": "Nottingham Climbing Centre Lenton",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "nottingham.co.uk is a city portal, not this climbing centre; no operator site for it was found.",
+    "checked": "2026-08-23",
+    "reason": "Re-checked: nottingham.co.uk is the city portal the first pass correctly refused, nottingham.uk does not resolve and nottingham.com presents a certificate that does not cover its hostname. Nothing found names a centre in Lenton.",
     "candidate": "https://nottingham.co.uk/"
   },
   {
-    "lat": 53.73655,
-    "lon": -0.37978,
-    "name": "Rockcity Climbing",
+    "lat": 50.73215039999999,
+    "lon": -1.9407653,
+    "name": "Smithys backyard Board",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "Rockcity's site names the centre but publishes no address on any page we could open, so no second independent signal could be established.",
-    "candidate": "https://rockcity.co.uk/"
+    "checked": "2026-08-23",
+    "reason": "smithys.co.uk and smithys.uk present certificates that do not cover their hostnames and smithys.com is a placeholder. \"Smithys backyard Board\" is a private board.",
+    "candidate": "https://smithys.com/"
   },
   {
     "lat": 52.40906,
@@ -1001,8 +1046,8 @@
     "name": "Social Climbing Coventry",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "socialclimbing.co.uk serves a domain-parking lander and socialclimbing.com shows a Launching Soon form, so neither domain carries a page describing this centre.",
+    "checked": "2026-08-23",
+    "reason": "socialclimbing.co.uk is the operator and renders client-side: the fetched document has no title and no text at all, so nothing on it can be matched to Coventry. socialclimb.uk is a marketing agency.",
     "candidate": "https://socialclimbing.co.uk/"
   },
   {
@@ -1011,8 +1056,8 @@
     "name": "Social Climbing Moonboard",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "socialclimbing.co.uk serves a domain-parking lander and socialclimbing.com shows a Launching Soon form, so neither domain carries a page describing this venue.",
+    "checked": "2026-08-23",
+    "reason": "Same operator and the same problem: socialclimbing.co.uk arrives as an empty document, so no branch, address or town can be read from it.",
     "candidate": "https://socialclimbing.co.uk/"
   },
   {
@@ -1021,8 +1066,8 @@
     "name": "Social Climbing Solihull",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "socialclimbing.co.uk serves a domain-parking lander and socialclimbing.com shows a Launching Soon form, so neither domain carries a page describing this centre.",
+    "checked": "2026-08-23",
+    "reason": "Same operator again. The page is empty to a fetch; the only reason a signal registered is that \"Vulcan Rd\" appears in the upstream address and in an unrelated string on socialclimbing.co.uk, which is not evidence.",
     "candidate": "https://socialclimbing.co.uk/"
   },
   {
@@ -1031,8 +1076,8 @@
     "name": "Street Rocks",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's page answers HTTP 401 to our requests, so it could not be opened and read first-hand.",
+    "checked": "2026-08-23",
+    "reason": "cavca.org.uk/street-rocks/ answers 403 to every fetcher and header set tried, including a plain browser one, so the page the first pass identified still cannot be read. streetrocks.com is a domain listing.",
     "candidate": "https://cavca.org.uk/street-rocks/"
   },
   {
@@ -1041,8 +1086,8 @@
     "name": "The Boardroom Climbing Ltd. Wimbledon",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's Wimbledon location page returns 404 and its site lists only the Queensferry centre, so this venue could not be matched against a page we could read.",
+    "checked": "2026-08-23",
+    "reason": "theboardroomclimbing.com is the operator and names a MoonBoard, but it renders client-side: neither the homepage nor any reachable page prints Wimbledon, SW19 or the Centre Court address. The name is the only observation, and the operator has more than one wall.",
     "candidate": "https://www.theboardroomclimbing.com/"
   },
   {
@@ -1051,8 +1096,8 @@
     "name": "The Boardroom Wimbledon",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's Wimbledon location page returns 404 and its site lists only the Queensferry centre, so this venue could not be matched against a page we could read.",
+    "checked": "2026-08-23",
+    "reason": "Same hall as the venue a few metres away and the same problem: the operator's site states no address a fetch can read.",
     "candidate": "https://www.theboardroomclimbing.com/"
   },
   {
@@ -1061,9 +1106,67 @@
     "name": "The Chapel",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "thechapel.co.uk is a chain of hairdressing salons, not this climbing venue, and no other official site for it was found.",
+    "checked": "2026-08-23",
+    "reason": "thechapel.co.uk is a hairdresser, thechapel.com carries nothing about climbing and the-chapel.com is a media agency. \"The Chapel\" in Macclesfield yields nothing else.",
     "candidate": "https://www.thechapel.co.uk/"
+  },
+  {
+    "lat": 56.5718962,
+    "lon": -3.5899516,
+    "name": "The Dunkeld Gym",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "dunkeld.co.uk carries nothing readable and dunkeld.com is a record shop. Nothing found names a gym in Dunkeld.",
+    "candidate": "https://dunkeld.com/"
+  },
+  {
+    "lat": 49.465691,
+    "lon": -2.585278,
+    "name": "The GMC",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "thegmc.com answers with nothing that names Guernsey or a climbing wall, and no other domain resolves for \"The GMC\".",
+    "candidate": "https://thegmc.com/"
+  },
+  {
+    "lat": 50.5299891,
+    "lon": -2.4525106,
+    "name": "THE HANGOUT CLIMBING",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "thehangoutclimbing.co.uk answers 403 behind a certificate that does not cover its hostname, hangout.uk presents the same problem and hangout.com serves a bot-check page. Nothing readable names Weymouth.",
+    "candidate": "https://thehangoutclimbing.co.uk/"
+  },
+  {
+    "lat": 52.858894,
+    "lon": -4.107858,
+    "name": "The Rock",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "therock.com and the-rock.co.uk present certificates that do not cover their hostnames, therock.uk does not answer and the-rock.com carries nothing about a wall in Gwynedd."
+  },
+  {
+    "lat": 53.386304,
+    "lon": -1.47619,
+    "name": "The School Room",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "theschoolroom.co.uk is a venue for hire in Bratton Clovelly, 400 km away; schoolroom.uk is an empty page and school.com a placeholder. \"The School Room\" in Sheffield is a private board.",
+    "candidate": "https://theschoolroom.co.uk/"
+  },
+  {
+    "lat": 51.5946799,
+    "lon": -3.784097,
+    "name": "YM Board",
+    "country": "GB",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "ymboard.com does not resolve on either host, and no OSM climbing object within 500 m of Briton Ferry carries a website. \"YM Board\" is initials plus a board model."
   },
   {
     "lat": 53.3185426,

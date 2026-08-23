@@ -10383,6 +10383,31 @@
   "evidence": "Tue, Wed, Thu, Fri: 6am-10pm | Sat, Sun, Mon: 8am-10pm | Bank Holidays: 8am-8pm (exc. Christmas)"
  },
  {
+  "lat": 52.52996899999999,
+  "lon": -2.0246658,
+  "name": "Boulder Central",
+  "country": "GB",
+  "source": "https://www.bouldercentral.co.uk/faq-contact-us",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Opening Hours — Monday - Friday 12:00 - 22:00. Saturday & Sunday 10:00 - 18:00. Bank Holiday Hours: 24th December 10:00 - 16:00, 25th December Closed, 26th December Closed, 31st December 10:00 - 16:00.",
+  "note": "Stated identically on the homepage and the contact page; the exceptions listed are four named December dates."
+ },
+ {
   "lat": 50.72,
   "lon": -3.53781,
   "name": "Boulder Exe",
@@ -10651,6 +10676,56 @@
   },
   "evidence": "Weekdays : 11.00AM - 10.00PM | Weekends and Bank Holidays: | 09.00AM - 08.00PM",
   "note": "The site’s own schema.org openingHours agrees."
+ },
+ {
+  "lat": 53.2939,
+  "lon": -2.91813,
+  "name": "Climbing Hut Ellesmere Port",
+  "country": "GB",
+  "source": "https://www.climbinghut.com/ellesmereport/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Poole Hall Rd, Ellesmere Port CH66 1ST. Opening Times Mon - Fri 10:00 - 22:00, Sat - Sun 09:00 - 20:00",
+  "note": "This centre opens an hour earlier at the weekend than the operator's Shrewsbury hall, which is why the two blocks are read separately."
+ },
+ {
+  "lat": 52.73845739999999,
+  "lon": -2.7190273,
+  "name": "Climbing Hut Shrewsbury",
+  "country": "GB",
+  "source": "https://www.climbinghut.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "hours-scope",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Shrewsbury@ClimbingHut.com — Opening Times Mon-Fri 10:00 - 22:00, Saturday 10:00 - 20:00, Sunday 10:00 - 20:00. 01743 295997",
+  "note": "The operator states a week per centre, each beside that centre's own e-mail address and phone number; this is the Shrewsbury block."
  },
  {
   "lat": 53.79844,
@@ -10926,6 +11001,31 @@
   "evidence": "Mon – Fri: 10:00am – 10:00pm | Sat – Sun: 10:00am – 06:00pm | Bank Hols: 10:00am – 06:00pm"
  },
  {
+  "lat": 54.04698,
+  "lon": -2.82335,
+  "name": "Lakeland Climbing Centres - LancasterWall",
+  "country": "GB",
+  "source": "https://lakelandclimbingcentres.co.uk/centre/lancasterwall/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Opening Times — Mon – Fri: 12:00pm – 10:00pm. Sat – Sun: 09:00am – 06:00pm. Bank Hols: 12:00pm – 08:00pm. Magic Time Sun: 09:00am – 11:00am",
+  "note": "Magic Time is a cheaper Sunday window inside the opening, not a separate one. The operator also ran a Thursday 6:30am early-opening trial through July, which it describes as a trial and which has ended."
+ },
+ {
   "lat": 51.379625,
   "lon": -2.353975,
   "name": "Luma Climbing",
@@ -11071,6 +11171,31 @@
    "sun": "09:00-18:00"
   },
   "evidence": "Mon, Wed, Fri: 10am - 10pm | Tues, Thurs: 6am - 10pm | Weekends: 9am - 6pm | Bank Holidays: 9am - 9pm"
+ },
+ {
+  "lat": 53.73655,
+  "lon": -0.37978,
+  "name": "Rockcity Climbing",
+  "country": "GB",
+  "source": "https://rockcity.co.uk/pages/prices",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "city",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "09:30-22:00",
+   "tue": "09:30-22:00",
+   "wed": "09:30-22:00",
+   "thu": "09:30-22:00",
+   "fri": "09:30-22:00",
+   "sat": "09:30-19:00",
+   "sun": "09:30-19:00"
+  },
+  "evidence": "MONDAY - FRIDAY: 9:30 AM - 10:00 PM. SATURDAY, SUNDAY & BANK HOLIDAYS: 9:30AM - 7PM. Peak (Monday to Friday 4pm – 10:30pm, Saturday & Sunday 9:30am – 7:00pm), Off-Peak (Monday to Friday 9:30am – 4:00pm)",
+  "note": "The peak and off-peak bands are pricing, not opening; the centre states one week above them."
  },
  {
   "lat": 54.91452529999999,
@@ -11394,6 +11519,31 @@
   },
   "evidence": "Monday - 9am - 10pm | Tuesday - Friday: 6AM - 10PM | Saturday & Sunday: 10AM - 9PM | Bank holidays open as normal",
   "note": "The site's schema.org openingHoursSpecification states the same week."
+ },
+ {
+  "lat": 55.166849930629446,
+  "lon": -1.6902527140646504,
+  "name": "The Coliseum Bouldering Centre",
+  "country": "GB",
+  "source": "https://thecoliseum.co.uk/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Northumberland NE61 1PS. OPENING TIMES Weekdays 10am – 10pm. Weekends 9am – 8pm. CALL US ON: 01670 335222",
+  "note": "Stated once, beside the address."
  },
  {
   "lat": 51.50729,
