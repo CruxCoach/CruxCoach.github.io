@@ -2450,6 +2450,32 @@
   "note": "The single-hall site states the whole week in one block, repeated identically in the page body and the footer. No seasonal or holiday variation is stated anywhere on the site."
  },
  {
+  "lat": -23.5304387,
+  "lon": -46.6785181,
+  "name": "Casa de Pedra Perdizes",
+  "country": "BR",
+  "source": "https://casadepedra.com.br/contato/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "location-page",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "13:00-21:00",
+   "sun": "13:00-21:00"
+  },
+  "evidence": "Unidade Perdizes Rua Venâncio Aires, 31 – Vila Pompéia CEP 05024-030, São Paulo, SP SEG à SEX 6h às 22h SÁB e DOM: 13h às 21h FERIADOS SEG à SEX: 09h às 21h",
+  "note": "The block is headed with this unit's name and address; Unidade Moema is listed separately beneath it with its own address. The holiday line is an exception rule for public holidays falling on weekdays and is not published as part of the week."
+ },
+ {
   "lat": -22.9068467,
   "lon": -43.1728965,
   "name": "Evolução Indoor",
@@ -2472,6 +2498,112 @@
    "sun": "12:00-18:00"
   },
   "evidence": "Abrimos de segunda a sexta de 07h às 22h | Sábado e feriados de 10h às 18h | Domingo de 12h às 18h | Travessa Dona Marciana, 31, Botafogo, Rio de Janeiro - RJ"
+ },
+ {
+  "lat": -23.62735,
+  "lon": -46.70543,
+  "name": "Fabrica Escalade Châcara",
+  "country": "BR",
+  "source": "https://www.fabricaescalada.com/unidades",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "hours-scope",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "CHÁCARA STO. ANTÔNIO … Horários Segunda, Quarta e Sexta: 10h às 22h. Terça e Quinta: 7h às 22h. Sábados, Domingos e Feriados: 10h às 19h. … Endereço Rua da Paz, 1823. Chácara Santo Antônio - São Paulo.",
+  "note": "The schedule sits inside this unit's block, above its address; the Vila Madalena block on the same page gives a different week, so the two are stated separately. The café hours listed under the same unit (Tuesday to Friday 14h30-22h, weekends 10h-19h) belong to the café and are not the hall's opening."
+ },
+ {
+  "lat": -22.8896133,
+  "lon": -47.0600126,
+  "name": "PowerBloc",
+  "country": "BR",
+  "source": "https://powerbloc.com.br/como-funciona/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "15:00-21:00",
+   "tue": "15:00-21:00",
+   "wed": "15:00-21:00",
+   "thu": "15:00-21:00",
+   "fri": "15:00-21:00",
+   "sat": "13:00-19:00",
+   "sun": "closed"
+  },
+  "evidence": "Horário de funcionamento Segunda a Sexta: 15h às 21h Sábado: 13h às 19h",
+  "note": "Sunday is recorded closed because the heading enumerates the week and does not list it. Sessions are booked through the site's Agendamento tab, but the booking is for a slot inside these hours rather than an arrangement in place of them."
+ },
+ {
+  "lat": -23.54847,
+  "lon": -46.59163,
+  "name": "República dos Macacos",
+  "country": "BR",
+  "source": "https://republicadosmacacos.com.br/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "14:30-22:00",
+   "tue": "07:30-11:00,14:30-22:00",
+   "wed": "07:30-11:00,14:30-22:00",
+   "thu": "07:30-11:00,14:30-22:00",
+   "fri": "07:30-11:00,14:30-22:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Horários de funcionamento Segunda: das 14h30 às 22h Terça a Sexta : das 7h30 às 11h (fecha das 11h às 14h30) e reabre das 14h30 até 22h Sábados, Domingos e feriados : das 10h às 19h",
+  "note": "The midday closure on Tuesday to Friday is the gym's own and is preserved as two ranges. Monday has no morning session at all. Public holidays are grouped with the weekend."
+ },
+ {
+  "lat": -15.7756816,
+  "lon": -47.87392579999999,
+  "name": "UBT ESCALADA",
+  "country": "BR",
+  "source": "https://ubtescalada.com.br/ubt-brasilia/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "location-page",
+   "coordinates",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "UBT BRASÍLIA … Horários segunda a sexta-feira – 7:00 às 22:00 sábados – 10:00 às 18:00 domingos e feriados – 10:00 às 18:00",
+  "note": "Stated on this unit's own page, twice. The Curitiba page gives a different weekend, which is what makes each block specific to its hall. Public holidays are grouped with Sunday."
  },
  {
   "lat": 53.9006011,

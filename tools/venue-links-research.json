@@ -285,6 +285,177 @@
     "candidate": "https://www.theboardroomclimbing.com/"
   },
   {
+    "lat": -20.8241755,
+    "lon": -49.37847439999999,
+    "name": "Altitude Escalada",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The domain is the venue's and the site is empty. altitudeescalada.com.br answers 200 with a single line of text, \"Altitude Escalada\", and nothing else — no address, no navigation, no contact. altitudeclimbing.com and the Altitude Gym pages that answered are Canadian; altitude.com is a domain broker. Nothing could be matched against Sao Jose do Rio Preto.",
+    "candidate": "https://altitudeescalada.com.br/"
+  },
+  {
+    "lat": -26.9979828,
+    "lon": -48.63257979999999,
+    "name": "BETAESCALADA",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. betaescalada.com.br, betaescalada.br, betaescalada.com and every compound tried fail to resolve. Upstream gives no address for Balneario Camboriu and no OSM climbing object nearby carries a website tag."
+  },
+  {
+    "lat": -19.33012,
+    "lon": -43.62311,
+    "name": "Blocs Brasil",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. blocsbrasil.com.br does not resolve, and the generic brasil.com.br, brasil.br and brasil.com are unrelated hosts. Nothing could be matched against 104 Alameda Milho Verde, 35847000, Serra do Cipo."
+  },
+  {
+    "lat": -26.9183635,
+    "lon": -49.0604828,
+    "name": "bluclimb",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. bluclimb.com.br, bluclimb.br, bluclimb.com and every compound tried fail to resolve. Upstream gives no address for Blumenau and no OSM climbing object nearby carries a website tag."
+  },
+  {
+    "lat": -25.4513226,
+    "lon": -49.2625023,
+    "name": "Campo Base",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. campobase.com.br serves a certificate that does not cover the hostname, and read past it the page is \"Campo Base Ecolodge, Chapada dos Veadeiros, Goias\" — a lodge 1,000 km from Curitiba. campobase.com answers with nothing, campo.com.br is an environmental-services firm, and campobaseburgos.com is a climbing gym in Spain.",
+    "candidate": "https://campobase.com.br/"
+  },
+  {
+    "lat": -19.3367336,
+    "lon": -43.6297332,
+    "name": "CT Iapó",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. ctiapo.com.br, ctiapo.br, ctiapo.com, ct-iapo.com.br, ct-iapo.br and ct-iapo.com all fail to resolve. Upstream gives no address for Jaboticatubas and no OSM climbing object nearby carries a website tag."
+  },
+  {
+    "lat": -15.7086505,
+    "lon": -47.9143324,
+    "name": "Eleva Academia de Escalada",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "elevaescalada.com.br is \"Eleva Escalada - Academia de Escalada em Brasilia\", which matches this venue's name closely, but its contact page places the gym at SOF Sul Quadra 11 conj B lote 8 loja 70, Zona Industrial - Guara, Brasilia - DF. Upstream places this venue in Lago Norte, on the other side of the city about 13 km away. One of the two is wrong and the page does not say which, so the link cannot be attached to these coordinates.",
+    "candidate": "https://elevaescalada.com.br/"
+  },
+  {
+    "lat": -16.7798436,
+    "lon": -49.3209849,
+    "name": "Escalada Buriti",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. escaladaburiti.com.br does not resolve; buriti.com.br serves a bare Apache \"Index of /\" listing and buriti.com is an unrelated placeholder. Upstream gives no address for Aparecida de Goiania."
+  },
+  {
+    "lat": -23.5829602,
+    "lon": -46.6744396,
+    "name": "FABRICA Escalada",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The operator is certain and the location is not. Fabrica publishes exactly two units on fabricaescalada.com/unidades: Chacara Santo Antonio at Rua da Paz 1823, which holds the Kilter Board and is already linked as its own entry, and Vila Madalena at Rua Girassol 323, which is the one that \"conta tambem com uma Moonboard\". This venue is recorded as a MoonBoard but upstream places it in Itaim Bibi, and the site's own coordinates put Vila Madalena 3.3 km from these coordinates. Neither published unit is in Itaim Bibi, so attaching either page here would assert a location the operator does not claim.",
+    "candidate": "https://www.fabricaescalada.com/unidades"
+  },
+  {
+    "lat": -23.0204559,
+    "lon": -45.5563555,
+    "name": "Ginásio Mantiqueira Escalada",
+    "country": "BR",
+    "status": "unavailable",
+    "checked": "2026-08-23",
+    "reason": "The venue's own site was found and cannot be linked. mantiqueiraescalada.com.br serves a certificate issued for exactly that hostname, so this is not a misconfigured host, but the certificate expired on 11 July 2024 and every browser now refuses it. Read insecurely, the page is unmistakably this venue — \"Enderego: Av. Prefeito Moacyr Freire, 615 - Vila Iapi, Taubate/SP\" and repeated references to the ginasio Mantiqueira Escalada Esportiva Taubate — but its newest blog entry is from June 2019, so the site is dormant as well as unserved. Retry: if the certificate is renewed this becomes an immediate accept.",
+    "candidate": "https://mantiqueiraescalada.com.br/"
+  },
+  {
+    "lat": -18.4730894,
+    "lon": -43.4985413,
+    "name": "Milho Ventura",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. milhoventura.com.br and milhoventura.com are \"Milho Ventura Hostel Experience\", a hostel rather than a climbing venue, and neither prints anything that would place a wall at these coordinates; milho.com.br does not answer and milho.com is unrelated. Upstream gives no address for Serro.",
+    "candidate": "https://milhoventura.com.br/"
+  },
+  {
+    "lat": -20.2468866,
+    "lon": -40.2662845,
+    "name": "Moon Board ACE",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. moonboardace.com.br, moonboardace.br, moonboardace.com, moon-board-ace.com.br, moon-board-ace.br and moon-board-ace.com all fail to resolve. Upstream gives no address for Vila Velha; the name reads as a board in a club (ACE) rather than a public venue, and nothing published could be found for it."
+  },
+  {
+    "lat": -19.9166813,
+    "lon": -43.9344931,
+    "name": "Mr. Board",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. mrboard.com answers 200 with no readable content and is not a climbing venue; mrboard.com.br does not resolve. Upstream gives no address for this Belo Horizonte venue and no OSM climbing object nearby carries a website tag.",
+    "candidate": "https://mrboard.com/"
+  },
+  {
+    "lat": -23.7153163,
+    "lon": -46.5466002,
+    "name": "República dos Lagartos",
+    "country": "BR",
+    "status": "social-only",
+    "checked": "2026-08-23",
+    "reason": "republicadoslagartos.com.br resolves and answers, but the page it serves is an Instagram redirect — the venue keeps no site of its own, only a social profile, which is out of scope for this field.",
+    "candidate": "https://republicadoslagartos.com.br/"
+  },
+  {
+    "lat": -25.0959658,
+    "lon": -50.1608004,
+    "name": "Solo MoonBoard",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. soloescalada.com.br and solomoonboard.com.br do not resolve, and the only Solo climbing site that answers is Solo Escalade in Toulouse. Upstream gives no address for Ponta Grossa and no OSM climbing object nearby carries a website tag."
+  },
+  {
+    "lat": -19.4614342,
+    "lon": -42.5584541,
+    "name": "TG Climb Studio",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. tgclimb.com.br and tgclimbstudio.com.br do not resolve; tgstudio.com.br is a dermopigmentation practice and tgstudio.com and tg-studio.com answer with nothing. Upstream gives no address for Ipatinga."
+  },
+  {
+    "lat": -23.52502856241678,
+    "lon": -46.70673458987846,
+    "name": "TreeLab Ginásio de Escalada",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The certificate asymmetry was checked in both directions and the working host still yields nothing. treelab.com.br answers behind Azure's default *.azurewebsites.net certificate, which does not cover the hostname; www.treelab.com.br carries a certificate issued for exactly that name and answers 200 — so the apex failure was not allowed to reject the working host. What www serves is a client-rendered shell whose only text is \"Conheca nossos planos e venha treinar conosco!\": no address, no map, no structured data. There is nothing on it to match against R. Tome de Souza, 6, 05079-000.",
+    "candidate": "https://www.treelab.com.br/"
+  },
+  {
+    "lat": -19.919052,
+    "lon": -43.9386685,
+    "name": "UP Escalada",
+    "country": "BR",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. upescalada.com.br and up-escalada.com.br do not resolve; the only \"Up\" climbing site that answers is Up The Bloc in Mississauga, Canada, 7,900 km away. Upstream gives no address for this Belo Horizonte venue."
+  },
+  {
     "lat": 53.8980663,
     "lon": 30.3325337,
     "name": "BULL STONE",

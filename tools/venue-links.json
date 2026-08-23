@@ -2183,6 +2183,125 @@
     "note": "The contacts page prints ul. \"187-ma\" 9, 1756 Sofia, which is the address upstream records, and the site names the Kilter Board this venue is listed for."
   },
   {
+    "lat": -23.5304387,
+    "lon": -46.6785181,
+    "name": "Casa de Pedra Perdizes",
+    "country": "BR",
+    "website": "https://casadepedra.com.br/unidade-perdizes/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "city"
+    ],
+    "note": "Casa de Pedra publishes a page per unit and this is the Perdizes one, which is this venue's name in full; OSM carries that exact URL on a climbing object 4 m away. The contact page gives the unit's address as Rua Venancio Aires, 31, Vila Pompeia, CEP 05024-030, Sao Paulo — the neighbouring district to the Perdizes upstream records, which is where the unit that carries the Perdizes name sits."
+  },
+  {
+    "lat": -22.9068467,
+    "lon": -43.1728965,
+    "name": "Evolução Indoor",
+    "country": "BR",
+    "website": "https://www.evolucaoindoor.com.br/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is \"Evolucao Escalada Indoor\" and its contact page gives Travessa Dona Marciana, 31, Botafogo, Rio de Janeiro - RJ, the city upstream records. Upstream files this venue at -22.9068,-43.1729, which is the Rio de Janeiro city centroid rather than a building, and the gym's own structured data puts it 5.8 km from that point in Botafogo; the coordinates are therefore a town-level placeholder and are not claimed as a signal."
+  },
+  {
+    "lat": -23.62735,
+    "lon": -46.70543,
+    "name": "Fabrica Escalade Châcara",
+    "country": "BR",
+    "website": "https://www.fabricaescalada.com/unidades",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The operator's Unidades page carries a block headed CHACARA STO. ANTONIO whose own Endereco line reads \"Rua da Paz, 1823. Chacara Santo Antonio - Sao Paulo\" — the street and the district upstream records — and states that this unit, and only this unit, \"conta com uma Kilter Board com controle de angulo de inclinacao\", which is the board this venue is listed for. OSM carries fabricaescalada.com on a climbing object 35 m away."
+  },
+  {
+    "lat": -23.5635839,
+    "lon": -47.46335149999999,
+    "name": "GEOMETRIK ESCALADA",
+    "country": "BR",
+    "website": "https://geometrikescalada.com.br/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is \"GeometriK Escalada - O Seu Ginasio de Escalada Indoor!\" and the map it embeds of itself is labelled Av. Rogerio Cassola, Votorantim - SP, the town upstream records, 444 m from this venue. geometrik.com is an unrelated host that answers 403."
+  },
+  {
+    "lat": -22.8896133,
+    "lon": -47.0600126,
+    "name": "PowerBloc",
+    "country": "BR",
+    "website": "https://powerbloc.com.br/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is \"PowerBloc | Escalada\" and its footer gives Rua Rafael Sampaio, 187 - Vila Itapura - Campinas, the city upstream records, with a Campinas telephone code. Upstream carries no street for this venue. powerbloc.com is an unrelated electrical-equipment company."
+  },
+  {
+    "lat": -23.54847,
+    "lon": -46.59163,
+    "name": "República dos Macacos",
+    "country": "BR",
+    "website": "https://republicadosmacacos.com.br/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates"
+    ],
+    "note": "The contacts page embeds a map of the gym centred on -23.548860,-46.593757, 221 m from this venue, labelled with its address: R. Itabaiana, 265 - Belenzinho, Sao Paulo - SP, 03171-010. Belenzinho is the district upstream records as Belem."
+  },
+  {
+    "lat": -15.7756816,
+    "lon": -47.87392579999999,
+    "name": "UBT ESCALADA",
+    "country": "BR",
+    "website": "https://ubtescalada.com.br/ubt-brasilia/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "coordinates"
+    ],
+    "note": "UBT publishes one page per unit. The UBT BRASILIA page embeds a map of itself centred on -15.775396,-47.872723 and labelled \"UBT Escalada Brasilia\" — 133 m from this venue — and carries a Brasilia telephone number. The Curitiba unit is a separate page with its own map 900 km away."
+  },
+  {
+    "lat": -25.3956182,
+    "lon": -49.2568971,
+    "name": "UBT Escalada CWB",
+    "country": "BR",
+    "website": "https://ubtescalada.com.br/ubt-curitiba/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "city",
+      "coordinates"
+    ],
+    "note": "The UBT CURITIBA page embeds a map of itself centred on -25.395260,-49.258997 and labelled \"UBT Escalada Curitiba\" — 215 m from this venue — in the city upstream records, and carries a Curitiba telephone number. CWB in the venue name is Curitiba's airport code."
+  },
+  {
     "lat": 53.9006011,
     "lon": 27.558972,
     "name": "Plato Climbing Gym",
