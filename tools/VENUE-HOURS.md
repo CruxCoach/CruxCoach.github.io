@@ -314,52 +314,73 @@ maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (published + outcome entries) | 1149 |
-| Published schedules | 776 |
-| Recorded outcomes without hours | 373 |
-| Countries covered | 26 |
+| Venues reviewed (published + outcome entries) | 1243 |
+| Published schedules | 809 |
+| Recorded outcomes without hours | 434 |
+| Countries covered | 28 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
 
 | country | published | reviewed | eligible | share |
 | --- | --- | --- | --- | --- |
-| US | 252 | 318 | 576 | 44% |
-| DE | 134 | 173 | 201 | 67% |
-| CA | 59 | 86 | 132 | 45% |
-| GB | 52 | 72 | 102 | 51% |
+| US | 267 | 349 | 576 | 46% |
+| DE | 136 | 176 | 201 | 68% |
+| CA | 60 | 90 | 132 | 45% |
+| GB | 53 | 74 | 102 | 52% |
 | NL | 38 | 53 | 59 | 64% |
+| AU | 36 | 49 | 83 | 43% |
 | CH | 35 | 52 | 56 | 63% |
-| AU | 31 | 42 | 83 | 37% |
 | AT | 31 | 45 | 48 | 65% |
-| FR | 27 | 55 | 70 | 39% |
-| NO | 19 | 45 | 81 | 23% |
+| FR | 28 | 56 | 70 | 40% |
+| ES | 19 | 58 | 98 | 19% |
+| NO | 19 | 50 | 81 | 23% |
 | BE | 19 | 28 | 36 | 53% |
-| ES | 18 | 55 | 98 | 18% |
-| DK | 11 | 16 | 27 | 41% |
-| IT | 9 | 23 | 72 | 13% |
-| PL | 8 | 14 | 45 | 18% |
+| DK | 12 | 18 | 27 | 44% |
+| IT | 9 | 27 | 72 | 13% |
+| PL | 9 | 19 | 45 | 20% |
+| SE | 6 | 28 | 37 | 16% |
 | ZA | 6 | 6 | 12 | 50% |
-| SE | 5 | 17 | 37 | 14% |
-| FI | 5 | 8 | 15 | 33% |
-| IE | 5 | 5 | 10 | 50% |
-| CZ | 3 | 6 | 10 | 30% |
-| NZ | 2 | 2 | 11 | 18% |
+| FI | 5 | 9 | 15 | 33% |
+| IE | 5 | 6 | 10 | 50% |
+| CZ | 4 | 7 | 10 | 40% |
+| NZ | 3 | 5 | 11 | 27% |
 | SG | 2 | 2 | 9 | 22% |
 | LU | 2 | 3 | 6 | 33% |
-| PT | 1 | 4 | 15 | 7% |
+| BR | 1 | 3 | 26 | 4% |
+| PT | 1 | 5 | 15 | 7% |
+| CO | 1 | 1 | 6 | 17% |
 | SI | 1 | 1 | 6 | 17% |
-| TR | 1 | 1 | 3 | 33% |
-| JP | 0 | 3 | 48 | 0% |
+| TR | 1 | 2 | 3 | 33% |
+| JP | 0 | 4 | 48 | 0% |
 
-- **Last completed batch:** the 437 link-less venues that carry an address or a
-  city, put through a name-to-domain guess whose only job is to *propose* a site.
-  116 proposals survived a page-side check (the page has to carry the venue's name
-  and its street or city); of those, 46 published and 69 logged.
-- **Next:** the ~1,350 link-less venues with neither an address nor a city in the
-  dataset. A name-to-domain guess cannot be checked for those, so they need a site
-  established some other way first — `tools/VENUE-LINKS.md` is the policy — and
-  nothing here may publish hours from a site that policy has not been applied to.
+- **Last completed batch:** the same guess run over the remaining 1,550 link-less
+  venues, using the offline place index to supply a city where the dataset has
+  none. 101 proposals survived the page-side check; 33 published, 67 logged.
+- **What is left:** roughly 950 eligible venues, almost all of them with no name
+  the guess can turn into a domain (a board model, a gym chain's initials, a
+  Japanese or Chinese name our slug rules mangle) or with a site the check could
+  not confirm. They need a link established the careful way — `tools/VENUE-LINKS.md`
+  is the policy — and nothing here may publish hours from a site that policy has
+  not been applied to.
+
+### The second guess run, and what it says about the tail
+
+Running the same guess over the remaining 1,550 link-less venues — this time
+taking the city from the offline place index where the dataset has none — hit
+101 sites, a 6.5% rate against 26.5% for the venues that carry an address. The
+drop is the tail telling you what it is made of: entries named after the board
+rather than the gym, chains reduced to initials, Japanese and Chinese names our
+ASCII slug rules cannot turn into a domain, university walls inside a campus site.
+
+**Seasonal is a Nordic August problem.** Six of the 67 outcomes in this batch are
+Swedish or Polish halls in a summer regime — Mono Loco, Östersunds, Norrköping,
+Borås, Helsingborgs K2, FlyWall — each with the ordinary week printed right beside
+the one in force. That is a fifth of everything reviewed in Sweden.
+
+**And the guess keeps proposing the wrong Redmond.** The Jug Rock Gym's candidate
+is a gym of that name in Redmond, Oregon; the entry is in Redmond, Washington. The
+city check passed on the name of the town and the address caught it.
 
 ### Guessing a domain, and letting the page do the verifying
 

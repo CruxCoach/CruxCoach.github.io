@@ -1251,6 +1251,30 @@
   "evidence": "Monday CLOSED | Tuesday 12pm - 8pm | Wednesday 12pm - 8pm | Thursday 12pm - 8pm | Friday 12pm - 8pm | Saturday 10am - 6pm | Sunday. 10am - 6pm"
  },
  {
+  "lat": -34.02845,
+  "lon": 151.07911,
+  "name": "Climb Fit Kirrawee",
+  "country": "AU",
+  "source": "https://climbfit.com.au/location/climbfit-kirrawee/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "name",
+   "location-page",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "OPENING HOURS | Monday | 6am - 10pm | Tuesday | 6am - 10pm | Wednesday | 6am - 10pm | Thursday | 6am - 10pm | Friday | 6am - 10pm | Saturday | 8am - 8pm | Sunday | 8am - 8pm | PUBLIC HOLIDAYS | 9AM - 9PM"
+ },
+ {
   "lat": -37.85835,
   "lon": 144.81001,
   "name": "Climb West Melbourne",
@@ -1347,6 +1371,29 @@
   },
   "evidence": "Monday 9:00 AM - 10:00 PM | Tuesday 9:00 AM - 10:00 PM | Wednesday 9:00 AM - 10:00 PM | Thursday 9:00 AM - 10:00 PM | Friday 9:00 AM - 10:00 PM | Saturday 9:00 AM - 8:00 PM | Sunday 9:00 AM - 8:00 PM",
   "note": "The site’s own schema.org openingHoursSpecification agrees."
+ },
+ {
+  "lat": -34.91352,
+  "lon": 138.62827,
+  "name": "Laneway Boulders",
+  "country": "AU",
+  "source": "https://lanewayboulders.com.au/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-18:00"
+  },
+  "evidence": "Weekdays 6am - 10pm | Saturday 8am - 8pm | Sunday 8am - 6pm"
  },
  {
   "lat": -31.91396,
@@ -1446,6 +1493,56 @@
   "note": "The operator lists its four gyms as tabs, Adamstown first, each with its own week and address."
  },
  {
+  "lat": -33.4190224,
+  "lon": 151.3202408,
+  "name": "Pulse Climbing Gosford",
+  "country": "AU",
+  "source": "https://pulseclimbing.com.au/about/prices-and-times/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "name",
+   "hours-scope",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Gosford | Monday 12–10pm | Tuesday 9am–10pm | Wednesday 9am–10pm | Thursday 9am–10pm | Friday 9am–10pm | Saturday 9am–6pm | Sunday 9am–6pm | 8 Grieve Road, West Gosford 2250",
+  "note": "The operator lists its four gyms as tabs, each with its own week; school-holiday weekdays and public holidays are listed separately."
+ },
+ {
+  "lat": -32.9624388,
+  "lon": 151.660896,
+  "name": "Pulse Climbing Warners Bay",
+  "country": "AU",
+  "source": "https://pulseclimbing.com.au/about/prices-and-times/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "name",
+   "hours-scope",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "06:30-22:00",
+   "fri": "12:00-22:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Warners Bay | Monday 12–10pm | Tuesday 12–10pm | Wednesday 12–10pm | Thursday 6:30am–10pm | Friday 12–10pm | Saturday 9am–6pm | Sunday 9am–6pm",
+  "note": "The operator lists its four gyms as tabs, each with its own week; school-holiday weekdays and public holidays are listed separately."
+ },
+ {
   "lat": -37.78692,
   "lon": 144.88556,
   "name": "Rocket Climbing",
@@ -1518,6 +1615,29 @@
   },
   "evidence": "Open to members and the public. Rope climbing wall remains closed. | Monday Closed | Tuesday Closed | Wednesday 12:00 PM – 8:00 PM | Thursday 12:00 PM – 8:00 PM | Friday 12:00 PM – 8:00 PM | Saturday 8:00 AM – 8:00 PM | Sunday 8:00 AM – 8:00 PM",
   "note": "The café next door keeps its own longer week (Wed–Fri from 6:30 AM, weekends 6:30 AM–2 PM) and is listed separately; the page’s two schema.org blocks match the two facilities."
+ },
+ {
+  "lat": -37.73092,
+  "lon": 144.95295,
+  "name": "The Crux",
+  "country": "AU",
+  "source": "https://thecrux.com.au/contact-melbourne-bouldering-rock-climbing-gym",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Mon - Fri: 10am - 10pm | Sat - Sun: 9am - 8pm"
  },
  {
   "lat": 50.45016,
@@ -1978,6 +2098,30 @@
    "sun": "10:00-22:00"
   },
   "evidence": "Monday 10:30 AM – 11:00 PM | Tuesday 11:30 AM – 11:00 PM | Wednesday 10:30 AM – 11:00 PM | Thursday 10:30 AM – 11:00 PM | Friday 10:30 AM – 11:00 PM | Saturday 10:00 AM – 8:00 PM | Sunday 10:00 AM – 10:00 PM. Open every day (including public holidays)"
+ },
+ {
+  "lat": -22.9068467,
+  "lon": -43.1728965,
+  "name": "Evolução Indoor",
+  "country": "BR",
+  "source": "https://www.evolucaoindoor.com.br/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "10:00-18:00",
+   "sun": "12:00-18:00"
+  },
+  "evidence": "Abrimos de segunda a sexta de 07h às 22h | Sábado e feriados de 10h às 18h | Domingo de 12h às 18h | Travessa Dona Marciana, 31, Botafogo, Rio de Janeiro - RJ"
  },
  {
   "lat": 45.52790299999999,
@@ -3340,6 +3484,29 @@
   "note": "Members have 24/7 access; day passes are sold during staffed hours only, so the staffed week is what is recorded."
  },
  {
+  "lat": 43.7006951,
+  "lon": -79.7137826,
+  "name": "Toprock Climbing",
+  "country": "CA",
+  "source": "https://www.toprockclimbing.ca/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "11:00-23:00",
+   "tue": "11:00-23:00",
+   "wed": "16:00-23:00",
+   "thu": "11:00-23:00",
+   "fri": "11:00-23:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Monday - 11am - 11pm | Tuesday - 11am - 11pm | Wednesday - 4pm - 11pm | Thursday - 11am - 11pm | Friday - 11am - 11pm | Saturday - 9am - 10pm | Sunday - 9am - 8pm"
+ },
+ {
   "lat": 49.9492732,
   "lon": -97.1897439,
   "name": "Vertical Adventures",
@@ -4262,6 +4429,29 @@
   "evidence": "Neue Öffnungszeiten gültig ab dem 05.01.2025: Montag Ruhetag | Dienstag 10:00-18:00 | Mittwoch 10:00-18:00 | Donnerstag 10:00-18:00 | Freitag 10:00-18:00 | Samstag 9:00-18:00 | Sonntag 9:00-18:00"
  },
  {
+  "lat": 4.638923400703702,
+  "lon": -74.07231190130578,
+  "name": "Zona de Bloque",
+  "country": "CO",
+  "source": "https://zonadebloque.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-21:45",
+   "tue": "06:00-21:45",
+   "wed": "06:00-21:45",
+   "thu": "06:00-21:45",
+   "fri": "06:00-21:45",
+   "sat": "08:00-20:00",
+   "sun": "10:00-17:00"
+  },
+  "evidence": "Lunes a Viernes de 6:00 a.m. a 9:45 p.m. | Sábados de 8:00 a.m. a 8:00 p.m. | Domingos y Festivos de 10:00 a.m. a 5:00 p.m."
+ },
+ {
   "lat": 49.82052,
   "lon": 18.17953,
   "name": "HANGAR Ostrava",
@@ -4284,6 +4474,31 @@
    "sun": "09:00-22:00"
   },
   "evidence": "Adresa: Nad Porubkou 2405 , 708 00 Ostrava-Poruba | Opening hours: | MO 9:00 – 22:00 | TU 7:00 – 22:00 | WE 9:00 – 22:00 | TH 7:00 – 22:00 | FR 9:00 – 22:00 | SA 9:00 – 22:00 | SU 9:00 – 22:00"
+ },
+ {
+  "lat": 49.8216552,
+  "lon": 18.1767387,
+  "name": "Hangar Ostrava - Moonboard 2019",
+  "country": "CZ",
+  "source": "https://hangarostrava.cz/en/contact/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Adresa: Nad Porubkou 2405 , 708 00 Ostrava-Poruba | Opening hours: | MO 9:00 – 22:00 | TU 7:00 – 22:00 | WE 9:00 – 22:00 | TH 7:00 – 22:00 | FR 9:00 – 22:00 | SA 9:00 – 22:00 | SU 9:00 – 22:00",
+  "note": "The dataset lists this hall twice, about 250 m apart; both entries read the same page."
  },
  {
   "lat": 50.1057962,
@@ -4992,6 +5207,29 @@
   "evidence": "Mo-Fr 8-23 Uhr | Sa, So, Feiertag 10-22 Uhr"
  },
  {
+  "lat": 50.4896563,
+  "lon": 12.1270898,
+  "name": "Boulderhalle Plauen ‘School Project’  Moonboard 2019",
+  "country": "DE",
+  "source": "https://boulderhalle-plauen.de/?page_id=14",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "17:00-21:00",
+   "tue": "16:00-22:00",
+   "wed": "18:00-22:00",
+   "thu": "16:00-22:00",
+   "fri": "18:00-22:00",
+   "sat": "closed",
+   "sun": "14:00-19:00"
+  },
+  "evidence": "Montag | 17:00 | 21:00 Uhr | Dienstag | 16:00 | 22:00 Uhr | Mittwoch | 18:00 | 22:00 Uhr | Donnerstag | 16:00 | 22:00 Uhr | Freitag | 18:00 | 22:00 Uhr | Samstag | geschlossen | Sonntag | 14:00 | 19:00 Uhr"
+ },
+ {
   "lat": 49.6088,
   "lon": 11.1345,
   "name": "Boulderia",
@@ -5038,6 +5276,29 @@
    "sun": "09:00-22:00"
   },
   "evidence": "Montag 09:00 - 23:00 | Dienstag 09:00 - 23:00 | Mittwoch 09:00 - 23:00 | Donnerstag 09:00 - 23:00 | Freitag 09:00 - 23:00 | Samstag 09:00 - 22:00 | Sonntag/Feiertag 09:00 - 22:00 Uhr"
+ },
+ {
+  "lat": 52.52000659999999,
+  "lon": 13.404954,
+  "name": "Boulderklub Kreuzberg",
+  "country": "DE",
+  "source": "https://boulderklub.de/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Montag – Freitag 07:00 bis 22:00 Uhr | Samstag – Sonntag 09:00 bis 22:00 Uhr | Feiertage 09:00 bis 22:00 Uhr"
  },
  {
   "lat": 47.84413,
@@ -7656,6 +7917,30 @@
   "note": "The site publishes a block per hall; the site’s own schema.org openingHours (09:00-23:00 every day) matches this one."
  },
  {
+  "lat": 55.4776611,
+  "lon": 8.4873221,
+  "name": "Boulder Hulen",
+  "country": "DK",
+  "source": "https://www.esbjergboulderklub.dk/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "16:00-21:00",
+   "tue": "16:00-21:00",
+   "wed": "16:00-21:00",
+   "thu": "16:00-21:00",
+   "fri": "16:00-21:00",
+   "sat": "14:00-19:00",
+   "sun": "14:00-19:00"
+  },
+  "evidence": "Mandag - Fredag | 16.00 - 21.00 | Lørdag - Søndag | 14.00 - 19.00 | Esbjerg Boulderklub - Strandby Kirkevej 36, 6705 Esbjerg Ø"
+ },
+ {
   "lat": 57.03035,
   "lon": 9.97521,
   "name": "Boulders Aalborg",
@@ -8059,6 +8344,30 @@
    "sun": "17:00-21:00"
   },
   "evidence": "Lunes a Viernes 10:00 – 14:00 y 16:00 – 22:00 | Sábados 11:00 – 14:00 y 17:00 – 22:00 | domingos y festivos 17:00 – 21:00"
+ },
+ {
+  "lat": 42.1976089,
+  "lon": -8.7728264,
+  "name": "Mapache Climbing",
+  "country": "ES",
+  "source": "https://mapacheclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "10:00-14:00,16:00-22:30",
+   "tue": "10:00-14:00,16:00-22:30",
+   "wed": "10:00-14:00,16:00-22:30",
+   "thu": "10:00-14:00,16:00-22:30",
+   "fri": "10:00-14:00,16:00-22:30",
+   "sat": "11:00-20:00",
+   "sun": "11:00-15:00"
+  },
+  "evidence": "Av. Ricardo Mella, 123. Vigo | Horarios Lun – Vie: 10:00 – 14:00 / 16:00 – 22:30 | Sab: 11:00 – 20:00 | Dom: 11:00 – 15:00"
  },
  {
   "lat": 37.35773,
@@ -8905,6 +9214,29 @@
   "note": "The page's schema.org openingHours states the same week."
  },
  {
+  "lat": 49.9026632,
+  "lon": 2.2852224,
+  "name": "Grimp A Bloc",
+  "country": "FR",
+  "source": "https://www.grimpabloc.fr/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "13:00-22:30",
+   "tue": "11:00-22:30",
+   "wed": "09:30-22:30",
+   "thu": "11:00-22:30",
+   "fri": "11:00-22:30",
+   "sat": "09:30-21:00",
+   "sun": "09:30-21:00"
+  },
+  "evidence": "Horaires | Lundi | de 13h à 22h30 | mardi, jeudi et vendredi | de 11h à 22h30 | Le mercredi | de 9h30 à 22h30 | Le samedi et dimanche | de 9h30 à 21h00"
+ },
+ {
   "lat": 49.15363,
   "lon": -0.28923,
   "name": "Isatix",
@@ -9566,6 +9898,30 @@
    "sun": "09:00-21:00"
   },
   "evidence": "OPENING TIMES Weekdays: 7am — 10:30pm | Weekends: 9am — 9pm"
+ },
+ {
+  "lat": 51.49843,
+  "lon": -0.11382,
+  "name": "Climbing Gym Sen",
+  "country": "GB",
+  "source": "https://www.climbinggymsen.co.uk/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Weekdays : 11.00AM - 10.00PM | Weekends and Bank Holidays: | 09.00AM - 08.00PM",
+  "note": "The site’s own schema.org openingHours agrees."
  },
  {
   "lat": 53.79844,
@@ -12231,6 +12587,29 @@
   "note": "The operator’s Hamilton gym opens at 9am on weekdays; each location page carries its own block."
  },
  {
+  "lat": -36.77531,
+  "lon": 174.73321,
+  "name": "Northern Rocks",
+  "country": "NZ",
+  "source": "https://www.northernrocks.co.nz/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "10am-10pm Weekdays | 8am-8pm Weekends | 9am-8pm Public Holidays"
+ },
+ {
   "lat": -41.2715,
   "lon": 173.28177,
   "name": "The Gravity Well",
@@ -12300,6 +12679,29 @@
    "sun": "08:00-23:00"
   },
   "evidence": "Poniedziałek 9:00 - 23:00 | Wtorek 9:00 - 23:00 | Środa 9:00 - 23:00 | Czwartek 9:00 - 23:00 | Piątek 9:00 - 23:00 | Sobota 08:00 - 23:00 | Niedziela 08:00 - 23:00"
+ },
+ {
+  "lat": 49.6174535,
+  "lon": 20.7153326,
+  "name": "Boulder zone",
+  "country": "PL",
+  "source": "https://boulder-zone.pl/kontakt/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "15:00-22:00",
+   "wed": "15:00-22:00",
+   "thu": "15:00-22:00",
+   "fri": "15:00-22:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "poniedziałek – piątek od 15:00 do 22:00 | sobota i niedziela od 10:00 do 19:00"
  },
  {
   "lat": 52.4173693,
@@ -12588,6 +12990,29 @@
   "evidence": "MÅNDAG - TORSDAG: 11.00 - 22.00 | FREDAG: 11.00 - 21.00 | LÖRDAG - SÖNDAG: 11.00 - 19.00"
  },
  {
+  "lat": 65.6036398,
+  "lon": 22.1386911,
+  "name": "Klätterhuset Luleå",
+  "country": "SE",
+  "source": "https://klatterhuset.se/oppettider/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "11:00-21:30",
+   "tue": "11:00-21:30",
+   "wed": "11:00-21:30",
+   "thu": "11:00-21:30",
+   "fri": "11:00-21:30",
+   "sat": "09:00-16:00",
+   "sun": "11:00-20:00"
+  },
+  "evidence": "Vardagar: 11:00-21:30 | Lördagar: 9:00-16:00 | Söndagar: 11:00-20:00 | Vid stängningstiden ska man vara klar att lämna hallen."
+ },
+ {
   "lat": 1.29201,
   "lon": 103.8502,
   "name": "Climb Central Funan",
@@ -12759,6 +13184,30 @@
   "note": "The operator’s site carries one table per gym; Walker’s Point also opens to members at 6 AM on Tuesday and Thursday."
  },
  {
+  "lat": 33.66522,
+  "lon": -117.66397,
+  "name": "Aesthetic Climbing Gym",
+  "country": "US",
+  "source": "https://aestheticclimbinggym.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Monday to Friday 10am to 10pm | Saturday 10am to 8pm | Sunday 10am to 6pm | 26794 Vista Terrace, Lake Forest, CA 92630"
+ },
+ {
   "lat": 36.97181,
   "lon": -121.9666,
   "name": "Agility Boulders",
@@ -12853,6 +13302,31 @@
    "sun": "12:00-20:00"
   },
   "evidence": "Sun | Noon - 8pm | Mon | 4pm - 10pm | Tue - Sat | Noon - 10pm"
+ },
+ {
+  "lat": 33.5727,
+  "lon": -112.2557,
+  "name": "Ape Index Rock Climbing",
+  "country": "US",
+  "source": "https://climbapeindex.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "15:00-22:00",
+   "wed": "15:00-22:00",
+   "thu": "15:00-22:00",
+   "fri": "15:00-19:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Mon-Thurs: 3-10PM | Fri: 3-7PM | Sat-Sun: 10AM-7PM | 9700 N 91st Ave | Peoria, AZ 85345 — the page’s own schema.org openingHours reads \"Mo 15:00-22:00, Tu 15:00-22:00, We 15:00-22:00, Th 15:00-22:00, Fr 15:00-19:00, Sa 10:00-19:00, Su 10:00-19:00\"",
+  "note": "The visible times are written without a meridiem on the opening (\"3-10PM\"); the page’s own markup settles them and the two agree."
  },
  {
   "lat": 36.56563,
@@ -13193,6 +13667,31 @@
   "evidence": "we’re open. mon-fri 6a-10p, sat-sun 7a-10p. … mon - fri : 6a - 10p | sat - sun : 7a - 10p | 122 zelt strasse, leavenworth, wa 98826"
  },
  {
+  "lat": 37.87804,
+  "lon": -122.26885,
+  "name": "Benchmark Climbing Berkeley",
+  "country": "US",
+  "source": "https://www.benchmarkclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "name",
+   "hours-scope",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "SF Location - 1414 Van Ness Ave., SF, CA 94109 | Mon-Fri - 11am-10pm; Sat-Sun - 10am-7pm | Berkeley Location - 1607 Shattuck Ave., Berkeley, CA | Mon-Fri - 7am-10pm; Sat-Sun - 10am-7pm",
+  "note": "The operator lists its two gyms with an address and an hours line each; the San Francisco one opens at 11am."
+ },
+ {
   "lat": 44.9808,
   "lon": -93.45714,
   "name": "Big Island Bouldering",
@@ -13289,6 +13788,29 @@
   },
   "evidence": "Hours of Operation | Everyday: 10am – 10pm | MEMBERS ONLY HOURS: 7am-10am | Phone | 530-600-2761 | Address | 1259 Emerald Bay Rd. | South Lake Tahoe, CA 96150",
   "note": "Members additionally get in 7–10am; the public week is what is recorded."
+ },
+ {
+  "lat": 28.54662,
+  "lon": -81.38324,
+  "name": "Blue Swan Boulders",
+  "country": "US",
+  "source": "https://blueswanboulders.com/visit/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "M/W/F · 9am-10pm | T/TH · 6am-10pm | SAT/SUN · 9am-8pm"
  },
  {
   "lat": 42.02416,
@@ -14425,6 +14947,31 @@
    "sun": "10:00-20:00"
   },
   "evidence": "2190 Professor Avenue | Cleveland, Ohio 44113 | Monday – Friday: 3pm-10pm | Saturday + Sunday: 10am-8pm | Holiday hours may vary."
+ },
+ {
+  "lat": 35.09376,
+  "lon": -92.41243,
+  "name": "Climb Conway",
+  "country": "US",
+  "source": "https://www.climbconway.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "13:00-22:00",
+   "tue": "13:00-22:00",
+   "wed": "13:00-22:00",
+   "thu": "13:00-22:00",
+   "fri": "13:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "13:00-19:00"
+  },
+  "evidence": "1pm – 10pm Weekdays | 10am – 8pm Saturday | 1pm – 7pm Sunday | 1157 Pats Lane | Conway, AR 72032",
+  "note": "The site’s own schema.org openingHours agrees."
  },
  {
   "lat": 41.58661,
@@ -15641,6 +16188,30 @@
   "evidence": "Monday | 10:00 AM - 10:00 PM | Tuesday | 10:00 AM - 10:00 PM | Wednesday | 10:00 AM - 10:00 PM | Thursday | 10:00 AM - 10:00 PM | Friday | 10:00 AM - 9:00 PM | Saturday | 10:00 AM - 8:00 PM | Sunday | 10:00 AM - 8:00 PM"
  },
  {
+  "lat": 27.353466,
+  "lon": -82.403083,
+  "name": "HEXROCK Climbing",
+  "country": "US",
+  "source": "https://www.hexrockclimbing.com/first-visit",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-24:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Open Hours: | Monday - Thursday | Friday | Saturday | Sunday | 7 am – 10 pm | 7 am – 12 am (midnight) | 10 am - 10 pm | 10 am – 6 pm | 1355 Sarasota Center Blvd | Sarasota, FL, 34240"
+ },
+ {
   "lat": 35.18317,
   "lon": -84.87391,
   "name": "High Point Climbing Cleveland",
@@ -15735,6 +16306,29 @@
    "sun": "12:00-18:00"
   },
   "evidence": "Hours | Mon – Fri: 10 AM – 10 PM | Saturday: 10 AM – 9 PM | Sunday: Noon – 6 PM | 16730 House Hahl Rd | Cypress, TX 77433"
+ },
+ {
+  "lat": 40.48005,
+  "lon": -79.95683,
+  "name": "Iron City Boulders",
+  "country": "US",
+  "source": "https://ironcityboulders.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "SAT – SUN | 9AM – 9PM | MON – FRI | 6AM – 10PM | Pittsburgh, PA 15201"
  },
  {
   "lat": 37.04331,
@@ -17122,6 +17716,29 @@
   "evidence": "M-F 6 am-11 pm | SAT 8 am-8 pm | SUN 8 am-6 pm … Movement Wrigleyville is open Monday–Friday, 6am–11pm, Saturday, 8am–8pm, and Sunday, 8am–6pm."
  },
  {
+  "lat": 41.93794,
+  "lon": -74.01977,
+  "name": "Mustangs Bouldering",
+  "country": "US",
+  "source": "https://www.mustangsbouldering.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Mon-Fri: 10Am-10pm | SAT: 10am-9pm | SUN: 10am-7pm | Kingston, NY 12401"
+ },
+ {
   "lat": 43.05838,
   "lon": -78.83704,
   "name": "Niagara Climbing Center",
@@ -17193,6 +17810,79 @@
    "sun": "08:00-18:00"
   },
   "evidence": "Club Hours | Mon. – Thurs. 5am – 10pm | Friday 5am – 9pm | Saturday 7am – 6pm | Sunday 8am – 6pm"
+ },
+ {
+  "lat": 38.81398069999999,
+  "lon": -104.8400848,
+  "name": "Pure Bouldering Gym",
+  "country": "US",
+  "source": "https://www.pureboulderinggym.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "10:00-21:00",
+   "tue": "10:00-21:00",
+   "wed": "10:00-21:00",
+   "thu": "10:00-21:00",
+   "fri": "10:00-21:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Monday - Saturday: | 10am - 9pm | Sunday: | 10am - 8pm | 1401 S 8th Street, Colorado Springs, CO 80905 | We are open 7 days a week from 10:00 am to 9:00 pm, except on Sundays we close at 8:00 pm.",
+  "note": "The site’s own schema.org openingHoursSpecification agrees."
+ },
+ {
+  "lat": 40.8626711,
+  "lon": -74.6150636,
+  "name": "Randolph Climbing Center",
+  "country": "US",
+  "source": "https://randolphclimbingcenter.com/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Mon | 10:00 am – 10:00 pm | Tue | 10:00 am – 10:00 pm | Wed | 10:00 am – 10:00 pm | Thu | 10:00 am – 10:00 pm | Fri | 10:00 am – 10:00 pm | Sat | 10:00 am – 08:00 pm | Sun | 10:00 am – 06:00 pm",
+  "note": "The site’s own schema.org openingHoursSpecification agrees."
+ },
+ {
+  "lat": 40.86276,
+  "lon": -74.61503,
+  "name": "Randolph Climbing Center",
+  "country": "US",
+  "source": "https://randolphclimbingcenter.com/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Mon | 10:00 am – 10:00 pm | Tue | 10:00 am – 10:00 pm | Wed | 10:00 am – 10:00 pm | Thu | 10:00 am – 10:00 pm | Fri | 10:00 am – 10:00 pm | Sat | 10:00 am – 08:00 pm | Sun | 10:00 am – 06:00 pm",
+  "note": "The site’s own schema.org openingHoursSpecification agrees."
  },
  {
   "lat": 38.26238,
@@ -17464,6 +18154,31 @@
   "evidence": "Mon-Fri: 2p-9p | Sat: 9a-9p | Su: Closed | Independence Day: Closed | Christmas Day: Closed"
  },
  {
+  "lat": 36.02423,
+  "lon": -79.87617,
+  "name": "Ruckus Climbing Gym",
+  "country": "US",
+  "source": "https://ruckusclimbinggym.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "11:00-21:00",
+   "tue": "11:00-21:00",
+   "wed": "11:00-21:00",
+   "thu": "11:00-21:00",
+   "fri": "11:00-21:00",
+   "sat": "09:00-21:00",
+   "sun": "12:00-19:00"
+  },
+  "evidence": "Mon - Fri: 11am - 9pm | Sat: 9am - 9pm | Sun: 12pm - 7pm | Members Only: | Mon - Fri: 9am-11am | Sunday: 11am-12pm | 5005 High Point Rd. | Greensboro, NC 27407",
+  "note": "Members additionally get in 9–11am on weekdays and 11am–12pm on Sunday; the public week is what is recorded."
+ },
+ {
   "lat": 43.59293,
   "lon": -70.36218,
   "name": "Salt Pump Climbing Co Scarborough",
@@ -17706,6 +18421,30 @@
   "evidence": "Mon – Fri: 8am - 10pm | Sat: 10am - 6pm | Sun: 10am - 6pm | Sender City hours differ or vary per location"
  },
  {
+  "lat": 42.81658,
+  "lon": -86.08664,
+  "name": "Shift Climbing",
+  "country": "US",
+  "source": "https://www.shiftclimbing.com/hours-and-location",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Sunday | 10:00 AM - 6:00 PM | Monday | 10:00 AM - 10:00 PM | Tuesday | 6:00 AM - 10:00 PM | Wednesday | 12:00 PM - 10:00 PM | Thursday | 6:00 AM - 10:00 PM | Friday | 10:00 AM - 10:00 PM | Saturday | 8:00 AM - 8:00 PM",
+  "note": "The site’s own schema.org openingHours agrees."
+ },
+ {
   "lat": 38.801099,
   "lon": -77.1263623,
   "name": "Sportrock",
@@ -17804,6 +18543,31 @@
   },
   "evidence": "Climbing Gym Hours: Monday - Friday | 6am - 11pm Saturday - Sunday | 8am - 9pm Sportrock - Rio Address: 9811 Washingtonian Blvd, Suite 300, Gaithersburg MD, 20878",
   "note": "The page’s own schema.org openingHoursSpecification agrees."
+ },
+ {
+  "lat": 38.89912,
+  "lon": -104.82728,
+  "name": "Springs Climbing Center",
+  "country": "US",
+  "source": "https://springsclimbingcenter.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "12:00-20:00"
+  },
+  "evidence": "Monday 10am-10pm | Tuesday 6am-10pm | Wednesday 10am-10pm | Thursday 6am-10pm | Friday 10am-10pm | Saturday 10am-8pm | Sunday 12pm-8pm | 4642 Northpark Dr. | Colorado Springs, CO 80918",
+  "note": "The site’s own schema.org openingHours agrees."
  },
  {
   "lat": 45.74751,
@@ -18798,6 +19562,31 @@
    "sun": "09:00-22:00"
   },
   "evidence": "Monday - Thursday | 8am - 11pm | Friday | 8am - 10pm | Saturday - Sunday | 9am - 10pm"
+ },
+ {
+  "lat": 37.17801,
+  "lon": -93.22198,
+  "name": "Zenith Climbing Center",
+  "country": "US",
+  "source": "https://zenithclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "11:00-21:00",
+   "tue": "11:00-21:00",
+   "wed": "11:00-21:00",
+   "thu": "11:00-21:00",
+   "fri": "11:00-21:00",
+   "sat": "11:00-20:00",
+   "sun": "12:00-19:00"
+  },
+  "evidence": "Monday-Friday | Members Only: 7:00am-11:00am | Public: 11:00am-9:00pm | Saturday | 11:00am-8:00pm | Sunday | 12:00pm-7:00pm | 3534 E Sunshine Street, Suite 3 | Springfield, MO 65804",
+  "note": "The page splits the weekday morning off as members-only; the public week is what is recorded."
  },
  {
   "lat": -33.910389,
