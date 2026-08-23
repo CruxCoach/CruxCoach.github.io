@@ -2753,16 +2753,6 @@
     "reason": "No candidate resolved at all: gasarzignano and gas-arzignano exist on neither .it nor .com, and no OSM climbing object within 500 m of Arzignano carries a website."
   },
   {
-    "lat": 45.6570925,
-    "lon": 13.8102992,
-    "name": "Gravità Zero MOON BOARD",
-    "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Same hall as the venue a few metres away, and the same outcome: every gravitazero/gravita domain that answers belongs to somebody else.",
-    "candidate": "https://gravitazero.it/"
-  },
-  {
     "lat": 44.55963,
     "lon": 10.91238,
     "name": "Grip Climbing Gym",
@@ -3903,16 +3893,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — batuuclimbing.com → \"Batuu Climbing\", the rest could not be opened — batuu.com → a timeout, the venue's whole name as one label, batuuclimbing.com, answers 308 but its pages print no street, postal code or town matching this venue. Upstream records G-28, Ground Floor, 3 Damansara, Jalan SS 20/27, Damansara Utama, 4740, and nothing opened printed it.",
     "candidate": "https://www.batuuclimbing.com/"
-  },
-  {
-    "lat": 3.12049,
-    "lon": 101.67436,
-    "name": "Camp5 Eco City",
-    "country": "MY",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.camp5.com → \"Camp5 Indoor Climbing KL Malaysia\"; www.cityboulder.ch → \"Home\"; www.citybloc.co.uk → \"City Bloc Climbing Wall Leeds\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.camp5.com/"
   },
   {
     "lat": 5.4163935,
@@ -5405,8 +5385,8 @@
     "country": "US",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "OSM names the object here Boardworks, and boardworksclimbing.com answers and mentions Bend — but upstream calls this venue Bend Endurance Academy, and the only thing the two share is the town, which is inside the venue's own name. The page prints no street and does not use the academy's name.",
-    "candidate": "https://boardworksclimbing.com/"
+    "reason": "bendenduranceacademy.org resolves and is the academy's own domain, but it returns no readable text on any route — document, JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads are all empty — so nothing on it can be matched against this venue. The Boardworks Climbing hall 8 m away carries a verified link and its page prints 222 SE Reed Market Rd, Bend, but never mentions the academy, so the two cannot be treated as one venue.",
+    "candidate": "https://bendenduranceacademy.org/"
   },
   {
     "lat": 45.51164,
@@ -5630,7 +5610,7 @@
     "country": "US",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — centralrockgym.com/cambridge → \"Cambridge\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "reason": "Central Rock Gym has two Cambridge halls in the dataset, 1,049 m apart, and this entry cannot be assigned to either. centralrockgym.com/cambridge is a location page for one of them; the map it embeds sits 738 m from this venue, the nearest linked entry is 121 m away at 170 Alewife Brook Parkway, and upstream gives this entry no address at all. The page names one Cambridge hall and this could be the other.",
     "candidate": "https://centralrockgym.com/cambridge/"
   },
   {
@@ -6716,16 +6696,6 @@
     "candidate": "https://www.classdojo.com/"
   },
   {
-    "lat": 40.10454,
-    "lon": -75.33213,
-    "name": "The Factory By Reach",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.thefactoryboulder.com → \"Factory Boulder – Gimnasio con rocódromo en Donostia\"; factory.com → \"Factory | Agent-Native Software Development\", the rest could not be opened — thefactory.net → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.thefactoryboulder.com/"
-  },
-  {
     "lat": 40.70779,
     "lon": -74.06659,
     "name": "The Gravity Vault Jersey City",
@@ -6881,16 +6851,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — thrashin.com → \"thrashin.com · Make an Offer\", the rest could not be opened — thrashin.net → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://strongdomains.com/domain/thrashin.com"
-  },
-  {
-    "lat": 37.85155,
-    "lon": -122.2926806,
-    "name": "Touchstone Team Training Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — touchstoneteam.com → \"#1 Listing Agents — North Monterey County\"; touchstone.com → \"Touchstone – Anchor of the AEGIS testing ecosystem\"; touchstone.net → \"Touchstone Measurement | A2LA Dimensional Inspection\", the rest could not be opened — touchstoneclimbing.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://touchstoneteam.com/"
   },
   {
     "lat": 35.8109137,
