@@ -130,6 +130,86 @@
     "source": "https://www.quellalpin.at/"
   },
   {
+    "lat": -31.95621,
+    "lon": 115.92525,
+    "name": "Adrenaline Vault Belmont",
+    "country": "AU",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The location page states Monday 10am–10pm, Wednesday 6am–10pm and Saturday–Sunday 8am–7pm, while its own schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
+    "source": "https://adrenalinevault.com.au/locations/belmont/"
+  },
+  {
+    "lat": -32.12339,
+    "lon": 115.83801,
+    "name": "Adrenaline Vault Cockburn",
+    "country": "AU",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The location page states Monday–Friday 10am–9:30pm and Saturday–Sunday 9am–7pm, while its own schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
+    "source": "https://adrenalinevault.com.au/locations/cockburn/"
+  },
+  {
+    "lat": -31.9566175,
+    "lon": 115.9255032,
+    "name": "Adrenaline Vault Moon Board 2016",
+    "country": "AU",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The location page states Monday 10am–10pm, Wednesday 6am–10pm and Saturday–Sunday 8am–7pm, while its own schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
+    "source": "https://adrenalinevault.com.au/locations/belmont/"
+  },
+  {
+    "lat": -38.09379,
+    "lon": 145.1689,
+    "name": "Bayside Rock",
+    "country": "AU",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The site carries three answers: \"Monday to Friday - 12pm to 9:30pm, Saturdays 9am to 6pm, Sundays 9am to 5pm\", a second block reading \"Mon 10am to 9:30pm … Sat 10am to 8pm\", and schema.org openingHours saying Mo-Fr 16:00-21:30.",
+    "source": "https://baysiderock.com.au/"
+  },
+  {
+    "lat": -37.9255978,
+    "lon": 145.0951545,
+    "name": "La Roca Boulders",
+    "country": "AU",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The homepage says WEEKENDS : 9AM TO 7PM while the contact page says Saturday - Sunday: 10 am - 7 pm.",
+    "source": "https://laroca.com.au/"
+  },
+  {
+    "lat": -34.92305,
+    "lon": 138.59481,
+    "name": "Urban Climb Adelaide",
+    "country": "AU",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The location page renders its schedule client-side; the served document carries only a bundled JSON payload with several conflicting Bouldering and Ropes blocks and no way to tell which belongs to this gym.",
+    "source": "https://urbanclimb.com.au/locations/adelaide/"
+  },
+  {
+    "lat": -37.80267,
+    "lon": 144.98764,
+    "name": "Urban Climb Collingwood",
+    "country": "AU",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The location page renders its schedule client-side; the served document carries only a bundled JSON payload with several conflicting Bouldering and Ropes blocks and no way to tell which belongs to this gym.",
+    "source": "https://urbanclimb.com.au/locations/collingwood/"
+  },
+  {
+    "lat": -27.45492,
+    "lon": 153.04053,
+    "name": "Urban Climb Newstead",
+    "country": "AU",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The location page renders its schedule client-side; the served document carries only a bundled JSON payload with several conflicting Bouldering and Ropes blocks and no way to tell which belongs to this gym.",
+    "source": "https://urbanclimb.com.au/locations/newstead/"
+  },
+  {
     "lat": 51.23389,
     "lon": 4.4036,
     "name": "Beest Boulders Antwerpen",
@@ -218,6 +298,176 @@
     "checked": "2026-08-23",
     "reason": "The page's week is followed by \"Aangepaste openingsuren in de schoolvakanties!\", and the only machine-readable schedule (schema.org openingHours) is a third answer again.",
     "source": "https://klimkaffee.net/"
+  },
+  {
+    "lat": 48.44353,
+    "lon": -123.52561,
+    "name": "BoulderHouse Langford",
+    "country": "CA",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The location page says Monday–Wednesday 10:00 am - 10:00 pm and Thursday 4:00 pm - 10:00 pm, while the gym's own hours page says the same days run to 11:00 PM.",
+    "source": "https://boulderhouse.ca/langford/"
+  },
+  {
+    "lat": 51.13652,
+    "lon": -114.03547,
+    "name": "Calgary Climbing Center Hanger",
+    "country": "CA",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The page carries two regimes — \"Mon - Fri: 10 am-11 pm\" and \"Summer Facility Hours (start July 2). Mon - Fri: 8:30 am-11 pm\" — with a start date and no end, and a third block for ClimbPark on top.",
+    "source": "https://www.calgaryclimbing.com/locations/hanger/"
+  },
+  {
+    "lat": 46.34282,
+    "lon": -72.57676,
+    "name": "Campus Escalade Trois-Riviéres",
+    "country": "CA",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-08-23",
+    "reason": "No schedule appears on the homepage or on any page reachable from it, including Première visite, FAQ, Tarifs and Nous joindre.",
+    "source": "https://campusescalade.com/"
+  },
+  {
+    "lat": 60.77956528162924,
+    "lon": -135.10464625767037,
+    "name": "Climb Yukon Collective",
+    "country": "CA",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The only current week is labelled \"SUMMER hours - Monday to Friday 1-8:30pm, Saturday 12-5pm\", and the first-visit page still carries a different one (Mon-Fri 12 pm - 9 pm, Sat 10 am - 7 pm).",
+    "source": "https://climbyukon.com/"
+  },
+  {
+    "lat": 46.79569,
+    "lon": -71.1795,
+    "name": "DÉLIRE Escalade Lévis",
+    "country": "CA",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The gym list renders each hall's schedule from a bundled JavaScript payload; the served document carries the Lévis address and an openingHours array whose day labels are minified references, alongside a banner about a temporary schedule.",
+    "source": "https://www.delirescalade.com/"
+  },
+  {
+    "lat": 43.2585528,
+    "lon": -79.8950428,
+    "name": "Gravity Climbing Gym - Hamilton",
+    "country": "CA",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The week is published without any meridiem — \"Mon: 4:00 - 11:00 | Tues: 12:00 - 11:00 | … | Sat: 9:00 - 9:00\" — so every opening and closing time would have to be guessed.",
+    "source": "https://gravityhamilton.com/"
+  },
+  {
+    "lat": 49.723956,
+    "lon": -123.152754,
+    "name": "Ground Up Climbing Centre",
+    "country": "CA",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The homepage carries two weeks that disagree: \"Monday & Tuesday: 12:00PM – 10:00PM | Wednesday-Friday: 6:00AM – 10:00PM | Saturday & Sunday: 9:00AM – 7:00PM\" against \"Monday: 12:00PM – 10:00PM | Tuesday – Friday: 6:00AM – 10:00 PM | Saturday: 10:00AM – 9:00PM | Sunday: 10:00AM – 7:00PM\".",
+    "source": "https://climbgroundup.com/"
+  },
+  {
+    "lat": 42.99832,
+    "lon": -81.21752,
+    "name": "Junction Climbing Centre",
+    "country": "CA",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The page states Monday - Friday: 12:00pm to 10:30pm, Saturday: 10:00am to 7:00pm and Sunday 10:00am to 6:00pm, while its own schema.org openingHours says Mo-Fr 12:00-22:00 and Sa-Su 10:00-18:00.",
+    "source": "https://www.junctionclimbing.com/"
+  },
+  {
+    "lat": 45.52752,
+    "lon": -73.59762,
+    "name": "Shakti Rock Gym",
+    "country": "CA",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The page states Lundi au vendredi: 8h-22h and Samedi et dimanche: 10h - 20h, while its own schema.org openingHours says Mo-Fr 10:00-22:00 and Su 12:00-20:00.",
+    "source": "https://shaktirockgym.com/"
+  },
+  {
+    "lat": 49.6964,
+    "lon": -123.15735,
+    "name": "Squamish Athletic Club",
+    "country": "CA",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The staffed week is published without a meridiem — \"Monday: 1:00 – 7:00 | Wednesday: 1:00 – 7:00 | Thursday: 1:00 – 7:00 | Saturday: 12:00 – 5:00\" — while Tuesday, Friday and Sunday are fob-access only. Drop-ins and punch cards are allowed during staffed hours only, so those four times are the whole public week and every one of them would have to be guessed.",
+    "source": "https://squamishathleticclub.ca/"
+  },
+  {
+    "lat": 49.25311,
+    "lon": -122.73534,
+    "name": "The Hive Poco Climbing and Fitness",
+    "country": "CA",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The location page renders its schedule client-side; the served document contains no times at all.",
+    "source": "https://www.hiveclimbing.com/locations/port-coquitlam"
+  },
+  {
+    "lat": 49.2048,
+    "lon": -122.88207,
+    "name": "The Hive Surrey Climbing and Fitness",
+    "country": "CA",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The location page renders its schedule client-side; the served document contains no times at all.",
+    "source": "https://www.hiveclimbing.com/locations/surrey"
+  },
+  {
+    "lat": 49.8457,
+    "lon": -97.19936,
+    "name": "The Hive Winnipeg Climbing and Fitness",
+    "country": "CA",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The location page renders its schedule client-side; the served document contains no times at all.",
+    "source": "https://www.hiveclimbing.com/locations/winnipeg"
+  },
+  {
+    "lat": 43.60385,
+    "lon": -79.58441,
+    "name": "Up The Bloc",
+    "country": "CA",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The homepage carries two weeks that disagree — \"Mon 12PM-11PM … Sat 10AM-10PM | Sun 10AM-10PM\" against \"MON-FRI 10AM-11PM | SAT-SUN 9AM-10PM\" — and the find-us page repeats the second.",
+    "source": "https://www.upthebloc.com/"
+  },
+  {
+    "lat": 45.54716,
+    "lon": -73.53641,
+    "name": "Vertical Bloc",
+    "country": "CA",
+    "status": "appointment-only",
+    "checked": "2026-08-23",
+    "reason": "The venue presents itself as a climbing bar for private hire (\"UN BAR D'ESCALADE CONVIVIAL ET PRIVATISABLE\"); the only times published are the privatisation window, du mardi au samedi de 17h à 3h.",
+    "source": "https://verticalbloc.ca/"
+  },
+  {
+    "lat": 49.6682875,
+    "lon": -124.9819345,
+    "name": "WIP Climbing",
+    "country": "CA",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The info page carries two weeks that disagree — \"Monday - Friday: 10am - 10pm | Saturday/Sunday: 10am - 8pm\" against \"Monday - Saturday: 10am - 10pm | Sunday: 10am - 8pm\" — and the site's schema.org openingHours gives a third answer, 10:00-22:00 every day.",
+    "source": "https://wipclimbing.com/"
+  },
+  {
+    "lat": 49.1823,
+    "lon": -123.98438,
+    "name": "WIP Climbing Nanaimo",
+    "country": "CA",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The info page carries two weeks that disagree — \"Monday - Friday: 10am - 10pm | Saturday/Sunday: 10am - 8pm\" against \"Monday - Saturday: 10am - 10pm | Sunday: 10am - 8pm\" — and the site's schema.org openingHours gives a third answer, 10:00-22:00 every day.",
+    "source": "https://wipclimbing.com/"
   },
   {
     "lat": 46.95906,

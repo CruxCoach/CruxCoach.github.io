@@ -314,10 +314,10 @@ maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (published + outcome entries) | 903 |
-| Published schedules | 645 |
-| Recorded outcomes without hours | 258 |
-| Countries covered | 20 |
+| Venues reviewed (published + outcome entries) | 1000 |
+| Published schedules | 717 |
+| Recorded outcomes without hours | 283 |
+| Countries covered | 22 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -326,6 +326,8 @@ Per-country coverage of eligible (public/commercial) venues:
 | --- | --- | --- | --- | --- |
 | US | 235 | 276 | 576 | 41% |
 | DE | 132 | 169 | 201 | 66% |
+| CA | 47 | 64 | 132 | 36% |
+| AU | 25 | 33 | 83 | 30% |
 | GB | 52 | 70 | 102 | 51% |
 | NL | 37 | 51 | 59 | 63% |
 | CH | 35 | 52 | 56 | 62% |
@@ -345,10 +347,40 @@ Per-country coverage of eligible (public/commercial) venues:
 | LU | 2 | 3 | 6 | 33% |
 | PT | 1 | 2 | 15 | 7% |
 
-- **Last completed batch:** the United States. **Every linked US venue has now
-  been reviewed** — 235 published, 41 logged, across two batches.
-- **Next batch:** Canada (64) and Australia (33), the last two countries with
-  linked venues left.
+- **Last completed batch:** Canada and Australia. **Every venue on the map that
+  carries a verified official website has now been reviewed** — 1000 venues, 717
+  published, 283 logged, in 22 countries.
+- **Next:** the ~1190 eligible venues that carry no verified website link yet.
+  Those need a link established first (`tools/VENUE-LINKS.md` is the policy), and
+  the link is the cheaper half — the hours follow from it.
+
+### What Canada and Australia added
+
+**The meridiem rule paid for itself the same day it was written.** Squamish
+Athletic Club publishes "Monday: 1:00 – 7:00 … Saturday: 12:00 – 5:00" and
+Gravity Hamilton "Mon: 4:00 - 11:00 … Sat: 9:00 - 9:00". Both were drafted as
+published records; `timesMissingFromEvidence` refused them, because the times a
+curator had "read" were not in the quote. The check is not a formality — it
+caught the author of the rule breaking it.
+
+**Fob and swipe access is the Canadian shape.** Squamish labels three of its seven
+days "Fob Access Only", Climber's Rock runs the Board Room on 24-hour access with
+a staffed check-in window, Bouldering Project Salt Lake prints "Members: Open 24
+Hours | Public: 6am - 11pm". Where a staffed or public window is stated with real
+times it is published and the wider access goes in the note; where it is not, the
+venue is logged.
+
+**Three Australian chains publish per-branch blocks properly** — 9 Degrees (seven
+gyms, each with its address), Portside (four, plus a page each) and BlocHaus
+(three sites, two gyms each, labelled MKV/LCT and FYS/MCL) — while Urban Climb
+and The Hive render every schedule from JavaScript and reach a reader without one
+as nothing at all. Adrenaline Vault has clear tables at both gyms and
+schema.org's 09:00-17:00 example value underneath, which loses all three of its
+records.
+
+**Both Klimat halls separate the gym from the café in their markup**, naming the
+blocks "Gym" and "Cafe", which is the cleanest facility split in the data and the
+reason both are published without a second thought.
 
 ### What the first US batch taught
 
