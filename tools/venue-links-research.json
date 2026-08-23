@@ -353,42 +353,141 @@
     "candidate": "https://holbaek.dk/"
   },
   {
-    "lat": 43.2903,
-    "lon": -2.88748,
-    "name": "Biwak Climbing",
+    "lat": 43.2630126,
+    "lon": -2.9349852,
+    "name": "Baltzola",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The gym's site serves an incomplete certificate chain that we cannot verify, so no page could be opened securely and read.",
-    "candidate": "https://biwakclimbing.com/"
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: none of the fourteen name-derived domains for Baltzola exists, no OSM climbing object within 500 m of the Bilbao coordinate carries a website, and nothing curated is within 200 m. Baltzola is also the name of a well-known cave outside Bilbao, which is what a search returns."
   },
   {
     "lat": 40.3913437,
     "lon": -3.6696679,
     "name": "Boulder Madrid Moon Board",
     "country": "ES",
-    "status": "http-only",
-    "checked": "2026-08-22",
-    "reason": "bouldermadrid.com serves the gym's site over HTTP only; both the apex and the www host time out on HTTPS, so there is no secure URL to publish.",
-    "candidate": "http://www.bouldermadrid.com/"
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The OSM node 13 m away is named Boulder Madrid and carries bouldermadrid.com, which does not answer on either host — the connection times out. The three chain candidates are other Madrid operators (Sharma, The Climb, Climbat), madrid.es is the city council and madrid.com a tourism portal.",
+    "candidate": "https://www.bouldermadrid.com/"
   },
   {
-    "lat": 39.72222,
-    "lon": 2.90134,
-    "name": "esRocodrom",
+    "lat": 41.5483559,
+    "lon": 2.1810262,
+    "name": "Bulder Planet Valles",
     "country": "ES",
-    "status": "http-only",
-    "checked": "2026-08-22",
-    "reason": "The gym's site redirects https to http://www.esrocodrom.com/, so there is no HTTPS URL to store."
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "bulderplanet.com is Búlder Planet and is very likely this operator — \"Escalada Maresme | Escalada Vallès\" — but the site renders client-side and no page of it states an address, a town or anything else that would tie the Vallès hall to Santa Perpètua de Mogoda. The name alone is one observation, and the operator has two locations.",
+    "candidate": "https://bulderplanet.com/"
   },
   {
-    "lat": 39.722313033598525,
-    "lon": 2.9013102846544903,
-    "name": "esRocodrom",
+    "lat": 41.11489,
+    "lon": 1.22935,
+    "name": "Can Rock",
     "country": "ES",
-    "status": "http-only",
-    "checked": "2026-08-22",
-    "reason": "The gym's site redirects https to http://www.esrocodrom.com/, so there is no HTTPS URL to store."
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "canrock.com is a business consultancy in Darlinghurst and can-rock.com sells guided trips in the Canadian Rockies. Nothing found names Polígon Industrial Francolí 9 in Tarragona.",
+    "candidate": "https://canrock.com/"
+  },
+  {
+    "lat": 41.99789,
+    "lon": 2.28049,
+    "name": "Can Tiba-li",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "cantiba.com is an AI and video-automation product. Nothing found names Passeig del Ter 25 in Manlleu.",
+    "candidate": "https://cantiba.com/"
+  },
+  {
+    "lat": 41.6159028,
+    "lon": 2.0837384,
+    "name": "CANGLOMERAT",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: none of the name-derived domains for CANGLOMERAT exists, and no OSM climbing object within 500 m of Castellar del Vallès carries a website."
+  },
+  {
+    "lat": 42.84032287502238,
+    "lon": -1.6794206268401939,
+    "name": "Club Deportivo la Gotera",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The name reduces to the generic word \"deportivo\": deportivo.com answers with nothing that names Berriozar or the Polígono Berriainz, and no other domain resolves for Club Deportivo la Gotera.",
+    "candidate": "https://deportivo.com/"
+  },
+  {
+    "lat": 41.9157645,
+    "lon": 0.1928216,
+    "name": "CRISPADERO",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: none of the name-derived domains for CRISPADERO exists, and no OSM climbing object within 500 m of Monzón carries a website."
+  },
+  {
+    "lat": 43.109892891666874,
+    "lon": -2.0969699508931994,
+    "name": "Egurre Errokodromoa",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "egurre.es sells firewood in Bizkaia and egurre.com answers with no title and no content. Nothing found names the Polígono Bazurka address in Gipuzkoa that upstream records.",
+    "candidate": "https://egurre.es/"
+  },
+  {
+    "lat": 43.3099628,
+    "lon": -1.9937363,
+    "name": "Fortuna Pio Baroja",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "fortuna.es does not answer on either host and fortuna.com is a page with nothing on it that names San Sebastián. \"Fortuna Pio Baroja\" is a Donostia sports club's name; no domain of its own was reached.",
+    "candidate": "https://fortuna.com/"
+  },
+  {
+    "lat": 41.3850639,
+    "lon": 2.1734035,
+    "name": "FreeblocBoard",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The only pointer is an OSM node 445 m away, Sala Boulder CEC, whose site is the Centre Excursionista de Catalunya — a different organisation from \"FreeblocBoard\", and 445 m is too far to assume the same wall. The dataset name yields no domain.",
+    "candidate": "https://cec.cat/"
+  },
+  {
+    "lat": 39.16461,
+    "lon": -0.43244,
+    "name": "Gaia Climb Alzira",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The name reduces to \"gaia\": gaia.es is a corporate site, gaia.com a streaming service and gaia.cat the town hall of Gaià. Nothing found names West Albalat St 11B in Alzira.",
+    "candidate": "https://gaia.es/"
+  },
+  {
+    "lat": 41.54682,
+    "lon": 2.02887,
+    "name": "Gravetat Zero",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "gravetatzero.com sells a wall bracket for helmets, and no other domain resolves for Gravetat Zero. Nothing found names Carrer de l'Anoia in Terrassa.",
+    "candidate": "https://gravetatzero.com/"
+  },
+  {
+    "lat": 41.54777,
+    "lon": 2.0316683,
+    "name": "Gravetat Zero",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "Same hall as the venue about 250 m away, and the same outcome: gravetatzero.com is a helmet-bracket shop, and nothing else resolves.",
+    "candidate": "https://gravetatzero.com/"
   },
   {
     "lat": 42.56289,
@@ -396,9 +495,165 @@
     "name": "Indoorwall Jaca",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "Indoorwall's location list names nine centres and none in Jaca, so the operator no longer publishes a page describing this venue.",
+    "checked": "2026-08-23",
+    "reason": "Re-checked, and the site contradicts itself about this centre: the \"Selecciona el centro\" list on Indoorwall's course pages includes Indoorwall Jaca, but the centros index does not, and /centros-indoorwall-rocodromos/indoorwall-jaca/ answers 404. No page describes the Jaca hall, so nothing can be matched to C/ Río Lubierre.",
     "candidate": "https://www.indoorwall.com/"
+  },
+  {
+    "lat": 41.5365584,
+    "lon": 2.099233,
+    "name": "La Panxa del Bou",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "lapanxadelbou.cat is a brasserie in Ullastrell and lapanxadelbou.com presents a certificate that does not cover its hostname. Nothing found names a climbing venue in Sabadell under this name.",
+    "candidate": "https://lapanxadelbou.cat/"
+  },
+  {
+    "lat": 43.20919,
+    "lon": -2.7697,
+    "name": "Lemoa Sports Center",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "lemoa.com does not resolve on either host, and no other domain was reached for Lemoa Sports Center. No OSM climbing object within 500 m carries a website."
+  },
+  {
+    "lat": 42.2061388,
+    "lon": -8.663082,
+    "name": "Mg¹² Moonboard",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all — \"Mg¹² Moonboard\" is a chemical symbol plus a board model, and mgmoonboard/mg-moonboard exist on none of .es, .com or .cat."
+  },
+  {
+    "lat": 42.1757535,
+    "lon": -8.4997597,
+    "name": "MOONkey board (calm&climb)",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "moonkey.es answers with a single word and no content — no gym, no address, no town — and moonkey.com carries nothing readable. Nothing ties either to Ponteareas.",
+    "candidate": "https://moonkey.es/"
+  },
+  {
+    "lat": 43.53308,
+    "lon": -5.69682,
+    "name": "One Move",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "onemove.es is a sustainable-mobility campus, one-move.com sells skateboards and onemove.com is a legal-technology firm. The one chain sibling named Move is MOVE Climbing in Seville, 687 km away. Nothing found names Esperanza 20 in Gijón.",
+    "candidate": "https://onemove.es/"
+  },
+  {
+    "lat": 42.1012595,
+    "lon": 1.8439221,
+    "name": "PeudeVia",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "peudevia.cat is titled \"Peu de Via\" and renders client-side: no address, no town and no second signal of any kind reaches the fetched document. The name alone is one observation.",
+    "candidate": "https://peudevia.cat/"
+  },
+  {
+    "lat": 43.2459,
+    "lon": -2.93675,
+    "name": "Polideportivo de Errekalde",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "polideportivoerrekalde.com does not resolve, polideportivo.es does not answer and polideportivo.com presents a certificate that does not cover its hostname. The venue is a municipal sports centre in Bilbao and no page of its own was reached."
+  },
+  {
+    "lat": 42.3065308,
+    "lon": -1.9651479,
+    "name": "PutoRoco Moon Board",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: none of the name-derived domains for \"PutoRoco Moon Board\" exists on .es, .com or .cat, and no OSM climbing object within 500 m of Calahorra carries a website."
+  },
+  {
+    "lat": 27.8439296,
+    "lon": -15.4443384,
+    "name": "Resilient Rehab Science Training",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "resilientrehab.com is Resilient Education, a biomechanics and rehabilitation course provider, not a climbing venue in Agüimes; resilient.es and resilient.com present certificates that do not cover their hostnames.",
+    "candidate": "https://resilientrehab.com/"
+  },
+  {
+    "lat": 37.3927903,
+    "lon": -5.956768200000001,
+    "name": "Rock & Board",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "The OSM node 75 m away is Rock & Wall Climbing, which is a different venue already curated in this file, and rockboard.com, rock.com and rock.cat are a pedalboard maker, a family office and a Catalan radio station. Nothing found names \"Rock & Board\" in Seville.",
+    "candidate": "https://www.rockandwallclimbing.com/"
+  },
+  {
+    "lat": 42.05786,
+    "lon": 1.26798,
+    "name": "Rocodromo Peramola",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "rocodromo.com is a directory of climbing gyms, not a venue site — the kind of aggregator this field never holds. Nothing else resolves for a wall at Carrer Frederic Ribó 9 in Peramola.",
+    "candidate": "https://rocodromo.com/"
+  },
+  {
+    "lat": 40.4319,
+    "lon": -3.65416,
+    "name": "Rocódromos Espacio Acción",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "rocodromos.com is the same climbing-gym directory, not this venue's own site. Nothing else resolves for \"Rocódromos Espacio Acción\".",
+    "candidate": "https://rocodromos.com/"
+  },
+  {
+    "lat": 28.1129931,
+    "lon": -15.519481,
+    "name": "Tagorock Arucas",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "tagorock.com answers 526 on both hosts — a Cloudflare origin-certificate failure — so no page of it can be opened. Nothing else resolves for Tagorock Arucas. Worth re-reading: 526 is a fact about one moment.",
+    "candidate": "https://tagorock.com/"
+  },
+  {
+    "lat": 28.11281,
+    "lon": -15.52012,
+    "name": "Tagorock Arucas Climbing School",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "Same operator as the venue about 70 m away, and the same 526 from tagorock.com on both hosts.",
+    "candidate": "https://tagorock.com/"
+  },
+  {
+    "lat": 40.4167754,
+    "lon": -3.7037902,
+    "name": "The Climb",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "theclimb.es is The Climb's site, and The Climb's hall is the pair of venues already curated 12 km away in Leganés/Alcorcón. This entry sits on Puerta del Sol, the centre of Madrid — an upstream coordinate taken at the city — and nothing on the site describes a hall there.",
+    "candidate": "https://theclimb.es/"
+  },
+  {
+    "lat": 42.1737408,
+    "lon": 1.3160139,
+    "name": "The PUC Series Temple Nargó",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "pucseries.com answers with a bare \"Home\" and renders client-side; nothing on it states a place, and \"The PUC Series Temple Nargó\" gives no other domain to try.",
+    "candidate": "https://pucseries.com/"
   },
   {
     "lat": 40.42839,
@@ -406,9 +661,19 @@
     "name": "Uadibloc Malasaña",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "uadibloc.com serves a hosting-account suspension notice, so there is no operator page to open and read.",
-    "candidate": "https://uadibloc.com/"
+    "checked": "2026-08-23",
+    "reason": "The OSM node 25 m away is named Uadibloc and carries uadibloc.com, which serves \"Account Suspended\" and nothing else; uadibloc.es presents a certificate that does not cover its hostname. The pointer is good and the page is unreadable.",
+    "candidate": "https://www.uadibloc.com/"
+  },
+  {
+    "lat": 42.8551,
+    "lon": -2.64919,
+    "name": "Urban Boulder",
+    "country": "ES",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "urbanboulder.com answers 403 to every fetcher and urban-boulder.com returns 444 then 520; urban.es is an estate agency and urban.cat a 503. The chain siblings named Urban are BlocX in Luxembourg and two urban apes halls in Germany. Nothing readable names Bulevar de Salburua 4 in Vitoria.",
+    "candidate": "https://urbanboulder.com/"
   },
   {
     "lat": 40.53623976991643,
@@ -416,8 +681,8 @@
     "name": "World Climbing",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "worldclimbing.com is the international federation formerly known as the IFSC, not this Madrid gym.",
+    "checked": "2026-08-23",
+    "reason": "Re-checked, and the earlier reading holds: worldclimbing.com is the international federation formerly known as the IFSC — its contact page gives Corso Vinzaglio 12, Torino and a legal seat in Bern — not this Madrid gym. The two Vertical World siblings are in Seattle. Nothing found names Av. de Fernando Alonso 65 in Alcobendas.",
     "candidate": "https://worldclimbing.com/"
   },
   {

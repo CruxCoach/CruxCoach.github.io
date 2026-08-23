@@ -1078,31 +1078,6 @@
   "evidence": "THEBARTON. | OPEN HOURS. | MONDAY: 6:00am – 10:00pm | TUESDAY: 6:00am – 10:00pm | WEDNESDAY: 6:00am – 10:00pm | THURSDAY: 6:00am – 10:00pm | FRIDAY: 6:00am – 10:00pm | SATURDAY: 8:00am – 8:00pm | SUNDAY: 8:00am – 8:00pm"
  },
  {
-  "lat": -35.3209807,
-  "lon": 149.1646271,
-  "name": "Blochaus",
-  "country": "AU",
-  "source": "https://cbr.blochaus.com.au/",
-  "checked": "2026-08-23",
-  "provenance": "official-chain-page",
-  "signals": [
-   "venue-link",
-   "hours-scope",
-   "city"
-  ],
-  "hours": {
-   "mon": "06:00-22:00",
-   "tue": "10:00-22:00",
-   "wed": "06:00-22:00",
-   "thu": "10:00-22:00",
-   "fri": "06:00-22:00",
-   "sat": "08:00-22:00",
-   "sun": "08:00-22:00"
-  },
-  "evidence": "FYS: | mon, wed & fri: 6am–10pm | tue & thurs: 10am–10pm | sat & sun: 8am–10pm | MCL: | mon: 6am–10pm | tue, wed, thurs & fri: 10am–10pm | sat & sun: 9am–9pm | Contact. | unit 2, building 2, 1 dairy road, fyshwick ACT | 1/2 essington street, mitchell ACT",
-  "note": "The Canberra site publishes one block per gym: FYS is Fyshwick (1 Dairy Road), MCL is Mitchell. This venue sits about 12 km from Mitchell, which is the other dataset entry."
- },
- {
   "lat": -33.8887316,
   "lon": 151.147536,
   "name": "BlocHaus Leichhardt",
@@ -1151,6 +1126,31 @@
   },
   "evidence": "MCL: | mon: 6am–10pm | tue, wed, thurs & fri: 10am–10pm | sat & sun: 9am–9pm | Contact. | 1/2 essington street, mitchell ACT",
   "note": "The Canberra site publishes one block per gym; MCL is the Mitchell hall."
+ },
+ {
+  "lat": -35.3209807,
+  "lon": 149.1646271,
+  "name": "Blochaus",
+  "country": "AU",
+  "source": "https://cbr.blochaus.com.au/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "hours-scope",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-22:00",
+   "sun": "08:00-22:00"
+  },
+  "evidence": "FYS: | mon, wed & fri: 6am–10pm | tue & thurs: 10am–10pm | sat & sun: 8am–10pm | MCL: | mon: 6am–10pm | tue, wed, thurs & fri: 10am–10pm | sat & sun: 9am–9pm | Contact. | unit 2, building 2, 1 dairy road, fyshwick ACT | 1/2 essington street, mitchell ACT",
+  "note": "The Canberra site publishes one block per gym: FYS is Fyshwick (1 Dairy Road), MCL is Mitchell. This venue sits about 12 km from Mitchell, which is the other dataset entry."
  },
  {
   "lat": -37.832795,
@@ -2975,29 +2975,6 @@
   "note": "Members additionally get in 6–11 AM on weekdays; the public week is what is recorded. Saturday 8–10 AM is a sensory-friendly session. The dataset lists this hall twice; the verified link sits on the twin entry a few metres away."
  },
  {
-  "lat": 43.76222,
-  "lon": -79.36013,
-  "name": "Hogtown Boulders",
-  "country": "CA",
-  "source": "https://hogtownboulders.com/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "10:00-23:00",
-   "tue": "10:00-23:00",
-   "wed": "10:00-23:00",
-   "thu": "10:00-23:00",
-   "fri": "10:00-23:00",
-   "sat": "10:00-23:00",
-   "sun": "10:00-23:00"
-  },
-  "evidence": "Sunday: 10am-11pm | Monday: 10am-11pm | Tuesday: 10am-11pm | Wednesday: 10am-11pm | Thursday: 10am-11pm | Friday: 10am-11pm | Saturday: 10am-11pm"
- },
- {
   "lat": 43.8570461,
   "lon": -79.3573801,
   "name": "HUB Climbing (Markham)",
@@ -3020,6 +2997,29 @@
    "sun": "10:00-22:00"
   },
   "evidence": "Monday | 12pm – 11pm | Tuesday | 12pm – 11pm | Wednesday | 12pm – 11pm | Thursday | 12pm – 11pm | Friday | 12pm – 11pm | Saturday | 10am – 10pm | Sunday | 10am – 10pm"
+ },
+ {
+  "lat": 43.76222,
+  "lon": -79.36013,
+  "name": "Hogtown Boulders",
+  "country": "CA",
+  "source": "https://hogtownboulders.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-23:00",
+   "sun": "10:00-23:00"
+  },
+  "evidence": "Sunday: 10am-11pm | Monday: 10am-11pm | Tuesday: 10am-11pm | Wednesday: 10am-11pm | Thursday: 10am-11pm | Friday: 10am-11pm | Saturday: 10am-11pm"
  },
  {
   "lat": 43.85696,
@@ -3674,30 +3674,6 @@
   "evidence": "Öffnungszeiten Mo – Fr 12-22 | Sa 12-18.30 | So 12-18.30"
  },
  {
-  "lat": 46.816021,
-  "lon": 7.123333199999999,
-  "name": "Bloczone",
-  "country": "CH",
-  "source": "https://www.grimper.ch/salles-descalade/givisiez/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "city",
-   "location-page"
-  ],
-  "hours": {
-   "mon": "09:00-22:30",
-   "tue": "09:00-22:30",
-   "wed": "09:00-22:30",
-   "thu": "09:00-22:30",
-   "fri": "09:00-22:30",
-   "sat": "09:00-20:00",
-   "sun": "09:00-20:00"
-  },
-  "evidence": "Salle et horaires d'ouverture — lu - ve : 09h00 - 22h30 | sa - di : 09h00 - 20h00"
- },
- {
   "lat": 47.46919,
   "lon": 8.30546,
   "name": "BOUBA Boulder Baden",
@@ -3720,6 +3696,30 @@
    "sun": "10:00-19:00"
   },
   "evidence": "Montag 11:00 – 23:00 | Dienstag 11:00 – 23:00 | Mittwoch 11:00 – 23:00 | Donnerstag 11:00 – 23:00 | Freitag 11:00 – 23:00 | Samstag 10:00 – 19:00 | Sonntag 10:00 – 19:00"
+ },
+ {
+  "lat": 46.816021,
+  "lon": 7.123333199999999,
+  "name": "Bloczone",
+  "country": "CH",
+  "source": "https://www.grimper.ch/salles-descalade/givisiez/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "09:00-22:30",
+   "tue": "09:00-22:30",
+   "wed": "09:00-22:30",
+   "thu": "09:00-22:30",
+   "fri": "09:00-22:30",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Salle et horaires d'ouverture — lu - ve : 09h00 - 22h30 | sa - di : 09h00 - 20h00"
  },
  {
   "lat": 47.19867,
@@ -4624,30 +4624,6 @@
   "evidence": "Otevírací doba Pondělí 8:00 – 22:00 | Úterý 8:00 – 22:00 | Středa 8:00 – 22:00 | Čtvrtek 8:00 – 22:00 | Pátek 8:00 – 23:00 | Sobota 8:00 – 22:00 | Neděle 8:00 – 22:00"
  },
  {
-  "lat": 48.1067623,
-  "lon": 11.5456929,
-  "name": "@kbthalkirchen",
-  "country": "DE",
-  "source": "https://www.kbthalkirchen.de/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name"
-  ],
-  "hours": {
-   "mon": "07:00-23:00",
-   "tue": "07:00-23:00",
-   "wed": "07:00-23:00",
-   "thu": "07:00-23:00",
-   "fri": "07:00-23:00",
-   "sat": "08:00-23:00",
-   "sun": "08:00-23:00"
-  },
-  "evidence": "Mo – Fr: 7:00 – 23:00 | Sa, So, Feiertag: 8:00 – 23:00",
-  "note": "The kitchen keeps separate, shorter hours; these are the centre's."
- },
- {
   "lat": 54.09754,
   "lon": 12.10269,
   "name": "45 Grad",
@@ -4693,6 +4669,30 @@
    "sun": "09:00-22:00"
   },
   "evidence": "Mo – Fr 10 – 23 Uhr | Sa, So, Feiertage 9 – 22 Uhr"
+ },
+ {
+  "lat": 48.1067623,
+  "lon": 11.5456929,
+  "name": "@kbthalkirchen",
+  "country": "DE",
+  "source": "https://www.kbthalkirchen.de/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "07:00-23:00",
+   "tue": "07:00-23:00",
+   "wed": "07:00-23:00",
+   "thu": "07:00-23:00",
+   "fri": "07:00-23:00",
+   "sat": "08:00-23:00",
+   "sun": "08:00-23:00"
+  },
+  "evidence": "Mo – Fr: 7:00 – 23:00 | Sa, So, Feiertag: 8:00 – 23:00",
+  "note": "The kitchen keeps separate, shorter hours; these are the centre's."
  },
  {
   "lat": 48.8163,
@@ -4742,6 +4742,55 @@
    "sun": "10:00-22:00"
   },
   "evidence": "Montag 09:30 – 23:00 Uhr | Dienstag 09:30 – 23:00 Uhr | Mittwoch 08:30 – 23:00 Uhr | Donnerstag 12:30 – 23:00 Uhr (Donnerstag Vormittag geschlossen!) | Freitag 09:30 – 23:00 Uhr | Samstag 10:00 – 22:00 Uhr | Sonntag/Feiertag 10:00 – 22:00 Uhr"
+ },
+ {
+  "lat": 49.6281245,
+  "lon": 11.016205,
+  "name": "BLOCKHELDEN Erlangen",
+  "country": "DE",
+  "source": "https://blockhelden.de/boulderhalle-erlangen/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "09:00-23:00",
+   "tue": "09:00-23:00",
+   "wed": "09:00-23:00",
+   "thu": "09:00-23:00",
+   "fri": "09:00-23:00",
+   "sat": "09:00-23:00",
+   "sun": "09:00-23:00"
+  },
+  "evidence": "Öffnungszeiten — Jeden Tag von 9 – 23 Uhr"
+ },
+ {
+  "lat": 49.2386079,
+  "lon": 10.6036822,
+  "name": "BOULDER HALL - Burgoberbach",
+  "country": "DE",
+  "source": "https://boulderhall.de/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "MONTAG – SONNTAG 10:00 Uhr – 22:00 UHR. Auch an Feiertagen",
+  "note": "Route setting runs Monday mornings and closes individual sectors; the hall itself stays open, so it is not reflected here."
  },
  {
   "lat": 51.26601,
@@ -4891,6 +4940,30 @@
   "note": "The site's schema.org openingHoursSpecification agrees."
  },
  {
+  "lat": 52.16263,
+  "lon": 11.62825,
+  "name": "BlocSchmiede Boulderhalle",
+  "country": "DE",
+  "source": "https://blocschmiede-boulderhalle.de/kontakt-anfahrt/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Öffnungszeiten: täglich 10:00 bis 22:00 Uhr"
+ },
+ {
   "lat": 51.7168083,
   "lon": 8.776686999999999,
   "name": "Blocbuster Paderborn",
@@ -4940,80 +5013,6 @@
   "evidence": "Montag – Sonntag 10:00 – 23:00 Uhr (Abweichungen an Feiertagen möglich)"
  },
  {
-  "lat": 49.6281245,
-  "lon": 11.016205,
-  "name": "BLOCKHELDEN Erlangen",
-  "country": "DE",
-  "source": "https://blockhelden.de/boulderhalle-erlangen/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "name",
-   "city",
-   "location-page"
-  ],
-  "hours": {
-   "mon": "09:00-23:00",
-   "tue": "09:00-23:00",
-   "wed": "09:00-23:00",
-   "thu": "09:00-23:00",
-   "fri": "09:00-23:00",
-   "sat": "09:00-23:00",
-   "sun": "09:00-23:00"
-  },
-  "evidence": "Öffnungszeiten — Jeden Tag von 9 – 23 Uhr"
- },
- {
-  "lat": 47.79203,
-  "lon": 9.60804,
-  "name": "Blöckle",
-  "country": "DE",
-  "source": "https://www.boulderhalle-ravensburg.de/oeffnungszeiten/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name"
-  ],
-  "hours": {
-   "mon": "15:00-22:00",
-   "tue": "10:00-22:00",
-   "wed": "08:00-22:00",
-   "thu": "10:00-22:00",
-   "fri": "08:00-22:00",
-   "sat": "10:00-20:30",
-   "sun": "10:00-20:30"
-  },
-  "evidence": "Montag | Dienstag | Mittwoch | Donnerstag | Freitag | Samstag, Sonn- & Feiertags — 15:00 – 22:00 | 10:00 – 22:00 | 08:00 – 22:00 | 10:00 – 22:00 | 08:00 – 22:00 | 10:00 – 20:30",
-  "note": "The same gym as the venue about 20 m away; upstream carries both."
- },
- {
-  "lat": 47.79186079999999,
-  "lon": 9.6080275,
-  "name": "blöckle Moonboard",
-  "country": "DE",
-  "source": "https://www.boulderhalle-ravensburg.de/oeffnungszeiten/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "15:00-22:00",
-   "tue": "10:00-22:00",
-   "wed": "08:00-22:00",
-   "thu": "10:00-22:00",
-   "fri": "08:00-22:00",
-   "sat": "10:00-20:30",
-   "sun": "10:00-20:30"
-  },
-  "evidence": "Montag | Dienstag | Mittwoch | Donnerstag | Freitag | Samstag, Sonn- & Feiertags — 15:00 – 22:00 | 10:00 – 22:00 | 08:00 – 22:00 | 10:00 – 22:00 | 08:00 – 22:00 | 10:00 – 20:30",
-  "note": "Six column headings followed by six values in the same order; read off the hours page itself rather than the homepage summary."
- },
- {
   "lat": 50.9615266,
   "lon": 11.0146655,
   "name": "Blockpark Moonboard",
@@ -5036,30 +5035,6 @@
    "sun": "10:00-22:00"
   },
   "evidence": "täglich von 10-22 Uhr geöffnet, auch an allen Feiertagen wie Ostern, Pfingsten, Männertag etc."
- },
- {
-  "lat": 52.16263,
-  "lon": 11.62825,
-  "name": "BlocSchmiede Boulderhalle",
-  "country": "DE",
-  "source": "https://blocschmiede-boulderhalle.de/kontakt-anfahrt/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "10:00-22:00",
-   "tue": "10:00-22:00",
-   "wed": "10:00-22:00",
-   "thu": "10:00-22:00",
-   "fri": "10:00-22:00",
-   "sat": "10:00-22:00",
-   "sun": "10:00-22:00"
-  },
-  "evidence": "Öffnungszeiten: täglich 10:00 bis 22:00 Uhr"
  },
  {
   "lat": 49.77637,
@@ -5108,6 +5083,30 @@
    "sun": "10:00-22:00"
   },
   "evidence": "Fr-Mo 10-22 Uhr | Di-Do 10-23 Uhr — auch an Sonn- und Feiertagen"
+ },
+ {
+  "lat": 47.79203,
+  "lon": 9.60804,
+  "name": "Blöckle",
+  "country": "DE",
+  "source": "https://www.boulderhalle-ravensburg.de/oeffnungszeiten/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "10:00-20:30",
+   "sun": "10:00-20:30"
+  },
+  "evidence": "Montag | Dienstag | Mittwoch | Donnerstag | Freitag | Samstag, Sonn- & Feiertags — 15:00 – 22:00 | 10:00 – 22:00 | 08:00 – 22:00 | 10:00 – 22:00 | 08:00 – 22:00 | 10:00 – 20:30",
+  "note": "The same gym as the venue about 20 m away; upstream carries both."
  },
  {
   "lat": 53.0756399,
@@ -5161,30 +5160,6 @@
   "note": "The visible table prints its values above its labels; the site's schema.org openingHours states the same week and settles the order."
  },
  {
-  "lat": 49.2386079,
-  "lon": 10.6036822,
-  "name": "BOULDER HALL - Burgoberbach",
-  "country": "DE",
-  "source": "https://boulderhall.de/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name"
-  ],
-  "hours": {
-   "mon": "10:00-22:00",
-   "tue": "10:00-22:00",
-   "wed": "10:00-22:00",
-   "thu": "10:00-22:00",
-   "fri": "10:00-22:00",
-   "sat": "10:00-22:00",
-   "sun": "10:00-22:00"
-  },
-  "evidence": "MONTAG – SONNTAG 10:00 Uhr – 22:00 UHR. Auch an Feiertagen",
-  "note": "Route setting runs Monday mornings and closes individual sectors; the hall itself stays open, so it is not reflected here."
- },
- {
   "lat": 51.44823,
   "lon": 6.98695,
   "name": "Boulderbar Neoliet Essen",
@@ -5233,30 +5208,6 @@
    "sun": "10:00-22:00"
   },
   "evidence": "Mo, Mi, Do, Fr: 12:00 – 22:00 Uhr | Di, Sa, So und Feiertags: 10:00 – 22:00 Uhr"
- },
- {
-  "lat": 52.4797091,
-  "lon": 13.4528508,
-  "name": "bouldergarten",
-  "country": "DE",
-  "source": "https://bouldergarten.de/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name"
-  ],
-  "hours": {
-   "mon": "08:00-23:00",
-   "tue": "08:00-23:00",
-   "wed": "08:00-23:00",
-   "thu": "08:00-23:00",
-   "fri": "08:00-23:00",
-   "sat": "10:00-22:00",
-   "sun": "10:00-22:00"
-  },
-  "evidence": "Mo-Fr 8-23 Uhr | Sa, So, Feiertag 10-22 Uhr",
-  "note": "Upstream splits this gym into three entries within about 150 m; all three carry the same schedule from the same page."
  },
  {
   "lat": 52.47998,
@@ -6688,31 +6639,6 @@
   "evidence": "Montag bis Mittwoch: 14:00 - 23:00 Uhr | Donnerstag bis Freitag: 10:00 - 23:00 Uhr | Sa. - So. Feiertage: 10:00 - 21:00 Uhr"
  },
  {
-  "lat": 52.49089,
-  "lon": 7.32613,
-  "name": "Fingerfood Boulderhalle",
-  "country": "DE",
-  "source": "https://fingerfood-bouldern.com/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "15:00-22:00",
-   "tue": "15:00-22:00",
-   "wed": "15:00-22:00",
-   "thu": "15:00-22:00",
-   "fri": "10:00-22:00",
-   "sat": "10:00-21:00",
-   "sun": "10:00-21:00"
-  },
-  "evidence": "Mo. - Do. 15 - 22 Uhr | Fr. 10 - 22 Uhr | Sa. / So. 10 - 21 Uhr | Feiertage 13 - 21 Uhr",
-  "note": "The sauna keeps its own, shorter hours on the same page."
- },
- {
   "lat": 53.56363,
   "lon": 9.91261,
   "name": "FLASHH Hamburg",
@@ -6736,6 +6662,31 @@
   },
   "evidence": "Mo - Fr: 10:00 - 23:00 | Sa - So, Feiertags: 9:00 - 22:00",
   "note": "The site's schema.org openingHours agrees day for day."
+ },
+ {
+  "lat": 52.49089,
+  "lon": 7.32613,
+  "name": "Fingerfood Boulderhalle",
+  "country": "DE",
+  "source": "https://fingerfood-bouldern.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "15:00-22:00",
+   "wed": "15:00-22:00",
+   "thu": "15:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Mo. - Do. 15 - 22 Uhr | Fr. 10 - 22 Uhr | Sa. / So. 10 - 21 Uhr | Feiertage 13 - 21 Uhr",
+  "note": "The sauna keeps its own, shorter hours on the same page."
  },
  {
   "lat": 51.5327941,
@@ -6834,6 +6785,30 @@
   "evidence": "Mo – Fr: 10:00 – 23:00 Uhr | Sa – So: 10:00 – 21:00 Uhr | An Feiertagen: 14:00 – 20:00 Uhr | Geschlossen an: Heiligabend, Silvester und Karfreitag"
  },
  {
+  "lat": 48.70867,
+  "lon": 9.67442,
+  "name": "GriP Kletter & Vereinszentrum",
+  "country": "DE",
+  "source": "https://www.dav-gp.de/grip-kletterzentrum/oeffnungszeiten-preise",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "13:00-22:30",
+   "tue": "09:00-22:30",
+   "wed": "13:00-22:30",
+   "thu": "09:00-22:30",
+   "fri": "13:00-22:30",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Reguläre Öffnungszeiten: Montag, Mittwoch & Freitag 13:00 Uhr - 22:30 Uhr | Dienstag & Donnerstag 09:00 Uhr - 22:30 Uhr | Samstag, Sonntag & Feiertage 10:00 Uhr - 20:00 Uhr"
+ },
+ {
   "lat": 48.89278735536054,
   "lon": 9.216486042327244,
   "name": "Griffwerk Ludwigsburg",
@@ -6857,30 +6832,6 @@
   },
   "evidence": "Mo. bis Fr.: 12 - 23 Uhr | Sa., So. & Feiertag: 9 - 21 Uhr",
   "note": "Self-check-in is additionally offered daily from 8:00; the staffed opening times are what is recorded."
- },
- {
-  "lat": 48.70867,
-  "lon": 9.67442,
-  "name": "GriP Kletter & Vereinszentrum",
-  "country": "DE",
-  "source": "https://www.dav-gp.de/grip-kletterzentrum/oeffnungszeiten-preise",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "13:00-22:30",
-   "tue": "09:00-22:30",
-   "wed": "13:00-22:30",
-   "thu": "09:00-22:30",
-   "fri": "13:00-22:30",
-   "sat": "10:00-20:00",
-   "sun": "10:00-20:00"
-  },
-  "evidence": "Reguläre Öffnungszeiten: Montag, Mittwoch & Freitag 13:00 Uhr - 22:30 Uhr | Dienstag & Donnerstag 09:00 Uhr - 22:30 Uhr | Samstag, Sonntag & Feiertage 10:00 Uhr - 20:00 Uhr"
  },
  {
   "lat": 47.84749,
@@ -6931,6 +6882,29 @@
   "evidence": "Montags bis Freitags haben wir von 10.00 bis 22.00 Uhr geöffnet. Samstags und Sonntags und an Feiertagen sind wir bereits ab 9.00 bis 22.00 Uhr für euch da."
  },
  {
+  "lat": 47.86567,
+  "lon": 11.7899,
+  "name": "KletterZ'",
+  "country": "DE",
+  "source": "https://www.kletterz.de/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "09:30-23:00",
+   "tue": "09:30-23:00",
+   "wed": "14:00-23:00",
+   "thu": "09:30-23:00",
+   "fri": "09:30-23:00",
+   "sat": "09:30-21:00",
+   "sun": "09:30-21:00"
+  },
+  "evidence": "Mo, Di, Do, Fr : 9:30 - 23:00 | Mittwoch: 14.00 - 23.00 | Sa/So/Feiertag: 09:30 - 21:00"
+ },
+ {
   "lat": 49.224821502854034,
   "lon": 7.398761999558282,
   "name": "Kletterhalle Camp 4",
@@ -6977,29 +6951,6 @@
    "sun": "10:00-21:00"
   },
   "evidence": "Montag, Mittwoch, Freitag: 15.00 Uhr bis 22.30 Uhr | Dienstag, Donnerstag: 09.00 Uhr bis 22.30 Uhr | Samstag, Sonntag, Feiertag: 10.00 Uhr bis 21.00 Uhr"
- },
- {
-  "lat": 47.86567,
-  "lon": 11.7899,
-  "name": "KletterZ'",
-  "country": "DE",
-  "source": "https://www.kletterz.de/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name"
-  ],
-  "hours": {
-   "mon": "09:30-23:00",
-   "tue": "09:30-23:00",
-   "wed": "14:00-23:00",
-   "thu": "09:30-23:00",
-   "fri": "09:30-23:00",
-   "sat": "09:30-21:00",
-   "sun": "09:30-21:00"
-  },
-  "evidence": "Mo, Di, Do, Fr : 9:30 - 23:00 | Mittwoch: 14.00 - 23.00 | Sa/So/Feiertag: 09:30 - 21:00"
  },
  {
   "lat": 47.62212,
@@ -7223,29 +7174,6 @@
   "note": "The homepage confirms the same week for the current summer holidays: keine gesonderten Öffnungszeiten, Mo/Mi/Fr ab 12, sonst ab 9."
  },
  {
-  "lat": 48.8347817,
-  "lon": 9.164027899999999,
-  "name": "rockerei",
-  "country": "DE",
-  "source": "https://rockerei-stuttgart.de/infos/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name"
-  ],
-  "hours": {
-   "mon": "13:00-23:00",
-   "tue": "09:00-23:00",
-   "wed": "09:00-23:00",
-   "thu": "13:00-23:00",
-   "fri": "09:00-23:00",
-   "sat": "09:00-22:00",
-   "sun": "09:00-22:00"
-  },
-  "evidence": "Montag 13 - 23 Uhr | Dienstag 9 - 23 | Mittwoch 9 - 23 | Donnerstag 13 - 23 | Freitag 9 - 23 | Samstag & Sonntag 9 - 22 | Feiertage 9 - 22 Uhr"
- },
- {
   "lat": 49.32159,
   "lon": 6.74013,
   "name": "Rocklands Saarlouis",
@@ -7422,6 +7350,31 @@
   "evidence": "Täglich geöffnet von 9 – 23 Uhr (Stuntwerk Essen, 45141 Essen)"
  },
  {
+  "lat": 51.3449037,
+  "lon": 6.5438623,
+  "name": "Stuntwerk Krefeld 2019 Set",
+  "country": "DE",
+  "source": "https://stuntwerk.de/krefeld/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Mo – Fr: 10:00 – 23:00 Uhr | Sa – So: 10:00 – 22:00 Uhr (Stuntwerk Krefeld, 47803 Krefeld)"
+ },
+ {
   "lat": 50.9661,
   "lon": 7.01315,
   "name": "Stuntwerk Köln",
@@ -7470,31 +7423,6 @@
    "sun": "08:00-22:00"
   },
   "evidence": "Täglich 8 – 22 Uhr (Stuntwerk Köln Zollstock, 50969 Köln-Zollstock)"
- },
- {
-  "lat": 51.3449037,
-  "lon": 6.5438623,
-  "name": "Stuntwerk Krefeld 2019 Set",
-  "country": "DE",
-  "source": "https://stuntwerk.de/krefeld/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "name",
-   "city",
-   "location-page"
-  ],
-  "hours": {
-   "mon": "10:00-23:00",
-   "tue": "10:00-23:00",
-   "wed": "10:00-23:00",
-   "thu": "10:00-23:00",
-   "fri": "10:00-23:00",
-   "sat": "10:00-22:00",
-   "sun": "10:00-22:00"
-  },
-  "evidence": "Mo – Fr: 10:00 – 23:00 Uhr | Sa – So: 10:00 – 22:00 Uhr (Stuntwerk Krefeld, 47803 Krefeld)"
  },
  {
   "lat": 47.8497739,
@@ -7769,31 +7697,6 @@
   "evidence": "ÖFFNUNGSZEITEN Mo – Fr: 9:00 – 23:00 Uhr | Sa, So & an Feiertagen: 9:00 – 22:00 Uhr"
  },
  {
-  "lat": 53.84966989999999,
-  "lon": 10.6761155,
-  "name": "urban apes Lübeck",
-  "country": "DE",
-  "source": "https://www.urbanapes.de/luebeck/preise-zeiten/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "name",
-   "city",
-   "location-page"
-  ],
-  "hours": {
-   "mon": "14:30-22:30",
-   "tue": "14:30-22:30",
-   "wed": "14:30-22:30",
-   "thu": "14:30-22:30",
-   "fri": "10:00-22:00",
-   "sat": "10:00-22:00",
-   "sun": "10:00-22:00"
-  },
-  "evidence": "ÖFFNUNGSZEITEN Mo – Do: 14:30 – 22:30 Uhr | Fr – So & an Feiertagen: 10:00 – 22:00 Uhr"
- },
- {
   "lat": 52.55226,
   "lon": 13.35118,
   "name": "Urban Apes Wedding",
@@ -7938,6 +7841,103 @@
    "sun": "10:00-21:00"
   },
   "evidence": "Montag: 12 – 23 Uhr | Dienstag: 12 – 23 Uhr | Mittwoch: 10 – 23 Uhr | Donnerstag: 10 – 23 Uhr | Freitag: 10 – 23 Uhr | Samstag: 10 – 21 Uhr | Sonntag: 10 – 21 Uhr"
+ },
+ {
+  "lat": 47.79186079999999,
+  "lon": 9.6080275,
+  "name": "blöckle Moonboard",
+  "country": "DE",
+  "source": "https://www.boulderhalle-ravensburg.de/oeffnungszeiten/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "10:00-20:30",
+   "sun": "10:00-20:30"
+  },
+  "evidence": "Montag | Dienstag | Mittwoch | Donnerstag | Freitag | Samstag, Sonn- & Feiertags — 15:00 – 22:00 | 10:00 – 22:00 | 08:00 – 22:00 | 10:00 – 22:00 | 08:00 – 22:00 | 10:00 – 20:30",
+  "note": "Six column headings followed by six values in the same order; read off the hours page itself rather than the homepage summary."
+ },
+ {
+  "lat": 52.4797091,
+  "lon": 13.4528508,
+  "name": "bouldergarten",
+  "country": "DE",
+  "source": "https://bouldergarten.de/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "08:00-23:00",
+   "tue": "08:00-23:00",
+   "wed": "08:00-23:00",
+   "thu": "08:00-23:00",
+   "fri": "08:00-23:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Mo-Fr 8-23 Uhr | Sa, So, Feiertag 10-22 Uhr",
+  "note": "Upstream splits this gym into three entries within about 150 m; all three carry the same schedule from the same page."
+ },
+ {
+  "lat": 48.8347817,
+  "lon": 9.164027899999999,
+  "name": "rockerei",
+  "country": "DE",
+  "source": "https://rockerei-stuttgart.de/infos/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "13:00-23:00",
+   "tue": "09:00-23:00",
+   "wed": "09:00-23:00",
+   "thu": "13:00-23:00",
+   "fri": "09:00-23:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Montag 13 - 23 Uhr | Dienstag 9 - 23 | Mittwoch 9 - 23 | Donnerstag 13 - 23 | Freitag 9 - 23 | Samstag & Sonntag 9 - 22 | Feiertage 9 - 22 Uhr"
+ },
+ {
+  "lat": 53.84966989999999,
+  "lon": 10.6761155,
+  "name": "urban apes Lübeck",
+  "country": "DE",
+  "source": "https://www.urbanapes.de/luebeck/preise-zeiten/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "14:30-22:30",
+   "tue": "14:30-22:30",
+   "wed": "14:30-22:30",
+   "thu": "14:30-22:30",
+   "fri": "10:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "ÖFFNUNGSZEITEN Mo – Do: 14:30 – 22:30 Uhr | Fr – So & an Feiertagen: 10:00 – 22:00 Uhr"
  },
  {
   "lat": 56.1482377,
@@ -8305,6 +8305,31 @@
   "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
  },
  {
+  "lat": 43.05242,
+  "lon": -2.1872,
+  "name": "AtariA Boulder",
+  "country": "ES",
+  "source": "https://www.atariaboulder.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "15:00-20:00",
+   "tue": "15:00-20:00",
+   "wed": "15:00-20:00",
+   "thu": "15:00-20:00",
+   "fri": "15:00-20:00",
+   "sat": "11:00-14:00",
+   "sun": "closed"
+  },
+  "evidence": "Dirección Lazkaibar Kalea, 5 20200 Beasain, Gipuzkoa, España. Horario Lun. 15:00 - 20:00, Mar. 15:00 - 20:00, Mie. 15:00 - 20:00, Jue. 15:00 - 20:00, Vie. 15:00 - 20:00, Sab. 11:00 - 14:00, Dom. Cerrado",
+  "note": "Stated day by day beside the address."
+ },
+ {
   "lat": 40.28517,
   "lon": -3.78346,
   "name": "Awesome Boulder Center",
@@ -8313,7 +8338,8 @@
   "checked": "2026-08-23",
   "provenance": "official-site",
   "signals": [
-   "name",
+   "venue-link",
+   "postal-code",
    "city"
   ],
   "hours": {
@@ -8325,7 +8351,33 @@
    "sat": "10:00-15:00,16:00-21:00",
    "sun": "10:00-15:00,16:00-21:00"
   },
-  "evidence": "HORARIOS LUNES A JUEVES 10:00 - 22:30 VIERNES 10:00 - 15:00 16:00 - 22:00 SÁBADOS Y DOMINGOS 10:00 - 15:00 16:00 - 21:00"
+  "evidence": "HORARIOS LUNES A JUEVES 10:00 - 22:30. VIERNES 10:00 - 15:00 16:00 - 22:00. SÁBADOS Y DOMINGOS 10:00 - 15:00 16:00 - 21:00. Dirección C/Nicolás Copérnico Nº5",
+  "note": "The Friday and weekend rows are split days and are stored as the page states them."
+ },
+ {
+  "lat": 43.2903,
+  "lon": -2.88748,
+  "name": "Biwak Climbing",
+  "country": "ES",
+  "source": "https://biwakclimbing.com/contacto/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "09:00-21:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Horarios — De Lunes a Viernes: 07:00–22:00* (*incluye sin atención en recepción). Recepción de Lunes a Viernes: 09:00–21:00. Sábado, Domingo y Festivos: 09:00–21:00. Astintze Kalea, 4, 48160 Derio, Bizkaia/Vizcaya.",
+  "note": "Two access regimes, and the staffed one is recorded: the centre is open 07:00–22:00 on weekdays but reception is there 09:00–21:00, which is the window that needs nothing but turning up. The weekend row is the same 09:00–21:00."
  },
  {
   "lat": 41.39718,
@@ -8400,6 +8452,31 @@
    "sun": "10:00-22:00"
   },
   "evidence": "De lunes a viernes: 9:30h a 22:00h | Sábados y domingos: 10:00h a 22:00h"
+ },
+ {
+  "lat": 41.96756,
+  "lon": 2.81161,
+  "name": "Centre d'escalada Cal Mico",
+  "country": "ES",
+  "source": "https://calmico.cat/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "HORARI — De dilluns a divendres: de 9:00 h a 22:00 h. Dissabtes i diumenges: de 10:00 h a 20:00 h. Dies festius a consultar al nostre instagram.",
+  "note": "Stated identically in the site footer and on the HORARIS / TARIFES page; holidays are the only thing sent elsewhere."
  },
  {
   "lat": 40.33956,
@@ -8580,9 +8657,9 @@
   "checked": "2026-08-23",
   "provenance": "official-site",
   "signals": [
+   "venue-link",
    "name",
-   "city",
-   "street-address"
+   "city"
   ],
   "hours": {
    "mon": "10:00-14:00,16:00-22:30",
@@ -8593,7 +8670,8 @@
    "sat": "11:00-20:00",
    "sun": "11:00-15:00"
   },
-  "evidence": "Av. Ricardo Mella, 123. Vigo | Horarios Lun – Vie: 10:00 – 14:00 / 16:00 – 22:30 | Sab: 11:00 – 20:00 | Dom: 11:00 – 15:00"
+  "evidence": "Horarios — Lun – Vie: 10:00 – 14:00 / 16:00 – 22:30. Sab: 11:00 – 20:00. Dom: 11:00 – 15:00",
+  "note": "Stated identically in the footer of every page; the weekday split is stored as the page states it."
  },
  {
   "lat": 37.35773,
@@ -9463,31 +9541,6 @@
   "note": "Logged as 'no schedule' on the first pass. Climb Up gives every hall its own subdomain and the hours sit in that subdomain's footer beside that hall's phone number — lyon-gerland.climb-up.fr says 9h à 23h du lundi au vendredi in the same place, so the block is per location, not a chain-wide default."
  },
  {
-  "lat": 43.99270161681986,
-  "lon": 1.336295113494226,
-  "name": "Climb’Zone",
-  "country": "FR",
-  "source": "https://www.climbzone.fr/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "12:00-21:30",
-   "tue": "12:00-21:30",
-   "wed": "12:00-21:30",
-   "thu": "12:00-21:30",
-   "fri": "12:00-21:30",
-   "sat": "10:00-19:00",
-   "sun": "10:00-19:00"
-  },
-  "evidence": "Lun-VEN : 12h-21h30 | Week-end & jours fériés : 10h-19h",
-  "note": "The site's schema.org openingHoursSpecification states the same weekday times."
- },
- {
   "lat": 48.84782,
   "lon": 2.37059,
   "name": "Climbing District Bastille",
@@ -9514,11 +9567,11 @@
   "note": "The page's schema.org openingHoursSpecification states the same week."
  },
  {
-  "lat": 47.2238304,
-  "lon": -1.6413989,
-  "name": "El Cap",
+  "lat": 43.99270161681986,
+  "lon": 1.336295113494226,
+  "name": "Climb’Zone",
   "country": "FR",
-  "source": "https://www.elcap.fr/",
+  "source": "https://www.climbzone.fr/",
   "checked": "2026-08-23",
   "provenance": "official-site",
   "signals": [
@@ -9527,16 +9580,16 @@
    "city"
   ],
   "hours": {
-   "mon": "12:00-23:00",
-   "tue": "10:00-23:00",
-   "wed": "10:00-23:00",
-   "thu": "10:00-23:00",
-   "fri": "10:00-23:00",
+   "mon": "12:00-21:30",
+   "tue": "12:00-21:30",
+   "wed": "12:00-21:30",
+   "thu": "12:00-21:30",
+   "fri": "12:00-21:30",
    "sat": "10:00-19:00",
    "sun": "10:00-19:00"
   },
-  "evidence": "Horaires — Salle : Lundi 12h00 à 23h00 ; Mardi 10h00 à 23h00 ; Mercredi 10h00 à 23h00 ; Jeudi: 10h00 à 23h00 ; Vendredi 10h00 à 23h00 ; Samedi 10h00 à 19h00 ; Dimanche 10h00 à 19h00. Boutique : Du lundi au samedi 10h00 à 19h00.",
-  "note": "Logged as 'no schedule' on the first pass. The week is in the site-wide footer, under a heading that separates the hall ('Salle') from the shop ('Boutique') — the cleanest facility split in the French batch, and the shop's narrower week is what an extractor flattening the footer would have picked up."
+  "evidence": "Lun-VEN : 12h-21h30 | Week-end & jours fériés : 10h-19h",
+  "note": "The site's schema.org openingHoursSpecification states the same weekday times."
  },
  {
   "lat": 50.63740675288798,
@@ -9563,6 +9616,31 @@
   },
   "evidence": "Ouvert · 7j/7 · 9h → 00h00",
   "note": "The page's schema.org openingHours states the same week."
+ },
+ {
+  "lat": 47.2238304,
+  "lon": -1.6413989,
+  "name": "El Cap",
+  "country": "FR",
+  "source": "https://www.elcap.fr/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Horaires — Salle : Lundi 12h00 à 23h00 ; Mardi 10h00 à 23h00 ; Mercredi 10h00 à 23h00 ; Jeudi: 10h00 à 23h00 ; Vendredi 10h00 à 23h00 ; Samedi 10h00 à 19h00 ; Dimanche 10h00 à 19h00. Boutique : Du lundi au samedi 10h00 à 19h00.",
+  "note": "Logged as 'no schedule' on the first pass. The week is in the site-wide footer, under a heading that separates the hall ('Salle') from the shop ('Boutique') — the cleanest facility split in the French batch, and the shop's narrower week is what an extractor flattening the footer would have picked up."
  },
  {
   "lat": 49.9026632,
@@ -9786,11 +9864,11 @@
   "note": "Logged as 'no schedule, only course slots' on the first pass; the week is stated plainly on the homepage under a Horaires heading, immediately below the KilterBoard section."
  },
  {
-  "lat": 43.10903399343013,
-  "lon": 5.843577610433562,
-  "name": "Vertical’Art Six-Fours-les-plages",
+  "lat": 43.1391146,
+  "lon": 6.0002828,
+  "name": "Vertical'Art Toulon",
   "country": "FR",
-  "source": "https://toulon-ouest.vertical-art.fr/",
+  "source": "https://toulon.vertical-art.fr/",
   "checked": "2026-08-23",
   "provenance": "official-location-page",
   "signals": [
@@ -9811,11 +9889,11 @@
   "evidence": "Du lundi au vendredi 11h00 – 23h00 | Samedi, dimanche et jours fériés 09h00 – 21h00"
  },
  {
-  "lat": 43.1391146,
-  "lon": 6.0002828,
-  "name": "Vertical'Art Toulon",
+  "lat": 43.10903399343013,
+  "lon": 5.843577610433562,
+  "name": "Vertical’Art Six-Fours-les-plages",
   "country": "FR",
-  "source": "https://toulon.vertical-art.fr/",
+  "source": "https://toulon-ouest.vertical-art.fr/",
   "checked": "2026-08-23",
   "provenance": "official-location-page",
   "signals": [
@@ -11655,6 +11733,30 @@
   "note": "The MoonBoard entry the dataset files under Saronno is the same hall as the Kilter entry about 10 m away in Uboldo; both carry Stone Age's address."
  },
  {
+  "lat": 49.49416,
+  "lon": 5.96838,
+  "name": "BLOCX Urban Fitness",
+  "country": "LU",
+  "source": "https://en.blocx.lu/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:00-22:30",
+   "tue": "08:00-22:30",
+   "wed": "08:00-22:30",
+   "thu": "08:00-22:30",
+   "fri": "08:00-22:30",
+   "sat": "08:00-22:30",
+   "sun": "08:00-22:30"
+  },
+  "evidence": "Monday - Sunday 8:00 - 22:30 | Open All Holidays"
+ },
+ {
   "lat": 49.49443,
   "lon": 5.96847,
   "name": "BlocX - Urban Fitness",
@@ -11678,30 +11780,6 @@
   },
   "evidence": "Monday - Sunday 8:00 - 22:30 | Open All Holidays",
   "note": "Upstream carries this gym twice, about 30 m apart."
- },
- {
-  "lat": 49.49416,
-  "lon": 5.96838,
-  "name": "BLOCX Urban Fitness",
-  "country": "LU",
-  "source": "https://en.blocx.lu/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "08:00-22:30",
-   "tue": "08:00-22:30",
-   "wed": "08:00-22:30",
-   "thu": "08:00-22:30",
-   "fri": "08:00-22:30",
-   "sat": "08:00-22:30",
-   "sun": "08:00-22:30"
-  },
-  "evidence": "Monday - Sunday 8:00 - 22:30 | Open All Holidays"
  },
  {
   "lat": 49.62358,
@@ -13089,31 +13167,6 @@
   "evidence": "Mandag - torsdag 06:00-22:00 | Fredag 06:00-21:00 | Lørdag 08:00-20:00 | Søndag 08:00-21:00 | Rennebergstien 24, 4021 Stavanger"
  },
  {
-  "lat": 58.13775,
-  "lon": 7.99995,
-  "name": "Sørlandet Klatresenter",
-  "country": "NO",
-  "source": "https://sorlandetklatresenter.no/apningstider",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "09:00-22:00",
-   "tue": "09:00-22:00",
-   "wed": "09:00-22:00",
-   "thu": "09:00-22:00",
-   "fri": "09:00-20:00",
-   "sat": "10:00-18:00",
-   "sun": "10:00-18:00"
-  },
-  "evidence": "Mandag 09:00 - 22:00 | Tirsdag 09:00 - 22:00 | Onsdag 09:00 - 22:00 | Torsdag 09:00 - 22:00 | Fredag 09:00 - 20:00 | Lørdag 10:00 - 18:00 | Søndag 10:00 - 18:00",
-  "note": "A summer week for 22.06–09.08 is published below the regular one and has ended."
- },
- {
   "lat": 60.293389018785966,
   "lon": 5.253067886000761,
   "name": "Studio Vertikal Klatresenter",
@@ -13161,6 +13214,31 @@
   },
   "evidence": "Mandag–torsdag 08:00–22:00 | Fredag 08:00–20:00 | Lørdag–søndag 11:00–20:00",
   "note": "A summer block on the same page ran until 7 August and has ended; the regular week matches the page's schema.org openingHours. Upstream carries this hall three times within about 100 m, once under its former name."
+ },
+ {
+  "lat": 58.13775,
+  "lon": 7.99995,
+  "name": "Sørlandet Klatresenter",
+  "country": "NO",
+  "source": "https://sorlandetklatresenter.no/apningstider",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-20:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Mandag 09:00 - 22:00 | Tirsdag 09:00 - 22:00 | Onsdag 09:00 - 22:00 | Torsdag 09:00 - 22:00 | Fredag 09:00 - 20:00 | Lørdag 10:00 - 18:00 | Søndag 10:00 - 18:00",
+  "note": "A summer week for 22.06–09.08 is published below the regular one and has ended."
  },
  {
   "lat": 60.46987,
@@ -13496,27 +13574,29 @@
   "note": "The site's schema.org openingHoursSpecification states the same week."
  },
  {
-  "lat": 63.39079,
-  "lon": 12.9147,
-  "name": "Åre Klätterhall",
+  "lat": 59.8561303,
+  "lon": 17.708122,
+  "name": "Klattercentret Uppsala AB",
   "country": "SE",
-  "source": "https://areklatterhall.se/info-oppettider/",
+  "source": "https://klattercentret.se/uppsala/kontakt-oppettider/",
   "checked": "2026-08-23",
-  "provenance": "official-site",
+  "provenance": "official-location-page",
   "signals": [
+   "venue-link",
    "name",
-   "city"
+   "city",
+   "location-page"
   ],
   "hours": {
-   "mon": "11:00-21:00",
-   "tue": "11:00-21:00",
-   "wed": "11:00-21:00",
-   "thu": "11:00-21:00",
-   "fri": "11:00-19:00",
-   "sat": "09:00-19:00",
-   "sun": "09:00-19:00"
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
   },
-  "evidence": "ÖPPETTIDER: | Mån–Tor: 11–21 | Fre: 11–19 | Lör–Sön: 09–19 | 83771 Duved"
+  "evidence": "Måndagar – Torsdagar kl 11.00-22.00 | Fredagar kl 09.00-22.00 | Helger kl 10.00-20.00"
  },
  {
   "lat": 56.0597542,
@@ -13593,31 +13673,6 @@
   "evidence": "Vardagar kl 07.00-22.00 | Lördagar kl 09.00-20.00 | Söndagar kl 09.00-22.00"
  },
  {
-  "lat": 59.8561303,
-  "lon": 17.708122,
-  "name": "Klattercentret Uppsala AB",
-  "country": "SE",
-  "source": "https://klattercentret.se/uppsala/kontakt-oppettider/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "name",
-   "city",
-   "location-page"
-  ],
-  "hours": {
-   "mon": "11:00-22:00",
-   "tue": "11:00-22:00",
-   "wed": "11:00-22:00",
-   "thu": "11:00-22:00",
-   "fri": "09:00-22:00",
-   "sat": "10:00-20:00",
-   "sun": "10:00-20:00"
-  },
-  "evidence": "Måndagar – Torsdagar kl 11.00-22.00 | Fredagar kl 09.00-22.00 | Helger kl 10.00-20.00"
- },
- {
   "lat": 57.73633,
   "lon": 12.03056,
   "name": "Klätterdomen",
@@ -13687,6 +13742,29 @@
   },
   "evidence": "Skrapan, Götgatan 78, 118 30 Stockholm. Summer Hours weekdays 08.00 - 22.00 weekends 09.00 - 21.00 (summer until Aug 10). Ordinary Hours Weekdays 06:30 - 23:00 Weekends: 09:00 - 23:00",
   "note": "Logged as 'no schedule' on the first pass. Both weeks are on the homepage, and the summer one is a dated window that closed on 10 August — so the Ordinary Hours beside it are the week in force, which is the case the policy allows to be recorded with the window noted."
+ },
+ {
+  "lat": 63.39079,
+  "lon": 12.9147,
+  "name": "Åre Klätterhall",
+  "country": "SE",
+  "source": "https://areklatterhall.se/info-oppettider/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "11:00-21:00",
+   "tue": "11:00-21:00",
+   "wed": "11:00-21:00",
+   "thu": "11:00-21:00",
+   "fri": "11:00-19:00",
+   "sat": "09:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "ÖPPETTIDER: | Mån–Tor: 11–21 | Fre: 11–19 | Lör–Sön: 09–19 | 83771 Duved"
  },
  {
   "lat": 1.29201,
@@ -14297,29 +14375,6 @@
   "evidence": "Monday – Friday | 11AM – 9PM | Saturday | 11AM – 8PM | Sunday | 11AM – 5PM | Atlantic Beach, FL 32233"
  },
  {
-  "lat": 47.598614,
-  "lon": -120.643602,
-  "name": "beargrass",
-  "country": "US",
-  "source": "https://beargrass.com/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "street-address"
-  ],
-  "hours": {
-   "mon": "06:00-22:00",
-   "tue": "06:00-22:00",
-   "wed": "06:00-22:00",
-   "thu": "06:00-22:00",
-   "fri": "06:00-22:00",
-   "sat": "07:00-22:00",
-   "sun": "07:00-22:00"
-  },
-  "evidence": "we’re open. mon-fri 6a-10p, sat-sun 7a-10p. … mon - fri : 6a - 10p | sat - sun : 7a - 10p | 122 zelt strasse, leavenworth, wa 98826"
- },
- {
   "lat": 47.59895389377541,
   "lon": -120.64371314417998,
   "name": "Beargrass",
@@ -14754,6 +14809,31 @@
   },
   "evidence": "Mon–Fri 7 am – 10 pm | Sat–Sun 10 am – 8 pm … Hours are Monday–Friday, 7 am–10 pm; Saturday–Sunday, 10 am–8 pm.",
   "note": "brooklynuprising.com redirects to bkup.nyc, where the schedule is published; the page’s own schema.org openingHoursSpecification agrees."
+ },
+ {
+  "lat": 42.3938542,
+  "lon": -71.150421,
+  "name": "CRG Cambridge",
+  "country": "US",
+  "source": "https://centralrockgym.com/cambridge/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "co-located",
+   "location-page",
+   "city"
+  ],
+  "hours": {
+   "mon": "07:00-22:30",
+   "tue": "07:00-22:30",
+   "wed": "07:00-22:30",
+   "thu": "07:00-22:30",
+   "fri": "11:00-22:30",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Monday: 7am-10:30pm | Tuesday: 7am-10:30pm | Wednesday: 7am-10:30pm | Thursday: 7am-10:30pm | Friday: 11am-10:30pm | Saturday: 10am-6pm | Sunday: 10am-6pm",
+  "note": "The dataset lists this hall twice; the verified link sits on the twin entry a few metres away."
  },
  {
   "lat": 41.64237,
@@ -15821,31 +15901,6 @@
   "note": "Members additionally get in 6–10am on Monday and Wednesday; the public week is what is recorded."
  },
  {
-  "lat": 42.3938542,
-  "lon": -71.150421,
-  "name": "CRG Cambridge",
-  "country": "US",
-  "source": "https://centralrockgym.com/cambridge/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "co-located",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "07:00-22:30",
-   "tue": "07:00-22:30",
-   "wed": "07:00-22:30",
-   "thu": "07:00-22:30",
-   "fri": "11:00-22:30",
-   "sat": "10:00-18:00",
-   "sun": "10:00-18:00"
-  },
-  "evidence": "Monday: 7am-10:30pm | Tuesday: 7am-10:30pm | Wednesday: 7am-10:30pm | Thursday: 7am-10:30pm | Friday: 11am-10:30pm | Saturday: 10am-6pm | Sunday: 10am-6pm",
-  "note": "The dataset lists this hall twice; the verified link sits on the twin entry a few metres away."
- },
- {
   "lat": 30.32642,
   "lon": -97.71691,
   "name": "Crux Climbing Center Central",
@@ -16018,31 +16073,6 @@
   "evidence": "Sunday: 8am-8pm Monday: 6am-10pm Tuesday: 6am-10pm Wednesday: 6am-10pm Thursday: 6am-10pm Friday: 6am-10pm Saturday: 8am-8pm"
  },
  {
-  "lat": 29.02089,
-  "lon": -81.30341,
-  "name": "Dyno Climb",
-  "country": "US",
-  "source": "https://dynoclimb.com/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "10:00-22:00",
-   "tue": "10:00-22:00",
-   "wed": "10:00-22:00",
-   "thu": "10:00-22:00",
-   "fri": "09:00-23:00",
-   "sat": "09:00-23:00",
-   "sun": "10:00-20:00"
-  },
-  "evidence": "Mon 10am-10pm | Tue 10am-10pm | Wed 10am-10pm | Thu 10am-10pm | Fri 9am-11pm | Sat 9am-11pm | Sun 10am-8pm",
-  "note": "The page’s own schema.org openingHours agrees."
- },
- {
   "lat": 42.35301,
   "lon": -83.04074,
   "name": "DYNO Detroit",
@@ -16091,6 +16121,31 @@
   },
   "evidence": "M-F // 7 AM - 10 PM | SAT // 8 AM - 8 PM | SUN // 8 AM - 6 PM",
   "note": "The page’s own schema.org openingHours agrees: Mo-Fr 07:00-22:00, Sa 08:00-20:00, Su 08:00-18:00."
+ },
+ {
+  "lat": 29.02089,
+  "lon": -81.30341,
+  "name": "Dyno Climb",
+  "country": "US",
+  "source": "https://dynoclimb.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "09:00-23:00",
+   "sat": "09:00-23:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Mon 10am-10pm | Tue 10am-10pm | Wed 10am-10pm | Thu 10am-10pm | Fri 9am-11pm | Sat 9am-11pm | Sun 10am-8pm",
+  "note": "The page’s own schema.org openingHours agrees."
  },
  {
   "lat": 39.66082,
@@ -16407,6 +16462,29 @@
   "evidence": "Monday : 6am-10pm | Tuesday : 6am-10pm | Wednesday : 6am-10pm | Thursday : 6am-10pm | Friday : 6am-10pm | Saturday : 10am-10pm | Sunday : 10am-10pm"
  },
  {
+  "lat": 41.0584299,
+  "lon": -74.0984756,
+  "name": "GRAVITY VAULT",
+  "country": "US",
+  "source": "https://gravityvault.com/locations/upper-saddle-river-nj",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Sun Sunday 9:00 AM - 8:00 PM | Mon Monday 9:00 AM - 10:00 PM | Tue Tuesday 9:00 AM - 10:00 PM | Wed Wednesday 9:00 AM - 10:00 PM | Thu Thursday 9:00 AM - 10:00 PM | Fri Friday 9:00 AM - 10:00 PM | Sat Saturday 9:00 AM - 8:00 PM"
+ },
+ {
   "lat": 33.70723,
   "lon": -112.10179,
   "name": "Gecko Climbing Gym",
@@ -16453,29 +16531,6 @@
    "sun": "09:00-20:00"
   },
   "evidence": "Weekdays: 9am 9pm Weekends: 9am 8pm | HOLIDAY HOURS | Memorial Day: Closed Independence Day: Closed"
- },
- {
-  "lat": 41.0584299,
-  "lon": -74.0984756,
-  "name": "GRAVITY VAULT",
-  "country": "US",
-  "source": "https://gravityvault.com/locations/upper-saddle-river-nj",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page"
-  ],
-  "hours": {
-   "mon": "09:00-22:00",
-   "tue": "09:00-22:00",
-   "wed": "09:00-22:00",
-   "thu": "09:00-22:00",
-   "fri": "09:00-22:00",
-   "sat": "09:00-20:00",
-   "sun": "09:00-20:00"
-  },
-  "evidence": "Sun Sunday 9:00 AM - 8:00 PM | Mon Monday 9:00 AM - 10:00 PM | Tue Tuesday 9:00 AM - 10:00 PM | Wed Wednesday 9:00 AM - 10:00 PM | Thu Thursday 9:00 AM - 10:00 PM | Fri Friday 9:00 AM - 10:00 PM | Sat Saturday 9:00 AM - 8:00 PM"
  },
  {
   "lat": 40.8124034,
@@ -16696,6 +16751,30 @@
   "note": "The contact page carries an hours block per location; both read the same. The site’s schema.org openingHours agrees."
  },
  {
+  "lat": 27.353466,
+  "lon": -82.403083,
+  "name": "HEXROCK Climbing",
+  "country": "US",
+  "source": "https://www.hexrockclimbing.com/first-visit",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-24:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Open Hours: | Monday - Thursday | Friday | Saturday | Sunday | 7 am – 10 pm | 7 am – 12 am (midnight) | 10 am - 10 pm | 10 am – 6 pm | 1355 Sarasota Center Blvd | Sarasota, FL, 34240"
+ },
+ {
   "lat": 33.9917,
   "lon": -117.3407,
   "name": "Hangar 18 East Riverside",
@@ -16862,30 +16941,6 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Monday | 10:00 AM - 10:00 PM | Tuesday | 10:00 AM - 10:00 PM | Wednesday | 10:00 AM - 10:00 PM | Thursday | 10:00 AM - 10:00 PM | Friday | 10:00 AM - 9:00 PM | Saturday | 10:00 AM - 8:00 PM | Sunday | 10:00 AM - 8:00 PM"
- },
- {
-  "lat": 27.353466,
-  "lon": -82.403083,
-  "name": "HEXROCK Climbing",
-  "country": "US",
-  "source": "https://www.hexrockclimbing.com/first-visit",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "name",
-   "city",
-   "street-address"
-  ],
-  "hours": {
-   "mon": "07:00-22:00",
-   "tue": "07:00-22:00",
-   "wed": "07:00-22:00",
-   "thu": "07:00-22:00",
-   "fri": "07:00-24:00",
-   "sat": "10:00-22:00",
-   "sun": "10:00-18:00"
-  },
-  "evidence": "Open Hours: | Monday - Thursday | Friday | Saturday | Sunday | 7 am – 10 pm | 7 am – 12 am (midnight) | 10 am - 10 pm | 10 am – 6 pm | 1355 Sarasota Center Blvd | Sarasota, FL, 34240"
  },
  {
   "lat": 35.18317,
@@ -17550,31 +17605,6 @@
   "note": "Members additionally get in at 8AM at the weekend; the public week is what is recorded. The page’s schema.org openingHoursSpecification agrees."
  },
  {
-  "lat": 29.7711123,
-  "lon": -95.37766069999999,
-  "name": "Momentum Silver Street",
-  "country": "US",
-  "source": "https://momentumclimbing.com/silver-street/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "name"
-  ],
-  "hours": {
-   "mon": "06:00-23:00",
-   "tue": "06:00-23:00",
-   "wed": "06:00-23:00",
-   "thu": "06:00-23:00",
-   "fri": "06:00-23:00",
-   "sat": "10:00-22:00",
-   "sun": "10:00-20:00"
-  },
-  "evidence": "MONDAY – FRIDAY | 6AM – 11PM | SATURDAY | 10AM – 10PM | *Members Only 8AM – 10AM | SUNDAY | 10AM – 8PM | *Members Only 8AM – 10AM",
-  "note": "Members additionally get in at 8AM at the weekend; the public week is what is recorded."
- },
- {
   "lat": 47.57817,
   "lon": -122.33455,
   "name": "Momentum SODO",
@@ -17598,6 +17628,31 @@
   },
   "evidence": "MONDAY – FRIDAY | 6AM – 10PM | SATURDAY | 8AM – 8PM | SUNDAY | 8AM – 8PM",
   "note": "The page’s own schema.org openingHoursSpecification agrees."
+ },
+ {
+  "lat": 29.7711123,
+  "lon": -95.37766069999999,
+  "name": "Momentum Silver Street",
+  "country": "US",
+  "source": "https://momentumclimbing.com/silver-street/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "name"
+  ],
+  "hours": {
+   "mon": "06:00-23:00",
+   "tue": "06:00-23:00",
+   "wed": "06:00-23:00",
+   "thu": "06:00-23:00",
+   "fri": "06:00-23:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "MONDAY – FRIDAY | 6AM – 11PM | SATURDAY | 10AM – 10PM | *Members Only 8AM – 10AM | SUNDAY | 10AM – 8PM | *Members Only 8AM – 10AM",
+  "note": "Members additionally get in at 8AM at the weekend; the public week is what is recorded."
  },
  {
   "lat": 39.7252144,
@@ -18439,31 +18494,6 @@
   "evidence": "Monday: 4PM - 11PM | Tuesday: 11am - 11PM | Wednesday: 4PM - 11PM | Thursday: 11am - 11PM | Friday: 4PM - 11PM Saturday: 10AM - 10PM | Sunday: 10AM - 8PM"
  },
  {
-  "lat": 26.17248,
-  "lon": -80.14537,
-  "name": "projectROCK Oakland Park",
-  "country": "US",
-  "source": "https://projectrock.com/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "name",
-   "city",
-   "street-address"
-  ],
-  "hours": {
-   "mon": "13:00-22:00",
-   "tue": "13:00-22:00",
-   "wed": "13:00-22:00",
-   "thu": "13:00-22:00",
-   "fri": "12:00-22:00",
-   "sat": "10:00-22:00",
-   "sun": "10:00-18:00"
-  },
-  "evidence": "Monday – Thursday | 12PM(Noon)-1PM Member’s Hours | 1PM-10PM Climbing for ALL | Friday | 11AM-12PM(Noon) Member’s Hours | 12PM-10PM Climbing for ALL | Saturday | 8AM-10AM Member’s Hours | 10AM-10PM Climbing for ALL | Sunday | 8AM-10AM Member’s Hours | 10AM-6PM Climbing for ALL | Address: 3580 N Andrews Ave Oakland Park, FL 33309",
-  "note": "The page splits every day into a members’ hour and “Climbing for ALL”; the public half is what is recorded."
- },
- {
   "lat": 38.23891,
   "lon": -104.66451,
   "name": "Pueblo Athletic Club",
@@ -18511,6 +18541,30 @@
   },
   "evidence": "Monday - Saturday: | 10am - 9pm | Sunday: | 10am - 8pm | 1401 S 8th Street, Colorado Springs, CO 80905 | We are open 7 days a week from 10:00 am to 9:00 pm, except on Sundays we close at 8:00 pm.",
   "note": "The site’s own schema.org openingHoursSpecification agrees."
+ },
+ {
+  "lat": 47.63079,
+  "lon": -122.37408,
+  "name": "ROQ Climbing",
+  "country": "US",
+  "source": "https://roqclimbing.com/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "14:00-21:00",
+   "tue": "14:00-21:00",
+   "wed": "14:00-21:00",
+   "thu": "14:00-21:00",
+   "fri": "14:00-21:00",
+   "sat": "09:00-21:00",
+   "sun": "closed"
+  },
+  "evidence": "Mon-Fri: 2p-9p | Sat: 9a-9p | Su: Closed | Independence Day: Closed | Christmas Day: Closed"
  },
  {
   "lat": 40.8626711,
@@ -18806,30 +18860,6 @@
   "note": "The operator runs two gyms and publishes a block for each; this is the Los Angeles one."
  },
  {
-  "lat": 47.63079,
-  "lon": -122.37408,
-  "name": "ROQ Climbing",
-  "country": "US",
-  "source": "https://roqclimbing.com/contact",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "street-address"
-  ],
-  "hours": {
-   "mon": "14:00-21:00",
-   "tue": "14:00-21:00",
-   "wed": "14:00-21:00",
-   "thu": "14:00-21:00",
-   "fri": "14:00-21:00",
-   "sat": "09:00-21:00",
-   "sun": "closed"
-  },
-  "evidence": "Mon-Fri: 2p-9p | Sat: 9a-9p | Su: Closed | Independence Day: Closed | Christmas Day: Closed"
- },
- {
   "lat": 36.02423,
   "lon": -79.87617,
   "name": "Ruckus Climbing Gym",
@@ -18977,30 +19007,6 @@
   "evidence": "Mon–Fri: 6am – 11pm | Sat/Sun: 8am – 8pm | Sender City hours differ or vary per location"
  },
  {
-  "lat": 33.8482857,
-  "lon": -118.143446,
-  "name": "Sender One Lakewood",
-  "country": "US",
-  "source": "https://www.senderoneclimbing.com/lakewood/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "06:00-23:00",
-   "tue": "06:00-23:00",
-   "wed": "06:00-23:00",
-   "thu": "06:00-23:00",
-   "fri": "06:00-23:00",
-   "sat": "08:00-18:00",
-   "sun": "08:00-18:00"
-  },
-  "evidence": "Mon – Fri: 6am – 11pm | Sat/Sun: 8am – 6pm | Sender City hours differ or vary per location"
- },
- {
   "lat": 33.9324719,
   "lon": -118.3719662,
   "name": "Sender One LAX",
@@ -19047,6 +19053,30 @@
    "sun": "08:00-20:00"
   },
   "evidence": "Mon – Fri: 6am – 11pm | Sat: 8am – 8pm | Sun: 8am – 8pm | Sender City hours differ or vary per location"
+ },
+ {
+  "lat": 33.8482857,
+  "lon": -118.143446,
+  "name": "Sender One Lakewood",
+  "country": "US",
+  "source": "https://www.senderoneclimbing.com/lakewood/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-23:00",
+   "tue": "06:00-23:00",
+   "wed": "06:00-23:00",
+   "thu": "06:00-23:00",
+   "fri": "06:00-23:00",
+   "sat": "08:00-18:00",
+   "sun": "08:00-18:00"
+  },
+  "evidence": "Mon – Fri: 6am – 11pm | Sat/Sun: 8am – 6pm | Sender City hours differ or vary per location"
  },
  {
   "lat": 33.7289923,
@@ -20313,6 +20343,54 @@
   },
   "evidence": "Monday-Friday | Members Only: 7:00am-11:00am | Public: 11:00am-9:00pm | Saturday | 11:00am-8:00pm | Sunday | 12:00pm-7:00pm | 3534 E Sunshine Street, Suite 3 | Springfield, MO 65804",
   "note": "The page splits the weekday morning off as members-only; the public week is what is recorded."
+ },
+ {
+  "lat": 47.598614,
+  "lon": -120.643602,
+  "name": "beargrass",
+  "country": "US",
+  "source": "https://beargrass.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "07:00-22:00",
+   "sun": "07:00-22:00"
+  },
+  "evidence": "we’re open. mon-fri 6a-10p, sat-sun 7a-10p. … mon - fri : 6a - 10p | sat - sun : 7a - 10p | 122 zelt strasse, leavenworth, wa 98826"
+ },
+ {
+  "lat": 26.17248,
+  "lon": -80.14537,
+  "name": "projectROCK Oakland Park",
+  "country": "US",
+  "source": "https://projectrock.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "name",
+   "city",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "13:00-22:00",
+   "tue": "13:00-22:00",
+   "wed": "13:00-22:00",
+   "thu": "13:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Monday – Thursday | 12PM(Noon)-1PM Member’s Hours | 1PM-10PM Climbing for ALL | Friday | 11AM-12PM(Noon) Member’s Hours | 12PM-10PM Climbing for ALL | Saturday | 8AM-10AM Member’s Hours | 10AM-10PM Climbing for ALL | Sunday | 8AM-10AM Member’s Hours | 10AM-6PM Climbing for ALL | Address: 3580 N Andrews Ave Oakland Park, FL 33309",
+  "note": "The page splits every day into a members’ hour and “Climbing for ALL”; the public half is what is recorded."
  },
  {
   "lat": -33.910389,

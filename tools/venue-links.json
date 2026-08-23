@@ -6332,6 +6332,51 @@
     ]
   },
   {
+    "lat": 43.05242,
+    "lon": -2.1872,
+    "name": "AtariA Boulder",
+    "country": "ES",
+    "website": "https://www.atariaboulder.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The site is AtariA Boulder and prints \"Lazkaibar Kalea, 5, 20200 Beasain, Gipuzkoa\" — the street line upstream records, in the province upstream records. The apex serves a certificate that does not cover its hostname while www is fine, the same shape as the zugzwang-auerbach.de miss, so www is what is stored. Upstream has the postcode as 20240; the gym prints 20200."
+  },
+  {
+    "lat": 40.28517,
+    "lon": -3.78346,
+    "name": "Awesome Boulder Center",
+    "country": "ES",
+    "website": "https://awesomebouldercenter.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "Every page is titled \"… | Awesome Boulder Center | Comunidad de Madrid\" and the site prints C/ Nicolás Copérnico in 28946 Fuenlabrada, which is the street, postcode and town upstream records. The three Awesome Walls siblings the chain matcher offered are in Cork, Stoke and Stockport."
+  },
+  {
+    "lat": 43.2903,
+    "lon": -2.88748,
+    "name": "Biwak Climbing",
+    "country": "ES",
+    "website": "https://biwakclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The site prints \"Astintze Kalea, 4, 48160 Derio, Bizkaia\" — exactly the address upstream records. Logged unverified on the first pass because the server sends an incomplete certificate chain; the leaf is a genuine DigiCert certificate for biwakclimbing.com valid to November 2026, and browsers fetch the missing intermediate over AIA."
+  },
+  {
     "lat": 41.39718,
     "lon": 2.18866,
     "name": "Bloc District Barcelona",
@@ -6377,6 +6422,20 @@
     "note": "The operator runs two Zaragoza halls; this is Delicias at Av. de Navarra 22. Upstream's postcode 500017 has a digit too many."
   },
   {
+    "lat": 39.46582,
+    "lon": -0.35736,
+    "name": "Camaleón Boulder",
+    "country": "ES",
+    "website": "https://camaleonboulder.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is Camaleón Boulder and its homepage is headed \"Rocódromo urbano en el centro de Valencia\"; the upstream city is València. camaleon.com is an advertising agency in Quito."
+  },
+  {
     "lat": 42.37675,
     "lon": -3.70368,
     "name": "Campo Base Escalada",
@@ -6390,6 +6449,21 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 41.96756,
+    "lon": 2.81161,
+    "name": "Centre d'escalada Cal Mico",
+    "country": "ES",
+    "website": "https://calmico.cat/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The site is \"Cal Mico – Rocodrom Girona\" and prints C/ Alacant 13, which is the street line upstream records for this venue. calmico.com is a different site with no climbing content."
   },
   {
     "lat": 28.4752,
@@ -6458,6 +6532,35 @@
     "note": "The centre gives Calle Ebanistería 36 where upstream has number 8; it resolves to within 65 m of this venue."
   },
   {
+    "lat": 38.8860393,
+    "lon": -0.2070885,
+    "name": "Club d’Escalada Safor",
+    "country": "ES",
+    "website": "https://clubescaladasafor.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The site is Club d'Escalada Safor and names a MoonBoard, which is the board system this entry is listed for. Its address is Polígono 10, 89, 46720 Villalonga — in the Safor comarca, about 8 km from Oliva, which is the town upstream files the venue under."
+  },
+  {
+    "lat": 38.97546,
+    "lon": -3.93344,
+    "name": "El Plafón",
+    "country": "ES",
+    "website": "https://elplafon.es/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The site is headed \"El Plafón // Tu rocódromo en Ciudad Real\" and its contact page prints C/ La Solana, 21, 13005 Ciudad Real — the street and postcode upstream records."
+  },
+  {
     "lat": 43.36508,
     "lon": -5.83337,
     "name": "El Roko Centro de Escalada",
@@ -6470,6 +6573,34 @@
       "city"
     ],
     "note": "The gym publishes no street address; upstream spells the city \"Ovieda\"."
+  },
+  {
+    "lat": 39.72222,
+    "lon": 2.90134,
+    "name": "esRocodrom",
+    "country": "ES",
+    "website": "https://esrocodrom.es/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Same hall as the venue a few metres away — the Tension entry and the Kilter entry share a coordinate to four decimals — and the same site, which names Inca."
+  },
+  {
+    "lat": 39.722313033598525,
+    "lon": 2.9013102846544903,
+    "name": "esRocodrom",
+    "country": "ES",
+    "website": "https://esrocodrom.es/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is \"esRocodrom | Rocodromo, centro de escalada en Inca, Mallorca\"; the upstream city is Inca. esrocodrom.com serves the same site."
   },
   {
     "lat": 41.60589,
@@ -6604,6 +6735,22 @@
     "note": "The hall stands in Gavà, not Viladecans as upstream's nearest-city guess suggests."
   },
   {
+    "lat": 43.2821,
+    "lon": -2.16232,
+    "name": "Klimb Zarautz",
+    "country": "ES",
+    "website": "https://klimbzarautz.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "The site is \"KLIMB ZARAUTZ · INDOOR CLIMBING CENTER GIPUZKOA\", prints the Araba Kalea address in 20800 Zarautz that upstream records, and names a Kilter Board between 25° and 60° — the board system this entry is listed for. klimb.es is a boutique gym in Madrid."
+  },
+  {
     "lat": 42.61172607783265,
     "lon": -5.569550348503698,
     "name": "La Nave Centro de Escalada",
@@ -6632,6 +6779,35 @@
       "city"
     ],
     "note": "The gym gives postcode 37188 where upstream has 37188 for Carbajosa de la Sagrada; the street and town match."
+  },
+  {
+    "lat": 42.1976089,
+    "lon": -8.7728264,
+    "name": "Mapache Climbing",
+    "country": "ES",
+    "website": "https://mapacheclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is Mapache Climbing, \"primer rocódromo de referencia en la provincia de Pontevedra\", and its tarifas page is titled \"Precios rocódromo Vigo\"; the upstream city is Vigo. mapache.es is for sale and mapache.com is a Costa Rican car-rental firm."
+  },
+  {
+    "lat": 41.8162,
+    "lon": 2.99143,
+    "name": "Matxacuca",
+    "country": "ES",
+    "website": "https://matxacuca.cat/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site is AE Matxacuca and prints \"Pavelló d'esports - 17246 Santa Cristina d'Aro\", which is the postcode and town upstream records. matxacuca.com serves the same site."
   },
   {
     "lat": 41.42486,
@@ -6739,6 +6915,21 @@
       "street-address"
     ],
     "note": "The operator trades as Sala Nowa and files as Sala Boulder Huesca; its Calle Zona Deportiva 21 resolves 6 m from this coordinate. The www host redirects to a members' app, so the apex is the public site."
+  },
+  {
+    "lat": 27.9984747,
+    "lon": -15.390322,
+    "name": "Oceanus Climbing",
+    "country": "ES",
+    "website": "https://oceanusclimbing.es/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The site is \"Oceanus Climbing – Climbing Center – Telde – Gran Canaria\", prints C/Simón Bolivar 17, Telde, and names a MoonBoard — the board system this entry is listed for."
   },
   {
     "lat": 41.74104,
@@ -7081,6 +7272,20 @@
       "city"
     ],
     "note": "The gym gives Ursalto kalea 4 where upstream records only a pavilion number; it resolves to within 80 m of this venue."
+  },
+  {
+    "lat": 37.352094,
+    "lon": -5.841565399999999,
+    "name": "WISECLIMB - CENTRO DE ESCALADA",
+    "country": "ES",
+    "website": "https://wiseclimb.es/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The site is WISECLIMB, \"Rocódromo y Centro de Escalada en Sevilla\", and names a MoonBoard — the board system this entry is listed for. The upstream town, Alcalá de Guadaíra, is in the Seville metropolitan area."
   },
   {
     "lat": 38.86872,
