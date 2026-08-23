@@ -1,2 +1,92 @@
 [
+  {
+    "lat": 49.4315536,
+    "lon": 11.0587013,
+    "name": "BAMBULE",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "source": "https://bambule-kletterhalle.de/",
+    "reason": "Contradictory twice over. The visible block says Montag–Freitag 10:00–22:30 and Samstag/Sonntag 09:00–21:00/21:30 — itself two closing times for one row — while the schema.org openingHours says Mo–Fr 10:00–23:00 and Sa/Su 09:00–22:00."
+  },
+  {
+    "lat": 48.3896024,
+    "lon": 10.8874895,
+    "name": "Bloc-Hütte Augsburg",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "source": "https://bloc-huette.de/preise-oeffnungszeiten/",
+    "reason": "The site states two different schedules. Every page shows Montag 13.00–22.30 … Sonntag 09.00–21.00 in its text, while the schema.org node for the gym itself (ExerciseGym #organization) carries openingHours \"Monday,…,Sunday 09:00-17:00\". Two official statements by the same venue disagree, so nothing is published."
+  },
+  {
+    "lat": 52.388056,
+    "lon": 9.7286783,
+    "name": "Boulderhalle Beta Hannover",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "source": "https://boulderhalle-beta.de/besuch-planen/oeffnungszeiten/",
+    "reason": "Same conflict as Bloc-Hütte Augsburg: the text says Mo–Fr 10:00–23:00 and Sa/So/Feiertag 09:00–22:00 on every page, while the site's schema.org openingHours says \"Monday,…,Sunday 09:00-17:00\". Two official statements, no way to rank them."
+  },
+  {
+    "lat": 48.33433,
+    "lon": 12.14156,
+    "name": "DAV Taufkirchen (Vils)",
+    "country": "DE",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "source": "https://www.dav-taufkirchen.de/",
+    "reason": "Wix site whose navigation is script-driven: the homepage fetches as readable text but carries no schedule, and no subpage can be reached without executing the page. Worth re-reading with something that renders."
+  },
+  {
+    "lat": 54.16781,
+    "lon": 8.87204,
+    "name": "Hold On Tide",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "source": "https://holdontide.com/offnungszeiten-anfahrt/",
+    "reason": "The published week is explicitly headed \"Öffnungszeiten außerhalb der Ferien\" and a different holiday-period schedule is published beside it (opening at 13:00 Mo, Mi–Fr). Which one applies depends on the school-holiday calendar, so neither is a regular week this overlay can carry."
+  },
+  {
+    "lat": 49.172197,
+    "lon": 9.208495,
+    "name": "Kletterarena",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "source": "https://www.diekletterarena.de/infos/oeffnungszeiten-anfahrt",
+    "reason": "The only schedule on the page is \"Ab 13.07.2026 geänderte Sommer-Öffnungszeiten\" (Mo–Fr 08:00–13:00 and 15:00–23:00, Sa/So 08:00–20:00) with no end date and no regular week beside it. Publishing it would publish a temporary schedule that reverts without notice."
+  },
+  {
+    "lat": 53.2500572,
+    "lon": 10.42253,
+    "name": "Kraftwerk Lüneburg",
+    "country": "DE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "source": "https://www.urbanapes.de/lueneburg/preise-zeiten/",
+    "reason": "Two published regimes: Sommer (01.07.–30.09.) Mo–Fr 14:30–22:30 and Winter (01.10.–30.06.) Mo–Fr 13:00–22:30, weekends 11:00–21:00 in both. A single weekly grid would be wrong for nine months or for three, and this overlay has no way to expire one."
+  },
+  {
+    "lat": 51.0812495,
+    "lon": 13.7604438,
+    "name": "Mandala Boulderhalle Dresden",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "source": "https://boulderhalle-dresden.de/preise-oeffnungszeiten/preise-oeffnungszeiten.html",
+    "reason": "The operator runs two Dresden halls (Zeitenströmung and Postplatz) and publishes one Preise & Öffnungszeiten page (Mo–Fr 8–23, Sa/So/Feiertage 9–22) that never says which of them it applies to. The Zeitenströmung location page itself prints no schedule."
+  },
+  {
+    "lat": 47.84814,
+    "lon": 12.82113,
+    "name": "TeisendorfMoon",
+    "country": "DE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "source": "https://www.dav-teisendorf.de/Kletteranlagen/Boulderhalle-Teisendorf",
+    "reason": "The page states Montag bis Sonntag 07:00–22:00 and then qualifies it away: reservation is compulsory whenever the school may use the hall (Mo–Do 8:00–15:30, Fr 8:00–13:00), club training closes it at unlisted times, and it cannot be used at all while the Turnhalle is shut in the holidays. There is no regular week left to publish."
+  }
 ]

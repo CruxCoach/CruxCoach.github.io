@@ -60,6 +60,12 @@ often than not. A record is **not** created when:
   cannot read;
 - the page states fewer than seven days — a missing day is missing, and the
   schema will not let it be inferred, filled in or quietly treated as closed;
+- the page publishes a season-dependent week — two regimes with dates
+  (`Sommer 01.07.–30.09.` / `Winter 01.10.–30.06.`), or a schedule headed
+  "outside the holidays" with a holiday one beside it. A single grid would be
+  wrong for part of every year and this overlay has no way to expire one. Single
+  dated exceptions — 24 December, New Year's Day, one Easter closure — are a
+  different thing, and are what the on-page caveat is for;
 - it is unclear which branch of a multi-site operator the page describes;
 - only a search snippet is visible and the page itself cannot be opened;
 - the venue is a private or home setup — those get no hours at all, enforced in
@@ -67,6 +73,19 @@ often than not. A record is **not** created when:
 
 Every one of those has a status in the outcome log, so "no hours" never has to
 be re-derived from scratch.
+
+**The visible page and the page's own markup both count.** A site whose text
+says one thing and whose `schema.org` `openingHours` says another is publishing
+two schedules, and nothing in this file's rules can rank one over the other —
+so it is `ambiguous`, not "the one that looks right". The German batches turned
+this up repeatedly, most often as an untouched theme default (`Monday,…,Sunday
+09:00-17:00`, which is schema.org's own example value) sitting under a perfectly
+clear visible timetable. It is tempting to call that an artifact and move on.
+The reason not to is that the judgement does not survive being written down: a
+machine consumer of that site really is told 09:00–17:00, and "obviously a
+placeholder" is a curator's intuition, not a rule a later curator could apply
+the same way. The count of venues lost this way is in the ledger, because if it
+ever gets large the answer is to talk to operators, not to loosen the rule.
 
 ## Record shape
 
@@ -295,13 +314,49 @@ maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (published + outcome entries) | 0 |
-| Published schedules | 0 |
-| Recorded outcomes without hours | 0 |
-| Countries covered | 0 |
+| Venues reviewed (published + outcome entries) | 40 |
+| Published schedules | 31 |
+| Recorded outcomes without hours | 9 |
+| Countries covered | 1 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
-- **Last completed batch:** none — this is the schema, the build wiring, the two
-  renderers and the tests, with both curated files empty.
-- **Next batch:** DACH, starting from the 265 venues that already carry a
-  verified official website (DE 169, CH 52, AT 44).
+Per-country coverage of eligible (public/commercial) venues:
+
+| country | published | reviewed | eligible | share |
+| --- | --- | --- | --- | --- |
+| DE | 31 | 40 | 201 | 15% |
+
+- **Last completed batch:** Germany, the first 40 venues of the worklist that
+  already carry a verified official website. 31 published, 9 logged: 5
+  `ambiguous`, 3 `seasonal`, 1 `inaccessible`.
+- **Next batch:** the rest of Germany's linked venues, then Austria and
+  Switzerland.
+
+### What the first German batch taught
+
+Three of the nine refusals are the seasonal rule doing its job — Kraftwerk
+Lüneburg publishes a summer and a winter regime, Kletterarena a summer schedule
+with no end date, and Hold On Tide a week explicitly headed "outside the
+holidays". None of those is a week that stays true, and all three would have
+looked perfectly publishable to a curator reading only the times.
+
+Three more are the markup conflict described above (Bloc-Hütte Augsburg,
+Boulderhalle Beta Hannover, BAMBULE). BAMBULE is the one that shows why the rule
+is worth its cost: its visible row reads "Samstag/Sonntag 09:00 – 21:00/21:30",
+two closing times for one day, *and* its markup disagrees with both.
+
+The remaining shapes are worth naming because they recur:
+
+- **One operator, two halls, one schedule page.** Mandala Dresden runs
+  Zeitenströmung and Postplatz and publishes a single Preise & Öffnungszeiten
+  page that never says which hall it describes. That is exactly the case the
+  chain-page rule exists for, and the answer is no hours rather than a coin flip.
+- **A schedule that is really an availability.** DAV Teisendorf states
+  Mo–So 07:00–22:00 and then removes most of it: reservation is compulsory
+  during school hours, club training closes it at unlisted times, and the whole
+  hall shuts when the Turnhalle does in the holidays.
+- **Facility hours versus venue hours.** Bergstation Hilden's table has three
+  columns — Halle, Kursbüro, Shop — and only the first is public access;
+  Sportpark Kelkheim opens at 9 but its climbing hall at 10; Boulderlabor lists
+  the hall, then the café, then route-setting days. Reading the first row of a
+  table without reading its heading is how a plausible wrong answer gets in.

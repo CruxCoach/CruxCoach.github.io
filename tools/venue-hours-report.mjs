@@ -14,7 +14,9 @@ import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
-import { classifyVenue, loadVenueLinks, venueKey } from './venue-links.mjs';
+import {
+  buildVenueIndex, classifyVenue, resolveVenueRecord, venueKey,
+} from './venue-links.mjs';
 import {
   applyVenueHours, formatWeeklyHours, loadHoursResearch, loadVenueHours, toPublicWeek,
 } from './venue-hours.mjs';
@@ -97,13 +99,28 @@ function main() {
   }
   // "Reviewed" counts every venue that has an outcome of any kind — published
   // hours or a recorded reason there are none. That is the number that says how
-  // much of the map has actually been looked at.
+  // much of the map has actually been looked at, so it resolves each record the
+  // way the build does rather than comparing raw coordinates: a record written
+  // from a rounded coordinate still names one venue, and an outcome record that
+  // no longer names any is a stale record worth surfacing.
+  const byKey = buildVenueIndex(features);
+  const stale = [];
   const reviewedKeys = new Set();
-  for (const e of entries) {
-    if (typeof e?.lat === 'number' && typeof e?.lon === 'number') reviewedKeys.add(venueKey(e.lat, e.lon));
+  for (const [i, e] of [...entries.entries()]) {
+    const r = resolveVenueRecord(e, `venue-hours[${i}] "${e?.name}"`, byKey, features);
+    if (r.status !== 'ok') continue;   // already reported as a refused record
+    const [lon, lat] = r.feature.geometry.coordinates;
+    reviewedKeys.add(venueKey(lat, lon));
   }
-  for (const r of research.entries) {
-    if (typeof r?.lat === 'number' && typeof r?.lon === 'number') reviewedKeys.add(venueKey(r.lat, r.lon));
+  for (const [i, e] of [...research.entries.entries()]) {
+    const r = resolveVenueRecord(e, `venue-hours-research[${i}] "${e?.name}"`, byKey, features);
+    if (r.status !== 'ok') {
+      // A `private` outcome is the one refusal that is the point of the record.
+      if (r.status !== 'private-venue') stale.push(r.reason);
+      continue;
+    }
+    const [lon, lat] = r.feature.geometry.coordinates;
+    reviewedKeys.add(venueKey(lat, lon));
   }
   for (const f of features) {
     if (classifyVenue(f.properties) === 'private') continue;
@@ -128,7 +145,7 @@ function main() {
     seenResearch.add(k);
   }
 
-  const hard = errors.length + problems.length + research.errors.length + conflicts.length;
+  const hard = errors.length + problems.length + research.errors.length + conflicts.length + stale.length;
   const rows = [...coverage.values()]
     .sort((a, b) => b.published - a.published || b.eligible - a.eligible || a.code.localeCompare(b.code));
 
@@ -140,6 +157,7 @@ function main() {
       problems,
       notes,
       research_errors: research.errors,
+      stale_outcomes: stale,
       conflicts,
       research: researchByStatus,
       coverage: rows,
@@ -192,6 +210,10 @@ function main() {
   if (research.errors.length) {
     process.stdout.write('\noutcome-log errors\n');
     for (const e of research.errors) process.stdout.write(`  ${e}\n`);
+  }
+  if (stale.length) {
+    process.stdout.write('\noutcome records that no longer name a venue\n');
+    for (const t of stale) process.stdout.write(`  ${t}\n`);
   }
   if (conflicts.length) {
     process.stdout.write('\nrecords fighting over one venue\n');

@@ -555,3 +555,20 @@ test('the curated hours never contradict the curated website links', () => {
       || e.source === link.website);
   }
 });
+
+// The `venue-link` signal is a claim about another file: that a human already
+// established this domain is this venue's. It is the signal most often used as
+// one of the two, so it is the one worth checking mechanically — a record may
+// not lean on a link record that does not exist or points somewhere else.
+test('every record claiming the venue-link signal has the link it claims', () => {
+  const { entries: hours } = loadVenueHours(HOURS_FILE);
+  const { entries: links } = loadVenueLinks(LINKS_FILE);
+  const byKey = new Map(links.map(l => [venueKey(l.lat, l.lon), l]));
+  for (const e of hours) {
+    if (!e.signals?.includes('venue-link')) continue;
+    const link = byKey.get(venueKey(e.lat, e.lon));
+    assert.ok(link, `"${e.name}" claims the venue-link signal but has no venue-links record`);
+    assert.equal(new URL(e.source).hostname, new URL(link.website).hostname,
+      `"${e.name}" claims the venue-link signal for a different host than the link it points at`);
+  }
+});
