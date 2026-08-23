@@ -14840,6 +14840,33 @@
   "note": "The operator’s Hamilton gym opens at 9am on weekdays; each location page carries its own block."
  },
  {
+  "lat": -36.8112052,
+  "lon": 174.6045304,
+  "name": "Boulder Co. 25° and 40° MoonBoards",
+  "country": "NZ",
+  "source": "https://www.boulderco.co.nz/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "location-page",
+   "coordinates",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "AUCKLAND (09) 212 2007 info@boulderco.co.nz 33-47 Northside Drive, Westgate, Auckland Monday-Friday: 6am - 10pm Saturday-Sunday: 9am - 8pm",
+  "note": "The block sits under this gym's own address and telephone number. Christchurch on the same page opens at 9am on weekdays, so the blocks are per-gym."
+ },
+ {
   "lat": -36.77531,
   "lon": 174.73321,
   "name": "Northern Rocks",

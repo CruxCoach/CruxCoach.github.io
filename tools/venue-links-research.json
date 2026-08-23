@@ -2667,15 +2667,6 @@
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 43.87544219999999,
-    "lon": 10.2541854,
-    "name": "Air Climbing Moonboard",
-    "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all — the dataset name is the board model appended to \"Air Climbing\", and neither airclimbingmoonboard nor air-climbing-moonboard resolves on .it or .com. No OSM climbing object within 500 m carries a website, and nothing in the curated file is within 200 m."
-  },
-  {
     "lat": 46.31051859999999,
     "lon": 9.3982751,
     "name": "boulder factory",
@@ -4310,16 +4301,6 @@
     "reason": "No official site could be established: no candidate could be opened — acgmini.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": -36.8112052,
-    "lon": 174.6045304,
-    "name": "Boulder Co. 25° and 40° MoonBoards",
-    "country": "NZ",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — boulderco.co.nz → \"Boulder Co. | Auckland | Hamilton | Christchurch\"; boulderco.nz → \"Your future website - 1st Domains\", the rest could not be opened — moonboards.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.boulderco.co.nz/"
-  },
-  {
     "lat": -38.1380496,
     "lon": 176.2524697,
     "name": "Ganchos Moon Board",
@@ -5442,7 +5423,8 @@
     "country": "US",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for Apex Climbing Gym MoonBoard, South Bend was apexboulders.nl, a bouldering gym in the Netherlands — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
+    "reason": "apexclimbinggym.com is a much better candidate than the Dutch apexboulders.nl the first pass reached, and it carries the venue's name — but nothing else. It prints no address, no postal code and no board, and upstream records only South Bend, so there is no second signal. Retry when the site publishes a location.",
+    "candidate": "https://apexclimbinggym.com/"
   },
   {
     "lat": 38.9822282,
@@ -5539,8 +5521,8 @@
     "country": "US",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.boardworksclimbing.com → \"Boardworks Climbing & Fitness\"; bendenduranceacademy.org → \"a page with no title\"; bend.org → \"Domain Registered at Safenames\", the rest could not be opened — bendendurance.com → 200; bend.com → a timeout / 502; bend.net → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.boardworksclimbing.com/"
+    "reason": "OSM names the object here Boardworks, and boardworksclimbing.com answers and mentions Bend — but upstream calls this venue Bend Endurance Academy, and the only thing the two share is the town, which is inside the venue's own name. The page prints no street and does not use the academy's name.",
+    "candidate": "https://boardworksclimbing.com/"
   },
   {
     "lat": 45.51164,

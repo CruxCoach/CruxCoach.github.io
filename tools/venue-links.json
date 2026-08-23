@@ -11771,6 +11771,20 @@
     "note": "Isaac Climbing's own site; its home and about pages print 41, the building number in Yitzhak Sadeh St 41 that upstream records."
   },
   {
+    "lat": 43.87544219999999,
+    "lon": 10.2541854,
+    "name": "Air Climbing Moonboard",
+    "country": "IT",
+    "website": "https://airclimbing.it/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "OSM names the climbing object at this venue \"Air Climbing\" without tagging a site; taken as a domain label that gives airclimbing.it, which carries the name and Viareggio, the town upstream records."
+  },
+  {
     "lat": 45.5452,
     "lon": 9.28872,
     "name": "Big Walls",
@@ -14439,6 +14453,21 @@
       "location-page"
     ],
     "note": "Boulder Co publishes a page per gym; the Christchurch page prints 179 Blenheim Rd and the 8041 postal code upstream records."
+  },
+  {
+    "lat": -36.8112052,
+    "lon": 174.6045304,
+    "name": "Boulder Co. 25° and 40° MoonBoards",
+    "country": "NZ",
+    "website": "https://www.boulderco.co.nz/locations/auckland/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "coordinates"
+    ],
+    "note": "Boulder Co publishes a page per gym and the Auckland one embeds a map of itself that falls on this venue to the metre. Its Christchurch hall was linked earlier in this audit from the same site."
   },
   {
     "lat": -41.29287,
