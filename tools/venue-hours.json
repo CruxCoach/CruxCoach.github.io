@@ -13130,6 +13130,31 @@
   "note": "The gym gives a weekday band, a Saturday, a Sunday-and-holiday line, and then 月 定休日 — Monday is its regular closing day — so Monday is taken out of the weekday band. The Saturday 11:00-12:00 kids school sits inside the Saturday opening."
  },
  {
+  "lat": 36.60036,
+  "lon": 137.19879,
+  "name": "Bouldering Gym leTruss",
+  "country": "JP",
+  "source": "https://letruss.jp/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "13:00-22:00",
+   "tue": "13:00-22:00",
+   "wed": "13:00-22:00",
+   "thu": "13:00-22:00",
+   "fri": "13:00-22:00",
+   "sat": "09:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "営業時間 平日 13:00～22:00（最終受付 21:15）土日祝 9:00～19:00（最終受付18:15）定休日 なし",
+  "note": "Replaces an \"inaccessible\" outcome: the page is WordPress and answers in full through its REST route where the rendered HTML gave nothing. The gym states 定休日 なし — no regular closing day — so all seven days are covered. The 最終受付 times are last admission, a quarter of an hour before closing, and are not the closing time."
+ },
+ {
   "lat": 34.78667,
   "lon": 135.81206,
   "name": "カルコロ CAL-COLO",
@@ -15520,6 +15545,32 @@
   },
   "evidence": "Skrapan, Götgatan 78, 118 30 Stockholm. Summer Hours weekdays 08.00 - 22.00 weekends 09.00 - 21.00 (summer until Aug 10). Ordinary Hours Weekdays 06:30 - 23:00 Weekends: 09:00 - 23:00",
   "note": "Logged as 'no schedule' on the first pass. Both weeks are on the homepage, and the summer one is a dated window that closed on 10 August — so the Ordinary Hours beside it are the week in force, which is the case the policy allows to be recorded with the window noted."
+ },
+ {
+  "lat": 1.33109,
+  "lon": 103.74827,
+  "name": "Boulder+ The Chevrons",
+  "country": "SG",
+  "source": "https://www.boulderplusclimbing.com/location",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "13:00-22:30",
+   "tue": "09:00-22:30",
+   "wed": "09:00-22:30",
+   "thu": "09:00-22:30",
+   "fri": "09:00-22:30",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Opening hours Mon (Aperia) Mon (Chevrons) Tues to Fri Sat, Sun & PH 5pm - 1030pm 1pm - 1030pm 9am - 1030pm 9am - 9pm",
+  "note": "The operator runs two gyms and its table separates them on the only day they differ: Monday, when Aperia opens at 5pm and this one, Chevrons, at 1pm. The rest of the week is shared. Public holidays are grouped with the weekend."
  },
  {
   "lat": 1.29201,
