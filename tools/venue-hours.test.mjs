@@ -581,6 +581,8 @@ test('the evidence cross-check finds a mistyped time and forgives spelling', () 
     'lu - ve : 09h00 - 23h00 | sa : 10h00 - 22h00 | di : fermé',
     // Flemish ones write it as a u.
     'ma - vr: 9u - 23u | za: 10u - 22u | zo: gesloten',
+    // ...and some French ones shout it: 09H00, 08H30.
+    'Lundi : 09H - 23H | Samedi : 10H - 22H | Dimanche : fermé',
   ]) {
     assert.deepEqual(timesMissingFromEvidence(record({ evidence })), [], evidence);
   }

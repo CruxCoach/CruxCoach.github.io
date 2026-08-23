@@ -259,11 +259,12 @@ function evidenceMentionsTime(evidence, minutes) {
   // `h` and `u` are separators too, so a curator quoting a French page does not
   // have to transliterate 22h30, nor a Flemish one 9u30.
   const sep = '[:.hu]';
+  // Case-insensitive throughout: French pages write both 08h30 and 08H30.
   const patterns = [
     m === 0
       // A whole hour may be written bare: "10", "10:00", "10.00", "10h", "18u".
-      ? new RegExp(`(^|[^0-9])0?${h24}([^0-9:.hu]|${sep}00([^0-9]|$)|[hu]([^0-9]|$)|$)`)
-      : new RegExp(`(^|[^0-9])0?${h24}${sep}${mm}([^0-9]|$)`),
+      ? new RegExp(`(^|[^0-9])0?${h24}([^0-9:.hu]|${sep}00([^0-9]|$)|[hu]([^0-9]|$)|$)`, 'i')
+      : new RegExp(`(^|[^0-9])0?${h24}${sep}${mm}([^0-9]|$)`, 'i'),
   ];
   const h12 = h24 % 12 === 0 ? 12 : h24 % 12;
   const meridiem = h24 < 12 ? 'a' : 'p';

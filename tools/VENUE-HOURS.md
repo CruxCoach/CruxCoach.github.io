@@ -314,10 +314,10 @@ maintained by hand as batches land.
 
 | metric | count |
 | --- | --- |
-| Venues reviewed (published + outcome entries) | 419 |
-| Published schedules | 311 |
-| Recorded outcomes without hours | 108 |
-| Countries covered | 7 |
+| Venues reviewed (published + outcome entries) | 537 |
+| Published schedules | 362 |
+| Recorded outcomes without hours | 175 |
+| Countries covered | 11 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Per-country coverage of eligible (public/commercial) venues:
@@ -329,77 +329,87 @@ Per-country coverage of eligible (public/commercial) venues:
 | NL | 37 | 51 | 59 | 63% |
 | CH | 35 | 52 | 56 | 63% |
 | AT | 31 | 44 | 48 | 65% |
+| FR | 25 | 46 | 70 | 36% |
 | BE | 19 | 28 | 36 | 53% |
+| ES | 16 | 49 | 98 | 16% |
+| IT | 9 | 21 | 72 | 13% |
 | IE | 5 | 5 | 10 | 50% |
+| PT | 1 | 2 | 15 | 7% |
 
-- **Last completed batch:** the Netherlands, Belgium, the United Kingdom and
-  Ireland — every linked venue in all four. 113 published, 41 logged.
-- **Next batch:** Spain, France, Italy and Portugal.
+- **Last completed batch:** Spain, France, Italy and Portugal — every linked
+  venue in all four. 51 published, 67 logged, and the lowest yield of any batch
+  so far at 43%.
+- **Next batch:** the Nordics, Poland, Czechia, Luxembourg and South Africa.
 
-### What the first seven countries taught
+### Why Spain and Italy publish so much less
 
-**Seasonal is the biggest single reason a gym gets no hours** — 40 of the 108
-outcomes, and it is the same shape in every language. German gyms write
-`Schulferien: 10 – 22 Uhr` under a term-time week; Flemish ones publish `BINNEN`
-and `BUITEN DE VAKANTIE PERIODES` blocks; Dutch ones a `Zomervakantie` footnote;
-British ones `Term-time hours (from September)`; French-speaking ones
-`*13h de juin à septembre (horaire d'été)`. A curator reading only the first set
-of times would publish every one of them.
+Southern Europe is the first place where the refusal rate is the story. Spain
+published 16 of 49 reviewed and Italy 9 of 21, against two thirds in DACH, and it
+is not one cause but three, each roughly a third of the gap.
 
-The most expensive single case was **Beest Boulders**: all seven of its halls
-publish nothing but a block headed `Zomerperiode juli & augustus`. Six of them
-looked like ordinary weekly tables in the extract — `ma t/m do: 13:00-23:00 | vr:
-9:00-23:00 | za-zo: 9:00-18:00` — and only the heading two lines above gives it
-away. Reading the heading, not the row, is the whole job.
+**A summer week instead of a week.** Indoorwall Alicante, The Climb Madrid, Rock
+& Wall Sevilla, Rocodrom Es Cau, La Ola Salamanca, Rocópolis, Pareti Parma, Bside
+Turin, Art Bloc Nice, Le Bloc de l'Ours, Rockspot Milan — all publish an August
+or seasonal regime, several of them *instead of* the regular one. Rocópolis
+closes on Sundays for a quarter of the year; Bside labels its weekend rows
+`Sab(Ott-mag)` and `DOM(GEN-FEB)`, which is a schedule that describes four months.
+
+**A site that renders its hours rather than writing them.** Sharma's three halls,
+all five Bloc Session locations, Escapad Champigny, Boulder Garage, Campo Base —
+the heading is in the document and the times are not. Where an operator does this
+it costs every one of its centres at once, which is the operator index working in
+reverse.
+
+**Contradictions, and more of them than anywhere else.** Rawindoor publishes two
+weeks that disagree about which days it is open at all; SKALA ROCO, Hangar4,
+Natural Climb, Vertigini, Climbing Zoo, Solo Escalade and The Roof Toulouse each
+state one day two ways. S'Avanzada is the extreme: seven different weeks on one
+page, differing in both the opening and the closing times.
+
+What worked, where it worked, is what worked everywhere: an operator with real
+per-location pages. Sputnik's five Spanish centres, The Roof's four French ones,
+Altissimo, Block'Out, Vertical'Art and Climb Up all publish a labelled week per
+hall, and every one of them was a clean read.
+
+### What the first eleven countries taught
+
+**Seasonal is the biggest single reason a gym gets no hours** — 53 of the 175
+outcomes, and it is the same shape in every language: `Schulferien`, `BINNEN`/
+`BUITEN DE VAKANTIE PERIODES`, `Zomervakantie`, `Term-time hours (from
+September)`, `horaire d'été`, `Horario agosto`, `ORARI ESTIVI`, `Sab(Ott-mag)`.
+The most expensive single case was Beest Boulders: all seven halls publish nothing
+but a block headed `Zomerperiode juli & augustus`, and six of them look like
+ordinary weekly tables until you read the heading two lines above.
 
 **Contradictions come in three shapes**, all caught by opening a second page of
-the same site — the cheapest quality step there is: markup against text
-(Bloc-Hütte Augsburg, Beta Hannover, BAMBULE, L'Entrepôt, Planet Climbing Lancy,
-Rockstar Swindon, The Weedon Project, TCA The Church); page against page
-(Siegerland's entire week, Boulders Cardiff's three answers for Saturday,
-Parthian Southampton, Boulderhal Sendmaat, Neoliet Tilburg); and notice against
-table, where DAV Landshut's timetable says Friday 14:00 and a notice on the same
-page says it moved to 10:00 in April.
+the same site — the cheapest quality step there is: markup against text; page
+against page; and notice against table, where DAV Landshut's timetable says Friday
+14:00 and a notice on the same page says it moved to 10:00 in April.
 
-**A stated week is not always an opening.** DAV Boulderzentrum Erlangen publishes
-Mo–So 07:00–23:00 for an unstaffed hall you cannot enter without a key; Quergang
-in Jona is public on Tuesday evenings and subscriber-only otherwise; The
-Adventure Hub near Sheffield opens to the public on a Friday and a Saturday
-afternoon and is members-only the rest of the week.
+**A stated week is not always an opening.** DAV Erlangen publishes Mo–So
+07:00–23:00 for an unstaffed hall you cannot enter without a key; Quergang is
+public on Tuesday evenings and subscriber-only otherwise; The Adventure Hub opens
+to the public on a Friday and a Saturday afternoon.
 
-**Two access regimes, one answer.** Berta Block, Rainbow Rocket Kempten,
-Griffwerk, Greifbar Bregenz, Boulderlounge Schlieren, Momentum Olten and Kilnworx
-each publish staffed hours *and* a wider window for card, badge or booking
-holders. The record takes the staffed hours — the ones that need nothing but
-turning up — and says so in a note. Where the venue publishes only the wide
-window (Die Knäpperei's 0–24, Bloc Spot Murtal, Randa, Luma in Bath), that is the
-schedule, and the note says how entry works.
+**Two access regimes, one answer.** Where a venue publishes staffed hours *and* a
+wider card, badge or booking window, the record takes the staffed ones — the ones
+that need nothing but turning up — and says so in a note. Where the venue
+publishes only the wide window (Die Knäpperei's 0–24, Bloc Spot Murtal, Randa,
+Luma in Bath), that is the schedule, and the note says how entry works.
 
 **Facility hours versus venue hours.** Bergstation Hilden's table has three
-columns; Flashpoint Bristol publishes the climbing wall and the café as two
-tables; The Climbing Hangar Liverpool prints its café hours above the gym's;
-Lintharena publishes a table per facility; Delfts Bleau's second column is when
-the building closes, not the gym. Bimano Bern is logged precisely because four
-tabs and four tables cannot be paired up from the fetched text.
+columns; Flashpoint Bristol publishes the wall and the café as two tables; Delfts
+Bleau's second column is when the building closes; HELIKS' bar closes half an hour
+after the hall. Bimano Bern is logged precisely because four tabs and four tables
+cannot be paired up from the fetched text.
 
 **Markup is a witness, not a source.** Where a site publishes `openingHours` and
-nothing a reader can see, the record is refused — Projekt Eins, The Foundry, all
-three TOTEM halls. Where markup and text agree — FLASHH, Boulderplanet, Boulder
-Factory Münster, Das Flash, ELYS, The Climbing Lab, TCA The Mothership — it goes
-in the note, because it is the cheapest confirmation available and it settles
-ambiguous table layouts.
+nothing a reader can see, the record is refused. Where markup and text agree it
+goes in the note, because it is the cheapest confirmation available and it settles
+ambiguous table layouts — Boulder Factory Münster's table prints its values above
+its labels, and only the markup says which way round.
 
-**Chain pages that do the right thing.** Newton (Graz/Kapfenberg), Minimum
-(Flüela/Leutschenbach), City Bouldering (five London centres, each with its
-address), Boulderhal Sterk and De Fabriek all publish per-hall weeks under
-explicit per-hall headings. That is what `official-chain-page` plus the
-`hours-scope` signal is for, and it is the only shape in which one page may speak
-for two venues.
-
-**What the operator index gives you.** Every country that moved quickly did so
-because its chains publish real per-location pages: Boulderwelt, Stuntwerk, urban
-apes, Neoliet, Einstein, Element Boulders, Studio Bloc, Boulderbar, Steinblock,
-grimper.ch, Boulderlounge, Monk, Mountain Network, Depot, The Climbing Hangar,
-Awesome Walls, the-font.co.uk. Where an operator instead hides its week behind a
-script — London Climbing Centres, Eden Rock — every one of its centres is logged
-`inaccessible` at once.
+**The evidence cross-check keeps finding notation, not errors.** Every failure so
+far has been the matcher's, not the data's: `22h30` in Switzerland, `9u30` in
+Flanders, `10pm` in Britain, `08H30` in France. Each one taught it a spelling, and
+the direction that matters still fails — `10pm` does not cover 22:30.

@@ -5291,6 +5291,1019 @@
     "evidence": "Montag: 12 – 23 Uhr | Dienstag: 12 – 23 Uhr | Mittwoch: 10 – 23 Uhr | Donnerstag: 10 – 23 Uhr | Freitag: 10 – 23 Uhr | Samstag: 10 – 21 Uhr | Sonntag: 10 – 21 Uhr"
   },
   {
+    "lat": 40.33956,
+    "lon": -3.84857,
+    "name": "Climbat X-Madrid",
+    "country": "ES",
+    "source": "https://climbat.com/centro/x-madrid/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:30",
+      "tue": "10:00-22:30",
+      "wed": "10:00-22:30",
+      "thu": "10:00-22:30",
+      "fri": "10:00-22:30",
+      "sat": "10:00-22:30",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "Lunes: 10 - 22:30h | Martes: 10 - 22:30h | Miércoles: 10 - 22:30h | Jueves: 10 - 22:30h | Viernes: 10 - 22:30h | Sábado: 10 - 22:30h | Domingo: 10 - 21h"
+  },
+  {
+    "lat": 43.36508,
+    "lon": -5.83337,
+    "name": "El Roko Centro de Escalada",
+    "country": "ES",
+    "source": "https://elroko.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-14:00,16:00-22:00",
+      "sun": "10:00-14:00,16:00-22:00"
+    },
+    "evidence": "Lunes : 10:00 a 22:00 | Martes : 10:00 a 22:00 | Miércoles : 10:00 a 22:00 | Jueves : 10:00 a 22:00 | Viernes : 10:00 a 22:00 | Sabado : 10:00 a 22:00 (14:00 a 16:00 CERRADO) | Domingo : 10:00 a 22:00 (14:00 a 16:00 CERRADO)"
+  },
+  {
+    "lat": 41.60589,
+    "lon": 0.6407,
+    "name": "Fanatic Lleida",
+    "country": "ES",
+    "source": "https://fanaticlleida.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:30",
+      "tue": "09:00-22:30",
+      "wed": "09:00-22:30",
+      "thu": "09:00-22:30",
+      "fri": "09:00-22:30",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Lunes a Viernes de 09:00h a 22:30h - Sábados y Domingos de 10:00h a 20:00h."
+  },
+  {
+    "lat": 42.83755,
+    "lon": -2.66905,
+    "name": "Gimnasio K2",
+    "country": "ES",
+    "source": "https://gimnasiok2.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "06:30-22:30",
+      "tue": "06:30-22:30",
+      "wed": "06:30-22:30",
+      "thu": "06:30-22:30",
+      "fri": "06:30-22:30",
+      "sat": "08:00-14:30,16:30-20:00",
+      "sun": "09:00-14:30"
+    },
+    "evidence": "LUNES A VIERNES 06:30-22:30 | SÁBADOS 08:00-14:30 y 16:30-20:00 | DOMINGOS 09:00-14:30 | FESTIVOS 09:00-14:30",
+    "note": "The pool inside the same centre keeps its own, slightly shorter hours."
+  },
+  {
+    "lat": 42.61172607783265,
+    "lon": -5.569550348503698,
+    "name": "La Nave Centro de Escalada",
+    "country": "ES",
+    "source": "https://lanavecentrodeescalada.es/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-14:00,16:00-22:00",
+      "tue": "10:00-14:00,16:00-22:00",
+      "wed": "10:00-14:00,16:00-22:00",
+      "thu": "10:00-14:00,16:00-22:00",
+      "fri": "10:00-14:00,16:00-22:00",
+      "sat": "11:00-14:00,17:00-22:00",
+      "sun": "17:00-21:00"
+    },
+    "evidence": "Lunes a Viernes 10:00 – 14:00 y 16:00 – 22:00 | Sábados 11:00 – 14:00 y 17:00 – 22:00 | domingos y festivos 17:00 – 21:00"
+  },
+  {
+    "lat": 37.35773,
+    "lon": -6.05579,
+    "name": "Move Climbing",
+    "country": "ES",
+    "source": "https://www.moveclimbing.es/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:30-22:00",
+      "tue": "09:30-22:00",
+      "wed": "09:30-22:00",
+      "thu": "09:30-22:00",
+      "fri": "09:30-22:00",
+      "sat": "11:00-20:00",
+      "sun": "11:00-20:00"
+    },
+    "evidence": "Lunes – Viernes 9h30-22h | Sábados, Domingos y Festivos de 11h a 20h"
+  },
+  {
+    "lat": 42.1378979,
+    "lon": -0.3908812,
+    "name": "Nowa Moonboard",
+    "country": "ES",
+    "source": "https://salanowa.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-14:00,18:00-22:00",
+      "tue": "10:00-14:00,18:00-22:00",
+      "wed": "10:00-14:00,18:00-22:00",
+      "thu": "10:00-14:00,18:00-22:00",
+      "fri": "10:00-14:00,18:00-22:00",
+      "sat": "closed",
+      "sun": "closed"
+    },
+    "evidence": "Lunes - Viernes: 10 a 14h y de 18 a 22h | Sábado: Cerrado | Domingo: Cerrado"
+  },
+  {
+    "lat": 37.21734,
+    "lon": -3.62359,
+    "name": "Rock and Bloc",
+    "country": "ES",
+    "source": "https://rockandbloc.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "10:00-14:00,17:00-22:00",
+      "tue": "10:00-14:00,17:00-22:00",
+      "wed": "10:00-14:00,17:00-22:00",
+      "thu": "10:00-14:00,17:00-22:00",
+      "fri": "10:00-14:00,17:00-22:00",
+      "sat": "10:00-15:00",
+      "sun": "10:00-15:00"
+    },
+    "evidence": "Lunes – Viernes: 10 a 14h y de 17 a 22h | Sábados y domingos 10 a 15h",
+    "note": "Upstream carries this gym twice, about 20 m apart."
+  },
+  {
+    "lat": 37.21716,
+    "lon": -3.623567,
+    "name": "Rock'N'Bloc",
+    "country": "ES",
+    "source": "https://rockandbloc.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "10:00-14:00,17:00-22:00",
+      "tue": "10:00-14:00,17:00-22:00",
+      "wed": "10:00-14:00,17:00-22:00",
+      "thu": "10:00-14:00,17:00-22:00",
+      "fri": "10:00-14:00,17:00-22:00",
+      "sat": "10:00-15:00",
+      "sun": "10:00-15:00"
+    },
+    "evidence": "Lunes – Viernes: 10 a 14h y de 17 a 22h | Sábados y domingos 10 a 15h"
+  },
+  {
+    "lat": 43.41070009078681,
+    "lon": -3.832334913491663,
+    "name": "Rocódromo Treparriscos",
+    "country": "ES",
+    "source": "https://rocodromotreparriscos.com/contacto/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-13:00,16:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-13:00,16:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-13:00,16:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Lunes – Miércoles – Viernes: 10:00 a 13:00 y 16:00 a 22:00 | Martes – Jueves – Sábado: 10:00 a 22:00 | Domingo: 10:00 a 20:00 | Festivos: 10:00 a 16:00"
+  },
+  {
+    "lat": 40.5359935,
+    "lon": -3.6567195,
+    "name": "Sputnik Climbing Alcobendas",
+    "country": "ES",
+    "source": "https://sputnikclimbing.com/rocodromo-madrid/alcobendas/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "07:00-23:00",
+      "tue": "07:00-23:00",
+      "wed": "07:00-23:00",
+      "thu": "07:00-23:00",
+      "fri": "07:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Lunes a viernes, de 7 a 23h | Sábados, domingos y festivos, de 9 a 21h.",
+    "note": "Sputnik publishes each of its centres on its own page and repeats them all on the contacto page; the Roco line is the climbing hall, the Cantina and Cocina lines are the bar and the kitchen."
+  },
+  {
+    "lat": 43.36986,
+    "lon": -2.9941,
+    "name": "Sputnik Climbing Berango",
+    "country": "ES",
+    "source": "https://sputnikclimbing.com/rocodromo-bizkaia/berango/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-21:00",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "De lunes a viernes de 10 a 22h. | Sábado, domingo y festivos de 10 a 21h",
+    "note": "Sputnik publishes each of its centres on its own page and repeats them all on the contacto page; the Roco line is the climbing hall, the Cantina and Cocina lines are the bar and the kitchen."
+  },
+  {
+    "lat": 40.49892,
+    "lon": -3.89055,
+    "name": "Sputnik Climbing Center Las Rozas",
+    "country": "ES",
+    "source": "https://sputnikclimbing.com/rocodromo-madrid/las-rozas/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "07:00-23:00",
+      "tue": "07:00-23:00",
+      "wed": "07:00-23:00",
+      "thu": "07:00-23:00",
+      "fri": "07:00-23:00",
+      "sat": "08:00-22:00",
+      "sun": "08:00-21:00"
+    },
+    "evidence": "Lunes a viernes, de 7 a 23h | Sábados, de 8 a 22h | Domingos y festivos, de 8 a 21h.",
+    "note": "Sputnik publishes each of its centres on its own page and repeats them all on the contacto page; the Roco line is the climbing hall, the Cantina and Cocina lines are the bar and the kitchen."
+  },
+  {
+    "lat": 40.43972,
+    "lon": -3.70834,
+    "name": "Sputnik Climbing Chamberí",
+    "country": "ES",
+    "source": "https://sputnikclimbing.com/rocodromo-madrid/chamberi/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "07:00-23:00",
+      "tue": "07:00-23:00",
+      "wed": "07:00-23:00",
+      "thu": "07:00-23:00",
+      "fri": "07:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Lunes a viernes de 7 a 23h | Sábado de 9 a 22h | Domingos y festivos, de 9 a 21h.",
+    "note": "Sputnik publishes each of its centres on its own page and repeats them all on the contacto page; the Roco line is the climbing hall, the Cantina and Cocina lines are the bar and the kitchen."
+  },
+  {
+    "lat": 40.38924,
+    "lon": -3.68918,
+    "name": "Sputnik Climbing Legazpi",
+    "country": "ES",
+    "source": "https://sputnikclimbing.com/rocodromo-madrid/legazpi/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "07:00-23:00",
+      "tue": "07:00-23:00",
+      "wed": "07:00-23:00",
+      "thu": "07:00-23:00",
+      "fri": "07:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Lunes a viernes, de 7 a 23h | Sábados de 9 a 22h | Domingos y festivos, de 9 a 21h",
+    "note": "Sputnik publishes each of its centres on its own page and repeats them all on the contacto page; the Roco line is the climbing hall, the Cantina and Cocina lines are the bar and the kitchen."
+  },
+  {
+    "lat": 43.30261,
+    "lon": -1.94377,
+    "name": "The Factory Boulder",
+    "country": "ES",
+    "source": "https://www.thefactoryboulder.com/contacto",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-21:00",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "De lunes a viernes de 10.00 a 22.00h. | Sábados, domingos y festivos. de 10.00 a 21.00h."
+  },
+  {
+    "lat": 43.33397,
+    "lon": 5.37314,
+    "name": "Altissimo Marseille",
+    "country": "FR",
+    "source": "https://marseille.altissimo.fr/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:30-22:30",
+      "tue": "10:30-22:30",
+      "wed": "10:30-22:30",
+      "thu": "10:30-22:30",
+      "fri": "10:30-22:30",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "HORAIRES : ouvert 7j/7 : lundi au vendredi 10h30 à 22h30 / week-ends et jours fériés 10h à 19h"
+  },
+  {
+    "lat": 49.09259,
+    "lon": 6.13135,
+    "name": "Altissimo Metz Loisirama",
+    "country": "FR",
+    "source": "https://metz-loisirama.altissimo.fr/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "12:00-22:30",
+      "tue": "12:00-22:30",
+      "wed": "10:00-22:30",
+      "thu": "12:00-22:30",
+      "fri": "12:00-22:30",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "HORAIRES : Lundi, mardi, jeudi et vendredi : 12h - 22h30. Mercredi 10h - 22h30. Week-end et jours fériés : 10h - 20h"
+  },
+  {
+    "lat": 43.55127,
+    "lon": 1.40788,
+    "name": "Altissimo Toulouse Portet",
+    "country": "FR",
+    "source": "https://toulouse-portet.altissimo.fr/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "09:00-20:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "HORAIRES : ouvert 7j/7 / lundi à vendredi 10h à 23h / week-end et jours fériés : 9h à 20h"
+  },
+  {
+    "lat": 48.80399,
+    "lon": 2.36549,
+    "name": "Antrebloc",
+    "country": "FR",
+    "source": "https://antrebloc.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "11:00-23:00",
+      "tue": "11:00-23:00",
+      "wed": "11:00-23:00",
+      "thu": "11:00-23:30",
+      "fri": "11:00-23:30",
+      "sat": "09:00-20:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Lun, Mar, Mer 11h 23h | Jeudi, Vendredi 11h 23h30 | Samedi 9h 20h | Dimanche 9h 21h"
+  },
+  {
+    "lat": 48.8040901,
+    "lon": 2.3653312,
+    "name": "Antrebloc",
+    "country": "FR",
+    "source": "https://antrebloc.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "11:00-23:00",
+      "tue": "11:00-23:00",
+      "wed": "11:00-23:00",
+      "thu": "11:00-23:30",
+      "fri": "11:00-23:30",
+      "sat": "09:00-20:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Lun, Mar, Mer 11h 23h | Jeudi, Vendredi 11h 23h30 | Samedi 9h 20h | Dimanche 9h 21h",
+    "note": "Upstream carries this gym twice, about 130 m apart."
+  },
+  {
+    "lat": 46.11474,
+    "lon": 3.43687,
+    "name": "Arca Bloc",
+    "country": "FR",
+    "source": "https://www.arcabloc.fr/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "14:00-20:00",
+      "tue": "10:30-21:30",
+      "wed": "10:30-21:30",
+      "thu": "10:30-21:30",
+      "fri": "14:00-20:00",
+      "sat": "14:00-20:00",
+      "sun": "14:00-20:00"
+    },
+    "evidence": "Lundi, vendredi, samedi & dimanche : 14h – 20h | Mardi, mercredi & jeudi : 10h30 – 21h30"
+  },
+  {
+    "lat": 47.63811,
+    "lon": -2.76552,
+    "name": "B'wall Vannes",
+    "country": "FR",
+    "source": "https://www.b-wall.fr/salle-escalade/vannes/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "09:00-20:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "Du Lundi au Vendredi : 10h-23h | Samedi, Dimanche & Jours fériés : 9h-20h",
+    "note": "The page's schema.org openingHoursSpecification states the same week."
+  },
+  {
+    "lat": 45.4419,
+    "lon": 4.37419,
+    "name": "Blocabrac",
+    "country": "FR",
+    "source": "https://www.blocabrac.fr/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "12:00-22:00",
+      "tue": "12:00-22:00",
+      "wed": "12:00-22:00",
+      "thu": "12:00-22:00",
+      "fri": "12:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Du lundi au vendredi 12h à 22h | Du samedi au dimanche de 10h à 20h"
+  },
+  {
+    "lat": 48.61244,
+    "lon": 2.42529,
+    "name": "Block'Out Evry-Lisses",
+    "country": "FR",
+    "source": "https://www.blockout.fr/evry/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "11:00-23:00",
+      "tue": "11:00-23:00",
+      "wed": "11:00-23:00",
+      "thu": "11:00-23:00",
+      "fri": "11:00-23:00",
+      "sat": "09:00-20:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "Lundi – vendredi : 11h à 23h | Samedi – dimanche : 9h à 20h",
+    "note": "The restaurant on the same site keeps its own hours."
+  },
+  {
+    "lat": 43.42825,
+    "lon": 5.26475,
+    "name": "Block'Out Vitrolles",
+    "country": "FR",
+    "source": "https://www.blockout.fr/vitrolles/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "11:00-23:00",
+      "tue": "11:00-23:00",
+      "wed": "11:00-23:00",
+      "thu": "11:00-23:00",
+      "fri": "11:00-23:00",
+      "sat": "09:00-20:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "Lundi – vendredi : 11h à 23h | Samedi – dimanche : 9h à 20h"
+  },
+  {
+    "lat": 43.4301171,
+    "lon": 5.2632917,
+    "name": "Block'Out Vitrolles",
+    "country": "FR",
+    "source": "https://www.blockout.fr/vitrolles/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "11:00-23:00",
+      "tue": "11:00-23:00",
+      "wed": "11:00-23:00",
+      "thu": "11:00-23:00",
+      "fri": "11:00-23:00",
+      "sat": "09:00-20:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "Lundi – vendredi : 11h à 23h | Samedi – dimanche : 9h à 20h",
+    "note": "Upstream carries this gym twice, about 640 m apart."
+  },
+  {
+    "lat": 47.68163,
+    "lon": -2.80001,
+    "name": "Capt'N Hablock",
+    "country": "FR",
+    "source": "https://captnhablock.com/infos-pratiques/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Lundi – Vendredi 10h à 22h | Samedi – Dimanche – Jours fériés 10h à 20h"
+  },
+  {
+    "lat": 43.52859,
+    "lon": 4.95816,
+    "name": "Climb Up Istres",
+    "country": "FR",
+    "source": "https://istres.climb-up.fr/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "09:00-23:00",
+      "sun": "09:00-23:00"
+    },
+    "evidence": "HORAIRES En semaine : 10h00 à 23h00. | Mercredi et le week-end : 09h00 à 23h00"
+  },
+  {
+    "lat": 43.99270161681986,
+    "lon": 1.336295113494226,
+    "name": "Climb’Zone",
+    "country": "FR",
+    "source": "https://www.climbzone.fr/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "12:00-21:30",
+      "tue": "12:00-21:30",
+      "wed": "12:00-21:30",
+      "thu": "12:00-21:30",
+      "fri": "12:00-21:30",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "Lun-VEN : 12h-21h30 | Week-end & jours fériés : 10h-19h",
+    "note": "The site's schema.org openingHoursSpecification states the same weekday times."
+  },
+  {
+    "lat": 48.84782,
+    "lon": 2.37059,
+    "name": "Climbing District Bastille",
+    "country": "FR",
+    "source": "https://climbingdistrict.com/salle-escalade/paris-11-bastille/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "07:00-23:00",
+      "tue": "07:00-23:00",
+      "wed": "07:00-23:00",
+      "thu": "07:00-23:00",
+      "fri": "07:00-23:00",
+      "sat": "08:00-23:00",
+      "sun": "08:00-23:00"
+    },
+    "evidence": "7h-23h du lundi au vendredi | 8h-23h les samedis et dimanches",
+    "note": "The page's schema.org openingHoursSpecification states the same week."
+  },
+  {
+    "lat": 50.63740675288798,
+    "lon": 3.074262755705031,
+    "name": "ESCAPAD LILLE",
+    "country": "FR",
+    "source": "https://www.escapad.fr/club-lille",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-24:00",
+      "tue": "09:00-24:00",
+      "wed": "09:00-24:00",
+      "thu": "09:00-24:00",
+      "fri": "09:00-24:00",
+      "sat": "09:00-24:00",
+      "sun": "09:00-24:00"
+    },
+    "evidence": "Ouvert · 7j/7 · 9h → 00h00",
+    "note": "The page's schema.org openingHours states the same week."
+  },
+  {
+    "lat": 49.15363,
+    "lon": -0.28923,
+    "name": "Isatix",
+    "country": "FR",
+    "source": "https://www.isatix.com/contact.php",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "11:00-22:30",
+      "tue": "11:00-22:30",
+      "wed": "11:00-22:30",
+      "thu": "11:00-22:30",
+      "fri": "11:00-22:30",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Lundi 11:00-22:30 | Mardi 11:00-22:30 | Mercredi 11:00-22:30 | Jeudi 11:00-22:30 | Vendredi 11:00-22:30 | Samedi 10:00-20:00 | Dimanche 10:00-20:00"
+  },
+  {
+    "lat": 45.6197566,
+    "lon": 5.8886275,
+    "name": "La Zipette",
+    "country": "FR",
+    "source": "https://lazipette.fr/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "DU LUNDI AU VENDREDI 10H – 22H | WEEK-END & JOURS FÉRIÉS 10H – 19H",
+    "note": "Upstream carries this gym twice, about 130 m apart."
+  },
+  {
+    "lat": 45.61898,
+    "lon": 5.88803,
+    "name": "La Zipette - Escalade & Snack",
+    "country": "FR",
+    "source": "https://lazipette.fr/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "DU LUNDI AU VENDREDI 10H – 22H | WEEK-END & JOURS FÉRIÉS 10H – 19H"
+  },
+  {
+    "lat": 48.39182,
+    "lon": -4.4872,
+    "name": "The Roof Brest",
+    "country": "FR",
+    "source": "https://brest.theroof.fr/infos-pratiques.html",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Horaires classiques Lundi : 10H - 22H | Mardi : 10H - 22H | Mercredi : 10H - 22H | Jeudi : 10H - 22H | Vendredi : 10H - 22H | Samedi : 10H - 20H | Dimanche : 10H - 20H"
+  },
+  {
+    "lat": 43.49155,
+    "lon": -1.49372,
+    "name": "The Roof Pays Basque",
+    "country": "FR",
+    "source": "https://bayonne.theroof.fr/infos-pratiques.html",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "08:30-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "08:30-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Lundi : 09H - 22H | Mardi : 09H - 22H | Mercredi : 08H30 - 22H | Jeudi : 09H - 22H | Vendredi : 09H - 22H | Samedi : 08H30 - 21H | Dimanche : 09H - 21H"
+  },
+  {
+    "lat": 46.59753575187847,
+    "lon": 0.3241268455111726,
+    "name": "The Roof Poitiers",
+    "country": "FR",
+    "source": "https://poitiers.theroof.fr/infos-pratiques.html",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "17:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Lundi : 17H - 22H | Mardi : 10H - 22H | Mercredi : 10H - 22H | Jeudi : 10H - 22H | Vendredi : 10H - 22H | Samedi : 10H - 18H | Dimanche : 10H - 18H"
+  },
+  {
+    "lat": 48.49882,
+    "lon": -2.76647,
+    "name": "The Roof Saint-Brieuc",
+    "country": "FR",
+    "source": "https://saintbrieuc.theroof.fr/infos-pratiques.html",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Lundi : 10H - 22H | Mardi : 10H - 22H | Mercredi : 10H - 22H | Jeudi : 10H - 22H | Vendredi : 10H - 22H | Samedi : 10H - 20H | Dimanche : 10H - 20H"
+  },
+  {
+    "lat": 43.10903399343013,
+    "lon": 5.843577610433562,
+    "name": "Vertical’Art Six-Fours-les-plages",
+    "country": "FR",
+    "source": "https://toulon-ouest.vertical-art.fr/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "11:00-23:00",
+      "tue": "11:00-23:00",
+      "wed": "11:00-23:00",
+      "thu": "11:00-23:00",
+      "fri": "11:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Du lundi au vendredi 11h00 – 23h00 | Samedi, dimanche et jours fériés 09h00 – 21h00"
+  },
+  {
+    "lat": 43.1391146,
+    "lon": 6.0002828,
+    "name": "Vertical'Art Toulon",
+    "country": "FR",
+    "source": "https://toulon.vertical-art.fr/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "11:00-23:00",
+      "tue": "11:00-23:00",
+      "wed": "11:00-23:00",
+      "thu": "11:00-23:00",
+      "fri": "11:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Du lundi au vendredi 11h00 – 23h00 | Samedi, dimanche et jours fériés 09h00 – 21h00"
+  },
+  {
     "lat": 51.4931952,
     "lon": -0.0608,
     "name": "Arch Climbing Wall",
@@ -6695,6 +7708,222 @@
     "note": "Upstream still calls this venue The Training Room; it is the Awesome Walls Dublin hall at the same address."
   },
   {
+    "lat": 45.5452,
+    "lon": 9.28872,
+    "name": "Big Walls",
+    "country": "IT",
+    "source": "https://www.bigwalls.it/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "Da Lunedì a Venerdì: 10:00 – 23:00 | Sabato e Domenica: 10:00 – 19:00"
+  },
+  {
+    "lat": 44.4262,
+    "lon": 7.54135,
+    "name": "BigUp Climbing",
+    "country": "IT",
+    "source": "https://bigupclimbing.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "Dal Lunedì al Venerdì 10:00 alle ore 23:00. | Sabato e Domenica dalle ore 10:00 alle ore 19:00."
+  },
+  {
+    "lat": 46.7901,
+    "lon": 11.92805,
+    "name": "HELIKS Bruneck",
+    "country": "IT",
+    "source": "https://heliks.it/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "09:00-22:30",
+      "tue": "09:00-22:30",
+      "wed": "09:00-22:30",
+      "thu": "09:00-22:30",
+      "fri": "09:00-22:30",
+      "sat": "09:00-20:30",
+      "sun": "09:00-20:30"
+    },
+    "evidence": "Mo-Fr: 09.00 Uhr bis 22.30 Uhr | Sa, So und Feiertage: 09.00 Uhr bis 20.30 Uhr",
+    "note": "The bar closes half an hour after the hall on both rows."
+  },
+  {
+    "lat": 45.99849,
+    "lon": 11.12495,
+    "name": "Infinity Boulder",
+    "country": "IT",
+    "source": "https://infinityboulder.it/orari-prezzi/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "17:00-23:00",
+      "tue": "08:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "08:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "closed",
+      "sun": "closed"
+    },
+    "evidence": "Lunedì 17:00-23:00 | Martedì 8:00-23:00 | Mercoledì 9:00-23:00 | Giovedì 8:00-23:00 | Venerdì 9:00-23:00 | Sabato CHIUSO | Domenica CHIUSO"
+  },
+  {
+    "lat": 45.516286,
+    "lon": 9.222550400000001,
+    "name": "MANGA climbing B 2024",
+    "country": "IT",
+    "source": "https://mangaclimbing.it/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "10:00-19:30",
+      "sun": "10:00-19:30"
+    },
+    "evidence": "ORARI APERTURA: Da lunedì a venerdì : dalle 10.00 alle 23.00 | Sabato e domenica : dalle 10.00 alle 19.30"
+  },
+  {
+    "lat": 45.021136,
+    "lon": 9.7442984,
+    "name": "New MACACO",
+    "country": "IT",
+    "source": "https://macaco.tv/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "15:00-22:30",
+      "tue": "15:00-22:30",
+      "wed": "15:00-22:30",
+      "thu": "15:00-22:30",
+      "fri": "15:00-22:30",
+      "sat": "14:00-19:00",
+      "sun": "closed"
+    },
+    "evidence": "I nostri orari Da Lunedì a Venerdì 15.00 - 22.30 | Sabato 14.00 - 19.00 | Domenica Chiuso"
+  },
+  {
+    "lat": 45.69573,
+    "lon": 9.61979,
+    "name": "Orobia Climbing",
+    "country": "IT",
+    "source": "https://orobiaclimbing.it/contatti/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "Lunedi – Venerdi 10:00 – 23:00 | Sabato e Domenica 10:00 – 19:00",
+    "note": "A dated ORARI ESTIVI list on the homepage closes some July and August days and states that normal hours resume on 24/08."
+  },
+  {
+    "lat": 46.47043,
+    "lon": 11.31389,
+    "name": "Salewa Cube Waltherpark",
+    "country": "IT",
+    "source": "https://www.salewa-cube.com/de/waltherpark",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Geöffnet Mo – Fr: 10.00 – 22.00 Uhr & Sa – So: 10.00 – 20.00",
+    "note": "The operator's headquarter cube publishes a different week (Mo–Fr from 09:00) on its own page."
+  },
+  {
+    "lat": 44.40557007188392,
+    "lon": 8.933108505553752,
+    "name": "Sisport Genova",
+    "country": "IT",
+    "source": "https://www.sisportgym.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "11:00-19:00",
+      "sun": "15:00-19:00"
+    },
+    "evidence": "Lun – Ven: 10.00 – 22.00 | Sab: 11.00 – 19.00 | Dom: 15.00 – 19.00"
+  },
+  {
     "lat": 53.21729,
     "lon": 6.53861,
     "name": "Apex Boulders",
@@ -7602,5 +8831,29 @@
       "sun": "09:00-21:00"
     },
     "evidence": "Reguliere openingstijden Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 21:00 | Zondag 09:00 – 21:00"
+  },
+  {
+    "lat": 32.65129510000001,
+    "lon": -16.8985489,
+    "name": "Madeira Climbing Center",
+    "country": "PT",
+    "source": "https://www.madeiraclimbingcenter.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "16:00-21:00",
+      "tue": "16:00-21:00",
+      "wed": "16:00-21:00",
+      "thu": "16:00-21:00",
+      "fri": "16:00-21:00",
+      "sat": "10:00-18:00",
+      "sun": "closed"
+    },
+    "evidence": "Seg. a Sex. 16:00h — 21:00h | Sábados 10:00h — 18:00h | Domingos Encerrado",
+    "note": "The site's schema.org openingHoursSpecification states the same week."
   }
 ]
