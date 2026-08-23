@@ -607,6 +607,17 @@ CityROCK, De Fabriek, Boulderhal Sterk. That is what `official-chain-page` plus
 the `hours-scope` signal is for, and the schema enforces it: the Konala record was
 refused until it carried something tying the page to that specific hall.
 
+**Every source was re-fetched once, looking for the words around the hours.** All
+808 published sources answered (three needed a second attempt; one, Boulder Co
+Christchurch's `/your-visit/` sub-path, had 404ed and its record now points at the
+location page that carries the same block). Thirty-nine pages matched a
+pre-opening or closure marker and **every one of them was a false positive** — a
+kids area "coming soon", a new branch in another city, an event with details to
+follow, and the German word `Sonderöffnungszeiten`, which contains `eröffnung`.
+Stuntwerk Duisburg remains the only real one. That is worth knowing before the
+next curator writes a scanner: the marker words are common on climbing-gym sites
+and mean something else almost every time.
+
 **A later random re-read found something.** Six published records drawn at random
 were re-fetched; five matched. The sixth, Stuntwerk Duisburg, prints "Eröffnung:
 coming soon" directly above its "Öffnungszeiten: Montag - Sonntag 09-23 Uhr" —
