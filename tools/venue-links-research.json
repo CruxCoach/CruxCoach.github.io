@@ -3248,7 +3248,7 @@
     "country": "JP",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — volny.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: no candidate could be opened — volny.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building either: 35.6895,139.6917 is the standard point for the city of Tokyo, so the registry recorded the city and not the wall."
   },
   {
     "lat": 36.3479482,
@@ -4990,7 +4990,7 @@
     "country": "SK",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.ferrata.sk → \"ferrata.sk je na predaj | Prémiová internetová doména\"; blockdock.com → \"Block Dock | Discover Durable Dock Solutions\"; block.sk → \"Výstavba a modernizace investičních celku s čistými pros\", the rest could not be opened — dock.com → a timeout; blockdock.sk → a certificate that does not cover its hostname; block.com → a certificate that does not cover its hostname, the venue's whole name as one label, blockdock.sk, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — www.ferrata.sk → \"ferrata.sk je na predaj | Prémiová internetová doména\"; blockdock.com → \"Block Dock | Discover Durable Dock Solutions\"; block.sk → \"Výstavba a modernizace investičních celku s čistými pros\", the rest could not be opened — dock.com → a timeout; blockdock.sk → a certificate that does not cover its hostname; block.com → a certificate that does not cover its hostname, the venue's whole name as one label, blockdock.sk, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building either: 48.1486,17.1077 is the standard point for the city of Bratislava, so the registry recorded the city and not the wall.",
     "candidate": "https://www.ferrata.sk/"
   },
   {
@@ -6222,7 +6222,7 @@
     "country": "US",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — r2c2.org → \"R2C2\", the rest could not be opened — r2c2.com → no answer. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "reason": "No official site could be established: the candidates that answered are somebody else's — r2c2.org → \"R2C2\", the rest could not be opened — r2c2.com → no answer. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building either: 36.1699,-115.1398 is the standard point for the city of Las Vegas, so the registry recorded the city and not the wall.",
     "candidate": "https://www.r2c2.org/"
   },
   {
