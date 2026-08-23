@@ -2030,10 +2030,10 @@
     "lon": 2.1913342,
     "name": "GRANIT Rueil",
     "country": "FR",
-    "status": "unverified",
+    "status": "closed",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — granit.fr → \"Granit\"; granit.com → \"Hållbar inredning, smart förvaring och hemtextil i nordi\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.granit.fr/"
+    "reason": "granitclimb.com is Granit's own site for its Rueil-Malmaison and Nanterre halls, and it now carries one notice above everything else: \"Nous sommes au regret de vous informer que Granit a définitivement fermé ses portes depuis le 17/03/2026\". The venue is permanently closed, so no link is published for it.",
+    "candidate": "https://granitclimb.com/"
   },
   {
     "lat": 48.398573,
@@ -4452,8 +4452,8 @@
     "country": "PL",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — gato.pl → \"GATO Wycinarka plazmowa Polski producent maszyn CNC\", the rest could not be opened — gato.com.pl → a certificate that does not cover its hostname; gato.com → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://gato.pl/"
+    "reason": "gatowalls.com matches the venue's name and gives Toruń, but it is not a climbing gym: it is Gatowalls, a company that builds climbing walls, rope parks and fun-climb installations for schools, hotels and shopping centres. A manufacturer that happens to share the name and the town is not this venue's site.",
+    "candidate": "https://gatowalls.com/"
   },
   {
     "lat": 51.2510308,
@@ -5665,16 +5665,6 @@
     "candidate": "https://www.elementalperformance.net/"
   },
   {
-    "lat": 44.05630619999999,
-    "lon": -123.0983852,
-    "name": "Elevation Moon Board",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — elevation.com → \"Elevation Partners | Home\"; elevation.net → \"Elevation – A REAL ESTATE INVESTMENT AND DEVELOPMENT FIR\"; elevation.org → \"Checking your browser...\", the rest could not be opened — elevationclimbing.com → a certificate that does not cover its hostname / a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://elevation.com/"
-  },
-  {
     "lat": 38.74188,
     "lon": -77.49863,
     "name": "Evolution Boulders",
@@ -6760,8 +6750,8 @@
     "country": "US",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.calgaryclimbing.com/locations/stronghold → \"Stronghold - Calgary Climbing Centre\"; stronghold.com → \"Stronghold.com is for sale | www.brandforce.com\"; stronghold.net → \"StrongholdNET\", the rest could not be opened — thestronghold.net → 503; strongholdclimbing.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.calgaryclimbing.com/locations/stronghold/"
+    "reason": "This entry's coordinates are 34.0522,-118.2437, which is the standard centroid for the city of Los Angeles rather than a building — the MoonBoard registry recorded the city and not the wall. The Stronghold runs two halls in Los Angeles, Lincoln Heights and Echo Park, 4.0 km apart and 2.8 km and 3.1 km from this point; strongholdclimb.com prints both addresses and nothing says which of them this is.",
+    "candidate": "https://www.strongholdclimb.com/"
   },
   {
     "lat": 38.55701,
