@@ -4868,6 +4868,20 @@
     "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Bogotá, the town upstream records."
   },
   {
+    "lat": 10.33361,
+    "lon": -85.79444,
+    "name": "TamaRocks Climbing + Fitness",
+    "country": "CR",
+    "website": "https://tamarockscr.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "TamaRocks' own Costa Rican site, embedding a map of itself 35 m from this venue. The first pass had reached tamarocks.com, a bare placeholder carrying only the domain name. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
+  },
+  {
     "lat": 35.1398,
     "lon": 33.36784,
     "name": "Rockstar Climbing",
@@ -8984,6 +8998,20 @@
       "city"
     ],
     "note": "The bare treparriscos.com is a personal blog; this is the gym's own domain."
+  },
+  {
+    "lat": 40.4319,
+    "lon": -3.65416,
+    "name": "Rocódromos Espacio Acción",
+    "country": "ES",
+    "website": "https://espacioaccion.es/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "Rocódromos Espacio Acción's own site, matching the venue's name and naming the Tension Board it is listed for. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
   },
   {
     "lat": 42.84629199344788,
@@ -16196,6 +16224,22 @@
     "note": "The candidate's own pages carry the postal code 81611, the town Aspen, under the venue's name."
   },
   {
+    "lat": 32.70606,
+    "lon": -117.14702,
+    "name": "Asylum Bouldering",
+    "country": "US",
+    "website": "https://climbasylum.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "Asylum Bouldering's own site, giving San Diego, naming the Grasshopper board this venue is listed for, and embedding a map of itself 27 m away. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
+  },
+  {
     "lat": 30.26332,
     "lon": -97.69628,
     "name": "Austin Bouldering Porject Springdale",
@@ -18092,6 +18136,21 @@
     ]
   },
   {
+    "lat": 36.15595,
+    "lon": -95.98299,
+    "name": "GRAVITY BEAR Bouldering Gym",
+    "country": "US",
+    "website": "https://climbgravitybear.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "GRAVITY BEAR's own site, giving Tulsa and naming the Tension Board this venue is listed for. The first pass had reached gravityclimbing.ie in Ireland. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
+  },
+  {
     "lat": 41.0584299,
     "lon": -74.0984756,
     "name": "GRAVITY VAULT",
@@ -18230,6 +18289,20 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 38.92234,
+    "lon": -104.71875,
+    "name": "Gripstone Colorado Springs",
+    "country": "US",
+    "website": "https://gripstonecs.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "Gripstone Climbing's own site, embedding a map of itself 14 m from this venue. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
   },
   {
     "lat": 32.78099,
@@ -19663,6 +19736,20 @@
     ]
   },
   {
+    "lat": 41.36546,
+    "lon": -82.20958,
+    "name": "On The Rocks Climbing Gym",
+    "country": "US",
+    "website": "https://climbontherocks.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "On The Rocks Climbing Gym's own site, giving Elyria — the town upstream records, which the venue name does not carry. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
+  },
+  {
     "lat": 36.96815,
     "lon": -122.00665,
     "name": "Pacific Edge",
@@ -20690,6 +20777,20 @@
     "note": "The site carries this venue's name and names the MoonBoard it is listed for. Upstream records no street address for the venue, so the name and the board are the two signals available; the domain is the venue's own name taken as one label, which the guesser had not tried."
   },
   {
+    "lat": 37.85118,
+    "lon": -122.29303,
+    "name": "Team Touchstone",
+    "country": "US",
+    "website": "https://teamtouchstone.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "Team Touchstone's own site, matching the venue's name and naming the Touchstone board it is listed for. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
+  },
+  {
     "lat": 42.9347612,
     "lon": -85.6466583,
     "name": "TERRA FIRMA",
@@ -21010,6 +21111,20 @@
       "coordinates"
     ],
     "note": "The candidate's own pages carry the postal code 19405, the town Bridgeport, a map of itself 104 m — Reach Climbing + Fitness away, under the venue's name."
+  },
+  {
+    "lat": 34.10217,
+    "lon": -117.78999,
+    "name": "The Forge",
+    "country": "US",
+    "website": "https://trainwithforge.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The Forge's own site, giving La Verne — the town upstream records. The first pass had reached theforge.org. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
   },
   {
     "lat": 41.2311,
@@ -21513,6 +21628,21 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 38.47252,
+    "lon": -122.74325,
+    "name": "Vertex Climbing Center",
+    "country": "US",
+    "website": "https://climbvertex.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "coordinates"
+    ],
+    "note": "Vertex Climbing Center's own site, giving Santa Rosa and embedding a map of itself 184 m from this venue. The first pass had reached vertexclimbing.com, a domain listed for sale. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
   },
   {
     "lat": 40.0986191,

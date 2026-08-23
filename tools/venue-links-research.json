@@ -1383,15 +1383,6 @@
     "reason": "No official site. raccoon.com answers 403 and is an unrelated domain; raccoonclimbing.com serves a certificate that does not cover the hostname; raccoonclimbing.cr and raccooncr.com do not resolve. Nothing could be opened to test against Calle 19, 30106 Cartago."
   },
   {
-    "lat": 10.33361,
-    "lon": -85.79444,
-    "name": "TamaRocks Climbing + Fitness",
-    "country": "CR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. tamarocks.com answers with a bare placeholder carrying only the domain name; tamarocks.cr, tamarocksclimbing.com and tamarocks.co.cr do not resolve. Upstream gives no address, and no OSM climbing object nearby carries a website tag."
-  },
-  {
     "lat": 34.6912057,
     "lon": 33.0574943,
     "name": "Limassol Climbing Club",
@@ -1906,16 +1897,6 @@
     "checked": "2026-08-23",
     "reason": "resilientrehab.com is Resilient Education, a biomechanics and rehabilitation course provider, not a climbing venue in Agüimes; resilient.es and resilient.com present certificates that do not cover their hostnames.",
     "candidate": "https://resilientrehab.com/"
-  },
-  {
-    "lat": 40.4319,
-    "lon": -3.65416,
-    "name": "Rocódromos Espacio Acción",
-    "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "rocodromos.com is the same climbing-gym directory, not this venue's own site. Nothing else resolves for \"Rocódromos Espacio Acción\".",
-    "candidate": "https://rocodromos.com/"
   },
   {
     "lat": 28.1129931,
@@ -5456,16 +5437,6 @@
     "candidate": "https://www.archclimbingwall.com/climbing-gym/building-one/"
   },
   {
-    "lat": 32.70606,
-    "lon": -117.14702,
-    "name": "Asylum Bouldering",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — asylum.org → \"Asylum.org for sale\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://asylum.org/"
-  },
-  {
     "lat": 33.7626877,
     "lon": -84.3381414,
     "name": "Atlanta Moonboard",
@@ -6003,15 +5974,6 @@
     "candidate": "https://graniteworks.org/"
   },
   {
-    "lat": 36.15595,
-    "lon": -95.98299,
-    "name": "GRAVITY BEAR Bouldering Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for GRAVITY BEAR Bouldering Gym, Tulsa was gravityclimbing.ie, a climbing gym in Ireland — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
-  },
-  {
     "lat": 37.22925,
     "lon": -107.80896,
     "name": "Gravity Lab",
@@ -6039,15 +6001,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — greenmountain.com → \"Light the future with clean energy.\"; green-mountain.com → \"HugeDomains.com\"; green.com → \"Green\", the rest could not be opened — greenmountain.net → 200; greenmountain.org → 200; green-mountain.net → a timeout. Upstream records 223 Woodstock Ave, 05701, Rutland, and nothing opened printed it.",
     "candidate": "https://www.greenmountainenergy.com/"
-  },
-  {
-    "lat": 38.92234,
-    "lon": -104.71875,
-    "name": "Gripstone Colorado Springs",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — gripstonecolorado.org → no answer / a timeout; gripstone.com → 404; gripstone.net → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
     "lat": 42.96643,
@@ -6361,16 +6314,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — nosotros.com → \"Nosotros Podemos Avanzar - Nosotros\", the rest could not be opened — nosotros.net → 200; nosotros.org → 200. Upstream records 13000 Athens Ave, 44107, Lakewood, and nothing opened printed it.",
     "candidate": "https://www.nosotros.com/"
-  },
-  {
-    "lat": 41.36546,
-    "lon": -82.20958,
-    "name": "On The Rocks Climbing Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — holdontide.com → \"Homepage | Hold on Tide\"; ontherocksclimbing.com → \"On The Rocks Climbing | Ontario | Climbing Guides, Cours\"; onthe.org → \"Sunset View Web Cam\", the rest could not be opened — ontherocks.com → a certificate that does not cover its hostname / a timeout; ontherocks.org → 200; onthe.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://holdontide.com/"
   },
   {
     "lat": 36.1664,
@@ -6780,16 +6723,6 @@
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 37.85118,
-    "lon": -122.29303,
-    "name": "Team Touchstone",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — teamtouchstone.com → \"Home - Team Touchstone\"; team.com → \"Collaboration software for software, IT and business tea\"; team.org → \"Home - The Evangelical Alliance Mission (TEAM)\", the rest could not be opened — touchstoneclimbing.com → 403; team-touchstone.com → a timeout; team.net → no answer, the venue's whole name as one label, teamtouchstone.com, answers 200 (\"Home - Team Touchstone\") but its pages print no street, postal code or town matching this venue. Upstream records 795 Potter Street, 94710, Berkeley, and nothing opened printed it.",
-    "candidate": "https://teamtouchstone.com/"
-  },
-  {
     "lat": 39.81416,
     "lon": -104.97899,
     "name": "Tension Training Center",
@@ -6878,16 +6811,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — www.thefactoryboulder.com → \"Factory Boulder – Gimnasio con rocódromo en Donostia\"; factory.com → \"Factory | Agent-Native Software Development\", the rest could not be opened — thefactory.net → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.thefactoryboulder.com/"
-  },
-  {
-    "lat": 34.10217,
-    "lon": -117.78999,
-    "name": "The Forge",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — forge.net → \"Loading...\"; theforge.org → \"The Forge – Trusted Friendship. Wise Counsel. Faithful L\"; the-forge.com → \"Fine Knives with Body and Soul\", the rest could not be opened — theforgeclimb.it → a TLS failure; forge.com → 403; forge.org → no answer / a timeout, the venue's whole name as one label, theforge.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://forge.net/"
   },
   {
     "lat": 40.70779,
@@ -7132,16 +7055,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — verdigo.com → \"Verdigo\", the rest could not be opened — verdigo.net → no answer; verdigoboulders.com → a timeout / a certificate that does not cover its hostname, the venue's whole name as one label, verdigoboulders.com, does not resolve. Upstream records 266 E Magnolia Blvd, 91502, Burbank, and nothing opened printed it.",
     "candidate": "https://verdigo.com/"
-  },
-  {
-    "lat": 38.47252,
-    "lon": -122.74325,
-    "name": "Vertex Climbing Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — vertex.com → \"Innovative Digital Solutions and IT Transformation | Ver\"; vertex.net → \"Vertex | Places that work by people who care | Building \"; vertexclimbing.com → \"HugeDomains.com\", the rest could not be opened — vertex.org → a timeout; vertexclimbing.net → a timeout / no answer. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.vertex.com/"
   },
   {
     "lat": 38.92534,
