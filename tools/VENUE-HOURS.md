@@ -315,54 +315,52 @@ maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (published + outcome entries) | 2190 |
-| Published schedules | 942 |
-| Recorded outcomes without hours | 1248 |
-| Countries covered | 40 |
+| Published schedules | 974 |
+| Recorded outcomes without hours | 1216 |
+| Countries covered | 45 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
-Every eligible venue has now been reviewed for hours — 2190 of 2191, the one
-exception being a venue at coordinates 0,0 that no resolver can place. What is
-*published* is 43%; the rest carry a recorded reason, and the reasons are the
-point of this file.
+Every eligible venue has been reviewed for hours — 2190 of 2191, the one
+exception being a venue at coordinates 0,0 that no resolver can place.
 
-Outcomes without hours: 820 `no-official-site`, 142 `ambiguous`, 103
-`no-hours-on-official-site`, 93 `seasonal`, 62 `inaccessible`, 27
-`appointment-only`, 1 `closed`.
+Outcomes without hours: 779 `no-official-site`, 145 `ambiguous`, 142
+`no-hours-on-official-site`, 101 `seasonal`, 27 `appointment-only`, 22
+`inaccessible`, 1 `closed`.
 
 Per-country coverage of eligible (public/commercial) venues (top 30):
 
 | country | published | reviewed | eligible | share |
 | --- | --- | --- | --- | --- |
-| US | 303 | 576 | 576 | 53% |
-| DE | 137 | 201 | 201 | 68% |
-| CA | 68 | 132 | 132 | 52% |
+| US | 310 | 576 | 576 | 54% |
+| DE | 139 | 201 | 201 | 69% |
+| CA | 74 | 132 | 132 | 56% |
 | GB | 60 | 102 | 102 | 59% |
 | AU | 47 | 83 | 83 | 57% |
 | NL | 39 | 59 | 59 | 66% |
+| FR | 35 | 70 | 70 | 50% |
 | CH | 35 | 56 | 56 | 63% |
-| FR | 34 | 70 | 70 | 49% |
 | AT | 33 | 48 | 48 | 69% |
-| ES | 28 | 98 | 98 | 29% |
+| ES | 29 | 98 | 98 | 30% |
 | NO | 21 | 81 | 81 | 26% |
 | BE | 19 | 36 | 36 | 53% |
 | DK | 16 | 27 | 27 | 59% |
-| IT | 14 | 72 | 72 | 19% |
-| PL | 13 | 45 | 45 | 29% |
+| IT | 15 | 72 | 72 | 21% |
+| PL | 14 | 45 | 45 | 31% |
 | SE | 8 | 37 | 37 | 22% |
 | ZA | 7 | 12 | 12 | 58% |
 | BR | 6 | 26 | 26 | 23% |
+| NZ | 6 | 11 | 11 | 55% |
 | CZ | 6 | 10 | 10 | 60% |
 | IE | 6 | 10 | 10 | 60% |
+| SG | 6 | 9 | 9 | 67% |
 | FI | 5 | 15 | 15 | 33% |
-| NZ | 5 | 11 | 11 | 45% |
-| SG | 5 | 9 | 9 | 56% |
+| JP | 4 | 48 | 48 | 8% |
 | CO | 4 | 6 | 6 | 67% |
 | LU | 4 | 6 | 6 | 67% |
-| JP | 2 | 48 | 48 | 4% |
+| RO | 3 | 13 | 13 | 23% |
+| SK | 3 | 11 | 11 | 27% |
 | PT | 2 | 15 | 15 | 13% |
-| RO | 2 | 13 | 13 | 15% |
-| SK | 2 | 11 | 11 | 18% |
-| MY | 1 | 13 | 13 | 8% |
+| SI | 2 | 6 | 6 | 33% |
 
 ### The second guess run, and what it says about the tail
 

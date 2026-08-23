@@ -243,55 +243,54 @@ are maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (linked + research entries) | 2190 |
-| Verified website links | 1335 |
-| Rejected / ambiguous / private / closed / unavailable | 855 |
-| Countries covered | 49 |
+| Verified website links | 1456 |
+| Rejected / ambiguous / private / closed / unavailable | 735 |
+| Countries covered | 55 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
-Every eligible venue that lacked a link has now been opened individually and
-carries an outcome — see **The second-pass gap audit** below for what the
-outcomes mean and which of them stay in the retry queue.
+Every eligible venue that lacked a link has been opened individually and
+carries an outcome — see **The second-pass gap audit** and **The retry pass**
+below for what the outcomes mean and which of them stay in the queue.
 
 Per-country coverage of eligible (public/commercial) venues (top 25):
 
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
-| US | 355 | 576 | 62% |
-| DE | 176 | 201 | 88% |
-| CA | 96 | 132 | 73% |
+| US | 398 | 576 | 69% |
+| DE | 180 | 201 | 90% |
+| CA | 108 | 132 | 82% |
 | GB | 78 | 102 | 76% |
-| AU | 67 | 83 | 81% |
-| ES | 64 | 98 | 65% |
-| FR | 59 | 70 | 84% |
-| NO | 57 | 81 | 70% |
+| ES | 70 | 98 | 71% |
+| AU | 68 | 83 | 82% |
+| FR | 61 | 70 | 87% |
+| NO | 58 | 81 | 72% |
 | NL | 52 | 59 | 88% |
 | CH | 52 | 56 | 93% |
 | AT | 45 | 48 | 94% |
-| IT | 39 | 72 | 54% |
+| IT | 43 | 72 | 60% |
 | BE | 30 | 36 | 83% |
+| SE | 29 | 37 | 78% |
+| PL | 25 | 45 | 56% |
 | DK | 25 | 27 | 93% |
-| PL | 21 | 45 | 47% |
-| SE | 17 | 37 | 46% |
-| FI | 9 | 15 | 60% |
+| FI | 10 | 15 | 67% |
 | BR | 8 | 26 | 31% |
+| PT | 8 | 15 | 53% |
+| RO | 7 | 13 | 54% |
+| ZA | 7 | 12 | 58% |
+| NZ | 7 | 11 | 64% |
+| SK | 7 | 11 | 64% |
 | CZ | 7 | 10 | 70% |
 | SG | 7 | 9 | 78% |
-| IE | 6 | 10 | 60% |
-| PT | 5 | 15 | 33% |
-| RO | 5 | 13 | 38% |
-| ZA | 5 | 12 | 42% |
-| NZ | 5 | 11 | 45% |
 
-Research-log reasons: 851 `unverified`, 2 `ambiguous`, 1 `closed`, 1
+Research-log reasons: 730 `unverified`, 2 `ambiguous`, 1 `closed`, 1
 `social-only`, 1 `unavailable`. `unverified` is deliberately the large bucket:
 it is retryable, and it is what a venue gets when a page could not be opened, a
 site renders only in a browser, or the only candidate that answered belongs to
 somebody else.
 
-- **Last completed batch:** the second-pass gap audit (below), which closed the
-  worklist.
-- **Next batch:** the retry queue, which is the 851 `unverified` rows and is
-  described at the end of this file.
+- **Last completed batch:** the retry pass over the whole queue (below).
+- **Next batch:** the 730 `unverified` rows, and what would move them is set
+  out at the end of this file.
 
 ### What is actually gating the remaining countries
 
@@ -603,3 +602,87 @@ visit guide that describes itself as "An independent field guide" and tells
 readers to "Treat the official channel as the final source". Every one of the
 336 links the audit accepted was then re-read against that pattern, and this
 was the only one.
+
+## The retry pass
+
+The gap audit closed the worklist by recording an outcome for every venue; most
+of those outcomes were `unverified`, which is retryable by design. This pass
+re-opened all 914 of them and found 121 links the first pass had missed. What
+follows is the channels it added, because each one is reusable.
+
+### Reading a page that renders in the browser
+
+A site that renders client-side still ships its content somewhere a fetcher can
+reach, through routes the platform documents for itself: Squarespace answers
+any page as JSON on `?format=json-pretty`, WordPress answers `/wp-json/wp/v2/…`,
+a Wix page embeds a `wix-warmup-data` blob, Next.js embeds `__NEXT_DATA__`, and
+JSON-LD sits in the document. None of this goes round a block; they are the
+site's own published routes, and `deep.mjs` reads all five.
+
+That is what recovered Ethos Climbing's whole week, DÉLIRE's four branches with
+an address and a schedule each, ARC Sudbury's seven different days behind a
+"Today's Hours" widget, and leTruss's 定休日 なし.
+
+### Asking Overpass per venue instead of per country
+
+The country-wide query returns zero elements for the United States, and did for
+Germany, France, Canada, Mexico and Russia too — a query that times out
+silently rather than a country with no climbing in it. Asking instead for what
+sits within 400 m of each venue that still needs a link, twenty venues per
+request, returns them. Twenty-three American venues came out of that alone.
+
+### Three name-derived channels the guesser does not reach
+
+- **The whole venue name as one domain label**, in `.com` and the country's
+  TLD. The guesser drops generic words first, so it never tries
+  climbnashville.com or 2bfitbouldergym.hu.
+- **The venue's own social handle**, which upstream records for 128 of the open
+  venues and which is very often the domain with the dots put back.
+  climbgravitybear.com, climbvertex.com and tamarockscr.com all came from it,
+  each replacing a candidate on another continent or a domain broker.
+- **The name OSM gives the object**, where OSM names the hall but tags no
+  website. That is how airclimbing.it was found.
+
+### Operator siblings, and federation directories
+
+A venue still in the queue is often a branch of an operator already linked
+somewhere else; matching on the distinctive part of the name within the same
+country proposes that operator's site, which then has to print this branch's
+own address. Svenska Klätterförbundet's member directory did for Sweden what
+Klatring Danmark's did for Denmark.
+
+### Where the line is, and what it costs
+
+OSM is a pointer, never the evidence. Four venues are left open because that is
+the only thing that would have carried them: RockHaus is mapped 7 m from its
+venue and its own page gives an address 1.2 km away in another municipality;
+KIVI is mapped 77 m away and its page yields only the name; Kingston Bouldering
+Co-op is mapped 2 m away and shares only its name and the town inside that
+name; Basecamp Toronto publishes two halls and no address for either.
+
+The same discipline caught the pass's one false positive before it was written.
+The automated read reported name, street 33 and Medellín on elmuro.co; the page
+does not contain "Calle 33" at all, and the site is the Colombian local-news
+network the first pass had already identified.
+
+### What the remaining 730 actually are
+
+The `wrong-owner` bucket was tested rather than assumed. For every open venue
+that has both an upstream address and a candidate, the candidate's pages were
+read and every street-looking line extracted and compared. Not one matched, and
+most candidates print no street at all — one Shanghai gym's candidate prints
+Google's own address at 1600 Amphitheatre Parkway. These are not formatting
+misses; they are different businesses.
+
+What would move the rest, in rough order of value:
+
+1. **A rendering fetch.** The platform routes cover Squarespace, Wix,
+   WordPress and Next.js; they do not cover a hand-rolled single-page app, and
+   22 hours rows and a long tail of links are still behind one.
+2. **An address for the venues that have none.** 113 of the 178 open American
+   venues have no upstream street, and most are MoonBoard-registry entries —
+   a board inside a gym rather than a venue. Without a street there is often no
+   second signal to be had, however obvious the operator is.
+3. **A way past an anti-bot interstitial that is not a way round it.**
+   Boulderhaus's five halls, Maniak's three, Touchstone and Kletterzentrum
+   Innsbruck answer 403 to every header set and are not otherwise reachable.
