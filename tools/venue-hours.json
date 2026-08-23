@@ -293,6 +293,31 @@
   "evidence": "Mo.-Fr. 9:00 - 23:00 | Sa. So./Feiertag 9:00 - 22:00"
  },
  {
+  "lat": 46.7978307,
+  "lon": 13.7076291,
+  "name": "Boulderbox Radenthein",
+  "country": "AT",
+  "source": "https://www.alpenverein.at/radenthein/klettern/boulderbox.php",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "08:00-22:00",
+   "sun": "08:00-22:00"
+  },
+  "evidence": "Boulderbox Radenthein — Adresse: Nockhalle, Stadionstraße 8, 9545 Radenthein. Öffnungszeiten: täglich 8.00 - 22.00 Uhr. Preise: Tageskarte: 7 Euro, Wochenkarte: 15 Euro, Halbjahreskarte: 45 Euro.",
+  "note": "Logged as 'no schedule on the official site' on the first pass; the section's own Boulderbox page states one, plainly, between the address and the prices. The upstream city is Villach, the nearest larger town — the coordinate is in Radenthein, which is what the page says."
+ },
+ {
   "lat": 47.02564,
   "lon": 15.43638,
   "name": "Boulderclub Graz",
@@ -315,6 +340,30 @@
    "sun": "09:00-22:00"
   },
   "evidence": "Öffnungszeiten Mo-So 9-22 Uhr | Feiertags 9-22 Uhr"
+ },
+ {
+  "lat": 47.68248,
+  "lon": 13.10037,
+  "name": "Boulderhallein",
+  "country": "AT",
+  "source": "https://boulderhallein.com/boulderhalle/oeffnungszeiten",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "08:00-22:00",
+   "sun": "08:00-22:00"
+  },
+  "evidence": "Öffnungszeiten — Boulderbetrieb: Die Boulderhalle Hallein hat für dich täglich von 8:00 Uhr bis 22:00 Uhr geöffnet! Der Eintritt ist ausschließlich mit einer Magnetkarte (erhältlich gegen € 5.- Kaution bei der Erstregistrierung) möglich. Öffnungszeiten der AV-Geschäftsstelle: Mittwoch von 17:oo bis 19:30 Uhr.",
+  "note": "The first pass read the Wednesday 17:00–19:30 as the hall's only slot; it is the section office's, and it sits under its own heading. The hall states its own week — 'hat für dich täglich von 8:00 Uhr bis 22:00 Uhr geöffnet' — and then says how you get in: a magnetic card issued at first registration for a €5 deposit, also available from the Hallein tourist office. Entry condition, not a members-only regime."
  },
  {
   "lat": 48.66507970052178,
@@ -4621,6 +4670,31 @@
   "evidence": "Mo – Fr 10 – 23 Uhr | Sa, So, Feiertage 9 – 22 Uhr"
  },
  {
+  "lat": 48.8163,
+  "lon": 9.29915,
+  "name": "Active Garden Waiblingen",
+  "country": "DE",
+  "source": "https://active-garden.de/active-garden-oeffnungszeiten",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "hours-scope",
+   "city"
+  ],
+  "hours": {
+   "mon": "14:00-22:30",
+   "tue": "10:00-22:30",
+   "wed": "14:00-22:30",
+   "thu": "10:00-22:30",
+   "fri": "10:00-22:30",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Waiblingen – Bouldern / Ninja. Öffnungszeiten 2026: Mo, Mi: 14.00 – 22.30 Uhr; Di, Do, Fr: 10.00 – 22.30 Uhr; Sa, So, Feiertage: 10.00 – 21.00 Uhr. Öffnungszeiten Sommerferien 30.07. – 13.09.: Mo, Mi: 14.00 – 22.30 Uhr; Di, Do, Fr: 10.00 – 22.30 Uhr*; Sa, So: 10.00 – 21.00 Uhr. *Aufgrund des Klettercamps öffnen wir am Freitag, 07.08. und Freitag, 11.09. erst um 14.00 Uhr.",
+  "note": "Logged seasonal on the first pass, and the heading does say Sommerferien — but for the Waiblingen hall the two regimes state the same seven days. Only the Korb block above it changes (Sa GESCHLOSSEN in the holidays), and only two named Fridays move, which is a dated exception the caveat covers. The page labels each hall, so this is a chain page speaking for this branch."
+ },
+ {
   "lat": 48.52237,
   "lon": 9.08345,
   "name": "B12 Tübingen",
@@ -8177,6 +8251,57 @@
   "evidence": "HORARIOS LUNES A JUEVES 10:00 - 22:30 VIERNES 10:00 - 15:00 16:00 - 22:00 SÁBADOS Y DOMINGOS 10:00 - 15:00 16:00 - 21:00"
  },
  {
+  "lat": 41.39718,
+  "lon": 2.18866,
+  "name": "Bloc District Barcelona",
+  "country": "ES",
+  "source": "https://www.blocdistrict.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "hours-scope",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Horari Marina — De dilluns a divendres: de 8.00 a 22.00 h. Dissabtes i diumenges 10.00h a 20.00h. Marina: Carrer de Zamora, núm. 96-106, Barcelona (08018).",
+  "note": "Logged as 'no schedule' on the first pass. BlocDistrict runs two Barcelona halls and labels both blocks — Marina and Tetuan — and the Marina block carries Carrer de Zamora 96-106, 08018, which is the address upstream records for this venue. Tetuan is Carrer de Nàpols 128 and opens an hour earlier on weekdays."
+ },
+ {
+  "lat": 41.61267,
+  "lon": 0.66268,
+  "name": "Boulder Indoor",
+  "country": "ES",
+  "source": "https://www.boulderindoor.com/contacte",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-22:30",
+   "tue": "10:00-22:30",
+   "wed": "10:00-22:30",
+   "thu": "10:00-22:30",
+   "fri": "10:00-22:30",
+   "sat": "10:00-14:00,17:00-20:00",
+   "sun": "10:00-14:00,17:00-20:00"
+  },
+  "evidence": "Direcció Carrer de Tèrmens 3, nau G. 25190 (Lleida). Horaris Dilluns a divendres de 10:00 a 22:30 h. Dissabtes i diumenges de 10:00 a 14:00 i de 17:00 a 20:00 h. Festius tancat.",
+  "note": "Logged as 'no schedule' on the first pass; it is on the contacte page, beside the address upstream records. The split weekend day is preserved as the page states it. 'Festius tancat' is a holiday rule, which is what the on-page caveat covers."
+ },
+ {
   "lat": 39.46582,
   "lon": -0.35736,
   "name": "Camaleón Boulder",
@@ -8297,6 +8422,55 @@
   "note": "The pool inside the same centre keeps its own, slightly shorter hours."
  },
  {
+  "lat": 39.5735,
+  "lon": 2.69071,
+  "name": "In Rock Escalada",
+  "country": "ES",
+  "source": "https://www.inrockescalada.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:30-22:30",
+   "tue": "08:30-22:30",
+   "wed": "08:30-22:30",
+   "thu": "08:30-22:30",
+   "fri": "08:30-22:30",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "HORARI — Dilluns a Divendres: 8:30 a 22:30. Dissabte - Diumenge / Festius: 10:00 - 20:00",
+  "note": "Logged as 'no schedule' on the first pass; the week is in the site-wide footer under a HORARI heading and is repeated identically on the tarifes page."
+ },
+ {
+  "lat": 41.3039089,
+  "lon": 2.012894,
+  "name": "Kimera Climbing BCN",
+  "country": "ES",
+  "source": "https://kimeraclimbingbcn.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "09:30-22:00",
+   "tue": "09:30-22:00",
+   "wed": "09:30-22:00",
+   "thu": "09:30-22:00",
+   "fri": "09:30-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Horari — Dilluns a divendres: 9.30-22.00h. Dissabtes i Diumenges: 10:00 – 20:00h. HORARIS: Dilluns a divendres de 9.30 a 22.00h. Dissabtes i diumenges de 10 a 20h. Festius de 10 a 20h.",
+  "note": "Logged as 'no schedule' on the first pass. The week is stated twice on the site — in the footer and on the calendar page — and the two agree; the dated exceptions listed beside them are single days (1 de gener tancat, 6 de gener de 16 a 20h)."
+ },
+ {
   "lat": 42.61172607783265,
   "lon": -5.569550348503698,
   "name": "La Nave Centro de Escalada",
@@ -8367,6 +8541,31 @@
    "sun": "11:00-20:00"
   },
   "evidence": "Lunes – Viernes 9h30-22h | Sábados, Domingos y Festivos de 11h a 20h"
+ },
+ {
+  "lat": 39.45597,
+  "lon": -0.39767,
+  "name": "Natural Climb Valencia",
+  "country": "ES",
+  "source": "https://naturalclimb.es/contacto/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "08:00-22:00",
+   "sun": "08:00-22:00"
+  },
+  "evidence": "Nuestro horario — De 08.00 a 22.00 horas. Abierto todos los días de la semana, incluidos los festivos.",
+  "note": "Logged ambiguous on the first pass, on the strength of a 'De Lunes a Viernes / de 12H a 22h' line — but that is one of the ticket bands on the price list (there is an 08H–12H morning band beside it and a weekend 08H–22H one), not a second schedule. The venue states its week once, in the footer of every page."
  },
  {
   "lat": 42.1378979,
@@ -8462,6 +8661,31 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Lunes – Miércoles – Viernes: 10:00 a 13:00 y 16:00 a 22:00 | Martes – Jueves – Sábado: 10:00 a 22:00 | Domingo: 10:00 a 20:00 | Festivos: 10:00 a 16:00"
+ },
+ {
+  "lat": 41.52992,
+  "lon": 2.09888,
+  "name": "Sala Escalada Batec Sabadell",
+  "country": "ES",
+  "source": "https://salabatec.com/sab-tarifes/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:30-22:00",
+   "tue": "09:30-22:00",
+   "wed": "09:30-22:00",
+   "thu": "09:30-22:00",
+   "fri": "09:30-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "ENTRADA PUNTUAL — Horaris d'accés: De dilluns a divendres de 09:30 a 22:00h. Caps de Setmana I festius de 10:00 a 20:00h",
+  "note": "Logged as 'no schedule' on the first pass, and the site really does not have an opening-hours heading — it states 'Horaris d'accés' against every entry type instead, and every one of them says the same week for the ordinary ticket. The separate ENTRADA MATÍ band (09:30–14:00 weekdays) is a cheaper ticket, not a different opening."
  },
  {
   "lat": 40.5359935,
@@ -9087,6 +9311,31 @@
   "evidence": "Lundi – Vendredi 10h à 22h | Samedi – Dimanche – Jours fériés 10h à 20h"
  },
  {
+  "lat": 48.95432,
+  "lon": 2.18778,
+  "name": "Climb Arena",
+  "country": "FR",
+  "source": "https://www.climbarena.fr/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "11:00-23:00",
+   "tue": "11:00-23:00",
+   "wed": "11:00-23:00",
+   "thu": "11:00-23:00",
+   "fri": "11:00-23:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "1 BD DU PARISIS, CORMEILLES-EN-PARISIS — Les horaires : Lundi – Vendredi : 11H00 – 23H00 ; Samedi – Dimanche : 09H00 – 21H00",
+  "note": "Logged as 'no schedule' on the first pass. The week is stated twice on the homepage — once beside the address block and once under a 'Les horaires :' heading — and the two agree."
+ },
+ {
   "lat": 43.52859,
   "lon": 4.95816,
   "name": "Climb Up Istres",
@@ -9110,6 +9359,31 @@
    "sun": "09:00-23:00"
   },
   "evidence": "HORAIRES En semaine : 10h00 à 23h00. | Mercredi et le week-end : 09h00 à 23h00"
+ },
+ {
+  "lat": 43.83249,
+  "lon": 4.36785,
+  "name": "Climb Up Nîmes",
+  "country": "FR",
+  "source": "https://nimes.climb-up.fr/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Climb Up Nîmes — Tél : 04 66 21 16 54 — Horaires : 10h - 23h00 en semaine ; 09h - 21h00 Week-end et jours fériés",
+  "note": "Logged as 'no schedule' on the first pass. Climb Up gives every hall its own subdomain and the hours sit in that subdomain's footer beside that hall's phone number — lyon-gerland.climb-up.fr says 9h à 23h du lundi au vendredi in the same place, so the block is per location, not a chain-wide default."
  },
  {
   "lat": 43.99270161681986,
@@ -9161,6 +9435,31 @@
   },
   "evidence": "7h-23h du lundi au vendredi | 8h-23h les samedis et dimanches",
   "note": "The page's schema.org openingHoursSpecification states the same week."
+ },
+ {
+  "lat": 47.2238304,
+  "lon": -1.6413989,
+  "name": "El Cap",
+  "country": "FR",
+  "source": "https://www.elcap.fr/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Horaires — Salle : Lundi 12h00 à 23h00 ; Mardi 10h00 à 23h00 ; Mercredi 10h00 à 23h00 ; Jeudi: 10h00 à 23h00 ; Vendredi 10h00 à 23h00 ; Samedi 10h00 à 19h00 ; Dimanche 10h00 à 19h00. Boutique : Du lundi au samedi 10h00 à 19h00.",
+  "note": "Logged as 'no schedule' on the first pass. The week is in the site-wide footer, under a heading that separates the hall ('Salle') from the shop ('Boutique') — the cleanest facility split in the French batch, and the shop's narrower week is what an extractor flattening the footer would have picked up."
  },
  {
   "lat": 50.63740675288798,
@@ -9383,6 +9682,31 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Lundi : 10H - 22H | Mardi : 10H - 22H | Mercredi : 10H - 22H | Jeudi : 10H - 22H | Vendredi : 10H - 22H | Samedi : 10H - 20H | Dimanche : 10H - 20H"
+ },
+ {
+  "lat": 43.64077,
+  "lon": 7.13232,
+  "name": "Val de Grimpe",
+  "country": "FR",
+  "source": "https://valdegrimpe.fr/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Val de Grimpe — Horaires : Semaine : 10h/23h ; Week-End : 9h/20h",
+  "note": "Logged as 'no schedule, only course slots' on the first pass; the week is stated plainly on the homepage under a Horaires heading, immediately below the KilterBoard section."
  },
  {
   "lat": 43.10903399343013,
@@ -11079,6 +11403,56 @@
   "evidence": "Lun – Ven: 10.00 – 22.00 | Sab: 11.00 – 19.00 | Dom: 15.00 – 19.00"
  },
  {
+  "lat": 45.61478,
+  "lon": 8.99049,
+  "name": "Stone Age Climbing Park",
+  "country": "IT",
+  "source": "https://stoneageclimb.it/contatti/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "orari di apertura — Lunedì – Venerdì: 10:00 – 23:00 ; Sabato e Domenica: 10:00 – 20:00. Orario speciale durante le festività (comunicato sui nostri canali social). Via Enrico Fermi 130, Uboldo (VA) 21040",
+  "note": "Logged as 'only trial-session slots' on the first pass; those are on the homepage, and the week is on the contatti page, beside the address upstream records. The holiday exception is announced on social channels and is what the on-page caveat covers."
+ },
+ {
+  "lat": 45.6147133,
+  "lon": 8.9904088,
+  "name": "Stone Age Moon Board",
+  "country": "IT",
+  "source": "https://stoneageclimb.it/contatti/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "co-located",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "orari di apertura — Lunedì – Venerdì: 10:00 – 23:00 ; Sabato e Domenica: 10:00 – 20:00. Orario speciale durante le festività (comunicato sui nostri canali social). Via Enrico Fermi 130, Uboldo (VA) 21040",
+  "note": "The MoonBoard entry the dataset files under Saronno is the same hall as the Kilter entry about 10 m away in Uboldo; both carry Stone Age's address."
+ },
+ {
   "lat": 49.49443,
   "lon": 5.96847,
   "name": "BlocX - Urban Fitness",
@@ -11613,6 +11987,31 @@
    "sun": "08:30-21:00"
   },
   "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 08:30 – 23:00 | Dinsdag 08:30 – 23:00 | Woensdag 08:30 – 23:00 | Donderdag 08:30 – 23:00 | Vrijdag 08:30 – 23:00 | Zaterdag 08:30 – 21:00 | Zondag 08:30 – 21:00"
+ },
+ {
+  "lat": 52.22366,
+  "lon": 6.87172,
+  "name": "Boulderstation Enschede",
+  "country": "NL",
+  "source": "https://www.boulderstationenschede.nl/openingstijden",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "13:00-22:30",
+   "tue": "13:00-22:30",
+   "wed": "13:00-22:30",
+   "thu": "13:00-22:30",
+   "fri": "15:00-22:30",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Opening hours hall — Monday to Thursday 13.00-22.30 (members from 9.00*); Friday 15.00-22.30 (members from 9.00*); Saturday & Sunday 09.00-20.00. *With the QR code scanner in the members' app (Sportivity), you can open the door from 9:00 a.m.",
+  "note": "Logged seasonal on the first pass on the strength of 'From 13-07 to 14-08 we are only open by appointment on Thursday evenings' — but that sentence sits under 'Opening hours shop' and belongs to the Mad Rock shop on the first floor, not to the hall. The hall's own block is a complete week. Members with a subscription, punch card or Newbie Card can let themselves in from 09:00 on weekdays; the published week is the one that needs nothing but turning up."
  },
  {
   "lat": 52.22304,
