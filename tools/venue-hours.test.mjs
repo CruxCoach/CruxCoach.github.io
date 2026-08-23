@@ -586,6 +586,27 @@ test('the evidence cross-check finds a mistyped time and forgives spelling', () 
   ]) {
     assert.deepEqual(timesMissingFromEvidence(record({ evidence })), [], evidence);
   }
+  // A range may carry one meridiem for both ends — "2-8 pm" is a Canadian
+  // co-op's whole afternoon, not two o'clock in the morning. The opening time
+  // borrows the closing marker, but only when the pair does not cross noon.
+  assert.deepEqual(timesMissingFromEvidence(record({
+    hours: { mon: 'closed', tue: 'closed', wed: '14:00-20:00', thu: 'closed',
+      fri: '14:00-20:00', sat: '12:00-18:00', sun: '12:00-18:00' },
+    evidence: 'Public climbing Wednesday & Friday: 2\u20138 pm Saturday & Sunday: 12\u20136 pm',
+  })), [], 'a shared trailing meridiem covers the opening time of the range');
+  // Crossing noon, the opening time is in the other half of the day.
+  assert.deepEqual(timesMissingFromEvidence(record({
+    hours: { mon: '10:00-14:00', tue: 'closed', wed: 'closed', thu: 'closed',
+      fri: 'closed', sat: 'closed', sun: 'closed' },
+    evidence: 'Monday 10\u20132 pm',
+  })), [], '10-2 pm opens in the morning and closes in the afternoon');
+  // ...and it does not hand the afternoon marker to a morning hour that would
+  // have to run backwards to reach it.
+  assert.deepEqual(timesMissingFromEvidence(record({
+    hours: { mon: '22:00-23:00', tue: 'closed', wed: 'closed', thu: 'closed',
+      fri: 'closed', sat: 'closed', sun: 'closed' },
+    evidence: 'Monday 10\u20132 pm, closed otherwise',
+  })), ['22:00', '23:00'], '10 in "10-2 pm" is not 10 p.m.');
   // Round-the-clock days are usually words, not digits, so they are exempt.
   assert.deepEqual(timesMissingFromEvidence(record({
     hours: Object.fromEntries(DAY_KEYS.map(d => [d, '00:00-24:00'])),

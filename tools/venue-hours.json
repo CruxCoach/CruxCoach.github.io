@@ -3312,6 +3312,31 @@
   "note": "The Boards & Weights building next door (5205 Harvester Rd) keeps its own shorter check-in week."
  },
  {
+  "lat": 51.30614,
+  "lon": -116.97441,
+  "name": "Confluence Climbing",
+  "country": "CA",
+  "source": "https://confluenceclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "15:00-22:00",
+   "wed": "15:00-22:00",
+   "thu": "15:00-22:00",
+   "fri": "15:00-22:00",
+   "sat": "11:00-19:00",
+   "sun": "11:00-19:00"
+  },
+  "evidence": "Monday Tuesday Wednesday Thursday Friday Sat/Sun 3pm-10pm 3pm-10pm 3pm-10pm 3pm-10pm 3pm-10pm 11am-7pm",
+  "note": "These are the staffed hours. The gym separately runs \"Unstaffed Operation\" for certain members between 5 a.m. and 10 p.m. with app-based access credentials; that is a members-only window and is not published here."
+ },
+ {
   "lat": 43.17698,
   "lon": -80.2338,
   "name": "Conquer Climbing Centre",
@@ -3455,6 +3480,32 @@
    "sun": "10:00-23:00"
   },
   "evidence": "Sunday: 10am-11pm | Monday: 10am-11pm | Tuesday: 10am-11pm | Wednesday: 10am-11pm | Thursday: 10am-11pm | Friday: 10am-11pm | Saturday: 10am-11pm"
+ },
+ {
+  "lat": 45.57792,
+  "lon": -73.33714,
+  "name": "Hook Bouldering",
+  "country": "CA",
+  "source": "https://www.hookescalade.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Nos heures d’ouverture : Lun-Ven 10h00 à 23h00 Sam-Dim 9h00 à 22h00",
+  "note": "Stated on the front page beside the address. The tariff page's \"Early Bird\" check-in before 15h00 is a price band inside these hours, not a separate opening."
  },
  {
   "lat": 43.8570461,
@@ -3726,6 +3777,33 @@
   "evidence": "Mon-Wednesday 7am - 10pm | Thur-Friday 7am - 11pm | Saturday 9am - 11pm | Sunday 9am - 10pm"
  },
  {
+  "lat": 49.12096,
+  "lon": -122.72854,
+  "name": "Project Climbing Cloverdale",
+  "country": "CA",
+  "source": "https://projectclimbing.ca/cloverdale/contact/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "11:00-22:30",
+   "tue": "13:00-22:30",
+   "wed": "11:00-22:30",
+   "thu": "11:00-22:30",
+   "fri": "11:00-22:30",
+   "sat": "11:00-21:00",
+   "sun": "11:00-21:00"
+  },
+  "evidence": "Cloverdale Hours Monday 11:00 AM - 10:30 PM Tuesday 01:00 PM - 10:30 PM Wednesday 11:00 AM - 10:30 PM Thursday 11:00 AM - 10:30 PM Friday 11:00 AM - 10:30 PM Sat - Sun 11:00 AM - 9:00 PM",
+  "note": "The block is headed \"Cloverdale Hours\" on the Cloverdale contact page; the Abbotsford page gives 1:00pm-10:00pm weekdays, so the two are distinct."
+ },
+ {
   "lat": 44.01773,
   "lon": -79.44974,
   "name": "Reach Indoor Climbing",
@@ -3748,6 +3826,33 @@
   },
   "evidence": "Monday - Friday: 3pm - 10pm | Saturday: 9am - 9pm | Sunday: 9am - 9pm | Member only hours (Active members and punch card holders): | Monday - Friday 12pm - 3pm",
   "note": "Members and punch-card holders additionally get in 12pm–3pm on weekdays; the public week is what is recorded."
+ },
+ {
+  "lat": 43.65367,
+  "lon": -79.35515,
+  "name": "Rock On Climbing",
+  "country": "CA",
+  "source": "https://www.rockonclimbing.ca/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "16:00-22:00",
+   "tue": "16:00-22:00",
+   "wed": "16:00-22:00",
+   "thu": "16:00-22:00",
+   "fri": "16:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Non-member HOURS: Monday - Friday: 4pm-10pm Saturday- Sunday: 10am-8pm Check in for non-members will end an hour before close.",
+  "note": "This is the public opening; the gym separately gives members 24/7 access, which is not published here. The site's own markup states the identical week (Mo-Fr 16:00-22:00, Sa-Su 10:00-20:00), so the two agree."
  },
  {
   "lat": 45.48457,
@@ -3918,6 +4023,31 @@
   "note": "Members aged 18+ have 24-hour access; the staffed check-in window is what is recorded. The neighbouring Climber’s Rock gym keeps its own longer week."
  },
  {
+  "lat": 43.41793759999999,
+  "lon": -80.2971962,
+  "name": "The Core Climbing Gym",
+  "country": "CA",
+  "source": "https://www.thecoreclimbing.ca/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "HOURS Monday - Thursday 12:00 pm - 10:00 pm Friday 10:00 am - 10:00 pm Saturday 10:00 am - 9:00 pm Sunday 10:00 am - 8:00 pm 500 Jamieson Parkway, Unit 1, Cambridge, ON, N3C 0G5, Canada",
+  "note": "The same block appears in the footer of the home, contact and prices pages, always next to the address."
+ },
+ {
   "lat": 43.55287,
   "lon": -80.22459,
   "name": "The Guelph Grotto Climbing Co.",
@@ -3992,6 +4122,33 @@
   "note": "Members have 24/7 access; day passes are sold during staffed hours only, so the staffed week is what is recorded."
  },
  {
+  "lat": 49.87428,
+  "lon": -124.55205,
+  "name": "Top Out Climbing Co-op",
+  "country": "CA",
+  "source": "https://topoutclimbingcoop.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "closed",
+   "tue": "closed",
+   "wed": "14:00-20:00",
+   "thu": "closed",
+   "fri": "14:00-20:00",
+   "sat": "12:00-18:00",
+   "sun": "12:00-18:00"
+  },
+  "evidence": "Public climbing Wednesday & Friday: 2–8 pm Saturday & Sunday: 12–6 pm Member access Daily, including holidays 5 am–11 pm",
+  "note": "The site separates the two itself: these are the hours headed \"Public climbing\", and the daily 5 am-11 pm window is headed \"Member access\" and is not published here. Monday, Tuesday and Thursday carry no public session."
+ },
+ {
   "lat": 43.7006951,
   "lon": -79.7137826,
   "name": "Toprock Climbing",
@@ -4013,6 +4170,58 @@
    "sun": "09:00-20:00"
   },
   "evidence": "Monday - 11am - 11pm | Tuesday - 11am - 11pm | Wednesday - 4pm - 11pm | Thursday - 11am - 11pm | Friday - 11am - 11pm | Saturday - 9am - 10pm | Sunday - 9am - 8pm"
+ },
+ {
+  "lat": 52.19682,
+  "lon": -113.81868,
+  "name": "Trailhead Climbing + Fitness",
+  "country": "CA",
+  "source": "https://trailheadclimbing.ca/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "08:30-20:00",
+   "sun": "08:30-20:00"
+  },
+  "evidence": "Hours Mon. - Fri. 10:00 AM - 10:00 PM Sat. - Sun. 8:30 AM - 8:00 PM Holiday 10:00 AM - 6:00 PM",
+  "note": "Stated beneath the address. The holiday line is an exception rule and is not published as part of the week."
+ },
+ {
+  "lat": 43.7453603,
+  "lon": -79.47440519999999,
+  "name": "True North Climbing",
+  "country": "CA",
+  "source": "https://truenorthclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Regular Hours: Daily 10am-10pm Members Only Hours: Mon-Fri 8am-10am Sat-Sun 9am-10am *No member hours on holidays*",
+  "note": "The gym labels the daily 10am-10pm window \"Regular Hours\" and the earlier morning slots \"Members Only Hours\"; only the public window is published here. Ten-visit pass holders are explicitly not eligible during the members-only hours."
  },
  {
   "lat": 49.9492732,

@@ -278,6 +278,33 @@ function evidenceMentionsTime(evidence, minutes) {
   // "630AM" — the separator dropped as well. Only with a meridiem attached: a
   // bare 630 in running text is a number, not half past six.
   if (m !== 0) patterns.push(new RegExp(`(^|[^0-9])${h12}${mm}\\s*${ampm}`, 'i'));
+  // A range may carry one meridiem for both ends: "2–8 pm", "10:30-6.30pm".
+  // The marker sits on the closing time, so the opening time has to borrow it,
+  // and which half of the day it borrows depends on the two numbers: in
+  // "2-8 pm" the 2 is afternoon, but in "10-2 pm" the 10 is morning. So this
+  // only fires when the pair reads in the same half as the time being checked.
+  {
+    const other = '(\\d{1,2})(?:[:.hu](\\d{2}))?';
+    const lead = new RegExp(`(^|[^0-9])0?${h12}(?:${sep}${mm})?\\s*[-–—]\\s*${other}\\s*(a|p)\\.?m?\\.?(?![a-z])`, 'gi');
+    patterns.push({
+      test(text) {
+        for (const hit of String(text).matchAll(lead)) {
+          if (m !== 0 && !hit[0].includes(String(mm))) continue;
+          const close = Number(hit[2]);
+          if (!Number.isFinite(close) || close < 1 || close > 12) continue;
+          // The closing marker applies to the opening time only when the pair
+          // does not cross noon: 2→8 stays in the afternoon, 10→2 does not.
+          const sameHalf = h12 < close || (h12 === 12 && close === 12);
+          const closeMeridiem = hit[4].toLowerCase();
+          if (sameHalf && closeMeridiem === meridiem) return true;
+          // Crossing noon: the opening time is in the other half, so a morning
+          // time is confirmed by a pm marker on a smaller closing hour.
+          if (!sameHalf && closeMeridiem !== meridiem && meridiem === 'a') return true;
+        }
+        return false;
+      },
+    });
+  }
   // Words, for the two times that have them.
   if (minutes === 0 || minutes === 24 * 60) patterns.push(/midnight/i);
   if (minutes === 12 * 60) patterns.push(/noon|midday/i);

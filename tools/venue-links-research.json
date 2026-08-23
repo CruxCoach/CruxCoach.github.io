@@ -465,6 +465,56 @@
     "reason": "No official site. bullstone.by does not resolve and no other name-derived domain answers; the only \"Stone Climbing\" site that does is a climbing gym in northeast Florida. No OSM climbing object near Mahilyow carries a website tag, and upstream gives no address."
   },
   {
+    "lat": 44.37689,
+    "lon": -79.71844,
+    "name": "Alt. Rock",
+    "country": "CA",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "altrock.ca answers only behind a TLS handshake failure — the host negotiates no usable connection at all, over either the apex or www — so nothing could be read. No other name-derived domain resolves and upstream records no address for Barrie. Retry when the host serves.",
+    "candidate": "https://altrock.ca/"
+  },
+  {
+    "lat": 49.53477,
+    "lon": -115.76467,
+    "name": "ARQ Mountain Center",
+    "country": "CA",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "arqmountaincentre.com redirects to climbarq.com, which answers 200 but from which no page could be parsed — no title, no navigation, no text. arqmountain.ca does not resolve. The venue's address, 1924 Industrial Rd 2, V1C 6R2 Cranbrook, could not be tested against anything. Retry when the site serves readable content.",
+    "candidate": "https://climbarq.com/"
+  },
+  {
+    "lat": 43.6497875,
+    "lon": -79.3970569,
+    "name": "Basecamp Climbing",
+    "country": "CA",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "basecampclimbing.ca is \"Basecamp Climbing - Toronto Indoor Rock Climbing\", which matches this venue's name, but the served page is a client-rendered shell: no address, no map, no structured data, and no board is named. Upstream records no street for the Kensington-Chinatown coordinates either, so the name is the only signal available and the policy needs two. basecamp.com and basecampboulder.com are unrelated businesses.",
+    "candidate": "https://basecampclimbing.ca/"
+  },
+  {
+    "lat": 46.05766,
+    "lon": -71.95261,
+    "name": "Campus Escalade Victoriaville",
+    "country": "CA",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "campusescalade.com is \"Campus Escalade\", which matches this venue's name, but the only map point it publishes of itself lies 58 km from these coordinates, and no page on it prints 247 Notre-Dame St E or the G6P 4A2 postal code upstream records. The operator appears to run more than one site and the page does not say which is which.",
+    "candidate": "https://campusescalade.com/"
+  },
+  {
+    "lat": 45.0066802,
+    "lon": -79.3168139,
+    "name": "Climb Muskoka Moon",
+    "country": "CA",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "climbmuskoka.com answers over http and matches this venue's name loosely, but it publishes no address, no postal code and no board, and upstream records none either. The name alone is one signal where the policy needs two.",
+    "candidate": "http://www.climbmuskoka.com/"
+  },
+  {
     "lat": 49.2827291,
     "lon": -123.1207375,
     "name": "Hive: Vancouver",
@@ -475,14 +525,24 @@
     "candidate": "https://www.hiveclimbing.com/locations"
   },
   {
-    "lat": 49.1824420014394,
-    "lon": -123.98420325192382,
-    "name": "The Bloc Bouldering",
+    "lat": 48.3842148,
+    "lon": -89.2436231,
+    "name": "Rock Room",
     "country": "CA",
-    "status": "ambiguous",
-    "checked": "2026-08-22",
-    "reason": "The coordinate shares 1870 Boxwood Road with WIP Climbing Nanaimo 19 m away, but WIP's site never uses the name The Bloc and no separate operator for it could be found, so the two entries cannot be told apart.",
-    "candidate": "https://wipclimbing.com/"
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "rockroom.ca answers 200 but serves no title and no readable content, so there is nothing on it to match against this venue. No other name-derived domain resolves and upstream records no address for Thunder Bay.",
+    "candidate": "https://rockroom.ca/"
+  },
+  {
+    "lat": 43.7951617,
+    "lon": -79.5422165,
+    "name": "RockHaus",
+    "country": "CA",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "rockhausclimbing.com is RockHaus Climbing Inc. and matches this venue's name, but it places itself at 167 Chrislea Road, Unit 5, Vaughan, Ontario L4L 8N6 — about 1.2 km from these coordinates and in a different municipality from the Black Creek neighbourhood upstream records. It names no board either. One location signal that disagrees is not two that agree.",
+    "candidate": "https://rockhausclimbing.com/"
   },
   {
     "lat": 46.50714,

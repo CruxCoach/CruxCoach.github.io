@@ -870,14 +870,53 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 44.37689,
+  "lon": -79.71844,
+  "name": "Alt. Rock",
+  "country": "CA",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://altrock.ca/",
+  "reason": "The only candidate host fails its TLS handshake, so no page and no schedule could be read."
+ },
+ {
   "lat": 49.19171,
   "lon": -123.09036,
   "name": "Approach Climbing",
   "country": "CA",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://approachclimbing.ca/",
+  "reason": "The visible page shows a booking calendar under the heading \"Regular Hours\" and no times. The only week the site states is in its LocalBusiness markup (all seven days 08:00-23:00), and markup on its own is not a source a schedule may be published from."
+ },
+ {
+  "lat": 46.4491391,
+  "lon": -80.9990673,
+  "name": "ARC Climbing Sudbury",
+  "country": "CA",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The only schedule in the fetched document is schema.org openingHoursSpecification (08:00-23:00 every day); nothing a reader can see carries times.",
-  "source": "https://approachclimbing.ca/"
+  "source": "https://arcclimbing.ca/contact/",
+  "reason": "The Contact + Hours page computes and shows only \"Today's Hours\" in the browser; the served HTML contains that one line and no weekly table, so no week could be read."
+ },
+ {
+  "lat": 49.53477,
+  "lon": -115.76467,
+  "name": "ARQ Mountain Center",
+  "country": "CA",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://climbarq.com/",
+  "reason": "The operator's host answers but serves no parseable page, so no schedule could be read."
+ },
+ {
+  "lat": 43.6497875,
+  "lon": -79.3970569,
+  "name": "Basecamp Climbing",
+  "country": "CA",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 48.44353,
@@ -914,10 +953,19 @@
   "lon": -71.95261,
   "name": "Campus Escalade Victoriaville",
   "country": "CA",
-  "status": "no-hours-on-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The operator’s site publishes no schedule for any of its halls — the same finding as its Trois-Rivières venue.",
-  "source": "https://campusescalade.com/"
+  "source": "https://campusescalade.com/",
+  "reason": "The candidate site cannot be tied to this branch — its own map point is 58 km away — so no schedule on it can be attributed here."
+ },
+ {
+  "lat": 45.0066802,
+  "lon": -79.3168139,
+  "name": "Climb Muskoka Moon",
+  "country": "CA",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 60.77956528162924,
@@ -928,6 +976,16 @@
   "checked": "2026-08-23",
   "reason": "Re-read 2026-08-23: unchanged. The only current week is labelled \"SUMMER hours - Monday to Friday 1-8:30pm, Saturday 12-5pm\", and the first-visit page still carries a different one (Mon-Fri 12 pm - 9 pm, Sat 10 am - 7 pm).",
   "source": "https://climbyukon.com/"
+ },
+ {
+  "lat": 48.4277132,
+  "lon": -123.362594,
+  "name": "CragX",
+  "country": "CA",
+  "status": "seasonal",
+  "checked": "2026-08-23",
+  "source": "https://www.cragx.ca/hours-location-contact",
+  "reason": "The gym's week — Monday 12pm-10pm, Tuesday 10am-10pm, Wednesday 12pm-10pm, Thursday and Friday 10am-11pm, Saturday 8am-8pm, Sunday 10am-6pm — carries a seasonal exception on the day it is read: Sunday is annotated \"(Closed in July & August)\". The regular week is therefore not the week in force today, and the page's separate holiday list does not restore it."
  },
  {
   "lat": 45.27562330000001,
@@ -954,30 +1012,50 @@
   "lon": -71.27568,
   "name": "DÈLIRE Escalade Pierre-Bertrand",
   "country": "CA",
-  "status": "inaccessible",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The operator’s gym list renders each hall’s schedule from a bundled JavaScript payload whose day labels are minified references.",
-  "source": "https://www.delirescalade.com/"
+  "source": "https://www.delirescalade.com/",
+  "reason": "The operator runs several centres from one site and the only time the front page states is \"Parc ouvert 10h a 21h\", which is neither labelled for a centre nor a week. No per-centre schedule could be reached."
  },
  {
   "lat": 46.80062,
   "lon": -71.3259,
   "name": "DÉLIRE Escalade Sainte-Foy",
   "country": "CA",
-  "status": "inaccessible",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The operator’s gym list renders each hall’s schedule from a bundled JavaScript payload whose day labels are minified references.",
-  "source": "https://www.delirescalade.com/"
+  "source": "https://www.delirescalade.com/",
+  "reason": "As for the operator's other centre: the site states only \"Parc ouvert 10h a 21h\" on its front page, unattached to any centre or day, and no per-centre schedule could be reached."
  },
  {
   "lat": 43.64433,
   "lon": -79.3687,
   "name": "Ethos Climbing",
   "country": "CA",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "source": "https://ethosclimbing.ca/",
+  "reason": "The site renders in the browser: the served HTML carries a navigation, a newsletter form and an empty hours markup block, and no schedule text. Nothing could be read."
+ },
+ {
+  "lat": 46.07393,
+  "lon": -64.82872,
+  "name": "Fit Rocks Moncton",
+  "country": "CA",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://www.ethosclimbing.ca/"
+  "source": "https://fitrocksmoncton.ca/",
+  "reason": "No opening hours appear on any page of the site that could be opened."
+ },
+ {
+  "lat": 49.7016339,
+  "lon": -123.1558121,
+  "name": "Grand Wall Bouldering Co-operative",
+  "country": "CA",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://grandwallbouldering.com/",
+  "reason": "No opening hours appear on any page of the site that could be opened."
  },
  {
   "lat": 43.2585528,
@@ -1000,6 +1078,16 @@
   "source": "https://gravityhamilton.com/"
  },
  {
+  "lat": 52.15057,
+  "lon": -106.5703,
+  "name": "Grip It Climbing - Nelson Rd",
+  "country": "CA",
+  "status": "seasonal",
+  "checked": "2026-08-23",
+  "source": "https://gripitclimbing.com/contact/",
+  "reason": "Both blocks on the contact page are headed \"SUMMER Hours\" — for Nelson, 12pm-10pm Monday to Thursday, 12pm-11pm Fridays, 9am-9pm Saturday and Sunday — and the page adds \"Schedule subject to change due to holidays, comps and staff training\". No regular-season week is stated anywhere on the site."
+ },
+ {
   "lat": 49.723956,
   "lon": -123.152754,
   "name": "Ground Up Climbing Centre",
@@ -1020,16 +1108,6 @@
   "source": "https://hoodooadventures.ca/"
  },
  {
-  "lat": 45.57792,
-  "lon": -73.33714,
-  "name": "Hook Bouldering",
-  "country": "CA",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "The site carries the address and no schedule.",
-  "source": "https://www.hookescalade.com/"
- },
- {
   "lat": 42.99832,
   "lon": -81.21752,
   "name": "Junction Climbing Centre",
@@ -1046,8 +1124,27 @@
   "country": "CA",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The open-gym page lists a different week (12:00pm-9:00pm, 11:00am-10:00pm …) from the site’s schema.org openingHours (Mo-Th 11:00-22:00, Fr 11:00-20:00, Sa 12:00-20:00, Su 12:00-22:00).",
-  "source": "https://www.momentum-movement.ca/"
+  "source": "https://www.momentum-movement.ca/open-gym",
+  "reason": "The site says two things. Its markup gives Mo-Th 11:00-22:00, Fr 11:00-20:00, Sa 12:00-20:00, Su 12:00-22:00 on every page; its Open Gym page prints 11:00am - 8:00pm and 12:00pm - 8:00pm and adds \"Hours subject to change for events and holidays\". The two disagree on the closing time and neither is presented as the schedule the other qualifies."
+ },
+ {
+  "lat": 48.3842148,
+  "lon": -89.2436231,
+  "name": "Rock Room",
+  "country": "CA",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 43.7951617,
+  "lon": -79.5422165,
+  "name": "RockHaus",
+  "country": "CA",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://rockhausclimbing.com/",
+  "reason": "The candidate site publishes a week (Monday-Friday 12pm-10pm, Saturday-Sunday 10am-9pm) for a hall in Vaughan about 1.2 km from these coordinates. Until the venue and that hall are shown to be the same, the week cannot be attributed here."
  },
  {
   "lat": 45.52752,
@@ -1068,6 +1165,16 @@
   "checked": "2026-08-23",
   "reason": "Re-read 2026-08-23: unchanged. The staffed week is published without a meridiem — \"Monday: 1:00 – 7:00 | Wednesday: 1:00 – 7:00 | Thursday: 1:00 – 7:00 | Saturday: 12:00 – 5:00\" — while Tuesday, Friday and Sunday are fob-access only. Drop-ins and punch cards are allowed during staffed hours only, so those four times are the whole public week and every one of them would have to be guessed.",
   "source": "https://squamishathleticclub.ca/"
+ },
+ {
+  "lat": 49.1824420014394,
+  "lon": -123.98420325192382,
+  "name": "The Bloc Bouldering",
+  "country": "CA",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://wipclimbing.com/info-1",
+  "reason": "One page states the week twice and differently: \"HOURS: Monday - Friday: 10am - 10pm, Saturday/Sunday: 10am - 8pm\" above, and \"Regular Hours: Monday - Saturday: 10am - 10pm, Sunday: 10am - 8pm\" below, while the page markup gives all seven days as 10:00-22:00. Three claims, no way to choose."
  },
  {
   "lat": 49.25311,
@@ -1100,16 +1207,6 @@
   "source": "https://www.hiveclimbing.com/locations/winnipeg"
  },
  {
-  "lat": 49.87428,
-  "lon": -124.55205,
-  "name": "Top Out Climbing Co-op",
-  "country": "CA",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Public access is stated as \"Wed & Fri 2–8 pm ; Sat & Sun 12–6 pm\" with members admitted daily 5 am–11 pm; Monday, Tuesday and Thursday are neither stated as open nor as closed.",
-  "source": "https://topoutclimbingcoop.com/"
- },
- {
   "lat": 43.70887,
   "lon": -79.31537,
   "name": "Toronto Climbing Academy",
@@ -1118,16 +1215,6 @@
   "checked": "2026-08-23",
   "reason": "The candidate site torontoacademy.ca belongs to the Toronto Academy of Education, not to the climbing gym.",
   "source": "https://torontoacademy.ca/"
- },
- {
-  "lat": 52.19682,
-  "lon": -113.81868,
-  "name": "Trailhead Climbing + Fitness",
-  "country": "CA",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The homepage carries two weekend rows that disagree: Sat–Sun 8:45 AM–7:45 PM against Sat–Sun 8:30 AM–8:00 PM.",
-  "source": "https://trailheadclimbing.ca/"
  },
  {
   "lat": 43.60385,
