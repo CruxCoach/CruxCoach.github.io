@@ -5768,6 +5768,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 33.48183,
+  "lon": -82.14034,
+  "name": "Active Climbing Augusta",
+  "country": "US",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://www.activeclimbingaugusta.com/",
+  "reason": "The one page states the week twice and the two disagree on two days. The upper block reads \"Open Daily Hours: Monday: 12pm-9pm Tue-Thu: 3pm-9pm Friday: 12pm-9pm Saturday: 11am-8pm Sunday: 1pm-6pm\"; the footer block reads \"Mon 3pm-9pm Tue 3pm-9pm Wed 3pm-9pm Thu 3pm-9pm Fri 3pm-9pm Sat 11am-8pm Sun 1pm-6pm\". Monday and Friday open at noon in one and at 3pm in the other, and the page markup follows the footer."
+ },
+ {
   "lat": 44.56317,
   "lon": -123.27864,
   "name": "ALI Dixon Climbing Center",
@@ -5777,13 +5787,14 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 33.2646,
-  "lon": -111.85627,
-  "name": "Alta Boulders Chandler",
+  "lat": 33.2909,
+  "lon": -111.693,
+  "name": "Alta Climbing and Fitness Gilbert",
   "country": "US",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://altaclimbing.com/gilbert/",
+  "reason": "Three different weeks for the same gym. The banner on its own page reads \"Gilbert MON-THUR: 5 A.M.-10 P.M. | FRI/SAT: 5 A.M.-11 P.M. | SUN: CLOSED\"; the body of that same page reads \"Mon-Fri: 5 A.M. - 10 P.M. Sat: 7 A.M. - 10 P.M. Sun: 8 A.M. - 5 P.M.\"; and the operator's contact page gives Sunday as 10 AM to 5 PM. Friday, Saturday and Sunday differ in all three."
  },
  {
   "lat": 41.71052,
@@ -5921,8 +5932,8 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states Monday—Friday 7am—10pm while its own schema.org openingHours says Mo-Fr 10:00-22:00.",
-  "source": "https://www.betaboulderinggym.com/"
+  "source": "https://www.betaboulderinggym.com/contact-hours",
+  "reason": "The gym's text and its own markup disagree about the weekday opening. Both the home page and the contact page print \"Monday - Friday: 7am - 10pm, Saturday: 10am - 10pm, Sunday: 10am - 6pm\"; the openingHours markup on the same pages gives Monday to Saturday 10:00-22:00 and Sunday 10:00-18:00. Three hours a day is too large a gap to publish either as the week."
  },
  {
   "lat": 45.51164,
@@ -7127,8 +7138,8 @@
   "country": "US",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The branch page carries no schedule.",
-  "source": "https://projectrock.com/easley/"
+  "source": "https://projectrock.com/easley/",
+  "reason": "The operator's Easley page describes the gym, its walls and its memberships and states no opening hours."
  },
  {
   "lat": 32.715738,
@@ -7466,10 +7477,10 @@
   "lon": -98.2694573,
   "name": "Sheer Fun",
   "country": "US",
-  "status": "no-hours-on-official-site",
+  "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "The site carries the address and no schedule.",
-  "source": "https://sheer-fun.com/"
+  "source": "https://sheer-fun.com/",
+  "reason": "The gym states it plainly on its front page: \"For non-members we are open by appointment only\", above a link to schedule a climbing session. There is no public opening to publish."
  },
  {
   "lat": 40.64901,
@@ -7756,16 +7767,6 @@
   "checked": "2026-08-23",
   "reason": "Re-read 2026-08-23: unchanged. The week is published without a meridiem — \"Monday 2-9 | Tuesday 11-9 | Wednesday 2-9 | Thursday 11-9 | Friday 2-10 | Saturday 10-7 | Sunday 1-7\" — so every one of those times would have to be guessed.",
   "source": "https://ontheedgerockclimbing.com/"
- },
- {
-  "lat": 25.63776,
-  "lon": -80.42057,
-  "name": "The Edge Rock Gym Miami",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The only candidate site is the Jacksonville gym’s (theedgerockgym.com), which says nothing about a Miami hall; no official site is established for this venue.",
-  "source": "https://theedgerockgym.com/"
  },
  {
   "lat": 40.10515,

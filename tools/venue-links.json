@@ -1,5 +1,19 @@
 [
   {
+    "lat": 42.49797,
+    "lon": 1.51116,
+    "name": "BlocCafé Climbing",
+    "country": "AD",
+    "website": "https://bloccafe.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "BlocCafé Climbing's own site, giving Andorra la Vella — the town upstream records for Carrer de les Costes 13."
+  },
+  {
     "lat": 25.16322,
     "lon": 55.23868,
     "name": "Mountain Extreme",
@@ -11880,6 +11894,20 @@
     "note": "CAL-COLO's own site, matching the venue's name and naming the board it is listed for."
   },
   {
+    "lat": 54.66982,
+    "lon": 25.26907,
+    "name": "Bonobo Climbing",
+    "country": "LT",
+    "website": "https://www.bonobo.lt/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Bonobo Climbing's own site, printing Panerių 35 — the street line upstream records for Vilnius."
+  },
+  {
     "lat": 49.49443,
     "lon": 5.96847,
     "name": "BlocX - Urban Fitness",
@@ -11939,6 +11967,20 @@
       "board-mention"
     ],
     "note": "RedRock Climbing Center's own site, printing the 4413 postal code upstream records for Soleuvre and naming the board this venue is listed for."
+  },
+  {
+    "lat": -13.93661,
+    "lon": 33.77632,
+    "name": "Climb Malawi",
+    "country": "MW",
+    "website": "https://www.climbmalawi.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Climb Malawi's own site, giving Lilongwe — the city upstream records. The venue name carries the country, not the town, so the two are independent."
   },
   {
     "lat": 25.6527,
@@ -14184,6 +14226,21 @@
     "note": "Vertical Spirit's own site, printing Baicului 80 in Bucharest — the street line upstream records."
   },
   {
+    "lat": 21.61947,
+    "lon": 39.135,
+    "name": "Arena Fitness Innovation/Saudi Climbing & Hiking Federation",
+    "country": "SA",
+    "website": "https://arena.sa/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "street-address"
+    ],
+    "note": "Arena's own site, printing 5500 Abdulrahman Al Dakhil and the 23611 postal code upstream records for Jeddah."
+  },
+  {
     "lat": 63.39079,
     "lon": 12.9147,
     "name": "Åre Klätterhall",
@@ -14790,18 +14847,37 @@
     ]
   },
   {
+    "lat": 33.2646,
+    "lon": -111.85627,
+    "name": "Alta Boulders Chandler",
+    "country": "US",
+    "website": "https://altaclimbing.com/chandler/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "Alta's own page for its Chandler gym. The operator's contact page prints 2945 South Alma School Road, Chandler, AZ 85286 — the street line upstream records — and the Chandler page embeds a map of itself 178 m from these coordinates and names the Kilter Board this venue is listed for. The earlier pass had only reached altachandler.com, which publishes no address at all."
+  },
+  {
     "lat": 33.2909,
     "lon": -111.693,
     "name": "Alta Climbing and Fitness Gilbert",
     "country": "US",
-    "website": "https://altaclimbing.com/",
+    "website": "https://altaclimbing.com/gilbert/",
     "verified": "2026-08-23",
-    "provenance": "official-site",
+    "provenance": "official-location-page",
     "signals": [
       "name",
-      "coordinates"
+      "board-mention",
+      "coordinates",
+      "location-page"
     ],
-    "note": "The site carries this venue's name and embeds a map of itself — Alta Climbing and Fitness, labelled with the gym's own name — 155 m from these coordinates. Upstream records no street address for the venue, so the name and the point the site publishes of itself are what carry the match."
+    "note": "Alta's own page for its Gilbert gym, which names the Tension Board this venue is listed for and embeds a map of itself 155 m from these coordinates. The operator's contact page gives that gym's address as 3193 South Ranch House Court, Gilbert, Arizona 85297, separately from its Chandler and Scottsdale gyms."
   },
   {
     "lat": 36.56563,

@@ -15166,6 +15166,34 @@
   "evidence": "Sun | Noon - 8pm | Mon | 4pm - 10pm | Tue - Sat | Noon - 10pm"
  },
  {
+  "lat": 33.2646,
+  "lon": -111.85627,
+  "name": "Alta Boulders Chandler",
+  "country": "US",
+  "source": "https://altaclimbing.com/chandler-home/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "coordinates",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "05:00-22:00",
+   "tue": "05:00-22:00",
+   "wed": "05:00-22:00",
+   "thu": "05:00-22:00",
+   "fri": "05:00-22:00",
+   "sat": "07:00-22:00",
+   "sun": "10:00-17:00"
+  },
+  "evidence": "Alta Boulders & Fitness CHANDLER Hours Mon-Fri: 5 A.M. – 10 P.M. Sat: 7 A.M. – 10 P.M. Sun: 10 A.M. – 5 P.M.",
+  "note": "The block is headed with this gym's name, and the operator's contact page gives the same Sunday, 10 AM to 5 PM, beside the Chandler address. The Gilbert gym's pages give a different Sunday, which is why only this one is published."
+ },
+ {
   "lat": 33.5727,
   "lon": -112.2557,
   "name": "Ape Index Rock Climbing",
@@ -15576,6 +15604,31 @@
    "sun": "09:00-21:00"
   },
   "evidence": "Mon - Fri: 6am - 10pm Sat - Sun: 9am - 9pm"
+ },
+ {
+  "lat": 33.5812861,
+  "lon": -112.0135902,
+  "name": "Black Rock Bouldering Gym",
+  "country": "US",
+  "source": "https://www.blackrockboulderinggym.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "09:00-21:00",
+   "sat": "09:00-18:00",
+   "sun": "closed"
+  },
+  "evidence": "HOURS General Public M-F 9:00 am - 9:00 pm SAT: 9:00 am - 6:00 pm Members & Punch Pass Holders ONLY SUN: 10:00 am - 6:00 pm",
+  "note": "The gym separates the two itself. Monday to Saturday are headed \"General Public\"; Sunday is headed \"Members & Punch Pass Holders ONLY\", so it is recorded closed rather than published as a public opening."
  },
  {
   "lat": 34.83659,
@@ -19625,6 +19678,32 @@
   "evidence": "Monday: 4PM - 11PM | Tuesday: 11am - 11PM | Wednesday: 4PM - 11PM | Thursday: 11am - 11PM | Friday: 4PM - 11PM Saturday: 10AM - 10PM | Sunday: 10AM - 8PM"
  },
  {
+  "lat": 35.93733,
+  "lon": -79.01967,
+  "name": "Progression Climbing",
+  "country": "US",
+  "source": "https://progressionclimb.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Open Daily 10am – 10pm Monday thru Friday 10am – 8pm Weekends",
+  "note": "Stated on the home page and repeated on the about page, and the site's own markup gives the identical week (Mo-Fr 10:00-22:00, Sa-Su 10:00-20:00), so the two agree."
+ },
+ {
   "lat": 26.17248,
   "lon": -80.14537,
   "name": "projectROCK Oakland Park",
@@ -20456,6 +20535,32 @@
   "evidence": "MONDAY 3:00pm- 9:00pm | TUESDAY 9:00am – 9:00pm | WEDNESDAY 9:00am – 9:00pm | THURSDAY 9:00am – 9:00pm | FRIDAY 9:00am – 10:00pm | SATURDAY 10:00am – 10:00pm | SUNDAY 10:00am – 6:00pm | 1230 S 31st St W Billings, MT 59102"
  },
  {
+  "lat": 35.18458,
+  "lon": -106.5756,
+  "name": "Stone Age Climbing Gym North",
+  "country": "US",
+  "source": "https://climbstoneage.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "6200 Alameda Blvd NE (505) 209-2081 Regular Hours: Weekdays: Noon to 10:00 pm Saturdays: 9:00 am to 8:00 pm Sundays: 9:00 am to 6:00 pm Member Only Hours - 6:00 am to Noon",
+  "note": "The block sits under this hall's own address, 6200 Alameda Blvd NE. The 6 am to noon window is headed \"Member Only Hours\" and is not published here. The operator's Midtown hall carries the same week under its own separate address."
+ },
+ {
   "lat": 29.86296,
   "lon": -81.33903,
   "name": "Stone Climbing",
@@ -20630,6 +20735,57 @@
   "note": "The play structure closes earlier on weekdays (9am–7pm) and is listed separately; the climbing hours are what is recorded."
  },
  {
+  "lat": 32.71538,
+  "lon": -97.40054,
+  "name": "The Blok Climbing Co.",
+  "country": "US",
+  "source": "https://www.theblokclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-20:00",
+   "tue": "10:00-20:00",
+   "wed": "10:00-20:00",
+   "thu": "10:00-20:00",
+   "fri": "10:00-20:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Hours of operation Walk-ins Welcome 10 AM - 8 PM Daily Extended access hours available for members",
+  "note": "Stated as a single daily window for walk-ins, with the same 10AM-8PM given again beside the address as GENERAL HOURS. The extended access the gym offers members is not published here."
+ },
+ {
+  "lat": 35.9999,
+  "lon": -78.9021,
+  "name": "The Boulder Garden",
+  "country": "US",
+  "source": "https://www.thebouldergarden.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "16:00-22:00",
+   "tue": "16:00-22:00",
+   "wed": "16:00-22:00",
+   "thu": "16:00-22:00",
+   "fri": "16:00-22:00",
+   "sat": "12:00-18:00",
+   "sun": "12:00-18:00"
+  },
+  "evidence": "Hours Monday–Friday 4pm–10pm Saturday–Sunday 12pm–6pm",
+  "note": "Stated beside the gym's street on its own front page. No seasonal or holiday variation is given."
+ },
+ {
   "lat": 40.05921,
   "lon": -105.2061,
   "name": "The Campus Climbing and Training",
@@ -20797,6 +20953,31 @@
   },
   "evidence": "Hours | Monday- Friday: 11AM - 10PM | Saturday: 9AM - 10PM | Sunday: 11AM - 7PM | Members Hours | Monday: 9AM - 11AM | Wednesday: 9AM - 11AM",
   "note": "Members additionally get in 9–11AM on Monday and Wednesday; the public week is what is recorded."
+ },
+ {
+  "lat": 25.63776,
+  "lon": -80.42057,
+  "name": "The Edge Rock Gym Miami",
+  "country": "US",
+  "source": "https://www.theedgerockgymmiami.com/contact-us",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "11:00-21:00",
+   "sun": "11:00-20:00"
+  },
+  "evidence": "Hours of Operation 11:00 AM - 10:00 PM | MON - FRI 11:00 AM - 9:00 PM | SATURDAYS 11:00 AM - 8:00 PM | SUNDAYS",
+  "note": "The same block appears on the home page and the contact page. The gym publishes a separate 2025-2026 holiday list of early closures and one late opening; those are exceptions to this week, not a competing schedule."
  },
  {
   "lat": 41.2311,
@@ -21037,6 +21218,32 @@
    "sun": "09:00-21:00"
   },
   "evidence": "Sun Sunday Sunday 9:00 AM - 9:00 PM | Mon Monday Monday 9:00 AM - 10:00 PM | Tue Tuesday Tuesday 9:00 AM - 10:00 PM | Wed Wednesday Wednesday 9:00 AM - 10:00 PM | Thu Thursday Thursday 9:00 AM - 10:00 PM | Fri Friday Friday 9:00 AM - 10:00 PM | Sat Saturday Saturday 9:00 AM - 9:00 PM"
+ },
+ {
+  "lat": 33.73181575135975,
+  "lon": -84.42132553032215,
+  "name": "The Overlook Boulder + Fitness",
+  "country": "US",
+  "source": "https://overlookclimbing.com/hours-location/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "hours of operation Monday 6 AM – 10 PM Tuesday 6 AM – 10 PM Wednesday 6 AM – 10 PM Thursday 6 AM – 10 PM Friday 10 AM – 10 PM Saturday 10 AM – 8 PM Sunday 10 AM – 8 PM",
+  "note": "Every day listed separately on the gym's own Location + Hours page, above its address. Friday alone opens later than the other weekdays."
  },
  {
   "lat": 37.51078,
