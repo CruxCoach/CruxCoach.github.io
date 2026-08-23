@@ -2020,7 +2020,7 @@
    ],
    "website": {
     "pass": "2026-08-23",
-    "result": "unverified",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
@@ -4076,13 +4076,14 @@
    ],
    "website": {
     "pass": "2026-08-23",
-    "result": "unverified",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "osm-website-tag",
-     "co-located"
+     "co-located",
+     "path-probe"
     ]
    },
    "hours": {
@@ -4175,7 +4176,7 @@
    ],
    "website": {
     "pass": "2026-08-23",
-    "result": "unverified",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
@@ -4455,7 +4456,7 @@
    },
    "hours": {
     "pass": "2026-08-23",
-    "result": "inaccessible",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"

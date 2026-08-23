@@ -1634,6 +1634,20 @@
     "note": "The site prints \"Unit A2, 27-29 Fariola Street, Silverwater\", exactly the address upstream records, and names every board system the pair of entries here is listed for."
   },
   {
+    "lat": -33.8791418,
+    "lon": 150.9775568,
+    "name": "SICG Villawood",
+    "country": "AU",
+    "website": "https://www.elevateclimbing.com.au/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates"
+    ],
+    "note": "The hall was renamed. Upstream calls it SICG Villawood, for Sydney Indoor Climbing Gym; the site is \"Elevate Climbing Gym Villawood | World-class rock climbing and bouldering in Sydney\" and the map it embeds of itself falls 8 m from this venue. The Villawood in both names and that 8 m are the two signals; the operator name is not."
+  },
+  {
     "lat": -37.73092,
     "lon": 144.95295,
     "name": "The Crux",
@@ -2837,6 +2851,23 @@
     ]
   },
   {
+    "lat": 46.05766,
+    "lon": -71.95261,
+    "name": "Campus Escalade Victoriaville",
+    "country": "CA",
+    "website": "https://campusescalade.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates"
+    ],
+    "note": "Overturns this audit's own rejection. The first pass saw only a map point 58 km away and refused it; the page also carries a maps link to \"247 Notre-Dame St E, Victoriaville, QC G6P 4A2\" at 46.057493,-71.9550506, which is 191 m from this venue and is the whole address upstream records, postal code included."
+  },
+  {
     "lat": 51.09458,
     "lon": -115.35826,
     "name": "Canmore Climbing Gym",
@@ -2868,6 +2899,21 @@
       "board-mention"
     ],
     "note": "The site is \"Canyon Escalade - Centre d'escalade interieur | La Prairie\" and prints 1775 St-Jean, J5R 0J2, La Prairie — the street, postal code and town upstream records — and names the Kilter Board this venue is listed for. The map it embeds of itself sits 172 m from the venue."
+  },
+  {
+    "lat": 45.0066802,
+    "lon": -79.3168139,
+    "name": "Climb Muskoka Moon",
+    "country": "CA",
+    "website": "https://www.climbmuskoka.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "Climb Muskoka's own site, which prints \"24 Kirkhill Dr, Bracebridge, Ontario P1L 0A1\" — Bracebridge being the town upstream records, and Muskoka in the venue's name being the region rather than the town, so the two are independent."
   },
   {
     "lat": 60.77956528162924,

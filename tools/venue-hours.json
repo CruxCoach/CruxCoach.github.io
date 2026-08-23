@@ -3434,6 +3434,34 @@
   "evidence": "Monday – Friday 11am – 11pm | Saturday & Sunday 11am – 9pm | Holiday Hours | We are open as usual other than the following dates: | Christmas Eve (Close at 6pm) | Christmas Day (Closed all day)"
  },
  {
+  "lat": 43.64433,
+  "lon": -79.3687,
+  "name": "Ethos Climbing",
+  "country": "CA",
+  "source": "https://www.ethosclimbing.ca/hours-location",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "16:00-23:00",
+   "tue": "16:00-23:00",
+   "wed": "07:30-23:00",
+   "thu": "07:30-23:00",
+   "fri": "07:30-23:00",
+   "sat": "07:30-22:00",
+   "sun": "07:30-22:00"
+  },
+  "evidence": "when we’re in monday - tuesday: 4pm - 11pm wednesday - friday: 7:30am - 11pm saturday - sunday: 7:30am - 10pm where we are 128 Queens Quay East Toronto, ON",
+  "note": "Overturns an \"inaccessible\" outcome from the first pass. The gym is on Squarespace and serves its pages as JSON on the platform's own documented parameter; read that way the hours page gives the whole week beside 128 Queens Quay East, which is the street upstream records."
+ },
+ {
   "lat": 53.5455,
   "lon": -113.63903,
   "name": "Factory Climbing",
