@@ -1993,10 +1993,10 @@
   "lon": 9.8987952,
   "name": "Aalborg Klatreklub",
   "country": "DK",
-  "status": "no-hours-on-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the club’s site.",
-  "source": "https://www.aalborgklatreklub.dk/"
+  "source": "https://www.aalborgklatreklub.dk/faciliteter",
+  "reason": "The club states plainly that it \"driver forening pa to adresser\" — it runs two facilities, Annebergvej 55 (rope and bouldering, opened 2018) and Boeck-Hansens Vej 14 (the newer bouldering hall) — and upstream carries no address for this venue, so which of the two this board sits in cannot be settled. The site publishes no opening hours for either address in any case."
  },
  {
   "lat": 56.158950834556414,
@@ -2019,14 +2019,82 @@
   "reason": "Re-read, and the Vanløse hall is the one of the three that cannot be published — not for the season but for a contradiction. The page gives it two blocks at once: 'Summer Opening Hours: Monday to Friday 09:00-22:00' and, directly beneath, 'Special Summer Hours – Beta Boulders Vanløse: Monday to Friday 07:00-22:00'. Both are labelled summer, they disagree by two hours on the weekday opening, and no term-time week is published for this hall at all."
  },
  {
+  "lat": 55.74048080000001,
+  "lon": 12.4774648,
+  "name": "Bison Boulders",
+  "country": "DK",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://www.bison-boulders.com/tobaksbyen",
+  "reason": "The page says two different things about this hall. Its labelled text gives \"Tobaksbyen - Tobaksvejen 20, 2860 Soborg: Monday - Friday : 09:00 - 22:00, Saturday & Sunday: 09:00 - 20:00\", while the structured data on the same page names Bison Boulders ApS at that same address, 20 Tobaksvejen, and states openingHours \"Mo 09:00-23:00\" through \"Su 09:00-23:00\". Both claims are attached to Tobaksvejen 20 and they disagree on every day, so neither can be published."
+ },
+ {
+  "lat": 55.7203436012916,
+  "lon": 11.712128911084726,
+  "name": "Holbæk Klatreklub",
+  "country": "DK",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://hkk4300.dk/vores-lokaler",
+  "reason": "The club's site has pages for its premises, prices, membership and rules, and states no opening hours on any of them."
+ },
+ {
   "lat": 55.48333,
   "lon": 9.4765,
   "name": "Kolding Klatreklub",
   "country": "DK",
+  "status": "appointment-only",
+  "checked": "2026-08-23",
+  "source": "https://koldingklatreklub.dk/aabningstider",
+  "reason": "The club publishes a fixed weekly timetable, but every slot on it is labelled for members or for a named team: Monday 16.30-18.30 Juniorhold and 18.30-21.30 Medlemmer, Tuesday 16.30-21.30 Medlemmer, Wednesday 16.30-18.30 Ungdomshold and 18.30-21.30 Medlemmer, Thursday 16.30-21.30 Medlemmer og prøveklatring, Friday 18.30-21.30 Medlemmer, Sunday 13.00-16.00 Medlemmer. It also requires a K1 safety course of anyone climbing the high wall. That is a club access schedule, not a public opening, and it is not published as one."
+ },
+ {
+  "lat": 55.483624,
+  "lon": 9.476018,
+  "name": "Kolding Klatreklubs Moonboard",
+  "country": "DK",
+  "status": "appointment-only",
+  "checked": "2026-08-23",
+  "source": "https://koldingklatreklub.dk/aabningstider",
+  "reason": "Same hall as Kolding Klatreklub 45 m away: the club's weekly timetable is labelled for members and named teams throughout, and a K1 safety course is required for the high wall, so there is no public opening to publish."
+ },
+ {
+  "lat": 54.935642,
+  "lon": 12.2547219,
+  "name": "Møn Boulders",
+  "country": "DK",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 55.8581302,
+  "lon": 9.8475881,
+  "name": "Moonboard Horsens",
+  "country": "DK",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 55.6760968,
+  "lon": 12.5683372,
+  "name": "Nørrebro Klatreklub (NKK)",
+  "country": "DK",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The club’s booking module publishes team session times only, not an opening week.",
-  "source": "https://koldingklatreklub.klub-modul.dk/default.aspx"
+  "source": "https://nkk.klub-modul.dk/aabningstider",
+  "reason": "The club's own opening-hours page publishes no times. It says the club follows Norrebrohallen's hours all year round, opening about a quarter of an hour after the sports hall and closing a quarter of an hour before it, and that the hall may additionally be closed for training, courses and events as shown in the club calendar. The times themselves belong to a third party's schedule that this page does not reproduce."
+ },
+ {
+  "lat": 56.090736,
+  "lon": 9.7626,
+  "name": "Ry Klatreklub",
+  "country": "DK",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "source": "https://ryklatreklub.klub-modul.dk/default.aspx",
+  "reason": "The club gives \"generelle abningstider\" for four days only — Tuesday 19.15-21.30, Wednesday 20-21.30, Thursday 20-21.30 and Sunday 9-11 — and immediately qualifies them: the Sunday slot is family climbing that \"starter til september\", and \"der kan vaere aendringer grundet sygdom, arrangementer, ferie og lign\", with day-to-day changes announced in the club's Facebook group. Monday, Friday and Saturday are not mentioned at all. A week cannot be read off that."
  },
  {
   "lat": -2.90054,

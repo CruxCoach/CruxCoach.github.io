@@ -6902,6 +6902,20 @@
     ]
   },
   {
+    "lat": 57.04980430000001,
+    "lon": 9.8987952,
+    "name": "Aalborg Klatreklub",
+    "country": "DK",
+    "website": "https://www.aalborgklatreklub.dk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The club's own site, matching this venue's name in full, and its contact and facilities pages give both of its addresses as 9000 Aalborg — Annebergvej 55 and Boeck-Hansens Vej 14. OSM carries this domain on a climbing object 48 m away. Upstream records no street for the venue, so the club name and the town are what carry the match."
+  },
+  {
     "lat": 56.1482377,
     "lon": 10.1912306,
     "name": "Aarhus City Boulders",
@@ -6974,6 +6988,66 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 55.74048080000001,
+    "lon": 12.4774648,
+    "name": "Bison Boulders",
+    "country": "DK",
+    "website": "https://www.bison-boulders.com/tobaksbyen",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "Bison Boulders publishes one page per hall. This venue is the Tobaksbyen hall: the site gives its address as Tobaksvejen 20, 2860 Soborg, which geocodes to 38 m from these coordinates, and OSM carries the domain on a climbing object 26 m away. The other hall, Kodbyen, is a separate page with a separate address."
+  },
+  {
+    "lat": 55.66739,
+    "lon": 12.56083,
+    "name": "Bison Boulders Kødbyen",
+    "country": "DK",
+    "website": "https://www.bison-boulders.com/kodbyen",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The Kodbyen page gives \"Flaesketorvet 89, 1711 Kobenhavn\" — the street, the postal code and the city upstream records for this venue. OSM tags this hall with the same site 20 m away, though its URL there is misspelt /kodyben and answers 404; /kodbyen is the page that exists."
+  },
+  {
+    "lat": 55.69291,
+    "lon": 12.61073,
+    "name": "Blocs & Walls",
+    "country": "DK",
+    "website": "https://www.dbkk.dk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "blocs-walls.dk, the hall's own domain, 307s to www.dbkk.dk, the site of Dansk Bjerg- og Klatreklub which runs it; every page of that site carries \"Blocs & Walls, Refshalevej 163D, 1432 Kobenhavn\" in its footer, and the site announces a Tension Board workshop for the board this venue is listed for. OSM carries blocs-walls.dk on a climbing object 8 m from the venue."
+  },
+  {
+    "lat": 55.4776611,
+    "lon": 8.4873221,
+    "name": "Boulder Hulen",
+    "country": "DK",
+    "website": "https://www.esbjergboulderklub.dk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "boulderhulen.dk resolves to www.esbjergboulderklub.dk, headed \"Boulder Hulen — Esbjerg Boulderklub\": this venue's name and the town upstream records. Klatring Danmark's club directory lists Esbjerg Boulderklub at boulderhulen.dk, and OSM carries that domain on a climbing object 17 m away."
   },
   {
     "lat": 57.03035,
@@ -7110,6 +7184,96 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 55.7203436012916,
+    "lon": 11.712128911084726,
+    "name": "Holbæk Klatreklub",
+    "country": "DK",
+    "website": "https://hkk4300.dk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Klatring Danmark's club directory gives Holbaek Klatreklub as hkk4300.dk — the club's own domain, named after the town's postal code. Its pages print Havnevej 7, 4300 Holbaek, which is the street, the postal code and the town upstream records. The earlier pass had only reached holbaek.dk, which is Holbaek Kommune."
+  },
+  {
+    "lat": 56.3672601,
+    "lon": 8.6196228,
+    "name": "Holstebloc",
+    "country": "DK",
+    "website": "https://slagteriet.dk/aktorer/holstebloc/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "holstebloc.dk serves only a bare \"smart_forening\" placeholder, so the club's live page is the one its building operator publishes: Slagteriet, the culture house in Holstebro that houses it, carries a per-tenant page headed Holstebloc describing its bouldering hall, its prices and its opening hours. Klatring Danmark's club directory points at this same page for \"Holstebloc (Holstebro)\"."
+  },
+  {
+    "lat": 55.48333,
+    "lon": 9.4765,
+    "name": "Kolding Klatreklub",
+    "country": "DK",
+    "website": "https://koldingklatreklub.dk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "The club's own domain, listed for Kolding Klatreklub in Klatring Danmark's directory and tagged on an OSM climbing object 16 m away. Its facilities page places the club \"i en hal i Volkerts Fabrikker tat ved Kolding centrum (Dalbygade 40 U, 6000 Kolding)\" — the street, the postal code and the town upstream records — and describes the 12x12\" Kilterboard this venue is listed for."
+  },
+  {
+    "lat": 55.483624,
+    "lon": 9.476018,
+    "name": "Kolding Klatreklubs Moonboard",
+    "country": "DK",
+    "website": "https://koldingklatreklub.dk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The same club, 45 m from its main entry. Its facilities page states \"Klubben har et standard Moonboard til radighed. Boardet kan justeres i enten 25 eller 40 grader\" — the MoonBoard this venue is listed for — alongside the Kilterboard recorded at the club's other entry, so both boards are in the one hall at Dalbygade 40 U, 6000 Kolding."
+  },
+  {
+    "lat": 55.6760968,
+    "lon": 12.5683372,
+    "name": "Nørrebro Klatreklub (NKK)",
+    "country": "DK",
+    "website": "https://nkk.klub-modul.dk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Klatring Danmark's club directory gives Norrebro Klatreklub as nkk.klub-modul.dk. The site is headed with the club's name and the abbreviation NKK that upstream also records, and its footer gives Norrebro Klatreklub, Bragesgade 5, 2200 Kobenhavn N — the city upstream records. Upstream carries no street for this venue."
+  },
+  {
+    "lat": 56.090736,
+    "lon": 9.7626,
+    "name": "Ry Klatreklub",
+    "country": "DK",
+    "website": "https://ryklatreklub.klub-modul.dk/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "Klatring Danmark's club directory gives Ry Klatreklub as ryklatreklub.klub-modul.dk. The site carries the club's name and its facilities page describes \"et Tension Board - en digitalt styret traeningsvaeg\" controlled through the Tension Board app, which is the board this venue is listed for. Upstream files the venue under the nearest town, Silkeborg, rather than Ry, so the town is not claimed as a signal here."
   },
   {
     "lat": 59.42448,

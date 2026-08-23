@@ -769,14 +769,24 @@
     "candidate": "https://zwiesel.de/"
   },
   {
-    "lat": 55.7203436012916,
-    "lon": 11.712128911084726,
-    "name": "Holbæk Klatreklub",
+    "lat": 54.935642,
+    "lon": 12.2547219,
+    "name": "Møn Boulders",
     "country": "DK",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "holbaek.dk is Holbæk Kommune's municipal site, not this climbing club; its postcode and town matched only because the municipality shares them.",
-    "candidate": "https://holbaek.dk/"
+    "checked": "2026-08-23",
+    "reason": "No official site could be tied to this venue. Klatring Danmark's club directory lists Mons Klatreklub at monsklatreklub.klub-modul.dk, whose footer gives Platanvej 40, 4780 Stege — but that club is not this venue: the names do not match, the site never mentions bouldering premises at these coordinates, and it names no MoonBoard. monboulders.dk, monboulders.com, mon-boulders.dk, mon-boulders.com and moenboulders.dk do not resolve. Upstream files the venue under Vordingborg and gives no address.",
+    "candidate": "https://monsklatreklub.klub-modul.dk/"
+  },
+  {
+    "lat": 55.8581302,
+    "lon": 9.8475881,
+    "name": "Moonboard Horsens",
+    "country": "DK",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site could be tied to this venue. The only club Klatring Danmark lists for Horsens is Ostjysk Klatreklub at ojkk.dk, whose own address is Torstedhallen, Sondergardsalle 24, 8700 Horsens — a different part of town from these coordinates — and which names no MoonBoard anywhere on its site. horsens.dk is Horsens Kommune, horsens.com answers with nothing, and moonboardhorsens.dk and horsensklatreklub.dk do not resolve. The town alone is not a second signal when the town is the venue's whole name.",
+    "candidate": "https://www.ojkk.dk/"
   },
   {
     "lat": -2.90054,

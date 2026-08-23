@@ -8555,6 +8555,32 @@
   "note": "The site publishes a block per hall; the site’s own schema.org openingHours (09:00-23:00 every day) matches this one."
  },
  {
+  "lat": 55.69291,
+  "lon": 12.61073,
+  "name": "Blocs & Walls",
+  "country": "DK",
+  "source": "https://www.dbkk.dk/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "10:00-22:30",
+   "tue": "10:00-22:30",
+   "wed": "07:00-22:30",
+   "thu": "10:00-22:30",
+   "fri": "10:00-22:30",
+   "sat": "10:00-20:00",
+   "sun": "08:00-22:00"
+  },
+  "evidence": "Åbningstider Blocs & Walls Mandag - tirsdag: 10:00 - 22:30 Onsdag: 07:00 - 22:30 Torsdag - fredag: 10:00 - 22:30 Lørdag & helligdage: 10:00 - 20:00 Søndag: 08:00 - 22:00",
+  "note": "The block names the hall and appears in the footer of every page. The club also posted summer hours (Mon-Fri 10:00-22:00, Sat-Sun 10:00-20:00) valid from 29 June to 9 August 2026; that window has passed, so the footer week is the one in force. Public holidays are grouped with Saturday."
+ },
+ {
   "lat": 55.4776611,
   "lon": 8.4873221,
   "name": "Boulder Hulen",
@@ -8815,6 +8841,32 @@
   },
   "evidence": "Vanløse, Vanløse Torv 1, Krone 2720 Vanløse — Åbningstider Hver dag 08:00 - 23:00",
   "note": "One page lists every Boulders hall with its address and its own Åbningstider row. The site-wide schema.org openingHours states 10:00-22:00, which is the common value rather than this hall's."
+ },
+ {
+  "lat": 56.3672601,
+  "lon": 8.6196228,
+  "name": "Holstebloc",
+  "country": "DK",
+  "source": "https://slagteriet.dk/aktorer/holstebloc/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "18:00-21:00",
+   "tue": "closed",
+   "wed": "18:00-21:00",
+   "thu": "closed",
+   "fri": "17:00-20:00",
+   "sat": "closed",
+   "sun": "12:00-15:00"
+  },
+  "evidence": "Åbningstider Mandag 18:00 – 21:00 Onsdag 18:00 – 21:00 Fredag 17:00 – 20:00 Søndag 12:00 – 15:00",
+  "note": "The four days are the public week: the same page sells day tickets at 70 kr to anyone, so this is not a members-only window. Tuesday, Thursday and Saturday are recorded closed because the heading enumerates the week and does not list them. The page adds that members also get extraordinary openings when volunteers open on other days, and points at the club's Facebook page for those; that is an addition for members on top of this week, not a replacement for it, and it is not published here."
  },
  {
   "lat": 59.42448,
