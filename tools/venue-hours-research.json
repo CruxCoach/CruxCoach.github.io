@@ -1388,9 +1388,10 @@
   "lon": -79.66079,
   "name": "Steel Peak Climbing & Ninja",
   "country": "CA",
-  "status": "no-official-site",
+  "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://steelpeakclimbing.com/",
+  "reason": "The only week the gym publishes is headed \"Summer Hours\" — \"Mon to Fri 12:00pm - 10:00pm, Saturday/Sunday 10:00am - 9:00pm\" — with no end date and a dated exception for 7 September beneath it. No ordinary-season week is stated anywhere on the site."
  },
  {
   "lat": 49.1824420014394,
@@ -9078,9 +9079,10 @@
   "lon": -81.05605,
   "name": "Capital Climbing Cayce",
   "country": "US",
-  "status": "no-official-site",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://capitalgyms.com/",
+  "reason": "The site is a single page and states its address, its walls, its Kilter Board and its membership terms without ever giving an opening time. No path on it carries a schedule."
  },
  {
   "lat": 42.47299,
@@ -9132,15 +9134,6 @@
   "lat": 41.22242,
   "lon": -86.41300299999999,
   "name": "Cliffs",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 36.1092,
-  "lon": -86.758,
-  "name": "Climb Kraft",
   "country": "US",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -9412,15 +9405,6 @@
   "lat": 42.83418,
   "lon": -108.72755,
   "name": "Elemental Performance + Fitness",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 44.05637,
-  "lon": -123.09808,
-  "name": "Elevation Bouldering Gym",
   "country": "US",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -10067,15 +10051,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 36.1664,
-  "lon": -94.12313,
-  "name": "Ozark Climbing",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 37.81644,
   "lon": -122.28852,
   "name": "Pacific Pipe Climbing",
@@ -10573,9 +10548,10 @@
   "lon": -97.48116,
   "name": "Stoneyard Stratus",
   "country": "US",
-  "status": "no-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "source": "https://roserockclimbing.com/",
+  "reason": "Two official pages give this hall two different Sundays. Its own site, roserockclimbing.com, reads \"Monday - Friday: 11am – 10pm Saturday: 10am – 10pm Sunday: 10am – 8pm\"; the operator's page for it reads \"Sun: 11AM - 8PM Members Only: Sun 10AM - 11AM\". The difference is exactly one hour and exactly the hour one page calls members only, so the pages may well agree in substance — but the hall's own site, which is the site this venue is linked to, does not say so, and reading a members-only hour into its opening is not something the page supports."
  },
  {
   "lat": 37.3303191,

@@ -18577,6 +18577,34 @@
   "note": "Stated beside the gym's parking information and map link."
  },
  {
+  "lat": 36.1092,
+  "lon": -86.758,
+  "name": "Climb Kraft",
+  "country": "US",
+  "source": "https://theclimbgyms.com/kraft/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "09:00-21:00",
+   "sat": "09:00-21:00",
+   "sun": "11:00-18:00"
+  },
+  "evidence": "HOURS Mon – Fri | 9:00am – 9:00pm Mon – Fri | Members Hours 6:00am – 9:00am Sat | 9:00am – 9:00pm Sun | 11:00am – 6:00pm Address: Climb Kraft 2926 Kraft Drive Nashville, TN 37204",
+  "note": "Stated on this hall's own page above its address. The weekday 6-9am members hours are listed separately and are not public opening; the July day-pass offer below is a price, not an opening."
+ },
+ {
   "lat": 38.2523376,
   "lon": -85.7334255,
   "name": "Climb Nulu Moonboard",
@@ -19163,6 +19191,33 @@
    "sun": "08:00-20:00"
   },
   "evidence": "Regular Hours Monday: | 6:00am | - | 10:00pm | Tuesday: | 6:00am | - | 10:00pm | Wednesday: | 6:00am | - | 10:00pm | Thursday: | 6:00am | - | 10:00pm | Friday: | 6:00am | - | 10:00pm | Saturday: | 8:00am | - | 10:00pm | Sunday: | 8:00am | - | 8:00pm"
+ },
+ {
+  "lat": 44.05637,
+  "lon": -123.09808,
+  "name": "Elevation Bouldering Gym",
+  "country": "US",
+  "source": "https://elevationgym.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-23:00",
+   "tue": "09:00-23:00",
+   "wed": "09:00-23:00",
+   "thu": "09:00-23:00",
+   "fri": "09:00-23:00",
+   "sat": "09:00-23:00",
+   "sun": "09:00-23:00"
+  },
+  "evidence": "Hours Every day 9am - 11pm Members only Mon thru Fri 6am - 9am Address 348 Lincoln St Eugene, OR 97401",
+  "note": "One window for all seven days. The weekday 6-9am is stated as members only and is not public opening."
  },
  {
   "lat": 41.76405,
@@ -21650,6 +21705,34 @@
   },
   "evidence": "Location 8701 Leavitt Rd. Elyria, OH. 44035 Gym Hours Monday : 11am - 9pm Tuesday: 3pm - 9pm Wednesday: 9am - 9pm Thursday: 3pm - 9pm Friday : 11am- 9pm Saturday : 9am - 6pm Sunday : 9am - 6pm",
   "note": "Every day is listed separately beneath the gym's address; no two weekdays are alike."
+ },
+ {
+  "lat": 36.1664,
+  "lon": -94.12313,
+  "name": "Ozark Climbing",
+  "country": "US",
+  "source": "https://stoneyardclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "14:00-22:00",
+   "tue": "14:00-22:00",
+   "wed": "14:00-22:00",
+   "thu": "14:00-22:00",
+   "fri": "14:00-22:00",
+   "sat": "13:00-20:00",
+   "sun": "13:00-20:00"
+  },
+  "evidence": "Ozark Climbing Gym 875 E Robinson Ave. Springdale, AR 72764 Mon - Fri 2:00 pm - 10:00 pm Sat - Sun 1:00 pm - 8:00 pm",
+  "note": "The block is headed by this gym's own address and phone, distinct from the operator's other gym listed beside it."
  },
  {
   "lat": 36.96815,

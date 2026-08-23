@@ -3650,6 +3650,23 @@
     "note": "The club's own 37827 Second Ave resolves 35 m from this coordinate."
   },
   {
+    "lat": 43.79203,
+    "lon": -79.66079,
+    "name": "Steel Peak Climbing & Ninja",
+    "country": "CA",
+    "website": "https://steelpeakclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "Steel Peak's own site, matching the name, the street number 231 and the postal code L4H 3N6 upstream records, naming the Kilter board, and embedding a map of itself 25 m from this venue."
+  },
+  {
     "lat": 51.066412442598015,
     "lon": -114.0646652,
     "name": "Stronghold Kilter Board",
@@ -16950,6 +16967,23 @@
     "note": "Upstream carries no address; the page's own 20 John St, Brooklyn, NY 11201 resolves 31 m from the coordinate."
   },
   {
+    "lat": 33.9856,
+    "lon": -81.05605,
+    "name": "Capital Climbing Cayce",
+    "country": "US",
+    "website": "https://capitalgyms.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "Capital Climbing's own site, giving \"901 State Street Cayce, SC 29033\" — the address, postal code and town upstream records — and describing the Kilter Board at 45 degrees this venue is listed for. One gym, one address on the page."
+  },
+  {
     "lat": 41.64237,
     "lon": -70.94795,
     "name": "Carabiner's Climbing and Fitness",
@@ -17594,6 +17628,23 @@
     "note": "The candidate's own pages carry the postal code 49007, the town Kalamazoo, a map of itself 74 m away, under the venue's name."
   },
   {
+    "lat": 36.1092,
+    "lon": -86.758,
+    "name": "Climb Kraft",
+    "country": "US",
+    "website": "https://theclimbgyms.com/kraft/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "kraftboulders.com redirects to The Climb Gyms' page for its Kraft hall, which prints \"Climb Kraft 2926 Kraft Drive Nashville, TN 37204\" — the venue's name and upstream's address. The operator has five halls and a page for each."
+  },
+  {
     "lat": 38.493873,
     "lon": -109.468447,
     "name": "Climb Moab Gym",
@@ -18096,6 +18147,24 @@
       "coordinates"
     ],
     "note": "El Bloque's own site, embedding a map of itself 30 m from this venue. Upstream records no street for it. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
+  },
+  {
+    "lat": 44.05637,
+    "lon": -123.09808,
+    "name": "Elevation Bouldering Gym",
+    "country": "US",
+    "website": "https://elevationgym.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "Elevation Bouldering Gym's own site, printing \"348 Lincoln St Eugene, OR 97401\", naming both the MoonBoard and the Kilter board this venue is listed for, and embedding a map of itself 147 m away."
   },
   {
     "lat": 41.76405,
@@ -19926,6 +19995,22 @@
     "note": "On The Rocks Climbing Gym's own site, giving Elyria — the town upstream records, which the venue name does not carry. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
   },
   {
+    "lat": 36.1664,
+    "lon": -94.12313,
+    "name": "Ozark Climbing",
+    "country": "US",
+    "website": "https://stoneyardclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Stoneyard runs two gyms and gives each its own block: this one reads \"Ozark Climbing Gym 875 E Robinson Ave. Springdale, AR 72764\", the address and postal code upstream records. ozarkclimbing.com resolves and is the address the gym takes mail at, but returns nothing readable on any route."
+  },
+  {
     "lat": 36.96815,
     "lon": -122.00665,
     "name": "Pacific Edge",
@@ -20893,6 +20978,22 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 35.27305,
+    "lon": -97.48116,
+    "name": "Stoneyard Stratus",
+    "country": "US",
+    "website": "https://roserockclimbing.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The hall at 2701 Washington Dr, Norman trades as Rose Rock Climbing; its own site prints that street, the postal code 73069 and the town. The operator behind it, Stoneyard, lists the same address on stoneyardclimbing.com beside this venue's name, which is how the two were connected."
   },
   {
     "lat": 42.79586306525299,
