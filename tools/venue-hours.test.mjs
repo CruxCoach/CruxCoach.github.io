@@ -522,6 +522,23 @@ test('the committed geojson carries only hours the curation would still accept',
     'boards.geojson and tools/venue-hours.json disagree — rerun node tools/build-boards-data.mjs --overlays-only');
 });
 
+// A run of the evidence quote that would only be in a published file if the
+// quote itself were. The venue's own name is excluded, because a quote that
+// opens with it — "City Bouldering Stratford, 234 High St … 06:30 - 23:00" — is
+// not evidence of a leak: the name is legitimately in the geojson and on every
+// directory line. What must never appear is the schedule text around it, so the
+// probe is required to carry a digit. Records whose evidence is nothing but the
+// name after that (there are none, but a future one could be) are skipped
+// rather than silently passed on a meaningless comparison.
+function evidenceProbe(entry) {
+  const withoutName = entry.evidence.split(entry.name).join(' ').replace(/\s+/g, ' ').trim();
+  for (let start = 0; start + 24 <= withoutName.length; start += 1) {
+    const probe = withoutName.slice(start, start + 24);
+    if (/[0-9]/.test(probe)) return probe;
+  }
+  return null;
+}
+
 test('nothing a browser fetches carries the internal verification metadata', () => {
   const { entries } = loadVenueHours(HOURS_FILE);
   if (entries.length === 0) return;
@@ -535,7 +552,8 @@ test('nothing a browser fetches carries the internal verification metadata', () 
     for (const e of entries) {
       assert.ok(!text.includes(e.checked),
         `${file} leaks the internal verification date ${e.checked} (from "${e.name}")`);
-      const quote = e.evidence.slice(0, 24);
+      const quote = evidenceProbe(e);
+      if (quote === null) continue;
       assert.ok(!text.includes(quote),
         `${file} leaks curator evidence quoted from "${e.name}"`);
     }
@@ -561,6 +579,8 @@ test('the evidence cross-check finds a mistyped time and forgives spelling', () 
     'Mo-Fr 09:00-23:00 · Sa 10:00-22:00',
     // French and Swiss pages write the separator as an h.
     'lu - ve : 09h00 - 23h00 | sa : 10h00 - 22h00 | di : fermé',
+    // Flemish ones write it as a u.
+    'ma - vr: 9u - 23u | za: 10u - 22u | zo: gesloten',
   ]) {
     assert.deepEqual(timesMissingFromEvidence(record({ evidence })), [], evidence);
   }

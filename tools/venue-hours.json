@@ -758,6 +758,466 @@
     "evidence": "Montag 10:00 – 22:00 Uhr | Dienstag, Mittwoch, Freitag 16:00 – 22:00 Uhr | Donnerstag 10:00 – 22:00 Uhr | Samstag, Sonntag, Feiertag 10:00 – 22:00 Uhr"
   },
   {
+    "lat": 50.45016,
+    "lon": 4.87515,
+    "name": "BeBloc",
+    "country": "BE",
+    "source": "https://www.bebloc.be/horaires/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "12:00-23:30",
+      "tue": "12:00-23:30",
+      "wed": "12:00-23:30",
+      "thu": "12:00-23:30",
+      "fri": "12:00-23:30",
+      "sat": "10:00-19:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Lundi à vendredi : 12h - 23h30 | Samedi : 10h - 19h | Dimanche : 10h - 20h"
+  },
+  {
+    "lat": 50.45032,
+    "lon": 4.87511,
+    "name": "BeBloc",
+    "country": "BE",
+    "source": "https://www.bebloc.be/horaires/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "12:00-23:30",
+      "tue": "12:00-23:30",
+      "wed": "12:00-23:30",
+      "thu": "12:00-23:30",
+      "fri": "12:00-23:30",
+      "sat": "10:00-19:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Lundi à vendredi : 12h - 23h30 | Samedi : 10h - 19h | Dimanche : 10h - 20h",
+    "note": "Upstream carries this gym twice, about 20 m apart."
+  },
+  {
+    "lat": 51.2386132,
+    "lon": 4.4217959,
+    "name": "Boulderzaal The Island",
+    "country": "BE",
+    "source": "https://boulderzaaltheisland.be/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "11:00-23:00",
+      "tue": "11:00-23:00",
+      "wed": "11:00-23:00",
+      "thu": "14:00-23:00",
+      "fri": "11:00-23:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Openingstijden Maandag: 11:00 tot 23:00 | Dinsdag: 11:00 tot 23:00 | Woensdag: 11:00 tot 23:00 | Donderdag: 14:00 tot 23:00 | Vrijdag: 11:00 tot 23:00 | Zaterdag: 10:00 tot 22:00 | Zondag: 10:00 tot 22:00",
+    "note": "Upstream carries this gym twice, about 190 m apart."
+  },
+  {
+    "lat": 51.23889,
+    "lon": 4.42198,
+    "name": "Boulderzaal The Island",
+    "country": "BE",
+    "source": "https://boulderzaaltheisland.be/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "11:00-23:00",
+      "tue": "11:00-23:00",
+      "wed": "11:00-23:00",
+      "thu": "14:00-23:00",
+      "fri": "11:00-23:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Openingstijden Maandag: 11:00 tot 23:00 | Dinsdag: 11:00 tot 23:00 | Woensdag: 11:00 tot 23:00 | Donderdag: 14:00 tot 23:00 | Vrijdag: 11:00 tot 23:00 | Zaterdag: 10:00 tot 22:00 | Zondag: 10:00 tot 22:00"
+  },
+  {
+    "lat": 50.80696993884857,
+    "lon": 4.9367702,
+    "name": "Boulderzaal Topo",
+    "country": "BE",
+    "source": "https://www.topotienen.be/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "16:00-23:00",
+      "tue": "16:00-23:00",
+      "wed": "13:00-23:00",
+      "thu": "16:00-23:00",
+      "fri": "16:00-23:00",
+      "sat": "11:00-20:00",
+      "sun": "13:00-19:00"
+    },
+    "evidence": "Openingsuren Maandag: 16u00 - 23u00 | Dinsdag: 16u00 - 23u00 | Woensdag: 13u00 - 23u00 | Donderdag: 16u00 - 23u00 | Vrijdag: 16u00 - 23u00 | Zaterdag: 11u00 - 20u00 | Zondag: 13u00 - 19u00",
+    "note": "Youth training runs inside opening hours on Wednesday and Saturday mornings; the hall stays open."
+  },
+  {
+    "lat": 50.943136943805015,
+    "lon": 5.160665662398782,
+    "name": "Crux Bouldergym",
+    "country": "BE",
+    "source": "https://cruxbouldergym.be/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "17:00-23:00",
+      "tue": "17:00-23:00",
+      "wed": "15:00-23:00",
+      "thu": "17:00-23:00",
+      "fri": "17:00-23:00",
+      "sat": "10:00-19:00",
+      "sun": "13:00-19:00"
+    },
+    "evidence": "maandag 17:00 23:00 | dinsdag 17:00 23:00 | woensdag 15:00 23:00 | donderdag 17:00 23:00 | vrijdag 17:00 23:00 | zaterdag 10:00 19:00 | zondag 13:00 19:00"
+  },
+  {
+    "lat": 51.3321805,
+    "lon": 4.9470475,
+    "name": "Gustaaf Klimt",
+    "country": "BE",
+    "source": "https://gustaafklimt.be/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "13:00-23:30",
+      "tue": "13:00-23:30",
+      "wed": "13:00-23:30",
+      "thu": "13:00-23:30",
+      "fri": "13:00-22:30",
+      "sat": "09:00-20:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "maandag 13:00 – 23:30u | dinsdag 13:00 – 23:30u | woensdag 13:00 – 23:30u | donderdag 13:00 – 23:30u | vrijdag 13:00 – 22:30u | zaterdag 09:00 – 20:00u | zondag 09:00 – 21:00u"
+  },
+  {
+    "lat": 51.03327,
+    "lon": 3.75706,
+    "name": "Klimzaal Arsenaal",
+    "country": "BE",
+    "source": "https://www.klimzaalarsenaal.be/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "10:00-21:30",
+      "sun": "10:00-21:30"
+    },
+    "evidence": "MAANDAG - VRIJDAG: 10:00 - 23:00 (bar tot 00:00) WEEKEND: 10:00 - 21:30 (bar tot 22:00)"
+  },
+  {
+    "lat": 51.0412937,
+    "lon": 3.7445539,
+    "name": "Klimzaal Balance",
+    "country": "BE",
+    "source": "https://www.klimzaalbalance.be/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "17:00-23:00",
+      "tue": "16:00-23:00",
+      "wed": "17:00-23:00",
+      "thu": "16:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "closed",
+      "sun": "14:00-23:00"
+    },
+    "evidence": "Openingsuren Maa: 17-23u | Din: 16-23u | Woe: 17-23u | Don: 16-23u | Vrij: 10-23u | Zat: gesloten | Zon: 14-23u"
+  },
+  {
+    "lat": 51.18064,
+    "lon": 4.34908,
+    "name": "Klimzaal Blok",
+    "country": "BE",
+    "source": "https://klimzaalblok.be/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "11:00-21:00",
+      "sun": "13:00-21:00"
+    },
+    "evidence": "Openingsuren Maandag: 10u — 23u | Dinsdag: 10u — 23u | Woensdag: 10u — 23u | Donderdag: 10u — 23u | Vrijdag: 10u — 23u | Zaterdag: 11u — 21u | Zondag: 13u — 21u. Open op alle feestdagen met normale openingsuren."
+  },
+  {
+    "lat": 51.18064,
+    "lon": 4.3498,
+    "name": "Klimzaal Blok",
+    "country": "BE",
+    "source": "https://klimzaalblok.be/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "11:00-21:00",
+      "sun": "13:00-21:00"
+    },
+    "evidence": "Openingsuren Maandag: 10u — 23u | Dinsdag: 10u — 23u | Woensdag: 10u — 23u | Donderdag: 10u — 23u | Vrijdag: 10u — 23u | Zaterdag: 11u — 21u | Zondag: 13u — 21u. Open op alle feestdagen met normale openingsuren.",
+    "note": "Upstream carries this gym twice, about 60 m apart."
+  },
+  {
+    "lat": 50.89928,
+    "lon": 4.70732,
+    "name": "Klimzaal De Stordeur",
+    "country": "BE",
+    "source": "https://www.destordeur.be/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "11:00-23:00",
+      "tue": "11:00-23:00",
+      "wed": "11:00-23:00",
+      "thu": "11:00-23:00",
+      "fri": "11:00-23:00",
+      "sat": "14:00-23:00",
+      "sun": "14:00-23:00"
+    },
+    "evidence": "Ma-Vrij: 11:00-23:00 (keuken van 12:00-21:00) | Zat-Zon: 14:00-23:00 (keuken van 17:00-21:00)"
+  },
+  {
+    "lat": 51.23145,
+    "lon": 4.44356,
+    "name": "Klimzaal Wallstreet",
+    "country": "BE",
+    "source": "https://www.klimzaalwallstreet.be/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "18:00-23:00",
+      "tue": "14:00-23:00",
+      "wed": "09:30-23:00",
+      "thu": "14:00-23:00",
+      "fri": "09:30-23:00",
+      "sat": "12:00-18:00",
+      "sun": "11:00-18:00"
+    },
+    "evidence": "Maandag 18u – 23u | Dinsdag 14u – 23u | Woensdag 9u30 – 23u | Donderdag 14u – 23u | Vrijdag 9u30 – 23u | Zaterdag 12u – 18u | Zondag 11u – 18u",
+    "note": "The openingsuren page also publishes a July–August week; this is the term-time one, and the two differ only on Friday and Sunday. Recorded because the site labels the July/August block as the exception rather than the rule."
+  },
+  {
+    "lat": 50.82179,
+    "lon": 4.38092,
+    "name": "Le Camp de Base",
+    "country": "BE",
+    "source": "https://www.lecampdebase.be/informations-pratiques",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Lun-Ven : 09h-23h | Week-end : 9h-21h"
+  },
+  {
+    "lat": 50.92862,
+    "lon": 5.33908,
+    "name": "Monk Hasselt",
+    "country": "BE",
+    "source": "https://monk.nl/hasselt/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "12:00-23:00",
+      "tue": "12:00-23:00",
+      "wed": "12:00-23:00",
+      "thu": "12:00-23:00",
+      "fri": "12:00-23:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "maandag 12:00 - 23:00 | dinsdag 12:00 - 23:00 | woensdag 12:00 - 23:00 | donderdag 12:00 - 23:00 | vrijdag 12:00 - 23:00 | zaterdag 10:00 - 19:00 | zondag 10:00 - 19:00"
+  },
+  {
+    "lat": 51.21041,
+    "lon": 3.24814,
+    "name": "Onyx Boulder",
+    "country": "BE",
+    "source": "https://onyxboulder.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:30",
+      "tue": "10:00-22:30",
+      "wed": "10:00-22:30",
+      "thu": "10:00-22:30",
+      "fri": "17:30-23:00",
+      "sat": "10:00-20:30",
+      "sun": "10:00-20:30"
+    },
+    "evidence": "Openingstijden ma - do 10:00 - 22:30 | vrijdag 17:30 - 23:00 | zaterdag 10:00 - 20:30 | zondag 10:00 - 20:30"
+  },
+  {
+    "lat": 50.91724,
+    "lon": 4.34541,
+    "name": "Pink Peaks Climbing",
+    "country": "BE",
+    "source": "https://www.pinkpeaks.be/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "13:00-23:00",
+      "tue": "13:00-23:00",
+      "wed": "12:00-23:00",
+      "thu": "13:00-23:00",
+      "fri": "12:00-23:00",
+      "sat": "10:00-22:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Lundi, Mardi, Jeudi 13h - 23h | Mercredi, Vendredi 12h - 23h | Samedi, Dimanche & jours fériés 10h - 22h"
+  },
+  {
+    "lat": 51.0546802,
+    "lon": 3.6987364,
+    "name": "Rhino Boulder Gym Moonboard",
+    "country": "BE",
+    "source": "https://www.rhinobouldergym.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "08:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "10:00-19:45",
+      "sun": "10:00-21:45"
+    },
+    "evidence": "Openingsuren Maandag 10 - 23u | Dinsdag 10 - 23u | Woensdag 08 - 23u | Donderdag 10 - 23u | Vrijdag 10 - 23u | Zaterdag 10 - 19u45 | Zondag 10 - 21u45",
+    "note": "The bar keeps its own, later hours in a second row of the same table."
+  },
+  {
+    "lat": 51.07393,
+    "lon": 3.72326,
+    "name": "Walden Bouldering",
+    "country": "BE",
+    "source": "https://walden.gent/en/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:30-23:00",
+      "tue": "11:30-23:00",
+      "wed": "10:30-23:00",
+      "thu": "10:30-23:00",
+      "fri": "10:30-23:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-22:00"
+    },
+    "evidence": "Monday 10:30 AM – 11:00 PM | Tuesday 11:30 AM – 11:00 PM | Wednesday 10:30 AM – 11:00 PM | Thursday 10:30 AM – 11:00 PM | Friday 10:30 AM – 11:00 PM | Saturday 10:00 AM – 8:00 PM | Sunday 10:00 AM – 10:00 PM. Open every day (including public holidays)"
+  },
+  {
     "lat": 47.52622,
     "lon": 7.68359,
     "name": "B2 Boulders & Bar",
@@ -4829,5 +5289,2318 @@
       "sun": "10:00-21:00"
     },
     "evidence": "Montag: 12 – 23 Uhr | Dienstag: 12 – 23 Uhr | Mittwoch: 10 – 23 Uhr | Donnerstag: 10 – 23 Uhr | Freitag: 10 – 23 Uhr | Samstag: 10 – 21 Uhr | Sonntag: 10 – 21 Uhr"
+  },
+  {
+    "lat": 51.4931952,
+    "lon": -0.0608,
+    "name": "Arch Climbing Wall",
+    "country": "GB",
+    "source": "https://www.archclimbingwall.com/building-one",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "06:30-22:30",
+      "tue": "06:30-22:30",
+      "wed": "06:30-22:30",
+      "thu": "06:30-22:30",
+      "fri": "06:30-22:30",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Weekdays: 6:30am — 10:30pm | Weekends: 9am — 9pm | Bank holidays: 9am — 9pm"
+  },
+  {
+    "lat": 53.39957,
+    "lon": -1.44673,
+    "name": "Awesome Walls Sheffield",
+    "country": "GB",
+    "source": "https://www.awesomewalls.co.uk/sheffield/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 18:00"
+  },
+  {
+    "lat": 53.3992904,
+    "lon": -1.4467433,
+    "name": "Awesome Walls Sheffield 40",
+    "country": "GB",
+    "source": "https://www.awesomewalls.co.uk/sheffield/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 18:00",
+    "note": "Upstream carries this gym twice, about 60 m apart."
+  },
+  {
+    "lat": 53.4139403,
+    "lon": -2.1341615,
+    "name": "Awesome walls Stockport",
+    "country": "GB",
+    "source": "https://www.awesomewalls.co.uk/stockport/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 18:00"
+  },
+  {
+    "lat": 53.13859,
+    "lon": -4.25283,
+    "name": "Beacon Climbing Center",
+    "country": "GB",
+    "source": "https://beaconclimbing.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "10:00-21:00",
+      "tue": "10:00-21:00",
+      "wed": "10:00-21:00",
+      "thu": "08:00-21:00",
+      "fri": "10:00-21:00",
+      "sat": "10:00-18:30",
+      "sun": "10:00-18:30"
+    },
+    "evidence": "Monday, Tuesday, Wednesday and Friday 10am - 9pm | Thursday 8am - 9pm | Weekends 10am - 6:30pm | Bank Holidays 10am - 9pm"
+  },
+  {
+    "lat": 53.396622539640525,
+    "lon": -2.296682486507128,
+    "name": "Big Depot Manchester",
+    "country": "GB",
+    "source": "https://www.depotclimbing.co.uk/big-depot-manchester/prices/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "06:00-22:00",
+      "tue": "06:00-22:00",
+      "wed": "06:00-22:00",
+      "thu": "06:00-22:00",
+      "fri": "06:00-22:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Monday - Friday 06:00 - 22:00 | Saturday + Sunday 09:00 - 21:00 | Bank Holiday Mondays 09:00 - 22:00"
+  },
+  {
+    "lat": 51.46842,
+    "lon": -2.57022,
+    "name": "Bloc Climbing Centre",
+    "country": "GB",
+    "source": "https://blocclimbing.co.uk/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Monday, Tuesday, Thursday & Friday 09:00 - 22:00 | Wednesday 07:00 - 22:00 | Saturday & Sunday 09:00 - 18:00 | Bank Holidays 08:00 - 20:00"
+  },
+  {
+    "lat": 50.8356417,
+    "lon": -0.2115089,
+    "name": "Boulder Brighton",
+    "country": "GB",
+    "source": "https://www.boulderbrighton.com/opening-hours",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:00-22:00",
+      "tue": "06:00-22:00",
+      "wed": "06:00-22:00",
+      "thu": "06:00-22:00",
+      "fri": "06:00-22:00",
+      "sat": "08:00-22:00",
+      "sun": "08:00-22:00"
+    },
+    "evidence": "Tue, Wed, Thu, Fri: 6am-10pm | Sat, Sun, Mon: 8am-10pm | Bank Holidays: 8am-8pm (exc. Christmas)"
+  },
+  {
+    "lat": 50.72,
+    "lon": -3.53781,
+    "name": "Boulder Exe",
+    "country": "GB",
+    "source": "https://boulderexe.co.uk/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Monday – Friday 10am – 10pm | Weekends 9am – 7pm"
+  },
+  {
+    "lat": 50.7206401,
+    "lon": -3.5382779,
+    "name": "Boulder Exe MoonBoard 2024",
+    "country": "GB",
+    "source": "https://boulderexe.co.uk/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Monday – Friday 10am – 10pm | Weekends 9am – 7pm",
+    "note": "Upstream carries this gym twice, about 175 m apart."
+  },
+  {
+    "lat": 54.5791118,
+    "lon": -5.9594907,
+    "name": "BoulderWorld Belfast",
+    "country": "GB",
+    "source": "https://boulderworldbelfast.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Monday – Friday: 10am – 10pm | Saturday/Sunday 10am – 8pm.",
+    "note": "Upstream carries this gym twice, about 200 m apart."
+  },
+  {
+    "lat": 54.57953,
+    "lon": -5.96282,
+    "name": "BoulderWorld Belfast",
+    "country": "GB",
+    "source": "https://boulderworldbelfast.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Monday – Friday: 10am – 10pm | Saturday/Sunday 10am – 8pm."
+  },
+  {
+    "lat": 55.86758,
+    "lon": -4.24007,
+    "name": "Brushworks Climbing",
+    "country": "GB",
+    "source": "https://www.brushworksclimbing.co.uk/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "07:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "07:00-22:00",
+      "fri": "07:00-22:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Mon – Fri 7am – 10pm | Sat – Sun 9am – 9pm"
+  },
+  {
+    "lat": 51.40267,
+    "lon": 0.53477,
+    "name": "Chimera Climbing Chatham",
+    "country": "GB",
+    "source": "https://www.chimeraclimbingchatham.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Monday - Friday: 10am-10pm | Weekends: 9am - 6pm"
+  },
+  {
+    "lat": 53.78606,
+    "lon": -1.53372,
+    "name": "City Bloc",
+    "country": "GB",
+    "source": "https://www.citybloc.co.uk/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "07:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Monday: 07:00 - 22:00 | Tuesday: 10:00 - 22:00 | Wednesday: 07:00 - 22:00 | Thursday: 10:00 - 22:00 | Friday: 10:00 - 22:00 | Weekends: 10:00 - 20:00"
+  },
+  {
+    "lat": 51.51512,
+    "lon": -0.07473,
+    "name": "City Bouldering Aldgate",
+    "country": "GB",
+    "source": "https://www.citybouldering.co.uk/",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "06:30-23:00",
+      "tue": "06:30-23:00",
+      "wed": "06:30-23:00",
+      "thu": "06:30-23:00",
+      "fri": "06:30-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "City Bouldering Aldgate, 33 Aldgate High Street, London EC3N 1AH — Monday - Friday: 06:30 - 23:00 | Sat & Sun: 09:00 - 22:00",
+    "note": "One page lists each of the operator's London centres with its address and its own week."
+  },
+  {
+    "lat": 51.53705,
+    "lon": -0.00358,
+    "name": "City Bouldering Stratford",
+    "country": "GB",
+    "source": "https://www.citybouldering.co.uk/",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "10:00-22:30",
+      "tue": "07:00-22:30",
+      "wed": "07:00-22:30",
+      "thu": "07:00-22:30",
+      "fri": "10:00-22:30",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "City Bouldering Stratford, 234 High St, London E15 2JA — Monday and Friday: 10:00 - 22:30 | Tuesday- Thursday: 07:00- 22:30 | Sat & Sun: 09:00 - 21:00"
+  },
+  {
+    "lat": 51.53460965827556,
+    "lon": -0.05972554372710284,
+    "name": "Climbing District London Fields",
+    "country": "GB",
+    "source": "https://climbingdistrict.uk/climbing-gym/london-fields/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "07:00-22:30",
+      "tue": "07:00-22:30",
+      "wed": "07:00-22:30",
+      "thu": "07:00-22:30",
+      "fri": "07:00-22:30",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "OPENING TIMES Weekdays: 7am — 10:30pm | Weekends: 9am — 9pm"
+  },
+  {
+    "lat": 53.79844,
+    "lon": -1.57338,
+    "name": "Depot Climbing Armley",
+    "country": "GB",
+    "source": "https://www.depotclimbing.co.uk/leeds-armley/opening-prices/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "06:00-22:00",
+      "tue": "06:00-22:00",
+      "wed": "06:00-22:00",
+      "thu": "06:00-22:00",
+      "fri": "06:00-22:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Monday - Friday 06:00 - 22:00 | Saturday & Sunday 09:00 - 21:00 | Bank Holiday Hours 09:00 - 22:00"
+  },
+  {
+    "lat": 52.47221,
+    "lon": -1.89175,
+    "name": "Depot Climbing Birmingham",
+    "country": "GB",
+    "source": "https://www.depotclimbing.co.uk/birmingham/depot-climbing-opening-prices/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "06:00-22:00",
+      "tue": "06:00-22:00",
+      "wed": "06:00-22:00",
+      "thu": "06:00-22:00",
+      "fri": "06:00-22:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Monday - Friday 06:00 - 22:00 | Saturday + Sunday 09:00 - 21:00 | Bank Holiday Mondays 09:00 - 22:00"
+  },
+  {
+    "lat": 52.957012,
+    "lon": -1.142959,
+    "name": "Depot Climbing Nottingham",
+    "country": "GB",
+    "source": "https://www.depotclimbing.co.uk/nottingham/depot-climbing-opening-prices/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "09:00-22:00",
+      "wed": "09:00-22:00",
+      "thu": "09:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Monday - Friday 09:00 - 22:00 | Saturday + Sunday 09:00 - 21:00 | Bank Holiday Mondays 09:00 - 22:00"
+  },
+  {
+    "lat": 51.44587,
+    "lon": -2.58109,
+    "name": "Flashpoint Bristol",
+    "country": "GB",
+    "source": "https://flashpointbristol.com/opening-times/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "07:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Climbing Wall Opening Times: Monday 10.00 - 22.00 | Tuesday - Thursday 07:00 - 22:00 | Friday 09:00 - 22:00 | Weekend 09:00 - 19:00 | Bank Holiday 10:00 - 19:00"
+  },
+  {
+    "lat": 51.4489657,
+    "lon": -2.5835347,
+    "name": "Flashpoint Bristol",
+    "country": "GB",
+    "source": "https://flashpointbristol.com/opening-times/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "07:00-22:00",
+      "fri": "09:00-22:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Climbing Wall Opening Times: Monday 10.00 - 22.00 | Tuesday - Thursday 07:00 - 22:00 | Friday 09:00 - 22:00 | Weekend 09:00 - 19:00 | Bank Holiday 10:00 - 19:00",
+    "note": "The cafe and bar keep separate, slightly longer hours in a second table on the same page. Upstream carries this gym twice, about 280 m apart."
+  },
+  {
+    "lat": 51.46194,
+    "lon": -3.19767,
+    "name": "Flashpoint Cardiff",
+    "country": "GB",
+    "source": "https://flashpointcardiff.com/opening-times/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "Monday to Friday 10.00 - 22.00 | Weekend & Bank Holiday 10:00 - 19:00",
+    "note": "A second table on the same page gives last-entry and last-climb times, not opening hours."
+  },
+  {
+    "lat": 51.62199,
+    "lon": -3.93954,
+    "name": "Flashpoint Swansea",
+    "country": "GB",
+    "source": "https://flashpointswansea.com/opening-times/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "Monday & Wednesday - Friday 10.00 - 22.00 | Tuesday 07:00 - 22:00 | Weekend & Bank Holiday 10:00 - 19:00"
+  },
+  {
+    "lat": 51.4696554,
+    "lon": -0.3616119,
+    "name": "Hang Moon Board",
+    "country": "GB",
+    "source": "https://www.the-font.co.uk/hounslow",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-21:30",
+      "tue": "10:00-21:30",
+      "wed": "10:00-21:30",
+      "thu": "10:00-21:30",
+      "fri": "10:00-21:30",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Monday to Friday: 10:00 - 21:30 | Saturday to Sunday: 10:00 - 18:00",
+    "note": "Upstream carries this gym twice, about 60 m apart."
+  },
+  {
+    "lat": 51.47055,
+    "lon": -0.36189,
+    "name": "Hang.",
+    "country": "GB",
+    "source": "https://www.the-font.co.uk/hounslow",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-21:30",
+      "tue": "10:00-21:30",
+      "wed": "10:00-21:30",
+      "thu": "10:00-21:30",
+      "fri": "10:00-21:30",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Monday to Friday: 10:00 - 21:30 | Saturday to Sunday: 10:00 - 18:00"
+  },
+  {
+    "lat": 53.04573019999999,
+    "lon": -2.1967011,
+    "name": "Kilnworx Climbing Centre",
+    "country": "GB",
+    "source": "https://www.kilnworx.com/opening-times/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "16:30-22:00",
+      "tue": "16:30-22:00",
+      "wed": "16:30-22:00",
+      "thu": "16:30-22:00",
+      "fri": "16:30-20:00",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Monday to Thursday: 4:30pm to 10:00pm | Friday: 4:30pm to 8:00pm | Saturday & Sunday: 10:00am to 6:00pm",
+    "note": "Advance booking additionally opens the centre before 4pm Tuesday to Friday; the walk-in hours are what is recorded."
+  },
+  {
+    "lat": 54.34214,
+    "lon": -2.73989,
+    "name": "Lakeland Climbing Centres - KendalWall",
+    "country": "GB",
+    "source": "https://lakelandclimbingcentres.co.uk/centre/kendalwall/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Mon – Fri: 10:00am – 10:00pm | Sat – Sun: 10:00am – 06:00pm | Bank Hols: 10:00am – 06:00pm"
+  },
+  {
+    "lat": 51.379625,
+    "lon": -2.353975,
+    "name": "Luma Climbing",
+    "country": "GB",
+    "source": "https://www.lumaclimbing.co.uk/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "06:00-23:00",
+      "tue": "06:00-23:00",
+      "wed": "06:00-23:00",
+      "thu": "06:00-23:00",
+      "fri": "06:00-23:00",
+      "sat": "06:00-23:00",
+      "sun": "06:00-23:00"
+    },
+    "evidence": "The gym is open between 6am - 11pm.",
+    "note": "An unmanned training gym; the published window is unconditional but entry runs through the venue's own book-in system."
+  },
+  {
+    "lat": 51.39647859999999,
+    "lon": -1.3164998,
+    "name": "Northway's Moonboard",
+    "country": "GB",
+    "source": "https://northwayclimbing.com/contact/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Monday-Friday 10am-10pm | Saturday & Sunday 10am-6pm"
+  },
+  {
+    "lat": 51.45496,
+    "lon": -0.193,
+    "name": "Parthian Climbing Wandsworth",
+    "country": "GB",
+    "source": "https://www.the-font.co.uk/wandsworth",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "06:15-22:00",
+      "tue": "06:15-22:00",
+      "wed": "06:15-22:00",
+      "thu": "06:15-22:00",
+      "fri": "06:15-22:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Monday to Friday: 06:15 - 22:00 | Saturday to Sunday: 09:00 - 18:00"
+  },
+  {
+    "lat": 52.193636,
+    "lon": -2.221575,
+    "name": "Redpoint Worcester",
+    "country": "GB",
+    "source": "https://redpointworcester.co.uk/contact-us/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Monday – Friday 10:00 – 22:00 | Saturday 10:00 – 18:00 | Sunday 10:00 – 18:00 | Bank Holidays 10:00 – 22:00"
+  },
+  {
+    "lat": 51.51126,
+    "lon": 0.01277,
+    "name": "Rise Climbing",
+    "country": "GB",
+    "source": "https://www.rise-climbing.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "06:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "06:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Mon, Wed, Fri: 10am - 10pm | Tues, Thurs: 6am - 10pm | Weekends: 9am - 6pm | Bank Holidays: 9am - 9pm",
+    "note": "Upstream carries this gym twice, about 30 m apart."
+  },
+  {
+    "lat": 51.5110035,
+    "lon": 0.0126659,
+    "name": "Rise Climbing 2016",
+    "country": "GB",
+    "source": "https://www.rise-climbing.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "06:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "06:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Mon, Wed, Fri: 10am - 10pm | Tues, Thurs: 6am - 10pm | Weekends: 9am - 6pm | Bank Holidays: 9am - 9pm"
+  },
+  {
+    "lat": 54.91452529999999,
+    "lon": -1.4158507,
+    "name": "Sunderland Wall",
+    "country": "GB",
+    "source": "https://sunderlandwall.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "11:00-22:00",
+      "tue": "12:00-22:00",
+      "wed": "12:00-22:00",
+      "thu": "12:00-22:00",
+      "fri": "12:00-22:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "MONDAY 11:00-22:00 | TUESDAY 12:00-22:00 | WEDNESDAY 12:00-22:00 | THURSDAY 12:00-22:00 | FRIDAY 12:00-22:00 | SATURDAY 10:00-19:00 | SUNDAY 10:00-19:00"
+  },
+  {
+    "lat": 51.455472,
+    "lon": -2.569098,
+    "name": "TCA The Mothership",
+    "country": "GB",
+    "source": "https://www.theclimbingacademy.com/locations/the-mothership/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "07:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "07:00-22:00",
+      "fri": "07:00-22:00",
+      "sat": "08:00-20:00",
+      "sun": "08:00-20:00"
+    },
+    "evidence": "Mon-Fri: 7am-10pm | Sat-Sun: 8am-8pm",
+    "note": "The page's schema.org openingHoursSpecification states the same week; the accordion below it lists the operator's other centres."
+  },
+  {
+    "lat": 53.20094109999999,
+    "lon": -3.0087738,
+    "name": "The Boardroom Climbing Ltd",
+    "country": "GB",
+    "source": "https://www.theboardroomclimbing.com/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "06:30-22:00",
+      "tue": "06:30-22:00",
+      "wed": "06:30-22:00",
+      "thu": "06:30-22:00",
+      "fri": "06:30-22:00",
+      "sat": "08:00-20:00",
+      "sun": "08:00-20:00"
+    },
+    "evidence": "6:30am-10:00pm Mon-Fri | 8:00am-8:00pm Weekends"
+  },
+  {
+    "lat": 51.45539,
+    "lon": -2.56917,
+    "name": "The Climbing Academy - The Mothership",
+    "country": "GB",
+    "source": "https://www.theclimbingacademy.com/locations/the-mothership/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "07:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "07:00-22:00",
+      "fri": "07:00-22:00",
+      "sat": "08:00-20:00",
+      "sun": "08:00-20:00"
+    },
+    "evidence": "Mon-Fri: 7am-10pm | Sat-Sun: 8am-8pm",
+    "note": "The same hall as the venue about 20 m away; upstream carries both."
+  },
+  {
+    "lat": 51.45626,
+    "lon": -2.59105,
+    "name": "The Climbing Hangar Bristol",
+    "country": "GB",
+    "source": "https://theclimbinghangar.com/locations/bristol",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "07:30-22:00",
+      "thu": "10:00-22:00",
+      "fri": "07:30-21:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Monday 10am - 10pm Tuesday 10am - 10pm Wednesday 7:30am - 10pm Thursday 10am - 10pm Friday 7:30am - 9pm Saturday 9am - 7pm Sunday 9am - 7pm"
+  },
+  {
+    "lat": 55.9563,
+    "lon": -3.12426,
+    "name": "The Climbing Hangar Edinburgh",
+    "country": "GB",
+    "source": "https://theclimbinghangar.com/locations/edinburgh",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "06:30-22:00",
+      "thu": "10:00-22:00",
+      "fri": "06:30-21:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Monday 10am - 10pm Tuesday 10am - 10pm Wednesday 6.30am - 10pm Thursday 10am - 10pm Friday 6.30am - 9pm Saturday 9am - 7pm Sunday 9am - 7pm"
+  },
+  {
+    "lat": 50.70919,
+    "lon": -3.52788,
+    "name": "The Climbing Hangar Exeter",
+    "country": "GB",
+    "source": "https://theclimbinghangar.com/locations/exeter",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "06:30-22:00",
+      "tue": "10:00-22:00",
+      "wed": "06:30-22:00",
+      "thu": "10:00-22:00",
+      "fri": "06:30-21:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Mon 06:30-22:00 Tues 10:00-22:00 Weds 06:30-22:00 Thurs 10:00-22:00 Fri 06:30-21:00 Sat - Sun 09:00-19:00"
+  },
+  {
+    "lat": 53.34996,
+    "lon": -2.8864,
+    "name": "The Climbing Hangar Liverpool Matchworks",
+    "country": "GB",
+    "source": "https://theclimbinghangar.com/locations/liverpool-south",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "08:00-22:00",
+      "tue": "08:00-22:00",
+      "wed": "06:30-22:00",
+      "thu": "06:30-22:00",
+      "fri": "06:30-21:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "The Climbing Hangar is open for bouldering: Mon 08:00 - 22:00 Tues 08:00 - 22:00 Weds 06:30 - 22.00 Thurs 06:30 - 22.00 Fri 06:30 - 21.00 Sat 09:00 - 19.00 Sun 09.00 - 19.00",
+    "note": "The MON-FRI 8AM-8PM line above it is the cafe."
+  },
+  {
+    "lat": 51.46358,
+    "lon": -1.01319,
+    "name": "The Climbing Hangar Reading",
+    "country": "GB",
+    "source": "https://theclimbinghangar.com/locations/reading",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "06:30-22:00",
+      "wed": "10:00-22:00",
+      "thu": "06:30-22:00",
+      "fri": "06:30-21:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Mon 10:00 - 22:00 Tues 06:30 - 22:00 Wed 10:00 - 22:00 Thurs 06:30 - 22:00 Fri 06:30 - 21:00 Sat 09:00 - 19:00 Sun 09:00 - 19:00"
+  },
+  {
+    "lat": 53.39072,
+    "lon": -1.45063,
+    "name": "The Climbing Hangar Sheffield",
+    "country": "GB",
+    "source": "https://theclimbinghangar.com/locations/sheffield",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "06:30-22:00",
+      "wed": "06:30-22:00",
+      "thu": "10:00-22:00",
+      "fri": "06:30-21:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Monday 10:00-22:00 Tuesday 06:30-22:00 Wednesday 06:30-22:00 Thursday 10:00-22:00 Friday 06:30-21:00 Sat-Sun 09:00-19:00"
+  },
+  {
+    "lat": 50.91406,
+    "lon": -1.45032,
+    "name": "The Climbing Hangar Southampton",
+    "country": "GB",
+    "source": "https://theclimbinghangar.com/locations/southampton",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-21:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Monday 10am - 10pm Tuesday 10am - 10pm Wednesday 10am - 10pm Thursday 10am - 10pm Friday 10am - 9pm Saturday 9am - 7pm Sunday 9am - 7pm"
+  },
+  {
+    "lat": 53.803373,
+    "lon": -1.5795904,
+    "name": "The Climbing Lab",
+    "country": "GB",
+    "source": "https://www.climbinglab.co.uk/visit-us",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-22:00",
+      "tue": "06:00-22:00",
+      "wed": "06:00-22:00",
+      "thu": "06:00-22:00",
+      "fri": "06:00-22:00",
+      "sat": "10:00-21:00",
+      "sun": "10:00-21:00"
+    },
+    "evidence": "Monday - 9am - 10pm | Tuesday - Friday: 6AM - 10PM | Saturday & Sunday: 10AM - 9PM | Bank holidays open as normal",
+    "note": "The site's schema.org openingHoursSpecification states the same week."
+  },
+  {
+    "lat": 51.50729,
+    "lon": -0.09706,
+    "name": "The Font Climbing Borough",
+    "country": "GB",
+    "source": "https://www.the-font.co.uk/borough",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "07:00-22:00",
+      "tue": "07:00-22:00",
+      "wed": "07:00-22:00",
+      "thu": "07:00-22:00",
+      "fri": "07:00-22:00",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Monday to Friday: 07:00 - 22:00 | Saturday to Sunday: 10:00 - 18:00"
+  },
+  {
+    "lat": 53.384714,
+    "lon": -2.0650029,
+    "name": "The Ridge Climbing Centre",
+    "country": "GB",
+    "source": "https://www.theridgeclimbing.co.uk/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "16:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "evidence": "Monday 16:00 - 22:00 | Tuesday 10:00 - 22:00 | Wednesday 10:00 - 22:00 | Thursday 10:00 - 22:00 | Friday 10:00 - 22:00 | Saturday 10:00 - 19:00 | Sunday 10:00 - 19:00"
+  },
+  {
+    "lat": 50.516654,
+    "lon": -4.836456,
+    "name": "Tide Climbing",
+    "country": "GB",
+    "source": "https://www.tideclimbing.com/locations/padstow/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-21:00",
+      "tue": "09:00-21:00",
+      "wed": "09:00-21:00",
+      "thu": "09:00-21:00",
+      "fri": "09:00-21:00",
+      "sat": "09:00-20:00",
+      "sun": "09:00-20:00"
+    },
+    "evidence": "We're open Monday to Friday from 09:00–21:00, and Saturday to Sunday from 09:00–20:00."
+  },
+  {
+    "lat": 50.09999,
+    "lon": -5.27124,
+    "name": "Tide Climbing Helston",
+    "country": "GB",
+    "source": "https://www.tideclimbing.com/locations/helston/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-21:00",
+      "tue": "09:00-21:00",
+      "wed": "09:00-21:00",
+      "thu": "09:00-21:00",
+      "fri": "09:00-21:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Monday – Friday 09:00 – 21:00 | Saturday & Sunday 09:00 – 21:00"
+  },
+  {
+    "lat": 52.98182990000001,
+    "lon": -2.1149566,
+    "name": "Totally Stoked! - Awesome Walls Stoke",
+    "country": "GB",
+    "source": "https://www.awesomewalls.co.uk/stoke/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 18:00"
+  },
+  {
+    "lat": 51.88996,
+    "lon": -8.53863,
+    "name": "Awesome Walls Cork",
+    "country": "IE",
+    "source": "https://awesomewalls.ie/cork/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 22:00"
+  },
+  {
+    "lat": 51.8985143,
+    "lon": -8.4756035,
+    "name": "Awesome Walls Cork",
+    "country": "IE",
+    "source": "https://awesomewalls.ie/cork/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 22:00",
+    "note": "Upstream carries this gym twice, about 1.2 km apart."
+  },
+  {
+    "lat": 53.401808327278275,
+    "lon": -6.31650732883577,
+    "name": "Awesome Walls Dublin",
+    "country": "IE",
+    "source": "https://awesomewalls.ie/dublin/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 22:00"
+  },
+  {
+    "lat": 53.33588,
+    "lon": -6.32355,
+    "name": "Gravity Climbing Centre",
+    "country": "IE",
+    "source": "https://www.gravityclimbing.ie/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "12:00-22:00",
+      "tue": "12:00-22:00",
+      "wed": "12:00-22:00",
+      "thu": "12:00-22:00",
+      "fri": "12:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Monday - Friday 12 pm - 10 pm | Saturday - Sunday & Bank Holidays 10 am - 8 pm"
+  },
+  {
+    "lat": 53.401674,
+    "lon": -6.3164966,
+    "name": "The Training Room",
+    "country": "IE",
+    "source": "https://awesomewalls.ie/dublin/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-22:00",
+      "tue": "10:00-22:00",
+      "wed": "10:00-22:00",
+      "thu": "10:00-22:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-20:00",
+      "sun": "10:00-20:00"
+    },
+    "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 22:00",
+    "note": "Upstream still calls this venue The Training Room; it is the Awesome Walls Dublin hall at the same address."
+  },
+  {
+    "lat": 53.21729,
+    "lon": 6.53861,
+    "name": "Apex Boulders",
+    "country": "NL",
+    "source": "https://www.apexboulders.nl/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 22:00 | Zondag 09:00 – 22:00"
+  },
+  {
+    "lat": 52.0695268,
+    "lon": 4.323769899999999,
+    "name": "Beest Boulders Den Haag",
+    "country": "NL",
+    "source": "https://beestboulders.com/vestigingen/beest-boulders-den-haag/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "13:00-23:00",
+      "tue": "13:00-23:00",
+      "wed": "13:00-23:00",
+      "thu": "13:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "ma t/m do: 13:00-23:00 | vr: 9:00-23:00 | za-zo: 9:00-18:00"
+  },
+  {
+    "lat": 52.3441057,
+    "lon": 4.8561558,
+    "name": "Beta Boulders Amsterdam",
+    "country": "NL",
+    "source": "https://betaboulders.nl/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Monday to Friday: 09:00 – 23:00 | Saturday to Sunday: 09:00 – 21:00"
+  },
+  {
+    "lat": 51.90855,
+    "lon": 4.43368,
+    "name": "Bolder Neoliet Rotterdam",
+    "country": "NL",
+    "source": "https://boulderneoliet.nl/nl/rotterdam/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "11:00-21:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Maandag 09:00 23:00 | Dinsdag 09:00 23:00 | Woensdag 09:00 23:00 | Donderdag 09:00 23:00 | Vrijdag 09:00 23:00 | Zaterdag 11:00 21:00 | Zondag 09:00 19:00"
+  },
+  {
+    "lat": 51.69594,
+    "lon": 5.28177,
+    "name": "Bossche Boulders",
+    "country": "NL",
+    "source": "https://www.bosscheboulders.nl/openingstijden-tarieven-boulderen-den-bosch/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-20:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Maandag 09:00 - 23:00 | Dinsdag 09:00 - 23:00 | Woensdag 09:00 - 23:00 | Donderdag 09:00 - 23:00 | Vrijdag 09:00 - 23:00 | Zaterdag 09:00 - 20:00 | Zondag 09:00 - 22:00"
+  },
+  {
+    "lat": 52.38621,
+    "lon": 4.87252,
+    "name": "Boulder Amsterdam",
+    "country": "NL",
+    "source": "https://boulderneoliet.nl/en/amsterdam/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Maandag 10:00 23:00 | Dinsdag 10:00 23:00 | Woensdag 10:00 23:00 | Donderdag 10:00 23:00 | Vrijdag 10:00 23:00 | Zaterdag 09:00 19:00 | Zondag 09:00 21:00"
+  },
+  {
+    "lat": 51.4755,
+    "lon": 5.45634,
+    "name": "Boulder Neoliet Eindhoven",
+    "country": "NL",
+    "source": "https://boulderneoliet.nl/nl/eindhoven/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Maandag 09:00 23:00 | Dinsdag 09:00 23:00 | Woensdag 09:00 23:00 | Donderdag 09:00 23:00 | Vrijdag 09:00 23:00 | Zaterdag 09:00 21:00 | Zondag 09:00 18:00"
+  },
+  {
+    "lat": 51.57716,
+    "lon": 5.09198,
+    "name": "Boulderhal Block013",
+    "country": "NL",
+    "source": "https://block013.nl/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:30-23:00",
+      "tue": "12:00-23:00",
+      "wed": "09:30-23:00",
+      "thu": "09:30-23:00",
+      "fri": "09:30-23:00",
+      "sat": "09:30-22:00",
+      "sun": "09:30-22:00"
+    },
+    "evidence": "Openingstijden Maandag: 09:30 tot 23:00 | Dinsdag: 12:00 tot 23:00 | Woensdag: 09:30 tot 23:00 | Donderdag: 09:30 tot 23:00 | Vrijdag: 09:30 tot 23:00 | Zaterdag: 09:30 tot 22:00 | Zondag: 09:30 tot 22:00"
+  },
+  {
+    "lat": 51.59819,
+    "lon": 4.75602,
+    "name": "Boulderhal Bruut",
+    "country": "NL",
+    "source": "https://www.boulderhalbruut.nl/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:30",
+      "tue": "09:00-23:30",
+      "wed": "09:00-23:30",
+      "thu": "09:00-23:30",
+      "fri": "09:00-23:30",
+      "sat": "09:00-22:00",
+      "sun": "09:00-23:00"
+    },
+    "evidence": "Ma t/m Vrij 09:00-23:30 | Zaterdag 09:00-22:00 | Zondag 09:00-23:00"
+  },
+  {
+    "lat": 52.39204,
+    "lon": 4.64789,
+    "name": "Boulderhal De Fabriek Haarlem",
+    "country": "NL",
+    "source": "https://boulderhaldefabriek.nl/locaties-openingstijden",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "13:00-23:00",
+      "sun": "10:00-23:00"
+    },
+    "evidence": "Haarlem — OPENINGSTIJDEN Maandag 10.00 – 23.00 | Dinsdag 10.00 – 23.00 | Woensdag 10.00 – 23.00 | Donderdag 10.00 – 23.00 | Vrijdag 10.00 – 23.00 | Zaterdag 13.00 – 23.00 | Zondag 10.00 – 23.00",
+    "note": "One page carries the operator's halls under per-location headings; this is the Haarlem block."
+  },
+  {
+    "lat": 52.10039,
+    "lon": 5.07082,
+    "name": "Boulderhal Energiehaven Utrecht",
+    "country": "NL",
+    "source": "https://www.boulderhalenergiehaven.nl/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:30-23:00",
+      "tue": "08:30-23:00",
+      "wed": "08:30-23:00",
+      "thu": "08:30-23:00",
+      "fri": "08:30-23:00",
+      "sat": "08:30-22:00",
+      "sun": "08:30-22:00"
+    },
+    "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 08:30 – 23:00 | Dinsdag 08:30 – 23:00 | Woensdag 08:30 – 23:00 | Donderdag 08:30 – 23:00 | Vrijdag 08:30 – 23:00 | Zaterdag 08:30 – 22:00 | Zondag 08:30 – 22:00"
+  },
+  {
+    "lat": 52.15868,
+    "lon": 4.51212,
+    "name": "Boulderhal Krachtstof",
+    "country": "NL",
+    "source": "https://www.boulderhalkrachtstof.nl/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 22:00 | Zondag 09:00 – 22:00"
+  },
+  {
+    "lat": 52.14559,
+    "lon": 4.48104,
+    "name": "Boulderhal Kunststof",
+    "country": "NL",
+    "source": "https://www.boulderhalkunststof.nl/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 19:00 | Zondag 09:00 – 19:00"
+  },
+  {
+    "lat": 52.33979,
+    "lon": 4.84227,
+    "name": "Boulderhal Luchthaven",
+    "country": "NL",
+    "source": "https://www.boulderhalluchthaven.nl/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 22:00 | Zondag 09:00 – 22:00",
+    "note": "Upstream carries this gym twice, about 8 m apart."
+  },
+  {
+    "lat": 52.33986533412684,
+    "lon": 4.842316028835187,
+    "name": "Boulderhal Luchthaven",
+    "country": "NL",
+    "source": "https://www.boulderhalluchthaven.nl/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-22:00",
+      "sun": "09:00-22:00"
+    },
+    "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 22:00 | Zondag 09:00 – 22:00"
+  },
+  {
+    "lat": 52.4989144,
+    "lon": 6.1196372,
+    "name": "Boulderhal ROEST",
+    "country": "NL",
+    "source": "https://www.boulderhalroest.nl/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-23:00",
+      "sun": "09:00-23:00"
+    },
+    "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 23:00 | Zondag 09:00 – 23:00"
+  },
+  {
+    "lat": 52.076403,
+    "lon": 5.1085322,
+    "name": "Boulderhal Sterk",
+    "country": "NL",
+    "source": "https://www.boulderhalsterk.nl/openingstijden",
+    "checked": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "hours-scope"
+    ],
+    "hours": {
+      "mon": "08:00-24:00",
+      "tue": "08:00-24:00",
+      "wed": "08:00-24:00",
+      "thu": "08:00-24:00",
+      "fri": "08:00-24:00",
+      "sat": "08:00-24:00",
+      "sun": "08:00-24:00"
+    },
+    "evidence": "Maandag 8:00 - 00:00 | Dinsdag 8:00 - 00:00 | Woensdag 8:00 - 00:00 | Donderdag 8:00 - 00:00 | Vrijdag 8:00 - 00:00 | Zaterdag 8:00 - 00:00 | Zondag 8:00 - 00:00",
+    "note": "The page lists the operator's two Utrecht halls under Sterk and STERK Spoor headings; this is the Sterk one."
+  },
+  {
+    "lat": 52.247847221009664,
+    "lon": 6.172424421175363,
+    "name": "Boulderhal Vrijhaven",
+    "country": "NL",
+    "source": "https://www.boulderhalvrijhaven.nl/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 18:00 | Zondag 09:00 – 18:00"
+  },
+  {
+    "lat": 52.0651,
+    "lon": 5.10472,
+    "name": "Boulderhal Zuidhaven",
+    "country": "NL",
+    "source": "https://www.boulderhalzuidhaven.nl/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "08:30-23:00",
+      "tue": "08:30-23:00",
+      "wed": "08:30-23:00",
+      "thu": "08:30-23:00",
+      "fri": "08:30-23:00",
+      "sat": "08:30-21:00",
+      "sun": "08:30-21:00"
+    },
+    "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 08:30 – 23:00 | Dinsdag 08:30 – 23:00 | Woensdag 08:30 – 23:00 | Donderdag 08:30 – 23:00 | Vrijdag 08:30 – 23:00 | Zaterdag 08:30 – 21:00 | Zondag 08:30 – 21:00"
+  },
+  {
+    "lat": 52.22304,
+    "lon": 6.90367,
+    "name": "Cube Bouldergym",
+    "country": "NL",
+    "source": "https://cubebouldergym.nl/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "14:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Maandag 14:00 23:00 | Dinsdag 09:00 23:00 | Woensdag 09:00 23:00 | Donderdag 09:00 23:00 | Vrijdag 09:00 23:00 | Zaterdag 09:00 19:00 | Zondag 09:00 19:00"
+  },
+  {
+    "lat": 52.0115769,
+    "lon": 4.3570677,
+    "name": "Delfts Bleau",
+    "country": "NL",
+    "source": "https://delftsbleau.nl/en/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "12:00-22:30",
+      "tue": "12:00-22:30",
+      "wed": "12:00-22:30",
+      "thu": "12:00-22:30",
+      "fri": "16:00-22:30",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Monday 12:00 – 22:30 | Tuesday 12:00 – 22:30 | Wednesday 12:00 – 22:30 | Thursday 12:00 – 22:30 | Friday 16:00 – 22:30 | Saturday 09:00 – 18:00 | Sunday 09:00 – 18:00. Opening hours are also valid during school holidays.",
+    "note": "The second column of the table is when the building closes; the first is the gym."
+  },
+  {
+    "lat": 51.81311,
+    "lon": 5.83827,
+    "name": "GRIP Boulderhal",
+    "country": "NL",
+    "source": "https://gripnijmegen.nl/boulderhal/ontdek/grip-prijzen-en-openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "17:00-23:00",
+      "tue": "08:30-23:00",
+      "wed": "08:30-23:00",
+      "thu": "08:30-23:00",
+      "fri": "08:30-23:00",
+      "sat": "08:30-23:00",
+      "sun": "08:30-19:00"
+    },
+    "evidence": "Maandag 17:00 - 23:00 | Dinsdag 08:30 - 23:00 | Woensdag 08:30 - 23:00 | Donderdag 08:30 - 23:00 | Vrijdag 08:30 - 23:00 | Zaterdag 08:30 - 23:00 | Zondag 08:30 - 19:00"
+  },
+  {
+    "lat": 50.99175,
+    "lon": 5.84161,
+    "name": "IVY Climbing",
+    "country": "NL",
+    "source": "https://www.ivyclimbing.nl/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "17:00-23:00",
+      "tue": "17:00-23:00",
+      "wed": "16:00-23:00",
+      "thu": "17:00-23:00",
+      "fri": "17:00-23:00",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Maandag 17:00 – 23:00 | Dinsdag 17:00 – 23:00 | Woensdag 16:00 – 23:00 | Donderdag 17:00 – 23:00 | Vrijdag 17:00 – 23:00 | Zaterdag 10:00 – 18:00 | Zondag 10:00 – 18:00"
+  },
+  {
+    "lat": 52.22466112634577,
+    "lon": 5.971771073018263,
+    "name": "Kei Boulderhal Apeldoorn",
+    "country": "NL",
+    "source": "https://keiapeldoorn.nl/locatie/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "17:00-23:00",
+      "tue": "15:00-23:00",
+      "wed": "15:00-23:00",
+      "thu": "15:00-23:00",
+      "fri": "11:00-23:00",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "evidence": "Maandag: 17:00 -23:00 | Dinsdag: 15:00-23:00 | Woensdag: 15:00-23:00 | Donderdag: 15:00-23:00 | Vrijdag: 11:00 -23:00 | Zaterdag: 10:00-18:00 | Zondag: 10:00-18:00. Ook tijdens feestdagen en vakanties zijn wij geopend."
+  },
+  {
+    "lat": 52.145052,
+    "lon": 4.481017,
+    "name": "Kunststof Moonboard",
+    "country": "NL",
+    "source": "https://www.boulderhalkunststof.nl/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 19:00 | Zondag 09:00 – 19:00",
+    "note": "Upstream carries this gym twice, about 55 m apart."
+  },
+  {
+    "lat": 52.38373,
+    "lon": 4.92935,
+    "name": "Monk Amsterdam",
+    "country": "NL",
+    "source": "https://monk.nl/amsterdam/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-24:00",
+      "tue": "09:00-24:00",
+      "wed": "09:00-24:00",
+      "thu": "09:00-24:00",
+      "fri": "09:00-24:00",
+      "sat": "09:00-24:00",
+      "sun": "09:00-24:00"
+    },
+    "evidence": "maandag 09:00 - 00:00 | dinsdag 09:00 - 00:00 | woensdag 09:00 - 00:00 | donderdag 09:00 - 00:00 | vrijdag 09:00 - 00:00 | zaterdag 09:00 - 00:00 | zondag 09:00 - 00:00"
+  },
+  {
+    "lat": 51.44375,
+    "lon": 5.45875,
+    "name": "Monk Bouldergym Eindhoven",
+    "country": "NL",
+    "source": "https://monk.nl/eindhoven/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-24:00",
+      "tue": "09:00-24:00",
+      "wed": "09:00-24:00",
+      "thu": "09:00-24:00",
+      "fri": "09:00-24:00",
+      "sat": "09:00-24:00",
+      "sun": "09:00-24:00"
+    },
+    "evidence": "maandag 09:00 00:00 | dinsdag 09:00 00:00 | woensdag 09:00 00:00 | donderdag 09:00 00:00 | vrijdag 09:00 00:00 (bar 01:00) | zaterdag 09:00 00:00 | zondag 09:00 00:00"
+  },
+  {
+    "lat": 51.4437304,
+    "lon": 5.458589,
+    "name": "Monk Eindhoven",
+    "country": "NL",
+    "source": "https://monk.nl/eindhoven/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-24:00",
+      "tue": "09:00-24:00",
+      "wed": "09:00-24:00",
+      "thu": "09:00-24:00",
+      "fri": "09:00-24:00",
+      "sat": "09:00-24:00",
+      "sun": "09:00-24:00"
+    },
+    "evidence": "maandag 09:00 00:00 | dinsdag 09:00 00:00 | woensdag 09:00 00:00 | donderdag 09:00 00:00 | vrijdag 09:00 00:00 (bar 01:00) | zaterdag 09:00 00:00 | zondag 09:00 00:00",
+    "note": "Upstream carries this gym twice, about 250 m apart. The bar runs an hour later on Friday; the gym closes at midnight every day."
+  },
+  {
+    "lat": 52.2198204,
+    "lon": 5.149333899999999,
+    "name": "Monk Hilversum",
+    "country": "NL",
+    "source": "https://monk.nl/hilversum/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "14:00-23:00",
+      "tue": "14:00-23:00",
+      "wed": "14:00-23:00",
+      "thu": "14:00-23:00",
+      "fri": "14:00-23:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "maandag 14:00 23:00 | dinsdag 14:00 23:00 | woensdag 14:00 23:00 | donderdag 14:00 23:00 | vrijdag 14:00 23:00 | zaterdag 09:00 18:00 | zondag 09:00 18:00"
+  },
+  {
+    "lat": 51.94164,
+    "lon": 4.47328,
+    "name": "Monk Rotterdam",
+    "country": "NL",
+    "source": "https://monk.nl/rotterdam/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-24:00",
+      "tue": "09:00-24:00",
+      "wed": "09:00-24:00",
+      "thu": "09:00-24:00",
+      "fri": "09:00-24:00",
+      "sat": "09:00-24:00",
+      "sun": "09:00-24:00"
+    },
+    "evidence": "maandag 09:00 - 00:00 | dinsdag 09:00 - 00:00 | woensdag 09:00 - 00:00 | donderdag 09:00 - 00:00 | vrijdag 09:00 - 00:00 | zaterdag 09:00 - 00:00 | zondag 09:00 - 00:00"
+  },
+  {
+    "lat": 51.9417746,
+    "lon": 4.4741854,
+    "name": "Monk Rotterdam",
+    "country": "NL",
+    "source": "https://monk.nl/rotterdam/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "09:00-24:00",
+      "tue": "09:00-24:00",
+      "wed": "09:00-24:00",
+      "thu": "09:00-24:00",
+      "fri": "09:00-24:00",
+      "sat": "09:00-24:00",
+      "sun": "09:00-24:00"
+    },
+    "evidence": "maandag 09:00 - 00:00 | dinsdag 09:00 - 00:00 | woensdag 09:00 - 00:00 | donderdag 09:00 - 00:00 | vrijdag 09:00 - 00:00 | zaterdag 09:00 - 00:00 | zondag 09:00 - 00:00",
+    "note": "Upstream carries this gym twice, about 40 m apart."
+  },
+  {
+    "lat": 52.02101,
+    "lon": 5.66728,
+    "name": "Mono Boulder",
+    "country": "NL",
+    "source": "https://monoboulder.nl/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "14:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Mon: 14:00 – 23:00 | Tue-Fri: 9:00 – 23:00 | Weekend: 9:00 – 21:00"
+  },
+  {
+    "lat": 52.3666969,
+    "lon": 4.8945398,
+    "name": "Mountain Network Amsterdam",
+    "country": "NL",
+    "source": "https://www.climbingnetwork.nl/indoor/locatie/climbingcenter-amsterdam",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "15:00-23:00",
+      "tue": "15:00-23:00",
+      "wed": "15:00-23:00",
+      "thu": "15:00-23:00",
+      "fri": "15:00-23:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Ma-Vr 15:00-23:00 | Za-Zo 9:00-19:00",
+    "note": "Upstream carries this centre twice, about 3.7 km apart; the operator's contact page lists every centre, so the location page is what is used."
+  },
+  {
+    "lat": 52.37517,
+    "lon": 4.842,
+    "name": "Mountain Network Amsterdam",
+    "country": "NL",
+    "source": "https://www.climbingnetwork.nl/indoor/locatie/climbingcenter-amsterdam",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "15:00-23:00",
+      "tue": "15:00-23:00",
+      "wed": "15:00-23:00",
+      "thu": "15:00-23:00",
+      "fri": "15:00-23:00",
+      "sat": "09:00-19:00",
+      "sun": "09:00-19:00"
+    },
+    "evidence": "Ma-Vr 15:00-23:00 | Za-Zo 9:00-19:00"
+  },
+  {
+    "lat": 51.7989107,
+    "lon": 4.678749,
+    "name": "Mountain Network Dordrecht",
+    "country": "NL",
+    "source": "https://www.climbingnetwork.nl/indoor/locatie/climbingcenter-dordrecht",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "15:00-23:00",
+      "tue": "15:00-23:00",
+      "wed": "13:00-23:00",
+      "thu": "15:00-23:00",
+      "fri": "15:00-23:00",
+      "sat": "09:00-18:00",
+      "sun": "09:00-18:00"
+    },
+    "evidence": "Ma, di, do, vr 15:00 — 23:00 | Wo, 13:00 — 23:00 | Za, zo 9:00 — 18:00"
+  },
+  {
+    "lat": 51.96307,
+    "lon": 5.9008,
+    "name": "Mountain Network RijnBoulder",
+    "country": "NL",
+    "source": "https://www.climbingnetwork.nl/indoor/locatie/bouldergym-arnhem",
+    "checked": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "venue-link",
+      "name",
+      "city",
+      "location-page"
+    ],
+    "hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Openingstijden Doordeweeks 10:00 – 23:00, weekend 9:00 – 21:00"
+  },
+  {
+    "lat": 50.8566072,
+    "lon": 5.6823773,
+    "name": "Radium Boulders",
+    "country": "NL",
+    "source": "https://www.radiumboulders.nl/openingstijden/",
+    "checked": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "venue-link",
+      "name",
+      "city"
+    ],
+    "hours": {
+      "mon": "09:00-23:00",
+      "tue": "09:00-23:00",
+      "wed": "09:00-23:00",
+      "thu": "09:00-23:00",
+      "fri": "09:00-23:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "evidence": "Reguliere openingstijden Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 21:00 | Zondag 09:00 – 21:00"
   }
 ]

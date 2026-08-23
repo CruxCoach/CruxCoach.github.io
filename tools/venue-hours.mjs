@@ -256,13 +256,13 @@ function evidenceMentionsTime(evidence, minutes) {
   const h24 = Math.floor(minutes / 60) % 24;
   const m = minutes % 60;
   const mm = String(m).padStart(2, '0');
-  // `h` is a separator too, so a curator quoting a French page does not have to
-  // transliterate 22h30.
-  const sep = '[:.h]';
+  // `h` and `u` are separators too, so a curator quoting a French page does not
+  // have to transliterate 22h30, nor a Flemish one 9u30.
+  const sep = '[:.hu]';
   const patterns = [
     m === 0
-      // A whole hour may be written bare: "10", "10:00", "10.00", "10h".
-      ? new RegExp(`(^|[^0-9])0?${h24}([^0-9:.h]|${sep}00([^0-9]|$)|h([^0-9]|$)|$)`)
+      // A whole hour may be written bare: "10", "10:00", "10.00", "10h", "18u".
+      ? new RegExp(`(^|[^0-9])0?${h24}([^0-9:.hu]|${sep}00([^0-9]|$)|[hu]([^0-9]|$)|$)`)
       : new RegExp(`(^|[^0-9])0?${h24}${sep}${mm}([^0-9]|$)`),
   ];
   const h12 = h24 % 12 === 0 ? 12 : h24 % 12;

@@ -130,6 +130,96 @@
     "source": "https://www.quellalpin.at/"
   },
   {
+    "lat": 51.23389,
+    "lon": 4.4036,
+    "name": "Beest Boulders Antwerpen",
+    "country": "BE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The location page publishes only a block headed \"Zomerperiode juli & augustus\"; the operator gives no term-time week for any of its halls, so what is published expires at the end of August.",
+    "source": "https://beestboulders.com/vestigingen/beest-boulders-antwerpen/"
+  },
+  {
+    "lat": 50.459092047240844,
+    "lon": 3.976567968979885,
+    "name": "Face Nord",
+    "country": "BE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The week is published as \"Lun. - Ven. : 10h00* - 22h30\" with the footnote \"*13h de juin à septembre (horaire d'été)\" — the weekday opening moves by three hours for four months of the year.",
+    "source": "https://facenord.be/infos-pratiques/"
+  },
+  {
+    "lat": 50.926454,
+    "lon": 4.4258375,
+    "name": "Hall9",
+    "country": "BE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The published week (Maandag 16u00–23u00, Dinsdag–Vrijdag 12u00–23u00, Zaterdag and Zon- en feestdagen 09u00–21u00) is followed by \"Schoolvakanties maandag tot vrijdag: 11u00 – 23u00\", which replaces the weekday opening for every school holiday.",
+    "source": "https://hall9.be/openingsuren-en-locatie/"
+  },
+  {
+    "lat": 50.62304,
+    "lon": 5.59582,
+    "name": "ISATIS",
+    "country": "BE",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "sallesescaladeliege.be covers several Liège halls and the only schedule the fetch could read is a schema.org block on the Toprock page, which is a different hall. Nothing on the site ties a week to ISATIS.",
+    "source": "https://sallesescaladeliege.be/"
+  },
+  {
+    "lat": 51.17219,
+    "lon": 4.79931,
+    "name": "Klimkaffee Herentals",
+    "country": "BE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The location page publishes its week under a holiday-period heading and points at a second, term-time one — the site carries both BINNEN/TIJDENS and BUITEN DE VAKANTIE PERIODES blocks.",
+    "source": "https://klimkaffee.be/herentals/"
+  },
+  {
+    "lat": 51.1722044,
+    "lon": 4.8005735,
+    "name": "Klimkaffee Herentals",
+    "country": "BE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The location page publishes its week under a holiday-period heading and points at a second, term-time one — the site carries both BINNEN/TIJDENS and BUITEN DE VAKANTIE PERIODES blocks.",
+    "source": "https://klimkaffee.be/herentals/"
+  },
+  {
+    "lat": 51.02398,
+    "lon": 4.49298,
+    "name": "Klimkaffee Mechelen",
+    "country": "BE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The location page publishes its week under a holiday-period heading and points at a second, term-time one — the site carries both BINNEN/TIJDENS and BUITEN DE VAKANTIE PERIODES blocks.",
+    "source": "https://klimkaffee.be/mechelen/"
+  },
+  {
+    "lat": 51.0240737,
+    "lon": 4.4931345,
+    "name": "Klimkaffee Mechelen",
+    "country": "BE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The location page publishes its week under a holiday-period heading and points at a second, term-time one — the site carries both BINNEN/TIJDENS and BUITEN DE VAKANTIE PERIODES blocks.",
+    "source": "https://klimkaffee.be/mechelen/"
+  },
+  {
+    "lat": 51.1917,
+    "lon": 2.98426,
+    "name": "Klimkaffee Oudenburg",
+    "country": "BE",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The page's week is followed by \"Aangepaste openingsuren in de schoolvakanties!\", and the only machine-readable schedule (schema.org openingHours) is a third answer again.",
+    "source": "https://klimkaffee.net/"
+  },
+  {
     "lat": 46.95906,
     "lon": 7.47294,
     "name": "Bimano Bern",
@@ -668,5 +758,325 @@
     "checked": "2026-08-23",
     "reason": "The homepage carries two versions of the same week and they disagree about Sunday: one block says Sonntag 09.00 – 21.00 Uhr, the other Sonntag 09.00 – 20.00 Uhr.",
     "source": "https://www.xxl-klettern.de/"
+  },
+  {
+    "lat": 51.84518,
+    "lon": -2.12722,
+    "name": "270 Climbing Park",
+    "country": "GB",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The times page is a multi-column table (climbing, bouldering, and a bracketed third set) that cannot be resolved into one week from the fetched text, and the site's schema.org openingHours is the placeholder Monday–Sunday 09:00-17:00.",
+    "source": "https://www.270climbing.com/contact/times/"
+  },
+  {
+    "lat": 51.4927989,
+    "lon": -3.1406824,
+    "name": "Boulders Cardiff",
+    "country": "GB",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Three different weeks on one site: the homepage gives Fri 10am-9pm and Sat/Sun 10am-6pm, a second block on the same page gives Friday 10:00-22:00 and Saturday 09:00-18:30, and the times-prices page gives Saturday 09:00-20:30.",
+    "source": "https://bouldersuk.com/times-prices"
+  },
+  {
+    "lat": 53.3766167,
+    "lon": -1.5018419,
+    "name": "Broomhill Climbing Works",
+    "country": "GB",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The only week on the page is headed \"Summer Opening Hours\" and footed \"Summer Opening Hours operate in June, July, August\".",
+    "source": "https://www.broomhillclimbingworks.com/"
+  },
+  {
+    "lat": 55.883763345387,
+    "lon": -3.1498773637450537,
+    "name": "Eden Rock Edinburgh",
+    "country": "GB",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The Edinburgh page carries Opening Times headings with no times in the fetched document; the only readable week on the site belongs to the operator's Carlisle centre.",
+    "source": "https://www.edenrockclimbing.com/edinburgh-home"
+  },
+  {
+    "lat": 54.98585,
+    "lon": -1.56064,
+    "name": "Eden Rock Newcastle",
+    "country": "GB",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "Same as the operator's Edinburgh centre: no times in the fetched document, and the only readable week on the site is Carlisle's.",
+    "source": "https://www.edenrockclimbing.com/newcastle"
+  },
+  {
+    "lat": 51.5244,
+    "lon": -0.13964,
+    "name": "EustonWall Climbing Centre",
+    "country": "GB",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "Same as the operator's other centres: the Opening times control reveals nothing in the fetched document.",
+    "source": "https://londonclimbingcentres.co.uk/centre/eustonwall/"
+  },
+  {
+    "lat": 51.58083,
+    "lon": -0.34436,
+    "name": "HarroWall Climbing Centre",
+    "country": "GB",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The centre page has an Opening times control that reveals nothing in the fetched document; the operator's price page lists only its Magic Time windows.",
+    "source": "https://londonclimbingcentres.co.uk/centre/harrowall/"
+  },
+  {
+    "lat": 50.85264,
+    "lon": -0.16024,
+    "name": "High Sports Brighton",
+    "country": "GB",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The site carries Opening Times headings but no times in the fetched document, and states it changed owners in July 2025.",
+    "source": "https://www.high-sports.co.uk/"
+  },
+  {
+    "lat": 50.93992,
+    "lon": -1.47019,
+    "name": "Parthian Climbing Southampton",
+    "country": "GB",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The location page says Mon–Friday 10:00–21:00 and Saturday and Sunday 10:00–18:00; the operator's Southampton price page says MONDAY - FRIDAY 10:00 - 22:00 and SATURDAY & SUNDAY 10:00-19:00.",
+    "source": "https://parthianclimbing.com/southampton/"
+  },
+  {
+    "lat": 52.21725,
+    "lon": 0.15704,
+    "name": "Rainbow Rocket North",
+    "country": "GB",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The centre page carries prices but no readable schedule; nothing on the fetched pages states a week.",
+    "source": "https://rainbowrocket.cc/centre/north/"
+  },
+  {
+    "lat": 51.5822099,
+    "lon": -1.753619,
+    "name": "Rockstar Climbing",
+    "country": "GB",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The page says Monday to Friday 10:30-22:00 and its own schema.org openingHours says Mo-Fr 06:30-22:00.",
+    "source": "https://www.rockstarclimbing.co.uk/"
+  },
+  {
+    "lat": 51.58198,
+    "lon": -1.754,
+    "name": "Rockstar Climbing & Bouldering",
+    "country": "GB",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Same hall as the venue about 20 m away, and the same conflict: 10:30 on the page, 06:30 in its markup.",
+    "source": "https://www.rockstarclimbing.co.uk/"
+  },
+  {
+    "lat": 51.4717891,
+    "lon": -2.5762987,
+    "name": "TCA The Church",
+    "country": "GB",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The page's schema.org openingHoursSpecification says Saturday and Sunday 09:00–18:00 while its visible block says Sat-Sun 9am-4pm; the weekday hours agree but the weekend does not.",
+    "source": "https://www.theclimbingacademy.com/locations/the-church/"
+  },
+  {
+    "lat": 53.34023200000001,
+    "lon": -1.693494,
+    "name": "The Adventure Hub",
+    "country": "GB",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Public opening is Friday 10am-4pm and Saturday 1pm-5pm only; the rest of the week (Mon 6.30am-4pm, Tue-Fri 6.30am-10pm, Sat-Sun in two blocks) is explicitly \"Member Only\" access.",
+    "source": "https://adventure-hub.com/pages/prices-and-memberships"
+  },
+  {
+    "lat": 51.6565615,
+    "lon": -3.9077879,
+    "name": "The Climbing Hangar Swansea",
+    "country": "GB",
+    "status": "pending",
+    "checked": "2026-08-23",
+    "reason": "The linked operator states \"As of July 2026, The Climbing Hangar Swansea is operated by Cullen Climbing as The Climbing Hive\" and publishes no hours for it. The venue needs its new operator's site verified as a venue link before it can have hours.",
+    "source": "https://theclimbinghangar.com/locations/swansea"
+  },
+  {
+    "lat": 53.390203,
+    "lon": -1.471551,
+    "name": "The Foundry",
+    "country": "GB",
+    "status": "inaccessible",
+    "checked": "2026-08-23",
+    "reason": "The only schedule in the fetched document is schema.org openingHours; the site's own opening-times page returns a not-found page and no visible week could be read.",
+    "source": "https://www.foundryclimbing.com/"
+  },
+  {
+    "lat": 52.25702039999999,
+    "lon": -0.8355785,
+    "name": "The Pinnacle Bouldering Centre",
+    "country": "GB",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The page publishes a current week and \"Term-time hours (from September)\" beside it, for two facilities at once, and its schema.org openingHours states the term-time one.",
+    "source": "https://thepinnaclecentre.co.uk/"
+  },
+  {
+    "lat": 52.23095,
+    "lon": -1.08366,
+    "name": "The Weedon Project",
+    "country": "GB",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "Thursday is stated twice and differently: 17:30–22:00 in the visible table, 17:40–22:00 in the page's schema.org openingHoursSpecification. The visible table also carries eight rows for seven days.",
+    "source": "https://www.theweedonproject.co.uk/"
+  },
+  {
+    "lat": 51.5955,
+    "lon": 4.75718,
+    "name": "Beest Boulders Breda",
+    "country": "NL",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The location page publishes only a block headed \"Zomerperiode juli & augustus\"; the operator gives no term-time week for any of its halls, so what is published expires at the end of August.",
+    "source": "https://beestboulders.com/vestigingen/beest-boulders-breda/"
+  },
+  {
+    "lat": 51.59598,
+    "lon": 4.75726,
+    "name": "Beest Boulders Breda",
+    "country": "NL",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The location page publishes only a block headed \"Zomerperiode juli & augustus\"; the operator gives no term-time week for any of its halls, so what is published expires at the end of August.",
+    "source": "https://beestboulders.com/vestigingen/beest-boulders-breda/"
+  },
+  {
+    "lat": 51.99991,
+    "lon": 4.356,
+    "name": "Beest Boulders Delft",
+    "country": "NL",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The location page publishes only a block headed \"Zomerperiode juli & augustus\"; the operator gives no term-time week for any of its halls, so what is published expires at the end of August.",
+    "source": "https://beestboulders.com/vestigingen/beest-boulders-delft/"
+  },
+  {
+    "lat": 52.07613,
+    "lon": 4.3106,
+    "name": "Beest Boulders Den Haag Centrum",
+    "country": "NL",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The location page publishes only a block headed \"Zomerperiode juli & augustus\"; the operator gives no term-time week for any of its halls, so what is published expires at the end of August.",
+    "source": "https://beestboulders.com/vestigingen/beest-boulders-den-haag-centrum/"
+  },
+  {
+    "lat": 52.392482,
+    "lon": 4.8512706,
+    "name": "Beest Boulders Het Lab",
+    "country": "NL",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The location page publishes only a block headed \"Zomerperiode juli & augustus\"; the operator gives no term-time week for any of its halls, so what is published expires at the end of August.",
+    "source": "https://beestboulders.com/vestigingen/het-lab-amsterdam/"
+  },
+  {
+    "lat": 51.92791,
+    "lon": 4.4763,
+    "name": "Beest Boulders Rotterdam",
+    "country": "NL",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The location page publishes only a block headed \"Zomerperiode juli & augustus\"; the operator gives no term-time week for any of its halls, so what is published expires at the end of August.",
+    "source": "https://beestboulders.com/boulderen/beest-boulders-rotterdam/"
+  },
+  {
+    "lat": 51.56567,
+    "lon": 5.1116,
+    "name": "Boulder Neoliet Tilburg",
+    "country": "NL",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The openingstijden page carries two weeks that disagree about four days: 23:30 against 23:00 on Monday, Tuesday, Wednesday and Friday, and 21:00 against 18:00 on Sunday.",
+    "source": "https://boulderneoliet.nl/nl/tilburg/openingstijden/"
+  },
+  {
+    "lat": 52.3925,
+    "lon": 4.8513889,
+    "name": "Boulderhal het Lab Amsterdam",
+    "country": "NL",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The location page publishes only a block headed \"Zomerperiode juli & augustus\"; the operator gives no term-time week for any of its halls, so what is published expires at the end of August.",
+    "source": "https://beestboulders.com/vestigingen/het-lab-amsterdam/"
+  },
+  {
+    "lat": 52.61783,
+    "lon": 4.76679,
+    "name": "Boulderhal Sendmaat",
+    "country": "NL",
+    "status": "ambiguous",
+    "checked": "2026-08-23",
+    "reason": "The homepage and the openingstijden page disagree about the closing time on every weekday (23:00 against 22:00) and about Sunday (22:00 against 18:00).",
+    "source": "https://www.boulderhalsendmast.nl/informatie/openingstijden/"
+  },
+  {
+    "lat": 52.22366,
+    "lon": 6.87172,
+    "name": "Boulderstation Enschede",
+    "country": "NL",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "Two weeks on one page — a regular one (Ma t/m Do 13.00-22.30, Vr 15.00-22.30, weekend 09.00-20.00) and a shorter one carrying \"Van 13-07 t/m 14-08 zijn we op donderdag avond alleen open op afspraak\" — plus a members-from-9:00 qualifier on every weekday row.",
+    "source": "https://www.boulderstationenschede.nl/openingstijden"
+  },
+  {
+    "lat": 52.18036,
+    "lon": 5.41522,
+    "name": "Kei Boulderhal De Hoef",
+    "country": "NL",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The operator publishes \"Zomeropeningstijden van 20 juli t/m 30 augustus\" for both its Amersfoort halls alongside the regular week, and the two differ on most days.",
+    "source": "https://keiboulderhal.nl/locaties/kei-boulderhal-de-hoef/"
+  },
+  {
+    "lat": 52.15676,
+    "lon": 5.36479,
+    "name": "Kei Boulderhal Wagenwerkplaats",
+    "country": "NL",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "Same as the operator's other Amersfoort hall: a summer week (20 July – 30 August) is published alongside the regular one.",
+    "source": "https://keiboulderhal.nl/locaties/kei-boulderhal-wagenwerkplaats/"
+  },
+  {
+    "lat": 52.02599,
+    "lon": 4.36448,
+    "name": "Revolt Bouldering Gym",
+    "country": "NL",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The page publishes a regular week and an \"Opening hours Summer holiday July 20 – August 23\" week beside it, with different times on six of the seven days.",
+    "source": "https://www.revoltclimbing.com/en/revolt-climbing-gym/"
+  },
+  {
+    "lat": 51.82188,
+    "lon": 5.7879,
+    "name": "Stadsmuur Nijmegen",
+    "country": "NL",
+    "status": "seasonal",
+    "checked": "2026-08-23",
+    "reason": "The weekend rows carry an asterisk reading \"Tijdens de zomervakantie sluit de hal in het weekend om 18.00\", three hours earlier than the 21:00 the table states.",
+    "source": "https://stadsmuur.com/ontdek/openingstijden-en-tarieven/"
   }
 ]
