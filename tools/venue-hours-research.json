@@ -1104,6 +1104,15 @@
   "reason": "Re-read: unchanged, and contradictory twice over. The visible block says Montag – Freitag 10:00 – 22:30 and Samstag/Sonntag 09:00 – 21:00/21:30 — itself two closing times for one row — while the page's own openingHours markup says Mo–Fr 10:00–23:00 and Sa–Su 09:00–22:00."
  },
  {
+  "lat": 52.503618,
+  "lon": 13.384007,
+  "name": "Basement Boulderstudio",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": 48.3896024,
   "lon": 10.8874895,
   "name": "Bloc-Hütte Augsburg",
@@ -1118,10 +1127,19 @@
   "lon": 11.6080863,
   "name": "BlocSchmiede",
   "country": "DE",
-  "status": "ambiguous",
+  "status": "no-official-site",
   "checked": "2026-08-23",
-  "reason": "The dataset carries two entries for this operator’s hall several kilometres apart and the site publishes one address; the verified venue link sits on the other entry, which already has these hours, so this one is left alone.",
-  "source": "https://blocschmiede-boulderhalle.de/kontakt-anfahrt/"
+  "reason": "The operator's site is established for the other BlocSchmiede entry 5.9 km away; which of the two coordinates is the hall cannot be settled, so no page is attributed to this one."
+ },
+ {
+  "lat": 51.73263739999999,
+  "lon": 10.6102795,
+  "name": "Bodebloc",
+  "country": "DE",
+  "status": "closed",
+  "checked": "2026-08-23",
+  "source": "https://bodebloc.de/",
+  "reason": "The hall's own site states it is closed indefinitely (\"bleibt leider auf unbestimmte Zeit geschlossen\"), so there is no schedule to record."
  },
  {
   "lat": 51.12048,
@@ -1164,14 +1182,67 @@
   "reason": "Two dated regimes and a stated closure: Oktober–März (Mi, Fr 18:00-21:00, So 14:00-17:00), April-Mai (Fr 18:00-21:00), and 'Ab den bayerischen Pfingstferien bis zum Ende der Sommerferien keine öffentlichen Öffnungszeiten'. The hall also says outright that it cannot always keep to the regular times."
  },
  {
+  "lat": 49.88015,
+  "lon": 8.63595,
+  "name": "Boulderhaus Darmstadt",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 49.88094719999999,
+  "lon": 8.6370545,
+  "name": "Boulderhaus Darmstadt",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 49.38701,
+  "lon": 8.67916,
+  "name": "Boulderhaus Heidelberg",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 49.5178159,
+  "lon": 8.5356193,
+  "name": "Boulderhaus Mannheim",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 49.51846,
+  "lon": 8.53509,
+  "name": "Boulderhaus Mannheim",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 48.49913,
+  "lon": 9.19966,
+  "name": "Boulderhaus Reutlingen",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": 50.937531,
   "lon": 6.9602786,
   "name": "Boulderplanet",
   "country": "DE",
-  "status": "ambiguous",
+  "status": "no-official-site",
   "checked": "2026-08-23",
-  "reason": "The dataset carries two entries for this operator’s hall several kilometres apart and the site publishes one address; the verified venue link sits on the other entry, which already has these hours, so this one is left alone.",
-  "source": "https://boulderplanet.de/standort-oeffnungszeiten/"
+  "reason": "The operator's site is established for the other Boulderplanet entry 4.1 km away; this coordinate is a city centroid, so no page is attributed to it."
  },
  {
   "lat": 52.44968,
@@ -1182,6 +1253,15 @@
   "checked": "2026-08-23",
   "source": "https://boulderzimmer.com/",
   "reason": "Re-read: unchanged. Registration is compulsory before a first visit and entry runs through a booking page; the only times on the site are the booking widget's own configuration (Mo–Su 06:00–23:00), which is what the widget will offer, not a published opening schedule."
+ },
+ {
+  "lat": 49.41254,
+  "lon": 8.64456,
+  "name": "Crimp Boulderhalle",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 47.72,
@@ -1254,6 +1334,15 @@
   "reason": "Re-read: unchanged. Hours are published as Hauptsaison (Oktober–Mai) and Nebensaison (Juni–September) behind script-driven tabs, so neither week is in the fetched document; the same page also reserves the right to close up to two hours early when it is quiet."
  },
  {
+  "lat": 47.7856606,
+  "lon": 11.0607786,
+  "name": "DAV Kletterzentrum Peißenberg",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": 50.86894011939988,
   "lon": 8.004782526563105,
   "name": "DAV Kletterzentrum Siegerland",
@@ -1324,6 +1413,15 @@
   "reason": "Re-read: unchanged. Monday is stated two ways on one page — 'Mo: (09:00 Uhr*) 15:00 Uhr bis 23:00 Uhr', with a footnote that bouldering is possible from 09:00 while the hall and bistro are only fully usable from 15:00 — and a third time in the summer-holiday block (Montag bis Sonntag 09:00–23:00, listed Mondays 20.07.–31.08.2026), which is the regime in force on the day of the check."
  },
  {
+  "lat": 49.18795369999999,
+  "lon": 8.1331486,
+  "name": "Fitz Rocks – Kletterarena der Südpfalz",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": 49.71407,
   "lon": 11.09393,
   "name": "Frankenjura Academy",
@@ -1384,6 +1482,24 @@
   "reason": "Re-read, and filed the way Quergang is, because it is the same arrangement: 'Kletterbetrieb Mittwochs von 17:00 – 21:00 Uhr' is the only staffed public window, and everything else is 'Zugang mit Jahreskarte, täglich von 08:00 – 22:00 Uhr'. The other six days are not closed, so a week that called them closed would be wrong for every card holder."
  },
  {
+  "lat": 48.3031965,
+  "lon": 10.3627835,
+  "name": "Kletterzentrum Krumbach",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 47.8076383,
+  "lon": 10.6401397,
+  "name": "Kraftwerk Allgäu",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": 53.2500572,
   "lon": 10.42253,
   "name": "Kraftwerk Lüneburg",
@@ -1392,6 +1508,15 @@
   "checked": "2026-08-23",
   "source": "https://www.urbanapes.de/lueneburg/preise-zeiten/",
   "reason": "Re-read: unchanged. Two dated regimes — Sommer (01.07.–30.09.) Mo–Fr 14:30–22:30 and Winter (01.10.–30.06.) Mo–Fr 13:00–22:30, weekends 11:00–21:00 in both. A single grid would be wrong for nine months of the year or for three."
+ },
+ {
+  "lat": 50.7935071,
+  "lon": 7.834766900000001,
+  "name": "Linie 9 Boulderlounge",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 51.0812495,
@@ -1414,6 +1539,15 @@
   "reason": "Same as the operator's other Dresden hall: the Postplatz location page prints no schedule, and the single Preise & Öffnungszeiten page never says which of the two halls it covers."
  },
  {
+  "lat": 49.4690662,
+  "lon": 7.1531582,
+  "name": "Moonboard 2016 Rocklands St Wendel",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": 48.3336544,
   "lon": 10.0371952,
   "name": "Moonboard Stuntwerk Senden",
@@ -1422,6 +1556,34 @@
   "checked": "2026-08-23",
   "source": "https://stuntwerk-senden.de/zeiten-und-preise/",
   "reason": "Re-read: unchanged. 'Mo-Fr: 14 – 22 Uhr, Sa-So & Feiertage: 10 – 20 Uhr' with 'Schulferien: ab 10 Uhr geöffnet' beside it — the weekday opening moves with the Bavarian school-holiday calendar."
+ },
+ {
+  "lat": 47.8677574,
+  "lon": 12.6384037,
+  "name": "Moonboard Traunstein Sportzentrum",
+  "country": "DE",
+  "status": "seasonal",
+  "checked": "2026-08-23",
+  "source": "https://sportzentrum-traunstein.de/",
+  "reason": "The centre publishes its week per season and per facility: \"Sport - Juni / Juli / August: Montag - Freitag von 06 - 21 Uhr, Samstag & Sonntag von 07 - 19 Uhr, Feiertage von 11 - 18 Uhr\", with a separate block for the therapy wing. No year-round week is stated."
+ },
+ {
+  "lat": 54.096812,
+  "lon": 12.103011,
+  "name": "Moonshine",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 48.12819,
+  "lon": 11.55968,
+  "name": "MTV München von 1879 e.V.",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 48.98238,
@@ -1454,6 +1616,15 @@
   "reason": "Re-read, and the reason is sharper than 'no schedule': the club publishes supervised 'freies Bouldern' slots (Dienstags 17:30–20:00, Mittwochs 18:00–20:00, Freitags 16:00–18:00) and tells everyone else 'Nicht-Mitglieder melden sich bitte vorab per Mail und vereinbaren einen Termin fürs Schnupperklettern'."
  },
  {
+  "lat": 50.2696397,
+  "lon": 8.4422899,
+  "name": "Schmitten Power Room",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": 48.3681,
   "lon": 10.8718,
   "name": "Sport Sheds Augsburg",
@@ -1464,6 +1635,15 @@
   "reason": "Re-read: unchanged. The same page states the weekend twice and differently — the FAQ prose says 'an Samstagen, Sonntagen und Feiertagen von 10.00 bis 20.00 Uhr', the ÖFFNUNGSZEITEN block says 'Samstag, Sonntag & Feiertage: 09.30 — 20.00 Uhr'."
  },
  {
+  "lat": 48.7023247,
+  "lon": 9.7120357,
+  "name": "Steinzeit_Boulderhalle",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
   "lat": 51.42705348363851,
   "lon": 6.77908409140653,
   "name": "Stuntwerk Duisburg",
@@ -1472,6 +1652,15 @@
   "checked": "2026-08-23",
   "source": "https://stuntwerk.de/duisburg/",
   "reason": "Re-read: still not open. The location page prints 'Eröffnung: coming soon' directly above 'Öffnungszeiten: Montag - Sonntag 09-23 Uhr', and the price list is 'bald verfügbar'. The week is an intention; the hall gets hours when it opens."
+ },
+ {
+  "lat": 48.6471033,
+  "lon": 9.4519635,
+  "name": "Stuntwerk Kirchheim",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 47.84814,
@@ -1488,10 +1677,18 @@
   "lon": 8.2450697,
   "name": "UNI Mainz Sportklettern",
   "country": "DE",
-  "status": "no-hours-on-official-site",
+  "status": "no-official-site",
   "checked": "2026-08-23",
-  "reason": "The university’s site publishes no schedule for the climbing wall.",
-  "source": "https://www.uni-mainz.de/"
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 51.29799,
+  "lon": 9.5247899,
+  "name": "Vertical World",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 51.01574,
@@ -1502,6 +1699,15 @@
   "checked": "2026-08-23",
   "source": "https://www.xxl-klettern.de/",
   "reason": "Re-read: unchanged. The homepage carries two versions of the same week and they disagree about Sunday — one block says 'Sonntag 09.00 – 21.00 Uhr Neu!', the other 'Sonntag 09.00 – 20.00 Uhr'."
+ },
+ {
+  "lat": 49.0131548,
+  "lon": 13.2340409,
+  "name": "Zwiesel Jugendcafe",
+  "country": "DE",
+  "status": "no-official-site",
+  "checked": "2026-08-23",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 57.04980430000001,

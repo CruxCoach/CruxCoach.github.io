@@ -7182,6 +7182,31 @@
   "evidence": "Mo-Fr: 09:00-22:30 Uhr | Sa-So: 09:00-21:30 Uhr"
  },
  {
+  "lat": 48.1092285,
+  "lon": 11.2899694,
+  "name": "Kletter- und Boulderzentrum München",
+  "country": "DE",
+  "source": "https://www.kbgilching.de/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "city",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "14:00-23:00",
+   "tue": "07:00-23:00",
+   "wed": "09:00-23:00",
+   "thu": "09:00-23:00",
+   "fri": "09:00-23:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Öffnungszeiten DAV Kletter- und Boulderzentrum München-West: Mo: 14:00 – 23:00, Di: 07:00 – 23:00, Mi, Do, Fr: 09:00 – 23:00, Sa, So, Feiertag: 09:00 – 21:00. DAV-Servicestelle der Sektion München: Mo – Fr: 14:00-19:30, Sa – So: 09:00-18:00.",
+  "note": "The centre and the section's service desk have separate blocks and the centre's is the one recorded; holidays take the weekend hours."
+ },
+ {
   "lat": 51.97887,
   "lon": 7.60992,
   "name": "KletterBar Münster",

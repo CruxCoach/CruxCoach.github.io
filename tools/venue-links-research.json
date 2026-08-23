@@ -301,8 +301,8 @@
     "name": "Basement Boulderstudio",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The candidate site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "checked": "2026-08-23",
+    "reason": "basement-boulderstudio.de, the domain the first pass logged, now answers with a redirect loop — fifty hops without resolving — so no page of it can be opened. basement.de is a software company.",
     "candidate": "https://basement-boulderstudio.de/"
   },
   {
@@ -311,8 +311,8 @@
     "name": "BlocSchmiede",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "BlocSchmiede's published address resolves about 5.6 km from this MoonBoard entry and its site names no board, so no second independent signal could be established.",
+    "checked": "2026-08-23",
+    "reason": "blocschmiede-boulderhalle.de is the right operator, and that is the problem: the dataset carries two BlocSchmiede entries 5.9 km apart, the operator publishes one address, and nothing here says which coordinate is the hall. The other entry already carries this link.",
     "candidate": "https://blocschmiede-boulderhalle.de/"
   },
   {
@@ -321,19 +321,9 @@
     "name": "Bodebloc",
     "country": "DE",
     "status": "closed",
-    "checked": "2026-08-22",
-    "reason": "bodebloc.de now redirects to the operator's ski workshop, whose page states that the Bodebloc remains closed indefinitely.",
-    "candidate": "https://ski-baehr.de/"
-  },
-  {
-    "lat": 50.4896563,
-    "lon": 12.1270898,
-    "name": "Boulderhalle Plauen ‘School Project’  Moonboard 2019",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "boulderhalle-plauen.de names the hall but prints no street address, postcode or town anywhere on the page, so nothing on it can be matched to this coordinate.",
-    "candidate": "https://boulderhalle-plauen.de/"
+    "checked": "2026-08-23",
+    "candidate": "https://bodebloc.de/",
+    "reason": "The venue's own site says so in one line: \"Der Bodebloc bleibt leider auf unbestimmte Zeit geschlossen!\" — closed indefinitely. A link to a page that says the hall is shut is not a website for a visitor to act on."
   },
   {
     "lat": 49.88015,
@@ -341,8 +331,8 @@
     "name": "Boulderhaus Darmstadt",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "checked": "2026-08-23",
+    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read.",
     "candidate": "https://www.boulderhaus.net/darmstadt/"
   },
   {
@@ -351,8 +341,8 @@
     "name": "Boulderhaus Darmstadt",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "checked": "2026-08-23",
+    "reason": "Same hall as the venue about 150 m away. boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read.",
     "candidate": "https://www.boulderhaus.net/darmstadt/"
   },
   {
@@ -361,8 +351,8 @@
     "name": "Boulderhaus Heidelberg",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "checked": "2026-08-23",
+    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read.",
     "candidate": "https://www.boulderhaus.net/heidelberg/"
   },
   {
@@ -371,8 +361,8 @@
     "name": "Boulderhaus Mannheim",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "checked": "2026-08-23",
+    "reason": "Same hall as the venue about 90 m away. boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read.",
     "candidate": "https://www.boulderhaus.net/mannheim/"
   },
   {
@@ -381,8 +371,8 @@
     "name": "Boulderhaus Mannheim",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "checked": "2026-08-23",
+    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read.",
     "candidate": "https://www.boulderhaus.net/mannheim/"
   },
   {
@@ -391,19 +381,9 @@
     "name": "Boulderhaus Reutlingen",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site answers HTTP 403 to every request we make, so no page could be opened and read first-hand.",
+    "checked": "2026-08-23",
+    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read.",
     "candidate": "https://www.boulderhaus.net/boulderhaus-reutlingen/"
-  },
-  {
-    "lat": 52.52000659999999,
-    "lon": 13.404954,
-    "name": "Boulderklub Kreuzberg",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "Boulderklub Kreuzberg's published address resolves about 3.2 km from this MoonBoard entry and its site names no board, so no second independent signal could be established.",
-    "candidate": "https://boulderklub.de/"
   },
   {
     "lat": 50.937531,
@@ -411,8 +391,8 @@
     "name": "Boulderplanet",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "Boulderplanet's published address resolves about 4 km from this MoonBoard entry and its site names no board, so no second independent signal ties this coordinate to the gym.",
+    "checked": "2026-08-23",
+    "reason": "boulderplanet.de is the right operator, and the dataset carries two Boulderplanet entries 4.1 km apart while the operator publishes one hall, in Köln-Ehrenfeld. The other entry already carries this link; this coordinate is the centre of Köln, and nothing says which is the hall.",
     "candidate": "https://boulderplanet.de/"
   },
   {
@@ -421,19 +401,19 @@
     "name": "Crimp Boulderhalle",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand.",
+    "checked": "2026-08-23",
+    "reason": "crimp-heidelberg.com answers 403 to every fetcher and header set tried, so the page the first pass identified still cannot be read. crimpclimbing.com is an unrelated site.",
     "candidate": "https://www.crimp-heidelberg.com/"
   },
   {
-    "lat": 50.13717,
-    "lon": 8.73259,
-    "name": "Dynochrom Boulderhalle",
+    "lat": 47.7856606,
+    "lon": 11.0607786,
+    "name": "DAV Kletterzentrum Peißenberg",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site answers HTTP 403 to our requests, so the official page could not be opened and read first-hand. A later sweep got 429 from this host and from several unrelated ones at the same moment, so the refusal is probably on the fetching side rather than the operator's — worth retrying from elsewhere before concluding anything.",
-    "candidate": "https://dynochrom.com/"
+    "checked": "2026-08-23",
+    "reason": "peissenberg.de is the market town's own site and carries no page describing the DAV climbing centre; peissenberg.com presents a certificate that does not cover its hostname. No DAV Sektion page for Peißenberg was reached.",
+    "candidate": "https://peissenberg.de/"
   },
   {
     "lat": 49.18795369999999,
@@ -441,28 +421,88 @@
     "name": "Fitz Rocks – Kletterarena der Südpfalz",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site answers HTTP 500 to our requests, so the official page could not be opened and read first-hand.",
+    "checked": "2026-08-23",
+    "reason": "fitzrocks.de answers 500 on both hosts, to every header set tried, so the page the first pass identified cannot be read. The one chain sibling named Kletterarena is a different gym 78 km away in Neckarsulm.",
     "candidate": "https://fitzrocks.de/"
   },
   {
-    "lat": 48.1092285,
-    "lon": 11.2899694,
-    "name": "Kletter- und Boulderzentrum München",
-    "country": "DE",
-    "status": "ambiguous",
-    "checked": "2026-08-22",
-    "reason": "\"Kletter- und Boulderzentrum München\" matches three DAV halls of that name; this coordinate sits 1.2 km from the Gilching hall and 20 km from the others, so which one it means is not decidable."
-  },
-  {
-    "lat": 47.8677574,
-    "lon": 12.6384037,
-    "name": "Moonboard Traunstein Sportzentrum",
+    "lat": 48.3031965,
+    "lon": 10.3627835,
+    "name": "Kletterzentrum Krumbach",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The Traunstein sports centre reachable at sportzentrum-traunstein.de is a fitness and therapy centre that never mentions climbing or bouldering, so it cannot be tied to this venue.",
-    "candidate": "https://sportzentrum-traunstein.de/"
+    "checked": "2026-08-23",
+    "reason": "krumbach.de is the town's own site with no page for a climbing centre, and krumbach.com presents a certificate that does not cover its hostname.",
+    "candidate": "https://krumbach.de/"
+  },
+  {
+    "lat": 47.8076383,
+    "lon": 10.6401397,
+    "name": "Kraftwerk Allgäu",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "kraftwerk.de and kraftwerk.com are both the band's and an unrelated brand's sites; nothing found names a climbing hall in Marktoberdorf.",
+    "candidate": "https://kraftwerk.de/"
+  },
+  {
+    "lat": 50.7935071,
+    "lon": 7.834766900000001,
+    "name": "Linie 9 Boulderlounge",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "linie.de does not answer and linie.com is a Norwegian aquavit brand. \"Linie 9 Boulderlounge\" in Freudenberg yields nothing else.",
+    "candidate": "https://linie.com/"
+  },
+  {
+    "lat": 49.4690662,
+    "lon": 7.1531582,
+    "name": "Moonboard 2016 Rocklands St Wendel",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "rocklands.de answers 403 to every fetcher and rocklands.com is a barbecue company in Virginia. The dataset name is a board model plus a hall nickname.",
+    "candidate": "https://rocklands.de/"
+  },
+  {
+    "lat": 54.096812,
+    "lon": 12.103011,
+    "name": "Moonshine",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "moonshine.de is a spirits brand and moonshine.com does not answer. The one curated venue within 200 m is 45 Grad, a different hall 84 m away whose site is Romanian-hosted and names no second wall.",
+    "candidate": "https://45grad.ro/"
+  },
+  {
+    "lat": 48.12819,
+    "lon": 11.55968,
+    "name": "MTV München von 1879 e.V.",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: none of the name-derived domains for \"MTV München von 1879 e.V.\" exists, and the coordinate is the centre of Munich."
+  },
+  {
+    "lat": 50.2696397,
+    "lon": 8.4422899,
+    "name": "Schmitten Power Room",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "schmitten.de is the municipality of Schmitten and carries no page for a training room. \"Schmitten Power Room\" is a private board.",
+    "candidate": "https://schmitten.de/"
+  },
+  {
+    "lat": 48.7023247,
+    "lon": 9.7120357,
+    "name": "Steinzeit_Boulderhalle",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "steinzeit.de is a natural-stone merchant in Bonn. Nothing found names a bouldering hall in Eislingen.",
+    "candidate": "https://steinzeit.de/"
   },
   {
     "lat": 48.6471033,
@@ -470,19 +510,18 @@
     "name": "Stuntwerk Kirchheim",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "Upstream still calls this Stuntwerk Kirchheim; the hall now trades as TOP Boulder, whose site answers HTTP 403, so the identification could not be confirmed first-hand. A later sweep got 429 from this host and from several unrelated ones at the same moment, so the refusal is probably on the fetching side rather than the operator's — worth retrying from elsewhere before concluding anything.",
-    "candidate": "https://topboulder-kirchheim.de/"
+    "checked": "2026-08-23",
+    "reason": "Stuntwerk publishes six halls — Köln, Krefeld, Essen, Senden, Rosenheim and Duisburg — and Kirchheim is not among them; stuntwerk-kirchheim.de redirects to that location chooser. The only Kirchheim hall is TOP Boulder at Stuttgarter Straße 47, 900 m from this coordinate and already linked as its own entry. Which of the two coordinates is the hall cannot be settled from here.",
+    "candidate": "https://stuntwerk-kirchheim.de/"
   },
   {
-    "lat": 48.65009,
-    "lon": 9.44131,
-    "name": "TOP Boulder Kirchheim",
+    "lat": 49.9913901,
+    "lon": 8.2450697,
+    "name": "UNI Mainz Sportklettern",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The hall's own site answers HTTP 403 and the operator's location index gives no address for it, so nothing on an official page could be matched against this venue. A later sweep got 429 from this host and from several unrelated ones at the same moment, so the refusal is probably on the fetching side rather than the operator's — worth retrying from elsewhere before concluding anything.",
-    "candidate": "https://topboulder-kirchheim.de/"
+    "checked": "2026-08-23",
+    "reason": "unimainz.de answers with an empty document and no other domain resolves. The Hochschulsport pages of the Johannes Gutenberg University were not reached by any guess."
   },
   {
     "lat": 51.29799,
@@ -490,9 +529,19 @@
     "name": "Vertical World",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The operator's site answers HTTP 500 to our requests, so the official page could not be opened and read first-hand.",
+    "checked": "2026-08-23",
+    "reason": "verticalworld.de answers 500 on both hosts to every header set tried; verticalworld.com and its two subdomains are Vertical World in Seattle, 8,000 km away. Nothing readable names a hall in Kassel.",
     "candidate": "https://www.verticalworld.de/"
+  },
+  {
+    "lat": 49.0131548,
+    "lon": 13.2340409,
+    "name": "Zwiesel Jugendcafe",
+    "country": "DE",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "zwiesel.de is the town's tourism site and zwiesel.com does not answer. \"Zwiesel Jugendcafe\" is a youth café with a board and has no site of its own that was reached.",
+    "candidate": "https://zwiesel.de/"
   },
   {
     "lat": 55.7203436012916,
