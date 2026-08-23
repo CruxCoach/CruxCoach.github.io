@@ -78,5 +78,16 @@
     "name": "Madeira Climbing Center",
     "note": "Manually confirmed — the venue has a 2019 Masters MoonBoard.",
     "set": { "variant": "mb2019-masters" }
+  },
+  {
+    "board": "moonboard",
+    "lat": -79.5855917,
+    "lon": 43.6044775,
+    "name": "Up The Bloc",
+    "note": "Corrected a transposed upstream coordinate and aligned it with the verified Mississauga Kilter venue.",
+    "set": {
+      "lat": 43.60385,
+      "lon": -79.58441
+    }
   }
 ]

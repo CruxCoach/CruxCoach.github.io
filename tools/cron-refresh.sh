@@ -89,6 +89,12 @@ run() {
     RELEASE_TAG="$(grep -oE 'releases/download/[^/]+/' index.html | head -1 | cut -d/ -f3)"
   fi
 
+  echo "-- checking per-board upstream freshness"
+  /usr/bin/node tools/update-board-source-freshness.mjs \
+    || echo "source-freshness check failed; keeping the last verified metadata"
+  local freshness_changed=0
+  if ! git diff --quiet tools/board-source-freshness.json; then freshness_changed=1; fi
+
   echo "-- running build-boards-data.mjs"
   /usr/bin/node tools/build-boards-data.mjs || { echo "build failed"; return 2; }
 
@@ -98,7 +104,7 @@ run() {
   # generated HTML (boards/list.html + the injected block in
   # boards/index.html) is a pure function of the data with no timestamp,
   # so it changes if and only if boards.geojson does.
-  if git diff --quiet boards/data/boards.geojson; then
+  if git diff --quiet boards/data/boards.geojson && [ "$freshness_changed" -eq 0 ]; then
     echo "no dataset change; restoring generated files + exiting"
     git checkout -- boards/data/boards.meta.json \
       boards/list.html boards/index.html \
@@ -112,7 +118,8 @@ run() {
   echo "-- dataset changed: $summary"
   /usr/bin/node tools/update-sitemap-lastmod.mjs boards/index.html boards/list.html \
     || { echo "sitemap lastmod update failed"; return 3; }
-  git add boards/data/boards.geojson boards/data/boards.meta.json \
+  git add tools/board-source-freshness.json \
+    boards/data/boards.geojson boards/data/boards.meta.json \
     boards/list.html boards/index.html \
     de/boards/list.html de/boards/index.html sitemap.xml
   git -c user.name=CruxCoach -c user.email=dev@cruxcoach.de \

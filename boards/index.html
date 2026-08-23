@@ -23,6 +23,7 @@
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
 <link rel="apple-touch-icon" href="/assets/icon-512.png">
+<link rel="manifest" href="/boards/manifest.webmanifest">
 
 <script type="application/ld+json">
 {
@@ -81,7 +82,7 @@
           "name": "Why is my local gym's board missing from the map?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The map only shows boards that an owner has publicly listed in the upstream data feed. If a venue never registered its board, or marked it private, it will not appear. The dataset is refreshed daily as more listings are added."
+            "text": "The map imports the upstream source package daily, but individual feeds update independently. MoonBoard listings have not changed upstream since May 2026 because its location endpoint was withdrawn. A venue may also be missing if it never registered its board."
           }
         },
         {
@@ -89,7 +90,7 @@
           "name": "How accurate are the board locations and details?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Coordinates and board metadata come from the public dataset, with a small set of hand-verified corrections such as MoonBoard hardware year. Details like wall angle reflect what owners submitted and can lag behind real-world changes."
+            "text": "Coordinates and board metadata come from the public dataset, with a small set of hand-verified corrections. Each board system's last upstream data change is shown on this page. MoonBoard listings are currently frozen and may be outdated; other submitted details can also lag behind real-world changes."
           }
         },
         {
@@ -154,6 +155,13 @@
     margin: -1px; padding: 0; overflow: hidden;
     clip: rect(0 0 0 0); white-space: nowrap; border: 0;
   }
+  .skip-map-controls {
+    position: absolute; left: 1rem; top: 0; z-index: 2000;
+    transform: translateY(-150%); padding: 0.65rem 0.9rem;
+    background: #fff; color: #1a1a1a; border: 2px solid var(--accent);
+    border-radius: 0 0 6px 6px;
+  }
+  .skip-map-controls:focus { transform: translateY(0); }
 
   .container { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 
@@ -217,7 +225,7 @@
     max-width: 260px;
     /* Leaflet's container clips overflow when the panel grows past the
        viewport — scroll internally instead. */
-    max-height: calc(100vh - 220px);
+    max-height: var(--map-panel-max-height, calc(100vh - 220px));
     overflow-y: auto;
     overscroll-behavior: contain;
     display: none;
@@ -331,7 +339,7 @@
     fill: var(--accent); fill-opacity: 0.12;
     stroke: var(--accent); stroke-opacity: 0.35; stroke-width: 1;
   }
-  .legend h3 { margin: 0 0 8px; font-size: 0.95rem; color: #1a1a1a; }
+  .legend h2 { margin: 0 0 8px; font-size: 0.95rem; color: #1a1a1a; }
   .legend label {
     display: flex; align-items: center; cursor: pointer; user-select: none;
     padding: 1px 0;
@@ -434,11 +442,13 @@
   /* Custom marker dot (single-board venue) */
   .marker-dot {
     width: 14px; height: 14px; border-radius: 50%;
+    margin: 5px;
     border: 2px solid #fff; box-shadow: 0 0 3px rgba(0,0,0,0.6);
   }
   /* Pie marker (multi-board venue): SVG fills the wrapper */
   .marker-pie {
     width: 18px; height: 18px;
+    margin: 3px;
     filter: drop-shadow(0 0 2px rgba(0,0,0,0.55));
   }
   .marker-pie svg { display: block; }
@@ -453,7 +463,8 @@
 
   /* Popups: keep Leaflet's default light styling — only adjust spacing. */
   .leaflet-popup-content { margin: 12px 14px; font-size: 13px; min-width: 220px; }
-  .popup h4 { margin: 0 0 2px; font-size: 14px; }
+  .popup h2 { margin: 0 0 2px; font-size: 14px; }
+  .popup:focus { outline: 3px solid var(--accent); outline-offset: 2px; }
   .popup .meta { color: #666; font-size: 12px; }
   .popup a { font-size: 12px; }
   .popup-boards {
@@ -493,10 +504,19 @@
   }
   .popup-wellpass-yes { color: #2a8e3d; }
   .popup-wellpass-no  { color: #999; font-weight: 500; }
-  /* Curated official-website link, plus the UTC date it was last verified —
-     this is hand-checked data, so the popup says how fresh the check is. */
+  /* Curated official-website link. Per-venue verification metadata stays in
+     the private curation ledger and is never shipped to the browser. */
   .popup-site { margin: 4px 0 2px; font-size: 12px; }
   .popup-site .label { color: #999; margin-right: 4px; }
+  .popup-access { margin: 6px 0 2px; }
+  .popup-access-label {
+    display: inline-block; border: 1px solid #c9c4bf; border-radius: 999px;
+    padding: 1px 7px; color: #4a4642; background: #f6f3ef; font-size: 11px;
+  }
+  .source-freshness { margin: 1rem 0; padding: 0.8rem 1rem; border-left: 3px solid var(--accent); background: var(--bg); }
+  .source-freshness p { margin-bottom: 0.45rem; }
+  .source-freshness ul { margin: 0; }
+  .freshness-warning { color: #ffad80; font-weight: 600; }
 
   /* About / attribution panel under the map — collapsed by default so the
      map gets the vertical space; click the summary to expand. */
@@ -561,6 +581,14 @@
     border-radius: 6px;
   }
   .loading.error { color: #b00020; }
+  .map-empty {
+    position: absolute; z-index: 1100; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); text-align: center;
+    background: #fff; color: #1a1a1a; padding: 12px 16px;
+    border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  }
+  .map-empty[hidden] { display: none; }
+  .map-empty button { margin-top: 8px; padding: 5px 10px; cursor: pointer; }
 
   /* Mobile + narrow viewports: tighten chrome, larger touch targets,
      legend stays scroll-internal so it never blows past the screen. */
@@ -573,9 +601,8 @@
       max-width: min(260px, calc(100vw - 24px));
       font-size: 12.5px;
       padding: 8px 10px;
-      max-height: calc(100vh - 150px);
     }
-    .legend h3 { font-size: 0.9rem; }
+    .legend h2 { font-size: 0.9rem; }
     .legend label { padding: 3px 0; }
     .legend .chip { padding: 3px 10px; font-size: 12px; }
     .legend button[data-action], .legend button[data-bulk], .legend button[data-target] {
@@ -589,7 +616,6 @@
   /* Landscape phones — much less vertical room. Cap legend further so it
      doesn't dominate the map on short screens. */
   @media (max-height: 500px) {
-    .legend { max-height: calc(100vh - 100px); }
     #map { min-height: 50vh; }
   }
   /* Header download button. Self-contained: these pages share no stylesheet. */
@@ -623,6 +649,7 @@
 </style>
 </head>
 <body>
+<a class="skip-map-controls" href="#map-filters">Skip to map filters</a>
 
 <header>
   <div class="container">
@@ -659,6 +686,10 @@
   <h1 class="sr-only">Climbing Board Map — Kilter, Tension and MoonBoard Locations Worldwide</h1>
   <div id="map" role="application" aria-label="Map of climbing-board locations">
     <div class="loading" id="loading">Loading map data…</div>
+    <div class="map-empty" id="map-empty" role="status" aria-live="polite" hidden>
+      <div>No venues match these filters.</div>
+      <button type="button" id="map-empty-reset">Show all venues</button>
+    </div>
   </div>
   <noscript>
     <p class="container" style="padding:1.25rem 1.5rem;">
@@ -686,15 +717,15 @@
 
     <!-- GENERATED:board-stats START — produced by tools/build-boards-data.mjs; do not hand-edit between these markers, rebuild instead -->
     <p>
-      The map currently plots <strong>2,833 venues</strong>
-      across <strong>nine board systems</strong> in <strong>85 countries</strong>.
+      The map currently plots <strong>2,831 venues</strong>
+      across <strong>nine board systems</strong> in <strong>84 countries</strong>.
       Counts per system (a gym with two boards is counted once per system):
     </p>
     <table class="board-counts">
     <thead><tr><th scope="col">Board system</th><th scope="col">Venues</th></tr></thead>
     <tbody>
-      <tr><td>MoonBoard</td><td>1,514</td></tr>
-      <tr><td>Kilter Board</td><td>1,119</td></tr>
+      <tr><td>MoonBoard</td><td>1,376</td></tr>
+      <tr><td>Kilter Board</td><td>1,118</td></tr>
       <tr><td>Tension Board</td><td>362</td></tr>
       <tr><td>Grasshopper</td><td>42</td></tr>
       <tr><td>Decoy</td><td>24</td></tr>
@@ -703,12 +734,26 @@
       <tr><td>12climb</td><td>4</td></tr>
       <tr><td>Aurora</td><td>3</td></tr>
     </tbody>
-    <tfoot><tr><td>Distinct venues</td><td>2,833</td></tr></tfoot>
+    <tfoot><tr><td>Distinct venues</td><td>2,831</td></tr></tfoot>
   </table>
     <p><strong>1,001</strong> of them link to a manually verified official website.</p>
+    <div class="source-freshness">
+      <p>The source package is fetched daily. Individual feeds only change when their upstream provider publishes new data:</p>
+      <ul>
+      <li><strong>Kilter Board</strong>: Last upstream change <time datetime="2026-08-19">2026-08-19</time>.</li>
+      <li><strong>Tension Board</strong>: Last upstream change <time datetime="2026-08-14">2026-08-14</time>.</li>
+      <li><strong>MoonBoard</strong>: Last upstream change <time datetime="2026-05-14">2026-05-14</time>. <strong class="freshness-warning">feed frozen; entries may be outdated</strong></li>
+      <li><strong>Grasshopper</strong>: Last upstream change <time datetime="2026-06-11">2026-06-11</time>.</li>
+      <li><strong>Decoy</strong>: Last upstream change <time datetime="2026-07-23">2026-07-23</time>.</li>
+      <li><strong>So iLL</strong>: Last upstream change <time datetime="2026-08-05">2026-08-05</time>.</li>
+      <li><strong>Touchstone</strong>: Last upstream change <time datetime="2025-04-27">2025-04-27</time>.</li>
+      <li><strong>Aurora</strong>: Last upstream change <time datetime="2026-02-25">2026-02-25</time>.</li>
+      <li><strong>12climb</strong>: Last upstream change <time datetime="2025-09-22">2025-09-22</time>.</li>
+      </ul>
+    </div>
     <p>
       Prefer a plain list? <a href="/boards/list.html">Browse the full directory of
-      all 2,833 venues, grouped by country →</a>
+      all 2,831 venues, grouped by country →</a>
     </p>
     <!-- GENERATED:board-stats END -->
 
@@ -722,6 +767,7 @@
       <li><strong>Click any marker</strong> for that venue's boards, wall details and a link to open the spot in OpenStreetMap.</li>
     </ul>
     <p>Your map position and filter choices are saved in your browser, so reloading the page returns you to the same view.</p>
+    <p>Something wrong or a gym missing? <a href="https://codeberg.org/CruxCoach/cruxcoach-pages/issues/new" target="_blank" rel="noopener" referrerpolicy="no-referrer">Report a correction or add a venue</a>.</p>
 
     <h3>Board systems on the map</h3>
     <p>
@@ -751,9 +797,10 @@
     <ul>
       <li>
         <a href="https://github.com/Stevie-Ray/hangtime-climbing-boards">hangtime-climbing-boards</a>
-        — a daily-updated, public-domain GeoJSON dataset of Aurora-system
-        boards (Kilter, Tension, Grasshopper, Decoy, So iLL, Touchstone,
-        Aurora) plus MoonBoard and 12climb.
+        — a public-domain GeoJSON dataset of Aurora-system boards (Kilter,
+        Tension, Grasshopper, Decoy, So iLL, Touchstone, Aurora) plus MoonBoard
+        and 12climb. We fetch its package daily; the individual feeds have
+        different update dates and limitations.
       </li>
       <li>
         Map tiles by <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.
@@ -763,9 +810,12 @@
 
     <h3>Refresh cadence</h3>
     <p>
-      The upstream dataset is re-pulled daily and the snapshot committed, on
-      top of a small set of hand-verified corrections. Build timestamp and
-      per-board counts:
+      We re-pull the upstream package daily and commit changed snapshots on top
+      of a small set of hand-verified corrections. That does not mean every
+      board feed changed that day: the source-level dates above show the last
+      actual upstream change. In particular, MoonBoard's former location
+      endpoint was withdrawn and its feed has been frozen since May 2026.
+      Build timestamp and per-board counts:
       <a href="/boards/data/boards.meta.json"><code>boards.meta.json</code></a>.
     </p>
 
@@ -778,10 +828,10 @@
       <dd>The Kilter and Tension boards use the Aurora Climbing system: LED-lit holds and, usually, an adjustable wall angle. The MoonBoard uses a fixed grid of holds at a set angle with its own app and benchmark problems. The systems are not compatible — a problem set on one will not transfer to another.</dd>
 
       <dt>Why is my local gym's board missing from the map?</dt>
-      <dd>The map only shows boards that an owner has publicly listed in the upstream data feed. If a venue never registered its board, or marked it private, it will not appear. The dataset is refreshed daily as more listings are added.</dd>
+      <dd>The map imports the upstream source package daily, but individual feeds update independently. MoonBoard listings have not changed upstream since May 2026 because its location endpoint was withdrawn. A venue may also be missing if it never registered its board.</dd>
 
       <dt>How accurate are the board locations and details?</dt>
-      <dd>Coordinates and board metadata come from the public dataset, with a small set of hand-verified corrections such as MoonBoard hardware year. Details like wall angle reflect what owners submitted and can lag behind real-world changes.</dd>
+      <dd>Coordinates and board metadata come from the public dataset, with a small set of hand-verified corrections. Each board system's last upstream data change is shown on this page. MoonBoard listings are currently frozen and may be outdated; other submitted details can also lag behind real-world changes.</dd>
 
       <dt>Is the climbing board map free to use?</dt>
       <dd>Yes. The map is part of CruxCoach, an open-source, ad-free project. It needs no account and costs nothing to use.</dd>
@@ -798,7 +848,7 @@
 
 <script src="/assets/vendor/leaflet/leaflet.js"></script>
 <script src="/assets/vendor/leaflet/leaflet.markercluster.js"></script>
-<script src="/boards/map.js?v=20260822-1"></script>
+<script src="/boards/map.js?v=20260823-1"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 
 <script>

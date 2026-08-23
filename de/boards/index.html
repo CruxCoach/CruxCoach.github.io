@@ -23,6 +23,7 @@
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
 <link rel="apple-touch-icon" href="/assets/icon-512.png">
+<link rel="manifest" href="/de/boards/manifest.webmanifest">
 
 <script type="application/ld+json">
 {
@@ -84,7 +85,7 @@
           "name": "Warum fehlt das Board meiner Halle auf der Karte?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Die Karte zeigt nur Boards, die ein Betreiber öffentlich im Upstream-Datenfeed gelistet hat. Hat eine Halle ihr Board nie registriert oder als privat markiert, taucht es nicht auf. Der Datensatz wird täglich aktualisiert, sobald neue Einträge dazukommen."
+            "text": "Die Karte importiert das Upstream-Quellpaket täglich, aber die einzelnen Feeds werden unabhängig aktualisiert. MoonBoard-Einträge haben sich upstream seit Mai 2026 nicht mehr geändert, weil der Standort-Endpunkt eingestellt wurde. Eine Halle kann außerdem fehlen, wenn sie ihr Board nie registriert hat."
           }
         },
         {
@@ -92,7 +93,7 @@
           "name": "Wie genau sind die Board-Standorte und -Details?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Koordinaten und Board-Metadaten stammen aus dem öffentlichen Datensatz, ergänzt um eine kleine Zahl handverifizierter Korrekturen wie das MoonBoard-Hardware-Jahr. Angaben wie der Wandwinkel geben wieder, was Betreiber eingetragen haben, und können der Realität hinterherhinken."
+            "text": "Koordinaten und Board-Metadaten stammen aus dem öffentlichen Datensatz, ergänzt um wenige manuell geprüfte Korrekturen. Die letzte Upstream-Datenänderung jedes Board-Systems steht auf dieser Seite. MoonBoard-Einträge sind derzeit eingefroren und können veraltet sein; auch andere eingereichte Angaben können realen Änderungen hinterherhinken."
           }
         },
         {
@@ -157,6 +158,13 @@
     margin: -1px; padding: 0; overflow: hidden;
     clip: rect(0 0 0 0); white-space: nowrap; border: 0;
   }
+  .skip-map-controls {
+    position: absolute; left: 1rem; top: 0; z-index: 2000;
+    transform: translateY(-150%); padding: 0.65rem 0.9rem;
+    background: #fff; color: #1a1a1a; border: 2px solid var(--accent);
+    border-radius: 0 0 6px 6px;
+  }
+  .skip-map-controls:focus { transform: translateY(0); }
 
   .container { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
 
@@ -220,7 +228,7 @@
     max-width: 260px;
     /* Leaflet's container clips overflow when the panel grows past the
        viewport — scroll internally instead. */
-    max-height: calc(100vh - 220px);
+    max-height: var(--map-panel-max-height, calc(100vh - 220px));
     overflow-y: auto;
     overscroll-behavior: contain;
     display: none;
@@ -334,7 +342,7 @@
     fill: var(--accent); fill-opacity: 0.12;
     stroke: var(--accent); stroke-opacity: 0.35; stroke-width: 1;
   }
-  .legend h3 { margin: 0 0 8px; font-size: 0.95rem; color: #1a1a1a; }
+  .legend h2 { margin: 0 0 8px; font-size: 0.95rem; color: #1a1a1a; }
   .legend label {
     display: flex; align-items: center; cursor: pointer; user-select: none;
     padding: 1px 0;
@@ -437,11 +445,13 @@
   /* Custom marker dot (single-board venue) */
   .marker-dot {
     width: 14px; height: 14px; border-radius: 50%;
+    margin: 5px;
     border: 2px solid #fff; box-shadow: 0 0 3px rgba(0,0,0,0.6);
   }
   /* Pie marker (multi-board venue): SVG fills the wrapper */
   .marker-pie {
     width: 18px; height: 18px;
+    margin: 3px;
     filter: drop-shadow(0 0 2px rgba(0,0,0,0.55));
   }
   .marker-pie svg { display: block; }
@@ -456,7 +466,8 @@
 
   /* Popups: keep Leaflet's default light styling — only adjust spacing. */
   .leaflet-popup-content { margin: 12px 14px; font-size: 13px; min-width: 220px; }
-  .popup h4 { margin: 0 0 2px; font-size: 14px; }
+  .popup h2 { margin: 0 0 2px; font-size: 14px; }
+  .popup:focus { outline: 3px solid var(--accent); outline-offset: 2px; }
   .popup .meta { color: #666; font-size: 12px; }
   .popup a { font-size: 12px; }
   .popup-boards {
@@ -496,10 +507,19 @@
   }
   .popup-wellpass-yes { color: #2a8e3d; }
   .popup-wellpass-no  { color: #999; font-weight: 500; }
-  /* Curated official-website link, plus the UTC date it was last verified —
-     this is hand-checked data, so the popup says how fresh the check is. */
+  /* Curated official-website link. Per-venue verification metadata stays in
+     the private curation ledger and is never shipped to the browser. */
   .popup-site { margin: 4px 0 2px; font-size: 12px; }
   .popup-site .label { color: #999; margin-right: 4px; }
+  .popup-access { margin: 6px 0 2px; }
+  .popup-access-label {
+    display: inline-block; border: 1px solid #c9c4bf; border-radius: 999px;
+    padding: 1px 7px; color: #4a4642; background: #f6f3ef; font-size: 11px;
+  }
+  .source-freshness { margin: 1rem 0; padding: 0.8rem 1rem; border-left: 3px solid var(--accent); background: var(--bg); }
+  .source-freshness p { margin-bottom: 0.45rem; }
+  .source-freshness ul { margin: 0; }
+  .freshness-warning { color: #ffad80; font-weight: 600; }
 
   /* About / attribution panel under the map — collapsed by default so the
      map gets the vertical space; click the summary to expand. */
@@ -564,6 +584,14 @@
     border-radius: 6px;
   }
   .loading.error { color: #b00020; }
+  .map-empty {
+    position: absolute; z-index: 1100; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); text-align: center;
+    background: #fff; color: #1a1a1a; padding: 12px 16px;
+    border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  }
+  .map-empty[hidden] { display: none; }
+  .map-empty button { margin-top: 8px; padding: 5px 10px; cursor: pointer; }
 
   /* Mobile + narrow viewports: tighten chrome, larger touch targets,
      legend stays scroll-internal so it never blows past the screen. */
@@ -576,9 +604,8 @@
       max-width: min(260px, calc(100vw - 24px));
       font-size: 12.5px;
       padding: 8px 10px;
-      max-height: calc(100vh - 150px);
     }
-    .legend h3 { font-size: 0.9rem; }
+    .legend h2 { font-size: 0.9rem; }
     .legend label { padding: 3px 0; }
     .legend .chip { padding: 3px 10px; font-size: 12px; }
     .legend button[data-action], .legend button[data-bulk], .legend button[data-target] {
@@ -592,7 +619,6 @@
   /* Landscape phones — much less vertical room. Cap legend further so it
      doesn't dominate the map on short screens. */
   @media (max-height: 500px) {
-    .legend { max-height: calc(100vh - 100px); }
     #map { min-height: 50vh; }
   }
   /* Header download button. Self-contained: these pages share no stylesheet. */
@@ -626,6 +652,7 @@
 </style>
 </head>
 <body>
+<a class="skip-map-controls" href="#map-filters">Zu den Kartenfiltern springen</a>
 
 <header>
   <div class="container">
@@ -662,6 +689,10 @@
   <h1 class="sr-only">Kletterboard-Karte — Kilter-, Tension- und MoonBoard-Standorte weltweit</h1>
   <div id="map" role="application" aria-label="Karte der Kletterboard-Standorte">
     <div class="loading" id="loading">Kartendaten werden geladen …</div>
+    <div class="map-empty" id="map-empty" role="status" aria-live="polite" hidden>
+      <div>Keine Hallen entsprechen diesen Filtern.</div>
+      <button type="button" id="map-empty-reset">Alle Hallen anzeigen</button>
+    </div>
   </div>
   <noscript>
     <p class="container" style="padding:1.25rem 1.5rem;">
@@ -689,15 +720,15 @@
 
     <!-- GENERATED:board-stats START — produced by tools/build-boards-data.mjs; do not hand-edit between these markers, rebuild instead -->
     <p>
-      Die Karte verzeichnet derzeit <strong>2.833 Standorte</strong>
-      über <strong>neun Board-Systeme</strong> in <strong>85 Ländern</strong>.
+      Die Karte verzeichnet derzeit <strong>2.831 Standorte</strong>
+      über <strong>neun Board-Systeme</strong> in <strong>84 Ländern</strong>.
       Zähler pro System (eine Halle mit zwei Boards zählt einmal pro System):
     </p>
     <table class="board-counts">
     <thead><tr><th scope="col">Board-System</th><th scope="col">Standorte</th></tr></thead>
     <tbody>
-      <tr><td>MoonBoard</td><td>1.514</td></tr>
-      <tr><td>Kilter Board</td><td>1.119</td></tr>
+      <tr><td>MoonBoard</td><td>1.376</td></tr>
+      <tr><td>Kilter Board</td><td>1.118</td></tr>
       <tr><td>Tension Board</td><td>362</td></tr>
       <tr><td>Grasshopper</td><td>42</td></tr>
       <tr><td>Decoy</td><td>24</td></tr>
@@ -706,12 +737,26 @@
       <tr><td>12climb</td><td>4</td></tr>
       <tr><td>Aurora</td><td>3</td></tr>
     </tbody>
-    <tfoot><tr><td>Standorte gesamt</td><td>2.833</td></tr></tfoot>
+    <tfoot><tr><td>Standorte gesamt</td><td>2.831</td></tr></tfoot>
   </table>
     <p>Bei <strong>1.001</strong> davon ist eine manuell geprüfte offizielle Website verlinkt.</p>
+    <div class="source-freshness">
+      <p>Das Quellpaket wird täglich abgerufen. Einzelne Feeds ändern sich nur, wenn der jeweilige Anbieter neue Daten veröffentlicht:</p>
+      <ul>
+      <li><strong>Kilter Board</strong>: Letzte Änderung upstream <time datetime="2026-08-19">2026-08-19</time>.</li>
+      <li><strong>Tension Board</strong>: Letzte Änderung upstream <time datetime="2026-08-14">2026-08-14</time>.</li>
+      <li><strong>MoonBoard</strong>: Letzte Änderung upstream <time datetime="2026-05-14">2026-05-14</time>. <strong class="freshness-warning">Feed eingefroren; Einträge können veraltet sein</strong></li>
+      <li><strong>Grasshopper</strong>: Letzte Änderung upstream <time datetime="2026-06-11">2026-06-11</time>.</li>
+      <li><strong>Decoy</strong>: Letzte Änderung upstream <time datetime="2026-07-23">2026-07-23</time>.</li>
+      <li><strong>So iLL</strong>: Letzte Änderung upstream <time datetime="2026-08-05">2026-08-05</time>.</li>
+      <li><strong>Touchstone</strong>: Letzte Änderung upstream <time datetime="2025-04-27">2025-04-27</time>.</li>
+      <li><strong>Aurora</strong>: Letzte Änderung upstream <time datetime="2026-02-25">2026-02-25</time>.</li>
+      <li><strong>12climb</strong>: Letzte Änderung upstream <time datetime="2025-09-22">2025-09-22</time>.</li>
+      </ul>
+    </div>
     <p>
       Lieber eine einfache Liste? <a href="/de/boards/list.html">Zum vollständigen Verzeichnis
-      aller 2.833 Standorte, nach Land gruppiert →</a>
+      aller 2.831 Standorte, nach Land gruppiert →</a>
     </p>
     <!-- GENERATED:board-stats END -->
 
@@ -725,6 +770,7 @@
       <li><strong>Beliebigen Marker anklicken</strong> für die Boards des Standorts, Wand-Details und einen Link, der den Spot in OpenStreetMap öffnet.</li>
     </ul>
     <p>Kartenposition und Filterauswahl werden im Browser gespeichert — nach einem Neuladen der Seite landest du wieder in derselben Ansicht.</p>
+    <p>Stimmt etwas nicht oder fehlt eine Halle? <a href="https://codeberg.org/CruxCoach/cruxcoach-pages/issues/new" target="_blank" rel="noopener" referrerpolicy="no-referrer">Korrektur melden oder Halle ergänzen</a>.</p>
 
     <h3>Board-Systeme auf der Karte</h3>
     <p>
@@ -754,9 +800,10 @@
     <ul>
       <li>
         <a href="https://github.com/Stevie-Ray/hangtime-climbing-boards">hangtime-climbing-boards</a>
-        — ein täglich aktualisierter, gemeinfreier GeoJSON-Datensatz von
-        Aurora-System-Boards (Kilter, Tension, Grasshopper, Decoy, So iLL,
-        Touchstone, Aurora) plus MoonBoard und 12climb.
+        — ein gemeinfreier GeoJSON-Datensatz mit Aurora-System-Boards (Kilter,
+        Tension, Grasshopper, Decoy, So iLL, Touchstone, Aurora) sowie MoonBoard
+        und 12climb. Wir rufen das Paket täglich ab; die einzelnen Feeds haben
+        unterschiedliche Aktualisierungsstände und Einschränkungen.
       </li>
       <li>
         Kartenkacheln von <a href="https://www.openstreetmap.org/copyright">OpenStreetMap-Mitwirkenden</a>.
@@ -767,9 +814,12 @@
 
     <h3>Aktualisierungsrhythmus</h3>
     <p>
-      Der Upstream-Datensatz wird täglich neu abgerufen und der Snapshot
-      committet, ergänzt um eine kleine Zahl handverifizierter Korrekturen.
-      Build-Zeitstempel und Zähler pro Board:
+      Wir rufen das Upstream-Paket täglich neu ab und committen geänderte
+      Snapshots — ergänzt um wenige manuell geprüfte Korrekturen. Das bedeutet
+      nicht, dass sich jeder Board-Feed an diesem Tag geändert hat: Die
+      Quelldatenstände oben zeigen die letzte tatsächliche Upstream-Änderung.
+      Insbesondere wurde der frühere MoonBoard-Standort-Endpunkt eingestellt;
+      dieser Feed ist seit Mai 2026 eingefroren. Build-Zeitstempel und Zähler:
       <a href="/boards/data/boards.meta.json"><code>boards.meta.json</code></a>.
     </p>
 
@@ -782,10 +832,10 @@
       <dd>Kilter Board und Tension Board nutzen das Aurora-Climbing-System: LED-beleuchtete Griffe und meist ein verstellbarer Wandwinkel. Das MoonBoard setzt auf ein festes Griffraster in festem Winkel, mit eigener App und eigenen Benchmark-Bouldern. Die Systeme sind nicht kompatibel — ein Boulder von einem Board lässt sich nicht auf ein anderes übertragen.</dd>
 
       <dt>Warum fehlt das Board meiner Halle auf der Karte?</dt>
-      <dd>Die Karte zeigt nur Boards, die ein Betreiber öffentlich im Upstream-Datenfeed gelistet hat. Hat eine Halle ihr Board nie registriert oder als privat markiert, taucht es nicht auf. Der Datensatz wird täglich aktualisiert, sobald neue Einträge dazukommen.</dd>
+      <dd>Die Karte importiert das Upstream-Quellpaket täglich, aber die einzelnen Feeds werden unabhängig aktualisiert. MoonBoard-Einträge haben sich upstream seit Mai 2026 nicht mehr geändert, weil der Standort-Endpunkt eingestellt wurde. Eine Halle kann außerdem fehlen, wenn sie ihr Board nie registriert hat.</dd>
 
       <dt>Wie genau sind die Board-Standorte und -Details?</dt>
-      <dd>Koordinaten und Board-Metadaten stammen aus dem öffentlichen Datensatz, ergänzt um eine kleine Zahl handverifizierter Korrekturen wie das MoonBoard-Hardware-Jahr. Angaben wie der Wandwinkel geben wieder, was Betreiber eingetragen haben, und können der Realität hinterherhinken.</dd>
+      <dd>Koordinaten und Board-Metadaten stammen aus dem öffentlichen Datensatz, ergänzt um wenige manuell geprüfte Korrekturen. Die letzte Upstream-Datenänderung jedes Board-Systems steht auf dieser Seite. MoonBoard-Einträge sind derzeit eingefroren und können veraltet sein; auch andere eingereichte Angaben können realen Änderungen hinterherhinken.</dd>
 
       <dt>Ist die Kletterboard-Karte kostenlos?</dt>
       <dd>Ja. Die Karte ist Teil von CruxCoach, einem quelloffenen, werbefreien Projekt. Sie braucht kein Konto und kostet nichts.</dd>
@@ -802,7 +852,7 @@
 
 <script src="/assets/vendor/leaflet/leaflet.js"></script>
 <script src="/assets/vendor/leaflet/leaflet.markercluster.js"></script>
-<script src="/boards/map.js?v=20260822-1"></script>
+<script src="/boards/map.js?v=20260823-1"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 
 <script>

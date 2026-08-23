@@ -24,7 +24,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 
 import * as hangtime from './sources/hangtime.mjs';
-import { renderListPage, renderStatsBlock, injectBetweenMarkers } from './render-static.mjs';
+import { boardVenueCounts, renderListPage, renderStatsBlock, injectBetweenMarkers } from './render-static.mjs';
 import { findNearestCity, loadCityIndex } from './nearest-city.mjs';
 import { applyVenueLinks, loadVenueLinks } from './venue-links.mjs';
 
@@ -78,12 +78,30 @@ const OVERRIDES_FILE = join(REPO_ROOT, 'tools', 'overrides.json');
 const NEAREST_CITY_MAX_KM = 25;
 const WELLPASS_FILE = join(REPO_ROOT, 'tools', 'wellpass.json');
 const VENUE_LINKS_FILE = join(REPO_ROOT, 'tools', 'venue-links.json');
+const SOURCE_FRESHNESS_FILE = join(REPO_ROOT, 'tools', 'board-source-freshness.json');
 
 // 4-decimal precision ≈ 11 m at the equator. Tight enough to keep
 // neighbouring gyms separate, loose enough to collapse multi-board
 // installations that almost always share coordinates.
 function venueKey(lat, lon) {
   return `${lat.toFixed(4)}|${lon.toFixed(4)}`;
+}
+
+function loadSourceFreshness() {
+  const parsed = JSON.parse(readFileSync(SOURCE_FRESHNESS_FILE, 'utf8'));
+  if (parsed.repository !== 'Stevie-Ray/hangtime-climbing-boards' ||
+      !parsed.boards || typeof parsed.boards !== 'object') {
+    throw new Error('tools/board-source-freshness.json has an invalid source contract');
+  }
+  for (const board of BOARDS) {
+    const item = parsed.boards[board];
+    if (!item || !/^\d{4}-\d{2}-\d{2}$/.test(item.last_data_change) ||
+        !/^[0-9a-f]{40}$/.test(item.commit) ||
+        !['available', 'frozen'].includes(item.status)) {
+      throw new Error(`tools/board-source-freshness.json has invalid metadata for ${board}`);
+    }
+  }
+  return parsed;
 }
 
 function stripInternal(entry) {
@@ -263,7 +281,6 @@ async function buildFromSources() {
   }
 
   const features = [];
-  const perBoard = Object.fromEntries(BOARDS.map(b => [b, 0]));
   const perSource = Object.fromEntries(SOURCES.map(s => [s.id, 0]));
   let venuesWithMulti = 0;
   let countryFromCoder = 0;
@@ -342,13 +359,13 @@ async function buildFromSources() {
     const seenBoards = new Set();
     for (const e of venue.entries) {
       seenBoards.add(e.board);
-      perBoard[e.board]++;
       perSource[e._source]++;
     }
     if (seenBoards.size > 1) venuesWithMulti++;
   }
 
   const overlayStats = applyVenueOverlays(features);
+  const perBoard = boardVenueCounts(features);
 
   const meta = {
     generated_at: new Date().toISOString(),
@@ -368,6 +385,7 @@ async function buildFromSources() {
     per_board: perBoard,
     per_source: perSource,
     sources: sourceMeta,
+    source_freshness: loadSourceFreshness(),
   };
 
   writeOutputs(features, meta);

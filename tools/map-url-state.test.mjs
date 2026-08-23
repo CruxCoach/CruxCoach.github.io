@@ -52,6 +52,10 @@ test('readHash parses an explicit board filter', () => {
     ['kilter', 'tension']);
 });
 
+test('readHash preserves an explicit empty board selection', () => {
+  assert.deepEqual(readHash('#48.1374,11.5755,12&b=').boards, []);
+});
+
 test('readHash drops unknown board ids instead of filtering everything away', () => {
   // A typo or a board we retired must not blank the map.
   assert.deepEqual(readHash('#48.1374,11.5755,12&b=kilter,bogus').boards, ['kilter']);
@@ -78,6 +82,10 @@ test('writeHash omits the board filter when everything is selected', () => {
 test('writeHash spells out a narrowed selection in board order', () => {
   assert.equal(writeHash(['moonboard', 'kilter']), '/boards/#48.1374,11.5755,12&b=kilter,moonboard');
   assert.equal(writeHash(['tension']), '/boards/#48.1374,11.5755,12&b=tension');
+});
+
+test('writeHash encodes an empty selection instead of silently dropping it', () => {
+  assert.equal(writeHash([]), '/boards/#48.1374,11.5755,12&b=');
 });
 
 test('writeHash rounds coordinates to about ten metres', () => {
