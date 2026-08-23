@@ -3949,6 +3949,69 @@
     ]
   },
   {
+    "lat": -33.40725,
+    "lon": -70.57023,
+    "name": "Ragni Climb",
+    "country": "CL",
+    "website": "https://ragni.cl/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "Every page carries the footer \"Alonso de Cordova 5870, Local 8b, Las Condes, Santiago, Chile\" — the street line and the commune upstream records."
+  },
+  {
+    "lat": 4.70557,
+    "lon": -74.0487,
+    "name": "Beta Climbing Gym 19",
+    "country": "CO",
+    "website": "https://betaclimb.com.co/sedes/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The operator's Sedes page carries a block headed BETA 19 giving \"Av. Carrera 19 # 125 - 26 Segundo Piso Bogota\" — the address upstream records — and lists that hall's boards as Spray Wall, Boulder, Kilter 8x10 and Moonboard, the Kilter this venue is listed for. The BETA 72 block on the same page carries a different address and a different board list, so the page distinguishes the two halls."
+  },
+  {
+    "lat": 4.6598,
+    "lon": -74.06266,
+    "name": "Beta Climbing Gym 72",
+    "country": "CO",
+    "website": "https://betaclimb.com.co/sedes/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "brand",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The operator's Sedes page carries a block headed BETA 72 giving \"Calle 72 # 20 - 73 Bogota\" — the address upstream records — and lists that hall's boards as Boulder, Kilter 16x12 and Tension Board 2, which is exactly the Kilter and Tension pair this venue is listed for."
+  },
+  {
+    "lat": 4.63383571788038,
+    "lon": -74.07124612184957,
+    "name": "Trepa: La Casa de la Escalada",
+    "country": "CO",
+    "website": "https://www.trepa.co/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates"
+    ],
+    "note": "The site is \"Trepa: La Casa de la Escalada\", the venue name in full, and its structured data publishes latitude 4.633826, longitude -74.071246 — the same point to four decimals as this venue — alongside the address Dg 45D # 16A - 23, Bogota."
+  },
+  {
     "lat": 35.1398,
     "lon": 33.36784,
     "name": "Rockstar Climbing",
@@ -3962,6 +4025,52 @@
       "board-mention"
     ],
     "note": "The site prints Andrea Avraamidi 26, the street line upstream records for this venue, on the home, contact, member and about pages, and names the Kilter Board this venue is listed for."
+  },
+  {
+    "lat": 50.780882755796554,
+    "lon": 15.420550728836115,
+    "name": "Crux 24",
+    "country": "CZ",
+    "website": "https://www.crux24.cz/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The site is \"CRUX 24 - Lezecke centrum Harrachov\", the venue name and the town upstream records, and it calls its Kilterboard \"JEDINY V HARRACHOVE A OKOLI\" — the only one in Harrachov and the surrounding area — which is the board this venue is listed for. OSM carries this domain on a climbing object 6 m from the venue. Its own contact block gives Novy Svet 102 where upstream records Novy Svet 705: the same street, a different house number, which in a Czech village is usually the descriptive number against the orientation number. The street, the town and the unique Kilterboard carry the match."
+  },
+  {
+    "lat": 49.1757401,
+    "lon": 16.6051193,
+    "name": "HANGAR climbing playground by Adam Ondra",
+    "country": "CZ",
+    "website": "https://hangarbrno.cz/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The site is \"Hangar Brno — Climbing playground by AdamOndra\", which is this venue's name in full including the by-line, and its hall page names the MoonBoard this venue is listed for. Its contact page gives Prazakova 1027/53, Brno 619 00 at 49°10′01.1″N 16°36′08.2″E, about 990 m from the coordinates upstream records; upstream places the venue at \"Brno střed\", which is the city centre rather than a building, so the coordinates are a town-level approximation and are deliberately not claimed as a signal here."
+  },
+  {
+    "lat": 49.82052,
+    "lon": 18.17953,
+    "name": "HANGAR Ostrava",
+    "country": "CZ",
+    "website": "https://hangarostrava.cz/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates"
+    ],
+    "note": "The contact page gives \"Nad Porubkou 2405, 708 00 Ostrava-Poruba\" with coordinates 49.8199833N, 18.1790658E, about 70 m from this venue. The street line and the district match upstream exactly; upstream's postal code 780 00 is a transposition of the 708 00 the hall itself publishes."
   },
   {
     "lat": 50.1057962,

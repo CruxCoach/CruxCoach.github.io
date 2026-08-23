@@ -4805,6 +4805,115 @@
   "evidence": "Neue Öffnungszeiten gültig ab dem 05.01.2025: Montag Ruhetag | Dienstag 10:00-18:00 | Mittwoch 10:00-18:00 | Donnerstag 10:00-18:00 | Freitag 10:00-18:00 | Samstag 9:00-18:00 | Sonntag 9:00-18:00"
  },
  {
+  "lat": -33.40725,
+  "lon": -70.57023,
+  "name": "Ragni Climb",
+  "country": "CL",
+  "source": "https://ragni.cl/precios-y-horarios/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Horarios Horario Lunes a Viernes: 7:00 a 22:00 hrs. Sábado y Domingo: 10:00 a 18:00 hrs.",
+  "note": "The same week appears in the footer of every page as \"Lunes a Viernes, de 7:00 a 22:00 hrs. Sábado y Domingo de 10:00 a 18:00 hrs.\" The \"Horario Bajo\" and \"Horario Alto\" rows directly beneath it are price bands for classes, not opening times, and are deliberately not published here."
+ },
+ {
+  "lat": 4.70557,
+  "lon": -74.0487,
+  "name": "Beta Climbing Gym 19",
+  "country": "CO",
+  "source": "https://betaclimb.com.co/sedes/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "brand",
+   "street-address",
+   "city",
+   "hours-scope",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:30-20:30",
+   "sun": "08:30-18:30"
+  },
+  "evidence": "BETA 19 … Av. Carrera 19 # 125 – 26 Segundo Piso Bogotá … Horarios: Lunes a viernes de 6:00 am a 10:00 pm Sábados de 8:30 am a 8:30 pm Domingos y festivos de 8:30 am a 6:30 pm",
+  "note": "The schedule sits inside the BETA 19 block, under that hall's own address; BETA 72 on the same page opens two hours later on weekdays, so the two are stated separately and are not interchangeable. Public holidays are grouped with Sunday."
+ },
+ {
+  "lat": 4.6598,
+  "lon": -74.06266,
+  "name": "Beta Climbing Gym 72",
+  "country": "CO",
+  "source": "https://betaclimb.com.co/sedes/",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "brand",
+   "street-address",
+   "city",
+   "hours-scope",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "08:30-20:30",
+   "sun": "08:30-18:30"
+  },
+  "evidence": "BETA 72 … Calle 72 # 20 - 73 Bogotá … Horarios: Lunes a viernes de 8:00 am a 10:00 pm Sábados de 8:30 am a 8:30 pm Domingos y festivos de 8:30 am a 6:30 pm",
+  "note": "The schedule sits inside the BETA 72 block, under that hall's own address. It differs from BETA 19's weekday opening on the same page, which is what makes the two blocks per-location rather than one chain-wide statement."
+ },
+ {
+  "lat": 4.63383571788038,
+  "lon": -74.07124612184957,
+  "name": "Trepa: La Casa de la Escalada",
+  "country": "CO",
+  "source": "https://www.trepa.co/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-21:00",
+   "sun": "09:00-17:00"
+  },
+  "evidence": "Horarios Lunes a Viernes 6:00 am - 10:00 pm Sábados 8:00 am - 9:00 pm Domingos y festivos 9:00 am - 5:00 pm",
+  "note": "The visible block is the source. The page's openingHoursSpecification markup states the identical week (Mon-Fri 06:00-22:00, Sat 08:00-21:00, Sun 09:00-17:00), so the two agree. Public holidays are grouped with Sunday."
+ },
+ {
   "lat": 4.638923400703702,
   "lon": -74.07231190130578,
   "name": "Zona de Bloque",
@@ -4851,6 +4960,32 @@
   },
   "evidence": "Opening Hours Monday / Tuesday 10:00 a.m. – 1:00 p.m. 3:00 p.m. – 9:00 p.m. Wednesday / Thursday 10:00 a.m. – 9:00 p.m. Friday 10:00 a.m. – 1:00 p.m. 3:00 p.m. – 9:00 p.m. Saturday 10:00– 14:00 Sunday Open for pre-booked parties & events",
   "note": "The midday break on Monday, Tuesday and Friday is the site's own split and is preserved. Sunday is recorded closed because the page offers it only for pre-booked parties and events, which is not a public opening. The same block appears identically on the contact page and the member page."
+ },
+ {
+  "lat": 49.1757401,
+  "lon": 16.6051193,
+  "name": "HANGAR climbing playground by Adam Ondra",
+  "country": "CZ",
+  "source": "https://hangarbrno.cz/en/contact/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Pražákova 1027/53, Brno 619 00 49°10′01.1″N 16°36′08.2″E Opening hours: Mon 9:00 – 22:00 Tue 7:00 – 22:00 Wed 7:00 – 22:00 Thu 7:00 – 22:00 Fri 7:00 – 22:00 Sat 9:00 – 22:00 Sun 9:00 – 22:00 On holidays, the opening hours do not vary.",
+  "note": "Stated as one block on the hall's own contact page, with the holiday rule spelled out: the week does not vary. Only Monday differs from the other weekdays."
  },
  {
   "lat": 49.82052,

@@ -351,6 +351,102 @@
     "reason": "No official site. moehli.ch, the punycode xn--mhli-loa.ch and moehli-boulder.ch do not resolve; mohli.com answers 200 with nothing on it. No OSM climbing object near St. Gallen carries a website tag and upstream gives no address."
   },
   {
+    "lat": -33.44107,
+    "lon": -70.6072,
+    "name": "Bloclab Climbing",
+    "country": "CL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. bloclab.cl answers 500 on every request; bloclab.com is \"BlocLab Enterprises\", an unrelated business; bloclabclimbing.com answers 200 with a single script that redirects to /lander, the standard parked-domain page. No OSM climbing object near Ñuñoa carries a website tag.",
+    "candidate": "https://bloclabclimbing.com/"
+  },
+  {
+    "lat": -33.44094,
+    "lon": -70.60718,
+    "name": "Bloclab Climbing",
+    "country": "CL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. bloclab.cl answers 500 on every request; bloclab.com is \"BlocLab Enterprises\", an unrelated business; bloclabclimbing.com answers 200 with a single script that redirects to /lander, the standard parked-domain page. No OSM climbing object near Av. Pedro de Valdivia 1985, 7501110 carries a website tag.",
+    "candidate": "https://bloclabclimbing.com/"
+  },
+  {
+    "lat": -36.8109433,
+    "lon": -73.0463652,
+    "name": "ConceClimb",
+    "country": "CL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. conceclimb.cl, conceclimb.com and every compound tried (conceclimbclimbing, conceclimbboulder, conceclimbbouldering, conceclimbboulderfitness, conceclimb-boulder-fitness, each on .cl and .com) fail to resolve. No OSM climbing object near Concepcion carries a website tag."
+  },
+  {
+    "lat": -36.8107431,
+    "lon": -73.0467601,
+    "name": "ConceClimb Boulder & Fitness",
+    "country": "CL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. conceclimb.cl, conceclimb.com and every compound tried (conceclimbclimbing, conceclimbboulder, conceclimbbouldering, conceclimbboulderfitness, conceclimb-boulder-fitness, each on .cl and .com) fail to resolve. No OSM climbing object near Concepcion carries a website tag."
+  },
+  {
+    "lat": -41.42563,
+    "lon": -72.90982,
+    "name": "Galpon Boulder",
+    "country": "CL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. galpon.cl serves a certificate issued for holidayinn.cl and then 302s away, so it is somebody else's parked host rather than a hall behind a misconfigured certificate; galpon.com answers 403 and is unrelated. Nothing could be opened to test against V-629 100, Puerto Montt."
+  },
+  {
+    "lat": -36.81501,
+    "lon": -73.04079,
+    "name": "Ignea Boulder",
+    "country": "CL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. ignea.cl is \"IGNEA - Combustion Inteligente\", a gas-telemetry company; igneaboulder.com is \"IGNEA FORGE\", a knife maker; ignea.com answers behind a certificate that does not cover the hostname. None of them prints Ainavillo 1076 or 4081361 Concepcion.",
+    "candidate": "https://igneaboulder.com/"
+  },
+  {
+    "lat": -38.7605038,
+    "lon": -72.5916836,
+    "name": "Kuyen",
+    "country": "CL",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. kuyen.com answers 200 with an empty body — no title and no text — and no other name-derived domain resolves. Upstream gives no address for Padre Las Casas, and no OSM climbing object nearby carries a website tag.",
+    "candidate": "https://kuyen.com/"
+  },
+  {
+    "lat": 6.23513,
+    "lon": -75.56857,
+    "name": "El Muro",
+    "country": "CO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. elmuro.co is \"la primer red social colombiana de noticias locales\", a local-news social network, not a climbing hall; no other name-derived domain resolves. Nothing prints Calle 33 # 42b - 6, Centro Comercial Sandiego, Medellin.",
+    "candidate": "https://elmuro.co/"
+  },
+  {
+    "lat": 4.7109886,
+    "lon": -74.072092,
+    "name": "Everyday Wall",
+    "country": "CO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. everyday.com.co, everyday.co, everydaywall.com.co, everydaywall.co, everyday-wall.com.co, everyday-wall.co, everydayclimbing.com.co and everydayclimbing.co all fail to resolve. Upstream gives no address for this Bogota venue and no OSM climbing object nearby carries a website tag."
+  },
+  {
+    "lat": 4.638923400703702,
+    "lon": -74.07231190130578,
+    "name": "Zona de Bloque",
+    "country": "CO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. zona.com.co and zona.co both resolve to \"Amaral Editores\", a design and photography studio, and zona.co answers a bare 301. No compound of the venue name resolves, upstream gives no address, and no OSM climbing object near these Bogota coordinates carries a website tag.",
+    "candidate": "https://zona.co/"
+  },
+  {
     "lat": 9.93965,
     "lon": -84.15605,
     "name": "Eskalar",
@@ -397,14 +493,32 @@
     "candidate": "https://www.redpointcy.com/"
   },
   {
-    "lat": 49.1757401,
-    "lon": 16.6051193,
-    "name": "HANGAR climbing playground by Adam Ondra",
+    "lat": 49.1950602,
+    "lon": 16.6068371,
+    "name": "Flashboulderbar",
     "country": "CZ",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "hangar.cz is an architecture studio, not this climbing centre, and no other official site for it was found.",
-    "candidate": "https://www.hangar.cz/"
+    "checked": "2026-08-23",
+    "reason": "No official site. flashboulderbar.cz and flashboulder.cz do not resolve, and no other name-derived domain answers. The nearest OSM climbing object carrying a website is Basecamp boulder Brno 268 m away, which is a different gym with a different name. Upstream gives no address for this venue."
+  },
+  {
+    "lat": 49.8216552,
+    "lon": 18.1767387,
+    "name": "Hangar Ostrava - Moonboard 2019",
+    "country": "CZ",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "Refused for what does not line up rather than for want of a candidate. This entry sits 256 m from the coordinates hangarostrava.cz publishes for itself (49.8199833N, 18.1790658E) — outside the 250 m the coordinates signal allows — and 220 m from the Hangar Ostrava entry that does carry the address and now carries the link. The venue is recorded as a MoonBoard 2019, but the hall's own site names a Kilterboard in its navigation and mentions no MoonBoard anywhere, in either language. \"Ostrava\" is part of this venue's own name, so the town adds no independent signal. A MoonBoard 220 m from Hangar that Hangar never mentions may well be a separate, possibly private, setup, and linking it to Hangar would assert something the site does not say.",
+    "candidate": "https://hangarostrava.cz/"
+  },
+  {
+    "lat": 49.7802011,
+    "lon": 18.4428338,
+    "name": "Tendon Blok MoonBoard",
+    "country": "CZ",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No official site. tendonblok.cz and tendon-blok.cz do not resolve; blok.cz answers 466 Access Forbidden behind a shared-hosting certificate for *.r3.websupport.sk and serves nothing. No OSM climbing object near Havirov carries a website tag, and upstream gives no address."
   },
   {
     "lat": 52.503618,
