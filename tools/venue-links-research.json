@@ -1359,8 +1359,8 @@
     "name": "68° Nord Buldrehall",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The only candidate domain, narvikbuldrehall.no, does not resolve in DNS, so no page could be opened for this hall.",
+    "checked": "2026-08-23",
+    "reason": "The OSM node 37 m away is named 68° Nord Buldrehall and carries narvikbuldrehall.no, which does not resolve on either host. nord.no is Nord universitet and nord.com a German gearbox maker.",
     "candidate": "https://narvikbuldrehall.no/"
   },
   {
@@ -1369,29 +1369,76 @@
     "name": "68Nord Buldrehall",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "The only candidate domain, narvikbuldrehall.no, does not resolve in DNS; upstream lists this MoonBoard 24 m from its Kilter entry.",
+    "checked": "2026-08-23",
+    "reason": "Same hall as the venue about 35 m away: the OSM node's narvikbuldrehall.no does not resolve, and 68nord.no is Sparebank 68° Nord, a local bank that shares the name.",
     "candidate": "https://narvikbuldrehall.no/"
   },
   {
-    "lat": 59.91525,
-    "lon": 10.72374,
-    "name": "Ambassaden Trening",
+    "lat": 59.9138688,
+    "lon": 10.7522454,
+    "name": "Blindern SIO Moonwall",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "ambassaden.no is the Henrik Ibsens gate 48 venue's own site and gives exactly the address upstream carries, but it presents itself as an event venue and restaurant collective and never mentions training or climbing.",
-    "candidate": "https://ambassaden.no/"
+    "checked": "2026-08-23",
+    "reason": "blindern.no is a price-comparison site and blindern.com carries nothing. \"Blindern SIO Moonwall\" is the University of Oslo campus plus the student welfare organisation and a board model; no page of SiO's was reached that describes this wall.",
+    "candidate": "https://blindern.no/"
   },
   {
-    "lat": 62.46913,
-    "lon": 6.18367,
-    "name": "Klatreklubben Ålesund",
+    "lat": 60.62634,
+    "lon": 8.56001,
+    "name": "Buldretanken",
     "country": "NO",
-    "status": "http-only",
-    "checked": "2026-08-22",
-    "reason": "klatreklubben.no redirects to its www host over HTTP and offers no HTTPS, so there is no secure URL to publish.",
-    "candidate": "http://www.klatreklubben.no/"
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: none of the name-derived domains for Buldretanken exists, and no OSM climbing object within 500 m of Ål carries a website."
+  },
+  {
+    "lat": 61.004296,
+    "lon": 6.412174,
+    "name": "Fjordaveggen",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: none of the name-derived domains for Fjordaveggen exists, and no OSM climbing object within 500 m carries a website."
+  },
+  {
+    "lat": 61.90295,
+    "lon": 5.9873,
+    "name": "Hamna Aktivitet Og Helse",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "hamna.no and hamnaaktivitetoghelse.no do not resolve, and hamna.com presents a certificate that does not cover its hostname. Nothing found names Osvegen 10 in Nordfjordeid."
+  },
+  {
+    "lat": 68.80432,
+    "lon": 16.53449,
+    "name": "Harstad Klatreklub",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "harstad.com presents a certificate that does not cover its hostname on either host, and no other domain resolves for Harstad Klatreklub. Nothing found names Åsveien 8 in Harstad.",
+    "candidate": "https://harstad.com/"
+  },
+  {
+    "lat": 60.8630354,
+    "lon": 8.5523882,
+    "name": "Hemsedal Klatreklubb",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "hemsedal.no is the municipality and hemsedal.com the destination site for the valley; neither describes a climbing club's wall, and hemsedalklatreklubb does not resolve.",
+    "candidate": "https://hemsedal.no/"
+  },
+  {
+    "lat": 62.32548,
+    "lon": 5.67393,
+    "name": "Herøy klatreklubb",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "heroy.com answers with an empty page and no other domain resolves for Herøy klatreklubb. Nothing found names the Mjølstadneset industrial estate in Fosnavåg.",
+    "candidate": "https://heroy.com/"
   },
   {
     "lat": 58.1472,
@@ -1399,9 +1446,77 @@
     "name": "Klatreverket Kristiansand",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "klatreverket.no is the Oslo operator's site and lists four Oslo centres, none in Kristiansand 320 km away.",
+    "checked": "2026-08-23",
+    "reason": "Re-checked, and the earlier reading holds: klatreverket.no is the Oslo operator and its own hours page lists Torshov, Bryn, Løkka and Løren, with a separate link for Kristiansand that leads to a different operator's site. Nothing on klatreverket.no describes a hall at Jørgen Moes gate 10.",
     "candidate": "https://klatreverket.no/"
+  },
+  {
+    "lat": 68.33297,
+    "lon": 13.99315,
+    "name": "Kleivania Klatre Klubb",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "No candidate resolved at all: none of the name-derived domains for Kleivania Klatre Klubb exists, and no OSM climbing object within 500 m carries a website."
+  },
+  {
+    "lat": 68.20843,
+    "lon": 14.46631,
+    "name": "Kong Øistein Hall",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "kong.no is a fruit importer and kong.com carries nothing. \"Kong Øistein Hall\" is the name of the sports hall in Kabelvåg; no page of its own was reached, and the club that climbs there (Lofoten Tindeklubb) publishes only a Svolvær post-box address.",
+    "candidate": "https://kong.no/"
+  },
+  {
+    "lat": 64.0855357,
+    "lon": 11.3614997,
+    "name": "KraftSenteret",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "kraftsenteret.no and kraftsenteret.com do not resolve on either host, and no OSM climbing object within 500 m carries a website."
+  },
+  {
+    "lat": 59.89262,
+    "lon": 10.83776,
+    "name": "Låven, Oppsal Gård",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "candidate": "https://laven.com/",
+    "reason": "laven.no does not answer on either host and laven.com is Laven Labels, a label printer. The dataset name is the building — Låven at Oppsal Gård, a farm barn in Oslo — and no OSM climbing object within 500 m carries a website."
+  },
+  {
+    "lat": 68.2079321,
+    "lon": 14.4657356,
+    "name": "Lofoten Tindeklubb",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "lofotentindeklubb.no is the club's own site, but the only address on it is a post box — \"Postboks 85, 8301 Svolvær\" — whose town is 4.9 km from this venue, and nothing on the site names the hall in Kabelvåg. The name alone is one observation.",
+    "candidate": "https://lofotentindeklubb.no/"
+  },
+  {
+    "lat": 58.02586,
+    "lon": 7.44517,
+    "name": "Mandal & Lindesnes Klatreklubb",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "mandal.no does not answer and mandal.com is a placeholder carrying the domain name. Nothing found names Fridtjof Nansens vei 13 in Mandal.",
+    "candidate": "https://mandal.com/"
+  },
+  {
+    "lat": 67.28667,
+    "lon": 14.5692,
+    "name": "Mørkvedhallen Klatresenter",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "morkvedhallen.no is titled simply \"Klatresenter\" and prints no address; morkvedhallen.com carries the hall name and nothing else. The name is also the street line upstream records (\"Mørkvedhallen 104\"), so name and address are one observation here, not two.",
+    "candidate": "https://morkvedhallen.no/"
   },
   {
     "lat": 60.38464,
@@ -1409,9 +1524,67 @@
     "name": "Rúngne Buldr",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-22",
-    "reason": "gneisbuldring.no answers 423 Locked, and the nearby OSM object carries a different operator's name, so this venue could not be tied to an official page.",
+    "checked": "2026-08-23",
+    "reason": "rungne.no and rungne.com are Rúngne, a climbing-apparel brand, not this hall. The OSM node 54 m away is Gneis Buldring Bergen, whose site answers 423 — \"This store is unavailable\" — so the one real pointer cannot be read.",
     "candidate": "https://gneisbuldring.no/"
+  },
+  {
+    "lat": 61.23072478430315,
+    "lon": 7.083987569243897,
+    "name": "Sogndal Klatresenter",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "sogndalklatresenter.no does not resolve on either host, and no OSM climbing object within 500 m of Trolladalen 30 carries a website."
+  },
+  {
+    "lat": 59.78386,
+    "lon": 5.39784,
+    "name": "Stord Tinde - Og Klatreklubb",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "stord.no is Stord kommune and stord.com an American commerce platform. Nothing found names Utslettevegen 60 in Sagvåg.",
+    "candidate": "https://stord.no/"
+  },
+  {
+    "lat": 62.3095307,
+    "lon": 6.9488477,
+    "name": "Stranda Buldresenter",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "stranda.no is a cured-meat producer and no other domain resolves for Stranda Buldresenter.",
+    "candidate": "https://stranda.no/"
+  },
+  {
+    "lat": 62.30955,
+    "lon": 6.94886,
+    "name": "Stranda Buldresenter Uteguiden",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "Same hall as the venue a few metres away: stranda.no is a cured-meat producer and nothing else resolves.",
+    "candidate": "https://stranda.no/"
+  },
+  {
+    "lat": 63.4305149,
+    "lon": 10.3950528,
+    "name": "Trondheims beste buldresenter",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "trondheims.no does not answer on either host. The dataset name — \"Trondheims beste buldresenter\" — is a description rather than a business name and yields nothing else to guess."
+  },
+  {
+    "lat": 63.35346,
+    "lon": 9.2802,
+    "name": "Ytre Snillfjord Idrettslag",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-23",
+    "reason": "ytre.no answers with an empty page and ytre.com with nothing readable. Nothing found names Vennastrandveien 1829 in Ytre Snillfjord.",
+    "candidate": "https://ytre.no/"
   },
   {
     "lat": 38.7222524,

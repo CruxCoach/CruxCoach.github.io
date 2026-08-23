@@ -10771,6 +10771,36 @@
     ]
   },
   {
+    "lat": 59.91525,
+    "lon": 10.72374,
+    "name": "Ambassaden Trening",
+    "country": "NO",
+    "website": "https://ambassaden-trening.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "board-mention"
+    ],
+    "note": "Ambassaden Trening has its own domain, separate from the ambassaden.no logged before — that is the event venue and restaurant collective at the same Henrik Ibsens gate 48 address, which is why the first pass rejected it. The training centre's site prints the same address and postcode and names a Kilter Board."
+  },
+  {
+    "lat": 58.1599119,
+    "lon": 8.0182064,
+    "name": "Aquarama",
+    "country": "NO",
+    "website": "https://aquarama.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is Aquarama and describes itself as \"Sørlandets mest innholdsrike badeland - midt i Kristiansand\"; the upstream town is Kristiansand."
+  },
+  {
     "lat": 60.293586,
     "lon": 5.265044,
     "name": "Bergen Klatresenter Fana",
@@ -10816,6 +10846,21 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 62.4704273,
+    "lon": 6.3460832,
+    "name": "Buldrehallen",
+    "country": "NO",
+    "website": "https://www.buldrehallen.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The OSM node 7 m from this venue carries buldrehallen.no, and the site prints Lerstadveien 506B in 6018 Ålesund — a postcode whose centroid is 354 m away, in the town upstream records."
   },
   {
     "lat": 69.66855,
@@ -10917,6 +10962,20 @@
     "note": "The operator gives its two Trondheim centres one page; this is Leangen at Travbanevegen 7. The page gives postcode 7061 and upstream 7044."
   },
   {
+    "lat": 61.90488,
+    "lon": 6.7028,
+    "name": "Gym Stryn",
+    "country": "NO",
+    "website": "https://gymstryn.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is Gym Stryn, in Stryn, which is the town upstream records; it is the only gym of that name there. No address line reaches the fetched document."
+  },
+  {
     "lat": 61.21709,
     "lon": 6.06983,
     "name": "Høyanger Klatreklubb",
@@ -11010,6 +11069,20 @@
     ]
   },
   {
+    "lat": 60.12731,
+    "lon": 11.33811,
+    "name": "Hvam IL Klatring",
+    "country": "NO",
+    "website": "https://hvamil.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is Hvam IL, the sports club at Hvam, which is the place upstream records for this venue; hvam.no does not answer and hvam.com is a placeholder."
+  },
+  {
     "lat": 63.06181,
     "lon": 7.48804,
     "name": "I.L. Havørn Klatring",
@@ -11021,6 +11094,21 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 62.46913,
+    "lon": 6.18367,
+    "name": "Klatreklubben Ålesund",
+    "country": "NO",
+    "website": "https://www.klatreklubben.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The club's site prints \"Sjømannsvegen 16, 6008 Ålesund\", which is the address upstream records, and the OSM node 102 m away carries the same domain."
   },
   {
     "lat": 59.75349,
@@ -11085,6 +11173,22 @@
     "note": "Upstream carries no address for this entry; the operator's Thorvald Meyers gate 9 resolves to within 35 m of it."
   },
   {
+    "lat": 59.92948,
+    "lon": 10.7579,
+    "name": "Klatreverket Løkka",
+    "country": "NO",
+    "website": "https://klatreverket.no/lokka-klatresenter/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "location-page"
+    ],
+    "note": "Klatreverket gives each Oslo centre its own page; the Løkka page prints Thorvald Meyers gate 9 in 0555 Oslo, the address upstream records, and the OSM node 13 m away carries the same URL."
+  },
+  {
     "lat": 59.93158127,
     "lon": 10.7925199815953,
     "name": "Klatreverket Løren / Kanonhallen",
@@ -11099,6 +11203,20 @@
       "location-page"
     ],
     "note": "The page prints Peter Møllers vei 4, 0585 Oslo; upstream drops the leading zero from the postcode."
+  },
+  {
+    "lat": 62.3433146,
+    "lon": 5.8488429,
+    "name": "Klivrelaget",
+    "country": "NO",
+    "website": "https://klivrelaget.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The site is KLIVRELAGET and names a MoonBoard, which is the board system this entry is listed for."
   },
   {
     "lat": 68.43582769999999,
@@ -11116,6 +11234,91 @@
     "note": "The operator runs two Narvik sites; the coordinate is 56 m from Kraft Narvik at Lodve Langes gate 2 and 1.4 km from Kraft Stadion."
   },
   {
+    "lat": 63.1102401,
+    "lon": 7.730177100000001,
+    "name": "Kristiansund Fjellklubb",
+    "country": "NO",
+    "website": "https://kristiansundfjellklubb.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The club's site prints \"Bytesteinen 1, 6517 Kristiansund\"; the upstream town is Kristiansund and the postcode area covers this coordinate."
+  },
+  {
+    "lat": 62.5937879,
+    "lon": 9.689647299999999,
+    "name": "Krux Klatring",
+    "country": "NO",
+    "website": "https://kruxklatring.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Same hall as the venue about 50 m away — the MoonBoard entry beside the Kilter one — and the same site, which carries the 7340 postcode of Oppdal that upstream records for the pair."
+  },
+  {
+    "lat": 62.5942,
+    "lon": 9.69006,
+    "name": "Krux Klatring",
+    "country": "NO",
+    "website": "https://kruxklatring.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code"
+    ],
+    "note": "The site is Krux Klatring and carries the 7340 postcode upstream records for this venue. krux.no is an accountancy-course provider."
+  },
+  {
+    "lat": 62.73626,
+    "lon": 7.18192,
+    "name": "Molde Klatresenter",
+    "country": "NO",
+    "website": "https://moldeklatresenter.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Same hall as the venue about 25 m away; the dataset lists Molde Klatresenter three times, once per board system."
+  },
+  {
+    "lat": 62.73644199999999,
+    "lon": 7.182532300000001,
+    "name": "Molde Klatresenter",
+    "country": "NO",
+    "website": "https://moldeklatresenter.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Same hall as the two venues within 25 m; this is the MoonBoard entry of the three."
+  },
+  {
+    "lat": 62.73647,
+    "lon": 7.18253,
+    "name": "Molde Klatresenter",
+    "country": "NO",
+    "website": "https://moldeklatresenter.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site is Molde klatresenter and prints a 6415 Molde postcode; the upstream town is Molde. Only the www host is unreachable, so the apex is what is stored."
+  },
+  {
     "lat": 62.56787,
     "lon": 7.69012,
     "name": "Norsk Tindesenter",
@@ -11128,6 +11331,21 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 63.6883879,
+    "lon": 9.657686499999999,
+    "name": "Ørland klatreklubb",
+    "country": "NO",
+    "website": "https://orlandklatreklubb.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates"
+    ],
+    "note": "The club's site prints \"Kirkeveien 1B, 7130 Brekstad\"; geocoding that address lands 33 m from this venue."
   },
   {
     "lat": 59.8679,
@@ -11188,6 +11406,36 @@
     "note": "Upstream lists this hall twice; this coordinate is the one 7 m from the page's Andebuveien 78, 3170 Sem."
   },
   {
+    "lat": 58.93716,
+    "lon": 5.69178,
+    "name": "SiS Sportssenter",
+    "country": "NO",
+    "website": "https://sissportssenter.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The site prints \"Rennebergstien 24, 4021 Stavanger\", which is the address upstream records."
+  },
+  {
+    "lat": 59.66699680000001,
+    "lon": 5.9407413,
+    "name": "Skakke",
+    "country": "NO",
+    "website": "https://skakke.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates"
+    ],
+    "note": "The site is Skakke and prints \"Strondavegen 30, 5590 Etne\"; geocoding that address lands on this venue's coordinate."
+  },
+  {
     "lat": 58.13775,
     "lon": 7.99995,
     "name": "Sørlandet Klatresenter",
@@ -11200,6 +11448,20 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 58.99917550000001,
+    "lon": 10.0359755,
+    "name": "Stavern klatreklubb",
+    "country": "NO",
+    "website": "https://stavernklatreklubb.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code"
+    ],
+    "note": "The site is Stavern klatre- & buldreklubb and carries the 3290 Stavern postcode, whose centroid is 96 m from this venue. Upstream files it under Larvik, the municipality Stavern belongs to."
   },
   {
     "lat": 64.02071,
@@ -11260,6 +11522,21 @@
     ]
   },
   {
+    "lat": 62.19526,
+    "lon": 6.13138,
+    "name": "Sunnmørsk Klatreklubb",
+    "country": "NO",
+    "website": "https://sunnmorsk-klatreklubb.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The club's site prints the Holmegata 20 address in 6153 Ørsta that upstream records."
+  },
+  {
     "lat": 59.91952,
     "lon": 10.95448,
     "name": "Triaden Klatresenter",
@@ -11284,6 +11561,52 @@
       "name",
       "postal-code"
     ]
+  },
+  {
+    "lat": 68.15402004212,
+    "lon": 13.637025156106494,
+    "name": "Vest-Lofoten Klatreklubb",
+    "country": "NO",
+    "website": "https://vestlofotenklatreklubb.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "board-mention"
+    ],
+    "note": "The club's site prints the Sentralbaneveien 100 address in 8370 Leknes that upstream records, and names a Kilter Board — the board system this entry is listed for."
+  },
+  {
+    "lat": 60.46987,
+    "lon": 5.31369,
+    "name": "Vestveggen Bergen Klatreklubb",
+    "country": "NO",
+    "website": "https://vestveggen.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "board-mention"
+    ],
+    "note": "vestveggen.no serves Bergen Klatreklubb's site, which prints Åsane Senter 60 in 5130 Nyborg — the address upstream records — and names a MoonBoard. Vestveggen is the club's hall at that address."
+  },
+  {
+    "lat": 62.22674,
+    "lon": 7.4222,
+    "name": "Ville Krefter Tafjord",
+    "country": "NO",
+    "website": "https://villekrefter.no/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code"
+    ],
+    "note": "The site is Ville Krefter and prints \"6213 Tafjord\", which is the place this venue is named after."
   },
   {
     "lat": 53.40676,
