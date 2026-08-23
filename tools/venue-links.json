@@ -3957,6 +3957,22 @@
     "note": "The hall has moved to Gertrud-Knebusch-Straße; that address resolves about 320 m from this upstream coordinate."
   },
   {
+    "lat": 49.69046,
+    "lon": 11.62995,
+    "name": "Boulderhalle Zugzwang",
+    "country": "DE",
+    "website": "https://zugzwang-auerbach.de/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The apex serves the site; www.zugzwang-auerbach.de presents a certificate that does not cover that hostname, so a probe that starts at www and stops there sees nothing. The imprint names Boulderverein Zugzwang e.V. at Neuhauser Straße 1, 91275 Auerbach i.d.OPf. The website tag on the OSM node here points at zugzwang.clubdesk.com, which 404s."
+  },
+  {
     "lat": 49.6088,
     "lon": 11.1345,
     "name": "Boulderia",

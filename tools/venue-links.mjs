@@ -184,6 +184,15 @@ const NAME_STOPWORDS = new Set([
   'spa', 'oy', 'ab', 'as', 'aps', 'sp', 'zoo', 'doo', 'the',
 ]);
 
+// Punctuation, case and Latin diacritics are noise; letters are not. The class
+// kept here is `\p{L}\p{N}` and not `a-z0-9`, because a venue named entirely in
+// Chinese, Japanese, Korean, Greek, Cyrillic, Hebrew or Thai used to normalize
+// to the empty string — which made nameSimilarity(name, name) zero and made
+// resolveVenueRecord refuse the venue outright. No curated link or schedule
+// could ever be attached to it, silently, for about two hundred venues.
+// Scripts that do not separate words yield one long token; that is fail-closed
+// (two nearly-identical Chinese names score 0, not 0.9) and still lets a name
+// match itself, which is the property everything else here rests on.
 export function normalizeName(s) {
   return String(s ?? '')
     .normalize('NFKD')
@@ -192,7 +201,7 @@ export function normalizeName(s) {
     .replace(/ß/g, 'ss')
     .replace(/ø/g, 'o').replace(/æ/g, 'ae').replace(/œ/g, 'oe')
     .replace(/đ/g, 'd').replace(/ł/g, 'l')
-    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
     .trim();
 }
 

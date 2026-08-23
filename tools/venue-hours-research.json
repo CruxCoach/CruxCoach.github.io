@@ -90,14 +90,14 @@
   "source": "https://boulderhallein.com/boulderhalle/oeffnungszeiten"
  },
  {
-  "lat": 47.4435946,
-  "lon": 12.3996585,
-  "name": "KLETTERKITZ",
+  "lat": 47.4427795,
+  "lon": 13.9034303,
+  "name": "boulderraum.at | Alpenverein Gröbming",
   "country": "AT",
-  "status": "ambiguous",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "Two regimes and a missing day: the staffed week is Di-Fr 17:00–21:00 and Sa-So & Feiertage 14:00–19:00 with no Monday, while cash- or annual-card holders may climb daily 07:00–22:00.",
-  "source": "https://www.kletterkitz.at/"
+  "reason": "No schedule appears on the homepage or on any of the pages linked from it. The site is a small club page whose only times are event announcements.",
+  "source": "https://www.boulderraum.at/"
  },
  {
   "lat": 46.78353,
@@ -130,6 +130,16 @@
   "source": "https://www.alpenverein.at/mixnitz/kletterhalle/Kletterhalle.php"
  },
  {
+  "lat": 47.4435946,
+  "lon": 12.3996585,
+  "name": "KLETTERKITZ",
+  "country": "AT",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "reason": "Two regimes and a missing day: the staffed week is Di-Fr 17:00–21:00 and Sa-So & Feiertage 14:00–19:00 with no Monday, while cash- or annual-card holders may climb daily 07:00–22:00.",
+  "source": "https://www.kletterkitz.at/"
+ },
+ {
   "lat": 47.0314,
   "lon": 10.74694,
   "name": "Quellalpin Kaunertal",
@@ -138,16 +148,6 @@
   "checked": "2026-08-23",
   "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://www.quellalpin.at/"
- },
- {
-  "lat": 47.4427795,
-  "lon": 13.9034303,
-  "name": "boulderraum.at | Alpenverein Gröbming",
-  "country": "AT",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it. The site is a small club page whose only times are event announcements.",
-  "source": "https://www.boulderraum.at/"
  },
  {
   "lat": -31.95621,
@@ -480,16 +480,6 @@
   "source": "https://d-vert.com/"
  },
  {
-  "lat": 46.82717,
-  "lon": -71.27568,
-  "name": "DÈLIRE Escalade Pierre-Bertrand",
-  "country": "CA",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "reason": "The operator’s gym list renders each hall’s schedule from a bundled JavaScript payload whose day labels are minified references.",
-  "source": "https://www.delirescalade.com/"
- },
- {
   "lat": 46.79569,
   "lon": -71.1795,
   "name": "DÉLIRE Escalade Lévis",
@@ -497,6 +487,16 @@
   "status": "inaccessible",
   "checked": "2026-08-23",
   "reason": "The gym list renders each hall's schedule from a bundled JavaScript payload; the served document carries the Lévis address and an openingHours array whose day labels are minified references, alongside a banner about a temporary schedule.",
+  "source": "https://www.delirescalade.com/"
+ },
+ {
+  "lat": 46.82717,
+  "lon": -71.27568,
+  "name": "DÈLIRE Escalade Pierre-Bertrand",
+  "country": "CA",
+  "status": "inaccessible",
+  "checked": "2026-08-23",
+  "reason": "The operator’s gym list renders each hall’s schedule from a bundled JavaScript payload whose day labels are minified references.",
   "source": "https://www.delirescalade.com/"
  },
  {
@@ -714,10 +714,10 @@
   "lon": 7.47294,
   "name": "Bimano Bern",
   "country": "CH",
-  "status": "ambiguous",
+  "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The Öffnungszeiten page carries four tables behind four tabs labelled skate, kids, boulder and zent, and the fetched document gives no way to tell which table belongs to which tab. One of them is Mo-Fr 10:00-22:00 with 10:00-18:00 at the weekend, but which is a guess.",
-  "source": "https://www.bimano.ch/oeffnungszeiten"
+  "source": "https://www.bimano.ch/boulder",
+  "reason": "The four tables on the hours widget are identifiable after all - the panes carry ids panel-skate, panel-kids, panel-boulder and panel-zent, and the boulder pane is Mo-Fr 10:00-22:00, Sa-So 10:00-18:00. It cannot be published, because the homepage news item 'Öffnungszeiten im Sommer' says 'Vom 15.06. bis am 13.09.26 sind wir zu diesen Zeiten da' and links a separate summer schedule (assets/infos_sommerpause26.pdf). Two regimes, one of them in force on the day of the check."
  },
  {
   "lat": 47.19916,
@@ -726,8 +726,8 @@
   "country": "CH",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The weekly table (Mo-Fr 05:00-22:00, Sa-So 09:00-18:00) is followed by \"Achtung: Im Sommer können diese Zeiten abweichen. Sommeröffnungszeiten: 1.6.26.-4.9.26\", a window that is open right now.",
-  "source": "https://bimanosolothurn.ch/oeffnungszeiten"
+  "source": "https://bimanosolothurn.ch/oeffnungszeiten",
+  "reason": "Re-read: unchanged. The weekly table (Mo-Fr 05:00-22:00, Sa-So 09:00-18:00) is still headed by 'Achtung: Im Sommer können diese Zeiten abweichen. Sommeröffnungszeiten: 1.6.26.-4.9.26', and the summer note replaces the weekend regime with all-day badge access rather than stating times."
  },
  {
   "lat": 47.4831911,
@@ -736,28 +736,28 @@
   "country": "CH",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The volunteer-run hall's new site says \"jeden Tag geöffnet\" and gives no times; no schedule appears on the homepage or on any of the pages linked from it.",
-  "source": "https://www.blockchaefer.ch/"
+  "source": "https://www.blockchaefer.ch/seiten/halle.html",
+  "reason": "Re-read: unchanged. The hall page says the unstaffed hall is open every day ('Die Halle steht dir jeden Tag offen') and states no times anywhere on the site."
  },
  {
   "lat": 47.18413,
   "lon": 8.10923,
   "name": "Boulder Arena Sursee",
   "country": "CH",
-  "status": "ambiguous",
+  "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "The boulder page publishes no opening hours; the only times on the site are subscription access windows on the price page (Montag bis Sonntag 06:00 bis 24:00, Montag bis Freitag 06:00 bis 16:00, Freitag ab 16:00 bis Sonntag 24:00), which are tariff bands rather than a stated opening.",
-  "source": "https://www.arenasursee.ch/boulder"
+  "source": "https://www.arenasursee.ch/boulder-preise-abo",
+  "reason": "Re-read, and the reason is sharper than 'ambiguous': the only times the site states are subscription access windows - 'Montag bis Sonntag (06:00 bis 24:00 Uhr)' for the trial subscription and 'Freitag ab 16:00 Uhr bis Sonntag 24:00 Uhr' for the weekend one - and a single entry is bought online. No staffed or walk-in week is published."
  },
  {
   "lat": 47.1532331,
   "lon": 8.0267847,
   "name": "Bouldergate Ettiswil",
   "country": "CH",
-  "status": "no-hours-on-official-site",
+  "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
-  "source": "https://www.bouldergate.ch/"
+  "source": "https://www.bouldergate.ch/",
+  "reason": "Re-read, and the earlier 'no schedule' reading was incomplete: the homepage states 'Das Bouldergate kann von den Mitgliedern 24/7 benutzt werden' and tells non-members 'Registriere dich vor JEDEM Besuch'. Access is by membership or per-visit registration, and no public week is stated."
  },
  {
   "lat": 46.62682,
@@ -766,8 +766,8 @@
   "country": "CH",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The page states Du lundi au vendredi 09h00 à 22h00 and Samedi et dimanche 09h00 à 20h00, while its schema.org openingHoursSpecification says all seven days 09:00–22:00.",
-  "source": "https://lentrepot.ch/infos-pratiques/"
+  "source": "https://lentrepot.ch/infos-pratiques/",
+  "reason": "Re-read: unchanged. The visible block is 'Du lundi au vendredi 09h00 à 22h00' and 'Samedi et dimanche 09h00 à 20h00'; the page's own openingHoursSpecification says all seven days 09:00-22:00. Two schedules, and nothing here ranks one over the other."
  },
  {
   "lat": 46.6274,
@@ -776,8 +776,8 @@
   "country": "CH",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "Same hall as the venue about 60 m away, and the same conflict: 09h00–20h00 at the weekend in the text, 09:00–22:00 every day in the markup.",
-  "source": "https://lentrepot.ch/infos-pratiques/"
+  "source": "https://lentrepot.ch/infos-pratiques/",
+  "reason": "Same hall as the venue about 60 m away, and the same conflict: 09h00-20h00 at the weekend in the text, 09:00-22:00 every day in the page's own markup."
  },
  {
   "lat": 46.78714,
@@ -786,18 +786,18 @@
   "country": "CH",
   "status": "seasonal",
   "checked": "2026-08-23",
-  "reason": "The hall says outright that it adapts its opening hours to the seasons (\"nous adaptons nos horaires d'ouverture en fonction des saisons\") and asks visitors to re-check before coming; Mondays additionally change during Vaud school holidays.",
-  "source": "https://lapile.ch/acces-et-horaires/"
+  "source": "https://lapile.ch/acces-et-horaires/",
+  "reason": "Re-read: unchanged. The page is headed 'Des horaires adaptés au rythme des saisons' and says the hall adapts its hours to the season and to observed footfall, asking visitors to re-check before coming; Mondays additionally differ during Vaud school holidays."
  },
  {
   "lat": 46.6543456,
   "lon": 6.503461,
   "name": "Moon Venga Bloc",
   "country": "CH",
-  "status": "no-hours-on-official-site",
+  "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
-  "source": "https://www.vengabloc.ch/"
+  "source": "https://www.vengabloc.ch/",
+  "reason": "Re-read, and the earlier 'no schedule' reading was wrong: the site does publish a window, but it is members-only - 'Les membres ... peuvent accéder librement (grâce à une carte magnétique) ... entre 8:00 et 22:00 tous les jours'. Non-members are told to come with a member or to phone or WhatsApp a committee member to be let in remotely."
  },
  {
   "lat": 46.190825110299706,
@@ -806,8 +806,8 @@
   "country": "CH",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The Lancy hours page states Lundi–Vendredi 12h00-22h00 and Samedi & Dimanche 14h00-21h00, while the schema.org openingHours on that same page says Monday–Friday 10:00-22:00 and Saturday–Sunday 10:00-21:00.",
-  "source": "https://planetclimbing.ch/lancy/heures-douverture-et-tarifs/"
+  "source": "https://planetclimbing.ch/lancy/heures-douverture-et-tarifs/",
+  "reason": "Re-read: unchanged. The Lancy hours page states 'Lundi, Mardi, Mercredi, Jeudi & Vendredi : 12h00-22h00' and 'Samedi & Dimanche : 14h00-21h00', while the openingHours markup on that same page says Monday-Friday 10:00-22:00 and Saturday-Sunday 10:00-21:00."
  },
  {
   "lat": 46.19127,
@@ -816,8 +816,8 @@
   "country": "CH",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "Same hall as the venue about 50 m away, and the same conflict between the page's visible times (12h00-22h00 on weekdays) and its own schema.org markup (10:00-22:00).",
-  "source": "https://planetclimbing.ch/lancy/heures-douverture-et-tarifs/"
+  "source": "https://planetclimbing.ch/lancy/heures-douverture-et-tarifs/",
+  "reason": "Same hall as the venue about 50 m away, and the same conflict between the page's visible times (12h00-22h00 on weekdays) and its own markup (10:00-22:00)."
  },
  {
   "lat": 47.2242898,
@@ -826,8 +826,8 @@
   "country": "CH",
   "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "The hall states that public bouldering is Tuesday evenings 18–22 Uhr only and that \"an allen anderen Tagen ist die Boulderhalle nur für Abonnent*innen zugänglich\" — the rest of the week is subscriber access, which is not a public opening.",
-  "source": "https://www.quergang.ch/oeffnungszeiten"
+  "source": "https://www.quergang.ch/oeffnungszeiten",
+  "reason": "Re-read: unchanged. Public bouldering is Tuesday 18:00-22:00 only and 'an allen anderen Tagen ist die Boulderhalle nur für Abonnent*innen zugänglich'. The other six days are not closed, so a week that called them closed would be wrong for every subscriber."
  },
  {
   "lat": 46.344441391849095,
@@ -844,10 +844,10 @@
   "lon": 8.40471,
   "name": "Sporting Park Engelberg",
   "country": "CH",
-  "status": "no-hours-on-official-site",
+  "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "The sports centre publishes a day-by-day event calendar for its ice rink and group reservations of the climbing wall, but no opening hours for the wall itself.",
-  "source": "https://www.sportingpark.ch/"
+  "source": "https://sportingpark.ch/sport/klettern/",
+  "reason": "Re-read, and the earlier 'no hours at all' reading was incomplete: the homepage does publish a facility week - SPORT täglich 09.00-21.00, RECEPTION 09.00-20.30, RESTAURANT ab 08.30 - but none of the three is labelled as the climbing wall's, the multi-sport centre also runs an ice rink and pool under the same line, the wall's own page publishes only dated group reservations during which it is unavailable, and the site adds that the hours are adjusted according to weather and business activity."
  },
  {
   "lat": 46.21936,
@@ -856,8 +856,8 @@
   "country": "CH",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "Same as the operator's other halls: the hours are rendered client-side and appear in the fetched document only as schema.org markup.",
-  "source": "https://totem.ch/vernier"
+  "source": "https://totem.ch/vernier",
+  "reason": "Re-read: unchanged. The location page carries the week only as schema.org markup (Mo-Fr 09:00-23:00, Sa 09:00-23:00, Su 09:00-21:00); the rendered document a reader without JavaScript receives states no times, and markup is a witness, never the source."
  },
  {
   "lat": 46.2876938,
@@ -866,8 +866,8 @@
   "country": "CH",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "The hall's own FAQ says the precise hours are displayed at the top of the page and kept up to date automatically; they are rendered client-side, so the fetched document carries them only as schema.org markup.",
-  "source": "https://totem.ch/versoix"
+  "source": "https://totem.ch/versoix",
+  "reason": "Re-read: unchanged. Same operator, same shape - the week appears only as schema.org markup (Mo-Fr 10:00-22:30, Sa-Su 13:30-20:00) and nowhere in the readable page."
  },
  {
   "lat": 46.4628333,
@@ -876,8 +876,8 @@
   "country": "CH",
   "status": "inaccessible",
   "checked": "2026-08-23",
-  "reason": "Same as the operator's other halls: the hours are rendered client-side and appear in the fetched document only as schema.org markup.",
-  "source": "https://totem.ch/vevey"
+  "source": "https://totem.ch/vevey",
+  "reason": "Re-read: unchanged. Same operator, same shape - the week appears only as schema.org markup (Mo-Fr 10:00-22:30, Sa-Su 13:30-20:00) and nowhere in the readable page."
  },
  {
   "lat": 50.780882755796554,
@@ -950,16 +950,6 @@
   "source": "https://blocschmiede-boulderhalle.de/kontakt-anfahrt/"
  },
  {
-  "lat": 50.79399,
-  "lon": 6.78411,
-  "name": "BoulderEck Erftstadt",
-  "country": "DE",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "reason": "The published week (Mo–Do 15:00–22:00, Fr 09:00–22:00, Sa/So 10:00–21:00) is followed by \"Erweiterte Ferienzeiten beachten! Feiertage und Ferien in NRW ab 10:00 Uhr geöffnet\", which changes the weekday opening for the whole of every NRW school holiday.",
-  "source": "https://bouldereck.de/besuch-and-zeiten"
- },
- {
   "lat": 51.12048,
   "lon": 13.59201,
   "name": "Boulderdrome",
@@ -970,6 +960,16 @@
   "source": "https://www.boulderdrome.de/"
  },
  {
+  "lat": 50.79399,
+  "lon": 6.78411,
+  "name": "BoulderEck Erftstadt",
+  "country": "DE",
+  "status": "seasonal",
+  "checked": "2026-08-23",
+  "reason": "The published week (Mo–Do 15:00–22:00, Fr 09:00–22:00, Sa/So 10:00–21:00) is followed by \"Erweiterte Ferienzeiten beachten! Feiertage und Ferien in NRW ab 10:00 Uhr geöffnet\", which changes the weekday opening for the whole of every NRW school holiday.",
+  "source": "https://bouldereck.de/besuch-and-zeiten"
+ },
+ {
   "lat": 52.388056,
   "lon": 9.7286783,
   "name": "Boulderhalle Beta Hannover",
@@ -978,6 +978,16 @@
   "checked": "2026-08-23",
   "source": "https://boulderhalle-beta.de/besuch-planen/oeffnungszeiten/",
   "reason": "Same conflict as Bloc-Hütte Augsburg: the text says Mo–Fr 10:00–23:00 and Sa/So/Feiertag 09:00–22:00 on every page, while the site's schema.org openingHours says \"Monday,…,Sunday 09:00-17:00\". Two official statements, no way to rank them."
+ },
+ {
+  "lat": 49.69046,
+  "lon": 11.62995,
+  "name": "Boulderhalle Zugzwang",
+  "country": "DE",
+  "status": "seasonal",
+  "checked": "2026-08-23",
+  "source": "https://zugzwang-auerbach.de/",
+  "reason": "Two dated regimes and a stated closure: Oktober–März (Mi, Fr 18:00-21:00, So 14:00-17:00), April-Mai (Fr 18:00-21:00), and 'Ab den bayerischen Pfingstferien bis zum Ende der Sommerferien keine öffentlichen Öffnungszeiten'. The hall also says outright that it cannot always keep to the regular times."
  },
  {
   "lat": 50.937531,
@@ -1118,6 +1128,16 @@
   "checked": "2026-08-23",
   "reason": "The homepage carries two weeks that disagree about Tuesday and Friday: one says \"Mo, Mi & Do: 10:00 bis 23:00 | Di & Fr: 07:00 bis 23:00\", the other \"Montag bis Freitag 10 bis 23 Uhr\".",
   "source": "https://www.dersteinbock-nuernberg.de/"
+ },
+ {
+  "lat": 49.443067,
+  "lon": 10.9598136,
+  "name": "der steinbock Zirndorf Moon Board",
+  "country": "DE",
+  "status": "seasonal",
+  "checked": "2026-08-23",
+  "reason": "Two published weeks: Mo–Do 14:00–23:00 outside the holidays and Mo–Do 10:00–23:00 während der Ferien, with Fr–So 09:00–22:00 in both. Same reason as the other school-holiday cases.",
+  "source": "https://www.dersteinbock-zirndorf.de/"
  },
  {
   "lat": 51.45539,
@@ -1310,16 +1330,6 @@
   "source": "https://www.xxl-klettern.de/"
  },
  {
-  "lat": 49.443067,
-  "lon": 10.9598136,
-  "name": "der steinbock Zirndorf Moon Board",
-  "country": "DE",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "reason": "Two published weeks: Mo–Do 14:00–23:00 outside the holidays and Mo–Do 10:00–23:00 während der Ferien, with Fr–So 09:00–22:00 in both. Same reason as the other school-holiday cases.",
-  "source": "https://www.dersteinbock-zirndorf.de/"
- },
- {
   "lat": 57.04980430000001,
   "lon": 9.8987952,
   "name": "Aalborg Klatreklub",
@@ -1450,14 +1460,24 @@
   "source": "https://www.climbprocenter.com/"
  },
  {
-  "lat": 38.03211,
-  "lon": -1.14918,
-  "name": "GUD Climbing Gym",
+  "lat": 39.72222,
+  "lon": 2.90134,
+  "name": "esRocodrom",
   "country": "ES",
-  "status": "ambiguous",
+  "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "The visible block says Sábados y domingos 09:00h-21:00h while the page's schema.org openingHoursSpecification says Saturday 08:00-22:00 and Sunday 10:00-20:00.",
-  "source": "https://gudclimbing.com/"
+  "reason": "No schedule appears anywhere on the site.",
+  "source": "http://esrocodrom.com/botiga/"
+ },
+ {
+  "lat": 39.722313033598525,
+  "lon": 2.9013102846544903,
+  "name": "esRocodrom",
+  "country": "ES",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "reason": "No schedule appears anywhere on the site.",
+  "source": "http://esrocodrom.com/botiga/"
  },
  {
   "lat": 41.6231,
@@ -1478,6 +1498,16 @@
   "checked": "2026-08-23",
   "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://geoboulder.es/"
+ },
+ {
+  "lat": 38.03211,
+  "lon": -1.14918,
+  "name": "GUD Climbing Gym",
+  "country": "ES",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "reason": "The visible block says Sábados y domingos 09:00h-21:00h while the page's schema.org openingHoursSpecification says Saturday 08:00-22:00 and Sunday 10:00-20:00.",
+  "source": "https://gudclimbing.com/"
  },
  {
   "lat": 43.3499467,
@@ -1600,6 +1630,16 @@
   "source": "https://oceanusclimbing.es/"
  },
  {
+  "lat": 41.74104,
+  "lon": 1.85513,
+  "name": "p a t i • climb • coffee • community",
+  "country": "ES",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+  "source": "https://www.elpativertical.cat/"
+ },
+ {
   "lat": 37.392502956111336,
   "lon": -5.957352871163623,
   "name": "Rock & Wall Climbing",
@@ -1640,16 +1680,6 @@
   "source": "https://www.rocopolis.com/horario-contacto/"
  },
  {
-  "lat": 42.36115,
-  "lon": -3.70491,
-  "name": "SKALA ROCO",
-  "country": "ES",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The contact page carries two weeks: \"LUN - VIE: 7:00 - 23:00, SAB - DOM: 10:00 - 22:00\" and \"Lunes – Viernes: 10:00 – 22:00 (*horario socios: 07:00-22:00), Sábado – Domingo: 10:00 – 22:00\".",
-  "source": "https://www.skalaroco.com/contacto/"
- },
- {
   "lat": 41.52992,
   "lon": 2.09888,
   "name": "Sala Escalada Batec Sabadell",
@@ -1688,6 +1718,16 @@
   "checked": "2026-08-23",
   "reason": "The page carries an opening-hours heading but no times in the fetched document; the schedule is rendered client-side.",
   "source": "https://sharmaclimbing.com/espana/madrid-centro/horarios-y-tarifas/"
+ },
+ {
+  "lat": 42.36115,
+  "lon": -3.70491,
+  "name": "SKALA ROCO",
+  "country": "ES",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "reason": "The contact page carries two weeks: \"LUN - VIE: 7:00 - 23:00, SAB - DOM: 10:00 - 22:00\" and \"Lunes – Viernes: 10:00 – 22:00 (*horario socios: 07:00-22:00), Sábado – Domingo: 10:00 – 22:00\".",
+  "source": "https://www.skalaroco.com/contacto/"
  },
  {
   "lat": 40.4167754,
@@ -1740,34 +1780,14 @@
   "source": "https://zimaescalada.es/"
  },
  {
-  "lat": 39.72222,
-  "lon": 2.90134,
-  "name": "esRocodrom",
-  "country": "ES",
-  "status": "no-hours-on-official-site",
+  "lat": 60.16085390000001,
+  "lon": 24.8880823,
+  "name": "Boulderkeskus Kino",
+  "country": "FI",
+  "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "http://esrocodrom.com/botiga/"
- },
- {
-  "lat": 39.722313033598525,
-  "lon": 2.9013102846544903,
-  "name": "esRocodrom",
-  "country": "ES",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "http://esrocodrom.com/botiga/"
- },
- {
-  "lat": 41.74104,
-  "lon": 1.85513,
-  "name": "p a t i • climb • coffee • community",
-  "country": "ES",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
-  "source": "https://www.elpativertical.cat/"
+  "reason": "The operator's own list says of this hall only: \"Access with Premium card and yearly memberships only\" — there is no public opening schedule.",
+  "source": "https://www.boulderkeskus.com/en/content/9-all-locations"
  },
  {
   "lat": 61.04051879999999,
@@ -1778,16 +1798,6 @@
   "checked": "2026-08-23",
   "reason": "No schedule appears anywhere on the site.",
   "source": "https://www.bouldersaimaa.fi/"
- },
- {
-  "lat": 60.16085390000001,
-  "lon": 24.8880823,
-  "name": "Boulderkeskus Kino",
-  "country": "FI",
-  "status": "appointment-only",
-  "checked": "2026-08-23",
-  "reason": "The operator's own list says of this hall only: \"Access with Premium card and yearly memberships only\" — there is no public opening schedule.",
-  "source": "https://www.boulderkeskus.com/en/content/9-all-locations"
  },
  {
   "lat": 60.23941,
@@ -2000,16 +2010,6 @@
   "source": "https://www.escapad.fr/club-champigny"
  },
  {
-  "lat": 47.51288184647128,
-  "lon": 6.8354212514257595,
-  "name": "GRAVITY BLOC",
-  "country": "FR",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The visible table pairs Friday with Wednesday at 10h – 22h while the page's schema.org openingHoursSpecification puts Friday with Monday, Tuesday and Thursday at 12:00–22:00.",
-  "source": "https://gravitybloc.fr/"
- },
- {
   "lat": 48.6080475097524,
   "lon": 6.16269753995282,
   "name": "Goat Rocks",
@@ -2018,6 +2018,16 @@
   "checked": "2026-08-23",
   "reason": "The visible table says Mercredi 9h - 22h while the page's schema.org openingHoursSpecification puts Wednesday with Monday to Friday at 11:00–22:00.",
   "source": "https://www.goatrocks.fr/"
+ },
+ {
+  "lat": 47.51288184647128,
+  "lon": 6.8354212514257595,
+  "name": "GRAVITY BLOC",
+  "country": "FR",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "reason": "The visible table pairs Friday with Wednesday at 10h – 22h while the page's schema.org openingHoursSpecification puts Friday with Monday, Tuesday and Thursday at 12:00–22:00.",
+  "source": "https://gravitybloc.fr/"
  },
  {
   "lat": 45.08821,
@@ -2690,16 +2700,6 @@
   "source": "https://boulderneoliet.nl/nl/tilburg/openingstijden/"
  },
  {
-  "lat": 52.61783,
-  "lon": 4.76679,
-  "name": "Boulderhal Sendmaat",
-  "country": "NL",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The homepage and the openingstijden page disagree about the closing time on every weekday (23:00 against 22:00) and about Sunday (22:00 against 18:00).",
-  "source": "https://www.boulderhalsendmast.nl/informatie/openingstijden/"
- },
- {
   "lat": 52.3925,
   "lon": 4.8513889,
   "name": "Boulderhal het Lab Amsterdam",
@@ -2708,6 +2708,16 @@
   "checked": "2026-08-23",
   "reason": "The location page publishes only a block headed \"Zomerperiode juli & augustus\"; the operator gives no term-time week for any of its halls, so what is published expires at the end of August.",
   "source": "https://beestboulders.com/vestigingen/het-lab-amsterdam/"
+ },
+ {
+  "lat": 52.61783,
+  "lon": 4.76679,
+  "name": "Boulderhal Sendmaat",
+  "country": "NL",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "reason": "The homepage and the openingstijden page disagree about the closing time on every weekday (23:00 against 22:00) and about Sunday (22:00 against 18:00).",
+  "source": "https://www.boulderhalsendmast.nl/informatie/openingstijden/"
  },
  {
   "lat": 52.22366,
@@ -2840,26 +2850,6 @@
   "source": "https://gymstryn.no/"
  },
  {
-  "lat": 60.2502,
-  "lon": 11.17952,
-  "name": "Hoyt Under Taket Letohallen",
-  "country": "NO",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
-  "source": "https://hoytundertaket.no/letohallen/informasjon/apningstider/"
- },
- {
-  "lat": 60.12731,
-  "lon": 11.33811,
-  "name": "Hvam IL Klatring",
-  "country": "NO",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "The sports club’s site publishes no schedule for the wall.",
-  "source": "https://hvamil.no/"
- },
- {
   "lat": 61.21709,
   "lon": 6.06983,
   "name": "Høyanger Klatreklubb",
@@ -2878,6 +2868,16 @@
   "checked": "2026-08-23",
   "reason": "The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
   "source": "https://hoytundertaket.no/tonsberg/informasjon/aapningstider/"
+ },
+ {
+  "lat": 60.2502,
+  "lon": 11.17952,
+  "name": "Hoyt Under Taket Letohallen",
+  "country": "NO",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "reason": "The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
+  "source": "https://hoytundertaket.no/letohallen/informasjon/apningstider/"
  },
  {
   "lat": 59.41667,
@@ -2900,6 +2900,16 @@
   "source": "https://hoytundertaket.no/skien/informasjon/apningstider/"
  },
  {
+  "lat": 60.12731,
+  "lon": 11.33811,
+  "name": "Hvam IL Klatring",
+  "country": "NO",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "reason": "The sports club’s site publishes no schedule for the wall.",
+  "source": "https://hvamil.no/"
+ },
+ {
   "lat": 63.06181,
   "lon": 7.48804,
   "name": "I.L. Havørn Klatring",
@@ -2920,6 +2930,16 @@
   "source": "https://www.klatreklubben.no/"
  },
  {
+  "lat": 59.75349,
+  "lon": 10.13034,
+  "name": "Klatreverket Åssiden",
+  "country": "NO",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "reason": "The site publishes a staffed week and an unstaffed 06:00–23:00 window with staffed hours in brackets, and the homepage and the apningstider page disagree about both — Friday 10:00–20:00 against kun ubetjent, Wednesday 13:00–20:00 against 13:00–17:00.",
+  "source": "https://klatreverketdrammen.no/apningstider/"
+ },
+ {
   "lat": 59.7440738,
   "lon": 10.2044564,
   "name": "Klatreverket Drammen",
@@ -2938,16 +2958,6 @@
   "checked": "2026-08-23",
   "reason": "The candidate site klatreverket.no is the Oslo-area operator of the same name; it lists no Kristiansand hall.",
   "source": "https://klatreverket.no/"
- },
- {
-  "lat": 59.75349,
-  "lon": 10.13034,
-  "name": "Klatreverket Åssiden",
-  "country": "NO",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The site publishes a staffed week and an unstaffed 06:00–23:00 window with staffed hours in brackets, and the homepage and the apningstider page disagree about both — Friday 10:00–20:00 against kun ubetjent, Wednesday 13:00–20:00 against 13:00–17:00.",
-  "source": "https://klatreverketdrammen.no/apningstider/"
  },
  {
   "lat": 68.43582769999999,
@@ -3330,6 +3340,16 @@
   "source": "https://helsingborgsk2.se/"
  },
  {
+  "lat": 56.8790044,
+  "lon": 14.8058522,
+  "name": "idrottshuset växjö moonboard",
+  "country": "SE",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "reason": "No schedule appears in the served document.",
+  "source": "https://idrottshuset.se/"
+ },
+ {
   "lat": 63.81858999999999,
   "lon": 20.3192457,
   "name": "IKSU Sport",
@@ -3338,16 +3358,6 @@
   "checked": "2026-08-23",
   "reason": "The site shows a single \"Öppet 05:00 - 00:00 (idag)\" widget for one of four facilities and no week.",
   "source": "https://www.iksu.se/"
- },
- {
-  "lat": 59.38186,
-  "lon": 13.53526,
-  "name": "JumpYard Karlstad",
-  "country": "SE",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "No schedule reaches the served document.",
-  "source": "https://jumpyard.se/"
  },
  {
   "lat": 63.39554,
@@ -3360,14 +3370,14 @@
   "source": "https://jumpyard.se/are/oppettider/"
  },
  {
-  "lat": 59.35825,
-  "lon": 18.09016,
-  "name": "Klatterverket Gasverket",
+  "lat": 59.38186,
+  "lon": 13.53526,
+  "name": "JumpYard Karlstad",
   "country": "SE",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-23",
-  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
-  "source": "https://www.klatterverket.se/gasverket"
+  "reason": "No schedule reaches the served document.",
+  "source": "https://jumpyard.se/"
  },
  {
   "lat": 56.0597542,
@@ -3398,6 +3408,16 @@
   "checked": "2026-08-23",
   "reason": "The page publishes \"Sommaröppettider (juni-augusti) Mån-Tors: 14-22 | Fre-Lör: Stängt | Sön: 10-16\" beside the ordinary week; the summer regime is the one in force.",
   "source": "https://klatterhallen.com/"
+ },
+ {
+  "lat": 59.35825,
+  "lon": 18.09016,
+  "name": "Klatterverket Gasverket",
+  "country": "SE",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "reason": "No schedule appears on the homepage or on any of the pages linked from it.",
+  "source": "https://www.klatterverket.se/gasverket"
  },
  {
   "lat": 59.304576,
@@ -3450,6 +3470,26 @@
   "source": "https://moumo.se/"
  },
  {
+  "lat": 59.2761633,
+  "lon": 15.2337493,
+  "name": "Örebro Klättergym",
+  "country": "SE",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "reason": "No schedule appears anywhere on the site.",
+  "source": "https://www.orebroklattergym.se/"
+ },
+ {
+  "lat": 63.16214050000001,
+  "lon": 14.6551623,
+  "name": "Östersunds Klättercenter",
+  "country": "SE",
+  "status": "seasonal",
+  "checked": "2026-08-23",
+  "reason": "The hours page opens with \"Nu är det sommar och vi avviker därför från de vanliga öppettiderna nedan. Nu har vi öppet 12:00-19:00 på vardagar och 11:00-17:00 på helger\".",
+  "source": "https://ostersundsklattercenter.se/"
+ },
+ {
   "lat": 57.39706,
   "lon": 14.6648,
   "name": "Sävsjö Klätterklubb",
@@ -3488,36 +3528,6 @@
   "checked": "2026-08-23",
   "reason": "No schedule appears anywhere on the club’s site.",
   "source": "https://varbergsklatterklubb.se/"
- },
- {
-  "lat": 56.8790044,
-  "lon": 14.8058522,
-  "name": "idrottshuset växjö moonboard",
-  "country": "SE",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "No schedule appears in the served document.",
-  "source": "https://idrottshuset.se/"
- },
- {
-  "lat": 59.2761633,
-  "lon": 15.2337493,
-  "name": "Örebro Klättergym",
-  "country": "SE",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "No schedule appears anywhere on the site.",
-  "source": "https://www.orebroklattergym.se/"
- },
- {
-  "lat": 63.16214050000001,
-  "lon": 14.6551623,
-  "name": "Östersunds Klättercenter",
-  "country": "SE",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "reason": "The hours page opens with \"Nu är det sommar och vi avviker därför från de vanliga öppettiderna nedan. Nu har vi öppet 12:00-19:00 på vardagar och 11:00-17:00 på helger\".",
-  "source": "https://ostersundsklattercenter.se/"
  },
  {
   "lat": 36.92433980000001,
@@ -3780,16 +3790,6 @@
   "source": "https://frontierclimbing.com/"
  },
  {
-  "lat": 42.96643,
-  "lon": -85.89038,
-  "name": "GVSU Climbing Center",
-  "country": "US",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "reason": "The university’s site publishes no schedule for the climbing centre.",
-  "source": "https://www.gvsu.edu/"
- },
- {
   "lat": 39.21917,
   "lon": -121.03081,
   "name": "Gold Crush Climbing Gym",
@@ -3808,6 +3808,16 @@
   "checked": "2026-08-23",
   "reason": "The operator’s own location page says \"The Gravity Vault Jersey City is permanently closed — our final day of operation was Friday, July 31, 2026\".",
   "source": "https://gravityvault.com/"
+ },
+ {
+  "lat": 42.96643,
+  "lon": -85.89038,
+  "name": "GVSU Climbing Center",
+  "country": "US",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "reason": "The university’s site publishes no schedule for the climbing centre.",
+  "source": "https://www.gvsu.edu/"
  },
  {
   "lat": 25.681666663169874,
@@ -3830,16 +3840,6 @@
   "source": "https://longmontclimbingcollective.com/"
  },
  {
-  "lat": 42.55321,
-  "lon": -71.47254,
-  "name": "MetroROCK Littleton",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The hours page states Saturday & Sunday 9:00AM - 7:00PM, while the location home page's schema.org openingHours says Sa-Su 09:00-21:00.",
-  "source": "https://littleton.metrorock.com/littleton-home"
- },
- {
   "lat": 40.7082,
   "lon": -73.92041,
   "name": "MetroRock Bushwick",
@@ -3858,6 +3858,16 @@
   "checked": "2026-08-23",
   "reason": "The hours page states Monday - Friday 10:00AM - 10:00PM and Saturday, Sunday 9:00AM - 8:00PM, while the location home page's schema.org openingHours says Tu and Th open at 07:00 and both weekend days close at 22:00.",
   "source": "https://metrorock.com/everett-home"
+ },
+ {
+  "lat": 42.55321,
+  "lon": -71.47254,
+  "name": "MetroROCK Littleton",
+  "country": "US",
+  "status": "ambiguous",
+  "checked": "2026-08-23",
+  "reason": "The hours page states Saturday & Sunday 9:00AM - 7:00PM, while the location home page's schema.org openingHours says Sa-Su 09:00-21:00.",
+  "source": "https://littleton.metrorock.com/littleton-home"
  },
  {
   "lat": 29.77515,
@@ -4150,9 +4160,9 @@
   "source": "https://theedgerockgym.com/"
  },
  {
-  "lat": 40.10454,
-  "lon": -75.33213,
-  "name": "The Factory By Reach",
+  "lat": 40.10515,
+  "lon": -75.33066,
+  "name": "The Factory at Reach",
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
@@ -4160,9 +4170,9 @@
   "source": "https://www.thefactoryboulder.com/"
  },
  {
-  "lat": 40.10515,
-  "lon": -75.33066,
-  "name": "The Factory at Reach",
+  "lat": 40.10454,
+  "lon": -75.33213,
+  "name": "The Factory By Reach",
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
