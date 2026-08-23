@@ -9439,6 +9439,23 @@
     ]
   },
   {
+    "lat": 43.32440591741045,
+    "lon": -0.31775893125007443,
+    "name": "Beta-Bloc Escalade",
+    "country": "FR",
+    "website": "https://www.beta-bloc.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "Bêta-Bloc's own site — \"Salle d'escalade à Pau\" — printing 6 Rue Alessandro Volta, 64000 Pau, which is the whole address upstream records, and naming the Kilter Board this venue is listed for. The domain had been seen once before in this audit, as a candidate for Beta Bloc in Dorval, Canada, where it was correctly refused; here it is the venue."
+  },
+  {
     "lat": 45.75495,
     "lon": 4.86817,
     "name": "Bloc Session Lyon Centre",
@@ -12290,6 +12307,21 @@
     "note": "RedRock Climbing Center's own site, printing the 4413 postal code upstream records for Soleuvre and naming the board this venue is listed for."
   },
   {
+    "lat": 35.88554,
+    "lon": 14.47372,
+    "name": "Crashpad Climbing Centre",
+    "country": "MT",
+    "website": "https://crashpad.com.mt/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "coordinates"
+    ],
+    "note": "Crashpad Climbing Centre's own site, giving Qormi — the town upstream records — and embedding a map of itself 4 m from this venue."
+  },
+  {
     "lat": -13.93661,
     "lon": 33.77632,
     "name": "Climb Malawi",
@@ -12302,6 +12334,20 @@
       "city"
     ],
     "note": "Climb Malawi's own site, giving Lilongwe — the city upstream records. The venue name carries the country, not the town, so the two are independent."
+  },
+  {
+    "lat": 20.65843,
+    "lon": -103.39662,
+    "name": "Ameyalli",
+    "country": "MX",
+    "website": "https://ameyalli.com.mx/",
+    "verified": "2026-08-23",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address"
+    ],
+    "note": "Ameyalli's own site, printing both halves of the street line upstream records: 12 de Diciembre, and the number 3050."
   },
   {
     "lat": 25.7773245,
@@ -15290,6 +15336,22 @@
       "board-mention"
     ],
     "note": "Lezecké centrum Vertigo's own site, giving Bratislava and naming the MoonBoard this venue is listed for. This is the twin of the Vertigo entry 25 m away that already carries the same link. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
+  },
+  {
+    "lat": 13.71681,
+    "lon": 100.59302,
+    "name": "Stonegoat Climbing Gym",
+    "country": "TH",
+    "website": "https://www.stonegoatclimb.com/",
+    "verified": "2026-08-23",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "location-page"
+    ],
+    "note": "Stonegoat publishes three branches with an address each, and one of them is this venue: \"S69 Branch 36/3 Sukhumvit 69 Alley, Phra Khanong Nuea, Watthana, Bangkok 10110\", which is upstream's 36/3 ซอย สุขุมวิท 69 แขวงพระโขนงเหนือ, 10110 in Latin script."
   },
   {
     "lat": 13.73627,
@@ -19489,6 +19551,22 @@
       "coordinates"
     ],
     "note": "The site carries this venue's name and embeds a map of itself — Shift Climbing — 212 m from these coordinates. Upstream records no street address for the venue, so the name and the point the site publishes of itself are what carry the match."
+  },
+  {
+    "lat": 37.71926,
+    "lon": -89.21243,
+    "name": "Southern Illinois University Recreation Center",
+    "country": "US",
+    "website": "https://rec.siu.edu/",
+    "verified": "2026-08-23",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Southern Illinois University's own recreation site, printing 300 E Grand Ave, Carbondale 62901 — the whole address upstream records. The first pass had reached southernillinois.com, which is a Jefferson County tourism site contactable at 123 S. 10th St, Mt. Vernon, and matched only because it names the region."
   },
   {
     "lat": 45.67642,

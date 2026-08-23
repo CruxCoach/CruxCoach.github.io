@@ -15563,6 +15563,33 @@
   "note": "Every day listed separately; Friday, Saturday and Sunday each differ from the Monday-to-Thursday block."
  },
  {
+  "lat": 13.71681,
+  "lon": 100.59302,
+  "name": "Stonegoat Climbing Gym",
+  "country": "TH",
+  "source": "https://www.stonegoatclimb.com/contact",
+  "checked": "2026-08-23",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "S69 Branch 36/3 Sukhumvit 69 Alley, Phra Khanong Nuea, Watthana, Bangkok 10110 (+66) 063-219-9933 Open everyday, 10:00-22:00",
+  "note": "The line sits under this branch's own address and telephone number. The operator's first branch on the same page keeps different hours — Monday to Friday, 09:30-18:30 — so the blocks are per-branch."
+ },
+ {
   "lat": 41.07611175615464,
   "lon": 29.01340927116426,
   "name": "Boulderhane",
@@ -21469,6 +21496,33 @@
   },
   "evidence": "Sunday | 10:00 AM - 6:00 PM | Monday | 10:00 AM - 10:00 PM | Tuesday | 6:00 AM - 10:00 PM | Wednesday | 12:00 PM - 10:00 PM | Thursday | 6:00 AM - 10:00 PM | Friday | 10:00 AM - 10:00 PM | Saturday | 8:00 AM - 8:00 PM",
   "note": "The site’s own schema.org openingHours agrees."
+ },
+ {
+  "lat": 37.71926,
+  "lon": -89.21243,
+  "name": "Southern Illinois University Recreation Center",
+  "country": "US",
+  "source": "https://rec.siu.edu/hours/",
+  "checked": "2026-08-23",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "05:30-22:00",
+   "tue": "05:30-22:00",
+   "wed": "05:30-22:00",
+   "thu": "05:30-22:00",
+   "fri": "05:30-22:00",
+   "sat": "08:00-20:00",
+   "sun": "13:00-20:00"
+  },
+  "evidence": "Building Hours Recreational Building Hours Day Hours of Operation Monday - Friday 5:30 a.m. - 10:00 p.m. Saturday 8:00 a.m. - 8:00 p.m. Sunday 1:00 p.m. - 8:00 p.m.",
+  "note": "These are the recreation building's hours, which is the building the climbing wall is in; the member-services desk keeps its own narrower window on the same page and is not published here."
  },
  {
   "lat": 38.801099,

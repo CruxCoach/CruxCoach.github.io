@@ -195,7 +195,7 @@
     "country": "AU",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "mandurah.com.au is a city portal and mandurah.com does not answer usably. Nothing found names 2 & 3/12 Thornborough Rd in Greenfields.",
+    "reason": "mandurah.com.au is the City of Mandurah, not the gym. It prints the 6210 postal code because that is the town's, and the map it embeds of itself sits 2,298 m away at the civic centre; the \"2\" that matched is the unit number in 2 & 3/12 Thornborough Rd and appears on the council page for unrelated reasons. No name-derived domain for the gym itself resolves.",
     "candidate": "https://mandurah.com.au/"
   },
   {
@@ -2154,16 +2154,6 @@
     "candidate": "https://www.wall.fr/"
   },
   {
-    "lat": 43.32440591741045,
-    "lon": -0.31775893125007443,
-    "name": "Beta-Bloc Escalade",
-    "country": "FR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — betaboulders.nl → \"Beta Boulders Amsterdam\"; boulderhalle-beta.de → \"Startseite - BETA - Boulderhalle\"; betaboulders.com → \"Home | Beta Boulders Copenhagen\", the rest could not be opened — betabloc.com → a timeout. Upstream records 6 Rue Alessandro Volta, Zone Polaris, 64000, Pau, and nothing opened printed it.",
-    "candidate": "https://betaboulders.nl/"
-  },
-  {
     "lat": 48.20484,
     "lon": 2.47222,
     "name": "Bloc Lodge",
@@ -3953,16 +3943,6 @@
     "candidate": "https://www.chisinau.md/ro"
   },
   {
-    "lat": 35.88554,
-    "lon": 14.47372,
-    "name": "Crashpad Climbing Centre",
-    "country": "MT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — crashpad.com.mt → \"Crashpad - Indoor Bouldering & Rock Climbing Gym in Malt\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://crashpad.com.mt/"
-  },
-  {
     "lat": -13.9427314,
     "lon": 33.7777146,
     "name": "Climb Centre Malawi",
@@ -4001,16 +3981,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — adamanta.mx → \"Adamanta | Gimnasios de Escalada | México\", the rest could not be opened — adamanta.com.mx → a certificate that does not cover its hostname; adamanta.com → 403. Upstream records Blvd Manuel Ávila Camacho 3023, 53160, La Florida, and nothing opened printed it.",
     "candidate": "https://www.adamanta.mx/"
-  },
-  {
-    "lat": 20.65843,
-    "lon": -103.39662,
-    "name": "Ameyalli",
-    "country": "MX",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — ameyalli.com.mx → \"Ameyalli | Escalada, Arborismo y Trabajo en Alturas\"; ameyalli.com → \"AMEYALLI\", the venue's whole name as one label, ameyalli.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records 12 de Diciembre 3050, 44500, Guadalajara, and nothing opened printed it.",
-    "candidate": "https://ameyalli.com.mx/"
   },
   {
     "lat": 21.1305471,
@@ -5522,16 +5492,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — main.com → \"Main.com | Brannans Premium Domains\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://main.com/"
-  },
-  {
-    "lat": 13.71681,
-    "lon": 100.59302,
-    "name": "Stonegoat Climbing Gym",
-    "country": "TH",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — stonegoatclimb.com → \"Stonegoat Climbing Gym | Southeast Asia's Largest Boulde\", the rest could not be opened — stonegoat.com → a timeout. Upstream records 36/3 ซอย สุขุมวิท 69 แขวงพระโขนงเหนือ, 10110, เขตวัฒนา, and nothing opened printed it.",
-    "candidate": "https://www.stonegoatclimb.com/"
   },
   {
     "lat": 10.07863798214502,
@@ -7293,16 +7253,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — socialclimber.com → \"SocialClimber.com\"; social-climber.com → \"Coming Soon\"; social.com → \"Engagement Marketing Platform. | Salesforce\", the rest could not be opened — socialclimber.org → a timeout / a certificate that does not cover its hostname; social.net → 522, the venue's whole name as one label, socialclimber.com, answers 200 (\"SocialClimber.com\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://socialclimber.com/"
-  },
-  {
-    "lat": 37.71926,
-    "lon": -89.21243,
-    "name": "Southern Illinois University Recreation Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — southernillinois.com → \"Home - Greater Jefferson County Chamber of Commerce\", the rest could not be opened — southernillinois.net → 200; southernillinois.org → 200; southern.com → 403. Upstream records 300 E Grand Ave, 62901, Carbondale, and nothing opened printed it.",
-    "candidate": "https://southernillinois.com/"
   },
   {
     "lat": 30.1862645,
