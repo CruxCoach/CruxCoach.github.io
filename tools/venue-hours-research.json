@@ -9003,16 +9003,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 44.03869,
-  "lon": -121.28967,
-  "name": "Bend Rock Gym",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The candidate site bend.com belongs to Bend Health & Fitness and publishes no schedule for this gym.",
-  "source": "https://bend.com/"
- },
- {
   "lat": 35.18891,
   "lon": -111.63632,
   "name": "Beta Bouldering Gym",
@@ -9433,10 +9423,10 @@
   "lon": -92.10001559999999,
   "name": "Duluth Climbing and Fitness",
   "country": "US",
-  "status": "ambiguous",
+  "status": "appointment-only",
   "checked": "2026-08-23",
-  "reason": "The only stated time is \"Open Hours Climbing: Wednesdays, 6-8pm\" with a volunteer host; the rest of the week is not described.",
-  "source": "https://duluthclimbingandfitness.com/"
+  "source": "https://duluthclimbingandfitness.com/",
+  "reason": "The co-op is member-run and opens to non-members only for a weekly taster: \"Open Hours Climbing: Wednesdays, 6-8pm. Wanna try before you buy? Come to our Open Hours nights! Every Wednesday from 6-8pm\". Its calendar lists those two-hour evenings as dated events. That is access by arrangement rather than a public week."
  },
  {
   "lat": 42.6525793,
@@ -9592,16 +9582,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 43.54531,
-  "lon": -96.66461,
-  "name": "Frontier Climbing & Fitness",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "The operator runs two Sioux Falls addresses and publishes one unlabelled \"Climbing Gym\" block, so which hall its 10 AM - 10 PM week describes is not stated.",
-  "source": "https://frontierclimbing.com/"
  },
  {
   "lat": 39.90652,
@@ -10119,6 +10099,16 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
+  "lat": 44.2545,
+  "lon": -71.84068,
+  "name": "North Country Climbing Center",
+  "country": "US",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-23",
+  "source": "https://northcountryclimbing.com/",
+  "reason": "The centre publishes events, camps and a weekly ABD meet, and points visitors at \"this week's Member Only Hours\" rather than stating an opening. No page pairs a day with a public opening time."
+ },
+ {
   "lat": 39.78547,
   "lon": -86.13399,
   "name": "North Mass Boulder",
@@ -10209,6 +10199,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 45.5136,
+  "lon": -122.78896,
+  "name": "Portland Rock Gym Beaverton",
+  "country": "US",
+  "status": "seasonal",
+  "checked": "2026-08-23",
+  "source": "https://www.portlandrockgym.com/beaverton/",
+  "reason": "The only week the Beaverton page states is labelled by the operator as an exception: \"Summer Hours: Mon - Fri: 7AM - 11PM Sat: 8AM - 9PM Sun: 8AM - 6PM\". No regular-season week is published for this hall to put it against, and the Portland hall on the same site carries its own, different summer hours."
  },
  {
   "lat": 34.5603627,
@@ -10937,6 +10937,16 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+ },
+ {
+  "lat": 43.65539,
+  "lon": -72.241,
+  "name": "The Notch Climbing Gym",
+  "country": "US",
+  "status": "seasonal",
+  "checked": "2026-08-23",
+  "source": "https://www.thenotchclimbing.com/",
+  "reason": "The gym publishes \"Summer Hours Monday-Friday 12:00-9:00 pm, Saturday 9:00 am-9:00pm, Sunday 9:00 am-7:00 pm\" and no regular-season week beside them. It separately reserves Mon/Tue/Thu/Fri 9am-12pm and Wednesday 5:30am-12pm for members, with no non-member guests during those hours."
  },
  {
   "lat": 37.8915707,

@@ -16041,6 +16041,32 @@
   "note": "The operator lists its two gyms with an address and an hours line each; the San Francisco one opens at 11am."
  },
  {
+  "lat": 44.03869,
+  "lon": -121.28967,
+  "name": "Bend Rock Gym",
+  "country": "US",
+  "source": "https://www.bendrockgym.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "08:00-21:00",
+   "tue": "08:00-21:00",
+   "wed": "08:00-21:00",
+   "thu": "08:00-21:00",
+   "fri": "08:00-21:00",
+   "sat": "09:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "Monday – Friday 8am-9pm North, South & West Gyms OPEN Weekends 9am-7pm North, South & West Gyms OPEN",
+  "note": "The gym has three climbing areas in one building and states the same opening for all of them."
+ },
+ {
   "lat": 44.9808,
   "lon": -93.45714,
   "name": "Big Island Bouldering",
@@ -18230,6 +18256,31 @@
   "evidence": "Monday : 6am-10pm | Tuesday : 6am-10pm | Wednesday : 6am-10pm | Thursday : 6am-10pm | Friday : 6am-10pm | Saturday : 10am-10pm | Sunday : 10am-10pm"
  },
  {
+  "lat": 43.54531,
+  "lon": -96.66461,
+  "name": "Frontier Climbing & Fitness",
+  "country": "US",
+  "source": "https://frontierclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Climbing Gym 10 AM - 10 PM Weekdays 10 AM - 8 PM Saturdays 10 AM - 6 PM Sundays",
+  "note": "Stated beside the gym's contact details, with Saturday and Sunday given separately."
+ },
+ {
   "lat": 33.70723,
   "lon": -112.10179,
   "name": "Gecko Climbing Gym",
@@ -18543,6 +18594,34 @@
   },
   "evidence": "MIRAMAR | 9282 Miramar Road | San Diego CA 92126 | CONTACT | (858) 368-9826 | HOURS | Mon - Fri: 7:00am-10:00pm | Sat - Sun: 9:00am-7:00pm | Thanksgiving: Closed | Christmas: Closed",
   "note": "The contact page carries an hours block per location; both read the same. The site’s schema.org openingHours agrees."
+ },
+ {
+  "lat": 43.47295,
+  "lon": -110.78286,
+  "name": "Gym 22",
+  "country": "US",
+  "source": "https://www.gym-22.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "07:00-19:00",
+   "tue": "07:00-19:00",
+   "wed": "07:00-19:00",
+   "thu": "07:00-19:00",
+   "fri": "07:00-19:00",
+   "sat": "09:00-12:00",
+   "sun": "closed"
+  },
+  "evidence": "Hours of operation Mon-Fri: 7AM to 7PM Saturday: 9AM to 12PM Sunday: Closed",
+  "note": "All seven days are covered, with Sunday stated closed rather than omitted."
  },
  {
   "lat": 33.9917,
@@ -20706,6 +20785,32 @@
   },
   "evidence": "ROCKREATION LA | 11866 La Grange Ave. | Los Angeles, CA 90025 | Los Angeles Gym Hours | Monday: 12 PM 10 PM | Tuesday: 6 AM 10 PM | Wednesday: 12 PM 10 PM | Thursday: 6 AM 10 PM | Friday: 12 PM 10 PM | Saturday: 10 AM 4 PM | Sunday: 10 AM 4 PM",
   "note": "The operator runs two gyms and publishes a block for each; this is the Los Angeles one."
+ },
+ {
+  "lat": 43.15484,
+  "lon": -77.5735,
+  "name": "RocVentures Climbing Gym",
+  "country": "US",
+  "source": "https://www.rocventuresclimbing.com/",
+  "checked": "2026-08-23",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "board-mention",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "09:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "Location & Hours Climb with Us. Grow with Us. Join Today Mon - Fri 11 AM - 10 PM Sat & Sun 9 AM - 7 PM 1044 University Ave Rochester, NY 14607",
+  "note": "Stated under the Location & Hours heading, directly above the gym's address."
  },
  {
   "lat": 47.63079,
