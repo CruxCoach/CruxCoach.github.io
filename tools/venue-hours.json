@@ -10490,6 +10490,31 @@
   "note": "The four days are the public week: the same page sells day tickets at 70 kr to anyone, so this is not a members-only window. Tuesday, Thursday and Saturday are recorded closed because the heading enumerates the week and does not list them. The page adds that members also get extraordinary openings when volunteers open on other days, and points at the club's Facebook page for those; that is an addition for members on top of this week, not a replacement for it, and it is not published here."
  },
  {
+  "lat": 59.40481490000001,
+  "lon": 24.7358048,
+  "name": "Kivi Climbing",
+  "country": "EE",
+  "source": "https://kiviclimbing.ee/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "12:00-21:00",
+   "tue": "12:00-21:00",
+   "wed": "12:00-21:00",
+   "thu": "12:00-21:00",
+   "fri": "12:00-21:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Kontakt Pärnu mnt 139e … Oleme avatud E-R 12-21, L-P 10-20",
+  "note": "One line in the footer beside the gym's address: E-R is esmaspäev to reede and L-P is laupäev to pühapäev, so all seven days are covered. The earlier read found no week because the line writes its times without minutes."
+ },
+ {
   "lat": 59.42448,
   "lon": 24.79473,
   "name": "Ronimisministeerium T1",
@@ -17719,6 +17744,31 @@
    "sun": "08:00-23:00"
   },
   "evidence": "Godziny otwarcia Codziennie: 8:00 - 23:00"
+ },
+ {
+  "lat": 38.7222524,
+  "lon": -9.1393366,
+  "name": "Crux - Climbing Center",
+  "country": "PT",
+  "source": "https://www.cruxclimbing.pt/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Contacto R. António Bravo 4B, 2785-543 São Domingos de Rana … Horário Seg-Sex: 11:00h - 22:00h (5ª feiras - 12:00h-22:00h) Fim de semana e feriados: 10:00h - 18:00h",
+  "note": "The parenthesis takes Thursday out of the weekday band — 5ª feira is Thursday in Portuguese — and public holidays are folded into the weekend line. Stated once, beneath the centre's address."
  },
  {
   "lat": 38.53296,
