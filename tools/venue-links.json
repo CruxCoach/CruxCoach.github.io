@@ -22283,6 +22283,21 @@
     "note": "Touchstone's own page for Pacific Pipe, printing \"2140 Mandela Pkwy, Oakland\" and 94607 — upstream's address. The operator's whole site answers 403 to every fetcher and header set, so this page was read from a snapshot of 18 July 2026. A snapshot settles whose page this is and nothing else; the hours record stays inaccessible."
   },
   {
+    "lat": 37.5202145,
+    "lon": -122.2758008,
+    "name": "Planet Granite Belmont Moonboard",
+    "country": "US",
+    "website": "https://movementgyms.com/belmont/",
+    "verified": "2026-08-24",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Movement's own FAQ answers the question this row asks: \"Is Movement the same as Planet Granite, Earth Treks, The Cliffs, Summit, or Movement Climbing and Fitness? Yes, Planet Granite, Earth Treks, The Cliffs, Summit, and Movement Climbing and Fitness are now part of Movement. While the name has evolved, these gyms and communities continue under the Movement umbrella.\" The Belmont location page gives 100 El Camino Real, Belmont, CA 94002, and upstream puts this row 0.4 km from Belmont. It is recorded as a chain page because the file already links the same page from a second row 1.4 km away — the registry holds this gym twice, once under each name."
+  },
+  {
     "lat": 45.5136,
     "lon": -122.78896,
     "name": "Portland Rock Gym Beaverton",
