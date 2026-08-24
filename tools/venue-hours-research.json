@@ -6082,9 +6082,9 @@
   "name": "Klatreverket Åssiden",
   "country": "NO",
   "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The site publishes a staffed week and an unstaffed 06:00–23:00 window with staffed hours in brackets, and the homepage and the apningstider page disagree about both — Friday 10:00–20:00 against kun ubetjent, Wednesday 13:00–20:00 against 13:00–17:00.",
-  "source": "https://klatreverketdrammen.no/apningstider/"
+  "source": "https://klatreverketdrammen.no/apningstider/",
+  "reason": "Same page and the same problem as the Strømsø hall. The body, headed \"Åpningstider Sommer 2026\", gives Åssiden 06:00–23:00 every day with the staffed window in brackets and Mandag, Fredag and Lørdag marked kun ubetjent; an unheaded footer table gives the same outer window with different brackets. Which of the two is the week that applies in late August is not stated anywhere on the page.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 59.7440738,
@@ -6092,9 +6092,9 @@
   "name": "Klatreverket Drammen",
   "country": "NO",
   "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The site publishes a staffed week and an unstaffed 06:00–23:00 window with staffed hours in brackets, and the homepage and the apningstider page disagree about both — Friday 10:00–20:00 against kun ubetjent, Wednesday 13:00–20:00 against 13:00–17:00.",
-  "source": "https://klatreverketdrammen.no/apningstider/"
+  "source": "https://klatreverketdrammen.no/apningstider/",
+  "reason": "Locating the contradiction properly: it is not between two pages but inside this one. The body is headed \"Åpningstider Sommer 2026\" and gives Strømsø Mandag–Torsdag 10:00–21:00, Fredag and Lørdag 10:00–18:00, Søndag 10:00–20:00. The footer then carries two further tables — pasted from a spreadsheet, still carrying their data-sheets-value attributes, and one of those attributes disagrees with the cell it sits on — with no heading of any kind above them. The footer week would be the ordinary one if anything said so, and nothing does.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 58.1472,
@@ -9165,9 +9165,9 @@
   "name": "Southern Stone",
   "country": "US",
   "status": "ambiguous",
-  "checked": "2026-08-23",
   "source": "https://southernstoneclimbing.com/",
-  "reason": "The gym states its week three times on one page and the three disagree on Friday and Saturday. The text reads \"Friday 12:00 - 8:00 Saturday 12:00 - 6:00\"; the Squarespace business-hours setting the page ships carries 12pm-7pm on Friday; and its schema.org block carries \"Fr 12:00-19:00, Sa 12:00-19:00\". An announcement bar above them all reads \"NEW FALL HOURS BEGIN TUESDAY AUGUST 18TH\", so the disagreement is live rather than stale in a known direction."
+  "reason": "Half of the earlier problem is gone and the other half is now the whole of it. The banner said \"NEW FALL HOURS BEGIN TUESDAY AUGUST 18TH\"; that Tuesday has passed and the two visible blocks now agree — Tuesday–Thursday 12:00 - 9:00pm, Friday 12:00 - 8:00, Saturday 12:00 - 6:00, Sunday 12:00 - 6:00, Monday closed. But the only meridiem the gym prints in its own text is the one on Thursday. Every other one on the page lives in the Squarespace businessHours settings object, which is not a statement the page makes and which contradicts the visible text anyway (Friday 12pm-7pm against 12:00 - 8:00). Three of the seven closing times would have to be supplied by the reader, which is where CoMo Rocks and Gravity Hamilton stand too.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 45.67642,
