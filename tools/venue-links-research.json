@@ -2376,9 +2376,9 @@
     "name": "KUOTA 8.10",
     "country": "IT",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The only pointer is an OSM node 234 m away belonging to the Club Alpino Italiano section in Pinerolo, which is a different organisation from \"KUOTA 8.10\"; kuota.it does not answer and kuota.com carries nothing that names this venue.",
-    "candidate": "https://www.caipinerolo.it/"
+    "reason": "caipinerolo.it is the CAI section in Pinerolo, at Via Sommeiller 26, 10064 — the postcode this coordinate falls in — and it does have a wall: \"la palestra … si trasferisce presso i locali della Società Operaia di Mutuo Soccorso in Via Silvio Pellico n. 19 con orario di apertura giovedì dalle 21 alle 22.30\". What it does not have is anything called KUOTA 8.10, and a town-wide postcode is the same fact as the town, not a second signal.",
+    "candidate": "https://www.caipinerolo.it/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 42.0440032,
@@ -4144,9 +4144,9 @@
     "name": "Onsight",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — onsight.ru → \"OnSight\"; onsight.com → \"Perl Training | Python Training | Linux Training | Tcl/T\"; onsightbouldering.com → \"Onsite Bouldering\", the rest could not be opened — onsightclimbing.com → no answer / a certificate that does not cover its hostname, the venue's whole name as one label, onsight.ru, answers 200 (\"OnSight\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://onsight.ru/"
+    "reason": "onsight.ru answers again and is a Moscow café and outdoor brand — \"ПОКРОВКА 20/1 С1 10:00–23:00 … кофейня, лагерь и маршруты\" — 6,400 km from Vladivostok. The postcode 690000 the sweep matched is digits in its page, not an address.",
+    "candidate": "https://onsight.ru/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 54.73479099999999,
@@ -4965,16 +4965,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — greenmountain.com → \"Light the future with clean energy.\"; green-mountain.com → \"HugeDomains.com\"; green.com → \"Green\", the rest could not be opened — greenmountain.net → 200; greenmountain.org → 200; green-mountain.net → a timeout. Upstream records 223 Woodstock Ave, 05701, Rutland, and nothing opened printed it.",
     "candidate": "https://www.greenmountainenergy.com/"
-  },
-  {
-    "lat": 42.96643,
-    "lon": -85.89038,
-    "name": "GVSU Climbing Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The operator is right and the page is not. gvsu.com redirects to www.gvsu.edu, Grand Valley State University, whose site does print the 49401 postal code and Allendale — but that is the university's home page, not the climbing centre's, and no page for the centre itself could be located: /reccenter/, /reccenter/climbing-center.htm and /reccenter/climbing-center-4.htm all answer 404 and the home page exposes no recreation link to follow. Retry when the centre's own page can be found.",
-    "candidate": "https://www.gvsu.edu/"
   },
   {
     "lat": 21.3908231,
