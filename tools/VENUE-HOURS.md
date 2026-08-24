@@ -98,6 +98,36 @@ source that stopped being true, so none of those weeks was touched; the two
 certificate failures are the operators' to fix and are worth re-reading rather
 than recording.
 
+### A page written in JavaScript is still a page
+
+Some venues serve an empty frame and keep every word of the page inside a
+script bundle. Those strings are what the browser prints, so reading the bundle
+is reading the page — and it carries which hall a line belongs to, which is the
+part that matters: fless.hu keys its two weeks to `notice_buda` and
+`notice_zuglo`, and each says weekdays "except Thursday" or "except Tuesday",
+that one day on its own, then the weekend.
+
+To find out how much of the queue this reaches, `bundlehours.mjs` was run over
+all 348 open hours cases that have a link: fetch the page, and where the
+rendered HTML has no day beside a time, fetch its same-origin scripts and look
+for one there. It found nothing that was not already known. Nine venues put a
+day and a time in a bundle, and in every case they were an SVG attribute or a
+class name that the pattern caught by accident. Sixty-three serve no
+same-origin script at all; thirty-four answer 403; ten do not answer.
+
+The useful half of that run was the other ninety-five, whose rendered HTML
+*does* carry a day beside a time although their hours are recorded as absent or
+unreadable. Every one of them is already accounted for by the reason in its own
+record — a class timetable, a price grid with an hour axis, the hours the
+WhatsApp number is answered, a job advertisement quoting camp times, a notice
+about route setting. A detector that knows nothing about any of those found
+exactly the text the records had already dismissed, and nothing else. The two
+readings agreeing is the point of running it.
+
+One thing it did find: `d-vert.com/horaire/`, the page a record cited, now
+answers 404. The same block sits in the footer of every page on the site, so
+the record follows it to one that answers.
+
 ### One hall, two registries
 
 A gym that owns a Kilter board and a MoonBoard is registered twice, once by
