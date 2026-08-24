@@ -1292,26 +1292,6 @@
   "reason": "The club's own page states the wall is unstaffed — \"la palestra non e custodita e che non ci sono monitori presenti\" — and that access is by key requested from the wall managers (\"Per informazioni e richiedere la chiave\"). It publishes day and annual rates but no opening hours, because there are none to publish: entry is arranged individually."
  },
  {
-  "lat": 46.95906,
-  "lon": 7.47294,
-  "name": "Bimano Bern",
-  "country": "CH",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://www.bimano.ch/boulder",
-  "reason": "The four tables on the hours widget are identifiable after all - the panes carry ids panel-skate, panel-kids, panel-boulder and panel-zent, and the boulder pane is Mo-Fr 10:00-22:00, Sa-So 10:00-18:00. It cannot be published, because the homepage news item 'Öffnungszeiten im Sommer' says 'Vom 15.06. bis am 13.09.26 sind wir zu diesen Zeiten da' and links a separate summer schedule (assets/infos_sommerpause26.pdf). Two regimes, one of them in force on the day of the check."
- },
- {
-  "lat": 47.19916,
-  "lon": 7.54397,
-  "name": "Bimano Solothurn",
-  "country": "CH",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://bimanosolothurn.ch/oeffnungszeiten",
-  "reason": "Re-read: unchanged. The weekly table (Mo-Fr 05:00-22:00, Sa-So 09:00-18:00) is still headed by 'Achtung: Im Sommer können diese Zeiten abweichen. Sommeröffnungszeiten: 1.6.26.-4.9.26', and the summer note replaces the weekend regime with all-day badge access rather than stating times."
- },
- {
   "lat": 47.18413,
   "lon": 8.10923,
   "name": "Boulder Arena Sursee",
@@ -2150,16 +2130,6 @@
   "reason": "The hall's own site answers 403 to every fetcher and header set, so its week cannot be read, and it is not taken from the snapshot the link rests on."
  },
  {
-  "lat": 47.72,
-  "lon": 10.28977,
-  "name": "DAV Alpinzentrum Swoboda Alpin",
-  "country": "DE",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://www.dav-kempten.de/swoboda-alpin/oeffnungszeiten-preise-formulare",
-  "reason": "Re-read: unchanged. Kletter- & Boulderbetrieb Montag bis Freitag 11 bis 22.30 Uhr, Samstag 9 bis 22.30 Uhr, Sonn- und Feiertage 9 bis 21 Uhr — then 'Ferien (Bayern) ab 9 Uhr geöffnet', which changes the weekday opening for every Bavarian school holiday."
- },
- {
   "lat": 47.84818,
   "lon": 12.82114,
   "name": "DAV Boulderhalle Teisendorf",
@@ -2270,16 +2240,6 @@
   "reason": "Re-read: unchanged. Monday is stated two ways on one page — 'Mo: (09:00 Uhr*) 15:00 Uhr bis 23:00 Uhr', with a footnote that bouldering is possible from 09:00 while the hall and bistro are only fully usable from 15:00 — and a third time in the summer-holiday block (Montag bis Sonntag 09:00–23:00, listed Mondays 20.07.–31.08.2026), which is the regime in force on the day of the check."
  },
  {
-  "lat": 49.18795369999999,
-  "lon": 8.1331486,
-  "name": "Fitz Rocks – Kletterarena der Südpfalz",
-  "country": "DE",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://felswerk-landau.de/",
-  "reason": "The hall's week — Montag 10:00-22:00, Dienstag 08:00-22:00 and so on — is overridden by a dated notice at the top of the page: \"-04.09.2026 Sonderöffnungszeiten (Mo-Sa erst ab 16:00 Uhr)\". Until 4 September it opens at 16:00 from Monday to Saturday, which is not the week beneath it."
- },
- {
   "lat": 49.71407,
   "lon": 11.09393,
   "name": "Frankenjura Academy",
@@ -2308,16 +2268,6 @@
   "checked": "2026-08-23",
   "source": "https://www.sport.uni-bonn.de/de/ueber-uns/sportstaetten",
   "reason": "Re-read: unchanged. University sports facility whose hours are published per term — Wintersemester Mo–Fr 7.30–22.00 (Ferienprogramm 7.30–21.00), Sa 10.00–14.00; Sommersemester Mo–Fr 7.30–22.00, Sa 10.00–18.00, So 10.00–16.00. There is no single regular week, and Sunday does not exist in the winter one."
- },
- {
-  "lat": 54.16781,
-  "lon": 8.87204,
-  "name": "Hold On Tide",
-  "country": "DE",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://holdontide.com/offnungszeiten-anfahrt/",
-  "reason": "Re-read: unchanged. The published week is explicitly headed 'Öffnungszeiten außerhalb der Ferien' and the holiday variant sits above it — 'In den Sommerferien öffnen wir schon um 13:00 Uhr für euch (Mo, Mi-Fr)'."
  },
  {
   "lat": 49.172197,
@@ -3077,16 +3027,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 37.3927903,
-  "lon": -5.956768200000001,
-  "name": "Rock & Board",
-  "country": "ES",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://www.rockandwallclimbing.com/",
-  "reason": "Two regimes, and the summer one is in force: \"Horarios Lunes a viernes, 9:30 a 22:00, Sábados y domingos, 9:30 a 18:00\" and then \"HORARIO VERANO, A PARTIR 13/07 Lunes a viernes, 9:30 a 15:00 y…\". The page gives no end date for the summer window, so which of the two applies on a given day cannot be read off it."
- },
- {
   "lat": 39.5840837,
   "lon": 2.6603085,
   "name": "Rocodrom Es Cau",
@@ -3124,16 +3064,6 @@
   "checked": "2026-08-23",
   "reason": "Re-read 2026-08-23: unchanged. The tarifas y horarios page carries two weeks that contradict each other outright: one says Thursday and Friday closed and Saturday, Sunday and Monday 16:00–22:00; the other says Monday to Friday 10:00–22:00 and weekends 16:00–21:00.",
   "source": "https://www.rawindoor.com/tarifas-y-horarios/"
- },
- {
-  "lat": 42.84629199344788,
-  "lon": -1.6889318183199686,
-  "name": "Rocópolis",
-  "country": "ES",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The horario page states \"CERRADO: Del 1 al 15 de Julio. Domingos y festivos de Julio, Agosto y primera quincena de Septiembre\" beside two different tables, one for the centre and one for Rocópolis Boulder.",
-  "source": "https://www.rocopolis.com/horario-contacto/"
  },
  {
   "lat": 41.41643,
@@ -3250,16 +3180,6 @@
   "checked": "2026-08-24",
   "source": "https://urbanboulder.net/",
   "reason": "The only times on the site are a class timetable — \"JUVENIL INTERMEDIO TECNIFICACIÓN INICIACIÓN ADULTOS ESKALADA ADULTOS Horario 17:30 - 18:30 18:30 - 19:30 18:30 - 20:00 19:30 - 20:30\" — and a customer-service window, \"de Lunes a Sábado … en horario en que haya atención al cliente (de 9:00: a 20:00 excepto mediodías)\", which is when staff are on the desk rather than when the wall is open. No page states an opening week."
- },
- {
-  "lat": 37.352094,
-  "lon": -5.841565399999999,
-  "name": "WISECLIMB - CENTRO DE ESCALADA",
-  "country": "ES",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://wiseclimb.es/",
-  "reason": "Two regimes on one line: \"HORARIOS: Lunes a viernes: 8:30 a 14:00 // 16:00 a 22:00. Sábados: 8:30 a 18:00 // Domingos: 9:30 a 16:00\" and, beneath it, \"*HORARIO ESPECIAL VERANO: Lunes a viernes: 8:30 a 14:00 // 18:00 a 22:30. Sábados: 8:30 a 18:00 Domingos: CERRADOS\". The site's own horario page adds that opening moves to 16:30 from 1 October."
  },
  {
   "lat": 40.53623976991643,
@@ -4668,16 +4588,6 @@
   "reason": "Same page and same gap as the venue about 50 m away: three evenings stated, four days unstated."
  },
  {
-  "lat": 44.812988645630455,
-  "lon": 10.279608813490865,
-  "name": "Pareti Sport Center",
-  "country": "IT",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The week carries the note \"In luglio chiuso la domenica; in agosto chiusi il sabato e la domenica\" — two months of the year have a different week.",
-  "source": "https://paretisportcenter.com/"
- },
- {
   "lat": 44.643321,
   "lon": 10.9011822,
   "name": "Rock And Fire's Moonboard",
@@ -6014,36 +5924,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 52.18036,
-  "lon": 5.41522,
-  "name": "Kei Boulderhal De Hoef",
-  "country": "NL",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://keiboulderhal.nl/locaties/kei-boulderhal-de-hoef/",
-  "reason": "Re-read: unchanged. The location page heads its week with 'Let op! Van 20 juli t/m 30 augustus hebben wij aangepaste zomeropeningstijden', and the summer page differs on five days (Di t/m vr 09:00–23:00 against 11:00–23:00)."
- },
- {
-  "lat": 52.15676,
-  "lon": 5.36479,
-  "name": "Kei Boulderhal Wagenwerkplaats",
-  "country": "NL",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://keiboulderhal.nl/locaties/kei-boulderhal-wagenwerkplaats/",
-  "reason": "Re-read: unchanged. Same operator, same notice — 'Van 20 juli t/m 30 augustus hebben wij aangepaste zomeropeningstijden' — and the summer week moves Maandag to 09:00–23:00 and Dinsdag t/m donderdag to 18:00–23:00."
- },
- {
-  "lat": 51.82188,
-  "lon": 5.7879,
-  "name": "Stadsmuur Nijmegen",
-  "country": "NL",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://stadsmuur.com/ontdek/openingstijden-en-tarieven/",
-  "reason": "Re-read: unchanged, and the asterisk is undated so it recurs every year — the weekend rows read 'Zaterdag 09:00 – 21:00 (18.00)*' and 'Zondag 09:00 – 21:00 (18.00)*' with '* Zomervakantie – zaterdag en zondag 09:00 – 18.00'."
- },
- {
   "lat": 58.1599119,
   "lon": 8.0182064,
   "name": "Aquarama",
@@ -6813,9 +6693,9 @@
   "lon": 19.0583845,
   "name": "Primaroca",
   "country": "PL",
-  "status": "seasonal",
+  "status": "ambiguous",
   "source": "https://primaroca.com.pl/kontakt/",
-  "reason": "The only week on the contact page is headed GODZINY OTWARCIA SIERPIEŃ — opening hours for August — running Poniedziałek–Czwartek 14:00 do 22:30, Piątek 14:00 do 21.00, Sobota 10:00 do 18:00, Niedziela 10:00 do 15:00, with an offer to open from 8:00 by arrangement. A week headed with a month runs out with it, and no ordinary one is published beside it.",
+  "reason": "Correcting an earlier reading of this page. It carries the August week I recorded — GODZINY OTWARCIA SIERPIEŃ, Poniedziałek–Czwartek 14:00 do 22:30 — and a second block headed plainly GODZINY OTWARCIA, Poniedziałek–Piątek 10:00 do 23:00, Sobota-Niedziela 10:00-21:00. They are two Divi text modules, each with its own copy of the address and its own contact form sharing one form id, so they are the same section duplicated and only one of them was updated. Which one a visitor sees is a CSS question this reader cannot answer.",
   "checked": "2026-08-24"
  },
  {
@@ -7445,10 +7325,10 @@
   "lon": 15.6424559,
   "name": "Mono Loco",
   "country": "SE",
-  "status": "seasonal",
-  "checked": "2026-08-23",
+  "status": "ambiguous",
   "source": "https://monoloco.se/",
-  "reason": "The gym states \"Ordinarie öppettider kör igång 31/8\" — the ordinary hours start on 31 August — and lists them for after that date, with a separate block of AVVIKANDE ÖPPETTIDER for June. Nothing covers the day the page is read."
+  "reason": "Three weeks, no two alike. The body prints \"Ordinarie öppettider 2026\" that \"kör igång 31/8\" — Måndag-Torsdag 12.00-20.00, Fredag 11.00-19.00, Lördag-Söndag 10.00-16.00 — then \"SOMMARÖPPETTIDER 2026 ... Gäller fr.o.m v. 26\" at MÅN-FRE 16.00-20.00, LÖR-SÖN 10.00-14.00, and the footer states a third, unlabelled: Mån-Tors 13-21, Fre 13-19, lör-Sön 10-16. The regular one starts in a week; the footer matches neither.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 59.2761633,

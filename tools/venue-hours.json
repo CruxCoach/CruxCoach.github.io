@@ -5267,6 +5267,55 @@
   "evidence": "Montag 09.00 — 22.30 Uhr | Dienstag 09.00 — 22.30 Uhr | Mittwoch 09.00 — 22.30 Uhr | Donnerstag 09.00 — 22.30 Uhr | Freitag 09.00 — 22.30 Uhr | Samstag 09.00 — 19.00 Uhr | Sonntag 09.00 — 19.00 Uhr"
  },
  {
+  "lat": 46.95906,
+  "lon": 7.47294,
+  "name": "Bimano Bern",
+  "country": "CH",
+  "source": "https://www.bimano.ch/boulder",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "boulder Montag 10:00 - 22:00 Dienstag 10:00 - 22:00 Mittwoch 10:00 - 22:00 Donnerstag 10:00 - 22:00 Freitag 10:00 - 22:00 Samstag 10:00 - 18:00 Sonntag 10:00 - 18:00 Spezielle Öffnungszeiten 26.8.26 bimano Teamausflug. Gesamte Anlage geschlossen.",
+  "note": "bimano keeps four rooms on one site and one tab of opening hours each — skate, kids, boulder, zent — as four labelled tabpanels. This is panel-boulder, the one the /boulder page opens on, and \"Die Boulderhalle Bimano in Bern\" is what the page calls itself. Three dated closures for a team outing follow it."
+ },
+ {
+  "lat": 47.19916,
+  "lon": 7.54397,
+  "name": "Bimano Solothurn",
+  "country": "CH",
+  "source": "https://bimanosolothurn.ch/oeffnungszeiten",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "05:00-22:00",
+   "tue": "05:00-22:00",
+   "wed": "05:00-22:00",
+   "thu": "05:00-22:00",
+   "fri": "05:00-22:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Öffnungszeiten Montag 05:00 – 22:00 Dienstag 05:00 – 22:00 Mittwoch 05:00 – 22:00 Donnerstag 05:00 – 22:00 Freitag 05:00 – 22:00 Samstag 09:00 – 18:00 Sonntag 09:00 – 18:00 Achtung: Im Sommer können diese Zeiten abweichen. Sommeröffnungszeiten: 1.6.26.-4.9.26 Die Zeiten und Eintrittsmöglichkeiten unter der Woche bleiben gleich wie angegeben.",
+  "note": "The summer note is dated and then says the weekday times stay exactly as printed; what changes is that the weekend is badge-only with no bar service. Same hours, different door."
+ },
+ {
   "lat": 47.4831911,
   "lon": 8.2313602,
   "name": "Blockchäfer",
@@ -7893,6 +7942,31 @@
   "note": "Climbing stops shortly before closing; the hall's opening times are what is recorded."
  },
  {
+  "lat": 47.72,
+  "lon": 10.28977,
+  "name": "DAV Alpinzentrum Swoboda Alpin",
+  "country": "DE",
+  "source": "https://www.dav-kempten.de/swoboda-alpin/oeffnungszeiten-preise-formulare",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "11:00-22:30",
+   "tue": "11:00-22:30",
+   "wed": "11:00-22:30",
+   "thu": "11:00-22:30",
+   "fri": "11:00-22:30",
+   "sat": "09:00-22:30",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Öffnungszeiten Kletter- & Boulderbetrieb: Montag bis Freitag 11 bis 22.30 Uhr Samstag 9 bis 22.30 Uhr Sonn- und Feiertage 9 bis 21 Uhr Ferien (Bayern) ab 9 Uhr geöffnet Inhaber*innen von Wertkarten (Jahreskarte, 10er-Karte, 25er-Karte) können ab 6 Uhr die Kletter- und Boulderbereiche nutzen.",
+  "note": "The page separates Kletter- & Boulderbetrieb from the Gastrobetrieb and the Geschäftsstelle, and the climbing week is the one taken. Bavarian school holidays open two hours earlier and card holders have a key from 6 — both are doors on top of the week, not weeks of their own. Aybühlweg 69, Kempten."
+ },
+ {
   "lat": 47.48262,
   "lon": 11.0916,
   "name": "DAV Boulderhalle Garmisch-Partenkirhen",
@@ -8848,6 +8922,30 @@
   "note": "The sauna keeps its own, shorter hours on the same page."
  },
  {
+  "lat": 49.18795369999999,
+  "lon": 8.1331486,
+  "name": "Fitz Rocks – Kletterarena der Südpfalz",
+  "country": "DE",
+  "source": "https://felswerk-landau.de/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-23:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Öffnungszeiten ACHTUNG: 10.08.-04.09.2026 Sonderöffnungszeiten (Mo-Sa erst ab 16:00 Uhr) siehe HIER Montag 10:00 – 22:00 Uhr Dienstag 08:00 – 22:00 Uhr Mittwoch 10:00 – 22:00 Uhr Donnerstag 08:00 – 22:00 Uhr Freitag 10:00 – 23:00 Uhr Samstag 10:00 – 23:00 Uhr Sonntag 10:00 – 22:00 Uhr",
+  "note": "The Sonderöffnungszeiten notice carries its own dates — 10.08. to 04.09. — and sits above the week rather than replacing it. Tuesday and Thursday open two hours early for Early Climb. Felswerk, Klettern & Bouldern in Landau."
+ },
+ {
   "lat": 53.56363,
   "lon": 9.91261,
   "name": "FLASHH Hamburg",
@@ -9016,6 +9114,30 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Reguläre Öffnungszeiten: Montag, Mittwoch & Freitag 13:00 Uhr - 22:30 Uhr | Dienstag & Donnerstag 09:00 Uhr - 22:30 Uhr | Samstag, Sonntag & Feiertage 10:00 Uhr - 20:00 Uhr"
+ },
+ {
+  "lat": 54.16781,
+  "lon": 8.87204,
+  "name": "Hold On Tide",
+  "country": "DE",
+  "source": "https://holdontide.com/offnungszeiten-anfahrt/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "16:00-20:00",
+   "tue": "closed",
+   "wed": "16:00-20:00",
+   "thu": "16:00-20:00",
+   "fri": "16:00-20:00",
+   "sat": "12:00-20:00",
+   "sun": "12:00-20:00"
+  },
+  "evidence": "In den Sommerferien öffnen wir schon um 13:00 Uhr für euch (Mo, Mi-Fr). Am Wochenende wie bisher 12:00 – 20:00 Uhr. Öffnungszeiten außerhalb der Ferien: Montag: 16:00 – 20:00 Dienstag: Ruhetag Mittwoch: 16:00 – 20:00 Donnerstag: 16:00 – 20:00 Freitag: 16:00 – 20:00 Samstag: 12:00 – 20:00 Sonntag: 12:00 – 20:00",
+  "note": "The hall labels the week itself: \"Öffnungszeiten außerhalb der Ferien\". The holidays open three hours earlier on four days and leave the weekend alone, and Tuesday is the rest day either way. The footer repeats the same seven lines without the qualifier."
  },
  {
   "lat": 47.84749,
@@ -11191,6 +11313,30 @@
   "evidence": "Lunes - Viernes: 10 a 14h y de 18 a 22h | Sábado: Cerrado | Domingo: Cerrado"
  },
  {
+  "lat": 37.3927903,
+  "lon": -5.956768200000001,
+  "name": "Rock & Board",
+  "country": "ES",
+  "source": "https://www.rockandwallclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:30-22:00",
+   "tue": "09:30-22:00",
+   "wed": "09:30-22:00",
+   "thu": "09:30-22:00",
+   "fri": "09:30-22:00",
+   "sat": "09:30-18:00",
+   "sun": "09:30-18:00"
+  },
+  "evidence": "Horarios Lunes a viernes, 9:30 a 22:00 Sábados y domingos, 9:30 a 18:00 HORARIO VERANO, A PARTIR 13/07 Lunes a viernes, 9:30 a 15:00 y 18:00 a 22:00 Fines de semana, cerrados.",
+  "note": "Two blocks, and only the second carries a date: the summer one runs from 13/07 and closes the weekend. The first is the wall's ordinary week — \"el mayor rocódromo de Andalucía, está en Sevilla\"."
+ },
+ {
   "lat": 37.392502956111336,
   "lon": -5.957352871163623,
   "name": "Rock & Wall Climbing",
@@ -11310,6 +11456,31 @@
   },
   "evidence": "¿Cual es vuestro horario? L-V 10:00–22:30 | S-D y festivos 11:00–20:00 · Julio y agosto cerrado fines de semana",
   "note": "The weekday opening has moved from 9:00 to 10:00 since this was read, which is what the drift check found. The line beneath the week closes the weekend for July and August — a dated window, still in force today, and an exception to the week rather than a second one."
+ },
+ {
+  "lat": 42.84629199344788,
+  "lon": -1.6889318183199686,
+  "name": "Rocópolis",
+  "country": "ES",
+  "source": "https://www.rocopolis.com/horario-contacto/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "coordinates",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-14:00,16:00-21:45",
+   "tue": "10:00-14:00,16:00-21:45",
+   "wed": "10:00-14:00,16:00-21:45",
+   "thu": "10:00-14:00,16:00-21:45",
+   "fri": "10:00-14:00,16:00-21:00",
+   "sat": "11:00-14:00,16:30-20:00",
+   "sun": "11:00-14:00,16:30-20:00"
+  },
+  "evidence": "ROCÓPOLIS BOULDER Lunes a Jueves: 10:00 a 14:00h y 16:00 a 21:45h Viernes: 10:00 a 14:00h y 16:00 a 21:00h Sábados, Domingos y Festivos: 11:00 a 14:00h y 16:30 a 20:00h CERRADO: Del 1 al 15 de Julio. Sábados tarde, domingos y festivos de Julio, Agosto y primera quincena de Septiembre",
+  "note": "The page states two weeks under one address — HORARIO ROCÓPOLIS for the rope hall and ROCÓPOLIS BOULDER for the bouldering one — and this row is listed for a Kilter Board, which is a bouldering board. The dated closures are July and the summer Sundays, which is an exception list, not a season the week belongs to. The page prints N 42º 50.755′ W 1º 41.354′, 50 m from the coordinate this row carries."
  },
  {
   "lat": 41.52992,
@@ -11488,6 +11659,30 @@
    "sun": "10:00-21:00"
   },
   "evidence": "De lunes a viernes de 10.00 a 22.00h. | Sábados, domingos y festivos. de 10.00 a 21.00h."
+ },
+ {
+  "lat": 37.352094,
+  "lon": -5.841565399999999,
+  "name": "WISECLIMB - CENTRO DE ESCALADA",
+  "country": "ES",
+  "source": "https://wiseclimb.es/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "08:30-14:00,16:00-22:00",
+   "tue": "08:30-14:00,16:00-22:00",
+   "wed": "08:30-14:00,16:00-22:00",
+   "thu": "08:30-14:00,16:00-22:00",
+   "fri": "08:30-14:00,16:00-22:00",
+   "sat": "08:30-18:00",
+   "sun": "09:30-16:00"
+  },
+  "evidence": "HORARIOS: Lunes a viernes: 8:30 a 14:00 // 16:00 a 22:00. Sábados: 8:30 a 18:00 // Domingos: 9:30 a 16:00. *HORARIO ESPECIAL VERANO: Lunes a viernes: 8:30 a 14:00 // 18:00 a 22:30. Sábados: 8:30 a 18:00 Domingos: CERRADOS",
+  "note": "WISECLIMB prints its week and then a starred \"horario especial verano\" underneath it. The starred one is the exception; the unstarred one is the week, weekdays split around the afternoon."
  },
  {
   "lat": 60.16612,
@@ -14905,6 +15100,30 @@
   "note": "A dated ORARI ESTIVI list on the homepage closes some July and August days and states that normal hours resume on 24/08."
  },
  {
+  "lat": 44.812988645630455,
+  "lon": 10.279608813490865,
+  "name": "Pareti Sport Center",
+  "country": "IT",
+  "source": "https://paretisportcenter.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:30",
+   "tue": "10:00-22:30",
+   "wed": "10:00-22:30",
+   "thu": "10:00-22:30",
+   "fri": "10:00-22:30",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "I nostri orari Lunedì : 10:00 - 22:30 Martedì : 10:00 - 22:30 Mercoledì : 10:00 - 22:30 Giovedì : 10:00 - 22:30 Venerdì : 10:00 - 22:30 Sabato : 10:00 - 19:00 Domenica : 10:00 - 19:00 Note: In luglio chiuso la domenica; in agosto chiusi il sabato e la domenica",
+  "note": "Seven days written out, and the summer appears only as a footnote about which days close in July and August. Via Magani 14, San Pancrazio, Parma."
+ },
+ {
   "lat": 46.47043,
   "lon": 11.31389,
   "name": "Salewa Cube Waltherpark",
@@ -16195,6 +16414,56 @@
   "evidence": "Maandag: 17:00 -23:00 | Dinsdag: 15:00-23:00 | Woensdag: 15:00-23:00 | Donderdag: 15:00-23:00 | Vrijdag: 11:00 -23:00 | Zaterdag: 10:00-18:00 | Zondag: 10:00-18:00. Ook tijdens feestdagen en vakanties zijn wij geopend."
  },
  {
+  "lat": 52.18036,
+  "lon": 5.41522,
+  "name": "Kei Boulderhal De Hoef",
+  "country": "NL",
+  "source": "https://keiboulderhal.nl/locaties/kei-boulderhal-de-hoef/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "city"
+  ],
+  "hours": {
+   "mon": "17:00-23:00",
+   "tue": "11:00-23:00",
+   "wed": "11:00-23:00",
+   "thu": "11:00-23:00",
+   "fri": "11:00-23:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Openingstijden Let op! Van 20 juli t/m 30 augustus hebben wij aangepaste zomeropeningstijden. Maandag 17:00 -23:00 Dinsdag 11:00-23:00 Woensdag 11:00-23:00 Donderdag 11:00-23:00 Vrijdag 11:00-23:00 Zaterdag 09:00-22:00 Zondag 09:00-18:00",
+  "note": "The De Hoef hall opens late on Monday where the Wagenwerkplaats opens late on Friday, and the weekend is the mirror image of it. Databankweg 12-K, entrance on the Recordweg, Amersfoort."
+ },
+ {
+  "lat": 52.15676,
+  "lon": 5.36479,
+  "name": "Kei Boulderhal Wagenwerkplaats",
+  "country": "NL",
+  "source": "https://keiboulderhal.nl/locaties/kei-boulderhal-wagenwerkplaats/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "city"
+  ],
+  "hours": {
+   "mon": "11:00-23:00",
+   "tue": "11:00-23:00",
+   "wed": "11:00-23:00",
+   "thu": "11:00-23:00",
+   "fri": "17:00-23:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Openingstijden Let op! Van 20 juli t/m 30 augustus hebben wij aangepaste zomeropeningstijden. Maandag 11:00-23:00 Dinsdag 11:00-23:00 Woensdag 11:00-23:00 Donderdag 11:00-23:00 Vrijdag 17:00 -23:00 Zaterdag 09:00-18:00 Zondag 09:00- 22:00",
+  "note": "Kei runs two halls in Amersfoort with different weeks, and each has its own location page; the footer of both pages repeats both weeks side by side, which is what makes the pairing checkable. The summer window is dated and named as an adjustment. Soesterweg 314."
+ },
+ {
   "lat": 52.145052,
   "lon": 4.481017,
   "name": "Kunststof Moonboard",
@@ -16569,6 +16838,30 @@
   },
   "evidence": "Opening hours: Monday 11:00 – 23:00 … Friday 11:00 – 23:00 · Saturday 09:00 – 23:00 · Sunday 10:00 – 23:00",
   "note": "The undated week, with \"Opening hours Summer holiday Juli 20 – August 23\" beside it. That window closed yesterday."
+ },
+ {
+  "lat": 51.82188,
+  "lon": 5.7879,
+  "name": "Stadsmuur Nijmegen",
+  "country": "NL",
+  "source": "https://stadsmuur.com/ontdek/openingstijden-en-tarieven/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "13:00-23:00",
+   "tue": "13:00-23:00",
+   "wed": "13:00-23:00",
+   "thu": "17:00-23:00",
+   "fri": "13:00-23:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Openingstijden Maandag 13:00 – 23:00 Dinsdag 13:00 – 23:00 Woensdag 13:00 – 23:00 Donderdag 17:00 – 23:00 Vrijdag 13:00 – 23:00 Zaterdag 09:00 – 21:00 (18.00)* Zondag 09:00 – 21:00 (18.00)* Aangepaste openingstijden: Maandag 27 April (Koningsdag) – gesloten Vrijdag 24 Juli (intocht 4-daagse) – gesloten * Zomervakantie – zaterdag en zondag 09:00 – 18.00",
+  "note": "The starred bracket on the weekend is the summer-holiday closing time, listed among two dated closures under the heading \"aangepaste openingstijden\". De Stadsmuur B.V., Van Rosenburgweg 52, Nijmegen."
  },
  {
   "lat": 68.44631,
