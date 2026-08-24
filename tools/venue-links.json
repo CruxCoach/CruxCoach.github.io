@@ -3596,6 +3596,23 @@
     ]
   },
   {
+    "lat": 43.89909,
+    "lon": -78.6617,
+    "name": "Pinnacle Climbing Gym",
+    "country": "CA",
+    "website": "https://pinnacleindoorclimbing.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "Pinnacle Indoor Climbing's own site, printing \"330 Lake Road, Bowmanville L1C4P8\" — upstream's address, postal code and town — and describing the Kilter Board this venue is registered for. OSM maps the gym 86 m away with this domain, which is what pointed here. The host answers 403 to every fetcher, so the page was read from a snapshot of 7 March 2026; an earlier availability check had reported no capture at all, which it now plainly has."
+  },
+  {
     "lat": 49.26216,
     "lon": -123.09958,
     "name": "Progression Bouldering",
