@@ -4729,16 +4729,6 @@
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 40.3631631,
-    "lon": -86.8157186,
-    "name": "Climb Lafayette",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — lafayette.com → \"Lafayette - Fábrica de telas y textiles - Expertos textt\"; lafayette.org → \"Lafayette Economic Development Authority (LEDA)\"; climblafayette.com → \"Climb Lafayette\", the rest could not be opened — lafayette.net → 200; climb.net → a timeout, the venue's whole name as one label, climblafayette.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://lafayette.com/"
-  },
-  {
     "lat": 38.97134,
     "lon": -95.23664,
     "name": "Climb Lawrence",
@@ -5254,16 +5244,6 @@
     "checked": "2026-08-24",
     "reason": "OSM maps Reading Rocks 8 m from this venue and tags it readingrocks.com, and that domain is dead: the live host answers 404 and the archive's most recent copy, from 5 August 2025, is five bytes long. readingrocksclimbing.com and readingrocksgym.com do not resolve. The pointer is good and there is nothing at the end of it.",
     "candidate": "http://www.readingrocks.com/"
-  },
-  {
-    "lat": 36.15867,
-    "lon": -115.2717,
-    "name": "Red Rock Climbing Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — edgeworksclimbing.com/belred → \"Bel-Red Boulders, Bellevue's Premier Bouldering Gym\"; redrockclimbingcenter.com → \"R2C2\"; redrockclimbing.com → \"Las Vegas Climbing\", the rest could not be opened — redrock.net → a timeout; redrock.org → 200, the venue's whole name as one label, redrockclimbingcenter.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://edgeworksclimbing.com/belred/"
   },
   {
     "lat": 45.00543,

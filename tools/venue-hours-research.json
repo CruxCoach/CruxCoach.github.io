@@ -8313,9 +8313,10 @@
   "lon": -86.8157186,
   "name": "Climb Lafayette",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "checked": "2026-08-24",
+  "source": "https://climblafayette.com/",
+  "reason": "The page states its week twice and the two disagree about the weekend. The footer block reads \"Mon Closed, Tue 1pm to 10pm … Sat 12pm to 8pm, Sun 12pm to 8pm\"; the block beside the waiver reads \"Monday: Closed, Tuesday-Friday: 1pm - 10pm, Saturday: 10 am - 8pm, Sunday: 10 am - 8pm\". Both are the gym's own words and neither is marked as superseding the other."
  },
  {
   "lat": 38.97134,
@@ -9263,15 +9264,6 @@
   "status": "no-official-site",
   "checked": "2026-08-24",
   "reason": "The domain OSM points at is dead, and no other site could be found, so there is no page to read a schedule from."
- },
- {
-  "lat": 36.15867,
-  "lon": -115.2717,
-  "name": "Red Rock Climbing Center",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 45.00543,

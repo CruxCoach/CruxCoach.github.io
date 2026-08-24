@@ -24475,6 +24475,32 @@
   "note": "Members additionally get in from 8am; the public week is what is recorded."
  },
  {
+  "lat": 36.15867,
+  "lon": -115.2717,
+  "name": "Red Rock Climbing Center",
+  "country": "US",
+  "source": "https://redrockclimbingcenter.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:00-23:00",
+   "tue": "06:00-23:00",
+   "wed": "06:00-23:00",
+   "thu": "06:00-23:00",
+   "fri": "09:00-23:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Hours of Operation Monday & Friday - 9am to 11PM · Tuesday, Wednesday & Thursday - 6am to 11pm · Saturday & Sunday 9am to 9pm",
+  "note": "Every day is in one of the three lines, and Monday and Friday are grouped away from the midweek because they open three hours later. The dated list beneath — 11/27 Closed, 12/19 Close @6, 12/24 Close @5, 12/25 Closed — is a holiday exception list."
+ },
+ {
   "lat": 39.53143,
   "lon": -107.78421,
   "name": "Rifle Climbing Center",

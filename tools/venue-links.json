@@ -18790,6 +18790,22 @@
     "note": "kraftboulders.com redirects to The Climb Gyms' page for its Kraft hall, which prints \"Climb Kraft 2926 Kraft Drive Nashville, TN 37204\" — the venue's name and upstream's address. The operator has five halls and a page for each."
   },
   {
+    "lat": 40.3631631,
+    "lon": -86.8157186,
+    "name": "Climb Lafayette",
+    "country": "US",
+    "website": "https://climblafayette.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The sweep had offered lafayette.com, a Colombian textile manufacturer, and a Louisiana economic-development agency. The gym's own domain prints \"Climb Lafayette, 4650 Dale Drive, Lafayette, IN, 47905\", and this coordinate is on Dale Drive in 47905."
+  },
+  {
     "lat": 38.493873,
     "lon": -109.468447,
     "name": "Climb Moab Gym",
@@ -21698,6 +21714,21 @@
       "name",
       "city"
     ]
+  },
+  {
+    "lat": 36.15867,
+    "lon": -115.2717,
+    "name": "Red Rock Climbing Center",
+    "country": "US",
+    "website": "https://redrockclimbingcenter.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The centre's own site — \"We are located at 8201 W. Charleston Blvd. Suite 150, Las Vegas, NV 89117\" — and 89117 is the postcode this coordinate falls in. Upstream labels the row Spring Valley, which is the census district that postcode covers."
   },
   {
     "lat": 39.53143,
