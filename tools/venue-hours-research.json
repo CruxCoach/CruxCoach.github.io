@@ -2480,9 +2480,10 @@
   "lon": 8.64456,
   "name": "Crimp Boulderhalle",
   "country": "DE",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://www.crimp-heidelberg.com/",
+  "reason": "The hall's own site answers 403 to every fetcher and header set, so its week cannot be read, and it is not taken from the snapshot the link rests on."
  },
  {
   "lat": 47.72,
@@ -4418,9 +4419,10 @@
   "lon": -0.4034476,
   "name": "Street Rocks",
   "country": "GB",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://cavca.org.uk/street-rocks/",
+  "reason": "The operator's site answers 403 and 401 to every fetcher and header set, so the wall's week cannot be read, and it is not taken from the snapshot the link rests on."
  },
  {
   "lat": 51.4717891,

@@ -1340,16 +1340,6 @@
     "candidate": "https://boulderplanet.de/"
   },
   {
-    "lat": 49.41254,
-    "lon": 8.64456,
-    "name": "Crimp Boulderhalle",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "crimp-heidelberg.com answers 403 to every fetcher and header set tried, so the page the first pass identified still cannot be read. crimpclimbing.com is an unrelated site.",
-    "candidate": "https://www.crimp-heidelberg.com/"
-  },
-  {
     "lat": 47.7856606,
     "lon": 11.0607786,
     "name": "DAV Kletterzentrum Peißenberg",
@@ -2056,16 +2046,6 @@
     "checked": "2026-08-24",
     "reason": "socialclimbing.co.uk answers 200 and is the obvious guess for Social Climbing Solihull, but it holds one line of script — window.onload=function(){window.location.href=\"/lander\"} — and nothing else. A domain parked behind a lander page is not a site, and the operator's real one was not found.",
     "candidate": "https://socialclimbing.co.uk/"
-  },
-  {
-    "lat": 54.2857788,
-    "lon": -0.4034476,
-    "name": "Street Rocks",
-    "country": "GB",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "cavca.org.uk/street-rocks/ answers 403 to every fetcher and header set tried, including a plain browser one, so the page the first pass identified still cannot be read. streetrocks.com is a domain listing.",
-    "candidate": "https://cavca.org.uk/street-rocks/"
   },
   {
     "lat": 51.42122,

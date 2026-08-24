@@ -6180,6 +6180,22 @@
     "note": "Same physical gym as the Kilter entry ~25 m away; upstream lists the MoonBoard separately."
   },
   {
+    "lat": 49.41254,
+    "lon": 8.64456,
+    "name": "Crimp Boulderhalle",
+    "country": "DE",
+    "website": "https://www.crimp-heidelberg.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "crimp Boulderhalle Heidelberg's own site, printing \"Wieblinger Weg 100, 69123 Heidelberg\" — upstream's address to the letter. The live host answers 403 to every fetcher, so the page was read from a snapshot of 13 October 2025; the hours record stays inaccessible."
+  },
+  {
     "lat": 52.01464,
     "lon": 8.5717,
     "name": "DAV Alpinzentrum Bielefeld",
@@ -11497,6 +11513,21 @@
       "city"
     ],
     "note": "Same physical centre as the MoonBoard entry ~35 m away; upstream lists the two boards separately."
+  },
+  {
+    "lat": 54.2857788,
+    "lon": -0.4034476,
+    "name": "Street Rocks",
+    "country": "GB",
+    "website": "https://cavca.org.uk/street-rocks/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "CaVCA runs Street Rocks and gives it a page of its own, headed \"STREET ROCKS\" and describing \"Scarborough's 14m Climbing Wall & Bouldering\" — the venue's name and the town upstream records. The live host answers 403 and 401 depending on the scheme, so the page was read from a snapshot of 11 March 2025."
   },
   {
     "lat": 54.91452529999999,
