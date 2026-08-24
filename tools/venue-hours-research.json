@@ -6232,9 +6232,10 @@
   "lon": 4.25458,
   "name": "Boulderhal de Campus",
   "country": "NL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.boulderhaldecampus.nl/",
+  "reason": "The venue has an official site and it answers 403 to this audit on every path. Its schedule cannot be read live, and a snapshot may not supply one.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 52.3925,
@@ -6293,15 +6294,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 53.23124,
-  "lon": 6.59009,
-  "name": "Gropo Bouldergym Groningen",
-  "country": "NL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 52.18036,
   "lon": 5.41522,
   "name": "Kei Boulderhal De Hoef",
@@ -6340,15 +6332,6 @@
   "checked": "2026-08-23",
   "source": "https://stadsmuur.com/ontdek/openingstijden-en-tarieven/",
   "reason": "Re-read: unchanged, and the asterisk is undated so it recurs every year — the weekend rows read 'Zaterdag 09:00 – 21:00 (18.00)*' and 'Zondag 09:00 – 21:00 (18.00)*' with '* Zomervakantie – zaterdag en zondag 09:00 – 18.00'."
- },
- {
-  "lat": 68.44631,
-  "lon": 17.4505,
-  "name": "68° Nord Buldrehall",
-  "country": "NO",
-  "status": "no-official-site",
-  "checked": "2026-08-24",
-  "reason": "The hall's domain no longer resolves, so there is no page to read a schedule from."
  },
  {
   "lat": 68.4463676,

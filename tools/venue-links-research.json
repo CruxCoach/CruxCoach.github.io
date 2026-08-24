@@ -3437,9 +3437,9 @@
     "name": "Pampa Rock Climbing",
     "country": "MY",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — pampa.com → \"Pampa Energía\". Upstream records 2, Jalan KSB 2, Taman Kota Syahbandar, 75200, Melaka, and nothing opened printed it.",
-    "candidate": "https://pampa.com/"
+    "reason": "pampa.com is Pampa Energía, an Argentine energy company. The sweep matched it on the name and a bare \"2\".",
+    "candidate": "https://pampa.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 1.5800393,
@@ -3468,16 +3468,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — sicc.my → \"Crossfit Masters Malaysia – Crossfitters\", the rest could not be opened — sicc.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "http://crossfit.my/"
-  },
-  {
-    "lat": 52.04968,
-    "lon": 4.25458,
-    "name": "Boulderhal de Campus",
-    "country": "NL",
-    "status": "unverified",
-    "reason": "decampus.nl is a secondary school in Breda — Markenhage, Michaël college, Orion Lyceum — and names no bouldering hall. boulderhaldecampus.nl resolves and answers 403 to every request, so it can be neither read nor ruled out; the Internet Archive was offline while this was checked and could not settle it either.",
-    "candidate": "https://www.boulderhaldecampus.nl/",
-    "checked": "2026-08-24"
   },
   {
     "lat": 52.11019628136243,
@@ -3518,26 +3508,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — graviton.nl → \"Graviton – Marmer, Engravings en Awards\", the rest could not be opened — graviton.com → a certificate that does not cover its hostname, the venue's whole name as one label, graviton.nl, answers 200 (\"Graviton &#8211; Marmer, Engravings en Awards\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://graviton.nl/"
-  },
-  {
-    "lat": 53.23124,
-    "lon": 6.59009,
-    "name": "Gropo Bouldergym Groningen",
-    "country": "NL",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps Gropo 71 m from this venue and tags it gropo.nl, and unlike most of this batch the site answers: it is titled GROPO BOULDERGYM and publishes a week on /opening-times. What it never publishes is an address — no street, no postal code, no town on any page and none in its markup — so the only thing matching this venue is its name, which is also the domain.",
-    "candidate": "https://www.gropo.nl/"
-  },
-  {
-    "lat": 68.44631,
-    "lon": 17.4505,
-    "name": "68° Nord Buldrehall",
-    "country": "NO",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps an object called 68° Nord Buldrehall 37 m from this venue and tags it narvikbuldrehall.no, and an archived copy from 20 April 2024 describes \"Narvik sin buldrehall i Teknologiveien 4\" — upstream's street and town. The domain no longer resolves at all, on any host or scheme, so there is nothing to link to.",
-    "candidate": "https://narvikbuldrehall.no/"
   },
   {
     "lat": 68.4463676,
@@ -3592,9 +3562,9 @@
     "name": "Harstad Klatreklub",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "harstad.com answers and is archived, and it is the town of Harstad's own portal, not the climbing club's: it matches on the town's name and nothing else, and never prints Åsveien 8 or 9405, the address upstream records for this venue.",
-    "candidate": "https://harstad.com/"
+    "reason": "harstad.com is the town. harstadklatreklubb.no and harstadkk.no do not resolve, and klatring.no lists no club websites to follow.",
+    "candidate": "https://harstad.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 60.8630354,
@@ -3670,9 +3640,9 @@
     "name": "Mandal & Lindesnes Klatreklubb",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The sibling match was spurious: geiloklatreklubb.no is Geilo Klatreklubb, 283 km away, and shares only the word Klatreklubb with this venue. No name-derived domain for Mandal & Lindesnes Klatreklubb resolves, and upstream records no address for it.",
-    "candidate": "https://geiloklatreklubb.no/"
+    "reason": "geiloklatreklubb.no is the club in Geilo, some 300 km away, and the sweep matched it on a bare \"13\". Mandal & Lindesnes Klatreklubb has no domain of its own that answers: mandalklatreklubb.no, mlklatreklubb.no, mandalklatring.no and mlkk.no all fail to resolve, and the national federation's club pages carry no outbound club links.",
+    "candidate": "https://geiloklatreklubb.no/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 67.28667,
@@ -3904,9 +3874,9 @@
     "name": "Akademia Sportu Proem",
     "country": "PL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — akademiasportu.com.pl → \"Krakowska Akademia Sportu\"; akademiasportu.com → \"Akademia Sportu – Bezpieczne i niezapomniane wakacje!\"; akademia.pl → \"Akademia.pl, gotowe prompty i checklisty do AI w firmie\", the rest could not be opened — akademiasportu.pl → no answer; akademia.com.pl → 200. Upstream records Sosnowa 62, 97-200, Tomaszów Mazowiecki, and nothing opened printed it.",
-    "candidate": "https://akademiasportu.com.pl/"
+    "reason": "akademiasportu.com.pl is Krakowska Akademia Sportu, 200 km from Tomaszów Mazowiecki, and the sweep matched it on a bare \"62\".",
+    "candidate": "https://akademiasportu.com.pl/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 51.919438,
@@ -3951,9 +3921,9 @@
     "name": "Gato",
     "country": "PL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "gatowalls.com matches the venue's name and gives Toruń, but it is not a climbing gym: it is Gatowalls, a company that builds climbing walls, rope parks and fun-climb installations for schools, hotels and shopping centres. A manufacturer that happens to share the name and the town is not this venue's site.",
-    "candidate": "https://gatowalls.com/"
+    "reason": "gatowalls.com builds climbing walls — \"Budowa ścian wspinaczkowych, parków linowych i fun climb\" — it does not run a hall in Toruń. A wall builder shares the vocabulary of every gym it has ever built, which is why the name sweep keeps offering them.",
+    "candidate": "https://gatowalls.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 51.2510308,
@@ -4019,9 +3989,9 @@
     "name": "Spot Boulder Caffe",
     "country": "PL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "climbingspot.pl is a Łódź climbing operator and shares the word Spot with this venue, but nothing on it prints an address, and \"Spot Boulder Caffe\" is not a name the site uses. The town match comes from navigation text rather than a location block, so the site cannot be tied to this venue.",
-    "candidate": "https://www.climbingspot.pl/"
+    "reason": "climbingspot.pl is Climbing Spot in Poznań, with two halls on Pułaskiego and Widłakowa. Spot Boulder Caffe is in Łódź, 200 km away, and shares only the word Spot.",
+    "candidate": "https://www.climbingspot.pl/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 51.7806999,

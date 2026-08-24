@@ -15355,6 +15355,31 @@
   "evidence": "Maandag 17:00 - 23:00 | Dinsdag 08:30 - 23:00 | Woensdag 08:30 - 23:00 | Donderdag 08:30 - 23:00 | Vrijdag 08:30 - 23:00 | Zaterdag 08:30 - 23:00 | Zondag 08:30 - 19:00"
  },
  {
+  "lat": 53.23124,
+  "lon": 6.59009,
+  "name": "Gropo Bouldergym Groningen",
+  "country": "NL",
+  "source": "https://gropo.nl/opening-times",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "09:00-23:00",
+   "sun": "09:00-23:00"
+  },
+  "evidence": "OPENING TIMES — Monday — Friday 10:00 — 23:00 · Saturday — Sunday 09:00 — 23:00",
+  "note": "The page is a Squarespace section whose text lives outside mainContent, so it reads as empty through the platform's own JSON route and has to be taken from the rendered page. One hall, one week, no second version anywhere on the site."
+ },
+ {
   "lat": 50.99175,
   "lon": 5.84161,
   "name": "IVY Climbing",
@@ -15752,6 +15777,32 @@
    "sun": "09:00-21:00"
   },
   "evidence": "Reguliere openingstijden Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 21:00 | Zondag 09:00 – 21:00"
+ },
+ {
+  "lat": 68.44631,
+  "lon": 17.4505,
+  "name": "68° Nord Buldrehall",
+  "country": "NO",
+  "source": "https://narvikklatreklubb.no/68nordbuldrehall/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "05:00-22:00",
+   "tue": "05:00-22:00",
+   "wed": "05:00-22:00",
+   "thu": "05:00-22:00",
+   "fri": "05:00-22:00",
+   "sat": "05:00-22:00",
+   "sun": "05:00-22:00"
+  },
+  "evidence": "Åpningstider: Mandag - Søndag 05:00 - 22:00 * Lørdag og søndag frem til kl 12:00 er prioritert barnefamilier.",
+  "note": "One line covers the week, and the contact page repeats it with the word ubemannet — the hall is unstaffed, not closed. The asterisk gives families with children priority before noon at weekends; that is a rule about who, not about when it is open."
  },
  {
   "lat": 59.91525,

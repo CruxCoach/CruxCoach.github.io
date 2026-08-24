@@ -13849,6 +13849,22 @@
     "note": "The hall gives postcode 4815 HT where upstream has 4515HT."
   },
   {
+    "lat": 52.04968,
+    "lon": 4.25458,
+    "name": "Boulderhal de Campus",
+    "country": "NL",
+    "website": "https://www.boulderhaldecampus.nl/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The host answers 403 to every request but resolves and serves. A snapshot of it reads \"Welkom op Boulderhal de Campus den Haag … Adres Boulderhal de Campus Kerketuinenweg 55 2544CV, Den Haag\" — upstream's address to the postcode. That is what a snapshot may settle; the link points at the live address and no hours are taken from it."
+  },
+  {
     "lat": 52.39204,
     "lon": 4.64789,
     "name": "Boulderhal De Fabriek Haarlem",
@@ -14099,6 +14115,22 @@
       "location-page",
       "board-mention"
     ]
+  },
+  {
+    "lat": 53.23124,
+    "lon": 6.59009,
+    "name": "Gropo Bouldergym Groningen",
+    "country": "NL",
+    "website": "https://gropo.nl/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Neither the home page, the Squarespace settings nor a 2025 snapshot carries an address — the site simply does not print one. Its events listing does, because Squarespace stamps the venue on every event: \"Gropo Bouldergym, 8 Ulgersmaweg, Groningen, GR, 9731 BS, Netherlands\", which is upstream's address with its postcode."
   },
   {
     "lat": 50.99175,
@@ -14414,6 +14446,22 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 68.44631,
+    "lon": 17.4505,
+    "name": "68° Nord Buldrehall",
+    "country": "NO",
+    "website": "https://narvikklatreklubb.no/68nordbuldrehall/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "narvikbuldrehall.no, which a snapshot shows was once this hall's own domain, no longer resolves at all. The hall is run by Narvik Klatreklubb, whose site gives it a section of its own headed \"68° Nord Buldrehall\" and a contact page reading \"Teknologiveien 4, 8514 Narvik\". Upstream has the same street and number; its postcode, 8517, is not the one the club prints."
   },
   {
     "lat": 59.91525,
