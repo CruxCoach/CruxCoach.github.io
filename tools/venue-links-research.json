@@ -3521,9 +3521,9 @@
     "name": "The Bouldering Hive",
     "country": "PH",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.hiveclimbing.com/locations/surrey → \"Hive New_production\"; www.hiveclimbing.com/locations/port-coquitlam → \"Hive New_production\"; www.hiveclimbing.com/locations/winnipeg → \"Hive New_production\", the rest could not be opened — hive.ph → a timeout; theboulderinghive.com.ph → a certificate that does not cover its hostname; the-bouldering-hive.ph → a certificate that does not cover its hostname, the venue's whole name as one label, theboulderinghive.ph, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.hiveclimbing.com/locations/surrey"
+    "candidate": "http://bhiveph.ph/",
+    "reason": "No official site could be established: bhiveph.ph is the handle upstream records for this row and it resolves, but what it serves is 4,713 bytes titled \"Redirecting...\" whose whole body is an ad-blocker detection script. There is no page behind it and no address on it.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 10.7069075,
@@ -4301,15 +4301,6 @@
     "candidate": "https://atlanta.com/"
   },
   {
-    "lat": 41.74337,
-    "lon": -74.07415,
-    "name": "BC's New Paltz Climbing Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — bcnew.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
     "lat": 44.03891,
     "lon": -121.30336,
     "name": "Bend Endurance Academy",
@@ -4842,8 +4833,9 @@
     "name": "Rock City Climbing",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for Rock City Climbing, Fountain Valley was citybloc.co.uk, a bouldering gym in the United Kingdom — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
+    "candidate": "https://www.rockcityclimbing.com/",
+    "reason": "No official site could be established, and this one is close. rockcityclimbing.com is the handle upstream records for this row, and the site is Rock City Climbing — \"Orange County's original home for indoor rock climbing\" — at 16942 Gothard St Ste G, Huntington Beach, CA 92647, which is about where this coordinate is. What stops it is that the site disagrees with itself: the map block on the same page, and on its hours page, puts the venue at 33.8583834, -117.8064207 — 23.8 km away in Yorba Linda. The name is one signal; the address text and the map block cancel each other out rather than adding a second.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 33.7166,
