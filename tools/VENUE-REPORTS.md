@@ -46,7 +46,7 @@ point, and no counter is added.
 **The endpoint is decided by hostname.** `resolveEndpoint()` looks at
 `location.hostname` and nothing else. A query parameter or fragment that could
 name the endpoint would let any link decide where a stranger's report is sent. On
-loopback it points at `http://127.0.0.1:3002` so a local checkout works with no
+loopback it points at `http://127.0.0.1:3003` so a local checkout works with no
 configuration.
 
 **Every check runs again on the server.** The client-side validation exists to

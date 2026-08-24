@@ -277,7 +277,7 @@ export function format(template, values) {
 // ── Endpoint ────────────────────────────────────────────────────────
 
 export const PRODUCTION_ENDPOINT = 'https://api.cruxcoach.org';
-export const DEV_ENDPOINT = 'http://127.0.0.1:3002';
+export const DEV_ENDPOINT = 'http://127.0.0.1:3003';
 
 /**
  * Where reports go.
