@@ -750,18 +750,25 @@ of a two-word name is not.
 
 ### Some of them are not places
 
-A handful of registry rows do not record a venue at all; they record a city.
-The Stronghold's MoonBoard is filed at 34.0522,-118.2437, which is the standard
-point for Los Angeles rather than either of the two halls the operator runs
-there. R2C2 Gym sits on Las Vegas's, VOLNY on Tokyo's, Block Dock on
-Bratislava's, Illyria's Board on Sydney's.
+A registry row that records a city instead of a venue is common enough to be
+worth testing for rather than noticing by hand. Asking OpenStreetMap for
+`place=city` and `place=town` nodes within 150 m of every open venue finds
+twenty-one sitting on one, several of them exactly: Gorilla climbing's MoonBoard
+on Seosan's node, Sportrock Sterling on Sterling's, Baltzola 2 m from Bilbao's,
+The Mine 4 m from Park City's, then Simferopol, Hikone, Abu Dhabi, Sofia,
+Trondheim, Ise, Charlotte, Omaezaki, Ansan, Kumamoto, Kurume, Kurayoshi, Tehran
+and Yamanashi. A separate check against the offline city index adds The
+Stronghold's MoonBoard on the standard point for Los Angeles, R2C2 Gym on Las
+Vegas's, VOLNY on Tokyo's, Block Dock on Bratislava's and Illyria's Board on
+Sydney's.
 
 That is worth naming because it explains a whole shape of failure. No page can
 ever confirm one of these by an address or a map, since there is nothing at the
 point to confirm; the coordinate rules out the two signals that would otherwise
 be easiest to get. Checking a candidate's map against them would also have been
 actively misleading — a gym genuinely near the city centre would have scored a
-match. Each of the affected records now says which city its point is.
+match. Each of the affected records now says which city its point is, and no
+published link claims a `coordinates` signal for any of them.
 
 ### What the remaining 730 actually are
 
