@@ -14464,6 +14464,23 @@
     "note": "narvikbuldrehall.no, which a snapshot shows was once this hall's own domain, no longer resolves at all. The hall is run by Narvik Klatreklubb, whose site gives it a section of its own headed \"68° Nord Buldrehall\" and a contact page reading \"Teknologiveien 4, 8514 Narvik\". Upstream has the same street and number; its postcode, 8517, is not the one the club prints."
   },
   {
+    "lat": 68.4463676,
+    "lon": 17.4498911,
+    "name": "68Nord Buldrehall",
+    "country": "NO",
+    "website": "https://narvikklatreklubb.no/68nordbuldrehall/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page",
+      "coordinates"
+    ],
+    "note": "This is the hall entered a second time, 26 m from the row that carries the Kilter board. Its own domain, narvikbuldrehall.no, no longer resolves; the club that runs it gives it a section headed \"68° Nord Buldrehall\" and prints \"Teknologiveien 4, 8514 Narvik\", the street the archived copy of the dead domain also gave."
+  },
+  {
     "lat": 59.91525,
     "lon": 10.72374,
     "name": "Ambassaden Trening",
@@ -18406,6 +18423,23 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 33.84909,
+    "lon": -118.35149,
+    "name": "Class 5",
+    "country": "US",
+    "website": "https://touchstoneclimbing.com/class-5/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "postal-code",
+      "city",
+      "location-page",
+      "coordinates"
+    ],
+    "note": "The same gym as the row 10 m away, which upstream also records as Class 5 Climbing. Touchstone's page for it gives \"Torrance, CA\" and 90503; this row carries 20120 Hawthorne Blvd, 90503, Torrance, so the postcode matches as well as the town. Touchstone answers 403 to every fetcher, and the page was read from the same snapshot the neighbouring row rests on."
   },
   {
     "lat": 33.84918,

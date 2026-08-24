@@ -6334,15 +6334,6 @@
   "reason": "Re-read: unchanged, and the asterisk is undated so it recurs every year — the weekend rows read 'Zaterdag 09:00 – 21:00 (18.00)*' and 'Zondag 09:00 – 21:00 (18.00)*' with '* Zomervakantie – zaterdag en zondag 09:00 – 18.00'."
  },
  {
-  "lat": 68.4463676,
-  "lon": 17.4498911,
-  "name": "68Nord Buldrehall",
-  "country": "NO",
-  "status": "no-official-site",
-  "checked": "2026-08-24",
-  "reason": "The hall's domain no longer resolves, so there is no page to read a schedule from."
- },
- {
   "lat": 58.1599119,
   "lon": 8.0182064,
   "name": "Aquarama",
@@ -8620,9 +8611,10 @@
   "lon": -118.35149,
   "name": "Class 5",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://touchstoneclimbing.com/class-5/",
+  "reason": "Touchstone's site answers 403 to every fetcher and header set, so its week cannot be read, and it is not taken from the archived copy the link rests on. Same gym, same answer, as the row 10 m away.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 33.84918,
