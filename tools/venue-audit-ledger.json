@@ -13208,19 +13208,17 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
+    "pass": "2026-08-24",
+    "result": "unverified",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "previous-record",
+     "operator-index",
+     "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "inaccessible",
+    "pass": "2026-08-24",
+    "result": "no-official-site",
     "channels": [
      "venue-link",
      "path-probe"
@@ -26290,17 +26288,16 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "accepted",
     "channels": [
-     "osm-website-tag",
-     "apex",
-     "www",
+     "previous-record",
+     "operator-index",
      "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "no-hours-on-official-site",
     "channels": [
      "venue-link",
@@ -27610,17 +27607,16 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "accepted",
     "channels": [
+     "previous-record",
      "operator-index",
-     "apex",
-     "www",
      "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "no-hours-on-official-site",
     "channels": [
      "venue-link",
@@ -30197,12 +30193,11 @@
     "website"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "accepted",
     "channels": [
-     "osm-website-tag",
-     "apex",
-     "www",
+     "previous-record",
+     "operator-index",
      "path-probe"
     ]
    }
@@ -30354,18 +30349,17 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "accepted",
     "channels": [
-     "osm-website-tag",
-     "apex",
-     "www",
+     "previous-record",
+     "operator-index",
      "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "inaccessible",
+    "pass": "2026-08-24",
+    "result": "seasonal",
     "channels": [
      "venue-link",
      "path-probe"

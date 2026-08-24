@@ -3939,10 +3939,10 @@
   "lon": 3.8663012940657744,
   "name": "Boulder Line 3",
   "country": "FR",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://boulderline.fr/salles-escalade-montpellier-celleneuve/",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 20 characters, which is navigation. It stays in the retry queue."
+  "status": "no-official-site",
+  "checked": "2026-08-24",
+  "source": "https://boulderline.fr/",
+  "reason": "The hall's page on the operator's site is gone, so there is no page to read a schedule from."
  },
  {
   "lat": 44.899596273874344,
@@ -7838,9 +7838,9 @@
   "name": "Zone Climb",
   "country": "PT",
   "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://zone.com.pt/climb",
-  "reason": "The page carries a class timetable by weekday and no opening hours for the wall itself."
+  "checked": "2026-08-24",
+  "source": "https://zone.com.pt/aguda/",
+  "reason": "The page carries a class timetable by weekday — a table headed Segunda-feira through Domingo — and no opening hours for the wall itself. The /climb path the earlier read used is now 404."
  },
  {
   "lat": 44.38974,
@@ -8219,9 +8219,9 @@
   "name": "IKSU Sport",
   "country": "SE",
   "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.iksu.se/sv/sektioner/iksu-klattring/",
-  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 623 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
+  "checked": "2026-08-24",
+  "source": "https://www.iksu.se/utbud/klattring/",
+  "reason": "The only weekday-with-time on the page is about route setting — \"Ombyggnation av leder och boulderproblem i klätterhallen sker måndag-fredag mellan klockan 09:00-17:00\" — which is when the walls are being reset, not when the hall is open."
  },
  {
   "lat": 63.39554,
@@ -8905,10 +8905,10 @@
   "lon": -89.42004,
   "name": "Bakke Recreation & Wellbeing Center",
   "country": "US",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://recwell.wisc.edu/bakke/",
-  "reason": "The university publishes its hours through a live-usage widget rather than as text: /bakke/, /bakke/hours/ and /locations/climbing/ all return the same navigation and no day carries a time on any of them. The only weekday-with-time the pages do state — \"Controlled 7am – 4:30pm Monday – Friday, Free after 4:30pm\" — is about the car park."
+  "status": "seasonal",
+  "checked": "2026-08-24",
+  "source": "https://recwell.wisc.edu/locations/bakke/",
+  "reason": "The page is now readable and states four dated seasons and no ordinary week: \"May 11 – August 23: Monday - Thursday 6am - 10pm, Friday 6am - 8pm, Saturday & Sunday 10am - 8pm\" and \"August 24 – December 18: Monday - Thursday 6am - Midnight, Friday 6am - 10pm, Saturday 8am - 10pm, Sunday 8am - Midnight\", with Winter Break and Spring beneath them and a list of dated closures beside each. The window in force today ends on 18 December, and there is no week that outlives it."
  },
  {
   "lat": 39.5278562,

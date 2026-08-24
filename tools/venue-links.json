@@ -10111,21 +10111,6 @@
     "note": "Blocparty Climbing's own domain, printing the 06250 postal code and Mougins, and embedding a map of itself 208 m from this venue. This replaces the wpcomstaging.com host the earlier pass had recorded, which is the same site on its hosting provider's staging domain rather than its own."
   },
   {
-    "lat": 43.59922983452772,
-    "lon": 3.8663012940657744,
-    "name": "Boulder Line 3",
-    "country": "FR",
-    "website": "https://boulderline.fr/salles-escalade-montpellier-celleneuve/",
-    "verified": "2026-08-23",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "city",
-      "location-page"
-    ],
-    "note": "Boulder Line publishes a page per hall; this is the Montpellier Celleneuve one, and Montpellier is the town upstream records for 27 avenue de Toulouse."
-  },
-  {
     "lat": 44.899596273874344,
     "lon": 6.63972697236616,
     "name": "Briançon escalade",
@@ -15441,15 +15426,15 @@
     "lon": -8.62096,
     "name": "Zone Climb",
     "country": "PT",
-    "website": "https://zone.com.pt/climb",
-    "verified": "2026-08-23",
+    "website": "https://zone.com.pt/aguda/",
+    "verified": "2026-08-24",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "postal-code",
       "city"
     ],
-    "note": "Zone's own climbing page, printing the 4405 postal code and Vila Nova de Gaia — the town upstream records for Tv Joaquim Lopes Pintor 81. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
+    "note": "Zone's own page for its Aguda location, which is the one in Vila Nova de Gaia: it gives the 4405 postal code and the municipality upstream records. The link this record carried, /climb, is now 404; the operator's pages are per-location and this is the location."
   },
   {
     "lat": 46.55842,
@@ -15672,14 +15657,14 @@
     "lon": 20.3192457,
     "name": "IKSU Sport",
     "country": "SE",
-    "website": "https://www.iksu.se/sv/sektioner/iksu-klattring/",
-    "verified": "2026-08-23",
+    "website": "https://www.iksu.se/utbud/klattring/",
+    "verified": "2026-08-24",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "location-page"
     ],
-    "note": "IKSU's own page for its climbing section. IKSU is a single sports club in Umeå and the venue's name in full, and the federation directory lists it with this site. Svenska Klätterförbundet publishes its member clubs at klatterforbundet.se/klubbar with each club's own site beside its name; that directory is how this was found, and the federation naming the club and the site together is what makes the town an independent confirmation rather than a repetition of the venue's name."
+    "note": "IKSU's own page for its climbing hall. IKSU is a single sports club in Umeå and the venue's name in full. The path this record carried, /sv/sektioner/iksu-klattring/, is now 404; the club moved the section under /utbud/."
   },
   {
     "lat": 63.39554,
@@ -16674,8 +16659,8 @@
     "lon": -79.89598,
     "name": "Ascend Climbing Point Breeze",
     "country": "US",
-    "website": "https://www.ascendclimbing.com/locations/point-breeze",
-    "verified": "2026-08-23",
+    "website": "https://www.ascendclimbing.com/locations/point-breeze-pittsburgh",
+    "verified": "2026-08-24",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -16684,7 +16669,7 @@
       "city",
       "board-mention"
     ],
-    "note": "Ascend's own page for its Point Breeze gym, printing 7443 and the 15208 postal code in Pittsburgh that upstream records, and naming the Kilter Board this venue is listed for. The first pass tried /point-breeze, which is 404; the path is /locations/point-breeze."
+    "note": "Ascend's own page for its Point Breeze gym, printing \"7443 Thomas Blvd Pittsburgh, PA 15208\" — upstream's address — and naming the Kilter board this venue is listed for. The path this record carried, /locations/point-breeze, is now 404; the hours record already used the working one."
   },
   {
     "lat": 41.31563,
@@ -16785,8 +16770,8 @@
     "lon": -89.42004,
     "name": "Bakke Recreation & Wellbeing Center",
     "country": "US",
-    "website": "https://recwell.wisc.edu/bakke/",
-    "verified": "2026-08-23",
+    "website": "https://recwell.wisc.edu/locations/bakke/",
+    "verified": "2026-08-24",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -16794,7 +16779,7 @@
       "postal-code",
       "city"
     ],
-    "note": "The University of Wisconsin's own page for the Bakke Recreation & Wellbeing Center, printing 1976 and the 53706 postal code in Madison that upstream records."
+    "note": "The university's own page for the Bakke, printing 1976 Observatory Dr, Madison and 53706. The path this record carried, /bakke/, is now a 404 page — and unlike that one, this page is readable, which is what closes the hours question too."
   },
   {
     "lat": 30.32726,
