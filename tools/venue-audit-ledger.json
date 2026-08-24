@@ -25236,8 +25236,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -26259,16 +26259,16 @@
    ],
    "website": {
     "pass": "2026-08-24",
-    "result": "accepted",
+    "result": "unverified",
     "channels": [
-     "previous-record",
      "operator-index",
-     "path-probe"
+     "path-probe",
+     "previous-record"
     ]
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "no-hours-on-official-site",
+    "result": "no-official-site",
     "channels": [
      "venue-link",
      "path-probe"
