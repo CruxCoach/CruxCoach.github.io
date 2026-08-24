@@ -38432,22 +38432,18 @@
    ],
    "website": {
     "pass": "2026-08-24",
-    "result": "unverified",
+    "result": "accepted",
     "channels": [
      "osm-website-tag",
-     "operator-index",
-     "apex",
-     "www",
-     "previous-record"
+     "previous-record",
+     "archive"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-24",
+    "result": "inaccessible",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link"
     ]
    }
   },

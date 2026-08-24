@@ -10049,9 +10049,10 @@
   "lon": -82.65769,
   "name": "Vertical Ventures St Pete",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://www.verticalventures.com/stpete/",
+  "reason": "The gym has an official page and it answers 403 on every path and header set. The snapshot that settled the address also carries a week, and a week is not something this audit takes from a snapshot."
  },
  {
   "lat": 47.8209301,

@@ -23754,6 +23754,22 @@
     "note": "Vertical eXcape publishes a page per gym; this is the Evansville one, and Evansville is the town upstream records."
   },
   {
+    "lat": 27.76983,
+    "lon": -82.65769,
+    "name": "Vertical Ventures St Pete",
+    "country": "US",
+    "website": "https://www.verticalventures.com/stpete/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The host answers 403 to every fetcher, and the record here said the one snapshot of the page settled nothing. A snapshot of the site's own not-found page settles it: the chrome it renders carries \"116 18th Street South, St. Petersburg, FL 33712\". The coordinate is on 18th Street South in 33712, and OSM maps Vertical Ventures 39 m away tagged with this path. Upstream records no street for the row, so the coordinate supplies both halves of the match."
+  },
+  {
     "lat": 47.8209301,
     "lon": -122.3151314,
     "name": "Vertical World",
