@@ -3750,16 +3750,6 @@
     "candidate": "https://www.gropo.nl/"
   },
   {
-    "lat": 52.3679843,
-    "lon": 4.9035614,
-    "name": "Monk Amsterdam Moonboard",
-    "country": "NL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — monk.nl/amsterdam → \"Boulderen in Amsterdam? Kom naar Monk.\"; boulderneoliet.nl/en/amsterdam → \"Boulderen in Amsterdam? Kom naar Boulder Amsterdam\"; monk.nl → \"Monk bouldergym | Eindhoven - Amsterdam - Rotterdam - Hi\", the rest could not be opened — monkamsterdam.nl → a timeout; monkamsterdam.com → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://monk.nl/amsterdam/"
-  },
-  {
     "lat": 68.44631,
     "lon": 17.4505,
     "name": "68° Nord Buldrehall",
@@ -3822,8 +3812,8 @@
     "name": "Harstad Klatreklub",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "harstad.com presents a certificate that does not cover its hostname on either host, and no other domain resolves for Harstad Klatreklub. Nothing found names Åsveien 8 in Harstad.",
+    "checked": "2026-08-24",
+    "reason": "harstad.com answers and is archived, and it is the town of Harstad's own portal, not the climbing club's: it matches on the town's name and nothing else, and never prints Åsveien 8 or 9405, the address upstream records for this venue.",
     "candidate": "https://harstad.com/"
   },
   {

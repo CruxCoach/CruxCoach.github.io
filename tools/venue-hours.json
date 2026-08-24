@@ -14535,6 +14535,32 @@
   "evidence": "maandag 09:00 - 00:00 | dinsdag 09:00 - 00:00 | woensdag 09:00 - 00:00 | donderdag 09:00 - 00:00 | vrijdag 09:00 - 00:00 | zaterdag 09:00 - 00:00 | zondag 09:00 - 00:00"
  },
  {
+  "lat": 52.3679843,
+  "lon": 4.9035614,
+  "name": "Monk Amsterdam Moonboard",
+  "country": "NL",
+  "source": "https://monk.nl/amsterdam/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "09:00-24:00",
+   "tue": "09:00-24:00",
+   "wed": "09:00-24:00",
+   "thu": "09:00-24:00",
+   "fri": "09:00-24:00",
+   "sat": "09:00-24:00",
+   "sun": "09:00-24:00"
+  },
+  "evidence": "openingstijden maandag dinsdag woensdag donderdag vrijdag zaterdag zondag 09:00 - 00:00 09:00 - 00:00 09:00 - 00:00 09:00 - 00:00 09:00 - 00:00 09:00 - 00:00 09:00 - 00:00",
+  "note": "Seven days listed separately and identically. The page writes the closing as 00:00, which is written 24:00 here because it belongs to the end of the same day."
+ },
+ {
   "lat": 51.44375,
   "lon": 5.45875,
   "name": "Monk Bouldergym Eindhoven",
