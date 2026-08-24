@@ -24289,6 +24289,31 @@
   "note": "Two bands covering all seven days."
  },
  {
+  "lat": 42.74057,
+  "lon": -73.73281,
+  "name": "Hudson Boulders",
+  "country": "US",
+  "source": "https://hudsonboulders.com/contact/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Visit Us 195 Troy-Schenectady Rd Latham, NY 12110 Monday: 6 AM – 10 PM Tuesday: 9 AM – 10 PM Wednesday: 6 AM – 10 PM Thursday: 9 AM – 10 PM Friday: 9 AM – 10 PM Saturday – Sunday: 10 AM – 8 PM",
+  "note": "The record said /contact/ answers 403 along with every other page that could carry a week. It answers a patient reader, and prints six lines under the gym's address: Monday and Wednesday open three hours before Tuesday, Thursday and Friday."
+ },
+ {
   "lat": 37.48421,
   "lon": -122.21474,
   "name": "Hyperion Climbing",
@@ -24534,6 +24559,31 @@
   },
   "evidence": "Mon-Fri 6am-10pm | Sat-Sun 10am-6pm",
   "note": "The page’s own schema.org openingHours agrees."
+ },
+ {
+  "lat": 33.93541,
+  "lon": -118.05852,
+  "name": "Mad Rock HQ",
+  "country": "US",
+  "source": "https://madrock.com/pages/mad-rock-hq",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "10:00-20:00",
+   "tue": "10:00-20:00",
+   "wed": "10:00-20:00",
+   "thu": "10:00-20:00",
+   "fri": "10:00-20:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "MAD ROCK HEADQUARTERS 12810 E Florence Ave. Santa Fe Springs, CA 90670 ... Mad Rock HQ is Los Angeles's only specialty climbing gear shop ... The Board Room Our Board Room is free to use, no reservation needed. It features a Tension Board 2 ... MAD ROCK HQ 12810 E Florence Ave Santa Fe Springs, CA 90670 Mon - Fri: 10 Am - 8 PM Sat - Sun: 10 Am - 6 PM",
+  "note": "The earlier record set this aside because the only week on the site belongs to the shop and this venue is a board. The HQ page settles that they are the same door: the Board Room is inside the shop, \"free to use, no reservation needed\", and the hours are printed under the shop's address on the shop's own page. When the board is in the room, the room's hours are the board's."
  },
  {
   "lat": 35.11513,

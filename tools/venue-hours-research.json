@@ -7824,9 +7824,9 @@
   "name": "Crux Climbing LLC",
   "country": "US",
   "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://www.cruxclimbingal.com/",
-  "reason": "The site states two different weeks. The page reads \"Monday through Friday: 12pm - 10pm Saturday: 10am - 10pm\", while the Squarespace business-hours setting the same page ships carries Monday to Thursday 10am-8pm, Friday and Saturday 10am-10pm and Sunday Closed. Nothing says which is current, and the settings block is the only one of the two that mentions Sunday at all."
+  "source": "https://www.cruxclimbingal.com/contact",
+  "reason": "Still two visible weeks, and both have changed since the last read. The site-wide band on the home page and the pricing page says \"Monday through Friday: 12pm - 10pm | Sat: 10am - 10pm\" and names no Sunday. The contact page says \"M, W: 10am - 8pm | T, Th: Noon - 8pm | F, Sa: 10am - 10pm | Sunday: Noon - 6pm\" — a different opening on four days and a Sunday the other block does not have. The schema.org block is a third answer again and loses to the words, but the words disagree with each other.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 33.2322148,
@@ -7834,9 +7834,9 @@
   "name": "Crux Climbing MoonBoard",
   "country": "US",
   "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://www.cruxclimbingal.com/",
-  "reason": "The site states two different weeks. The page reads \"Monday through Friday: 12pm - 10pm Saturday: 10am - 10pm\", while the Squarespace business-hours setting the same page ships carries Monday to Thursday 10am-8pm, Friday and Saturday 10am-10pm and Sunday Closed. Nothing says which is current, and the settings block is the only one of the two that mentions Sunday at all."
+  "source": "https://www.cruxclimbingal.com/contact",
+  "reason": "Still two visible weeks, and both have changed since the last read. The site-wide band on the home page and the pricing page says \"Monday through Friday: 12pm - 10pm | Sat: 10am - 10pm\" and names no Sunday. The contact page says \"M, W: 10am - 8pm | T, Th: Noon - 8pm | F, Sa: 10am - 10pm | Sunday: Noon - 6pm\" — a different opening on four days and a Sunday the other block does not have. The schema.org block is a third answer again and loses to the words, but the words disagree with each other.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 31.4645298,
@@ -8187,16 +8187,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 42.74057,
-  "lon": -73.73281,
-  "name": "Hudson Boulders",
-  "country": "US",
-  "status": "inaccessible",
-  "source": "https://hudsonboulders.com/",
-  "reason": "The home page answers 200 but is cut off after the navigation, and /first-visit/, /contact/ and /rates/ — the three pages a gym keeps its hours on — each answer 403. No page that could carry a week can be read.",
-  "checked": "2026-08-24"
- },
- {
   "lat": 39.0169509,
   "lon": -94.2816148,
   "name": "IBEX Climbing Gym",
@@ -8320,16 +8310,6 @@
   "checked": "2026-08-23",
   "source": "https://longmontclimbingcollective.com/",
   "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 67,425 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
- },
- {
-  "lat": 33.93541,
-  "lon": -118.05852,
-  "name": "Mad Rock HQ",
-  "country": "US",
-  "status": "ambiguous",
-  "source": "https://madrock.com/pages/get-in-touch",
-  "reason": "The only week the site states belongs to the shop: \"Retail Store … M-F: 10:00 AM - 8:00 PM, Saturday: 10:00 AM - 6:00 PM, Sunday: 10:00 AM - 6:00 PM\", beside an online-support line reading M-F 7:30 AM - 3:30 PM. This venue is a board at the company's headquarters, not the retail floor, and nothing on the site says when it can be climbed on.",
-  "checked": "2026-08-24"
  },
  {
   "lat": 34.134728,
