@@ -685,6 +685,22 @@ The automated read reported name, street 33 and Medellín on elmuro.co; the page
 does not contain "Calle 33" at all, and the site is the Colombian local-news
 network the first pass had already identified.
 
+### On a page that lists every branch, a number can belong to another one
+
+Zone Climb was repointed at the operator's Aguda page on a match of the postal
+prefix 4405 and the municipality. Both were on the page and neither was Aguda's:
+/aguda lists all four branches, so the 4405 belonged to Zone Madalena and to the
+company's registered office, while Aguda is 4410-467 Arcozelo. The link was
+withdrawn the same day it was made.
+
+The lesson is about what gets matched, not about chain pages. A hundred records
+rest on a chain page and claim a street or a postal code, forty of them on a
+house number of one or two digits — and spot-checking the weakest of those finds
+the earlier passes matched the street *name* beside the number: "Lytton Rd,
+Morningside QLD 4170", "essington street, mitchell ACT", "Skjernvej 4A, 9220
+Aalborg". A bare number or a bare postcode on a page that lists every branch is
+not a match; the street name is.
+
 ### When the coordinate cannot tell two halls apart, the board can
 
 An operator with two halls in one city, and a dataset entry for each with no
