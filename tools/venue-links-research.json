@@ -1578,8 +1578,8 @@
     "name": "Nummelan Kiipeilyverstas",
     "country": "FI",
     "status": "unverified",
-    "reason": "The gazetteer has an object 7 m from this coordinate tagged kiipeilyverstas.fi, which would be the venue's own domain — but the host does not answer, on either scheme, with or without the www. A tag is a pointer and never evidence, so with nothing to read there is nothing to link. The coordinate is on Juurakkotie in 03100, which is Nummela.",
     "candidate": "https://www.kiipeilyverstas.fi/",
+    "reason": "No official site could be established: The object at this coordinate is Nummelan kiipeilyverstas Kantti, tagged leisure=sports_centre and sport=climbing;bouldering — the venue itself — and its website tag is kiipeilyverstas.fi, which no longer resolves on any host. The tag outlived the domain.",
     "checked": "2026-08-24"
   },
   {
@@ -1627,8 +1627,8 @@
     "name": "Karma Fontainebleau",
     "country": "FR",
     "status": "unverified",
-    "reason": "The gazetteer has an object 27 m from this coordinate tagged karma.ffme.fr — a club site on the French federation's domain, which would be exactly right for a Fontainebleau wall. It does not answer on either scheme. The coordinate is on Route Militaire in 77300.",
     "candidate": "http://karma.ffme.fr/",
+    "reason": "No official site could be established: The object at this coordinate is Karma, tagged sport=climbing, and its website tag is karma.ffme.fr — a club subdomain of the French federation that no longer resolves. Neither karmafontainebleau.fr nor .com nor karma-fontainebleau.fr exists either, and the handle upstream records for the row is karmafontainebleau.",
     "checked": "2026-08-24"
   },
   {
@@ -3725,9 +3725,9 @@
     "name": "são rock",
     "country": "PT",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps São Rock Climbing 7 m from this venue and tags it saorockclimbing.com. The domain resolves to Locaweb hosting and serves one page: \"403 Forbidden — Página não existente ou em construção\". There is nothing to link to.",
-    "candidate": "https://saorockclimbing.com/"
+    "candidate": "https://saorockclimbing.com/",
+    "reason": "No official site could be established: The object at this coordinate is São Rock Climbing itself, tagged sport=climbing, and it carries saorockclimbing.com. The host answers, and what it answers is Locaweb's own error: \"403 Forbidden — Página não existente ou em construção\". The domain is registered and the site is not there.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 41.1579438,
@@ -4784,9 +4784,9 @@
     "name": "Reading Rocks Climbing & Fitness",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps Reading Rocks 8 m from this venue and tags it readingrocks.com, and that domain is dead: the live host answers 404 and the archive's most recent copy, from 5 August 2025, is five bytes long. readingrocksclimbing.com and readingrocksgym.com do not resolve. The pointer is good and there is nothing at the end of it.",
-    "candidate": "http://www.readingrocks.com/"
+    "candidate": "http://www.readingrocks.com/",
+    "reason": "No official site could be established: The object at this coordinate is Reading Rocks, tagged sport=climbing, with readingrocks.com as its website. Every host and scheme answers 403 with the same body — \"Not Authorized to View This Page [CFN #0004]\" — which is a hosting block rather than a page.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 45.00543,
@@ -4902,9 +4902,9 @@
     "name": "sigma boy",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — sigma-boy.com → \"sigma-boy.com\"; sigma.net → \"Приём онлайн-платежей для самозанятых - эквайринг от Sig\", the rest could not be opened — sigmaboy.com → 200; sigma.com → 301; sigma.org → 403, the venue's whole name as one label, sigmaboy.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://sigma-boy.com/"
+    "candidate": "https://www.kopfc.com/",
+    "reason": "No official site could be established: The object at this coordinate is the Kearns Oquirrh Park Fitness Center, and kopfc.com is its domain: it redirects to oquirrhrec.gov, the Oquirrh Recreation & Parks District. Its sports are tagged swimming, tennis, pickleball, volleyball, basketball and fitness, and the words climb, boulder and rock wall appear nowhere on the site.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 38.61665,
@@ -4935,15 +4935,6 @@
     "checked": "2026-08-24",
     "reason": "This is Sportrock's Sterling gym recorded a second time and geocoded to the wrong Sterling. The dataset already holds Sportrock Climbing Center Sterling at 39.0197,-77.4123, in Sterling, Virginia, linked to sportrock.com/sterling — the page that gives \"45935 Maries Road\" and the hours. This entry sits at 40.6255,-103.2077, which is the town node for Sterling, Colorado, 2,200 km away and nowhere near any Sportrock. No link is attached, because attaching one would dress a marker in the wrong state as a real gym.",
     "candidate": "https://www.sportrock.com/sterling"
-  },
-  {
-    "lat": 37.3303191,
-    "lon": -121.8857449,
-    "name": "Studio Moon Board",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for Studio Moon Board, San Jose was wiesbaden.studiobloc.de, a bouldering hall in Germany — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
   },
   {
     "lat": 43.0730517,
@@ -5099,15 +5090,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — uscg.org → \"Slate VX\", the rest could not be opened — uscg.com → no answer. Upstream records GV38+HCW, Malez Baja, 00603, Aguadilla Pueblo, and nothing opened printed it.",
     "candidate": "https://www.uscg.org/"
-  },
-  {
-    "lat": 43.81704,
-    "lon": -91.23293,
-    "name": "UWL REC Climbing Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records 1600 Farwell St, 54601, La Crosse, and nothing opened printed it."
   },
   {
     "lat": 38.92534,

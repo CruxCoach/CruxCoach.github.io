@@ -8749,15 +8749,6 @@
   "reason": "Two official pages give this hall two different Sundays. Its own site, roserockclimbing.com, reads \"Monday - Friday: 11am – 10pm Saturday: 10am – 10pm Sunday: 10am – 8pm\"; the operator's page for it reads \"Sun: 11AM - 8PM Members Only: Sun 10AM - 11AM\". The difference is exactly one hour and exactly the hour one page calls members only, so the pages may well agree in substance — but the hall's own site, which is the site this venue is linked to, does not say so, and reading a members-only hour into its opening is not something the page supports."
  },
  {
-  "lat": 37.3303191,
-  "lon": -121.8857449,
-  "name": "Studio Moon Board",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 43.0730517,
   "lon": -89.4012302,
   "name": "Summit the Moon",
@@ -9087,9 +9078,10 @@
   "lon": -91.23293,
   "name": "UWL REC Climbing Gym",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "source": "https://www.uwlax.edu/recsports/climbing-gym/",
+  "reason": "The only week on the page belongs to the building and is labelled: \"Recreational Eagle Center (REC) Hours Summer Hours Monday-Friday: 8am-8pm Saturday: 12pm-6pm Sunday: CLOSED\", followed by twelve dated adjustments running into September. The climbing gym publishes no separate schedule, and the term-time week the summer one implies is not printed anywhere.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 38.92534,

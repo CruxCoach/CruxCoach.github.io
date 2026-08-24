@@ -23484,6 +23484,21 @@
     "note": "The hall at 2701 Washington Dr, Norman trades as Rose Rock Climbing; its own site prints that street, the postal code 73069 and the town. The operator behind it, Stoneyard, lists the same address on stoneyardclimbing.com beside this venue's name, which is how the two were connected."
   },
   {
+    "lat": 37.3303191,
+    "lon": -121.8857449,
+    "name": "Studio Moon Board",
+    "country": "US",
+    "website": "https://touchstoneclimbing.com/the-studio/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "The object this coordinate reverse-geocodes to is called The Studio, tagged leisure=sports_centre and sport=climbing, and carries touchstoneclimbing.com/the-studio/ as its website. That page is Touchstone's own for the hall: \"The Studio, 396 South 1st Street, San Jose, CA 95113\". Upstream puts this row 1.1 km from San Jose and names it for the board rather than the hall."
+  },
+  {
     "lat": 42.79586306525299,
     "lon": -77.81768163626862,
     "name": "Sunrise Bouldering",
@@ -24651,6 +24666,23 @@
       "street-address"
     ],
     "note": "The operator lists more than one gym; its page gives this one as 1502 North Cunningham Ave Urbana, IL 61802, which resolves 68 m from the coordinate."
+  },
+  {
+    "lat": 43.81704,
+    "lon": -91.23293,
+    "name": "UWL REC Climbing Gym",
+    "country": "US",
+    "website": "https://www.uwlax.edu/recsports/climbing-gym/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The gazetteer object at this point is the Recreational Eagle Center, tagged with the university's Rec Sports site, and that site gives the wall its own page: \"The Climbing Gym is located within the Recreational Eagle Center on the University of Wisconsin-La Crosse campus: 1600 Farwell St. La Crosse, WI 54601\" — upstream's address for this row, street, postcode and town."
   },
   {
     "lat": 25.81284,
