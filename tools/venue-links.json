@@ -15457,6 +15457,20 @@
     "note": "The site is Molde klatresenter and prints a 6415 Molde postcode; the upstream town is Molde. Only the www host is unreachable, so the apex is what is stored."
   },
   {
+    "lat": 67.28667,
+    "lon": 14.5692,
+    "name": "Mørkvedhallen Klatresenter",
+    "country": "NO",
+    "website": "https://morkvedhallen.no/klatresenter",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The record said the domain answers and the whole page is the word Mørkvedhallen. That was morkvedhallen.com, which redirects to morkvedhallen.no — a hall in Bodø with a Klatresenter section of its own. Upstream gives this row the address \"Mørkvedhallen 104, 8028, Bodø\" and the site is the hall of that name."
+  },
+  {
     "lat": 62.56787,
     "lon": 7.69012,
     "name": "Norsk Tindesenter",

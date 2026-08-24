@@ -23378,22 +23378,19 @@
    ],
    "website": {
     "pass": "2026-08-24",
-    "result": "unverified",
+    "result": "accepted",
     "channels": [
-     "previous-record",
-     "apex",
-     "www"
+     "redirect",
+     "name-guess",
+     "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -29717,14 +29714,12 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "unverified",
     "channels": [
+     "redirect",
      "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "previous-record"
     ]
    },
    "hours": {
