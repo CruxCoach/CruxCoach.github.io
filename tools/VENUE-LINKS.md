@@ -162,6 +162,11 @@ node tools/venue-links-report.mjs --json
 # a research entry.
 node tools/venue-links-report.mjs --todo DE,AT,CH --limit 40 --with-address
 
+# Fetch every published link and report what no longer answers. Makes network
+# requests, so it is run by hand and never by scripts/check.
+node tools/venue-links-liveness.mjs
+node tools/venue-links-liveness.mjs 51.5074,-0.1278
+
 # Apply the overlay to the committed dataset and re-render both directories,
 # without pulling a new upstream dataset into the same commit.
 node tools/build-boards-data.mjs --overlays-only
@@ -679,6 +684,20 @@ The same discipline caught the pass's one false positive before it was written.
 The automated read reported name, street 33 and Medellín on elmuro.co; the page
 does not contain "Calle 33" at all, and the site is the Colombian local-news
 network the first pass had already identified.
+
+### A verified link is a fact about the day it was verified
+
+Sites move their per-location pages and operators close halls, and a link that
+404s is worse for a visitor than no link at all. `node
+tools/venue-links-liveness.mjs` fetches every distinct published URL and reports
+what no longer answers; run it after a curation batch and before any pass that
+claims the file is current.
+
+Read its output with care. Of the thirteen failures in the first run, eight were
+hosts refusing this machine — bot protection and TLS blocks a browser gets past,
+with the domain still resolving, which is the tell. Five were real: four had
+moved and were repointed, and Boulder Line 3 lost its link because Boulderline's
+sitemap now lists one hall and it is not that one.
 
 ### Reading the venue's own page from a snapshot
 

@@ -340,6 +340,25 @@ node tools/build-boards-data.mjs --overlays-only
   it as the venue's own, and link the page it came from.
 - Counts land in `boards.meta.json` under `venue_hours`.
 
+## Keeping the two overlays honest over time (network tools)
+
+Both curated overlays record what a page said on the day it was read, and pages
+move. Two tools re-read them; both make network requests, so neither is part of
+`scripts/check` and both are run by hand after a curation batch.
+
+```bash
+# Fetch every published venue link and report what no longer answers. 404 and
+# 410 must be acted on; a 403 or no answer at all from a host that still
+# resolves is usually bot protection this machine cannot get past.
+node tools/venue-links-liveness.mjs
+
+# Re-read the source of every published week and report where a Squarespace
+# business-hours setting or a schema.org block on the same page says something
+# different. A difference is a finding to read, not a verdict — see "When a
+# page states the week twice" in VENUE-HOURS.md.
+node tools/venue-hours-conflict.mjs
+```
+
 ## Coverage audit (`venue-audit.mjs`, `venue-audit-ledger.json`)
 
 ```bash
