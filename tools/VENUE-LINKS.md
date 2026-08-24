@@ -776,17 +776,24 @@ for hours, because a schedule is exactly the kind of thing that changes between
 the snapshot and today; every hall linked this way keeps its `inaccessible`
 hours record. Each note gives the snapshot's date so a reader can weigh it.
 
-That yielded five links out of 458 venues tried — the three Maniak halls (each
-on its own subdomain, Charleroi's printing "…Bruxelles, 6020 Dampremy"), Das Ki
-in Innsbruck ("Matthias-Schmid-Straße 12c, 6020 Innsbruck", upstream's address
-to the letter) and CRANK in Macgregor. It is a narrow channel: only 27 of the
-458 had a readable snapshot at all, because most of those candidates were the
-wrong company's site and an archive of the wrong company is still wrong.
+That yielded the three Maniak halls (each on its own subdomain, Charleroi's
+printing "…Bruxelles, 6020 Dampremy"), Das Ki in Innsbruck
+("Matthias-Schmid-Straße 12c, 6020 Innsbruck", upstream's address to the
+letter), CRANK in Macgregor, and then — once the reader was fixed — Boulderhaus's
+six entries, Touchstone's seven, First Ascent's four, Crimp, Pinnacle, G1,
+Hudson Boulders, Beta Bloc, Street Rocks, Inner Peaks' two and The Wall Dublin.
 
-It is also a channel with a courtesy limit. Asking the archive for 458 venues
-across eight paths each earns a 429, and the sweep was stopped when it arrived;
-21 venues were being read at that moment and are recorded as not yet retried
-rather than as failures.
+The reader is worth a paragraph of its own, because it was the thing making the
+channel look exhausted. It fetched each snapshot through the same helper the
+live reads use, which probes a page's Squarespace, WordPress, Wix, Next.js and
+JSON-LD routes — five or six requests per path, forty per venue, every one of
+them against web.archive.org. That earns a rate limit within a handful of
+venues, and a rate-limited answer looks exactly like "no snapshot exists":
+Pinnacle was recorded as never captured on one, and had in fact been captured
+in March. Fetching each snapshot once instead reads the same pages with no
+limit at all, and returns more of them — 37 kB where the probing reader
+returned a truncated fragment. Read anything the earlier sweeps concluded about
+what the archive holds with that in mind.
 
 ### Two sweeps that found nothing, written down so nobody repeats them
 
