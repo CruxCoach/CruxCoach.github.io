@@ -85,6 +85,19 @@ The ones that stayed stayed for reasons the rule does not touch: two visible
 blocks that disagree, a missing day, an announcement bar saying the hours
 changed last week.
 
+Running the comparison over every published week rather than a batch put a
+number on how common the disagreement is: of 1,051 sources read, 66 carry a
+machine-readable week that differs from the words above it, and every one of
+them differs in the direction the rule predicts — the block holds a flat
+weekday band and the text holds the day that breaks it. Six sources did not
+answer at all, and none of them answered 404: flaesh.at and climbat.com refuse
+both ports outright, betaclimb.com.co serves the page behind an expired
+certificate and biwakclimbing.com behind an incomplete chain, and Northern
+Rocks answered on the next attempt. A source that stops answering is not a
+source that stopped being true, so none of those weeks was touched; the two
+certificate failures are the operators' to fix and are worth re-reading rather
+than recording.
+
 ### One hall, two registries
 
 A gym that owns a Kilter board and a MoonBoard is registered twice, once by
