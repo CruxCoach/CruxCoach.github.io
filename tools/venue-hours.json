@@ -99,6 +99,33 @@
   "evidence": "Öffnungszeiten: Mo-So: 06:00 Uhr - 23:00 Uhr"
  },
  {
+  "lat": 47.26832,
+  "lon": 9.59202,
+  "name": "Block Monkey",
+  "country": "AT",
+  "source": "https://www.blockmonkey.at/oeffnungszeiten/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-22:30",
+   "tue": "06:00-22:30",
+   "wed": "06:00-22:30",
+   "thu": "06:00-22:30",
+   "fri": "06:00-22:30",
+   "sat": "06:00-22:30",
+   "sun": "06:00-22:30"
+  },
+  "evidence": "Block Monkey Im Letten 6 6800 Feldkirch … Mit Abo Chip, Online Ticket oder apptive App täglich geöffnet von 6:00 – 22:30 … Im Sommer vom 01.07. bis 31.08. Mit Abo Chip, Online Ticket oder apptive App täglich von 6:00 – 22:30",
+  "note": "The hall opens daily from 6:00 to 22:30 to anyone with a subscription chip, an online ticket or the app, and the page states the same window twice — once for the ordinary season and once for the summer one. What the two regimes differ on is when the desk and bistro are staffed, which is not the opening. That is why this record was ambiguous and is not any more: the seasonal split does not touch the hours the public can climb, and the schema.org example value beneath them is not a competing claim."
+ },
+ {
   "lat": 48.19046,
   "lon": 16.36009,
   "name": "Blockfabrik",
