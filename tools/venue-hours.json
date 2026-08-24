@@ -14280,6 +14280,32 @@
   "note": "Saturday and Sunday differ from each other and from the weekdays. Public holidays are given their own window and are not part of the week."
  },
  {
+  "lat": 45.80684120000001,
+  "lon": 16.0055825,
+  "name": "Hive Zagreb",
+  "country": "HR",
+  "source": "https://hivebouldering.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:00-23:00",
+   "tue": "09:00-23:00",
+   "wed": "09:00-23:00",
+   "thu": "09:00-23:00",
+   "fri": "09:00-23:00",
+   "sat": "09:00-23:00",
+   "sun": "09:00-23:00"
+  },
+  "evidence": "Radno vrijeme Ponedjeljak - Nedjelja 09:00 - 23:00 (za iznimke provjerite naš Facebook) — and, higher on the page, \"Radno vrijeme SVAKI DAN OD 9:00 - 23:00\"",
+  "note": "Stated twice, once as Monday to Sunday and once as every day, and the two agree. The bracket referring exceptions to Facebook is an exception list."
+ },
+ {
   "lat": 47.51476813536509,
   "lon": 19.11432501487862,
   "name": "Fless!",

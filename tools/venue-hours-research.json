@@ -4094,15 +4094,6 @@
   "reason": "The working-hours block layers price tiers over the opening and contradicts itself doing so: \"Mon - Fri: 9 am - 4 pm [regular] 9 am - 11 pm [prime time] 9 pm - 11 pm [regular]\". Three overlapping windows are given for the same weekday and Sunday is cut off mid-line, so no week can be read."
  },
  {
-  "lat": 45.80684120000001,
-  "lon": 16.0055825,
-  "name": "Hive Zagreb",
-  "country": "HR",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 45.8987972,
   "lon": 16.8423093,
   "name": "SPK Grip Moonboard",
@@ -6896,9 +6887,10 @@
   "lon": 19.5340252,
   "name": "Trafo Base Camp",
   "country": "PL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "source": "https://www.trafobasecamp.pl/kategorie/kontakt",
+  "reason": "The only hours on the site are dated and per-facility, and none of them is the wall: \"W sezonie od 01 maja do 30 października: [pensjonat] otwarty codziennie, [sklep] Codziennie 9:00-10.00, 15.00-19:00, [knajpa] pon-pt 8:30-20:00, sobota 8:30-21:00, niedziela 8:30-20:00\", followed by \"Listopad-Marzec NIECZYNNE\" — closed from November to March. A place whose year is a season, and whose stated times belong to the guesthouse, the shop and the pub.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 52.3727688,

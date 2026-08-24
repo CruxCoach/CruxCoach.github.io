@@ -12327,6 +12327,20 @@
     "note": "Fothia's own site, giving Zagreb — the city upstream records, which the venue name does not carry."
   },
   {
+    "lat": 45.80684120000001,
+    "lon": 16.0055825,
+    "name": "Hive Zagreb",
+    "country": "HR",
+    "website": "https://hivebouldering.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The hall's own site — \"Hive Zagreb – Najveća dvorana za penjanje u Hrvatskoj\", at Slavonska Avenija 16, 10000 Zagreb. There is one Hive in Zagreb. The coordinate is not it: it falls on Ulica Vjekoslava Heinzela in Peščenica-Žitnjak, 1.8 km east, which is also how far the gazetteer put the object it matched."
+  },
+  {
     "lat": 45.8987972,
     "lon": 16.8423093,
     "name": "SPK Grip Moonboard",
@@ -16094,6 +16108,21 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 50.5638534,
+    "lon": 19.5340252,
+    "name": "Trafo Base Camp",
+    "country": "PL",
+    "website": "https://www.trafobasecamp.pl/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The venue's own domain, titled \"[Trafo Base Camp] - noclegi, knajpa, sklep wspinaczkowy, bulderownia, wypożyczalnia - Podlesice\", with the address \"Podlesice, ul Jaskiniowa 11 … 42-425\". This coordinate is 42-425 Podlesice. adrenalinapark.pl, which a postcode sweep had matched here, is a rope park in the same village."
   },
   {
     "lat": 52.18297690000001,
