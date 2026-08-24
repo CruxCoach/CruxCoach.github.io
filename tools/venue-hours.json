@@ -23656,6 +23656,34 @@
   "note": "The page’s own schema.org openingHoursSpecification agrees."
  },
  {
+  "lat": 39.01971,
+  "lon": -77.41231,
+  "name": "Sportrock Climbing Center Sterling",
+  "country": "US",
+  "source": "https://www.sportrock.com/sterling",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "street-address",
+   "postal-code",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-23:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-23:00",
+   "fri": "06:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Sterling Information: Hours: Monday | 6am - 10pm Tuesday | 6am - 11pm Wednesday | 6am - 10pm Thursday | 6am - 11pm Friday | 6am - 10pm Saturday - Sunday | 9am - 9pm Address: 45935 Maries Rd. Sterling, VA 20166",
+  "note": "Every day is listed separately beside this gym's own address; Tuesday and Thursday close an hour later than the other weekdays, which the operator's schema.org block flattens to a single Monday-Friday 06:00-22:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
   "lat": 39.11534,
   "lon": -77.19732,
   "name": "Sportrock Rio",
@@ -23704,6 +23732,31 @@
   },
   "evidence": "Monday 10am-10pm | Tuesday 6am-10pm | Wednesday 10am-10pm | Thursday 6am-10pm | Friday 10am-10pm | Saturday 10am-8pm | Sunday 12pm-8pm | 4642 Northpark Dr. | Colorado Springs, CO 80918",
   "note": "The site’s own schema.org openingHours agrees."
+ },
+ {
+  "lat": 38.47173,
+  "lon": -77.99525,
+  "name": "State Climb",
+  "country": "US",
+  "source": "https://stateclimb.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "15:00-22:00",
+   "wed": "15:00-22:00",
+   "thu": "15:00-22:00",
+   "fri": "15:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Mon-Fri 3PM-10PM Sat-Sun 10AM-8PM",
+  "note": "Two bands covering all seven days. The site's schema.org openingHours closes the weekdays two hours early, at 20:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 45.74751,
@@ -24829,6 +24882,56 @@
   "note": "The operator lists both halls with a week each; this is the block headed by the Lincoln Heights address at 650 South Avenue 21. The Echo Park hall beneath it closes an hour earlier on weekdays, which is what makes the two blocks distinguishable."
  },
  {
+  "lat": 35.60764,
+  "lon": -97.62456,
+  "name": "Threshold Climbing, Fitness & Yoga",
+  "country": "US",
+  "source": "https://www.thresholdclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "12:00-20:00"
+  },
+  "evidence": "Monday - Friday 12:00 PM - 10:00 PM, Saturday 9:00 AM - 8:00 PM, Sunday 12:00 PM - 8:00 PM",
+  "note": "Stated on the gym's contact page; Saturday opens three hours before Sunday. Its schema.org openingHours opens the weekdays an hour earlier, at 11:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
+  "lat": 35.6075,
+  "lon": -97.6244,
+  "name": "Threshold Climbing, Fitness + Yoga",
+  "country": "US",
+  "source": "https://www.thresholdclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "12:00-20:00"
+  },
+  "evidence": "Monday - Friday 12:00 PM - 10:00 PM, Saturday 9:00 AM - 8:00 PM, Sunday 12:00 PM - 8:00 PM",
+  "note": "Stated on the gym's contact page; Saturday opens three hours before Sunday. Its schema.org openingHours opens the weekdays an hour earlier, at 11:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
   "lat": 45.5323985,
   "lon": -122.6851445,
   "name": "Tomo Bouldering Club",
@@ -25076,6 +25179,31 @@
   },
   "evidence": "gym hours mon-wed-fri 12p-10p tues-thurs 6a-10p sat-sun 8a-8p address 17229 15th Ave NE Shoreline, WA 98155",
   "note": "The gym groups its days as Monday/Wednesday/Friday and Tuesday/Thursday, which alternate between a noon and a 6am opening, with the weekend stated separately. The block sits directly above its address."
+ },
+ {
+  "lat": 40.12617,
+  "lon": -88.19884,
+  "name": "Urbana Boulders",
+  "country": "US",
+  "source": "https://urbanaboulders.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Mon-Fri 10am-10pm Sat & Sun 10am-9pm",
+  "note": "Two bands covering all seven days. The site's schema.org openingHours disagrees with both — Mo-Fr 12:00-21:00 and Sa-Su 10:00-20:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 25.81284,
@@ -25374,6 +25502,31 @@
    "sun": "09:00-22:00"
   },
   "evidence": "Monday - Thursday | 8am - 11pm | Friday | 8am - 10pm | Saturday - Sunday | 9am - 10pm"
+ },
+ {
+  "lat": 44.46648,
+  "lon": -68.36104,
+  "name": "Volta Climbing Gym",
+  "country": "US",
+  "source": "https://voltaclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "16:00-21:00",
+   "tue": "08:00-21:00",
+   "wed": "12:00-21:00",
+   "thu": "08:00-21:00",
+   "fri": "12:00-21:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "MON 4-9pm, TUES 8am-9pm, WED 12-9pm, THU 8am-9pm, FRI 12-9pm, SAT 9am-6pm, SUN 9am-6pm",
+  "note": "Every day is listed separately and no two weekdays are alike. The site's schema.org openingHours has no Monday at all and opens Tuesday and Thursday two hours earlier than the page does. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 37.17801,
