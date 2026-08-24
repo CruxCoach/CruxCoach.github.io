@@ -6331,6 +6331,32 @@
   "note": "The schedule sits inside the BETA 72 block, under that hall's own address. It differs from BETA 19's weekday opening on the same page, which is what makes the two blocks per-location rather than one chain-wide statement."
  },
  {
+  "lat": 6.23513,
+  "lon": -75.56857,
+  "name": "El Muro",
+  "country": "CO",
+  "source": "https://www.elmuroed.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "14:00-21:30",
+   "tue": "14:00-21:30",
+   "wed": "14:00-21:30",
+   "thu": "14:00-21:30",
+   "fri": "14:00-21:30",
+   "sat": "10:00-17:00",
+   "sun": "10:00-17:00"
+  },
+  "evidence": "Centro comercial Sandiego Torre norte piso 9b … Medellín - Colombia … HORARIO: Lunes a viernes 2:00 a 9:30 pm Sábados 10:00 a. m. 5:00 p. m. Domingos y Festivos 10:00 a. m. 5:00 p. m.",
+  "note": "Three lines under the address, with public holidays sharing the Sunday line."
+ },
+ {
   "lat": 4.63383571788038,
   "lon": -74.07124612184957,
   "name": "Trepa: La Casa de la Escalada",

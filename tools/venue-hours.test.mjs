@@ -600,6 +600,12 @@ test('the evidence cross-check finds a mistyped time and forgives spelling', () 
       fri: '16:00-22:00', sat: '10:00-22:00', sun: '12:00-18:00' },
     evidence: 'Normal Open Hours Sunday - Noon to 6 pm MOnday-Friday 4 to 10 pm Saturday 10 am to 10 pm',
   })), [], '"4 to 10 pm" is the same claim as "4-10 pm"');
+  // ...and by the word in the page's own language, not only in English.
+  assert.deepEqual(timesMissingFromEvidence(record({
+    hours: { mon: '14:00-21:30', tue: '14:00-21:30', wed: '14:00-21:30', thu: '14:00-21:30',
+      fri: '14:00-21:30', sat: '10:00-17:00', sun: '10:00-17:00' },
+    evidence: 'HORARIO: Lunes a viernes 2:00 a 9:30 pm Sábados 10:00 a. m. 5:00 p. m. Domingos y Festivos 10:00 a. m. 5:00 p. m.',
+  })), [], '"2:00 a 9:30 pm" is the same claim as "2:00-9:30 pm"');
   // Crossing noon, the opening time is in the other half of the day.
   assert.deepEqual(timesMissingFromEvidence(record({
     hours: { mon: '10:00-14:00', tue: 'closed', wed: 'closed', thu: 'closed',

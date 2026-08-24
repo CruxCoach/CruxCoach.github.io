@@ -287,9 +287,12 @@ function evidenceMentionsTime(evidence, minutes) {
     const other = '(\\d{1,2})(?:[:.hu](\\d{2}))?';
     // The two ends may be joined by a dash or by the word for one: an American
     // gym writing "Monday-Friday 4 to 10 pm" (Inside Moves) means the same as
-    // "4-10 pm". Only English words, and only with spaces around them, so a
-    // "10to" in a code-like string cannot join two numbers by accident.
-    const join = '(?:\\s*[-–—]\\s*|\\s+(?:to|till|til|until|through)\\s+)';
+    // "4-10 pm", and a Colombian one writing "2:00 a 9:30 pm" (El Muro) means
+    // the same again. Spaces are required around the word, so a "10to" inside a
+    // code-like string cannot join two numbers by accident, and the digits and
+    // the trailing meridiem do the rest of the work.
+    const WORDS = 'to|till|til|until|through|a|à|á|ás|às|ao|até|bis|alle|fino alle|tot|do';
+    const join = `(?:\\s*[-–—]\\s*|\\s+(?:${WORDS})\\s+)`;
     const lead = new RegExp(`(^|[^0-9])0?${h12}(?:${sep}${mm})?${join}${other}\\s*(a|p)\\.?m?\\.?(?![a-z])`, 'gi');
     patterns.push({
       test(text) {
