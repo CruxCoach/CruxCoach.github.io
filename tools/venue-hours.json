@@ -21160,6 +21160,32 @@
   "evidence": "Mon – Fri: 6am – 10pm | Sat – Sun: 8am – 8pm"
  },
  {
+  "lat": 40.7082,
+  "lon": -73.92041,
+  "name": "MetroRock Bushwick",
+  "country": "US",
+  "source": "https://bushwick.metrorock.com/bushwick-hours",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Hours Monday - Friday 8AM - 10PM Saturday + Sunday 9AM - 10PM",
+  "note": "Stated on this gym's own hours page; the Holiday Hours list beneath it is dated exceptions. The site's schema.org openingHours says 09:00-22:00 every day, which is neither of the two bands. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
   "lat": 44.50807,
   "lon": -73.14167,
   "name": "MetroROCK Essex",
@@ -21183,6 +21209,58 @@
   },
   "evidence": "Hours | Monday, Tuesday, Wednesday, Thursday, and Friday | 10:00AM - 10:00PM | Saturday | 9:00AM - 9:00PM | Sunday | 9:00AM - 7:00PM | Members Only Early Bird Hours | Monday - Friday | 7:00AM - 10:00AM",
   "note": "Members additionally get in 7–10AM on weekdays; the public week is what is recorded. The site’s schema.org openingHours agrees with it."
+ },
+ {
+  "lat": 42.40822,
+  "lon": -71.06694,
+  "name": "MetroRock Everett",
+  "country": "US",
+  "source": "https://metrorock.com/evrt-hours",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Hours Monday - Friday 10:00AM - 10:00PM Saturday, Sunday 9:00AM - 8:00PM Members Only Hours Tuesday, Thursday 8:30AM - 10:00AM",
+  "note": "Stated on this gym's own hours page. The Tuesday and Thursday 8:30am openings are members-only and are not public opening; the Holiday Hours list is dated exceptions. The location home page's schema.org block opens Tuesday and Thursday at 07:00 and closes the weekend at 22:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
+  "lat": 42.55321,
+  "lon": -71.47254,
+  "name": "MetroROCK Littleton",
+  "country": "US",
+  "source": "https://littleton.metrorock.com/hours",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "HOURS Monday - Friday 10:00AM - 10:00PM Saturday & Sunday 9:00AM - 7:00PM Member Only Hours Tuesday 7:00AM - 10:00AM Wednesday 7:00AM - 10:00AM Thursday 8:00AM - 10:00AM",
+  "note": "Stated on this gym's own hours page. The three member-only mornings are listed separately and are not public opening. The location home page's schema.org block closes the weekend at 21:00 instead of 19:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 42.69614,
@@ -21258,6 +21336,32 @@
   },
   "evidence": "MONDAY – FRIDAY | 6AM – 11PM | SATURDAY | 10AM – 10PM | *Members Only 8AM – 10AM | SUNDAY | 10AM – 6PM",
   "note": "Members additionally get in at 8AM on Saturday; the public week is what is recorded."
+ },
+ {
+  "lat": 29.77515,
+  "lon": -95.81617,
+  "name": "Momentum Climbing Katy",
+  "country": "US",
+  "source": "https://momentumclimbing.com/katy/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "08:00-23:00",
+   "tue": "08:00-23:00",
+   "wed": "08:00-23:00",
+   "thu": "08:00-23:00",
+   "fri": "08:00-23:00",
+   "sat": "08:00-22:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "REGULAR HOURS MONDAY – FRIDAY 8AM – 11PM SATURDAY 8AM – 10PM SUNDAY 8AM – 8PM",
+  "note": "The gym labels this block REGULAR HOURS and lists dated Holiday & Special Hours beneath it. Its schema.org openingHoursSpecification puts Saturday with the weekdays and opens Sunday at 10:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 40.38297,
