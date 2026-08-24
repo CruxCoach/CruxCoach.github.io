@@ -9002,15 +9002,6 @@
   "reason": "The gym's own site answers 403 to every fetcher and header set. Its week is legible in an archived copy — Monday to Thursday 6 AM – 10 PM, Friday 10 AM – 10 PM, Saturday and Sunday 10 AM – 8 PM — and is not taken from it."
  },
  {
-  "lat": 42.82739,
-  "lon": -85.67922,
-  "name": "Inside Moves",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 40.7876564,
   "lon": -73.4654844,
   "name": "Island Rock",
@@ -9150,15 +9141,6 @@
   "checked": "2026-08-23",
   "source": "https://methodclimb.com/",
   "reason": "The gym's site states no opening hours on any page reachable from its navigation."
- },
- {
-  "lat": 43.0437422,
-  "lon": -87.9154566,
-  "name": "Milwaukee Turners",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 45.00576,
@@ -10270,18 +10252,20 @@
   "lon": 18.4799535,
   "name": "Bloc 11 - Diep River",
   "country": "ZA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://bloc11.co.za/",
+  "reason": "The site is one page for three halls and states one week on it, in a table headed OPENING HOURS with eight rows — the seven days and public holidays. Nothing on the page says which hall it is for, and the operator runs two in Cape Town and one in Sandton, so it cannot be attached to this one.",
+  "checked": "2026-08-24"
  },
  {
   "lat": -26.01883,
   "lon": 28.00642,
   "name": "Bloc 11 Fourways",
   "country": "ZA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://bloc11.co.za/",
+  "reason": "The site is one page for three halls and states one week on it, in a table headed OPENING HOURS with eight rows — the seven days and public holidays. Nothing on the page says which hall it is for, and the operator runs two in Cape Town and one in Sandton, so it cannot be attached to this one.",
+  "checked": "2026-08-24"
  },
  {
   "lat": -33.93792,

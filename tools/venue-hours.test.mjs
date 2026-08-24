@@ -594,6 +594,12 @@ test('the evidence cross-check finds a mistyped time and forgives spelling', () 
       fri: '14:00-20:00', sat: '12:00-18:00', sun: '12:00-18:00' },
     evidence: 'Public climbing Wednesday & Friday: 2\u20138 pm Saturday & Sunday: 12\u20136 pm',
   })), [], 'a shared trailing meridiem covers the opening time of the range');
+  // The two ends of a range may be joined by the word rather than by a dash.
+  assert.deepEqual(timesMissingFromEvidence(record({
+    hours: { mon: '16:00-22:00', tue: '16:00-22:00', wed: '16:00-22:00', thu: '16:00-22:00',
+      fri: '16:00-22:00', sat: '10:00-22:00', sun: '12:00-18:00' },
+    evidence: 'Normal Open Hours Sunday - Noon to 6 pm MOnday-Friday 4 to 10 pm Saturday 10 am to 10 pm',
+  })), [], '"4 to 10 pm" is the same claim as "4-10 pm"');
   // Crossing noon, the opening time is in the other half of the day.
   assert.deepEqual(timesMissingFromEvidence(record({
     hours: { mon: '10:00-14:00', tue: 'closed', wed: 'closed', thu: 'closed',

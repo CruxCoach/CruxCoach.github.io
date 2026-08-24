@@ -285,7 +285,12 @@ function evidenceMentionsTime(evidence, minutes) {
   // only fires when the pair reads in the same half as the time being checked.
   {
     const other = '(\\d{1,2})(?:[:.hu](\\d{2}))?';
-    const lead = new RegExp(`(^|[^0-9])0?${h12}(?:${sep}${mm})?\\s*[-–—]\\s*${other}\\s*(a|p)\\.?m?\\.?(?![a-z])`, 'gi');
+    // The two ends may be joined by a dash or by the word for one: an American
+    // gym writing "Monday-Friday 4 to 10 pm" (Inside Moves) means the same as
+    // "4-10 pm". Only English words, and only with spaces around them, so a
+    // "10to" in a code-like string cannot join two numbers by accident.
+    const join = '(?:\\s*[-–—]\\s*|\\s+(?:to|till|til|until|through)\\s+)';
+    const lead = new RegExp(`(^|[^0-9])0?${h12}(?:${sep}${mm})?${join}${other}\\s*(a|p)\\.?m?\\.?(?![a-z])`, 'gi');
     patterns.push({
       test(text) {
         for (const hit of String(text).matchAll(lead)) {

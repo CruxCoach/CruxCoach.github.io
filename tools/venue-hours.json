@@ -22276,6 +22276,32 @@
   "note": "Two bands covering all seven days."
  },
  {
+  "lat": 42.82739,
+  "lon": -85.67922,
+  "name": "Inside Moves",
+  "country": "US",
+  "source": "https://insidemoves.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "16:00-22:00",
+   "tue": "16:00-22:00",
+   "wed": "16:00-22:00",
+   "thu": "16:00-22:00",
+   "fri": "16:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "12:00-18:00"
+  },
+  "evidence": "Normal OPen Hours Sunday - Noon to 6 pm · MOnday-Friday 4 to 10 pm · Saturday 10 am to 10 pm",
+  "note": "The gym calls this its normal week and every day is in it. \"Additional hours by appointment\" adds to it rather than replacing it, and the dated closure for a holiday weekend is an exception."
+ },
+ {
   "lat": 29.96117,
   "lon": -95.71066,
   "name": "InSPIRE Rock Cypress",
@@ -22645,6 +22671,31 @@
   },
   "evidence": "Monday - Friday | 10:00AM - 10:00PM | Saturday & Sunday | 9:00AM - 9:00PM | Members Only | Mondays 6:00AM - 10:00AM | Fridays 10:00PM - 11:30PM",
   "note": "Members additionally get in Monday 6–10AM and Friday 10–11:30PM; the public week is what is recorded."
+ },
+ {
+  "lat": 43.0437422,
+  "lon": -87.9154566,
+  "name": "Milwaukee Turners",
+  "country": "US",
+  "source": "https://milwaukeeturners.org/gym-hours",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "17:00-21:00",
+   "tue": "17:00-21:00",
+   "wed": "17:00-21:00",
+   "thu": "17:00-21:00",
+   "fri": "17:00-21:00",
+   "sat": "09:00-17:00",
+   "sun": "09:00-17:00"
+  },
+  "evidence": "Gym hours and amenities Hours Saturday 9AM-5PM Sunday 9AM-5PM Monday 5PM-9PM Tuesday 5PM-9PM Wednesday 5PM-9PM Thursday 5PM-9PM Friday 5PM-9PM",
+  "note": "One gym, one week, and the climbing page points at it — \"Rock Climbing at Turner Hall … click here for gym hours\". The line about emergency closures on social media is an exception note."
  },
  {
   "lat": 30.3327,

@@ -20172,6 +20172,20 @@
     "note": "Inner Peaks' own page for its NoDa gym, printing \"1837 N Tryon St. Suite 101 Charlotte, NC 28206\" — upstream's address and postal code — and listing the Kilter Board this entry is registered for. innerpeaks.com answers 403 to every fetcher, so the page was read from a snapshot of 27 June 2026; the hours record stays inaccessible."
   },
   {
+    "lat": 42.82739,
+    "lon": -85.67922,
+    "name": "Inside Moves",
+    "country": "US",
+    "website": "https://insidemoves.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "insidemoves.com is \"Inside Moves Indoor Rock Climbing\" at \"639 76th Street SW # 1, Byron Center, MI\". Upstream records no street; the coordinate reverse-geocodes to Byron Township, 49315, which is Byron Center."
+  },
+  {
     "lat": 29.96117,
     "lon": -95.71066,
     "name": "InSPIRE Rock Cypress",
@@ -20484,6 +20498,22 @@
       "street-address"
     ],
     "note": "The page's 440 Middlesex Rd resolves 212 m from this upstream coordinate."
+  },
+  {
+    "lat": 43.0437422,
+    "lon": -87.9154566,
+    "name": "Milwaukee Turners",
+    "country": "US",
+    "website": "https://milwaukeeturners.org/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The Turners are a society with a hall, and Rock Climbing at Turner Hall is one of the things in it. Their address is \"1034 North Vel R. Phillips Ave. Milwaukee, WI 53203\"; the coordinate reverse-geocodes to 1040 Vel R. Phillips Avenue, 53203 — the same street, the same postcode, the building next door."
   },
   {
     "lat": 30.3327,
@@ -23843,6 +23873,21 @@
     "note": "This is the MoonBoard registry's entry for the board inside VietClimb: 177 m from the Kilter row, in Ba Dinh, which is the district beside the An Dương address the gym prints. There is one VietClimb in Hanoi and its site names no second hall."
   },
   {
+    "lat": -34.0429148,
+    "lon": 18.4799535,
+    "name": "Bloc 11 - Diep River",
+    "country": "ZA",
+    "website": "https://bloc11.co.za/",
+    "verified": "2026-08-24",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The operator's contact block lists three halls by address, and this row is the first of them: \"Unit 1, 23 Estmil Road, 7800 Diep River, Cape Town\". The coordinate is on Estmil Road."
+  },
+  {
     "lat": -33.910389,
     "lon": 18.4726632,
     "name": "Bloc 11 - Paarden Eiland",
@@ -23855,6 +23900,21 @@
       "city"
     ],
     "note": "Bloc 11's own site, giving Cape Town — the city upstream records. OSM carries the domain on a climbing object beside this venue. Its twin entry a few metres away already carries the same link."
+  },
+  {
+    "lat": -26.01883,
+    "lon": 28.00642,
+    "name": "Bloc 11 Fourways",
+    "country": "ZA",
+    "website": "https://bloc11.co.za/",
+    "verified": "2026-08-24",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The third hall in the same contact block: \"CF05 Fourways Mall, 11 Ruby Cl, Fourways, Sandton\". The coordinate is on Fourways Boulevard beside the mall, 1,400 km from the two Cape Town halls, so which of the three this row is is not in doubt."
   },
   {
     "lat": -33.91024,
