@@ -3844,9 +3844,9 @@
     "name": "Vertical Escalada",
     "country": "PT",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps Vertical Escalada 81 m from this venue and tags it verticalescalada.pt. The site answers, and it is one page titled \"Vertical\" with no address on it; /contactos, /contacto and /sobre are all 404. Its name is the only thing matching, and the name is also the domain.",
-    "candidate": "https://verticalescalada.pt/"
+    "reason": "The gazetteer has an object 85 m from this coordinate tagged verticalescalada.pt. The host answers, and what it serves is 5,860 bytes containing a contact form and four words — Vertical, Enviado, Contacte-nos, Enviar. No address, no town, no navigation and no second page. A pointer with nothing behind it is not a link.",
+    "candidate": "https://verticalescalada.pt/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 41.11153,
@@ -4127,9 +4127,9 @@
     "name": "Klattercentret Sisjon",
     "country": "SE",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps Klättercentret Sisjön 26 m from this venue and tags it klattercentret.se/sisjon/. That page is 404 today, and the operator's current list of halls — Akalla, Helsingborg, Malmö, Partille, Solna, Telefonplan, Uppsala, Västerås — has no Sisjön in it. An archived copy from 10 April 2026 is titled \"Startsida - Sisjön\", so the hall had a page five months ago and does not now. Worth re-reading rather than concluding: this looks like a hall that has closed or moved.",
-    "candidate": "https://www.klattercentret.se/sisjon/"
+    "reason": "The gazetteer points at klattercentret.se/sisjon/, which answers 404. The operator's current site lists eight halls by address — Banvaktsvägen 20 in Solna, Vandagatan 3 in Kista, Tellusgången 22-24 in Hägersten, Rapsgatan 8 in Uppsala, Stenbygatan 3A in Västerås, Kopparbergsgatan 8 in Malmö, Juelsgatan 5 in Helsingborg and Laxfiskevägen 4A in Partille — and none of them is in Sisjön; the nearest is Partille, 15 km across Göteborg. Its sitemap has no Sisjön page either.",
+    "candidate": "https://www.klattercentret.se/sisjon/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 63.8258471,
@@ -4170,15 +4170,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — climbingwall.sk → \"climbingwall.sk - climbingwalls, rope courses - adventur\"; climbingwall.com → \"Climbing Wall Rentals, Fully Staffed Event Rentals For C\"; climbing.sk → \"Climbing.sk - zážitok z lezenia na Liptove\", the rest could not be opened — rozlomity.sk → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://climbingwall.sk/en/home/"
-  },
-  {
-    "lat": 48.1527147,
-    "lon": 17.8689204,
-    "name": "Rebelia",
-    "country": "SK",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — rebelia.sk → a certificate that does not cover its hostname; rebelia.com → 200, the venue's whole name as one label, rebelia.sk, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
     "lat": 48.21503,

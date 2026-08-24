@@ -17224,6 +17224,22 @@
     "note": "pralez.me is both the venue's name and its domain; the site gives Nitra, the town upstream records, and names the MoonBoard this venue is listed for. OSM carries this exact domain on a climbing object at the venue, which is the pointer that found it; the match rests on what the page itself prints."
   },
   {
+    "lat": 48.1527147,
+    "lon": 17.8689204,
+    "name": "Rebelia",
+    "country": "SK",
+    "website": "https://www.rebelia.me/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The live host answers with a web-application-firewall block. A snapshot gives \"KONTAKTY Rebelia Kráľovská 8 Šaľa 927 01\", and this coordinate is 824/8 Kráľovská, 927 01 Šaľa — the street, the number and the postcode."
+  },
+  {
     "lat": 48.69571,
     "lon": 21.23896,
     "name": "Steam Factory",

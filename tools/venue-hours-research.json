@@ -7661,9 +7661,10 @@
   "lon": 17.8689204,
   "name": "Rebelia",
   "country": "SK",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.rebelia.me/",
+  "reason": "The host is behind a firewall that refuses this machine outright. The snapshot that settled the address carries a week — weekdays 06:00-15:00 then 15:00-20:00, weekends 08:00-12:00 then 12:00-20:00, with the later half of each day marked \"vstup iba s trénerom\", entry only with a trainer — and a week is not taken from a snapshot, still less one that would need that condition read into it.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 48.21503,
