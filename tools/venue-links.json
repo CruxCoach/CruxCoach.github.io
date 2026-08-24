@@ -16028,6 +16028,20 @@
     "note": "Upstream lists two Malmö entries 1.8 km apart; this is the one at the operator's Kopparbergsgatan 8, which resolves to within 10 m of it."
   },
   {
+    "lat": 55.5870295,
+    "lon": 13.0544454,
+    "name": "Klättercentret Malmö",
+    "country": "SE",
+    "website": "https://www.klattercentret.se/malmo/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page"
+    ],
+    "note": "Klättercentret gives each of its eight halls a page and this is the Malmö one, titled \"Start - Malmö\" and giving that hall its own phone number and Kopparbergsgatan address. Upstream records no street for this entry, and Malmö is inside the venue's own name, so what carries the second signal is the page belonging to this hall rather than to the operator."
+  },
+  {
     "lat": 59.29908940000001,
     "lon": 17.9915352,
     "name": "Klättercentret Telefonplan",
