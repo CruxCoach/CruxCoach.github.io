@@ -26035,14 +26035,13 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "unverified",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "path-probe"
     ]
    },
    "hours": {
@@ -31681,14 +31680,12 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
+     "co-located",
      "osm-website-tag",
-     "co-located"
+     "previous-record"
     ]
    },
    "hours": {

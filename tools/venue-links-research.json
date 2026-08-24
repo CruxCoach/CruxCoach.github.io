@@ -4408,8 +4408,8 @@
     "name": "OneSoul Climbing",
     "country": "PT",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.onesoul.pt → \"ONESOUL\", the rest could not be opened — onesoul.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "checked": "2026-08-24",
+    "reason": "OSM maps an object called OneSoul 82 m from this venue and tags it onesoul.pt, and the site answers. It is not confirmable as this venue: its contact page gives \"Rua António Gonçalves Pousado, n.º 9 Trás, 4480-888 Vila do Conde\", a different municipality from the Póvoa de Varzim upstream records, and the site lists training, HYROX, pilates, karate, kickboxing, yoga, jiu jitsu and parties without mentioning climbing or escalada anywhere on it. Neighbouring towns and a shared name are not enough.",
     "candidate": "https://www.onesoul.pt/"
   },
   {
@@ -5335,15 +5335,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — holdontide.com → \"Homepage | Hold on Tide\"; climb.com → \"climb.com\"; climb.org → \"Climb Theatre - Inspiring and Propelling Young People\", the rest could not be opened — climbon.com → a timeout; climbon.net → a certificate that does not cover its hostname; climbon.org → 200 / a certificate that does not cover its hostname, the venue's whole name as one label, climbon.com, does not resolve. Upstream records 18120 Harwood Ave, 60430, Homewood, and nothing opened printed it.",
     "candidate": "https://holdontide.com/"
-  },
-  {
-    "lat": 38.7856132,
-    "lon": -90.47841799999999,
-    "name": "Climb So iLL at the Steel Shop",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
     "lat": 39.15657,
