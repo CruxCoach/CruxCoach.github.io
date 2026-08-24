@@ -455,36 +455,6 @@
   "reason": "The site does hold a week, and only in machine-readable markup: a schema.org openingHours block reading \"Monday,Tuesday,Wednesday,Thursday,Friday 05:00-20:00 Saturday 06:00-17:00 Sunday 07:30-17:00\". No page states any of it in words. This audit publishes what a venue tells its visitors and not what its settings hold, so the week is recorded here and not published — the same call as Island Rock Climbing Gym."
  },
  {
-  "lat": -34.92305,
-  "lon": 138.59481,
-  "name": "Urban Climb Adelaide",
-  "country": "AU",
-  "status": "ambiguous",
-  "checked": "2026-08-24",
-  "source": "https://urbanclimb.com.au/locations/adelaide",
-  "reason": "The gym's own page does publish times and the days they belong to do not survive the read: the block reads \"Opening Times ages 5+ 8am - 8pm Public Holidays ages 5+ 8am - 8pm 8am - 8pm\" — one window and no day beside it. Two of the operator's three pages carry two windows, so the days plainly differ and the labels are rendered somewhere the fetch cannot follow. This is a week that exists and cannot be read, not a week that is missing."
- },
- {
-  "lat": -37.80267,
-  "lon": 144.98764,
-  "name": "Urban Climb Collingwood",
-  "country": "AU",
-  "status": "ambiguous",
-  "checked": "2026-08-24",
-  "source": "https://urbanclimb.com.au/locations/collingwood",
-  "reason": "The gym's own page does publish times and the days they belong to do not survive the read: the block reads \"OPEN TIMES 8:00am - 8:00pm 6:00am - 10:00pm Public Holidays 8am - 8pm 8am - 8pm\" — two different windows and no day beside either. Two of the operator's three pages carry two windows, so the days plainly differ and the labels are rendered somewhere the fetch cannot follow. This is a week that exists and cannot be read, not a week that is missing."
- },
- {
-  "lat": -27.45492,
-  "lon": 153.04053,
-  "name": "Urban Climb Newstead",
-  "country": "AU",
-  "status": "ambiguous",
-  "checked": "2026-08-24",
-  "source": "https://urbanclimb.com.au/locations/newstead",
-  "reason": "The gym's own page does publish times and the days they belong to do not survive the read: the block reads \"Open Times all ages 8:00am - 8:00pm 6:00am - 10:00pm Public Holidays 8am - 8pm 8am - 8pm\" — two different windows and no day beside either. Two of the operator's three pages carry two windows, so the days plainly differ and the labels are rendered somewhere the fetch cannot follow. This is a week that exists and cannot be read, not a week that is missing."
- },
- {
   "lat": -27.5146928,
   "lon": 153.2033032,
   "name": "Wall Walkers Bouldering",

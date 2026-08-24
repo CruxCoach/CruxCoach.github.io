@@ -2282,6 +2282,81 @@
   "note": "Public holidays take the weekend hours, which the page states."
  },
  {
+  "lat": -34.92305,
+  "lon": 138.59481,
+  "name": "Urban Climb Adelaide",
+  "country": "AU",
+  "source": "https://urbanclimb.com.au/locations/adelaide",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "Opening Times — Bouldering, ages 5+: weekdayTimes \"Mon & Fri 10am - 10pm | Tues - Wed - Thurs 6am - 10pm\", weekendTimes \"8am - 8pm\"",
+  "note": "The page renders to nothing at all — the whole of it is a JSON payload — and the earlier reading pulled the times out of that payload without the day labels, which is why it saw \"8am - 8pm 6am - 10pm\" with nothing beside either. The labels are there: each opening row carries weekdayTimes and weekendTimes. What the earlier reading also could not see is that a second Open Times block on the same page belongs to gymsNearBy — the operator's next-closest hall — and not to this one. The Public Holidays row is an exception list and the sensory morning is a programme slot. Adelaide is the one of the three that splits its weekdays, and it says which days go with which window."
+ },
+ {
+  "lat": -37.80267,
+  "lon": 144.98764,
+  "name": "Urban Climb Collingwood",
+  "country": "AU",
+  "source": "https://urbanclimb.com.au/locations/collingwood",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "OPEN TIMES — Bouldering, 13+: weekdayTimes \"6:00am - 10:00pm\", weekendTimes \"8:00am - 8:00pm\"",
+  "note": "The page renders to nothing at all — the whole of it is a JSON payload — and the earlier reading pulled the times out of that payload without the day labels, which is why it saw \"8am - 8pm 6am - 10pm\" with nothing beside either. The labels are there: each opening row carries weekdayTimes and weekendTimes. What the earlier reading also could not see is that a second Open Times block on the same page belongs to gymsNearBy — the operator's next-closest hall — and not to this one. The Public Holidays row is an exception list and the sensory morning is a programme slot. At Collingwood the neighbour is Blackburn, whose 10:00am weekday opening was being read as this hall's second answer."
+ },
+ {
+  "lat": -27.45492,
+  "lon": 153.04053,
+  "name": "Urban Climb Newstead",
+  "country": "AU",
+  "source": "https://urbanclimb.com.au/locations/newstead",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "Open Times — Bouldering, all ages: weekdayTimes \"6:00am - 10:00pm\", weekendTimes \"8:00am - 8:00pm\"",
+  "note": "The page renders to nothing at all — the whole of it is a JSON payload — and the earlier reading pulled the times out of that payload without the day labels, which is why it saw \"8am - 8pm 6am - 10pm\" with nothing beside either. The labels are there: each opening row carries weekdayTimes and weekendTimes. What the earlier reading also could not see is that a second Open Times block on the same page belongs to gymsNearBy — the operator's next-closest hall — and not to this one. The Public Holidays row is an exception list and the sensory morning is a programme slot."
+ },
+ {
   "lat": 50.45016,
   "lon": 4.87515,
   "name": "BeBloc",
