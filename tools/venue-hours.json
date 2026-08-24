@@ -29044,6 +29044,31 @@
   "note": "The operator lists both halls with a week each; this is the block headed by the Lincoln Heights address at 650 South Avenue 21. The Echo Park hall beneath it closes an hour earlier on weekdays, which is what makes the two blocks distinguishable."
  },
  {
+  "lat": 41.30573,
+  "lon": -111.829766,
+  "name": "THRASHIN Climb & Skate",
+  "country": "US",
+  "source": "https://thrashinclimbandskate.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "12:00-20:00",
+   "tue": "closed",
+   "wed": "12:00-20:00",
+   "thu": "12:00-20:00",
+   "fri": "12:00-20:00",
+   "sat": "10:00-20:00",
+   "sun": "closed"
+  },
+  "evidence": "THRASHIN Climb & Skate Indoor bouldering and skateboarding facility in Eden, Utah. ... Location 4930 E 2550 N St Eden, UT 84310 Mon, Wed, Thu, Fri: 12:00 PM – 8:00 PM Saturday: 10:00 AM – 8:00 PM Closed Sundays & Tuesdays",
+  "note": "Two closed days named as closed rather than left out, which is what lets the week be published at all. The site is served through ModSecurity and refuses curl outright; fetch with a browser's headers gets the page."
+ },
+ {
   "lat": 35.60764,
   "lon": -97.62456,
   "name": "Threshold Climbing, Fitness & Yoga",

@@ -142,6 +142,18 @@ test('validateVenueLink requires two independent signals', () => {
   assert.deepEqual(validateVenueLink(link({ signals: ['brand', 'city'] })), []);
 });
 
+test('validateVenueLink counts a social handle the page links back', () => {
+  // Upstream records the handle; the page links the account. Two parties
+  // agreeing about one account is a second observation, not a restatement of
+  // the name — a gym can be called anything and still link @its_own_handle.
+  assert.deepEqual(validateVenueLink(link({ signals: ['name', 'social-handle'] })), []);
+  assert.match(
+    validateVenueLink(link({ signals: ['social-handle'] }))[0],
+    /at least 2 independent signals/,
+    'a handle on its own is still one signal',
+  );
+});
+
 test('validateVenueLink makes a chain page name the specific location', () => {
   assert.match(
     validateVenueLink(link({ provenance: 'official-chain-page', signals: ['name', 'board-mention'] }))[0],

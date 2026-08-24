@@ -268,6 +268,13 @@ export const SIGNALS = new Set([
   'location-page',   // the page is an explicit per-location page for this venue
   'coordinates',     // the page publishes coordinates within ~250 m
   'board-mention',   // the page names the board system the venue is listed for
+  // Upstream records a social handle for this venue — in `boards[].instagram`
+  // or `boards[].username` — and the page **links an account with exactly that
+  // handle**. The link is the point: a domain that merely resembles the handle
+  // is a guess, and this file does not count guesses. A page that puts the
+  // registry's own handle back on the screen is the venue agreeing with the
+  // registry about which account is its own.
+  'social-handle',
 ]);
 
 // Two signals from the *same* observation would not be independent, so signals

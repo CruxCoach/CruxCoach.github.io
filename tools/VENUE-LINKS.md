@@ -87,7 +87,7 @@ that a venue is open to the public. It is never licence to guess.
 | `website` | canonical HTTPS URL, stored exactly as it will be served |
 | `verified` | UTC date the page was last opened and checked, `YYYY-MM-DD` |
 | `provenance` | `official-location-page` \| `official-site` \| `official-chain-page` |
-| `signals` | ≥ 2 independent matches from `name`, `brand`, `street-address`, `postal-code`, `city`, `location-page`, `coordinates`, `board-mention` |
+| `signals` | ≥ 2 independent matches from `name`, `brand`, `street-address`, `postal-code`, `city`, `location-page`, `coordinates`, `board-mention`, `social-handle` |
 | `note` | optional, ignored by the build |
 
 Research records use `status` (`ambiguous`, `closed`, `private`, `duplicate`,
@@ -1141,6 +1141,29 @@ two organisations.
 
 One result from a sweep this cheap is worth having: it says the duplicate-row
 problem was already solved, not that it was never there.
+
+### The handle the registry already knew
+
+Upstream records a social handle for 66 of the open rows, in `boards[].instagram`
+and `boards[].username`, and the audit had been using it one way only: as a seed
+for a domain guess. Folded into a domain — dots and underscores dropped, then
+turned into hyphens, over the country's TLDs — it produces 121 hosts no earlier
+sweep had tried, and two of them are the venue: BC's in New Paltz and THRASHIN
+in Eden, Utah.
+
+Both raised the same question, which is why `social-handle` is now a signal.
+A domain that resembles a handle is a guess and this file does not count
+guesses. But a page that **links an account with exactly the handle upstream
+recorded** is different: two parties who have never spoken agree about which
+account belongs to this venue. THRASHIN's page links
+`instagram.com/thrashinclimbandskate` and upstream's `username` for the row is
+`thrashinclimbandskate`; that is an observation about identity, not a restating
+of the name, and a gym can call itself anything and still link its own account.
+
+The discipline is in the word *links*. `social-handle` may be claimed only when
+the page carries the account, never when only the domain resembles it — which is
+exactly the difference between THRASHIN, which goes in, and CapyClimb, whose
+domain matches its handle and whose site renders no text at all.
 
 ### Some of them are not places
 
