@@ -12710,6 +12710,21 @@
     "note": "The gym publishes no street address, but the map pin on its own page sits 54 m from this venue."
   },
   {
+    "lat": 45.4654219,
+    "lon": 9.1859243,
+    "name": "Rockspot",
+    "country": "IT",
+    "website": "https://www.rockspot.it/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Rockspot's own site, giving Milano and describing one gym of 4,000 m² whose training walls include a \"MOON BOARD\" — the board this venue is registered for. Upstream labels this venue with the nearest gazetteer place, which is a neighbourhood; the municipality its coordinates fall in is what the page names. Upstream calls the place Brera."
+  },
+  {
     "lat": 39.2231,
     "lon": 9.11749,
     "name": "S'Avanzada Climbing Cagliari",
@@ -12816,6 +12831,20 @@
       "postal-code"
     ],
     "note": "The site prints \"Via Borzoli 39 Lotto G - 16153 Genova\", which is the address upstream records for this venue. The server sends an incomplete certificate chain — the leaf is a genuine Sectigo certificate for theforgeclimb.it, valid to October 2026, but the intermediate is missing, so curl refuses it while browsers fetch it over AIA. Reached only after the domain guesser stopped truncating the full-name variant."
+  },
+  {
+    "lat": 45.5565542,
+    "lon": 9.4348624,
+    "name": "Vert Climb",
+    "country": "IT",
+    "website": "https://www.invertclimb.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "InVert Climb's own site, titled \"InVert Climb | palestra arrampicata sportiva | Via E. Fermi 31, Zona industriale Gessate | Milano\". Gessate is the municipality this venue's coordinates fall in; upstream calls the place Gorgonzola, the neighbouring comune."
   },
   {
     "lat": 45.73009330000001,
@@ -12933,6 +12962,20 @@
       "street-address"
     ],
     "note": "Bouldering Gym leTruss's own site. Its home, contact and about pages all print 1666, the building number in 富山県富山市上大久保1666-1 that upstream records."
+  },
+  {
+    "lat": 34.6379866,
+    "lon": 138.1281269,
+    "name": "QRiMo",
+    "country": "JP",
+    "website": "https://www.qrimo.co.jp/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "QRiMo's own site, titled \"Home|ボルダリング ワールド- QRiMo- 御前崎 静岡 浜松\" — the venue's name and Omaezaki, the municipality its coordinates fall in. Upstream labels this venue with the nearest gazetteer place, which is a neighbourhood; the municipality its coordinates fall in is what the page names. Upstream calls the place Kikugawa, the neighbouring city."
   },
   {
     "lat": 42.86238,
@@ -13193,6 +13236,36 @@
       "board-mention"
     ],
     "note": "The venue's whole name as one domain label, which the guesser had not tried. The site carries this venue's name and names the MoonBoard it is listed for; upstream records no street address, so those are the two signals available."
+  },
+  {
+    "lat": 20.70343,
+    "lon": -103.45722,
+    "name": "Motion Boulder 2 - Aviacion Branch",
+    "country": "MX",
+    "website": "https://motionboulder.com/sucursales",
+    "verified": "2026-08-24",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Motion Boulder gives each of its three Guadalajara halls a named block with its own address and board list; this is Motion Aviación (M2), at \"Av. Inglaterra 9345, San Juan de Ocotán, 45019 Zapopan, Jal.\", and it lists a Tensionboard, which is the board this entry is registered for. Zapopan is the municipality this venue's coordinates fall in — upstream labels it with a colonia, which is why the town never matched before."
+  },
+  {
+    "lat": 20.60351,
+    "lon": -103.43399,
+    "name": "Motion Boulder 3 - Bugambilias Branch",
+    "country": "MX",
+    "website": "https://motionboulder.com/sucursales",
+    "verified": "2026-08-24",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Motion Boulder gives each of its three Guadalajara halls a named block with its own address and board list; this is Motion Bugamilias (M3), at \"Av Lopez Mateos, Agua Blanca 3188, 45235 Zapopan, Jal.\", and it lists a Tensionboard, which is the board this entry is registered for. Zapopan is the municipality this venue's coordinates fall in — upstream labels it with a colonia, which is why the town never matched before."
   },
   {
     "lat": 20.7186111,

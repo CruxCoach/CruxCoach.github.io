@@ -2571,16 +2571,6 @@
     "candidate": "https://time.com/"
   },
   {
-    "lat": 45.4654219,
-    "lon": 9.1859243,
-    "name": "Rockspot",
-    "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Re-checked: rockspot.it describes one Milan gym whose address sits 5.4 km from this coordinate, beside the other upstream Rockspot entry, and rockspotclimbing.com is Rock Spot Climbing in New England. Nothing on either names a second Milan hall in Brera.",
-    "candidate": "https://www.rockspot.it/"
-  },
-  {
     "lat": 41.9027835,
     "lon": 12.4963655,
     "name": "Stitch MoonBoard",
@@ -2618,16 +2608,6 @@
     "checked": "2026-08-23",
     "reason": "updown.it and updown.com do not answer, and the one chain sibling named Up is Up The Bloc in Mississauga, 6,492 km away. \"Up and Down Boulder Point\" yields nothing else to guess from.",
     "candidate": "https://www.upthebloc.com/"
-  },
-  {
-    "lat": 45.5565542,
-    "lon": 9.4348624,
-    "name": "Vert Climb",
-    "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "vertclimb.com redirects to invertclimb.com, which is a real climbing gym — but it is InVert Climb at Via E. Fermi 31 in Gessate, and geocoding that address puts it 1,017 m away in the next municipality, while this venue is recorded in Gorgonzola. One letter of difference in the name and a kilometre of difference in the place is not two independent signals; vert.it is an import-export firm.",
-    "candidate": "https://www.invertclimb.com/"
   },
   {
     "lat": 31.88255,
@@ -2912,16 +2892,6 @@
     "candidate": "https://okkurock-koumuten.com/"
   },
   {
-    "lat": 34.6379866,
-    "lon": 138.1281269,
-    "name": "QRiMo",
-    "country": "JP",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — qrimo.co.jp → \"Home|ボルダリング ワールド- QRiMo- 御前崎 静岡 浜松\", the rest could not be opened — qrimo.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits 16 m from OpenStreetMap’s city node for 御前崎市, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match.",
-    "candidate": "https://www.qrimo.co.jp/"
-  },
-  {
     "lat": 35.18145060000001,
     "lon": 136.9065571,
     "name": "RIOT CLIMBING",
@@ -3064,8 +3034,8 @@
     "name": "climb pamoja",
     "country": "KE",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — pamoja.co.ke → \"Home - Pamoja Yawezekana CBO\"; pamoja.ke → \"Pamoja Kenya\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "checked": "2026-08-24",
+    "reason": "pamoja.co.ke matches this venue's name and gives Kilifi, the county its coordinates fall in, and it is \"Pamoja Yawezekana CBO\" — a community-based organisation supporting children in Kilifi. The word climb appears nowhere on it.",
     "candidate": "https://pamoja.co.ke/"
   },
   {
@@ -3494,26 +3464,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — moon.com.mx → \"MOON Division Industrial\"; moon.mx → \"Moon.mx for sale | Spaceship.com\"; moon.com → \"Moon.com: Betting Markets - Wager on Finance, Crypto & m\", the rest could not be opened — moonboard.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://moon.com.mx/"
-  },
-  {
-    "lat": 20.70343,
-    "lon": -103.45722,
-    "name": "Motion Boulder 2 - Aviacion Branch",
-    "country": "MX",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "motionboulder.com/sucursales names this branch — Motion Aviación (M2), at \"Av. Inglaterra 9345, San Juan de Ocotán, 45019 Zapopan, Jal.\" — and lists a Tensionboard among its equipment, which is the board this entry is registered for. Upstream records no street for the entry and the place it names is a neighbourhood the page does not print, so nothing but the branch name ties the page to it. The M1 entry is linked because upstream names Zapopan for that one.",
-    "candidate": "https://motionboulder.com/sucursales"
-  },
-  {
-    "lat": 20.60351,
-    "lon": -103.43399,
-    "name": "Motion Boulder 3 - Bugambilias Branch",
-    "country": "MX",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "motionboulder.com/sucursales names this branch — Motion Bugamilias (M3), at \"Av Lopez Mateos, Agua Blanca 3188, 45235 Zapopan, Jal.\" — and lists a Tensionboard among its equipment, which is the board this entry is registered for. Upstream records no street for the entry and the place it names is a neighbourhood the page does not print, so nothing but the branch name ties the page to it. The M1 entry is linked because upstream names Zapopan for that one.",
-    "candidate": "https://motionboulder.com/sucursales"
   },
   {
     "lat": 19.3936582,

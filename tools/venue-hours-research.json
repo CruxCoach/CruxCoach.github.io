@@ -5257,9 +5257,10 @@
   "lon": 9.1859243,
   "name": "Rockspot",
   "country": "IT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "checked": "2026-08-24",
+  "source": "https://www.rockspot.it/palestra_orari_lu_ve.html",
+  "reason": "The only week the gym publishes is headed \"ORARIO DAL 1 GIUGNO AL 31 AGOSTO\" — 1 June to 31 August — and reads \"Da Lunedì a Venerdì, 8:00 / 00:30 … Sabato, Domenica e Festivi, 9:00 / 20:00\", with the climbing halls closing an hour earlier than the building and 14, 15 and 16 August closed. It expires in a week and no ordinary-season week is stated beside it."
  },
  {
   "lat": 39.2231,
@@ -5332,9 +5333,10 @@
   "lon": 9.4348624,
   "name": "Vert Climb",
   "country": "IT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-24",
+  "source": "https://www.invertclimb.com/",
+  "reason": "The site was read on the two dozen paths a venue usually puts its week on and states no day with a time on any of them."
  },
  {
   "lat": 45.73009330000001,
@@ -5652,15 +5654,6 @@
   "lat": 36.0227505,
   "lon": 139.7355048,
   "name": "OKKUROCK",
-  "country": "JP",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 34.6379866,
-  "lon": 138.1281269,
-  "name": "QRiMo",
   "country": "JP",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -6281,18 +6274,20 @@
   "lon": -103.45722,
   "name": "Motion Boulder 2 - Aviacion Branch",
   "country": "MX",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-24",
+  "source": "https://motionboulder.com/sucursales",
+  "reason": "The operator's branch page gives each hall its address and its equipment list and no opening time at all."
  },
  {
   "lat": 20.60351,
   "lon": -103.43399,
   "name": "Motion Boulder 3 - Bugambilias Branch",
   "country": "MX",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-24",
+  "source": "https://motionboulder.com/sucursales",
+  "reason": "The operator's branch page gives each hall its address and its equipment list and no opening time at all."
  },
  {
   "lat": 20.7186111,

@@ -13573,6 +13573,31 @@
   "note": "Replaces an \"inaccessible\" outcome: the page is WordPress and answers in full through its REST route where the rendered HTML gave nothing. The gym states 定休日 なし — no regular closing day — so all seven days are covered. The 最終受付 times are last admission, a quarter of an hour before closing, and are not the closing time."
  },
  {
+  "lat": 34.6379866,
+  "lon": 138.1281269,
+  "name": "QRiMo",
+  "country": "JP",
+  "source": "https://www.qrimo.co.jp/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "closed",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "スタッフアワー 一般利用の方はスタッフアワーのみご利用いただけます。 曜日 時間 平日(平日の月曜日を除く) 11:00 - 22:00 (最終受付 21:00) 土日祝日 10:00 - 20:00 (最終受付 18:00)",
+  "note": "The gym states that general visitors may use it only during staff hours, so those are the public opening; Monday is excluded from the weekday band in so many words — 平日の月曜日を除く — and is recorded closed. The last-entry times an hour or two before closing are an admission cutoff, not a shorter opening, and the 営業カレンダー beside them is a calendar of dated exceptions."
+ },
+ {
   "lat": 34.78667,
   "lon": 135.81206,
   "name": "カルコロ CAL-COLO",
