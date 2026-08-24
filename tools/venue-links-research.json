@@ -3475,9 +3475,9 @@
     "name": "Boulderhal de Campus",
     "country": "NL",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps an object called Boulderhal de Campus 11 m from this venue and tags it boulderhaldecampus.nl, which is as good a pointer as this audit gets — and a pointer is all it is. The host answers 403 to every fetcher and header set, and the archive has nothing recent enough to stand in: Nirvana and Walhalla have no snapshot at all and de Campus has one from 2017. Nothing on the venue's own page has been read, so nothing confirms it.",
-    "candidate": "https://www.boulderhaldecampus.nl/"
+    "reason": "decampus.nl is a secondary school in Breda — Markenhage, Michaël college, Orion Lyceum — and names no bouldering hall. boulderhaldecampus.nl resolves and answers 403 to every request, so it can be neither read nor ruled out; the Internet Archive was offline while this was checked and could not settle it either.",
+    "candidate": "https://www.boulderhaldecampus.nl/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 52.11019628136243,
@@ -5799,16 +5799,6 @@
     "candidate": "https://www.spireclimbing.com/"
   },
   {
-    "lat": 33.58284,
-    "lon": -101.88363,
-    "name": "Texas Tech University",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — texastech.com → \"Texas Tech Red Raiders - Official Athletics Website\"; texastech.net → \"a page with no title\", the rest could not be opened — texastechuniversity.com → 200; texastech.org → a certificate that does not cover its hostname; texas.com → 403, the venue's whole name as one label, texastechuniversity.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://texastech.com/"
-  },
-  {
     "lat": 39.3907356,
     "lon": -77.4162671,
     "name": "The Boulder Yard",
@@ -5995,24 +5985,13 @@
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 40.0098042,
-    "lon": -105.2691736,
-    "name": "University of Colorado Boulder",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The proposal that reached this venue was the University of Limerick's climbing wall in Ireland, which matched only on the words \"university of\" and on a moonboard mention; its page is 6,700 km away. The real page could not be found: colorado.edu/recreation answers 200 but exposes no climbing link, and /recreation/climbing, /recreation/facilities/climbing and /recreation/facilities/climbing-gym all answer 404. Retry when the centre's own page can be located.",
-    "candidate": "https://www.colorado.edu/recreation/"
-  },
-  {
     "lat": 27.6648274,
     "lon": -81.5157535,
     "name": "University of West Florida",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No page for this venue could be found. uwf.edu answers, but /go/hlsrecreation/, /go/rec/ and /departments/recreation/facilities/ are all 404 and upstream records no address to test a candidate against. The proposal that reached it was the University of Limerick's wall in Ireland, matched on the words \"university of\" alone.",
-    "candidate": "https://uwf.edu/"
+    "status": "ambiguous",
+    "reason": "This row carries a name and nothing else, and its coordinate is not a building: 27.6648,-81.5158 falls in Polk County, the geographic centre of Florida, some 500 km from the University of West Florida in Pensacola. It is the state recorded where a venue should be. The institution can be named; the hall at this point cannot, because there is no point.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 18.50472,

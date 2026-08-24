@@ -10055,9 +10055,10 @@
   "lon": -101.88363,
   "name": "Texas Tech University",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.depts.ttu.edu/recreation/facilities/hours.php",
+  "reason": "The page is headed UNIVERSITY RECREATION FACILITY HOURS AND COUNTS and holds not one time. Its schedule and its occupancy figures both arrive from a live component this reader does not get, so the week is unread rather than absent — the only clock time in the whole document is a note about early-bird swimming below 60 degrees at 6am.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 32.260057,
@@ -10315,9 +10316,10 @@
   "lon": -105.2691736,
   "name": "University of Colorado Boulder",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "source": "https://www.colorado.edu/recreation/outdoor-pursuits/climbing-gym",
+  "reason": "The page states three weeks and labels each with its part of the academic year: \"Fall and spring semester hours — Monday: 9 a.m.-7 p.m., Tuesday-Friday: 9 a.m.-11 p.m., Saturday-Sunday: 12-10 p.m.\"; \"Finals hours — Monday-Friday: 10 a.m.-8 p.m., Saturday-Sunday: 12-8 p.m.\"; and \"Break and summer hours — Monday-Sunday: 12-8 p.m.\" Which one is in force depends on the date, and this audit publishes a week that does not.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 40.10089,

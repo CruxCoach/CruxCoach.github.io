@@ -22327,6 +22327,21 @@
     "note": "The candidate's own pages carry a map of itself 35 m — Teton Rock Gym away, the moonboard board this venue is listed for, under the venue's name."
   },
   {
+    "lat": 33.58284,
+    "lon": -101.88363,
+    "name": "Texas Tech University",
+    "country": "US",
+    "website": "https://www.depts.ttu.edu/recreation/opc/climbingwall.php",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "University Recreation gives the wall a page of its own — \"The Climbing Center offers University Recreation members the opportunity to rock climb year round indoors\" with over 4,000 sq ft of climbing — and says it is inside the Rec Center. The coordinate falls on the Student Recreation Center on the Lubbock campus."
+  },
+  {
     "lat": 32.260057,
     "lon": -110.800508,
     "name": "the BLOC climbing+fitness+yoga",
@@ -23090,6 +23105,22 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 40.0098042,
+    "lon": -105.2691736,
+    "name": "University of Colorado Boulder",
+    "country": "US",
+    "website": "https://www.colorado.edu/recreation/outdoor-pursuits/climbing-gym",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "Campus Recreation gives the gym a page of its own and says it \"is located within the Main Student Recreation Center\". OSM puts the CU Student Recreation Center at 1855 Pleasant Street, 40.0101,-105.2690 — forty metres from this coordinate and the same street as upstream's 1835 Pleasant St."
   },
   {
     "lat": 46.73246,
