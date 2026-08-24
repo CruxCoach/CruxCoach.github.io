@@ -3572,10 +3572,10 @@
   "lon": -3.801027599999999,
   "name": "The Climb - Centro Escalada Madrid",
   "country": "ES",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
+  "status": "seasonal",
+  "checked": "2026-08-24",
   "source": "https://theclimb.es/horarios-y-precios-centro-de-escalada-madrid/",
-  "reason": "Re-read: unchanged, and blocked unconditionally rather than only by the August Saturday row. The visible table gives Lunes 9:00–22:00, Martes 9:00–22:30 and so on, while the site's openingHours markup is the schema.org example value Monday–Sunday 09:00-17:00."
+  "reason": "With the markup no longer counted against it, what blocks this week is August. The table reads \"Lunes 9:00 - 22:00 Martes 9:00 - 22:30 Miercoles 9:00 - 22:00 Jueves 9:00 - 22:30 Viernes 9:00 - 22:30 Sábados 9:00 - 22:00\" and then overrides two of those days for the month: \"Sábados AGOSTO 9:00 - 17:00\" and \"Domingos AGOSTO CERRADO\". The page is read on 24 August, so the override is in force and expires within the week; neither version is the week."
  },
  {
   "lat": 40.34687,
@@ -4282,16 +4282,6 @@
   "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 295,616 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
-  "lat": 51.5822099,
-  "lon": -1.753619,
-  "name": "Rockstar Climbing",
-  "country": "GB",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The page says Monday to Friday 10:30-22:00 and its own schema.org openingHours says Mo-Fr 06:30-22:00.",
-  "source": "https://www.rockstarclimbing.co.uk/"
- },
- {
   "lat": 51.58198,
   "lon": -1.754,
   "name": "Rockstar Climbing & Bouldering",
@@ -4319,16 +4309,6 @@
   "checked": "2026-08-24",
   "source": "https://cavca.org.uk/street-rocks/",
   "reason": "The operator's site answers 403 and 401 to every fetcher and header set, so the wall's week cannot be read, and it is not taken from the snapshot the link rests on."
- },
- {
-  "lat": 51.4717891,
-  "lon": -2.5762987,
-  "name": "TCA The Church",
-  "country": "GB",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The page's schema.org openingHoursSpecification says Saturday and Sunday 09:00–18:00 while its visible block says Sat-Sun 9am-4pm; the weekday hours agree but the weekend does not.",
-  "source": "https://www.theclimbingacademy.com/locations/the-church/"
  },
  {
   "lat": 53.34023200000001,
@@ -5124,16 +5104,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 42.3539044,
-  "lon": 13.3422517,
-  "name": "Moonboard BLOCKLAND",
-  "country": "IT",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://www.blockland.it/",
-  "reason": "The visible week is Lun, Mer, Ven 16:00–23:00, Mar, Gio 11:00–23:00, Sabato 14:00–21:00, Domenica CHIUSO, while the page's own openingHours markup is the schema.org example value, Monday–Sunday 09:00-17:00."
  },
  {
   "lat": 41.583844,

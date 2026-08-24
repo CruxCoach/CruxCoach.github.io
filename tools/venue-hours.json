@@ -12511,6 +12511,33 @@
   "note": "The peak and off-peak bands are pricing, not opening; the centre states one week above them."
  },
  {
+  "lat": 51.5822099,
+  "lon": -1.753619,
+  "name": "Rockstar Climbing",
+  "country": "GB",
+  "source": "https://www.rockstarclimbing.co.uk/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:30-22:00",
+   "tue": "10:30-22:00",
+   "wed": "10:30-22:00",
+   "thu": "10:30-22:00",
+   "fri": "10:30-22:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Centre Buildings 3-5, The I.O Centre Radway Road, Swindon Wiltshire SN3 4WH … Opening Hours Monday to Friday 10:30-22:00 Saturday & Sunday 09:00-18:00",
+  "note": "Two bands covering all seven days, stated beneath the centre's address. Its schema.org openingHours opens the weekdays four hours earlier, at 06:30. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
   "lat": 52.40906,
   "lon": -1.51112,
   "name": "Social Climbing Coventry",
@@ -12611,6 +12638,34 @@
    "sun": "10:00-19:00"
   },
   "evidence": "MONDAY 11:00-22:00 | TUESDAY 12:00-22:00 | WEDNESDAY 12:00-22:00 | THURSDAY 12:00-22:00 | FRIDAY 12:00-22:00 | SATURDAY 10:00-19:00 | SUNDAY 10:00-19:00"
+ },
+ {
+  "lat": 51.4717891,
+  "lon": -2.5762987,
+  "name": "TCA The Church",
+  "country": "GB",
+  "source": "https://www.theclimbingacademy.com/locations/the-church/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "09:00-16:00",
+   "sun": "09:00-16:00"
+  },
+  "evidence": "St Werburgh's Church Mina Road, Bristol BS2 9YQ … Mon-Fri: 12pm-10pm (Peak 3-8pm) Sat-Sun: 9am-4pm (Peak 9am-3pm)",
+  "note": "Stated on this centre's own page beside its address, and different from the operator's two other halls, which both open at 7am. The bracketed peak windows are a pricing tier inside the opening. The page's schema.org block closes the weekend at 18:00 instead of 16:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 51.455472,
@@ -13505,6 +13560,33 @@
    "sun": "10:00-19:30"
   },
   "evidence": "ORARI APERTURA: Da lunedì a venerdì : dalle 10.00 alle 23.00 | Sabato e domenica : dalle 10.00 alle 19.30"
+ },
+ {
+  "lat": 42.3539044,
+  "lon": 13.3422517,
+  "name": "Moonboard BLOCKLAND",
+  "country": "IT",
+  "source": "https://www.blockland.it/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "16:00-23:00",
+   "tue": "11:00-23:00",
+   "wed": "16:00-23:00",
+   "thu": "11:00-23:00",
+   "fri": "16:00-23:00",
+   "sat": "14:00-21:00",
+   "sun": "closed"
+  },
+  "evidence": "Via Enrico Berlinguer, 67100 L'Aquila, AQ, Italia Lun, Mer, Ven: 16:00 - 23:00 Mar, Gio: 11:00 - 23:00 Sabato: 14:00 - 21:00 Domenica: CHIUSO",
+  "note": "Sunday is stated closed, so the week is complete rather than short a day, and Tuesday and Thursday open five hours earlier than the other weekdays. The page's own openingHours markup is the schema.org example value, Monday to Sunday 09:00-17:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 45.021136,
