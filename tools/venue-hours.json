@@ -22549,6 +22549,32 @@
   "note": "The gym stays open past those times for members only (Mon–Thu to 11 PM, Sat–Sun to 8 PM); the public week is what is recorded."
  },
  {
+  "lat": 39.28245,
+  "lon": -84.40853,
+  "name": "RockQuest Climbing Center",
+  "country": "US",
+  "source": "https://rockquest.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "12:00-21:30",
+   "tue": "12:00-21:30",
+   "wed": "12:00-21:30",
+   "thu": "12:00-21:30",
+   "fri": "12:00-21:30",
+   "sat": "10:00-19:00",
+   "sun": "12:00-18:00"
+  },
+  "evidence": "Open Daily Monday to Friday 12 a.m. - 9:30 p.m. Saturday 10 a.m. - 7 p.m. Sunday 12 p.m. - 6 p.m. Members Only: Mondays, Wednesdays, Fridays, and Sundays 10 a.m. to 12",
+  "note": "The weekday line is written \"12 a.m.\" where the gym means noon — Sunday, on the same line, is written \"12 p.m.\" for the same hour, and a gym that opened at midnight and closed at 9:30pm would be open twenty-one and a half hours. It is read as noon. The members-only mornings are stated separately and are not public opening."
+ },
+ {
   "lat": 34.0362951,
   "lon": -118.4515636,
   "name": "Rockreation LA",

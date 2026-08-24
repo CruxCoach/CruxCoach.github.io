@@ -17604,6 +17604,20 @@
     "note": "Upstream carries no address; the page's own 20 John St, Brooklyn, NY 11201 resolves 31 m from the coordinate."
   },
   {
+    "lat": 44.50247,
+    "lon": -73.04567,
+    "name": "Burly Bloc",
+    "country": "US",
+    "website": "https://burlybloc.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "Burly Bloc's own site, matching the venue's name and naming the Tension Board this entry is registered for. Upstream records no street and labels the place Colchester; the coordinates fall in Essex, Vermont."
+  },
+  {
     "lat": 33.9856,
     "lon": -81.05605,
     "name": "Capital Climbing Cayce",
@@ -18648,6 +18662,20 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 29.1536202,
+    "lon": -80.9971001,
+    "name": "Daytona Climbing Company",
+    "country": "US",
+    "website": "https://www.daytonaclimbingcompany.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Daytona Climbing Company's own site, giving \"Ridgewood Avenue, #154, South Daytona, FL, 32119\". South Daytona is the municipality this venue's coordinates fall in and is not what its name carries. Upstream labels this venue with the nearest gazetteer place, which is a different town; the municipality its coordinates fall in is what the page names. Upstream labels the place Port Orange."
   },
   {
     "lat": 38.91199,
@@ -19795,6 +19823,20 @@
       "city"
     ],
     "note": "The operator runs two Virginia gyms 32 km apart and lists both by address; this is Hampton."
+  },
+  {
+    "lat": 36.84521,
+    "lon": -76.13563,
+    "name": "Latitude Climbing & Fitness Virginia Beach",
+    "country": "US",
+    "website": "https://latitudeclimbing.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "Latitude Climbing & Fitness's own site, matching the venue's name and naming the Kilter board this entry is registered for. Upstream labels the place Chesapeake; the coordinates fall in Virginia Beach, which the venue's own name already carries, so the board is what supplies the second signal."
   },
   {
     "lat": 42.445438,
@@ -21281,6 +21323,20 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 39.28245,
+    "lon": -84.40853,
+    "name": "RockQuest Climbing Center",
+    "country": "US",
+    "website": "https://rockquest.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "RockQuest Climbing Center's own site, which places itself in Sharonville and gives 45241 — the municipality this venue's coordinates fall in. Upstream labels this venue with the nearest gazetteer place, which is a different town; the municipality its coordinates fall in is what the page names. Upstream labels the place Forest Park."
   },
   {
     "lat": 34.0362951,
