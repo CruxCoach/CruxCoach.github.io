@@ -2333,15 +2333,6 @@
   "reason": "Re-read: unchanged. Hours are published as Hauptsaison (Oktober–Mai) and Nebensaison (Juni–September) behind script-driven tabs, so neither week is in the fetched document; the same page also reserves the right to close up to two hours early when it is quiet."
  },
  {
-  "lat": 47.7856606,
-  "lon": 11.0607786,
-  "name": "DAV Kletterzentrum Peißenberg",
-  "country": "DE",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 50.86894011939988,
   "lon": 8.004782526563105,
   "name": "DAV Kletterzentrum Siegerland",
@@ -2480,15 +2471,6 @@
   "checked": "2026-08-23",
   "source": "https://www.dav-hof.de/kletterwache95111/oeffnungszeiten-kurse/",
   "reason": "Re-read, and filed the way Quergang is, because it is the same arrangement: 'Kletterbetrieb Mittwochs von 17:00 – 21:00 Uhr' is the only staffed public window, and everything else is 'Zugang mit Jahreskarte, täglich von 08:00 – 22:00 Uhr'. The other six days are not closed, so a week that called them closed would be wrong for every card holder."
- },
- {
-  "lat": 48.3031965,
-  "lon": 10.3627835,
-  "name": "Kletterzentrum Krumbach",
-  "country": "DE",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 47.8076383,
@@ -5805,9 +5787,10 @@
   "lon": 76.8762,
   "name": "Cozy Rock",
   "country": "KZ",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://cozyrock.kz/",
+  "reason": "The site is a React frame whose bundle carries no Russian text at all — every word a visitor reads arrives from an API this audit cannot address, and the paths that would hold a schedule all return the same frame. The title and meta tags are enough to say whose site it is and no more.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 33.9005875,

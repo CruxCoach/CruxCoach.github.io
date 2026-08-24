@@ -6566,6 +6566,21 @@
     ]
   },
   {
+    "lat": 47.7856606,
+    "lon": 11.0607786,
+    "name": "DAV Kletterzentrum Peißenberg",
+    "country": "DE",
+    "website": "https://www.alpenverein-peissenberg.de/Kletterhalle",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The section gives the hall a page of its own, headed \"DAV Kletterhalle der Sektion Peißenberg\" with the address Alpspitzstraße 13, and it says of the bouldering area that it \"wurde erweitert durch ein Moonboard welches im oberen Bereich installiert ist\" — the board upstream records here. The archive had surfaced peissenberg.de, which is the municipality."
+  },
+  {
     "lat": 50.86894011939988,
     "lon": 8.004782526563105,
     "name": "DAV Kletterzentrum Siegerland",
@@ -7407,6 +7422,21 @@
       "city"
     ],
     "note": "The centre trades as DAV Kletterzentrum Berchtesgaden and, as its contact page confirms, also as Bergsteigerhaus GANZ — the name upstream carries."
+  },
+  {
+    "lat": 48.3031965,
+    "lon": 10.3627835,
+    "name": "Kletterzentrum Krumbach",
+    "country": "DE",
+    "website": "https://alpenverein-krumbach.de/index.php/kletterzentrum",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The section's own site gives the hall a Kletterzentrum area with its own hours, prices and directions; the directions page reads \"Kletterzentrum DAV Krumbach, Burgweg 16, 86381 Krumbach\", and the routes page announces \"Der DAV KRU hat ein MOONBOARD!\" — which is the board upstream records for this row. The coordinate upstream gives is not the hall: it falls 6.8 km north in Halbertshofen, Neuburg an der Kammel, which is why the row is labelled with Günzburg 18.5 km away. The archive had surfaced krumbach.de, which is the town."
   },
   {
     "lat": 53.2500572,
@@ -13174,6 +13204,21 @@
       "street-address"
     ],
     "note": "Wonder Sky's own site, printing 248 — the building number in 난설헌로 248, Gangneung, that upstream records."
+  },
+  {
+    "lat": 43.2409,
+    "lon": 76.8762,
+    "name": "Cozy Rock",
+    "country": "KZ",
+    "website": "https://cozyrock.kz/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The page is a frame with its content behind an API, but its own title and Open Graph tags carry the identification: \"CozyRock – скалодром в Алматы … первый Kilter Board в Казахстане и Центральной Азии\" and \"Скалодром и Kilter board в Алматы\". The description adds \"Kilter Board с регулируемым углом наклона от 0 до 70 градусов\", and upstream records this row's Kilter board as adjustable."
   },
   {
     "lat": 54.66982,

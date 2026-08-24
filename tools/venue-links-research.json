@@ -1280,26 +1280,6 @@
     "reason": "The venue's own site says so in one line: \"Der Bodebloc bleibt leider auf unbestimmte Zeit geschlossen!\" — closed indefinitely. A link to a page that says the hall is shut is not a website for a visitor to act on."
   },
   {
-    "lat": 47.7856606,
-    "lon": 11.0607786,
-    "name": "DAV Kletterzentrum Peißenberg",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "peissenberg.de is the market town's own site and carries no page describing the DAV climbing centre; peissenberg.com presents a certificate that does not cover its hostname. No DAV Sektion page for Peißenberg was reached.",
-    "candidate": "https://peissenberg.de/"
-  },
-  {
-    "lat": 48.3031965,
-    "lon": 10.3627835,
-    "name": "Kletterzentrum Krumbach",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "krumbach.de is the town's own site with no page for a climbing centre, and krumbach.com presents a certificate that does not cover its hostname.",
-    "candidate": "https://krumbach.de/"
-  },
-  {
     "lat": 47.8076383,
     "lon": 10.6401397,
     "name": "Kraftwerk Allgäu",
@@ -2875,9 +2855,9 @@
     "name": "クラックス大阪 CRUX Osaka",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — thecrux.com.au → \"Melbourne Indoor Bouldering / Rock Climbing Coburg, Brun\"; www.cruxclimbing.pt → \"Escalada | CRUX - Climbing Center | São Domingos de Rana\"; crux.jp → \"株式会社クラックス\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://thecrux.com.au/"
+    "reason": "thecrux.com.au is an Australian operator. The Osaka hall shares nothing with it but the word Crux, and the snapshot the sweep matched was a 6 kB page carrying that word and a grasshopper board reference.",
+    "candidate": "https://thecrux.com.au/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 35.58083,
@@ -3249,16 +3229,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — handwerk.com → \"handwerk.com: Das Fachportal für Entscheider im Handwerk\". Upstream records 광주 북구 임방울대로 1068 2층, and nothing opened printed it.",
     "candidate": "https://handwerk.com/"
-  },
-  {
-    "lat": 43.2409,
-    "lon": 76.8762,
-    "name": "Cozy Rock",
-    "country": "KZ",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — cozyrock.kz → \"CozyRock – скалодром в Алматы, скалолазание, первый Kilt\", the venue's whole name as one label, cozyrock.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records Brusilovskiy St 167, Block 6, 050005, Almaty, and nothing opened printed it.",
-    "candidate": "https://cozyrock.kz/"
   },
   {
     "lat": 33.9005875,

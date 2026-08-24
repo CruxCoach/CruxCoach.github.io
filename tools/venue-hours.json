@@ -7825,6 +7825,32 @@
   "evidence": "Montag - Freitag: 10:00 - 22:00 Uhr | Samstag - Sonntag: 11:00 - 22:00 Uhr"
  },
  {
+  "lat": 47.7856606,
+  "lon": 11.0607786,
+  "name": "DAV Kletterzentrum Peißenberg",
+  "country": "DE",
+  "source": "https://www.alpenverein-peissenberg.de/Kletterhalle",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "closed",
+   "tue": "18:00-22:00",
+   "wed": "18:00-22:00",
+   "thu": "18:00-22:00",
+   "fri": "closed",
+   "sat": "15:00-20:00",
+   "sun": "15:00-20:00"
+  },
+  "evidence": "Mo. geschlosen · Di. 18 - 22 Uhr · Mi. 18 - 22 Uhr · Do. 18 - 22 Uhr · Fr. geschlossen · Sa. 15 - 20 Uhr · So. 15 - 20 Uhr",
+  "note": "The week is stated twice on the page — once in the header block beneath the hall's address, once further down — and the two agree. The notice between them says volunteers cover those hours and that staff shortage can cause short-notice deviations; that is a caveat about coverage, not a second schedule or an announcement that the week is changing. The page prints the postcode as 82380 in the header and 82362 further down; the first is Peißenberg's."
+ },
+ {
   "lat": 51.26866,
   "lon": 7.23554,
   "name": "DAV Kletterzentrum Wupperwände",
@@ -8799,6 +8825,31 @@
   },
   "evidence": "Montag bis Freitag 10.00 bis 22.00 Uhr | Sa, So, Feiertage 10.00 bis 20.00 Uhr",
   "note": "The page also lists Sperrzeiten during which the OLD hall is closed for youth training; the centre stays open, so the venue hours are unaffected."
+ },
+ {
+  "lat": 48.3031965,
+  "lon": 10.3627835,
+  "name": "Kletterzentrum Krumbach",
+  "country": "DE",
+  "source": "https://alpenverein-krumbach.de/index.php/kletterzentrum/oeffnungszeiten",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:00-21:30",
+   "tue": "09:00-21:30",
+   "wed": "09:00-21:30",
+   "thu": "09:00-21:30",
+   "fri": "09:00-21:30",
+   "sat": "09:00-21:30",
+   "sun": "09:00-21:30"
+  },
+  "evidence": "Täglicher Kletterbetrieb von 09:00 bis 21:30. Thekenöffnungszeit täglich von 18:30 bis 22:00.",
+  "note": "One sentence covers the whole week. The second line is the counter, not the hall — the page says so itself: when the counter is unstaffed, \"mit gültiger Eintrittskarte kann natürlich trotzdem geklettert werden\". The dated closure for a re-set and the reservation for club events are exception lists."
  },
  {
   "lat": 50.58771,
