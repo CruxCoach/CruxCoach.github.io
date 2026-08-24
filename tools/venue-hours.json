@@ -17376,6 +17376,32 @@
   "note": "The operator lists its two gyms with an address and an hours line each; the San Francisco one opens at 11am."
  },
  {
+  "lat": 37.78891,
+  "lon": -122.42163,
+  "name": "Benchmark Climbing SF",
+  "country": "US",
+  "source": "https://benchmarkclimbing.com/locations",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "SF Location - 1414 Van Ness Ave., SF, CA 94109 - Tel: (415) 913-7490 Mon-Fri - 11am-10pm; Sat-Sun - 10am-7pm",
+  "note": "The operator lists its two gyms with an address, a phone number and an hours line each; the Berkeley one opens at 7am on weekdays where this one opens at 11, which is what makes the page usable for one location rather than the operator. Its Berkeley sibling carries the same page and the other week."
+ },
+ {
   "lat": 44.03869,
   "lon": -121.28967,
   "name": "Bend Rock Gym",
