@@ -10790,6 +10790,31 @@
   "note": "Logged as 'no schedule' on the first pass. The week is stated twice on the site — in the footer and on the calendar page — and the two agree; the dated exceptions listed beside them are single days (1 de gener tancat, 6 de gener de 16 a 20h)."
  },
  {
+  "lat": 43.2821,
+  "lon": -2.16232,
+  "name": "Klimb Zarautz",
+  "country": "ES",
+  "source": "https://klimbzarautz.com/tarifas_klimb_zarautz",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-21:00",
+   "tue": "10:00-21:00",
+   "wed": "10:00-21:00",
+   "thu": "10:00-21:00",
+   "fri": "10:00-21:00",
+   "sat": "10:00-14:00,16:00-21:00",
+   "sun": "10:00-14:00,16:00-20:00"
+  },
+  "evidence": "HORARIOS Lunes - Viernes 10:00 - 21:00 · Sábados 10:00 - 14:00 / 16:00 - 21:00 · Domingos y Festivos 10:00 - 14:00 / 16:00 - 20:00",
+  "note": "The earlier reading came from an Instagram post the home page embeds, where the Saturday afternoon is typed \"16:00:21:00\" with a colon for its dash. The gym's own Tarifas & Horarios page prints the same week as a table and gets it right. The second row of that table is labelled JUNIO (ultima semana) - JULIO - AGOSTO and moves the weekday afternoon to 17:00; it is a dated window, not the week. The five named public holidays beneath it are a closure list."
+ },
+ {
   "lat": 42.61172607783265,
   "lon": -5.569550348503698,
   "name": "La Nave Centro de Escalada",

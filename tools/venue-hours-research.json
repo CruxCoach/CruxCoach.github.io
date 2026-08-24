@@ -2954,10 +2954,10 @@
   "lon": 1.99852,
   "name": "GeoBoulder",
   "country": "ES",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
+  "status": "seasonal",
+  "checked": "2026-08-24",
   "source": "https://geoboulder.es/contacto",
-  "reason": "Re-read, and there is a schedule after all — but not one that can be transcribed. The contacto page reads 'Monday to Friday: from 9 a.m. to 14 p.m. and from 18 p.m. to 10 p.m.', which is a machine translation that puts p.m. on 14 and on 18 and leaves 10 p.m. to be guessed at, followed by 'From the 17th to the 21st: closed' with no month."
+  "reason": "The record here said the schedule could not be transcribed, because it had been read in machine translation — \"from 9 a.m. to 14 p.m. and from 18 p.m. to 10 p.m.\" The Spanish page is perfectly clear: \"Horario Agosto — Lunes a viernes: de 9h a 14h y de 18h a 22h. Sábado y Domingo: cerrado.\" What blocks it is the heading. That is August's week and the site publishes no other, so it runs out with the month."
  },
  {
   "lat": 41.54682,
@@ -3005,16 +3005,6 @@
   "checked": "2026-08-23",
   "source": "https://ingravita.cat/contacte/",
   "reason": "Re-read, and the earlier 'no answer' is out of date — the site responds. It publishes a week (De dilluns a divendres de 9:00 a 22:00 h, Dissabte 10:00 a 20:30 h, Diumenge 10:00 a 15:00 i de 17:00 a 20:30) and, on the line below it, 'Consulta aquí els horaris d'estiu i festius' — a separate summer schedule this overlay has no way to expire."
- },
- {
-  "lat": 43.2821,
-  "lon": -2.16232,
-  "name": "Klimb Zarautz",
-  "country": "ES",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://klimbzarautz.com/",
-  "reason": "The week is stated but not in a form that can be transcribed: \"DE LUNES A VIERNES 10:00-21:00, SÁBADOS 10:00-14:00 / 16:00:21:00, DOMINGOS 10:00-16:00 / 16:00-20:00\". The Saturday second half has a colon where its dash should be, and the Sunday halves touch at 16:00 — one range cut in two, or two ranges with the gap mistyped, and the page does not say which."
  },
  {
   "lat": 40.94711,
