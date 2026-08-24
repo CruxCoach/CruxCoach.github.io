@@ -905,16 +905,6 @@
   "reason": "The visible page shows a booking calendar under the heading \"Regular Hours\" and no times. The only week the site states is in its LocalBusiness markup (all seven days 08:00-23:00), and markup on its own is not a source a schedule may be published from."
  },
  {
-  "lat": 49.53477,
-  "lon": -115.76467,
-  "name": "ARQ Mountain Center",
-  "country": "CA",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://climbarq.com/",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 25 characters, which is navigation. It stays in the retry queue."
- },
- {
   "lat": 43.6497875,
   "lon": -79.3970569,
   "name": "Basecamp Climbing",

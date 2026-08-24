@@ -3193,6 +3193,33 @@
   "note": "Replaces an \"inaccessible\" outcome. The page computes a \"Today's Hours\" line in the browser, which is all the first pass could see; the week behind it is in the document and every day differs from the one before it."
  },
  {
+  "lat": 49.53477,
+  "lon": -115.76467,
+  "name": "ARQ Mountain Center",
+  "country": "CA",
+  "source": "https://www.climbarq.com/location-hours",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "09:00-21:00",
+   "sat": "10:00-21:00",
+   "sun": "12:00-20:00"
+  },
+  "evidence": "HOURS Monday ll 9:00am - 9:00pm … Friday ll 9:00am - 9:00pm Saturday || 10:00am - 9:00pm Sunday || 12:00pm - 8:00pm",
+  "note": "One hall, one week, stated once — fourteen times on the page and no second version of any of them. The line beneath it points at social media for holiday hours, which is an exception list, not a second schedule."
+ },
+ {
   "lat": 43.51374599053669,
   "lon": -79.89567089814535,
   "name": "Aspire Climbing Milton",

@@ -23,20 +23,20 @@
     "lon": 55.38548,
     "name": "Rock Republic Al Qusais",
     "country": "AE",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "rockrepublicdubai.com is certainly Rock Republic's own site, and it gives one phone number and one week — but no address anywhere on it, and it never contains the words Al Qusais. The dataset holds two Rock Republic venues 35 km apart, this one in Al Qusais and one more towards Jebel Ali, and nothing on the site says which of them it describes.",
-    "candidate": "https://www.rockrepublicdubai.com/"
+    "status": "ambiguous",
+    "reason": "rockrepublicdubai.com is the operator's own site and answers 200, but the only address it prints is \"Street 77, Dubai Investment Park 1\" — some 30 km from the Al Qusais Industrial Area coordinate upstream records, and the word Qusais appears nowhere in the page or its markup. Either the gym moved and upstream still has the old hall, or these are two places. Attaching the link would put a DIP address on an Al Qusais marker.",
+    "candidate": "https://www.rockrepublicdubai.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 24.453884,
     "lon": 54.3773438,
     "name": "Sorbonne University Climbing Gym",
     "country": "AE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — sorbonne.ae → \"Home | Top universities in Abu Dhabi | Sorbonne Abu Dhab\", the rest could not be opened — sorbonne-university.com → a timeout; sorbonne.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits 8 m from OpenStreetMap’s city node for أبو ظبي, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match.",
-    "candidate": "https://www.sorbonne.ae/"
+    "status": "ambiguous",
+    "reason": "sorbonne.ae is certainly the right institution — its sports page describes \"one of the best climbing wall facilities in the UAE\" and its events list names an \"SUAD Climbing Gym\". But its contact page puts the campus on Al Reem Island, PO Box 38044, and OSM has the university there at 24.4888,54.4119, about 5.5 km from the coordinate upstream gives, which falls inside the Al Manhal suburb of central Abu Dhabi. The site names no second site there. The institution is identified; the hall at this coordinate is not.",
+    "candidate": "https://www.sorbonne.ae/community-engagement/sports",
+    "checked": "2026-08-24"
   },
   {
     "lat": 40.1824304,
@@ -370,10 +370,10 @@
     "lon": -46.6744396,
     "name": "FABRICA Escalada",
     "country": "BR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The operator is certain and the location is not. Fabrica publishes exactly two units on fabricaescalada.com/unidades: Chacara Santo Antonio at Rua da Paz 1823, which holds the Kilter Board and is already linked as its own entry, and Vila Madalena at Rua Girassol 323, which is the one that \"conta tambem com uma Moonboard\". This venue is recorded as a MoonBoard but upstream places it in Itaim Bibi, and the site's own coordinates put Vila Madalena 3.3 km from these coordinates. Neither published unit is in Itaim Bibi, so attaching either page here would assert a location the operator does not claim.",
-    "candidate": "https://www.fabricaescalada.com/unidades"
+    "status": "ambiguous",
+    "reason": "fabricaescalada.com/unidades lists exactly two halls, Rua da Paz 1823 in Chácara Santo Antônio and Rua Girassol 323 in Vila Madalena, and describes a Kilter Board at the Chácara unit. Upstream gives no address for this row, and its coordinate sits in central São Paulo between the two, near neither. Which unit this registry row is cannot be read off the operator's page.",
+    "candidate": "https://www.fabricaescalada.com/unidades",
+    "checked": "2026-08-24"
   },
   {
     "lat": -23.0204559,
@@ -479,16 +479,6 @@
     "checked": "2026-08-23",
     "reason": "altrock.ca answers only behind a TLS handshake failure — the host negotiates no usable connection at all, over either the apex or www — so nothing could be read. No other name-derived domain resolves and upstream records no address for Barrie. Retry when the host serves.",
     "candidate": "https://altrock.ca/"
-  },
-  {
-    "lat": 49.53477,
-    "lon": -115.76467,
-    "name": "ARQ Mountain Center",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "arqmountaincentre.com redirects to climbarq.com, which answers 200 but from which no page could be parsed — no title, no navigation, no text. arqmountain.ca does not resolve. The venue's address, 1924 Industrial Rd 2, V1C 6R2 Cranbrook, could not be tested against anything. Retry when the site serves readable content.",
-    "candidate": "https://climbarq.com/"
   },
   {
     "lat": 44.24383,
@@ -827,9 +817,9 @@
     "name": "Beta Boulders Gym Xuhui",
     "country": "CN",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — betaboulders.com → \"Home | Beta Boulders Copenhagen\"; beta.cn → \"beta.cn -- Premium Domain for Sale --\", the rest could not be opened — beta.com.cn → a certificate that does not cover its hostname. Upstream records 上海市徐汇区凌云街道天等路400号1幢107室, Shanghai, and nothing opened printed it.",
-    "candidate": "https://betaboulders.com/"
+    "reason": "betaboulders.com is Beta Boulders Copenhagen — its own navigation lists Vanløse, Sydhavn, Østerbro, Malmö and Göteborg. The Shanghai gym at Tiandeng Road shares the name and nothing else.",
+    "candidate": "https://betaboulders.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 22.277204660983397,
@@ -953,9 +943,9 @@
     "name": "Hong Kong Climbing Park",
     "country": "CN",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.270climbing.com → \"270 Climbing Park | Climbing, Bouldering & High Ropes\"; hongkongclimbing.com → \"a page with no title\"; hongkong.com → \"Checking your browser...\", the rest could not be opened — hongkongpark.com → 200; hong.cn → a certificate that does not cover its hostname; hong.com.cn → a timeout. Upstream records Level 2, Belair Gardens Shopping Arcade Phase 2, Sha Tin, and nothing opened printed it.",
-    "candidate": "https://www.270climbing.com/"
+    "reason": "A snapshot of 270climbing.com carried the words \"Climbing Park\", which is why the guess survived the first sweep. The live site is 270 Climbing Park in Bentham, North Yorkshire — its own about page says so — and nothing on it names Sha Tin or Belair Gardens. The candidate is somebody else's.",
+    "candidate": "https://www.270climbing.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 31.22215,
