@@ -538,6 +538,44 @@ test('a rejected report is reported honestly and the form is kept', async () => 
   );
 });
 
+test('retrying the same in-memory report keeps its idempotency key', async () => {
+  await withDialog(
+    'en',
+    async ({ module, document, calls }) => {
+      module.open(VENUE_PROPERTIES, VENUE.lat, VENUE.lon, null);
+      byId(document, 'vr-category').value = 'closed';
+      byId(document, 'vr-category').dispatch('change');
+      byId(document, 'vr-detail').value = 'This venue closed permanently in July.';
+
+      document.querySelector('.vr-form').dispatch('submit');
+      await new Promise((resolve) => setTimeout(resolve, 10));
+      document.querySelector('.vr-form').dispatch('submit');
+      await new Promise((resolve) => setTimeout(resolve, 10));
+
+      const reports = calls
+        .filter((call) => String(call.url).endsWith('/v1/reports'))
+        .map((call) => JSON.parse(call.init.body));
+      assert.equal(reports.length, 2);
+      assert.equal(reports[0].clientSubmissionId, reports[1].clientSubmissionId);
+      assert.notEqual(reports[0].ticket, reports[1].ticket, 'each retry still gets a fresh ticket');
+
+      byId(document, 'vr-detail').value = 'This venue actually moved to a different address.';
+      document.querySelector('.vr-form').dispatch('submit');
+      await new Promise((resolve) => setTimeout(resolve, 10));
+      const changed = JSON.parse(calls.filter((call) => String(call.url).endsWith('/v1/reports')).at(-1).init.body);
+      assert.notEqual(changed.clientSubmissionId, reports[0].clientSubmissionId);
+    },
+    {
+      fetchImpl: async (url, _init, calls) => {
+        if (String(url).endsWith('/ticket')) {
+          return { ok: true, status: 200, json: async () => ({ ticket: `v1.t.${calls.length}.m` }) };
+        }
+        return { ok: false, status: 429, json: async () => ({ error: 'rate_limited' }) };
+      },
+    },
+  );
+});
+
 test('offline fails loudly instead of queueing a report on the device', async () => {
   await withDialog('en', async ({ module, document, calls }) => {
     Object.defineProperty(globalThis, 'navigator', {

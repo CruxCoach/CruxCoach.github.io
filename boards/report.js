@@ -41,6 +41,12 @@ let elements = null;
 let currentVenue = null;
 let submitting = false;
 let returnFocus = null;
+// Keep one idempotency key for retries of the same in-memory report. A mobile
+// connection can deliver the POST and lose only the 202 response; generating a
+// fresh id on the next click would then create a second report. The form is
+// never persisted, and changing any field produces a fresh key.
+let pendingSubmissionId = null;
+let pendingSubmissionFingerprint = null;
 
 function el(tag, attrs = {}, text) {
   const node = document.createElement(tag);
@@ -374,10 +380,15 @@ async function onSubmit(event) {
 
   setBusy(true);
   try {
+    const fingerprint = JSON.stringify(form);
+    if (!pendingSubmissionId || pendingSubmissionFingerprint !== fingerprint) {
+      pendingSubmissionId = newSubmissionId();
+      pendingSubmissionFingerprint = fingerprint;
+    }
     const ticket = await fetchTicket();
     const body = buildSubmission(form, {
       ticket,
-      submissionId: newSubmissionId(),
+      submissionId: pendingSubmissionId,
       lang: LANG,
     });
 
@@ -441,6 +452,8 @@ function succeed() {
   // message invites a second identical send, and the reporter has no way to
   // tell whether the first one counted.
   const done = el('div', { class: 'vr-done' });
+  pendingSubmissionId = null;
+  pendingSubmissionFingerprint = null;
   done.append(el('h2', { id: 'vr-title' }, T.successTitle), el('p', {}, T.successBody));
   const closeButton = el('button', { type: 'button', class: 'vr-submit' }, T.close);
   closeButton.addEventListener('click', close);
@@ -451,6 +464,8 @@ function succeed() {
 
 function resetForm() {
   elements.form.reset();
+  pendingSubmissionId = null;
+  pendingSubmissionFingerprint = null;
   clearErrors();
   syncConditionalFields();
   syncCounter();
