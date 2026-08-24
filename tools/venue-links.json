@@ -622,6 +622,22 @@
     ]
   },
   {
+    "lat": 47.27722,
+    "lon": 11.41339,
+    "name": "Kletterzentrum Innsbruck",
+    "country": "AT",
+    "website": "https://www.kletterzentrum-innsbruck.at/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Das Ki — Kletterzentrum Innsbruck's own site, printing \"Matthias-Schmid-Straße 12c, 6020 Innsbruck\", which is upstream's address to the letter. The live site answers 403 to every fetcher and header set, so the page was read from a dated snapshot of the venue's own site taken on 17 June 2026. A snapshot settles whose domain this is; it is not used to read anything that changes, and no hours are taken from it."
+  },
+  {
     "lat": 47.157655,
     "lon": 9.806525,
     "name": "Klimmerei Boulder",
@@ -1273,6 +1289,22 @@
       "street-address"
     ],
     "note": "The site is Core Climbing and prints \"122 Eastlake Street, Carrara, QLD\", which is the street line upstream records. The OSM node 11 m away carries the same domain; Whistler Core is a different operator in British Columbia."
+  },
+  {
+    "lat": -27.5624,
+    "lon": 153.0687,
+    "name": "Crank Indoor Climbing",
+    "country": "AU",
+    "website": "https://crankclimbing.com.au/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "CRANK Indoor Rockclimbing's own site, printing \"537 Kessels Road, Macgregor QLD\" — upstream's street and town — and naming the Kilter board this venue is listed for. The live site answers 403 to every fetcher and header set, so the page was read from a dated snapshot of the venue's own site taken on 15 August 2024. A snapshot settles whose domain this is; it is not used to read anything that changes, and no hours are taken from it."
   },
   {
     "lat": -27.85168,
@@ -2158,6 +2190,52 @@
       "city"
     ],
     "note": "The gym gives Chaussée de Boondael 210C where upstream has Rue de Theux 107; its own address resolves to within 55 m of this venue."
+  },
+  {
+    "lat": 50.41619,
+    "lon": 4.43898,
+    "name": "Maniak Charleroi",
+    "country": "BE",
+    "website": "https://charleroi.maniak.club/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Maniak gives each hall a subdomain of its own, and this one is titled \"Accueil | Maniak Charleroi\" and prints \"…Bruxelles, 6020 Dampremy\" — the street, postal code and town upstream records. The live site answers 403 to every fetcher and header set, so the page was read from a dated snapshot of the venue's own site taken on 18 April 2025. A snapshot settles whose domain this is; it is not used to read anything that changes, and no hours are taken from it."
+  },
+  {
+    "lat": 50.6198,
+    "lon": 4.33027,
+    "name": "Maniak Nivelles",
+    "country": "BE",
+    "website": "https://nivelles.maniak.club/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page"
+    ],
+    "note": "Maniak's own subdomain for its Nivelles hall, titled \"Maniak Salle d'escalade Nivelles\". Upstream records no address for this entry and the town it names is inside the venue's own name, so what carries the second signal is the subdomain being the operator's page for this one hall rather than for the operator. The live site answers 403 to every fetcher and header set, so the page was read from a dated snapshot of the venue's own site taken on 23 April 2025. A snapshot settles whose domain this is; it is not used to read anything that changes, and no hours are taken from it."
+  },
+  {
+    "lat": 50.82757,
+    "lon": 4.33196,
+    "name": "Maniak Padoue",
+    "country": "BE",
+    "website": "https://padoue.maniak.club/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Maniak's own subdomain for its Padoue hall, titled \"Maniak Padoue - Salle d'escalade à Forest\" — the venue's name and the municipality upstream records for it. The live site answers 403 to every fetcher and header set, so the page was read from a dated snapshot of the venue's own site taken on 22 April 2025. A snapshot settles whose domain this is; it is not used to read anything that changes, and no hours are taken from it."
   },
   {
     "lat": 50.92862,

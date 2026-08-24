@@ -24,8 +24,8 @@
     "name": "Rock Republic Al Qusais",
     "country": "AE",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Rock Republic's own site was reached through its other Dubai venue, which this audit has linked, but it publishes one address only — Street 77, Dubai Investment Park 1 — and never mentions Al Qusais, which is where upstream places this venue. The operator is right and the branch is not on the site.",
+    "checked": "2026-08-24",
+    "reason": "rockrepublicdubai.com is certainly Rock Republic's own site, and it gives one phone number and one week — but no address anywhere on it, and it never contains the words Al Qusais. The dataset holds two Rock Republic venues 35 km apart, this one in Al Qusais and one more towards Jebel Ali, and nothing on the site says which of them it describes.",
     "candidate": "https://www.rockrepublicdubai.com/"
   },
   {
@@ -94,16 +94,6 @@
     "candidate": "https://www.arlberg.at/"
   },
   {
-    "lat": 47.27722,
-    "lon": 11.41339,
-    "name": "Kletterzentrum Innsbruck",
-    "country": "AT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Inaccessible rather than absent. kletterzentrum-innsbruck.at is very likely this venue's own site, but it answers 403 with a Cloudflare \"Just a moment...\" interstitial to every request tried, including a full browser header set, so nothing readable was ever served and the two signals the policy requires could not be obtained. kletterzentrum.at times out. innsbruck.at, which the guesser reached, is the city council's site and matched only on the town. Retry when the page can be opened.",
-    "candidate": "https://www.kletterzentrum-innsbruck.at/"
-  },
-  {
     "lat": 47.80278999999999,
     "lon": 16.23318,
     "name": "Mondbrett",
@@ -140,16 +130,6 @@
     "checked": "2026-08-23",
     "reason": "climboz.com is titled Climb Oz and is very likely this gym, but neither its homepage nor its contact page prints an address, a suburb or a postcode — the name is the only observation the site offers. The upstream address, Level 2, 40 Third Ave, Blacktown, geocodes 302 m from this venue, so the coordinate is right and the page simply does not confirm it.",
     "candidate": "https://climboz.com/"
-  },
-  {
-    "lat": -27.5624,
-    "lon": 153.0687,
-    "name": "Crank Indoor Climbing",
-    "country": "AU",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "crank.com.au is CRANK, an accessibility organisation, crankclimbing.com.au answers 403 to every fetcher and crankclimbing.com carries nothing that names Kessel Rd or Macgregor.",
-    "candidate": "https://crankclimbing.com.au/"
   },
   {
     "lat": -34.55774,
@@ -262,36 +242,6 @@
     "status": "ambiguous",
     "checked": "2026-08-23",
     "reason": "The venue cannot be placed. Upstream gives no address and the coordinates are 50.8503,4.3517, the Brussels city centroid rather than a building, so no candidate can be tested against a location. gravitylab.be and www.gravitylab.be do not resolve; the only Gravity sites that answer are Gravity Bloc in Sochaux (413 km away) and Gravity Climbing in Ireland. With nothing to match a page against, a link here could not be shown to be this venue rather than another Brussels wall."
-  },
-  {
-    "lat": 50.41619,
-    "lon": 4.43898,
-    "name": "Maniak Charleroi",
-    "country": "BE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Inaccessible rather than absent. OSM tags charleroi.maniak.club on the climbing object 15 m from this venue, so the host is very likely the hall's own page, but charleroi.maniak.club, maniak.club and www.maniak.club all answer 403 with a Cloudflare \"Just a moment...\" interstitial to every request, including a full browser header set. Nothing readable was ever served, so the two independent location signals the policy requires could not be obtained. maniak.com is an unrelated domain listed for sale. Retry when the page can be opened.",
-    "candidate": "https://charleroi.maniak.club/"
-  },
-  {
-    "lat": 50.6198,
-    "lon": 4.33027,
-    "name": "Maniak Nivelles",
-    "country": "BE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Inaccessible rather than absent. OSM tags nivelles.maniak.club on the climbing object 15 m from this venue, so the host is very likely the hall's own page, but nivelles.maniak.club, maniak.club and www.maniak.club all answer 403 with a Cloudflare \"Just a moment...\" interstitial to every request, including a full browser header set. Nothing readable was ever served, so the two independent location signals the policy requires could not be obtained. maniak.com is an unrelated domain listed for sale. Retry when the page can be opened.",
-    "candidate": "https://nivelles.maniak.club/"
-  },
-  {
-    "lat": 50.82757,
-    "lon": 4.33196,
-    "name": "Maniak Padoue",
-    "country": "BE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Inaccessible rather than absent. OSM tags padoue.maniak.club on the climbing object 15 m from this venue, so the host is very likely the hall's own page, but padoue.maniak.club, maniak.club and www.maniak.club all answer 403 with a Cloudflare \"Just a moment...\" interstitial to every request, including a full browser header set. Nothing readable was ever served, so the two independent location signals the policy requires could not be obtained. maniak.com is an unrelated domain listed for sale. Retry when the page can be opened.",
-    "candidate": "https://padoue.maniak.club/"
   },
   {
     "lat": 51.0297,

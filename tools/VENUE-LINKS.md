@@ -665,6 +665,55 @@ The automated read reported name, street 33 and Medellín on elmuro.co; the page
 does not contain "Calle 33" at all, and the site is the Colombian local-news
 network the first pass had already identified.
 
+### Reading the venue's own page from a snapshot
+
+Some sites answer 403 to everything. Boulderhaus, Maniak, Touchstone, First
+Ascent, Kletterzentrum Innsbruck and CRANK are all the right domain refusing to
+be read, which is a different failure from a wrong domain and deserves a
+different answer.
+
+A dated snapshot of that same page is still the venue's own words, so it is
+allowed to settle **whose domain this is** — and nothing else. It is never used
+for hours, because a schedule is exactly the kind of thing that changes between
+the snapshot and today; every hall linked this way keeps its `inaccessible`
+hours record. Each note gives the snapshot's date so a reader can weigh it.
+
+That yielded five links out of 458 venues tried — the three Maniak halls (each
+on its own subdomain, Charleroi's printing "…Bruxelles, 6020 Dampremy"), Das Ki
+in Innsbruck ("Matthias-Schmid-Straße 12c, 6020 Innsbruck", upstream's address
+to the letter) and CRANK in Macgregor. It is a narrow channel: only 27 of the
+458 had a readable snapshot at all, because most of those candidates were the
+wrong company's site and an archive of the wrong company is still wrong.
+
+It is also a channel with a courtesy limit. Asking the archive for 458 venues
+across eight paths each earns a 429, and the sweep was stopped when it arrived;
+21 venues were being read at that moment and are recorded as not yet retried
+rather than as failures.
+
+### Two sweeps that found nothing, written down so nobody repeats them
+
+A guessing channel is worth recording when it fails, because the cost of
+re-running it is the same as the cost of running it.
+
+**.org and .net over every open venue** — 4,512 guesses, 145 resolving hosts,
+two links: Urban Boulder in Vitoria-Gasteiz and The Pump Factory in Iloilo. The
+rest are what a generic word gets you: canrock.net is a Japanese company,
+mandurah.net is a web agency, topout.org is a guide to climbing around
+Calabogie, Ontario.
+
+**The newer TLDs** — .co, .club, .fit, .fitness, .studio, .site, .online,
+.space, .life, .io, .app, .me and .shop, over the venue's whole name, its first
+two words and its first word. 16,042 candidate hosts, 2,283 of them resolving,
+3,128 venue-and-candidate pairs read, and **not one new link**. Every hit is a
+one-word domain that belongs to somebody else — urban.co, campus.app,
+academy.shop, power.studio. The single high score is elmuro.co, which is the
+Colombian local-news network the first pass had already rejected and which
+scores only because "33" appears somewhere on it.
+
+The lesson both times is the same: a guess is worth making when the string
+being guessed is distinctive. Chains and full venue names are; the first word
+of a two-word name is not.
+
 ### Some of them are not places
 
 A handful of registry rows do not record a venue at all; they record a city.
