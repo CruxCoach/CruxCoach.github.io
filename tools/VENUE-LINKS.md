@@ -802,6 +802,31 @@ limit at all, and returns more of them — 37 kB where the probing reader
 returned a truncated fragment. Read anything the earlier sweeps concluded about
 what the archive holds with that in mind.
 
+### The handle an operator chose is a better seed than the name a registry gave it
+
+428 rows carry the Instagram handle or username the operator registered its
+board under, and 84 of those rows had no link. A handle is a name the business
+picked for itself, which is what a domain is; a display name assembled by a
+registry is not. `nextgen.bouldering` with the dot turned into a hyphen is the
+gym's own domain. `gp81` spells `eightyone`. `climbrefuge_las_vegas` drops its
+city and becomes `climbrefuge.com`.
+
+207 guesses from the handles as they stand, then 1,984 once the obvious
+variants were added — hyphenated, with the climbing word stripped off the end
+or added on, and the country's second TLD as well as its first. Seven venues:
+fit · bloc Telok Ayer, whose site lists four Singapore addresses and one of
+them is this coordinate's road and postcode; The Refuge in Las Vegas; Tacaná
+Climbing Gym in Antigua Guatemala; Cube Climbing inside a college gymnasium in
+Nelson; Gravity Climbing Gym Niagara on Vansickle Road; Next Gen Bouldering,
+whose postcode matches the point exactly; and Mad Rock's headquarters.
+
+The failures are the same failures as every name sweep, and worth naming
+because they are so plausible: `rippleboulder.com` is an ice-cream shop in
+Broad Ripple, `caymanclimbing.com` guides on the wrong island, `thedojoclimbing
+.com` is in Nagano rather than Maine, and `eightyonegym.com` is a bodybuilding
+gym in Bristol. A handle narrows the guess; it does not verify anything, and
+every one of the seven was settled by an address or a postcode in the end.
+
 ### The coordinate knows its own street
 
 The binding constraint below is an address for the venues that have none: a
