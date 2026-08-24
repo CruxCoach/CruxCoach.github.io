@@ -7776,9 +7776,10 @@
   "lon": -95.9979883,
   "name": "Approach Climbing Gym",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://omaharockgym.com/hours",
+  "reason": "The page states the week twice and the two disagree about Friday. The hours page reads \"MON 10a - 8p TUE 12p - 8p WED 12p - 8p THU 12p - 9p FRI 12p - 9p SAT 10a - 7p SUN 10a - 7p\" and the footer under it reads \"Friday 10am - 9pm\" with every other day identical. Two visible blocks, one difference, and nothing on the page ranks them.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 35.1519751,
@@ -8856,9 +8857,10 @@
   "lon": -122.6764816,
   "name": "PRG Moonboard",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "source": "https://www.portlandrockgym.com/northeast/",
+  "reason": "Both halls print one week each and both are headed \"Summer Hours\" — Northeast at Mon-Fri 7AM-10PM, Sat 8AM-9PM, Sun 8AM-6PM. No ordinary week is published beside it, which is where the Beaverton row already stands.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 34.88329,

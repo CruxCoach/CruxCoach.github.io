@@ -1036,6 +1036,43 @@ down for the whole attempt, and the mail.ru mirror answered but rate-limits hard
 enough that a third of the sweep never completed. Budget for that, or run it
 against a country extract instead.
 
+### The town is a string the guesser never tried
+
+Every earlier generator worked from the venue's own words: the whole name, the
+distinctive word, the initials, the distinctive word joined to a climbing word
+in English and then in thirty other languages. American gyms very often do
+something else entirely — they join a climbing word to the *town*.
+climblawrence.com, climbnashville.com, thestackdavis.com, omaharockgym.com.
+
+So the town was tried on its own: `climb<town>`, `<town>climbing`,
+`boulder<town>`, `<town>rocks`, `rockgym<town>` and the hyphenated forms, in
+English and in the country's own vocabulary, over the `.com` and the country's
+TLD. 481 rows have a usable town; 16,694 candidates; 312 resolving hosts; 85
+pairs read.
+
+**Two links.** Approach Climbing Gym in Omaha is at omaharockgym.com, and PRG
+is Portland Rock Gym's Northeast hall, whose Beaverton sister was already
+linked from the row 10 km west. That is a poor rate and it is still the best any
+generator has done since the local-vocabulary sweep, because the two it found
+were unreachable by every other spelling.
+
+What the rest of it finds is worth knowing, because the same names keep coming
+back: charity stair-climbs (`climb<city>.com` is very often the American Lung
+Association's Fight For Air Climb), the "Things To Do in <town>" event-listing
+network that owns `<town>rocks.co.uk` across Britain, outdoor guidebooks
+(lasvegasclimbing.com is about Red Rock Canyon), and businesses where the word
+is not the word — hendersonrocks.com sells rock mulch in Wisconsin and
+boulderaustin.com renovates houses.
+
+One case is worth recording because it is the closest a row has come to needing
+a rule that does not exist. detroitrockgym.com is Windsor Rock Gym, 1215 Walker
+Road, 2.7 km from a row called **WRG MoonBoard** whose country is CA and whose
+nearest-city label is Detroit at 2 km — which is precisely what a Windsor venue
+looks like in a dataset that labels by the biggest city nearby. The initialism
+expands, the geography works, and the only thing the signal vocabulary can
+actually match is the name. One is not two, so it stays open, and the record
+says why rather than saying nothing.
+
 ### Some of them are not places
 
 A registry row that records a city instead of a venue is common enough to be

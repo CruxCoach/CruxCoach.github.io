@@ -596,8 +596,9 @@
     "name": "WRG MoonBoard",
     "country": "CA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "candidate": "https://detroitrockgym.com/",
+    "reason": "No official site could be established, and this is the closest one of these has come to needing only a rule change. detroitrockgym.com serves Windsor Rock Gym, \"Windsor's only indoor rock climbing facility\", 1215 Walker Road — which the gazetteer puts at 42.31569,-83.00366, 2.7 km east of this coordinate. The row is WRG MoonBoard, its country is CA, and its nearest-city label is Detroit at 2 km, which is exactly what a Windsor venue looks like in a dataset that labels by the biggest city nearby. But the only signal that matches by the rules is the name, as an initialism, and one is not two.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 46.50714,
@@ -1713,8 +1714,9 @@
     "name": "David Ross Sports Village",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "david.com and davidross.com carry nothing about Nottingham; the David Ross Sports Village is a University of Nottingham facility and no page of the university's describing it was reached by any guess."
+    "candidate": "https://nottinghamclimbing.co.uk/",
+    "reason": "No official site could be established: nottinghamclimbing.co.uk is the Nottingham Climbing Centre. The David Ross Sports Village is the university's own building and a different wall.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 60.5296507,
@@ -1731,8 +1733,9 @@
     "name": "Inverurie Campus",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "inverurie.co.uk answers 403 and inverurie.com carries nothing about a climbing wall; the one chain sibling named Campus is a bouldering hall in Germany. Inverurie Campus is a school campus in Aberdeenshire and no page of its own was reached."
+    "candidate": "https://climbaberdeen.com/",
+    "reason": "No official site could be established: climbaberdeen.com is Climb Aberdeen, 25 km from the Inverurie Campus this row is named for.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 54.328006,
@@ -3467,8 +3470,9 @@
     "name": "ACG Mini Moon 3.0",
     "country": "NZ",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — acgmini.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "candidate": "https://aucklandclimb.co.nz/",
+    "reason": "No official site could be established: aucklandclimb.co.nz is Auckland Climbing Gym at 135 Newton Road, Eden Terrace, 1010, 1.5 km from this coordinate, and ACG would expand to it neatly. It would also expand to ACG Schools, which run several Auckland campuses and are the more common owner of that acronym in New Zealand, and the gym's site never mentions a MoonBoard. Two readings, one coordinate on the town point, no way to choose.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 23.6453963,
@@ -4313,16 +4317,6 @@
     "reason": "No official site. The only candidate that answered for Apex MoonBoard, Overland Park was apexboulders.nl, a bouldering gym in the Netherlands — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
   },
   {
-    "lat": 41.2523634,
-    "lon": -95.9979883,
-    "name": "Approach Climbing Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — approach.org → \"Libin Cardiovascular Institute | University of Calgary\"; approachclimbing.com → \"Climbing Gym Management Software | Approach\", the rest could not be opened — approach.com → a certificate that does not cover its hostname; approach.net → 403 / a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://libin.ucalgary.ca/research/approach"
-  },
-  {
     "lat": 35.1519751,
     "lon": -101.9421174,
     "name": "ARCH MoonBoard",
@@ -4357,9 +4351,9 @@
     "name": "Bend Endurance Academy",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "bendenduranceacademy.org resolves and is the academy's own domain, but it returns no readable text on any route — document, JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads are all empty — so nothing on it can be matched against this venue. The Boardworks Climbing hall 8 m away carries a verified link and its page prints 222 SE Reed Market Rd, Bend, but never mentions the academy, so the two cannot be treated as one venue.",
-    "candidate": "https://bendenduranceacademy.org/"
+    "candidate": "https://bendrockgym.com/",
+    "reason": "No official site could be established: bendrockgym.com is Bend Rock Gym, \"Central Oregon's premier indoor climbing facility\" — a different organisation from the Bend Endurance Academy this row is named for, which has its own domain and prints nothing useful on it.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 45.51164,
@@ -4546,9 +4540,9 @@
     "name": "Foundation Climbing",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — foundation.net → \"Foundation.net for sale\", the rest could not be opened — foundation.com → a certificate that does not cover its hostname; foundation.org → a timeout; foundationclimbing.com → 401, the venue's whole name as one label, foundationclimbing.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://foundation.net/"
+    "candidate": "https://richmondclimbing.com/",
+    "reason": "No official site could be established: richmondclimbing.com redirects into Triangle Rock Club's Richmond pages. This row is Foundation Climbing, which is not theirs.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 38.24316,
@@ -4810,15 +4804,6 @@
     "candidate": "https://www.prescott.com/"
   },
   {
-    "lat": 45.5230622,
-    "lon": -122.6764816,
-    "name": "PRG Moonboard",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
     "lat": 32.715738,
     "lon": -117.1610838,
     "name": "Pull Harder",
@@ -4843,9 +4828,9 @@
     "name": "R2C2 Gym",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — r2c2.org → \"R2C2\", the rest could not be opened — r2c2.com → no answer. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building either: 36.1699,-115.1398 is the standard point for the city of Las Vegas, so the registry recorded the city and not the wall.",
-    "candidate": "https://www.r2c2.org/"
+    "candidate": "https://lasvegasclimbing.com/",
+    "reason": "No official site could be established: lasvegasclimbing.com is a guide to Red Rock Canyon — \"your all-in-one resource to plan your climbing trip\" — not a gym.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 40.37632,
@@ -4950,9 +4935,9 @@
     "name": "SARG",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — sarg.com → \"Sarg.com for sale\", the rest could not be opened — sarg.net → 403; sarg.org → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://sarg.com/"
+    "candidate": "https://boulderaustin.com/",
+    "reason": "No official site could be established: boulderaustin.com is a home-building and renovation company in Austin.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 39.95263,
@@ -5107,8 +5092,9 @@
     "name": "The Pad Henderson",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — thepad.com → a timeout; thepad.net → no answer. Upstream records 7585 Commercial Way J, 89011, Henderson, and nothing opened printed it."
+    "candidate": "https://hendersonrocks.com/",
+    "reason": "No official site could be established: hendersonrocks.com is a family landscaping-materials business in Menomonie, Wisconsin, selling rock mulch and compost. The town in the name is a surname.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 40.91785,
