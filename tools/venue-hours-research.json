@@ -529,30 +529,30 @@
   "lon": 138.59481,
   "name": "Urban Climb Adelaide",
   "country": "AU",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://urbanclimb.com.au/locations/adelaide/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 30,717 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
+  "status": "ambiguous",
+  "checked": "2026-08-24",
+  "source": "https://urbanclimb.com.au/locations/adelaide",
+  "reason": "The gym's own page does publish times and the days they belong to do not survive the read: the block reads \"Opening Times ages 5+ 8am - 8pm Public Holidays ages 5+ 8am - 8pm 8am - 8pm\" — one window and no day beside it. Two of the operator's three pages carry two windows, so the days plainly differ and the labels are rendered somewhere the fetch cannot follow. This is a week that exists and cannot be read, not a week that is missing."
  },
  {
   "lat": -37.80267,
   "lon": 144.98764,
   "name": "Urban Climb Collingwood",
   "country": "AU",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://urbanclimb.com.au/locations/collingwood/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 30,977 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
+  "status": "ambiguous",
+  "checked": "2026-08-24",
+  "source": "https://urbanclimb.com.au/locations/collingwood",
+  "reason": "The gym's own page does publish times and the days they belong to do not survive the read: the block reads \"OPEN TIMES 8:00am - 8:00pm 6:00am - 10:00pm Public Holidays 8am - 8pm 8am - 8pm\" — two different windows and no day beside either. Two of the operator's three pages carry two windows, so the days plainly differ and the labels are rendered somewhere the fetch cannot follow. This is a week that exists and cannot be read, not a week that is missing."
  },
  {
   "lat": -27.45492,
   "lon": 153.04053,
   "name": "Urban Climb Newstead",
   "country": "AU",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://urbanclimb.com.au/locations/newstead/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 31,541 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
+  "status": "ambiguous",
+  "checked": "2026-08-24",
+  "source": "https://urbanclimb.com.au/locations/newstead",
+  "reason": "The gym's own page does publish times and the days they belong to do not survive the read: the block reads \"Open Times all ages 8:00am - 8:00pm 6:00am - 10:00pm Public Holidays 8am - 8pm 8am - 8pm\" — two different windows and no day beside either. Two of the operator's three pages carry two windows, so the days plainly differ and the labels are rendered somewhere the fetch cannot follow. This is a week that exists and cannot be read, not a week that is missing."
  },
  {
   "lat": -27.5146928,
@@ -745,16 +745,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 42.66773,
-  "lon": 23.36823,
-  "name": "Momentum Climbing Sofia",
-  "country": "BG",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-24",
-  "source": "https://sofia.momentumclimbing.com/",
-  "reason": "The hall's own subdomain was read on the two dozen paths a venue usually puts its week on and states no day with a time on any of them."
  },
  {
   "lat": 26.22361,
