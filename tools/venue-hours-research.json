@@ -3563,9 +3563,9 @@
   "name": "EustonWall Climbing Centre",
   "country": "GB",
   "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
   "source": "https://londonclimbingcentres.co.uk/centre/eustonwall/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 291,097 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
+  "reason": "The EustonWall page has a heading that says Opening times and a button that says View opening times, and neither is followed by one. The times are injected by portal.londonclimbingcentres.co.uk/js/embed.js, the operator's booking system; the page's own WordPress record — /wp-json/wp/v2/centre/ — contains the word \"opening\" three times and no day and no hour. The only week anywhere on the site is the off-peak table on /prices/, which gives each centre a single discounted window: HarroWall Friday 8pm-11pm.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 51.830777,
@@ -3583,9 +3583,9 @@
   "name": "HarroWall Climbing Centre",
   "country": "GB",
   "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
   "source": "https://londonclimbingcentres.co.uk/centre/harrowall/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 291,097 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
+  "reason": "The HarroWall page has a heading that says Opening times and a button that says View opening times, and neither is followed by one. The times are injected by portal.londonclimbingcentres.co.uk/js/embed.js, the operator's booking system; the page's own WordPress record — /wp-json/wp/v2/centre/ — contains the word \"opening\" three times and no day and no hour. The only week anywhere on the site is the off-peak table on /prices/, which gives each centre a single discounted window: HarroWall Friday 8pm-11pm.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 57.2822544,
