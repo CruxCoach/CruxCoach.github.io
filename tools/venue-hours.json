@@ -3371,6 +3371,31 @@
   "note": "Members additionally get in on Monday 12h–14h; the public week is what is recorded."
  },
  {
+  "lat": 43.6497875,
+  "lon": -79.3970569,
+  "name": "Basecamp Climbing",
+  "country": "CA",
+  "source": "https://basecampclimbing.ca/queen/contact/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "07:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "07:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "07:00-23:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Contact Us – Basecamp Climbing – Queen St West Hours of Operation Sunday 10am - 10pm Monday 7am - 11pm Tuesday 10am - 11pm Wednesday 7am - 11pm Thursday 10am - 11pm Friday 7am - 11pm Saturday 10am - 10pm ... Queen St West Location We're located in the basement unit of 186 Spadina Ave",
+  "note": "Basecamp runs two Toronto halls with weeks that are each other's mirror image: Queen West opens at 7 on Monday, Wednesday and Friday, Bloor Street on Tuesday and Thursday. This coordinate is 100 m from 186 Spadina Ave and 2.3 km from 677 Bloor St W, so it is the Queen West one — and reading the wrong page would have swapped every weekday."
+ },
+ {
   "lat": 48.42601,
   "lon": -71.06895,
   "name": "Beta Crux",
@@ -5189,6 +5214,31 @@
    "sun": "08:00-21:00"
   },
   "evidence": "Monday – Friday: 7:00 am - 10:00 pm | Saturdays: 7 am – 9 pm | Sunday: 8 am – 9 pm | Holiday hours may vary."
+ },
+ {
+  "lat": 49.6682875,
+  "lon": -124.9819345,
+  "name": "WIP Climbing",
+  "country": "CA",
+  "source": "https://wipclimbing.com/info-1",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "hours-scope",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "info — WIP CLIMBING Courtenay BC ... HOURS: Monday - Friday: 10am - 10pm Saturday/Sunday: 10am - 8pm ... Contact us: Courtenay: 250-871-7514 Located at #780 30th St, Courtenay, BC",
+  "note": "The page carries both halls' weeks and does not label which is which. The Nanaimo page settles it on its own: \"Nanaimo Hours: 10am - 10pm (mon-sat) 10am - 8pm (sun)\" is the second block, so the first — Monday to Friday — is Courtenay's, which is the hall this coordinate sits at."
  },
  {
   "lat": 49.1823,
@@ -9435,6 +9485,31 @@
   "evidence": "Montag 09:00 bis 23:00 | Dienstag 09:00 bis 23:00 | Mittwoch 09:00 bis 23:00 | Donnerstag 09:00 bis 23:00 | Freitag 09:00 bis 23:00 | Samstag 09:00 bis 23:00 | Sonn- und Feiertags 09:00 bis 22:00"
  },
  {
+  "lat": 49.4690662,
+  "lon": 7.1531582,
+  "name": "Moonboard 2016 Rocklands St Wendel",
+  "country": "DE",
+  "source": "https://www.rocklands-climbing.com/wnd/%C3%B6ffnungszeiten-preise-neu/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "14:00-22:00",
+   "tue": "14:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "14:00-22:00",
+   "fri": "14:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "STANDORTE St. Wendel Öffnungszeiten Montag, Dienstag, Donnerstag, Freitag 14:00 bis 22:00 Uhr Mittwoch 10:00 bis 22:00 Uhr Samstag & Sonntag 10:00 bis 21:00 Uhr Feiertage 10:00 bis 21:00 Uhr Wir sind an 363 Tagen im Jahr für Euch da.",
+  "note": "Rocklands runs St. Wendel and Saarlouis and gives each its own /st-wendel/ and /sls/ tree; this is the St. Wendel one. Wednesday opens four hours earlier than the other weekdays, which is the kind of detail a guessed path had missed."
+ },
+ {
   "lat": 50.13489,
   "lon": 8.45121,
   "name": "Moonboard Sportpark Kelkheim",
@@ -13599,6 +13674,31 @@
    "sun": "10:00-18:00"
   },
   "evidence": "Monday to Friday: 10:00 - 21:30 | Saturday to Sunday: 10:00 - 18:00"
+ },
+ {
+  "lat": 50.85264,
+  "lon": -0.16024,
+  "name": "High Sports Brighton",
+  "country": "GB",
+  "source": "https://www.high-sports.co.uk/opening-times",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "hours-scope",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Opening Times. Brighton Monday 10am - 10pm Tuesday 10am - 10pm Wednesday 10am - 10pm Thursday 10am - 10pm Friday 10am - 10pm Sat 9am - 6pm Sun 9am - 6pm High Sports Brighton Withdean Sports Complex Tongdean Lane Brighton BN1 5JD",
+  "note": "The operator now runs three walls — Brighton, Volume 1 in East Grinstead and Rockbox in Guildford — and the opening-times page heads each block with the town. This is the Brighton block, and its address follows it on the same page."
  },
  {
   "lat": 53.04573019999999,
@@ -18725,6 +18825,30 @@
   "evidence": "ÖPPETTIDER: | Mån–Tor: 11–21 | Fre: 11–19 | Lör–Sön: 09–19 | 83771 Duved"
  },
  {
+  "lat": 57.7200187,
+  "lon": 11.950726,
+  "name": "Backa Boulder",
+  "country": "SE",
+  "source": "https://www.backaboulder.se/oppettider",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Öppettider Öppet som vanligt hela sommaren - Måndag-Fredag 10:00-22:00 Lördag-Söndag 10:00-19:00 Herkulesgatan 1, 417 03 Göteborg",
+  "note": "The banner above the week says the summer changes nothing — \"öppet som vanligt hela sommaren\" — which settles the question this file usually has to ask about a week read in August."
+ },
+ {
   "lat": 59.2903756,
   "lon": 18.0162502,
   "name": "Karbins Moonboard",
@@ -22262,6 +22386,30 @@
   },
   "evidence": "Our Locations | The Bunker | (828) 505-4446 | 45 S French Broad Ave, Asheville, NC 28801 | Monday – Friday: 6am – 10pm | Saturday & Sunday: 8am – 8pm",
   "note": "The operator’s site lists its two Asheville gyms with an address and an hours block each."
+ },
+ {
+  "lat": 29.1536202,
+  "lon": -80.9971001,
+  "name": "Daytona Climbing Company",
+  "country": "US",
+  "source": "https://www.daytonaclimbingcompany.com/contact-1",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-21:00",
+   "tue": "12:00-21:00",
+   "wed": "12:00-21:00",
+   "thu": "12:00-21:00",
+   "fri": "12:00-21:00",
+   "sat": "12:00-21:00",
+   "sun": "12:00-21:00"
+  },
+  "evidence": "Daytona Climbing Company 3100 South Ridgewood Avenue, #154, South Daytona, FL, 32119, United States (386) 333-9003 Hours Mon 12pm - 9pm Tue 12pm - 9pm Wed 12pm - 9pm Thu 12pm - 9pm Fri 12pm - 9pm Sat 12pm - 9pm Sun 12pm - 9pm",
+  "note": "Seven identical days, written out one by one under the gym's address."
  },
  {
   "lat": 38.91199,

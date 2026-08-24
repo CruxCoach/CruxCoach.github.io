@@ -2264,11 +2264,10 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-24",
+    "result": "ambiguous",
     "channels": [
-     "venue-link",
-     "path-probe"
+     "venue-link"
     ]
    }
   },
@@ -3839,7 +3838,7 @@
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "no-hours-on-official-site",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -5720,7 +5719,7 @@
    ],
    "hours": {
     "pass": "2026-08-24",
-    "result": "no-hours-on-official-site",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -9493,8 +9492,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -14233,8 +14232,8 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -20957,22 +20956,18 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
+    "pass": "2026-08-24",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "previous-record",
+     "osm-website-tag"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-24",
+    "result": "no-official-site",
     "channels": [
-     "venue-link",
-     "path-probe"
+     "previous-record"
     ]
    }
   },
@@ -27027,8 +27022,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -31620,7 +31615,7 @@
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "no-hours-on-official-site",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"

@@ -7678,14 +7678,15 @@
     "lon": 7.1531582,
     "name": "Moonboard 2016 Rocklands St Wendel",
     "country": "DE",
-    "website": "https://www.rocklands-wnd.de/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
+    "website": "https://www.rocklands-climbing.com/wnd/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
     "signals": [
       "name",
-      "city"
+      "city",
+      "location-page"
     ],
-    "note": "Rocklands in Sankt Wendel: one named hall in one town, whose own site prints that town. The town is part of the venue's name, so on its own it would not be a second signal — what makes it one here is that OSM carries this exact domain on the climbing object at these coordinates, so the site and the building are tied together independently of the name."
+    "note": "Rocklands in Sankt Wendel: one named hall in one town, whose own site prints that town. The town is part of the venue's name, so on its own it would not be a second signal — what makes it one here is that OSM carries this exact domain on the climbing object at these coordinates, so the site and the building are tied together independently of the name. Repointed 2026-08-24: rocklands-wnd.de redirects to the operator’s root, which is not this hall. The operator gives each hall a tree — /wnd/ and /sls/ — and the sister row already points at /sls/."
   },
   {
     "lat": 50.13489,
@@ -13743,20 +13744,6 @@
       "street-address"
     ],
     "note": "Ameyalli's own site, printing both halves of the street line upstream records: 12 de Diciembre, and the number 3050."
-  },
-  {
-    "lat": 25.7773245,
-    "lon": -109.0155187,
-    "name": "ASCEND Climbing",
-    "country": "MX",
-    "website": "https://ascendclimbing.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "board-mention"
-    ],
-    "note": "The venue's whole name as one domain label, which the guesser had not tried. The site carries this venue's name and names the MoonBoard it is listed for; upstream records no street address, so those are the two signals available."
   },
   {
     "lat": 21.9082665,

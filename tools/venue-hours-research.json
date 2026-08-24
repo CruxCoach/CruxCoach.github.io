@@ -459,10 +459,10 @@
   "lon": 153.2033032,
   "name": "Wall Walkers Bouldering",
   "country": "AU",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://wallwalkersbouldering.com.au/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,053 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
+  "status": "ambiguous",
+  "source": "https://wallwalkers.com.au/contact",
+  "reason": "Six days are plain and the seventh is not a day: \"Opening Hours Mon-Wed, Fri 3pm - 8pm; Sat-Sun 9am - 7pm; Thursday 24/7 Access (Kids classes)\". Thursday has no public window at all — it is member access and children's classes — so it can be published neither as open nor as closed. The locations page prints the same week and simply omits Thursday.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 51.23389,
@@ -865,16 +865,6 @@
   "reason": "The visible page shows a booking calendar under the heading \"Regular Hours\" and no times. The only week the site states is in its LocalBusiness markup (all seven days 08:00-23:00), and markup on its own is not a source a schedule may be published from."
  },
  {
-  "lat": 43.6497875,
-  "lon": -79.3970569,
-  "name": "Basecamp Climbing",
-  "country": "CA",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-24",
-  "source": "https://basecampclimbing.ca/",
-  "reason": "The gym publishes two halls and no week for either; the site was read on the two dozen paths a venue usually puts its week on and states no day with a time."
- },
- {
   "lat": 45.47917,
   "lon": -73.78284,
   "name": "Beta Bloc",
@@ -1262,16 +1252,6 @@
   "checked": "2026-08-23",
   "reason": "Re-read 2026-08-23: unchanged. The venue presents itself as a climbing bar for private hire (\"UN BAR D'ESCALADE CONVIVIAL ET PRIVATISABLE\"); the only times published are the privatisation window, du mardi au samedi de 17h à 3h.",
   "source": "https://verticalbloc.ca/"
- },
- {
-  "lat": 49.6682875,
-  "lon": -124.9819345,
-  "name": "WIP Climbing",
-  "country": "CA",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-24",
-  "source": "https://wipclimbing.com/",
-  "reason": "Re-read 2026-08-24, and the page has changed under the record: the two visible \"Regular Hours\" blocks — one for each hall — are gone, and neither the document nor any of the platform routes carries them now. What is left is the Squarespace business-hours setting, seven identical days of 10am - 10pm, which is not what either hall kept: the Courtenay block used to close at 8pm on Sunday. A week that exists only in a settings screen is not published, so the record moves from ambiguous to this."
  },
  {
   "lat": 42.3149367,
@@ -2319,16 +2299,6 @@
   "checked": "2026-08-23",
   "source": "https://boulderhalle-dresden.de/preise-oeffnungszeiten/preise-oeffnungszeiten.html",
   "reason": "Same as the operator's other Dresden hall: the Postplatz location page prints no schedule, and the single Preise & Öffnungszeiten page never says which of the two halls it covers."
- },
- {
-  "lat": 49.4690662,
-  "lon": 7.1531582,
-  "name": "Moonboard 2016 Rocklands St Wendel",
-  "country": "DE",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.rocklands-wnd.de/",
-  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 1,959 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
   "lat": 47.8677574,
@@ -3726,16 +3696,6 @@
   "checked": "2026-08-23",
   "source": "https://londonclimbingcentres.co.uk/centre/harrowall/",
   "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 291,097 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
- },
- {
-  "lat": 50.85264,
-  "lon": -0.16024,
-  "name": "High Sports Brighton",
-  "country": "GB",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.high-sports.co.uk/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,879 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 57.2822544,
@@ -5513,10 +5473,9 @@
   "lon": -109.0155187,
   "name": "ASCEND Climbing",
   "country": "MX",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://ascendclimbing.com/",
-  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
+  "status": "no-official-site",
+  "reason": "The site this record was read from is ASCEND Climbing of Pittsburgh, not the Los Mochis venue, and the link has been withdrawn. There is no official site for this venue to read hours from.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 21.1305471,
@@ -7094,16 +7053,6 @@
   "reason": "Six of the seven days are chain-wide — \"Saturday to Thursday All Branches 7:00 AM - 11:00 PM\" — but Friday is stated per branch, and which branch this venue is cannot be settled. The operator lists Friday hours for Jeddah Nahda, Riyadh Al-Mathar and Riyadh Boulevard, and gives its Jeddah address as 6502 Ibn Al Tajj Street, Al Nahdah, 23615, where upstream records 5500 Abdulrahman Al Dakhil, 23611 — a different street and a different postal code in the same city."
  },
  {
-  "lat": 57.7200187,
-  "lon": 11.950726,
-  "name": "Backa Boulder",
-  "country": "SE",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://backaboulder.se/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 4,710 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
- },
- {
   "lat": 59.37023,
   "lon": 18.00481,
   "name": "BLX Bouldering Club",
@@ -8146,16 +8095,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 29.1536202,
-  "lon": -80.9971001,
-  "name": "Daytona Climbing Company",
-  "country": "US",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-24",
-  "source": "https://www.daytonaclimbingcompany.com/",
-  "reason": "The site was read on the two dozen paths a venue usually puts its week on and states no day with a time on any of them."
  },
  {
   "lat": 39.72138,
