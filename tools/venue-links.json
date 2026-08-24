@@ -16116,6 +16116,21 @@
     "note": "Vertical Spirit's own site, printing Baicului 80 in Bucharest — the street line upstream records."
   },
   {
+    "lat": 56.8215975,
+    "lon": 60.62376870000001,
+    "name": "Krai sveta",
+    "country": "RU",
+    "website": "https://kraisveta.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The record here dismissed kraisveta.com as somebody else's on the strength of its title, «Край Света». It is the venue: \"СКАЛОЛАЗНЫЙ ЦЕНТР ДЛЯ ВЗРОСЛЫХ И ДЕТЕЙ\", with the contact line \"Екатеринбург, ул. Тверитина, 45\". Upstream gives no street, but the coordinate does — it reverse-geocodes to улица Тверитина 45, 620026, Екатеринбург. Street and house number, from two sides."
+  },
+  {
     "lat": 59.9310584,
     "lon": 30.3609097,
     "name": "Severnaya Stena (Petrogradskaya)",
@@ -16303,6 +16318,22 @@
       "board-mention"
     ],
     "note": "Västerås Klätterklubb's own site, giving Västerås and naming the MoonBoard this venue is listed for. Svenska Klätterförbundet publishes its member clubs at klatterforbundet.se/klubbar with each club's own site beside its name; that directory is how this was found, and the federation naming the club and the site together is what makes the town an independent confirmation rather than a repetition of the venue's name."
+  },
+  {
+    "lat": 59.2903756,
+    "lon": 18.0162502,
+    "name": "Karbins Moonboard",
+    "country": "SE",
+    "website": "https://karbin.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "brand",
+      "city",
+      "coordinates"
+    ],
+    "note": "This was recorded as somebody else's because karbin.com is titled \"Karbin Klätterhall — Klättring inomhus i Stockholm\", which is the same brand as this row, not a different one. The live host answers 403 on every path; a snapshot gives \"KARBIN KLÄTTERHALL AB, Västberga allé 60, 126 30 Hägersten\", and OSM puts that address 116 m from this coordinate, which itself reverse-geocodes to Västberga, Hägersten-Älvsjö."
   },
   {
     "lat": 56.0597542,

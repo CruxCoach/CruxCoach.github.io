@@ -7289,15 +7289,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 56.8215975,
-  "lon": 60.62376870000001,
-  "name": "Krai sveta",
-  "country": "RU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 56.2965039,
   "lon": 43.93605900000001,
   "name": "LAD Moonboard",
@@ -7575,9 +7566,10 @@
   "lon": 18.0162502,
   "name": "Karbins Moonboard",
   "country": "SE",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://karbin.com/",
+  "reason": "The hall has a site and it answers 403 to this audit on every path, so its week cannot be read live; the snapshot that settled the address may not supply one.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 55.5870295,

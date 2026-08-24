@@ -17719,6 +17719,32 @@
   "note": "The operator runs two halls on one page and this block is headed Bucuresti; the Brasov block above it gives a different week (Luni-Vineri 16.00-22.00). The separate \"Program zona joaca copii\" is the children's play area inside these hours."
  },
  {
+  "lat": 56.8215975,
+  "lon": 60.62376870000001,
+  "name": "Krai sveta",
+  "country": "RU",
+  "source": "https://kraisveta.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "08:15-22:30",
+   "tue": "08:15-22:30",
+   "wed": "08:15-22:30",
+   "thu": "08:15-22:30",
+   "fri": "08:15-22:30",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Наши контакты Екатеринбург, ул. Тверитина, 45 · Время работы: Будни: 08:15 — 22:30 Выходные: 09:00 — 22:00",
+  "note": "Weekdays against weekends, printed in the contacts block directly beneath the address, which is what ties it to this hall. One centre, one week."
+ },
+ {
   "lat": 63.39079,
   "lon": 12.9147,
   "name": "Åre Klätterhall",

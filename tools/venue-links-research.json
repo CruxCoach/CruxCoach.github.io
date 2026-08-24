@@ -3243,8 +3243,9 @@
     "name": "Falkors",
     "country": "LV",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — falkors.lv → a timeout / no answer, the venue's whole name as one label, falkors.lv, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "falkorswalls.com is a wall builder — \"Climbing Gym Construction & Design | Falkors Walls\" — and serves a 13 kB page with no address, no Latvian text and no links but its own. falkors.lv does not resolve. The lookup matched on Riga.",
+    "candidate": "https://falkorswalls.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 56.98629339999999,
@@ -4151,16 +4152,6 @@
     "candidate": "https://iskraclimb.ru/"
   },
   {
-    "lat": 56.8215975,
-    "lon": 60.62376870000001,
-    "name": "Krai sveta",
-    "country": "RU",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — kraisveta.com → \"Край Света\", the rest could not be opened — kraisveta.ru → no answer; krai.ru → a timeout / a certificate that does not cover its hostname; krai.com → a certificate that does not cover its hostname, the venue's whole name as one label, kraisveta.ru, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://kraisveta.com/"
-  },
-  {
     "lat": 56.2965039,
     "lon": 43.93605900000001,
     "name": "LAD Moonboard",
@@ -4251,9 +4242,9 @@
     "name": "Tramontana",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — tramontana.ru → \"Tramontana.ru — магазин туристического снаряжения\", the venue's whole name as one label, tramontana.ru, answers 200 (\"Tramontana.ru — магазин туристического снаряжения\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://tramontana.ru/"
+    "reason": "tramontana.ru is a shop — \"магазин туристического снаряжения\" — and matched only on Saint Petersburg, which for a city of five million is not a signal.",
+    "candidate": "https://tramontana.ru/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 68.9585244,
@@ -4325,16 +4316,6 @@
     "candidate": "https://idrottshuset.se/"
   },
   {
-    "lat": 59.2903756,
-    "lon": 18.0162502,
-    "name": "Karbins Moonboard",
-    "country": "SE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — karbin.com → \"Karbin Klätterhall - Klättring inomhus i Stockholm på kl\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://karbin.com/"
-  },
-  {
     "lat": 57.6409058,
     "lon": 11.9426884,
     "name": "Klattercentret Sisjon",
@@ -4380,9 +4361,9 @@
     "name": "fit • bloc Telok Ayer",
     "country": "SG",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.climba.sg → \"Safest Bouldering Gym in Singapore’s CBD | Climba\"; www.boulderm.com → \"Boulder Movement\"; fitbloc.com → \"Home - fit · bloc\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.climba.sg/"
+    "reason": "climba.sg is Climba, a bouldering gym at 61 Robinson Rd #05-03/04, which names Telok Ayer only as one of the three MRT exits nearby. It never mentions fit • bloc, and the two are 400 m apart. The lookup matched on Tanjong Pagar and Singapore, neither of which distinguishes one CBD gym from another.",
+    "candidate": "https://www.climba.sg/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 48.1485965,
