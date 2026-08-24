@@ -18755,6 +18755,58 @@
   "evidence": "Pazartesi 10:00 – 22:00 | Salı | 10:00 – 22:00 | Çarşamba | 10:00 – 22:00 | Perşembe | 10:00 – 22:00 | Cuma | 10:00 – 22:00 | Cumartesi | 10:00 – 20:00 | Pazar | 10:00 – 20:00 | A: Levent, Büyükdere Cd. No:171, Metrocity AVM -1. Kat No. 127, 34330 Şişli/İstanbul"
  },
  {
+  "lat": 25.0342758,
+  "lon": 121.4969244,
+  "name": "T-UP Climbing Gym (Wanhua)",
+  "country": "TW",
+  "source": "https://tupclimbing.tw/branch/wanhua",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "02-2308-8250 10855 台北市萬華區大理街149號 … 【一～五】10:00-23:00 【六、日】9:00-21:00",
+  "note": "Each branch's week sits directly under its own telephone number and address, which is what keeps Wanhua's apart from the five others on the page. The parenthesis defers to notices for public holidays and special events."
+ },
+ {
+  "lat": 25.03443,
+  "lon": 121.49697,
+  "name": "原岩攀岩館-萬華店 T-UP Climbing Gym Wanhua",
+  "country": "TW",
+  "source": "https://tupclimbing.tw/branch/wanhua",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "02-2308-8250 10855 台北市萬華區大理街149號 … 【一～五】10:00-23:00 【六、日】9:00-21:00",
+  "note": "Each branch's week sits directly under its own telephone number and address, which is what keeps Wanhua's apart from the five others on the page. The parenthesis defers to notices for public holidays and special events."
+ },
+ {
   "lat": 39.9658623,
   "lon": -105.1168505,
   "name": "2019 Masters",
@@ -25161,6 +25213,84 @@
   },
   "evidence": "Location & Hours Climb with Us. Grow with Us. Join Today Mon - Fri 11 AM - 10 PM Sat & Sun 9 AM - 7 PM 1044 University Ave Rochester, NY 14607",
   "note": "Stated under the Location & Hours heading, directly above the gym's address."
+ },
+ {
+  "lat": 39.13635,
+  "lon": -94.5724,
+  "name": "RoKC North",
+  "country": "US",
+  "source": "https://www.climbkc.com/nkc",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-22:00",
+   "sun": "08:00-18:00"
+  },
+  "evidence": "North KC 1501 Howell Street North Kansas City, MO 64116 (816)THE-ROKC info@climbkc.com Mon-Fri: 6am-10pm Sat: 8am-10pm Sun: 8am-6pm",
+  "note": "Each hall's week is printed under its own address, and the three differ — Olathe opens an hour earlier on weekdays and the Underground not until nine. The named holidays beneath them are a closure list."
+ },
+ {
+  "lat": 38.89005,
+  "lon": -94.79605,
+  "name": "RoKC Olathe",
+  "country": "US",
+  "source": "https://www.climbkc.com/olathe",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "05:00-22:00",
+   "tue": "05:00-22:00",
+   "wed": "05:00-22:00",
+   "thu": "05:00-22:00",
+   "fri": "05:00-22:00",
+   "sat": "07:00-22:00",
+   "sun": "08:00-18:00"
+  },
+  "evidence": "Olathe 654 N Central St. Olathe, KS 66061 (913)318-3600 olathe@climbkc.com Mon-Fri: 5am-10pm Sat: 7am-10pm Sun: 8am-6pm",
+  "note": "Under the Olathe address, and an hour earlier on weekdays than the North KC hall on the same page."
+ },
+ {
+  "lat": 39.06982,
+  "lon": -94.60143,
+  "name": "RoKC Underground",
+  "country": "US",
+  "source": "https://www.climbkc.com/underground",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Underground 3150 Mercier St. Suite 641A Kansas City, MO 64111 (816)621-2020 underground@climbkc.com Mon-Sat: 9am-10pm Sun: 10am-6pm",
+  "note": "The only one of the three that groups Saturday with the weekdays, which is what makes the grouping worth reading rather than assuming."
  },
  {
   "lat": 47.63079,

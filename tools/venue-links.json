@@ -17237,6 +17237,54 @@
     "note": "Boulderhane's own site, printing the 34330 postal code upstream records for Büyükdere Cd. in Levent."
   },
   {
+    "lat": 25.0342758,
+    "lon": 121.4969244,
+    "name": "T-UP Climbing Gym (Wanhua)",
+    "country": "TW",
+    "website": "https://tupclimbing.tw/branch/wanhua",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gazetteer has the gym two metres from this coordinate tagged tupclimbing.tw. The operator gives each branch a path, and the Wanhua one prints \"10855 台北市萬華區大理街149號\" — upstream's address for this row, 大理街149號 in Wanhua."
+  },
+  {
+    "lat": 25.03443,
+    "lon": 121.49697,
+    "name": "原岩攀岩館-萬華店 T-UP Climbing Gym Wanhua",
+    "country": "TW",
+    "website": "https://tupclimbing.tw/branch/wanhua",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gazetteer has the gym two metres from this coordinate tagged tupclimbing.tw. The operator gives each branch a path, and the Wanhua one prints \"10855 台北市萬華區大理街149號\" — upstream's address for this row, 大理街149號 in Wanhua."
+  },
+  {
+    "lat": 25.00201,
+    "lon": 121.20233,
+    "name": "原岩攀岩館─A19店 T-UP Climbing Gym A19 Branch",
+    "country": "TW",
+    "website": "https://tupclimbing.tw/branch/a19",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator's page for this branch, printing \"320014 桃園市中壢區高鐵南路二段352號（Global Mall環球購物中心4樓）\" — upstream's address including the floor — and listing a Kilter board among its facilities."
+  },
+  {
     "lat": 49.839683,
     "lon": 24.029717,
     "name": "Rock Station",
@@ -22293,6 +22341,54 @@
       "board-mention"
     ],
     "note": "The candidate's own pages carry a map of itself 98 m away, the tension board this venue is listed for, under the venue's name."
+  },
+  {
+    "lat": 39.13635,
+    "lon": -94.5724,
+    "name": "RoKC North",
+    "country": "US",
+    "website": "https://www.climbkc.com/nkc",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator lists its three halls with an address and a week each. The gazetteer has this one 38 m from the coordinate tagged climbkc.com/nkc, and the page gives \"North KC, 1501 Howell Street, North Kansas City, MO 64116\"."
+  },
+  {
+    "lat": 38.89005,
+    "lon": -94.79605,
+    "name": "RoKC Olathe",
+    "country": "US",
+    "website": "https://www.climbkc.com/olathe",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator lists its three halls with an address and a week each. The Olathe block gives \"654 N Central St. Olathe, KS 66061\", which is upstream's address for this row exactly."
+  },
+  {
+    "lat": 39.06982,
+    "lon": -94.60143,
+    "name": "RoKC Underground",
+    "country": "US",
+    "website": "https://www.climbkc.com/underground",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator lists its three halls with an address and a week each. The Underground block gives \"3150 Mercier St. Suite 641A, Kansas City, MO 64111\", and this coordinate is in Kansas City between the other two halls."
   },
   {
     "lat": 47.63079,
