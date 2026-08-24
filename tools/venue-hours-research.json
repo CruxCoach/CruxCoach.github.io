@@ -8746,9 +8746,10 @@
   "lon": -122.21474,
   "name": "Hyperion Climbing",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://touchstoneclimbing.com/hyperion/",
+  "reason": "Touchstone answers 403 to every fetcher and header set, so the week cannot be read live, and the snapshot that settled the address is not a source for one. The same answer as the operator's seven other halls in this dataset."
  },
  {
   "lat": 39.0169509,
