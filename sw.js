@@ -26,7 +26,7 @@
 
 'use strict';
 
-var VERSION = 'cc-v36';
+var VERSION = 'cc-v37';
 var CACHE = 'cruxcoach-' + VERSION;
 var MIRRORS_KEY = '/__mirrors__';
 
@@ -57,6 +57,11 @@ var CORE = [
   '/boards/index.html',
   '/boards/list.html',
   '/boards/map.js',
+  // The report dialog and its DOM-free core. Precached with the map so a
+  // returning visitor gets the same version of both; the dialog itself refuses
+  // to send while offline rather than queueing a report on the device.
+  '/boards/report.js',
+  '/boards/report-core.mjs',
   '/boards/manifest.webmanifest',
   '/de/boards/',
   '/de/boards/index.html',

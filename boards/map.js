@@ -54,7 +54,10 @@
       notOnWellpass: 'Not on egym Wellpass',
       openOsm: 'Open in OpenStreetMap →',
       directions: 'Plan route →',
-      suggestCorrection: 'Suggest a correction',
+      suggestCorrection: 'Open an issue',
+      reportCorrection: 'Report a correction',
+      reportCorrectionAria: 'Report a correction for {venue}',
+      venueIdLabel: 'Venue ID:',
       accessHdr: 'Access',
       accessNote: 'Venue-level access, manually verified where available.',
       accessPublic: 'Public',
@@ -144,7 +147,10 @@
       notOnWellpass: 'Nicht bei egym Wellpass',
       openOsm: 'In OpenStreetMap öffnen →',
       directions: 'Route planen →',
-      suggestCorrection: 'Korrektur vorschlagen',
+      suggestCorrection: 'Issue eröffnen',
+      reportCorrection: 'Korrektur melden',
+      reportCorrectionAria: 'Korrektur für {venue} melden',
+      venueIdLabel: 'Venue-ID:',
       accessHdr: 'Zugang',
       accessNote: 'Zugang zum Standort, soweit verfügbar manuell geprüft.',
       accessPublic: 'Öffentlich',
@@ -525,6 +531,27 @@
       escapeHtml(ACCESS_LABEL[props.access]) + '</div>';
   }
 
+  // The in-page report button. Rendered only when the venue carries a stable
+  // id — without one there is nothing a report could be filed against, and a
+  // button that produces an unattributable report is worse than none. The
+  // handler is attached on popupopen, because Leaflet builds this HTML into the
+  // DOM after the fact.
+  function reportButtonHtml(props) {
+    if (typeof props.venue_id !== 'string') return '';
+    return ' · <button type="button" class="popup-report" data-venue-report="' +
+      escapeHtml(props.venue_id) + '" aria-label="' +
+      escapeHtml(tf(T.reportCorrectionAria, { venue: props.name || T.unnamed })) + '">' +
+      escapeHtml(T.reportCorrection) + '</button>';
+  }
+
+  // The venue id, shown because it is the handle a person needs when reporting
+  // that two entries are the same gym.
+  function venueIdHtml(props) {
+    if (typeof props.venue_id !== 'string') return '';
+    return '<br><span class="popup-venue-id"><span class="label">' + T.venueIdLabel + '</span> ' +
+      escapeHtml(props.venue_id) + '</span>';
+  }
+
   function buildPopupHtml(lat, lon, props) {
     var subtitleParts = [];
     var nearest = (LANG === 'de' && props.city_nearest_de) ? props.city_nearest_de : props.city_nearest;
@@ -569,8 +596,10 @@
           '<a href="' + escapeHtml(directionsUrl) + '" target="_blank" rel="noopener" referrerpolicy="no-referrer">' + T.directions + '</a>' +
           ' · <a href="https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lon +
             '#map=17/' + lat + '/' + lon + '" target="_blank" rel="noopener" referrerpolicy="no-referrer">' + T.openOsm + '</a>' +
+          reportButtonHtml(props) +
           '<br><a href="' + escapeHtml(correctionUrl) + '" target="_blank" rel="noopener" referrerpolicy="no-referrer">' + T.suggestCorrection + '</a>' +
           ' · ' + lat.toFixed(5) + ', ' + lon.toFixed(5) +
+          venueIdHtml(props) +
         '</div>' +
       '</div>'
     );
@@ -622,6 +651,24 @@
     content.setAttribute('aria-modal', 'false');
     content.tabIndex = -1;
     try { content.focus({ preventScroll: true }); } catch (e) { content.focus(); }
+
+    // The report module is an ES module and therefore deferred; this classic
+    // script has already run by the time it loads. Look it up now, so a module
+    // that never arrived leaves an inert button rather than a thrown error —
+    // and remove the button in that case, because a control that does nothing
+    // is a bug a visitor cannot diagnose.
+    var reportButton = content.querySelector('[data-venue-report]');
+    if (!reportButton) return;
+    var api = window.CruxCoachVenueReport;
+    if (!api || typeof api.open !== 'function') {
+      reportButton.remove();
+      return;
+    }
+    var record = recordsByVenueId[reportButton.getAttribute('data-venue-report')];
+    if (!record) { reportButton.remove(); return; }
+    reportButton.addEventListener('click', function () {
+      api.open(record.props, record.lat, record.lon, reportButton);
+    });
   });
   map.on('popupclose', function () {
     if (popupReturnFocus && document.contains(popupReturnFocus)) {
@@ -716,7 +763,7 @@
         .setContent(buildPopupHtml(rec.lat, rec.lon, {
           name: rec.name, city: rec.city, country: rec.country,
           wellpass: rec.wellpass, boards: rec.boards,
-          website: rec.website,
+          website: rec.website, venue_id: rec.venueId,
         }))
         .openOn(map);
     }
@@ -969,6 +1016,11 @@
   }
 
   var venueRecords = [];
+  // Venue id → the raw feature the report dialog needs. Kept separately from
+  // venueRecords because that array carries the search index and the filter
+  // state, none of which a report cares about — and because a popup opened from
+  // the search list rebuilds its content from a record rather than the feature.
+  var recordsByVenueId = Object.create(null);
   // Active sets — full set = "no constraint", same UX as the app's chips.
   var activeBoards = new Set(BOARDS.map(function (b) { return b.id; }));
   var activeLayouts = new Set(KILTER_LAYOUTS.map(function (l) { return l.key; }));
@@ -1841,6 +1893,9 @@
 
         var marker = buildMarker(lat, lon, props);
         cluster.addLayer(marker);
+        if (typeof props.venue_id === 'string') {
+          recordsByVenueId[props.venue_id] = { props: props, lat: lat, lon: lon };
+        }
         // Precompute the normalized search fields once per venue so each
         // keystroke is a handful of indexOf() calls, not a re-normalize.
         var venueName = props.name || T.unnamed;
@@ -1862,6 +1917,7 @@
           wellpass: wellpass,
           website: props.website || null,
           access: access,
+          venueId: typeof props.venue_id === 'string' ? props.venue_id : null,
           nName: normalizeText(venueName),
           nCity: props.city ? normalizeText(props.city) : '',
           nCountry: cName ? normalizeText(cName) : '',

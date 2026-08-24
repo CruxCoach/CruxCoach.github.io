@@ -1,0 +1,72 @@
+{
+  "contract": "cruxcoach.venue-report",
+  "version": 1,
+  "description": "Wire contract for a public venue/board correction report. Committed byte-identically in cruxcoach-dashboard (packages/shared/contracts/) and cruxcoach-pages (tools/); a test in each repo pins its SHA-256 so the two cannot drift.",
+  "transport": {
+    "method": "POST",
+    "path": "/v1/reports",
+    "contentType": "application/json",
+    "maxBodyBytes": 8192,
+    "ticketPath": "/v1/reports/ticket",
+    "idempotencyHeader": "Idempotency-Key"
+  },
+  "identifiers": {
+    "venueIdPattern": "^v1_[0-9a-f]{12}$",
+    "boardInstanceIdPattern": "^b1_[0-9a-f]{12}$",
+    "submissionIdPattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  },
+  "categories": [
+    "website",
+    "hours",
+    "access",
+    "coordinates",
+    "board_added",
+    "board_removed",
+    "board_details",
+    "closed",
+    "duplicate",
+    "other"
+  ],
+  "accessValues": ["public", "restricted", "private", "closed", "unknown"],
+  "boards": [
+    "kilter",
+    "tension",
+    "grasshopper",
+    "decoy",
+    "soill",
+    "touchstone",
+    "aurora",
+    "moonboard",
+    "12climb"
+  ],
+  "locales": ["en", "de"],
+  "limits": {
+    "detailMinChars": 10,
+    "detailMaxChars": 1000,
+    "venueNameMaxChars": 120,
+    "boardLabelMaxChars": 120,
+    "hoursMaxChars": 200,
+    "urlMaxChars": 300,
+    "npubMaxChars": 70,
+    "coordinateDecimals": 6
+  },
+  "categoriesRequiringProposal": ["website", "hours", "access", "coordinates", "board_added", "board_removed", "duplicate"],
+  "proposalFieldsByCategory": {
+    "website": ["website"],
+    "hours": ["hours"],
+    "access": ["access"],
+    "coordinates": ["lat", "lon"],
+    "board_added": ["board"],
+    "board_removed": ["board"],
+    "board_details": [],
+    "closed": [],
+    "duplicate": ["duplicateOfVenueId"],
+    "other": []
+  },
+  "notes": [
+    "Absence of an access value means unknown. A report may never be read as evidence that a venue is public.",
+    "evidenceUrl is attacker-controlled. It is stored and shown to operators as inert text and is never fetched, previewed or auto-applied.",
+    "reporter.npub is optional. Anonymous reports are first-class and must not be degraded to make the signed path attractive.",
+    "No field of a report is ever published as a public Nostr event, written to a URL, sent to analytics, or persisted in the reporter's browser."
+  ]
+}

@@ -19,8 +19,38 @@ test('both map languages expose the same installable and recoverable UI', () => 
     assert.match(html, /codeberg\.org\/CruxCoach\/cruxcoach-pages\/issues\/new/);
     assert.match(html, /max-height: var\(--map-panel-max-height/);
     assert.doesNotMatch(html, /\.legend \{ max-height: calc\(100vh/);
-    assert.match(html, /\/boards\/map\.js\?v=20260823-1/);
+    assert.match(html, /\/boards\/map\.js\?v=20260824-1/);
+    // The report dialog ships as a module alongside the map, and both carry the
+    // same cache-buster: a mixed pair is a map whose button opens last week's
+    // form.
+    assert.match(html, /<script type="module" src="\/boards\/report\.js\?v=20260824-1"><\/script>/);
+    assert.match(html, /\.vr-dialog \{/);
   }
+});
+
+test('the report dialog is reachable, localized and keyboard-usable in both languages', () => {
+  // The styles live in the page, so the page is where their absence would show
+  // up as an unreadable dialog rather than a failed import.
+  for (const html of [en, de]) {
+    assert.match(html, /\.vr-dialog::backdrop/);
+    assert.match(html, /\.vr-submit:focus-visible/);
+    // 16px inputs stop iOS Safari zooming the page on focus, which on a map is
+    // disorienting enough to lose people mid-report.
+    assert.match(html, /font-size: 16px;/);
+    assert.match(html, /min-height: 44px;/);
+    assert.match(html, /prefers-reduced-motion: reduce/);
+  }
+  // The popup offers the button, and the venue id it needs is visible so a
+  // person can report that two entries are the same gym.
+  assert.match(map, /popup-report/);
+  assert.match(map, /venueIdHtml/);
+  assert.match(map, /reportCorrectionAria/);
+});
+
+test('the venue report path sends nothing to the analytics collector', () => {
+  const report = readFileSync(new URL('../boards/report.js', import.meta.url), 'utf8');
+  assert.doesNotMatch(report, /stats\.cruxcoach\.org/);
+  assert.doesNotMatch(report, /sendBeacon/);
 });
 
 test('map supports empty filters, keyboard popups and independent access status', () => {

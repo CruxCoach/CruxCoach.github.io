@@ -44,6 +44,10 @@ class Node {
     // The form finds its controls by id, and `type` decides how a value reads.
     if (name === 'id') this.id = String(value);
     if (name === 'type') this.type = String(value);
+    // `.className` is what querySelector matches on, and code that builds
+    // elements sets the attribute rather than the property.
+    if (name === 'class') this.className = String(value);
+    if (name === 'hidden') this._hidden = true;
     if (name === 'value' && this.value === '') this.value = String(value);
     if (name === 'checked') this.checked = true;
     if (name === 'selected') this.selected = true;
@@ -55,6 +59,76 @@ class Node {
 
   removeAttribute(name) {
     this.attributes.delete(name);
+  }
+
+  /** `hidden`, `disabled` and `required` are properties the form sets directly. */
+  get hidden() {
+    return this._hidden === true;
+  }
+
+  set hidden(value) {
+    this._hidden = Boolean(value);
+    if (this._hidden) this.attributes.set('hidden', 'hidden');
+    else this.attributes.delete('hidden');
+  }
+
+  /** A dialog opens and closes; nothing here paints, so both are bookkeeping. */
+  showModal() {
+    this.open = true;
+    this.dispatch('open');
+  }
+
+  close() {
+    this.open = false;
+    this.dispatch('close');
+  }
+
+  focus() {
+    if (this.ownerShim) this.ownerShim.activeElement = this;
+  }
+
+  /** A <select> reports its chosen <option>, which the form reads back. */
+  get selectedOptions() {
+    if (this.tagName !== 'SELECT') return [];
+    const match = this.options.find((option) => {
+      const value = option.getAttribute('value') ?? option.textContent;
+      return value === this.value;
+    });
+    return match ? [match] : [];
+  }
+
+  get dataset() {
+    if (!this._dataset) {
+      const node = this;
+      this._dataset = new Proxy({}, {
+        get(_target, key) {
+          return node.getAttribute(`data-${String(key).replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`)}`) ?? undefined;
+        },
+        set(_target, key, value) {
+          node.setAttribute(`data-${String(key).replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`)}`, value);
+          return true;
+        },
+      });
+    }
+    return this._dataset;
+  }
+
+  /** Forms are reset wholesale before every open. */
+  reset() {
+    for (const node of this.querySelectorAll('INPUT')) node.value = '';
+    for (const node of this.querySelectorAll('TEXTAREA')) node.value = '';
+    for (const node of this.querySelectorAll('SELECT')) {
+      const first = node.options[0];
+      node.value = first ? (first.getAttribute('value') ?? first.textContent) : '';
+    }
+  }
+
+  contains(node) {
+    if (node === this) return true;
+    for (const child of this.children) {
+      if (child.contains(node)) return true;
+    }
+    return false;
   }
 
   addEventListener(name, handler) {
@@ -116,6 +190,14 @@ class Node {
     const matches = (node) => {
       if (selector.startsWith('#')) return node.id === selector.slice(1);
       if (selector.startsWith('.')) return String(node.className).split(/\s+/).includes(selector.slice(1));
+      if (selector.startsWith('[')) {
+        const body = selector.slice(1, -1);
+        const eq = body.indexOf('=');
+        if (eq === -1) return node.attributes.has(body);
+        const name = body.slice(0, eq);
+        const want = body.slice(eq + 1).replace(/^["']|["']$/g, '');
+        return node.getAttribute(name) === want;
+      }
       return node.tagName === selector.toUpperCase();
     };
     const walk = (node) => {
@@ -150,17 +232,26 @@ class TextNode extends Node {
 
 function makeDocument() {
   const root = new Node('body');
-  return {
+  const doc = {
     body: root,
     documentElement: new Node('html'),
-    createElement: (tag) => new Node(tag),
+    activeElement: null,
+    createElement: (tag) => {
+      const node = new Node(tag);
+      node.ownerShim = doc;
+      return node;
+    },
     createTextNode: (text) => new TextNode(text),
     createDocumentFragment: () => new Node('#fragment'),
     getElementById: (id) => root.querySelector(`#${id}`),
     querySelector: (selector) => root.querySelector(selector),
     querySelectorAll: (selector) => root.querySelectorAll(selector),
+    contains: (node) => root.contains(node),
     addEventListener() {},
   };
+  root.ownerShim = doc;
+  doc.documentElement.ownerShim = doc;
+  return doc;
 }
 
 export const window = {

@@ -27,6 +27,7 @@ import * as hangtime from './sources/hangtime.mjs';
 import { boardVenueCounts, renderListPage, renderStatsBlock, injectBetweenMarkers } from './render-static.mjs';
 import { findNearestCity, loadCityIndex } from './nearest-city.mjs';
 import { applyVenueLinks, loadVenueLinks } from './venue-links.mjs';
+import { assignVenueIds, clearVenueIds, loadVenueIdLedger } from './venue-ids.mjs';
 
 const COUNTRY_CODER_PACKAGE = '@rapideditor/country-coder';
 const COUNTRY_CACHE = join(tmpdir(), 'cruxcoach-build-deps');
@@ -78,6 +79,7 @@ const OVERRIDES_FILE = join(REPO_ROOT, 'tools', 'overrides.json');
 const NEAREST_CITY_MAX_KM = 25;
 const WELLPASS_FILE = join(REPO_ROOT, 'tools', 'wellpass.json');
 const VENUE_LINKS_FILE = join(REPO_ROOT, 'tools', 'venue-links.json');
+const VENUE_IDS_FILE = join(REPO_ROOT, 'tools', 'venue-ids.json');
 const SOURCE_FRESHNESS_FILE = join(REPO_ROOT, 'tools', 'board-source-freshness.json');
 
 // 4-decimal precision ≈ 11 m at the equator. Tight enough to keep
@@ -382,6 +384,7 @@ async function buildFromSources() {
     overrides: overrideStats,
     wellpass: overlayStats.wellpass,
     venue_links: overlayStats.venue_links,
+    venue_ids: overlayStats.venue_ids,
     per_board: perBoard,
     per_source: perSource,
     sources: sourceMeta,
@@ -405,6 +408,21 @@ async function buildFromSources() {
 // exactly the same set in exactly the same order; a curation-only run that
 // diverged from the nightly one would be worse than no shortcut at all.
 function applyVenueOverlays(features) {
+  // Identity first: every later overlay, and everything that reads the output,
+  // refers to a venue by an id that must already exist and must be the same id
+  // it had yesterday. Cleared and reassigned on every run so deleting a ledger
+  // record actually returns a venue to its derived id.
+  clearVenueIds(features);
+  const { entries: idLedger, errors: idErrors } = loadVenueIdLedger(VENUE_IDS_FILE);
+  for (const err of idErrors) process.stderr.write(`[build]   WARN ${err}\n`);
+  const { stats: venueIds, problems: idProblems } = assignVenueIds(features, idLedger);
+  for (const problem of idProblems) process.stderr.write(`[build]   WARN ${problem}\n`);
+  process.stderr.write(
+    `[build] venue ids: ${venueIds.derived} derived, ${venueIds.pinned} pinned, ` +
+    `${venueIds.unmatched} unmatched, ${venueIds.ambiguous} ambiguous, ` +
+    `${venueIds.collisions} collisions (of ${venueIds.defined} ledger records)\n`,
+  );
+
   const wellpass = applyWellpass(features);
   process.stderr.write(
     `[build] wellpass: ${wellpass.applied} applied, ` +
@@ -422,7 +440,7 @@ function applyVenueOverlays(features) {
     `${venueLinks.rejected} rejected (of ${venueLinks.defined} defined)\n`,
   );
 
-  return { wellpass, venue_links: venueLinks };
+  return { wellpass, venue_links: venueLinks, venue_ids: venueIds };
 }
 
 // Write the geojson, the meta, and both languages of static HTML.
@@ -473,6 +491,7 @@ function overlaysOnlyRebuild() {
   const overlayStats = applyVenueOverlays(features);
   meta.wellpass = overlayStats.wellpass;
   meta.venue_links = overlayStats.venue_links;
+  meta.venue_ids = overlayStats.venue_ids;
 
   writeOutputs(features, meta);
   process.stderr.write('[build] --overlays-only: geojson, meta and both directories rewritten\n');
