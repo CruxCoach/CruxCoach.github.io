@@ -14926,6 +14926,32 @@
   "note": "Replaces an \"inaccessible\" outcome: the page is WordPress and answers in full through its REST route where the rendered HTML gave nothing. The gym states 定休日 なし — no regular closing day — so all seven days are covered. The 最終受付 times are last admission, a quarter of an hour before closing, and are not the closing time."
  },
  {
+  "lat": 35.79173,
+  "lon": 139.55376,
+  "name": "Next Gen Bouldering",
+  "country": "JP",
+  "source": "https://nextgen-bouldering.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "13:00-22:00",
+   "tue": "13:00-22:00",
+   "wed": "13:00-23:00",
+   "thu": "13:00-22:00",
+   "fri": "13:00-23:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "LOCATION 住所 〒352-0011 埼玉県新座市野火止3-13-26 … 営業時間 月曜・火曜・木曜 13:00~22:00 水曜・金曜 13:00~23:00 土曜・日曜・祝日 10:00~21:00",
+  "note": "Three lines covering seven days, printed under LOCATION beside the address: Monday, Tuesday and Thursday close at 22:00, Wednesday and Friday at 23:00, and the weekend and public holidays run 10:00 to 21:00."
+ },
+ {
   "lat": 36.0227505,
   "lon": 139.7355048,
   "name": "OKKUROCK",
