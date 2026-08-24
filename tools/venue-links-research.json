@@ -2345,9 +2345,9 @@
     "name": "CapyClimb",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — capyclimb.jp → \"a page with no title\"; capyclimb.com → \"a page with no title\", the venue's whole name as one label, capyclimb.jp, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://capyclimb.com/"
+    "candidate": "https://capyclimb.com/",
+    "reason": "No official site could be established, and the domain is almost certainly the gym's: capyclimb.jp redirects to capyclimb.com, and the Instagram handle upstream records for this venue is capyclimb. What capyclimb.com serves is 5,880 bytes of Next.js shell that renders no text at all, 404s on about, access, contact, info, shop, store and gym, and whose chunks contain neither 中野 nor 164-0001 nor the venue's own name. Guessing a domain is fine; believing it is not, and there is nothing on it to believe.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 35.709834416741565,
@@ -2355,9 +2355,9 @@
     "name": "CapyClimb",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — capyclimb.jp → \"a page with no title\"; capyclimb.com → \"a page with no title\", the venue's whole name as one label, capyclimb.jp, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records 5 Chome-61-4 Nakano, 164-0001, Nakano City, Tokyo, and nothing opened printed it.",
-    "candidate": "https://capyclimb.com/"
+    "candidate": "https://capyclimb.com/",
+    "reason": "No official site could be established, and the domain is almost certainly the gym's: capyclimb.jp redirects to capyclimb.com, and the Instagram handle upstream records for this venue is capyclimb. What capyclimb.com serves is 5,880 bytes of Next.js shell that renders no text at all, 404s on about, access, contact, info, shop, store and gym, and whose chunks contain neither 中野 nor 164-0001 nor the venue's own name. Guessing a domain is fine; believing it is not, and there is nothing on it to believe.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 36.73843,
@@ -3596,8 +3596,9 @@
     "name": "BLOKHAUS",
     "country": "PL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — blokhaus.pl → no answer; blokhaus.com.pl → a certificate that does not cover its hostname; blokhaus.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "candidate": "https://blokline.pl/",
+    "reason": "No official site could be established, and the reason is now a rename rather than a dead domain. blokhaus.pl still resolves and redirects to blokline.pl, which is Ściana wspinaczkowa Poznań Blok Line at Kinepolis, Bolesława Krzywoustego 72, 61-144 Poznań — 1.8 km from this coordinate, which sits 0.5 km from the Poznań town point. The redirect is the operator's own act and is good evidence, but it is not a signal this file can count: blokline.pl never uses the name Blokhaus on any of its pages, so the only thing that matches is the town.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 52.3771,
@@ -4026,16 +4027,6 @@
     "reason": "The gazetteer points at klattercentret.se/sisjon/, which answers 404. The operator's current site lists eight halls by address — Banvaktsvägen 20 in Solna, Vandagatan 3 in Kista, Tellusgången 22-24 in Hägersten, Rapsgatan 8 in Uppsala, Stenbygatan 3A in Västerås, Kopparbergsgatan 8 in Malmö, Juelsgatan 5 in Helsingborg and Laxfiskevägen 4A in Partille — and none of them is in Sisjön; the nearest is Partille, 15 km across Göteborg. Its sitemap has no Sisjön page either.",
     "candidate": "https://www.klattercentret.se/sisjon/",
     "checked": "2026-08-24"
-  },
-  {
-    "lat": 63.8258471,
-    "lon": 20.2630354,
-    "name": "The KFUM board",
-    "country": "SE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — kfum.se → \"KFUM - Sveriges bredaste ungdomsrörelse\"; kfumumea.se → \"KFUM Umeå – Empowering Young People\", the rest could not be opened — kfum.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://kfum.se/"
   },
   {
     "lat": 1.34359,
