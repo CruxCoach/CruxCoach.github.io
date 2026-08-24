@@ -18166,6 +18166,23 @@
     "note": "Upstream misspells the venue as DC Boudering Project."
   },
   {
+    "lat": 37.96487,
+    "lon": -122.05327,
+    "name": "Diablo Rock Gym",
+    "country": "US",
+    "website": "https://touchstoneclimbing.com/diablorock/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Touchstone's own page for Diablo Rock Gym, printing \"1220 Diamond Way #140, Concord\" and 94520 — upstream's address. The slug came from the operator's own archived index, which links it as /diablorock/. The operator's whole site answers 403 to every fetcher and header set, so this page was read from a snapshot of 24 April 2026. A snapshot settles whose page this is and nothing else; the hours record stays inaccessible."
+  },
+  {
     "lat": 39.96262,
     "lon": -105.50807,
     "name": "Dino Moves Gym",
@@ -18178,6 +18195,23 @@
       "city"
     ],
     "note": "The site is Dino Moves Gym and gives its town as Nederland, the town upstream records; the venue name carries no town of its own, so the two are independent."
+  },
+  {
+    "lat": 37.7567,
+    "lon": -122.38767,
+    "name": "Dogpatch Boulders",
+    "country": "US",
+    "website": "https://touchstoneclimbing.com/dogpatch-boulders/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Touchstone's own page for Dogpatch Boulders, printing \"2573 3rd Street, San Francisco\" and 94107 — upstream's address. The operator's whole site answers 403 to every fetcher and header set, so this page was read from a snapshot of 22 June 2026. A snapshot settles whose page this is and nothing else; the hours record stays inaccessible."
   },
   {
     "lat": 46.786618,
@@ -18419,6 +18453,72 @@
       "location-page"
     ],
     "note": "EVO publishes a page per gym; this is the Portland, Maine one, and Portland is the town upstream records. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
+  },
+  {
+    "lat": 42.09078035751713,
+    "lon": -88.0244765595274,
+    "name": "First Ascent Arlington Heights",
+    "country": "US",
+    "website": "https://faclimbing.com/arlington-heights/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "First Ascent's own page for its Arlington Heights gym, printing \"701 Rohlwing Rd\" and 60005 — upstream's street and postal code. The operator's whole site answers 403 to every fetcher and header set, so this page was read from a snapshot of 18 May 2026. A snapshot settles whose page this is and nothing else; the hours record stays inaccessible."
+  },
+  {
+    "lat": 41.88408,
+    "lon": -87.62865,
+    "name": "First Ascent Block 37",
+    "country": "US",
+    "website": "https://faclimbing.com/chicago/block-37/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "First Ascent's own page for its Block 37 gym, printing \"108 N State St, 4th Floor\" and 60602 — upstream's address. The operator's whole site answers 403 to every fetcher and header set, so this page was read from a snapshot of 26 May 2026. A snapshot settles whose page this is and nothing else; the hours record stays inaccessible."
+  },
+  {
+    "lat": 40.43301,
+    "lon": -80.00449,
+    "name": "First Ascent Climbing Station Square",
+    "country": "US",
+    "website": "https://faclimbing.com/pittsburgh/station-square/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "First Ascent's own page for its Station Square gym, titled \"FA Station Square | Climbing, Yoga & Fitness in Pittsburgh\" — the venue's name and the city upstream records, for which no street is recorded. The operator's whole site answers 403 to every fetcher and header set, so this page was read from a snapshot of 26 May 2026. A snapshot settles whose page this is and nothing else; the hours record stays inaccessible."
+  },
+  {
+    "lat": 41.88035,
+    "lon": -87.65213,
+    "name": "First Ascent West Loop",
+    "country": "US",
+    "website": "https://faclimbing.com/chicago/west-loop/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "First Ascent's own page for its West Loop gym, printing \"100 S Morgan St\" and 60607 — upstream's address. The operator's whole site answers 403 to every fetcher and header set, so this page was read from a snapshot of 12 June 2026. A snapshot settles whose page this is and nothing else; the hours record stays inaccessible."
   },
   {
     "lat": 36.10815,
@@ -18670,6 +18770,23 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 37.81005,
+    "lon": -122.27017,
+    "name": "Great Western Power Company",
+    "country": "US",
+    "website": "https://touchstoneclimbing.com/gwpower-co",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Touchstone's own page for Great Western Power Co., printing \"520 20th Street, Oakland\" and 94612 — upstream's address. The operator's whole site answers 403 to every fetcher and header set, so this page was read from a snapshot of 22 June 2026. A snapshot settles whose page this is and nothing else; the hours record stays inaccessible."
   },
   {
     "lat": 43.03304,
@@ -20222,6 +20339,23 @@
       "city"
     ],
     "note": "Pacific Edge Climbing Gym's own site, printing 104 Bronson Street #12, Santa Cruz, CA 95062 — the street and postal code upstream records."
+  },
+  {
+    "lat": 37.81644,
+    "lon": -122.28852,
+    "name": "Pacific Pipe Climbing",
+    "country": "US",
+    "website": "https://touchstoneclimbing.com/pacific-pipe/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Touchstone's own page for Pacific Pipe, printing \"2140 Mandela Pkwy, Oakland\" and 94607 — upstream's address. The operator's whole site answers 403 to every fetcher and header set, so this page was read from a snapshot of 18 July 2026. A snapshot settles whose page this is and nothing else; the hours record stays inaccessible."
   },
   {
     "lat": 45.5136,

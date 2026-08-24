@@ -5496,26 +5496,6 @@
     "candidate": "https://denver.com/"
   },
   {
-    "lat": 37.96487,
-    "lon": -122.05327,
-    "name": "Diablo Rock Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — diablo.com → \"Diablo IV\"; diablo.net → \"diablo.net\"; diablorock.com → \"Portal web con opinión y noticias sobre el Metal, Altern\", the rest could not be opened — touchstoneclimbing.com → 403; diablo.org → 403; diablorockgym.com → no answer / a certificate that does not cover its hostname, the venue's whole name as one label, diablorockgym.com, does not resolve. Upstream records 1220 Diamond Way #140, 94520, Concord, and nothing opened printed it.",
-    "candidate": "https://diablo4.blizzard.com:443/en-us/"
-  },
-  {
-    "lat": 37.7567,
-    "lon": -122.38767,
-    "name": "Dogpatch Boulders",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "opengtm.com is the booking platform Touchstone gyms use, not the venue's page; it prints San Francisco for that reason. touchstoneclimbing.com, which publishes the Dogpatch Boulders page, answers 403 with a Cloudflare interstitial to every request tried. Retry when that page can be opened.",
-    "candidate": "https://touchstoneclimbing.com/dogpatch/"
-  },
-  {
     "lat": 42.6525793,
     "lon": -73.7562317,
     "name": "Edge Halfmoon",
@@ -5574,43 +5554,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — fiddlehead.com → \"Transform Your Business with AI-Powered Data Insights\"; fiddlehead.net → \"Fiddlehead Farm\", the rest could not be opened — fiddlehead.org → 200, the venue's whole name as one label, fiddlehead.com, answers 301 (\"301 Moved Permanently\") but its pages print no street, postal code or town matching this venue. Upstream records 701 Old Fanning Bridge Rd, 28732, Mills River, and nothing opened printed it.",
     "candidate": "https://www.fiddlehead.com/"
-  },
-  {
-    "lat": 42.09078035751713,
-    "lon": -88.0244765595274,
-    "name": "First Ascent Arlington Heights",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — first.org → \"FIRST - Improving Security Together\", the rest could not be opened — faclimbing.com → 403; firstascent.com → a timeout; firstascent.net → a timeout. Upstream records 701 Rohlwing Rd, , IL ,, 60005, Arlington Heights, and nothing opened printed it.",
-    "candidate": "https://www.first.org/"
-  },
-  {
-    "lat": 41.88408,
-    "lon": -87.62865,
-    "name": "First Ascent Block 37",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — faclimbing.com → 403; firstascent.com → a timeout; firstascent.net → a timeout. Upstream records 108 N State St, 60602, Chicago, and nothing opened printed it."
-  },
-  {
-    "lat": 40.43301,
-    "lon": -80.00449,
-    "name": "First Ascent Climbing Station Square",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — faclimbing.com → 403; firstascentclimbing.com → no answer; firstascentclimbing.net → no answer. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 41.88035,
-    "lon": -87.65213,
-    "name": "First Ascent West Loop",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for First Ascent West Loop, Chicago was westbouldering.pl, a bouldering gym in Poland — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
   },
   {
     "lat": 37.563788,
@@ -5696,16 +5639,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site. The only candidate that answered for Gravity Lab, Durango was gravityclimbing.ie, a climbing gym in Ireland — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
-  },
-  {
-    "lat": 37.81005,
-    "lon": -122.27017,
-    "name": "Great Western Power Company",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — great.com → \"Using Online Casino to Create a Better World | Great.com\", the rest could not be opened — touchstoneclimbing.com → 403; greatwestern.com → a timeout; great.net → 200 / no answer. Upstream records 520 20th St, 94612, Oakland, and nothing opened printed it.",
-    "candidate": "https://great.com/"
   },
   {
     "lat": 43.61992,
@@ -6029,16 +5962,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — nosotros.com → \"Nosotros Podemos Avanzar - Nosotros\", the rest could not be opened — nosotros.net → 200; nosotros.org → 200. Upstream records 13000 Athens Ave, 44107, Lakewood, and nothing opened printed it.",
     "candidate": "https://www.nosotros.com/"
-  },
-  {
-    "lat": 37.81644,
-    "lon": -122.28852,
-    "name": "Pacific Pipe Climbing",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — pacificpipe.net → \"Pacific Pipe Co.\"; pacific.net → \"Pacific Internet\"; pacific.org → \"Dla Ciebie - cashbene\", the rest could not be opened — pacificpipe.com → a timeout; pacificpipeclimbing.com → 403 / a certificate that does not cover its hostname; pacific.com → 403, the venue's whole name as one label, pacificpipeclimbing.com, does not resolve. Upstream records 2140 Mandela Parkway, 94607, Oakland, and nothing opened printed it.",
-    "candidate": "https://pacificpipe.net/"
   },
   {
     "lat": 37.5202145,
