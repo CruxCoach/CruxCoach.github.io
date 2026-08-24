@@ -73,6 +73,18 @@ what its settings hold is not published — Island Rock Climbing Gym's week
 exists only as schema.org and a Squarespace setting that agree with it, and is
 recorded rather than published for that reason.
 
+Writing the rule down meant applying it to the records that had been decided
+without it. Forty-six weeks were sitting in `ambiguous` because a block
+disagreed with the text, and thirty of them had a complete visible week and
+nothing else wrong: Murall's three Warsaw halls, MetroRock's three, Adrenaline
+Vault's two, Bloc-Hütte Augsburg, Boulderhalle Beta Hannover, Session, Volta,
+Sportrock Sterling and the rest. The pattern in almost all of them is the same
+— the visible week has a day that breaks the pattern and the block has lost it,
+flattening a 6am Tuesday into a 10am one or a Wednesday into the weekday band.
+The ones that stayed stayed for reasons the rule does not touch: two visible
+blocks that disagree, a missing day, an announcement bar saying the hours
+changed last week.
+
 ### One hall, two registries
 
 A gym that owns a Kilter board and a MoonBoard is registered twice, once by
@@ -362,8 +374,8 @@ maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (published + outcome entries) | 2190 |
-| Published schedules | 1046 |
-| Recorded outcomes without hours | 1144 |
+| Published schedules | 1057 |
+| Recorded outcomes without hours | 1133 |
 | Countries covered | 47 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
