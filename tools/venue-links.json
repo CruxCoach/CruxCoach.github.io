@@ -9286,6 +9286,22 @@
     "note": "The gym gives Ursalto kalea 4 where upstream records only a pavilion number; it resolves to within 80 m of this venue."
   },
   {
+    "lat": 42.8551,
+    "lon": -2.64919,
+    "name": "Urban Boulder",
+    "country": "ES",
+    "website": "https://urbanboulder.net/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "Urban Boulder's own site, matching the name, the street number 4 and Salburua — the district upstream records — and naming the Kilter board this venue is listed for. The .net was never tried before this pass; the .com is somebody else's."
+  },
+  {
     "lat": 37.352094,
     "lon": -5.841565399999999,
     "name": "WISECLIMB - CENTRO DE ESCALADA",
@@ -14676,6 +14692,20 @@
       "board-mention"
     ],
     "note": "The Gravity Well's own site, giving Nelson — the town upstream records — and naming the board this venue is listed for."
+  },
+  {
+    "lat": 10.6850682,
+    "lon": 122.5414119,
+    "name": "The Pump Factory",
+    "country": "PH",
+    "website": "https://thepumpfactory.net/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The Pump Factory's own site, whose first line reads \"Super-charge your climbing experience at Iloilo's premier climbing destination\" — the venue's name and the city upstream names for it, on a page that is unambiguously a bouldering gym's."
   },
   {
     "lat": 50.07906570000001,
