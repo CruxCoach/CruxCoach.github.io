@@ -2267,15 +2267,6 @@
     "candidate": "https://fondino.com/"
   },
   {
-    "lat": 45.5107903,
-    "lon": 11.337712,
-    "name": "GAS ARZIGNANO",
-    "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all: gasarzignano and gas-arzignano exist on neither .it nor .com, and no OSM climbing object within 500 m of Arzignano carries a website."
-  },
-  {
     "lat": 44.55963,
     "lon": 10.91238,
     "name": "Grip Climbing Gym",
@@ -3142,16 +3133,6 @@
     "candidate": "https://summit.be/"
   },
   {
-    "lat": 56.96809330000001,
-    "lon": 24.1672662,
-    "name": "Falkors",
-    "country": "LV",
-    "status": "unverified",
-    "reason": "falkorswalls.com is a wall builder — \"Climbing Gym Construction & Design | Falkors Walls\" — and serves a 13 kB page with no address, no Latvian text and no links but its own. falkors.lv does not resolve. The lookup matched on Riga.",
-    "candidate": "https://falkorswalls.com/",
-    "checked": "2026-08-24"
-  },
-  {
     "lat": 56.98629339999999,
     "lon": 24.1326966,
     "name": "Virsotneclimbing",
@@ -3343,16 +3324,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — sicc.my → \"Crossfit Masters Malaysia – Crossfitters\", the rest could not be opened — sicc.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "http://crossfit.my/"
-  },
-  {
-    "lat": 52.11019628136243,
-    "lon": 4.2836240000000005,
-    "name": "Boulderhal Nirvana",
-    "country": "NL",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps an object called Boulderhal Nirvana 14 m from this venue and tags it boulderhalnirvana.nl, which is as good a pointer as this audit gets — and a pointer is all it is. The host answers 403 to every fetcher and header set, and the archive has nothing recent enough to stand in: Nirvana and Walhalla have no snapshot at all and de Campus has one from 2017. Nothing on the venue's own page has been read, so nothing confirms it.",
-    "candidate": "https://www.boulderhalnirvana.nl/"
   },
   {
     "lat": 52.06192,

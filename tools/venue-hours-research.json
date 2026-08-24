@@ -4527,9 +4527,10 @@
   "lon": 11.337712,
   "name": "GAS ARZIGNANO",
   "country": "IT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://gasarzignanovi.wixsite.com/gas-arzignano",
+  "reason": "The page renders to a title, an Instagram embed and a tagline — \"A great gym plus great climbers equal the perfect training\" — and carries no day and no time anywhere.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 45.65702,
@@ -5612,15 +5613,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 56.96809330000001,
-  "lon": 24.1672662,
-  "name": "Falkors",
-  "country": "LV",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 56.98629339999999,
   "lon": 24.1326966,
   "name": "Virsotneclimbing",
@@ -6025,9 +6017,10 @@
   "lon": 4.2836240000000005,
   "name": "Boulderhal Nirvana",
   "country": "NL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.boulderhalnirvana.nl/",
+  "reason": "The hall has an Openingstijden page and the host answers 403 on every path, so the week cannot be read live; the snapshot that settled the address is not a source for one.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 52.06192,

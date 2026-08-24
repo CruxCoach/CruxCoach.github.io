@@ -15233,6 +15233,32 @@
   "note": "The centre groups its days itself: Monday, Wednesday and Friday open in the afternoon, Tuesday and Thursday in the morning. Public holidays are grouped with the weekend."
  },
  {
+  "lat": 56.96809330000001,
+  "lon": 24.1672662,
+  "name": "Falkors",
+  "country": "LV",
+  "source": "https://www.boulderings.lv/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Adress Unijas street 14, Riga 3rd floor · Working hours 10:00-23:00 Monday - Friday 09:00-22:00 Saturday - Sunday",
+  "note": "Two lines covering the week, printed directly beneath the address."
+ },
+ {
   "lat": 35.88554,
   "lon": 14.47372,
   "name": "Crashpad Climbing Centre",

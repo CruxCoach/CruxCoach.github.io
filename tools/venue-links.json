@@ -12710,6 +12710,20 @@
     "note": "The page is headed \"Palestra arrampicata Ferrara | Devawall - Climbing - Bouldering\"; the upstream city is Ferrara. The name-derived guess only reached it once the guesser stopped truncating the full-name variant."
   },
   {
+    "lat": 45.5107903,
+    "lon": 11.337712,
+    "name": "GAS ARZIGNANO",
+    "country": "IT",
+    "website": "https://gasarzignanovi.wixsite.com/gas-arzignano",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The gazetteer has an object 78 m from this coordinate tagged with this address, and the page is titled \"GAS Arzignano | Arrampicata Sportiva | Arzignano\" — Gruppo Arrampicata Sportiva. The coordinate is on Via Umbria in 36071 Arzignano. The site itself is a Wix page that renders little more than that title."
+  },
+  {
     "lat": 44.647128,
     "lon": 10.9252269,
     "name": "GEKOCLIMB MOONBOARD",
@@ -13492,6 +13506,22 @@
     "note": "RedRock Climbing Center's own site, printing the 4413 postal code upstream records for Soleuvre and naming the board this venue is listed for."
   },
   {
+    "lat": 56.96809330000001,
+    "lon": 24.1672662,
+    "name": "Falkors",
+    "country": "LV",
+    "website": "https://www.boulderings.lv/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The record here had falkorswalls.com, a wall builder's 13 kB stub. The gym's own site is boulderings.lv — \"Falkors Bouldering Center\", \"Adress Unijas street 14, Riga 3rd floor\" — and this coordinate is Ūnijas iela 14, LV-1084, Teika. The gazetteer names the object at that point Falkors Boulderinga Centrs."
+  },
+  {
     "lat": 35.88554,
     "lon": 14.47372,
     "name": "Crashpad Climbing Centre",
@@ -14174,6 +14204,22 @@
       "city",
       "board-mention"
     ]
+  },
+  {
+    "lat": 52.11019628136243,
+    "lon": 4.2836240000000005,
+    "name": "Boulderhal Nirvana",
+    "country": "NL",
+    "website": "https://www.boulderhalnirvana.nl/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The live host answers 403 to this machine. A snapshot of it is titled \"Home | Boulderhal Nirvana Scheveningen\" and gives \"Boulderhal Nirvana, Berkenbosch Blokstraat 9a, 2586 HD, Den Haag\" — and this coordinate is 9 Berkenbosch Blokstraat, 2586 HD, Belgisch Park, Scheveningen. Street, number and postcode."
   },
   {
     "lat": 52.4989144,
