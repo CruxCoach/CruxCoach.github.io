@@ -2184,8 +2184,8 @@
     "name": "Social Climbing Coventry",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "socialclimbing.co.uk is the operator and renders client-side: the fetched document has no title and no text at all, so nothing on it can be matched to Coventry. socialclimb.uk is a marketing agency.",
+    "checked": "2026-08-24",
+    "reason": "socialclimbing.co.uk answers 200 and is the obvious guess for Social Climbing Coventry, but it holds one line of script — window.onload=function(){window.location.href=\"/lander\"} — and nothing else. A domain parked behind a lander page is not a site, and the operator's real one was not found.",
     "candidate": "https://socialclimbing.co.uk/"
   },
   {
@@ -2204,8 +2204,8 @@
     "name": "Social Climbing Solihull",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Same operator again. The page is empty to a fetch; the only reason a signal registered is that \"Vulcan Rd\" appears in the upstream address and in an unrelated string on socialclimbing.co.uk, which is not evidence.",
+    "checked": "2026-08-24",
+    "reason": "socialclimbing.co.uk answers 200 and is the obvious guess for Social Climbing Solihull, but it holds one line of script — window.onload=function(){window.location.href=\"/lander\"} — and nothing else. A domain parked behind a lander page is not a site, and the operator's real one was not found.",
     "candidate": "https://socialclimbing.co.uk/"
   },
   {
@@ -3717,33 +3717,13 @@
     "candidate": "https://www.chisinau.md/ro"
   },
   {
-    "lat": 25.67869,
-    "lon": -100.35028,
-    "name": "Adamanta Gonzalitos",
-    "country": "MX",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — adamanta.mx → \"Adamanta | Gimnasios de Escalada | México\", the rest could not be opened — adamanta.com.mx → a certificate that does not cover its hostname; adamanta.com → 403. Upstream records Plaza Real, Av. Dr. Jose Eleuterio Gonazlez 315 Jardines del Cerro, 64, and nothing opened printed it.",
-    "candidate": "https://www.adamanta.mx/"
-  },
-  {
-    "lat": 19.02524,
-    "lon": -98.23654,
-    "name": "Adamanta Puebla",
-    "country": "MX",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — adamanta.mx → \"Adamanta | Gimnasios de Escalada | México\", the rest could not be opened — adamantapuebla.com.mx → a certificate that does not cover its hostname; adamanta.com.mx → a certificate that does not cover its hostname; adamanta.com → 403. Upstream records Blvd Kepler 7, Reserva Territorial Atlixcáyotl, 72810, San Andrés Chou, and nothing opened printed it.",
-    "candidate": "https://www.adamanta.mx/"
-  },
-  {
     "lat": 19.49339,
     "lon": -99.23639,
     "name": "Adamanta Satélite",
     "country": "MX",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — adamanta.mx → \"Adamanta | Gimnasios de Escalada | México\", the rest could not be opened — adamanta.com.mx → a certificate that does not cover its hostname; adamanta.com → 403. Upstream records Blvd Manuel Ávila Camacho 3023, 53160, La Florida, and nothing opened printed it.",
+    "checked": "2026-08-24",
+    "reason": "Adamanta gives each of its branches a page and it has five — Del Valle, Escandón, Gonzalitos, Puebla and Santa Fe. There is no Satélite among them, and no page on the site prints Boulevard Manuel Ávila Camacho or the postal code 53160 that upstream records for this venue. Either the branch has closed or it trades under another of those names; the site does not say which.",
     "candidate": "https://www.adamanta.mx/"
   },
   {
@@ -3792,9 +3772,9 @@
     "name": "Motion Boulder 2 - Aviacion Branch",
     "country": "MX",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — motionboulder.com → \"Motion Boulder\"; motion.mx → \"Home\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.motionboulder.com/"
+    "checked": "2026-08-24",
+    "reason": "motionboulder.com/sucursales names this branch — Motion Aviación (M2), at \"Av. Inglaterra 9345, San Juan de Ocotán, 45019 Zapopan, Jal.\" — and lists a Tensionboard among its equipment, which is the board this entry is registered for. Upstream records no street for the entry and the place it names is a neighbourhood the page does not print, so nothing but the branch name ties the page to it. The M1 entry is linked because upstream names Zapopan for that one.",
+    "candidate": "https://motionboulder.com/sucursales"
   },
   {
     "lat": 20.60351,
@@ -3802,19 +3782,9 @@
     "name": "Motion Boulder 3 - Bugambilias Branch",
     "country": "MX",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — motionboulder.com → \"Motion Boulder\"; motion.mx → \"Home\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.motionboulder.com/"
-  },
-  {
-    "lat": 20.7186111,
-    "lon": -103.3858333,
-    "name": "Motion moon",
-    "country": "MX",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — motion.mx → \"Home\"; motionboulder.com → \"Motion Boulder\", the rest could not be opened — motion.com → 403; motionmoon.com → 403, the venue's whole name as one label, motionmoon.com, answers 302 (\"302 Found\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.motion.mx/"
+    "checked": "2026-08-24",
+    "reason": "motionboulder.com/sucursales names this branch — Motion Bugamilias (M3), at \"Av Lopez Mateos, Agua Blanca 3188, 45235 Zapopan, Jal.\" — and lists a Tensionboard among its equipment, which is the board this entry is registered for. Upstream records no street for the entry and the place it names is a neighbourhood the page does not print, so nothing but the branch name ties the page to it. The M1 entry is linked because upstream names Zapopan for that one.",
+    "candidate": "https://motionboulder.com/sucursales"
   },
   {
     "lat": 19.3936582,
@@ -5349,24 +5319,14 @@
     "reason": "No official site could be established: no candidate could be opened — bcnew.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 37.87804,
-    "lon": -122.26885,
-    "name": "Benchmark Climbing Berkeley",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — benchmarkclimbing.com → \"Benchmark Climbing\"; benchmark.com → \"Benchmark\"; benchmark.net → \"Benchmark.NET\", the rest could not be opened — benchmark.org → 502 / a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.benchmarkclimbing.com/"
-  },
-  {
     "lat": 37.78891,
     "lon": -122.42163,
     "name": "Benchmark Climbing SF",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — benchmarkclimbing.com → \"Benchmark Climbing\"; benchmark.com → \"Benchmark\"; benchmark.net → \"Benchmark.NET\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.benchmarkclimbing.com/"
+    "checked": "2026-08-24",
+    "reason": "benchmarkclimbing.com/locations is certainly this venue's operator: it runs two gyms, this entry is named for one of them, and the block for it prints \"1414 Van Ness Ave., SF, CA 94109\". What is missing is a second signal to tie the page to this entry rather than to the brand. Upstream records no street for it, and the place it names, Chinatown, is not what the page prints. Its Berkeley sibling is linked because the page names Berkeley and upstream does too.",
+    "candidate": "https://benchmarkclimbing.com/locations"
   },
   {
     "lat": 44.03891,
@@ -6378,8 +6338,9 @@
     "name": "RoKC North",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — rokcnorth.com → 200; rokc.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "checked": "2026-08-24",
+    "reason": "rokc.com answers 200 and is the obvious guess for RoKC North, but it holds one line of script — window.onload=function(){window.location.href=\"/lander\"} — and nothing else. A domain parked behind a lander page is not a site, and the operator's real one was not found.",
+    "candidate": "https://rokc.com/"
   },
   {
     "lat": 38.89005,
@@ -6387,8 +6348,9 @@
     "name": "RoKC Olathe",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — rokcolathe.com → a timeout; rokc.com → 200. Upstream records 654 N Central St, 66061, Olathe, and nothing opened printed it."
+    "checked": "2026-08-24",
+    "reason": "rokc.com answers 200 and is the obvious guess for RoKC Olathe, but it holds one line of script — window.onload=function(){window.location.href=\"/lander\"} — and nothing else. A domain parked behind a lander page is not a site, and the operator's real one was not found.",
+    "candidate": "https://rokc.com/"
   },
   {
     "lat": 39.06982,
@@ -6396,8 +6358,9 @@
     "name": "RoKC Underground",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — rokc.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "checked": "2026-08-24",
+    "reason": "rokc.com answers 200 and is the obvious guess for RoKC Underground, but it holds one line of script — window.onload=function(){window.location.href=\"/lander\"} — and nothing else. A domain parked behind a lander page is not a site, and the operator's real one was not found.",
+    "candidate": "https://rokc.com/"
   },
   {
     "lat": 35.65344,
@@ -6585,16 +6548,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — trianglerockclub.com/salvage-yard → \"Salvage Yard - Triangle Rock Club\"; yard.com → \"yard.com\"; yard.net → \"yard.net - This website is for sale! - yard backyard gar\", the rest could not be opened — yard.org → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://trianglerockclub.com/salvage-yard/"
-  },
-  {
-    "lat": 40.7486504,
-    "lon": -73.9487715,
-    "name": "The Cliffs in LIC/Moonboard",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — inrockescalada.com → \"In Rock Escalada - El teu rocòdrom a Palma de Mallorca\"; thecliffs.net → \"Home | The Cliffs At Peace\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.inrockescalada.com/"
   },
   {
     "lat": 35.95974,

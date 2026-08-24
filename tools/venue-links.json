@@ -12690,6 +12690,34 @@
     "note": "Climb Malawi's own site, giving Lilongwe — the city upstream records. The venue name carries the country, not the town, so the two are independent."
   },
   {
+    "lat": 25.67869,
+    "lon": -100.35028,
+    "name": "Adamanta Gonzalitos",
+    "country": "MX",
+    "website": "https://www.adamanta.mx/gonzalitos",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page"
+    ],
+    "note": "Adamanta's own page for its Gonzalitos branch, which is this venue's name in full. The operator gives each of its five branches a page, and the weeks on them differ, so the pages are per-branch rather than a template."
+  },
+  {
+    "lat": 19.02524,
+    "lon": -98.23654,
+    "name": "Adamanta Puebla",
+    "country": "MX",
+    "website": "https://www.adamanta.mx/puebla",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page"
+    ],
+    "note": "Adamanta's own page for its Puebla branch, which is this venue's name in full; upstream places it in San Andrés Cholula, in the Puebla conurbation. The operator gives each of its five branches a page, and the weeks on them differ."
+  },
+  {
     "lat": 20.65843,
     "lon": -103.39662,
     "name": "Ameyalli",
@@ -12744,6 +12772,21 @@
       "board-mention"
     ],
     "note": "The venue's whole name as one domain label, which the guesser had not tried. The site carries this venue's name and names the MoonBoard it is listed for; upstream records no street address, so those are the two signals available."
+  },
+  {
+    "lat": 20.7186111,
+    "lon": -103.3858333,
+    "name": "Motion moon",
+    "country": "MX",
+    "website": "https://motionboulder.com/sucursales",
+    "verified": "2026-08-24",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Motion Boulder runs three halls in Guadalajara and gives each a named block with its own address and its own board list. The block for Motion Javier Mina (M1) gives \"Javier Mina 84, Conjunto Patria, 45100 Zapopan, Jal.\" — Zapopan is the place upstream names for this venue — and is the only one of the three whose equipment list includes a Moonboard, which is the board this entry is registered for."
   },
   {
     "lat": 25.6527,
@@ -16511,6 +16554,20 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 37.87804,
+    "lon": -122.26885,
+    "name": "Benchmark Climbing Berkeley",
+    "country": "US",
+    "website": "https://benchmarkclimbing.com/locations",
+    "verified": "2026-08-24",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Benchmark Climbing runs two gyms and gives each a named block on this page. The Berkeley block reads \"Our second location at 1607 Shattuck Ave\" and names Berkeley, the place upstream records for this venue."
   },
   {
     "lat": 44.03869,
@@ -21328,6 +21385,21 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 40.7486504,
+    "lon": -73.9487715,
+    "name": "The Cliffs in LIC/Moonboard",
+    "country": "US",
+    "website": "https://thecliffsclimbing.com/LIC",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "The Cliffs' own page for its Long Island City gym, printing \"11-11 44th Dr Queens, NY 11101\" — the 11101 ZIP is Long Island City, the place upstream names for this venue. The operator gives each of its gyms a page of its own."
   },
   {
     "lat": 39.72003,
