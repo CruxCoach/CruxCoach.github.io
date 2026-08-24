@@ -1303,9 +1303,9 @@
     "name": "Boulder Madrid Moon Board",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps Boulder Madrid 13 m from this venue and tags it bouldermadrid.com. The host resolves and then never completes a connection, on any scheme, and the archive has nothing to stand in, so nothing on the venue's own page has been read.",
-    "candidate": "https://www.bouldermadrid.com/"
+    "candidate": "http://bouldermadrid.com/",
+    "reason": "No official site could be established, and the domain is now accounted for. The record said the host resolves and never completes a connection on any scheme; it completes on http, and what it serves is the hosting company's parking page — \"Esta es la página de: bouldermadrid.com\", followed by offers for domains, professional email and an SSL certificate. The gazetteer object 13 m from this coordinate still carries that domain as its website tag, and the tag now points at a page for sale.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 41.11489,
@@ -4948,16 +4948,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — sesamestreet.com → \"Sesame Street | Preschool Games, Videos, & Coloring Page\"; sesamestreet.org → \"Sesame Street | Preschool Games, Videos, & Coloring Page\"; sesame.com → \"Sesame\", the rest could not be opened — sesamestreet.net → no answer; sesame-street.com → 200, the venue's whole name as one label, sesamestreet.com, answers 302 but its pages print no street, postal code or town matching this venue. Upstream records Superior, and nothing opened printed it.",
     "candidate": "https://www.sesamestreet.org/"
-  },
-  {
-    "lat": 31.88792,
-    "lon": -106.57378,
-    "name": "Sessions Climbing + Fitness",
-    "country": "US",
-    "status": "unverified",
-    "candidate": "https://sessionsclimbingfitness.com/",
-    "reason": "No official site could be established: The domain is almost certainly the gym's and there is nothing on it: the page is the two words \"Coming Soon\". Worth re-checking rather than re-guessing.",
-    "checked": "2026-08-24"
   },
   {
     "lat": 40.64901,

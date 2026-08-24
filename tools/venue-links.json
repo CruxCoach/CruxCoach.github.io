@@ -23029,6 +23029,23 @@
     ]
   },
   {
+    "lat": 31.88792,
+    "lon": -106.57378,
+    "name": "Sessions Climbing + Fitness",
+    "country": "US",
+    "website": "https://www.sessionsclimbing.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "The record had the right gym and the wrong domain. sessionsclimbingfitness.com is the gym's and says \"Coming Soon\"; sessionsclimbing.com is the gym's too and is the site. It prints \"1775 Cimarron Rialto Square El Paso, TX 79912\", which is upstream's address for this row down to the suite and the postcode, and its navigation names Kilter Climbing — the board this row is listed for."
+  },
+  {
     "lat": 41.4684,
     "lon": -81.53548,
     "name": "Shaker Rocks",

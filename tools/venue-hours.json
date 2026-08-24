@@ -27412,6 +27412,31 @@
   "note": "Two bands covering all seven days, stated twice on the page beside the gym's address. Its schema.org openingHours carries the untouched theme default of Monday to Sunday 09:00-17:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
+  "lat": 31.88792,
+  "lon": -106.57378,
+  "name": "Sessions Climbing + Fitness",
+  "country": "US",
+  "source": "https://www.sessionsclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "Sessions Climbing + Fitness (915) 308-7210 1775 Cimarron Rialto Square El Paso, TX 79912 M-F 10AM-10PM | Sa-Su 9AM-7PM",
+  "note": "One line in the site header, beside the phone number and the address."
+ },
+ {
   "lat": 41.4684,
   "lon": -81.53548,
   "name": "Shaker Rocks",

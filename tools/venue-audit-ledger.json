@@ -10632,9 +10632,9 @@
     "result": "unverified",
     "channels": [
      "osm-website-tag",
+     "previous-record",
      "apex",
-     "www",
-     "path-probe"
+     "www"
     ]
    },
    "hours": {
@@ -35552,20 +35552,19 @@
    ],
    "website": {
     "pass": "2026-08-24",
-    "result": "unverified",
+    "result": "accepted",
     "channels": [
+     "name-guess",
      "previous-record",
-     "apex",
      "www"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
