@@ -1854,8 +1854,8 @@
     "name": "Uadibloc Malasaña",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The OSM node 25 m away is named Uadibloc and carries uadibloc.com, which serves \"Account Suspended\" and nothing else; uadibloc.es presents a certificate that does not cover its hostname. The pointer is good and the page is unreadable.",
+    "checked": "2026-08-24",
+    "reason": "OSM maps Uadibloc 25 m from this venue and tags it uadibloc.com. The domain resolves and serves one page: \"Account Suspended\". There is nothing to link to and no other candidate answered.",
     "candidate": "https://www.uadibloc.com/"
   },
   {
@@ -2455,9 +2455,9 @@
     "name": "Monkeys Climbing Gym",
     "country": "IL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — bouldermonkeys.at → \"Home - BoulderMonkeys\"; monkeys.co.il → \"קורס full stack חינם - מאנקיס REACT, NODEJS,JAVASCRIPT, \", the rest could not be opened — www.monkeysclimbinggym.co.il → a timeout; monkeys.com → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://bouldermonkeys.at/"
+    "checked": "2026-08-24",
+    "reason": "OSM maps Monkeys 60 m from this venue and tags it monkeysclimbinggym.co.il. The host redirects and then fails to answer at all, and the archive has never captured it, so nothing on the venue's own page has been read.",
+    "candidate": "https://www.monkeysclimbinggym.co.il/"
   },
   {
     "lat": 32.1074967,
@@ -4516,8 +4516,8 @@
     "name": "Vertical Escalada",
     "country": "PT",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — verticalescalada.pt → \"Vertical\"; vertical.com → \"Home - Vertical Communications\", the rest could not be opened — verticalescalada.com → a certificate that does not cover its hostname / no answer; vertical.pt → no answer, the venue's whole name as one label, verticalescalada.pt, answers 200 (\"Vertical\") but its pages print no street, postal code or town matching this venue. Upstream records Rua Eça de Queiroz, 8400-018, Estombar, and nothing opened printed it.",
+    "checked": "2026-08-24",
+    "reason": "OSM maps Vertical Escalada 81 m from this venue and tags it verticalescalada.pt. The site answers, and it is one page titled \"Vertical\" with no address on it; /contactos, /contacto and /sobre are all 404. Its name is the only thing matching, and the name is also the domain.",
     "candidate": "https://verticalescalada.pt/"
   },
   {
@@ -5338,16 +5338,6 @@
     "candidate": "https://www.class.com/"
   },
   {
-    "lat": 33.84918,
-    "lon": -118.35146,
-    "name": "Class 5 Climbing",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — class.com → \"Class: The Next Generation Virtual Classroom | Class\"; class.net → \"SkyPoint Communications - Internet Service Provider - IS\"; classclimbing.com → \"classclimbing.com\", the rest could not be opened — class.org → a timeout; classclimb.com → a certificate that does not cover its hostname, the venue's whole name as one label, class5climbing.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.class.com/"
-  },
-  {
     "lat": 41.22242,
     "lon": -86.41300299999999,
     "name": "Cliffs",
@@ -5424,16 +5414,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 38.78593,
-    "lon": -90.47849,
-    "name": "Climb So iLL Steel Shop",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — climbsoill.com → \"Climb So iLL | St. Louis & St. Charles, MO Climbing Gyms\"; climbsoill.org → \"Climb So iLL | St. Louis & St. Charles, MO Climbing Gyms\", the rest could not be opened — climbsoill.net → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://climbsoill.com/"
   },
   {
     "lat": 39.15657,
@@ -5566,15 +5546,6 @@
     "candidate": "https://foundation.net/"
   },
   {
-    "lat": 39.90652,
-    "lon": -105.09986,
-    "name": "G1 Climbing + Fitness Broomfield",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — g1climbing.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
     "lat": 38.24316,
     "lon": -76.4415,
     "name": "Gary's Garage",
@@ -5582,15 +5553,6 @@
     "status": "private",
     "checked": "2026-08-24",
     "reason": "A personal name and a garage, and the dataset says the rest: where a street belongs, upstream records \"reservation only\". This is somebody's home wall, not a venue with a website, and this audit does not attach a link to one."
-  },
-  {
-    "lat": 40.88057,
-    "lon": -74.04189,
-    "name": "Goat Climbing Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for Goat Climbing Gym, Hackensack was goatrocks.fr, a climbing gym in France — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
   },
   {
     "lat": 40.70695,
@@ -6463,16 +6425,6 @@
     "reason": "No official site could be established: no candidate could be opened — thepad.com → a timeout; thepad.net → no answer. Upstream records 7585 Commercial Way J, 89011, Henderson, and nothing opened printed it."
   },
   {
-    "lat": 34.16505,
-    "lon": -118.15031,
-    "name": "The Post Climbing",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — thepost.com → \"thepost.com High Value and Premium Domain Names\"; thepost.org → \"a page with no title\"; postboulder.com → \"PostBoulder.com - Where Ideas Roll and Perspectives Emer\", the rest could not be opened — post.com → 200; post.net → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.thepost.com/"
-  },
-  {
     "lat": 40.50952,
     "lon": -88.95868,
     "name": "The Proving Ground",
@@ -6619,16 +6571,6 @@
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records 1600 Farwell St, 54601, La Crosse, and nothing opened printed it."
   },
   {
-    "lat": 34.18374,
-    "lon": -118.31093,
-    "name": "Verdigo Boulders",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — verdigo.com → \"Verdigo\", the rest could not be opened — verdigo.net → no answer; verdigoboulders.com → a timeout / a certificate that does not cover its hostname, the venue's whole name as one label, verdigoboulders.com, does not resolve. Upstream records 266 E Magnolia Blvd, 91502, Burbank, and nothing opened printed it.",
-    "candidate": "https://verdigo.com/"
-  },
-  {
     "lat": 38.92534,
     "lon": -77.23964,
     "name": "Vertical Rock Climbing & Fitness Center",
@@ -6644,9 +6586,9 @@
     "name": "Vertical Ventures St Pete",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — vertical.com → \"Home - Vertical Communications\", the rest could not be opened — verticalventures.com → 403; verticalventures.net → 200; verticalventures.org → a timeout / a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.vertical.com/"
+    "checked": "2026-08-24",
+    "reason": "OSM maps Vertical Ventures 39 m from this venue and tags it verticalventures.com/stpete/, which is the operator's page for this gym. The host answers 403 to every fetcher and header set, and the only snapshot of that page is from December 2019 — six years old, which is not something to settle a link on.",
+    "candidate": "https://www.verticalventures.com/stpete/"
   },
   {
     "lat": 21.39166,

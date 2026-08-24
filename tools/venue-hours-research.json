@@ -3670,8 +3670,8 @@
   "name": "Uadibloc Malasaña",
   "country": "ES",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "checked": "2026-08-24",
+  "reason": "The gym's domain serves an \"Account Suspended\" page, so there is no page to read a schedule from."
  },
  {
   "lat": 42.8551,
@@ -9114,9 +9114,10 @@
   "lon": -118.35146,
   "name": "Class 5 Climbing",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://touchstoneclimbing.com/class-5/",
+  "reason": "Touchstone's site answers 403 to every fetcher and header set, so its week cannot be read, and it is not taken from the archived copy the link rests on."
  },
  {
   "lat": 41.22242,
@@ -9498,15 +9499,6 @@
  },
  {
   "lat": 39.90652,
-  "lon": -105.09986,
-  "name": "G1 Climbing + Fitness Broomfield",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 39.90652,
   "lon": -105.09968,
   "name": "G1 Climbing + Fitness Broomfield",
   "country": "US",
@@ -9514,6 +9506,16 @@
   "checked": "2026-08-24",
   "source": "https://www.g1climbing.com/",
   "reason": "The gym's own host answers 403 and its apex does not complete a TLS handshake from here, so no week can be read from it. It is not taken from the snapshot the link rests on."
+ },
+ {
+  "lat": 39.90652,
+  "lon": -105.09986,
+  "name": "G1 Climbing + Fitness Broomfield",
+  "country": "US",
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://www.g1climbing.com/",
+  "reason": "The same hall as the entry 17 m away: the host answers 403 and its apex does not complete a TLS handshake from here, so no week can be read."
  },
  {
   "lat": 38.24316,
@@ -9529,9 +9531,10 @@
   "lon": -74.04189,
   "name": "Goat Climbing Gym",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://goatclimbinggym.com/",
+  "reason": "The gym's own site answers 403 to every fetcher and header set, so its week cannot be read, and it is not taken from the snapshot the link rests on."
  },
  {
   "lat": 39.21917,
@@ -10770,9 +10773,10 @@
   "lon": -118.15031,
   "name": "The Post Climbing",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://touchstoneclimbing.com/the-post/",
+  "reason": "Touchstone's site answers 403 to every fetcher and header set, so its week cannot be read, and it is not taken from the archived copy the link rests on."
  },
  {
   "lat": 40.50952,
@@ -10974,9 +10978,10 @@
   "lon": -118.31093,
   "name": "Verdigo Boulders",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://touchstoneclimbing.com/verdigo-boulders/",
+  "reason": "Touchstone's site answers 403 to every fetcher and header set, so its week cannot be read, and it is not taken from the archived copy the link rests on."
  },
  {
   "lat": 38.92534,

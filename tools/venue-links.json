@@ -17705,6 +17705,21 @@
     ]
   },
   {
+    "lat": 33.84918,
+    "lon": -118.35146,
+    "name": "Class 5 Climbing",
+    "country": "US",
+    "website": "https://touchstoneclimbing.com/class-5/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Touchstone's own page for Class 5, titled for the gym and giving \"Torrance, CA\" and 90503 — the town upstream records, for which no street is recorded. The host answers 403 to every fetcher and header set, so the page was read from a snapshot of 31 December 2025; the hours record stays inaccessible, because a schedule is not something to take from a snapshot."
+  },
+  {
     "lat": 36.35673,
     "lon": -94.21992,
     "name": "Climb Bentonville",
@@ -17854,6 +17869,21 @@
       "street-address"
     ],
     "note": "Upstream carries no address; the page's own 1000 East Market St Louisville KY 40206 resolves 9 m from the coordinate."
+  },
+  {
+    "lat": 38.78593,
+    "lon": -90.47849,
+    "name": "Climb So iLL Steel Shop",
+    "country": "US",
+    "website": "https://stcharles.climbsoill.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Climb So iLL gives each gym a subdomain, and this one answers live: it is titled \"Climb So iLL | Indoor Rock Climbing in St. Charles, MO\", describes \"the Steel Shop in St. Charles, Missouri\" — the venue's name and the town upstream records — and gives 63301."
   },
   {
     "lat": 36.117947,
@@ -18650,6 +18680,21 @@
     "note": "OSM maps G1 Climbing + Fitness 10 m from this venue and tags it g1climbing.com. The apex times out its TLS handshake from here and www answers 403, so the page was read from a snapshot of 19 November 2025, which prints \"8845 West 116th Circle\", 80021 and Broomfield — upstream's address. The www host is what is published, because it is the one that answers at all."
   },
   {
+    "lat": 39.90652,
+    "lon": -105.09986,
+    "name": "G1 Climbing + Fitness Broomfield",
+    "country": "US",
+    "website": "https://www.g1climbing.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "coordinates"
+    ],
+    "note": "The same hall as the G1 Climbing + Fitness entry 17 m away, which carries this link: OSM maps the gym between the two and tags it this domain, and the archived page gives Broomfield."
+  },
+  {
     "lat": 33.70723,
     "lon": -112.10179,
     "name": "Gecko Climbing Gym",
@@ -18663,6 +18708,21 @@
       "board-mention"
     ],
     "note": "The candidate's own pages carry the town Phoenix, the kilter board this venue is listed for, under the venue's name."
+  },
+  {
+    "lat": 40.88057,
+    "lon": -74.04189,
+    "name": "Goat Climbing Gym",
+    "country": "US",
+    "website": "https://goatclimbinggym.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "GOAT Climbing Gym's own site, describing itself as \"Hackensack, NJ, GOAT Climbing Gym\" and giving 07601 — the town upstream records. OSM maps the gym 40 m from this venue with this domain, which is what pointed here. The host answers 403 to every fetcher and header set, so the page was read from a snapshot of 5 March 2026; the hours record stays inaccessible, because a schedule is not something to take from a snapshot."
   },
   {
     "lat": 39.21917,
@@ -22017,6 +22077,21 @@
     "note": "The candidate's own pages carry the street line \"4020 technology\", the town Fremont, a map of itself 168 m away, the kilter board this venue is listed for, under the venue's name."
   },
   {
+    "lat": 34.16505,
+    "lon": -118.15031,
+    "name": "The Post Climbing",
+    "country": "US",
+    "website": "https://touchstoneclimbing.com/the-post/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Touchstone's own page for The Post, which names it \"Pasadena The Post Indoor Climbing Gym\" — the venue's name and the town upstream records, for which no street is recorded. The host answers 403 to every fetcher and header set, so the page was read from a snapshot of 3 February 2026; the hours record stays inaccessible, because a schedule is not something to take from a snapshot."
+  },
+  {
     "lat": 58.28816,
     "lon": -134.38834,
     "name": "The Rock Dump",
@@ -22311,6 +22386,23 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 34.18374,
+    "lon": -118.31093,
+    "name": "Verdigo Boulders",
+    "country": "US",
+    "website": "https://touchstoneclimbing.com/verdigo-boulders/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Touchstone's own page for Verdigo Boulders, printing \"266 E Magnolia Blvd\", 91502 and \"Burbank, CA\" — upstream's address to the letter. The host answers 403 to every fetcher and header set, so the page was read from a snapshot of 6 March 2026; the hours record stays inaccessible, because a schedule is not something to take from a snapshot."
   },
   {
     "lat": 38.47252,
