@@ -7094,20 +7094,20 @@
    ],
    "website": {
     "pass": "2026-08-24",
-    "result": "unverified",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
-     "www"
+     "www",
+     "osm-website-tag"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },

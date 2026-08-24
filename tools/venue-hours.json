@@ -6249,6 +6249,32 @@
   "note": "The same week appears in the footer of every page as \"Lunes a Viernes, de 7:00 a 22:00 hrs. Sábado y Domingo de 10:00 a 18:00 hrs.\" The \"Horario Bajo\" and \"Horario Alto\" rows directly beneath it are price bands for classes, not opening times, and are deliberately not published here."
  },
  {
+  "lat": 22.38584,
+  "lon": 114.19957,
+  "name": "Hong Kong Climbing Park",
+  "country": "CN",
+  "source": "https://www.hkclimbingpark.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "14:00-22:00",
+   "tue": "14:00-22:00",
+   "wed": "14:00-22:00",
+   "thu": "14:00-22:00",
+   "fri": "14:00-22:00",
+   "sat": "11:00-20:00",
+   "sun": "11:00-20:00"
+  },
+  "evidence": "Address Level 2, Belair Gardens Shopping Arcade Phase 2, 52 Tai Chung Kiu Road, Sha Tin, Hong Kong … Hours of Operation Mon – Fri 2pm – 10pm Sat, Sun & Public Holiday 11am – 8pm",
+  "note": "Printed directly beneath the address, with public holidays folded into the weekend line."
+ },
+ {
   "lat": 4.70557,
   "lon": -74.0487,
   "name": "Beta Climbing Gym 19",

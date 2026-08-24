@@ -5105,6 +5105,21 @@
     "note": "Every page carries the footer \"Alonso de Cordova 5870, Local 8b, Las Condes, Santiago, Chile\" — the street line and the commune upstream records."
   },
   {
+    "lat": 22.38584,
+    "lon": 114.19957,
+    "name": "Hong Kong Climbing Park",
+    "country": "CN",
+    "website": "https://www.hkclimbingpark.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The venue's own domain, which the narrow gazetteer box missed because the object it is tagged on is the operator's Yuen Long branch, 19 km away. The site prints \"Address Level 2, Belair Gardens Shopping Arcade Phase 2, 52 Tai Chung Kiu Road, Sha Tin, Hong Kong\" — upstream's address for this row, with the street the registry did not have. This morning's candidate, 270climbing.com, is a climbing park in Bentham, North Yorkshire."
+  },
+  {
     "lat": 22.53599,
     "lon": 114.21099,
     "name": "International College Hong Kong",
