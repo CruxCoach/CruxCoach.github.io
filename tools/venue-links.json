@@ -5242,6 +5242,22 @@
     "note": "TamaRocks' own Costa Rican site, embedding a map of itself 35 m from this venue. The first pass had reached tamarocks.com, a bare placeholder carrying only the domain name. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
   },
   {
+    "lat": 35.1804178,
+    "lon": 33.3940639,
+    "name": "RedpointCY",
+    "country": "CY",
+    "website": "https://www.redpointcy.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "The Open Hours & Location page carries a map block, and the block's own settings give mapLat 35.1804425, mapLng 33.3940622 — 10 m from this coordinate — with addressLine1 \"1 Faidonos\", addressLine2 \"2102\", addressCountry \"Cyprus\". The gazetteer calls the object at this point Redpoint bouldering/parkour gym at 1 Faidras, which is the same street under a different transliteration, and the site's navigation is Parkour and Bouldering."
+  },
+  {
     "lat": 35.1398,
     "lon": 33.36784,
     "name": "Rockstar Climbing",
@@ -15745,6 +15761,20 @@
       "city"
     ],
     "note": "Faultline Climbing trades on wellingtonclimbing.co.nz, which OSM carries on the climbing object at this venue, and the site gives Wellington — the city upstream records."
+  },
+  {
+    "lat": -38.1380496,
+    "lon": 176.2524697,
+    "name": "Ganchos Moon Board",
+    "country": "NZ",
+    "website": "https://www.thewall.co.nz/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "street-address",
+      "city"
+    ],
+    "note": "thewall.co.nz calls itself \"Rotorua's Indoor Climbing facility ... located right in the centre of town\" and its contact page gives 1140 Hinemoa Street, Rotorua. This coordinate is on Hinemoa Street in Rotorua Central. The row is named for the board rather than the hall, which is why no name matched."
   },
   {
     "lat": -41.21355,

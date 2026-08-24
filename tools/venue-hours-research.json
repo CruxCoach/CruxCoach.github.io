@@ -1928,9 +1928,10 @@
   "lon": 33.3940639,
   "name": "RedpointCY",
   "country": "CY",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://www.redpointcy.com/opening-hours-location",
+  "reason": "The Open Hours block reads in full: \"Open Hours Mon - Fri 5PM - 10PM SAT 10AM - 6PM\". Sunday is neither stated as open nor as closed, and a missing day stays missing.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 50.780882755796554,
@@ -6414,15 +6415,6 @@
   "checked": "2026-08-23",
   "source": "https://wellingtonclimbing.co.nz/",
   "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 29 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
- },
- {
-  "lat": -38.1380496,
-  "lon": 176.2524697,
-  "name": "Ganchos Moon Board",
-  "country": "NZ",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 23.6453963,
