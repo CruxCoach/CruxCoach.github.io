@@ -273,6 +273,20 @@ Swoboda Alpin prints a week and says card holders may come from 6. There the
 venue has stated its hours and then described a key some people also have. The
 stated hours are what gets published.
 
+### A gym's site is mostly timetables
+
+Following the site's own links works, and the first thing it finds is almost
+never the week. A climbing gym publishes far more class schedules than opening
+hours — youth squads, taster sessions, yoga, women's nights — and every one of
+them pairs a day with a time. A reader that stops at the first match stops on a
+timetable.
+
+The filter that separates them is how many **distinct** day names sit in one
+window. A class runs on one or two days; a week names four or more. Requiring
+four, and carrying on past the pages that fail it, is what reached Climb So iLL's
+Steel Shop, North Country in Lisbon and Gravity in Budapest — all three of which
+had been read once already and recorded as printing no hours.
+
 ### A 403 is often a challenge, not a refusal
 
 Ten Touchstone halls, three Den Haag halls, Kletterzentrum Innsbruck, Bloc in
@@ -581,8 +595,8 @@ maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (published + outcome entries) | 2190 |
-| Published schedules | 1194 |
-| Recorded outcomes without hours | 996 |
+| Published schedules | 1202 |
+| Recorded outcomes without hours | 988 |
 | Countries covered | 54 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 

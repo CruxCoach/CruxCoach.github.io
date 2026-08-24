@@ -15030,6 +15030,31 @@
   "note": "The Buda hall opens late on Thursday where Zugló opens late on Tuesday; each page names its own exception. The single markup block on the domain covers neither and omits Sunday."
  },
  {
+  "lat": 47.5085995,
+  "lon": 19.0259772,
+  "name": "Gravity Moonboard",
+  "country": "HU",
+  "source": "https://gravitybudapest.com/nyitvatartas/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "06:00-23:00",
+   "tue": "06:00-23:00",
+   "wed": "06:00-23:00",
+   "thu": "06:00-23:00",
+   "fri": "07:00-23:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Hétfő 06:00-23:00 Kedd 06:00-23:00 Szerda 06:00-23:00 Csütörtök 06:00-23:00 Péntek 07:00-23:00 Szombat 09:00-21:00 Vasárnap 09:00-21:00* *Felhívjuk figyelmüket, hogy a mászóutak cseréjét 19:00-tól kezdjük minden Vasárnap",
+  "note": "Seven days, with Friday opening an hour late. The sauna keeps its own shorter week on the same page and is not this venue; the Sunday asterisk is about route-setting closing a quarter of the wall from 19:00, not about the door."
+ },
+ {
   "lat": -8.63688,
   "lon": 115.13838,
   "name": "Rock Island Bali",
@@ -22568,6 +22593,56 @@
   "note": "Every day accounted for, with Monday closed. The caveat above it is about weather and competitions, and the named holidays beneath it are a closure list; neither is a second week. Parties are hosted before the open hours rather than inside them."
  },
  {
+  "lat": 38.7856132,
+  "lon": -90.47841799999999,
+  "name": "Climb So iLL at the Steel Shop",
+  "country": "US",
+  "source": "https://stcharles.climbsoill.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "STEEL SHOP + GRAVITY LAB 650 N Main Center, Suite 105 St. Charles, MO 63301 636-493-1675 HOURS Mon – Fri | 11:00 a.m. – 10:00 p.m. Saturday | 10:00 a.m. – 8:00 p.m. Sunday | 10:00 a.m. – 6:00 p.m.",
+  "note": "The operator keeps a subdomain per hall — stcharles for the Steel Shop, stlouis for the Power Plant — and this one prints its week under its own address. What the earlier read found first was the class timetable, which names two days at a time and fills most of the page."
+ },
+ {
+  "lat": 38.78593,
+  "lon": -90.47849,
+  "name": "Climb So iLL Steel Shop",
+  "country": "US",
+  "source": "https://stcharles.climbsoill.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "STEEL SHOP + GRAVITY LAB 650 N Main Center, Suite 105 St. Charles, MO 63301 636-493-1675 HOURS Mon – Fri | 11:00 a.m. – 10:00 p.m. Saturday | 10:00 a.m. – 8:00 p.m. Sunday | 10:00 a.m. – 6:00 p.m.",
+  "note": "The operator keeps a subdomain per hall — stcharles for the Steel Shop, stlouis for the Power Plant — and this one prints its week under its own address. What the earlier read found first was the class timetable, which names two days at a time and fills most of the page."
+ },
+ {
   "lat": 36.117947,
   "lon": -95.92112,
   "name": "Climb Tulsa",
@@ -26000,6 +26075,31 @@
   },
   "evidence": "HOURS Monday – Friday 12:00pm – 11:00pm Saturday 10:00am – 10:00pm Sunday 10:00am – 8:00pm",
   "note": "The gym's openingHoursSpecification states the identical week alongside its address, so text and markup agree. A second, generic markup block on the same page carries the template default of 09:00-17:00 for all seven days and is not a claim about this gym."
+ },
+ {
+  "lat": 44.2545,
+  "lon": -71.84068,
+  "name": "North Country Climbing Center",
+  "country": "US",
+  "source": "https://northcountryclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "15:00-21:00",
+   "tue": "15:00-21:00",
+   "wed": "15:00-21:00",
+   "thu": "15:00-21:00",
+   "fri": "15:00-21:00",
+   "sat": "11:00-20:00",
+   "sun": "11:00-20:00"
+  },
+  "evidence": "North Country Climbing Center 2572 US Route 302 Lisbon, NH 03585 ... We are open 7 days a week! Monday – Friday: 3:00pm – 9:00pm Saturday – Sunday: 11:00am – 8:00pm We also offer member-only hours and special events.",
+  "note": "Stated twice on the home page, once in prose and once in the footer, and the two agree. The member-only hours it mentions are an extra key, not the public week."
  },
  {
   "lat": 41.36546,
