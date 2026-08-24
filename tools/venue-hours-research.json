@@ -1152,10 +1152,10 @@
   "lon": -78.6617,
   "name": "Pinnacle Climbing Gym",
   "country": "CA",
-  "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://pinnacleindoorclimbing.com/",
-  "reason": "The gym's own site answers 403 to every fetcher and header set, so its week cannot be read, and it is not taken from the snapshot the link rests on."
+  "status": "ambiguous",
+  "source": "https://pinnacleindoorclimbing.com/contact-us/",
+  "reason": "Better than \"the site refuses every fetcher\", which is what this record said: two of its pages answered this time, and they disagree. The footer on /contact-us/ reads \"Regular Hours: Sun & Mon: 10:00am - 8:00pm Tues-Sat: 10:00am - 10:00pm\"; the same footer on /program-sign-up/ reads \"Tues-Sat: 10:00am - 9:00pm\". One of the two is stale and the site does not say which. The gym is at 330 Lake Road, Bowmanville, on both.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 48.3842148,
@@ -3524,16 +3524,6 @@
   "checked": "2026-08-23",
   "source": "https://soloescalade.fr/",
   "reason": "Re-read: unchanged. The homepage carries two weeks — Lun.-Ven. 10h-23h with Sam.-Dim. 10h-22h, and a second Lun.-Dim. 10h-22h — with no readable label saying which applies when."
- },
- {
-  "lat": 45.94472,
-  "lon": 6.04587,
-  "name": "Space Bloc",
-  "country": "FR",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://www.spacebloc.fr/",
-  "reason": "The only week the hall states is an exception to one: \"HORAIRES EXCEPTIONNELS CHAQUE SAMEDI (JUILLET / AOÛT) 10H00 - 19H00\", a summer Saturday arrangement with a happy hour attached. No regular week is published anywhere on the site to put it against."
  },
  {
   "lat": 49.11961,

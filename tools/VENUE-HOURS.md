@@ -273,6 +273,32 @@ Swoboda Alpin prints a week and says card holders may come from 6. There the
 venue has stated its hours and then described a key some people also have. The
 stated hours are what gets published.
 
+### Ask the site which pages it has
+
+Every hunt in this file guessed paths — `/hours`, `/kontakt`, `/oeffnungszeiten`,
+`/horaires`, `/contact`, `/prices` and a few more — and when none of them
+answered, the record said the official site prints no hours. That verdict is
+only as good as the list.
+
+`robots.txt` and `sitemap.xml` between them name the pages that exist. Asked of
+all 203 venues with that verdict, they turned up 35 pages that pair a day with a
+time, and six of those became weeks. Asked again of the 253 filed as ambiguous,
+seasonal, appointment-only or inaccessible, they turned up 62 more — almost all
+of them pages already read, and one that was not.
+
+That one is the argument for the channel. Spacebloc near Annecy was recorded as
+publishing no regular week at all: the homepage carries a banner reading
+"HORAIRES EXCEPTIONNELS CHAQUE SAMEDI (JUILLET / AOÛT)" and nothing else. The
+regular week is on a page called
+`/informations-pratiques-pour-la-salle-descalade-a-annecy-spacebloc-1278`. No
+path guess reaches a slug ending in a four-digit id; a sitemap lists it in one
+line.
+
+The rest of what it found is the ordinary content of a gym's site — class
+timetables, camp schedules, a town hall's own opening hours on a municipal site,
+a 2017 post about Christmas. Filter on a day-name with a time within 300
+characters and read the survivors.
+
 ### Re-reading a whole status at once
 
 Two rules in this file were worked out partway through the audit, which means

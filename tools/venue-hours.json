@@ -12711,6 +12711,31 @@
   "note": "Every day is stated. The \"Créneau 3 - 6 ans\" on Sunday mornings 9h-10h is a session for under-sixes before the hall opens and is not published here, and the \"Horaires du 15 au 23 mai\" block elsewhere on the page is a past dated exception rather than the week."
  },
  {
+  "lat": 45.94472,
+  "lon": 6.04587,
+  "name": "Space Bloc",
+  "country": "FR",
+  "source": "https://www.spacebloc.fr/informations-pratiques-pour-la-salle-descalade-a-annecy-spacebloc-1278",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-23:00",
+   "wed": "09:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Horaires d'ouverture NOS HORAIRES (HORS JOURS FÉRIÉS) : LUNDI, JEUDI 10H00 - 22H00. MARDI, VENDREDI 10H00 - 23H00 . MERCREDI 9H00 - 22H00. SAMEDI 10H00 - 21H00. DIMANCHE 10H00 - 19H00 HORAIRES EXCPETIONNELS ( JOURS FERIÉS ) : 10H00 - 19H00 Où nous trouver ? 87 Route des Marais de Culas 74 330 Sillingy",
+  "note": "The earlier record said no regular week was published anywhere on the site, and the only thing it could find was the homepage banner: \"HORAIRES EXCEPTIONNELS CHAQUE SAMEDI (JUILLET / AOÛT) 10H00 - 19H00\". The banner is still there and still says exceptionnels. The regular week is on an informations-pratiques page whose slug ends in a four-digit id — a page no path guess would ever reach and the sitemap lists plainly. Wednesday opens an hour early, Tuesday and Friday close an hour late."
+ },
+ {
   "lat": 48.39182,
   "lon": -4.4872,
   "name": "The Roof Brest",
