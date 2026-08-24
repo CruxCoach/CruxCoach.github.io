@@ -8616,6 +8616,21 @@
     "note": "The same club, 45 m from its main entry. Its facilities page states \"Klubben har et standard Moonboard til radighed. Boardet kan justeres i enten 25 eller 40 grader\" — the MoonBoard this venue is listed for — alongside the Kilterboard recorded at the club's other entry, so both boards are in the one hall at Dalbygade 40 U, 6000 Kolding."
   },
   {
+    "lat": 54.935642,
+    "lon": 12.2547219,
+    "name": "Møn Boulders",
+    "country": "DK",
+    "website": "https://monsklatreklub.klub-modul.dk/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "Møns Klatreklub's own site, footed \"Møns Klatreklub - Platanvej 40 - 4780 Stege\". Upstream labels this row with Vordingborg, 20 km away across the bridge; the coordinate is 4780, which is Stege on Møn."
+  },
+  {
     "lat": 55.6760968,
     "lon": 12.5683372,
     "name": "Nørrebro Klatreklub (NKK)",
@@ -16646,6 +16661,21 @@
     "note": "Sävsjö Klätterklubb's own site. The map it embeds of itself sits 353 m from this venue, outside the range the coordinates signal allows, so it is noted rather than claimed; what carries the match is the club's name and the town, with the federation directory naming the two together. Svenska Klätterförbundet publishes its member clubs at klatterforbundet.se/klubbar with each club's own site beside its name; that directory is how this was found, and the federation naming the club and the site together is what makes the town an independent confirmation rather than a repetition of the venue's name."
   },
   {
+    "lat": 59.2897391,
+    "lon": 18.0820945,
+    "name": "Slaktis",
+    "country": "SE",
+    "website": "https://boulderingstockholm.se/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "Slaktis is what Stockholm calls Slakthusområdet, and the gym's own page says \"Du hittar oss i Slakthusområdet i närheten av Globen\" and gives Slakthusgatan 26. The coordinate is on Slakthusgatan."
+  },
+  {
     "lat": 58.42014,
     "lon": 15.61749,
     "name": "Urban Boulders",
@@ -20302,6 +20332,21 @@
     "note": "Latitude Climbing & Fitness's own site, matching the venue's name and naming the Kilter board this entry is registered for. Upstream labels the place Chesapeake; the coordinates fall in Virginia Beach, which the venue's own name already carries, so the board is what supplies the second signal."
   },
   {
+    "lat": 37.636834,
+    "lon": -83.69427600000002,
+    "name": "LEE COUNTY REC CENTER",
+    "country": "US",
+    "website": "https://www.leecountyreccenter.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The centre is a ministry of the Kentucky Mountain Mission and its page gives \"Lee County Recreational Center, 1952 Old Hwy 11, Beattyville, KY 41311\", with a Climbing Center among the bowling, fitness and snack bar. Upstream records no address at all for this row; the coordinate is 41311."
+  },
+  {
     "lat": 42.445438,
     "lon": -76.4766356,
     "name": "Lindseth Climbing Center Moonboard",
@@ -21326,6 +21371,37 @@
     "note": "The candidate's own pages carry a map of itself 17 m away, the tension board this venue is listed for, under the venue's name."
   },
   {
+    "lat": 41.23199,
+    "lon": -96.10822,
+    "name": "MW Climbing Omaha",
+    "country": "US",
+    "website": "https://www.mwclimbing.com/contact",
+    "verified": "2026-08-24",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator runs two halls and its contact page gives both: Lincoln at 400 N 48th St, 68504, and Omaha at 2809 S 125th AVE Suite 297, 68144. The coordinate is 68144, so this row is the Omaha one — which is also what upstream calls it, though it labels the town La Vista."
+  },
+  {
+    "lat": 43.190476,
+    "lon": -71.53124799999999,
+    "name": "NHCF MOON BOARD",
+    "country": "US",
+    "website": "https://nhclimbinggym.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The record here read NHCF as the initials of NH Climbing & Fitness and said so was not something the page could confirm. The coordinate can: it is 03301, the postcode the gym prints beside \"10 Langdon Ave. Concord, NH\". One gym, one address, the town this venue sits in, and now the postcode as well."
+  },
+  {
     "lat": 43.05838,
     "lon": -78.83704,
     "name": "Niagara Climbing Center",
@@ -21937,6 +22013,21 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": 35.65344,
+    "lon": -105.9925,
+    "name": "Santa Fe Climbing Center",
+    "country": "US",
+    "website": "https://climbsantafe.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The record here said the site prints \"3008 Cielo Court | Santa Fe, NM\" and that upstream records no street to test it against. The coordinate does: it sits on Cielo Court. OSM already carried this domain on a climbing object 10 m away, and now the street the point is on and the street the page prints are the same."
   },
   {
     "lat": 47.65153,

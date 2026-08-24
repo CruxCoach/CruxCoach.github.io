@@ -1358,16 +1358,6 @@
     "candidate": "https://zwiesel.de/"
   },
   {
-    "lat": 54.935642,
-    "lon": 12.2547219,
-    "name": "Møn Boulders",
-    "country": "DK",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be tied to this venue. Klatring Danmark's club directory lists Mons Klatreklub at monsklatreklub.klub-modul.dk, whose footer gives Platanvej 40, 4780 Stege — but that club is not this venue: the names do not match, the site never mentions bouldering premises at these coordinates, and it names no MoonBoard. monboulders.dk, monboulders.com, mon-boulders.dk, mon-boulders.com and moenboulders.dk do not resolve. Upstream files the venue under Vordingborg and gives no address.",
-    "candidate": "https://monsklatreklub.klub-modul.dk/"
-  },
-  {
     "lat": 55.8581302,
     "lon": 9.8475881,
     "name": "Moonboard Horsens",
@@ -4296,16 +4286,6 @@
     "candidate": "https://www.klattercentret.se/sisjon/"
   },
   {
-    "lat": 59.2897391,
-    "lon": 18.0820945,
-    "name": "Slaktis",
-    "country": "SE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — boulderingstockholm.se → \"Bouldering Sthlm – Stockholms första renodlade bouldergy\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://boulderingstockholm.se/"
-  },
-  {
     "lat": 63.8258471,
     "lon": 20.2630354,
     "name": "The KFUM board",
@@ -4370,9 +4350,9 @@
     "name": "SPOT Climbing Gym Bratislava",
     "country": "SK",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — spot.sk → \"Solution architecture and design for your IT\", the rest could not be opened — spotclimbing.com → 200; spot.com → 403. Upstream records Devínska Nová Ves 7466 objekt C, 841 07, Devínska Nová Ves, and nothing opened printed it.",
-    "candidate": "https://spot.sk/"
+    "reason": "spot.sk carries the venue's name and the right postcode — Kremencová 18, 841 07 Bratislava, the same 841 07 upstream records for Devínska Nová Ves — and it is an industrial automation company: \"Smart factory, Smart city, Smart home, Arduino PLC ISA-95\". A postcode district in a capital city is not a signal on its own.",
+    "candidate": "https://spot.sk/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 33.503683607357665,
@@ -5124,16 +5104,6 @@
     "reason": "No official site. The only candidate that answered for Kilter Studio, Longmont was wiesbaden.studiobloc.de, a bouldering hall in Germany — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
   },
   {
-    "lat": 37.636834,
-    "lon": -83.69427600000002,
-    "name": "LEE COUNTY REC CENTER",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — leecountyreccenter.com → \"Lee County Rec Center | Lee County Rec Center\", the rest could not be opened — leecounty.com → 403; leecounty.net → 200; leecounty.org → 403, the venue's whole name as one label, leecountyreccenter.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.leecountyreccenter.com/"
-  },
-  {
     "lat": 38.0405837,
     "lon": -84.5037164,
     "name": "LEF",
@@ -5188,26 +5158,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site. The only candidate that answered for MTU Ridge Roamers, Houghton was theridgeclimbing.co.uk, a climbing centre in the United Kingdom — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
-  },
-  {
-    "lat": 41.23199,
-    "lon": -96.10822,
-    "name": "MW Climbing Omaha",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — mwclimbing.com → \"MWClimbing\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.mwclimbing.com/"
-  },
-  {
-    "lat": 43.190476,
-    "lon": -71.53124799999999,
-    "name": "NHCF MOON BOARD",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "nhclimbinggym.com is NH Climbing & Fitness at 10 Langdon Ave, Concord, NH 03301 — one gym, one address, in the town this venue sits in. Reading NHCF as its initials is almost certainly right and is not something the page says: the site never contains the string NHCF, and it names no board, so what actually matches is the town and nothing else. Upstream records no street for this entry to test against. The candidate the earlier pass recorded, nhcf.org, is the New Hampshire Charitable Foundation. Recorded for the next pass: the site carries \"Hours Monday - Thursday: 10am to 9:30pm Friday, Saturday: 10am to 7pm Sunday: 9am to 7pm\", with members-only hours 8-10am Monday to Thursday.",
-    "candidate": "https://nhclimbinggym.com/"
   },
   {
     "lat": 40.0647951,
@@ -5461,16 +5411,6 @@
     "checked": "2026-08-24",
     "reason": "rokc.com answers 200 and is the obvious guess for RoKC Underground, but it holds one line of script — window.onload=function(){window.location.href=\"/lander\"} — and nothing else. A domain parked behind a lander page is not a site, and the operator's real one was not found.",
     "candidate": "https://rokc.com/"
-  },
-  {
-    "lat": 35.65344,
-    "lon": -105.9925,
-    "name": "Santa Fe Climbing Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps Santa Fe Climbing Center 10 m from this venue and tags it climbsantafe.com, and the site answers and prints \"3008 Cielo Court | Santa Fe, NM\". Upstream records no street for this entry, so the only thing the page and the dataset share is Santa Fe — which is already inside the venue's name, and so is one observation rather than two.",
-    "candidate": "https://climbsantafe.com/"
   },
   {
     "lat": 30.267153,

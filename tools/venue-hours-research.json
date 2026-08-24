@@ -2649,9 +2649,10 @@
   "lon": 12.2547219,
   "name": "Møn Boulders",
   "country": "DK",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://monsklatreklub.klub-modul.dk/",
+  "reason": "The club runs its site on Klubmodul, which puts membership, booking and calendar behind a login. What renders to a visitor is 2,439 characters of navigation, a login form and an address, with no time of day in it.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 55.8581302,
@@ -7624,15 +7625,6 @@
   "reason": "The club lists \"Måndagar 17:30-20 Torsdagar 17:30-20 Lördagar 10-13\" and calls them its ordinary hours, but the same paragraph sends readers elsewhere for the rest — \"För övriga tider se vår facebooksida\" — so four days are neither stated nor stated closed. The page also says of its own week \"Dom kan ändras utan att detta uppdateras\"."
  },
  {
-  "lat": 59.2897391,
-  "lon": 18.0820945,
-  "name": "Slaktis",
-  "country": "SE",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 63.8258471,
   "lon": 20.2630354,
   "name": "The KFUM board",
@@ -9033,9 +9025,10 @@
   "lon": -83.69427600000002,
   "name": "LEE COUNTY REC CENTER",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://www.leecountyreccenter.com/",
+  "reason": "The page renders to 2,183 characters — a purpose statement, a list of ministries, a snack-bar menu and an address — and contains no time of day anywhere.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 38.0405837,
@@ -9136,24 +9129,6 @@
   "lat": 47.11368,
   "lon": -88.54734,
   "name": "MTU Ridge Roamers",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 41.23199,
-  "lon": -96.10822,
-  "name": "MW Climbing Omaha",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 43.190476,
-  "lon": -71.53124799999999,
-  "name": "NHCF MOON BOARD",
   "country": "US",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -9508,15 +9483,6 @@
   "lat": 39.06982,
   "lon": -94.60143,
   "name": "RoKC Underground",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 35.65344,
-  "lon": -105.9925,
-  "name": "Santa Fe Climbing Center",
   "country": "US",
   "status": "no-official-site",
   "checked": "2026-08-23",

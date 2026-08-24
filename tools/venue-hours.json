@@ -18117,6 +18117,32 @@
   "note": "Logged as 'no schedule' on the first pass. Both weeks are on the homepage, and the summer one is a dated window that closed on 10 August — so the Ordinary Hours beside it are the week in force, which is the case the policy allows to be recorded with the window noted."
  },
  {
+  "lat": 59.2897391,
+  "lon": 18.0820945,
+  "name": "Slaktis",
+  "country": "SE",
+  "source": "https://boulderingstockholm.se/oppettider-kontakt/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Öppettider Mån — tis 10.00 — 22.00 · Ons — fre 12.00 — 22.00 · Lör — sön 10.00 — 20.00",
+  "note": "The gym repeats this week further down the page under the heading Ordinarie öppettider, which is what makes the eighteen dated lines between them — Nyårsdagen, Trettondagen, Långfredagen and the rest — an exception list rather than a competing schedule."
+ },
+ {
   "lat": 1.33109,
   "lon": 103.74827,
   "name": "Boulder+ The Chevrons",
@@ -23987,6 +24013,59 @@
   "evidence": "Mon-Fri: 10Am-10pm | SAT: 10am-9pm | SUN: 10am-7pm | Kingston, NY 12401"
  },
  {
+  "lat": 41.23199,
+  "lon": -96.10822,
+  "name": "MW Climbing Omaha",
+  "country": "US",
+  "source": "https://www.mwclimbing.com/contact",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Omaha 2809 S 125th AVE Suite 297 Omaha, NE 68144 (531) 283-5200 Omaha Hours Weekdays: 9 am - 10 pm Weekends: 9 am - 8pm",
+  "note": "The page states each hall's week under that hall's own address and heads this one \"Omaha Hours\", so it cannot be confused with Lincoln's, which opens at 11 on weekdays."
+ },
+ {
+  "lat": 43.190476,
+  "lon": -71.53124799999999,
+  "name": "NHCF MOON BOARD",
+  "country": "US",
+  "source": "https://nhclimbinggym.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-21:30",
+   "tue": "10:00-21:30",
+   "wed": "10:00-21:30",
+   "thu": "10:00-21:30",
+   "fri": "10:00-19:00",
+   "sat": "10:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "NH Climbing & Fitness 10 Langdon Ave. Concord, NH 03301 … Hours Monday - Thursday: 10am to 9:30pm Friday, Saturday: 10am to 7pm Sunday: 9am to 7pm",
+  "note": "Stated beside the gym's address. The \"Members Only Hours: M - Th 8-10am\" beneath it is who may come before ten, not a different opening."
+ },
+ {
   "lat": 43.05838,
   "lon": -78.83704,
   "name": "Niagara Climbing Center",
@@ -24713,6 +24792,33 @@
    "sun": "10:00-18:00"
   },
   "evidence": "Monday through Friday | 12 PM - 10 PM | Saturday | 10 AM - 8 PM | Sunday | 10 AM - 6 PM | Holiday Hours | Salt Pump will be closed on the following holidays: New Years Day, Memorial Day, July 4th, Labor Day, Thanksgiving, and Christmas."
+ },
+ {
+  "lat": 35.65344,
+  "lon": -105.9925,
+  "name": "Santa Fe Climbing Center",
+  "country": "US",
+  "source": "https://climbsantafe.com/contact/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "09:00-21:00",
+   "sat": "12:00-20:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Location: 3008 Cielo Court Santa Fe, NM 87507 … Hours Sunday: 10:00 am – 6:00 pm Monday: 9:00 am – 9:00 pm … Friday: 9:00 am – 9:00 pm Saturday: 12:00 pm – 8:00 pm",
+  "note": "Every day listed separately beneath the centre's address, with Saturday opening three hours after Sunday."
  },
  {
   "lat": 47.65153,
