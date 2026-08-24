@@ -1578,8 +1578,8 @@
     "name": "Gravetat Zero",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Same hall as the venue about 250 m away, and the same outcome: gravetatzero.com is a helmet-bracket shop, and nothing else resolves.",
+    "checked": "2026-08-24",
+    "reason": "gravetatzero.com matches this venue's name and gives Barcelona, and it is neither the venue nor really Barcelona. The page is titled \"SOPORTE DE PARED PARA CASCO, UNICO\" and sells a wall mount for a helmet from an address in 08032 Barcelona; this venue is in Terrassa, and the Barcelona the municipality lookup returned for it is the province, not the city.",
     "candidate": "https://gravetatzero.com/"
   },
   {
@@ -1598,8 +1598,8 @@
     "name": "La Panxa del Bou",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "lapanxadelbou.cat is a brasserie in Ullastrell and lapanxadelbou.com presents a certificate that does not cover its hostname. Nothing found names a climbing venue in Sabadell under this name.",
+    "checked": "2026-08-24",
+    "reason": "lapanxadelbou.cat matches this venue's name exactly and is a restaurant: \"Restaurante brasería en Ullastrell | La Panxa del Bou (Terrassa)\". This venue is in Sabadell, and the Barcelona that made the page look like a match is the province rather than the city.",
     "candidate": "https://lapanxadelbou.cat/"
   },
   {
@@ -2140,16 +2140,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — hive.hr → \"Hive - Employee Engagement Platform and Professional Ser\"; hive.com → \"The #1 Project Management Software For Teams | Hive\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.hive.hr/"
-  },
-  {
-    "lat": 47.5625993,
-    "lon": 19.0324136,
-    "name": "fless! Buda",
-    "country": "HU",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — fless.hu → \"Fless Budapest Boulder Gym - Bouldering in Zugló & Buda\", the rest could not be opened — fless.com → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://fless.hu/"
   },
   {
     "lat": 47.2306851,

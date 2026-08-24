@@ -12095,6 +12095,20 @@
     "note": "Fless!'s own site, giving Budapest — the city upstream records for Kover Lajos u. 23. The venue name carries no town of its own."
   },
   {
+    "lat": 47.5625993,
+    "lon": 19.0324136,
+    "name": "fless! Buda",
+    "country": "HU",
+    "website": "https://fless.hu/",
+    "verified": "2026-08-24",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Fless's own site, titled \"Fless Budapest Boulder Gym - Bouldering in Zugló & Buda\" — it names both of the operator's halls, this one among them, and gives Budapest. Upstream labels this venue with a district; the coordinates fall inside Budapest, which is what the page names. The site is a single-shell application: /buda, /termeink and /kapcsolat all return the same 1.5 kB document, so there is no per-hall page to link instead."
+  },
+  {
     "lat": 47.5085995,
     "lon": 19.0259772,
     "name": "Gravity Moonboard",
