@@ -1437,6 +1437,60 @@
   "note": "The site’s own schema.org openingHoursSpecification agrees."
  },
  {
+  "lat": -26.807137,
+  "lon": 153.070112,
+  "name": "Boulder Heads",
+  "country": "AU",
+  "source": "https://boulder-heads.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "12:30-21:30",
+   "tue": "12:30-21:30",
+   "wed": "09:00-21:30",
+   "thu": "12:30-21:30",
+   "fri": "12:30-21:30",
+   "sat": "09:00-19:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "19 Edison Cres, Baringa QLD 4551 … HOURS Mon + Tues 12:30 - 9:30pm Wed 9am - 9:30pm Thurs + Fri 12:30 - 9:30pm Sat 9am - 7pm Sun 10am - 6pm",
+  "note": "Wednesday opens three and a half hours before the other weekdays, which the page's own openingHours markup flattens by putting it with them. Recorded ambiguous until the rule was written down: an openingHours block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
+  "lat": -26.80713,
+  "lon": 153.07039,
+  "name": "Boulder Heads",
+  "country": "AU",
+  "source": "https://boulder-heads.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "12:30-21:30",
+   "tue": "12:30-21:30",
+   "wed": "09:00-21:30",
+   "thu": "12:30-21:30",
+   "fri": "12:30-21:30",
+   "sat": "09:00-19:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "19 Edison Cres, Baringa QLD 4551 … HOURS Mon + Tues 12:30 - 9:30pm Wed 9am - 9:30pm Thurs + Fri 12:30 - 9:30pm Sat 9am - 7pm Sun 10am - 6pm",
+  "note": "Wednesday opens three and a half hours before the other weekdays, which the page's own openingHours markup flattens by putting it with them. The same hall as the entry 20 m away. Recorded ambiguous until the rule was written down: an openingHours block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
   "lat": -37.77623,
   "lon": 144.96197,
   "name": "Boulder Lab Brunswick",
@@ -2174,6 +2228,33 @@
    "sun": "09:00-20:00"
   },
   "evidence": "Mon - Fri: 10am - 10pm | Sat - Sun: 9am - 8pm"
+ },
+ {
+  "lat": -34.048437,
+  "lon": 150.828968,
+  "name": "Top Out Bouldering Gym",
+  "country": "AU",
+  "source": "https://topout.com.au/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "08:00-21:00",
+   "sun": "08:00-21:00"
+  },
+  "evidence": "unit 1/185-187 Airds Rd Leumeah NSW 2560 Opening Hours Monday: 9am - 10pm Tuesday: 6am - 10pm Wednesday : 9am - 10pm Thursday: 6am - 10pm Friday: 9am - 10pm Saturday: 8am - 9pm Sunday: 8am - 9pm",
+  "note": "Every day is listed separately beside the gym's address; Tuesday and Thursday open three hours earlier than the other weekdays. The markup on the same page flattens all seven to Mo-Su 06:00-22:00. Recorded ambiguous until the rule was written down: an openingHours block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": -37.86987,
@@ -5281,6 +5362,31 @@
   "evidence": "Mo + Fr 13:00 – 22:00 | Di – Do 09:00 – 22:00 | Sa + So 09:00 – 20:00"
  },
  {
+  "lat": 46.62682,
+  "lon": 7.0669939,
+  "name": "L'Entrepôt",
+  "country": "CH",
+  "source": "https://lentrepot.ch/infos-pratiques/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Du lundi au vendredi 09h00 à 22h00 … Samedi et dimanche 09h00 à 20h00",
+  "note": "Two bands covering all seven days. The page's own openingHoursSpecification gives all seven 09:00-22:00, which is the weekday band applied to the weekend. Recorded ambiguous until the rule was written down: an openingHours block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
   "lat": 46.54329,
   "lon": 6.62947,
   "name": "Le Cube - Escalade & Bar",
@@ -5523,6 +5629,32 @@
    "sun": "08:00-20:00"
   },
   "evidence": "Mo 08:00 – 22.00 | Di 08:00 – 22:00 | Mi 08:00 – 22:00 | Do 08:00 – 22:00 | Fr 08:00 – 22:00 | Sa 08:00 – 20:00 | So 08:00 – 20:00"
+ },
+ {
+  "lat": 46.190825110299706,
+  "lon": 6.111380637625461,
+  "name": "Planet Climbing",
+  "country": "CH",
+  "source": "https://planetclimbing.ch/lancy/heures-douverture-et-tarifs/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "14:00-21:00",
+   "sun": "14:00-21:00"
+  },
+  "evidence": "Lundi, Mardi, Mercredi, Jeudi & Vendredi : 12h00-22h00 … Samedi & Dimanche : 14h00-21h00",
+  "note": "Stated on the operator's page for its Lancy hall. The markup on that same page opens the weekdays two hours earlier, at 10:00. Recorded ambiguous until the rule was written down: an openingHours block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 46.16612,
@@ -11281,6 +11413,58 @@
   },
   "evidence": "Ouvert · 7j/7 · 9h → 00h00",
   "note": "The page's schema.org openingHours states the same week."
+ },
+ {
+  "lat": 48.6080475097524,
+  "lon": 6.16269753995282,
+  "name": "Goat Rocks",
+  "country": "FR",
+  "source": "https://www.goatrocks.fr/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Nos horaires Lundi Mardi 11h - 22h Mercredi 9h - 22h Jeudi Vendredi 11h - 22h Samedi Dimanche 9h - 20h … 850 Rue Robert Schuman, 54850 Messein",
+  "note": "Wednesday opens two hours before the other weekdays, which the page's own openingHoursSpecification flattens by putting it with them. Recorded ambiguous until the rule was written down: an openingHours block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
+  "lat": 47.51288184647128,
+  "lon": 6.8354212514257595,
+  "name": "GRAVITY BLOC",
+  "country": "FR",
+  "source": "https://gravitybloc.fr/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Nos horaires Lundi · Mardi · Jeudi 12h – 22h Mercredi · Vendredi 10h – 22h Samedi · Dimanche 10h – 20h",
+  "note": "The visible table pairs Friday with Wednesday at 10h; the page's own openingHoursSpecification pairs it with Monday, Tuesday and Thursday at 12:00 instead. Recorded ambiguous until the rule was written down: an openingHours block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 49.9026632,
@@ -17854,6 +18038,31 @@
   },
   "evidence": "Monday – Friday 8am-9pm North, South & West Gyms OPEN Weekends 9am-7pm North, South & West Gyms OPEN",
   "note": "The gym has three climbing areas in one building and states the same opening for all of them."
+ },
+ {
+  "lat": 35.18891,
+  "lon": -111.63632,
+  "name": "Beta Bouldering Gym",
+  "country": "US",
+  "source": "https://www.betaboulderinggym.com/contact-hours",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Monday - Friday: 7am - 10pm, Saturday: 10am - 10pm, Sunday: 10am - 6pm",
+  "note": "Printed on both the home page and the contact page. The openingHours markup on those same pages opens the weekdays three hours later, at 10:00. Recorded ambiguous until the rule was written down: an openingHours block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 44.9808,

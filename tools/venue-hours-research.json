@@ -267,26 +267,6 @@
   "source": "https://baysiderock.com.au/"
  },
  {
-  "lat": -26.807137,
-  "lon": 153.070112,
-  "name": "Boulder Heads",
-  "country": "AU",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://boulder-heads.com/",
-  "reason": "The visible block says \"Mon + Tues 12:30 - 9:30pm, Wed 9am - 9:30pm, Thurs + Fri 12:30 - 9:30pm, Sat 9am - 7pm, Sun 10am - 6pm\" while the page's own openingHours markup puts Wednesday with the rest at 12:30-21:30."
- },
- {
-  "lat": -26.80713,
-  "lon": 153.07039,
-  "name": "Boulder Heads",
-  "country": "AU",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://boulder-heads.com/",
-  "reason": "Same page and the same conflict as its twin: Wednesday is 9am in the text and 12:30 in the markup."
- },
- {
   "lat": -33.8184459,
   "lon": 151.1893579,
   "name": "Climb Fit St Leonards",
@@ -463,16 +443,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": -34.048437,
-  "lon": 150.828968,
-  "name": "Top Out Bouldering Gym",
-  "country": "AU",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://topout.com.au/",
-  "reason": "The visible week is Monday 9am-10pm, Tuesday 6am-10pm, Wednesday 9am-10pm, Thursday 6am-10pm, Friday 9am-10pm, Saturday and Sunday 8am-9pm, while the page's own openingHours markup says Mo-Su 06:00-22:00."
  },
  {
   "lat": -27.45127,
@@ -1513,16 +1483,6 @@
   "reason": "Re-read, and the earlier 'no schedule' reading was incomplete: the homepage states 'Das Bouldergate kann von den Mitgliedern 24/7 benutzt werden' and tells non-members 'Registriere dich vor JEDEM Besuch'. Access is by membership or per-visit registration, and no public week is stated."
  },
  {
-  "lat": 46.62682,
-  "lon": 7.0669939,
-  "name": "L'Entrepôt",
-  "country": "CH",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://lentrepot.ch/infos-pratiques/",
-  "reason": "Re-read: unchanged. The visible block is 'Du lundi au vendredi 09h00 à 22h00' and 'Samedi et dimanche 09h00 à 20h00'; the page's own openingHoursSpecification says all seven days 09:00-22:00. Two schedules, and nothing here ranks one over the other."
- },
- {
   "lat": 46.6274,
   "lon": 7.06666,
   "name": "L'Entrepôt",
@@ -1569,16 +1529,6 @@
   "checked": "2026-08-23",
   "source": "https://www.vengabloc.ch/",
   "reason": "Re-read, and the earlier 'no schedule' reading was wrong: the site does publish a window, but it is members-only - 'Les membres ... peuvent accéder librement (grâce à une carte magnétique) ... entre 8:00 et 22:00 tous les jours'. Non-members are told to come with a member or to phone or WhatsApp a committee member to be let in remotely."
- },
- {
-  "lat": 46.190825110299706,
-  "lon": 6.111380637625461,
-  "name": "Planet Climbing",
-  "country": "CH",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://planetclimbing.ch/lancy/heures-douverture-et-tarifs/",
-  "reason": "Re-read: unchanged. The Lancy hours page states 'Lundi, Mardi, Mercredi, Jeudi & Vendredi : 12h00-22h00' and 'Samedi & Dimanche : 14h00-21h00', while the openingHours markup on that same page says Monday-Friday 10:00-22:00 and Saturday-Sunday 10:00-21:00."
  },
  {
   "lat": 46.19127,
@@ -3906,16 +3856,6 @@
   "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 4,621 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
-  "lat": 48.6080475097524,
-  "lon": 6.16269753995282,
-  "name": "Goat Rocks",
-  "country": "FR",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://www.goatrocks.fr/",
-  "reason": "Re-read: unchanged. The visible table says Mercredi 9h - 22h while the page's own openingHoursSpecification puts Wednesday with Monday to Friday at 11:00–22:00."
- },
- {
   "lat": 48.8835799,
   "lon": 2.1913342,
   "name": "GRANIT Rueil",
@@ -3924,16 +3864,6 @@
   "checked": "2026-08-23",
   "source": "https://granitclimb.com/",
   "reason": "The gym's own site states that Granit closed permanently on 17 March 2026. There is no week to publish."
- },
- {
-  "lat": 47.51288184647128,
-  "lon": 6.8354212514257595,
-  "name": "GRAVITY BLOC",
-  "country": "FR",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://gravitybloc.fr/",
-  "reason": "Re-read: unchanged. The visible table pairs Friday with Wednesday at 10h – 22h while the page's own openingHoursSpecification puts Friday with Monday, Tuesday and Thursday at 12:00–22:00."
  },
  {
   "lat": 16.21825,
@@ -8686,16 +8616,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 35.18891,
-  "lon": -111.63632,
-  "name": "Beta Bouldering Gym",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://www.betaboulderinggym.com/contact-hours",
-  "reason": "The gym's text and its own markup disagree about the weekday opening. Both the home page and the contact page print \"Monday - Friday: 7am - 10pm, Saturday: 10am - 10pm, Sunday: 10am - 6pm\"; the openingHours markup on the same pages gives Monday to Saturday 10:00-22:00 and Sunday 10:00-18:00. Three hours a day is too large a gap to publish either as the week."
  },
  {
   "lat": 45.51164,
