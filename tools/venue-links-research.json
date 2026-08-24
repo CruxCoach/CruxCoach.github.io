@@ -491,16 +491,6 @@
     "candidate": "https://climbarq.com/"
   },
   {
-    "lat": 43.6497875,
-    "lon": -79.3970569,
-    "name": "Basecamp Climbing",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The operator is right and the branch is not settled. basecampclimbing.ca is Basecamp Climbing in Toronto and OSM maps a \"Basecamp\" object 54 m from this venue with that domain, but the site publishes two halls, Queen West and Bloor West, and neither its pages nor its WordPress REST output prints an address for either. Upstream records Kensington-Chinatown and no street, so which hall this is cannot be established from the page.",
-    "candidate": "https://basecampclimbing.ca/"
-  },
-  {
     "lat": 44.24383,
     "lon": -76.51328,
     "name": "Boiler Room",
@@ -618,16 +608,6 @@
     "checked": "2026-08-23",
     "reason": "rockroom.ca answers 200 but serves no title and no readable content, so there is nothing on it to match against this venue. No other name-derived domain resolves and upstream records no address for Thunder Bay.",
     "candidate": "https://rockroom.ca/"
-  },
-  {
-    "lat": 43.7951617,
-    "lon": -79.5422165,
-    "name": "RockHaus",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Still contradictory, and now visibly so. OSM maps \"RockHaus Climbing\" 7 m from this venue and tags it with rockhausclimbing.com, but that site gives its own address as 167 Chrislea Road, Unit 5, Vaughan L4L 8N6, which geocodes about 1.2 km away in a different municipality from the Black Creek neighbourhood upstream records. The page itself supplies only the name; one of the two positions is wrong and the page does not say which, so the OSM tag stays a pointer rather than becoming the evidence.",
-    "candidate": "https://rockhausclimbing.com/"
   },
   {
     "lat": 49.1658836,
@@ -5058,16 +5038,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no candidate could be opened — bcnew.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 37.78891,
-    "lon": -122.42163,
-    "name": "Benchmark Climbing SF",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "benchmarkclimbing.com/locations is certainly this venue's operator: it runs two gyms, this entry is named for one of them, and the block for it prints \"1414 Van Ness Ave., SF, CA 94109\". What is missing is a second signal to tie the page to this entry rather than to the brand. Upstream records no street for it, and the place it names, Chinatown, is not what the page prints. Its Berkeley sibling is linked because the page names Berkeley and upstream does too.",
-    "candidate": "https://benchmarkclimbing.com/locations"
   },
   {
     "lat": 44.03891,

@@ -685,6 +685,28 @@ The automated read reported name, street 33 and Medellín on elmuro.co; the page
 does not contain "Calle 33" at all, and the site is the Colombian local-news
 network the first pass had already identified.
 
+### The town a venue is labelled with is often a neighbourhood
+
+Upstream tags each venue with the nearest place in the offline gazetteer, and
+in a city that is frequently a neighbourhood: Chinatown for a gym on Van Ness
+Avenue, Kensington-Chinatown for one in Toronto, Black Creek for one that is
+actually in Vaughan. A page prints the municipality, so the `city` signal fails
+on exactly the venues where it would have been easiest to get.
+
+Asking OpenStreetMap which administrative area a coordinate falls in answers
+that. It is a geographic fact about the point rather than a claim about any
+website, so it does not breach the rule that OSM never supplies the evidence:
+the venue's own page still has to print the municipality, and that is what is
+matched. Three venues turned on it — RockHaus, which says "Vaughan, Ontario"
+and sits in Vaughan; Basecamp Climbing, titled for Toronto and inside Toronto;
+Benchmark's San Francisco gym, whose block gives an SF address and whose
+coordinates are in San Francisco.
+
+RockHaus is the one worth remembering. It had been rejected for giving an
+address "in another municipality" — and the municipality it was being compared
+against was a Toronto neighbourhood 4.3 km away that upstream had attached as
+the nearest place.
+
 ### On a page that lists every branch, a number can belong to another one
 
 Zone Climb was repointed at the operator's Aguda page on a match of the postal

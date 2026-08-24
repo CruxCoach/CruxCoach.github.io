@@ -2686,6 +2686,20 @@
     "note": "The site prints \"Atelier Bloc 4370 Boul. Royal Shawinigan QC G9N7X7\" — the street, town and postal code upstream records — and its embedded map sits 20 m from the venue."
   },
   {
+    "lat": 43.6497875,
+    "lon": -79.3970569,
+    "name": "Basecamp Climbing",
+    "country": "CA",
+    "website": "https://basecampclimbing.ca/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Basecamp Climbing's own site, titled \"Basecamp Climbing – Toronto Indoor Rock Climbing\" — and the coordinates of this venue fall inside the City of Toronto. Upstream labels this venue with the nearest place in the offline gazetteer, which here is a neighbourhood rather than the municipality, so the town never matched. Asking OpenStreetMap which administrative area the coordinates fall in answers that — a geographic fact about the point, not a claim about any website — and the venue's own page then has to print it. Upstream calls the place Kensington-Chinatown, which is a Toronto neighbourhood and appears nowhere on the site."
+  },
+  {
     "lat": 45.47917,
     "lon": -73.78284,
     "name": "Beta Bloc",
@@ -3672,6 +3686,20 @@
       "board-mention"
     ],
     "note": "The site prints 474 Front St E, Toronto — the street and city upstream records — and names the Kilter Board this venue is listed for."
+  },
+  {
+    "lat": 43.7951617,
+    "lon": -79.5422165,
+    "name": "RockHaus",
+    "country": "CA",
+    "website": "https://rockhausclimbing.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "RockHaus Climbing Gym's own site, which describes itself as being in \"Vaughan, Ontario\" — and the coordinates of this venue fall inside the City of Vaughan. Upstream labels this venue with the nearest place in the offline gazetteer, which here is a neighbourhood rather than the municipality, so the town never matched. Asking OpenStreetMap which administrative area the coordinates fall in answers that — a geographic fact about the point, not a claim about any website — and the venue's own page then has to print it. The earlier record rejected this page for giving an address in another municipality; the municipality it was being compared against was Black Creek, a Toronto neighbourhood 4.3 km away that upstream had attached as the nearest place."
   },
   {
     "lat": 45.48457,
@@ -16977,6 +17005,20 @@
       "city"
     ],
     "note": "Benchmark Climbing runs two gyms and gives each a named block on this page. The Berkeley block reads \"Our second location at 1607 Shattuck Ave\" and names Berkeley, the place upstream records for this venue."
+  },
+  {
+    "lat": 37.78891,
+    "lon": -122.42163,
+    "name": "Benchmark Climbing SF",
+    "country": "US",
+    "website": "https://benchmarkclimbing.com/locations",
+    "verified": "2026-08-24",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Benchmark Climbing runs two gyms and gives each a named block on this page; this entry is the San Francisco one, and the block reads \"1414 Van Ness Ave., SF, CA 94109\". The coordinates of this venue fall inside the City and County of San Francisco. Upstream labels this venue with the nearest place in the offline gazetteer, which here is a neighbourhood rather than the municipality, so the town never matched. Asking OpenStreetMap which administrative area the coordinates fall in answers that — a geographic fact about the point, not a claim about any website — and the venue's own page then has to print it. Upstream calls the place Chinatown, which is a San Francisco neighbourhood and is not what the page prints. Its Berkeley sibling was linked this morning; this closes the pair."
   },
   {
     "lat": 44.03869,
