@@ -10013,10 +10013,10 @@
   "lon": -82.60758,
   "name": "ProjectROCK Easley",
   "country": "US",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://projectrock.com/easley/",
-  "reason": "The operator's Easley page describes the gym, its walls and its memberships and states no opening hours."
+  "status": "seasonal",
+  "checked": "2026-08-24",
+  "source": "https://projectrock.com/easley/contact/",
+  "reason": "The only week the gym publishes is headed \"FALL HOURS\" and carries neither a start nor an end date: \"Monday – Thursday 4PM-9PM Friday 4PM – 8PM Saturday 10AM-8PM Sunday 12PM (Noon) -8PM\", with \"Holiday hours (TBD)\" beneath it and a footnote that it \"may close early for special events\". Whether the fall season is the one in force on the day the page is read cannot be told from the page."
  },
  {
   "lat": 32.715738,
@@ -10549,7 +10549,7 @@
   "status": "no-hours-on-official-site",
   "checked": "2026-08-24",
   "source": "https://www.theboulderfield.com/",
-  "reason": "The site was read on the two dozen paths a venue usually puts its week on and states no day with a time on any of them."
+  "reason": "The site does hold a week, and only in machine-readable markup: a schema.org block reading \"Mo 08:00-22:00, Tu 08:00-22:00, We 08:00-22:00, Th 08:00-22:00, Fr 08:00-22:00, Sa 08:00-…\" beside a Squarespace business-hours setting of 8am - 10pm. No page states any of it in words — the visible text about hours is a notice that the gym keeps normal hours on Martin Luther King, Jr. Day. This audit publishes what a venue tells its visitors, not what its settings hold."
  },
  {
   "lat": 39.3907356,
