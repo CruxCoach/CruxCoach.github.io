@@ -18223,6 +18223,31 @@
   "evidence": "MÅNDAG - TORSDAG: 11.00 - 22.00 | FREDAG: 11.00 - 21.00 | LÖRDAG - SÖNDAG: 11.00 - 19.00"
  },
  {
+  "lat": 58.59750709999999,
+  "lon": 16.2015297,
+  "name": "Klätterhallen i Norrköping",
+  "country": "SE",
+  "source": "https://klatterhallen.com/priser-och-oppettider/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-20:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Ordinarie öppettider Måndag-Torsdag: 12-22 Fredag: 12-20 Lördag-Söndag: 10-18 (above it: Sommaröppettider (juni-augusti) Måndag-Torsdag: 14-22, Fredag-Lördag: Stängt, Söndag: 10-16)",
+  "note": "The record here said no regular-season week is published beside the summer one. There is: the hall labels it ordinarie and prints it directly beneath. The summer block is headed with its months, which makes it the exception. The drop-in belaying on Sunday mornings is a service within those hours, and the bouldering hall is described as always open without booking."
+ },
+ {
   "lat": 65.6036398,
   "lon": 22.1386911,
   "name": "Klätterhuset Luleå",
