@@ -98,6 +98,41 @@ source that stopped being true, so none of those weeks was touched; the two
 certificate failures are the operators' to fix and are worth re-reading rather
 than recording.
 
+### A dated window is an exception; a week that is only ever dated is a season
+
+Two blocks of times on one page are not automatically a contradiction. Very
+often one of them says what it is. `Reguliere openingstijden`, `Vanlige
+åpningstider`, `Regulär`, `Regular Hours`, `Horarios`, or simply a table with
+nothing written above it — that is the venue's week. `Zomervakantie 11-7 t/m
+23-8`, `Åpningstider sommeren 2026 (1. juli - 31. august)`, `Horario agosto`,
+`Schulferien`, `In den Sommerferien NRW (20.07.-01.09.) gelten abweichende
+Öffnungszeiten` — those are exceptions to it, in exactly the same class as
+`Holiday Hours 2026` or a line about statutory holidays, which this audit has
+always treated as exception lists rather than as competing weeks. Boulder
+Neoliet says it outright: *Staat een feestdag er niet tussen? Dan zijn we dus
+geopend op onze reguliere openingstijden!*
+
+It does not matter whether the dated window happens to be open on the day of
+the check. Nothing here computes an open-now state, so a schedule that is
+suspended until the end of August is still the venue's week, the way a gym that
+is shut on Christmas Day still has a Thursday.
+
+`seasonal` remains the answer when **every** week the site states carries a
+season or a date on it and there is no undated one behind them. Boulder Garage
+prints one table headed ORARIO PRIMAVERA/ESTATE and no other; CU Boulder prints
+three, for fall-and-spring, finals, and break-and-summer; Beest Boulders
+publishes a `Zomerperiode juli & augustus` block for each of its seven halls
+and nothing else. Two labelled seasons are still two seasons: Roca's
+`September-May` and `June-August`, Vertigini's `ORARIO ESTIVO` and `ORARI
+APERTURA da Settembre a Giugno`, Steamboat's `Summer:` and its term-time twin
+all stay recorded rather than published, because neither half of any of those
+pairs is the ordinary week.
+
+Applying the rule moved sixteen records: the five Høyt Under Taket halls, whose
+"two weeks that disagree" turned out to be a summer block above a standing one
+at every branch, and eleven more from Tilburg, Alkmaar, Delft, Ålesund,
+Zirndorf, Alicante, Sevilla, Victoria, Rzeszów, Siegen and Senden.
+
 ### A page written in JavaScript is still a page
 
 Some venues serve an empty frame and keep every word of the page inside a

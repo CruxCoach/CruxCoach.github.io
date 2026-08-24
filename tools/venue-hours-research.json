@@ -1021,16 +1021,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 48.4277132,
-  "lon": -123.362594,
-  "name": "CragX",
-  "country": "CA",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://www.cragx.ca/hours-location-contact",
-  "reason": "The gym's week — Monday 12pm-10pm, Tuesday 10am-10pm, Wednesday 12pm-10pm, Thursday and Friday 10am-11pm, Saturday 8am-8pm, Sunday 10am-6pm — carries a seasonal exception on the day it is read: Sunday is annotated \"(Closed in July & August)\". The regular week is therefore not the week in force today, and the page's separate holiday list does not restore it."
- },
- {
   "lat": 49.50572,
   "lon": -117.26653,
   "name": "Cube Climbing Center",
@@ -2333,16 +2323,6 @@
   "reason": "Re-read: unchanged. Hours are published as Hauptsaison (Oktober–Mai) and Nebensaison (Juni–September) behind script-driven tabs, so neither week is in the fetched document; the same page also reserves the right to close up to two hours early when it is quiet."
  },
  {
-  "lat": 50.86894011939988,
-  "lon": 8.004782526563105,
-  "name": "DAV Kletterzentrum Siegerland",
-  "country": "DE",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://www.kletterzentrum-siegerland.de/",
-  "reason": "Re-read, and the two weeks are not a contradiction after all — they are a season. The homepage block is labelled 'Sommeröffnungszeiten' and headed 'In den Sommerferien NRW (20.07.-01.09.) gelten abweichende Öffnungszeiten' (Mo, Di, Do, Fr 15:00-22:00, Mi 10:00-13:00 und 17:00-22:00, Sa 13:00-18:00, So 10:00-20:00), while the Kontakt page carries the ordinary week (Mo 16–22, Mi 10–22, Fr 12–22, Sa/So 10–22). Which applies depends on the date."
- },
- {
   "lat": 49.33552,
   "lon": 11.01591,
   "name": "DAV Schwabach",
@@ -2381,16 +2361,6 @@
   "checked": "2026-08-23",
   "source": "https://www.dersteinbock-nuernberg.de/",
   "reason": "Re-read: unchanged. The homepage carries two weeks that disagree about Tuesday and Friday — 'Mo, Mi & Do: 10:00 Uhr bis 23:00 Uhr / Di & Fr: 07:00 Uhr bis 23:00 Uhr' in the contact block, 'Montag bis Freitag 10 bis 23 Uhr' in the footer."
- },
- {
-  "lat": 49.443067,
-  "lon": 10.9598136,
-  "name": "der steinbock Zirndorf Moon Board",
-  "country": "DE",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://www.dersteinbock-zirndorf.de/",
-  "reason": "Re-read: unchanged. Two published weeks — Regulär Mo–Do 14:00–23:00 and Schulferien Mo–Do 10:00–23:00, with Fr–So 09:00–22:00 in both. Which applies depends on the Bavarian school-holiday calendar."
  },
  {
   "lat": 51.45539,
@@ -2529,16 +2499,6 @@
   "checked": "2026-08-23",
   "source": "https://www.rocklands-wnd.de/",
   "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 1,959 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
- },
- {
-  "lat": 48.3336544,
-  "lon": 10.0371952,
-  "name": "Moonboard Stuntwerk Senden",
-  "country": "DE",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://stuntwerk-senden.de/zeiten-und-preise/",
-  "reason": "Re-read: unchanged. 'Mo-Fr: 14 – 22 Uhr, Sa-So & Feiertage: 10 – 20 Uhr' with 'Schulferien: ab 10 Uhr geöffnet' beside it — the weekday opening moves with the Bavarian school-holiday calendar."
  },
  {
   "lat": 47.8677574,
@@ -3173,16 +3133,6 @@
   "source": "https://monobloc.es/"
  },
  {
-  "lat": 38.34201590000001,
-  "lon": -0.5246663,
-  "name": "Moon board",
-  "country": "ES",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The location page publishes a regular week and a \"Horario agosto\" week beside it, with weekdays moving from 10:30 to 17:00 and Sundays from 20h to 15h.",
-  "source": "https://www.indoorwall.com/centros-indoorwall-rocodromos/indoorwall-alicante/"
- },
- {
   "lat": 42.1757535,
   "lon": -8.4997597,
   "name": "MOONkey board (calm&climb)",
@@ -3266,16 +3216,6 @@
   "checked": "2026-08-23",
   "source": "https://www.rockandwallclimbing.com/",
   "reason": "Two regimes, and the summer one is in force: \"Horarios Lunes a viernes, 9:30 a 22:00, Sábados y domingos, 9:30 a 18:00\" and then \"HORARIO VERANO, A PARTIR 13/07 Lunes a viernes, 9:30 a 15:00 y…\". The page gives no end date for the summer window, so which of the two applies on a given day cannot be read off it."
- },
- {
-  "lat": 37.392502956111336,
-  "lon": -5.957352871163623,
-  "name": "Rock & Wall Climbing",
-  "country": "ES",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The site publishes a regular week and a \"HORARIO VERANO, A PARTIR 13/07\" week beside it that splits the weekday and closes the weekend entirely.",
-  "source": "https://www.rockandwallclimbing.com/tarifas-y-horarios/"
  },
  {
   "lat": 39.5840837,
@@ -6218,16 +6158,6 @@
   "reason": "Re-read: unchanged. Only a 'Zomerperiode juli & augustus' block (Weekdagen 9:00-23:00, Weekend 9:00-23:00); no term-time week is published."
  },
  {
-  "lat": 51.56567,
-  "lon": 5.1116,
-  "name": "Boulder Neoliet Tilburg",
-  "country": "NL",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://boulderneoliet.nl/nl/tilburg/openingstijden/",
-  "reason": "Re-read, and the two weeks are a season rather than a contradiction. The page prints 'Reguliere openingstijden' (Ma, Di, Wo, Vr 09:00-23:30, Do 13:00-23:30, Za 09:00-18:00, Zo 09:00-21:00) and a 'Zomervakantie 11-7 t/m 23-8' block beneath it, and the footer widget repeats the regular week exactly. The dated window closes on the day of this check, so the regular week becomes publishable from 24 August 2026."
- },
- {
   "lat": 52.04968,
   "lon": 4.25458,
   "name": "Boulderhal de Campus",
@@ -6255,16 +6185,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 52.61783,
-  "lon": 4.76679,
-  "name": "Boulderhal Sendmaat",
-  "country": "NL",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://www.boulderhalsendmast.nl/informatie/openingstijden/",
-  "reason": "Re-read, and the earlier 'two pages disagree' was the season: the page states one week (Ma 16:00-23:00, Di, Wo, Vr 12:00-23:00, Do 16:00-23:00, Za 09:00-18:00, Zo 10:00-22:00) and, directly below, 'Openingstijden zomervakantie (4 juli t/m 30 augustus)' with a 22:00 close on weekdays and 18:00 on Sunday. The summer window is still open on the day of this check; the regular week becomes publishable from 31 August 2026."
  },
  {
   "lat": 52.06192,
@@ -6314,16 +6234,6 @@
   "reason": "Re-read: unchanged. Same operator, same notice — 'Van 20 juli t/m 30 augustus hebben wij aangepaste zomeropeningstijden' — and the summer week moves Maandag to 09:00–23:00 and Dinsdag t/m donderdag to 18:00–23:00."
  },
  {
-  "lat": 52.02599,
-  "lon": 4.36448,
-  "name": "Revolt Bouldering Gym",
-  "country": "NL",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://www.revoltclimbing.com/en/revolt-climbing-gym/",
-  "reason": "Re-read: unchanged. A regular week (Mon–Fri 11:00–23:00, Sat 09:00–23:00, Sun 10:00–23:00) and an 'Opening hours Summer holiday Juli 20 – August 23' week beside it that differs on six of the seven days. The dated window closes on the day of this check, so the regular week becomes publishable from 24 August 2026."
- },
- {
   "lat": 51.82188,
   "lon": 5.7879,
   "name": "Stadsmuur Nijmegen",
@@ -6351,16 +6261,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 62.4704273,
-  "lon": 6.3460832,
-  "name": "Buldrehallen",
-  "country": "NO",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://www.buldrehallen.no/apningstider/",
-  "reason": "Two weeks: the regular one (Mandag - Torsdag 9.00-22.00, Fredag 9.00-20.00, Lørdag 10.00-17.00, Søndag 10.00-22.00) and \"Åpningstider sommeren 2026 (1. juli - 31. august)\", which moves the weekday opening to 10.00 and is the regime in force on the day of this check."
  },
  {
   "lat": 60.62634,
@@ -6465,46 +6365,6 @@
   "checked": "2026-08-23",
   "reason": "Re-read 2026-08-23: unchanged. No schedule appears on the homepage or on any of the pages linked from it.",
   "source": "https://hoyangerklatreklubb.no/"
- },
- {
-  "lat": 59.28207,
-  "lon": 10.32679,
-  "name": "Høyt Under Taket Klatresenter Tønsberg",
-  "country": "NO",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
-  "source": "https://hoytundertaket.no/tonsberg/informasjon/aapningstider/"
- },
- {
-  "lat": 60.2502,
-  "lon": 11.17952,
-  "name": "Hoyt Under Taket Letohallen",
-  "country": "NO",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
-  "source": "https://hoytundertaket.no/letohallen/informasjon/apningstider/"
- },
- {
-  "lat": 59.41667,
-  "lon": 10.67336,
-  "name": "Høyt Under Taket Moss",
-  "country": "NO",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
-  "source": "https://hoytundertaket.no/moss/informasjon/apningstider/"
- },
- {
-  "lat": 59.19889,
-  "lon": 9.61253,
-  "name": "Høyt Under Taket Skien",
-  "country": "NO",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
-  "source": "https://hoytundertaket.no/skien/informasjon/apningstider/"
  },
  {
   "lat": 60.12731,
@@ -6737,16 +6597,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 59.27998270000001,
-  "lon": 10.3159612,
-  "name": "Sem/Tønsberg HUT",
-  "country": "NO",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The hall's own opening-hours page carries two weeks that disagree, and the page's schema.org openingHoursSpecification is the placeholder 09:00-17:00 for all seven days.",
-  "source": "https://hoytundertaket.no/tonsberg/informasjon/aapningstider/"
  },
  {
   "lat": 59.66699680000001,
@@ -7101,16 +6951,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 50.0465613,
-  "lon": 22.0123834,
-  "name": "FlyWall",
-  "country": "PL",
-  "status": "seasonal",
-  "checked": "2026-08-23",
-  "source": "https://flywall.pl/",
-  "reason": "The centre publishes two regimes side by side and says which is which: \"Dni powszednie: PON - PT: 14:00 - 22:00, SB - ND: 10:00 - 21:00\" and \"Wakacje / Ferie zimowe: PON - PT: 11:00 - 22:00, SB - ND: 10:00 - 21:00\". Term-time and school-holiday weeks differ on weekdays and the page gives no dates for either, so which is in force on a given day cannot be read off it."
  },
  {
   "lat": 53.0137902,
