@@ -24774,6 +24774,32 @@
   "note": "The operator runs two gyms and publishes a block for each; this is the Los Angeles one."
  },
  {
+  "lat": 40.90429,
+  "lon": -73.07511,
+  "name": "Rocksteady",
+  "country": "US",
+  "source": "https://rocksteadyclimb.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Gym HOurs: Monday: 10am – 10pm Tuesday: 10am – 10pm Wednesday: 10am – 10pm Thursday: 10am – 10pm Friday: 10am – 10pm Saturday: 10am – 10pm Sunday: 10am – 10pm",
+  "note": "Seven days listed separately and all the same. One hall, one week."
+ },
+ {
   "lat": 38.0412153,
   "lon": -78.4784356,
   "name": "Rocky Top Moonboard",
