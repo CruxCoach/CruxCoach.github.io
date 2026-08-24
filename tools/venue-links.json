@@ -5708,6 +5708,104 @@
     "note": "The apex serves the site; www.zugzwang-auerbach.de presents a certificate that does not cover that hostname, so a probe that starts at www and stops there sees nothing. The imprint names Boulderverein Zugzwang e.V. at Neuhauser Straße 1, 91275 Auerbach i.d.OPf. The website tag on the OSM node here points at zugzwang.clubdesk.com, which 404s."
   },
   {
+    "lat": 49.88015,
+    "lon": 8.63595,
+    "name": "Boulderhaus Darmstadt",
+    "country": "DE",
+    "website": "https://www.boulderhaus.net/darmstadt/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Boulderhaus's own page for its Darmstadt hall, printing \"Landwehrstraße 75, 64293 Darmstadt\". Boulderhaus answers 403 on every host and header set, so the page was read from a snapshot of 13 August 2025. Each hall's page carries its own address in its description and the others only in the footer, which is what makes it that hall's page. The hours record stays inaccessible."
+  },
+  {
+    "lat": 49.88094719999999,
+    "lon": 8.6370545,
+    "name": "Boulderhaus Darmstadt",
+    "country": "DE",
+    "website": "https://www.boulderhaus.net/darmstadt/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Boulderhaus's own page for its Darmstadt hall, printing \"Landwehrstraße 75, 64293 Darmstadt\". This is the same hall as the entry about 150 m away, which upstream gives that address; this one it gives none. Boulderhaus answers 403 on every host and header set, so the page was read from a snapshot of 13 August 2025. Each hall's page carries its own address in its description and the others only in the footer, which is what makes it that hall's page. The hours record stays inaccessible."
+  },
+  {
+    "lat": 49.38701,
+    "lon": 8.67916,
+    "name": "Boulderhaus Heidelberg",
+    "country": "DE",
+    "website": "https://www.boulderhaus.net/heidelberg/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Boulderhaus's own page for its Heidelberg hall, printing \"Im Bosseldorn 25/1, 69126 Heidelberg\". Boulderhaus answers 403 on every host and header set, so the page was read from a snapshot of 14 September 2025. Each hall's page carries its own address in its description and the others only in the footer, which is what makes it that hall's page. The hours record stays inaccessible."
+  },
+  {
+    "lat": 49.5178159,
+    "lon": 8.5356193,
+    "name": "Boulderhaus Mannheim",
+    "country": "DE",
+    "website": "https://www.boulderhaus.net/mannheim/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Boulderhaus's own page for its Mannheim hall, printing \"Abraham-Lincoln-Allee 3, 68309 Mannheim\". This is the same hall as the entry about 60 m away, which upstream gives that address; this one it gives none. Boulderhaus answers 403 on every host and header set, so the page was read from a snapshot of 13 October 2025. Each hall's page carries its own address in its description and the others only in the footer, which is what makes it that hall's page. The hours record stays inaccessible."
+  },
+  {
+    "lat": 49.51846,
+    "lon": 8.53509,
+    "name": "Boulderhaus Mannheim",
+    "country": "DE",
+    "website": "https://www.boulderhaus.net/mannheim/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Boulderhaus's own page for its Mannheim hall, printing \"Abraham-Lincoln-Allee 3, 68309 Mannheim\". Boulderhaus answers 403 on every host and header set, so the page was read from a snapshot of 13 October 2025. Each hall's page carries its own address in its description and the others only in the footer, which is what makes it that hall's page. The hours record stays inaccessible."
+  },
+  {
+    "lat": 48.49913,
+    "lon": 9.19966,
+    "name": "Boulderhaus Reutlingen",
+    "country": "DE",
+    "website": "https://www.boulderhaus.net/reutlingen/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Boulderhaus's own page for its Reutlingen hall, printing \"Schieferstraße 8, 72076 Reutlingen\". Boulderhaus answers 403 on every host and header set, so the page was read from a snapshot of 13 August 2025. Each hall's page carries its own address in its description and the others only in the footer, which is what makes it that hall's page. The hours record stays inaccessible."
+  },
+  {
     "lat": 49.6088,
     "lon": 11.1345,
     "name": "Boulderia",

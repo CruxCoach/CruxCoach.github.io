@@ -1360,66 +1360,6 @@
     "reason": "The venue's own site says so in one line: \"Der Bodebloc bleibt leider auf unbestimmte Zeit geschlossen!\" — closed indefinitely. A link to a page that says the hall is shut is not a website for a visitor to act on."
   },
   {
-    "lat": 49.88015,
-    "lon": 8.63595,
-    "name": "Boulderhaus Darmstadt",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read. A per-hall domain would have got round the block, and there is none: boulderhaus-darmstadt.de does not resolve.",
-    "candidate": "https://www.boulderhaus.net/darmstadt/"
-  },
-  {
-    "lat": 49.88094719999999,
-    "lon": 8.6370545,
-    "name": "Boulderhaus Darmstadt",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Same hall as the venue about 150 m away. boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read. A per-hall domain would have got round the block, and there is none: boulderhaus-darmstadt.de does not resolve.",
-    "candidate": "https://www.boulderhaus.net/darmstadt/"
-  },
-  {
-    "lat": 49.38701,
-    "lon": 8.67916,
-    "name": "Boulderhaus Heidelberg",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read. A per-hall domain would have got round the block, and there is none: boulderhaus-heidelberg.de does not resolve.",
-    "candidate": "https://www.boulderhaus.net/heidelberg/"
-  },
-  {
-    "lat": 49.5178159,
-    "lon": 8.5356193,
-    "name": "Boulderhaus Mannheim",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Same hall as the venue about 90 m away. boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read.",
-    "candidate": "https://www.boulderhaus.net/mannheim/"
-  },
-  {
-    "lat": 49.51846,
-    "lon": 8.53509,
-    "name": "Boulderhaus Mannheim",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "mannheim.studiobloc.de is a Studio Bloc hall in Mannheim and shares the town and a building number 3 with this venue, but it never prints Abraham-Lincoln-Allee, which is the street upstream records, and Boulderhaus is a different operator. A bare 3 is not a street match. boulderhaus.net and boulderhaus.de both still answer 403.",
-    "candidate": "https://mannheim.studiobloc.de/"
-  },
-  {
-    "lat": 48.49913,
-    "lon": 9.19966,
-    "name": "Boulderhaus Reutlingen",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read. A per-hall domain would have got round the block, and there is none: boulderhaus-reutlingen.de does not resolve.",
-    "candidate": "https://www.boulderhaus.net/boulderhaus-reutlingen/"
-  },
-  {
     "lat": 50.937531,
     "lon": 6.9602786,
     "name": "Boulderplanet",
@@ -1532,9 +1472,9 @@
     "lon": 9.5247899,
     "name": "Vertical World",
     "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "verticalworld.de answers 500 on both hosts to every header set tried; verticalworld.com and its two subdomains are Vertical World in Seattle, 8,000 km away. Nothing readable names a hall in Kassel.",
+    "status": "unavailable",
+    "checked": "2026-08-24",
+    "reason": "OSM maps Kletterhalle Vertical World 251 m from this venue and tags it verticalworld.de, and an archived copy from 5 October 2024 confirms it: \"Vertical World, Lilienthalstr. 23, 34123 Kassel\", and Kassel is the place upstream records. The site no longer serves — every host and scheme answers 500 — so there is nothing to link a visitor to today. Worth retrying: this is a site that is down, not a site that is wrong.",
     "candidate": "https://www.verticalworld.de/"
   },
   {
@@ -3641,9 +3581,9 @@
     "name": "Chisinau Bouldering Project",
     "country": "MD",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — chisinau.md → \"Pagina oficială a Municipiului Chișinău\", the rest could not be opened — bouldering.md → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.chisinau.md/ro"
+    "checked": "2026-08-24",
+    "reason": "OSM maps Chisinau Bouldering Project 56 m from this venue and tags it bouldering.md. The live host is behind a challenge page and the archived copy from 20 March 2025 is titled \"Chisinau Bouldering Project — скалодром в Молдове, Кишинёв\", which matches the name exactly and nothing else: the page prints no street, and the place upstream names for this venue is Codru, which appears nowhere on it.",
+    "candidate": "https://bouldering.md/"
   },
   {
     "lat": 19.49339,
