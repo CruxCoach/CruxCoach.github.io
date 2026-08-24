@@ -149,6 +149,10 @@ function build() {
     rows: 4,
     maxlength: LIMITS.detailMaxChars,
     required: 'required',
+    // Every other control here sets this. A report is an observation about a
+    // place somebody visits; it has no business in the browser's form history,
+    // where it would be offered back on unrelated sites.
+    autocomplete: 'off',
   });
   const detailField = field(
     'vr-detail',
@@ -453,6 +457,13 @@ function resetForm() {
 }
 
 function onDialogClose() {
+  // Clear on the way out, not only on the way in. The dialog stays in the DOM
+  // after it closes, so a cancelled report would otherwise sit in a live form
+  // control until the page unloaded. Nothing reaches disk either way, but
+  // "nothing is kept" should be true the moment somebody presses Cancel, not
+  // the next time they open it.
+  if (elements && elements.form.contains(elements.categorySelect)) resetForm();
+
   if (returnFocus && document.contains(returnFocus)) {
     try {
       returnFocus.focus({ preventScroll: true });

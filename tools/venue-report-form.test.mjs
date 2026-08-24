@@ -587,6 +587,30 @@ test('cancel closes without sending', async () => {
   });
 });
 
+test('cancelling clears the form immediately, not at the next open', async () => {
+  await withDialog('en', async ({ module, document }) => {
+    module.open(VENUE_PROPERTIES, VENUE.lat, VENUE.lon, null);
+    byId(document, 'vr-category').value = 'closed';
+    byId(document, 'vr-category').dispatch('change');
+    byId(document, 'vr-detail').value = 'A half-written report about this gym.';
+
+    document.querySelector('.vr-cancel').dispatch('click');
+
+    // The dialog stays in the DOM after closing, so a value left here would sit
+    // in a live control until the page unloaded.
+    assert.equal(byId(document, 'vr-detail').value, '');
+  });
+});
+
+test('the free-text field stays out of the browser form history', () => {
+  // A report is an observation about a place somebody visits. Offered back on
+  // an unrelated site by autofill, it is a small but real leak — and every
+  // other control in this dialog already opts out.
+  const source = readFileSync(new URL('../boards/report.js', import.meta.url), 'utf8');
+  const detail = source.slice(source.indexOf("id: 'vr-detail'"));
+  assert.match(detail.slice(0, 400), /autocomplete: 'off'/);
+});
+
 test('reopening starts from a clean form, not from the last attempt', async () => {
   await withDialog('en', async ({ module, document }) => {
     module.open(VENUE_PROPERTIES, VENUE.lat, VENUE.lon, null);

@@ -89,6 +89,29 @@ on the boards pipeline. The one rule worth repeating here: **never renumber**. A
 open report is a piece of paper with an id written on it, and a changed
 derivation turns every one of them into a reference to nothing.
 
+## Review
+
+Both branches were security-reviewed before merge. This one came back with no
+findings: every interpolation into the popup HTML escapes through the existing
+`escapeHtml`, the dialog builds itself entirely from `createElement` and
+`textContent` with no `innerHTML` and no `href`/`src` anywhere, server responses
+are mapped onto the local string table rather than rendered, the endpoint is
+decided by hostname alone, and the regenerated dataset was diffed with ids
+stripped to confirm nothing else changed under cover of the large rebuild
+(2831 features, 2831 unique venue ids, 4286 unique instance ids, no duplicates).
+
+Two hardening items came out of it and are applied: the form clears when the
+dialog closes rather than when it next opens, so a cancelled report does not sit
+in a live control until unload; and the free-text field opts out of browser form
+history like every other control already did.
+
+The operator side had two real findings, both fixed there — see
+`cruxcoach-dashboard`, `docs/adr/0001-venue-reports.md`. One is worth knowing
+here: a gift wrap proves only that the recipient could open it, never who sealed
+it, so the dashboard pins report DMs against the ingestion service's recorded
+pubkey. Nothing in this repo is involved, but it is the reason the DM path is
+not simply "trusted because it is encrypted".
+
 ## What we deliberately did not build
 
 - **A CAPTCHA.** The anti-abuse story is server-side: an origin allowlist, a
