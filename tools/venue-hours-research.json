@@ -1150,9 +1150,10 @@
   "lon": -76.4828,
   "name": "Kingston Bouldering Co-operative",
   "country": "CA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://kingstonboulderingcoop.com/",
+  "reason": "The co-op has no weekly opening to publish, and says so: \"The gym is only open when a supervisor is present (marked as SUPER in the calendar) so if you see a timeslot that works for you, come say hi!\" The slots live in an embedded Google calendar titled KBC Schedule and change from week to week, because they are whichever hours a volunteer has offered. A week would be a claim the co-op has not made.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 49.2540666,

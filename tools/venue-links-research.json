@@ -570,16 +570,6 @@
     "checked": "2026-08-24"
   },
   {
-    "lat": 44.24168,
-    "lon": -76.4828,
-    "name": "Kingston Bouldering Co-operative",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "kingstonboulderingcoop.com is the co-op's own site and OSM maps it 2 m from this venue, but the only signals the page supplies are the venue's name and Kingston — and Kingston is part of that name, so it adds nothing independent. The page prints no street, no postal code and no board, and upstream records no address either.",
-    "candidate": "https://kingstonboulderingcoop.com/"
-  },
-  {
     "lat": 50.03376,
     "lon": -125.27226,
     "name": "On The Rocks Climbing Gym",
@@ -1838,9 +1828,9 @@
     "name": "Craggy Island Moonboard",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "craggy-island.co.uk and craggy-island.uk serve the same \"Welcome to craggy-island.uk\" page, which renders client-side: no address, no town and no second signal reaches the fetched document. craggy-island.com presents a certificate that does not cover its hostname, which is what the first pass logged.",
-    "candidate": "https://craggy-island.co.uk/"
+    "reason": "craggy-island.co.uk is a personal site — \"A personal site for homelab status, photos, projects and useful links\" — whose owner explains the name comes from Father Ted. The domain a Guildford climbing centre would hold, craggyisland.co.uk, redirects to a parked lander, and craggy-island.com and craggyislandclimbing.co.uk do not resolve. Nothing that answers is the centre.",
+    "candidate": "https://craggy-island.co.uk/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 52.938636,

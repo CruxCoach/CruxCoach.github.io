@@ -3497,6 +3497,22 @@
     ]
   },
   {
+    "lat": 44.24168,
+    "lon": -76.4828,
+    "name": "Kingston Bouldering Co-operative",
+    "country": "CA",
+    "website": "https://kingstonboulderingcoop.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The record here said the co-op's own site supplies only its name and Kingston, and Kingston is part of that name. Its contact page supplies more: \"12 Cataraqui Street #4, Kingston, Ontario K7K 1Z7\". Upstream records no street, but the coordinate does — it reverse-geocodes to Cataraqui Street, K7K 1Z7, the same street and the same postcode the co-op prints."
+  },
+  {
     "lat": 45.64883,
     "lon": -75.9264,
     "name": "Klimat",
