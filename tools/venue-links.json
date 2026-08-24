@@ -5105,6 +5105,21 @@
     "note": "Every page carries the footer \"Alonso de Cordova 5870, Local 8b, Las Condes, Santiago, Chile\" — the street line and the commune upstream records."
   },
   {
+    "lat": 22.53599,
+    "lon": 114.21099,
+    "name": "International College Hong Kong",
+    "country": "CN",
+    "website": "https://www.ichk.edu.hk/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The gazetteer has the school 32 m from this coordinate tagged ichk.edu.hk, and its contact page gives \"International College Hong Kong, 60 Sha Tau Kok Road, Shek Chung Au, Sha Tau Kok, New Territories\" — the street and number upstream records for this row."
+  },
+  {
     "lat": 4.70557,
     "lon": -74.0487,
     "name": "Beta Climbing Gym 19",
@@ -8313,6 +8328,22 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 49.0131548,
+    "lon": 13.2340409,
+    "name": "Zwiesel Jugendcafe",
+    "country": "DE",
+    "website": "https://jugendcafe-zwiesel.de/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gazetteer has an object 20 m from this coordinate tagged jugendcafe-zwiesel.de, and the site prints \"Jugendcafe Zwiesel, Prälat-Neun-Str. 11, 94227 Zwiesel\" — which is the road this coordinate is on and its postcode. It also says what is inside: \"Im Jugendcafé besteht zudem die Möglichkeit den Musikproberaum sowie den Kletterraum zu nutzen.\" The earlier candidate, zwiesel.de, is the town."
   },
   {
     "lat": 57.04980430000001,
