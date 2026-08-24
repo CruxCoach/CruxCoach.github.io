@@ -1007,6 +1007,85 @@
   "note": "The operator lists each of its seven gyms with an address and its own hours block."
  },
  {
+  "lat": -31.95621,
+  "lon": 115.92525,
+  "name": "Adrenaline Vault Belmont",
+  "country": "AU",
+  "source": "https://adrenalinevault.com.au/locations/belmont/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "08:00-19:00",
+   "sun": "08:00-19:00"
+  },
+  "evidence": "Opening Hours: Monday / 10am – 10pm Tuesday / 10am – 10pm Wednesday / 6am – 10pm Thursday / 10am – 10pm Friday / 10am – 10pm Saturday / 8am – 7pm Sunday / 8am – 7pm",
+  "note": "Every day is listed separately on this gym's own page; Wednesday opens four hours earlier than the rest. Its schema.org openingHours carries the untouched theme default, Monday to Sunday 09:00-17:00. Recorded ambiguous until the rule was written down: a Squarespace or schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads. See \"When a page states the week twice\" in VENUE-HOURS.md."
+ },
+ {
+  "lat": -32.12339,
+  "lon": 115.83801,
+  "name": "Adrenaline Vault Cockburn",
+  "country": "AU",
+  "source": "https://adrenalinevault.com.au/locations/cockburn/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "10:00-21:30",
+   "tue": "10:00-21:30",
+   "wed": "10:00-21:30",
+   "thu": "10:00-21:30",
+   "fri": "10:00-21:30",
+   "sat": "09:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "Opening Hours: Monday / 10am – 9:30pm Tuesday / 10am – 9:30pm Wednesday / 10am – 9:30pm Thursday / 10am – 9:30pm Friday / 10am – 9:30pm Saturday / 9am – 7pm Sunday / 9am – 7pm",
+  "note": "Every day is listed separately on this gym's own page, and the operator's other hall opens at 6am on Wednesdays where this one does not, which is what makes the pages per-hall. Its schema.org openingHours carries the untouched theme default. Recorded ambiguous until the rule was written down: a Squarespace or schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads. See \"When a page states the week twice\" in VENUE-HOURS.md."
+ },
+ {
+  "lat": -31.9566175,
+  "lon": 115.9255032,
+  "name": "Adrenaline Vault Moon Board 2016",
+  "country": "AU",
+  "source": "https://adrenalinevault.com.au/locations/belmont/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page",
+   "co-located"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "08:00-19:00",
+   "sun": "08:00-19:00"
+  },
+  "evidence": "Opening Hours: Monday / 10am – 10pm Tuesday / 10am – 10pm Wednesday / 6am – 10pm Thursday / 10am – 10pm Friday / 10am – 10pm Saturday / 8am – 7pm Sunday / 8am – 7pm",
+  "note": "The same hall as the Adrenaline Vault Belmont entry 46 m away. Recorded ambiguous until the rule was written down: a Squarespace or schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads. See \"When a page states the week twice\" in VENUE-HOURS.md."
+ },
+ {
   "lat": -28.0806683,
   "lon": 153.3875897,
   "name": "Alpine Indoor Climbing",
@@ -3894,6 +3973,31 @@
   "evidence": "Monday | 12pm – 11pm | Tuesday | 12pm – 11pm | Wednesday | 12pm – 11pm | Thursday | 12pm – 11pm | Friday | 12pm – 11pm | Saturday | 10am – 9pm | Sunday | 10am – 8pm"
  },
  {
+  "lat": 42.99832,
+  "lon": -81.21752,
+  "name": "Junction Climbing Centre",
+  "country": "CA",
+  "source": "https://www.junctionclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-22:30",
+   "tue": "12:00-22:30",
+   "wed": "12:00-22:30",
+   "thu": "12:00-22:30",
+   "fri": "12:00-22:30",
+   "sat": "10:00-19:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "hours Monday - Friday: 12:00pm to 10:30pm Saturday: 10:00am to 7:00pm Sunday: 10:00am to 6:00pm Members-only hours Monday - Friday: 9:00am to 12:00pm",
+  "note": "The weekday 9am to noon is stated separately as members-only and is not public opening. The site's schema.org openingHours rounds the same week to Mo-Fr 12:00-22:00 and Sa-Su 10:00-18:00. Recorded ambiguous until the rule was written down: a Squarespace or schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads. See \"When a page states the week twice\" in VENUE-HOURS.md."
+ },
+ {
   "lat": 45.64883,
   "lon": -75.9264,
   "name": "Klimat",
@@ -4215,6 +4319,33 @@
    "sun": "08:00-21:00"
   },
   "evidence": "Monday 8:00 am - 11:00 pm | Tuesday 8:00 am - 11:00 pm | Wednesday 8:00 am - 11:00 pm | Thursday 8:00 am - 11:00 pm | Friday 8:00 am - 11:00 pm | Saturday 8:00 am - 9:00 pm | Sunday 8:00 am - 9:00 pm"
+ },
+ {
+  "lat": 45.52752,
+  "lon": -73.59762,
+  "name": "Shakti Rock Gym",
+  "country": "CA",
+  "source": "https://shaktirockgym.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Heures d'ouverture Lundi au vendredi: 8h-22h Samedi et dimanche: 10h - 20h … 175 Rue Saint Viateur East Montréal, QC, H2T 1Y1",
+  "note": "Two bands covering all seven days, stated above the gym's address. Its schema.org openingHours says Mo-Fr 10:00-22:00 and Su 12:00-20:00 and omits Saturday entirely. Recorded ambiguous until the rule was written down: a Squarespace or schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads. See \"When a page states the week twice\" in VENUE-HOURS.md."
  },
  {
   "lat": 50.90048,
