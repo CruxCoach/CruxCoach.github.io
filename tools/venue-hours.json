@@ -25444,6 +25444,33 @@
   "evidence": "Sun Sunday 9:00 am - 8:00 pm | Mon Monday 9:00 am - 10:00 pm | Tue Tuesday 9:00 am - 10:00 pm | Wed Wednesday 9:00am - 10:00 pm | Thu Thursday 9:00am - 10:00pm | Fri Friday 9:00 am - 10:00 pm | Sat Saturday 9:00 am - 8:00 pm"
  },
  {
+  "lat": 40.70779,
+  "lon": -74.06659,
+  "name": "The Gravity Vault Jersey City",
+  "country": "US",
+  "source": "https://gravityvault.com/locations/jersey-city-nj",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "co-located",
+   "city",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "11:00-23:00",
+   "tue": "11:00-23:00",
+   "wed": "11:00-23:00",
+   "thu": "11:00-23:00",
+   "fri": "11:00-23:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Hours of Operation Sunday 10:00 am - 6:00 pm Monday 11:00 am - 11:00 pm … Friday 11:00 am - 11:00 pm Saturday 10:00 am - 7:00 pm",
+  "note": "Every day listed separately on the operator's page for this gym alone — the same page and the same week as the row 190 m away, because it is the same hall."
+ },
+ {
   "lat": 40.63567,
   "lon": -75.48184,
   "name": "The Gravity Vault Lehigh Valley",
@@ -26386,6 +26413,32 @@
   },
   "evidence": "Hours Monday - Friday: 10am-10pm Saturday-Sunday: 9am-10pm Address 2 Ng. 76 An Dương, Yên Phụ, Tây Hồ, Hà Nội",
   "note": "Stated directly above the gym's address."
+ },
+ {
+  "lat": 21.0556469,
+  "lon": 105.8415127,
+  "name": "VietClimb MoonBoard",
+  "country": "VN",
+  "source": "https://vietclimb.vn/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "co-located",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Hours Monday - Friday: 10am-10pm Saturday-Sunday: 9am-10pm Address 2 Ng. 76 An Dương, Yên Phụ, Tây Hồ, Hà Nội",
+  "note": "Stated directly above the gym's address, and the same week as the row 177 m away, because it is the same hall."
  },
  {
   "lat": -33.910389,

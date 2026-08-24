@@ -22836,6 +22836,23 @@
     "note": "The page's 17 Minneakoning Road resolves 114 m from this upstream coordinate."
   },
   {
+    "lat": 40.70779,
+    "lon": -74.06659,
+    "name": "The Gravity Vault Jersey City",
+    "country": "US",
+    "website": "https://gravityvault.com/locations/jersey-city-nj",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "brand",
+      "city",
+      "location-page",
+      "coordinates"
+    ],
+    "note": "The operator has one hall in Jersey City and upstream has it twice: this row, which carries only the town, and one 190 m away carrying 150 Pacific Ave. Gravity Vault gives that hall a location page of its own and no second Jersey City address appears anywhere on the site."
+  },
+  {
     "lat": 40.63567,
     "lon": -75.48184,
     "name": "The Gravity Vault Lehigh Valley",
@@ -23625,6 +23642,21 @@
       "city"
     ],
     "note": "VietClimb's own site, printing the 100000 postal code and Hanoi, the city upstream records."
+  },
+  {
+    "lat": 21.0556469,
+    "lon": 105.8415127,
+    "name": "VietClimb MoonBoard",
+    "country": "VN",
+    "website": "https://vietclimb.vn/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "coordinates"
+    ],
+    "note": "This is the MoonBoard registry's entry for the board inside VietClimb: 177 m from the Kilter row, in Ba Dinh, which is the district beside the An Dương address the gym prints. There is one VietClimb in Hanoi and its site names no second hall."
   },
   {
     "lat": -33.910389,
