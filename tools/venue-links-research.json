@@ -3291,9 +3291,9 @@
     "name": "Chisinau Bouldering Project",
     "country": "MD",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps Chisinau Bouldering Project 56 m from this venue and tags it bouldering.md. The live host is behind a challenge page and the archived copy from 20 March 2025 is titled \"Chisinau Bouldering Project — скалодром в Молдове, Кишинёв\", which matches the name exactly and nothing else: the page prints no street, and the place upstream names for this venue is Codru, which appears nowhere on it.",
-    "candidate": "https://bouldering.md/"
+    "reason": "bouldering.md is this gym's domain — OSM maps Chisinau Bouldering Project 56 m away and tags it, and an archived copy is titled \"Chisinau Bouldering Project — скалодром в Молдове, Кишинёв\". Its /visit page answered once today, at 07:02 UTC, with a Google Maps embed at 46.9766,28.8601, 55 m from this coordinate; every request since, on three paths and two header sets, has come back as a Cloudflare challenge. One reading that cannot be repeated is not a second signal, so this stays open with the finding written down for the next pass.",
+    "candidate": "https://bouldering.md/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 19.49339,
@@ -4720,16 +4720,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no candidate could be opened — alidixon.com → a certificate that does not cover its hostname. Upstream records 425 SW 26th St, 97331, Corvalis, and nothing opened printed it."
-  },
-  {
-    "lat": 41.71052,
-    "lon": -86.18957,
-    "name": "Apex Climbing Gym MoonBoard",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "apexclimbinggym.com is a much better candidate than the Dutch apexboulders.nl the first pass reached, and it carries the venue's name — but nothing else. It prints no address, no postal code and no board, and upstream records only South Bend, so there is no second signal. Retry when the site publishes a location.",
-    "candidate": "https://apexclimbinggym.com/"
   },
   {
     "lat": 38.9822282,

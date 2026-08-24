@@ -17097,6 +17097,22 @@
     "note": "Ape Index's own site, giving Peoria — the town upstream records. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
   },
   {
+    "lat": 41.71052,
+    "lon": -86.18957,
+    "name": "Apex Climbing Gym MoonBoard",
+    "country": "US",
+    "website": "https://www.apexclimbinggym.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates"
+    ],
+    "note": "The record here said the site carries the venue's name and no second signal, and asked for a retry when it published a location. It has one, and always did — in the map block rather than in the prose: the site's own location object gives 41.7104961,-86.1895796, two metres from this coordinate, with \"5505 Grape Road, Mishawaka, IN, 46545\" beside it. Upstream labels the row South Bend, which is the next city over; the pin is not six kilometres out, it is on the door."
+  },
+  {
     "lat": 36.56563,
     "lon": -82.20146,
     "name": "Appalachian Bouldering Center",
