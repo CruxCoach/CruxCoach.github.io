@@ -3171,6 +3171,21 @@
     "note": "CragX's own site, giving its address in Victoria, BC V8W1N9 — the city upstream records as Victoria-Downtown."
   },
   {
+    "lat": 49.50572,
+    "lon": -117.26653,
+    "name": "Cube Climbing Center",
+    "country": "CA",
+    "website": "https://cubeclimbing.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "cubeclimbing.com — \"Home - Cube Climbing\" — gives \"820 Tenth St, Nelson, British Columbia, Canada V1L 3C7\", inside the Mary Hall gymnasium at Selkirk's Tenth Street Campus. V1L 3C7 is this coordinate's postcode. The earlier candidates were a Dutch Cube Bouldergym in Enschede and a French Le Cube."
+  },
+  {
     "lat": 45.27562330000001,
     "lon": -72.1767643,
     "name": "D-Vert",
@@ -3316,6 +3331,21 @@
       "street-address"
     ],
     "note": "The gym's own 70 Frid St resolves 161 m from this coordinate."
+  },
+  {
+    "lat": 43.15112,
+    "lon": -79.27083,
+    "name": "Gravity Climbing Gym Niagara",
+    "country": "CA",
+    "website": "https://gravityniagara.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "gravityniagara.com is what this venue's handle spells, and its contact block gives \"Unit 3, 399 Vansickle Rd, St Catharine's, ON L2S3T4\". The coordinate is on Vansickle Road. The earlier candidates were the Niagara Climbing Center across the border in Buffalo and an Irish Gravity Climbing."
   },
   {
     "lat": 52.15057,
@@ -12191,6 +12221,20 @@
     "note": "Mono by Athens Climbing Project's own site, matching this venue's name and naming the Tension Board it is listed for."
   },
   {
+    "lat": 14.567,
+    "lon": -90.74202,
+    "name": "Tacaná Climbing Gym",
+    "country": "GT",
+    "website": "https://tacanaclimbing.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "tacanaclimbing.com is titled \"Tacana Climbing | gym | Antigua Guatemala, Guatemala\" and is the handle the registry records for this venue. Upstream labels the row Jocotenango, the village immediately north of Antigua Guatemala, and the coordinate falls between the two."
+  },
+  {
     "lat": 45.79618,
     "lon": 15.90023,
     "name": "Boulder Zona Climbing Gym",
@@ -16761,6 +16805,22 @@
       "street-address"
     ],
     "note": "The same operator's SAFRA Choa Chu Kang gym, with the 689964 postal code and 28 Choa Chu Kang Dr upstream records — a different postal code and street from its Funan gym on the same site."
+  },
+  {
+    "lat": 1.27917,
+    "lon": 103.84651,
+    "name": "fit • bloc Telok Ayer",
+    "country": "SG",
+    "website": "https://fitbloc.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The registry gives this venue the handle its operator uses, and fitbloc.com is what that handle spells. The site lists four Singapore sites and one of them is \"TELOK AYER 7 Maxwell Road, #06-01 MND Building Annexe B, Singapore 069111\" — the road this coordinate is on and its postcode. climba.sg, the earlier candidate, is a different gym 400 m away."
   },
   {
     "lat": 1.31563,
@@ -23407,6 +23467,21 @@
       "location-page"
     ],
     "note": "Touchstone's own page for The Post, which names it \"Pasadena The Post Indoor Climbing Gym\" — the venue's name and the town upstream records, for which no street is recorded. The host answers 403 to every fetcher and header set, so the page was read from a snapshot of 3 February 2026; the hours record stays inaccessible, because a schedule is not something to take from a snapshot."
+  },
+  {
+    "lat": 36.0769,
+    "lon": -115.19232,
+    "name": "The Refuge Climbing + Fitness",
+    "country": "US",
+    "website": "https://climbrefuge.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "climbrefuge.com is what the operator's own handle spells, and it gives \"6283 S. Valley View Blvd, Suite C, Las Vegas, NV 89118\" — the postcode this coordinate falls in. Upstream labels the row Paradise, the census district next to it."
   },
   {
     "lat": 58.28816,

@@ -520,16 +520,6 @@
     "candidate": "https://www.coop.com/"
   },
   {
-    "lat": 49.50572,
-    "lon": -117.26653,
-    "name": "Cube Climbing Center",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — cubebouldergym.nl → \"Cube Bouldergym Enschede - Cube Bouldergym\"; lecube.ch → \"Le Cube – Escalade et Bar\"; www.salewa-cube.com/de/waltherpark → \"Salewa Cube\", the rest could not be opened — cube.ca → a certificate that does not cover its hostname; cube.com → no answer; cubeclimb.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://cubebouldergym.nl/"
-  },
-  {
     "lat": 43.4757042,
     "lon": -80.52031579999999,
     "name": "Grand River Rocks Waterloo",
@@ -538,16 +528,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — riverrockclimbing.com → \"River Rock Climbing\"; grandriver.ca → \"Home | Grand River Conservation Authority\"; grandriver.com → \"The Shops of Grand River - Leeds, Birmingham, AL\", the rest could not be opened — grand.ca → 200; grand.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://riverrockclimbing.com/"
-  },
-  {
-    "lat": 43.15112,
-    "lon": -79.27083,
-    "name": "Gravity Climbing Gym Niagara",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — niagaraclimbingcenter.com → \"Home | Niagara Climbing Center | Best Climbing Gym in Bu\"; www.gravityclimbing.ie → \"Gravity Climbing\"; www.gravity-kh.de → \"Boulderhalle Bad Kreuznach | Bouldern für Anfänger, Fami\", the rest could not be opened — gravity.ca → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.niagaraclimbingcenter.com/"
   },
   {
     "lat": 48.7877546,
@@ -1799,9 +1779,9 @@
     "name": "Cayman Climbing Gym",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "caymanclimbing.com is Rock Iguana Ltd on Cayman Brac — outdoor climbing on a different island from this George Town coordinate — and cayman.co.uk is a French maintenance-software firm. Nothing found names an indoor gym in George Town.",
-    "candidate": "https://caymanclimbing.com/"
+    "reason": "caymanclimbing.com is Rock Iguana Ltd, which guides rock climbing on Cayman Brac. This venue is in George Town on Grand Cayman, 140 km and a flight away, and the site names no gym there.",
+    "candidate": "https://caymanclimbing.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 51.72019,
@@ -2008,15 +1988,6 @@
     "lon": 21.4290411,
     "name": "ΟΑΛΠ",
     "country": "GR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 14.567,
-    "lon": -90.74202,
-    "name": "Tacaná Climbing Gym",
-    "country": "GT",
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
@@ -4306,16 +4277,6 @@
     "candidate": "https://bffclimb.com/"
   },
   {
-    "lat": 1.27917,
-    "lon": 103.84651,
-    "name": "fit • bloc Telok Ayer",
-    "country": "SG",
-    "status": "unverified",
-    "reason": "climba.sg is Climba, a bouldering gym at 61 Robinson Rd #05-03/04, which names Telok Ayer only as one of the three MRT exits nearby. It never mentions fit • bloc, and the two are 400 m apart. The lookup matched on Tanjong Pagar and Singapore, neither of which distinguishes one CBD gym from another.",
-    "candidate": "https://www.climba.sg/",
-    "checked": "2026-08-24"
-  },
-  {
     "lat": 48.1485965,
     "lon": 17.1077478,
     "name": "Block Dock",
@@ -5271,9 +5232,9 @@
     "name": "Ripple Boulder",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — ripple.com → \"Financial Infrastructure & Blockchain Technology Solutio\"; ripple.org → \"Impact Through Sustainability and Financial Inclusion | \"; rippleboulder.com → \"Home\", the venue's whole name as one label, rippleboulder.com, answers 301 (\"301 Moved Permanently\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://ripple.com/"
+    "reason": "rippleboulder.com answers and is an ice-cream shop — \"ripple!! Come taste the difference. We make our own flavors and many of the toppings with our in-store kitchen and bakery. hours Every day 12pm - 10pm\". Broad Ripple is a neighbourhood of Indianapolis and the name belongs to it before it belongs to either business.",
+    "candidate": "https://rippleboulder.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 33.71672,
@@ -5576,16 +5537,6 @@
     "checked": "2026-08-24",
     "reason": "provingground.com looked like a hit in the archive on the venue's name and the town Normal. Reading the snapshot shows why it is not: the page is titled \"Better by Habit®\" and sells sales training, and the \"normal\" the matcher found is the word normally in a sentence about training courses. The other candidates the earlier pass recorded — provingground.org, Academi Proving Ground — are somebody else's too.",
     "candidate": "https://provingground.com/"
-  },
-  {
-    "lat": 36.0769,
-    "lon": -115.19232,
-    "name": "The Refuge Climbing + Fitness",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — refuge.net → \"a page with no title\"; refuge.org → \"a page with no title\"; therefuge.com → \"Checking your browser...\", the rest could not be opened — refuge.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://refuge.net/"
   },
   {
     "lat": 40.91785,

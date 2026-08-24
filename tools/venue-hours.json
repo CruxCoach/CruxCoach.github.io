@@ -3932,6 +3932,32 @@
   "note": "The centre heads its week \"Regular Hours\" and follows it with \"Holiday Hours 2026\", a dated list of eleven single days. The Sunday line carries its own two-month closure; that is an annotation on the regular week, in the same class as the holiday list, and the week itself states every day."
  },
  {
+  "lat": 49.50572,
+  "lon": -117.26653,
+  "name": "Cube Climbing Center",
+  "country": "CA",
+  "source": "https://cubeclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "12:00-21:00",
+   "tue": "12:00-21:00",
+   "wed": "12:00-21:00",
+   "thu": "12:00-21:00",
+   "fri": "12:00-21:00",
+   "sat": "12:00-17:00",
+   "sun": "12:00-17:00"
+  },
+  "evidence": "Regular Hours Weekdays | 12:00 – 9:00 Weekends | 12:00 – 5:00 Provincial Statutory Holidays | CLOSED — and, in the footer, \"12 – 9 pm Monday – Friday, 12 – 5 pm Saturday – Sunday, Closed stat holidays\"",
+  "note": "The gym calls this its regular week and states it twice. The first block writes its closing times without a meridiem; the second supplies it, which is the only reason 9:00 and 5:00 can be read as the evening and the afternoon. Statutory holidays are a closure list."
+ },
+ {
   "lat": 46.79569,
   "lon": -71.1795,
   "name": "DÉLIRE Escalade Lévis",
@@ -14175,6 +14201,32 @@
   "note": "The gym adds that the bouldering area stays open thirty minutes later than the rest of the building; the published week is the building's stated opening."
  },
  {
+  "lat": 14.567,
+  "lon": -90.74202,
+  "name": "Tacaná Climbing Gym",
+  "country": "GT",
+  "source": "https://tacanaclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "09:00-21:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Contact Us Antigua Guatemala tacanacg@tacanaclimbing.com Tel: +502 4151-0585 Horario Lun-Sab: 9AM a 9PM Sun: 9AM a 6PM",
+  "note": "Monday to Saturday against Sunday, stated in the contact block beneath the gym's town."
+ },
+ {
   "lat": 45.79618,
   "lon": 15.90023,
   "name": "Boulder Zona Climbing Gym",
@@ -18320,6 +18372,32 @@
   },
   "evidence": "Weekdays (The Kallang): 11am to 11pm | Weekdays (Funan): 11am to 11pm | Weekdays (Novena/SAFRA Choa Chu Kang): 1pm to 11pm | Weekends and Public Holidays (The Kallang) : 9am to 9pm | Weekends and Public Holidays (All Other Outlets) : 9am to 9pm",
   "note": "The operator states which outlets each line covers."
+ },
+ {
+  "lat": 1.27917,
+  "lon": 103.84651,
+  "name": "fit • bloc Telok Ayer",
+  "country": "SG",
+  "source": "https://fitbloc.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:30-21:30",
+   "sun": "09:30-21:30"
+  },
+  "evidence": "TELOK AYER 7 Maxwell Road, #06-01 MND Building Annexe B, Singapore 069111 Operating Hours: Mon-Fri: 10am-10pm Sat-Sun: 9:30am-9:30pm",
+  "note": "The operator lists each site with its own address and its own operating hours, and this block is headed by the address this coordinate sits at. The other three sites open at different times, which is what makes the heading load-bearing."
  },
  {
   "lat": 1.31563,
@@ -26633,6 +26711,32 @@
    "sun": "10:00-18:00"
   },
   "evidence": "Monday – Friday 12:00pm – 10:00pm | Saturday – Sunday 10:00am – 6:00pm | 4020 Technology Pl. | Fremont, CA 94538"
+ },
+ {
+  "lat": 36.0769,
+  "lon": -115.19232,
+  "name": "The Refuge Climbing + Fitness",
+  "country": "US",
+  "source": "https://climbrefuge.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "07:30-22:00",
+   "wed": "10:00-22:00",
+   "thu": "07:30-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Visit Us 6283 S. Valley View Blvd, Suite C Las Vegas, NV 89118 Hours S: 9AM - 9PM M: 10AM - 10PM T: 7:30AM - 10PM W: 10AM - 10PM TH: 7:30AM - 10PM F: 10AM - 10PM S: 9AM - 9PM",
+  "note": "Seven single letters beginning on Sunday, which is why the two S rows are the weekend. Tuesday and Thursday open two and a half hours earlier than the rest, stated beneath the gym's address."
  },
  {
   "lat": 58.28816,

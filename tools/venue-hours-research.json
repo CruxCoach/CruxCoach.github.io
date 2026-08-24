@@ -981,15 +981,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 49.50572,
-  "lon": -117.26653,
-  "name": "Cube Climbing Center",
-  "country": "CA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 45.27562330000001,
   "lon": -72.1767643,
   "name": "D-Vert",
@@ -1053,9 +1044,10 @@
   "lon": -79.27083,
   "name": "Gravity Climbing Gym Niagara",
   "country": "CA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://gravityniagara.com/",
+  "reason": "The site has a LOCATION & HOURS item in its navigation and the page behind it is not reachable by any path this reader can guess — /location, /hours, /location-hours and /location-and-hours all answer 404. The document itself renders to 839 characters, a contact form and an address, and contains no time range at all.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 52.15057,
@@ -4093,15 +4085,6 @@
   "lon": 21.4290411,
   "name": "ΟΑΛΠ",
   "country": "GR",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 14.567,
-  "lon": -90.74202,
-  "name": "Tacaná Climbing Gym",
-  "country": "GT",
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
@@ -7633,15 +7616,6 @@
   "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 2,004 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
-  "lat": 1.27917,
-  "lon": 103.84651,
-  "name": "fit • bloc Telok Ayer",
-  "country": "SG",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 46.0682733,
   "lon": 14.5194972,
   "name": "BALVANIJA MOONBOARD",
@@ -9816,15 +9790,6 @@
   "lat": 40.50952,
   "lon": -88.95868,
   "name": "The Proving Ground",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 36.0769,
-  "lon": -115.19232,
-  "name": "The Refuge Climbing + Fitness",
   "country": "US",
   "status": "no-official-site",
   "checked": "2026-08-23",
