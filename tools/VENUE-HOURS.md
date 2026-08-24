@@ -362,8 +362,8 @@ maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (published + outcome entries) | 2190 |
-| Published schedules | 1018 |
-| Recorded outcomes without hours | 1172 |
+| Published schedules | 1046 |
+| Recorded outcomes without hours | 1144 |
 | Countries covered | 47 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
