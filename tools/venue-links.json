@@ -18634,6 +18634,22 @@
     "note": "The site is Frontier Climbing & Fitness and prints 5045 Grant St, the street line upstream records."
   },
   {
+    "lat": 39.90652,
+    "lon": -105.09968,
+    "name": "G1 Climbing + Fitness Broomfield",
+    "country": "US",
+    "website": "https://www.g1climbing.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "OSM maps G1 Climbing + Fitness 10 m from this venue and tags it g1climbing.com. The apex times out its TLS handshake from here and www answers 403, so the page was read from a snapshot of 19 November 2025, which prints \"8845 West 116th Circle\", 80021 and Broomfield — upstream's address. The www host is what is published, because it is the one that answers at all."
+  },
+  {
     "lat": 33.70723,
     "lon": -112.10179,
     "name": "Gecko Climbing Gym",
@@ -19111,6 +19127,22 @@
       "city"
     ],
     "note": "Horizon Climbing's own site, giving Champaign — the town upstream records. The first pass had reached horizon.com. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
+  },
+  {
+    "lat": 42.74057,
+    "lon": -73.73281,
+    "name": "Hudson Boulders",
+    "country": "US",
+    "website": "https://hudsonboulders.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "OSM maps Hudson Boulders 60 m from this venue and tags it hudsonboulders.com. The live host answers 403, so its contact page was read from a snapshot of 24 June 2026, which prints \"195 Troy-Schenectady … Latham, NY 12110\" — upstream's address. The home page is titled for Albany, the metropolitan area; the street and postal code are what match."
   },
   {
     "lat": 29.96117,

@@ -625,9 +625,9 @@
     "name": "Pinnacle Climbing Gym",
     "country": "CA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — thepinnaclecentre.co.uk → \"The Pinnacle | Northampton's Home of Indoor Climbing\"; pinnacle.ca → \"Pinnacle\"; pinnacle.com → \"Pinnacle\", the rest could not be opened — pinnacleclimbing.com → 403 / a certificate that does not cover its hostname. Upstream records 330 Lake Rd, L1C 4P8, Bowmanville, and nothing opened printed it.",
-    "candidate": "https://thepinnaclecentre.co.uk/"
+    "checked": "2026-08-24",
+    "reason": "OSM maps Pinnacle Indoor Climbing 86 m from this venue and tags it pinnacleindoorclimbing.com. The host answers 403 to every fetcher and header set and the archive has never captured it, so nothing on the venue's own page has been read. The pointer is strong; a pointer is not the evidence.",
+    "candidate": "https://pinnacleindoorclimbing.com/"
   },
   {
     "lat": 48.3842148,
@@ -3895,9 +3895,9 @@
     "name": "Gropo Bouldergym Groningen",
     "country": "NL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.gropo.nl → \"GROPO BOULDERGYM\", the rest could not be opened — gropo.com → 200. Upstream records Ulgersmaweg 8, 9731 BS, Groningen, and nothing opened printed it.",
-    "candidate": "https://gropo.nl/"
+    "checked": "2026-08-24",
+    "reason": "OSM maps Gropo 71 m from this venue and tags it gropo.nl, and unlike most of this batch the site answers: it is titled GROPO BOULDERGYM and publishes a week on /opening-times. What it never publishes is an address — no street, no postal code, no town on any page and none in its markup — so the only thing matching this venue is its name, which is also the domain.",
+    "candidate": "https://www.gropo.nl/"
   },
   {
     "lat": 52.3679843,
@@ -5567,15 +5567,6 @@
   },
   {
     "lat": 39.90652,
-    "lon": -105.09968,
-    "name": "G1 Climbing + Fitness Broomfield",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — g1climbing.com → 403. Upstream records 8845 W 116th Cir, 80021, Broomfield, and nothing opened printed it."
-  },
-  {
-    "lat": 39.90652,
     "lon": -105.09986,
     "name": "G1 Climbing + Fitness Broomfield",
     "country": "US",
@@ -5718,16 +5709,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — highmountain.net → \"highmountain.net\"; highmountainfitness.com → \"HugeDomains.com\"; high-mountain.com → \"High Mountain - Allt för friluftsliv - Engelsons\", the rest could not be opened — highmountain.com → a timeout; highmountain.org → 200, the venue's whole name as one label, highmountainfitness.com, answers 302 but its pages print no street, postal code or town matching this venue. Upstream records 730 Lincoln St, 82520, Lander, and nothing opened printed it.",
     "candidate": "https://www.highmountain.net/"
-  },
-  {
-    "lat": 42.74057,
-    "lon": -73.73281,
-    "name": "Hudson Boulders",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — hudson.com → \"Home - Hudson Nederland\"; hudson.net → \"a page with no title\"; hudson.org → \"Hudson Institute\", the rest could not be opened — hudsonboulders.com → 403, the venue's whole name as one label, hudsonboulders.com, answers 403 (\"403 Forbidden\") but its pages print no street, postal code or town matching this venue. Upstream records 195 Troy-Schenectady Rd, 12110, Latham, and nothing opened printed it.",
-    "candidate": "https://www.hudsonsolutions.com/nl-nl"
   },
   {
     "lat": 37.48421,
@@ -6035,9 +6016,9 @@
     "name": "Reading Rocks Climbing & Fitness",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The city matched the wrong Reading. theclimbinghangar.com/locations/reading is The Climbing Hangar's hall in Reading, Berkshire, England — the map it publishes of itself is 5,470 km from this venue — while this venue is 550 George St, 19605, Reading, Pennsylvania. Nothing else answered for it.",
-    "candidate": "https://www.theclimbinghangar.com/locations/reading"
+    "checked": "2026-08-24",
+    "reason": "OSM maps Reading Rocks 8 m from this venue and tags it readingrocks.com, and that domain is dead: the live host answers 404 and the archive's most recent copy, from 5 August 2025, is five bytes long. readingrocksclimbing.com and readingrocksgym.com do not resolve. The pointer is good and there is nothing at the end of it.",
+    "candidate": "http://www.readingrocks.com/"
   },
   {
     "lat": 36.15867,

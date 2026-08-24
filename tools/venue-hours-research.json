@@ -9498,7 +9498,7 @@
  },
  {
   "lat": 39.90652,
-  "lon": -105.09968,
+  "lon": -105.09986,
   "name": "G1 Climbing + Fitness Broomfield",
   "country": "US",
   "status": "no-official-site",
@@ -9507,12 +9507,13 @@
  },
  {
   "lat": 39.90652,
-  "lon": -105.09986,
+  "lon": -105.09968,
   "name": "G1 Climbing + Fitness Broomfield",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://www.g1climbing.com/",
+  "reason": "The gym's own host answers 403 and its apex does not complete a TLS handshake from here, so no week can be read from it. It is not taken from the snapshot the link rests on."
  },
  {
   "lat": 38.24316,
@@ -9665,9 +9666,10 @@
   "lon": -73.73281,
   "name": "Hudson Boulders",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://hudsonboulders.com/",
+  "reason": "The gym's own site answers 403 to every fetcher and header set, so its week cannot be read, and it is not taken from the snapshot the link rests on."
  },
  {
   "lat": 37.48421,
@@ -10135,8 +10137,8 @@
   "name": "Reading Rocks Climbing & Fitness",
   "country": "US",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "checked": "2026-08-24",
+  "reason": "The domain OSM points at is dead, and no other site could be found, so there is no page to read a schedule from."
  },
  {
   "lat": 36.15867,
