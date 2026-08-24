@@ -1426,7 +1426,7 @@
     "country": "DE",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read.",
+    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read. A per-hall domain would have got round the block, and there is none: boulderhaus-darmstadt.de does not resolve.",
     "candidate": "https://www.boulderhaus.net/darmstadt/"
   },
   {
@@ -1436,7 +1436,7 @@
     "country": "DE",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "Same hall as the venue about 150 m away. boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read.",
+    "reason": "Same hall as the venue about 150 m away. boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read. A per-hall domain would have got round the block, and there is none: boulderhaus-darmstadt.de does not resolve.",
     "candidate": "https://www.boulderhaus.net/darmstadt/"
   },
   {
@@ -1446,7 +1446,7 @@
     "country": "DE",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read.",
+    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read. A per-hall domain would have got round the block, and there is none: boulderhaus-heidelberg.de does not resolve.",
     "candidate": "https://www.boulderhaus.net/heidelberg/"
   },
   {
@@ -1476,7 +1476,7 @@
     "country": "DE",
     "status": "unverified",
     "checked": "2026-08-23",
-    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read.",
+    "reason": "boulderhaus.net answers 403 to every fetcher and header set tried — an identifying User-Agent, a plain browser one and a second fetcher — and boulderhaus.de and boulderhaus.com answer 403 as well. The operator is right; no page of it can be opened and read. A per-hall domain would have got round the block, and there is none: boulderhaus-reutlingen.de does not resolve.",
     "candidate": "https://www.boulderhaus.net/boulderhaus-reutlingen/"
   },
   {
@@ -2224,9 +2224,9 @@
     "name": "The Boardroom Climbing Ltd. Wimbledon",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "theboardroomclimbing.com is the operator and names a MoonBoard, but it renders client-side: neither the homepage nor any reachable page prints Wimbledon, SW19 or the Centre Court address. The name is the only observation, and the operator has more than one wall.",
-    "candidate": "https://www.theboardroomclimbing.com/"
+    "checked": "2026-08-24",
+    "reason": "Two candidates answer under this name and neither is this hall. theboardroom.co.uk sells skateboards, stunt scooters and longboards. theboardroomclimbing.com is genuinely a climbing gym called The Boardroom Climbing Ltd — and it is in North Wales: every page of it gives \"Rectors Ln., Pentre, Queensferry, North Wales CH5 2DH\", the site never contains the word Wimbledon, and its own search returns nothing for it. Upstream places this venue at Centre Court Shopping Centre, SW19 8YE.",
+    "candidate": "https://theboardroomclimbing.com/"
   },
   {
     "lat": 51.42116559999999,
@@ -2234,9 +2234,9 @@
     "name": "The Boardroom Wimbledon",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Same hall as the venue a few metres away and the same problem: the operator's site states no address a fetch can read.",
-    "candidate": "https://www.theboardroomclimbing.com/"
+    "checked": "2026-08-24",
+    "reason": "Two candidates answer under this name and neither is this hall. theboardroom.co.uk sells skateboards, stunt scooters and longboards. theboardroomclimbing.com is genuinely a climbing gym called The Boardroom Climbing Ltd — and it is in North Wales: every page of it gives \"Rectors Ln., Pentre, Queensferry, North Wales CH5 2DH\", the site never contains the word Wimbledon, and its own search returns nothing for it. Upstream places this venue at Centre Court Shopping Centre, SW19 8YE. The entry 27 m away carries the same finding; the two are one hall.",
+    "candidate": "https://theboardroomclimbing.com/"
   },
   {
     "lat": 53.2514153,
