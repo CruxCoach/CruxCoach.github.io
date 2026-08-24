@@ -248,8 +248,8 @@ are maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (linked + research entries) | 2190 |
-| Verified website links | 1639 |
-| Rejected / ambiguous / private / closed / unavailable | 551 |
+| Verified website links | 1643 |
+| Rejected / ambiguous / private / closed / unavailable | 547 |
 | Countries covered | 62 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -1089,6 +1089,29 @@ looks like in a dataset that labels by the biggest city nearby. The initialism
 expands, the geography works, and the only thing the signal vocabulary can
 actually match is the name. One is not two, so it stays open, and the record
 says why rather than saying nothing.
+
+### The sitemap does not help on the links side
+
+The hours side got a lot out of asking a site which pages it has (see
+`VENUE-HOURS.md`). The same question was put to the 651 candidate hosts that
+answer for a row with no link: fetch `robots.txt` and the sitemaps, keep every
+URL whose slug is about contact, location, impressum, anfahrt or access, and
+read those pages.
+
+Then, rather than trying to parse an address out of them — a regex that has to
+know every language's word for "street" and gets most of them wrong — test the
+page for the road name and the postcode the row's **own coordinate**
+reverse-geocodes to. A fact about the point, checked against the candidate.
+
+510 pairs had readable pages. **One hit, and it is a false positive**: an
+Albanian news site matching "Martin" from Sydney's Martin Place against a
+physicist called Martinis.
+
+The asymmetry is worth understanding rather than just recording. On the hours
+side the venue is known and the question is which of its pages carries the week
+— page discovery is exactly the missing piece. On the links side the question is
+whether this is the venue at all, and a candidate that is somebody else's
+business does not become ours because we read more of its pages.
 
 ### Some of them are not places
 

@@ -554,16 +554,16 @@ maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (published + outcome entries) | 2190 |
-| Published schedules | 1160 |
-| Recorded outcomes without hours | 1030 |
+| Published schedules | 1169 |
+| Recorded outcomes without hours | 1021 |
 | Countries covered | 54 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Every eligible venue has been reviewed for hours — 2190 of 2191, the one
 exception being a venue at coordinates 0,0 that no resolver can place.
 
-Outcomes without hours: 535 `no-official-site`, 203
-`no-hours-on-official-site`, 117 `ambiguous`, 90 `seasonal`, 51 `inaccessible`,
+Outcomes without hours: 531 `no-official-site`, 195
+`no-hours-on-official-site`, 121 `ambiguous`, 90 `seasonal`, 50 `inaccessible`,
 27 `appointment-only`, 4 `closed`, 3 `private`.
 
 Per-country coverage of eligible (public/commercial) venues (top 30):
