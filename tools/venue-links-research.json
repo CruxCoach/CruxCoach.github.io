@@ -3625,8 +3625,8 @@
     "name": "Club Monk",
     "country": "NL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — monk.nl/amsterdam → \"Boulderen in Amsterdam? Kom naar Monk.\"; monk.nl/hilversum → \"Boulderen in Hilversum? Kom naar Monk bouldergym.\"; monk.nl/rotterdam → \"Boulderen in Rotterdam? Kom naar Monk.\", the rest could not be opened — club.nl → a certificate that does not cover its hostname, the venue's whole name as one label, clubmonk.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "checked": "2026-08-24",
+    "reason": "The municipality lookup put this venue in Amsterdam and monk.nl/amsterdam names Amsterdam, which is not enough to make it Monk's hall. Monk's Amsterdam gym is at Aambeeldstraat 26, 1021 KB, and the dataset already holds it separately, 5.5 km from here; the map that page embeds sits 4.9 km away. This entry is in Diemen and Monk lists no Diemen hall — its Dutch gyms are Amsterdam, Rotterdam, Eindhoven and Hilversum. Whatever Club Monk is, the operator's site does not describe it.",
     "candidate": "https://monk.nl/amsterdam/"
   },
   {
