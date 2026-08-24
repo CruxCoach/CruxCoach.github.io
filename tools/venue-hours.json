@@ -14746,6 +14746,32 @@
   "note": "The gym states that general visitors may use it only during staff hours, so those are the public opening; Monday is excluded from the weekday band in so many words — 平日の月曜日を除く — and is recorded closed. The last-entry times an hour or two before closing are an admission cutoff, not a shorter opening, and the 営業カレンダー beside them is a calendar of dated exceptions."
  },
  {
+  "lat": 35.18145060000001,
+  "lon": 136.9065571,
+  "name": "RIOT CLIMBING",
+  "country": "JP",
+  "source": "https://riot-climbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "13:00-22:00",
+   "tue": "closed",
+   "wed": "13:00-22:00",
+   "thu": "13:00-22:00",
+   "fri": "13:00-22:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "営業時間 平日 13:00 〜 22:00 土日祝 10:00 〜 19:00 定休日 火曜日",
+  "note": "Weekdays against weekends-and-public-holidays, with Tuesday named as the closing day, printed beneath the gym's address. Tuesday is the weekday the 定休日 line removes from the 平日 band."
+ },
+ {
   "lat": 34.78667,
   "lon": 135.81206,
   "name": "カルコロ CAL-COLO",
