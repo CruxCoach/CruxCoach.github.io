@@ -242,6 +242,50 @@ placeholder" is a curator's intuition, not a rule a later curator could apply
 the same way. The count of venues lost this way is in the ledger, because if it
 ever gets large the answer is to talk to operators, not to loosen the rule.
 
+### A door that opens only for some people is not an opening
+
+A schedule says when a visitor can come. Several pages state hours with a
+condition folded into them, and the condition is the whole difficulty:
+
+- Rebelia in Šaľa: `Pondelok - Piatok 06:00 - 15:00 / 15:00 - 20:00 (vstup iba
+  s trénerom)` — every weekday is two windows and the second one needs a
+  trainer.
+- Indoor Ascent in Dover: six clean days and `Monday 6pm- 9pm (ladies only)`.
+- Klatreverket Åssiden: `06:00 – 23:00 (kun ubetjent)` on three days.
+
+Publishing the outer window promises a door that is not open on the page's own
+terms; publishing the inner one deletes hours the venue says it keeps. Both are
+`ambiguous`, and the reason quotes the qualifier so the next reader does not
+have to find it again.
+
+This is **not** the same as an extra window on top of a stated day. Inner Peaks
+prints its Saturday as `10 AM* – 8 PM` and footnotes a members-only 8–10 am;
+Swoboda Alpin prints a week and says card holders may come from 6. There the
+venue has stated its hours and then described a key some people also have. The
+stated hours are what gets published.
+
+### Re-reading a whole status at once
+
+Two rules in this file were worked out partway through the audit, which means
+every record filed before them deserves another look. Doing that as a sweep
+rather than one venue at a time is cheap and it works:
+
+- **All 103 `seasonal` records** were re-fetched and scanned for a day-and-time
+  block with no season or date word within 160 characters of it. 28 came back
+  flagged, each was read by hand, and **twelve** published a standing week the
+  first pass had folded into the seasonal one. Two more turned out to be wrong
+  in the other direction and became `ambiguous`.
+- **All 143 `ambiguous` and `appointment-only` records** got the same treatment
+  and **none** became a week. The reasons there were already doing their job.
+  Three now say something truer — most usefully Southern Stone, whose "NEW FALL
+  HOURS BEGIN TUESDAY AUGUST 18TH" banner had made its three schedules
+  disagree, and whose two visible blocks now agree.
+- **All 59 `inaccessible` sources** were fetched again. Ten answered — a host
+  that refused once is not a host that refuses forever — and five printed a
+  week. The other five now say something specific: a geographic block page, 403
+  on every page that could carry hours, a members' back office behind a sign-in,
+  a department calendar widget, and a trainer-only second window.
+
 ## Record shape
 
 ```json
@@ -475,17 +519,17 @@ maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (published + outcome entries) | 2190 |
-| Published schedules | 1119 |
-| Recorded outcomes without hours | 1071 |
-| Countries covered | 50 |
+| Published schedules | 1160 |
+| Recorded outcomes without hours | 1030 |
+| Countries covered | 54 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Every eligible venue has been reviewed for hours — 2190 of 2191, the one
 exception being a venue at coordinates 0,0 that no resolver can place.
 
-Outcomes without hours: 779 `no-official-site`, 145 `ambiguous`, 142
-`no-hours-on-official-site`, 101 `seasonal`, 27 `appointment-only`, 22
-`inaccessible`, 1 `closed`.
+Outcomes without hours: 535 `no-official-site`, 203
+`no-hours-on-official-site`, 117 `ambiguous`, 90 `seasonal`, 51 `inaccessible`,
+27 `appointment-only`, 4 `closed`, 3 `private`.
 
 Per-country coverage of eligible (public/commercial) venues (top 30):
 

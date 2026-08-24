@@ -248,9 +248,9 @@ are maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (linked + research entries) | 2190 |
-| Verified website links | 1596 |
-| Rejected / ambiguous / private / closed / unavailable | 594 |
-| Countries covered | 59 |
+| Verified website links | 1639 |
+| Rejected / ambiguous / private / closed / unavailable | 551 |
+| Countries covered | 62 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Every eligible venue that lacked a link has been opened individually and
@@ -924,6 +924,50 @@ Run over all 411 open rows that have a candidate it found fourteen pins, three
 of them within 400 m and one of those already settled by other means. It is a
 cheap check on a stuck venue, not a sweep that will move the tail.
 
+### Fetching every host the log ever named
+
+The reasons in `venue-links-research.json` are not just prose: every one of them
+names the hosts that were tried. Extracting them back out gives 1,350 candidates
+across 465 rows, and re-fetching all of them is a few minutes' work. 662
+answered with a real page.
+
+That is not the same as 662 links, and the point of the pass is what happens
+next: each answering page gets read. Five became links — Búlder Planet's Vallès
+contact page, クライミングバム's 横浜店, HangDog's own block beside its sister
+gym's, 香蕉攀岩's per-hall record and Idrottshuset in Växjö — and one turned out
+to be a gym that has closed. The rest were written down for **whose** they are.
+"the candidate answered but belongs to somebody else" is worth nothing to the
+next pass; "benchmarkclimbing.com is in San Francisco and Berkeley, not
+Shanghai" closes the question.
+
+The same idea applied to the hours side: all 59 sources an hours read had failed
+on were fetched again, ten answered, and five of those printed a week.
+
+### A chain that publishes its halls in its bundle
+
+香蕉攀岩 runs 27 halls and its site is a single-page app. What renders as a store
+picker is, in the script, a table: one record per hall with `name`, `address`,
+`lat`, `lng`, `openingHours` and floor area. The record named 乐士店 sits 34 m
+from the row named for that branch, and its hours differ from every other
+record in the table — which is what makes them scoped to that hall rather than
+to the brand.
+
+This is a different thing from the settings object a page-builder ships beside
+its own visible text (see the markup rule in `VENUE-HOURS.md`). There is no
+competing prose here: the table *is* the page's content, and it renders.
+
+### When a page's own map link outranks the page's own words
+
+DYNO's site says its location is Khobar. The map link printed directly under
+that heading resolves to Dyno Rock Climbing at 26.38479, 50.14729, which
+reverse-geocodes to الظهران, الدمام, 34241 — the city and postcode this row
+carries, 780 m away, and not Khobar at all. A `maps.app.goo.gl` short link is a
+redirect; following it costs one HEAD request and yields the operator's own
+coordinate.
+
+Prefer the link over the prose when they disagree. A city name in a headline is
+marketing copy; a pin is where the operator told Google it is.
+
 ### Two sweeps that found nothing, written down so nobody repeats them
 
 A guessing channel is worth recording when it fails, because the cost of
@@ -955,6 +999,18 @@ scores only because "33" appears somewhere on it.
 The lesson both times is the same: a guess is worth making when the string
 being guessed is distinctive. Chains and full venue names are; the first word
 of a two-word name is not.
+
+**Wikidata.** Asked for every item that is a climbing gym, a bouldering gym or a
+climbing wall and carries coordinates: 52 items in the world, 35 of them with an
+official website, and **not one within 800 m of an unverified row**. Wikidata
+does not know about climbing gyms, and the item this project once had was
+deleted as non-notable in the first place.
+
+**Certificate transparency.** crt.sh answers a substring query with every
+certificate ever issued for a matching name, which would find the domains a
+name-guesser spells wrong. It returned 502 to every request on the day this was
+tried, from three different queries an hour apart. Worth trying again; nothing
+was learned either way.
 
 ### Some of them are not places
 
