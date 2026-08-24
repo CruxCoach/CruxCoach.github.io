@@ -23268,6 +23268,36 @@
     "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Redmond, the town upstream records."
   },
   {
+    "lat": 40.0166469,
+    "lon": -105.2246372,
+    "name": "The Lab Climbing",
+    "country": "US",
+    "website": "https://thelabclimbing.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "thelabclimbing.com timed out when the sweep tried it and answers now. It is titled The Lab, says \"Boulder, CO.\" and prints no street — but it names its boards, and it names all four this venue is registered for: \"The TB2 Mirror … The Grasshopper Board … The Decoy Board\" and \"2016 at 40 & 2024 at 25 Moonboards\". Upstream has the tension, grasshopper and decoy boards on one of these two rows and the MoonBoard on the other. Four boards deep is not a coincidence."
+  },
+  {
+    "lat": 40.01671,
+    "lon": -105.22462,
+    "name": "The Lab Climbing",
+    "country": "US",
+    "website": "https://thelabclimbing.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "thelabclimbing.com timed out when the sweep tried it and answers now. It is titled The Lab, says \"Boulder, CO.\" and prints no street — but it names its boards, and it names all four this venue is registered for: \"The TB2 Mirror … The Grasshopper Board … The Decoy Board\" and \"2016 at 40 & 2024 at 25 Moonboards\". Upstream has the tension, grasshopper and decoy boards on one of these two rows and the MoonBoard on the other. Four boards deep is not a coincidence."
+  },
+  {
     "lat": 43.65539,
     "lon": -72.241,
     "name": "The Notch Climbing Gym",
