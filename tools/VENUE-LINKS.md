@@ -802,6 +802,41 @@ limit at all, and returns more of them — 37 kB where the probing reader
 returned a truncated fragment. Read anything the earlier sweeps concluded about
 what the archive holds with that in mind.
 
+### Asking the gazetteer for the venue by name
+
+The Overpass proximity sweep asks what climbing objects are near a point.
+Nominatim will answer a different question: given this name and this box, what
+object is it, and what are its tags? A box five kilometres wide is enough for a
+coordinate that turns out to be a city point and narrow enough that a
+same-named gym on another continent cannot answer, and `extratags=1` returns
+the `website` tag.
+
+Over all 579 open rows it matched 36 objects carrying a website, and it has
+been the most productive channel of the pass: Grand River Rocks Waterloo,
+Boulderhal Nirvana, Boulderhal Walhalla, Falkors, GAS Arzignano, Jugendcafé
+Zwiesel, International College Hong Kong, Jyväskylän Kiipeilykeskus, Boulder
+Bloc, CityROCK, Climb On, Climb NORA's two rows, T-UP's Wanhua and A19
+branches, RoKC's three halls, Trafo Base Camp, Hive Zagreb, Stoneworks,
+St John's College Santa Fe, and two Touchstone gyms.
+
+Two things make it work, and both are the same rule as everywhere else. The tag
+is a pointer and never evidence: every one of those was settled by an address
+the page prints, and where the page could not be read — Nirvana behind a 403,
+Grand River Rocks behind a geographic block, Touchstone behind everything — a
+snapshot settled whose domain it is and no week was taken from it. And the
+distance is the second half of the answer: Jyväskylä's domain is its own name
+in punycode, which no Latin guess would reach, and Stoneworks registered
+`belay.com`, which no guess would reach at all.
+
+What it also does is name the failures precisely. `beyondthewallclimbing.com`
+is tagged one metre from its coordinate and answers 404 at the root.
+`kiipeilyverstas.fi` is tagged at seven metres and does not answer at all.
+`karma.ffme.fr` is exactly the shape a French club site takes and does not
+resolve. Block Dock's tag is 2 km from a city-centre coordinate with a second
+hall 6 km the other way. And `audan.ch` is a Ticinese restaurant with fishing
+ponds: Audan is the name of the place, and the MoonBoard registered there has
+taken it the way the restaurant did.
+
 ### The handle an operator chose is a better seed than the name a registry gave it
 
 428 rows carry the Instagram handle or username the operator registered its

@@ -9629,9 +9629,10 @@
   "lon": -122.2780005,
   "name": "The Oaks",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://touchstoneclimbing.com/the-oaks/",
+  "reason": "Touchstone answers 403 to every fetcher and header set. The snapshot that settled the address carries a week and a members-only hour before it, and neither is taken from a snapshot."
  },
  {
   "lat": 35.257508,
