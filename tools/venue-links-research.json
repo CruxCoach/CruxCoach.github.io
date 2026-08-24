@@ -520,16 +520,6 @@
     "candidate": "https://www.coop.com/"
   },
   {
-    "lat": 43.4757042,
-    "lon": -80.52031579999999,
-    "name": "Grand River Rocks Waterloo",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — riverrockclimbing.com → \"River Rock Climbing\"; grandriver.ca → \"Home | Grand River Conservation Authority\"; grandriver.com → \"The Shops of Grand River - Leeds, Birmingham, AL\", the rest could not be opened — grand.ca → 200; grand.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://riverrockclimbing.com/"
-  },
-  {
     "lat": 48.7877546,
     "lon": -123.7105629,
     "name": "Hangout Duncan",
@@ -614,9 +604,9 @@
     "name": "Audan",
     "country": "CH",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The operator page was found and still cannot place the wall. www.satritom.ch/arrampicata/palestra is Societa Alpinistica Ticinese sezione Ritom's own page for \"Palestra Audan\", so the club and the wall are confirmed, but neither that page, nor the club home page, publishes a street, a postal code or a town for it — only an email, three phone numbers and a payment account. audan.ch is Grotto Audan, a restaurant. With upstream carrying no address either, there is no second signal to match on and the link could not be shown to be this venue rather than another SAT wall.",
-    "candidate": "https://www.satritom.ch/arrampicata/palestra"
+    "checked": "2026-08-24",
+    "reason": "The gazetteer has an object 120 m from this coordinate named Audan and tagged audan.ch, and audan.ch is Grotto Audan — a Ticinese restaurant with fishing ponds at Via Audan 6, 6775 Ambrì, open every day 08:00 to 19:00. It names no climbing wall. Audan is the name of the place, and the MoonBoard registered here has taken it the way the restaurant did.",
+    "candidate": "https://www.audan.ch/"
   },
   {
     "lat": 46.63397,

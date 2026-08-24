@@ -3305,6 +3305,21 @@
     "note": "The co-op's own site, giving Fredericton and embedding a map of itself 44 m from this venue. The first pass had reached fredericton.ca, the city council, whose hours block belongs to City Hall."
   },
   {
+    "lat": 43.4757042,
+    "lon": -80.52031579999999,
+    "name": "Grand River Rocks Waterloo",
+    "country": "CA",
+    "website": "https://grandriverrocks.com/waterloo/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "The gazetteer has an object 33 m from this coordinate tagged with exactly this URL, which is a pointer and not evidence — but a snapshot of the page is: it is titled \"Waterloo - Grand River Rocks Climbing Gym\" and headed \"Grand River Rocks WATERLOO\". The operator gives each hall a path and this is the one this row is named for. The live host answers \"Access Restricted · IP Location Block\" to this machine; the earlier candidates were grandriver.ca, a conservation authority, and a shopping centre in Alabama."
+  },
+  {
     "lat": 49.7016339,
     "lon": -123.1558121,
     "name": "Grand Wall Bouldering Co-operative",
