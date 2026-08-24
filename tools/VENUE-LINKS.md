@@ -795,6 +795,32 @@ limit at all, and returns more of them — 37 kB where the probing reader
 returned a truncated fragment. Read anything the earlier sweeps concluded about
 what the archive holds with that in mind.
 
+### The coordinate knows its own street
+
+The binding constraint below is an address for the venues that have none: a
+candidate prints a street, upstream records nothing, and there is nothing to
+match. The coordinate is the missing half. Reverse-geocoding it gives the road
+and the postcode of the point itself — a fact about the point, from the same
+dataset as the municipality lookup, and not a claim about anybody's website.
+`tools/venue-street-match.mjs` asks, then looks for both on the candidate's
+pages.
+
+Run over all 403 open rows that have a candidate, it matched 19. Seven of those
+are venues: Santa Fe Climbing Center prints 3008 Cielo Court and the point is
+on Cielo Court; NHCF was open only because reading it as the initials of NH
+Climbing & Fitness was an inference, and the point is 03301; Slaktis is on
+Slakthusgatan; MW Climbing's two halls are told apart by 68144 against 68504;
+Møns Klatreklub is 4780 Stege where upstream had said Vordingborg; Lee County
+Rec Center and Vertical Ventures St Pete close the same way.
+
+The other twelve say what the check costs. A road name has to be long enough
+not to be a coincidence — four characters is the floor, and folding has to keep
+non-Latin letters, because stripping to `[a-z0-9]` turns 安远路 into the empty
+string and every page contains that. A postcode covering a whole town says only
+what the town already said: caipinerolo.it is the CAI section in Pinerolo and
+10064 is Pinerolo, which is one fact and not two. And digits are digits —
+onsight.ru matched 690000 without being within 6,000 km of Vladivostok.
+
 ### The map block is an address
 
 A venue that prints no street often still says where it is: the map it embeds.

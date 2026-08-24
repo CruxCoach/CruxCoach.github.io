@@ -98,6 +98,29 @@ source that stopped being true, so none of those weeks was touched; the two
 certificate failures are the operators' to fix and are worth re-reading rather
 than recording.
 
+### Whether a published week is still printed where it was read
+
+`venue-hours-conflict.mjs` re-reads every published source anyway, so it also
+asks the plainer question: are the times this record publishes still on that
+page? A time that has vanished from its own source is the shape a venue
+changing its hours leaves behind, and nothing else here looks for it.
+
+The first run found two. Kletterakademie Mitterdorf had been published closing
+at 18:00 one day earlier and closes at 22:00 now — the Dauerkarte-only summer
+window its own note recorded as ended had been replaced. Gravity Bear published
+a week when it was read and has rebuilt its site since: the home page and the
+calendar page between them contain not one day-to-day pair, /hours and /visit
+answer 404, and scheduling now points at a third-party portal. That week was
+withdrawn rather than left standing on a page that no longer says it.
+
+It also found one that had not changed anything. Ground Up Climbing writes its
+range as `5 &ndash; 10.30pm`, and the reader was matching a dash against the
+entity rather than against the dash; it decodes named and numeric entities
+before looking now. With both real changes fixed and that one corrected, a
+second full run over 1,095 published weeks reports no drift at all, 9 sources
+that did not answer, and 16 whose page prints no time to a reader in the first
+place — the single-page apps and the schedules that live in images.
+
 ### A dated window is an exception; a week that is only ever dated is a season
 
 Two blocks of times on one page are not automatically a contradiction. Very

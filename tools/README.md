@@ -377,6 +377,10 @@ node tools/venue-map-pin.mjs "41.7105,-86.1896=https://www.apexclimbinggym.com"
 # Where the rendered HTML has no day beside a time, look in the page's own
 # script bundle — a single-page app's text is still the page.
 node tools/venue-hours-bundle.mjs "47.5148,19.1143=https://fless.hu"
+
+# Where upstream records no street, ask the coordinate what street it is on and
+# look for that, and for its postcode, on the candidate's pages.
+node tools/venue-street-match.mjs "35.6534,-105.9925=https://climbsantafe.com"
 ```
 
 ## Coverage audit (`venue-audit.mjs`, `venue-audit-ledger.json`)
