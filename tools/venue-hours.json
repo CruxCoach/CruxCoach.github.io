@@ -3811,6 +3811,31 @@
   "evidence": "Mon - Fri 6am-11pm | Sat - Sun: 8am - 10pm | December Holiday hours | Wednesday, Dec 24 - Close at 6pm | Thursday, Dec 25 - Closed"
  },
  {
+  "lat": 51.13652,
+  "lon": -114.03547,
+  "name": "Calgary Climbing Center Hanger",
+  "country": "CA",
+  "source": "https://www.calgaryclimbing.com/locations/hanger/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Facility Hours. Mon - Fri: 10 am-11 pm Sat - Sun: 9 am - 8 pm Summer Facility Hours (start July 2). Mon - Fri: 8:30 am-11 pm Sat - Sun: 9 am - 8 pm ClimbPark Specific Hours. Fri: 11 am - 6 pm Sat - Sun: 10 am - 6 pm Mon-Thurs: ClimbPark Club available only. 106-588 Aero Drive NE Calgary AB T2E 7Y4",
+  "note": "Three blocks, and only two of them are this venue's week: Facility Hours with nothing attached, and Summer Facility Hours with a start date. The unlabelled one is the week. The third is the ClimbPark, a separate room with its own door — the operator says two of its facilities have one."
+ },
+ {
   "lat": 51.09458,
   "lon": -115.35826,
   "name": "Canmore Climbing Gym",
@@ -17944,6 +17969,81 @@
   },
   "evidence": "KVARDAG 08 -21:00 - HELG 10 - 17:00. KLIVRELAGET SINE ARRANGAMENT: Mandag 17 -18:00 Barneklatring med vakt, Mandag 18 -20:00 Åpen klatrehall med vakt (mot betaling), Tirsdag 18 -21:00 Klubbklatring, Torsdag 18 -19:30 Juniorklatring.",
   "note": "The hall states one week — weekdays and weekend — and lists its supervised sessions separately inside it."
+ },
+ {
+  "lat": 62.73626,
+  "lon": 7.18192,
+  "name": "Molde Klatresenter",
+  "country": "NO",
+  "source": "https://moldeklatresenter.no/apningstider",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-20:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Molde Klatresenter Åpningstider Mandag - Torsdag 8:00-22:00 Fredag 8:00-20:00 Lørdag - Søndag 10:00-20:00 ... Grandfjæra 22 C 6415 Molde",
+  "note": "The record for all three rows at this hall said the site carries activity slots and no opening. It carries both: the slots are on the home page under \"Dette skjer hos oss\", and the week is on /apningstider, which the home page links to by name and the sitemap does not list. Friday closes two hours before the other weekdays."
+ },
+ {
+  "lat": 62.73644199999999,
+  "lon": 7.182532300000001,
+  "name": "Molde Klatresenter",
+  "country": "NO",
+  "source": "https://moldeklatresenter.no/apningstider",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-20:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Molde Klatresenter Åpningstider Mandag - Torsdag 8:00-22:00 Fredag 8:00-20:00 Lørdag - Søndag 10:00-20:00 ... Grandfjæra 22 C 6415 Molde",
+  "note": "The record for all three rows at this hall said the site carries activity slots and no opening. It carries both: the slots are on the home page under \"Dette skjer hos oss\", and the week is on /apningstider, which the home page links to by name and the sitemap does not list. Friday closes two hours before the other weekdays."
+ },
+ {
+  "lat": 62.73647,
+  "lon": 7.18253,
+  "name": "Molde Klatresenter",
+  "country": "NO",
+  "source": "https://moldeklatresenter.no/apningstider",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-20:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Molde Klatresenter Åpningstider Mandag - Torsdag 8:00-22:00 Fredag 8:00-20:00 Lørdag - Søndag 10:00-20:00 ... Grandfjæra 22 C 6415 Molde",
+  "note": "The record for all three rows at this hall said the site carries activity slots and no opening. It carries both: the slots are on the home page under \"Dette skjer hos oss\", and the week is on /apningstider, which the home page links to by name and the sitemap does not list. Friday closes two hours before the other weekdays."
  },
  {
   "lat": 59.8679,
