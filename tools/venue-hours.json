@@ -2451,6 +2451,33 @@
   "evidence": "maandag 13:00 – 23:30u | dinsdag 13:00 – 23:30u | woensdag 13:00 – 23:30u | donderdag 13:00 – 23:30u | vrijdag 13:00 – 22:30u | zaterdag 09:00 – 20:00u | zondag 09:00 – 21:00u"
  },
  {
+  "lat": 51.1917,
+  "lon": 2.98426,
+  "name": "Klimkaffee Oudenburg",
+  "country": "BE",
+  "source": "https://klimkaffee.net/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "17:00-23:00",
+   "tue": "12:00-23:00",
+   "wed": "12:00-23:00",
+   "thu": "12:00-23:00",
+   "fri": "12:00-23:00",
+   "sat": "12:00-23:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Openingsuren maandag 17 - 23 u · dinsdag 12 - 23 u · woensdag 12 - 23 u · donderdag 12 - 23 u · vrijdag 12 - 23 u · zaterdag 12 - 23 u · zondag 10 - 20 u",
+  "note": "A complete week with a Monday that breaks the pattern. The line beneath it, \"Aangepaste openingsuren in de schoolvakanties!\", announces that school holidays differ and gives no times, so it is a note and not a second week; the page's own openingHours markup, Monday–Saturday 11:00-23:00 and Sunday 11:00-20:00, is a third answer and loses to the words. This hall is klimkaffee.net and is unrelated to the Mechelen and Herentals halls on klimkaffee.be, which no longer list an Oudenburg branch at all."
+ },
+ {
   "lat": 51.03327,
   "lon": 3.75706,
   "name": "Klimzaal Arsenaal",
@@ -4579,6 +4606,33 @@
   "evidence": "Mon - Fri: 6 am-11 pm | Sat - Sun: 10 am - 8 pm | December Holiday hours | Wednesday, Dec 24 - Close at 6pm | Thursday, Dec 25 - Closed"
  },
  {
+  "lat": 49.1824420014394,
+  "lon": -123.98420325192382,
+  "name": "The Bloc Bouldering",
+  "country": "CA",
+  "source": "https://wipclimbing.com/info-1",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "WIP Climbing Nanaimo … 1870 Boxwood Road Nanaimo, BC, V9S5Y2 HOURS: Regular Hours: Monday - Saturday: 10am - 10pm Sunday: 10am - 8pm",
+  "note": "The page belongs to the Courtenay site and carries two blocks. The earlier reading took them for one week stated twice; they are two halls. The second is headed \"WIP Climbing Nanaimo … 1870 Boxwood Road Nanaimo, BC, V9S5Y2\" and is the only one with an address on it, which is this venue's. The unheaded block above it, beginning \"OPENING DAY: October 10th, 2020\", is left where it is. The page markup is a third answer and loses to the words, as always."
+ },
+ {
   "lat": 43.3838,
   "lon": -79.76254,
   "name": "The Boardroom x Climber's Rock",
@@ -5008,6 +5062,33 @@
    "sun": "08:00-21:00"
   },
   "evidence": "Monday – Friday: 7:00 am - 10:00 pm | Saturdays: 7 am – 9 pm | Sunday: 8 am – 9 pm | Holiday hours may vary."
+ },
+ {
+  "lat": 49.1823,
+  "lon": -123.98438,
+  "name": "WIP Climbing Nanaimo",
+  "country": "CA",
+  "source": "https://wipclimbing.com/info-1",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "WIP Climbing Nanaimo … 1870 Boxwood Road Nanaimo, BC, V9S5Y2 HOURS: Regular Hours: Monday - Saturday: 10am - 10pm Sunday: 10am - 8pm",
+  "note": "The page belongs to the Courtenay site and carries two blocks. The earlier reading took them for one week stated twice; they are two halls. The second is headed \"WIP Climbing Nanaimo … 1870 Boxwood Road Nanaimo, BC, V9S5Y2\" and is the only one with an address on it, which is this venue's. The unheaded block above it, beginning \"OPENING DAY: October 10th, 2020\", is left where it is. The page markup is a third answer and loses to the words, as always."
  },
  {
   "lat": 42.3152901,
@@ -9966,6 +10047,33 @@
   },
   "evidence": "beta boulders ØSTERBRO — Aldersrogade 6C, 2100 København. Opening Hours: Monday to Friday: 07:00-22:00. Saturday to Sunday: 09:00-21:00.",
   "note": "Same correction as the Sydhavn hall: this block is headed 'Opening Hours', not a summer one, and carries this hall's address. Its exceptions are dated single days plus a stated closure from 20 to 29 July."
+ },
+ {
+  "lat": 55.74048080000001,
+  "lon": 12.4774648,
+  "name": "Bison Boulders",
+  "country": "DK",
+  "source": "https://www.bison-boulders.com/tobaksbyen",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Opening hours — Tobaksbyen - Tobaksvejen 20, 2860 Søborg: Monday - Friday : 09:00 - 22:00, Saturday & Sunday: 09:00 – 20:00",
+  "note": "The operator lists both its halls on the page, each under its own address, and this one is Tobaksbyen. The record that stood here withheld the week because the page's structured data says 09:00-23:00 every day; under the rule this audit settled afterwards, a block a settings screen emitted is not an equal claim to the words above it, and the words state every day."
  },
  {
   "lat": 55.66739,

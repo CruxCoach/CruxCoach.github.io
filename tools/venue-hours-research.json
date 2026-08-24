@@ -594,16 +594,6 @@
   "reason": "Same hall as the venue about 15 m away, and the same page: the week is published under a holiday-period heading only."
  },
  {
-  "lat": 51.1917,
-  "lon": 2.98426,
-  "name": "Klimkaffee Oudenburg",
-  "country": "BE",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://klimkaffee.net/",
-  "reason": "Re-read: unchanged, and blocked unconditionally rather than only by the season. The page's week is followed by 'Aangepaste openingsuren in de schoolvakanties!', and its own openingHours markup is a third answer again — Monday–Saturday 11:00-23:00, Sunday 11:00-20:00."
- },
- {
   "lat": 50.41619,
   "lon": 4.43898,
   "name": "Maniak Charleroi",
@@ -1180,9 +1170,9 @@
   "name": "Monolithe Bloc",
   "country": "CA",
   "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://www.escalademonolithe.com/",
-  "reason": "The site states two different weeks and does not say which hall either belongs to. /heures gives 8 h à 23 h every day under a footer address for the Dickson hall; /monolithe-voie gives 8 h à 22 h every day for that same Dickson hall. The operator also states that \"une partie des installations de Monolithe Bloc sera transférée vers Monolithe Voie\" and that the bloc stays open through the transition \"avec des options offertes chaque jour\", so neither week can be read as this hall's."
+  "source": "https://www.escalademonolithe.com/heures",
+  "reason": "The operator runs two halls and the site now describes only one of them. OSM has \"Monolithe Escalade - Bloc\" at 2404 Rue Vimont, H1V 3L5, which is this coordinate and the address upstream records; the site's single address and its single week, LUNDI au DIMANCHE 8 h à 23 h, belong to \"le nouveau gym de voie\" at 2350 rue Dickson, H1N 3T1, about 700 m away. One week, attached to the other hall. (The earlier record said the site states two weeks; it states one.)",
+  "checked": "2026-08-24"
  },
  {
   "lat": 45.56273,
@@ -1190,9 +1180,9 @@
   "name": "Monolithe Bloc",
   "country": "CA",
   "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://www.escalademonolithe.com/",
-  "reason": "The site states two different weeks and does not say which hall either belongs to. /heures gives 8 h à 23 h every day under a footer address for the Dickson hall; /monolithe-voie gives 8 h à 22 h every day for that same Dickson hall. The operator also states that \"une partie des installations de Monolithe Bloc sera transférée vers Monolithe Voie\" and that the bloc stays open through the transition \"avec des options offertes chaque jour\", so neither week can be read as this hall's."
+  "source": "https://www.escalademonolithe.com/heures",
+  "reason": "The operator runs two halls and the site now describes only one of them. OSM has \"Monolithe Escalade - Bloc\" at 2404 Rue Vimont, H1V 3L5, which is this coordinate and the address upstream records; the site's single address and its single week, LUNDI au DIMANCHE 8 h à 23 h, belong to \"le nouveau gym de voie\" at 2350 rue Dickson, H1N 3T1, about 700 m away. One week, attached to the other hall. (The earlier record said the site states two weeks; it states one.)",
+  "checked": "2026-08-24"
  },
  {
   "lat": 50.03376,
@@ -1262,16 +1252,6 @@
   "reason": "The only week the gym publishes is headed \"Summer Hours\" — \"Mon to Fri 12:00pm - 10:00pm, Saturday/Sunday 10:00am - 9:00pm\" — with no end date and a dated exception for 7 September beneath it. No ordinary-season week is stated anywhere on the site."
  },
  {
-  "lat": 49.1824420014394,
-  "lon": -123.98420325192382,
-  "name": "The Bloc Bouldering",
-  "country": "CA",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://wipclimbing.com/info-1",
-  "reason": "One page states the week twice and differently: \"HOURS: Monday - Friday: 10am - 10pm, Saturday/Sunday: 10am - 8pm\" above, and \"Regular Hours: Monday - Saturday: 10am - 10pm, Sunday: 10am - 8pm\" below, while the page markup gives all seven days as 10:00-22:00. Three claims, no way to choose."
- },
- {
   "lat": 47.55159,
   "lon": -52.72658,
   "name": "The Cove Bouldering + Cafe",
@@ -1338,16 +1318,6 @@
   "checked": "2026-08-24",
   "source": "https://wipclimbing.com/",
   "reason": "Re-read 2026-08-24, and the page has changed under the record: the two visible \"Regular Hours\" blocks — one for each hall — are gone, and neither the document nor any of the platform routes carries them now. What is left is the Squarespace business-hours setting, seven identical days of 10am - 10pm, which is not what either hall kept: the Courtenay block used to close at 8pm on Sunday. A week that exists only in a settings screen is not published, so the record moves from ambiguous to this."
- },
- {
-  "lat": 49.1823,
-  "lon": -123.98438,
-  "name": "WIP Climbing Nanaimo",
-  "country": "CA",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-24",
-  "source": "https://wipclimbing.com/",
-  "reason": "Re-read 2026-08-24, and the page has changed under the record: the two visible \"Regular Hours\" blocks — one for each hall — are gone, and neither the document nor any of the platform routes carries them now. What is left is the Squarespace business-hours setting, seven identical days of 10am - 10pm, which is not what either hall kept: the Nanaimo block used to close at 8pm on Sunday. A week that exists only in a settings screen is not published, so the record moves from ambiguous to this."
  },
  {
   "lat": 42.3149367,
@@ -2672,16 +2642,6 @@
   "checked": "2026-08-23",
   "source": "https://betaboulders.com/",
   "reason": "Re-read, and the Vanløse hall is the one of the three that cannot be published — not for the season but for a contradiction. The page gives it two blocks at once: 'Summer Opening Hours: Monday to Friday 09:00-22:00' and, directly beneath, 'Special Summer Hours – Beta Boulders Vanløse: Monday to Friday 07:00-22:00'. Both are labelled summer, they disagree by two hours on the weekday opening, and no term-time week is published for this hall at all."
- },
- {
-  "lat": 55.74048080000001,
-  "lon": 12.4774648,
-  "name": "Bison Boulders",
-  "country": "DK",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://www.bison-boulders.com/tobaksbyen",
-  "reason": "The page says two different things about this hall. Its labelled text gives \"Tobaksbyen - Tobaksvejen 20, 2860 Soborg: Monday - Friday : 09:00 - 22:00, Saturday & Sunday: 09:00 - 20:00\", while the structured data on the same page names Bison Boulders ApS at that same address, 20 Tobaksvejen, and states openingHours \"Mo 09:00-23:00\" through \"Su 09:00-23:00\". Both claims are attached to Tobaksvejen 20 and they disagree on every day, so neither can be published."
  },
  {
   "lat": 55.7203436012916,
