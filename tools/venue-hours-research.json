@@ -1888,15 +1888,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 22.24008,
-  "lon": 113.51732,
-  "name": "香蕉攀岩馆 Banana Climbing Gym(乐士店)",
-  "country": "CN",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 4.7109886,
   "lon": -74.072092,
   "name": "Everyday Wall",
@@ -2631,9 +2622,10 @@
   "lon": 2.1810262,
   "name": "Bulder Planet Valles",
   "country": "ES",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "source": "https://bulderplanet.com/valles/horarios/",
+  "reason": "The horarios page is headed HORARIO AGOSTO 2026 and gives \"Lunes y miércoles 17:00 a 22:00h; martes, jueves y viernes 09:30 a 13:30 y de 17:00 a 22:00h; Sábados 09:30 a 14:30h\". A week headed with a month runs out with it, Sunday is not stated either way, and no ordinary week is published beside it.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 41.65539,
@@ -4817,15 +4809,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 35.55209809999999,
-  "lon": 139.5794141,
-  "name": "ClimbingBUM",
-  "country": "JP",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 34.6645243,
   "lon": 135.5213199,
   "name": "CRUX Osaka",
@@ -6451,15 +6434,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": -41.21355,
-  "lon": 174.8897,
-  "name": "HangDog Climbing",
-  "country": "NZ",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 23.6453963,
   "lon": 58.148331,
   "name": "Adventure-World-Muscat",
@@ -7227,9 +7201,10 @@
   "lon": 14.8058522,
   "name": "idrottshuset växjö moonboard",
   "country": "SE",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://idrottshuset.se/aktuella-tider/",
+  "reason": "The page called Aktuella tider prints no time at all — the schedule is behind the BOKA ONLINE booking system, and nothing on the site states when the hall is open.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 63.81858999999999,

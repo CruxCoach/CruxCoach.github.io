@@ -296,9 +296,9 @@
     "name": "Altitude Escalada",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The domain is the venue's and the site is empty. altitudeescalada.com.br answers 200 with a single line of text, \"Altitude Escalada\", and nothing else — no address, no navigation, no contact. altitudeclimbing.com and the Altitude Gym pages that answered are Canadian; altitude.com is a domain broker. Nothing could be matched against Sao Jose do Rio Preto.",
-    "candidate": "https://altitudeescalada.com.br/"
+    "candidate": "https://altitudeescalada.com.br/",
+    "reason": "No official site could be established: Re-checked: unchanged. The domain still answers 1,248 bytes containing the two words Altitude Escalada and nothing else.",
+    "checked": "2026-08-24"
   },
   {
     "lat": -26.9979828,
@@ -448,9 +448,9 @@
     "name": "TreeLab Ginásio de Escalada",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The certificate asymmetry was checked in both directions and the working host still yields nothing. treelab.com.br answers behind Azure's default *.azurewebsites.net certificate, which does not cover the hostname; www.treelab.com.br carries a certificate issued for exactly that name and answers 200 — so the apex failure was not allowed to reject the working host. What www serves is a client-rendered shell whose only text is \"Conheca nossos planos e venha treinar conosco!\": no address, no map, no structured data. There is nothing on it to match against R. Tome de Souza, 6, 05079-000.",
-    "candidate": "https://www.treelab.com.br/"
+    "candidate": "https://www.treelab.com.br/",
+    "reason": "No official site could be established: Correcting the earlier reading: www.treelab.com.br does answer, with a valid certificate, and the apex is the half that fails. What it serves is a white-label membership application — its bundle carries Argentine street-name tables, a CEP field for an aggregator and the tagline \"É hora de cuidar da sua saúde\" — and it names no climbing gym and no address.",
+    "checked": "2026-08-24"
   },
   {
     "lat": -19.919052,
@@ -565,9 +565,9 @@
     "name": "Romper Room Indoor Rock climbing Centre",
     "country": "CA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — romperroom.com → \"Romper Room\"; romper-room.com → \"kinako nagata [ romper-room ]\"; romper.com → \"Romper\", the rest could not be opened — romper.ca → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.romperroom.com/"
+    "candidate": "https://www.romperroom.com/",
+    "reason": "No official site could be established: romperroom.com sells rompers and boiler suits by named artists. The other spellings answer too — romper.com is a parenting magazine, romper-room.com a Japanese illustrator.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 47.55159,
@@ -575,9 +575,9 @@
     "name": "The Cove Bouldering + Cafe",
     "country": "CA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — cove-cafe.com → \"QR Menu – Cove Cafe\"; cove.com → \"a page with no title\", the rest could not be opened — covecafe.com → 200; cove.ca → a timeout. Upstream records 314 Lemarchant Rd Unit A, A1E 1R2, St John's, and nothing opened printed it.",
-    "candidate": "https://cove-cafe.com/qr-menu/"
+    "candidate": "https://cove-cafe.com/",
+    "reason": "No official site could be established: The domain serves a QR restaurant menu — khachapuri, kebabs, six kinds of salad — with no address and no climbing.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 49.2193226,
@@ -688,9 +688,9 @@
     "name": "Ignea Boulder",
     "country": "CL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. ignea.cl is \"IGNEA - Combustion Inteligente\", a gas-telemetry company; igneaboulder.com is \"IGNEA FORGE\", a knife maker; ignea.com answers behind a certificate that does not cover the hostname. None of them prints Ainavillo 1076 or 4081361 Concepcion.",
-    "candidate": "https://igneaboulder.com/"
+    "candidate": "https://igneaboulder.com/",
+    "reason": "No official site could be established: igneaboulder.com is IGNEA FORGE, a climbing logbook you sign into to record sends by zone and setter. It publishes no address and is not a gym's page.",
+    "checked": "2026-08-24"
   },
   {
     "lat": -38.7605038,
@@ -747,9 +747,9 @@
     "name": "Benchmark Climbing Gym",
     "country": "CN",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — benchmark.cn → \"benchmark.cn -- Premium Domain for Sale --\"; benchmark.com → \"Benchmark\"; benchmarkclimbing.com → \"Benchmark Climbing\", the rest could not be opened — benchmark.com.cn → a certificate that does not cover its hostname. Upstream records Unit 1423, 4th Flr, Bingang Commercial Center, N Sichuan Rd, Shanghai, and nothing opened printed it.",
-    "candidate": "https://benchmark.cn/"
+    "candidate": "https://benchmarkclimbing.com/",
+    "reason": "No official site could be established: Same domain and the same two Californian gyms as the other Shanghai row; this coordinate is in 虹口区.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 31.22124,
@@ -757,9 +757,9 @@
     "name": "Benchmark Climbing Gym 3",
     "country": "CN",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — benchmark.cn → \"benchmark.cn -- Premium Domain for Sale --\"; benchmark.com → \"Benchmark\"; benchmarkclimbing.com → \"Benchmark Climbing\", the rest could not be opened — benchmark.com.cn → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://benchmark.cn/"
+    "candidate": "https://benchmarkclimbing.com/",
+    "reason": "No official site could be established: benchmarkclimbing.com is Benchmark Climbing, LLC, and its own footer names both of its gyms: 1414 Van Ness Ave., San Francisco and 1607 Shattuck Ave., Berkeley. This row is in 长宁区, Shanghai.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 31.237007,
@@ -807,9 +807,9 @@
     "name": "Boulder MAD",
     "country": "CN",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.madclimbers.com → \"Mad Climbers – Stay Mad , Climb Hard\"; boulder.com.cn → \"深圳市博多电子有限公司\"; boulder.com → \"Denver Media\", the rest could not be opened — bouldermad.com → 200; boulder-mad.com → no answer; boulder.cn → a timeout, the venue's whole name as one label, bouldermad.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records Room 302-303, Weedon Center, Ngau Tau Kok, and nothing opened printed it.",
-    "candidate": "https://www.madclimbers.com/"
+    "candidate": "https://www.madclimbers.com/",
+    "reason": "No official site could be established: madclimbers.com is a bouldering gym and shop at Via Triumplina 251, 25136 Brescia, with an Italian VAT number in the footer. This row is on 鴻圖道, Kwun Tong.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 22.308099,
@@ -865,9 +865,9 @@
     "name": "GoNature HK Ltd",
     "country": "CN",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — gonaturehk.com → \"Go Nature HK Ltd – Expert team with over 20 years experi\"; gonature.com → \"Rowley's Adv. Acres @ Harry's Creek is under constructio\", the rest could not be opened — gonature.cn → no answer; gonature.com.cn → a certificate that does not cover its hostname. Upstream records Unit C2, G/F, Wing Hing Industrial Building, Kwun Tong, and nothing opened printed it.",
-    "candidate": "https://www.gonaturehk.com/"
+    "candidate": "https://gonaturehk.com/",
+    "reason": "No official site could be established: The name matches exactly, and the address does not: gonaturehk.com gives one, \"Shop 1, Level 2, Belair Gardens Shopping Arcade Phase 2, 52 Tai Chung Kiu Road, Sha Tin\". This coordinate is 8 km away in Kwun Tong, and the company states no second site.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 30.32416,
@@ -1028,9 +1028,9 @@
     "name": "Urban Stone Climbing Gym",
     "country": "CN",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — urbanboulders.se → \"Urban Boulders\"; stoneclimbing.com → \"Stone Climbing | Climbing Gym in Northeast Florida\"; urban-stone.com → \"Urban Stone\", the rest could not be opened — urbanstone.com → a certificate that does not cover its hostname; urban.cn → a timeout; urban.com.cn → a timeout. Upstream records G/F, Shop 2, Magnet Place, Tower 2, 38-42, Kwai Chung, and nothing opened printed it.",
-    "candidate": "https://urbanboulders.se/"
+    "candidate": "https://urban-stone.com/",
+    "reason": "No official site could be established: urban-stone.com is an engineering and fit-out consultancy in Riyadh, Saudi Arabia.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 22.37435,
@@ -1124,16 +1124,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records 广东省东莞市松山湖园区科技二路5号南方软件园A栋一楼01室, and nothing opened printed it."
-  },
-  {
-    "lat": 22.24008,
-    "lon": 113.51732,
-    "name": "香蕉攀岩馆 Banana Climbing Gym(乐士店)",
-    "country": "CN",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — banana.com → \"banana.com - Virtual market | Domain name\"; bananaclimbing.com → \"Banana Climbing 香蕉攀岩 | Indoor Bouldering\", the rest could not be opened — banana.cn → a timeout. Upstream records 广东省珠海市香洲区前山街道岱山路74号, and nothing opened printed it.",
-    "candidate": "https://banana.com/"
   },
   {
     "lat": 4.7109886,
@@ -1264,8 +1254,8 @@
     "name": "Stuntwerk Kirchheim",
     "country": "DE",
     "status": "unverified",
-    "reason": "stuntwerk-kirchheim.de was this hall's own site — a snapshot from September 2025 carries \"STUNTWERK Kirchheim GmbH, Stuttgarter Straße 47, 73230 Kirchheim unter Teck\" and describes bouldering on the former Otto-Ficker site. Today the domain answers 301 to stuntwerk.de, whose own Standorte page lists Duisburg, Essen, Köln Mülheim, Köln Zollstock, Krefeld, Rosenheim, Senden and Troisdorf and no Kirchheim, and whose site search for the word returns nothing at all. That reads like a hall that closed, but nothing anywhere says so in words, so this is recorded as unverified rather than as closed. There is no live page to link.",
     "candidate": "https://stuntwerk-kirchheim.de/",
+    "reason": "No official site could be established: The hyphenated domain resolves and redirects to stuntwerk.de, whose STANDORTE list runs Duisburg, Essen, Köln, Köln Zollstock, Krefeld, Mülheim, Rosenheim, Senden, Troisdorf, Trostberg. Kirchheim is not among them and the word appears nowhere on the site.",
     "checked": "2026-08-24"
   },
   {
@@ -1293,8 +1283,8 @@
     "name": "Moonboard Horsens",
     "country": "DK",
     "status": "unverified",
-    "reason": "ojkk.dk is Østjysk Klatreklub, whose address is Torstedhallen, Søndergårdsalle 24, 8700 Horsens — the right town, about two kilometres west of this coordinate. Its club, membership and team pages were read and none of them names a MoonBoard, so the only thing tying it to this row is the town. One signal is not a match.",
-    "candidate": "https://www.ojkk.dk/",
+    "candidate": "https://ojkk.dk/",
+    "reason": "No official site could be established: Østjysk Klatreklub is the climbing club in Horsens and its address is Torstedhallen, Søndergårdsalle 24, 8700 Horsens. This coordinate is on Niels Gyldings Gade, the same town and postcode but 2 km away, and the row is named only for a board.",
     "checked": "2026-08-24"
   },
   {
@@ -1333,16 +1323,6 @@
     "checked": "2026-08-24",
     "reason": "OSM maps Boulder Madrid 13 m from this venue and tags it bouldermadrid.com. The host resolves and then never completes a connection, on any scheme, and the archive has nothing to stand in, so nothing on the venue's own page has been read.",
     "candidate": "https://www.bouldermadrid.com/"
-  },
-  {
-    "lat": 41.5483559,
-    "lon": 2.1810262,
-    "name": "Bulder Planet Valles",
-    "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "bulderplanet.com is Búlder Planet and is very likely this operator — \"Escalada Maresme | Escalada Vallès\" — but the site renders client-side and no page of it states an address, a town or anything else that would tie the Vallès hall to Santa Perpètua de Mogoda. The name alone is one observation, and the operator has two locations.",
-    "candidate": "https://bulderplanet.com/"
   },
   {
     "lat": 41.11489,
@@ -1448,9 +1428,9 @@
     "name": "Indoorwall Jaca",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Re-checked, and the site contradicts itself about this centre: the \"Selecciona el centro\" list on Indoorwall's course pages includes Indoorwall Jaca, but the centros index does not, and /centros-indoorwall-rocodromos/indoorwall-jaca/ answers 404. No page describes the Jaca hall, so nothing can be matched to C/ Río Lubierre.",
-    "candidate": "https://www.indoorwall.com/"
+    "candidate": "https://www.indoorwall.com/",
+    "reason": "No official site could be established: The gazetteer has an object called Indoorwall at this point, but the chain's own centre list — Alicante, El Clot, Getafe, Hospitalet, Igualada, Mallorca, Torrejón, Vic, Vilanova — has no Jaca in it, and the word appears nowhere on the page.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 41.5365584,
@@ -1486,9 +1466,9 @@
     "name": "MOONkey board (calm&climb)",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "moonkey.es answers with a single word and no content — no gym, no address, no town — and moonkey.com carries nothing readable. Nothing ties either to Ponteareas.",
-    "candidate": "https://moonkey.es/"
+    "candidate": "https://moonkey.es/",
+    "reason": "No official site could be established: moonkey.es is a coming-soon page for an app for finding work in nightlife and events. The name is a coincidence.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 42.1012595,
@@ -1584,9 +1564,9 @@
     "name": "World Climbing",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Re-checked, and the earlier reading holds: worldclimbing.com is the international federation formerly known as the IFSC — its contact page gives Corso Vinzaglio 12, Torino and a legal seat in Bern — not this Madrid gym. The two Vertical World siblings are in Seattle. Nothing found names Av. de Fernando Alonso 65 in Alcobendas.",
-    "candidate": "https://worldclimbing.com/"
+    "candidate": "https://worldclimbing.com/",
+    "reason": "No official site could be established: worldclimbing.com is the competition-series site — World Climbing Series Bern, Prague, Comunidad de Madrid. It lists Alcobendas because a round was held there, which is also why this coordinate is where it is.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 66.49311399999999,
@@ -1594,9 +1574,9 @@
     "name": "Kiipeilykeskus Väki",
     "country": "FI",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — kiipeilykeskus.com → \"Etusivu - Kiipeilykeskus\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://kiipeilykeskus.com/"
+    "candidate": "https://kiipeilykeskus.com/",
+    "reason": "No official site could be established: Kiipeilykeskus is the Finnish word for a climbing centre, and this one is Helsingin Kiipeilykeskus, Erätie 3, 00730 Helsinki. This coordinate is in Rovaniemi, 700 km north.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 62.787735,
@@ -1722,8 +1702,8 @@
     "name": "Cayman Climbing Gym",
     "country": "GB",
     "status": "unverified",
-    "reason": "caymanclimbing.com is Rock Iguana Ltd, which guides rock climbing on Cayman Brac. This venue is in George Town on Grand Cayman, 140 km and a flight away, and the site names no gym there.",
     "candidate": "https://caymanclimbing.com/",
+    "reason": "No official site could be established: caymanclimbing.com is Rock Iguana Ltd, outdoor climbing and adventure tours on Cayman Brac. This row is an indoor gym on Industrial Way, George Town, on Grand Cayman.",
     "checked": "2026-08-24"
   },
   {
@@ -1741,8 +1721,8 @@
     "name": "Craggy Island Moonboard",
     "country": "GB",
     "status": "unverified",
-    "reason": "craggy-island.co.uk is a personal site — \"A personal site for homelab status, photos, projects and useful links\" — whose owner explains the name comes from Father Ted. The domain a Guildford climbing centre would hold, craggyisland.co.uk, redirects to a parked lander, and craggy-island.com and craggyislandclimbing.co.uk do not resolve. Nothing that answers is the centre.",
     "candidate": "https://craggy-island.co.uk/",
+    "reason": "No official site could be established: The domain answers, and what it serves is a private site whose owner explains he bought the name for the Father Ted reference and uses it for a photography gallery and an uptime dashboard. It is not the Guildford climbing centre.",
     "checked": "2026-08-24"
   },
   {
@@ -1796,9 +1776,9 @@
     "name": "The Boardroom Climbing Ltd. Wimbledon",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "Two candidates answer under this name and neither is this hall. theboardroom.co.uk sells skateboards, stunt scooters and longboards. theboardroomclimbing.com is genuinely a climbing gym called The Boardroom Climbing Ltd — and it is in North Wales: every page of it gives \"Rectors Ln., Pentre, Queensferry, North Wales CH5 2DH\", the site never contains the word Wimbledon, and its own search returns nothing for it. Upstream places this venue at Centre Court Shopping Centre, SW19 8YE.",
-    "candidate": "https://theboardroomclimbing.com/"
+    "candidate": "https://theboardroomclimbing.com/",
+    "reason": "No official site could be established: Same domain and the same single North Wales gym as the row a few metres away.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 51.42116559999999,
@@ -1806,9 +1786,9 @@
     "name": "The Boardroom Wimbledon",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "Two candidates answer under this name and neither is this hall. theboardroom.co.uk sells skateboards, stunt scooters and longboards. theboardroomclimbing.com is genuinely a climbing gym called The Boardroom Climbing Ltd — and it is in North Wales: every page of it gives \"Rectors Ln., Pentre, Queensferry, North Wales CH5 2DH\", the site never contains the word Wimbledon, and its own search returns nothing for it. Upstream places this venue at Centre Court Shopping Centre, SW19 8YE. The entry 27 m away carries the same finding; the two are one hall.",
-    "candidate": "https://theboardroomclimbing.com/"
+    "candidate": "https://theboardroomclimbing.com/",
+    "reason": "No official site could be established: The BOARDROOM Climbing Ltd states one address on every page of its site, including the page called Find us: Rectors Ln., Pentre, Queensferry, North Wales CH5 2DH. This row is in Wimbledon, 300 km away, and /wimbledon/ answers 404.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 53.2514153,
@@ -2390,9 +2370,9 @@
     "name": "cairn climbing gym",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — cairn.co.jp → \"cairn coffee\"; cairn.com → \"cairn.com | Home\", the rest could not be opened — cairn.jp → 403; cairnclimbing.com → 200 / a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.cairn.co.jp/index.html"
+    "candidate": "https://www.cairn.co.jp/",
+    "reason": "No official site could be established: cairn.co.jp is ケルンコーヒー, a coffee roaster at the foot of the Southern Alps that has been roasting for sixty years.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 35.70682,
@@ -2423,16 +2403,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — climbinghouse.com → \"Climbing House: Epic Rock Trips, Curated for You.\"; climbing.jp → \"資金繰りとファクタリングの話 - 中小企業の資金繰り改善やファクタリングの活用法について、調べたことや気づいたこ\"; climbing.co.jp → \"理化学用ガラス、ガラス目盛加工、ガラス製造 | 株式会社クライミング\". Upstream records 中野市片塩559-4, 383-0046, and nothing opened printed it.",
     "candidate": "https://climbinghouse.com/"
-  },
-  {
-    "lat": 35.55209809999999,
-    "lon": 139.5794141,
-    "name": "ClimbingBUM",
-    "country": "JP",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — climbingbum.jp → \"クライミングバム – 大阪・横浜のボルダリング・クライミングジム\", the venue's whole name as one label, climbingbum.jp, answers 200 (\"クライミングバム &#8211; 大阪・横浜のボルダリング・クライミングジム\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://climbingbum.jp/en/top-2/"
   },
   {
     "lat": 34.6645243,
@@ -3033,9 +3003,9 @@
     "name": "클라이밍파크 Climbing Park Shinnonhyun",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.270climbing.com → \"270 Climbing Park | Climbing, Bouldering & High Ropes\"; climbingpark.com → \"HugeDomains.com\"; climbing.kr → \"클라이밍전문기업\", the rest could not be opened — climbing.co.kr → a timeout; park.kr → no answer. Upstream records 서울특별시 강남구 역삼동 강남대로 468 지하 3층, and nothing opened printed it.",
-    "candidate": "https://www.270climbing.com/"
+    "candidate": "https://www.270climbing.com/",
+    "reason": "No official site could be established: 270climbing.com is 270 Climbing Park at Bentham Lane, Witcombe, Gloucester GL3 4UD, with a UK phone number and a VAT-relief notice. This row is in 강남구, Seoul.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 37.26647,
@@ -3398,9 +3368,9 @@
     "name": "Kong Øistein Hall",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "kong.no is a fruit importer and kong.com carries nothing. \"Kong Øistein Hall\" is the name of the sports hall in Kabelvåg; no page of its own was reached, and the club that climbs there (Lofoten Tindeklubb) publishes only a Svolvær post-box address.",
-    "candidate": "https://kong.no/"
+    "candidate": "https://lofotentindeklubb.no/",
+    "reason": "No official site could be established: Same club and the same post box as the row 8 m away; neither can be attached to a wall the site does not locate.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 64.0855357,
@@ -3427,9 +3397,9 @@
     "name": "Lofoten Tindeklubb",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "lofotentindeklubb.no is Lofoten Tindeklubb's own site and matches this venue's name exactly, but that is all it supplies: the page prints no street, no postal code, no town and no board, and upstream records none of those either. One signal, and no second one to be had from the page.",
-    "candidate": "https://www.lofotentindeklubb.no/"
+    "candidate": "https://lofotentindeklubb.no/",
+    "reason": "No official site could be established: The club's site gives a post box — Postboks 85, 8301 Svolvær — and never states where the wall is. This coordinate is on Idrettsveien in Kabelvåg, a different town in the same municipality.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 58.02586,
@@ -3447,9 +3417,9 @@
     "name": "Mørkvedhallen Klatresenter",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "morkvedhallen.no is titled simply \"Klatresenter\" and prints no address; morkvedhallen.com carries the hall name and nothing else. The name is also the street line upstream records (\"Mørkvedhallen 104\"), so name and address are one observation here, not two.",
-    "candidate": "https://morkvedhallen.no/"
+    "candidate": "https://morkvedhallen.com/",
+    "reason": "No official site could be established: The domain answers and the whole page is the word Mørkvedhallen. There is no address, no navigation and nothing to check against.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 60.38464,
@@ -3537,16 +3507,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — www.thewall.co.nz → \"The Wall and Basement Cinema\", the rest could not be opened — ganchos.com → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.basementcinema.co.nz/"
-  },
-  {
-    "lat": -41.21355,
-    "lon": 174.8897,
-    "name": "HangDog Climbing",
-    "country": "NZ",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — hangdog.co.nz → \"WELLINGTON CLIMBING\"; hangdogclimbing.com → \"Hangdog Climbing\", the venue's whole name as one label, hangdogclimbing.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://wellingtonclimbing.co.nz/"
   },
   {
     "lat": 23.6453963,
@@ -3854,9 +3814,9 @@
     "name": "Zone Climb",
     "country": "PT",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "Zone's /aguda page was linked here this morning on a postal-code match, and the match was an artefact: that page lists every branch, so the 4405 it carries belongs to Zone Madalena and to the company's registered office, not to Aguda, which is 4410-467 Arcozelo. Read properly, the operator has four branches — Aguda, Madalena, S. João da Madeira and Póvoa de Varzim — and none of them is at Travessa Joaquim Lopes Pintor 81, the address upstream records; the site never contains that street. The /climb path this record originally used, which is where a climbing facility would have been described, is now 404.",
-    "candidate": "https://zone.com.pt/"
+    "candidate": "https://zone.com.pt/",
+    "reason": "No official site could be established: Zone Fitness runs five gyms and names each address — Madalena at Rua Colégio dos Orfãos 37, Aguda at Arcozelo, plus S. João da Madeira, Póvoa de Varzim and Guimarães. None is at Vilar do Paraíso, and the site never mentions climbing.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 47.046159,
@@ -3884,9 +3844,9 @@
     "name": "One Move Arad",
     "country": "RO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.moveclimbing.es → \"MOVE Climbing – Tu nuevo rocódromo en Sevilla\"; onemove.ro → \"Sala de cățărat One Move – Din pasiune pentru cățărat\"; onemove.com → \"Global Legal Technology | Dye & Durham - Dye & Durham\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.moveclimbing.es/"
+    "candidate": "https://onemove.ro/",
+    "reason": "No official site could be established: onemove.ro belongs to Sala de cățărat One Move and lists exactly two halls, One Move Nord at Strada Marginii 4 and One Move Șagului at Bd. 16 Decembrie 1989 nr. 75, both in Timișoara and both answered from contact_tm@onemove.ro. This row is in Arad, 50 km north.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 47.8063969,
@@ -4110,16 +4070,6 @@
     "checked": "2026-08-23",
     "reason": "The federation directory offers solnaklatterklubb.se for a club in Solna, which is where this venue sits, but upstream calls the venue \"Härkkboard\" and nothing on the club's page carries that name, a street or a board. The town alone is one signal.",
     "candidate": "http://www.solnaklatterklubb.se/"
-  },
-  {
-    "lat": 56.8790044,
-    "lon": 14.8058522,
-    "name": "idrottshuset växjö moonboard",
-    "country": "SE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — idrottshuset.se → \"Idrottshuset - idrottshuset\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://idrottshuset.se/"
   },
   {
     "lat": 57.6409058,

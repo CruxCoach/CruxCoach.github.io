@@ -6324,6 +6324,32 @@
   "note": "Printed directly beneath the address, with public holidays folded into the weekend line."
  },
  {
+  "lat": 22.24008,
+  "lon": 113.51732,
+  "name": "香蕉攀岩馆 Banana Climbing Gym(乐士店)",
+  "country": "CN",
+  "source": "https://bananaclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "hours-scope",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "14:00-22:00",
+   "tue": "14:00-22:00",
+   "wed": "14:00-22:00",
+   "thu": "14:00-22:00",
+   "fri": "14:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "香蕉攀岩 乐士店 珠海市香洲区前山街道乐士文化区 周一-周五：14:00-22:00 周末&节假日：10:00-22:00",
+  "note": "The chain publishes one record per hall and the halls disagree with each other — the same directory gives the Shanghai halls 07:00-23:00 and the Shenzhen 金蝶店 a different opening on Mondays — so the record naming 乐士店 is scoped to this hall and to no other."
+ },
+ {
   "lat": 4.70557,
   "lon": -74.0487,
   "name": "Beta Climbing Gym 19",
@@ -15273,6 +15299,31 @@
   "note": "Replaces an \"inaccessible\" outcome: the page is WordPress and answers in full through its REST route where the rendered HTML gave nothing. The gym states 定休日 なし — no regular closing day — so all seven days are covered. The 最終受付 times are last admission, a quarter of an hour before closing, and are not the closing time."
  },
  {
+  "lat": 35.55209809999999,
+  "lon": 139.5794141,
+  "name": "ClimbingBUM",
+  "country": "JP",
+  "source": "https://climbingbum.jp/yokohama/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "12:00-23:00",
+   "tue": "12:00-23:00",
+   "wed": "12:00-23:00",
+   "thu": "12:00-23:00",
+   "fri": "12:00-23:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "クライミングバム 横浜店 TEL：045-532-3590 神奈川県横浜市都筑区中川中央1-25-1 ノースポートモール B1F 営業時間：月〜金 12時〜23時00分、土日祝 10時〜21時 定休日：無",
+  "note": "The branch page states its own hours under its own address, with 定休日：無 — no rest day. The 大阪店 page carries a different week, which is what makes this one scoped."
+ },
+ {
   "lat": 35.79173,
   "lon": 139.55376,
   "name": "Next Gen Bouldering",
@@ -17641,6 +17692,31 @@
   },
   "evidence": "AUCKLAND (09) 212 2007 info@boulderco.co.nz 33-47 Northside Drive, Westgate, Auckland Monday-Friday: 6am - 10pm Saturday-Sunday: 9am - 8pm",
   "note": "The block sits under this gym's own address and telephone number. Christchurch on the same page opens at 9am on weekdays, so the blocks are per-gym."
+ },
+ {
+  "lat": -41.21355,
+  "lon": 174.8897,
+  "name": "HangDog Climbing",
+  "country": "NZ",
+  "source": "https://hangdog.co.nz/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "12:00-21:30",
+   "tue": "12:00-21:30",
+   "wed": "12:00-21:30",
+   "thu": "12:00-21:30",
+   "fri": "12:00-21:00",
+   "sat": "10:00-18:30",
+   "sun": "10:00-18:30"
+  },
+  "evidence": "hangdog 453 Hutt Road, Alicetown, Lower Hutt hours Mon - Thu: 12 pm - 9:30 pm Fri: 12 pm - 9 pm Sat & Sun: 10 am - 6:30 pm",
+  "note": "The block is headed with this gym's name and address, and the sister gym Faultline has its own beside it. The page renders from a JSON payload; the hours are its text, not a settings object."
  },
  {
   "lat": -43.5320544,
