@@ -12300,6 +12300,84 @@
   "note": "The peak and off-peak bands are pricing, not opening; the centre states one week above them."
  },
  {
+  "lat": 52.40906,
+  "lon": -1.51112,
+  "name": "Social Climbing Coventry",
+  "country": "GB",
+  "source": "https://social-climbing.com/centres/coventry",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Opening Hours Mon – Fri 12:00 – 22:00 Sat – Sun 10:00 – 19:00 … Address Ironmonger Row Coventry CV1 1LZ",
+  "note": "Stated on this centre's own page beside its address. The three centres differ — Leicester opens at 6am on Tuesday and Thursday and the others never do — which is what shows the pages are per-centre and not one block repeated."
+ },
+ {
+  "lat": 52.6373107,
+  "lon": -1.1361376,
+  "name": "Social Climbing Moonboard",
+  "country": "GB",
+  "source": "https://social-climbing.com/centres/leicester",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Opening Hours Mon, Wed, Fri 12:00 – 22:00 Tue, Thu 06:00 – 22:00 Sat – Sun 10:00 – 19:00 … Address 24-28 E Bond Street Leicester LE1 4SX",
+  "note": "Stated on this centre's own page beside its address. The three centres differ — Leicester opens at 6am on Tuesday and Thursday and the others never do — which is what shows the pages are per-centre and not one block repeated."
+ },
+ {
+  "lat": 52.428,
+  "lon": -1.77499,
+  "name": "Social Climbing Solihull",
+  "country": "GB",
+  "source": "https://social-climbing.com/centres/solihull",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Opening Hours Mon – Fri 12:00 – 22:00 Sat – Sun 10:00 – 18:00 … Address 2 Vulcan Road Solihull B91 2JY",
+  "note": "Stated on this centre's own page beside its address. The three centres differ — Leicester opens at 6am on Tuesday and Thursday and the others never do — which is what shows the pages are per-centre and not one block repeated."
+ },
+ {
   "lat": 54.91452529999999,
   "lon": -1.4158507,
   "name": "Sunderland Wall",
@@ -12792,6 +12870,33 @@
   },
   "evidence": "Opening hours Monday-Friday: 10:00-23:30 Saturday & Sunday: 10:00-22:30",
   "note": "The gym adds that the bouldering area stays open thirty minutes later than the rest of the building; the published week is the building's stated opening."
+ },
+ {
+  "lat": 45.79618,
+  "lon": 15.90023,
+  "name": "Boulder Zona Climbing Gym",
+  "country": "HR",
+  "source": "https://boulder-zona.com/kontakt",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-23:00",
+   "tue": "09:00-23:00",
+   "wed": "09:00-23:00",
+   "thu": "09:00-23:00",
+   "fri": "09:00-23:00",
+   "sat": "12:00-21:00",
+   "sun": "11:00-21:00"
+  },
+  "evidence": "Radno vrijeme Ponedjeljak – petak: 9:00 – 23:00 h Subota: 12:00 – 21:00 h Nedjelja: 11:00 – 21:00 h Blagdanima: 12:00-20.00 h",
+  "note": "Saturday and Sunday differ from each other and from the weekdays. Public holidays are given their own window and are not part of the week."
  },
  {
   "lat": -8.63688,

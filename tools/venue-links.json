@@ -11515,6 +11515,53 @@
     "note": "Same physical centre as the MoonBoard entry ~35 m away; upstream lists the two boards separately."
   },
   {
+    "lat": 52.40906,
+    "lon": -1.51112,
+    "name": "Social Climbing Coventry",
+    "country": "GB",
+    "website": "https://social-climbing.com/centres/coventry",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Social Climbing's own page for its Coventry centre, giving Ironmonger Row Coventry CV1 1LZ; upstream records no street for this entry. The operator runs three centres and gives each a page; socialclimbing.co.uk, which the earlier sweep found, is a parked domain, and the hyphenated spelling is what reached the real one."
+  },
+  {
+    "lat": 52.6373107,
+    "lon": -1.1361376,
+    "name": "Social Climbing Moonboard",
+    "country": "GB",
+    "website": "https://social-climbing.com/centres/leicester",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Social Climbing's own page for its Leicester centre, giving 24-28 E Bond Street Leicester LE1 4SX, and Leicester is the town upstream records for an entry whose name does not carry it. The operator runs three centres and gives each a page; socialclimbing.co.uk, which the earlier sweep found, is a parked domain, and the hyphenated spelling is what reached the real one."
+  },
+  {
+    "lat": 52.428,
+    "lon": -1.77499,
+    "name": "Social Climbing Solihull",
+    "country": "GB",
+    "website": "https://social-climbing.com/centres/solihull",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Social Climbing's own page for its Solihull centre, giving 2 Vulcan Road Solihull B91 2JY — upstream's street and postal code. The operator runs three centres and gives each a page; socialclimbing.co.uk, which the earlier sweep found, is a parked domain, and the hyphenated spelling is what reached the real one."
+  },
+  {
     "lat": 54.2857788,
     "lon": -0.4034476,
     "name": "Street Rocks",
@@ -11919,6 +11966,23 @@
     "note": "Mono by Athens Climbing Project's own site, matching this venue's name and naming the Tension Board it is listed for."
   },
   {
+    "lat": 45.79618,
+    "lon": 15.90023,
+    "name": "Boulder Zona Climbing Gym",
+    "country": "HR",
+    "website": "https://boulder-zona.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "Boulder Zona's own site, matching the venue's name, the street number 1, the postal code 10000 and Zagreb, and naming the Kilter board this venue is listed for. The hyphenated spelling of the name is what found it; every earlier sweep had concatenated the words."
+  },
+  {
     "lat": 45.7778053,
     "lon": 15.9752288,
     "name": "Fothia",
@@ -11931,6 +11995,20 @@
       "city"
     ],
     "note": "Fothia's own site, giving Zagreb — the city upstream records, which the venue name does not carry."
+  },
+  {
+    "lat": 45.8987972,
+    "lon": 16.8423093,
+    "name": "SPK Grip Moonboard",
+    "country": "HR",
+    "website": "https://spk-grip.hr/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "SPK Grip's own site, headed \"spk Grip Bjelovar\" — the club's name and the town upstream records, which the venue's name does not carry."
   },
   {
     "lat": 47.656168,
@@ -15052,6 +15130,20 @@
       "city"
     ],
     "note": "BlOKatowice: one named hall in one town, whose own site prints that town. The town is part of the venue's name, so on its own it would not be a second signal — what makes it one here is that OSM carries this exact domain on the climbing object at these coordinates, so the site and the building are tied together independently of the name."
+  },
+  {
+    "lat": 49.6174535,
+    "lon": 20.7153326,
+    "name": "Boulder zone",
+    "country": "PL",
+    "website": "https://boulder-zone.pl/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Boulder-Zone's own site, matching the venue's name and giving Nowy Sącz, the town upstream records and one the venue's name does not carry."
   },
   {
     "lat": 52.4173693,

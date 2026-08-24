@@ -2018,36 +2018,6 @@
     "reason": "A surname and a back garden. This is somebody's home wall, not a venue with a website, and this audit does not attach a link to one."
   },
   {
-    "lat": 52.40906,
-    "lon": -1.51112,
-    "name": "Social Climbing Coventry",
-    "country": "GB",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "socialclimbing.co.uk answers 200 and is the obvious guess for Social Climbing Coventry, but it holds one line of script — window.onload=function(){window.location.href=\"/lander\"} — and nothing else. A domain parked behind a lander page is not a site, and the operator's real one was not found.",
-    "candidate": "https://socialclimbing.co.uk/"
-  },
-  {
-    "lat": 52.6373107,
-    "lon": -1.1361376,
-    "name": "Social Climbing Moonboard",
-    "country": "GB",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Same operator and the same problem: socialclimbing.co.uk arrives as an empty document, so no branch, address or town can be read from it.",
-    "candidate": "https://socialclimbing.co.uk/"
-  },
-  {
-    "lat": 52.428,
-    "lon": -1.77499,
-    "name": "Social Climbing Solihull",
-    "country": "GB",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "socialclimbing.co.uk answers 200 and is the obvious guess for Social Climbing Solihull, but it holds one line of script — window.onload=function(){window.location.href=\"/lander\"} — and nothing else. A domain parked behind a lander page is not a site, and the operator's real one was not found.",
-    "candidate": "https://socialclimbing.co.uk/"
-  },
-  {
     "lat": 51.42122,
     "lon": -0.20453,
     "name": "The Boardroom Climbing Ltd. Wimbledon",
@@ -2202,16 +2172,6 @@
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 45.79618,
-    "lon": 15.90023,
-    "name": "Boulder Zona Climbing Gym",
-    "country": "HR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — zona.hr → \"Sigurna Zona | Videonadzor, Alarm i Zaštita — Pula, Istr\"; zona.com → \"Zona Plus – The Latest Science in Isometric Exercise – Z\"; boulder.com → \"Denver Media\". Upstream records Slavenskoga St. 1, 10000, Zagreb, and nothing opened printed it.",
-    "candidate": "https://sigurna-zona.com//"
-  },
-  {
     "lat": 45.80684120000001,
     "lon": 16.0055825,
     "name": "Hive Zagreb",
@@ -2220,16 +2180,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — hive.hr → \"Hive - Employee Engagement Platform and Professional Ser\"; hive.com → \"The #1 Project Management Software For Teams | Hive\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.hive.hr/"
-  },
-  {
-    "lat": 45.8987972,
-    "lon": 16.8423093,
-    "name": "SPK Grip Moonboard",
-    "country": "HR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — gripnijmegen.nl/boulderhal → \"GRIP Boulderhal Nijmegen - 5.000 m2 puur boulderen\"; gripbouldering.com → \"GRIP BOULDERING\"; spk-grip.hr → \"spk Grip Bjelovar\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://gripnijmegen.nl/boulderhal/"
   },
   {
     "lat": 47.5625993,
@@ -4205,16 +4155,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no candidate could be opened — blokhaus.pl → no answer; blokhaus.com.pl → a certificate that does not cover its hostname; blokhaus.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 49.6174535,
-    "lon": 20.7153326,
-    "name": "Boulder zone",
-    "country": "PL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.climbzone.fr → \"Salle Escalade Multi-niveau à Montauban\"; zone.com.pl → \"Aftermarket.eu :: Domain zone.com.pl\"; zone.com → \"Microsoft Casual Games - The Zone\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.climbzone.fr/"
   },
   {
     "lat": 52.3771,
