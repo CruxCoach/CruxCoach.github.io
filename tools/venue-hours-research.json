@@ -2249,16 +2249,6 @@
   "reason": "Re-read: unchanged, and contradictory twice over. The visible block says Montag – Freitag 10:00 – 22:30 and Samstag/Sonntag 09:00 – 21:00/21:30 — itself two closing times for one row — while the page's own openingHours markup says Mo–Fr 10:00–23:00 and Sa–Su 09:00–22:00."
  },
  {
-  "lat": 48.3896024,
-  "lon": 10.8874895,
-  "name": "Bloc-Hütte Augsburg",
-  "country": "DE",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://bloc-huette.de/preise-oeffnungszeiten/",
-  "reason": "Re-read: unchanged. Every page shows Montag 13.00–22.30 through Sonntag 09.00–21.00 in its text, while the schema.org node for the gym carries the untouched theme default Monday,…,Sunday 09:00-17:00. A machine consumer of this site really is told 09:00–17:00."
- },
- {
   "lat": 52.1131758,
   "lon": 11.6080863,
   "name": "BlocSchmiede",
@@ -2296,16 +2286,6 @@
   "checked": "2026-08-23",
   "source": "https://bouldereck.de/besuch-and-zeiten",
   "reason": "Re-read: unchanged. The published week (Mo–Do 15:00–22:00, Fr 09:00–22:00, Sa–So 10:00–21:00) is immediately followed by 'Erweiterte Ferienzeiten beachten! Feiertage und Ferien in NRW ab 10:00 Uhr geöffnet', which moves the weekday opening for every NRW school holiday."
- },
- {
-  "lat": 52.388056,
-  "lon": 9.7286783,
-  "name": "Boulderhalle Beta Hannover",
-  "country": "DE",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://boulderhalle-beta.de/besuch-planen/oeffnungszeiten/",
-  "reason": "Re-read: unchanged. The text says Mo–Fr 10:00–23:00 and Sa/So/Feiertag 09:00–22:00 on every page, while the site's openingHours markup carries the theme default Monday,…,Sunday 09:00-17:00."
  },
  {
   "lat": 49.69046,
@@ -3218,16 +3198,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 38.03211,
-  "lon": -1.14918,
-  "name": "GUD Climbing Gym",
-  "country": "ES",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The visible block says Sábados y domingos 09:00h-21:00h while the page's schema.org openingHoursSpecification says Saturday 08:00-22:00 and Sunday 10:00-20:00.",
-  "source": "https://gudclimbing.com/"
  },
  {
   "lat": 43.3499467,
@@ -10119,16 +10089,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 38.42959,
-  "lon": -122.71441,
-  "name": "Session Climbing",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The page states Mon - Fri 6AM – 10PM and Sat - Sun 7AM – 8PM, while its schema.org openingHours carries the untouched theme default, \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\".",
-  "source": "https://sessionclimbing.com/"
  },
  {
   "lat": 31.88792,

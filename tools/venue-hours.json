@@ -6243,6 +6243,31 @@
   "note": "The site's schema.org openingHoursSpecification agrees."
  },
  {
+  "lat": 48.3896024,
+  "lon": 10.8874895,
+  "name": "Bloc-Hütte Augsburg",
+  "country": "DE",
+  "source": "https://bloc-huette.de/preise-oeffnungszeiten/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "13:00-22:30",
+   "tue": "13:00-22:30",
+   "wed": "09:00-22:30",
+   "thu": "09:00-22:30",
+   "fri": "09:00-22:30",
+   "sat": "09:00-22:30",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Öffnungszeiten Wochentags Montag 13.00 – 22.30 Uhr Dienstag 13.00 – 22.30 Uhr Mittwoch 09.00 – 22.30 Uhr Donnerstag 09.00 – 22.30 Uhr Freitag 09.00 – 22.30 Uhr Wochenende Samstag 09.00 – 22.30 Uhr Sonntag 09.00 – 21.00 Uhr",
+  "note": "Every day is listed separately; Monday and Tuesday open four hours later than the rest. The hall states that the summer holidays make no difference — \"In den Sommerferien haben wir wie üblich geöffnet\" — and names two August public holidays that take the Sunday window, both dated exceptions. Its schema.org node carries the untouched theme default of Monday to Sunday 09:00-17:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
   "lat": 51.7168083,
   "lon": 8.776686999999999,
   "name": "Blocbuster Paderborn",
@@ -6656,6 +6681,31 @@
    "sun": "10:00-22:00"
   },
   "evidence": "Mo-Fr 8-23 Uhr | Sa, So, Feiertag 10-22 Uhr"
+ },
+ {
+  "lat": 52.388056,
+  "lon": 9.7286783,
+  "name": "Boulderhalle Beta Hannover",
+  "country": "DE",
+  "source": "https://boulderhalle-beta.de/besuch-planen/oeffnungszeiten/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Mo–Fr: 10:00–23:00 Uhr Sa/So & Feiertage: 09:00–22:00 Uhr",
+  "note": "Two bands covering all seven days, with public holidays grouped with the weekend. The Early Bird and Late Night windows listed beneath are price tiers inside the opening. The site's openingHours markup carries the theme default of Monday to Sunday 09:00-17:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 50.4896563,
@@ -10057,6 +10107,33 @@
   },
   "evidence": "LUNES A VIERNES 06:30-22:30 | SÁBADOS 08:00-14:30 y 16:30-20:00 | DOMINGOS 09:00-14:30 | FESTIVOS 09:00-14:30",
   "note": "The pool inside the same centre keeps its own, slightly shorter hours."
+ },
+ {
+  "lat": 38.03211,
+  "lon": -1.14918,
+  "name": "GUD Climbing Gym",
+  "country": "ES",
+  "source": "https://gudclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "HORARIOS Lunes – Viernes: 08:00h-22:00h Sábados y domingos : 09:00h-21:00h … Centro Comercial Thader, junto a Decathlon, Av. Juan de Borbón, S/N, 30110 Churra, Murcia",
+  "note": "Two bands covering all seven days, above the gym's address. The restaurant and kitchen hours listed beside them belong to those and not to the wall. The page's schema.org openingHoursSpecification gives Saturday 08:00-22:00 and Sunday 10:00-20:00, which matches neither. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 39.5735,
@@ -23501,6 +23578,33 @@
   },
   "evidence": "Hours Monday – Friday: 10am-10pm Saturday: 10am-8pm Sunday: 10am-8pm",
   "note": "Stated on the gym's own hours page with Saturday and Sunday listed separately, and again on the home page and in the footer as \"MON-FRI: 10:00am-10:00pm SAT/SUN: 10:00am-8:00pm\". This venue and its twin 40 m away are the same hall."
+ },
+ {
+  "lat": 38.42959,
+  "lon": -122.71441,
+  "name": "Session Climbing",
+  "country": "US",
+  "source": "https://sessionclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "07:00-20:00",
+   "sun": "07:00-20:00"
+  },
+  "evidence": "HOURS Mon - Fri: 6AM – 10PM Sat - Sun: 7AM – 8PM … 965 South A Street Santa Rosa, CA 95404",
+  "note": "Two bands covering all seven days, stated twice on the page beside the gym's address. Its schema.org openingHours carries the untouched theme default of Monday to Sunday 09:00-17:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 41.4684,
