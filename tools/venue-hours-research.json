@@ -4665,9 +4665,10 @@
   "lon": 8.929656399999999,
   "name": "Ikigai Climbing",
   "country": "IT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://www.ikigai-climbing.it/",
+  "reason": "The page has three headings reading \"Orari di apertura:\" and not one day of the week anywhere in its markup — no lunedì, no martedì, nothing. The schedule is in the images beside those headings, so it is unread rather than absent."
  },
  {
   "lat": 41.4833353,
@@ -8226,16 +8227,6 @@
   "checked": "2026-08-24",
   "source": "https://recwell.wisc.edu/locations/bakke/",
   "reason": "The page is now readable and states four dated seasons and no ordinary week: \"May 11 – August 23: Monday - Thursday 6am - 10pm, Friday 6am - 8pm, Saturday & Sunday 10am - 8pm\" and \"August 24 – December 18: Monday - Thursday 6am - Midnight, Friday 6am - 10pm, Saturday 8am - 10pm, Sunday 8am - Midnight\", with Winter Break and Spring beneath them and a list of dated closures beside each. The window in force today ends on 18 December, and there is no week that outlives it."
- },
- {
-  "lat": 39.5278562,
-  "lon": -119.8143409,
-  "name": "BaseCamp Reno",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-24",
-  "source": "https://www.basecampreno.com/",
-  "reason": "No official site is established for this venue, so no week is published from one. Recorded for the next pass: the site that is almost certainly this gym's, basecampreno.com, carries \"Hours Of Operation M - F: 8a -10p Saturday & Sunday: 8a - 9p\" in the footer of every page."
  },
  {
   "lat": 41.74337,

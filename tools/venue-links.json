@@ -12631,6 +12631,21 @@
     ]
   },
   {
+    "lat": 45.6139298,
+    "lon": 8.929656399999999,
+    "name": "Ikigai Climbing",
+    "country": "IT",
+    "website": "https://www.ikigai-climbing.it/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "postal-code"
+    ],
+    "note": "The site now prints what the earlier read could not find: \"Ikigai Climbing Via Carlo Juker, 14, Legnano (MI) 20025\". Upstream records no street for this row, so the number is the site's alone, but the town and the postcode both hold — the coordinate reverse-geocodes to Olmina, Legnano, 20025."
+  },
+  {
     "lat": 46.01495,
     "lon": 11.87572,
     "name": "IL DADO",
@@ -17371,6 +17386,21 @@
       "city"
     ],
     "note": "The university's own page for the Bakke, printing 1976 Observatory Dr, Madison and 53706. The path this record carried, /bakke/, is now a 404 page — and unlike that one, this page is readable, which is what closes the hours question too."
+  },
+  {
+    "lat": 39.5278562,
+    "lon": -119.8143409,
+    "name": "BaseCamp Reno",
+    "country": "US",
+    "website": "https://www.basecampreno.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "coordinates"
+    ],
+    "note": "The record here said the site is plainly this gym's and supplies no second signal. It does, in its own title: \"BaseCamp Climbing Gym - Reno, NV - at Whitney Peak Hotel\", and its contact address is basecampsales@whitneypeakhotel.com. OSM puts the Whitney Peak Hotel at 39.5279235,-119.8141663 — fifteen metres from this coordinate. Naming the building you are in is an address."
   },
   {
     "lat": 30.32726,
