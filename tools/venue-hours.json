@@ -1007,6 +1007,60 @@
   "note": "The operator lists each of its seven gyms with an address and its own hours block."
  },
  {
+  "lat": -28.0806683,
+  "lon": 153.3875897,
+  "name": "Alpine Indoor Climbing",
+  "country": "AU",
+  "source": "https://www.alpineindoorclimbing.com/locations",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "06:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "14:00-21:00",
+   "fri": "06:00-21:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Robina Address 86 Robina Town Centre Dr Robina QLD 4226 … Opening Hours MON 9AM – 9PM TUE 6AM – 9PM WED 9AM – 9PM THU 2PM – 9PM FRI 6AM – 9PM SAT 9AM – 6PM SUN 9AM – 6PM",
+  "note": "The operator gives each of its two gyms a block headed by that gym's own address, phone number and week, and the two weeks differ on four days — which is what makes the page usable for one of them. The dated public-holiday line beneath is an exception."
+ },
+ {
+  "lat": -28.1455,
+  "lon": 153.47779,
+  "name": "Alpine Indoor Climbing Currumbin",
+  "country": "AU",
+  "source": "https://www.alpineindoorclimbing.com/locations",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "06:00-21:00",
+   "thu": "06:00-21:00",
+   "fri": "14:00-21:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Currumbin Address 1 Stewart Rd Currumbin QLD 4223 … Opening Hours MON 6AM – 9PM TUE 9AM – 9PM WED 6AM – 9PM THU 6AM – 9PM FRI 2PM – 9PM SAT 9AM – 6PM SUN 9AM – 6PM",
+  "note": "The block is headed by this gym's own address, which is upstream's, and its week differs from the Robina one on four days. The dated public-holiday line beneath is an exception."
+ },
+ {
   "lat": -33.87073,
   "lon": 151.00728,
   "name": "Beta One Bouldering Gym",
