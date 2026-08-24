@@ -6018,9 +6018,10 @@
   "lon": 4.31394,
   "name": "Boulderhal Walhalla",
   "country": "NL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://www.boulderhalwalhalla.nl/",
+  "reason": "The hall has an Openingstijden page and the host answers 403 on every path, so the week cannot be read live; the snapshot that settled the address is not a source for one."
  },
  {
   "lat": 52.3385489,
@@ -8756,9 +8757,10 @@
   "lon": -94.2816148,
   "name": "IBEX Climbing Gym",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://www.climbibex.com/",
+  "reason": "The site has a Location and Hours page in its navigation; the host answers 403 and the archive has never captured that path, so there is nothing to read the week from."
  },
  {
   "lat": 43.2018837,

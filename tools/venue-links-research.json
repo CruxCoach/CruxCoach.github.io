@@ -3316,16 +3316,6 @@
     "candidate": "http://crossfit.my/"
   },
   {
-    "lat": 52.06192,
-    "lon": 4.31394,
-    "name": "Boulderhal Walhalla",
-    "country": "NL",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps an object called Boulderhal Walhalla 28 m from this venue and tags it boulderhalwalhalla.nl, which is as good a pointer as this audit gets — and a pointer is all it is. The host answers 403 to every fetcher and header set, and the archive has nothing recent enough to stand in: Nirvana and Walhalla have no snapshot at all and de Campus has one from 2017. Nothing on the venue's own page has been read, so nothing confirms it.",
-    "candidate": "https://www.boulderhalwalhalla.nl/"
-  },
-  {
     "lat": 52.3385489,
     "lon": 4.927047099999999,
     "name": "Club Monk",
@@ -4800,16 +4790,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — highmountain.net → \"highmountain.net\"; highmountainfitness.com → \"HugeDomains.com\"; high-mountain.com → \"High Mountain - Allt för friluftsliv - Engelsons\", the rest could not be opened — highmountain.com → a timeout; highmountain.org → 200, the venue's whole name as one label, highmountainfitness.com, answers 302 but its pages print no street, postal code or town matching this venue. Upstream records 730 Lincoln St, 82520, Lander, and nothing opened printed it.",
     "candidate": "https://www.highmountain.net/"
-  },
-  {
-    "lat": 39.0169509,
-    "lon": -94.2816148,
-    "name": "IBEX Climbing Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — ibex.com → \"Ibex Merino Wool Outdoor Clothing – IBEX\"; ibex.net → \"Ibex Publishers – The Best of Persian Culture\"; ibexclimbing.com → \"IBEX\", the rest could not be opened — ibex.org → no answer; ibexclimbinggym.com → 403; ibexbouldering.com → no answer, the venue's whole name as one label, ibexclimbinggym.com, answers 403 (\"Attention Required! | Cloudflare\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://ibex.com/"
   },
   {
     "lat": 43.2018837,

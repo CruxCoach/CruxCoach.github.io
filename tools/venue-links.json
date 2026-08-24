@@ -14298,6 +14298,22 @@
     ]
   },
   {
+    "lat": 52.06192,
+    "lon": 4.31394,
+    "name": "Boulderhal Walhalla",
+    "country": "NL",
+    "website": "https://www.boulderhalwalhalla.nl/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gazetteer has the hall 25 m from this coordinate tagged with this host, which answers 403 to every fetcher. A snapshot gives \"Boulderhal Walhalla, Johan van Veenplein 12, 2521AC, Den Haag\", and the coordinate is number 3 on that same square in 2521 AC. It is one of the four halls — De Campus, Walhalla, Revolt, Nirvana — that share a subscription, three of which are now in this file."
+  },
+  {
     "lat": 52.0651,
     "lon": 5.10472,
     "name": "Boulderhal Zuidhaven",
@@ -20568,6 +20584,20 @@
       "city"
     ],
     "note": "The gazetteer has an object 14 m from this coordinate tagged touchstoneclimbing.com, and Touchstone gives each of its eighteen gyms a path. A snapshot of the Hyperion one reads \"Hyperion LOCATION 801 Willow Street, Redwood city, CA 94063\"; this coordinate is on Willow Street in 94063. The live host answers 403 to every fetcher."
+  },
+  {
+    "lat": 39.0169509,
+    "lon": -94.2816148,
+    "name": "IBEX Climbing Gym",
+    "country": "US",
+    "website": "https://www.climbibex.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "climbibex.com answers 403 to every fetcher. A snapshot is titled \"Home - IBEX Climbing Gym\" and says \"Located in Blue Springs Missouri, IBEX Climbing Gym is here to serve our community\"; this coordinate is in Blue Springs, 64015. There is one IBEX. The candidates the earlier sweep offered were a merino-wool clothing brand and a Persian-literature publisher."
   },
   {
     "lat": 35.2270869,
