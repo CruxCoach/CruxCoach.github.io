@@ -763,8 +763,10 @@ with the domain still resolving, which is the tell. Five were real: four had
 moved and were repointed, and Boulder Line 3 lost its link because Boulderline's
 sitemap now lists one hall and it is not that one.
 
-Run again at the end of the pass, over 1,399 distinct links: 1,344 answered,
-**none is gone**, and the 55 that did not answer all resolve. The count of links
+Run again at the end of the pass, over 1,401 distinct links: 1,350 answered,
+**none is gone**, and the 51 that did not answer all resolve — four fewer than
+the run before it, because a patient reader gets past some of them (see *A 403
+is often a challenge* in `VENUE-HOURS.md`; this tool still asks once). The count of links
 grew by fifty between the two runs and the count of dead ones stayed at zero,
 which is the only way to tell that the additions are as good as the originals.
 The earlier run, over 1,349 links: 1,301 answered, none gone, 48 resolving but
