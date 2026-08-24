@@ -653,12 +653,27 @@ Klatring Danmark's did for Denmark.
 
 ### Where the line is, and what it costs
 
-OSM is a pointer, never the evidence. Four venues are left open because that is
-the only thing that would have carried them: RockHaus is mapped 7 m from its
-venue and its own page gives an address 1.2 km away in another municipality;
-KIVI is mapped 77 m away and its page yields only the name; Kingston Bouldering
-Co-op is mapped 2 m away and shares only its name and the town inside that
-name; Basecamp Toronto publishes two halls and no address for either.
+OSM is a pointer, never the evidence, and the wide name sweep made the cost of
+that rule much more visible. Asking OSM for every climbing object within 5 km
+and matching on the name turns up thirty-nine open venues with an object
+carrying a website tag, most of them within a hundred metres. Fifteen of them
+became links, because the page at the end confirmed something. Eleven did not,
+and each one is the same shape: an OSM object with the venue's exact name a few
+metres away, tagged with a domain, and a page that yields the name and nothing
+else.
+
+RockHaus is mapped 7 m from its venue and its own page gives an address 1.2 km
+away in another municipality. KIVI is mapped 77 m away and its page yields only
+the name. Kingston Bouldering Co-op is mapped 2 m away and shares only its name
+and the town inside that name. Basecamp Toronto publishes two halls and no
+address for either. Gropo publishes a week and never an address. Santa Fe
+Climbing Center prints "3008 Cielo Court | Santa Fe, NM" and upstream records
+no street to match it against, so the only thing shared is the town that is
+already in the venue's name.
+
+The rule earns this. The Boardroom Wimbledon had a candidate with the venue's
+exact name, in the venue's exact trade, and 300 km away in North Wales. A name
+plus a pointer is one observation twice.
 
 The same discipline caught the pass's one false positive before it was written.
 The automated read reported name, street 33 and Medellín on elmuro.co; the page

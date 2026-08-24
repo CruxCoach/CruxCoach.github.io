@@ -21727,6 +21727,22 @@
     "note": "The candidate's own pages carry a map of itself 35 m — Teton Rock Gym away, the moonboard board this venue is listed for, under the venue's name."
   },
   {
+    "lat": 32.260057,
+    "lon": -110.800508,
+    "name": "the BLOC climbing+fitness+yoga",
+    "country": "US",
+    "website": "https://rocksandropes.com/thebloc",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "Rocks & Ropes runs two Tucson gyms and gives each a page; this is its page for the BLOC, which is this venue's name. It gives Tanque Verde, the district upstream records for the coordinates and not something the venue's name carries, and names the MoonBoard this entry is registered for. OSM maps the gym 9 m from this venue with the operator's domain, which is what pointed here."
+  },
+  {
     "lat": 39.53287,
     "lon": -119.80141,
     "name": "The Block Climbing and Fitness",
@@ -21787,6 +21803,20 @@
       "board-mention"
     ],
     "note": "The site carries this venue's name and names the MoonBoard it is listed for. Upstream records no street address for the venue, so the name and the board are the two signals available; the domain is the venue's own name taken as one label, which the guesser had not tried."
+  },
+  {
+    "lat": 38.53886,
+    "lon": -121.3946,
+    "name": "The Boulder Field Climbing + Fitness",
+    "country": "US",
+    "website": "https://www.theboulderfield.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The Boulder Field's own site, matching the venue's name and naming the Tension Board this entry is registered for. OSM maps the gym 4 m from this venue with this domain, which is what pointed here; upstream records no street for the entry, so the board is what carries the second signal."
   },
   {
     "lat": 35.9999,
@@ -22398,6 +22428,22 @@
       "coordinates"
     ],
     "note": "The same facility as the Team Touchstone entry 51 m away at 795 Potter Street, Berkeley, which carries this link already; this entry names it in full as the team training centre. The operator's main site answers 403 to any fetch, and this is the one Touchstone page that does not."
+  },
+  {
+    "lat": 35.8109137,
+    "lon": -78.82097739999999,
+    "name": "TRC Morrisville",
+    "country": "US",
+    "website": "https://www.trianglerockclub.com/morrisville/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "Triangle Rock Club's own page for its Morrisville gym, which is this venue's name in full, and which names the MoonBoard this entry is registered for. The operator gives each gym a page of its own."
   },
   {
     "lat": 35.9512,

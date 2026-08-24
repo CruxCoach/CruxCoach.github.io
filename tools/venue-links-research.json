@@ -1530,8 +1530,8 @@
     "name": "Boulder Madrid Moon Board",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The OSM node 13 m away is named Boulder Madrid and carries bouldermadrid.com, which does not answer on either host — the connection times out. The three chain candidates are other Madrid operators (Sharma, The Climb, Climbat), madrid.es is the city council and madrid.com a tourism portal.",
+    "checked": "2026-08-24",
+    "reason": "OSM maps Boulder Madrid 13 m from this venue and tags it bouldermadrid.com. The host resolves and then never completes a connection, on any scheme, and the archive has nothing to stand in, so nothing on the venue's own page has been read.",
     "candidate": "https://www.bouldermadrid.com/"
   },
   {
@@ -2315,9 +2315,9 @@
     "name": "Bloc Climbing Gym",
     "country": "IE",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "candidate": "https://blocdublin.ie/",
-    "reason": "A better candidate than the bloc.ie logged before — the OSM node 87 m from this venue is named Bloc and carries blocdublin.ie — but it cannot be opened: apex and www both answer 403 to an identifying User-Agent, to a plain browser one and to a second unrelated fetcher. bloc.ie itself now serves a 'Bloc — Coming Soon' holding page and is a booking-software company's domain. blocclimbing.com is parked for sale."
+    "checked": "2026-08-24",
+    "reason": "OSM maps Bloc 87 m from this venue and tags it blocdublin.ie. The host answers with a challenge page and no content, on every header set tried, so nothing on the venue's own page has been read.",
+    "candidate": "https://blocdublin.ie/"
   },
   {
     "lat": 52.6835403,
@@ -4408,8 +4408,9 @@
     "name": "são rock",
     "country": "PT",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — saorockclimbing.com → 403; saorock.com → a timeout, the venue's whole name as one label, saorock.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "checked": "2026-08-24",
+    "reason": "OSM maps São Rock Climbing 7 m from this venue and tags it saorockclimbing.com. The domain resolves to Locaweb hosting and serves one page: \"403 Forbidden — Página não existente ou em construção\". There is nothing to link to.",
+    "candidate": "https://saorockclimbing.com/"
   },
   {
     "lat": 41.1579438,
@@ -4739,9 +4740,9 @@
     "name": "Klattercentret Sisjon",
     "country": "SE",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — klattercentret.se → \"Klättercentret: Sveriges största klätterföretag\"; klattercentret.com → \"Parked at Loopia\", the rest could not be opened — www.klattercentret.se/sisjon → 404. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.klattercentret.se/"
+    "checked": "2026-08-24",
+    "reason": "OSM maps Klättercentret Sisjön 26 m from this venue and tags it klattercentret.se/sisjon/. That page is 404 today, and the operator's current list of halls — Akalla, Helsingborg, Malmö, Partille, Solna, Telefonplan, Uppsala, Västerås — has no Sisjön in it. An archived copy from 10 April 2026 is titled \"Startsida - Sisjön\", so the hall had a page five months ago and does not now. Worth re-reading rather than concluding: this looks like a hall that has closed or moved.",
+    "candidate": "https://www.klattercentret.se/sisjon/"
   },
   {
     "lat": 59.2897391,
@@ -5302,9 +5303,9 @@
     "name": "Climb NORA",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — nora.com → \"Interface Commercial Carpet Tile & Resilient Flooring | \"; climbnora.com → \"Climb NORA\"; climb.com → \"climb.com\", the rest could not be opened — nora.net → 403; nora.org → 200; climb.net → a timeout, the venue's whole name as one label, climbnora.com, answers 200 (\"Climb NORA\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.interface.com/US/en-US.html"
+    "checked": "2026-08-24",
+    "reason": "OSM maps Climb Nora 8 m from this venue and tags it climbnora.com. The domain answers with two kilobytes: a Google Analytics snippet, the words \"Climb NORA\" and a comment describing a staff-portal progressive web app with a separate athlete app. There is no address, no opening time and nothing that identifies a gym in Federal Way rather than a coaching product with the same name.",
+    "candidate": "https://www.climbnora.com/"
   },
   {
     "lat": 41.56062,
@@ -6056,9 +6057,9 @@
     "name": "Santa Fe Climbing Center",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — santafe.org → \"TOURISM Santa Fe: santafe.org\"; santa-fe.com → \"santa-fe.com\"; santa.com → \"Santa.com | Enjoy Festive Cheer – Explore Holiday Magic\", the rest could not be opened — santafe.com → 403; santafe.net → 403; santa-fe.net → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.santafe.org/"
+    "checked": "2026-08-24",
+    "reason": "OSM maps Santa Fe Climbing Center 10 m from this venue and tags it climbsantafe.com, and the site answers and prints \"3008 Cielo Court | Santa Fe, NM\". Upstream records no street for this entry, so the only thing the page and the dataset share is Santa Fe — which is already inside the venue's name, and so is one observation rather than two.",
+    "candidate": "https://climbsantafe.com/"
   },
   {
     "lat": 30.267153,
@@ -6206,26 +6207,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — texastech.com → \"Texas Tech Red Raiders - Official Athletics Website\"; texastech.net → \"a page with no title\", the rest could not be opened — texastechuniversity.com → 200; texastech.org → a certificate that does not cover its hostname; texas.com → 403, the venue's whole name as one label, texastechuniversity.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://texastech.com/"
-  },
-  {
-    "lat": 32.260057,
-    "lon": -110.800508,
-    "name": "the BLOC climbing+fitness+yoga",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.grottoclimbing.com → \"Grotto Climbing & Yoga\"; www.thresholdclimbing.com → \"Threshold Climbing + Fitness + Yoga\"; yoga.com → \"yoga.com | a place to unroll your mat.\", the rest could not be opened — yoga.net → a certificate that does not cover its hostname; theblocclimbing.com → a timeout; thebloc.net → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.grottoclimbing.com/"
-  },
-  {
-    "lat": 38.53886,
-    "lon": -121.3946,
-    "name": "The Boulder Field Climbing + Fitness",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — theboulderfield.com → \"The Boulder Field | Join the Climbing Community Today\"; theboulder.com → \"Theboulder — Smart Entity | Theboulder.com\", the rest could not be opened — field.com → 200; field.net → a certificate that does not cover its hostname; field.org → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.theboulderfield.com/"
   },
   {
     "lat": 39.3907356,
@@ -6403,15 +6384,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — thrashin.com → \"thrashin.com · Make an Offer\", the rest could not be opened — thrashin.net → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://strongdomains.com/domain/thrashin.com"
-  },
-  {
-    "lat": 35.8109137,
-    "lon": -78.82097739999999,
-    "name": "TRC Morrisville",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
     "lat": 38.6958687,

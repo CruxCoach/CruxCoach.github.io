@@ -7790,8 +7790,8 @@
   "name": "são rock",
   "country": "PT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "checked": "2026-08-24",
+  "reason": "The domain OSM points at serves a hosting placeholder, so there is no page to read a schedule from."
  },
  {
   "lat": 41.1579438,
@@ -10623,18 +10623,20 @@
   "lon": -110.800508,
   "name": "the BLOC climbing+fitness+yoga",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-24",
+  "source": "https://rocksandropes.com/thebloc",
+  "reason": "The gym's own page was read alongside the two dozen paths a venue usually puts its week on, and states no day with a time."
  },
  {
   "lat": 38.53886,
   "lon": -121.3946,
   "name": "The Boulder Field Climbing + Fitness",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-24",
+  "source": "https://www.theboulderfield.com/",
+  "reason": "The site was read on the two dozen paths a venue usually puts its week on and states no day with a time on any of them."
  },
  {
   "lat": 39.3907356,
@@ -10877,15 +10879,6 @@
   "checked": "2026-08-23",
   "source": "https://teamtouchstone.com/",
   "reason": "The same facility as the Team Touchstone entry 51 m away, whose read this repeats: the site yields 920 characters of text across the two dozen paths a venue usually puts its week on, and not one clock time anywhere in them. Touchstone's main site, which does publish hours, answers 403 to every fetch."
- },
- {
-  "lat": 35.8109137,
-  "lon": -78.82097739999999,
-  "name": "TRC Morrisville",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 38.6958687,
