@@ -5179,25 +5179,6 @@
     "candidate": "https://www.sportrock.com/sterling"
   },
   {
-    "lat": 35.66688,
-    "lon": -105.91225,
-    "name": "St. John's College Santa Fe",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — stjohncollege.com → \"St. John's College Portal\"; stjohn.com → \"St John Virgin Islands – St John Virgin Islands Vacation\"; stjohn.net → \"Birmingham Commercial Photographer | Chuck St. John Phot\", the rest could not be opened — stjohn.org → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://stjohncollege.com/"
-  },
-  {
-    "lat": 45.47198,
-    "lon": -122.79068,
-    "name": "Stoneworks Climbing Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — stoneworks.com → 200; stoneworks.org → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
     "lat": 37.3303191,
     "lon": -121.8857449,
     "name": "Studio Moon Board",
@@ -5357,10 +5338,10 @@
     "lon": -121.42356,
     "name": "The WELL",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — well.com → \"a page with no title\"; well.org → \"Well.org\"; the-well.com → \"Complete Health and Wellness | THE WELL\", the rest could not be opened — well.net → a timeout; thewell.com → a certificate that does not cover its hostname; thewell.net → 200, the venue's whole name as one label, thewell.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://user.well.com/html/engaged/login.html"
+    "status": "http-only",
+    "reason": "The WELL is Sacramento State's recreation centre and thewell.csus.edu is certainly its site: the gazetteer has the building at this coordinate — 6000 J Street, 95819 — named The Well and tagged with that host, which is the address the site gives, and it has a Climbing section of its own. It serves only over http; the https port presents a certificate this machine cannot verify, on the bare host and on www alike. A link this dataset publishes has to be one a browser will open without a warning.",
+    "candidate": "http://thewell.csus.edu/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 41.30573,

@@ -9397,9 +9397,10 @@
   "lon": -105.91225,
   "name": "St. John's College Santa Fe",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://www.sjc.edu/santa-fe",
+  "reason": "A liberal-arts college. Its Santa Fe page is about campus life and the outdoor programme — the only climbing it mentions is a 45-minute drive to outdoor rock — and no page states opening hours for any campus facility.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 40.50759,
@@ -9416,9 +9417,10 @@
   "lon": -122.79068,
   "name": "Stoneworks Climbing Gym",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://belay.com/",
+  "reason": "The page renders to 2,298 characters — a tagline, an address, a phone number and a climbing-team notice — and the only day-and-time on it is the team's practice: \"Mondays and Wednesdays from 5:30pm - 7:30pm\". No page on the site states when the gym opens.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 35.27305,
@@ -9709,9 +9711,10 @@
   "lon": -121.42356,
   "name": "The WELL",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "http://thewell.csus.edu/climbing/",
+  "reason": "For the record, since the page was read: it states \"Hours Top Rope: Monday-Friday: 12:00 pm – 10:00 pm, Saturday: 10:00 am - 3:00 pm\" and stops. Sunday is not on the page — not a time and not a closed marker — and the Family Climb line beneath is \"Select Saturdays\", a programme rather than a seventh day. No week could be published from it even if the host served https.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 41.30573,

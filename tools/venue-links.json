@@ -22944,6 +22944,22 @@
     "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Colorado Springs, the town upstream records."
   },
   {
+    "lat": 35.66688,
+    "lon": -105.91225,
+    "name": "St. John's College Santa Fe",
+    "country": "US",
+    "website": "https://www.sjc.edu/santa-fe",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gazetteer has the campus 62 m from this coordinate tagged sjc.edu, and the college's own page gives \"Santa Fe, 1160 Camino de Cruz Blanca, Santa Fe, NM 87505\". The earlier candidate, stjohncollege.com, was its own portal login."
+  },
+  {
     "lat": 38.47173,
     "lon": -77.99525,
     "name": "State Climb",
@@ -23044,6 +23060,22 @@
       "city"
     ],
     "note": "Stone Climbing's own site, headed \"JACKSONVILLE AND ST. AUGUSTINE'S PREMIERE CLIMBING GYM\" and naming its Jacksonville location. Jacksonville is the municipality this venue's coordinates fall in; upstream labels the place Ponte Vedra Beach, and the venue's own name carries only the abbreviation JAX."
+  },
+  {
+    "lat": 45.47198,
+    "lon": -122.79068,
+    "name": "Stoneworks Climbing Gym",
+    "country": "US",
+    "website": "https://belay.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gym's domain is belay.com, which no guess made from \"Stoneworks\" would reach; the gazetteer has the object at this coordinate named Stoneworks Climbing Gym and tagged with it. The page prints \"6775 SW 111th, Beaverton, Oregon 97008\" and the coordinate is 6775 Southwest 111th Avenue, 97008."
   },
   {
     "lat": 35.27305,
