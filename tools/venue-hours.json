@@ -4629,6 +4629,87 @@
   "note": "Members additionally get in 6–11 AM on weekdays; the public week is what is recorded. Saturday 8–10 AM is a sensory-friendly session."
  },
  {
+  "lat": 49.25311,
+  "lon": -122.73534,
+  "name": "The Hive Poco Climbing and Fitness",
+  "country": "CA",
+  "source": "https://www.hiveclimbing.com/locations",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Port Coquitlam Unit 145, 815 Village Drive, Port Coquitlam, V3B 0G9 … Standard Hours of Operation Mon 12PM–10PM … Fri 12PM–10PM Sat 10AM–8PM Sun 10AM–8PM",
+  "note": "The per-branch pages this row is linked to answer with an amenities fragment and no week. The operator's locations index carries all six halls, each with its own address and its own \"Standard Hours of Operation\" table, so the week is read from the block the branch address heads. Monday appears twice in each table — the same value rendered for two breakpoints, not two claims. The note about statutory holidays is an exception list."
+ },
+ {
+  "lat": 49.2048,
+  "lon": -122.88207,
+  "name": "The Hive Surrey Climbing and Fitness",
+  "country": "CA",
+  "source": "https://www.hiveclimbing.com/locations",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Surrey 101 – B 11125 124 Street, V3V 4V2 … Standard Hours of Operation Mon 12PM–10PM … Fri 12PM–10PM Sat 10AM–9PM Sun 10AM–9PM",
+  "note": "The per-branch pages this row is linked to answer with an amenities fragment and no week. The operator's locations index carries all six halls, each with its own address and its own \"Standard Hours of Operation\" table, so the week is read from the block the branch address heads. Monday appears twice in each table — the same value rendered for two breakpoints, not two claims. The note about statutory holidays is an exception list."
+ },
+ {
+  "lat": 49.8457,
+  "lon": -97.19936,
+  "name": "The Hive Winnipeg Climbing and Fitness",
+  "country": "CA",
+  "source": "https://www.hiveclimbing.com/locations",
+  "checked": "2026-08-24",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "14:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "14:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Winnipeg Unit 7 – 960 Lorimer Boulevard, Winnipeg MB, R3P 1G1 … Standard Hours of Operation Mon 2PM–10PM Tue 12PM–10PM Wed 12PM–10PM Thu 12PM–10PM Fri 2PM–10PM Sat 10AM–8PM Sun 10AM–8PM",
+  "note": "The per-branch pages this row is linked to answer with an amenities fragment and no week. The operator's locations index carries all six halls, each with its own address and its own \"Standard Hours of Operation\" table, so the week is read from the block the branch address heads. Monday appears twice in each table — the same value rendered for two breakpoints, not two claims. The note about statutory holidays is an exception list."
+ },
+ {
   "lat": 43.66597,
   "lon": -79.34302,
   "name": "The Rock Oasis Inc.",
@@ -13583,6 +13664,56 @@
   },
   "evidence": "Radno vrijeme Ponedjeljak – petak: 9:00 – 23:00 h Subota: 12:00 – 21:00 h Nedjelja: 11:00 – 21:00 h Blagdanima: 12:00-20.00 h",
   "note": "Saturday and Sunday differ from each other and from the weekdays. Public holidays are given their own window and are not part of the week."
+ },
+ {
+  "lat": 47.51476813536509,
+  "lon": 19.11432501487862,
+  "name": "Fless!",
+  "country": "HU",
+  "source": "https://fless.hu/zuglo",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "14:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Hétköznap (kivéve kedd) 08:00 - 22:00 · Kedd 14:00 - 22:00 · Hétvége 10:00 - 20:00",
+  "note": "The hall page states weekdays \"except Tuesday\", then Tuesday on its own, then the weekend — which is why the two halls differ by one day. The site's markup instead gives Monday to Friday 08:00-22:00 and Saturday 10:00-15:00 with no Sunday at all, for both halls at once; it is one block for a two-hall operator and does not survive against what each hall prints."
+ },
+ {
+  "lat": 47.5625993,
+  "lon": 19.0324136,
+  "name": "fless! Buda",
+  "country": "HU",
+  "source": "https://fless.hu/buda",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "14:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Hétköznap (kivéve csütörtök) 08:00 - 22:00 · Csütörtök 14:00 - 22:00 · Hétvége 10:00 - 20:00",
+  "note": "The Buda hall opens late on Thursday where Zugló opens late on Tuesday; each page names its own exception. The single markup block on the domain covers neither and omits Sunday."
  },
  {
   "lat": -8.63688,
@@ -23699,6 +23830,31 @@
   },
   "evidence": "Here's when we're open for you to come hang out with us. Monday 12pm - 10pm Tuesday 12pm - 10pm Wednesday 12pm - 10pm Thursday 12pm - 10pm Friday 12pm - 10pm Saturday 10am - 8pm Sunday 12pm - 8pm",
   "note": "Every day is listed separately under a sentence that names them as the opening hours."
+ },
+ {
+  "lat": 43.00892,
+  "lon": -70.80167,
+  "name": "Seacoast Climb",
+  "country": "US",
+  "source": "https://seacoastclimb.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-21:00",
+   "tue": "10:00-21:00",
+   "wed": "10:00-21:00",
+   "thu": "10:00-21:00",
+   "fri": "10:00-21:00",
+   "sat": "10:00-17:00",
+   "sun": "10:00-17:00"
+  },
+  "evidence": "Mon - Fri 10am - 9pm · Saturday 10am - 5pm · Sunday 10am - 5pm (and, in the footer, \"Mon-Fri: 10am - 9pm / Sat-Sun: 10am - 5pm\")",
+  "note": "The page renders from one script bundle, so the week arrives as two static strings inside it rather than as HTML: a footer line and a two-column grid. They agree, and the grid states Saturday and Sunday separately, so no day is inferred from a \"weekend\"."
  },
  {
   "lat": 47.65055,

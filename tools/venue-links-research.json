@@ -564,10 +564,10 @@
     "lon": -123.1207375,
     "name": "Hive: Vancouver",
     "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.hiveclimbing.com/locations → \"Locations & Hours\"; hivevancouver.com → \"HiVE Coworking | Non-Profit Coworking Space for Change M\"; hive.com → \"The #1 Project Management Software For Teams | Hive\", the rest could not be opened — hive.ca → a certificate that does not cover its hostname, the venue's whole name as one label, hivevancouver.com, answers 301 (\"301 Moved Permanently\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.hiveclimbing.com/locations"
+    "status": "ambiguous",
+    "reason": "hiveclimbing.com is certainly the operator, but it runs two Vancouver halls, Vancouver Boulder at 520 Industrial Ave and Vancouver Heights at 670, and their weeks differ — Boulder opens at 7am on Wednesdays, Heights at 2pm. This row is named only \"Hive: Vancouver\" and its coordinate sits about two kilometres away in the downtown core, so it cannot be read as either. Linking one would put the wrong week on it later.",
+    "candidate": "https://www.hiveclimbing.com/locations",
+    "checked": "2026-08-24"
   },
   {
     "lat": 44.24168,

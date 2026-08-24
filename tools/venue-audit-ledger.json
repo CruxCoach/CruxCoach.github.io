@@ -3517,7 +3517,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "inaccessible",
     "channels": [
      "venue-link",
@@ -4752,14 +4752,12 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-24",
+    "result": "ambiguous",
     "channels": [
      "name-guess",
      "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "www"
     ]
    },
    "hours": {
@@ -5393,8 +5391,8 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "inaccessible",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -5410,8 +5408,8 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "inaccessible",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -5427,8 +5425,8 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "inaccessible",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -15551,19 +15549,16 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "venue-link",
+     "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "inaccessible",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -15583,15 +15578,13 @@
     "pass": "2026-08-24",
     "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "previous-record"
+     "venue-link",
+     "path-probe"
     ]
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "inaccessible",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -16526,8 +16519,8 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "inaccessible",
+    "pass": "2026-08-24",
+    "result": "seasonal",
     "channels": [
      "venue-link",
      "path-probe"
@@ -18148,8 +18141,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "inaccessible",
+    "pass": "2026-08-24",
+    "result": "no-hours-on-official-site",
     "channels": [
      "venue-link",
      "path-probe"
@@ -21323,8 +21316,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "inaccessible",
+    "pass": "2026-08-24",
+    "result": "no-hours-on-official-site",
     "channels": [
      "venue-link",
      "path-probe"
@@ -35842,8 +35835,8 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "inaccessible",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"

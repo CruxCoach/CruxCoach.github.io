@@ -852,9 +852,9 @@
   "name": "TreeLab Ginásio de Escalada",
   "country": "BR",
   "status": "inaccessible",
-  "checked": "2026-08-23",
   "source": "https://www.treelab.com.br/",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 46 characters, which is navigation. It stays in the retry queue."
+  "reason": "The host answers again — it did not when this was last tried. What it serves is a gym-management single-page app whose text arrives from an API rather than from the bundle, and no route on it prints a week to a plain reader. Recorded as unread rather than as absent, because the page a visitor sees may well state one.",
+  "checked": "2026-08-24"
  },
  {
   "lat": -25.3956182,
@@ -1289,36 +1289,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 49.25311,
-  "lon": -122.73534,
-  "name": "The Hive Poco Climbing and Fitness",
-  "country": "CA",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://www.hiveclimbing.com/locations/port-coquitlam",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 149 characters, which is navigation. It stays in the retry queue."
- },
- {
-  "lat": 49.2048,
-  "lon": -122.88207,
-  "name": "The Hive Surrey Climbing and Fitness",
-  "country": "CA",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://www.hiveclimbing.com/locations/surrey",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 167 characters, which is navigation. It stays in the retry queue."
- },
- {
-  "lat": 49.8457,
-  "lon": -97.19936,
-  "name": "The Hive Winnipeg Climbing and Fitness",
-  "country": "CA",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://www.hiveclimbing.com/locations/winnipeg",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 167 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 49.2193226,
@@ -4379,26 +4349,6 @@
   "reason": "The only day-and-time table on the site is a price grid: a column per weekday and a row per hour from 10:00, with a forint amount in each cell. It prices bookable slots and never states when the gym is open."
  },
  {
-  "lat": 47.51476813536509,
-  "lon": 19.11432501487862,
-  "name": "Fless!",
-  "country": "HU",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://fless.hu/",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 251 characters, which is navigation. It stays in the retry queue."
- },
- {
-  "lat": 47.5625993,
-  "lon": 19.0324136,
-  "name": "fless! Buda",
-  "country": "HU",
-  "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://fless.hu/",
-  "reason": "The operator's site serves one 1.5 kB shell for every path and renders its content in the browser, so no week can be read from it — the same finding the Zugló hall carries."
- },
- {
   "lat": 47.5085995,
   "lon": 19.0259772,
   "name": "Gravity Moonboard",
@@ -4673,10 +4623,10 @@
   "lon": 7.37104,
   "name": "Boulder Garage",
   "country": "IT",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://www.bouldergarage.it/",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 306 characters, which is navigation. It stays in the retry queue."
+  "status": "seasonal",
+  "source": "https://www.bouldergarage.it/orariapertura",
+  "reason": "The hours page prints one table and heads it ORARIO PRIMAVERA/ESTATE — a spring and summer schedule, with no autumn or winter table beside it. Lunedì 14:30-22:30, Martedì 09:30-22:30, Mercoledì 14:30-22:30, Giovedì 09:30-22:30, Venerdì 14:30-22:30, Sabato and Domenica CHIUSO. A week that announces its own season is not the week this audit publishes. (The site's markup gives Tuesday and Thursday as 11:30, which the table does not say.)",
+  "checked": "2026-08-24"
  },
  {
   "lat": 45.1114724,
@@ -5158,10 +5108,10 @@
   "lon": 12.5695158,
   "name": "WAVEROCK",
   "country": "IT",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://www.waverockrimini.com/",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 491 characters, which is navigation. It stays in the retry queue."
+  "status": "no-hours-on-official-site",
+  "source": "https://www.waverockrimini.com/prezzi-orari",
+  "reason": "The page is headed PREZZI/ORARI and has an ORARI section, but what it says under it is \"quando vuoi!\" — members may enter outside opening hours, WaveRock becomes your personal gym. No day and no time is printed anywhere on the site.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 31.88255,
@@ -6020,10 +5970,10 @@
   "lon": -100.3703552,
   "name": "Mad Complex",
   "country": "MX",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
+  "status": "no-hours-on-official-site",
   "source": "https://madcomplex.mx/",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 1100 characters, which is navigation. It stays in the retry queue."
+  "reason": "The home page invites you to \"conoce nuestros horarios\" and links to the reservation page, which offers a booking widget and no schedule. Nosotros, Instalaciones, Servicios and Reservaciones were all read; none prints a day with a time.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 20.1027782,
@@ -9925,16 +9875,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 43.00892,
-  "lon": -70.80167,
-  "name": "Seacoast Climb",
-  "country": "US",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://seacoastclimb.com/",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 47 characters, which is navigation. It stays in the retry queue."
  },
  {
   "lat": 33.73223,
