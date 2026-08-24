@@ -685,6 +685,19 @@ The automated read reported name, street 33 and Medellín on elmuro.co; the page
 does not contain "Calle 33" at all, and the site is the Colombian local-news
 network the first pass had already identified.
 
+### When the coordinate cannot tell two halls apart, the board can
+
+An operator with two halls in one city, and a dataset entry for each with no
+street on either, is a matching problem the location cannot solve — especially
+when one of the two coordinates is the city's own point. What solves it is the
+thing this dataset is actually about. Inner Peaks' South End page lists a Moon
+Board and its NoDa page a Kilter Board, and the two entries are registered one
+for each, so each page goes to the entry whose board it names.
+
+It only works where the operator lists boards per hall, which is not often —
+Rock Republic's site names none, and Benchmark's two gyms both have a Tension
+Board — but where it works it is decisive in a way nothing else available was.
+
 ### A verified link is a fact about the day it was verified
 
 Sites move their per-location pages and operators close halls, and a link that
