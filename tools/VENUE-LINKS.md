@@ -763,8 +763,12 @@ with the domain still resolving, which is the tell. Five were real: four had
 moved and were repointed, and Boulder Line 3 lost its link because Boulderline's
 sitemap now lists one hall and it is not that one.
 
-Run again after this pass, over 1,349 distinct links: 1,301 answered, none is
-gone, and the 48 that did not answer all resolve. Half of those are two
+Run again at the end of the pass, over 1,399 distinct links: 1,344 answered,
+**none is gone**, and the 55 that did not answer all resolve. The count of links
+grew by fifty between the two runs and the count of dead ones stayed at zero,
+which is the only way to tell that the additions are as good as the originals.
+The earlier run, over 1,349 links: 1,301 answered, none gone, 48 resolving but
+unreachable. Half of those are two
 operators — Touchstone's six halls and First Ascent's four — behind the same
 edge, and the rest are single 403s, a 500 and four hosts that time out. Nothing
 in that list needs a decision; it is the same wall the hours side runs into,
@@ -1012,6 +1016,26 @@ name-guesser spells wrong. It returned 502 to every request on the day this was
 tried, from three different queries an hour apart. Worth trying again; nothing
 was learned either way.
 
+### Asking Overpass what is within 250 m of every open row
+
+The per-venue gazetteer question was run again, this time against every one of
+the 543 rows that still had no site, and asking for anything at all with a
+`website` or `contact:website` tag rather than only for climbing. 410 rows got
+an answer before the mirror gave out; those 410 hold 811 tagged objects between
+them, and **not one is a new link**. The two objects tagged for climbing were
+both already in the log — Klättercentret Sisjön, whose page 404s, and Uadibloc
+Malasaña, whose host answers "Account Suspended".
+
+What 250 m of a climbing gym contains, it turns out, is a post office, two
+restaurants, a stationer, a bicycle-rental dock and a houseware shop. The
+channel works — it is how several links were found earlier — but it is now
+exhausted, and the file it left behind says so.
+
+Two notes on running it: overpass-api.de and overpass.kumi.systems were both
+down for the whole attempt, and the mail.ru mirror answered but rate-limits hard
+enough that a third of the sweep never completed. Budget for that, or run it
+against a country extract instead.
+
 ### Some of them are not places
 
 A registry row that records a city instead of a venue is common enough to be
@@ -1034,7 +1058,7 @@ actively misleading — a gym genuinely near the city centre would have scored a
 match. Each of the affected records now says which city its point is, and no
 published link claims a `coordinates` signal for any of them.
 
-### What the remaining 652 actually are
+### What the remaining 530 actually are
 
 The `wrong-owner` bucket was tested rather than assumed. For every open venue
 that has both an upstream address and a candidate, the candidate's pages were

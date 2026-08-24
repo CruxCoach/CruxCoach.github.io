@@ -121,6 +121,15 @@ second full run over 1,095 published weeks reports no drift at all, 9 sources
 that did not answer, and 16 whose page prints no time to a reader in the first
 place — the single-page apps and the schedules that live in images.
 
+A third full run, after another hundred weeks had been added: 1,153 sources
+read, **no drift at all** again, 8 that did not answer and 23 that print no time
+to a plain fetcher. The count of machine-readable weeks that differ rose from 66
+to 83, in step with the number of records, and every one of them still differs in
+the direction the rule predicts. Two of the twenty-three unreadable ones are
+worth knowing about: `innerpeaks.com` and `hangdog.co.nz` both print their week
+to a browser and nothing to this tool's user-agent, so "prints no time" here
+means "prints no time to us", not "has stopped saying".
+
 ### A dated window is an exception; a week that is only ever dated is a season
 
 Two blocks of times on one page are not automatically a contradiction. Very
