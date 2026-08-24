@@ -1310,16 +1310,6 @@
     "reason": "The venue's own site says so in one line: \"Der Bodebloc bleibt leider auf unbestimmte Zeit geschlossen!\" — closed indefinitely. A link to a page that says the hall is shut is not a website for a visitor to act on."
   },
   {
-    "lat": 50.937531,
-    "lon": 6.9602786,
-    "name": "Boulderplanet",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The same shape, now measured. Boulderplanet appears twice, 4.1 km apart, and boulderplanet.de gives one address — Oskar-Jäger-Str. 143h, 50825 Köln — with a map of itself 3,715 m from this entry. The hall is at the other entry, which carries the link; upstream places this one in Altstadt Nord, which is the city centre.",
-    "candidate": "https://boulderplanet.de/"
-  },
-  {
     "lat": 47.7856606,
     "lon": 11.0607786,
     "name": "DAV Kletterzentrum Peißenberg",
@@ -1443,8 +1433,8 @@
     "name": "Moonboard Horsens",
     "country": "DK",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be tied to this venue. The only club Klatring Danmark lists for Horsens is Ostjysk Klatreklub at ojkk.dk, whose own address is Torstedhallen, Sondergardsalle 24, 8700 Horsens — a different part of town from these coordinates — and which names no MoonBoard anywhere on its site. horsens.dk is Horsens Kommune, horsens.com answers with nothing, and moonboardhorsens.dk and horsensklatreklub.dk do not resolve. The town alone is not a second signal when the town is the venue's whole name.",
+    "checked": "2026-08-24",
+    "reason": "ojkk.dk is Østjysk Klatreklub, a climbing club whose contact address is \"8700 Horsens\" — the town this venue sits in. That is the only thing shared: the venue is called Moonboard Horsens, so the town is already inside its name, and the club's own name appears nowhere in the venue's. The club may well run this board; the page does not say so.",
     "candidate": "https://www.ojkk.dk/"
   },
   {
@@ -1464,16 +1454,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site. muro.com.ec, muro.ec, elmuro.com.ec, elmuro.ec, el-muro.com.ec, el-muro.ec, muroclimbing.com.ec, muroclimbing.ec, elmuroquito.com and muroquito.com all fail to resolve. No OSM climbing object near Quito carries a website tag."
-  },
-  {
-    "lat": 59.40481490000001,
-    "lon": 24.7358048,
-    "name": "Kivi Climbing",
-    "country": "EE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "OSM maps \"KIVI climbing\" 77 m from this venue and tags it with kiviclimbing.ee, which is almost certainly right — but the page itself yields only the venue name. It gives its address as Pärnu mnt 139e, Tallinn, where upstream records the Kristiine district and no street, so there is nothing on the page to set against the coordinates. The OSM position is a pointer, not the second signal.",
-    "candidate": "https://kiviclimbing.ee/"
   },
   {
     "lat": 43.2630126,

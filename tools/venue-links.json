@@ -5960,6 +5960,20 @@
     "note": "The operator gives Altchemnitzer Straße 27 where upstream has number 5; it resolves to within 275 m of this venue."
   },
   {
+    "lat": 50.937531,
+    "lon": 6.9602786,
+    "name": "Boulderplanet",
+    "country": "DE",
+    "website": "https://boulderplanet.de/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Boulderplanet's own site, titled \"Bouldern Köln – Kurse & Training | Boulderplanet\". Upstream labels this venue Altstadt Nord, which is a Köln district and appears nowhere on the site; the coordinates fall inside the city of Köln, which is what the page names."
+  },
+  {
     "lat": 50.94495,
     "lon": 6.90509,
     "name": "Boulderplanet",
@@ -8537,6 +8551,20 @@
       "board-mention"
     ],
     "note": "Klatring Danmark's club directory gives Ry Klatreklub as ryklatreklub.klub-modul.dk. The site carries the club's name and its facilities page describes \"et Tension Board - en digitalt styret traeningsvaeg\" controlled through the Tension Board app, which is the board this venue is listed for. Upstream files the venue under the nearest town, Silkeborg, rather than Ry, so the town is not claimed as a signal here."
+  },
+  {
+    "lat": 59.40481490000001,
+    "lon": 24.7358048,
+    "name": "Kivi Climbing",
+    "country": "EE",
+    "website": "https://kiviclimbing.ee/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Kivi Climbing's own site, which reads \"TALLINNAS Kivi Climbing\". Upstream labels this venue Kristiine, a Tallinn district that appears nowhere on the site; the coordinates fall inside Tallinn, which is what the page names. The earlier record left this open because the page yielded only the name — the town was there and the label was not the town."
   },
   {
     "lat": 59.42448,
