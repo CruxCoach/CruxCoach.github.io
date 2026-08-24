@@ -834,7 +834,7 @@ actively misleading — a gym genuinely near the city centre would have scored a
 match. Each of the affected records now says which city its point is, and no
 published link claims a `coordinates` signal for any of them.
 
-### What the remaining 730 actually are
+### What the remaining 652 actually are
 
 The `wrong-owner` bucket was tested rather than assumed. For every open venue
 that has both an upstream address and a candidate, the candidate's pages were
@@ -843,15 +843,25 @@ most candidates print no street at all — one Shanghai gym's candidate prints
 Google's own address at 1600 Amphitheatre Parkway. These are not formatting
 misses; they are different businesses.
 
-What would move the rest, in rough order of value:
+The second round of the retry pass closed the third of the three obstacles
+below. Boulderhaus's five halls, Maniak's three, Touchstone's seven, First
+Ascent's four, Kletterzentrum Innsbruck, CRANK, Crimp, Pinnacle, G1, Hudson
+Boulders, Beta Bloc, Street Rocks and Inner Peaks' two are all linked now, from
+dated snapshots of their own pages. What remains:
 
 1. **A rendering fetch.** The platform routes cover Squarespace, Wix,
-   WordPress and Next.js; they do not cover a hand-rolled single-page app, and
-   22 hours rows and a long tail of links are still behind one.
-2. **An address for the venues that have none.** 113 of the 178 open American
-   venues have no upstream street, and most are MoonBoard-registry entries —
-   a board inside a gym rather than a venue. Without a street there is often no
-   second signal to be had, however obvious the operator is.
-3. **A way past an anti-bot interstitial that is not a way round it.**
-   Boulderhaus's five halls, Maniak's three, Touchstone and Kletterzentrum
-   Innsbruck answer 403 to every header set and are not otherwise reachable.
+   WordPress and Next.js; they do not cover a hand-rolled single-page app.
+   Fless serves one 1.5 kB shell for every path; Urban Climb publishes times
+   whose day labels never reach a fetcher; Boulderline is a Bubble application
+   that renders nothing at all.
+2. **An address for the venues that have none.** This is now the binding
+   constraint. Most of the open venues are MoonBoard-registry entries — a board
+   inside a gym rather than a venue — and without a street the only second
+   signal available is the town, which fails whenever the town is already
+   inside the venue's name. That is what leaves NHCF, BaseCamp Reno, Santa Fe
+   Climbing Center, Kingston Bouldering Co-op and Gropo open beside candidates
+   that are almost certainly theirs.
+3. **A snapshot the archive will serve.** The channel that closed the 403s is
+   rate-limited, and 54 venues were mid-read when the limit arrived. They are
+   recorded as not yet retried rather than as failures, and are the cheapest
+   thing for a later pass to pick up.
