@@ -15427,6 +15427,21 @@
     "note": "Faultline Climbing trades on wellingtonclimbing.co.nz, which OSM carries on the climbing object at this venue, and the site gives Wellington — the city upstream records."
   },
   {
+    "lat": -43.5320544,
+    "lon": 172.6362254,
+    "name": "MoonBoard @ Uprising",
+    "country": "NZ",
+    "website": "https://bouldering.co.nz/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "This row is named for Uprising and uprising.co.nz redirects to bouldering.co.nz, which is \"Uprising Bouldering | Yoga | Fitness | Cafe\" and prints \"199 Ferry Rd, Waltham, Christchurch 8011\". The coordinate is not the gym — it reverse-geocodes to Hereford Street in the central city — but it is 8011 Christchurch, the postcode the gym gives."
+  },
+  {
     "lat": -36.77531,
     "lon": 174.73321,
     "name": "Northern Rocks",
@@ -15838,6 +15853,21 @@
       "street-address"
     ],
     "note": "Upstream lists this MoonBoard separately, 52 m from its Kilter entry."
+  },
+  {
+    "lat": 49.8223768,
+    "lon": 19.0583845,
+    "name": "Primaroca",
+    "country": "PL",
+    "website": "https://primaroca.com.pl/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site is the venue's — \"Primaroca Robert Wykręt, ul. Karpacka 24, 43-300 Bielsko-Biała\". Upstream records no street; the coordinate carries the rest, reverse-geocoding to Krakowska, 43-300 Bielsko-Biała. Same postcode, same town, a different street about a kilometre away."
   },
   {
     "lat": 54.40037,
@@ -16978,6 +17008,20 @@
       "postal-code"
     ],
     "note": "Boulderhane's own site, printing the 34330 postal code upstream records for Büyükdere Cd. in Levent."
+  },
+  {
+    "lat": 49.839683,
+    "lon": 24.029717,
+    "name": "Rock Station",
+    "country": "UA",
+    "website": "https://rock-station.com.ua/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "\"Rock Station — Bouldering Gym in Lviv\", which is the venue's name and its city, with the address Ivana Puliuia 16. The coordinate is not that address: it falls on площа Адама Міцкевича in the centre of Lviv, four kilometres east, which is a city point rather than a hall."
   },
   {
     "lat": 39.9658623,
@@ -21741,6 +21785,23 @@
       "street-address"
     ],
     "note": "The operator lists more than one gym; its page gives this one as 11866 La Grange Ave. Los Angeles, CA 90025, which resolves 215 m from the coordinate."
+  },
+  {
+    "lat": 32.21775,
+    "lon": -110.96115,
+    "name": "Rocks and Ropes Tucson",
+    "country": "US",
+    "website": "https://rocksandropes.com/downtown",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator runs two Tucson halls and gives each a page. This coordinate sits on South Toole Avenue in 85701, 32 m from the 330 S Toole Ave #400 the site prints; the other, on East Tanque Verde Road in 85749, is 13 km away."
   },
   {
     "lat": 38.0412153,

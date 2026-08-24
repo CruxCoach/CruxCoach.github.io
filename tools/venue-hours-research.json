@@ -6733,15 +6733,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": -43.5320544,
-  "lon": 172.6362254,
-  "name": "MoonBoard @ Uprising",
-  "country": "NZ",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 23.6453963,
   "lon": 58.148331,
   "name": "Adventure-World-Muscat",
@@ -6975,9 +6966,10 @@
   "lon": 19.0583845,
   "name": "Primaroca",
   "country": "PL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "source": "https://primaroca.com.pl/kontakt/",
+  "reason": "The only week on the contact page is headed GODZINY OTWARCIA SIERPIEŃ — opening hours for August — running Poniedziałek–Czwartek 14:00 do 22:30, Piątek 14:00 do 21.00, Sobota 10:00 do 18:00, Niedziela 10:00 do 15:00, with an offer to open from 8:00 by arrangement. A week headed with a month runs out with it, and no ordinary one is published beside it.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 50.34277,
@@ -8103,9 +8095,10 @@
   "lon": 24.029717,
   "name": "Rock Station",
   "country": "UA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://rock-station.com.ua/",
+  "reason": "The gym states \"Hours Mon–Fri from 12.00 to 21.00, Saturday from 11.00 to 19.00\" and stops. Sunday is not on the page at all — not a time, not a closed marker, and the word appears nowhere in any language.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 49.422983,
@@ -9527,9 +9520,10 @@
   "lon": -110.96115,
   "name": "Rocks and Ropes Tucson",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://rocksandropes.com/downtown",
+  "reason": "Both pages are Squarespace sections whose text lives outside mainContent: the home page renders to 171 characters and the downtown page to 1,540, which is enough for the two addresses in the footer and nothing else. Neither the rendered text nor the raw document contains a single time range, so the week is unread rather than absent.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 38.2526647,
