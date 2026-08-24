@@ -260,8 +260,9 @@
     "name": "The Wall Verviers",
     "country": "BE",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. thewall.be serves a Hetzner \"HTTPS Not Available\" placeholder behind a *.your-server.de certificate that does not cover the hostname, and answers 401 over HTTP; thewall.eu is a bare 301 to nothing; thewall-verviers.be, wallverviers.be, the-wall.be, thewallclimbing.be and escaladeverviers.be do not resolve. verviers.be is the city council's own site and its front page mentions neither the hall nor climbing, and /sports is 404. OSM has no website on any climbing object near Rue de Liege 148."
+    "candidate": "https://www.verviers.be/",
+    "reason": "No official site could be established: verviers.be is the Ville de Verviers, at Place du Marché 55. It shares the 4800 postcode with this row because it is the same town, and it publishes nothing about a climbing wall at Rue de Liège 148.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 42.6977082,
@@ -606,9 +607,9 @@
     "name": "Audan",
     "country": "CH",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "The gazetteer has an object 120 m from this coordinate named Audan and tagged audan.ch, and audan.ch is Grotto Audan — a Ticinese restaurant with fishing ponds at Via Audan 6, 6775 Ambrì, open every day 08:00 to 19:00. It names no climbing wall. Audan is the name of the place, and the MoonBoard registered here has taken it the way the restaurant did.",
-    "candidate": "https://www.audan.ch/"
+    "candidate": "https://www.audan.ch/",
+    "reason": "No official site could be established: audan.ch is Grotto Audan, a Ticinese restaurant and sport-fishing lakes at Ambrì in the Alta Leventina. Its schema.org geo block puts it 132 m from this coordinate, which is close enough to be the same corner of the valley and is the only thing that matches: the site is about food and fishing and never mentions climbing.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 46.63397,
@@ -1040,9 +1041,9 @@
     "name": "Vita Beta Climbing Gym",
     "country": "CN",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — vita.com.cn → \"Domain For Sale\"; vita.com → \"VITA: Embedded Computing Standards for Open Systems\", the rest could not be opened — vita-beta.com → a certificate that does not cover its hostname; vita.cn → a timeout. Upstream records Unit 2, 1/F, Technology Plaza, Nos 29-35 Sha Tsui Rd, Tsuen Wan, and nothing opened printed it.",
-    "candidate": "https://vita.com.cn/"
+    "candidate": "https://vita.com/",
+    "reason": "No official site could be established: vita.com and vita-beta.com are both VITA, the American trade association for embedded computing standards — \"VITA is an incorporated, non-profit organization\". The word Technology matches this row's address at Technology Plaza, Tsuen Wan only through the phrase \"committed to technology excellence\".",
+    "checked": "2026-08-24"
   },
   {
     "lat": 31.298881516800712,
@@ -1217,8 +1218,8 @@
     "name": "Schmitten Power Room",
     "country": "DE",
     "status": "unverified",
-    "reason": "schmitten.de is Gemeinde Schmitten, the municipality itself. The lookup found that this coordinate is in Schmitten im Taunus rather than in Neu-Anspach 6.9 km away, which is what upstream labels it with — a correction worth having, but the domain it points at is the town hall.",
-    "candidate": "https://schmitten.de/",
+    "candidate": "https://www.schmitten.de/",
+    "reason": "No official site could be established: schmitten.de is the Gemeinde Schmitten, and its Anfahrt/Verkehr page carries a map pin 4 m from this coordinate — which says what the coordinate is rather than whose the site is. The row sits on the municipality's own point, 6.9 km from Neu-Anspach, and nothing on the commune's site mentions a climbing wall.",
     "checked": "2026-08-24"
   },
   {
@@ -1497,9 +1498,9 @@
     "name": "Rocodromo Peramola",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The site this venue carried, rocodromo.com, is \"Buscador de rocódromos\" — a Spanish directory listing 239 climbing centres with a search, a map and a news feed. A listing on it is not the venue's own page. Peramola's municipal site, peramola.cat, is reachable but never mentions a rocòdrom on any page or in its sitemap, and no other candidate was found.",
-    "candidate": "https://www.peramola.cat/"
+    "candidate": "https://www.peramola.cat/",
+    "reason": "No official site could be established: The village's own site confirms the street and does not carry the venue. Upstream puts this rocòdrom at Carrer Frederic Ribó 9, 25790 Peramola, and peramola.cat prints \"Ajuntament de Peramola, C/ Frederic Ribó, 8\" — the town hall next door. The words rocòdrom, escalada and esport appear nowhere on it.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 28.1129931,

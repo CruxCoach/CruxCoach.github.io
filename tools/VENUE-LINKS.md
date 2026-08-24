@@ -1188,11 +1188,28 @@ dated snapshots of their own pages. What remains:
    blocked, was closed the same day by a different trick: it prints no address
    anywhere, but Squarespace stamps the venue on every event, so its events
    listing carries `8 Ulgersmaweg, Groningen, GR, 9731 BS`.
-2. **An address for the venues that have none.** This is the binding
-   constraint. Most of the open venues are MoonBoard-registry entries — a board
-   inside a gym rather than a venue — and without a street the only second
-   signal available is the town, which fails whenever the town is already
-   inside the venue's name. That is what leaves NHCF, BaseCamp Reno, Santa Fe
+2. **An address for the venues that have none.** This was called the binding
+   constraint, and the number behind it was wrong. Most of the open venues are
+   MoonBoard-registry entries — a board inside a gym rather than a venue — and
+   without a street the only second signal available is the town, which fails
+   whenever the town is already inside the venue's name. But **168 of the 526
+   open rows do have a street address**, and the reason nobody used it is that
+   it does not live where everything looks for it: upstream keeps it inside the
+   board record, `boards[].address`, not on the feature. `venue-links-report
+   --with-address` reads it; the harness scripts written against the feature saw
+   nothing and reported none.
+
+   Testing those 168 properly — every candidate host that answers, its home page
+   and up to four of its contact and location pages, against the distinctive
+   words and the postcode of the upstream street — returns **nineteen matches
+   and no link**. Every one is a single common word: Verviers' commune shares
+   the 4800 postcode because it is the same town; VITA the embedded-computing
+   trade body matches "Technology Plaza" through the phrase "committed to
+   technology excellence"; Summit Electric Supply matches "Local 2" with "Find
+   Your Local Service Center".
+
+   So the constraint is not the missing address. It is that the candidates are
+   not the venue, and a second signal cannot rescue a first one that is wrong. That is what leaves NHCF, BaseCamp Reno, Santa Fe
    Climbing Center and Kingston Bouldering Co-op open beside candidates that
    are almost certainly theirs.
 

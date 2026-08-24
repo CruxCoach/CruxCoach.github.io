@@ -65,6 +65,10 @@ export const CHANNELS = new Set([
   // A dated snapshot of the venue's own page. It may settle whose domain a
   // host is when the live one refuses or has gone; it may never supply hours.
   'archive',
+  // The coordinate a page publishes about itself: a Google place link, an
+  // embedded map's settings, a schema.org geo block. It is the venue's own
+  // statement of where it is, which is a different thing from a gazetteer's.
+  'map-block',
 ]);
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
