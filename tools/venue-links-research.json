@@ -5283,9 +5283,9 @@
     "name": "Denver Bouldering Club Central",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — denver.com → \"Denver Media\", the rest could not be opened — denvercentral.net → a timeout; denverboulderingclub.com → 404; denver.net → no answer / a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://denver.com/"
+    "checked": "2026-08-24",
+    "reason": "denverboulderingclub.com is the club's own domain — an archived copy from 21 May 2026 is titled \"Denver Bouldering Club\" and names a Central location among its gyms — and it no longer serves: every host and scheme now returns Squarespace's \"Website Expired\" page. There is nothing to link a visitor to. The candidate the earlier pass recorded, denver.com, is the city's portal.",
+    "candidate": "https://denverboulderingclub.com/"
   },
   {
     "lat": 42.6525793,
@@ -5431,9 +5431,9 @@
     "name": "hawaii volcanic rock gym",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — hawaii.com → \"Hawaii.com - Experience the Islands of Aloha\", the rest could not be opened — hawaiivolcanic.com → 402; hawaiivolcanic.net → a certificate that does not cover its hostname; hawaii.net → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://hawaii.com/"
+    "checked": "2026-08-24",
+    "reason": "volcanicrockgym.com is the obvious domain for this venue and nothing could be read from it: the host resolves and never completes a connection, and the archive's most recent capture, from 18 May 2026, is zero bytes long. The candidate the earlier pass recorded, hawaii.com, is a tourism portal.",
+    "candidate": "https://volcanicrockgym.com/"
   },
   {
     "lat": 43.15504,
