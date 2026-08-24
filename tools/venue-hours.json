@@ -25215,6 +25215,32 @@
   "note": "The operator runs two gyms and publishes a block for each; this is the Los Angeles one."
  },
  {
+  "lat": 38.2526647,
+  "lon": -85.7584557,
+  "name": "Rocksport",
+  "country": "US",
+  "source": "https://www.climbrocksport.org/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "06:00-21:00",
+   "tue": "12:00-21:00",
+   "wed": "06:00-21:00",
+   "thu": "12:00-21:00",
+   "fri": "12:00-21:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Normal hours Monday : 6AM - 9PM Tuesday : 12PM - 9PM Wednesday : 6AM - 9PM Thursday : 12PM - 9PM Friday : 12PM - 9PM Saturday : 10AM - 8PM Sunday : 10AM - 8PM",
+  "note": "Seven days listed separately and labelled normal, with Monday and Wednesday opening six hours before the other weekdays."
+ },
+ {
   "lat": 40.90429,
   "lon": -73.07511,
   "name": "Rocksteady",

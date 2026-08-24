@@ -5051,16 +5051,6 @@
     "reason": "No official site could be established: no candidate could be opened — rockfitness.com → a certificate that does not cover its hostname; rockfitness.net → 200; rockfitness.org → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 38.2526647,
-    "lon": -85.7584557,
-    "name": "Rocksport",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — rocksport.com → \"RockSport Home Page\", the venue's whole name as one label, rocksport.com, answers 200 (\"RockSport Home Page\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://rocksport.com/"
-  },
-  {
     "lat": 30.267153,
     "lon": -97.7430608,
     "name": "SARG",
@@ -5105,10 +5095,10 @@
     "lon": -90.27267,
     "name": "So iLL",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — soill.com → \"A successful business needs a successful address\"; soill.org → \"Home - Special Olympics Illinois\", the rest could not be opened — so-ill.com → 200 / a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://inthedomain.com/domain.html"
+    "status": "ambiguous",
+    "reason": "climbsoill.com is certainly the operator — the two Climb So iLL rows already in this file point at its St Charles hall — and it runs two: Power Plant in St Louis and the Steel Shop in St Charles. This row is named only \"So iLL\", which is also the brand of the holds company, and its coordinate is in Clayton, 5.6 km from Power Plant and 26 km from the Steel Shop. Near is not the same as named, and the gyms have different weeks.",
+    "candidate": "https://stlouis.climbsoill.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 40.0566,
@@ -5380,24 +5370,6 @@
     "checked": "2026-08-23",
     "reason": "winthropsquareboston.com is a commercial office building at Winthrop Square, not a climbing venue, and matched only on the venue's name, which is the square itself. Nothing published could be found for a wall at 115 Federal St, 02110.",
     "candidate": "https://winthropsquareboston.com/"
-  },
-  {
-    "lat": 10.8169516,
-    "lon": 106.7298685,
-    "name": "Push Climbing",
-    "country": "VN",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — push.com.vn → a TLS failure; push.com → no answer; pushclimbing.vn → 403, the venue's whole name as one label, pushclimbing.vn, answers 403 (\"Just a moment...\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 10.8230989,
-    "lon": 106.6296638,
-    "name": "Skywalk Climbing",
-    "country": "VN",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — skywalk.com → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
     "lat": 10.787627,

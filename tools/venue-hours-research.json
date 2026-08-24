@@ -9256,15 +9256,6 @@
   "checked": "2026-08-24"
  },
  {
-  "lat": 38.2526647,
-  "lon": -85.7584557,
-  "name": "Rocksport",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 30.267153,
   "lon": -97.7430608,
   "name": "SARG",
@@ -9927,18 +9918,20 @@
   "lon": 106.7298685,
   "name": "Push Climbing",
   "country": "VN",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://pushclimbing.vn/",
+  "reason": "The host answers 403 to every fetcher. The snapshot that settled the address also carries \"Mon – Sunday from 10 am – 10 pm\", and a week is not taken from a snapshot.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 10.8230989,
   "lon": 106.6296638,
   "name": "Skywalk Climbing",
   "country": "VN",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://skywalkvn.com/",
+  "reason": "The whole site is 433 characters, and the only time on it is \"Business Hours: 9:00AM-22:00PM\" — one window with no day attached to it. Reading that as all seven days would be putting a claim in the centre's mouth that it has not made.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 10.787627,
