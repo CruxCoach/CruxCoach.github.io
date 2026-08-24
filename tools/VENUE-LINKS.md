@@ -248,9 +248,9 @@ are maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (linked + research entries) | 2190 |
-| Verified website links | 1538 |
-| Rejected / ambiguous / private / closed / unavailable | 652 |
-| Countries covered | 56 |
+| Verified website links | 1560 |
+| Rejected / ambiguous / private / closed / unavailable | 630 |
+| Countries covered | 57 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Every eligible venue that lacked a link has been opened individually and
@@ -795,6 +795,30 @@ limit at all, and returns more of them — 37 kB where the probing reader
 returned a truncated fragment. Read anything the earlier sweeps concluded about
 what the archive holds with that in mind.
 
+### The map block is an address
+
+A venue that prints no street often still says where it is: the map it embeds.
+The pin is the venue's own statement of its position — the same class of
+evidence as a printed address, and the second signal the address-less rows are
+missing. `tools/venue-map-pin.mjs` reads it out of the eight shapes a page
+states it in: a Google Maps embed's `!3d…!4d…`, a `q=`/`ll=`/`center=` query
+link, a Squarespace `location` object, schema.org `GeoCoordinates`, a generic
+`lat`/`lng` pair in JSON, `data-lat`/`data-lng` attributes, an OSM embed's
+`marker=`, and a `geo:` URI. The distance to the registry point is the finding.
+
+It is not the same as trusting a settings screen for hours. A `businessHours`
+value competes with words the visitor reads and loses to them; a `location`
+value has nothing to compete with, because the page prints no address, and it
+is what the map beside it draws. Apex Climbing Gym is the case in point: the
+record here asked in as many words for a retry when the site published a
+location, and it had one all along, `41.7104961,-86.1895796` with `5505 Grape
+Road, Mishawaka, IN, 46545` beside it — two metres from the registry
+coordinate, which upstream had labelled with the next city over.
+
+Run over all 411 open rows that have a candidate it found fourteen pins, three
+of them within 400 m and one of those already settled by other means. It is a
+cheap check on a stuck venue, not a sweep that will move the tail.
+
 ### Two sweeps that found nothing, written down so nobody repeats them
 
 A guessing channel is worth recording when it fails, because the cost of
@@ -864,19 +888,31 @@ Ascent's four, Kletterzentrum Innsbruck, CRANK, Crimp, Pinnacle, G1, Hudson
 Boulders, Beta Bloc, Street Rocks and Inner Peaks' two are all linked now, from
 dated snapshots of their own pages. What remains:
 
-1. **A rendering fetch.** The platform routes cover Squarespace, Wix,
-   WordPress and Next.js; they do not cover a hand-rolled single-page app.
-   Fless serves one 1.5 kB shell for every path; Urban Climb publishes times
-   whose day labels never reach a fetcher; Boulderline is a Bubble application
-   that renders nothing at all.
-2. **An address for the venues that have none.** This is now the binding
+1. ~~**A rendering fetch.**~~ Closed. A single-page app's text is still the
+   page, and it is in the bundle: `tools/venue-hours-bundle.mjs` reads it out.
+   That is how Fless's two halls were told apart by `notice_buda` and
+   `notice_zuglo`, how Seacoast's week was read, and how Boulderline's one
+   address — the string `27 Avenue de Toulouse, Montpellier` — was found inside
+   a Bubble application that renders nothing at all. Gropo, named below as
+   blocked, was closed the same day by a different trick: it prints no address
+   anywhere, but Squarespace stamps the venue on every event, so its events
+   listing carries `8 Ulgersmaweg, Groningen, GR, 9731 BS`.
+2. **An address for the venues that have none.** This is the binding
    constraint. Most of the open venues are MoonBoard-registry entries — a board
    inside a gym rather than a venue — and without a street the only second
    signal available is the town, which fails whenever the town is already
    inside the venue's name. That is what leaves NHCF, BaseCamp Reno, Santa Fe
-   Climbing Center, Kingston Bouldering Co-op and Gropo open beside candidates
-   that are almost certainly theirs.
-3. **A snapshot the archive will serve.** The channel that closed the 403s is
-   rate-limited, and 54 venues were mid-read when the limit arrived. They are
-   recorded as not yet retried rather than as failures, and are the cheapest
-   thing for a later pass to pick up.
+   Climbing Center and Kingston Bouldering Co-op open beside candidates that
+   are almost certainly theirs.
+
+   The map block answers it where a venue embeds one — see below — but that is
+   thinner than it sounds: over all 411 open rows that have a candidate,
+   `tools/venue-map-pin.mjs` found fourteen pins and three of them close.
+3. ~~**A snapshot the archive will serve.**~~ Closed, and the rate limit was
+   ours. The reader was firing about forty archive requests per venue because
+   it ran the whole platform sweep against each snapshot; one fetch per
+   snapshot has not been limited since. Re-running it over all 383 candidates
+   returned 260 readable snapshots, 40 of them carrying two signals. What it
+   mostly proves is negative — five of the first six candidates it surfaced
+   belonged to somebody else — but it is the channel that produced ARQ Mountain
+   Center, Suas Climbing, Boulderhal de Campus and the University of Manitoba.
