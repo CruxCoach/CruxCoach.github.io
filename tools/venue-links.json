@@ -22867,6 +22867,23 @@
     "note": "Illinois Campus Recreation's own climbing page, on the university's domain. Its facilities pages print 201 E Peabody Drive, Champaign, Il 61820 — the street, town and postal code upstream records — and the site names the Kilter Board this venue is listed for."
   },
   {
+    "lat": 44.976,
+    "lon": -93.22948,
+    "name": "University of Minnesota Climbing Program",
+    "country": "US",
+    "website": "https://recwell.umn.edu/adventure/climbing/climbing-bouldering",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The University of Minnesota's Recreation and Wellness site gives climbing its own page, and the site prints \"123 Harvard Street SE Minneapolis, MN 55455\" — upstream's address to the letter. The host answers 403 to every fetcher and header set, so both pages were read from snapshots, of 18 July 2026 and 6 February 2026; the hours record stays inaccessible."
+  },
+  {
     "lat": 47.754739,
     "lon": -122.3142869,
     "name": "Uplift Climbing",

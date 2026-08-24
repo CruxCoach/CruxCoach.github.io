@@ -6082,8 +6082,8 @@
     "name": "The Proving Ground",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — provingground.com → \"Better by Habit\"; provingground.org → \"Academi Proving Ground\"; theprovingground.com → \"Must-Visit Bar in Highlands, NJ | The Proving Ground\", the rest could not be opened — provingground.net → 200; proving-ground.com → a certificate that does not cover its hostname; proving-ground.org → 500, the venue's whole name as one label, theprovingground.com, answers 200 (\"Must-Visit Bar in Highlands, NJ | The Proving Ground\") but its pages print no street, postal code or town matching this venue. Upstream records 1503 E College Ave, 61761, Normal, and nothing opened printed it.",
+    "checked": "2026-08-24",
+    "reason": "provingground.com looked like a hit in the archive on the venue's name and the town Normal. Reading the snapshot shows why it is not: the page is titled \"Better by Habit®\" and sells sales training, and the \"normal\" the matcher found is the word normally in a sentence about training courses. The other candidates the earlier pass recorded — provingground.org, Academi Proving Ground — are somebody else's too.",
     "candidate": "https://provingground.com/"
   },
   {
@@ -6173,16 +6173,6 @@
     "checked": "2026-08-23",
     "reason": "The proposal that reached this venue was the University of Limerick's climbing wall in Ireland, which matched only on the words \"university of\" and on a moonboard mention; its page is 6,700 km away. The real page could not be found: colorado.edu/recreation answers 200 but exposes no climbing link, and /recreation/climbing, /recreation/facilities/climbing and /recreation/facilities/climbing-gym all answer 404. Retry when the centre's own page can be located.",
     "candidate": "https://www.colorado.edu/recreation/"
-  },
-  {
-    "lat": 44.976,
-    "lon": -93.22948,
-    "name": "University of Minnesota Climbing Program",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The University of Minnesota's recreation site, recwell.umn.edu, answers 403 to every request tried, including a full browser header set, so neither its climbing page nor any facilities page could be read. The proposal that reached this venue instead was the University of Limerick's wall in Ireland, matched only on the words \"university of\". Retry when recwell.umn.edu serves.",
-    "candidate": "https://recwell.umn.edu/"
   },
   {
     "lat": 27.6648274,

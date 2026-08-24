@@ -10826,9 +10826,10 @@
   "lon": -93.22948,
   "name": "University of Minnesota Climbing Program",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "checked": "2026-08-24",
+  "source": "https://recwell.umn.edu/adventure/climbing/climbing-bouldering",
+  "reason": "The university's site answers 403 to every fetcher and header set. Its climbing page does publish a week — the archived copy shows \"Monday - Thursday 12:00 - 11:00 pm, Friday 12:00 - 10…\" and a separate open-bouldering table — and it is not taken from a snapshot, because a schedule is exactly what changes between the capture and today."
  },
  {
   "lat": 27.6648274,
