@@ -1115,6 +1115,16 @@ side the venue is known and the question is which of its pages carries the week
 whether this is the venue at all, and a candidate that is somebody else's
 business does not become ours because we read more of its pages.
 
+The other half of that experiment was run too, since the hours side got much
+more out of following a site's own navigation than out of its sitemap: same 651
+pairs, same test, but reaching the pages through the candidate's own contact and
+location links instead. **Two hits, both false positives** — "Premier" matched
+against a Cisco Premier Integrator, "Martin" from Sydney's Martin Place against
+the same Albanian physicist. Both routes to the same pages, both empty.
+
+That is the channel closed from both ends, and it is the right shape of result:
+page discovery cannot answer a question about identity.
+
 ### What sits next door to an open row
 
 The dataset lists some halls twice, so an open row within a stone's throw of a
