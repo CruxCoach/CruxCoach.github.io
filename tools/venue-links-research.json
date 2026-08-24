@@ -4551,19 +4551,9 @@
     "name": "Beyond the Wall Climbing",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps an object called Beyond The Wall Climbing 6 m from this venue and tags it beyondthewallclimbing.com, and an archived copy of that site from 6 August 2025 prints \"Tualatin Valley Highway B2, Hillsboro, OR, 97123\", which is upstream's address. The live site is gone: every variant of the host now serves Squarespace's \"Website Expired — This account has expired\" page. There is nothing to link to.",
-    "candidate": "https://www.beyondthewallclimbing.com/"
-  },
-  {
-    "lat": 26.23219,
-    "lon": -80.11931,
-    "name": "Boulder Bloc",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — boulderbloc.com → \"HugeDomains.com\"; boulder.com → \"Denver Media\", the rest could not be opened — boulder.net → a certificate that does not cover its hostname; boulder.org → a certificate that does not cover its hostname, the venue's whole name as one label, boulderbloc.com, answers 302 but its pages print no street, postal code or town matching this venue. Upstream records 437 E Atlantic Blvd, 33060, Pompano Beach, and nothing opened printed it.",
-    "candidate": "https://www.hugedomains.com/domain_profile.cfm?d=boulderbloc.com"
+    "reason": "The gazetteer has an object one metre from this coordinate tagged beyondthewallclimbing.com, which is as close as a pointer gets. The domain answers 404 at the root, with and without the www, so there is no page to read and nothing to link.",
+    "candidate": "https://www.beyondthewallclimbing.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 13.443104764773443,
@@ -4596,15 +4586,6 @@
     "candidate": "https://chambers.com/"
   },
   {
-    "lat": 38.8338816,
-    "lon": -104.8213634,
-    "name": "CityRock!",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for CityRock!, Colorado Springs was cityrock.co.za, a climbing gym in South Africa — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
-  },
-  {
     "lat": 41.22242,
     "lon": -86.41300299999999,
     "name": "Cliffs",
@@ -4632,36 +4613,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — nashville.com → \"Nashville.com : The Worldwide Brand for Nashville\"; climbnashville.com → \"The Climb Gyms – West Nashville, East Nashville, Murfree\"; climb.com → \"climb.com\", the rest could not be opened — nashville.net → 404 / a certificate that does not cover its hostname; nashville.org → a timeout; climbnashville.org → 200, the venue's whole name as one label, climbnashville.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.nashville.com/"
-  },
-  {
-    "lat": 47.32538,
-    "lon": -122.31272,
-    "name": "Climb Nora",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — nora.com → \"Interface Commercial Carpet Tile & Resilient Flooring | \"; climbnora.com → \"Climb NORA\"; climb.com → \"climb.com\", the rest could not be opened — nora.net → 403; nora.org → 200; climb.net → a timeout, the venue's whole name as one label, climbnora.com, answers 200 (\"Climb NORA\") but its pages print no street, postal code or town matching this venue. Upstream records 30820 Pacific Highway S, 98003, Federal Way, and nothing opened printed it.",
-    "candidate": "https://www.interface.com/US/en-US.html"
-  },
-  {
-    "lat": 47.32529,
-    "lon": -122.31274,
-    "name": "Climb NORA",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps Climb Nora 8 m from this venue and tags it climbnora.com. The domain answers with two kilobytes: a Google Analytics snippet, the words \"Climb NORA\" and a comment describing a staff-portal progressive web app with a separate athlete app. There is no address, no opening time and nothing that identifies a gym in Federal Way rather than a coaching product with the same name.",
-    "candidate": "https://www.climbnora.com/"
-  },
-  {
-    "lat": 41.56062,
-    "lon": -87.66858,
-    "name": "Climb On",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — holdontide.com → \"Homepage | Hold on Tide\"; climb.com → \"climb.com\"; climb.org → \"Climb Theatre - Inspiring and Propelling Young People\", the rest could not be opened — climbon.com → a timeout; climbon.net → a certificate that does not cover its hostname; climbon.org → 200 / a certificate that does not cover its hostname, the venue's whole name as one label, climbon.com, does not resolve. Upstream records 18120 Harwood Ave, 60430, Homewood, and nothing opened printed it.",
-    "candidate": "https://holdontide.com/"
   },
   {
     "lat": 39.15657,

@@ -18035,6 +18035,22 @@
     "note": "The operator files this hall as Somerville, the town upstream records; the name upstream uses is Boston."
   },
   {
+    "lat": 26.23219,
+    "lon": -80.11931,
+    "name": "Boulder Bloc",
+    "country": "US",
+    "website": "https://www.boulderblocgym.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gazetteer has the gym 24 m from this coordinate tagged boulderblocgym.com, and the page prints \"437 E Atlantic Blvd #6, Pompano Beach, FL 33060\" — upstream's address to the unit number."
+  },
+  {
     "lat": 40.0259819,
     "lon": -105.2567431,
     "name": "Boulder Rock Club",
@@ -18819,6 +18835,22 @@
     ]
   },
   {
+    "lat": 38.8338816,
+    "lon": -104.8213634,
+    "name": "CityRock!",
+    "country": "US",
+    "website": "https://climbcityrock.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gazetteer has CityROCK 98 m from this coordinate tagged climbcityrock.com, and the page — \"CityROCK Climbing Gym | Colorado Springs\" — gives \"21 North Nevada Avenue, Colorado Springs, CO 80903\". The South African CityROCK halls this name collides with are on cityrock.co.za."
+  },
+  {
     "lat": 33.84909,
     "lon": -118.35149,
     "name": "Class 5",
@@ -19004,6 +19036,38 @@
     "note": "The gym's own site prints \"11850 S Hwy 191, Unit A8, Moab, UT, 84532\" — the street, town and postal code upstream records."
   },
   {
+    "lat": 47.32538,
+    "lon": -122.31272,
+    "name": "Climb Nora",
+    "country": "US",
+    "website": "https://www.climbnora.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site renders to a title and nothing else — its content is a React bundle — and the bundle carries both halves. The address is a Google Maps link to \"30820 Pacific Hwy S, Federal Way, WA 98003\", which is upstream's address, and the gazetteer has the gym within 21 m of both of these rows tagged with this domain."
+  },
+  {
+    "lat": 47.32529,
+    "lon": -122.31274,
+    "name": "Climb NORA",
+    "country": "US",
+    "website": "https://www.climbnora.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site renders to a title and nothing else — its content is a React bundle — and the bundle carries both halves. The address is a Google Maps link to \"30820 Pacific Hwy S, Federal Way, WA 98003\", which is upstream's address, and the gazetteer has the gym within 21 m of both of these rows tagged with this domain."
+  },
+  {
     "lat": 38.2523376,
     "lon": -85.7334255,
     "name": "Climb Nulu Moonboard",
@@ -19016,6 +19080,22 @@
       "street-address"
     ],
     "note": "Upstream carries no address; the page's own 1000 East Market St Louisville KY 40206 resolves 9 m from the coordinate."
+  },
+  {
+    "lat": 41.56062,
+    "lon": -87.66858,
+    "name": "Climb On",
+    "country": "US",
+    "website": "https://climbonrockgym.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gazetteer has the gym 17 m from this coordinate tagged climbonrockgym.com, and the page gives \"18120 Harwood Avenue, Homewood, IL, 60430\" — upstream's address exactly."
   },
   {
     "lat": 38.7856132,
