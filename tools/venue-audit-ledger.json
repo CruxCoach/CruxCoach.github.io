@@ -14046,22 +14046,19 @@
    ],
    "website": {
     "pass": "2026-08-24",
-    "result": "unverified",
+    "result": "accepted",
     "channels": [
+     "name-guess",
      "previous-record",
-     "apex",
-     "www"
+     "operator-index"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
