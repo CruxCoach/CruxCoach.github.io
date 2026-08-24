@@ -4864,9 +4864,9 @@
     "name": "GP81",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — gp81.net → \"gp81 – লাইভ ক্যাসিনো ও স্পোর্টসবুক, Rocket ও Upay সুবিধা\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://gp81.net/"
+    "reason": "The handle gp81 spells eightyone, and eightyonegym.com is \"Bristol's home for those who live and breathe fitness\" — an independent bodybuilding gym in England with a boxing club and a café. This venue is on Wyckoff Avenue in Ridgewood, 11237.",
+    "candidate": "https://eightyonegym.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 40.726433,
@@ -5042,16 +5042,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 33.93541,
-    "lon": -118.05852,
-    "name": "Mad Rock HQ",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — mad-hq.com → \"Mad-HQ: Fitness, Yoga, Pilates & Sports Equipment\"; madrock.com → \"Mad Rock // Climbing is Our Passion\"; madrock.net → \"Madrock Advisory – This is our place on the Internet.\", the rest could not be opened — madhq.com → 200; madrock.org → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.mad-hq.com/"
   },
   {
     "lat": 34.134728,
@@ -5476,9 +5466,9 @@
     "name": "The Dojo",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — dojo.com → \"ClassDojo | ClassDojo\"; dojo.net → \"dojo.net - This website is for sale! - dojo Resources an\"; thedojo.com → \"Private Training | THEDOJO.COM\", the rest could not be opened — dojo.org → 200; the-dojo.net → a timeout, the venue's whole name as one label, thedojo.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.classdojo.com/"
+    "reason": "thedojoclimbing.com is The Dojo Climbing at 7767 Toyosato, Nozawa Onsen, Nagano 389-2502 — Japan, not Westbrook, Maine, and closed for the summer at that. thedojo.com is a jiu-jitsu school and dojo.net is for sale.",
+    "candidate": "https://thedojoclimbing.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 40.6460622,
