@@ -1319,16 +1319,6 @@
   "reason": "Re-read: unchanged. The weekly table (Mo-Fr 05:00-22:00, Sa-So 09:00-18:00) is still headed by 'Achtung: Im Sommer können diese Zeiten abweichen. Sommeröffnungszeiten: 1.6.26.-4.9.26', and the summer note replaces the weekend regime with all-day badge access rather than stating times."
  },
  {
-  "lat": 47.4831911,
-  "lon": 8.2313602,
-  "name": "Blockchäfer",
-  "country": "CH",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.blockchaefer.ch/seiten/halle.html",
-  "reason": "Re-read: unchanged. The hall page says the unstaffed hall is open every day ('Die Halle steht dir jeden Tag offen') and states no times anywhere on the site."
- },
- {
   "lat": 47.18413,
   "lon": 8.10923,
   "name": "Boulder Arena Sursee",
@@ -7539,10 +7529,10 @@
   "lon": 15.55453,
   "name": "Linköpings Klätterklubb",
   "country": "SE",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
+  "status": "ambiguous",
+  "checked": "2026-08-24",
   "source": "https://linkopingsklatterklubb.se/",
-  "reason": "The club's site carries news — a notice that the changing rooms are being renovated after water damage from Monday 11/5 — and no opening hours for the hall on any page reachable from its navigation."
+  "reason": "The record here said no opening hours appear anywhere on the site. They do: \"Öppettider för Klätterhallen i Hangaren — Måndag till Torsdag 15-20:00 (22:00)*, Fredag 15-20, Lördag och Söndag 12-20\". What cannot be published is the parenthesis. The footnote explains it: the Hangar's reception shuts at 20:00, and the hours after it — 20:00-22:00, and 10-12 on Sundays — are kept open by whichever volunteer has signed up in the wall-keeper calendar, with none at all on Fridays and Saturdays. Monday to Thursday therefore closes at 20:00 or at 22:00 depending on the week, and the page does not say which."
  },
  {
   "lat": 60.5917084,

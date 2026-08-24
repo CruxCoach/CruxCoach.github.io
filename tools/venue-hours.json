@@ -5241,6 +5241,31 @@
   "evidence": "Montag 09.00 — 22.30 Uhr | Dienstag 09.00 — 22.30 Uhr | Mittwoch 09.00 — 22.30 Uhr | Donnerstag 09.00 — 22.30 Uhr | Freitag 09.00 — 22.30 Uhr | Samstag 09.00 — 19.00 Uhr | Sonntag 09.00 — 19.00 Uhr"
  },
  {
+  "lat": 47.4831911,
+  "lon": 8.2313602,
+  "name": "Blockchäfer",
+  "country": "CH",
+  "source": "https://www.blockchaefer.ch/seiten/halle.html",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "07:00-22:00",
+   "sun": "07:00-22:00"
+  },
+  "evidence": "Öffnungszeiten … Montag bis Sonntag: 07:00 – 22:00 Uhr · Am ersten Montag jedes Monats: öffnen wir erst um 09:30 Uhr",
+  "note": "The record here said the hall page states that the unstaffed hall is open every day and gives no times. It gives them: one line covering the whole week, above the address at Spitzmattstrasse 6 in Windisch. The line beneath it — a 09:30 opening on the first Monday of each month — is a monthly exception, and the request to respect the Stiftung FARO's quiet hours is why the times are printed at all."
+ },
+ {
   "lat": 47.4988196,
   "lon": 8.723688899999999,
   "name": "BLOCKFELD Boulderpark",
