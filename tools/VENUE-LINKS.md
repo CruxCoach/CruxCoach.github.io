@@ -1113,6 +1113,23 @@ side the venue is known and the question is which of its pages carries the week
 whether this is the venue at all, and a candidate that is somebody else's
 business does not become ours because we read more of its pages.
 
+### What sits next door to an open row
+
+The dataset lists some halls twice, so an open row within a stone's throw of a
+verified link is worth checking — the `co-located` signal exists for exactly
+that. Run over all 527 open rows against all 1,643 links, at a 200 m radius, it
+returns **one venue**: Bend Endurance Academy, 8 m from three Boardworks
+Climbing rows.
+
+And it is not the same hall. Boardworks calls itself "Bend's only 24/7 climbing
+and fitness gym", gives 222 SE Reed Market Rd, and never mentions the academy;
+the academy's own domain answers with 4 kB of Angular shell whose bundles
+contain neither "climb" nor "Bend". Two organisations at one address are still
+two organisations.
+
+One result from a sweep this cheap is worth having: it says the duplicate-row
+problem was already solved, not that it was never there.
+
 ### Some of them are not places
 
 A registry row that records a city instead of a venue is common enough to be
