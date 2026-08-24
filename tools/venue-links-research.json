@@ -5505,26 +5505,6 @@
     "candidate": "https://ascentstudio.com/"
   },
   {
-    "lat": 35.2270869,
-    "lon": -80.8431267,
-    "name": "Inner Peaks Climbing",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — inner.com → \"inner.com\"; inner.org → \"Gal Einai - Revealing the Inner Dimension of the Torah\", the rest could not be opened — www.innerpeaks.com → 403; innerpeaks.org → 200. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits 14 m from OpenStreetMap’s city node for Charlotte, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match.",
-    "candidate": "http://www.inner.com/"
-  },
-  {
-    "lat": 35.24204,
-    "lon": -80.82522,
-    "name": "Inner Peaks NoDa",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — inner.com → \"inner.com\"; inner.org → \"Gal Einai - Revealing the Inner Dimension of the Torah\", the rest could not be opened — www.innerpeaks.com → 403; innerpeaks.org → 200. Upstream records 1837 N Tryon St, 28206, Charlotte, and nothing opened printed it.",
-    "candidate": "http://www.inner.com/"
-  },
-  {
     "lat": 42.82739,
     "lon": -85.67922,
     "name": "Inside Moves",
@@ -6026,9 +6006,9 @@
     "lon": -103.207709,
     "name": "Sportrock - Sterling",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.sportrock.com/sterling → \"Sterling | Sportrock Climbing\"; sportrock.com → \"Sportrock Climbing Centers | Climbing Gym\". Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits exactly on OpenStreetMap’s city node for Sterling, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match.",
+    "status": "duplicate",
+    "checked": "2026-08-24",
+    "reason": "This is Sportrock's Sterling gym recorded a second time and geocoded to the wrong Sterling. The dataset already holds Sportrock Climbing Center Sterling at 39.0197,-77.4123, in Sterling, Virginia, linked to sportrock.com/sterling — the page that gives \"45935 Maries Road\" and the hours. This entry sits at 40.6255,-103.2077, which is the town node for Sterling, Colorado, 2,200 km away and nowhere near any Sportrock. No link is attached, because attaching one would dress a marker in the wrong state as a real gym.",
     "candidate": "https://www.sportrock.com/sterling"
   },
   {

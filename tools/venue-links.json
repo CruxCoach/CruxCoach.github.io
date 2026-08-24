@@ -19520,6 +19520,40 @@
     "note": "OSM maps Hudson Boulders 60 m from this venue and tags it hudsonboulders.com. The live host answers 403, so its contact page was read from a snapshot of 24 June 2026, which prints \"195 Troy-Schenectady … Latham, NY 12110\" — upstream's address. The home page is titled for Albany, the metropolitan area; the street and postal code are what match."
   },
   {
+    "lat": 35.2270869,
+    "lon": -80.8431267,
+    "name": "Inner Peaks Climbing",
+    "country": "US",
+    "website": "https://innerpeaks.com/south-end/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "Inner Peaks runs two Charlotte gyms and gives each a page. This entry is the South End one, and the boards are what say so: the South End page lists a Moon Board and the NoDa page a Kilter Board, and this entry is registered for the MoonBoard while the NoDa entry is registered for the Kilter. The page gives 2220 S Tryon St, Charlotte, NC 28203; upstream records no street for this entry, whose coordinate is Charlotte's own point. innerpeaks.com answers 403 to every fetcher, so the page was read from a snapshot of 27 June 2026; the hours record stays inaccessible."
+  },
+  {
+    "lat": 35.24204,
+    "lon": -80.82522,
+    "name": "Inner Peaks NoDa",
+    "country": "US",
+    "website": "https://innerpeaks.com/noda/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "Inner Peaks' own page for its NoDa gym, printing \"1837 N Tryon St. Suite 101 Charlotte, NC 28206\" — upstream's address and postal code — and listing the Kilter Board this entry is registered for. innerpeaks.com answers 403 to every fetcher, so the page was read from a snapshot of 27 June 2026; the hours record stays inaccessible."
+  },
+  {
     "lat": 29.96117,
     "lon": -95.71066,
     "name": "InSPIRE Rock Cypress",
