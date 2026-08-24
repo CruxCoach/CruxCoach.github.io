@@ -14696,6 +14696,31 @@
   "note": "Replaces an \"inaccessible\" outcome: the page is WordPress and answers in full through its REST route where the rendered HTML gave nothing. The gym states 定休日 なし — no regular closing day — so all seven days are covered. The 最終受付 times are last admission, a quarter of an hour before closing, and are not the closing time."
  },
  {
+  "lat": 36.0227505,
+  "lon": 139.7355048,
+  "name": "OKKUROCK",
+  "country": "JP",
+  "source": "https://okkurock-koumuten.com/climbinghouse-okkurock/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "営業情報 平日：10:00-22:00 ／土日祝：10:00-20:00",
+  "note": "Weekdays against weekends-and-public-holidays, stated once on the gym's own page. The Instagram bio the page embeds carries the same two ranges and adds 不定休, irregular closing days — a note about which days are shut, not about when the hall is open."
+ },
+ {
   "lat": 34.6379866,
   "lon": 138.1281269,
   "name": "QRiMo",

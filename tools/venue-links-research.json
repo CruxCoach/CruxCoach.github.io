@@ -1314,9 +1314,9 @@
     "name": "Schmitten Power Room",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "schmitten.de is the municipality of Schmitten and carries no page for a training room. \"Schmitten Power Room\" is a private board.",
-    "candidate": "https://schmitten.de/"
+    "reason": "schmitten.de is Gemeinde Schmitten, the municipality itself. The lookup found that this coordinate is in Schmitten im Taunus rather than in Neu-Anspach 6.9 km away, which is what upstream labels it with — a correction worth having, but the domain it points at is the town hall.",
+    "candidate": "https://schmitten.de/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 48.7023247,
@@ -1518,9 +1518,9 @@
     "name": "Gravetat Zero",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "gravetatzero.com sells a wall bracket for helmets, and no other domain resolves for Gravetat Zero. Nothing found names Carrer de l'Anoia in Terrassa.",
-    "candidate": "https://gravetatzero.com/"
+    "reason": "gravetatzero.com is a climbing-equipment shop at Carrer Alt de Pedrell 57, 08032 Barcelona; upstream puts this venue on Carrer de l'Anoia in Terrassa, 25 km away. The municipality lookup matched it on the word Barcelona, which for this point is the province at admin level 6 and not the town — the town is Terrassa.",
+    "candidate": "https://gravetatzero.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 41.54777,
@@ -1528,9 +1528,9 @@
     "name": "Gravetat Zero",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "gravetatzero.com matches this venue's name and gives Barcelona, and it is neither the venue nor really Barcelona. The page is titled \"SOPORTE DE PARED PARA CASCO, UNICO\" and sells a wall mount for a helmet from an address in 08032 Barcelona; this venue is in Terrassa, and the Barcelona the municipality lookup returned for it is the province, not the city.",
-    "candidate": "https://gravetatzero.com/"
+    "reason": "gravetatzero.com is a climbing-equipment shop at Carrer Alt de Pedrell 57, 08032 Barcelona; upstream puts this venue on Carrer de l'Anoia in Terrassa, 25 km away. The municipality lookup matched it on the word Barcelona, which for this point is the province at admin level 6 and not the town — the town is Terrassa.",
+    "candidate": "https://gravetatzero.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 42.56289,
@@ -1548,9 +1548,9 @@
     "name": "La Panxa del Bou",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "lapanxadelbou.cat matches this venue's name exactly and is a restaurant: \"Restaurante brasería en Ullastrell | La Panxa del Bou (Terrassa)\". This venue is in Sabadell, and the Barcelona that made the page look like a match is the province rather than the city.",
-    "candidate": "https://lapanxadelbou.cat/"
+    "reason": "lapanxadelbou.cat is a restaurant — \"Restaurante brasería en Ullastrell\" — matched, like Gravetat Zero, on the province name Barcelona rather than on Sabadell, which is the town this coordinate falls in.",
+    "candidate": "https://lapanxadelbou.cat/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 43.20919,
@@ -2772,16 +2772,6 @@
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 36.0227505,
-    "lon": 139.7355048,
-    "name": "OKKUROCK",
-    "country": "JP",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "okkurock-koumuten.com is OKKUROCK's own site — titled オックロック・奥弥工務店総合HP, the combined page of the gym and the building firm behind it, and saying クライミングをもっと楽しめるジムを目指す. What it does not supply is a second signal. Upstream records no street for this entry, and the town the site names is 杉戸町 — \"オックロックは杉戸町側なので\" — while the coordinates fall in 南埼玉郡, the neighbouring district. Adjacent towns and a shared name are not enough.",
-    "candidate": "https://okkurock-koumuten.com/"
-  },
-  {
     "lat": 35.18145060000001,
     "lon": 136.9065571,
     "name": "RIOT CLIMBING",
@@ -2924,9 +2914,9 @@
     "name": "climb pamoja",
     "country": "KE",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "pamoja.co.ke matches this venue's name and gives Kilifi, the county its coordinates fall in, and it is \"Pamoja Yawezekana CBO\" — a community-based organisation supporting children in Kilifi. The word climb appears nowhere on it.",
-    "candidate": "https://pamoja.co.ke/"
+    "reason": "pamoja.co.ke is Pamoja Yawezekana CBO, a community organisation registered under Kenya's Community Groups Registration Act that works across Kilifi County. It matched on the sub-county name and names no climbing wall.",
+    "candidate": "https://pamoja.co.ke/",
+    "checked": "2026-08-24"
   },
   {
     "lat": -1.3041691,
@@ -3495,9 +3485,9 @@
     "name": "Club Monk",
     "country": "NL",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "The municipality lookup put this venue in Amsterdam and monk.nl/amsterdam names Amsterdam, which is not enough to make it Monk's hall. Monk's Amsterdam gym is at Aambeeldstraat 26, 1021 KB, and the dataset already holds it separately, 5.5 km from here; the map that page embeds sits 4.9 km away. This entry is in Diemen and Monk lists no Diemen hall — its Dutch gyms are Amsterdam, Rotterdam, Eindhoven and Hilversum. Whatever Club Monk is, the operator's site does not describe it.",
-    "candidate": "https://monk.nl/amsterdam/"
+    "reason": "The municipality lookup made Amsterdam the town to test, and monk.nl duly prints it — but Monk has one Amsterdam hall and it is at Aambeeldstraat 26, 1021 KB, in Amsterdam-Noord, some 6 km north of this coordinate, which sits in Overamstel by Diemen. The site names no Club Monk and no second Amsterdam address. In a city this size the municipality is not a signal.",
+    "candidate": "https://monk.nl/amsterdam/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 51.0006238,
