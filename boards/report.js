@@ -463,7 +463,7 @@ function onDialogClose() {
   returnFocus = null;
 }
 
-function close() {
+export function close() {
   if (dialog && dialog.open) dialog.close();
 }
 

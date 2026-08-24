@@ -559,6 +559,77 @@ test('offline fails loudly instead of queueing a report on the device', async ()
   });
 });
 
+test('focus goes into the dialog and comes back out where it started', async () => {
+  await withDialog('en', ({ module, document }) => {
+    const trigger = document.createElement('button');
+    document.body.append(trigger);
+
+    module.open(VENUE_PROPERTIES, VENUE.lat, VENUE.lon, trigger);
+    // A dialog that opens without moving focus is a dialog a screen-reader user
+    // never finds, and a keyboard user tabs into from the far end of the page.
+    assert.equal(document.activeElement, byId(document, 'vr-category'));
+
+    module.close();
+    // …and closing must put focus back on the control that opened it, not at
+    // the top of the document, which on this page means back at the map.
+    assert.equal(document.activeElement, trigger);
+  });
+});
+
+test('cancel closes without sending', async () => {
+  await withDialog('en', async ({ module, document, calls }) => {
+    module.open(VENUE_PROPERTIES, VENUE.lat, VENUE.lon, null);
+    byId(document, 'vr-detail').value = 'Half-written report that should go nowhere.';
+    document.querySelector('.vr-cancel').dispatch('click');
+
+    assert.equal(document.querySelector('.vr-dialog').open, false);
+    assert.equal(calls.length, 0);
+  });
+});
+
+test('reopening starts from a clean form, not from the last attempt', async () => {
+  await withDialog('en', async ({ module, document }) => {
+    module.open(VENUE_PROPERTIES, VENUE.lat, VENUE.lon, null);
+    byId(document, 'vr-category').value = 'website';
+    byId(document, 'vr-category').dispatch('change');
+    byId(document, 'vr-website').value = 'https://example.org/';
+    byId(document, 'vr-detail').value = 'Something about the website being wrong.';
+    module.close();
+
+    module.open(VENUE_PROPERTIES, VENUE.lat, VENUE.lon, null);
+    assert.equal(byId(document, 'vr-detail').value, '');
+    assert.equal(byId(document, 'vr-website').value, '');
+    // And the conditional fields are hidden again, matching the empty category.
+    assert.equal(byId(document, 'vr-website').parentNode.hidden, true);
+  });
+});
+
+test('a second venue replaces the first, rather than reporting the wrong gym', async () => {
+  await withDialog('en', async ({ module, document, calls }) => {
+    module.open(VENUE_PROPERTIES, VENUE.lat, VENUE.lon, null);
+    module.close();
+
+    const other = {
+      venue_id: 'v1_aaaaaaaaaaaa',
+      name: 'Kletterhalle Nord',
+      country: 'DE',
+      boards: [{ board: 'moonboard', instance_id: 'b1_bbbbbbbbbbbb', variant: '2019' }],
+    };
+    module.open(other, 52.5, 13.4, null);
+    byId(document, 'vr-category').value = 'closed';
+    byId(document, 'vr-category').dispatch('change');
+    byId(document, 'vr-detail').value = 'This gym closed at the end of the summer.';
+
+    document.querySelector('.vr-form').dispatch('submit');
+    await new Promise((resolve) => setTimeout(resolve, 10));
+
+    const body = JSON.parse(calls[1].init.body);
+    assert.equal(body.venue.id, 'v1_aaaaaaaaaaaa');
+    assert.equal(body.venue.name, 'Kletterhalle Nord');
+    assert.equal(body.venue.lat, 52.5);
+  });
+});
+
 test('the report module never persists anything', () => {
   // A draft in localStorage would be exactly the kind of plaintext persistence
   // this feature promises not to do — and a device somebody else can pick up is
