@@ -359,6 +359,23 @@ node tools/venue-links-liveness.mjs
 node tools/venue-hours-conflict.mjs
 ```
 
+Two more read a page the way a browser would rather than the way a fetcher
+does. They are for reopening a venue that is stuck, so they take the venues to
+try rather than sweeping the whole file, and they write one file per venue into
+a directory beside them.
+
+```bash
+# Where a page prints no address, read the pin out of the map it embeds and say
+# how far that is from the registry point. Eight shapes are covered: Google
+# embeds and query links, Squarespace location objects, schema.org
+# GeoCoordinates, generic lat/lng JSON, data attributes, OSM embeds, geo: URIs.
+node tools/venue-map-pin.mjs "41.7105,-86.1896=https://www.apexclimbinggym.com"
+
+# Where the rendered HTML has no day beside a time, look in the page's own
+# script bundle — a single-page app's text is still the page.
+node tools/venue-hours-bundle.mjs "47.5148,19.1143=https://fless.hu"
+```
+
 ## Coverage audit (`venue-audit.mjs`, `venue-audit-ledger.json`)
 
 ```bash
