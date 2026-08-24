@@ -2347,6 +2347,23 @@
     "note": "The contacts page prints ul. \"187-ma\" 9, 1756 Sofia, which is the address upstream records, and the site names the Kilter Board this venue is listed for."
   },
   {
+    "lat": 42.66773,
+    "lon": 23.36823,
+    "name": "Momentum Climbing Sofia",
+    "country": "BG",
+    "website": "https://sofia.momentumclimbing.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "postal-code",
+      "city",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "Momentum gives each gym a subdomain, and this one is Sofia's: it matches the venue's name, gives the postal code 1784 and Sofia, and names both the MoonBoard and the Kilter board this venue is listed for. The plain momentumclimbing.com is the operator's American site and was the wrong lead the earlier sweep found; the subdomain is this hall's page."
+  },
+  {
     "lat": -23.5304387,
     "lon": -46.6785181,
     "name": "Casa de Pedra Perdizes",
@@ -15134,6 +15151,21 @@
       "street-address",
       "city"
     ]
+  },
+  {
+    "lat": 52.2962378,
+    "lon": 20.907711,
+    "name": "Makak",
+    "country": "PL",
+    "website": "https://arenamakak.pl/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Arena Wspinaczkowa Makak's own site, matching the venue's name and naming the MoonBoard this entry is registered for. Its contact page gives \"ul. Palisadowa 20/22, 01-940 Warszawa\", which is in Bielany, the district upstream records; upstream carries no street to match against. OSM maps the hall 157 m from this venue with this domain, which is what pointed here."
   },
   {
     "lat": 50.04933,

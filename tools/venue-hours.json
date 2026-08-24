@@ -15598,6 +15598,33 @@
   "evidence": "pn: 12:00 - 23:00 | wt, śr, czw: 07:00 - 23:00 | pt: 09:00 - 23:00 | sb 09:00 - 22:00 | ndz: 09:00 - 21:00"
  },
  {
+  "lat": 52.2962378,
+  "lon": 20.907711,
+  "name": "Makak",
+  "country": "PL",
+  "source": "https://arenamakak.pl/kontakt",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-23:00",
+   "tue": "07:00-23:00",
+   "wed": "07:00-23:00",
+   "thu": "07:00-23:00",
+   "fri": "07:00-23:00",
+   "sat": "08:00-22:00",
+   "sun": "08:00-22:00"
+  },
+  "evidence": "ul. Palisadowa 20/22, 01-940 Warszawa … Godziny otwarcia PONIEDZIAŁEK 9.00-23.00 WTOREK 7.00-23.00 ŚRODA 7.00-23.00 CZWARTEK 7.00-23.00 PIĄTEK 7.00-23.00 SOBOTA 8.00-22.00 NIEDZIELA 8.00-22.00",
+  "note": "Every day is listed separately beside the hall's address. Monday opens two hours later than the rest of the week."
+ },
+ {
   "lat": 52.25121,
   "lon": 21.06708,
   "name": "Obiekto",
