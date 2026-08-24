@@ -4780,6 +4780,32 @@
   "note": "The gym labels the daily 10am-10pm window \"Regular Hours\" and the earlier morning slots \"Members Only Hours\"; only the public window is published here. Ten-visit pass holders are explicitly not eligible during the members-only hours."
  },
  {
+  "lat": 49.80656,
+  "lon": -97.13846,
+  "name": "University of Manitoba Active Living Center",
+  "country": "CA",
+  "source": "https://umanitoba.ca/community/sport-recreation/sport-and-recreation-facilities",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "climbing wall Certified fitness attendants Our change rooms … Hours of operation Monday to Friday 6 a.m. - 10 p.m. Saturday and Sunday 8 a.m. - 8 p.m. … Contact us Active Living Centre 430 University Crescent",
+  "note": "The page gives every facility its own hours block; this one sits between the Active Living Centre's feature list, which includes the climbing wall, and its own contact address, which is what ties it to this hall rather than to the Frank Kennedy Centre beneath it. The separate holiday-hours link is an exception list."
+ },
+ {
   "lat": 49.9492732,
   "lon": -97.1897439,
   "name": "Vertical Adventures",

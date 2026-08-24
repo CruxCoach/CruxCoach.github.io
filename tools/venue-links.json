@@ -4090,6 +4090,21 @@
     "note": "This venue is the Outdoor Centre itself. The university's own facilities page for the Outdoor Centre prints 2500 University Drive NW, Calgary — the address upstream records. The first pass tried /recreation/facilities/climbing, /recreation/climbing and /recreation/facilities/climbing-gym, all of which are 404, and the Active Living section was never reached."
   },
   {
+    "lat": 49.80656,
+    "lon": -97.13846,
+    "name": "University of Manitoba Active Living Center",
+    "country": "CA",
+    "website": "https://umanitoba.ca/community/sport-recreation/sport-and-recreation-facilities",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "The university's own facilities page gives the Active Living Centre a section of its own — \"The 100,000 sq ft Active Living Centre is UM's hub for health, wellness and physical activity\", listing a 35 ft climbing wall — and the page carries Winnipeg, R3T 2N2. The earlier record left this open because /recreation-services, /active-living-centre and /campus-recreation are all 404 and the apex answered 403; this path answers 200. The address the section prints, 430 University Crescent, is not the 145 Frank Kennedy Center upstream records — the two buildings are neighbours on the Fort Garry campus and the page lists them separately, so upstream has the complex rather than the hall."
+  },
+  {
     "lat": 43.60385,
     "lon": -79.58441,
     "name": "Up The Bloc",
