@@ -813,6 +813,18 @@ Slakthusgatan; MW Climbing's two halls are told apart by 68144 against 68504;
 Møns Klatreklub is 4780 Stege where upstream had said Vordingborg; Lee County
 Rec Center and Vertical Ventures St Pete close the same way.
 
+Running it again over every candidate any rejection ever *named* — 1,180
+domain-and-venue pairs from 448 venues, rather than the one candidate each
+record kept — matched nine, four of them new venues. Climb Lafayette had been
+offered a Colombian textile manufacturer and a Louisiana development agency
+while its own domain prints 4650 Dale Drive in 47905, which is where the point
+is. Rocksteady had been offered rocksteady.net, which is for sale, while
+rocksteadyclimb.com gives 4016 Nesconset Highway in 11733. Red Rock Climbing
+Center is 89117 on both sides. And b8A is the shape that says where the line
+is: the point is on Tampines Street 92 in 528893, which is the building BFF
+Climb's third Singapore site occupies — being in a commercial block with many
+units is not being the business in one of them.
+
 The other twelve say what the check costs. A road name has to be long enough
 not to be a coincidence — four characters is the floor, and folding has to keep
 non-Latin letters, because stripping to `[a-z0-9]` turns 安远路 into the empty
