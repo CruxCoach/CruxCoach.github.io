@@ -13687,6 +13687,20 @@
     "note": "Adamanta's own page for its Puebla branch, which is this venue's name in full; upstream places it in San Andrés Cholula, in the Puebla conurbation. The operator gives each of its five branches a page, and the weeks on them differ."
   },
   {
+    "lat": 19.49339,
+    "lon": -99.23639,
+    "name": "Adamanta Satélite",
+    "country": "MX",
+    "website": "https://www.adamanta.mx/satelite",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page"
+    ],
+    "note": "Adamanta gives each gym a page and there is exactly one called Satélite. The gazetteer object at this coordinate is called Adamanta Satellite, in Naucalpan, which is where Ciudad Satélite is. The page states no street line — its Horario y ubicación block gives the hours and leaves the address to a map — so the pairing rests on the name at the point and the operator having one page for it."
+  },
+  {
     "lat": 20.65843,
     "lon": -103.39662,
     "name": "Ameyalli",
@@ -16539,6 +16553,21 @@
       "street-address"
     ],
     "note": "Arena's own site, printing 5500 Abdulrahman Al Dakhil and the 23611 postal code upstream records for Jeddah."
+  },
+  {
+    "lat": 26.3778913,
+    "lon": 50.1487871,
+    "name": "Dyno Climbing Center",
+    "country": "SA",
+    "website": "https://dyno.sa/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "postal-code"
+    ],
+    "note": "DYNO calls itself Saudi Arabia's first indoor climbing centre and there is one of it. The page renders from a bundle whose strings give the location as الخبر / Khobar, but the map link it puts under that heading resolves to Dyno Rock Climbing at 26.38479, 50.14729 — which reverse-geocodes to الظهران, الدمام, 34241, the same city and the same postcode as this row, 780 m away."
   },
   {
     "lat": 63.39079,
@@ -20725,6 +20754,22 @@
     "note": "climbibex.com answers 403 to every fetcher. A snapshot is titled \"Home - IBEX Climbing Gym\" and says \"Located in Blue Springs Missouri, IBEX Climbing Gym is here to serve our community\"; this coordinate is in Blue Springs, 64015. There is one IBEX. The candidates the earlier sweep offered were a merino-wool clothing brand and a Persian-literature publisher."
   },
   {
+    "lat": 43.2018837,
+    "lon": -70.871105,
+    "name": "Indoor Ascent",
+    "country": "US",
+    "website": "https://indoorascent.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The site states \"Our Location 47 Broadway Dover, New Hampshire 03820\". The gazetteer object at this coordinate is called Indoor Ascent and sits on Broadway in Dover, 03820."
+  },
+  {
     "lat": 35.2270869,
     "lon": -80.8431267,
     "name": "Inner Peaks Climbing",
@@ -24120,6 +24165,21 @@
     ]
   },
   {
+    "lat": 38.55057428350317,
+    "lon": -121.71676532883576,
+    "name": "The Stack Climbing Davis",
+    "country": "US",
+    "website": "https://thestackdavis.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The operator gives each hall its own domain and names them on the shared page — thestackdavis.com here, thestackchico.com for the one still being built. The Davis site says \"12,000 sq ft. bouldering and fitness gym located at 607 Pena Drive, Davis, CA\", and this coordinate reverse-geocodes to 607 Pena Drive, South Davis."
+  },
+  {
     "lat": 34.06397,
     "lon": -118.21683,
     "name": "The Stronghold Climbing Gym Lincoln Heights",
@@ -24748,6 +24808,20 @@
       "city"
     ],
     "note": "skywalkvn.com is Skywalk Climbing — \"Climbing Sport Center\" — at 168/42A Nguyễn Gia Trí, P.25, Q.Bình Thạnh. There is one of it. The coordinate is 9.8 km from that address inside Hồ Chí Minh City, which is where the gazetteer put the object too, so the row carries the city rather than the hall."
+  },
+  {
+    "lat": 10.787627,
+    "lon": 106.733678,
+    "name": "Vertical District",
+    "country": "VN",
+    "website": "https://verticaldistrict.vn/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The site says \"Since 2015, Vertical District, formerly Vertical Academy, has been at the forefront of building and growing the climbing community in Ho Chi Minh City\" and its contact block gives 36 đường số 1, phường An Khánh, Quận 2, Hồ Chí Minh. This coordinate reverse-geocodes into Phường An Khánh, the same ward — Quận 2 having been folded into Thủ Đức. The theme's own placeholder footer still carries an Amsterdam address and a qodeinteractive email; that is boilerplate, not a second location."
   },
   {
     "lat": 21.05562,

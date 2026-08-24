@@ -15707,6 +15707,31 @@
   "note": "The same week the Gonzalitos branch states; the Santa Fe branch states a different one, so this is Puebla's own and not a template."
  },
  {
+  "lat": 19.49339,
+  "lon": -99.23639,
+  "name": "Adamanta Satélite",
+  "country": "MX",
+  "source": "https://www.adamanta.mx/satelite",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "06:00-23:00",
+   "tue": "06:00-23:00",
+   "wed": "06:00-23:00",
+   "thu": "06:00-23:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "Horario y ubicación Lunes - jueves Viernes Sábado, domingo y festivos 6am - 11pm 6am - 10pm 8am - 8pm",
+  "note": "Three labels then three ranges in the same order, on the page for this gym rather than on a shared one. Holidays are folded in with the weekend, which is the venue's own grouping."
+ },
+ {
   "lat": 21.9082665,
   "lon": -102.2948845,
   "name": "Drop Climbing",
@@ -18599,6 +18624,31 @@
   },
   "evidence": "Наши контакты Екатеринбург, ул. Тверитина, 45 · Время работы: Будни: 08:15 — 22:30 Выходные: 09:00 — 22:00",
   "note": "Weekdays against weekends, printed in the contacts block directly beneath the address, which is what ties it to this hall. One centre, one week."
+ },
+ {
+  "lat": 26.3778913,
+  "lon": 50.1487871,
+  "name": "Dyno Climbing Center",
+  "country": "SA",
+  "source": "https://dyno.sa/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-23:00",
+   "tue": "06:00-23:00",
+   "wed": "06:00-23:00",
+   "thu": "06:00-23:00",
+   "fri": "06:00-23:00",
+   "sat": "06:00-23:00",
+   "sun": "06:00-23:00"
+  },
+  "evidence": "Open Daily 6:00 AM - 11:00 PM ... What are your opening hours? We're open 7 days a week from 6:00 AM to 11:00 PM. Come climb with us anytime!",
+  "note": "The banner and the FAQ say the same thing twice, in English and in Arabic, and nothing else on the site states a different day."
  },
  {
   "lat": 63.39079,
@@ -27768,6 +27818,31 @@
   "evidence": "Monday – Friday: 8:00am – 11:00pm | Saturday – Sunday: 8:00am – 8:00pm | See Holiday Hours"
  },
  {
+  "lat": 38.55057428350317,
+  "lon": -121.71676532883576,
+  "name": "The Stack Climbing Davis",
+  "country": "US",
+  "source": "https://thestackdavis.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "08:00-18:00",
+   "sun": "08:00-18:00"
+  },
+  "evidence": "WE ARE NOW OPEN! Monday - Friday: 8am - 10pm Saturday + Sunday: 8am - 6pm THE STACK CLIMBING + FITNESS DAVIS, CA",
+  "note": "Stated on the Davis hall's own domain, above its own address. The Chico hall has its own domain and is still under construction, so nothing here is shared between the two."
+ },
+ {
   "lat": 34.06397,
   "lon": -118.21683,
   "name": "The Stronghold Climbing Gym Lincoln Heights",
@@ -28465,6 +28540,31 @@
   },
   "evidence": "Monday-Friday | Members Only: 7:00am-11:00am | Public: 11:00am-9:00pm | Saturday | 11:00am-8:00pm | Sunday | 12:00pm-7:00pm | 3534 E Sunshine Street, Suite 3 | Springfield, MO 65804",
   "note": "The page splits the weekday morning off as members-only; the public week is what is recorded."
+ },
+ {
+  "lat": 10.787627,
+  "lon": 106.733678,
+  "name": "Vertical District",
+  "country": "VN",
+  "source": "https://verticaldistrict.vn/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "08:00-22:00",
+   "sun": "08:00-22:00"
+  },
+  "evidence": "Contact Us 097 9662015 Mon - Sun 08:00 - 22:00 36 đường số 1, phường An Khánh, Quận 2, Hồ Chí Minh",
+  "note": "One window for all seven days, printed in the contact block beside the phone number and the address."
  },
  {
   "lat": 21.05562,

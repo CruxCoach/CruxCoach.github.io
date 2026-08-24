@@ -5507,15 +5507,6 @@
   "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
-  "lat": 19.49339,
-  "lon": -99.23639,
-  "name": "Adamanta Satélite",
-  "country": "MX",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 20.65843,
   "lon": -103.39662,
   "name": "Ameyalli",
@@ -7120,15 +7111,6 @@
   "reason": "Six of the seven days are chain-wide — \"Saturday to Thursday All Branches 7:00 AM - 11:00 PM\" — but Friday is stated per branch, and which branch this venue is cannot be settled. The operator lists Friday hours for Jeddah Nahda, Riyadh Al-Mathar and Riyadh Boulevard, and gives its Jeddah address as 6502 Ibn Al Tajj Street, Al Nahdah, 23615, where upstream records 5500 Abdulrahman Al Dakhil, 23611 — a different street and a different postal code in the same city."
  },
  {
-  "lat": 26.3778913,
-  "lon": 50.1487871,
-  "name": "Dyno Climbing Center",
-  "country": "SA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 57.7200187,
   "lon": 11.950726,
   "name": "Backa Boulder",
@@ -8041,9 +8023,10 @@
   "lon": -95.23664,
   "name": "Climb Lawrence",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "closed",
+  "source": "https://climblawrence.com/",
+  "reason": "The gym's own site says \"Thank You We Are Closed\" and prints nothing else.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 38.493873,
@@ -8585,9 +8568,10 @@
   "lon": -70.871105,
   "name": "Indoor Ascent",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://indoorascent.com/",
+  "reason": "Six of the seven days are plain — Tuesday to Friday 4:00pm-10:00pm, Saturday and Sunday 10:00am-4:00pm — and the seventh is \"Monday 6pm- 9pm (ladies only)\". The gym is open that evening but not to everyone, and a published week says only when a visitor can come. Filed the way Rebelia is: the schedule has no way to carry the condition, and dropping it would delete an opening the gym keeps.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 40.7876564,
@@ -9472,15 +9456,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 38.55057428350317,
-  "lon": -121.71676532883576,
-  "name": "The Stack Climbing Davis",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 34.0522342,
   "lon": -118.2436849,
   "name": "The Stronghold Moonboard",
@@ -9737,15 +9712,6 @@
   "source": "https://skywalkvn.com/",
   "reason": "The whole site is 433 characters, and the only time on it is \"Business Hours: 9:00AM-22:00PM\" — one window with no day attached to it. Reading that as all seven days would be putting a claim in the centre's mouth that it has not made.",
   "checked": "2026-08-24"
- },
- {
-  "lat": 10.787627,
-  "lon": 106.733678,
-  "name": "Vertical District",
-  "country": "VN",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": -34.0429148,

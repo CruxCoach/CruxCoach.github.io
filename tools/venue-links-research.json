@@ -333,9 +333,9 @@
     "name": "Campo Base",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. campobase.com.br serves a certificate that does not cover the hostname, and read past it the page is \"Campo Base Ecolodge, Chapada dos Veadeiros, Goias\" — a lodge 1,000 km from Curitiba. campobase.com answers with nothing, campo.com.br is an environmental-services firm, and campobaseburgos.com is a climbing gym in Spain.",
-    "candidate": "https://campobase.com.br/"
+    "candidate": "https://campobaseburgos.com/",
+    "reason": "No official site could be established: campobaseburgos.com is Campo Base Escalada in Burgos, Spain. This row is in Curitiba.",
+    "checked": "2026-08-24"
   },
   {
     "lat": -19.3367336,
@@ -3093,16 +3093,6 @@
     "checked": "2026-08-24"
   },
   {
-    "lat": 19.49339,
-    "lon": -99.23639,
-    "name": "Adamanta Satélite",
-    "country": "MX",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "Adamanta gives each of its branches a page and it has five — Del Valle, Escandón, Gonzalitos, Puebla and Santa Fe. There is no Satélite among them, and no page on the site prints Boulevard Manuel Ávila Camacho or the postal code 53160 that upstream records for this venue. Either the branch has closed or it trades under another of those names; the site does not say which.",
-    "candidate": "https://www.adamanta.mx/"
-  },
-  {
     "lat": 21.1305471,
     "lon": -86.860124,
     "name": "Boulder Corp",
@@ -3118,9 +3108,9 @@
     "name": "Boulder Grid",
     "country": "MX",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — grid.com → \"Electric Vehicle (EV) Charging Stations overview - GRID \"; boulder.com → \"Denver Media\", the rest could not be opened — grid.com.mx → a certificate that does not cover its hostname; bouldergrid.com → 200; boulder.com.mx → 200, the venue's whole name as one label, bouldergrid.com, answers 200 (\"Boulder Grid\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://grid.com/en"
+    "candidate": "https://bouldergrid.com/",
+    "reason": "No official site could be established: The domain answers with a React shell saying \"You need to enable JavaScript to run this app\", and its bundle carries no address, no city and no hours — only the framework.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 32.6297526,
@@ -3206,9 +3196,9 @@
     "name": "Batuu Climbing",
     "country": "MY",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — batuuclimbing.com → \"Batuu Climbing\", the rest could not be opened — batuu.com → a timeout, the venue's whole name as one label, batuuclimbing.com, answers 308 but its pages print no street, postal code or town matching this venue. Upstream records G-28, Ground Floor, 3 Damansara, Jalan SS 20/27, Damansara Utama, 4740, and nothing opened printed it.",
-    "candidate": "https://www.batuuclimbing.com/"
+    "candidate": "https://batuuclimbing.com/",
+    "reason": "No official site could be established: batuuclimbing.com is Batuu Climbing, \"an indoor climbing gym in Malaysia offering bouldering, top rope, and lead climbing\", founded September 2024 — and that is the whole of what it says about where it is. No page on it states a street, a town or a state to match against Petaling Jaya.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 5.4163935,
@@ -3726,8 +3716,8 @@
     "name": "Spot Boulder Caffe",
     "country": "PL",
     "status": "unverified",
-    "reason": "climbingspot.pl is Climbing Spot in Poznań, with two halls on Pułaskiego and Widłakowa. Spot Boulder Caffe is in Łódź, 200 km away, and shares only the word Spot.",
-    "candidate": "https://www.climbingspot.pl/",
+    "candidate": "https://climbingspot.pl/",
+    "reason": "No official site could be established: ClimbingSpot.pl is a bouldering wall in Poznań, as its own title says. This coordinate is in Łódź, 200 km away.",
     "checked": "2026-08-24"
   },
   {
@@ -3874,8 +3864,8 @@
     "name": "SKAI Urban Crag",
     "country": "RO",
     "status": "unverified",
-    "reason": "skaiurbancrag.ro is this venue's domain — it serves 2.4 kB reading \"SKAI Urban Crag is under construction. Sorry, we're doing some work on the site\" — and that is the whole of it. There is no address, no town and nothing for a visitor, so there is nothing to link to yet.",
     "candidate": "https://skaiurbancrag.ro/",
+    "reason": "No official site could be established: The domain is the venue's and the site is a placeholder: \"SKAI Urban Crag is under construction\".",
     "checked": "2026-08-24"
   },
   {
@@ -4043,16 +4033,6 @@
     "candidate": "https://vysota.ru/"
   },
   {
-    "lat": 26.3778913,
-    "lon": 50.1487871,
-    "name": "Dyno Climbing Center",
-    "country": "SA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — dynodetroit.com → \"DYNO Detroit Climbing\"; dynoclimb.com → \"Climbing Gym, Fitness, Events, and Yoga\"; dyno.sa → \"DYNO — Saudi Arabia's First Indoor Climbing Center\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.dynodetroit.com/"
-  },
-  {
     "lat": 59.37023,
     "lon": 18.00481,
     "name": "BLX Bouldering Club",
@@ -4117,9 +4097,9 @@
     "name": "Climbing Wall Rozlomity",
     "country": "SK",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — climbingwall.sk → \"climbingwall.sk - climbingwalls, rope courses - adventur\"; climbingwall.com → \"Climbing Wall Rentals, Fully Staffed Event Rentals For C\"; climbing.sk → \"Climbing.sk - zážitok z lezenia na Liptove\", the rest could not be opened — rozlomity.sk → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://climbingwall.sk/en/home/"
+    "candidate": "https://climbingwall.sk/",
+    "reason": "No official site could be established: climbingwall.sk builds climbing walls and rope parks — \"Lezecké steny, lanové parky, projekčné a projektové práce\". It is a contractor, not the hall at this coordinate, and climbingwall.com is a Californian event-rental company.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 48.21503,
@@ -4232,9 +4212,9 @@
     "name": "Mega STONE Climbing Gym",
     "country": "TW",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — stoneclimbing.com → \"Stone Climbing | Climbing Gym in Northeast Florida\"; mega.com.tw → \"星錡科技有限公司\", the rest could not be opened — mega.tw → 403. Upstream records 242新北市新莊區中正路56巷5號, and nothing opened printed it.",
-    "candidate": "https://www.stoneclimbing.com/"
+    "candidate": "https://stoneclimbing.com/",
+    "reason": "No official site could be established: stoneclimbing.com is Stone Climbing, a climbing gym in northeast Florida. This row is in 新北市.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 24.7907319,
@@ -4461,10 +4441,10 @@
     "lon": -95.23664,
     "name": "Climb Lawrence",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "climblawrence.com is the venue's own domain and matches its name, but publishes no address or postal code; Lawrence is part of the venue's name, so the town adds nothing independent of it.",
-    "candidate": "https://climblawrence.com/"
+    "status": "closed",
+    "candidate": "https://climblawrence.com/",
+    "reason": "climblawrence.com resolves and the whole page is four words: \"Thank You We Are Closed\". The gym is gone, so there is no official site to record and nothing to point a visitor at.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 36.1626638,
@@ -4472,9 +4452,9 @@
     "name": "Climb Nashville",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — nashville.com → \"Nashville.com : The Worldwide Brand for Nashville\"; climbnashville.com → \"The Climb Gyms – West Nashville, East Nashville, Murfree\"; climb.com → \"climb.com\", the rest could not be opened — nashville.net → 404 / a certificate that does not cover its hostname; nashville.org → a timeout; climbnashville.org → 200, the venue's whole name as one label, climbnashville.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.nashville.com/"
+    "candidate": "https://climbnashville.com/",
+    "reason": "No official site could be established: The Climb Gyms run five halls — Nashville West, Nashville East, Kraft, Murfreesboro and Bentonville — and this coordinate is on 6th Avenue North in downtown Nashville, which is none of them. The site names them only through a location picker, and /west/ answers 404.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 39.15657,
@@ -4542,9 +4522,9 @@
     "name": "Elemental Performance + Fitness",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — elementalperformance.net → \"Elemental Performance | Coaching with Brant Dunn\"; elemental-performance.com → \"Coming Soon\"; elemental.com → \"AWS Elemental\", the rest could not be opened — elemental.org → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.elementalperformance.net/"
+    "candidate": "https://elementalperformance.net/",
+    "reason": "No official site could be established: elementalperformance.net is a coaching practice — \"Guidance with Integrity\", apply for coaching with Brant Dunn — and publishes no gym address.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 42.83418,
@@ -4552,9 +4532,9 @@
     "name": "Elemental Performance + Fitness",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — elementalperformance.net → \"Elemental Performance | Coaching with Brant Dunn\"; elemental-performance.com → \"Coming Soon\"; elemental.com → \"AWS Elemental\", the rest could not be opened — elemental.org → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.elementalperformance.net/"
+    "candidate": "https://elementalperformance.net/",
+    "reason": "No official site could be established: Same coaching site as the row 4 m away.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 38.74188,
@@ -4572,9 +4552,9 @@
     "name": "Evolv Climbing HQ",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — evolvhq.com → \"EvolvHQ | AI Automation Agency\"; evolvclimbing.com → \"Climbing Store - Rock Climbing & Bouldering Gear | EVOLV\"; evolv.org → \"Climbing Store - Rock Climbing & Bouldering Gear | EVOLV\", the rest could not be opened — evolv.com → 403; evolv.net → a timeout. Upstream records 1421 Edinger Ave STE D, 92780, Tustin, and nothing opened printed it.",
-    "candidate": "https://evolvhq.com/"
+    "candidate": "https://evolv.org/",
+    "reason": "No official site could be established: evolv.org is the shoe brand's store — shoes, accessories, the Global Climb Tour — and /pages/contact answers 404. It publishes no address for the office this row is named for.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 35.42804,
@@ -4699,9 +4679,9 @@
     "name": "High Altitude Fitness Truckee",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — highaltitudefitness.com → \"High Altitude Fitness\"; high.com → \"high.com\"; high.net → \"High Companies: Manufacturing, Construction & Real Estat\", the rest could not be opened — highaltitude.com → 200; highaltitude.net → 200; highaltitude.org → 200. Upstream records 11798 Donner Pass Rd, 96161, Truckee, and nothing opened printed it.",
-    "candidate": "http://www.highaltitudefitness.com/"
+    "candidate": "https://www.highaltitudefitness.com/",
+    "reason": "No official site could be established: highaltitudefitness.com is 251 Northwood Way, Ketchum, ID 83340, \"high performance fitness for Ketchum, Sun Valley and the Wood River valley\". This row is in Truckee, California, 800 km west.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 42.83654,
@@ -4712,16 +4692,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — highmountain.net → \"highmountain.net\"; highmountainfitness.com → \"HugeDomains.com\"; high-mountain.com → \"High Mountain - Allt för friluftsliv - Engelsons\", the rest could not be opened — highmountain.com → a timeout; highmountain.org → 200, the venue's whole name as one label, highmountainfitness.com, answers 302 but its pages print no street, postal code or town matching this venue. Upstream records 730 Lincoln St, 82520, Lander, and nothing opened printed it.",
     "candidate": "https://www.highmountain.net/"
-  },
-  {
-    "lat": 43.2018837,
-    "lon": -70.871105,
-    "name": "Indoor Ascent",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — ascentstudio.com → \"Ascent Studio | Climbing & Fitness\"; ascent.com → \"Ascent Technology Inc | Resource allocation & optimizati\"; ascent.net → \"•ASCENT•\", the rest could not be opened — ascent.org → 403; indoor-ascent.com → 403 / no answer; indoor.com → 403, the venue's whole name as one label, indoorascent.com, answers 200 (\"Indoor Ascent\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://ascentstudio.com/"
   },
   {
     "lat": 43.881466,
@@ -4919,8 +4889,8 @@
     "name": "Revival Climbing Coalition",
     "country": "US",
     "status": "unverified",
-    "reason": "revivalclimbing.com carries the name exactly, but what it sells is walls: Adjustable Walls, Custom Flooring, Standard Mats, and a shop. Its contact page renders to 405 characters and gives no address at all, while the two rows under this name are 20 km apart — one on North 2nd Street in Minneapolis, one on Jefferson Highway in Maple Grove. Nothing on the site tells them apart or places either.",
     "candidate": "https://revivalclimbing.com/",
+    "reason": "No official site could be established: revivalclimbing.com is the Revival Climbing Coalition's shop, and what it sells is walls: Adjustable Walls, Custom Flooring, Standard Mats. There is no gym on it and no address for one.",
     "checked": "2026-08-24"
   },
   {
@@ -4929,8 +4899,8 @@
     "name": "Revival Climbing Coalition",
     "country": "US",
     "status": "unverified",
-    "reason": "revivalclimbing.com carries the name exactly, but what it sells is walls: Adjustable Walls, Custom Flooring, Standard Mats, and a shop. Its contact page renders to 405 characters and gives no address at all, while the two rows under this name are 20 km apart — one on North 2nd Street in Minneapolis, one on Jefferson Highway in Maple Grove. Nothing on the site tells them apart or places either.",
     "candidate": "https://revivalclimbing.com/",
+    "reason": "No official site could be established: Same shop as the other Minneapolis row; it builds walls rather than opening to climbers.",
     "checked": "2026-08-24"
   },
   {
@@ -5186,16 +5156,6 @@
     "reason": "No official site. The only candidate that answered for The Shed West, Berkeley was westbouldering.pl, a bouldering gym in Poland — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
   },
   {
-    "lat": 38.55057428350317,
-    "lon": -121.71676532883576,
-    "name": "The Stack Climbing Davis",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "thestackclimbing.com matches this venue's name but publishes no address or postal code; Davis is part of the venue's name, so the town adds nothing independent of it.",
-    "candidate": "https://www.thestackclimbing.com/"
-  },
-  {
     "lat": 34.0522342,
     "lon": -118.2436849,
     "name": "The Stronghold Moonboard",
@@ -5320,16 +5280,6 @@
     "checked": "2026-08-23",
     "reason": "winthropsquareboston.com is a commercial office building at Winthrop Square, not a climbing venue, and matched only on the venue's name, which is the square itself. Nothing published could be found for a wall at 115 Federal St, 02110.",
     "candidate": "https://winthropsquareboston.com/"
-  },
-  {
-    "lat": 10.787627,
-    "lon": 106.733678,
-    "name": "Vertical District",
-    "country": "VN",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — climbingdistrict.com/salle-escalade/paris-11-b → \"Salle d'escalade Paris 12 - Quartier Bastille - Salle de\"; climbingdistrict.uk/climbing-gym/london-fields → \"London Fields - Climbing District\"; blocdistrict.com → \"Inici - BlocDistrict\", the rest could not be opened — district.com → 200; verticaldistrict.com → 200; vertical-district.com → 404, the venue's whole name as one label, verticaldistrict.vn, answers 200 (\"Main Home - Vertical District\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://climbingdistrict.com/salle-escalade/paris-11-bastille/"
   },
   {
     "lat": -33.93792,
