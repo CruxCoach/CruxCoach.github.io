@@ -352,10 +352,13 @@ move. Two tools re-read them; both make network requests, so neither is part of
 # resolves is usually bot protection this machine cannot get past.
 node tools/venue-links-liveness.mjs
 
-# Re-read the source of every published week and report where a Squarespace
-# business-hours setting or a schema.org block on the same page says something
-# different. A difference is a finding to read, not a verdict — see "When a
-# page states the week twice" in VENUE-HOURS.md.
+# Re-read the source of every published week and report three things: where a
+# Squarespace business-hours setting or a schema.org block on the same page says
+# something different, where a time the record publishes is no longer printed on
+# the page at all, and where the page prints no time to a reader in the first
+# place (a single-page app, or a schedule in an image). A difference is a finding
+# to read, not a verdict — see "When a page states the week twice" in
+# VENUE-HOURS.md.
 node tools/venue-hours-conflict.mjs
 ```
 

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-// Re-read the source of every published week and compare it against the two
-// machine-readable weeks a site can also ship: a Squarespace business-hours
-// setting and a schema.org openingHours block.
+// Re-read the source of every published week and check it two ways: against
+// the machine-readable weeks a site can also ship — a Squarespace business-hours
+// setting and a schema.org openingHours block — and against the page's own
+// words, to see whether the times the record publishes are still printed there.
 //
 //   node tools/venue-hours-conflict.mjs                    # all published weeks
 //   node tools/venue-hours-conflict.mjs 51.5074,-0.1278    # only these venues
@@ -17,6 +18,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { timesMissingFromEvidence } from './venue-hours.mjs';
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const HOURS = join(REPO_ROOT, 'tools', 'venue-hours.json');
@@ -100,6 +102,18 @@ const records = JSON.parse(readFileSync(HOURS, 'utf-8'));
 let read = 0;
 let unreachable = 0;
 let conflicts = 0;
+let drifted = 0;
+let unreadable = 0;
+
+// The same reader the curation uses on an evidence quote, pointed at the whole
+// page: a published time that is no longer anywhere in the source is the shape
+// a venue changing its hours leaves behind.
+const pageText = (html) => html
+  .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+  .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+  .replace(/<[^>]*>/g, ' ')
+  .replace(/&nbsp;/g, ' ')
+  .replace(/\s+/g, ' ');
 
 for (const record of records) {
   const key = `${record.lat.toFixed(4)},${record.lon.toFixed(4)}`;
@@ -113,6 +127,20 @@ for (const record of records) {
     continue;
   }
   read += 1;
+  const text = pageText(html);
+  const missing = timesMissingFromEvidence({ ...record, evidence: text });
+  if (missing.length) {
+    // A page that renders to no times at all has not changed its hours — it is
+    // a single-page app, or an image, and the week was read some other way.
+    // Saying so is different from saying the times moved.
+    if (/\b\d{1,2}\s*[:.]\s*\d{2}\b|\b\d{1,2}\s*(?:a|p)\.?m\.?\b/i.test(text)) {
+      drifted += 1;
+      console.log(`drifted      ${key}  ${record.name}  ${missing.join(', ')} no longer on the page  ${record.source}`);
+    } else {
+      unreadable += 1;
+      console.log(`unreadable   ${key}  ${record.name}  the page prints no time at all  ${record.source}`);
+    }
+  }
   for (const [label, week] of [['squarespace', squarespaceWeek(html)], ['schema.org', schemaWeek(html)]]) {
     if (!week) continue;
     const differing = DAYS.filter((d) => week[d] !== undefined && norm(week[d]) !== norm(record.hours[d]));
@@ -123,4 +151,6 @@ for (const record of records) {
   }
 }
 
-console.log(`\n${read} sources read, ${unreachable} unreachable, ${conflicts} carrying a machine-readable week that differs`);
+console.log(`\n${read} sources read, ${unreachable} unreachable, ${conflicts} carrying a machine-readable week that differs,`
+  + ` ${drifted} whose published times are no longer printed on the page,`
+  + ` ${unreadable} whose page prints no time to a reader at all`);
