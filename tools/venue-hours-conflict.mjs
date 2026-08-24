@@ -108,11 +108,16 @@ let unreadable = 0;
 // The same reader the curation uses on an evidence quote, pointed at the whole
 // page: a published time that is no longer anywhere in the source is the shape
 // a venue changing its hours leaves behind.
+const ENTITIES = { nbsp: ' ', amp: '&', ndash: '\u2013', mdash: '\u2014', minus: '\u2212', quot: '"', apos: "'", lt: '<', gt: '>' };
 const pageText = (html) => html
   .replace(/<script[\s\S]*?<\/script>/gi, ' ')
   .replace(/<style[\s\S]*?<\/style>/gi, ' ')
   .replace(/<[^>]*>/g, ' ')
-  .replace(/&nbsp;/g, ' ')
+  // A page that writes its range as "5 &ndash; 10.30pm" is writing a dash, and
+  // the reader has to see one or it reports drift that is not there.
+  .replace(/&#(\d{1,5});/g, (_, n) => String.fromCodePoint(Number(n)))
+  .replace(/&#x([0-9a-f]{1,5});/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+  .replace(/&([a-z]+);/gi, (m, name) => ENTITIES[name.toLowerCase()] ?? m)
   .replace(/\s+/g, ' ');
 
 for (const record of records) {

@@ -11137,24 +11137,25 @@
   "name": "Rocódromos Espacio Acción",
   "country": "ES",
   "source": "https://espacioaccion.es/",
-  "checked": "2026-08-23",
+  "checked": "2026-08-24",
   "provenance": "official-site",
   "signals": [
    "venue-link",
-   "name",
-   "board-mention"
+   "street-address",
+   "city",
+   "hours-scope"
   ],
   "hours": {
-   "mon": "09:00-22:30",
-   "tue": "09:00-22:30",
-   "wed": "09:00-22:30",
-   "thu": "09:00-22:30",
-   "fri": "09:00-22:30",
+   "mon": "10:00-22:30",
+   "tue": "10:00-22:30",
+   "wed": "10:00-22:30",
+   "thu": "10:00-22:30",
+   "fri": "10:00-22:30",
    "sat": "11:00-20:00",
    "sun": "11:00-20:00"
   },
-  "evidence": "Lunes a viernes 9.00 a 22.30 h. Sábados y domingos 11.00 a 20.00 h. Festivos abierto 11.00 a 20.00 h.",
-  "note": "Public holidays are stated separately and keep the weekend window."
+  "evidence": "¿Cual es vuestro horario? L-V 10:00–22:30 | S-D y festivos 11:00–20:00 · Julio y agosto cerrado fines de semana",
+  "note": "The weekday opening has moved from 9:00 to 10:00 since this was read, which is what the drift check found. The line beneath the week closes the weekend for July and August — a dated window, still in force today, and an exception to the week rather than a second one."
  },
  {
   "lat": 41.52992,
@@ -21739,32 +21740,6 @@
    "sun": "09:00-20:00"
   },
   "evidence": "Weekdays: 9am 9pm Weekends: 9am 8pm | HOLIDAY HOURS | Memorial Day: Closed Independence Day: Closed"
- },
- {
-  "lat": 36.15595,
-  "lon": -95.98299,
-  "name": "GRAVITY BEAR Bouldering Gym",
-  "country": "US",
-  "source": "https://climbgravitybear.com/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "street-address",
-   "postal-code"
-  ],
-  "hours": {
-   "mon": "15:00-21:00",
-   "tue": "15:00-21:00",
-   "wed": "15:00-21:00",
-   "thu": "15:00-21:00",
-   "fri": "15:00-21:00",
-   "sat": "12:00-18:00",
-   "sun": "12:00-18:00"
-  },
-  "evidence": "HOURS: MONDAY - FRIDAY 3pm - 9pm SATURDAY - SUNDAY 12pm - 6pm",
-  "note": "Stated on the location page beneath the gym's address and phone number. The weekly community events listed elsewhere — college night, new sets — sit inside these hours."
  },
  {
   "lat": 41.0584299,
