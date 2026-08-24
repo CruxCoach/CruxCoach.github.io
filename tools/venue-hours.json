@@ -16127,6 +16127,90 @@
   "note": "Every day is listed separately beside the hall's address. Monday opens two hours later than the rest of the week."
  },
  {
+  "lat": 52.17105,
+  "lon": 20.9334,
+  "name": "Murall Krakowska Warszawa",
+  "country": "PL",
+  "source": "https://krakowska.murall.pl/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "07:00-23:00",
+   "tue": "07:00-23:00",
+   "wed": "07:00-23:00",
+   "thu": "07:00-23:00",
+   "fri": "07:00-23:00",
+   "sat": "07:00-23:00",
+   "sun": "07:00-23:00"
+  },
+  "evidence": "Centrum Wspinaczkowe Murall Al. Krakowska 61, 02-183 Warszawa … Godziny otwarcia Pon – Pt: 7:00 – 23:00 Sob – Niedz: 7:00 – 23:00",
+  "note": "Murall gives each of its three Warsaw halls a subdomain with its own address and phone number, and all three keep the same week. The schema.org openingHours on each is the placeholder Monday to Sunday 09:00-17:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
+  "lat": 52.30142,
+  "lon": 21.0203,
+  "name": "Murall Warszawa Annopol",
+  "country": "PL",
+  "source": "https://annopol.murall.pl/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "07:00-23:00",
+   "tue": "07:00-23:00",
+   "wed": "07:00-23:00",
+   "thu": "07:00-23:00",
+   "fri": "07:00-23:00",
+   "sat": "07:00-23:00",
+   "sun": "07:00-23:00"
+  },
+  "evidence": "Centrum Wspinaczkowe Murall ul. Annopol 3, 03-236 Warszawa … Godziny otwarcia Pon – Pt: 7:00 – 23:00 Sob – Niedz: 7:00 – 23:00",
+  "note": "Murall gives each of its three Warsaw halls a subdomain with its own address and phone number, and all three keep the same week. The schema.org openingHours on each is the placeholder Monday to Sunday 09:00-17:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
+  "lat": 52.23991,
+  "lon": 20.90427,
+  "name": "Murall Warszawa Górczewska",
+  "country": "PL",
+  "source": "https://gorczewska.murall.pl/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "07:00-23:00",
+   "tue": "07:00-23:00",
+   "wed": "07:00-23:00",
+   "thu": "07:00-23:00",
+   "fri": "07:00-23:00",
+   "sat": "07:00-23:00",
+   "sun": "07:00-23:00"
+  },
+  "evidence": "Centrum Wspinaczkowe Murall Ul. Górczewska 218, 01-460 Warszawa … Godziny otwarcia Pon – Pt: 7:00 – 23:00 Sob – Niedz: 7:00 – 23:00",
+  "note": "Murall gives each of its three Warsaw halls a subdomain with its own address and phone number, and all three keep the same week. The schema.org openingHours on each is the placeholder Monday to Sunday 09:00-17:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
   "lat": 52.25121,
   "lon": 21.06708,
   "name": "Obiekto",
@@ -16172,6 +16256,33 @@
    "sun": "09:00-22:00"
   },
   "evidence": "GODZINY OTWARCIA: PON-PT: 08:00-22:30 | WEEKENDY: 09:00-22:00"
+ },
+ {
+  "lat": 54.40037,
+  "lon": 18.59096,
+  "name": "Problem Bouldering",
+  "country": "PL",
+  "source": "https://www.problembouldering.pl/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Problem Bouldering Aleja Rzeczypospolitej 8 80-369 Gdańsk Godziny otwarcia od poniedziałku do piątku 8:00 — 22:00 sobota i niedziela 9:00 — 22:00",
+  "note": "Two bands covering all seven days, stated beneath the hall's address. Its schema.org openingHours disagrees with all of it — Mo-Th 10:00-22:00, Fr-Sa 10:00-23:00, Su 10:00-21:00. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
   "lat": 52.19239,
