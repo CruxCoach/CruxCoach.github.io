@@ -1970,16 +1970,6 @@
     "candidate": "https://boulderlab.com/"
   },
   {
-    "lat": 32.27738,
-    "lon": 34.86179,
-    "name": "Monkeys Climbing Gym",
-    "country": "IL",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps Monkeys 60 m from this venue and tags it monkeysclimbinggym.co.il. The host redirects and then fails to answer at all, and the archive is no help: its only capture, from 7 June 2026, is the challenge page — twelve kilobytes titled \"One moment, please...\" and no content. Nothing on the venue's own page has been read.",
-    "candidate": "https://www.monkeysclimbinggym.co.il/"
-  },
-  {
     "lat": 32.1074967,
     "lon": 34.8938899,
     "name": "Venga Petah Tikva",
@@ -2848,8 +2838,9 @@
     "name": "Superb Climbing",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — superb.kr → 200; superb.co.kr → a timeout; superb.com → no answer / a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "candidate": "http://superb.co.kr/",
+    "reason": "No official site could be established: superb.co.kr answers a hosting placeholder that gives its own registration date and says the site is still being built — 사이트 구축 중입니다.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 37.4967717,
@@ -2903,8 +2894,9 @@
     "name": "슈퍼비클라이밍 SuperB Climbing",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — superb.kr → 200; superb.co.kr → a timeout; superb.com → no answer / a certificate that does not cover its hostname. Upstream records 40 Cheongmyeongnam-ro,, 16704, Suwon-si,, and nothing opened printed it."
+    "candidate": "http://superb.co.kr/",
+    "reason": "No official site could be established: Same placeholder as the row 90 m away; the domain was registered and has never carried a site.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 37.48132,
@@ -4657,9 +4649,9 @@
     "name": "Kilter HQ",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — kilterhq.com → \"Kilter HQ\", the rest could not be opened — kilter.com → 404; kilter.net → 200; kilter.org → 200, the venue's whole name as one label, kilterhq.com, answers 301 but its pages print no street, postal code or town matching this venue. Upstream records 4840 Sterling Dr, 80301, Boulder, and nothing opened printed it.",
-    "candidate": "https://www.kilterhq.com/"
+    "candidate": "https://www.kilterhq.com/",
+    "reason": "No official site could be established: kilterhq.com is a business-strategy consultancy — \"We help businesses and organizations create structure and strategy to amplify impact\" — and has nothing to do with the board maker whose name this row carries.",
+    "checked": "2026-08-24"
   },
   {
     "lat": 40.192755,
@@ -4799,8 +4791,8 @@
     "name": "R2C2 Gym",
     "country": "US",
     "status": "unverified",
-    "candidate": "https://lasvegasclimbing.com/",
-    "reason": "No official site could be established: lasvegasclimbing.com is a guide to Red Rock Canyon — \"your all-in-one resource to plan your climbing trip\" — not a gym.",
+    "candidate": "https://www.r2c2.org/",
+    "reason": "No official site could be established: r2c2.org is a youth charity in Roseland, Chicago: \"R2C2 supports young people in Roseland at critical moments by building trusted relationships\". r2c2.com is a Fasthosts parking page. This row is in Las Vegas.",
     "checked": "2026-08-24"
   },
   {
