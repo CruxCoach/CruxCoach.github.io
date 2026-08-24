@@ -697,10 +697,23 @@ Asking OpenStreetMap which administrative area a coordinate falls in answers
 that. It is a geographic fact about the point rather than a claim about any
 website, so it does not breach the rule that OSM never supplies the evidence:
 the venue's own page still has to print the municipality, and that is what is
-matched. Three venues turned on it — RockHaus, which says "Vaughan, Ontario"
-and sits in Vaughan; Basecamp Climbing, titled for Toronto and inside Toronto;
-Benchmark's San Francisco gym, whose block gives an SF address and whose
-coordinates are in San Francisco.
+matched. It became the most productive single channel of the whole retry pass —
+RockHaus says "Vaughan, Ontario" and sits in Vaughan; Basecamp Climbing is
+titled for Toronto and inside Toronto; Benchmark's San Francisco gym gives an SF
+address; KIVI reads "TALLINNAS Kivi Climbing" and is labelled Kristiine;
+Boulderplanet is titled "Bouldern Köln" and labelled Altstadt Nord; QRiMo is
+titled for Omaezaki and labelled Kikugawa; InVert Climb's title reads "Zona
+industriale Gessate" and it is labelled Gorgonzola; Motion Boulder's two
+remaining Guadalajara halls are labelled with colonias and are in Zapopan;
+Rockspot is labelled Brera and is in Milano; Daytona Climbing Company is
+labelled Port Orange and gives South Daytona; RockQuest is labelled Forest Park
+and places itself in Sharonville.
+
+The lookup proposes and a reader decides, because an administrative level is not
+the same thing in two countries. Level 6 is the city in Canada and the province
+in Spain, so two Catalan venues came back matching "Barcelona" when their
+municipalities are Terrassa and Sabadell — and the pages behind those matches
+turned out to sell a helmet wall-mount and to be a brasserie.
 
 RockHaus is the one worth remembering. It had been rejected for giving an
 address "in another municipality" — and the municipality it was being compared
