@@ -5036,8 +5036,8 @@
     "name": "BaseCamp Reno",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — basecampreno.com → \"BaseCamp Climbing Gym - Reno, NV - at Whitney Peak Hotel\"; basecamp-reno.com → \"Northern Nevada (Reno, Sparks, & Incline Village) Real E\"; basecamp.com → \"Basecamp\", the rest could not be opened — basecampreno.net → a timeout; basecamp.net → 200, the venue's whole name as one label, basecampreno.com, answers 200 (\"BaseCamp Climbing Gym - Reno, NV - at Whitney Peak Hotel\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "checked": "2026-08-24",
+    "reason": "basecampreno.com is not somebody else's, which is what this record used to say: it is titled \"BaseCamp Climbing Gym - Reno, NV - at Whitney Peak Hotel\" and is plainly this gym's. What it does not do is supply a second signal. The site is a four-kilobyte landing page over a handful of subpages; it prints no street, no postal code and no board, and locates itself only by a hotel's name. Upstream records no address for this entry either, so the only thing the page and the dataset share is Reno, which is already inside the venue's name.",
     "candidate": "https://www.basecampreno.com/"
   },
   {

@@ -30346,23 +30346,22 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "unverified",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "path-probe",
+     "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
