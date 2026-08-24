@@ -802,7 +802,15 @@ Calabogie, Ontario.
 **The newer TLDs** — .co, .club, .fit, .fitness, .studio, .site, .online,
 .space, .life, .io, .app, .me and .shop, over the venue's whole name, its first
 two words and its first word. 16,042 candidate hosts, 2,283 of them resolving,
-3,128 venue-and-candidate pairs read, and **not one new link**. Every hit is a
+3,128 venue-and-candidate pairs read, and **not one new link**.
+
+**The local climbing word.** The brand sweep joined each venue's distinctive
+word to an English one — climbing, gym, boulders. A German hall is likelier to
+be at boulderhalle-something.de and a Spanish one at rocodromo-something.es, so
+the same cross product was run in thirty countries' own vocabularies: 7,134
+hosts, 139 resolving, 156 pairs read, **one link** — BlocSchmiede in Magdeburg,
+which no English guess would have reached. Worth having run once; not worth
+running again. Every hit is a
 one-word domain that belongs to somebody else — urban.co, campus.app,
 academy.shop, power.studio. The single high score is elmuro.co, which is the
 Colombian local-news network the first pass had already rejected and which
