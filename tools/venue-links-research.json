@@ -1354,9 +1354,9 @@
     "name": "Stuntwerk Kirchheim",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Stuntwerk publishes six halls — Köln, Krefeld, Essen, Senden, Rosenheim and Duisburg — and Kirchheim is not among them; stuntwerk-kirchheim.de redirects to that location chooser. The only Kirchheim hall is TOP Boulder at Stuttgarter Straße 47, 900 m from this coordinate and already linked as its own entry. Which of the two coordinates is the hall cannot be settled from here.",
-    "candidate": "https://stuntwerk-kirchheim.de/"
+    "reason": "stuntwerk-kirchheim.de was this hall's own site — a snapshot from September 2025 carries \"STUNTWERK Kirchheim GmbH, Stuttgarter Straße 47, 73230 Kirchheim unter Teck\" and describes bouldering on the former Otto-Ficker site. Today the domain answers 301 to stuntwerk.de, whose own Standorte page lists Duisburg, Essen, Köln Mülheim, Köln Zollstock, Krefeld, Rosenheim, Senden and Troisdorf and no Kirchheim, and whose site search for the word returns nothing at all. That reads like a hall that closed, but nothing anywhere says so in words, so this is recorded as unverified rather than as closed. There is no live page to link.",
+    "candidate": "https://stuntwerk-kirchheim.de/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 49.9913901,
@@ -1403,9 +1403,9 @@
     "name": "Moonboard Horsens",
     "country": "DK",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "ojkk.dk is Østjysk Klatreklub, a climbing club whose contact address is \"8700 Horsens\" — the town this venue sits in. That is the only thing shared: the venue is called Moonboard Horsens, so the town is already inside its name, and the club's own name appears nowhere in the venue's. The club may well run this board; the page does not say so.",
-    "candidate": "https://www.ojkk.dk/"
+    "reason": "ojkk.dk is Østjysk Klatreklub, whose address is Torstedhallen, Søndergårdsalle 24, 8700 Horsens — the right town, about two kilometres west of this coordinate. Its club, membership and team pages were read and none of them names a MoonBoard, so the only thing tying it to this row is the town. One signal is not a match.",
+    "candidate": "https://www.ojkk.dk/",
+    "checked": "2026-08-24"
   },
   {
     "lat": -2.90054,
@@ -1757,36 +1757,6 @@
     "candidate": "https://lodge.com/"
   },
   {
-    "lat": 43.59922983452772,
-    "lon": 3.8663012940657744,
-    "name": "Boulder Line 3",
-    "country": "FR",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "The link this record carried, boulderline.fr/salles-escalade-montpellier-celleneuve/, is now 404 and the archive never captured it. The operator's site is live and its sitemap lists exactly one hall — salles-escalade-montpellier-castelnau, in Castelnau-le-Lez — with no Celleneuve page and no mention of 27 avenue de Toulouse, the address upstream records. The site is a Bubble application whose content does not render to a fetcher, so nothing further can be read from it. This may be a hall that has closed.",
-    "candidate": "https://boulderline.fr/"
-  },
-  {
-    "lat": 47.75067,
-    "lon": 7.31516,
-    "name": "Climbing Mulhouse Center",
-    "country": "FR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — mulhouse.fr → \"Accueil - Mulhouse\"; mulhouse.com → \"mulhouse.com Is For Sale - Synergy_Technologies_LLC\"; climbing.com → \"Climbing Magazine | Bouldering, Sport, Trad, and Alpine \", the rest could not be opened — climbing.fr → a certificate that does not cover its hostname. Upstream records 21 Rue des Brodeuses, 68200, Mulhouse, and nothing opened printed it.",
-    "candidate": "https://www.mulhouse.fr/"
-  },
-  {
-    "lat": 50.40532,
-    "lon": 2.90609,
-    "name": "Complex Maurice Thorez",
-    "country": "FR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — complex.fr → \"Holding - Complex Group\"; complex.com → \"Complex: Music, Sneakers, Style, Sports & Pop Culture\". Upstream records Rue du 8 Mai 1945, 62640, Rouvroy, and nothing opened printed it.",
-    "candidate": "https://complex.fr/"
-  },
-  {
     "lat": 45.91751,
     "lon": 6.85405,
     "name": "EMHM",
@@ -1929,16 +1899,6 @@
     "reason": "kendal.co.uk and kendal.uk answer with nothing that names a climbing venue, and kendal.com presents a certificate that does not cover its hostname. \"Kendal Board\" is a board in a town, not a business name — the Lakeland operator's KendalWall is a separate, already-curated venue."
   },
   {
-    "lat": 52.94775,
-    "lon": -1.17197,
-    "name": "Nottingham Climbing Centre Lenton",
-    "country": "GB",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Re-checked: nottingham.co.uk is the city portal the first pass correctly refused, nottingham.uk does not resolve and nottingham.com presents a certificate that does not cover its hostname. Nothing found names a centre in Lenton.",
-    "candidate": "https://nottingham.co.uk/"
-  },
-  {
     "lat": 50.73215039999999,
     "lon": -1.9407653,
     "name": "Smithys backyard Board",
@@ -1983,9 +1943,9 @@
     "name": "The Dunkeld Gym",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "dunkeld.co.uk carries nothing readable and dunkeld.com is a record shop. Nothing found names a gym in Dunkeld.",
-    "candidate": "https://dunkeld.com/"
+    "reason": "dunkeld.com carries the words of the guess and belongs to the village, not to the gym. Nothing on it names a climbing wall or this operator. The town-named sweep produces this shape of false positive wherever the place is small enough to hold the plain domain.",
+    "candidate": "https://dunkeld.com/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 49.465691,
@@ -2168,16 +2128,6 @@
     "checked": "2026-08-24",
     "reason": "OSM maps Bloc 87 m from this venue and tags it blocdublin.ie. The host answers with a challenge page and no content, on every header set tried, so nothing on the venue's own page has been read.",
     "candidate": "https://blocdublin.ie/"
-  },
-  {
-    "lat": 52.6835403,
-    "lon": -8.5782165,
-    "name": "Suas Climbing",
-    "country": "IE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "candidate": "https://suasclimbing.ie/",
-    "reason": "suasclimbing.ie is the centre's own domain and cannot be read: apex and www both answer 401, to an identifying User-Agent, to a plain browser one and to a second fetcher — the site is behind HTTP authentication. The suas.ie logged before now redirects to stand.ie, a Dublin charity 170 km away."
   },
   {
     "lat": 53.2884406,

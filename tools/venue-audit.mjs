@@ -62,6 +62,9 @@ export const CHANNELS = new Set([
   'apex', 'www', 'redirect', 'canonical', 'path-probe', 'name-guess',
   'osm-website-tag', 'operator-index', 'co-located', 'web-search',
   'booking-page', 'imprint', 'social-profile', 'venue-link', 'previous-record',
+  // A dated snapshot of the venue's own page. It may settle whose domain a
+  // host is when the live one refuses or has gone; it may never supply hours.
+  'archive',
 ]);
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;

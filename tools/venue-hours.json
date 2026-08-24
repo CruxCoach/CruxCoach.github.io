@@ -11551,6 +11551,31 @@
   "note": "The page's schema.org openingHoursSpecification states the same week."
  },
  {
+  "lat": 47.75067,
+  "lon": 7.31516,
+  "name": "Climbing Mulhouse Center",
+  "country": "FR",
+  "source": "https://www.cmc68.fr/FR/infos-pratiques/tarifs-acces-horaires.html",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Nos horaires d'ouverture — Du lundi au mercredi de 10h à 22h · Les jeudis et vendredis de 10h à 23h · Le samedi de 10h à 20h · Le dimanche de 10h à 19h",
+  "note": "One hall, one schedule, on the page the site itself calls Accès / Horaires. The lines beneath it — public holidays 13h to 19h and closed on 24, 25 and 31 December — are an exception list, not a second week."
+ },
+ {
   "lat": 47.2238304,
   "lon": -1.6413989,
   "name": "El Cap",
@@ -12861,6 +12886,32 @@
    "sun": "10:00-18:00"
   },
   "evidence": "Monday-Friday 10am-10pm | Saturday & Sunday 10am-6pm"
+ },
+ {
+  "lat": 52.94775,
+  "lon": -1.17197,
+  "name": "Nottingham Climbing Centre Lenton",
+  "country": "GB",
+  "source": "https://www.nottinghamclimbing.co.uk/lenton",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Lenton 3 Prospect Pl, Lenton, NG7 1RS — Mon-Wed-Fri 6:00 - 10:00pm, Tues/Thurs 9:00 - 10:00pm, Sat, Sun 9:00 - 8:00pm (and on the centres card: \"Mon, Wed, Fri: 6am-10pm, Tue, Thu: 9am-10pm, Sat-Sun: 9am-8pm\")",
+  "note": "The week is stated twice, once in a card and once in the footer, and the two agree — which also settles that the bare \"6:00\" of the footer is the morning. Each statement is headed by the branch address, so the New Basford week beside it cannot be mistaken for this one."
  },
  {
   "lat": 51.45496,

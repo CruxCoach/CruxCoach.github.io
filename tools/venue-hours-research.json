@@ -3708,10 +3708,10 @@
   "lon": 3.8663012940657744,
   "name": "Boulder Line 3",
   "country": "FR",
-  "status": "no-official-site",
-  "checked": "2026-08-24",
+  "status": "no-hours-on-official-site",
   "source": "https://boulderline.fr/",
-  "reason": "The hall's page on the operator's site is gone, so there is no page to read a schedule from."
+  "reason": "The bundle that holds every word of the page carries two time ranges, \"Happy hours 18h30 - 21h\" and \"Soirée (18h - 23h)\", and no day of the week beside either. There is no opening schedule on the site to read.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 44.899596273874344,
@@ -3744,22 +3744,14 @@
   "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 2,158 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
-  "lat": 47.75067,
-  "lon": 7.31516,
-  "name": "Climbing Mulhouse Center",
-  "country": "FR",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 50.40532,
   "lon": 2.90609,
   "name": "Complex Maurice Thorez",
   "country": "FR",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://ville-rouvroy62.fr/complexe-sportif-maurice-thorez",
+  "reason": "The page carries one weekly schedule — \"Lundi - Mardi - Mercredi - Vendredi : de 9h à 12h et de 14h à 17h30\" — and it sits under the heading Coordonnées beside \"Mairie de Rouvroy, 5 rue de la Mairie\". Those are the town hall's counter hours, printed in the sidebar of every page on the site. Nothing on the facility page states when the hall itself is open.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 46.2592589,
@@ -4072,15 +4064,6 @@
   "lat": 54.328006,
   "lon": -2.74629,
   "name": "Kendal Board",
-  "country": "GB",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 52.94775,
-  "lon": -1.17197,
-  "name": "Nottingham Climbing Centre Lenton",
   "country": "GB",
   "status": "no-official-site",
   "checked": "2026-08-23",

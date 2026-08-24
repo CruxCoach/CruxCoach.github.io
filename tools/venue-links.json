@@ -10228,6 +10228,21 @@
     "note": "Blocparty Climbing's own domain, printing the 06250 postal code and Mougins, and embedding a map of itself 208 m from this venue. This replaces the wpcomstaging.com host the earlier pass had recorded, which is the same site on its hosting provider's staging domain rather than its own."
   },
   {
+    "lat": 43.59922983452772,
+    "lon": 3.8663012940657744,
+    "name": "Boulder Line 3",
+    "country": "FR",
+    "website": "https://boulderline.fr/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The site is a Bubble application and serves an empty frame; the one address in its bundle is the string \"27 Avenue de Toulouse, Montpellier\", which is upstream's address for this row word for word. The operator also runs a Castelnau hall, and no second address appears anywhere in the bundle."
+  },
+  {
     "lat": 44.899596273874344,
     "lon": 6.63972697236616,
     "name": "Briançon escalade",
@@ -10366,6 +10381,38 @@
       "location-page",
       "board-mention"
     ]
+  },
+  {
+    "lat": 47.75067,
+    "lon": 7.31516,
+    "name": "Climbing Mulhouse Center",
+    "country": "FR",
+    "website": "https://www.cmc68.fr/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "cmc68.fr is titled \"CMC Climbing Mulhouse Center : salle d'escalade indoor/outdoor - Mulhouse\" and its footer gives \"21 rue des brodeuses 68200 Mulhouse\", which is upstream's address complete with the postcode. The town-named guess that had been tried, mulhouse.fr, is the city's own portal."
+  },
+  {
+    "lat": 50.40532,
+    "lon": 2.90609,
+    "name": "Complex Maurice Thorez",
+    "country": "FR",
+    "website": "https://ville-rouvroy62.fr/complexe-sportif-maurice-thorez",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The commune of Rouvroy gives the complex a page of its own at \"rue du 8 mai 1945 - 62320 Rouvroy\" and lists what it contains, including \"1 salle d'escalade Jean Haja, avec vestiaire, douche et local de rangement\". Upstream's street and commune match; its postcode, 62640, does not — that is the neighbouring commune, and the coordinate falls in Rouvroy."
   },
   {
     "lat": 46.2592589,
@@ -11477,6 +11524,22 @@
     "note": "Upstream carries no address for this entry; the centre's York Road resolves to within 30 m of it."
   },
   {
+    "lat": 52.94775,
+    "lon": -1.17197,
+    "name": "Nottingham Climbing Centre Lenton",
+    "country": "GB",
+    "website": "https://www.nottinghamclimbing.co.uk/lenton",
+    "verified": "2026-08-24",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator runs two Nottingham halls and gives each a route. This one is Lenton, 3 Prospect Pl, NG7 1RS, which is where the coordinate falls; the other is New Basford on Noel Street, two kilometres north. nottingham.co.uk, the guess a town-named sweep had produced, is a city portal."
+  },
+  {
     "lat": 50.93992,
     "lon": -1.47019,
     "name": "Parthian Climbing Southampton",
@@ -12260,6 +12323,20 @@
       "street-address",
       "city"
     ]
+  },
+  {
+    "lat": 52.6835403,
+    "lon": -8.5782165,
+    "name": "Suas Climbing",
+    "country": "IE",
+    "website": "https://suasclimbing.ie/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "suasclimbing.ie answers 403 to us but resolves and is not gone. A snapshot of it reads \"Suas Climbing Centre is ideally situated to service the entire Midwest\" and \"COME FIND US Burlington Est Corbally, Co Limerick\" — the venue's own site, which is all a snapshot is allowed to settle. The link points at the live address; no hours are taken from it."
   },
   {
     "lat": 53.401674,
