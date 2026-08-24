@@ -763,6 +763,13 @@ with the domain still resolving, which is the tell. Five were real: four had
 moved and were repointed, and Boulder Line 3 lost its link because Boulderline's
 sitemap now lists one hall and it is not that one.
 
+Run again after this pass, over 1,349 distinct links: 1,301 answered, none is
+gone, and the 48 that did not answer all resolve. Half of those are two
+operators — Touchstone's six halls and First Ascent's four — behind the same
+edge, and the rest are single 403s, a 500 and four hosts that time out. Nothing
+in that list needs a decision; it is the same wall the hours side runs into,
+recorded so the next pass does not mistake it for rot.
+
 ### Reading the venue's own page from a snapshot
 
 Some sites answer 403 to everything. Boulderhaus, Maniak, Touchstone, First
