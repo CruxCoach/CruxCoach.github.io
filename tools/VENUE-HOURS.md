@@ -273,6 +273,33 @@ Swoboda Alpin prints a week and says card holders may come from 6. There the
 venue has stated its hours and then described a key some people also have. The
 stated hours are what gets published.
 
+### A 403 is often a challenge, not a refusal
+
+Ten Touchstone halls, three Den Haag halls, Kletterzentrum Innsbruck, Bloc in
+Dublin, Vertical Ventures St Pete and Pinnacle in Bowmanville were all recorded
+the same way: *the host answers 403 to every fetcher and header set, so the week
+cannot be read*. Every one of them was wrong, and in the same way.
+
+What those hosts sit behind is a challenge that expires, not a rule that refuses.
+Four things together get past it:
+
+- a real browser's `user-agent`, plus `accept-language` and an `accept` header;
+- `fetch`, not `curl` — the TLS fingerprint differs and it matters;
+- **retries**, three or four, a few seconds apart. The first attempt usually
+  fails and the third usually does not;
+- treating a 200 whose body says *Just a moment… Enable JavaScript and cookies*
+  as a failure, so a retry happens instead of a page being recorded as empty.
+
+`tools/venue-hours-conflict.mjs` still reads such a page as "prints no time at
+all", because it fetches once with its own user-agent. That line is a fetch
+result, not a finding about the venue.
+
+The other half of the lesson is what was behind the wall. Touchstone's ten halls
+disagree with each other: Great Western closes at 4pm at the weekend and
+Dogpatch at 7; Dogpatch and Pacific Pipe stay open an hour later on Tuesday and
+Thursday, The Post does the reverse and shortens Friday. A chain-level week
+would have been wrong for nine of them.
+
 ### Ask the site which pages it has
 
 Every hunt in this file guessed paths — `/hours`, `/kontakt`, `/oeffnungszeiten`,
@@ -554,16 +581,16 @@ maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (published + outcome entries) | 2190 |
-| Published schedules | 1169 |
-| Recorded outcomes without hours | 1021 |
+| Published schedules | 1194 |
+| Recorded outcomes without hours | 996 |
 | Countries covered | 54 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Every eligible venue has been reviewed for hours — 2190 of 2191, the one
 exception being a venue at coordinates 0,0 that no resolver can place.
 
-Outcomes without hours: 531 `no-official-site`, 195
-`no-hours-on-official-site`, 121 `ambiguous`, 90 `seasonal`, 50 `inaccessible`,
+Outcomes without hours: 531 `no-official-site`, 189
+`no-hours-on-official-site`, 120 `ambiguous`, 88 `seasonal`, 34 `inaccessible`,
 27 `appointment-only`, 4 `closed`, 3 `private`.
 
 Per-country coverage of eligible (public/commercial) venues (top 30):

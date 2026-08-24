@@ -6068,10 +6068,10 @@
   "lon": 5.9407413,
   "name": "Skakke",
   "country": "NO",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://skakke.no/",
-  "reason": "No schedule appears on the site: the pages that were opened carry contact details, news and course notices and no opening times."
+  "status": "seasonal",
+  "source": "https://skakke.no/opningstider/",
+  "reason": "Correcting \"no schedule appears on the site\". There is one, on a page the guessed paths missed and the home page links to by name: \"Opningstider i skuleåret: Måndag – fredag 08.30 – 20.30, Laurdag 11.00-14.00, Søndag: Ope i kinotida.\" Two things stop it being a week. It is labelled for the school year, and a note beside it gives a different summer regime — open in the cinema hours, Tuesday and Thursday daytime, Wednesday and Sunday evenings. And Sunday is never a time at all: it is whenever the cinema is showing.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 61.23072478430315,
