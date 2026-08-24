@@ -1483,16 +1483,6 @@
   "reason": "Re-read, and the earlier 'no schedule' reading was incomplete: the homepage states 'Das Bouldergate kann von den Mitgliedern 24/7 benutzt werden' and tells non-members 'Registriere dich vor JEDEM Besuch'. Access is by membership or per-visit registration, and no public week is stated."
  },
  {
-  "lat": 46.6274,
-  "lon": 7.06666,
-  "name": "L'Entrepôt",
-  "country": "CH",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://lentrepot.ch/infos-pratiques/",
-  "reason": "Same hall as the venue about 60 m away, and the same conflict: 09h00-20h00 at the weekend in the text, 09:00-22:00 every day in the page's own markup."
- },
- {
   "lat": 47.07702,
   "lon": 6.7591,
   "name": "La Déglingue",
@@ -1529,16 +1519,6 @@
   "checked": "2026-08-23",
   "source": "https://www.vengabloc.ch/",
   "reason": "Re-read, and the earlier 'no schedule' reading was wrong: the site does publish a window, but it is members-only - 'Les membres ... peuvent accéder librement (grâce à une carte magnétique) ... entre 8:00 et 22:00 tous les jours'. Non-members are told to come with a member or to phone or WhatsApp a committee member to be let in remotely."
- },
- {
-  "lat": 46.19127,
-  "lon": 6.11122,
-  "name": "Planet Climbing Lancy",
-  "country": "CH",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://planetclimbing.ch/lancy/heures-douverture-et-tarifs/",
-  "reason": "Same hall as the venue about 50 m away, and the same conflict between the page's visible times (12h00-22h00 on weekdays) and its own markup (10:00-22:00)."
  },
  {
   "lat": 47.2242898,
@@ -3492,10 +3472,10 @@
   "lon": -3.80091,
   "name": "The Climb Madrid",
   "country": "ES",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
+  "status": "seasonal",
+  "checked": "2026-08-24",
   "source": "https://theclimb.es/horarios-y-precios-centro-de-escalada-madrid/",
-  "reason": "Same hall as the venue about 12 m away, and the same conflict: a visible weekly table against a Monday–Sunday 09:00-17:00 markup placeholder, with an August-only Saturday row on top."
+  "reason": "The same hall as The Climb entry about 12 m away, and the same finding: with the markup no longer counted against it, what blocks the week is August. The table gives a normal week and then overrides two days — \"Sábados AGOSTO 9:00 - 17:00\" and \"Domingos AGOSTO CERRADO\" — and the override is in force on the day the page is read and expires within the week."
  },
  {
   "lat": 42.1737408,
@@ -4170,16 +4150,6 @@
   "checked": "2026-08-23",
   "source": "https://rainbowrocket.cc/centre/north/",
   "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 295,616 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
- },
- {
-  "lat": 51.58198,
-  "lon": -1.754,
-  "name": "Rockstar Climbing & Bouldering",
-  "country": "GB",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. Same hall as the venue about 20 m away, and the same conflict: 10:30 on the page, 06:30 in its markup.",
-  "source": "https://www.rockstarclimbing.co.uk/"
  },
  {
   "lat": 50.73215039999999,

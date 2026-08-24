@@ -5387,6 +5387,32 @@
   "note": "Two bands covering all seven days. The page's own openingHoursSpecification gives all seven 09:00-22:00, which is the weekday band applied to the weekend. Recorded ambiguous until the rule was written down: an openingHours block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
+  "lat": 46.6274,
+  "lon": 7.06666,
+  "name": "L'Entrepôt",
+  "country": "CH",
+  "source": "https://lentrepot.ch/infos-pratiques/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "co-located"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Du lundi au vendredi 09h00 à 22h00 … Samedi et dimanche 09h00 à 20h00",
+  "note": "The same hall as the L'Entrepôt entry about 60 m away, which carries this week. The page's own openingHoursSpecification applies the weekday band to the weekend; the text is the statement."
+ },
+ {
   "lat": 46.54329,
   "lon": 6.62947,
   "name": "Le Cube - Escalade & Bar",
@@ -5655,6 +5681,33 @@
   },
   "evidence": "Lundi, Mardi, Mercredi, Jeudi & Vendredi : 12h00-22h00 … Samedi & Dimanche : 14h00-21h00",
   "note": "Stated on the operator's page for its Lancy hall. The markup on that same page opens the weekdays two hours earlier, at 10:00. Recorded ambiguous until the rule was written down: an openingHours block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
+  "lat": 46.19127,
+  "lon": 6.11122,
+  "name": "Planet Climbing Lancy",
+  "country": "CH",
+  "source": "https://planetclimbing.ch/lancy/heures-douverture-et-tarifs/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "co-located",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "14:00-21:00",
+   "sun": "14:00-21:00"
+  },
+  "evidence": "Lundi, Mardi, Mercredi, Jeudi & Vendredi : 12h00-22h00 … Samedi & Dimanche : 14h00-21h00",
+  "note": "The same hall as the Planet Climbing Lancy entry about 50 m away, which carries this week. The markup on the page opens the weekdays two hours earlier; the text is the statement."
  },
  {
   "lat": 46.16612,
@@ -12824,6 +12877,32 @@
   },
   "evidence": "Centre Buildings 3-5, The I.O Centre Radway Road, Swindon Wiltshire SN3 4WH … Opening Hours Monday to Friday 10:30-22:00 Saturday & Sunday 09:00-18:00",
   "note": "Two bands covering all seven days, stated beneath the centre's address. Its schema.org openingHours opens the weekdays four hours earlier, at 06:30. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
+  "lat": 51.58198,
+  "lon": -1.754,
+  "name": "Rockstar Climbing & Bouldering",
+  "country": "GB",
+  "source": "https://www.rockstarclimbing.co.uk/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city",
+   "co-located"
+  ],
+  "hours": {
+   "mon": "10:30-22:00",
+   "tue": "10:30-22:00",
+   "wed": "10:30-22:00",
+   "thu": "10:30-22:00",
+   "fri": "10:30-22:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Opening Hours Monday to Friday 10:30-22:00 Saturday & Sunday 09:00-18:00",
+  "note": "The same hall as the Rockstar Climbing entry about 20 m away, which carries this week. The page's markup opens the weekdays at 06:30; the text is the statement."
  },
  {
   "lat": 52.40906,
