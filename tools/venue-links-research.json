@@ -2173,10 +2173,9 @@
     "lon": -1.9407653,
     "name": "Smithys backyard Board",
     "country": "GB",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "smithys.co.uk and smithys.uk present certificates that do not cover their hostnames and smithys.com is a placeholder. \"Smithys backyard Board\" is a private board.",
-    "candidate": "https://smithys.com/"
+    "status": "private",
+    "checked": "2026-08-24",
+    "reason": "A surname and a back garden. This is somebody's home wall, not a venue with a website, and this audit does not attach a link to one."
   },
   {
     "lat": 52.40906,
@@ -5724,9 +5723,9 @@
     "lon": -76.4415,
     "name": "Gary's Garage",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for Gary's Garage, Lexington Park was bouldergarage.it, a bouldering gym in Italy — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
+    "status": "private",
+    "checked": "2026-08-24",
+    "reason": "A personal name and a garage, and the dataset says the rest: where a street belongs, upstream records \"reservation only\". This is somebody's home wall, not a venue with a website, and this audit does not attach a link to one."
   },
   {
     "lat": 40.88057,
@@ -6858,10 +6857,9 @@
     "lon": -84.17964,
     "name": "Winchester Board (Private)",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "winchester.com is a generic town-name domain and not this board; upstream marks the venue \"(Private)\" and records no address, so there is nothing to match a page against.",
-    "candidate": "https://winchester.com/"
+    "status": "private",
+    "checked": "2026-08-24",
+    "reason": "The entry says so itself: the venue name ends in \"(Private)\". A home wall is not a venue with a website, and this audit does not attach a link to one. The coordinate is also within 40 m of the standard point for the town of Winchester, so it locates the town rather than the wall."
   },
   {
     "lat": 42.35458,
