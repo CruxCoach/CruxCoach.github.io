@@ -9915,6 +9915,21 @@
     "note": "BoulderSaimaa's own site, naming the MoonBoard this venue is listed for. Upstream records no street for it."
   },
   {
+    "lat": 62.2426034,
+    "lon": 25.7472567,
+    "name": "Jyväskylän Kiipeilykeskus",
+    "country": "FI",
+    "website": "https://www.xn--jyvskylnkiipeilykeskus-24be.fi/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gym's domain is its own name with the umlauts intact, which is why a Latin-alphabet guess never reached it. Its page is titled \"Etusivu | Jyväskylän Kiipeilykeskus\" and gives \"Seminaarinkatu 15, 40100 Jyväskylä\"; this coordinate is 40100 Jyväskylä as well, 800 m away in the same postcode."
+  },
+  {
     "lat": 64.99112,
     "lon": 25.45804,
     "name": "Kaamos Climbing",

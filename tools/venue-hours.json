@@ -11542,6 +11542,32 @@
   "note": "The all-locations page groups its gyms by name — Pasila, Konala and Herttoniemi in one block, Espoo and Flash in another."
  },
  {
+  "lat": 62.2426034,
+  "lon": 25.7472567,
+  "name": "Jyväskylän Kiipeilykeskus",
+  "country": "FI",
+  "source": "https://www.xn--jyvskylnkiipeilykeskus-24be.fi/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "15:00-20:00",
+   "tue": "13:00-20:00",
+   "wed": "12:00-20:00",
+   "thu": "13:00-20:00",
+   "fri": "12:00-20:00",
+   "sat": "12:00-18:00",
+   "sun": "12:00-16:00"
+  },
+  "evidence": "Aukioloajat — Maanantai klo 15-20 · Tiistai ja Torstai klo 13-20 · Keskiviikko ja Perjantai klo 12-20 · Lauantai klo 12-18 · Sunnuntai klo 12-16",
+  "note": "Five lines covering seven days, with Tuesday paired to Thursday and Wednesday to Friday rather than in order. The 24/7 pass the site also sells is a membership, not a second opening."
+ },
+ {
   "lat": 64.99112,
   "lon": 25.45804,
   "name": "Kaamos Climbing",

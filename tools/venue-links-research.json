@@ -1609,15 +1609,6 @@
     "candidate": "https://worldclimbing.com/"
   },
   {
-    "lat": 62.2426034,
-    "lon": 25.7472567,
-    "name": "Jyväskylän Kiipeilykeskus",
-    "country": "FI",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
     "lat": 66.49311399999999,
     "lon": 25.6829523,
     "name": "Kiipeilykeskus Väki",
@@ -1643,8 +1634,9 @@
     "name": "Nummelan Kiipeilyverstas",
     "country": "FI",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — www.kiipeilyverstas.fi → no answer. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "The gazetteer has an object 7 m from this coordinate tagged kiipeilyverstas.fi, which would be the venue's own domain — but the host does not answer, on either scheme, with or without the www. A tag is a pointer and never evidence, so with nothing to read there is nothing to link. The coordinate is on Juurakkotie in 03100, which is Nummela.",
+    "candidate": "https://www.kiipeilyverstas.fi/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 60.0970945,
@@ -1691,8 +1683,9 @@
     "name": "Karma Fontainebleau",
     "country": "FR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — karma.ffme.fr → no answer; karma.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "The gazetteer has an object 27 m from this coordinate tagged karma.ffme.fr — a club site on the French federation's domain, which would be exactly right for a Fontainebleau wall. It does not answer on either scheme. The coordinate is on Route Militaire in 77300.",
+    "candidate": "http://karma.ffme.fr/",
+    "checked": "2026-08-24"
   },
   {
     "lat": 48.87699,
