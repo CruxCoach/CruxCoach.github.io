@@ -4511,6 +4511,32 @@
   "note": "This is the public opening; the gym separately gives members 24/7 access, which is not published here. The site's own markup states the identical week (Mo-Fr 16:00-22:00, Sa-Su 10:00-20:00), so the two agree."
  },
  {
+  "lat": 43.7951617,
+  "lon": -79.5422165,
+  "name": "RockHaus",
+  "country": "CA",
+  "source": "https://rockhausclimbing.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "coordinates",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Monday - Friday 12pm - 10pm Saturday - Sunday 10am - 9pm",
+  "note": "In the footer, above the copyright line and beside \"167 Chrislea Road, Unit 5, Vaughan, Ontario L4L 8N6\" — an address the page also states as structured data with latitude 43.7951617, eleven metres from this coordinate. The earlier read recorded no week here; the line sits in a div carrying two dozen generated class names, which is the kind of place a reader loses it."
+ },
+ {
   "lat": 45.48457,
   "lon": -73.46174,
   "name": "Rose Bloc Brossard",
