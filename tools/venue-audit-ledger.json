@@ -4531,7 +4531,8 @@
     "pass": "2026-08-24",
     "result": "inaccessible",
     "channels": [
-     "venue-link"
+     "venue-link",
+     "previous-record"
     ]
    }
   },
@@ -7387,14 +7388,15 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-24",
     "result": "unverified",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "osm-website-tag",
-     "co-located"
+     "co-located",
+     "archive"
     ]
    },
    "hours": {
@@ -17042,7 +17044,7 @@
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "inaccessible",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -20535,10 +20537,10 @@
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "inaccessible",
+    "result": "no-hours-on-official-site",
     "channels": [
      "venue-link",
-     "path-probe"
+     "previous-record"
     ]
    }
   },
@@ -27468,9 +27470,10 @@
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "inaccessible",
+    "result": "accepted",
     "channels": [
-     "venue-link"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -28559,9 +28562,10 @@
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "inaccessible",
+    "result": "ambiguous",
     "channels": [
-     "venue-link"
+     "venue-link",
+     "previous-record"
     ]
    }
   },
@@ -33167,7 +33171,7 @@
     "result": "inaccessible",
     "channels": [
      "venue-link",
-     "path-probe"
+     "previous-record"
     ]
    }
   },
@@ -33275,7 +33279,7 @@
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "inaccessible",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -33303,7 +33307,7 @@
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "inaccessible",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -35229,7 +35233,7 @@
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "inaccessible",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -36575,10 +36579,10 @@
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "inaccessible",
+    "result": "no-hours-on-official-site",
     "channels": [
      "venue-link",
-     "path-probe"
+     "previous-record"
     ]
    }
   },

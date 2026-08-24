@@ -1016,9 +1016,9 @@
   "name": "Grand River Rocks Waterloo",
   "country": "CA",
   "status": "inaccessible",
-  "checked": "2026-08-24",
   "source": "https://grandriverrocks.com/waterloo/",
-  "reason": "The gym has a page of its own and the host blocks this machine by location, so its week cannot be read live. The snapshot that settled the link carries one; a week is not taken from a snapshot."
+  "reason": "The host now answers, and what it answers with is a block page: \"Access Restricted · IP Location Block ... The website owner has enabled geographic access controls. Your current location is not on their list of permitted regions, so the request was blocked before it reached the site.\" Nothing of the gym's own page is served to this reader.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 49.7016339,
@@ -4544,16 +4544,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 45.6139298,
-  "lon": 8.929656399999999,
-  "name": "Ikigai Climbing",
-  "country": "IT",
-  "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.ikigai-climbing.it/",
-  "reason": "The page has three headings reading \"Orari di apertura:\" and not one day of the week anywhere in its markup — no lunedì, no martedì, nothing. The schedule is in the images beside those headings, so it is unread rather than absent."
- },
- {
   "lat": 41.4833353,
   "lon": 12.8580469,
   "name": "Junglerock",
@@ -5544,9 +5534,9 @@
   "lon": 76.8762,
   "name": "Cozy Rock",
   "country": "KZ",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "source": "https://cozyrock.kz/",
-  "reason": "The site is a React frame whose bundle carries no Russian text at all — every word a visitor reads arrives from an API this audit cannot address, and the paths that would hold a schedule all return the same frame. The title and meta tags are enough to say whose site it is and no more.",
+  "reason": "The domain serves a React application, and reading its bundle settles what the application is: /api/login, /api/tickets, /api/report_income, /api/services/trainer — a members' back office, not a public page. It is titled for the gym and names the first Kilter Board in Kazakhstan, but it publishes no schedule at all, only a sign-in.",
   "checked": "2026-08-24"
  },
  {
@@ -7402,16 +7392,6 @@
   "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 57,029 characters carrying 288 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
-  "lat": 59.2903756,
-  "lon": 18.0162502,
-  "name": "Karbins Moonboard",
-  "country": "SE",
-  "status": "inaccessible",
-  "source": "https://karbin.com/",
-  "reason": "The hall has a site and it answers 403 to this audit on every path, so its week cannot be read live; the snapshot that settled the address may not supply one.",
-  "checked": "2026-08-24"
- },
- {
   "lat": 55.5870295,
   "lon": 13.0544454,
   "name": "Klättercentret Malmö",
@@ -7661,9 +7641,9 @@
   "lon": 17.8689204,
   "name": "Rebelia",
   "country": "SK",
-  "status": "inaccessible",
+  "status": "ambiguous",
   "source": "https://www.rebelia.me/",
-  "reason": "The host is behind a firewall that refuses this machine outright. The snapshot that settled the address carries a week — weekdays 06:00-15:00 then 15:00-20:00, weekends 08:00-12:00 then 12:00-20:00, with the later half of each day marked \"vstup iba s trénerom\", entry only with a trainer — and a week is not taken from a snapshot, still less one that would need that condition read into it.",
+  "reason": "The footer states \"Pondelok - Piatok 06:00 - 15:00 / 15:00 - 20:00 (vstup iba s trénerom)\" and \"Sobota - Nedeľa 08:00 - 12:00 / 12:00 - 20:00 (vstup iba s trénerom)\". Each day is two windows and the later one can only be entered with a trainer. Publishing 06:00-20:00 would promise a door that is not open on its own terms, and publishing 06:00-15:00 would drop hours the centre says it keeps.",
   "checked": "2026-08-24"
  },
  {
@@ -8721,9 +8701,9 @@
   "name": "Hudson Boulders",
   "country": "US",
   "status": "inaccessible",
-  "checked": "2026-08-24",
   "source": "https://hudsonboulders.com/",
-  "reason": "The gym's own site answers 403 to every fetcher and header set, so its week cannot be read, and it is not taken from the snapshot the link rests on."
+  "reason": "The home page answers 200 but is cut off after the navigation, and /first-visit/, /contact/ and /rates/ — the three pages a gym keeps its hours on — each answer 403. No page that could carry a week can be read.",
+  "checked": "2026-08-24"
  },
  {
   "lat": 37.48421,
@@ -8753,26 +8733,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 35.2270869,
-  "lon": -80.8431267,
-  "name": "Inner Peaks Climbing",
-  "country": "US",
-  "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://innerpeaks.com/south-end/",
-  "reason": "The gym's own site answers 403 to every fetcher and header set. Its week is legible in an archived copy — Monday to Thursday 6 AM – 10 PM, Friday 10 AM – 10 PM, Saturday 10 AM – 8 PM, Sunday 9 AM – 7 PM — and is not taken from it, because a schedule is what changes between a snapshot and today."
- },
- {
-  "lat": 35.24204,
-  "lon": -80.82522,
-  "name": "Inner Peaks NoDa",
-  "country": "US",
-  "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://innerpeaks.com/noda/",
-  "reason": "The gym's own site answers 403 to every fetcher and header set. Its week is legible in an archived copy — Monday to Thursday 6 AM – 10 PM, Friday 10 AM – 10 PM, Saturday and Sunday 10 AM – 8 PM — and is not taken from it."
  },
  {
   "lat": 40.7876564,
@@ -9246,16 +9206,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 32.21775,
-  "lon": -110.96115,
-  "name": "Rocks and Ropes Tucson",
-  "country": "US",
-  "status": "inaccessible",
-  "source": "https://rocksandropes.com/downtown",
-  "reason": "Both pages are Squarespace sections whose text lives outside mainContent: the home page renders to 171 characters and the downtown page to 1,540, which is enough for the two addresses in the footer and nothing else. Neither the rendered text nor the raw document contains a single time range, so the week is unread rather than absent.",
-  "checked": "2026-08-24"
- },
- {
   "lat": 30.267153,
   "lon": -97.7430608,
   "name": "SARG",
@@ -9479,9 +9429,9 @@
   "lon": -101.88363,
   "name": "Texas Tech University",
   "country": "US",
-  "status": "inaccessible",
-  "source": "https://www.depts.ttu.edu/recreation/facilities/hours.php",
-  "reason": "The page is headed UNIVERSITY RECREATION FACILITY HOURS AND COUNTS and holds not one time. Its schedule and its occupancy figures both arrive from a live component this reader does not get, so the week is unread rather than absent — the only clock time in the whole document is a note about early-bird swimming below 60 degrees at 6am.",
+  "status": "no-hours-on-official-site",
+  "source": "https://www.depts.ttu.edu/recreation/opc/climbingwall.php",
+  "reason": "The climbing wall page refers twice to \"regular Climbing Wall hours\" and never states them — it offers free Open Bouldering \"outside of regular Climbing Wall hours\" without saying what those are. The department's own hours page renders a fullcalendar widget fed by gcal.js, so it carries no stated week either.",
   "checked": "2026-08-24"
  },
  {

@@ -14707,6 +14707,30 @@
   "note": "The bar closes half an hour after the hall on both rows."
  },
  {
+  "lat": 45.6139298,
+  "lon": 8.929656399999999,
+  "name": "Ikigai Climbing",
+  "country": "IT",
+  "source": "https://www.ikigai-climbing.it/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:30",
+   "tue": "10:00-22:30",
+   "wed": "10:00-22:30",
+   "thu": "10:00-22:30",
+   "fri": "10:00-22:30",
+   "sat": "10:00-19:30",
+   "sun": "10:00-19:30"
+  },
+  "evidence": "Lun - Ven 10:00 / 22:30 Orari Sala arrampicata 10:00 / 23:00 Orari Bar 10:00 / 23:30 Orari Palestra Sab - Dom 10:00 / 19:30 Orari Sala arrampicata 10:00 / 19:30 Orari Bar 10:00 / 20:00 Orari Palestra",
+  "note": "Three scopes under one heading, each a time then its label: the climbing hall, the bar and the fitness room close at different times. The board is in the Sala arrampicata, so that is the week taken; the bar half an hour later and the fitness room an hour later are the other two rooms, not this one."
+ },
+ {
   "lat": 46.01495,
   "lon": 11.87572,
   "name": "IL DADO",
@@ -18229,6 +18253,30 @@
    "sun": "09:00-19:00"
   },
   "evidence": "ÖPPETTIDER: | Mån–Tor: 11–21 | Fre: 11–19 | Lör–Sön: 09–19 | 83771 Duved"
+ },
+ {
+  "lat": 59.2903756,
+  "lon": 18.0162502,
+  "name": "Karbins Moonboard",
+  "country": "SE",
+  "source": "https://karbin.com/oppettider/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Öppettider för Vecka 35 . Idag har vi öppet från 09:00 till 22:00 måndag – fredag 09:00 – 22:00 lördag – söndag 09:00 – 21:00 Avvikande Öppettider Alla Helgons dag 2026-10-31 09:00 – 21:00 Julafton 2026-12-24 11:00 – 15:00 Juldagen 2026-12-25 11:00 – 15:00 Annandag jul 2026-12-26 09:00 – 21:00 Nyårsafton 2026-12-31 11:00 – 15:00",
+  "note": "The widget heads the block with the current week number, which is why it reads as dated, but the hall lists its deviations separately and by date — five of them, running to New Year's Eve. A page that enumerates when the week does not apply is stating the week that does."
  },
  {
   "lat": 56.0597542,
@@ -22948,6 +22996,55 @@
   "note": "Two bands covering all seven days."
  },
  {
+  "lat": 35.2270869,
+  "lon": -80.8431267,
+  "name": "Inner Peaks Climbing",
+  "country": "US",
+  "source": "https://innerpeaks.com/south-end/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "Inner Peaks South End Est. 2015 Hours Monday – Thursday: 6 AM – 10 PM Friday: 10 AM – 10 PM Saturday: 10 AM* – 8 PM Sunday: 9 AM – 7 PM *saturday Members only hours: 8 am – 10 am",
+  "note": "The location page for this hall, address 2220 S Tryon St. The asterisk on Saturday opens the door two hours earlier for members only; the hall states its Saturday hours as 10 AM, so that is what a visitor gets."
+ },
+ {
+  "lat": 35.24204,
+  "lon": -80.82522,
+  "name": "Inner Peaks NoDa",
+  "country": "US",
+  "source": "https://innerpeaks.com/noda/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "city"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Inner Peaks NoDa Est. 2024 Hours Monday: 6 AM – 10 PM Tuesday: 6 AM – 10 PM Wednesday: 6 AM – 10 PM Thursday: 6 AM – 10 PM Friday: 10 AM – 10 PM Saturday — Sunday: 10 AM – 8 PM",
+  "note": "The NoDa location page, address 1837 N Tryon St. Four weekdays written out one by one, then Friday, then the weekend as a pair."
+ },
+ {
   "lat": 42.82739,
   "lon": -85.67922,
   "name": "Inside Moves",
@@ -25213,6 +25310,30 @@
   },
   "evidence": "ROCKREATION LA | 11866 La Grange Ave. | Los Angeles, CA 90025 | Los Angeles Gym Hours | Monday: 12 PM 10 PM | Tuesday: 6 AM 10 PM | Wednesday: 12 PM 10 PM | Thursday: 6 AM 10 PM | Friday: 12 PM 10 PM | Saturday: 10 AM 4 PM | Sunday: 10 AM 4 PM",
   "note": "The operator runs two gyms and publishes a block for each; this is the Los Angeles one."
+ },
+ {
+  "lat": 32.21775,
+  "lon": -110.96115,
+  "name": "Rocks and Ropes Tucson",
+  "country": "US",
+  "source": "https://rocksandropes.com/downtownfaqs",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "What are your hours? We are open to the public 7 days a week: Monday - Friday 12:00pm - 10:00pm Saturday - Sunday 9:00am - 8:00pm Members get early access on weekdays- 6:00am- 12:00pm",
+  "note": "The Downtown location prints no hours on its own page; the Downtown FAQ, one of the four /downtown* pages, answers the question directly. The members' six-hour head start on weekdays is an extra key, not the public week, and the gym says so in the same breath."
  },
  {
   "lat": 38.2526647,
