@@ -2669,6 +2669,22 @@
     "note": "The site prints \"Atelier Bloc 4370 Boul. Royal Shawinigan QC G9N7X7\" — the street, town and postal code upstream records — and its embedded map sits 20 m from the venue."
   },
   {
+    "lat": 45.47917,
+    "lon": -73.78284,
+    "name": "Beta Bloc",
+    "country": "CA",
+    "website": "https://www.betabloc.ca/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "OSM maps an object called Beta Bloc 16 m from this venue and tags it with this domain; that pointed at the site, and the site is what confirms it. The live host answers 403 to every fetcher, so the page was read from a snapshot of 10 June 2026, which prints \"Hymus, Dorval, QC, H9P 1J7\" — upstream's street, town and postal code. A snapshot settles whose domain this is and nothing else; no hours are taken from it."
+  },
+  {
     "lat": 48.42601,
     "lon": -71.06895,
     "name": "Beta Crux",

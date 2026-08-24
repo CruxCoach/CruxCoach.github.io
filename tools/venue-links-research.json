@@ -511,16 +511,6 @@
     "candidate": "https://basecampclimbing.ca/"
   },
   {
-    "lat": 45.47917,
-    "lon": -73.78284,
-    "name": "Beta Bloc",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — betacrux.ca → \"Beta Crux - Escalade - Église Christ-Roi à Saguenay, Qué\"; betaboulders.nl → \"Beta Boulders Amsterdam\"; betaboulders.com → \"Home | Beta Boulders Copenhagen\", the rest could not be opened — beta.ca → 200; betabloc.ca → 403; betabloc.com → a timeout, the venue's whole name as one label, betabloc.ca, answers 403 (\"Just a moment...\") but its pages print no street, postal code or town matching this venue. Upstream records 2180 Hymus Blvd, H9P 1J7, Dorval, and nothing opened printed it.",
-    "candidate": "https://betacrux.ca/"
-  },
-  {
     "lat": 44.24383,
     "lon": -76.51328,
     "name": "Boiler Room",
@@ -3855,9 +3845,9 @@
     "name": "Boulderhal de Campus",
     "country": "NL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.campusboulderhalle.de → \"Campus Boulderhalle\"; campusescalade.com → \"Accueil | Campus Escalade\"; www.thecampusclimbingandtraining.com → \"The Campus Climbing and Training | Climbing Gym | 4699 N\", the rest could not be opened — www.boulderhaldecampus.nl → 403; boulderhal.nl → 200, the venue's whole name as one label, boulderhaldecampus.nl, answers 403 (\"Just a moment...\") but its pages print no street, postal code or town matching this venue. Upstream records Kerketuinenweg 55, 2544CV, Den Haag, and nothing opened printed it.",
-    "candidate": "https://www.campusboulderhalle.de/"
+    "checked": "2026-08-24",
+    "reason": "OSM maps an object called Boulderhal de Campus 11 m from this venue and tags it boulderhaldecampus.nl, which is as good a pointer as this audit gets — and a pointer is all it is. The host answers 403 to every fetcher and header set, and the archive has nothing recent enough to stand in: Nirvana and Walhalla have no snapshot at all and de Campus has one from 2017. Nothing on the venue's own page has been read, so nothing confirms it.",
+    "candidate": "https://www.boulderhaldecampus.nl/"
   },
   {
     "lat": 52.11019628136243,
@@ -3865,9 +3855,9 @@
     "name": "Boulderhal Nirvana",
     "country": "NL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — nirvana.com → \"Home - Nirvana\", the rest could not be opened — www.boulderhalnirvana.nl → 403; nirvana.nl → no answer; boulderhal.nl → 200, the venue's whole name as one label, boulderhalnirvana.nl, answers 403 (\"Just a moment...\") but its pages print no street, postal code or town matching this venue. Upstream records Berkenbosch Blokstraat 9A, 2586, HD Den Haag, and nothing opened printed it.",
-    "candidate": "https://www.nirvana.com/"
+    "checked": "2026-08-24",
+    "reason": "OSM maps an object called Boulderhal Nirvana 14 m from this venue and tags it boulderhalnirvana.nl, which is as good a pointer as this audit gets — and a pointer is all it is. The host answers 403 to every fetcher and header set, and the archive has nothing recent enough to stand in: Nirvana and Walhalla have no snapshot at all and de Campus has one from 2017. Nothing on the venue's own page has been read, so nothing confirms it.",
+    "candidate": "https://www.boulderhalnirvana.nl/"
   },
   {
     "lat": 52.06192,
@@ -3875,8 +3865,9 @@
     "name": "Boulderhal Walhalla",
     "country": "NL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — www.boulderhalwalhalla.nl/en → 403; www.boulderhalwalhalla.nl → 403; walhalla.nl → 403, the venue's whole name as one label, boulderhalwalhalla.nl, answers 403 (\"Just a moment...\") but its pages print no street, postal code or town matching this venue. Upstream records Johan Van Veenplein 12, 2521 AC, Den Haag, and nothing opened printed it."
+    "checked": "2026-08-24",
+    "reason": "OSM maps an object called Boulderhal Walhalla 28 m from this venue and tags it boulderhalwalhalla.nl, which is as good a pointer as this audit gets — and a pointer is all it is. The host answers 403 to every fetcher and header set, and the archive has nothing recent enough to stand in: Nirvana and Walhalla have no snapshot at all and de Campus has one from 2017. Nothing on the venue's own page has been read, so nothing confirms it.",
+    "candidate": "https://www.boulderhalwalhalla.nl/"
   },
   {
     "lat": 52.3385489,
@@ -3924,8 +3915,8 @@
     "name": "68° Nord Buldrehall",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The OSM node 37 m away is named 68° Nord Buldrehall and carries narvikbuldrehall.no, which does not resolve on either host. nord.no is Nord universitet and nord.com a German gearbox maker.",
+    "checked": "2026-08-24",
+    "reason": "OSM maps an object called 68° Nord Buldrehall 37 m from this venue and tags it narvikbuldrehall.no, and an archived copy from 20 April 2024 describes \"Narvik sin buldrehall i Teknologiveien 4\" — upstream's street and town. The domain no longer resolves at all, on any host or scheme, so there is nothing to link to.",
     "candidate": "https://narvikbuldrehall.no/"
   },
   {
@@ -3934,8 +3925,8 @@
     "name": "68Nord Buldrehall",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Same hall as the venue about 35 m away: the OSM node's narvikbuldrehall.no does not resolve, and 68nord.no is Sparebank 68° Nord, a local bank that shares the name.",
+    "checked": "2026-08-24",
+    "reason": "OSM maps an object called 68° Nord Buldrehall 37 m from this venue and tags it narvikbuldrehall.no, and an archived copy from 20 April 2024 describes \"Narvik sin buldrehall i Teknologiveien 4\" — upstream's street and town. The domain no longer resolves at all, on any host or scheme, so there is nothing to link to. The entry 46 m away carries the same finding; the two are one hall.",
     "candidate": "https://narvikbuldrehall.no/"
   },
   {
@@ -5273,8 +5264,9 @@
     "name": "Beyond the Wall Climbing",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for Beyond the Wall Climbing, Tualatin was beyondbouldering.com.au, a bouldering gym in Australia — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
+    "checked": "2026-08-24",
+    "reason": "OSM maps an object called Beyond The Wall Climbing 6 m from this venue and tags it beyondthewallclimbing.com, and an archived copy of that site from 6 August 2025 prints \"Tualatin Valley Highway B2, Hillsboro, OR, 97123\", which is upstream's address. The live site is gone: every variant of the host now serves Squarespace's \"Website Expired — This account has expired\" page. There is nothing to link to.",
+    "candidate": "https://www.beyondthewallclimbing.com/"
   },
   {
     "lat": 26.23219,
