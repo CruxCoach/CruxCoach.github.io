@@ -267,16 +267,6 @@
   "source": "https://baysiderock.com.au/"
  },
  {
-  "lat": -33.8184459,
-  "lon": 151.1893579,
-  "name": "Climb Fit St Leonards",
-  "country": "AU",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.climbfit.com.au/",
-  "reason": "The operator publishes a per-location hours block for Macquarie only; the St Leonards location path answers 404 and no week for it appears anywhere on the site."
- },
- {
   "lat": -33.76538,
   "lon": 150.90848,
   "name": "Climb Oz",
@@ -3078,36 +3068,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 40.4167754,
-  "lon": -3.7037902,
-  "name": "The Climb",
-  "country": "ES",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://theclimb.es/",
-  "reason": "The only week on the site is in its markup and reads \"Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00\" — the WordPress template default rather than a statement about this gym. No page prints opening hours in words."
- },
- {
-  "lat": 40.3468176,
-  "lon": -3.801027599999999,
-  "name": "The Climb - Centro Escalada Madrid",
-  "country": "ES",
-  "status": "seasonal",
-  "checked": "2026-08-24",
-  "source": "https://theclimb.es/horarios-y-precios-centro-de-escalada-madrid/",
-  "reason": "With the markup no longer counted against it, what blocks this week is August. The table reads \"Lunes 9:00 - 22:00 Martes 9:00 - 22:30 Miercoles 9:00 - 22:00 Jueves 9:00 - 22:30 Viernes 9:00 - 22:30 Sábados 9:00 - 22:00\" and then overrides two of those days for the month: \"Sábados AGOSTO 9:00 - 17:00\" and \"Domingos AGOSTO CERRADO\". The page is read on 24 August, so the override is in force and expires within the week; neither version is the week."
- },
- {
-  "lat": 40.34687,
-  "lon": -3.80091,
-  "name": "The Climb Madrid",
-  "country": "ES",
-  "status": "seasonal",
-  "checked": "2026-08-24",
-  "source": "https://theclimb.es/horarios-y-precios-centro-de-escalada-madrid/",
-  "reason": "The same hall as The Climb entry about 12 m away, and the same finding: with the markup no longer counted against it, what blocks the week is August. The table gives a normal week and then overrides two days — \"Sábados AGOSTO 9:00 - 17:00\" and \"Domingos AGOSTO CERRADO\" — and the override is in force on the day the page is read and expires within the week."
- },
- {
   "lat": 42.1737408,
   "lon": 1.3160139,
   "name": "The PUC Series Temple Nargó",
@@ -3627,26 +3587,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 55.883763345387,
-  "lon": -3.1498773637450537,
-  "name": "Eden Rock Edinburgh",
-  "country": "GB",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.edenrockclimbing.com/edinburgh-home",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 11,464 characters of content across 6 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
- },
- {
-  "lat": 54.98585,
-  "lon": -1.56064,
-  "name": "Eden Rock Newcastle",
-  "country": "GB",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.edenrockclimbing.com/newcastle",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 3,297 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 60.5296507,
@@ -5781,16 +5721,6 @@
   "reason": "Re-read: unchanged. Only a 'Zomerperiode juli & augustus' block (Weekdagen 9:00-23:00, Weekend 9:00-23:00); no term-time week is published."
  },
  {
-  "lat": 52.04968,
-  "lon": 4.25458,
-  "name": "Boulderhal de Campus",
-  "country": "NL",
-  "status": "inaccessible",
-  "source": "https://www.boulderhaldecampus.nl/",
-  "reason": "The venue has an official site and it answers 403 to this audit on every path. Its schedule cannot be read live, and a snapshot may not supply one.",
-  "checked": "2026-08-24"
- },
- {
   "lat": 52.3925,
   "lon": 4.8513889,
   "name": "Boulderhal het Lab Amsterdam",
@@ -5799,26 +5729,6 @@
   "checked": "2026-08-23",
   "source": "https://beestboulders.com/vestigingen/het-lab-amsterdam/",
   "reason": "Same hall as the venue about 10 m away, and the same page: only a 'Zomerperiode juli & augustus' block, with no term-time week."
- },
- {
-  "lat": 52.11019628136243,
-  "lon": 4.2836240000000005,
-  "name": "Boulderhal Nirvana",
-  "country": "NL",
-  "status": "inaccessible",
-  "source": "https://www.boulderhalnirvana.nl/",
-  "reason": "The hall has an Openingstijden page and the host answers 403 on every path, so the week cannot be read live; the snapshot that settled the address is not a source for one.",
-  "checked": "2026-08-24"
- },
- {
-  "lat": 52.06192,
-  "lon": 4.31394,
-  "name": "Boulderhal Walhalla",
-  "country": "NL",
-  "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.boulderhalwalhalla.nl/",
-  "reason": "The hall has an Openingstijden page and the host answers 403 on every path, so the week cannot be read live; the snapshot that settled the address is not a source for one."
  },
  {
   "lat": 52.3385489,

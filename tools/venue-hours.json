@@ -1638,6 +1638,31 @@
   "note": "The dated notice above it closes one named Saturday for a competition, which is the kind of exception the on-page caveat covers."
  },
  {
+  "lat": -33.8184459,
+  "lon": 151.1893579,
+  "name": "Climb Fit St Leonards",
+  "country": "AU",
+  "source": "https://www.climbfit.com.au/location/climbfit-st-leonards/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "name"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "08:00-20:00",
+   "sun": "08:00-20:00"
+  },
+  "evidence": "PUBLIC HOLIDAYS 9am-9pm OPENING HOURS Monday 6am - 10pm Tuesday 6am - 10pm Wednesday 6am - 10pm Thursday 6am - 10pm Friday 6am - 10pm Saturday 8am - 8pm Sunday 8am - 8pm ... Our 1500 square metre location at St Leonards",
+  "note": "The record said the operator publishes a per-location block for Macquarie only and that the St Leonards path answers 404. It does not: /location/climbfit-st-leonards/ is linked from the home page and prints this hall's week above its own square-metre count."
+ },
+ {
   "lat": -37.85835,
   "lon": 144.81001,
   "name": "Climb West Melbourne",
@@ -11765,6 +11790,81 @@
   "note": "Sputnik publishes each of its centres on its own page and repeats them all on the contacto page; the Roco line is the climbing hall, the Cantina and Cocina lines are the bar and the kitchen."
  },
  {
+  "lat": 40.4167754,
+  "lon": -3.7037902,
+  "name": "The Climb",
+  "country": "ES",
+  "source": "https://theclimb.es/horarios-y-precios-centro-de-escalada-madrid/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:30",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:30",
+   "fri": "09:00-22:30",
+   "sat": "09:00-22:00",
+   "sun": "09:00-17:00"
+  },
+  "evidence": "Lunes 9:00 AM - 22:00 PM Martes 9:00 AM -22:30 PM Miercoles 9:00 AM - 22:00 PM Jueves 9:00 AM -22:30 PM Viernes 9:00 AM -22:30 PM Sábados 9:00 AM -22:00 PM Sábados AGOSTO 9:00 AM -17:00 PM Domingos 9:00 AM -17:00 PM Domingos AGOSTO CERRADO Festivos Nacionales 9:00 AM - 15:00 PM",
+  "note": "The third row for the same hall, on the Madrid town point 9 km away. The earlier record found only the WordPress template default — \"Monday,…,Sunday 09:00-17:00\" — in the markup; the real week is on the horarios page, which no path guess reached and the home page links to by name."
+ },
+ {
+  "lat": 40.3468176,
+  "lon": -3.801027599999999,
+  "name": "The Climb - Centro Escalada Madrid",
+  "country": "ES",
+  "source": "https://theclimb.es/horarios-y-precios-centro-de-escalada-madrid/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:30",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:30",
+   "fri": "09:00-22:30",
+   "sat": "09:00-22:00",
+   "sun": "09:00-17:00"
+  },
+  "evidence": "Lunes 9:00 AM - 22:00 PM Martes 9:00 AM -22:30 PM Miercoles 9:00 AM - 22:00 PM Jueves 9:00 AM -22:30 PM Viernes 9:00 AM -22:30 PM Sábados 9:00 AM -22:00 PM Sábados AGOSTO 9:00 AM -17:00 PM Domingos 9:00 AM -17:00 PM Domingos AGOSTO CERRADO Festivos Nacionales 9:00 AM - 15:00 PM",
+  "note": "The Climb runs one hall — \"Rocódromo entre Leganés y Alcorcón, C/ Carbón, 5\" — and three rows point at it: this one labelled Alcorcón, one 100 m away labelled Leganés, and one on the Madrid town point. The earlier record called the week seasonal; it is a standing week with two August lines under it, one shortening Saturday and one closing Sunday."
+ },
+ {
+  "lat": 40.34687,
+  "lon": -3.80091,
+  "name": "The Climb Madrid",
+  "country": "ES",
+  "source": "https://theclimb.es/horarios-y-precios-centro-de-escalada-madrid/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:30",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:30",
+   "fri": "09:00-22:30",
+   "sat": "09:00-22:00",
+   "sun": "09:00-17:00"
+  },
+  "evidence": "Lunes 9:00 AM - 22:00 PM Martes 9:00 AM -22:30 PM Miercoles 9:00 AM - 22:00 PM Jueves 9:00 AM -22:30 PM Viernes 9:00 AM -22:30 PM Sábados 9:00 AM -22:00 PM Sábados AGOSTO 9:00 AM -17:00 PM Domingos 9:00 AM -17:00 PM Domingos AGOSTO CERRADO Festivos Nacionales 9:00 AM - 15:00 PM",
+  "note": "The Leganés-labelled row for the same hall, 100 m from the Alcorcón-labelled one; the operator has a single address."
+ },
+ {
   "lat": 43.30261,
   "lon": -1.94377,
   "name": "The Factory Boulder",
@@ -13550,6 +13650,56 @@
    "sun": "09:00-21:00"
   },
   "evidence": "Monday - Friday 09:00 - 22:00 | Saturday + Sunday 09:00 - 21:00 | Bank Holiday Mondays 09:00 - 22:00"
+ },
+ {
+  "lat": 55.883763345387,
+  "lon": -3.1498773637450537,
+  "name": "Eden Rock Edinburgh",
+  "country": "GB",
+  "source": "https://www.edenrockclimbing.com/contact-edinburgh",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Come Visit Eden Rock Edinburgh Edgefield Road Industrial Estate Loanhead EH20 9TB ... - 10am - 10pm - 10am - 10pm - 10am - 10pm - 10am - 10pm - 10am - 10pm - 10am - 8pm - 10am - 8pm Opening Times Monday Tuesday Wednesday Thursday Friday Saturday Sunday",
+  "note": "The times and the day names are two columns of one table, which is why they read as separate lists here: seven times against seven days, in order. Eden Rock runs three walls and each has its own contact page; Carlisle's is the one a path guess finds first."
+ },
+ {
+  "lat": 54.98585,
+  "lon": -1.56064,
+  "name": "Eden Rock Newcastle",
+  "country": "GB",
+  "source": "https://www.edenrockclimbing.com/newcastle-opening-times-contact",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Come Visit Eden Rock Newcastle Benfield Business Park Newcastle upon Tyne NE6 4NQ ... - 10am - 10pm - 10am - 10pm - 10am - 10pm - 10am - 10pm - 10am - 10pm - 9am - 8pm - 9am - 8pm Opening Times Monday Tuesday Wednesday Thursday Friday Saturday Sunday",
+  "note": "The Newcastle page differs from Edinburgh's by an hour on the weekend, which is the check that the two are not the same block read twice."
  },
  {
   "lat": 51.44587,
@@ -16202,6 +16352,31 @@
   "evidence": "Ma t/m Vrij 09:00-23:30 | Zaterdag 09:00-22:00 | Zondag 09:00-23:00"
  },
  {
+  "lat": 52.04968,
+  "lon": 4.25458,
+  "name": "Boulderhal de Campus",
+  "country": "NL",
+  "source": "https://www.boulderhaldecampus.nl/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "hours-scope",
+   "city"
+  ],
+  "hours": {
+   "mon": "12:00-23:00",
+   "tue": "12:00-23:00",
+   "wed": "09:00-23:00",
+   "thu": "12:00-23:00",
+   "fri": "09:00-23:00",
+   "sat": "09:00-22:30",
+   "sun": "09:00-22:30"
+  },
+  "evidence": "Boulderen in Den Haag Met 1200 vierkante meter aan klimmuren, twee kilterboarden ... Openingstijden Boulderhal Bar Maandag 12:00 - 23:00 23:30 Dinsdag 12:00 - 23:00 23:30 Woensdag 09:00 - 23:00 23:30 Donderdag 12:00 - 23:00 23:30 Vrijdag 09:00 - 23:00 23:30 Zaterdag 09:00 - 22:30 23:00 Zondag 09:00 - 22:30 23:00",
+  "note": "Two columns, Boulderhal and Bar, and the bar stays open half an hour past the wall every day. The wall is the column taken. The record said this host answers 403 to this audit on every path, and it does — to most requests. It let one through."
+ },
+ {
   "lat": 52.39204,
   "lon": 4.64789,
   "name": "Boulderhal De Fabriek Haarlem",
@@ -16348,6 +16523,31 @@
   "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 22:00 | Zondag 09:00 – 22:00"
  },
  {
+  "lat": 52.11019628136243,
+  "lon": 4.2836240000000005,
+  "name": "Boulderhal Nirvana",
+  "country": "NL",
+  "source": "https://www.boulderhalnirvana.nl/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "16:00-22:00",
+   "tue": "16:00-22:00",
+   "wed": "13:00-22:00",
+   "thu": "13:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "09:00-19:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Openingstijden Zomer openingstijden 20 juli tot 30 augustus Maandag 17:00 - 22:00 ... Zondag 09:00 - 21:00 Reguliere openingstijden Maandag 16:00 - 22:00 Dinsdag 16:00 - 22:00 Woensdag 13:00 - 22:00 Donderdag 13:00 - 22:00 Vrijdag 11:00 - 22:00 Zaterdag 09:00 - 19:00 Zondag 09:00 - 21:00",
+  "note": "The hall labels both weeks: one Zomer, dated 20 July to 30 August, and one Regulier. The regular one is the week."
+ },
+ {
   "lat": 52.4989144,
   "lon": 6.1196372,
   "name": "Boulderhal ROEST",
@@ -16444,6 +16644,31 @@
    "sun": "09:00-18:00"
   },
   "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 18:00 | Zondag 09:00 – 18:00"
+ },
+ {
+  "lat": 52.06192,
+  "lon": 4.31394,
+  "name": "Boulderhal Walhalla",
+  "country": "NL",
+  "source": "https://www.boulderhalwalhalla.nl/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "13:00-23:00",
+   "tue": "13:00-23:00",
+   "wed": "13:00-23:00",
+   "thu": "13:00-23:00",
+   "fri": "13:00-23:00",
+   "sat": "11:00-19:00",
+   "sun": "11:00-22:00"
+  },
+  "evidence": "Openingstijden Maandag 13:00 - 23:00 Dinsdag 13:00 - 23:00 Woensdag 13:00 - 23:00 Donderdag* 13:00 - 23:00 Vrijdag 13:00 - 23:00 Zaterdag 11:00 - 19:00 Zondag 11:00 - 22:00",
+  "note": "Thursday carries an asterisk whose footnote is on the Openingstijden page, which never answered; the time beside it is printed as plainly as the other six and is what is taken. Worth re-reading if that page ever opens."
  },
  {
   "lat": 52.0651,
