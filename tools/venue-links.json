@@ -23905,6 +23905,20 @@
     "note": "Touchstone's own page for The Post, which names it \"Pasadena The Post Indoor Climbing Gym\" — the venue's name and the town upstream records, for which no street is recorded. The host answers 403 to every fetcher and header set, so the page was read from a snapshot of 3 February 2026; the hours record stays inaccessible, because a schedule is not something to take from a snapshot."
   },
   {
+    "lat": 40.50952,
+    "lon": -88.95868,
+    "name": "The Proving Ground",
+    "country": "US",
+    "website": "https://tpgbouldering.com/",
+    "verified": "2026-08-24",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The host answers 403; a snapshot is titled \"The Proving Ground | Bloomington's Premier Bouldering Gym\" and gives \"1701 E Empire, Bloomington, IL 61704\". Upstream has this row at 1503 E College Ave, 61761, Normal, and the coordinate is on East College Avenue — so the two addresses are 2.8 km apart, which is exactly how far the gazetteer put the object it matched. Bloomington and Normal are one town in two names; the gym has one site and this is it."
+  },
+  {
     "lat": 36.0769,
     "lon": -115.19232,
     "name": "The Refuge Climbing + Fitness",

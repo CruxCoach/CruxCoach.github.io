@@ -1961,8 +1961,9 @@
     "name": "Mászóka",
     "country": "HU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — maszoka.hu → a certificate that does not cover its hostname, the venue's whole name as one label, maszoka.hu, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "checked": "2026-08-24",
+    "reason": "The gazetteer points at maszokase.hu, which does not resolve; the one snapshot of it is 28 bytes reading \"web.arenadigital.hu\", a hosting placeholder. There has been nothing there to read for as long as the archive has looked.",
+    "candidate": "https://maszokase.hu/"
   },
   {
     "lat": 47.18602620000001,
@@ -5253,16 +5254,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no candidate could be opened — thepad.com → a timeout; thepad.net → no answer. Upstream records 7585 Commercial Way J, 89011, Henderson, and nothing opened printed it."
-  },
-  {
-    "lat": 40.50952,
-    "lon": -88.95868,
-    "name": "The Proving Ground",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "provingground.com looked like a hit in the archive on the venue's name and the town Normal. Reading the snapshot shows why it is not: the page is titled \"Better by Habit®\" and sells sales training, and the \"normal\" the matcher found is the word normally in a sentence about training courses. The other candidates the earlier pass recorded — provingground.org, Academi Proving Ground — are somebody else's too.",
-    "candidate": "https://provingground.com/"
   },
   {
     "lat": 40.91785,
