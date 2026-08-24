@@ -1036,6 +1036,23 @@ down for the whole attempt, and the mail.ru mirror answered but rate-limits hard
 enough that a third of the sweep never completed. Budget for that, or run it
 against a country extract instead.
 
+Which is the other way the question was asked, and it is the better one to ask
+first: one query per country for everything tagged `sport~climbing` **and**
+carrying a website, then matched to open rows by proximity or by two shared
+distinctive words. 26 countries, 14,837 tagged objects, and fourteen pairs worth
+looking at — where the per-venue sweep, at ten times the request count, surfaced
+two. It is faster, it survives the rate limit, and it catches a row whose
+coordinate is a town point, which the 250 m question cannot.
+
+It also found **no new link**, and that is the useful part: all fourteen pairs
+were already in the research log with a reason. Boulder Madrid's host resolves
+and never completes a connection; São Rock's answers 403 from Locaweb;
+verticalescalada.pt serves a contact form and four words; onesoul.pt belongs to
+a multi-sport club in Vila do Conde with no climbing on it; highfun2017.com is
+an expired-domain listing; Zone's `/climb/` — which OSM still points at — is a
+404. When two independent sweeps hand back the same fourteen answers that were
+already written down, the channel is finished.
+
 ### The town is a string the guesser never tried
 
 Every earlier generator worked from the venue's own words: the whole name, the
