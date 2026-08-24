@@ -581,3 +581,21 @@ test('the committed geojson carries only links the curation would still accept',
   assert.equal(found, curated.size,
     'boards.geojson and tools/venue-links.json disagree — rerun node tools/build-boards-data.mjs --overlays-only');
 });
+
+// An archived snapshot is allowed to settle whose domain a host is, and that is
+// all. What must never happen is a snapshot URL reaching a visitor: the link
+// published is always the live one, and the note is where the snapshot's date
+// belongs. See "Reading the venue's own page from a snapshot" in VENUE-LINKS.md.
+test('no published link points at a web archive', () => {
+  const records = JSON.parse(readFileSync(LINKS_FILE, 'utf-8'));
+  const archived = records.filter((r) => /(^|\.)archive\.(org|ph)\b|webcache\.googleusercontent/i.test(r.website));
+  assert.deepEqual(archived.map((r) => `${r.name} → ${r.website}`), [],
+    'a link must point at the venue\'s own live URL, never at a copy of it');
+});
+
+test('a research record may name a snapshot only as a candidate, never as a link', () => {
+  const research = JSON.parse(readFileSync(RESEARCH_FILE, 'utf-8'));
+  const archived = research.filter((r) => /(^|\.)archive\.(org|ph)\b/i.test(r.candidate || ''));
+  assert.deepEqual(archived.map((r) => `${r.name} → ${r.candidate}`), [],
+    'a rejected candidate is a host, not an archived copy of one');
+});

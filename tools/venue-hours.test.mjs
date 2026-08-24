@@ -764,3 +764,17 @@ test('every record claiming the venue-link signal has the link it claims', () =>
       `"${e.name}" claims the venue-link signal for a different site than the link it points at`);
   }
 });
+
+// The archive settles whose page a URL is; it never supplies a schedule, because
+// a schedule is exactly what changes between a snapshot and today. Thirty-one
+// links rest on a snapshot and not one week does. See "Reading the venue's own
+// page from a snapshot" in VENUE-LINKS.md.
+test('no published week is read from a web archive', () => {
+  const { entries: records } = loadVenueHours(HOURS_FILE);
+  const archived = records.filter((r) => /(^|\.)archive\.(org|ph)\b|webcache\.googleusercontent/i.test(r.source));
+  assert.deepEqual(archived.map((r) => `${r.name} ← ${r.source}`), [],
+    'a published week must come from the venue\'s own live page');
+  const claimed = records.filter((r) => /\b(snapshot|archived copy|wayback)\b/i.test(r.evidence || ''));
+  assert.deepEqual(claimed.map((r) => r.name), [],
+    'evidence quoting a snapshot means the week was read from one');
+});
