@@ -688,6 +688,31 @@
   "evidence": "Montag bis Freitag 15:00 – 22:00 Uhr | Sa, So & Feiertag 13:00 – 20:00 Uhr"
  },
  {
+  "lat": 47.27722,
+  "lon": 11.41339,
+  "name": "Kletterzentrum Innsbruck",
+  "country": "AT",
+  "source": "https://www.kletterzentrum-innsbruck.at/oeffnungszeiten/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-22:00"
+  },
+  "evidence": "Öffnungszeiten Täglich Geöffnet Unsere Öffnungszeiten sind einfach zu merken: Klettern ist jeden Tag von 9.00 bis 22.00 Uhr möglich - das Bistro hat bis 23.00 Uhr geöffnet. Ausgenommen Großveranstaltungen, Änderungen vorbehalten.",
+  "note": "The hall states the week as one sentence and says so: easy to remember. The bistro runs an hour past the climbing, which is the scope taken; large events are named as the exception."
+ },
+ {
   "lat": 47.157655,
   "lon": 9.806525,
   "name": "Klimmerei Boulder",
@@ -11244,6 +11269,31 @@
   "note": "Two bands covering all seven days, above the gym's address. The restaurant and kitchen hours listed beside them belong to those and not to the wall. The page's schema.org openingHoursSpecification gives Saturday 08:00-22:00 and Sunday 10:00-20:00, which matches neither. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
  },
  {
+  "lat": 43.3499467,
+  "lon": -8.4193897,
+  "name": "Hangar4",
+  "country": "ES",
+  "source": "https://hangar4.es/contacto/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:30-22:00",
+   "tue": "10:30-22:00",
+   "wed": "10:30-22:00",
+   "thu": "10:30-22:00",
+   "fri": "10:30-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "HORARIO DE VERANO ( Junio, Julio, Agosto y Septiembre) Lunes a viernes: 10:30 – 22:00h Sábados: 10:00 a 20:00h Domingos y festivos: 10:00 – 15:00h HORARIO Lunes a viernes: 10:30 – 22:00h Sábados: 10:00 a 20:00h Domingos y festivos: 10:00 – 20:00h",
+  "note": "The earlier record had this right and stopped one step short: the two Sundays are a season, not a contradiction. One block is headed HORARIO DE VERANO and names its four months; the other is headed HORARIO and names nothing. The unlabelled one is the week."
+ },
+ {
   "lat": 39.5735,
   "lon": 2.69071,
   "name": "In Rock Escalada",
@@ -11558,6 +11608,31 @@
    "sun": "10:00-15:00"
   },
   "evidence": "Lunes – Viernes: 10 a 14h y de 17 a 22h | Sábados y domingos 10 a 15h"
+ },
+ {
+  "lat": 42.45613,
+  "lon": -2.4121,
+  "name": "Rocódromo Rawindoor",
+  "country": "ES",
+  "source": "https://www.rawindoor.com/tarifas-y-horarios/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "16:00-21:00",
+   "sun": "16:00-21:00"
+  },
+  "evidence": "HORARIOS ESPECIAL SEMANA SANTA 2026 Jueves y Viernes- Cerrado Sábado Domingo y Lunes: Abierto de 16 a 22 Horarios del centro Lunes a Viernes: de 10:00 a 22:00 h Sábados y Domingos: de 16:00 a 21:00 h",
+  "note": "Recorded as two weeks contradicting each other outright. They do contradict, and one of them says why: it is headed HORARIOS ESPECIAL SEMANA SANTA 2026 and covers four days of one Easter. The other is headed Horarios del centro."
  },
  {
   "lat": 43.41070009078681,
@@ -15031,6 +15106,31 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 22:00"
+ },
+ {
+  "lat": 53.3185426,
+  "lon": -6.3456286,
+  "name": "Bloc Climbing Gym",
+  "country": "IE",
+  "source": "https://blocdublin.ie/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "11:00-20:00",
+   "sun": "11:00-20:00"
+  },
+  "evidence": "Opening hours: Mon – Fri 11 am – 10 pm Sat – Sun 11 am – 8 pm Address: Bloc climbing gym Unit 23a, Robinhood industrial estate",
+  "note": "Two lines above the gym's own address. The host had been recorded as yielding nothing to a fetcher; it yields this to a patient one."
  },
  {
   "lat": 53.33588,
@@ -21138,6 +21238,31 @@
   },
   "evidence": "Mon–Fri 7 am – 10 pm | Sat–Sun 10 am – 8 pm … Hours are Monday–Friday, 7 am–10 pm; Saturday–Sunday, 10 am–8 pm.",
   "note": "brooklynuprising.com redirects to bkup.nyc, where the schedule is published; the page’s own schema.org openingHoursSpecification agrees."
+ },
+ {
+  "lat": 44.50247,
+  "lon": -73.04567,
+  "name": "Burly Bloc",
+  "country": "US",
+  "source": "https://burlybloc.com/",
+  "checked": "2026-08-24",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Welcome to Burly Bloc Small gym, big gains! 10 Corporate Drive, Suite A Essex Junction, VT 05452 Hours: Mon-Fri 12pm-10pm Sat and Sun 10am-10pm",
+  "note": "Two lines directly under the address on the home page. The earlier record said two dozen paths were read and none stated a day with a time; the home page states it, above the fold."
  },
  {
   "lat": 41.64237,
@@ -29019,6 +29144,31 @@
   },
   "evidence": "Hours Monday-Friday 12p – 9p Saturday 10a – 7p Sunday Closed to General Public (open to members)",
   "note": "Sunday is recorded closed because the gym states it as closed to the general public and open to members only. The page also lists named holidays as closed and a handful with special 12p-9p hours; those are exceptions to this week."
+ },
+ {
+  "lat": 27.76983,
+  "lon": -82.65769,
+  "name": "Vertical Ventures St Pete",
+  "country": "US",
+  "source": "https://www.verticalventures.com/stpete/",
+  "checked": "2026-08-24",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "16:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-24:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "116 18th Street South St. Petersburg, FL 33712 (727) 304-6290 Monday 4pm – 10pm Tuesday-Thursday 10am – 10pm Friday 10am – 12am Saturday 10am – 10pm Sunday 10am – 6pm",
+  "note": "The St Pete page, printing its own address above its own week. Friday runs to midnight, which the day grammar writes as 24:00. The earlier record said the week existed only in a snapshot and that a week is not taken from one; it is on the live page."
  },
  {
   "lat": 47.88684,

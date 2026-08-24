@@ -695,8 +695,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "inaccessible",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -11330,8 +11330,8 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "seasonal",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -12046,8 +12046,8 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -15680,17 +15680,16 @@
    ],
    "website": {
     "pass": "2026-08-24",
-    "result": "unverified",
+    "result": "accepted",
     "channels": [
      "osm-website-tag",
-     "apex",
-     "www",
-     "path-probe"
+     "previous-record",
+     "apex"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "inaccessible",
+    "pass": "2026-08-24",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -30629,7 +30628,7 @@
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "no-hours-on-official-site",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -38111,9 +38110,10 @@
    },
    "hours": {
     "pass": "2026-08-24",
-    "result": "inaccessible",
+    "result": "accepted",
     "channels": [
-     "venue-link"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
