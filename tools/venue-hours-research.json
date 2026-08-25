@@ -2584,18 +2584,20 @@
   "lon": 1.22935,
   "name": "Can Rock",
   "country": "ES",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://canrocktarragona.com/",
+  "reason": "The gym's own domain serves an under-construction placeholder, so nothing on it pairs a day with a time.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 41.99789,
   "lon": 2.28049,
   "name": "Can Tiba-li",
   "country": "ES",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "source": "https://gem.entitatsmanlleu.cat/rocodrom-can-tiba-li/",
+  "reason": "The week the club publishes is tied to the school year and says so: \"HORARI De dilluns a divendres de 17:30 a 21:00. Calendari escolar excepte avisos a través del nostre instagram.\" A week that runs on the school calendar, with changes announced on Instagram rather than on the page, is not a standing week — and what happens outside term time is not stated at all.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 41.6159028,
@@ -2652,8 +2654,8 @@
   "name": "Club Deportivo la Gotera",
   "country": "ES",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 41.9157645,
@@ -2796,9 +2798,10 @@
   "lon": -2.7697,
   "name": "Lemoa Sports Center",
   "country": "ES",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.lemoa.eus/",
+  "reason": "The municipality's site redirects to a host that does not answer, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 41.8162,
@@ -2902,9 +2905,10 @@
   "lon": -2.93675,
   "name": "Polideportivo de Errekalde",
   "country": "ES",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://www.bilbaokirolak.eus/es/instalaciones/polideportivos/errekalde/polideportivo",
+  "reason": "The centre publishes a building week — \"Instalaciones: Lunes a viernes 8:00 - 22:00, Sábados 9:00 - 22:00, Domingos y festivos 9:00 - 21:00\" — and separate weeks for its pools. No site is established for this row, and the week that exists belongs to a whole polideportivo rather than to its rocódromo.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 42.3065308,

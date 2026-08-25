@@ -1313,19 +1313,9 @@
     "name": "Can Rock",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "canrock.com is a business consultancy in Darlinghurst and can-rock.com sells guided trips in the Canadian Rockies. Nothing found names Polígon Industrial Francolí 9 in Tarragona. canrock.net answers too, and is a Japanese company — ロッキィ / 株式会社環緑.",
-    "candidate": "https://canrock.com/"
-  },
-  {
-    "lat": 41.99789,
-    "lon": 2.28049,
-    "name": "Can Tiba-li",
-    "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "cantiba.com is an AI and video-automation product. Nothing found names Passeig del Ter 25 in Manlleu.",
-    "candidate": "https://cantiba.com/"
+    "candidate": "https://canrocktarragona.com/",
+    "reason": "Can Rock opened in December 2024 in the Polígon Industrial Francolí — upstream's address — and it does hold a domain: canrocktarragona.com resolves, redirects to www and serves a 98-byte \"Web en construcción\" placeholder from a coming-soon template. What the gym actually publishes is on Instagram (@canrocktarragona) and on a Resasports booking page, neither of which is an official website. Retry when the domain carries a site.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 41.6159028,
@@ -1342,9 +1332,8 @@
     "name": "Club Deportivo la Gotera",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The name reduces to the generic word \"deportivo\": deportivo.com answers with nothing that names Berriozar or the Polígono Berriainz, and no other domain resolves for Club Deportivo la Gotera.",
-    "candidate": "https://deportivo.com/"
+    "reason": "No official site could be established: lagotera.eus, lagotera.es and clublagotera.com do not resolve, and searching finds only a crag of the same name in Castellón, 400 km away. The published lists of climbing walls around Pamplona name Rocópolis in Berrioplano, Mugitu and Bihatz, none of which is this row on the Berriainz industrial estate in Berriozar.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 41.9157645,
@@ -1410,9 +1399,10 @@
     "lon": -2.7697,
     "name": "Lemoa Sports Center",
     "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "lemoa.com does not resolve on either host, and no other domain was reached for Lemoa Sports Center. No OSM climbing object within 500 m carries a website."
+    "status": "unavailable",
+    "candidate": "https://www.lemoa.eus/",
+    "reason": "The wall is municipal — Lemoa's Alex Txikon Rokodromoa, opened November 2023 and named for the alpinist — so the town hall's own site is the candidate. It cannot be reached: lemoa.eus and www.lemoa.eus both 301 to www.lemoa.net, which resolves to 80.245.2.142 and then answers nothing at all, on the apex and on www, over http and https alike. Retry when the town's site comes back.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 42.2061388,
@@ -1449,8 +1439,9 @@
     "name": "Polideportivo de Errekalde",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "polideportivoerrekalde.com does not resolve, polideportivo.es does not answer and polideportivo.com presents a certificate that does not cover its hostname. The venue is a municipal sports centre in Bilbao and no page of its own was reached."
+    "candidate": "https://www.bilbaokirolak.eus/es/instalaciones/polideportivos/errekalde/polideportivo",
+    "reason": "Upstream's own handle for the row, bkirolak_errekalde, names Bilbao Kirolak's Errekalde centre, and that centre does have a municipal page listing a Rocódromo among its facilities. Only one signal holds: the name. The page gives the address as Carretera Rekalde Larraskitu 53, 48002 Bilbao — Rekalde, in the south-west of the city — while upstream files this row under Santutxu, a district on the other side of the centre; it links no social account, so the handle upstream holds is not echoed back; and it names no board. A municipal sports centre page that fits on one signal is not enough to publish.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 42.3065308,
