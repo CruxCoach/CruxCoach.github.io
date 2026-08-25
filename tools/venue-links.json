@@ -1469,6 +1469,22 @@
     "note": "The site prints \"41 Henry St. Stepney, Adelaide\"; geocoding that address lands 450 m from this venue, which upstream records only as \"Adelaide\". laneway.com.au answers 423."
   },
   {
+    "lat": -32.51346,
+    "lon": 115.75291,
+    "name": "Mandurah Indoor Rock Climbing Center",
+    "country": "AU",
+    "website": "https://www.mandurahrockclimbing.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The centre's own site: \"U2/3, 12 Thornborough Road, Greenfields WA 6210\" — upstream records the row at 2 & 3/12 Thornborough Rd, 6210, Greenfields, the same unit numbers written the other way round."
+  },
+  {
     "lat": -35.3297909,
     "lon": 149.1824626,
     "name": "Mountain Strong",
@@ -3770,6 +3786,20 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 50.03376,
+    "lon": -125.27226,
+    "name": "On The Rocks Climbing Gym",
+    "country": "CA",
+    "website": "https://www.rockgym.ca/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "On the Rocks Climbing Gym publishes at rockgym.ca — the domain its own Facebook page carries — and gives \"1980 North Island Hwy, Campbell River, BC\", the town upstream records for a row it holds no street line for."
   },
   {
     "lat": 43.89909,

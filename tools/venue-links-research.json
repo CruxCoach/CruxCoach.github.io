@@ -127,9 +127,9 @@
     "name": "Climb Oz",
     "country": "AU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "climboz.com is titled Climb Oz and is very likely this gym, but neither its homepage nor its contact page prints an address, a suburb or a postcode — the name is the only observation the site offers. The upstream address, Level 2, 40 Third Ave, Blacktown, geocodes 302 m from this venue, so the coordinate is right and the page simply does not confirm it.",
-    "candidate": "https://climboz.com/"
+    "candidate": "https://climboz.com/",
+    "reason": "climboz.com is a Climb Oz, and not this one: it sells \"CLIMBING WALL EQUIPMENT & MAINTENANCE\" from \"A2/27-29 Fariola Street, Silverwater NSW\", with a WA-only telephone number. The gym this row records is at Level 2, 40 Third Avenue, Blacktown — 25 km west — and appears only in directories and on Facebook. Same name, same industry, different business and different address.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -33.8688197,
@@ -150,16 +150,6 @@
     "candidate": "https://www.irisboulders.com.au/",
     "reason": "irisboulders.com.au is the gym's own domain and does not answer at all, apex or www. The address the directories give, 13 Tacoma Circuit in Canning Vale, geocodes 10 m from this row, so the row is certainly the gym — and the gym's own Instagram is reported as marking it permanently closed, which is a claim this file will not record on a third party's say-so. Retry, and treat a continuing silence as evidence.",
     "checked": "2026-08-25"
-  },
-  {
-    "lat": -32.51346,
-    "lon": 115.75291,
-    "name": "Mandurah Indoor Rock Climbing Center",
-    "country": "AU",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "mandurah.com.au is the City of Mandurah, not the gym. It prints the 6210 postal code because that is the town's, and the map it embeds of itself sits 2,298 m away at the civic centre; the \"2\" that matched is the unit number in 2 & 3/12 Thornborough Rd and appears on the council page for unrelated reasons. No name-derived domain for the gym itself resolves. mandurah.net answers too, and is Mandurah Website Services, a web agency.",
-    "candidate": "https://mandurah.com.au/"
   },
   {
     "lat": -37.7695238,
@@ -440,10 +430,10 @@
     "lon": -76.51328,
     "name": "Boiler Room",
     "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — boilerroom.com → \"The Boiler Room at Boilerroom.com Complete On-Line Boile\"; boiler.com → \"Boiler Sales, Rentals, Service & Repair | Burner Combust\", the rest could not be opened — boilerroom.ca → a certificate that does not cover its hostname; boiler-room.com → a timeout; boiler.ca → a certificate that does not cover its hostname, the venue's whole name as one label, boilerroom.ca, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://boilerroom.com/"
+    "status": "http-only",
+    "candidate": "http://www.boilerroom.ca/kingston.html",
+    "reason": "The Boiler Room runs halls in more than one Ontario town and gives each its own page. Kingston's says exactly what this row is: \"BOILER ROOM KINGSTON … 993 Princess st Unit 12, Kingston. The Boiler Room Kingston is Kingston's only indoor gym offering bouldering, top rope, auto-belays, lead and Ontario's first full size 2 lane speed wall.\" It cannot be stored: boilerroom.ca serves nothing at all over https — the handshake does not complete on apex or www — and this file records https URLs only, because the link is rendered into a page a visitor clicks.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 43.65926,
@@ -483,16 +473,6 @@
     "reason": "hiveclimbing.com is certainly the operator, but it runs two Vancouver halls, Vancouver Boulder at 520 Industrial Ave and Vancouver Heights at 670, and their weeks differ — Boulder opens at 7am on Wednesdays, Heights at 2pm. This row is named only \"Hive: Vancouver\" and its coordinate sits about two kilometres away in the downtown core, so it cannot be read as either. Linking one would put the wrong week on it later.",
     "candidate": "https://www.hiveclimbing.com/locations",
     "checked": "2026-08-24"
-  },
-  {
-    "lat": 50.03376,
-    "lon": -125.27226,
-    "name": "On The Rocks Climbing Gym",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — holdontide.com → \"Homepage | Hold on Tide\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://holdontide.com/"
   },
   {
     "lat": 48.3842148,

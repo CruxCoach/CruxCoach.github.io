@@ -263,8 +263,8 @@
   "name": "Climb Oz",
   "country": "AU",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": -28.03656,
@@ -324,15 +324,6 @@
   "checked": "2026-08-23",
   "reason": "Re-read 2026-08-23: unchanged. The homepage says WEEKENDS : 9AM TO 7PM while the contact page says Saturday - Sunday: 10 am - 7 pm.",
   "source": "https://laroca.com.au/"
- },
- {
-  "lat": -32.51346,
-  "lon": 115.75291,
-  "name": "Mandurah Indoor Rock Climbing Center",
-  "country": "AU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": -37.7695238,
@@ -826,9 +817,10 @@
   "lon": -76.51328,
   "name": "Boiler Room",
   "country": "CA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "http://www.boilerroom.ca/kingston.html",
+  "reason": "The hall's own page carries its address, its waiver policy and what it offers, and no hours. The rest of the site could not be read to check whether they are published elsewhere: boilerroom.ca answers 429 — rate-limited — to every request, over minutes, on the apex and www alike.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 48.44353,
@@ -1075,15 +1067,6 @@
   "source": "https://www.escalademonolithe.com/heures",
   "reason": "The operator runs two halls and the site now describes only one of them. OSM has \"Monolithe Escalade - Bloc\" at 2404 Rue Vimont, H1V 3L5, which is this coordinate and the address upstream records; the site's single address and its single week, LUNDI au DIMANCHE 8 h à 23 h, belong to \"le nouveau gym de voie\" at 2350 rue Dickson, H1N 3T1, about 700 m away. One week, attached to the other hall. (The earlier record said the site states two weeks; it states one.)",
   "checked": "2026-08-24"
- },
- {
-  "lat": 50.03376,
-  "lon": -125.27226,
-  "name": "On The Rocks Climbing Gym",
-  "country": "CA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 43.89909,

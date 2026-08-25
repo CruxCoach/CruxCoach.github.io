@@ -1934,6 +1934,31 @@
   "evidence": "Weekdays 6am - 10pm | Saturday 8am - 8pm | Sunday 8am - 6pm"
  },
  {
+  "lat": -32.51346,
+  "lon": 115.75291,
+  "name": "Mandurah Indoor Rock Climbing Center",
+  "country": "AU",
+  "source": "https://www.mandurahrockclimbing.com/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "10:00-20:00",
+   "tue": "12:00-20:00",
+   "wed": "10:00-20:00",
+   "thu": "10:00-20:30",
+   "fri": "10:00-20:00",
+   "sat": "10:00-17:00",
+   "sun": "10:00-17:00"
+  },
+  "evidence": "Opening hours: Monday: 10:00am - 8:00pm Tuesday: 12:00pm - 8:00pm Wed: 10:00am - 8:00pm Thu: 10:00am - 8:30pm Friday: 10:00am - 8:00pm Sat and Sun: 10:00am - 5:00pm U2/3, 12 Thornborough Road, Greenfields WA 6210",
+  "note": "Seven days beside the address in the site's own footer. The directories flatten this to 10-8 every weekday; the gym's page gives Tuesday a noon start and Thursday an extra half hour."
+ },
+ {
   "lat": -35.3297909,
   "lon": 149.1824626,
   "name": "Mountain Strong",
@@ -4633,6 +4658,31 @@
   },
   "evidence": "Monday-Friday: 11am – 11pm | Weekends: 9am – 9pm | Holidays: 10am – 5pm",
   "note": "nicheclimbing.ca redirects to the operator’s rockjungleclimbing.ca page for this gym, where the schedule is published."
+ },
+ {
+  "lat": 50.03376,
+  "lon": -125.27226,
+  "name": "On The Rocks Climbing Gym",
+  "country": "CA",
+  "source": "https://www.rockgym.ca/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "17:00-21:00",
+   "tue": "12:00-21:00",
+   "wed": "12:00-21:00",
+   "thu": "12:00-21:00",
+   "fri": "12:00-21:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "LOCATION + HOURS 1980 North Island Hwy Campbell River, BC Mon 5PM - 9PM Tue to Fri 12PM - 9PM Sat 10AM - 8PM Sun 10AM - 6PM",
+  "note": "Stated twice on the front page, under the address and again in the footer, and identical in both. The listings give Monday a 2pm start; the gym's own page says five."
  },
  {
   "lat": 49.26216,
