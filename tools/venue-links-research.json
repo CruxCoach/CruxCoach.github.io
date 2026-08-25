@@ -182,9 +182,9 @@
     "name": "The Attic",
     "country": "BE",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. attic.be answers 200 with an empty body — no title, no text, nothing to verify against. theattic.be and the-attic.be are \"Coworking & flexibele kantoren in Antwerpen\", a different business 55 km away; the-attic.com is a HugeDomains parking page; attic.com and theattic.com are unrelated. No OSM climbing object near Diest carries a website.",
-    "candidate": "https://attic.be/"
+    "checked": "2026-08-25",
+    "reason": "The name resolves to somebody else: theattic.be is a coworking and flexible-office business in Antwerp — \"Coworking & flexibele kantoren in Antwerpen\" — and this row is The Attic in Diest, 50 km east.",
+    "candidate": "https://theattic.be/"
   },
   {
     "lat": 50.58334,
@@ -1287,10 +1287,10 @@
     "lon": 25.6829523,
     "name": "Kiipeilykeskus Väki",
     "country": "FI",
-    "status": "unverified",
-    "candidate": "https://kiipeilykeskus.com/",
-    "reason": "No official site could be established: Kiipeilykeskus is the Finnish word for a climbing centre, and this one is Helsingin Kiipeilykeskus, Erätie 3, 00730 Helsinki. This coordinate is in Rovaniemi, 700 km north.",
-    "checked": "2026-08-24"
+    "status": "closed",
+    "candidate": "https://vaki.fi/",
+    "reason": "Väki's own site announces bankruptcy: \"Olosuhteiden pakosta olemme joutuneet hakeutumaan konkurssiin. Käytännössä tämä tarkoittaa Kiipeily- ja joogakeskus nykyisen toiminnan päättymistä.\" The article explains that the landlord terminated the lease once the restructuring application became known and that negotiations failed, so there is no longer a premises. Suosiolantie 5 geocodes 33 m from the row.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 62.787735,
@@ -1298,8 +1298,8 @@
     "name": "Murikka ry",
     "country": "FI",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — murikka.fi → \"Murikka-Opisto\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "checked": "2026-08-25",
+    "reason": "The name resolves to somebody else: murikka.fi redirects to Murikka-Opisto, a trade-union folk high school by Näsijärvi near Tampere. Murikka ry is a bouldering club in a former railway store on Ruukintie in Seinäjoki, and it publishes on Facebook.",
     "candidate": "https://www.murikka-opisto.fi/"
   },
   {
@@ -1572,9 +1572,9 @@
     "name": "The Wall Sport Climbing Center",
     "country": "GR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — thewallsport.com → \"The Wall Sport\"; thewall.gr → \"Αρχική - The wall\", the rest could not be opened — thewall.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://thewallsport.com/en"
+    "checked": "2026-08-25",
+    "reason": "thewall.gr is The Wall Sports Climbing Center and publishes a full week, but its address is Αγ. Αθανασίου 12, 15351 Παλλήνη Αττικής — Pallini, by the Attiki Odos — which geocodes 13.0 km from this row. The row sits on central Athens, the coordinate a gazetteer returns for the city.",
+    "candidate": "https://thewall.gr/"
   },
   {
     "lat": 37.6704858,
@@ -1630,19 +1630,29 @@
     "name": "Goodang Bouldering",
     "country": "ID",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — goodang.co.id → \"Goodang Apps\"; goodang.com → \"ATT Warehousing – Supporting Your Business Growth\", the rest could not be opened — goodang.id → a timeout; goodangbouldering.com → 200, the venue's whole name as one label, goodangbouldering.com, answers 200 (\"Goodang Bouldering\") but its pages print no street, postal code or town matching this venue. Upstream records Jl Terusan Kopo Katapang KM 12,2 106, 40921, Bandung, and nothing opened printed it.",
-    "candidate": "https://goodang.co.id/"
+    "candidate": "https://goodangbouldering.com/",
+    "reason": "goodangbouldering.com resolves and serves twenty characters of text — its own name — with the rest left to scripts. Nothing that could be a second signal is served.",
+    "checked": "2026-08-25"
   },
   {
-    "lat": 53.2884406,
-    "lon": -6.3692084,
-    "name": "The Dublin Climbing Centre",
+    "lat": 52.6835403,
+    "lon": -8.5782165,
+    "name": "Suas Climbing",
     "country": "IE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "candidate": "https://www.dublinclimbing.com/",
-    "reason": "Re-read: unchanged. dublinclimbing.com still serves a 'Coming Soon' page with nothing on it that describes this centre. dublin.ie is the city's official information portal. The nearest chain page, Awesome Walls Dublin, is a different operator 13 km away."
+    "status": "unavailable",
+    "candidate": "https://suasclimbing.ie/",
+    "reason": "suasclimbing.ie resolves and answers 403 to every request from here, on both apex and www. The domain is very likely Suas Climbing in Limerick's, and a page we are refused is a page we cannot read two signals off.",
+    "checked": "2026-08-25"
+  },
+  {
+    "lat": 53.277778,
+    "lon": -6.2096515,
+    "name": "The Wall MoonBoard",
+    "country": "IE",
+    "status": "closed",
+    "candidate": "https://thewall.ie/",
+    "reason": "thewall.ie now serves one line — \"We have moved! Check out our new location in the link below\" — above the old address, 5 Arkle Road, Sandyford Business Park, Dublin 18 D18 DK29, marked \"Closed\". The link goes to blocdublin.ie, whose address is Unit 23a, Robinhood Industrial Estate, Dublin 22. This row is the Sandyford hall, and the Sandyford hall is shut.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 31.75221,
@@ -2445,18 +2455,9 @@
     "name": "B.K.L.",
     "country": "LU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 49.4845767,
-    "lon": 6.089260599999999,
-    "name": "D-Summit MOON",
-    "country": "LU",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — summit.be → \"Summit\", the rest could not be opened — summit.lu → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://summit.be/"
+    "checked": "2026-08-25",
+    "reason": "bkl.lu is Boulder Klub Lëtzebuerg and says plainly it is \"located in Pfaffenthal, Luxembourg City\" at 12, Rue du Pont — which geocodes 22.2 km from this row. The row point reverse-geocodes to Cruchten in the commune of Nommern, a village in Canton Mersch, so upstream's city of \"Luxembourg\" is the country rather than the town.",
+    "candidate": "https://bkl.lu/"
   },
   {
     "lat": 56.98629339999999,
@@ -2464,8 +2465,9 @@
     "name": "Virsotneclimbing",
     "country": "LV",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — virsotneclimbingboulder.lv → no answer. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "checked": "2026-08-25",
+    "reason": "The name resolves to somebody else: virsotne.lv is the VIRSOTNE outdoor shop — \"Veikals VIRSOTNE | Tūrisma inventārs\" — which sells mountaineering kit across Latvia. A shop that shares a name with a wall is not that wall's page, and nothing on it identifies a bouldering room at this coordinate.",
+    "candidate": "https://virsotne.lv/"
   },
   {
     "lat": 46.976995,
@@ -2584,9 +2586,9 @@
     "name": "Batuu Climbing",
     "country": "MY",
     "status": "unverified",
-    "candidate": "https://batuuclimbing.com/",
-    "reason": "No official site could be established: batuuclimbing.com is Batuu Climbing, \"an indoor climbing gym in Malaysia offering bouldering, top rope, and lead climbing\", founded September 2024 — and that is the whole of what it says about where it is. No page on it states a street, a town or a state to match against Petaling Jaya.",
-    "checked": "2026-08-24"
+    "candidate": "https://www.batuuclimbing.com/",
+    "reason": "batuuclimbing.com resolves and describes \"an indoor climbing gym in Malaysia offering bouldering, top rope, and lead climbing … Founded in September 2024\" — but that is the whole of the served HTML. No address, no city, no hours reach a client that does not run its scripts, by any platform route tried. The name is the only signal.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 5.4163935,
@@ -2660,8 +2662,8 @@
     "name": "GRAVITON",
     "country": "NL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — graviton.nl → \"Graviton – Marmer, Engravings en Awards\", the rest could not be opened — graviton.com → a certificate that does not cover its hostname, the venue's whole name as one label, graviton.nl, answers 200 (\"Graviton &#8211; Marmer, Engravings en Awards\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
+    "checked": "2026-08-25",
+    "reason": "The name resolves to somebody else: graviton.nl is a marble, engraving and awards firm of forty years' standing in the Netherlands, not the GRAVITON board in Sittard.",
     "candidate": "https://graviton.nl/"
   },
   {
@@ -2841,9 +2843,9 @@
     "name": "Power Up Tandang Sora",
     "country": "PH",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Overturns this audit's own earlier acceptance. poweruptandangsora.com is not the gym: it is \"Patikim · Philippine Venue Guide\", a third-party visit guide that describes itself as \"An independent field guide to Power Up — Tandang Sora\" and tells readers to \"Treat the official channel as the final source\". It carries the gym's address, which is why it matched. The operator's own powerupclimbing.com answers 200 but serves no parseable page. Every one of the 336 links this audit accepted was re-read against that pattern and this was the only one.",
-    "candidate": "https://powerupclimbing.com/"
+    "checked": "2026-08-25",
+    "reason": "poweruptandangsora.com is not Power Up. It serves \"Patikim · Philippine Venue Guide\", which introduces itself as an \"Independent Visit Guide\" to the venue — someone else's write-up parked on a domain built from the venue's name. It carries the address and it is accurate, and it is still not an official site: the venue did not write it and cannot correct it.",
+    "candidate": "https://poweruptandangsora.com/"
   },
   {
     "lat": 14.6596839,
@@ -2999,25 +3001,6 @@
     "checked": "2026-08-25"
   },
   {
-    "lat": 39.5993,
-    "lon": -8.82308,
-    "name": "Dolinas Climbing Center",
-    "country": "PT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — dolinas.pt → no answer; dolinas.com → no answer. Upstream records R da Boavista no1, 2480-330, Porto de Mós, and nothing opened printed it."
-  },
-  {
-    "lat": 41.3660623,
-    "lon": -8.750836,
-    "name": "OneSoul Climbing",
-    "country": "PT",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "OSM maps an object called OneSoul 82 m from this venue and tags it onesoul.pt, and the site answers. It is not confirmable as this venue: its contact page gives \"Rua António Gonçalves Pousado, n.º 9 Trás, 4480-888 Vila do Conde\", a different municipality from the Póvoa de Varzim upstream records, and the site lists training, HYROX, pilates, karate, kickboxing, yoga, jiu jitsu and parties without mentioning climbing or escalada anywhere on it. Neighbouring towns and a shared name are not enough.",
-    "candidate": "https://www.onesoul.pt/"
-  },
-  {
     "lat": 38.7426421,
     "lon": -9.1280699,
     "name": "Rocódromo do Areeiro - Casal Vistoso",
@@ -3052,9 +3035,9 @@
     "name": "Vertical Escalada",
     "country": "PT",
     "status": "unverified",
-    "reason": "The gazetteer has an object 85 m from this coordinate tagged verticalescalada.pt. The host answers, and what it serves is 5,860 bytes containing a contact form and four words — Vertical, Enviado, Contacte-nos, Enviar. No address, no town, no navigation and no second page. A pointer with nothing behind it is not a link.",
     "candidate": "https://verticalescalada.pt/",
-    "checked": "2026-08-24"
+    "reason": "verticalescalada.pt resolves and is plainly Vertical's — the page says \"Vertical\" and links their Facebook and Instagram — but it is a splash page holding a contact form and nothing else: no address, no hours, no mention of Estômbar. /index.html is the hosting provider's default page. The venue name is the only signal the page offers, and one signal is not two.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 41.11153,
@@ -3065,16 +3048,6 @@
     "candidate": "https://zone.com.pt/",
     "reason": "No official site could be established: Zone Fitness runs five gyms and names each address — Madalena at Rua Colégio dos Orfãos 37, Aguda at Arcozelo, plus S. João da Madeira, Póvoa de Varzim and Guimarães. None is at Vilar do Paraíso, and the site never mentions climbing.",
     "checked": "2026-08-24"
-  },
-  {
-    "lat": 47.046159,
-    "lon": 21.9638572,
-    "name": "Crux Holds Oradea Climbing Gym",
-    "country": "RO",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.crux24.cz → \"CRUX 24 - Lezecké centrum Harrachov\"; www.cruxclimbing.pt → \"Escalada | CRUX - Climbing Center | São Domingos de Rana\"; thecrux.com.au → \"Melbourne Indoor Bouldering / Rock Climbing Coburg, Brun\", the rest could not be opened — crux.ro → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.crux24.cz/"
   },
   {
     "lat": 46.5382673,
@@ -3092,9 +3065,9 @@
     "name": "One Move Arad",
     "country": "RO",
     "status": "unverified",
-    "candidate": "https://onemove.ro/",
-    "reason": "No official site could be established: onemove.ro belongs to Sala de cățărat One Move and lists exactly two halls, One Move Nord at Strada Marginii 4 and One Move Șagului at Bd. 16 Decembrie 1989 nr. 75, both in Timișoara and both answered from contact_tm@onemove.ro. This row is in Arad, 50 km north.",
-    "checked": "2026-08-24"
+    "checked": "2026-08-25",
+    "reason": "onemove.ro is the real One Move, but its contact page lists exactly two halls, both marked (TM) for Timișoara: One Move Șagului at Bd. 16 Decembrie 1989 nr. 75 and One Move Nord at Str. Marginii nr. 4. This row is in Arad, 45 km north, and the chain's own list is what decides whether a branch exists.",
+    "candidate": "https://onemove.ro/contact/"
   },
   {
     "lat": 47.8063969,
@@ -3121,10 +3094,10 @@
     "lon": 23.546302,
     "name": "SKAI Urban Crag",
     "country": "RO",
-    "status": "unverified",
-    "candidate": "https://skaiurbancrag.ro/",
-    "reason": "No official site could be established: The domain is the venue's and the site is a placeholder: \"SKAI Urban Crag is under construction\".",
-    "checked": "2026-08-24"
+    "status": "unavailable",
+    "candidate": "https://skai.ro/",
+    "reason": "skai.ro resolves to a placeholder that reads \"Soon to be amazing !!\" — a registered domain with no site behind it yet. SKAI Urban Crag in Cluj-Napoca publishes nothing else this file can store.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 59.999622,
@@ -3304,9 +3277,9 @@
     "name": "Klattercentret Sisjon",
     "country": "SE",
     "status": "unverified",
-    "reason": "The gazetteer points at klattercentret.se/sisjon/, which answers 404. The operator's current site lists eight halls by address — Banvaktsvägen 20 in Solna, Vandagatan 3 in Kista, Tellusgången 22-24 in Hägersten, Rapsgatan 8 in Uppsala, Stenbygatan 3A in Västerås, Kopparbergsgatan 8 in Malmö, Juelsgatan 5 in Helsingborg and Laxfiskevägen 4A in Partille — and none of them is in Sisjön; the nearest is Partille, 15 km across Göteborg. Its sitemap has no Sisjön page either.",
-    "candidate": "https://www.klattercentret.se/sisjon/",
-    "checked": "2026-08-24"
+    "checked": "2026-08-25",
+    "reason": "Klättercentret is Sweden's largest climbing company and its front page names all eight halls — Solna, Telefonplan, Akalla, Malmö, Helsingborg, Uppsala, Västerås, Partille. Sisjön is not among them and /sisjon/ answers 404, though OSM still carries a \"Klättercentret Sisjön\" 25 m from the row. The site also carries a note that Klättercentret and Volym have merged. Whatever trades at Stora Åvägen 1 now, the chain does not publish a page for it.",
+    "candidate": "https://www.klattercentret.se/"
   },
   {
     "lat": 1.34359,
@@ -3364,9 +3337,9 @@
     "name": "Alpine Outpost Chiang Mai",
     "country": "TH",
     "status": "unverified",
-    "candidate": "https://alpineindoorclimbing.com/",
-    "reason": "No official site could be established: alpineindoorclimbing.com is Alpine Indoor Climbing at Robina/Currumbin on the Gold Coast, and alpineoutpost.com is a shop called GearTub. Neither is in Chiang Mai.",
-    "checked": "2026-08-24"
+    "checked": "2026-08-25",
+    "reason": "The name resolves to somebody else: alpineoutpost.com serves GearTub, an online climbing-gear shop, not the Alpine Outpost in Chiang Mai.",
+    "candidate": "https://alpineoutpost.com/"
   },
   {
     "lat": 13.723358,
@@ -3412,9 +3385,9 @@
     "name": "Volume Climbing Gym",
     "country": "TH",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — volume.wtf → \"Home - VOLUME - BOULDERN VILLACH\"; volume.com → \"Volume.com\"; volumeclimbinggym.com → \"volumeclimbinggym.com\", the venue's whole name as one label, volumeclimbinggym.com, answers 200 (\"volumeclimbinggym.com\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://volume.wtf/"
+    "checked": "2026-08-25",
+    "reason": "The name resolves to somebody else: volumeclimbing.com redirects into rockstarvolumes.com, a maker of volumes and crash pads. Volume Climbing Gym in Ban Phai is a venue, not a product line.",
+    "candidate": "https://www.rockstarvolumes.com/"
   },
   {
     "lat": 39.673333,
@@ -4080,6 +4053,16 @@
     "checked": "2026-08-23",
     "reason": "winthropsquareboston.com is a commercial office building at Winthrop Square, not a climbing venue, and matched only on the venue's name, which is the square itself. Nothing published could be found for a wall at 115 Federal St, 02110.",
     "candidate": "https://winthropsquareboston.com/"
+  },
+  {
+    "lat": 10.8169516,
+    "lon": 106.7298685,
+    "name": "Push Climbing",
+    "country": "VN",
+    "status": "unavailable",
+    "candidate": "https://pushclimbing.vn/",
+    "reason": "pushclimbing.vn resolves and answers 403 to every request from here, on both apex and www. The domain is very likely Push Climbing in Bình Thạnh's, and a page we are refused is a page we cannot read two signals off.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -33.93792,

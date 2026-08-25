@@ -13025,18 +13025,20 @@
     ]
   },
   {
-    "lat": 52.6835403,
-    "lon": -8.5782165,
-    "name": "Suas Climbing",
+    "lat": 53.2884406,
+    "lon": -6.3692084,
+    "name": "The Dublin Climbing Centre",
     "country": "IE",
-    "website": "https://suasclimbing.ie/",
-    "verified": "2026-08-24",
+    "website": "https://www.dublinclimbingcentre.ie/",
+    "verified": "2026-08-25",
     "provenance": "official-site",
     "signals": [
       "name",
-      "city"
+      "city",
+      "board-mention",
+      "geocoded-address"
     ],
-    "note": "suasclimbing.ie answers 403 to us but resolves and is not gone. A snapshot of it reads \"Suas Climbing Centre is ideally situated to service the entire Midwest\" and \"COME FIND US Burlington Est Corbally, Co Limerick\" — the venue's own site, which is all a snapshot is allowed to settle. The link points at the live address; no hours are taken from it."
+    "note": "The Square Industrial Complex, Belgard Square E, Tallaght geocodes 124 m from the row, and the facilities text names the Moon board this row is listed for."
   },
   {
     "lat": 53.401674,
@@ -13052,20 +13054,6 @@
       "postal-code"
     ],
     "note": "Upstream records this entry as The Training Room; it sits 16 m away at the same Unit 6, North Park address in D11 YP40."
-  },
-  {
-    "lat": 53.277778,
-    "lon": -6.2096515,
-    "name": "The Wall MoonBoard",
-    "country": "IE",
-    "website": "https://thewall.ie/",
-    "verified": "2026-08-24",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "city"
-    ],
-    "note": "The Wall Dublin's own site, titled \"Welcome - The Wall Dublin\" and giving \"Sandyford Business Park, Dublin 18 D18 DK29\" — Sandyford is the place upstream records for this venue and is not in its name. OSM maps The Wall 6 m from this venue with this domain, which is what pointed here. The live host answers 403 to every fetcher, so the page was read from a snapshot of 1 December 2025; the hours record stays inaccessible."
   },
   {
     "lat": 52.6732997,
@@ -14425,6 +14413,21 @@
       "city"
     ],
     "note": "The national sports centre runs the wall as part of the Coque; its site has a dedicated Escalade section."
+  },
+  {
+    "lat": 49.4845767,
+    "lon": 6.089260599999999,
+    "name": "D-Summit MOON",
+    "country": "LU",
+    "website": "https://dsummit.lu/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "geocoded-address"
+    ],
+    "note": "Centre sportif René-Hartmann, Rue René Hartmann, L-3425 Dudelange; the street geocodes 61 m from the row and the row itself reverse-geocodes to house number 2 on it."
   },
   {
     "lat": 49.51655,
@@ -17327,6 +17330,21 @@
     ]
   },
   {
+    "lat": 39.5993,
+    "lon": -8.82308,
+    "name": "Dolinas Climbing Center",
+    "country": "PT",
+    "website": "https://www.dolinasclimbinghotel.com/climbing-center",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "geocoded-address"
+    ],
+    "note": "The hotel and the climbing centre share a domain; the centre has its own page, which is the one linked. Upstream records no street line, so the page's address — Avenida de São Pedro 1, 2480-303 Porto de Mós — was geocoded instead and lands 22 m from the row."
+  },
+  {
     "lat": 38.53296,
     "lon": -8.87263,
     "name": "INWALL Climbing Center",
@@ -17354,6 +17372,20 @@
       "city"
     ],
     "note": "The island's only bouldering gym; its Rua Conde Carvalhal address resolves 79 m from this coordinate."
+  },
+  {
+    "lat": 41.3660623,
+    "lon": -8.750836,
+    "name": "OneSoul Climbing",
+    "country": "PT",
+    "website": "https://www.onesoul.pt/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "geocoded-address"
+    ],
+    "note": "Upstream files this row under Póvoa de Varzim; the site gives Rua António Gonçalves Pousado n.º 9 Trás, 4480-888 Vila do Conde, which geocodes 8 m from the coordinate. Worth recording: the site no longer lists climbing among its activities and its /climbing page is gone, so this is the venue's site rather than a page about the board."
   },
   {
     "lat": 41.17873,
@@ -17456,6 +17488,21 @@
       "city"
     ],
     "note": "The same association's site, which names its Iasi hall and the town upstream records for it. Its Bucharest hall is described separately on the same site."
+  },
+  {
+    "lat": 47.046159,
+    "lon": 21.9638572,
+    "name": "Crux Holds Oradea Climbing Gym",
+    "country": "RO",
+    "website": "https://www.cruxholds.ro/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Calea Clujului 161 cannot be geocoded to a house number — the road's segments sit 1.6–2.4 km from the row — but the row point does reverse-geocode onto Calea Clujului, and the site names the MoonBoard this row is listed for. The contact page adds \"incinta fostei fabrici Rovex\"."
   },
   {
     "lat": 44.42102,
@@ -17979,14 +18026,14 @@
     "lon": 15.2337493,
     "name": "Örebro Klättergym",
     "country": "SE",
-    "website": "https://orebroklatterklubb.com/",
-    "verified": "2026-08-23",
+    "website": "https://www.orebroklattergym.se/",
+    "verified": "2026-08-25",
     "provenance": "official-site",
     "signals": [
       "name",
-      "city"
+      "geocoded-address"
     ],
-    "note": "Örebro Klätterklubb's own site, giving Örebro. Svenska Klätterförbundet publishes its member clubs at klatterforbundet.se/klubbar with each club's own site beside its name; that directory is how this was found, and the federation naming the club and the site together is what makes the town an independent confirmation rather than a repetition of the venue's name."
+    "note": "Södra Grev Rosengatan 27 is on a long street whose segments geocode 134–891 m apart, so the forward read alone would not settle it; the row point reverse-geocodes onto Södra Grev Rosengatan, the street the site publishes. Upstream holds no address."
   },
   {
     "lat": 63.16214050000001,
@@ -26507,20 +26554,6 @@
       "board-mention"
     ],
     "note": "The venue's whole name as one domain label, which the guesser had not tried. The site carries this venue's name and names the MoonBoard it is listed for; upstream records no street address, so those are the two signals available."
-  },
-  {
-    "lat": 10.8169516,
-    "lon": 106.7298685,
-    "name": "Push Climbing",
-    "country": "VN",
-    "website": "https://pushclimbing.vn/",
-    "verified": "2026-08-24",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "city"
-    ],
-    "note": "The host answers 403; a snapshot is titled \"PUSH HOME - Push Climbing\" and footed \"CWALL CLIMBING CENTER & PUSH CLIMBING OFFICE, 101 Tôn Dật Tiên, Tân Phú, Quận 7, Thành phố Hồ Chí Minh\". One operator, one address. The coordinate is 9.8 km north in Bình Thạnh, which is the district upstream labels the row with."
   },
   {
     "lat": 10.8230989,

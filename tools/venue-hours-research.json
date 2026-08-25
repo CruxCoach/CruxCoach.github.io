@@ -538,7 +538,7 @@
   "name": "The Attic",
   "country": "BE",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -2981,9 +2981,9 @@
   "lon": 25.6829523,
   "name": "Kiipeilykeskus Väki",
   "country": "FI",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "closed",
+  "reason": "The contact page still shows \"Ma KIINNI Ti - Su 12 - 20\", but every page of the site carries the banner \"Kiipeily- ja joogakeskuksen toiminta päättyy\". A week left standing on a site that announces its own end is not a schedule, and the venue is recorded closed rather than open.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 62.787735,
@@ -2991,7 +2991,7 @@
   "name": "Murikka ry",
   "country": "FI",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -3675,7 +3675,7 @@
   "name": "The Wall Sport Climbing Center",
   "country": "GR",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -3768,9 +3768,9 @@
   "lon": 107.55413,
   "name": "Goodang Bouldering",
   "country": "ID",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "reason": "The page serves its own name and nothing else.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 52.6835403,
@@ -3778,28 +3778,17 @@
   "name": "Suas Climbing",
   "country": "IE",
   "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://suasclimbing.ie/",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use. It stays in the retry queue."
- },
- {
-  "lat": 53.2884406,
-  "lon": -6.3692084,
-  "name": "The Dublin Climbing Centre",
-  "country": "IE",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this centre, so there is no page to read a schedule from."
+  "reason": "suasclimbing.ie answers 403; nothing can be read from it.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 53.277778,
   "lon": -6.2096515,
   "name": "The Wall MoonBoard",
   "country": "IE",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://thewall.ie/",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use. It stays in the retry queue."
+  "status": "closed",
+  "reason": "The venue at this coordinate has closed and moved to another part of Dublin; there is no week to read.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 31.75221,
@@ -5007,7 +4996,7 @@
   "name": "B.K.L.",
   "country": "LU",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -5015,9 +5004,10 @@
   "lon": 6.089260599999999,
   "name": "D-Summit MOON",
   "country": "LU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "checked": "2026-08-25",
+  "source": "https://dsummit.lu/en/63/top/opening-hours/",
+  "reason": "The hall is shared with a secondary school, and the page publishes two weeks side by side — a term-time one and a \"During Luxembourg school holydays\" one — in a layout of nested single-cell tables that does not survive being read as text. Wednesday carries both an open and a routesetting-closed window without saying which is which, and Thursday is given as \"06.08 CLOSED\", a single date rather than a weekday rule. Two of the three cannot be resolved from the page, so no week is published."
  },
  {
   "lat": 56.98629339999999,
@@ -5025,7 +5015,7 @@
   "name": "Virsotneclimbing",
   "country": "LV",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -5222,9 +5212,9 @@
   "lon": 101.62692,
   "name": "Batuu Climbing",
   "country": "MY",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "reason": "Nothing but a one-paragraph description is served; no schedule is readable.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 3.14992,
@@ -5415,7 +5405,7 @@
   "name": "GRAVITON",
   "country": "NL",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -5917,8 +5907,8 @@
   "name": "Power Up Tandang Sora",
   "country": "PH",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "The page that had been recorded for this venue is a third-party visit guide, not the operator's, and the operator's own site serves nothing readable. There is no official page to read a schedule from."
+  "checked": "2026-08-25",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 14.6596839,
@@ -6179,24 +6169,6 @@
   "source": "https://www.cruxclimbing.pt/"
  },
  {
-  "lat": 39.5993,
-  "lon": -8.82308,
-  "name": "Dolinas Climbing Center",
-  "country": "PT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 41.3660623,
-  "lon": -8.750836,
-  "name": "OneSoul Climbing",
-  "country": "PT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 41.17873,
   "lon": -8.6822,
   "name": "Proa Climbing Center",
@@ -6258,9 +6230,9 @@
   "lon": -8.482054452243313,
   "name": "Vertical Escalada",
   "country": "PT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "reason": "The site is a contact form; no schedule is published on it.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 41.11153,
@@ -6293,15 +6265,6 @@
   "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
-  "lat": 47.046159,
-  "lon": 21.9638572,
-  "name": "Crux Holds Oradea Climbing Gym",
-  "country": "RO",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 46.5382673,
   "lon": 24.5981647,
   "name": "Hangout",
@@ -6316,7 +6279,7 @@
   "name": "One Move Arad",
   "country": "RO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -6353,8 +6316,8 @@
   "name": "SKAI Urban Crag",
   "country": "RO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 44.4485,
@@ -6673,7 +6636,7 @@
   "name": "Klattercentret Sisjon",
   "country": "SE",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -6715,16 +6678,6 @@
   "source": "https://monoloco.se/",
   "reason": "Three weeks, no two alike. The body prints \"Ordinarie öppettider 2026\" that \"kör igång 31/8\" — Måndag-Torsdag 12.00-20.00, Fredag 11.00-19.00, Lördag-Söndag 10.00-16.00 — then \"SOMMARÖPPETTIDER 2026 ... Gäller fr.o.m v. 26\" at MÅN-FRE 16.00-20.00, LÖR-SÖN 10.00-14.00, and the footer states a third, unlabelled: Mån-Tors 13-21, Fre 13-19, lör-Sön 10-16. The regular one starts in a week; the footer matches neither.",
   "checked": "2026-08-24"
- },
- {
-  "lat": 59.2761633,
-  "lon": 15.2337493,
-  "name": "Örebro Klättergym",
-  "country": "SE",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://orebroklatterklubb.com/",
-  "reason": "The site answers a request but yields no readable text on any route: the document, its Wix, Next.js and Nuxt payloads, its JSON-LD and its WordPress and Squarespace endpoints are all empty of content. Nothing on it can be read, including a schedule."
  },
  {
   "lat": 63.16214050000001,
@@ -6937,7 +6890,7 @@
   "name": "Alpine Outpost Chiang Mai",
   "country": "TH",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -6992,7 +6945,7 @@
   "name": "Volume Climbing Gym",
   "country": "TH",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -8725,9 +8678,8 @@
   "name": "Push Climbing",
   "country": "VN",
   "status": "inaccessible",
-  "source": "https://pushclimbing.vn/",
-  "reason": "The host answers 403 to every fetcher. The snapshot that settled the address also carries \"Mon – Sunday from 10 am – 10 pm\", and a week is not taken from a snapshot.",
-  "checked": "2026-08-24"
+  "reason": "pushclimbing.vn answers 403; nothing can be read from it.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 10.8230989,
