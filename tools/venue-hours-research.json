@@ -5667,8 +5667,8 @@
   "name": "Buldretanken",
   "country": "NO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 61.004296,
@@ -5725,17 +5725,18 @@
   "name": "Hamna Aktivitet Og Helse",
   "country": "NO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The venue's domain is registered and parked with no site behind it, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 68.80432,
   "lon": 16.53449,
   "name": "Harstad Klatreklub",
   "country": "NO",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://www.harstad-klatreklubb.no/",
+  "reason": "The club says its members \"er fri til å bruke klatrevegg og buldrehule innenfor flerbrukshallens åpningstider\" — free to use the wall within the multi-purpose hall's opening hours — and never states what those are. Its own \"Anlegg og åpningstider\" page has not been written: it still carries the template's placeholder text, several paragraphs of The Last of the Mohicans. Changes are announced on Facebook.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 60.8630354,
@@ -5752,8 +5753,8 @@
   "name": "Herøy klatreklubb",
   "country": "NO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 61.21709,
@@ -5859,8 +5860,8 @@
   "name": "KraftSenteret",
   "country": "NO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The venue's domain is registered and parked with no site behind it, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 63.1102401,
@@ -5915,9 +5916,10 @@
   "lon": 7.44517,
   "name": "Mandal & Lindesnes Klatreklubb",
   "country": "NO",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://www.mandaloglindesnesklatreklubb.com/about-6",
+  "reason": "The hall page states who runs the climbing rather than when: \"Klatreklubben administrerer klatringen angående treningstider og instruktører.\" Nothing on the site pairs a day with a time; what it publishes instead is a calendar of sessions.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 62.56787,
@@ -5955,8 +5957,8 @@
   "name": "Rúngne Buldr",
   "country": "NO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 59.66699680000001,
@@ -5967,15 +5969,6 @@
   "source": "https://skakke.no/opningstider/",
   "reason": "Correcting \"no schedule appears on the site\". There is one, on a page the guessed paths missed and the home page links to by name: \"Opningstider i skuleåret: Måndag – fredag 08.30 – 20.30, Laurdag 11.00-14.00, Søndag: Ope i kinotida.\" Two things stop it being a week. It is labelled for the school year, and a note beside it gives a different summer regime — open in the cinema hours, Tuesday and Thursday daytime, Wednesday and Sunday evenings. And Sunday is never a time at all: it is whenever the cinema is showing.",
   "checked": "2026-08-24"
- },
- {
-  "lat": 61.23072478430315,
-  "lon": 7.083987569243897,
-  "name": "Sogndal Klatresenter",
-  "country": "NO",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 58.99917550000001,
@@ -6002,27 +5995,10 @@
   "lon": 5.39784,
   "name": "Stord Tinde - Og Klatreklubb",
   "country": "NO",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 62.3095307,
-  "lon": 6.9488477,
-  "name": "Stranda Buldresenter",
-  "country": "NO",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 62.30955,
-  "lon": 6.94886,
-  "name": "Stranda Buldresenter Uteguiden",
-  "country": "NO",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://stord-tindeog-klatreklubb.idrettenonline.no/",
+  "reason": "The club's platform site is unpublished and redirects to an admin path, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 65.48496,

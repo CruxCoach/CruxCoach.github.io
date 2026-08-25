@@ -3136,8 +3136,8 @@
     "name": "Buldretanken",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all: none of the name-derived domains for Buldretanken exists, and no OSM climbing object within 500 m of Ål carries a website."
+    "reason": "No official site could be established: buldretanken.no does not resolve. The hall — described as a small self-service bouldering room in Ål — appears in the municipality's tourism pages at visital.no and nowhere else under its own name. A destination site listing an attraction is not that attraction's website.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 61.004296,
@@ -3154,18 +3154,9 @@
     "name": "Hamna Aktivitet Og Helse",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "hamna.no and hamnaaktivitetoghelse.no do not resolve, and hamna.com presents a certificate that does not cover its hostname. Nothing found names Osvegen 10 in Nordfjordeid."
-  },
-  {
-    "lat": 68.80432,
-    "lon": 16.53449,
-    "name": "Harstad Klatreklub",
-    "country": "NO",
-    "status": "unverified",
-    "reason": "harstad.com is the town. harstadklatreklubb.no and harstadkk.no do not resolve, and klatring.no lists no club websites to follow.",
-    "candidate": "https://harstad.com/",
-    "checked": "2026-08-24"
+    "candidate": "https://hamna.no/",
+    "reason": "No official site could be established: hamna.no is registered and parked. It resolves to Domeneshop's parking host, which answers https with nothing at all and http with \"hamna.no is registered, but the owner currently does not have an active website here.\" A registration is not a site, and no other domain for the venue could be found.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 60.8630354,
@@ -3183,9 +3174,8 @@
     "name": "Herøy klatreklubb",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "heroy.com answers with an empty page and no other domain resolves for Herøy klatreklubb. Nothing found names the Mjølstadneset industrial estate in Fosnavåg.",
-    "candidate": "https://heroy.com/"
+    "reason": "No official site could be established: heroyklatreklubb.no does not resolve and no other domain for the club could be found. The hall on Mjølstadneset in Fosnavåg — upstream's address — is documented only in local press, which reported in February 2024 that the club was building it in an industrial unit and had been climbing in a silo on Nerlandsøya since 2023. A newspaper is not the venue's own page.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 68.33297,
@@ -3212,8 +3202,9 @@
     "name": "KraftSenteret",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "kraftsenteret.no and kraftsenteret.com do not resolve on either host, and no OSM climbing object within 500 m carries a website."
+    "candidate": "https://kraftsenteret.no/",
+    "reason": "No official site could be established: kraftsenteret.no is registered and parked. It resolves to Domeneshop's parking host, which answers https with nothing at all and http with \"kraftsenteret.no is registered, but the owner currently does not have an active website here.\" A registration is not a site, and no other domain for the venue could be found.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 59.89262,
@@ -3236,63 +3227,24 @@
     "checked": "2026-08-24"
   },
   {
-    "lat": 58.02586,
-    "lon": 7.44517,
-    "name": "Mandal & Lindesnes Klatreklubb",
-    "country": "NO",
-    "status": "unverified",
-    "reason": "geiloklatreklubb.no is the club in Geilo, some 300 km away, and the sweep matched it on a bare \"13\". Mandal & Lindesnes Klatreklubb has no domain of its own that answers: mandalklatreklubb.no, mlklatreklubb.no, mandalklatring.no and mlkk.no all fail to resolve, and the national federation's club pages carry no outbound club links.",
-    "candidate": "https://geiloklatreklubb.no/",
-    "checked": "2026-08-24"
-  },
-  {
     "lat": 60.38464,
     "lon": 5.31154,
     "name": "Rúngne Buldr",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "rungne.no and rungne.com are Rúngne, a climbing-apparel brand, not this hall. The OSM node 54 m away is Gneis Buldring Bergen, whose site answers 423 — \"This store is unavailable\" — so the one real pointer cannot be read.",
-    "candidate": "https://gneisbuldring.no/"
-  },
-  {
-    "lat": 61.23072478430315,
-    "lon": 7.083987569243897,
-    "name": "Sogndal Klatresenter",
-    "country": "NO",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "sogndalklatresenter.no does not resolve on either host, and no OSM climbing object within 500 m of Trolladalen 30 carries a website."
+    "candidate": "https://rungne.com/",
+    "reason": "rungne.no redirects to rungne.com, which is Rúngne's webshop — \"Made to Last Climbing Apparel & Chalk\" — selling clothing and chalk with a find-a-store page that lists retailers. Damsgårdsveien 127 in Laksevåg, upstream's address for this row, appears nowhere on it. The brand and the bouldering room share a name; the shop is not the room's website.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 59.78386,
     "lon": 5.39784,
     "name": "Stord Tinde - Og Klatreklubb",
     "country": "NO",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "stord.no is Stord kommune and stord.com an American commerce platform. Nothing found names Utslettevegen 60 in Sagvåg.",
-    "candidate": "https://stord.no/"
-  },
-  {
-    "lat": 62.3095307,
-    "lon": 6.9488477,
-    "name": "Stranda Buldresenter",
-    "country": "NO",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "stranda.no is a cured-meat producer and no other domain resolves for Stranda Buldresenter.",
-    "candidate": "https://stranda.no/"
-  },
-  {
-    "lat": 62.30955,
-    "lon": 6.94886,
-    "name": "Stranda Buldresenter Uteguiden",
-    "country": "NO",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Same hall as the venue a few metres away: stranda.no is a cured-meat producer and nothing else resolves.",
-    "candidate": "https://stranda.no/"
+    "status": "unavailable",
+    "candidate": "https://stord-tindeog-klatreklubb.idrettenonline.no/",
+    "reason": "The club holds a site on IdrettenOnline, the Norwegian sports federation's platform, at stord-tindeog-klatreklubb.idrettenonline.no — and it has not been published: the front page redirects to /next/admin and returns 116 bytes. Nothing else resolves for the club; what it publishes goes to Facebook and Instagram. Retry if the site is ever filled in.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 63.4305149,

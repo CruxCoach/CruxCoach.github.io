@@ -15273,6 +15273,20 @@
     "note": "The site is Gym Stryn, in Stryn, which is the town upstream records; it is the only gym of that name there. No address line reaches the fetched document."
   },
   {
+    "lat": 68.80432,
+    "lon": 16.53449,
+    "name": "Harstad Klatreklub",
+    "country": "NO",
+    "website": "https://www.harstad-klatreklubb.no/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The club's own site, on the Norwegian sports federation's IdrettenOnline platform. Its navigation gives the board a page of its own — Klatrevegg, Buldrevegg, **Kilter** — which is the board upstream lists for this row, and the club is the one upstream names."
+  },
+  {
     "lat": 61.21709,
     "lon": 6.06983,
     "name": "Høyanger Klatreklubb",
@@ -15591,6 +15605,21 @@
     "note": "The site is Krux Klatring and carries the 7340 postcode upstream records for this venue. krux.no is an accountancy-course provider."
   },
   {
+    "lat": 58.02586,
+    "lon": 7.44517,
+    "name": "Mandal & Lindesnes Klatreklubb",
+    "country": "NO",
+    "website": "https://www.mandaloglindesnesklatreklubb.com/about-6",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "The club gives the hall its own page: \"Klatrehallen er en del av Mandalshallen og stod ferdig i 2005. Hallen har flere klatrevegger; hovedveggen som er 10 meter høy, kilterboard, fingerboard, campusboard og buldrevegg\", and describes the board at length — \"Kilterboard … veggen har 40 graders overheng og med LED-lys som lyser opp de problemene du velger deg ut via appen\". Upstream names the club and lists the row as a kilter."
+  },
+  {
     "lat": 62.73626,
     "lon": 7.18192,
     "name": "Molde Klatresenter",
@@ -15764,6 +15793,20 @@
     "note": "The site is Skakke and prints \"Strondavegen 30, 5590 Etne\"; geocoding that address lands on this venue's coordinate."
   },
   {
+    "lat": 61.23072478430315,
+    "lon": 7.083987569243897,
+    "name": "Sogndal Klatresenter",
+    "country": "NO",
+    "website": "https://sogndal.spenst.no/klatresenter/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page"
+    ],
+    "note": "The centre is run by Spenst, whose site gives each town its own subdomain and each service its own path: sogndal.spenst.no/klatresenter/ is this hall, and it says where it is — \"Sogndal Klatresenter holder til på Campus\", the Fosshaugane Campus at Trolladalen 30 upstream records."
+  },
+  {
     "lat": 58.13775,
     "lon": 7.99995,
     "name": "Sørlandet Klatresenter",
@@ -15804,6 +15847,34 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 62.3095307,
+    "lon": 6.9488477,
+    "name": "Stranda Buldresenter",
+    "country": "NO",
+    "website": "https://uteguiden.com/en/stranda-buldresenter",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page"
+    ],
+    "note": "Uteguiden runs the hall and gives it a page: \"Stranda Buldresenter … The center is unstaffed, so you must have a subscription or purchase a single ticket online to gain access. You will receive a personal PIN code, which you enter at the entrance door.\" Upstream carries no address or town for either row; the two sit 15 m apart and are the same hall, one listed for its soill board and one for its moonboard."
+  },
+  {
+    "lat": 62.30955,
+    "lon": 6.94886,
+    "name": "Stranda Buldresenter Uteguiden",
+    "country": "NO",
+    "website": "https://uteguiden.com/en/stranda-buldresenter",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page"
+    ],
+    "note": "Uteguiden runs the hall and gives it a page: \"Stranda Buldresenter … The center is unstaffed, so you must have a subscription or purchase a single ticket online to gain access. You will receive a personal PIN code, which you enter at the entrance door.\" Upstream carries no address or town for either row; the two sit 15 m apart and are the same hall, one listed for its soill board and one for its moonboard."
   },
   {
     "lat": 60.293389018785966,
