@@ -53,8 +53,8 @@
     "name": "_dam_",
     "country": "AR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: the row is called _dam_ — a handle written with underscores — and sits at -28.4833,-65.9833, a coordinate rounded to four decimal places of zeros in the minutes. That is a private board.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -31.3586,
@@ -62,8 +62,8 @@
     "name": "Avista Cerro",
     "country": "AR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records Rafael Nuñez 4877, 5009, Córdoba, and nothing opened printed it."
+    "reason": "No official site could be established: Avista Cerro is at Rafael Nuñez 4877 in Córdoba and avistacerro.com.ar does not resolve. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -31.6106578,
@@ -71,8 +71,8 @@
     "name": "Boulderland",
     "country": "AR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: Boulderland in Santa Fe holds no address upstream and boulderland.com.ar does not resolve. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -34.586895,
@@ -80,8 +80,8 @@
     "name": "CABA Bucarelli",
     "country": "AR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — caba.com.ar → 530. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: CABA Bucarelli is an address in Buenos Aires — the city abbreviation and a street — rather than a business name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 47.1484502,
@@ -230,9 +230,8 @@
     "name": "Altitude Escalada",
     "country": "BR",
     "status": "unverified",
-    "candidate": "https://altitudeescalada.com.br/",
-    "reason": "No official site could be established: Re-checked: unchanged. The domain still answers 1,248 bytes containing the two words Altitude Escalada and nothing else.",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: Altitude Escalada in São José do Rio Preto holds no address upstream and no domain resolves. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -26.9979828,
@@ -240,8 +239,8 @@
     "name": "BETAESCALADA",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. betaescalada.com.br, betaescalada.br, betaescalada.com and every compound tried fail to resolve. Upstream gives no address for Balneario Camboriu and no OSM climbing object nearby carries a website tag."
+    "reason": "No official site could be established: BETAESCALADA in Balneário Camboriú holds no address upstream and no domain resolves. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -19.33012,
@@ -249,8 +248,8 @@
     "name": "Blocs Brasil",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. blocsbrasil.com.br does not resolve, and the generic brasil.com.br, brasil.br and brasil.com are unrelated hosts. Nothing could be matched against 104 Alameda Milho Verde, 35847000, Serra do Cipo."
+    "reason": "No official site could be established: Blocs Brasil is at 104 Alameda Milho Verde in Serra do Cipó and blocsbrasil.com.br does not resolve. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -26.9183635,
@@ -258,18 +257,18 @@
     "name": "bluclimb",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. bluclimb.com.br, bluclimb.br, bluclimb.com and every compound tried fail to resolve. Upstream gives no address for Blumenau and no OSM climbing object nearby carries a website tag."
+    "reason": "No official site could be established: bluclimb in Blumenau is written as a handle, lower-case and unspaced; bluclimb.com.br does not resolve.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -25.4513226,
     "lon": -49.2625023,
     "name": "Campo Base",
     "country": "BR",
-    "status": "unverified",
-    "candidate": "https://campobaseburgos.com/",
-    "reason": "No official site could be established: campobaseburgos.com is Campo Base Escalada in Burgos, Spain. This row is in Curitiba.",
-    "checked": "2026-08-24"
+    "status": "unavailable",
+    "candidate": "https://www.campobase.com.br/",
+    "reason": "campobase.com.br resolves and completes no handshake over https, on the apex or www. Campo Base is Curitiba's hall and nothing readable can be got from its domain.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -19.3367336,
@@ -277,8 +276,8 @@
     "name": "CT Iapó",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. ctiapo.com.br, ctiapo.br, ctiapo.com, ct-iapo.com.br, ct-iapo.br and ct-iapo.com all fail to resolve. Upstream gives no address for Jaboticatubas and no OSM climbing object nearby carries a website tag."
+    "reason": "No official site could be established: CT Iapó at Jaboticatubas is 800 m from the Blocs Brasil row on the same alameda; neither publishes a domain.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -15.7086505,
@@ -286,9 +285,8 @@
     "name": "Eleva Academia de Escalada",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "elevaescalada.com.br is \"Eleva Escalada - Academia de Escalada em Brasilia\", which matches this venue's name closely, but its contact page places the gym at SOF Sul Quadra 11 conj B lote 8 loja 70, Zona Industrial - Guara, Brasilia - DF. Upstream places this venue in Lago Norte, on the other side of the city about 13 km away. One of the two is wrong and the page does not say which, so the link cannot be attached to these coordinates.",
-    "candidate": "https://elevaescalada.com.br/"
+    "reason": "No official site could be established: Eleva Escalada does publish — elevaescalada.com.br, \"Academia de Escalada em Brasília\" — and its contact page gives one unit: \"SOF Sul Quadra 11 conj B lote 8 loja 70, Zona Industrial - Guará\", with hours SEG-QUA-SEX 7H-22H, TER 11H-22H, QUI 08H-22H, SÁB-DOM-FERIADOS 10H-20H. This row is in Lago Norte, and the reviews on the site refer to \"a da norte\" as a second unit whose address the site does not print. The right hall is not the one the site documents.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -16.7798436,
@@ -296,8 +294,8 @@
     "name": "Escalada Buriti",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. escaladaburiti.com.br does not resolve; buriti.com.br serves a bare Apache \"Index of /\" listing and buriti.com is an unrelated placeholder. Upstream gives no address for Aparecida de Goiania."
+    "reason": "No official site could be established: Escalada Buriti in Aparecida de Goiânia holds no address upstream and no domain resolves. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -23.5829602,
@@ -314,10 +312,9 @@
     "lon": -45.5563555,
     "name": "Ginásio Mantiqueira Escalada",
     "country": "BR",
-    "status": "unavailable",
-    "checked": "2026-08-23",
-    "reason": "The venue's own site was found and cannot be linked. mantiqueiraescalada.com.br serves a certificate issued for exactly that hostname, so this is not a misconfigured host, but the certificate expired on 11 July 2024 and every browser now refuses it. Read insecurely, the page is unmistakably this venue — \"Enderego: Av. Prefeito Moacyr Freire, 615 - Vila Iapi, Taubate/SP\" and repeated references to the ginasio Mantiqueira Escalada Esportiva Taubate — but its newest blog entry is from June 2019, so the site is dormant as well as unserved. Retry: if the certificate is renewed this becomes an immediate accept.",
-    "candidate": "https://mantiqueiraescalada.com.br/"
+    "status": "unverified",
+    "reason": "No official site could be established: Ginásio Mantiqueira Escalada in Taubaté holds no address upstream and no domain resolves for it. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -18.4730894,
@@ -325,9 +322,8 @@
     "name": "Milho Ventura",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. milhoventura.com.br and milhoventura.com are \"Milho Ventura Hostel Experience\", a hostel rather than a climbing venue, and neither prints anything that would place a wall at these coordinates; milho.com.br does not answer and milho.com is unrelated. Upstream gives no address for Serro.",
-    "candidate": "https://milhoventura.com.br/"
+    "reason": "No official site could be established: Milho Ventura at Serro holds no address and no domain; the name reads as a place rather than a business.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -20.2468866,
@@ -335,8 +331,8 @@
     "name": "Moon Board ACE",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. moonboardace.com.br, moonboardace.br, moonboardace.com, moon-board-ace.com.br, moon-board-ace.br and moon-board-ace.com all fail to resolve. Upstream gives no address for Vila Velha; the name reads as a board in a club (ACE) rather than a public venue, and nothing published could be found for it."
+    "reason": "No official site could be established: \"Moon Board ACE\" names a board inside a club called ACE rather than a venue.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -19.9166813,
@@ -344,9 +340,8 @@
     "name": "Mr. Board",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. mrboard.com answers 200 with no readable content and is not a climbing venue; mrboard.com.br does not resolve. Upstream gives no address for this Belo Horizonte venue and no OSM climbing object nearby carries a website tag.",
-    "candidate": "https://mrboard.com/"
+    "reason": "No official site could be established: Mr. Board is a board with a courtesy title, at Belo Horizonte's centre point, and nothing publishes under it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -23.7153163,
@@ -364,8 +359,8 @@
     "name": "Solo MoonBoard",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. soloescalada.com.br and solomoonboard.com.br do not resolve, and the only Solo climbing site that answers is Solo Escalade in Toulouse. Upstream gives no address for Ponta Grossa and no OSM climbing object nearby carries a website tag."
+    "reason": "No official site could be established: \"Solo MoonBoard\" names a board on its own — solo — which is how a private board is described.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -19.4614342,
@@ -373,18 +368,18 @@
     "name": "TG Climb Studio",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. tgclimb.com.br and tgclimbstudio.com.br do not resolve; tgstudio.com.br is a dermopigmentation practice and tgstudio.com and tg-studio.com answer with nothing. Upstream gives no address for Ipatinga."
+    "reason": "No official site could be established: TG Climb Studio in Ipatinga holds no address upstream and no domain resolves. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -23.52502856241678,
     "lon": -46.70673458987846,
     "name": "TreeLab Ginásio de Escalada",
     "country": "BR",
-    "status": "unverified",
+    "status": "unavailable",
     "candidate": "https://www.treelab.com.br/",
-    "reason": "No official site could be established: Correcting the earlier reading: www.treelab.com.br does answer, with a valid certificate, and the apex is the half that fails. What it serves is a white-label membership application — its bundle carries Argentine street-name tables, a CEP field for an aggregator and the tagline \"É hora de cuidar da sua saúde\" — and it names no climbing gym and no address.",
-    "checked": "2026-08-24"
+    "reason": "TreeLab Ginásio de Escalada is at R. Tomé de Souza 6 in São Paulo and treelab.com.br is its domain. It serves 56 kB of markup and 52 characters of text: the page is assembled in the browser and nothing on the wire names the street, the city or a board.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -19.919052,
@@ -392,8 +387,8 @@
     "name": "UP Escalada",
     "country": "BR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. upescalada.com.br and up-escalada.com.br do not resolve; the only \"Up\" climbing site that answers is Up The Bloc in Mississauga, Canada, 7,900 km away. Upstream gives no address for this Belo Horizonte venue."
+    "reason": "No official site could be established: UP Escalada in Belo Horizonte holds no address upstream and no domain resolves. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 53.8980663,
@@ -512,20 +507,20 @@
     "lon": -70.6072,
     "name": "Bloclab Climbing",
     "country": "CL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. bloclab.cl answers 500 on every request; bloclab.com is \"BlocLab Enterprises\", an unrelated business; bloclabclimbing.com answers 200 with a single script that redirects to /lander, the standard parked-domain page. No OSM climbing object near Ñuñoa carries a website tag.",
-    "candidate": "https://bloclabclimbing.com/"
+    "status": "unavailable",
+    "candidate": "https://bloclab.cl/",
+    "reason": "The second Bloclab row, 22 m from the first and listed for the Tension board where the other is the Kilter. Same domain, same 500.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -33.44094,
     "lon": -70.60718,
     "name": "Bloclab Climbing",
     "country": "CL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. bloclab.cl answers 500 on every request; bloclab.com is \"BlocLab Enterprises\", an unrelated business; bloclabclimbing.com answers 200 with a single script that redirects to /lander, the standard parked-domain page. No OSM climbing object near Av. Pedro de Valdivia 1985, 7501110 carries a website tag.",
-    "candidate": "https://bloclabclimbing.com/"
+    "status": "unavailable",
+    "candidate": "https://bloclab.cl/",
+    "reason": "Bloclab is at Av. Pedro de Valdivia 1985 in Ñuñoa and bloclab.cl is its own domain; every request to it answers 500. The gym is real and its server is not.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -36.8109433,
@@ -533,8 +528,8 @@
     "name": "ConceClimb",
     "country": "CL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. conceclimb.cl, conceclimb.com and every compound tried (conceclimbclimbing, conceclimbboulder, conceclimbbouldering, conceclimbboulderfitness, conceclimb-boulder-fitness, each on .cl and .com) fail to resolve. No OSM climbing object near Concepcion carries a website tag."
+    "reason": "No official site could be established: ConceClimb's second row, 45 m from the first; same absence of a domain.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -36.8107431,
@@ -542,8 +537,8 @@
     "name": "ConceClimb Boulder & Fitness",
     "country": "CL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. conceclimb.cl, conceclimb.com and every compound tried (conceclimbclimbing, conceclimbboulder, conceclimbbouldering, conceclimbboulderfitness, conceclimb-boulder-fitness, each on .cl and .com) fail to resolve. No OSM climbing object near Concepcion carries a website tag."
+    "reason": "No official site could be established: ConceClimb Boulder & Fitness is on Avenida Vicuña Mackenna in Concepción and conceclimb.cl does not resolve. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -41.42563,
@@ -551,8 +546,8 @@
     "name": "Galpon Boulder",
     "country": "CL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. galpon.cl serves a certificate issued for holidayinn.cl and then 302s away, so it is somebody else's parked host rather than a hall behind a misconfigured certificate; galpon.com answers 403 and is unrelated. Nothing could be opened to test against V-629 100, Puerto Montt."
+    "reason": "No official site could be established: Galpón Boulder is at V-629 100 in Puerto Montt and galponboulder.cl does not resolve. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -36.81501,
@@ -560,9 +555,8 @@
     "name": "Ignea Boulder",
     "country": "CL",
     "status": "unverified",
-    "candidate": "https://igneaboulder.com/",
-    "reason": "No official site could be established: igneaboulder.com is IGNEA FORGE, a climbing logbook you sign into to record sends by zone and setter. It publishes no address and is not a gym's page.",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: Ígnea Boulder is at Ainavillo 1076 in Concepción and igneaboulder.cl does not resolve. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -38.7605038,
@@ -570,9 +564,8 @@
     "name": "Kuyen",
     "country": "CL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. kuyen.com answers 200 with an empty body — no title and no text — and no other name-derived domain resolves. Upstream gives no address for Padre Las Casas, and no OSM climbing object nearby carries a website tag.",
-    "candidate": "https://kuyen.com/"
+    "reason": "No official site could be established: Kuyen at Padre Las Casas holds no address upstream and no domain resolves. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 31.214574311841517,
@@ -943,8 +936,8 @@
     "name": "Everyday Wall",
     "country": "CO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. everyday.com.co, everyday.co, everydaywall.com.co, everydaywall.co, everyday-wall.com.co, everyday-wall.co, everydayclimbing.com.co and everydayclimbing.co all fail to resolve. Upstream gives no address for this Bogota venue and no OSM climbing object nearby carries a website tag."
+    "reason": "No official site could be established: Everyday Wall sits at 4.7110,-74.0721 — Bogotá's own centre point — and publishes nothing under that name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 9.93965,
@@ -2500,9 +2493,8 @@
     "name": "Boulder Corp",
     "country": "MX",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — bouldercorp.com.mx → \"Boulder Corp\"; boulder.com → \"Denver Media\", the rest could not be opened — corp.com.mx → 403 / no answer; corp.mx → 403 / no answer; corp.com → a certificate that does not cover its hostname, the venue's whole name as one label, bouldercorp.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://bouldercorp.com.mx/"
+    "reason": "No official site could be established: Boulder Corp in Cancún holds no address upstream and no domain resolves. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 29.0926081,
@@ -2510,9 +2502,8 @@
     "name": "Boulder Grid",
     "country": "MX",
     "status": "unverified",
-    "candidate": "https://bouldergrid.com/",
-    "reason": "No official site could be established: The domain answers with a React shell saying \"You need to enable JavaScript to run this app\", and its bundle carries no address, no city and no hours — only the framework.",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: Boulder Grid in Hermosillo holds no address upstream and no domain resolves. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 32.6297526,
@@ -2520,9 +2511,8 @@
     "name": "HUMAN Acondicionamiento Fisico y Nutricion",
     "country": "MX",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — human.com.mx → \"iu corporation\"; human.mx → \"iu corporation\"; human.com → \"Human – Coming Soon\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://iucorporation.com/"
+    "reason": "No official site could be established: HUMAN Acondicionamiento Físico y … in Mexicali is a fitness centre with a board; no domain resolves and upstream holds no address.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 20.1027782,
@@ -2530,9 +2520,8 @@
     "name": "Moon Board Bloc E Climbing",
     "country": "MX",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — moon.com.mx → \"MOON Division Industrial\"; moon.mx → \"Moon.mx for sale | Spaceship.com\"; moon.com → \"Moon.com: Betting Markets - Wager on Finance, Crypto & m\", the rest could not be opened — moonboard.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://moon.com.mx/"
+    "reason": "No official site could be established: \"Moon Board Bloc E Climbing\" is a board plus a gym name, in Pachuca; nothing publishes under either half.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 19.3936582,
@@ -2540,9 +2529,8 @@
     "name": "Ónix moon board",
     "country": "MX",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — onix.com → \"Onix ECMS – Effortless Equipment Compliance\", the rest could not be opened — onix.com.mx → no answer. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://onix.com/"
+    "reason": "No official site could be established: \"Ónix moon board\" names a board inside a gym called Ónix rather than a venue.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 20.5887932,
@@ -2550,17 +2538,18 @@
     "name": "Rockera Moon",
     "country": "MX",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — rockera.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: Rockera Moon in Querétaro is named for its board and holds no address upstream.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 19.3466776,
     "lon": -99.1695522,
     "name": "Rocksolidmx",
     "country": "MX",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — rocksolidmx.com → 200 / a certificate that does not cover its hostname, the venue's whole name as one label, rocksolidmx.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "status": "unavailable",
+    "candidate": "https://rocksolidmx.com/",
+    "reason": "rocksolidmx.com resolves and returns 114 bytes — a redirecting shell with no content. Upstream holds no address for the Coyoacán row, so there is nothing to match even if it served.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 25.55676,
@@ -2568,9 +2557,8 @@
     "name": "Sierra Elevation",
     "country": "MX",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — sierraelevation.com → \"sierra elevation\"; sierra.com.mx → \"Inicio | Sistemas Sierra\"; sierra.com → \"Sierra.com: Something went wrong\", the rest could not be opened — sierra.mx → a timeout, the venue's whole name as one label, sierraelevation.com, answers 200 (\"sierra elevation\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://sierraelevation.com/"
+    "reason": "No official site could be established: Sierra Elevation carries the handle sierraelevation and no address upstream; sierraelevation.mx does not resolve. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 20.64019,
@@ -2578,9 +2566,8 @@
     "name": "Summit Escalada",
     "country": "MX",
     "status": "unverified",
-    "candidate": "https://summitescalada.com/",
-    "reason": "No official site could be established: summitescalada.com sits behind a bot-verification wall that never clears for a fetcher, and the shorter guesses are worse: summit.mx and summit.com.mx are both an empty \"Index of /\", summitboulder.com is a page headed SUMMIT BOULDER 2020 with no address on it.",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: Summit Escalada is on Av Adolfo López Mateos Sur in Zapopan and summitescalada.mx does not resolve. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 20.61837,
@@ -2588,9 +2575,8 @@
     "name": "YE Escalada + Yoga Center",
     "country": "MX",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — ye-yoga.com → \"My Workspace's Site\", the rest could not be opened — yeyoga.com → a certificate that does not cover its hostname. Upstream records Periférico #3000-A Col Las Alamedas, 45079, Zapopan, and nothing opened printed it.",
-    "candidate": "https://2etc.myclickfunnels.com/coming-soon"
+    "reason": "No official site could be established: YE Escalada + Yoga Center is at Periférico #3000-A in Zapopan and yeescalada.mx does not resolve. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 3.13058,
