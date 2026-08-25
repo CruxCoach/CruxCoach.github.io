@@ -1322,6 +1322,35 @@
     "note": "The site prints \"5/15 City Centre Dr, Upper Coomera 4209 QLD\", exactly the address upstream records; the OSM node 31 m away carries the same domain."
   },
   {
+    "lat": -34.55774,
+    "lon": 150.79166,
+    "name": "Dynomite Gym Albion Park Rail",
+    "country": "AU",
+    "website": "https://www.dynomite.net.au/albion-park-gym",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "The second Dynomite hall has its own page, which lists what is in it — \"6 Auto Belays, Tension Board 2, Function Area, Valo Climbing\" — the board upstream records for this row, and gives the address as \"114 Princess Highway, Albion Park Rail, NSW 2527 (Access via 5 Hargraves Avenue)\"."
+  },
+  {
+    "lat": -34.40612,
+    "lon": 150.89504,
+    "name": "Dynomite Gym North Wollongong",
+    "country": "AU",
+    "website": "https://www.dynomite.net.au/",
+    "verified": "2026-08-25",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Dynomite runs two halls in the Illawarra and prints both on its site with their own addresses and their own weeks. This is the North Wollongong one: \"North Wollongong Unit 1, Shop 2, 91 - 95 Montague St, North Wollongong, NSW 2500\". Upstream files the row under Wollongong and holds no street line for it."
+  },
+  {
     "lat": -33.87924,
     "lon": 150.97865,
     "name": "Elevate Climbing Villawood",
@@ -3421,6 +3450,20 @@
     "note": "The Guelph Grotto Climbing Gym's own site, whose embedded map of itself falls on this venue to the metre, and which names both the Kilter and the MoonBoard this venue is listed for."
   },
   {
+    "lat": 48.7877546,
+    "lon": -123.7105629,
+    "name": "Hangout Duncan",
+    "country": "CA",
+    "website": "https://www.climbhangout.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The Hangout Climbing Centre, \"Unit 2, 1065 Canada Avenue, Duncan, BC, Canada V9L 1V2\" — the town upstream records. Worth noting beside the Weymouth row in this dataset, which carries the same name and belongs to a different gym in Dorset; this is the Canadian one, and this site is its."
+  },
+  {
     "lat": 43.76222,
     "lon": -79.36013,
     "name": "Hogtown Boulders",
@@ -3960,6 +4003,22 @@
       "coordinates"
     ],
     "note": "The Core Climbing Gym's own site, whose embedded map of itself falls on this venue to the metre. It gives 500 Jamieson Parkway, Unit 1, Cambridge, ON N3C 0G5; Hespeler, which upstream records, is a community within Cambridge."
+  },
+  {
+    "lat": 47.55159,
+    "lon": -52.72658,
+    "name": "The Cove Bouldering + Cafe",
+    "country": "CA",
+    "website": "https://www.covebouldering.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "The gym's own site: \"Location & Mailing Address: 21 St. Michael's Ave, St. John's, NL, A1E 1R7 … Parking lot accessed via Lemarchant Rd.\" Upstream records the row at 314 Lemarchant Rd with the same postcode — the two addresses are the entrance and the car park of one building — and the site's navigation carries a KilterBoard page for the board upstream lists."
   },
   {
     "lat": 43.55287,

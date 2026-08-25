@@ -1736,6 +1736,56 @@
   "evidence": "Monday Wednesday 9:00am 8:00pm | Thursday Friday 12:00pm 8:00pm | Saturday Sunday 10:00am 5:00pm | 5/15 City Centre Dr, Upper Coomera 4209 QLD"
  },
  {
+  "lat": -34.55774,
+  "lon": 150.79166,
+  "name": "Dynomite Gym Albion Park Rail",
+  "country": "AU",
+  "source": "https://www.dynomite.net.au/albion-park-gym",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "12:00-21:00",
+   "tue": "12:00-21:00",
+   "wed": "15:00-21:00",
+   "thu": "08:00-21:00",
+   "fri": "15:00-21:00",
+   "sat": "09:00-18:00",
+   "sun": "09:00-18:00"
+  },
+  "evidence": "Monday: 12 PM - 9 PM Tuesday: 12 PM - 9 PM Wednesday: 3 PM - 9 PM Thursday: 8 AM - 9 PM Friday: 3 PM - 9 PM Saturday: 9 AM - 6 PM Sunday: 9 AM - 6 PM Thursday is RESET DAY",
+  "note": "On the hall's own page. Third-party listings give this gym a flat 9-9 weekday week, which the operator's own page contradicts on four days of seven — the reason only the venue's page counts."
+ },
+ {
+  "lat": -34.40612,
+  "lon": 150.89504,
+  "name": "Dynomite Gym North Wollongong",
+  "country": "AU",
+  "source": "https://www.dynomite.net.au/",
+  "checked": "2026-08-25",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "12:00-21:00",
+   "tue": "12:00-21:00",
+   "wed": "10:00-21:30",
+   "thu": "08:00-21:00",
+   "fri": "10:00-19:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "North Wollongong Unit 1, Shop 2, 91 - 95 Montague St, North Wollongong, NSW 2500 Monday: 12 PM - 9 PM Tuesday: 12 PM - 9 PM Wednesday: 10 AM - 9:30 PM Thursday: 8 AM - 9 PM Friday: 10 AM - 7 PM Saturday: 10 AM - 6 PM Sunday: 10 AM - 6 PM",
+  "note": "Each hall's week sits under that hall's address, so the scope is stated. Tuesday is marked RESET DAY without changing the hours, and separate public- and school-holiday weeks follow as exceptions."
+ },
+ {
   "lat": -33.87924,
   "lon": 150.97865,
   "name": "Elevate Climbing Villawood",

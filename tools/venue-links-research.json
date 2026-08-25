@@ -106,9 +106,10 @@
     "lon": 151.0434,
     "name": "1UP Bouldering",
     "country": "AU",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "None of the six name-derived domains for 1UP Bouldering resolves on .com.au, .au or .com, no OSM climbing object within 500 m carries a website, and nothing curated is within 200 m of Unit 1/4 Brunker Rd, Chullora."
+    "status": "unavailable",
+    "candidate": "https://www.oneupbouldering.com.au/",
+    "reason": "oneupbouldering.com.au is certainly the gym — its contact page is indexed and the directories give upstream's address, Unit 1/4 Brunker Road, Chullora NSW 2190 — but every path on it, front page and contact page alike, returns 55 bytes and assembles itself in the browser. There is nothing on the wire to match. Retry if it ever serves its text.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -25.215260569377044,
@@ -129,24 +130,6 @@
     "checked": "2026-08-23",
     "reason": "climboz.com is titled Climb Oz and is very likely this gym, but neither its homepage nor its contact page prints an address, a suburb or a postcode — the name is the only observation the site offers. The upstream address, Level 2, 40 Third Ave, Blacktown, geocodes 302 m from this venue, so the coordinate is right and the page simply does not confirm it.",
     "candidate": "https://climboz.com/"
-  },
-  {
-    "lat": -34.55774,
-    "lon": 150.79166,
-    "name": "Dynomite Gym Albion Park Rail",
-    "country": "AU",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "dynomite.com.au and dynomite.com do not answer on either host, and the one chain sibling offered is 270 Climbing Park in England. Nothing found names a gym at Albion Park Rail."
-  },
-  {
-    "lat": -34.40612,
-    "lon": 150.89504,
-    "name": "Dynomite Gym North Wollongong",
-    "country": "AU",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Same operator as the Albion Park Rail venue and the same outcome: dynomite.com.au and dynomite.com do not answer on either host."
   },
   {
     "lat": -33.8688197,
@@ -521,16 +504,6 @@
     "candidate": "https://www.coop.com/"
   },
   {
-    "lat": 48.7877546,
-    "lon": -123.7105629,
-    "name": "Hangout Duncan",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — hangout.com → \"Checking your browser...\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://hangout.com/"
-  },
-  {
     "lat": 49.2827291,
     "lon": -123.1207375,
     "name": "Hive: Vancouver",
@@ -568,16 +541,6 @@
     "status": "unverified",
     "candidate": "https://www.romperroom.com/",
     "reason": "No official site could be established: romperroom.com sells rompers and boiler suits by named artists. The other spellings answer too — romper.com is a parenting magazine, romper-room.com a Japanese illustrator.",
-    "checked": "2026-08-24"
-  },
-  {
-    "lat": 47.55159,
-    "lon": -52.72658,
-    "name": "The Cove Bouldering + Cafe",
-    "country": "CA",
-    "status": "unverified",
-    "candidate": "https://cove-cafe.com/",
-    "reason": "No official site could be established: The domain serves a QR restaurant menu — khachapuri, kebabs, six kinds of salad — with no address and no climbing.",
     "checked": "2026-08-24"
   },
   {

@@ -233,9 +233,10 @@
   "lon": 151.0434,
   "name": "1UP Bouldering",
   "country": "AU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.oneupbouldering.com.au/",
+  "reason": "The venue's site serves no text to a reader that does not run its scripts, so there is no schedule to read.",
+  "checked": "2026-08-25"
  },
  {
   "lat": -25.215260569377044,
@@ -284,24 +285,6 @@
   "checked": "2026-08-24",
   "source": "https://crankclimbing.com.au/",
   "reason": "The gym's own site answers 403 to every fetcher and header set. Its week may well be on it; nothing here can read it, and a schedule is not something to take from a snapshot two years old."
- },
- {
-  "lat": -34.55774,
-  "lon": 150.79166,
-  "name": "Dynomite Gym Albion Park Rail",
-  "country": "AU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": -34.40612,
-  "lon": 150.89504,
-  "name": "Dynomite Gym North Wollongong",
-  "country": "AU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": -37.9598854,
@@ -1045,9 +1028,10 @@
   "lon": -123.7105629,
   "name": "Hangout Duncan",
   "country": "CA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://www.climbhangout.com/hours",
+  "reason": "The hours page carries two different weeks. Under \"OPEN HOURS\" and again in the footer under \"HOURS\" it gives Sunday 10am-6pm, Wed/Thur/Fri 12pm-10pm, Mon/Sat 10am-10pm, Tuesday Closed; between them sits an unlabelled block reading Mon-Fri 11am-10pm, Sat 12pm-8pm, Sun 12pm-8pm, next to a 780 telephone number where the rest of the page uses 250. Two weeks on one page is a conflict, whichever looks more like a leftover.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 49.2827291,
@@ -1170,9 +1154,10 @@
   "lon": -52.72658,
   "name": "The Cove Bouldering + Cafe",
   "country": "CA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.covebouldering.com/hours",
+  "reason": "The site has a page called Hours and it renders in the browser: what arrives is 725 bytes of navigation with no times in it. The getting-here page, built the same way, does serve its text, so this is one page rather than the whole site. Retry when it serves.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 49.2193226,
