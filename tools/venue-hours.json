@@ -11122,6 +11122,31 @@
   "note": "Logged as 'no schedule' on the first pass; it is on the contacte page, beside the address upstream records. The split weekend day is preserved as the page states it. 'Festius tancat' is a holiday rule, which is what the on-page caveat covers."
  },
  {
+  "lat": 40.3913437,
+  "lon": -3.6696679,
+  "name": "Boulder Madrid Moon Board",
+  "country": "ES",
+  "source": "https://bouldermadridoficial.com/horarios-y-tarifas/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "coordinates"
+  ],
+  "hours": {
+   "mon": "09:00-22:30",
+   "tue": "09:00-22:30",
+   "wed": "09:00-22:30",
+   "thu": "09:00-22:30",
+   "fri": "10:00-21:00",
+   "sat": "10:00-14:30",
+   "sun": "closed"
+  },
+  "evidence": "HORARIO APERTURA Y ENTRENAMIENTO LIBRE Lunes 9:00 – 22:30 Martes 9:00 – 22:30 Miércoles 9:00 – 22:30 Jueves 9:00 – 22:30 Viernes 10:00 – 21:00 Sábado 10:00 – 14:30 Domingo Cerrado",
+  "note": "The table gives two columns, the guided-session start times and the opening-and-free-training hours; this is the second, which is when the doors are open. Sunday is stated closed in both."
+ },
+ {
   "lat": 39.46582,
   "lon": -0.35736,
   "name": "Camaleón Boulder",

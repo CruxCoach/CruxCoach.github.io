@@ -1294,18 +1294,8 @@
     "name": "Baltzola",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all: none of the fourteen name-derived domains for Baltzola exists, no OSM climbing object within 500 m of the Bilbao coordinate carries a website, and nothing curated is within 200 m. Baltzola is also the name of a well-known cave outside Bilbao, which is what a search returns. The coordinate is not a building: it sits 2 m from OpenStreetMap’s city node for Bilbao, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match."
-  },
-  {
-    "lat": 40.3913437,
-    "lon": -3.6696679,
-    "name": "Boulder Madrid Moon Board",
-    "country": "ES",
-    "status": "unverified",
-    "candidate": "http://bouldermadrid.com/",
-    "reason": "No official site could be established, and the domain is now accounted for. The record said the host resolves and never completes a connection on any scheme; it completes on http, and what it serves is the hosting company's parking page — \"Esta es la página de: bouldermadrid.com\", followed by offers for domains, professional email and an SSL certificate. The gazetteer object 13 m from this coordinate still carries that domain as its website tag, and the tag now points at a page for sale.",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: Baltzola is a boulder room in Bilbao — C/ Iturribide 59, run for the B.B.M.T. club — but everything published about it is second-hand and old: a Desnivel piece and forum threads from 2004 to 2008. baltzola.eus, baltzola.com, baltzolaboulder.com and baltzolaboulderra.com do not resolve, and no current page under any name could be found for it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 41.11489,
@@ -1341,18 +1331,8 @@
     "name": "CRISPADERO",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all: none of the name-derived domains for CRISPADERO exists, and no OSM climbing object within 500 m of Monzón carries a website."
-  },
-  {
-    "lat": 43.3099628,
-    "lon": -1.9937363,
-    "name": "Fortuna Pio Baroja",
-    "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "fortuna.es does not answer on either host and fortuna.com is a page with nothing on it that names San Sebastián. \"Fortuna Pio Baroja\" is a Donostia sports club's name; no domain of its own was reached.",
-    "candidate": "https://fortuna.com/"
+    "reason": "No official site could be established: crispadero.com and crispadero.es do not resolve, and nothing published in Monzón or the Cinca valley carries this name as a venue. A single MoonBoard under a name nobody publishes is the shape of a private board.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 41.3850639,
@@ -1360,9 +1340,8 @@
     "name": "FreeblocBoard",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The only pointer is an OSM node 445 m away, Sala Boulder CEC, whose site is the Centre Excursionista de Catalunya — a different organisation from \"FreeblocBoard\", and 445 m is too far to assume the same wall. The dataset name yields no domain.",
-    "candidate": "https://cec.cat/"
+    "reason": "No official site could be established: freeblocboard.com, freebloc.es and freebloc.cat do not resolve. The row sits in Ciutat Vella in central Barcelona, where the published climbing halls trade under other names entirely.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 39.16461,
@@ -1405,33 +1384,23 @@
     "checked": "2026-08-25"
   },
   {
-    "lat": 42.2061388,
-    "lon": -8.663082,
-    "name": "Mg¹² Moonboard",
-    "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all — \"Mg¹² Moonboard\" is a chemical symbol plus a board model, and mgmoonboard/mg-moonboard exist on none of .es, .com or .cat."
-  },
-  {
     "lat": 42.1757535,
     "lon": -8.4997597,
     "name": "MOONkey board (calm&climb)",
     "country": "ES",
-    "status": "unverified",
-    "candidate": "https://moonkey.es/",
-    "reason": "No official site could be established: moonkey.es is a coming-soon page for an app for finding work in nightlife and events. The name is a coincidence.",
-    "checked": "2026-08-24"
+    "status": "social-only",
+    "reason": "The venue is Calm & Climb in Ponteareas, on Rúa a Orotava, and it has no domain: calmandclimb.com, calmandclimb.es and calmclimb.es all fail to resolve. It publishes on Facebook and appears in Galician activity directories; those are a web presence and not an official site, which is what this field promises.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 42.1012595,
     "lon": 1.8439221,
     "name": "PeudeVia",
     "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "peudevia.cat is titled \"Peu de Via\" and renders client-side: no address, no town and no second signal of any kind reaches the fetched document. The name alone is one observation.",
-    "candidate": "https://peudevia.cat/"
+    "status": "unavailable",
+    "candidate": "https://www.peudevia.cat/",
+    "reason": "Peu de Via is the climbing hall in Berga and peudevia.cat is its domain, but the domain serves a 63-byte document with nothing in it. Search indexes for it are full of injected pages — dozens of ?login= URLs advertising Indonesian gambling sites — so the site appears to have been compromised rather than merely emptied. Nothing publishable can be read from it today.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 43.2459,
@@ -1449,8 +1418,8 @@
     "name": "PutoRoco Moon Board",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all: none of the name-derived domains for \"PutoRoco Moon Board\" exists on .es, .com or .cat, and no OSM climbing object within 500 m of Calahorra carries a website."
+    "reason": "No official site could be established: putoroco.com and putoroco.es do not resolve, and no climbing venue in or around Calahorra publishes under this name. The name itself reads as a board's nickname rather than a business.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 27.8439296,
@@ -1458,9 +1427,9 @@
     "name": "Resilient Rehab Science Training",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "resilientrehab.com is Resilient Education, a biomechanics and rehabilitation course provider, not a climbing venue in Agüimes; resilient.es and resilient.com present certificates that do not cover their hostnames.",
-    "candidate": "https://resilientrehab.com/"
+    "candidate": "https://resilientcanarias.com/",
+    "reason": "The nearest thing to this name in the area is Resilient Canarias, a physiotherapy and training centre at C/ Jandía 6-8, 35110 Vecindario, a few kilometres from the row. Its site describes personal training, strength groups, injury recovery and online physiotherapy, and the words escalada, boulder and moonboard appear nowhere on it. A shared first word is one signal and a weak one; nothing on the site ties it to a MoonBoard.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 42.05786,
@@ -1498,9 +1467,8 @@
     "name": "The PUC Series Temple Nargó",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "pucseries.com answers with a bare \"Home\" and renders client-side; nothing on it states a place, and \"The PUC Series Temple Nargó\" gives no other domain to try.",
-    "candidate": "https://pucseries.com/"
+    "reason": "No official site could be established: templenargo.com, templenargo.cat and elpuc.cat do not resolve, and puc.cat belongs to somebody else — nothing on it mentions Nargó, escalada or a rocòdrom. Upstream carries no address, no town and no handle for the row, so there is nothing left to test a candidate against.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 40.42839,

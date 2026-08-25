@@ -248,8 +248,8 @@ are maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (linked + research entries) | 2190 |
-| Verified website links | 1643 |
-| Rejected / ambiguous / private / closed / unavailable | 547 |
+| Verified website links | 1699 |
+| Rejected / ambiguous / private / closed / unavailable | 491 |
 | Countries covered | 62 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
@@ -261,18 +261,18 @@ Per-country coverage of eligible (public/commercial) venues (top 25):
 
 | country | linked | eligible | share |
 | --- | --- | --- | --- |
-| US | 398 | 576 | 69% |
-| DE | 180 | 201 | 90% |
-| CA | 108 | 132 | 82% |
-| GB | 78 | 102 | 76% |
-| ES | 70 | 98 | 71% |
-| AU | 68 | 83 | 82% |
-| FR | 61 | 70 | 87% |
-| NO | 58 | 81 | 72% |
-| NL | 52 | 59 | 88% |
+| US | 520 | 576 | 90% |
+| DE | 192 | 201 | 96% |
+| CA | 119 | 132 | 90% |
+| GB | 84 | 102 | 82% |
+| ES | 77 | 98 | 79% |
+| AU | 69 | 83 | 83% |
+| FR | 63 | 70 | 90% |
+| NO | 61 | 81 | 75% |
+| NL | 57 | 59 | 97% |
 | CH | 52 | 56 | 93% |
-| AT | 45 | 48 | 94% |
-| IT | 43 | 72 | 60% |
+| IT | 48 | 72 | 67% |
+| AT | 46 | 48 | 96% |
 | BE | 30 | 36 | 83% |
 | SE | 29 | 37 | 78% |
 | PL | 25 | 45 | 56% |
@@ -1247,3 +1247,48 @@ dated snapshots of their own pages. What remains:
    mostly proves is negative — five of the first six candidates it surfaced
    belonged to somebody else — but it is the channel that produced ARQ Mountain
    Center, Suas Climbing, Boulderhal de Campus and the University of Manitoba.
+
+### The channel the ledger had used five times
+
+Fifteen hundred discovery attempts were recorded in the gap-audit ledger before
+anyone counted how they were made: `apex` 1,602, `www` 1,582, `name-guess`
+1,477, `osm-website-tag` 1,039, `path-probe` 1,004 — and `web-search` **five**.
+Everything else guessed a domain out of the venue's name and recorded an honest
+negative when the guess landed on somebody else.
+
+That is why the queue still held gyms as findable as North Wall Rock Climbing,
+The Rock Club and HiClimb. The guesser reached an RV park (`boulderdash.net`), a
+White Mountains IT company (`therock.net`) and a domain broker
+(`therockclub.com`); the gyms trade as `climbnorthwall.com`, as a hall of Pine
+Brook Fitness, and as `hawaiiclimb.com`.
+
+Nothing about the verification standard changes. A search result is a **seed**,
+never evidence: every one of these was then opened on the venue's own page and
+matched against the street line upstream already records, or against the board,
+or against the venue's own map pin. What the channel buys is the candidate, and
+the candidate was the part the guesser was bad at.
+
+It also surfaces the venues that are no longer venues, which a domain guess
+never can: The Pad's Henderson hall (closed 31 December 2024, by its operator's
+own notice), Bouldering Project's Dallas hall (absent from the chain's own list
+of locations, its domain a 114-byte parking redirect), Fiddlehead in Fletcher
+(final day of operation announced on its own front page), Evolution Boulders
+(whose domain now serves a generated blog with sections for ten countries).
+
+### Resolving a venue's own map link
+
+`map-block` was defined as the coordinate a page publishes about itself. The
+richest form of it is a link rather than an embed: a `maps.app.goo.gl` short
+URL, which resolves to a Google Maps place URL carrying `!3d<lat>!4d<lon>` — the
+coordinates of the place the venue itself chose to point at.
+
+Boulder Madrid is the case that needed it. Upstream files the row under the
+barrio of San Diego rather than under Madrid, and holds no street line, so the
+town could not be a signal and the name was all that was left. Its contact page
+links `maps.app.goo.gl/RjM1cjMBbepR3Vu67`, which resolves to "Boulder Madrid -
+Rocódromo de Escalada en Madrid" at 40.3913241,-3.6696253 — 4 m from the row.
+Name plus coordinates, and the link publishes.
+
+The short link is worth following even where an embed exists: an embed built
+from `?q=<address>` carries no coordinates at all, and that is what the same
+page's iframe turns out to be.

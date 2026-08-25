@@ -595,9 +595,9 @@ maintained by hand as batches land.
 | metric | count |
 | --- | --- |
 | Venues reviewed (published + outcome entries) | 2190 |
-| Published schedules | 1204 |
-| Recorded outcomes without hours | 986 |
-| Countries covered | 54 |
+| Published schedules | 1239 |
+| Recorded outcomes without hours | 951 |
+| Countries covered | 55 |
 | Eligible venues in the dataset (public/commercial) | 2191 |
 
 Every eligible venue has been reviewed for hours — 2190 of 2191, the one
@@ -970,3 +970,44 @@ and the cross-check called 14:00 unsupported. The opening time may now borrow
 the closing marker, but only when the pair does not cross noon: in "10–2 pm"
 the 10 is still morning, and a claim of 10 p.m. against that text is still
 rejected. Tests cover all three readings.
+
+### A door that opens for members earlier is not an earlier opening
+
+The conditional-access rule keeps producing the same shape, often enough now
+that it is worth naming the pattern rather than the cases. A gym states one
+window and then qualifies part of it:
+
+- `MEMBERS ONLY: EARLY MORNINGS 8AM EVERY DAY` beside `MON–FRI: 10AM-10PM`
+  (Vertical Rock Tysons)
+- `S,S 7am - 8am (Members only) 8am - 930pm (Everyone)` (HiClimb)
+- `Tuesday : 7:00am-9:00pm (7:00am-9:00am Reserved for Members Only)`
+  (The Crag Franklin)
+- `Members-Only Hours: Mondays & Wednesdays 8am-10am` (Rock Climb Fairfield)
+- `Public Hours (non-member)` printed above a wider `Member Hours` block
+  (Warehouse ROCKS, Reading Rocks — the same operator, the same template)
+
+In every one of them the published week is the part a visitor can walk into, and
+the arithmetic is the venue's own: it says which hours are members-only, so the
+rest is the opening. Where a gym states *only* the members' window and nothing
+public — Nosotros' `24/7 Membership`, the Minnesota Climbing Co-op's fob, High
+Mountain Fitness' `Gym Open 24 Hours for Members` with staffed hours on
+weekdays only — the row records the staffed week if there is one and `ambiguous`
+if there is not.
+
+### A week that runs on the school calendar is a season
+
+Two cases this pass, both club-run municipal walls. Can Tiba-li in Manlleu
+publishes "De dilluns a divendres de 17:30 a 21:00. **Calendari escolar** excepte
+avisos a través del nostre instagram", and JMU's UREC publishes a semester week
+for a building whose Adventure Center keeps separate hours in a Google Calendar.
+Neither is a standing week: the label is doing the same work as "Summer" or a
+date range, and what happens outside term is not stated anywhere on the page.
+
+### Where the week exists but no venue does
+
+Hours are recorded against a venue, so a week can be perfectly readable and
+still unpublishable. The Edge Halfmoon prints a plain undated week — and the
+gym is 19.7 km from the row, which sits in downtown Albany. R2C2's week belongs
+to the Red Rock Climbing Center, 11.9 km west of a row on the Strip. Both are
+recorded `ambiguous` with the quote and the distance, because the failure is
+the coordinate's rather than the source's.
