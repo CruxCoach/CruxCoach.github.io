@@ -2566,28 +2566,28 @@
     "lon": 102.23685,
     "name": "Pampa Rock Climbing",
     "country": "MY",
-    "status": "unverified",
-    "reason": "pampa.com is Pampa Energía, an Argentine energy company. The sweep matched it on the name and a bare \"2\".",
-    "candidate": "https://pampa.com/",
-    "checked": "2026-08-24"
+    "status": "unavailable",
+    "candidate": "https://pampaclimbing.com/",
+    "reason": "PAMPA Rock Climbing is listed everywhere with the website pampaclimbing.com, and that domain answers NXDOMAIN — it does not exist in DNS at all, on apex or www. What the venue actually runs is instagram.com/pamparockclimbing and a Facebook page. A domain that every directory repeats is not a domain that resolves.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 1.5800393,
     "lon": 103.7304532,
     "name": "Rockworld",
     "country": "MY",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — rockworld.com → a timeout / no answer, the venue's whole name as one label, rockworld.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "status": "social-only",
+    "reason": "Rockworld Climbing & Equipment Sdn Bhd trades from Setia Business Park 2, No 6, Jalan Perniagaan Setia 4, Taman Perniagaan Setia, 81100 Johor Bahru, and publishes on facebook.com/rockworld.jb. No domain of its own resolves. Upstream carries Rockworld twice, 310 m apart; this is the row without one. Malaysian addresses of this shape do not geocode — Nominatim returns no match for the full line — so neither row could be separated from the other by place either.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 1.58009,
     "lon": 103.72773,
     "name": "Rockworld",
     "country": "MY",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — rockworld.com → a timeout / no answer, the venue's whole name as one label, rockworld.com, does not resolve. Upstream records No. 6, Jalan Perniagaan Setia 4, Setia Business Park 2, 81100, Johor B, and nothing opened printed it."
+    "status": "social-only",
+    "reason": "Rockworld Climbing & Equipment Sdn Bhd trades from Setia Business Park 2, No 6, Jalan Perniagaan Setia 4, Taman Perniagaan Setia, 81100 Johor Bahru, and publishes on facebook.com/rockworld.jb. No domain of its own resolves. Upstream carries Rockworld twice, 310 m apart; this is the row with the address. Malaysian addresses of this shape do not geocode — Nominatim returns no match for the full line — so neither row could be separated from the other by place either.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 5.980408,
@@ -3278,9 +3278,9 @@
     "name": "Capybara board",
     "country": "TH",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — capybara.com → \"Claude Capybara (Mythos) — Anthropic's Most Powerful AI \". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://capybara.com/"
+    "candidate": "https://www.magnusthecapybara.com/",
+    "reason": "This row sits 15 m from the Magnus' Climbing Gym row and is almost certainly the same hall: it is called \"Capybara board\", Magnus is capybara-themed and named after one, and the gym is described as holding a Kilter, a MoonBoard 2024 and the first Tension Board 2 in Southeast Asia — the MoonBoard being what this row is registered for. What stops it being filed as a duplicate is that neither of the venue's own pages serves an address to check either row against.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 13.72308,
@@ -3288,8 +3288,9 @@
     "name": "Magnus' Climbing Gym",
     "country": "TH",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — magnus.com → no answer / a timeout. Upstream records 2nd Fl, inside glowfish, Sathorn Thani, Khwaeng Silom, Khet Bang Rak, , and nothing opened printed it."
+    "candidate": "https://www.magnusthecapybara.com/",
+    "reason": "Magnus' Climbing Gym has a domain of its own, magnusthecapybara.com, and it serves 57 characters: the title, and nothing else. Its Carrd micro-site, magnusclimbinggym.carrd.co, serves marketing copy with Location and Phone rendered as icons rather than as text. Between the two, the venue name is the only signal either page offers, and one signal is not two. Upstream's address — 2nd Fl, inside glowfish, Sathorn — appears on neither.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 18.7880135,
@@ -3300,15 +3301,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — main.com → \"Main.com | Brannans Premium Domains\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://main.com/"
-  },
-  {
-    "lat": 10.07863798214502,
-    "lon": 99.83063143857734,
-    "name": "The Bunker Koh Tao",
-    "country": "TH",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — thebunker.com → a certificate that does not cover its hostname; bunker.com → 200. Upstream records 2, 55 Ao Leuk Road, 84360, Koh tao, and nothing opened printed it."
   },
   {
     "lat": 15.9717357,

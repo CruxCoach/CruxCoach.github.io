@@ -18582,6 +18582,21 @@
     "note": "Stonegoat publishes three branches with an address each, and one of them is this venue: \"S69 Branch 36/3 Sukhumvit 69 Alley, Phra Khanong Nuea, Watthana, Bangkok 10110\", which is upstream's 36/3 ซอย สุขุมวิท 69 แขวงพระโขนงเหนือ, 10110 in Latin script."
   },
   {
+    "lat": 10.07863798214502,
+    "lon": 99.83063143857734,
+    "name": "The Bunker Koh Tao",
+    "country": "TH",
+    "website": "https://kohtao-rockclimbing.com/climb-in-koh-tao/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "The site is KohTao-RockClimbing.com and its footer reads \"Copyright KohTao-RockClimbing.com & The Bunker Koh Tao\", which is upstream's name for this row. It describes itself as \"the one and only indoor climbing gym on Koh Tao island\" — on an island with one gym, naming the island is a location signal rather than a coincidence. No street address is served on any page, so upstream's \"2, 55 Ao Leuk Road\" could not be matched against the page, and Malaysian- and Thai-style addresses of this kind do not geocode."
+  },
+  {
     "lat": 13.73627,
     "lon": 100.57645,
     "name": "Urban Playground Climbing",
