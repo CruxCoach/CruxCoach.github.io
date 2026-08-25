@@ -1180,7 +1180,7 @@
   "name": "The Rock Wall Climbing Gym",
   "country": "CA",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -2966,7 +2966,7 @@
   "name": "Rocodromo Peramola",
   "country": "ES",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -3157,7 +3157,7 @@
   "name": "The Matrix",
   "country": "FI",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -5704,7 +5704,7 @@
   "name": "Fjordaveggen",
   "country": "NO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -6245,9 +6245,10 @@
   "lon": 15.8796267,
   "name": "9UP Stodoła",
   "country": "PL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "checked": "2026-08-25",
+  "source": "https://sokoliki.net/rezerwacje/",
+  "reason": "The only week on this site belongs to the front desk, not to the wall: \"GODZINY PRACY RECEPCJI: Pn – So 8 – 10 i 18 – 21, Niedziela 8 – 10 i 16 – 19\" — the two windows in which a guest of the agroturystyka can check in and pay. The Stodoła page states no hours of its own and offers the wall to residents at half price, which is a price and not a schedule."
  },
  {
   "lat": 50.0982854,
@@ -6364,15 +6365,6 @@
   "lat": 50.0646501,
   "lon": 19.9449799,
   "name": "PARBAT",
-  "country": "PL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 52.5463446,
-  "lon": 19.7065364,
-  "name": "Płockie Centrum Wspinaczkowe - Orlen Arena",
   "country": "PL",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -7387,18 +7379,20 @@
   "lon": 30.4495923,
   "name": "12C Board classic (Climbing gym \"KPIskala\")",
   "country": "UA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "appointment-only",
+  "checked": "2026-08-25",
+  "source": "https://kpiskala.com.ua/contacts/",
+  "reason": "The contact page states section times rather than opening hours — \"Доросла секція (вівторок, четвер з 19:00, субота з 12:00), Дитяча секція (вівторок, четвер з 16:00, субота з 10:00)\" — three days, no closing time, and the footer of every page adds \"*тренування за попереднім записом\": training by prior arrangement."
  },
  {
   "lat": 50.442838,
   "lon": 30.4493219,
   "name": "12C Board School (Climbing gym \"KPIskala\")",
   "country": "UA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "appointment-only",
+  "checked": "2026-08-25",
+  "source": "https://kpiskala.com.ua/contacts/",
+  "reason": "The contact page states section times rather than opening hours — \"Доросла секція (вівторок, четвер з 19:00, субота з 12:00), Дитяча секція (вівторок, четвер з 16:00, субота з 10:00)\" — three days, no closing time, and the footer of every page adds \"*тренування за попереднім записом\": training by prior arrangement."
  },
  {
   "lat": 50.416134,
@@ -7471,9 +7465,10 @@
   "lon": -123.27864,
   "name": "ALI Dixon Climbing Center",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "checked": "2026-08-25",
+  "source": "https://recsports.oregonstate.edu/about/hours",
+  "reason": "Rec Sports publishes the climbing centre's week, and every week it publishes is dated: \"Summer Term Hours (June 22 - Sept. 16, 2026) … Climbing Center (Bouldering) Mon - Fri: 6 a.m. - 8 p.m. Sat & Sun: 9 a.m. - 4 p.m. Climbing Center (with Belay) Mon - Fri: 4 - 8 p.m. Sat & Sun: Closed\", under a list of dated closures. No standing term-time week is stated anywhere."
  },
  {
   "lat": 33.2909,
@@ -8338,9 +8333,10 @@
   "lon": -88.54734,
   "name": "MTU Ridge Roamers",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "checked": "2026-08-25",
+  "source": "https://michigantechrecreation.com/sports/2024/7/10/open-rec-hours.aspx",
+  "reason": "The wall has a row of its own in the SDC hours table, and both of its weeks are semester-dated: \"Outdoor Adventure Program Climbing Wall Hours — Summer Semester, May 18 - August 6, 2026: Monday/Wednesday/Thursday 5:00pm - 7:00pm, Tuesday CLOSED, Friday CLOSED, Saturday - Sunday CLOSED. Fall Semester, August 31 - December 17, 2026: Monday-Thursday 5:30pm - 7:30pm, Friday-Sunday CLOSED.\" Outside those hours the walls are open only to paid Ridge Roamers members."
  },
  {
   "lat": 40.0647951,
@@ -8772,9 +8768,10 @@
   "lon": -97.36392,
   "name": "TCU Outdoor Center",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "checked": "2026-08-25",
+  "source": "https://campusrec.tcu.edu/outdoor-programs/outdoor-center-and-climbing-wall-hours/",
+  "reason": "The wall's own hours page prints one week and labels it: \"Summer Hours Monday – Thursday 12:00 pm – 4:00 pm Friday 12:00pm – 4:00pm Saturday – Sunday 12:00pm – 4:00pm\". A university term-time week is implied by the label and printed nowhere."
  },
  {
   "lat": 37.85118,

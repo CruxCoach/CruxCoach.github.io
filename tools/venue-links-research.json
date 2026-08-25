@@ -587,9 +587,8 @@
     "name": "The Rock Wall Climbing Gym",
     "country": "CA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — therock.ca → \"TheRock.ca for sale | Spaceship.com\", the rest could not be opened — therock.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://therock.ca/"
+    "checked": "2026-08-25",
+    "reason": "No official site could be established: the object the gazetteer returns for this point is the ACT Arts Centre, whose site now redirects to arts-on.org, the Maple Ridge Pitt-Meadows Arts Council — a neighbour, and one on which the words climb and boulder do not appear. therockwall.ca, therockwallgym.com, rockwallclimbing.ca and therockwallclimbinggym.com do not resolve."
   },
   {
     "lat": 42.3149367,
@@ -1498,9 +1497,9 @@
     "name": "Rocodromo Peramola",
     "country": "ES",
     "status": "unverified",
-    "candidate": "https://www.peramola.cat/",
-    "reason": "No official site could be established: The village's own site confirms the street and does not carry the venue. Upstream puts this rocòdrom at Carrer Frederic Ribó 9, 25790 Peramola, and peramola.cat prints \"Ajuntament de Peramola, C/ Frederic Ribó, 8\" — the town hall next door. The words rocòdrom, escalada and esport appear nowhere on it.",
-    "checked": "2026-08-24"
+    "checked": "2026-08-25",
+    "reason": "No official site could be established: the venue is municipal and the municipality publishes no page for it. Its own site search returns exactly one document for \"rocodrom\" — a notice dated 2 December 2024 announcing \"INAUGURACIÓ DEL CENTRE D'ACOLLIDA I DINAMITZACIÓ DE L'ESCALADA I ESPORTS DE MITJA MUNTANYA A PERAMOLA — ROCÒDROM CASINO\" for the following Saturday. A one-off news item with no address, no hours and no operator is not a website for the wall, and the ajuntament's own address (C/ Frederic Ribó, 8) is the building next door to the one upstream records.",
+    "candidate": "https://www.peramola.cat/actualitat/noticies/inauguracio-del-rocodrom"
   },
   {
     "lat": 28.1129931,
@@ -1588,9 +1587,8 @@
     "name": "The Matrix",
     "country": "FI",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — matrix.fi → \"matrix.fi – since 1990\"; matrix.com → \"Discover the World of Matrix: Professional Hair Care and\"; thematrix.com → \"The Matrix Resurrections | Official Site\", the rest could not be opened — thematrix.fi → a timeout; the-matrix.com → 200, the venue's whole name as one label, thematrix.fi, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://matrix.fi/"
+    "checked": "2026-08-25",
+    "reason": "No official site could be established: the nearest tagged object is a piece of public art on Mariehamn's culture pages, not the venue. thematrix.ax, matrix.ax and thematrixgym.fi do not resolve, and neither do the two obvious Åland climbing-club domains."
   },
   {
     "lat": 48.20484,
@@ -3269,8 +3267,8 @@
     "name": "Fjordaveggen",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all: none of the name-derived domains for Fjordaveggen exists, and no OSM climbing object within 500 m carries a website."
+    "checked": "2026-08-25",
+    "reason": "No official site could be established: the object at this point is Vik public library and its website tag is the municipality's. Vik kommune lists its sport and culture facilities — Blixhalli, the swimming hall, the sports clubs — and names no climbing wall on any of them. fjordaveggen.no, .com and .net do not resolve, though fjordaveggen is the handle upstream records for the row."
   },
   {
     "lat": 61.90295,
@@ -3536,15 +3534,6 @@
     "candidate": "https://www.vertex.ph/"
   },
   {
-    "lat": 50.8710312,
-    "lon": 15.8796267,
-    "name": "9UP Stodoła",
-    "country": "PL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
     "lat": 50.0982854,
     "lon": 19.0851399,
     "name": "Adrenalina",
@@ -3639,16 +3628,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — parbat.com → \"Checking your browser...\", the rest could not be opened — parbat.pl → 999. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://parbat.com/"
-  },
-  {
-    "lat": 52.5463446,
-    "lon": 19.7065364,
-    "name": "Płockie Centrum Wspinaczkowe - Orlen Arena",
-    "country": "PL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.climbarena.fr → \"Climb Arena : Salle d'escalade de bloc à Cormeilles-en-P\"; plockie.pl → \"Filokartystyka. Stare poczt�wki - P�ock i okolice. O poc\", the rest could not be opened — plockie.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.climbarena.fr/"
   },
   {
     "lat": 53.12348040000001,
@@ -4208,24 +4187,6 @@
     "checked": "2026-08-24"
   },
   {
-    "lat": 50.4425234,
-    "lon": 30.4495923,
-    "name": "12C Board classic (Climbing gym \"KPIskala\")",
-    "country": "UA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 50.442838,
-    "lon": 30.4493219,
-    "name": "12C Board School (Climbing gym \"KPIskala\")",
-    "country": "UA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
     "lat": 50.416134,
     "lon": 30.4683816,
     "name": "12C Board School (Gymnasium \"Millennium\" №318)",
@@ -4261,15 +4222,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — symbiosis.ua → \"SYMBIOSIS | Український бренд одягу для всього світу | Я\"; symbiosis.com.ua → \"SYMBIOSIS | Український бренд одягу для всього світу | Я\"; symbiosis.com → \"Symbiosis - Decimator Design - Global Pro Video Distribu\", the venue's whole name as one label, symbiosis.ua, answers 200 (\"SYMBIOSIS | Український бренд одягу для всього світу | Якіст\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://symbiosis.ua/"
-  },
-  {
-    "lat": 44.56317,
-    "lon": -123.27864,
-    "name": "ALI Dixon Climbing Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — alidixon.com → a certificate that does not cover its hostname. Upstream records 425 SW 26th St, 97331, Corvalis, and nothing opened printed it."
   },
   {
     "lat": 38.9822282,
@@ -4692,15 +4644,6 @@
     "candidate": "https://minnesotaclimbing.org/"
   },
   {
-    "lat": 47.11368,
-    "lon": -88.54734,
-    "name": "MTU Ridge Roamers",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for MTU Ridge Roamers, Houghton was theridgeclimbing.co.uk, a climbing centre in the United Kingdom — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
-  },
-  {
     "lat": 40.0647951,
     "lon": -82.5204425,
     "name": "Nightmare on Elm St",
@@ -4945,15 +4888,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — summit.com → \"Summit Electric Supply | Solutions That Power You Forwar\"; summit.org → \"Summit Ministries | Grow in Your Faith. Get the Confiden\"; summitclimbing.org → \"Summit Climbing Gym\", the rest could not be opened — summit.net → no answer / a timeout; summitclimbing.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://summit.com/"
-  },
-  {
-    "lat": 32.70777,
-    "lon": -97.36392,
-    "name": "TCU Outdoor Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
     "lat": 39.81416,

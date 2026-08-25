@@ -5408,20 +5408,22 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "unverified",
     "channels": [
+     "osm-website-tag",
+     "previous-record",
      "name-guess",
      "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "www"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
+     "osm-website-tag",
+     "previous-record",
      "name-guess",
      "apex",
      "www"
@@ -12010,22 +12012,23 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
+    "pass": "2026-08-25",
     "result": "unverified",
     "channels": [
-     "name-guess",
-     "previous-record"
+     "osm-website-tag",
+     "previous-record",
+     "web-search",
+     "operator-index"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
-     "venue-link",
-     "apex",
-     "www",
-     "path-probe",
-     "previous-record"
+     "osm-website-tag",
+     "previous-record",
+     "web-search",
+     "operator-index"
     ]
    }
   },
@@ -12701,20 +12704,22 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "unverified",
     "channels": [
+     "osm-website-tag",
+     "previous-record",
      "name-guess",
      "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "www"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
+     "osm-website-tag",
+     "previous-record",
      "name-guess",
      "apex",
      "www"
@@ -22480,25 +22485,27 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "unverified",
     "channels": [
+     "osm-website-tag",
+     "previous-record",
      "name-guess",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "operator-index"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
+     "osm-website-tag",
+     "previous-record",
      "name-guess",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "operator-index"
     ]
    }
   },
@@ -24529,23 +24536,20 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
      "osm-website-tag",
-     "co-located"
+     "previous-record",
+     "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -25289,23 +25293,19 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
      "osm-website-tag",
-     "co-located"
+     "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -29181,23 +29181,20 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
      "osm-website-tag",
-     "co-located"
+     "previous-record",
+     "map-block"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "appointment-only",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -29211,23 +29208,20 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
      "osm-website-tag",
-     "co-located"
+     "previous-record",
+     "map-block"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "appointment-only",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -29514,23 +29508,19 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
      "osm-website-tag",
-     "co-located"
+     "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "seasonal",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -33782,23 +33772,19 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
      "osm-website-tag",
-     "co-located"
+     "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "seasonal",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -36209,23 +36195,19 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
      "osm-website-tag",
-     "co-located"
+     "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "seasonal",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },

@@ -15935,6 +15935,21 @@
     "note": "The Pump Factory's own site, whose first line reads \"Super-charge your climbing experience at Iloilo's premier climbing destination\" — the venue's name and the city upstream names for it, on a page that is unambiguously a bouldering gym's."
   },
   {
+    "lat": 50.8710312,
+    "lon": 15.8796267,
+    "name": "9UP Stodoła",
+    "country": "PL",
+    "website": "https://sokoliki.net/bulderownia-stodola/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "The object nearest this point is a campsite called 9up whose website tag is sokoliki.net, and that site has a page for exactly this hall: \"Bulderownia Stodoła – 9up … Problemy o każdej trudności, obwody oraz MoonBoard czekają na Was!\" Upstream lists the row as a MoonBoard. The site prints its own GPS as N 50.870934, E 15.979771 — the latitude to within 11 m of upstream and a longitude 7 km out, which the gazetteer settles: Trzcińsko, where the page puts the address (Trzcińsko 65a, 58-520 Janowice Wielkie), is at 50.8725, 15.8795. The typed digit on the page is the wrong one."
+  },
+  {
     "lat": 50.07906570000001,
     "lon": 19.8703194,
     "name": "Avatar Balicka Boulder",
@@ -16275,6 +16290,21 @@
       "street-address"
     ],
     "note": "Upstream lists this MoonBoard separately, 52 m from its Kilter entry."
+  },
+  {
+    "lat": 52.5463446,
+    "lon": 19.7065364,
+    "name": "Płockie Centrum Wspinaczkowe - Orlen Arena",
+    "country": "PL",
+    "website": "https://orlenarena.eu/scianka-wspinaczkowa/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "orlenarena.pl redirects to orlenarena.eu, the arena's own site, which gives the wall a page: \"Ścianka wspinaczkowa … W skład nowoczesnego Centrum Wspinaczkowego wchodzą: ściana wspinaczkowa z asekuracją linową … ściana do boulderingu\". Upstream calls the row Płockie Centrum Wspinaczkowe - Orlen Arena and puts it 0.5 km from Płock; the page is headed \"Orlen Arena - Płock\" and gives the address as Plac Celebry Papieskiej 1."
   },
   {
     "lat": 49.8223768,
@@ -17585,6 +17615,36 @@
     "note": "The operator's page for this branch, printing \"320014 桃園市中壢區高鐵南路二段352號（Global Mall環球購物中心4樓）\" — upstream's address including the floor — and listing a Kilter board among its facilities."
   },
   {
+    "lat": 50.4425234,
+    "lon": 30.4495923,
+    "name": "12C Board classic (Climbing gym \"KPIskala\")",
+    "country": "UA",
+    "website": "https://kpiskala.com.ua/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "The gazetteer resolves both of these rows to KPI's building 24, and the club that climbs in it publishes its own site: \"Скеледром КПІскала\", with a page headed \"12Сlimb Board\" describing the interactive 3×4 m wall — the board upstream lists for both rows — and linking 12climb.com. The site's embedded map pins itself at 50.442562, 30.449542, which is 5 m from the classic row and 35 m from the school row; the club is at вул. Верхньоключова, 1/26, Спорткомплекс КПІ."
+  },
+  {
+    "lat": 50.442838,
+    "lon": 30.4493219,
+    "name": "12C Board School (Climbing gym \"KPIskala\")",
+    "country": "UA",
+    "website": "https://kpiskala.com.ua/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "The gazetteer resolves both of these rows to KPI's building 24, and the club that climbs in it publishes its own site: \"Скеледром КПІскала\", with a page headed \"12Сlimb Board\" describing the interactive 3×4 m wall — the board upstream lists for both rows — and linking 12climb.com. The site's embedded map pins itself at 50.442562, 30.449542, which is 5 m from the classic row and 35 m from the school row; the club is at вул. Верхньоключова, 1/26, Спорткомплекс КПІ."
+  },
+  {
     "lat": 49.839683,
     "lon": 24.029717,
     "name": "Rock Station",
@@ -17759,6 +17819,23 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 44.56317,
+    "lon": -123.27864,
+    "name": "ALI Dixon Climbing Center",
+    "country": "US",
+    "website": "https://recsports.oregonstate.edu/adventure/adventure-facilities-services/indoor-climbing-centers",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The gazetteer object here is the Dixon Recreation Center, tagged with Oregon State's Rec Sports site, and that site's climbing page is titled for the venue upstream names: \"Welcome to the Adventure Leadership Institute™ (ALI™) Indoor Climbing Centers\". Its contact block reads \"Dixon Recreation Center 425 SW 26th St. Oregon State University Corvallis OR 97331-3301\" — upstream's street, postcode and town for this row."
   },
   {
     "lat": 33.2646,
@@ -22087,6 +22164,21 @@
     ]
   },
   {
+    "lat": 47.11368,
+    "lon": -88.54734,
+    "name": "MTU Ridge Roamers",
+    "country": "US",
+    "website": "https://michigantechrecreation.com/sports/2024/6/27/climbing-wall.aspx",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "The object at this point is Michigan Technological University, whose recreation site has a page for the wall that names both the row and its board: \"The Climbing Wall is managed in cooperation between the OAP and Ridge Roamers. The main wall is located in the SDC Multipurpose Gym, and the adjustable training wall (the kilter board) is located in Racquetball Court 6.\" Upstream calls the row MTU Ridge Roamers and lists it as a kilter."
+  },
+  {
     "lat": 41.93794,
     "lon": -74.01977,
     "name": "Mustangs Bouldering",
@@ -23555,6 +23647,22 @@
       "board-mention"
     ],
     "note": "The site carries this venue's name and names the MoonBoard it is listed for. Upstream records no street address for the venue, so the name and the board are the two signals available; the domain is the venue's own name taken as one label, which the guesser had not tried."
+  },
+  {
+    "lat": 32.70777,
+    "lon": -97.36392,
+    "name": "TCU Outdoor Center",
+    "country": "US",
+    "website": "https://campusrec.tcu.edu/outdoor-programs/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "board-mention",
+      "city",
+      "location-page"
+    ],
+    "note": "The object at this point is TCU's Recreation Center, tagged campusrec.tcu.edu, and Campus Recreation gives the venue its own page: \"the Outdoor Center (climbing wall and equipment rental) … The facility also includes a 10-foot Grasshopper Bouldering Wall\". Upstream lists this row as a grasshopper, and the page footer puts it at 3005 Stadium Drive, Fort Worth, TX 76129 — the town upstream records 4.8 km away."
   },
   {
     "lat": 37.85118,
