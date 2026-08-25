@@ -4129,8 +4129,8 @@
   "name": "Climb AP",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The venue has no website of its own — only a Facebook page and directory listings — so there is no official page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 46.27371,
@@ -4148,8 +4148,8 @@
   "name": "CoccoBlocco",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 46.5580169,
@@ -4173,15 +4173,6 @@
   "lat": 45.1992371,
   "lon": 9.1400311,
   "name": "Cus Pavia Climbing",
-  "country": "IT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 43.108311,
-  "lon": 12.366431,
-  "name": "Dreamtime",
   "country": "IT",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -4227,22 +4218,13 @@
   "reason": "The same hall as the Gravità Zero entry 17 m away, whose read this repeats: the site was read on the two dozen paths a venue usually puts its week on, yields 44,815 characters carrying 120 clock times, and states no day of the week beside any of them — they are prices and class times rather than an opening schedule."
  },
  {
-  "lat": 44.55963,
-  "lon": 10.91238,
-  "name": "Grip Climbing Gym",
-  "country": "IT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 40.6031306,
   "lon": 17.2146724,
   "name": "I rampicanti climbing farm",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The venue has no website of its own — only Instagram and Facebook — so there is no official page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 41.4833353,
@@ -4308,8 +4290,8 @@
   "name": "Mare Verticale Moon Board",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The venue has no website of its own — only a Facebook page and third-party listings — so there is no official page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 43.7874963,
@@ -4354,9 +4336,10 @@
   "lon": 12.22205,
   "name": "Nordic Arena Climbing Center",
   "country": "IT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://www.nordicarena-toblach.it/en/climbing/",
+  "reason": "The only statement of time on the page is \"The climbing hall is open from 07:00 a.m. – 10:00 p.m.; access only after registration!\" — one range with no day attached to it anywhere, and a registration step before entry. Seven days read out of one unlabelled range would be an inference rather than a reading.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 45.694395,
@@ -4383,9 +4366,10 @@
   "lon": 10.9078587,
   "name": "ROCK TIME CENTER Pistoia",
   "country": "IT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://rocktimecenter.it/",
+  "reason": "The venue's domain serves an under-construction notice, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 45.45312,

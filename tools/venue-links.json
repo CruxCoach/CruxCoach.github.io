@@ -12950,6 +12950,20 @@
     "note": "The page is headed \"Palestra arrampicata Ferrara | Devawall - Climbing - Bouldering\"; the upstream city is Ferrara. The name-derived guess only reached it once the guesser stopped truncating the full-name variant."
   },
   {
+    "lat": 43.108311,
+    "lon": 12.366431,
+    "name": "Dreamtime",
+    "country": "IT",
+    "website": "https://dreamtime.pg.it/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Dreamtime Climbing & Fitness publishes at dreamtime.pg.it and gives its address as \"Via del Tabacchificio, 6 Perugia 06125\" — the town upstream records for a row it holds no street line for. Its own Facebook handle, dreamtimeclimbing, is the handle upstream carries."
+  },
+  {
     "lat": 45.5107903,
     "lon": 11.337712,
     "name": "GAS ARZIGNANO",
@@ -13004,6 +13018,21 @@
       "coordinates"
     ],
     "note": "The same hall as the Gravità Zero entry 17 m away at Via alle cave 55, Trieste, which carries this link already: this entry is that gym's MoonBoard, registered separately. The site is the gym's own and matches the name."
+  },
+  {
+    "lat": 44.55963,
+    "lon": 10.91238,
+    "name": "Grip Climbing Gym",
+    "country": "IT",
+    "website": "https://gripclimbingym.framer.website/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The gym publishes on a Framer subdomain rather than a domain of its own, which is why every guess at gripclimbing.it and its neighbours came back empty. Its contact page reads \"Via Zenzalose 48, Montale (MO)\" — upstream's street, number and town — and its services list Boulder, Corda and a Kilter Board, the board upstream records."
   },
   {
     "lat": 46.7901,
@@ -13211,6 +13240,20 @@
       "street-address",
       "city"
     ]
+  },
+  {
+    "lat": 46.7198,
+    "lon": 12.22205,
+    "name": "Nordic Arena Climbing Center",
+    "country": "IT",
+    "website": "https://www.nordicarena-toblach.it/en/climbing/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The Nordic Arena in Dobbiaco is a cross-country stadium with a climbing centre inside it, run by the AVS, at Via Lago 16, 39034 Dobbiaco. Its climbing page names the board upstream records for this row: \"In the climbing hall, you will find our special tension board, which is perfect for your strength and stability training. The board is equipped with wooden grips.\" Upstream carries neither a street line nor a town for the row."
   },
   {
     "lat": 45.69573,

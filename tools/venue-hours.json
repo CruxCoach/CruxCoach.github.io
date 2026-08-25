@@ -15455,6 +15455,31 @@
   "note": "The page separates the hall (\"Palestra\") from the bar, which closes an hour later; the weekend closure applies to both."
  },
  {
+  "lat": 43.108311,
+  "lon": 12.366431,
+  "name": "Dreamtime",
+  "country": "IT",
+  "source": "https://dreamtime.pg.it/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:00-22:30",
+   "tue": "08:00-22:30",
+   "wed": "08:00-22:30",
+   "thu": "08:00-22:30",
+   "fri": "08:00-22:30",
+   "sat": "09:00-19:30",
+   "sun": "14:30-19:30"
+  },
+  "evidence": "dove? Perugia | Via del Tabacchificio, 6 quando? lunedì – venerdì dalle 8.00 alle 22.30 sabato dalle 9.00 alle 19.30 domenica dalle 14.30 alle 19.30",
+  "note": "Stated on the gym's own front page beside its address. Third-party listings carry a different and older week — split afternoons on Tuesday and Thursday, closed Sunday — which is exactly why only the venue's own page counts."
+ },
+ {
   "lat": 44.647128,
   "lon": 10.9252269,
   "name": "GEKOCLIMB MOONBOARD",
@@ -15478,6 +15503,31 @@
   },
   "evidence": "ORARI PALESTRA DAL 04/09/2023: LUN-VEN 18:00 - 23:00 SAB-DOM Chiuso",
   "note": "The block carries a start date and no end, and states all seven days."
+ },
+ {
+  "lat": 44.55963,
+  "lon": 10.91238,
+  "name": "Grip Climbing Gym",
+  "country": "IT",
+  "source": "https://gripclimbingym.framer.website/contatti-e-tesseramento",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "15:00-21:00",
+   "sun": "15:00-21:00"
+  },
+  "evidence": "Orari Palestra Lunedì - Venerdì 10 - 23 Sabato - Domenica 15 - 21 Orari Bar Lunedì - Venerdì 10 - 24 Sabato - Domenica 15 - 22",
+  "note": "The page prints two weeks side by side and labels them: the gym's and the bar's. This is the gym's; the bar stays open an hour later on both."
  },
  {
   "lat": 46.7901,

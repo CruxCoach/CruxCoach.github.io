@@ -2048,9 +2048,9 @@
     "lon": 13.5749442,
     "name": "Climb AP",
     "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all — climbap.it, climbap.com, climb-ap.it and climb-ap.com do not exist, and no OSM climbing object within 500 m of Ascoli Piceno carries a website."
+    "status": "social-only",
+    "reason": "Climb AP is the indoor wall of Anime Verticali AVIS Ascoli, on Via De Dominicis in Ascoli Piceno, and it has no domain: climbap.it and climbap.com do not resolve. It publishes on Facebook (facebook.com/climbap01) and appears in the regional tourism directory and Foursquare. That is a web presence, not the official website this field promises.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 44.2968832,
@@ -2058,8 +2058,8 @@
     "name": "CoccoBlocco",
     "country": "IT",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all: none of the fourteen name-derived domains for CoccoBlocco exists, and no OSM climbing object within 500 m carries a website."
+    "reason": "No official site could be established: coccoblocco.it, .com and .org do not resolve, and nothing published in Forlì carries this name. The town's climbing halls are Vertical Climb on Via Pandolfa and the Libertas wall on Via Carlo Grigioni, neither of which is this row. Upstream holds no address and no handle for it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 46.5580169,
@@ -2091,16 +2091,6 @@
     "candidate": "https://cuspavia.it/"
   },
   {
-    "lat": 43.108311,
-    "lon": 12.366431,
-    "name": "Dreamtime",
-    "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The only pointer is an OSM node 447 m away named Metropolitan Boulder, whose site metropolitanboulder.it serves \"Site is undergoing maintenance\" and nothing else. dreamtime.it answers 403 to every fetcher and dreamtime.com does not resolve.",
-    "candidate": "https://metropolitanboulder.it/"
-  },
-  {
     "lat": 42.7635254,
     "lon": 11.1123634,
     "name": "Fondino Moon",
@@ -2111,24 +2101,13 @@
     "candidate": "https://fondino.com/"
   },
   {
-    "lat": 44.55963,
-    "lon": 10.91238,
-    "name": "Grip Climbing Gym",
-    "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Every Grip that answers is a different gym — GriP Kletterzentrum Göppingen, GRIP Boulderhal Nijmegen, Grip Bouldering in Grand Junction, Grip Klatring in Trondheim — and grip.it is a creative agency in Italy. gripclimbing.com and gripclimb.com answer with no title and no content that names Montale or Via Zenzalose.",
-    "candidate": "https://gripclimbing.com/"
-  },
-  {
     "lat": 40.6031306,
     "lon": 17.2146724,
     "name": "I rampicanti climbing farm",
     "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "rampicanti.it presents a certificate that does not cover its hostname on either host, and rampicanti.com is parked for sale. Nothing else resolves for \"I rampicanti climbing farm\".",
-    "candidate": "https://rampicanti.it/"
+    "status": "social-only",
+    "reason": "I Rampicanti Climbing Farm publishes on Instagram (@i_rampicanti_climbing_farm) and Facebook, and has no domain: irampicanticlimbingfarm.it does not resolve, and irampicanti.it belongs to a gardening firm in Florence, Prato and Pistoia — tree surgery, hedges and synthetic lawns, 700 km north. The farm itself is listed under Crispiano rather than Massafra, which upstream files the row under.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 44.6191558,
@@ -2154,10 +2133,9 @@
     "lon": 14.7339367,
     "name": "Mare Verticale Moon Board",
     "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "mare.it is a biodiversity project and mare.com an industrial-process firm. \"Mare Verticale Moon Board\" leaves only the generic word mare once the board model is stripped, and nothing else resolves.",
-    "candidate": "https://mare.it/"
+    "status": "social-only",
+    "reason": "Mare Verticale ASD is San Salvo's climbing hall and mareverticale.it does not resolve. What it publishes goes on Facebook (facebook.com/mareverticaleasd), and the third-party listings disagree with each other about where it is — Via Libero Grassi, Via Sandro Pertini 24 and Via Australia snc all appear — which is exactly the kind of address that may not be tested against anything.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 45.0515199,
@@ -2180,24 +2158,14 @@
     "candidate": "https://morgia.com/"
   },
   {
-    "lat": 46.7198,
-    "lon": 12.22205,
-    "name": "Nordic Arena Climbing Center",
-    "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "nordicarena.com answers with a placeholder carrying nothing but the domain name; nordic.it presents a certificate that does not cover its hostname and nordic.com answers 403. The one chain sibling named Arena is Climb Arena in Cormeilles-en-Parisis, 788 km away.",
-    "candidate": "https://nordicarena.com/"
-  },
-  {
     "lat": 43.9303475,
     "lon": 10.9078587,
     "name": "ROCK TIME CENTER Pistoia",
     "country": "IT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The name reduces to the generic word \"time\": time.it presents a certificate that does not cover its hostname and time.com is the magazine. Nothing found names a climbing centre in Pistoia.",
-    "candidate": "https://time.com/"
+    "status": "unavailable",
+    "candidate": "https://rocktimecenter.it/",
+    "reason": "Rock Time Center is a real hall in Pistoia — Via Galileo Galilei 45, over 600 m² of lead and boulder — and rocktimecenter.it is its own domain. Every path on it currently returns 165 bytes: \"Rock Time Center is under construction. Stiamo effettuando dei lavori sul sito e ritorneremo a breve.\" Retry when the site returns.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 41.9027835,
