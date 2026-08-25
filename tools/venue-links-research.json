@@ -2008,8 +2008,8 @@
     "name": "Activ-A",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — activ.co.jp → a certificate that does not cover its hostname; activ.com → a timeout, the venue's whole name as one label, activa.com, answers 200 (\"Activa Physiotherapy Ottawa\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits 58 m from OpenStreetMap’s city node for 山梨市, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match."
+    "reason": "No official site could be established: activ-a.jp and activa-climbing.jp do not resolve, and nothing published in Yamanashi carries the name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 35.00033250000001,
@@ -2027,9 +2027,8 @@
     "name": "Climbing House KN",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — climbinghouse.com → \"Climbing House: Epic Rock Trips, Curated for You.\"; climbing.jp → \"資金繰りとファクタリングの話 - 中小企業の資金繰り改善やファクタリングの活用法について、調べたことや気づいたこ\"; climbing.co.jp → \"理化学用ガラス、ガラス目盛加工、ガラス製造 | 株式会社クライミング\". Upstream records 中野市片塩559-4, 383-0046, and nothing opened printed it.",
-    "candidate": "https://climbinghouse.com/"
+    "reason": "No official site could be established: climbinghouse-kn.jp does not resolve. Upstream records 中野市片塩559-4, 〒383-0046 for the row, and nothing published under that address or the name Climbing House KN could be found — the shape of a private wall in a converted building.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 34.6645243,
@@ -2047,8 +2046,8 @@
     "name": "goodboulderingMOONBOARD",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits 7 m from OpenStreetMap’s city node for 彦根市, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match."
+    "reason": "No official site could be established: goodbouldering.jp does not resolve and nothing published around Hikone carries the name. The row reads as a MoonBoard somebody named after their gym rather than a venue.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 35.8364848,
@@ -2066,9 +2065,8 @@
     "name": "HUT WALL",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — hoytundertaket.no/tonsberg → \"Høyt Under Taket Tønsberg\", the rest could not be opened — hutwall.com → no answer / 404. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://hoytundertaket.no/tonsberg/"
+    "reason": "No official site could be established: hutwall.jp and hutwall.com do not resolve, and nothing published around Tainai carries the name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 33.3192865,
@@ -2081,24 +2079,13 @@
     "checked": "2026-08-25"
   },
   {
-    "lat": 35.4304213,
-    "lon": 133.8260633,
-    "name": "Kurayoshi Sport Climbing Center",
-    "country": "JP",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — kurayoshi.co.jp → \"�L����ЃN�����V �������΂��E�t��(�V�K�[)�E�p�C�v\". Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits 56 m from OpenStreetMap’s city node for 倉吉市, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match.",
-    "candidate": "https://kurayoshi.co.jp/"
-  },
-  {
     "lat": 37.7445357,
     "lon": 139.1825675,
     "name": "little forest",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — littlerockclimbingcenter.com → \"Little Rock Climbing Center | The Premier Indoor Rock Cl\"; littleforest.jp → \"LittleForest\", the rest could not be opened — littleforest.com → a timeout; little-forest.jp → no answer / a certificate that does not cover its hostname; little-forest.com → a certificate that does not cover its hostname, the venue's whole name as one label, littleforest.jp, answers 200 (\"LittleForest\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.littlerockclimbingcenter.com/"
+    "reason": "No official site could be established: littleforest.jp resolves and is a frameset site of that name with nothing about climbing on it; nothing published around Gosen carries the name as a venue.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 35.9461485,
@@ -2106,8 +2093,8 @@
     "name": "Monolithe",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — monolithe.com → 403, the venue's whole name as one label, monolithe.com, answers 302 (\"302 Found\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: monolithe.jp does not resolve, and nothing published around this coordinate carries the name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 33.2395578,
@@ -2125,8 +2112,8 @@
     "name": "SunnyDipperMoonBoard",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits 13 m from OpenStreetMap’s city node for 伊勢市, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match."
+    "reason": "No official site could be established: sunnydipper.jp does not resolve and nothing published in Ise carries this name. The gazetteer object at the coordinate is the city hall.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 39.11843,
@@ -2134,19 +2121,18 @@
     "name": "Take Wall",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — take.co.jp → \"���|�����쏊�|���A�G�N�X�e���A�A���ދy�ы����ޗ���ʂ��Ēn��ƎЉ�ɍ\"; take.com → \"TAKE MUSIC\"; takeclimbing.com → \"Coming Soon\", the rest could not be opened — takewall.com → a timeout, the venue's whole name as one label, takewall.com, does not resolve. Upstream records Amanuma Isawaku Oyama, 023-0402, Iwate, and nothing opened printed it.",
-    "candidate": "https://www.take.co.jp/"
+    "reason": "No official site could be established: nothing published in Oshu or anywhere in Iwate carries the name Take Wall; the prefecture's listed gyms are Crager's in 水沢, クラムボン in 北上 and the prefectural climbing stadium. takewall.jp does not resolve.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 32.8031004,
     "lon": 130.7078911,
     "name": "The Ranch",
     "country": "JP",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — ranch.jp → \"RANCH DESIGN WORKS | FUKUOKA\"; ranch.co.jp → \"ホーム〜株式会社RANCH［ランチ］です - 株式会社RANCHのホームページです\"; theranch.com → \"a page with no title\", the venue's whole name as one label, theranch.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits 48 m from OpenStreetMap’s city node for 熊本市, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match.",
-    "candidate": "https://www.ranch.jp/"
+    "status": "http-only",
+    "candidate": "http://theranchgym.com/",
+    "reason": "ザ・ランチ is \"熊本市ボルダリングジム 熊本市のボルダリング用品専門店\" at 〒860-0826 熊本市南区平田町1-8-12 — Kumamoto, the city upstream records — and theranchgym.com answers nothing over https. The identification is recorded here because this file keeps https URLs only.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 35.6894875,
@@ -2154,8 +2140,9 @@
     "name": "VOLNY",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — volny.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building either: 35.6895,139.6917 is the standard point for the city of Tokyo, so the registry recorded the city and not the wall."
+    "candidate": "https://volny.net/",
+    "reason": "VOLNY is a real Tokyo gym — 東京都武蔵野市吉祥寺北町1-18-3, eight minutes from 吉祥寺 station — and it is 11 km from this row, which sits at 35.6895,139.6917: the value gazetteers return for Tokyo itself. Upstream files the row under Tokyo and holds no street line, so the coordinate is all there is and it points at the city rather than the gym.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 36.3479482,
@@ -2163,9 +2150,8 @@
     "name": "vortex",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — vortex.jp → \"杉並区のWeb制作・運用と不動産 | 有限会社ボーテックス\"; vortex.co.jp → \"杉並区のWeb制作・運用と不動産 | 有限会社ボーテックス\", the rest could not be opened — vortexclimb.com → a certificate that does not cover its hostname, the venue's whole name as one label, vortex.jp, answers 301 (\"301 Moved Permanently\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.vortex.co.jp/"
+    "reason": "No official site could be established: vortex.jp resolves and redirects to 有限会社ボーテックス, a Suginami web-development and property company 100 km away; nothing published around Tomobe carries the name as a climbing venue.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 35.15172,
@@ -2183,8 +2169,8 @@
     "name": "九州クライミングベース SAGA Kyushu Climbing Base",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records 北多久町大字小侍23, 846-0002, 佐賀県, and nothing opened printed it."
+    "reason": "No official site could be established: 九州クライミングベースSAGA opened in November 2023 inside 佐賀県立多久高校 at 北多久町大字小侍23 — upstream's address — and it publishes through the prefecture's own pages and the city of Taku's, rather than a site of its own. kyushuclimbingbase.jp and kcb-saga.jp do not resolve. A prefectural news page is not the venue's website.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 33.22722,
@@ -2192,9 +2178,8 @@
     "name": "松野町コミュニティセンター Matsuno Town Community Center",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — matsuno.co.jp → \"������� ���쌚�z�@�_�ސ쌧���{��s�E���l�s�̏Z��E�Z�܂��E���z�E�\", the rest could not be opened — matsuno.jp → a timeout; matsuno.com → 200. Upstream records 〒798-2101 愛媛県北宇和郡松野町松丸３４３, 798-2192, and nothing opened printed it. The coordinate is not a building: it sits 29 m from OpenStreetMap’s town node for 松野町, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match.",
-    "candidate": "https://www.matsuno.co.jp/"
+    "reason": "No official site could be established: the venue is a municipal community centre in 松野町, and neither the town nor the centre publishes a page for its wall: the prefecture's sports-camp pages list other Ehime facilities and not this one.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -3.3446354,
