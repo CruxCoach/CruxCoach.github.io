@@ -87,7 +87,7 @@ that a venue is open to the public. It is never licence to guess.
 | `website` | canonical HTTPS URL, stored exactly as it will be served |
 | `verified` | UTC date the page was last opened and checked, `YYYY-MM-DD` |
 | `provenance` | `official-location-page` \| `official-site` \| `official-chain-page` |
-| `signals` | ≥ 2 independent matches from `name`, `brand`, `street-address`, `postal-code`, `city`, `location-page`, `coordinates`, `board-mention`, `social-handle` |
+| `signals` | ≥ 2 independent matches from `name`, `brand`, `street-address`, `postal-code`, `city`, `location-page`, `coordinates`, `board-mention`, `social-handle`, `geocoded-address` |
 | `note` | optional, ignored by the build |
 
 Research records use `status` (`ambiguous`, `closed`, `private`, `duplicate`,
@@ -1292,3 +1292,31 @@ Name plus coordinates, and the link publishes.
 The short link is worth following even where an embed exists: an embed built
 from `?q=<address>` carries no coordinates at all, and that is what the same
 page's iframe turns out to be.
+
+### Asking the gazetteer where the page says it is
+
+`street-address` compares the page's street line with the one upstream already
+holds. For the 348 open rows that have no upstream address, it can never fire,
+and that is the gap this audit kept walking into: a venue whose own page prints
+an address, on a row that has only a name and a coordinate.
+
+`geocoded-address` closes it by running the same comparison the other way round.
+Geocode the address the page publishes; if it lands within ~250 m of the row,
+that is an observation about *place*, made independently of what the venue calls
+itself. Kraftwerk in the Allgäu is the case that forced it: the hall's page gives
+"Kreenerstr. 14, DE-87640 Biessenhofen", which geocodes 25 m from the row, while
+upstream files the row under Marktoberdorf — the next town — so `city` could
+never match and the name was the only signal left.
+
+It is deliberately the weakest of the location signals, and ranked below the two
+it resembles:
+
+- `coordinates` is stronger: the venue states the point itself, and no third
+  party is involved.
+- `street-address` is stronger: two registries agree on a string, with no
+  geocoder in between.
+- `geocoded-address` depends on a gazetteer being right about a street number,
+  which is exactly the kind of thing gazetteers are sometimes wrong about. It is
+  never a substitute for the name, and two location signals — say
+  `geocoded-address` and `city` — should be treated as one observation when the
+  town is what the geocoder used to resolve the address.

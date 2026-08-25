@@ -142,6 +142,20 @@ test('validateVenueLink requires two independent signals', () => {
   assert.deepEqual(validateVenueLink(link({ signals: ['brand', 'city'] })), []);
 });
 
+test('validateVenueLink counts an address that geocodes onto the venue', () => {
+  // For the rows upstream holds no address for, `street-address` can never
+  // fire — there is nothing to compare against. Asking a gazetteer where the
+  // page's own street line is, and finding it on the coordinate, is the same
+  // observation made the other way round, and it is about place rather than
+  // about the name.
+  assert.deepEqual(validateVenueLink(link({ signals: ['name', 'geocoded-address'] })), []);
+  assert.match(
+    validateVenueLink(link({ signals: ['geocoded-address'] }))[0],
+    /at least 2 independent signals/,
+    'an address on its own is still one signal',
+  );
+});
+
 test('validateVenueLink counts a social handle the page links back', () => {
   // Upstream records the handle; the page links the account. Two parties
   // agreeing about one account is a second observation, not a restatement of

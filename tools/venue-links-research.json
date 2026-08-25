@@ -1183,33 +1183,14 @@
     "reason": "The venue's own site says so in one line: \"Der Bodebloc bleibt leider auf unbestimmte Zeit geschlossen!\" — closed indefinitely. A link to a page that says the hall is shut is not a website for a visitor to act on."
   },
   {
-    "lat": 47.8076383,
-    "lon": 10.6401397,
-    "name": "Kraftwerk Allgäu",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "kraftwerk.de and kraftwerk.com are both the band's and an unrelated brand's sites; nothing found names a climbing hall in Marktoberdorf.",
-    "candidate": "https://kraftwerk.de/"
-  },
-  {
     "lat": 50.7935071,
     "lon": 7.834766900000001,
     "name": "Linie 9 Boulderlounge",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "linie.de does not answer and linie.com is a Norwegian aquavit brand. \"Linie 9 Boulderlounge\" in Freudenberg yields nothing else.",
-    "candidate": "https://linie.com/"
-  },
-  {
-    "lat": 48.12819,
-    "lon": 11.55968,
-    "name": "MTV München von 1879 e.V.",
-    "country": "DE",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all: none of the name-derived domains for \"MTV München von 1879 e.V.\" exists, and the coordinate is the centre of Munich."
+    "candidate": "http://linie9.de/",
+    "reason": "No official site could be established: linie9.de does not answer over https at all, and over http it redirects to linieneun.jimdoweb.com — \"Café Bar Bühne\", a café with a stage that opens 17:00 to midnight and takes table reservations on an 06155 number, which is Hesse rather than the 02734 of Freudenberg. Same-ish name, different business, 200 km away.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 50.2696397,
@@ -1227,9 +1208,9 @@
     "name": "Steinzeit_Boulderhalle",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "steinzeit.de is a natural-stone merchant in Bonn. Nothing found names a bouldering hall in Eislingen.",
-    "candidate": "https://steinzeit.de/"
+    "candidate": "https://www.steinzeit-gp.de/",
+    "reason": "No official site could be established: steinzeit-gp.de was the hall's own domain — its /home1 and /sicktotick pages are still indexed — and it now redirects to nicsell.com, the backorder service that catches lapsed .de domains. The hall itself is documented in the local press and directories at Kornbergstraße 6, 73054 Eislingen, but nothing it publishes remains reachable.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 48.6471033,
@@ -1237,9 +1218,9 @@
     "name": "Stuntwerk Kirchheim",
     "country": "DE",
     "status": "unverified",
-    "candidate": "https://stuntwerk-kirchheim.de/",
-    "reason": "No official site could be established: The hyphenated domain resolves and redirects to stuntwerk.de, whose STANDORTE list runs Duisburg, Essen, Köln, Köln Zollstock, Krefeld, Mülheim, Rosenheim, Senden, Troisdorf, Trostberg. Kirchheim is not among them and the word appears nowhere on the site.",
-    "checked": "2026-08-24"
+    "candidate": "https://stuntwerk.de/",
+    "reason": "No official site could be established: Stuntwerk is a real chain and stuntwerk.de lists all of its halls — Duisburg, Essen, Köln Mülheim, Köln Zollstock, Krefeld, Rosenheim, Senden, Troisdorf, Trostberg — and Kirchheim is not among them. Whatever stands at this coordinate in Kirchheim unter Teck is not one of the chain's locations, or is no longer, and nothing else publishes under this name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 49.9913901,
@@ -1256,9 +1237,9 @@
     "name": "Vertical World",
     "country": "DE",
     "status": "unavailable",
-    "checked": "2026-08-24",
-    "reason": "OSM maps Kletterhalle Vertical World 251 m from this venue and tags it verticalworld.de, and an archived copy from 5 October 2024 confirms it: \"Vertical World, Lilienthalstr. 23, 34123 Kassel\", and Kassel is the place upstream records. The site no longer serves — every host and scheme answers 500 — so there is nothing to link a visitor to today. Worth retrying: this is a site that is down, not a site that is wrong.",
-    "candidate": "https://www.verticalworld.de/"
+    "candidate": "https://verticalworld.de/",
+    "reason": "verticalworld.de resolves and answers 500 on every request, apex and www alike — the server is failing rather than absent. vertical-world.de does not resolve. Nothing can be read, so nothing can be matched against the row in Kassel. Retry when the host recovers.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 55.8581302,

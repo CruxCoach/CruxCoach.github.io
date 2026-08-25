@@ -7591,6 +7591,20 @@
     "note": "The section's own site gives the hall a Kletterzentrum area with its own hours, prices and directions; the directions page reads \"Kletterzentrum DAV Krumbach, Burgweg 16, 86381 Krumbach\", and the routes page announces \"Der DAV KRU hat ein MOONBOARD!\" — which is the board upstream records for this row. The coordinate upstream gives is not the hall: it falls 6.8 km north in Halbertshofen, Neuburg an der Kammel, which is why the row is labelled with Günzburg 18.5 km away. The archive had surfaced krumbach.de, which is the town."
   },
   {
+    "lat": 47.8076383,
+    "lon": 10.6401397,
+    "name": "Kraftwerk Allgäu",
+    "country": "DE",
+    "website": "https://www.kraftwerk-climbing.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "geocoded-address"
+    ],
+    "note": "The hall trades as \"KRAFTWERK - die Boulderhalle im Allgäu\", which is upstream's name for the row, and gives its address as \"KRAFTWERK BOULDERHALLE Kreenerstr. 14, DE-87640 Biessenhofen\". That address geocodes to 47.80749,10.64039 — 25 m from this row. Upstream holds no street line here and files the row under Marktoberdorf, the next town, so the town could not be the second signal and the address had to be."
+  },
+  {
     "lat": 53.2500572,
     "lon": 10.42253,
     "name": "Kraftwerk Lüneburg",
@@ -7777,6 +7791,21 @@
       "board-mention"
     ],
     "note": "45 Grad Kletterhalle's own site — \"Die 45 Grad befindet sich zentral in Rostock\" — naming both the Moonboard and the Kilter this venue is listed for. Upstream calls the venue Moonshine and places it in a Rostock district, so the hall's name is not a signal here; the town and the board are."
+  },
+  {
+    "lat": 48.12819,
+    "lon": 11.55968,
+    "name": "MTV München von 1879 e.V.",
+    "country": "DE",
+    "website": "https://www.mtv-muenchen.de/Sportangebot/Klettern/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "MTV München von 1879 is a general sports club with forty-odd departments, and climbing is one of them with a section of its own — Klettern-Abteilung, Öffnungszeiten, Kurse, and a page headed \"Klettern für Nichtmitglieder\" which is what makes the hall a public door rather than a members' one. Upstream names the row for the club and files it under Munich."
   },
   {
     "lat": 48.56053,

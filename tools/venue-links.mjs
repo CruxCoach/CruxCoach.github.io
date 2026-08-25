@@ -275,6 +275,15 @@ export const SIGNALS = new Set([
   // registry's own handle back on the screen is the venue agreeing with the
   // registry about which account is its own.
   'social-handle',
+  // The page publishes a postal address, upstream publishes none, and that
+  // address geocodes to within ~250 m of the venue's coordinate. It is the
+  // `street-address` signal run the other way round: instead of comparing the
+  // page's street line against a string upstream already holds, it asks a
+  // gazetteer where the page's street line is and compares that with the point.
+  // Weaker than `coordinates`, which needs no third party, and never a
+  // substitute for the name — but it is an observation about *place*, made
+  // independently of what the venue calls itself.
+  'geocoded-address',
 ]);
 
 // Two signals from the *same* observation would not be independent, so signals

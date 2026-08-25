@@ -2223,15 +2223,6 @@
   "reason": "Re-read, and filed the way Quergang is, because it is the same arrangement: 'Kletterbetrieb Mittwochs von 17:00 – 21:00 Uhr' is the only staffed public window, and everything else is 'Zugang mit Jahreskarte, täglich von 08:00 – 22:00 Uhr'. The other six days are not closed, so a week that called them closed would be wrong for every card holder."
  },
  {
-  "lat": 47.8076383,
-  "lon": 10.6401397,
-  "name": "Kraftwerk Allgäu",
-  "country": "DE",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 53.2500572,
   "lon": 10.42253,
   "name": "Kraftwerk Lüneburg",
@@ -2247,8 +2238,8 @@
   "name": "Linie 9 Boulderlounge",
   "country": "DE",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 51.0812495,
@@ -2279,15 +2270,6 @@
   "checked": "2026-08-23",
   "source": "https://sportzentrum-traunstein.de/",
   "reason": "The centre publishes its week per season and per facility: \"Sport - Juni / Juli / August: Montag - Freitag von 06 - 21 Uhr, Samstag & Sonntag von 07 - 19 Uhr, Feiertage von 11 - 18 Uhr\", with a separate block for the therapy wing. No year-round week is stated."
- },
- {
-  "lat": 48.12819,
-  "lon": 11.55968,
-  "name": "MTV München von 1879 e.V.",
-  "country": "DE",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 48.98238,
@@ -2344,8 +2326,8 @@
   "name": "Steinzeit_Boulderhalle",
   "country": "DE",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The venue's domain has lapsed to a backorder service, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 51.42705348363851,
@@ -2363,8 +2345,8 @@
   "name": "Stuntwerk Kirchheim",
   "country": "DE",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue — the chain it is named after does not list it — so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 47.84814,
@@ -2390,9 +2372,10 @@
   "lon": 9.5247899,
   "name": "Vertical World",
   "country": "DE",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://verticalworld.de/",
+  "reason": "The candidate domain answers 500 on every path, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 51.01574,

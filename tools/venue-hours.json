@@ -9511,6 +9511,31 @@
   "note": "One sentence covers the whole week. The second line is the counter, not the hall — the page says so itself: when the counter is unstaffed, \"mit gültiger Eintrittskarte kann natürlich trotzdem geklettert werden\". The dated closure for a re-set and the reservation for club events are exception lists."
  },
  {
+  "lat": 47.8076383,
+  "lon": 10.6401397,
+  "name": "Kraftwerk Allgäu",
+  "country": "DE",
+  "source": "https://www.kraftwerk-climbing.com/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "06:00-23:00",
+   "tue": "06:00-23:00",
+   "wed": "06:00-23:00",
+   "thu": "06:00-23:00",
+   "fri": "06:00-23:00",
+   "sat": "06:00-23:00",
+   "sun": "06:00-23:00"
+  },
+  "evidence": "ÖFFNUNGSZEITEN Täglich mit ONLINE TICKET 6:00 - 23:00 SERVICE VOR ORT Di-Do: 17:00 - 20:00 So: 11:00 - 14:00",
+  "note": "The hall states its opening week as one range with the days attached — täglich — and sells the ticket online, which is what makes those hours public rather than a key-holder's. The separate \"Service vor Ort\" block is when staff are present, and the page warns it is adjusted in summer; that is the staffing, not the door."
+ },
+ {
   "lat": 50.58771,
   "lon": 8.65829,
   "name": "Level 8 Boulderhalle Gießen",
@@ -9707,6 +9732,31 @@
   },
   "evidence": "Öffnungszeiten Montag – Freitag 11:00 – 22:00 Sa, So und Feiertage 10:00 – 21:00",
   "note": "Public holidays are grouped with the weekend. The hall separately announces that it is closed on 29 and 30 August for a team outing, which is a dated exception rather than part of the week."
+ },
+ {
+  "lat": 48.12819,
+  "lon": 11.55968,
+  "name": "MTV München von 1879 e.V.",
+  "country": "DE",
+  "source": "https://www.mtv-muenchen.de/Sportangebot/Klettern/Oeffnungszeiten/",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "06:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Die Öffnungszeiten der Kletterhalle sind gekoppelt an die Öffnungszeiten unseres Fitnessstudios. Montag - Freitag: 6:00 - 22:00 Uhr Samstag, Sonntag, Feiertag: 9:00 - 21:00 Uhr",
+  "note": "The climbing department states the coupling itself, on its own hours page, so the scope is the hall rather than the club. A Belegungsplan shows when courses occupy the wall, which narrows what is free rather than when the door is open."
  },
  {
   "lat": 48.56053,
