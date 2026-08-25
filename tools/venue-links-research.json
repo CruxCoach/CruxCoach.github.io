@@ -4268,9 +4268,9 @@
     "name": "Beyond the Wall Climbing",
     "country": "US",
     "status": "unverified",
-    "reason": "The gazetteer has an object one metre from this coordinate tagged beyondthewallclimbing.com, which is as close as a pointer gets. The domain answers 404 at the root, with and without the www, so there is no page to read and nothing to link.",
-    "candidate": "https://www.beyondthewallclimbing.com/",
-    "checked": "2026-08-24"
+    "candidate": "https://beyondthewallclimbing.com/",
+    "reason": "No official site could be established: beyondthewallclimbing.com resolves, redirects to www and answers 404 — the site has been taken down. Everything else about the gym is on third-party ground: a Facebook page, an Instagram account, a ClassPass listing, a downtown-Hillsboro welcome post from January 2025. Upstream records 1001 SE Tualatin Hwy Ste B2, and nothing that answers prints it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 13.443104764773443,
@@ -4362,24 +4362,14 @@
     "checked": "2026-08-25"
   },
   {
-    "lat": 42.83385,
-    "lon": -108.7275,
-    "name": "Elemental Performance + Fitness",
-    "country": "US",
-    "status": "unverified",
-    "candidate": "https://elementalperformance.net/",
-    "reason": "No official site could be established: elementalperformance.net is a coaching practice — \"Guidance with Integrity\", apply for coaching with Brant Dunn — and publishes no gym address.",
-    "checked": "2026-08-24"
-  },
-  {
     "lat": 42.83418,
     "lon": -108.72755,
     "name": "Elemental Performance + Fitness",
     "country": "US",
     "status": "unverified",
-    "candidate": "https://elementalperformance.net/",
-    "reason": "No official site could be established: Same coaching site as the row 4 m away.",
-    "checked": "2026-08-24"
+    "candidate": "https://lmntl.net/",
+    "reason": "This row and the one 37 m away are both called Elemental Performance + Fitness, and lmntl.net is certainly the gym. It cannot be attached here: the only signal that holds for this row is the name, because the site names the Tension Board 2 and says nothing about a grasshopper, upstream records no address or town for either row, and the site links no social account carrying the handle upstream holds. One signal is not two, and the neighbouring row is the one the evidence fits.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 38.74188,
@@ -4465,19 +4455,10 @@
     "lon": -73.92288,
     "name": "Hi-Notch Climbing Gym",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — hinotch.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 42.83654,
-    "lon": -108.73918,
-    "name": "High Mountain Fitness",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — highmountain.net → \"highmountain.net\"; highmountainfitness.com → \"HugeDomains.com\"; high-mountain.com → \"High Mountain - Allt för friluftsliv - Engelsons\", the rest could not be opened — highmountain.com → a timeout; highmountain.org → 200, the venue's whole name as one label, highmountainfitness.com, answers 302 but its pages print no street, postal code or town matching this venue. Upstream records 730 Lincoln St, 82520, Lander, and nothing opened printed it.",
-    "candidate": "https://www.highmountain.net/"
+    "status": "unavailable",
+    "candidate": "https://mtvanhoevenberg.com/todo/climbing/",
+    "reason": "The wall is Hi Notch, inside Mt Van Hoevenberg at Lake Placid, run by the New York State Olympic Regional Development Authority — so the candidate pages are mtvanhoevenberg.com and orda.org. Both answer 403 to every request from here, front page included, with browser headers and repeated tries. The operator is identified and the page cannot be read, which is a fact about the connection rather than about the venue.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 43.881466,
@@ -4488,15 +4469,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — jackson.net → \"jackson.net\", the rest could not be opened — jacksonlakelodge.com → a timeout; jacksonlake.com → 200 / a certificate that does not cover its hostname; jacksonlake.net → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "http://www.jackson.net/"
-  },
-  {
-    "lat": 38.43363,
-    "lon": -78.8675,
-    "name": "JMU UREC Adveture Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
     "lat": 40.02640205076102,
@@ -4570,9 +4542,10 @@
     "lon": -86.9220766502851,
     "name": "Purdue Recreation and Wellness",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — purdue.com → a certificate that does not cover its hostname; purdue.net → 200. Upstream records 355 N Martin Jischke Dr, 47906, West Lafayette, and nothing opened printed it."
+    "status": "unavailable",
+    "candidate": "https://www.purdue.edu/recwell/",
+    "reason": "Purdue Recreation & Wellness is at purdue.edu/recwell and the row's address, 355 N Martin Jischke Dr, is the France A. Córdova Recreational Sports Center. The site cannot be read from here: every path answers with a challenge page — \"What code is in the image? … Your support ID is …\" — instead of content. The venue is identified and the pages are not obtainable.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 36.1699412,
@@ -4583,16 +4556,6 @@
     "candidate": "https://www.redrockclimbingcenter.com/",
     "reason": "R2C2 is the Red Rock Climbing Center — the gym uses the initials itself, as @redrockclimbingcenter — and it is at 8201 W Charleston Blvd, which geocodes 11.9 km west of this row. The row sits at 36.16994,-115.13983, on the Strip near Sahara Avenue, where no climbing gym stands. Upstream holds no street line here, so the coordinate is all there is, and it does not point at the hall this name belongs to.",
     "checked": "2026-08-25"
-  },
-  {
-    "lat": 40.37632,
-    "lon": -75.93075,
-    "name": "Reading Rocks Climbing & Fitness",
-    "country": "US",
-    "status": "unverified",
-    "candidate": "http://www.readingrocks.com/",
-    "reason": "No official site could be established: The object at this coordinate is Reading Rocks, tagged sport=climbing, with readingrocks.com as its website. Every host and scheme answers 403 with the same body — \"Not Authorized to View This Page [CFN #0004]\" — which is a hosting block rather than a page.",
-    "checked": "2026-08-24"
   },
   {
     "lat": 45.00543,
@@ -4669,9 +4632,9 @@
     "name": "Social Climber",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — socialclimber.com → \"SocialClimber.com\"; social-climber.com → \"Coming Soon\"; social.com → \"Engagement Marketing Platform. | Salesforce\", the rest could not be opened — socialclimber.org → a timeout / a certificate that does not cover its hostname; social.net → 522, the venue's whole name as one label, socialclimber.com, answers 200 (\"SocialClimber.com\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://socialclimber.com/"
+    "candidate": "https://thesocialclimber.com/",
+    "reason": "No official site could be established: thesocialclimber.com resolves and returns a one-byte document; socialclimbergym.com and socialclimberohio.com do not resolve. Newark, Ohio has one published climbing gym, Method Climbing, which is a different name and a different business. A grasshopper board under a name nobody publishes is the shape of a private wall.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 40.6255415,

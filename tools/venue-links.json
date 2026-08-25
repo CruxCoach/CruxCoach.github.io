@@ -20147,6 +20147,20 @@
     "note": "El Bloque's own site, embedding a map of itself 30 m from this venue. Upstream records no street for it. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
   },
   {
+    "lat": 42.83385,
+    "lon": -108.7275,
+    "name": "Elemental Performance + Fitness",
+    "country": "US",
+    "website": "https://lmntl.net/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The gym trades as Elemental and its domain is lmntl.net: \"134 Lincoln St, Lander, WY 82520\". Its climbing page names the board upstream lists for this row — \"The climbing gym and Tension Board 2 are open during staffed hours only\" — which is also what separates this row from the grasshopper row 37 m away."
+  },
+  {
     "lat": 44.05637,
     "lon": -123.09808,
     "name": "Elevation Bouldering Gym",
@@ -20991,6 +21005,21 @@
     "note": "highaltitudefitness.com is a different gym of the same name in Ketchum, Idaho — the trap this row had already fallen into. The Tahoe business is highaltitudefit.net: \"Truckee Location: 11798 Donner Pass Road Truckee, CA 96161\", upstream's street, town and postcode, and its our-gyms page lists \"Campus Board and Kilter Board\" under THE TRUCKEE LOCATION for a row upstream records as a kilter."
   },
   {
+    "lat": 42.83654,
+    "lon": -108.73918,
+    "name": "High Mountain Fitness",
+    "country": "US",
+    "website": "https://highmtnfitness.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The gym's own site titles itself \"High Mountain Fitness | Lander's Fitness Center\" — the name and the town upstream records — and its facility page lists the wall as \"Five Auto-Belays, Bouldering, Fully Adjustable Kilter Board\", the board upstream lists."
+  },
+  {
     "lat": 35.18317,
     "lon": -84.87391,
     "name": "High Point Climbing Cleveland",
@@ -21218,6 +21247,21 @@
       "board-mention"
     ],
     "note": "The same hall as the Island Rock entry a few metres away that already carries this link: the site gives Plainview, the town upstream records, and names the Tension Board this venue is listed for."
+  },
+  {
+    "lat": 38.43363,
+    "lon": -78.8675,
+    "name": "JMU UREC Adveture Center",
+    "country": "US",
+    "website": "https://www.jmu.edu/recreation/activities/adventure/index.shtml",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "social-handle",
+      "location-page"
+    ],
+    "note": "University Recreation gives the venue its own page: \"The Adventure Center is located on the first floor of UREC … Adventure Center Features: Bouldering Wall, Free Standing Climbing Wall\". The page links instagram.com/jmuurec, exactly the handle upstream records for this row, and UREC is at 701 Driver Drive, Harrisonburg — the town upstream puts 1.8 km away."
   },
   {
     "lat": 25.681666663169874,
@@ -22752,6 +22796,21 @@
       "name",
       "city"
     ]
+  },
+  {
+    "lat": 40.37632,
+    "lon": -75.93075,
+    "name": "Reading Rocks Climbing & Fitness",
+    "country": "US",
+    "website": "https://readingrockspa.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "readingrocks.com — the domain in the gazetteer's website tag — answers 403 from its host on every scheme. The gym is on readingrockspa.com: \"Reading Rocks Climbing & Fitness 550 George Street, Reading, PA, USA\", upstream's street and town. It is built from the same template and answers on the same telephone number as Warehouse ROCKS in Abbottstown, 60 km west, and publishes its week the same way."
   },
   {
     "lat": 36.15867,

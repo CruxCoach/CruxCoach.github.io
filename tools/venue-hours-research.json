@@ -7563,8 +7563,8 @@
   "name": "Beyond the Wall Climbing",
   "country": "US",
   "status": "no-official-site",
-  "checked": "2026-08-24",
-  "reason": "The gym's site has expired and serves Squarespace's account-expired page, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 44.11073,
@@ -7845,18 +7845,20 @@
   "lon": -108.7275,
   "name": "Elemental Performance + Fitness",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "source": "https://lmntl.net/climbing-gym/",
+  "reason": "Both weeks the gym publishes carry a season: \"Summer (June – August) Monday – Thursday 7am-7pm, Friday 7am-4pm, Saturday 10am – 4pm, Closed: Sunday\" and \"Winter (September – May) Monday – Friday 7am-9pm, Saturday & Sunday 10am – 4pm\". They are also the staffed hours rather than the building's: the gym is 24-hour for members, but \"the climbing gym and Tension Board 2 … are not open during our unstaffed hours\".",
+  "checked": "2026-08-25"
  },
  {
   "lat": 42.83418,
   "lon": -108.72755,
   "name": "Elemental Performance + Fitness",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://lmntl.net/climbing-gym/",
+  "reason": "No site is established for this row, so there is nothing to read its hours from. The gym next to it publishes only season-labelled staffed hours in any case.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 40.3834,
@@ -8057,9 +8059,10 @@
   "lon": -73.92288,
   "name": "Hi-Notch Climbing Gym",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://mtvanhoevenberg.com/todo/climbing/",
+  "reason": "Both of the operator's hosts refuse the request with 403, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 39.32747,
@@ -8076,9 +8079,10 @@
   "lon": -108.73918,
   "name": "High Mountain Fitness",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://highmtnfitness.com/",
+  "reason": "The site states \"Staffed H0urs Monday-Friday: 8am – 5pm\" and \"Gym Open 24 Hours for Members\", and the climbing wall is listed with \"24 Hr Access with Training\". What a visitor without a fob can do at the weekend is not stated anywhere, so there is no public week to publish.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 39.0169509,
@@ -8134,9 +8138,10 @@
   "lon": -78.8675,
   "name": "JMU UREC Adveture Center",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "source": "https://www.jmu.edu/recreation/visit/urec-hours.shtml",
+  "reason": "The hours page publishes the building's week under a semester heading — \"Fall & Spring Semester Regular Hours: Mon - Thurs: 6:00 a.m. - 11:30 p.m. … Sun: 11:00 a.m. - 11:30 p.m.\" — beside \"Summer Break Hours: August 15 - August 24 CLOSED\". It then says the Adventure Center keeps its own hours in a Google Calendar, so even the semester week is not this venue's.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 40.02640205076102,
@@ -8356,9 +8361,10 @@
   "lon": -86.9220766502851,
   "name": "Purdue Recreation and Wellness",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.purdue.edu/recwell/",
+  "reason": "The university's recreation site answers every request with an image-code challenge, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 36.1699412,
@@ -8369,15 +8375,6 @@
   "source": "https://www.redrockclimbingcenter.com/",
   "reason": "The only gym this name resolves to is 11.9 km from the row, so there is no venue here whose hours could be recorded.",
   "checked": "2026-08-25"
- },
- {
-  "lat": 40.37632,
-  "lon": -75.93075,
-  "name": "Reading Rocks Climbing & Fitness",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-24",
-  "reason": "The domain OSM points at is dead, and no other site could be found, so there is no page to read a schedule from."
  },
  {
   "lat": 45.00543,
@@ -8548,8 +8545,8 @@
   "name": "Social Climber",
   "country": "US",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 30.1862645,
