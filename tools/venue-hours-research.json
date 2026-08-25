@@ -3502,27 +3502,29 @@
   "lon": -81.36538,
   "name": "Cayman Climbing Gym",
   "country": "GB",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "reason": "The gym describes itself as a co-op with no staff and no set opening times, entered by members. There is no week to record, and the door is not a public one.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 51.72019,
   "lon": -2.19443,
   "name": "Climbing Commons Stroud",
   "country": "GB",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://climbingcommons.org/",
+  "reason": "The wall runs a hybrid model and says so: \"Staffed hours are currently limited — all sessions are run by community volunteers\", with pay-as-you-go visitors booking staffed sessions and annual members holding \"full access including unstaffed hours\". Neither the front page nor the staffed-sessions page names a single day, and what a visitor can book is a session in a calendar rather than an opening.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 52.938636,
   "lon": -1.1951582,
   "name": "David Ross Sports Village",
   "country": "GB",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://www.nottingham.ac.uk/sport/bookings-and-timetables/climb/climbing-wall.aspx",
+  "reason": "The wall's page states no week: \"Our Climbing Wall timetable, including courses, availability and planned closures can be viewed online here\", pointing at a booking system. The sport site's opening-times page carries only bank-holiday variations — a table for Monday 31st August — rather than an ordinary week, and the only plain hours anywhere are the café's.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 60.5296507,
@@ -3568,9 +3570,10 @@
   "lon": -2.3782185,
   "name": "Inverurie Campus",
   "country": "GB",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://www.livelifeaberdeenshire.org.uk/live-life-outdoors/climb/inverurie-bouldering-wall/",
+  "reason": "The page names days without times: \"The wall is now open to the public on: Friday evenings, Saturdays, Sundays\", adds junior lessons on Saturday mornings and extra sessions in school holidays, and sends everything through the Live Life Aberdeenshire app for booking. Three named days and no clock is not a week.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 54.328006,
@@ -3636,8 +3639,8 @@
   "name": "The Boardroom Climbing Ltd. Wimbledon",
   "country": "GB",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The company's site publishes only its North Wales hall, so there is no page for this venue to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 51.42116559999999,
@@ -3645,26 +3648,27 @@
   "name": "The Boardroom Wimbledon",
   "country": "GB",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The company's site publishes only its North Wales hall, so there is no page for this venue to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 53.2514153,
   "lon": -2.1184192,
   "name": "The Chapel",
   "country": "GB",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "reason": "A members' co-operative that asks to be contacted before a visit publishes no opening hours, and the door it describes is not a public one.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 56.5718962,
   "lon": -3.5899516,
   "name": "The Dunkeld Gym",
   "country": "GB",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://thedunkeldgym.co.uk/",
+  "reason": "The venue's domain does not answer, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 53.390203,
@@ -3691,8 +3695,8 @@
   "name": "THE HANGOUT CLIMBING",
   "country": "GB",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The venue has no website of its own — a booking page and a Facebook page — so there is no official page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 52.25702039999999,

@@ -11484,6 +11484,20 @@
     "note": "The operator's four centres share one site; it lists this one by street address."
   },
   {
+    "lat": 51.72019,
+    "lon": -2.19443,
+    "name": "Climbing Commons Stroud",
+    "country": "GB",
+    "website": "https://climbingcommons.org/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The gazetteer object at this coordinate is a bicycle shop; the venue is the community bouldering wall inside Brimscombe Mill, and its own site heads every page \"Climbing Commons · Brimscombe Mill · Stroud\" — the name and the town upstream records. The site also carries the handle upstream holds, climbingcommons."
+  },
+  {
     "lat": 51.53460965827556,
     "lon": -0.05972554372710284,
     "name": "Climbing District London Fields",
@@ -11558,6 +11572,21 @@
       "city"
     ],
     "note": "The gym changed hands and its name went with it. Spider Climbing's own announcement — \"Craggy Island are now part of the Spider Climbing family!\" — says \"Craggy Island has joined the Spider Climbing Family ... Our facilities at both Guildford and Sutton will remain as before\", and signs off @bluespiderclimbing and @yellowspiderclimbing. Craggy Island ran exactly two centres, Guildford and Sutton, and Spider now runs Blue Spider Guildford and Yellow Spider Sutton. The Guildford page gives Unit 9 Cobbett Park, Slyfield Industrial Estate, Moorfeld Road, Guildford GU1 1RU, which is where Craggy Island Guildford was; this coordinate is on the High Street, 2.5 km south, which is a town point."
+  },
+  {
+    "lat": 52.938636,
+    "lon": -1.1951582,
+    "name": "David Ross Sports Village",
+    "country": "GB",
+    "website": "https://www.nottingham.ac.uk/sport/bookings-and-timetables/climb/climbing-wall.aspx",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The university gives its wall a page: \"Our climbing and bouldering wall at David Ross Sports Village is perfect for all levels … 12m climbing wall with over 50 routes … 3.5m high bouldering wall … Moonboard with over 12,000 problems from V1 upwards.\" Upstream names the row for the building and lists it as a moonboard; the venue page gives the address as University Park, Nottingham NG7 2RD."
   },
   {
     "lat": 53.79844,
@@ -11791,6 +11820,21 @@
       "city"
     ],
     "note": "The site is the Brighton centre's own; its sister brands in East Grinstead and Guildford have separate domains. The Withdean Sports Complex address resolves 90 m from this coordinate."
+  },
+  {
+    "lat": 57.2822544,
+    "lon": -2.3782185,
+    "name": "Inverurie Campus",
+    "country": "GB",
+    "website": "https://www.livelifeaberdeenshire.org.uk/live-life-outdoors/climb/inverurie-bouldering-wall/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "Live Life Aberdeenshire, the council's culture and sport trust, gives the wall its own page: \"Our bouldering wall, designed and built by Dream Climbing Walls, is the newest addition to the campus. Standing 4.5 metres high and stretching 15 metres … A highlight of the facility is the 25-degree overhanging MoonBoard.\" Upstream names the row Inverurie Campus and lists it as a moonboard."
   },
   {
     "lat": 53.04573019999999,

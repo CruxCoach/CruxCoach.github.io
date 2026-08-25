@@ -13852,23 +13852,21 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
-    "result": "unverified",
-    "channels": [
-     "previous-record",
-     "apex",
-     "www"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "social-only",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search",
+     "social-profile"
+    ]
+   },
+   "hours": {
+    "pass": "2026-08-25",
+    "result": "ambiguous",
+    "channels": [
+     "social-profile"
     ]
    }
   },
@@ -13882,25 +13880,23 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
+     "web-search",
      "osm-website-tag",
-     "co-located"
+     "social-profile"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -14019,22 +14015,21 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search"
+    ]
+   },
+   "hours": {
+    "pass": "2026-08-25",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -14194,22 +14189,20 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search"
+    ]
+   },
+   "hours": {
+    "pass": "2026-08-25",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link"
     ]
    }
   },
@@ -14580,23 +14573,22 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
+    "pass": "2026-08-25",
     "result": "unverified",
-    "channels": [
-     "previous-record",
-     "apex",
-     "www"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search",
+     "path-probe",
+     "redirect"
+    ]
+   },
+   "hours": {
+    "pass": "2026-08-25",
+    "result": "no-official-site",
+    "channels": [
+     "operator-index"
     ]
    }
   },
@@ -14610,23 +14602,22 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
+    "pass": "2026-08-25",
     "result": "unverified",
-    "channels": [
-     "previous-record",
-     "apex",
-     "www"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search",
+     "path-probe",
+     "redirect"
+    ]
+   },
+   "hours": {
+    "pass": "2026-08-25",
+    "result": "no-official-site",
+    "channels": [
+     "operator-index"
     ]
    }
   },
@@ -14640,25 +14631,21 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "social-only",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search",
+     "social-profile"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "social-profile"
     ]
    }
   },
@@ -14718,23 +14705,21 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "unavailable",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search",
+     "path-probe"
+    ]
+   },
+   "hours": {
+    "pass": "2026-08-25",
+    "result": "inaccessible",
+    "channels": [
+     "path-probe"
     ]
    }
   },
@@ -14797,25 +14782,25 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "social-only",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search",
+     "booking-page",
+     "social-profile"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search"
     ]
    }
   },

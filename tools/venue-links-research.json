@@ -1622,29 +1622,9 @@
     "lon": -81.36538,
     "name": "Cayman Climbing Gym",
     "country": "GB",
-    "status": "unverified",
-    "candidate": "https://caymanclimbing.com/",
-    "reason": "No official site could be established: caymanclimbing.com is Rock Iguana Ltd, outdoor climbing and adventure tours on Cayman Brac. This row is an indoor gym on Industrial Way, George Town, on Grand Cayman.",
-    "checked": "2026-08-24"
-  },
-  {
-    "lat": 51.72019,
-    "lon": -2.19443,
-    "name": "Climbing Commons Stroud",
-    "country": "GB",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "commons.co.uk does not answer, commons.com presents a certificate that does not cover its hostname and commons.uk carries nothing about Stroud. Nothing else resolves for Climbing Commons Stroud."
-  },
-  {
-    "lat": 52.938636,
-    "lon": -1.1951582,
-    "name": "David Ross Sports Village",
-    "country": "GB",
-    "status": "unverified",
-    "candidate": "https://nottinghamclimbing.co.uk/",
-    "reason": "No official site could be established: nottinghamclimbing.co.uk is the Nottingham Climbing Centre. The David Ross Sports Village is the university's own building and a different wall.",
-    "checked": "2026-08-24"
+    "status": "social-only",
+    "reason": "Cayman Climbing Gym is a co-op in an industrial unit in George Town and publishes on Facebook (facebook.com/caymanclimb), which is also the handle upstream records. No domain for it could be found. What the club says about itself is that it is non-commercial, unstaffed and members-only.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 60.5296507,
@@ -1654,16 +1634,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No candidate resolved at all: the name \"Eshaness Schoolroom\" yields no domain, no OSM climbing object within 500 m of this Shetland coordinate carries a website, and nothing curated is within 200 m."
-  },
-  {
-    "lat": 57.2822544,
-    "lon": -2.3782185,
-    "name": "Inverurie Campus",
-    "country": "GB",
-    "status": "unverified",
-    "candidate": "https://climbaberdeen.com/",
-    "reason": "No official site could be established: climbaberdeen.com is Climb Aberdeen, 25 km from the Inverurie Campus this row is named for.",
-    "checked": "2026-08-24"
   },
   {
     "lat": 54.328006,
@@ -1690,8 +1660,8 @@
     "country": "GB",
     "status": "unverified",
     "candidate": "https://theboardroomclimbing.com/",
-    "reason": "No official site could be established: Same domain and the same single North Wales gym as the row a few metres away.",
-    "checked": "2026-08-24"
+    "reason": "The Wimbledon hall is real — Upper Level, Wimbledon Quarter, 4 Queens Road SW19, with a MoonBoard and a Kilter Board, which is why upstream carries it as two rows 20 m apart — and it belongs to the same company, whose address there is wimbledon@theboardroomclimbing.com. The company's site is not about it: theboardroomclimbing.com publishes one hall, \"The BOARDROOM Climbing Ltd, Rectors Ln., Pentre, Queensferry, North Wales CH5 2DH\", with that hall's opening hours, and the word Wimbledon appears nowhere on it. /wimbledon/ and the FAQ item search still indexes both answer 404, and theboardroomclimbing.co.uk resolves without serving. A link to the Welsh gym's page is not a link to this one.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 51.42116559999999,
@@ -1700,28 +1670,27 @@
     "country": "GB",
     "status": "unverified",
     "candidate": "https://theboardroomclimbing.com/",
-    "reason": "No official site could be established: The BOARDROOM Climbing Ltd states one address on every page of its site, including the page called Find us: Rectors Ln., Pentre, Queensferry, North Wales CH5 2DH. This row is in Wimbledon, 300 km away, and /wimbledon/ answers 404.",
-    "checked": "2026-08-24"
+    "reason": "The Wimbledon hall is real — Upper Level, Wimbledon Quarter, 4 Queens Road SW19, with a MoonBoard and a Kilter Board, which is why upstream carries it as two rows 20 m apart — and it belongs to the same company, whose address there is wimbledon@theboardroomclimbing.com. The company's site is not about it: theboardroomclimbing.com publishes one hall, \"The BOARDROOM Climbing Ltd, Rectors Ln., Pentre, Queensferry, North Wales CH5 2DH\", with that hall's opening hours, and the word Wimbledon appears nowhere on it. /wimbledon/ and the FAQ item search still indexes both answer 404, and theboardroomclimbing.co.uk resolves without serving. A link to the Welsh gym's page is not a link to this one.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 53.2514153,
     "lon": -2.1184192,
     "name": "The Chapel",
     "country": "GB",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "thechapel.co.uk is a hairdresser, thechapel.com carries nothing about climbing and the-chapel.com is a media agency. \"The Chapel\" in Macclesfield yields nothing else.",
-    "candidate": "https://www.thechapel.co.uk/"
+    "status": "social-only",
+    "reason": "The Chapel in Macclesfield is a private bouldering wall run by its members as a non-profit co-operative, BMC-affiliated, with over 250 named and numbered problems and no colour-coded circuits. It has no site: what it publishes goes on Facebook, and it asks people to contact it before visiting. Macclesfield's commercial wall is Substation, a different business.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 56.5718962,
     "lon": -3.5899516,
     "name": "The Dunkeld Gym",
     "country": "GB",
-    "status": "unverified",
-    "reason": "dunkeld.com carries the words of the guess and belongs to the village, not to the gym. Nothing on it names a climbing wall or this operator. The town-named sweep produces this shape of false positive wherever the place is small enough to hold the plain domain.",
-    "candidate": "https://dunkeld.com/",
-    "checked": "2026-08-24"
+    "status": "unavailable",
+    "candidate": "https://thedunkeldgym.co.uk/",
+    "reason": "The Dunkeld Gym is a real training facility in Highland Perthshire with a climbing training area, and thedunkeldgym.co.uk is its own domain — its memberships and prices pages are indexed. Nothing can be fetched from it here: repeated requests to the apex and www return no response at all, over https and http alike. Retry when the host answers.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 49.465691,
@@ -1738,10 +1707,9 @@
     "lon": -2.4525106,
     "name": "THE HANGOUT CLIMBING",
     "country": "GB",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "thehangoutclimbing.co.uk answers 403 behind a certificate that does not cover its hostname, hangout.uk presents the same problem and hangout.com serves a bot-check page. Nothing readable names Weymouth.",
-    "candidate": "https://thehangoutclimbing.co.uk/"
+    "status": "social-only",
+    "reason": "The Hangout Climbing Ltd is on Portland in Dorset and has no site of its own: it takes bookings through a simplybook.it page and publishes on Facebook. climbhangout.com, which every search puts first, is a different gym with the same name on the other side of the world — \"The Hangout Climbing Centre, Unit 2, 1065 Canada Avenue, Duncan, BC, Canada V9L 1V2\".",
+    "checked": "2026-08-25"
   },
   {
     "lat": 52.858894,
