@@ -21244,6 +21244,32 @@
   "note": "The page’s own schema.org openingHours agrees."
  },
  {
+  "lat": 34.154703019237175,
+  "lon": -118.83040452019476,
+  "name": "Boulderdash Thousand Oaks",
+  "country": "US",
+  "source": "https://to.boulderdashclimbing.com/",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Thousand Oaks, CA 10,000 sq ft of top-rope, bouldering and lead climbing! Hours Monday-Friday: 11:00 a.m. – 10:00 p.m. Saturday: 10:00 a.m. – 8:00 p.m. Sunday: 10:00 a.m. – 6:00 p.m.",
+  "note": "The subdomain serves only this hall, and the week is printed under its address with the two sister gyms linked away rather than listed."
+ },
+ {
   "lat": 44.9936,
   "lon": -93.27747,
   "name": "Bouldering Project Minneapolis",
@@ -23926,6 +23952,31 @@
   "note": "The gym labels the one window \"Regular Hours\"; the member-only mornings listed beneath are a membership arrangement and not public opening."
  },
  {
+  "lat": 43.61992,
+  "lon": -72.95569,
+  "name": "Green Mountain Rock Climbing Center",
+  "country": "US",
+  "source": "https://www.vermontclimbing.com/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "13:00-21:00",
+   "tue": "13:00-21:00",
+   "wed": "13:00-21:00",
+   "thu": "13:00-21:00",
+   "fri": "12:00-17:00",
+   "sat": "12:00-17:00",
+   "sun": "closed"
+  },
+  "evidence": "HOURS Monday – Thursday 1pm to 9pm Friday – Saturday 12pm to 5pm Sunday – Closed",
+  "note": "The same block sits in the header of every page on the site, undated. A dismissable banner names two closed dates in July, which is an exception rather than a second week; the Quechee hall the business once ran is no longer mentioned anywhere, so the scope is this hall."
+ },
+ {
   "lat": 39.1082,
   "lon": -108.63747,
   "name": "Grip Bouldering",
@@ -24294,6 +24345,31 @@
   "evidence": "Monday | 10:00 AM - 10:00 PM | Tuesday | 10:00 AM - 10:00 PM | Wednesday | 10:00 AM - 10:00 PM | Thursday | 10:00 AM - 10:00 PM | Friday | 10:00 AM - 9:00 PM | Saturday | 10:00 AM - 8:00 PM | Sunday | 10:00 AM - 8:00 PM"
  },
  {
+  "lat": 21.3908231,
+  "lon": -157.7423645,
+  "name": "hawaii volcanic rock gym",
+  "country": "US",
+  "source": "https://www.volcanicrockgymhawaii.com/location",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "09:00-21:00",
+   "sat": "09:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "LOCATION 161 Hamakua Drive Kailua, Hawaii 96734 HOURS Monday — Friday 9am — 9 pm Saturday — Sunday 9am — 7pm CONTACT info@volcanicrockgymhawaii.com",
+  "note": "One hall, one week, printed under the address on the page the site calls Location + Hours."
+ },
+ {
   "lat": 27.353466,
   "lon": -82.403083,
   "name": "HEXROCK Climbing",
@@ -24316,6 +24392,31 @@
    "sun": "10:00-18:00"
   },
   "evidence": "Open Hours: | Monday - Thursday | Friday | Saturday | Sunday | 7 am – 10 pm | 7 am – 12 am (midnight) | 10 am - 10 pm | 10 am – 6 pm | 1355 Sarasota Center Blvd | Sarasota, FL, 34240"
+ },
+ {
+  "lat": 21.29881,
+  "lon": -157.85635,
+  "name": "HiClimb",
+  "country": "US",
+  "source": "https://www.hawaiiclimb.com/connect",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "08:00-23:00",
+   "tue": "08:00-23:00",
+   "wed": "08:00-23:00",
+   "thu": "08:00-23:00",
+   "fri": "08:00-23:00",
+   "sat": "08:00-21:30",
+   "sun": "08:00-21:30"
+  },
+  "evidence": "hours M-F 8am - 11pm S,S 7am - 8am (Members only) 8am - 930pm (Everyone) location 825 Ilaniwai St, Honolulu, Hawaii, 96813",
+  "note": "The weekend hour from 7 is labelled members only and the gym itself marks the 8am figure \"(Everyone)\", so the public week starts at 8 every day."
  },
  {
   "lat": 35.18317,
@@ -26276,6 +26377,57 @@
   },
   "evidence": "North Country Climbing Center 2572 US Route 302 Lisbon, NH 03585 ... We are open 7 days a week! Monday – Friday: 3:00pm – 9:00pm Saturday – Sunday: 11:00am – 8:00pm We also offer member-only hours and special events.",
   "note": "Stated twice on the home page, once in prose and once in the footer, and the two agree. The member-only hours it mentions are an extra key, not the public week."
+ },
+ {
+  "lat": 42.21898,
+  "lon": -88.31651,
+  "name": "North Wall Climbing Gym",
+  "country": "US",
+  "source": "https://climbnorthwall.com/information/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "09:00-21:00",
+   "sun": "12:00-20:00"
+  },
+  "evidence": "Hours Monday-Friday: 12pm-10pm Saturday: 9AM-9PM Sunday: 12PM-8PM Location 824 S. Main St. Suite #106 Crystal Lake, Illinois 60014",
+  "note": "One week, undated, beside the address on the gym's information page."
+ },
+ {
+  "lat": 41.47324,
+  "lon": -81.77932,
+  "name": "Nosotros Climbing + Weights",
+  "country": "US",
+  "source": "https://www.gonosotros.com/nosotros-lakewood",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "16:00-21:00",
+   "tue": "16:00-21:00",
+   "wed": "16:00-21:00",
+   "thu": "16:00-21:00",
+   "fri": "16:00-21:00",
+   "sat": "12:00-17:00",
+   "sun": "12:00-17:00"
+  },
+  "evidence": "Hours Monday: 4pm-9pm Tuesday: 4pm-9pm Wednesday: 4pm-9pm Thursday : 4pm-9pm Friday: 4pm-9pm Saturday: 12pm-5p Sunday : 12pm-5p Want more hours? Get all access with: 24/7 Membership",
+  "note": "The staffed week for this hall, on this hall's own page. The 24/7 access the page offers next to it is a membership, not an opening."
  },
  {
   "lat": 41.36546,
@@ -28472,6 +28624,31 @@
   "note": "Stated on this gym's own page directly above its address. The separate All Holiday Hours link is an exception list, and the class times listed beneath are programmes inside the opening."
  },
  {
+  "lat": 35.95974,
+  "lon": -86.82784,
+  "name": "The Crag Franklin",
+  "country": "US",
+  "source": "https://iloverockclimbing.com/hours/",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "10:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "10:00-21:00",
+   "sat": "10:00-19:00",
+   "sun": "12:00-18:00"
+  },
+  "evidence": "Franklin HOURs Monday : 10:00am-9:00pm Tuesday : 7:00am-9:00pm (7:00am-9:00am Reserved for Members Only) Wednesday : 10:00am-9:00pm Thursday : 7:00am-9:00pm (7:00am-9:00am Reserved for Members Only) Friday : 10:00am-9:00pm Saturday : 10:00am-7:00pm Sunday : 12:00pm-6:00pm",
+  "note": "The page carries Nashville and Franklin under separate headings; this is Franklin's. On Tuesday and Thursday the first two hours are reserved for members by the page's own words, so the public week starts at 9 on those days. A second, holiday-labelled Franklin block follows the standing one and is an exception to it."
+ },
+ {
   "lat": 30.3321838,
   "lon": -81.655651,
   "name": "The Edge Rock Gym",
@@ -28995,6 +29172,32 @@
   },
   "evidence": "Visit Us 6283 S. Valley View Blvd, Suite C Las Vegas, NV 89118 Hours S: 9AM - 9PM M: 10AM - 10PM T: 7:30AM - 10PM W: 10AM - 10PM TH: 7:30AM - 10PM F: 10AM - 10PM S: 9AM - 9PM",
   "note": "Seven single letters beginning on Sunday, which is why the two S rows are the weekend. Tuesday and Thursday open two and a half hours earlier than the rest, stated beneath the gym's address."
+ },
+ {
+  "lat": 40.91785,
+  "lon": -73.77664,
+  "name": "The Rock Club",
+  "country": "US",
+  "source": "https://pinebrookfitness.com/the-rock-club/",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:30-22:00",
+   "tue": "09:30-22:00",
+   "wed": "09:30-22:00",
+   "thu": "09:30-22:00",
+   "fri": "09:30-22:00",
+   "sat": "09:30-20:00",
+   "sun": "09:30-20:00"
+  },
+  "evidence": "THE ROCK CLUB Address: 130 Rhodes Street New Rochelle, NY 10801 Phone: 914-633-7625 Hours: Monday - Friday: 9:30am-10pm Sat & Sun: 9:30am-8pm",
+  "note": "The operator runs a tennis and fitness club at another address; this week is printed inside the page for this hall, under its own address."
  },
  {
   "lat": 58.28816,
@@ -29623,6 +29826,31 @@
   "note": "Sunday is recorded closed because the gym states it as closed to the general public and open to members only. The page also lists named holidays as closed and a handful with special 12p-9p hours; those are exceptions to this week."
  },
  {
+  "lat": 38.92534,
+  "lon": -77.23964,
+  "name": "Vertical Rock Climbing & Fitness Center",
+  "country": "US",
+  "source": "https://climb-va.com/locations/",
+  "checked": "2026-08-25",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "VERTICAL ROCK TYSON'S CORNER 8461-D LEESBURG PIKE, VIENNA, VA 22182 (703) 552-2290 BUSINESS HOURS MON–FRI: 10AM-10PM SAT: 10AM-9PM SUN: 10AM-8PM MEMBERS ONLY: EARLY MORNINGS 8AM EVERY DAY",
+  "note": "Each hall on the page carries its own address and its own week, so the scope is unambiguous. The 8am opening is for members; the business hours are what a visitor can use."
+ },
+ {
   "lat": 27.76983,
   "lon": -82.65769,
   "name": "Vertical Ventures St Pete",
@@ -29818,6 +30046,31 @@
   "evidence": "Monday - Thursday | 8am - 11pm | Friday | 8am - 10pm | Saturday - Sunday | 9am - 10pm"
  },
  {
+  "lat": 21.39166,
+  "lon": -157.74241,
+  "name": "Volcanic Rock Gym",
+  "country": "US",
+  "source": "https://www.volcanicrockgymhawaii.com/location",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "09:00-21:00",
+   "sat": "09:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "LOCATION 161 Hamakua Drive Kailua, Hawaii 96734 HOURS Monday — Friday 9am — 9 pm Saturday — Sunday 9am — 7pm CONTACT info@volcanicrockgymhawaii.com",
+  "note": "One hall, one week, printed under the address on the page the site calls Location + Hours."
+ },
+ {
   "lat": 44.46648,
   "lon": -68.36104,
   "name": "Volta Climbing Gym",
@@ -29841,6 +30094,31 @@
   },
   "evidence": "MON 4-9pm, TUES 8am-9pm, WED 12-9pm, THU 8am-9pm, FRI 12-9pm, SAT 9am-6pm, SUN 9am-6pm",
   "note": "Every day is listed separately and no two weekdays are alike. The site's schema.org openingHours has no Monday at all and opens Tuesday and Thursday two hours earlier than the page does. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+ },
+ {
+  "lat": 39.88806,
+  "lon": -76.99018,
+  "name": "Warehouse Rocks Climbing & Fitness",
+  "country": "US",
+  "source": "https://warehouserockspa.com/hours",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "17:00-21:00",
+   "tue": "17:00-21:00",
+   "wed": "17:00-21:00",
+   "thu": "17:00-21:00",
+   "fri": "17:00-21:00",
+   "sat": "12:00-21:00",
+   "sun": "12:00-15:00"
+  },
+  "evidence": "HOURS AND OTHER INFO Public Hours (non-member) Sunday : 12pm - 3pm Monday : 5pm - 9pm Tuesday : 5pm - 9pm Wednesday : 5pm - 9pm Thursday : 5pm - 9pm Friday : 5pm - 9pm Saturday : 12pm - 9pm",
+  "note": "The page prints two weeks under their own headings, public and member. This is the public one: the door a visitor can walk through. Members hold a fob and a wider week, which is an access grade rather than an opening."
  },
  {
   "lat": 37.17801,

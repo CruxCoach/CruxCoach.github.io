@@ -4283,16 +4283,6 @@
     "candidate": "https://denver.com/"
   },
   {
-    "lat": 34.154703019237175,
-    "lon": -118.83040452019476,
-    "name": "Boulderdash Thousand Oaks",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — boulderdash.net → \"Home - Boulderdash Cabin & RV Park\", the rest could not be opened — boulderdash.com → no answer; boulderdash.org → no answer. Upstream records 880 Hampshire Road Suite A, 91362, Thousand Oaks, and nothing opened printed it.",
-    "candidate": "https://boulderdash.net/"
-  },
-  {
     "lat": 39.99335,
     "lon": -83.03884,
     "name": "Chambers Purely Boulders",
@@ -4486,9 +4476,9 @@
     "name": "GraniteWorks Gym",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — graniteworks.org → \"a page with no title\"; graniteworksgym.com → \"Redirecting...\", the rest could not be opened — graniteworks.com → 403; graniteworks.net → a certificate that does not cover its hostname, the venue's whole name as one label, graniteworksgym.com, does not resolve. Upstream records 310 Marlboro, 03431, Keene, and nothing opened printed it.",
-    "candidate": "https://graniteworks.org/"
+    "checked": "2026-08-25",
+    "reason": "No official site could be established: graniteworksgym.com is almost certainly the gym's domain — it is the address behind its published email — but nothing can be read from it. Every path answers with a 4.7 kB \"Redirecting…\" shell and no content, and its TLS chain terminates at ISRG Root YE, which no local trust store carries, so the certificate cannot be validated here either. Retry when the site serves a page.",
+    "candidate": "https://graniteworksgym.com/"
   },
   {
     "lat": 37.22925,
@@ -4498,26 +4488,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site. The only candidate that answered for Gravity Lab, Durango was gravityclimbing.ie, a climbing gym in Ireland — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
-  },
-  {
-    "lat": 43.61992,
-    "lon": -72.95569,
-    "name": "Green Mountain Rock Climbing Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — greenmountain.com → \"Light the future with clean energy.\"; green-mountain.com → \"HugeDomains.com\"; green.com → \"Green\", the rest could not be opened — greenmountain.net → 200; greenmountain.org → 200; green-mountain.net → a timeout. Upstream records 223 Woodstock Ave, 05701, Rutland, and nothing opened printed it.",
-    "candidate": "https://www.greenmountainenergy.com/"
-  },
-  {
-    "lat": 21.3908231,
-    "lon": -157.7423645,
-    "name": "hawaii volcanic rock gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "volcanicrockgym.com is the obvious domain for this venue and nothing could be read from it: the host resolves and never completes a connection, and the archive's most recent capture, from 18 May 2026, is zero bytes long. The candidate the earlier pass recorded, hawaii.com, is a tourism portal.",
-    "candidate": "https://volcanicrockgym.com/"
   },
   {
     "lat": 43.15504,
@@ -4537,16 +4507,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no candidate could be opened — hinotch.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 21.29881,
-    "lon": -157.85635,
-    "name": "HiClimb",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — hiclimb.org → \"Home • Hawai'i Climbing Coalition\", the rest could not be opened — hiclimb.com → no answer. Upstream records 825 Ilaniwai St, 96813, Honolulu, and nothing opened printed it.",
-    "candidate": "https://hiclimb.org/"
   },
   {
     "lat": 39.32747,
@@ -4654,26 +4614,6 @@
     "candidate": "https://nightmare.com/"
   },
   {
-    "lat": 42.21898,
-    "lon": -88.31651,
-    "name": "North Wall Climbing Gym",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — northmassboulder.com → \"NORTH MASS BOULDER - Climbing, Yoga, Fitness, Community \"; north.verticalworld.com → \"North Vertical World | America's First Climbing Gym!\"; rainbowrocket.cc/centre/north → \"North - Rainbow Rocket\", the rest could not be opened — north.org → a certificate that does not cover its hostname; northwall.net → 200; northwall.org → 200. Upstream records 824 S Main St #106, 60014, Crystal Lake, and nothing opened printed it.",
-    "candidate": "https://www.northmassboulder.com/"
-  },
-  {
-    "lat": 41.47324,
-    "lon": -81.77932,
-    "name": "Nosotros Climbing + Weights",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — nosotros.com → \"Nosotros Podemos Avanzar - Nosotros\", the rest could not be opened — nosotros.net → 200; nosotros.org → 200. Upstream records 13000 Athens Ave, 44107, Lakewood, and nothing opened printed it.",
-    "candidate": "https://www.nosotros.com/"
-  },
-  {
     "lat": 42.519068,
     "lon": -83.1170856,
     "name": "Planet Rock Madison Heights",
@@ -4760,25 +4700,6 @@
     "reason": "rippleboulder.com answers and is an ice-cream shop — \"ripple!! Come taste the difference. We make our own flavors and many of the toppings with our in-store kitchen and bakery. hours Every day 12pm - 10pm\". Broad Ripple is a neighbourhood of Indianapolis and the name belongs to it before it belongs to either business.",
     "candidate": "https://rippleboulder.com/",
     "checked": "2026-08-24"
-  },
-  {
-    "lat": 33.71672,
-    "lon": -117.99954,
-    "name": "Rock City Climbing",
-    "country": "US",
-    "status": "unverified",
-    "candidate": "https://www.rockcityclimbing.com/",
-    "reason": "No official site could be established, and this one is close. rockcityclimbing.com is the handle upstream records for this row, and the site is Rock City Climbing — \"Orange County's original home for indoor rock climbing\" — at 16942 Gothard St Ste G, Huntington Beach, CA 92647, which is about where this coordinate is. What stops it is that the site disagrees with itself: the map block on the same page, and on its hours page, puts the venue at 33.8583834, -117.8064207 — 23.8 km away in Yorba Linda. The name is one signal; the address text and the map block cancel each other out rather than adding a second.",
-    "checked": "2026-08-24"
-  },
-  {
-    "lat": 33.7166,
-    "lon": -117.99956,
-    "name": "Rock City Training Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for Rock City Training Center, Huntington Beach was citybloc.co.uk, a bouldering gym in the United Kingdom — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
   },
   {
     "lat": 41.14187,
@@ -4910,16 +4831,6 @@
     "candidate": "https://trianglerockclub.com/salvage-yard/"
   },
   {
-    "lat": 35.95974,
-    "lon": -86.82784,
-    "name": "The Crag Franklin",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "thecragnashville.com answers 200 but yields a single page with no address, no town and no board; franklin.com, which the guesser reached first, is a generic town-name domain. Neither could be matched against 1850 General George Patton Dr, 37067 Franklin.",
-    "candidate": "https://thecragnashville.com/"
-  },
-  {
     "lat": 43.72963,
     "lon": -70.30862,
     "name": "The Dojo",
@@ -4957,16 +4868,6 @@
     "candidate": "https://hendersonrocks.com/",
     "reason": "No official site could be established: hendersonrocks.com is a family landscaping-materials business in Menomonie, Wisconsin, selling rock mulch and compost. The town in the name is a surname.",
     "checked": "2026-08-24"
-  },
-  {
-    "lat": 40.91785,
-    "lon": -73.77664,
-    "name": "The Rock Club",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — therock.net → \"Rock Solid Technologies — White Mountains & Lakes Region\"; therock.org → \"The Rock – Pursue God, Embrace People, Transform Society\", the rest could not be opened — therockclub.com → a timeout; therockclub.net → 404; therockclub.org → 200, the venue's whole name as one label, therockclub.com, answers 200 (\"TheRockClub.com - Entertainment Domains for Sale - Buy Premi\") but its pages print no street, postal code or town matching this venue. Upstream records 130 Rhodes St, 10801, New Rochelle, and nothing opened printed it.",
-    "candidate": "https://www.therock.net/"
   },
   {
     "lat": 37.8715226,
@@ -5026,26 +4927,6 @@
     "candidate": "https://www.uscg.org/"
   },
   {
-    "lat": 38.92534,
-    "lon": -77.23964,
-    "name": "Vertical Rock Climbing & Fitness Center",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — vertical.com → \"Home - Vertical Communications\", the rest could not be opened — verticalrock.com → a certificate that does not cover its hostname; verticalrock.net → 200; vertical.net → 403. Upstream records 8461-D Leesburg Pike Vienna, 22182, Tysons, and nothing opened printed it.",
-    "candidate": "https://www.vertical.com/"
-  },
-  {
-    "lat": 21.39166,
-    "lon": -157.74241,
-    "name": "Volcanic Rock Gym",
-    "country": "US",
-    "status": "unverified",
-    "candidate": "https://volcanicrock.org/",
-    "reason": "No official site could be established: volcanicrock.org answers with an Immich photo server — \"To use Immich, you must enable JavaScript\" — which is somebody's self-hosted picture library. volcanic.net and domains.com are the domain marketplace.",
-    "checked": "2026-08-24"
-  },
-  {
     "lat": 35.0853336,
     "lon": -106.6055534,
     "name": "Voyager",
@@ -5054,16 +4935,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — voyager.com → \"Voyager Info-Systems! Free web tools and services.\", the rest could not be opened — voyager.net → a certificate that does not cover its hostname, the venue's whole name as one label, voyager.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
     "candidate": "https://www.voyager.com/"
-  },
-  {
-    "lat": 39.88806,
-    "lon": -76.99018,
-    "name": "Warehouse Rocks Climbing & Fitness",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — warehouse.org → \"Checking your browser...\", the rest could not be opened — warehouse.com → a timeout; warehouse.net → no answer; warehouserocks.com → 404. Upstream records 301 Pleasant St, 17301, Abbottstown, and nothing opened printed it.",
-    "candidate": "https://warehouse.org/"
   },
   {
     "lat": 37.99022,

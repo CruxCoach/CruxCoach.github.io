@@ -18531,6 +18531,22 @@
     ]
   },
   {
+    "lat": 34.154703019237175,
+    "lon": -118.83040452019476,
+    "name": "Boulderdash Thousand Oaks",
+    "country": "US",
+    "website": "https://to.boulderdashclimbing.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "boulderdash.net is an RV park. The gym is one of three Boulderdash halls, each on its own subdomain, and the Thousand Oaks one prints \"Boulderdash 880 Hampshire Road, Suite A Thousand Oaks, CA. 91361\" — upstream's street, suite and town. The postcode is the one thing that differs: the gym writes 91361 and upstream records 91362, adjacent codes in the same town, so it is not counted as a signal here."
+  },
+  {
     "lat": 44.9936,
     "lon": -93.27747,
     "name": "Bouldering Project Minneapolis",
@@ -20591,6 +20607,22 @@
     "note": "Greater Heights Climbing's own site, printing 322 and the 53713 postal code in Fitchburg that upstream records, with a map of itself 211 m from this venue. The first pass had reached greaterheights.org, a Houston organisation."
   },
   {
+    "lat": 43.61992,
+    "lon": -72.95569,
+    "name": "Green Mountain Rock Climbing Center",
+    "country": "US",
+    "website": "https://www.vermontclimbing.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gym trades as Green Mountain Rock Climbing Center on vermontclimbing.com, which its own Facebook handle (VermontClimbing) echoes. Its footer reads \"Green Mountain Rock Climbing Center 223 Woodstock Ave. Rutland, VT 05701\" — upstream's street, town and postcode."
+  },
+  {
     "lat": 39.1082,
     "lon": -108.63747,
     "name": "Grip Bouldering",
@@ -20838,6 +20870,21 @@
     "note": "The location page gives only Hawthorne, CA 90250 — the town and ZIP upstream records — and no street line."
   },
   {
+    "lat": 21.3908231,
+    "lon": -157.7423645,
+    "name": "hawaii volcanic rock gym",
+    "country": "US",
+    "website": "https://www.volcanicrockgymhawaii.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "Two upstream rows 93 m apart are the same Kailua gym, one of them lower-cased into \"hawaii volcanic rock gym\". Its location page reads \"LOCATION 161 Hamakua Drive Kailua, Hawaii 96734\" and its home page lists what is on the walls: \"16X12 KILTER BOARD // 12X10 KILTER BOARD // 2024 MOONBOARD\" — the board upstream lists for both rows."
+  },
+  {
     "lat": 27.353466,
     "lon": -82.403083,
     "name": "HEXROCK Climbing",
@@ -20850,6 +20897,22 @@
       "board-mention"
     ],
     "note": "The site carries this venue's name and names the Tension Board it is listed for. Upstream records no street address for the venue, so the name and the board are the two signals available; the domain is the venue's own name taken as one label, which the guesser had not tried."
+  },
+  {
+    "lat": 21.29881,
+    "lon": -157.85635,
+    "name": "HiClimb",
+    "country": "US",
+    "website": "https://www.hawaiiclimb.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "HiClimb trades as hawaiiclimb.com, which its Facebook handle (HawaiiClimb) echoes. Its connect page gives \"location 825 Ilaniwai St, Honolulu, Hawaii, 96813\" — upstream's street, town and postcode."
   },
   {
     "lat": 35.18317,
@@ -22312,6 +22375,39 @@
     ]
   },
   {
+    "lat": 42.21898,
+    "lon": -88.31651,
+    "name": "North Wall Climbing Gym",
+    "country": "US",
+    "website": "https://climbnorthwall.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The guesser had tried north.org, northwall.net and northwall.org and reached three other gyms; the gym calls itself North Wall Rock Climbing and its domain is climbnorthwall.com. Its information page gives \"Location 824 S. Main St. Suite #106 Crystal Lake, Illinois 60014\" — upstream's street, suite, postcode and town."
+  },
+  {
+    "lat": 41.47324,
+    "lon": -81.77932,
+    "name": "Nosotros Climbing + Weights",
+    "country": "US",
+    "website": "https://www.gonosotros.com/nosotros-lakewood",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "Nosotros runs two Cleveland-area halls and gives each a page: \"6,400 sq ft bouldering gym at the Lakewood Screw Factory … 13000 Athens Ave, Lakewood OH\", upstream's street and town, with \"7×10 static Kilterboard 12×12 adjustable Kilterboard\" for the board upstream lists. The page prints no postcode, so that is not counted."
+  },
+  {
     "lat": 41.36546,
     "lon": -82.20958,
     "name": "On The Rocks Climbing Gym",
@@ -22594,6 +22690,36 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 33.71672,
+    "lon": -117.99954,
+    "name": "Rock City Climbing",
+    "country": "US",
+    "website": "https://www.rockcityclimbing.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "Two rows 14 m apart are the gym and its training centre, and both are Rock City Climbing of Huntington Beach: \"16942 Gothard St Ste G Huntington Beach, CA 92647\", the street, suite and postcode upstream records for the training-centre row. The site carries a section for the training centre under the same domain."
+  },
+  {
+    "lat": 33.7166,
+    "lon": -117.99956,
+    "name": "Rock City Training Center",
+    "country": "US",
+    "website": "https://www.rockcityclimbing.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Two rows 14 m apart are the gym and its training centre, and both are Rock City Climbing of Huntington Beach: \"16942 Gothard St Ste G Huntington Beach, CA 92647\", the street, suite and postcode upstream records for the training-centre row. The site carries a section for the training centre under the same domain."
   },
   {
     "lat": 41.07565,
@@ -24001,6 +24127,24 @@
     "note": "The candidate's own pages carry the street line \"420 corporate cir ste\", the postal code 80401, the town Golden, under the venue's name."
   },
   {
+    "lat": 35.95974,
+    "lon": -86.82784,
+    "name": "The Crag Franklin",
+    "country": "US",
+    "website": "https://iloverockclimbing.com/franklin/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "The Crag runs two halls in Middle Tennessee from iloverockclimbing.com, and the Franklin page gives \"1850 General George Patton Dr Suite D Franklin, TN 37067\" — upstream's street, suite, town and postcode — and names the board: \"Crag Franklin features a Cave and an Adjustable Wall with Kilter System.\""
+  },
+  {
     "lat": 30.3321838,
     "lon": -81.655651,
     "name": "The Edge Rock Gym",
@@ -24415,6 +24559,23 @@
       "city"
     ],
     "note": "climbrefuge.com is what the operator's own handle spells, and it gives \"6283 S. Valley View Blvd, Suite C, Las Vegas, NV 89118\" — the postcode this coordinate falls in. Upstream labels the row Paradise, the census district next to it."
+  },
+  {
+    "lat": 40.91785,
+    "lon": -73.77664,
+    "name": "The Rock Club",
+    "country": "US",
+    "website": "https://pinebrookfitness.com/the-rock-club/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "Every domain built from the venue's name belongs to somebody else — therock.net is an IT company, therockclub.com is a domain broker. The gym is one of Pine Brook Fitness's halls and has a page there: \"THE ROCK CLUB Address: 130 Rhodes Street New Rochelle, NY 10801\", which is upstream's address exactly."
   },
   {
     "lat": 58.28816,
@@ -24885,6 +25046,22 @@
     "note": "Vertical eXcape publishes a page per gym; this is the Evansville one, and Evansville is the town upstream records."
   },
   {
+    "lat": 38.92534,
+    "lon": -77.23964,
+    "name": "Vertical Rock Climbing & Fitness Center",
+    "country": "US",
+    "website": "https://climb-va.com/locations/",
+    "verified": "2026-08-25",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "vertical.com is a telephony company and verticalrock.com serves a certificate for another name; the operator's site is climb-va.com. Its locations page lists \"VERTICAL ROCK TYSON'S CORNER 8461-D LEESBURG PIKE, VIENNA, VA 22182\" — upstream's street, suite letter, town and postcode — beside a second hall 30 km away in Manassas, which is why this is the chain page and not a location page."
+  },
+  {
     "lat": 27.76983,
     "lon": -82.65769,
     "name": "Vertical Ventures St Pete",
@@ -25022,6 +25199,23 @@
     ]
   },
   {
+    "lat": 21.39166,
+    "lon": -157.74241,
+    "name": "Volcanic Rock Gym",
+    "country": "US",
+    "website": "https://www.volcanicrockgymhawaii.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention",
+      "street-address",
+      "postal-code"
+    ],
+    "note": "Two upstream rows 93 m apart are the same Kailua gym, one of them lower-cased into \"hawaii volcanic rock gym\". Its location page reads \"LOCATION 161 Hamakua Drive Kailua, Hawaii 96734\" and its home page lists what is on the walls: \"16X12 KILTER BOARD // 12X10 KILTER BOARD // 2024 MOONBOARD\" — the board upstream lists for both rows."
+  },
+  {
     "lat": 44.46648,
     "lon": -68.36104,
     "name": "Volta Climbing Gym",
@@ -25051,6 +25245,22 @@
       "city"
     ],
     "note": "The candidate's own pages carry the street line \"605 logan\", the postal code 46528, the town Goshen, under the venue's name."
+  },
+  {
+    "lat": 39.88806,
+    "lon": -76.99018,
+    "name": "Warehouse Rocks Climbing & Fitness",
+    "country": "US",
+    "website": "https://warehouserockspa.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gym's own domain, reached from its name rather than from a listing: \"Warehouse ROCKS Climbing and Fitness 301 Pleasant Street, Abbottstown, Pennsylvania 17301, United States\" — upstream's street, town and postcode."
   },
   {
     "lat": 40.50654,
