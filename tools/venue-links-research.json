@@ -117,9 +117,8 @@
     "name": "7x10 HW NK",
     "country": "AU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "\"7x10 HW NK\" is a board size and an owner's initials rather than a business name; 7x10.com answers with nothing that names a climbing venue in Queensland, and no other domain resolves.",
-    "candidate": "https://7x10.com/"
+    "reason": "No official site could be established: the row carries a board size and two sets of initials for a name — 7x10 HW NK — and sits on the Fraser Coast where nothing publishes under it. That is a private board, described the way its owner describes it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -33.76538,
@@ -137,9 +136,8 @@
     "name": "Illyria's Board",
     "country": "AU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "illyria.com.au presents a certificate that does not cover its hostname, illyria.au carries nothing and illyria.com is an empty page. \"Illyria's Board\" is a personal name plus a board model, and the coordinate is the centre of Sydney.",
-    "candidate": "https://illyria.com/"
+    "reason": "No official site could be established: the coordinate is 33.8688 S, 151.2093 E, which is the value every gazetteer returns for the city of Sydney, and the name is possessive — Illyria's Board. A private board recorded at a city centroid cannot be verified as a venue.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -32.0608694,
@@ -166,8 +164,8 @@
     "name": "Oak Flats Schojo",
     "country": "AU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "oakflats.au presents a certificate that does not cover its hostname, oakflats.com carries nothing and oakflats.com.au does not resolve. \"Oak Flats Schojo\" is a suburb plus a nickname."
+    "reason": "No official site could be established: nothing published around Oak Flats carries this name; \"Schojo\" appears to be a household or school shorthand rather than a business, and upstream holds no address or handle for the row.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 50.8503463,
@@ -431,8 +429,8 @@
     "name": "CCG Board",
     "country": "CA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: CCG Board is initials and a board. Canmore's public wall is inside Elevation Place, the town's own recreation centre, which trades under that name and not this one; nothing publishes as CCG, and upstream records no address, town or handle here.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 47.58789,
@@ -440,9 +438,8 @@
     "name": "Coop St-Germain",
     "country": "CA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — coop.com → \"COOP by Ryder - Commercial Trailer & Vehicle Rentals\"; coopst.com → \"HugeDomains.com\", the rest could not be opened — coop.ca → a timeout. Upstream records Rue Principale, G0L 3G0, Kamouraska, and nothing opened printed it.",
-    "candidate": "https://www.coop.com/"
+    "reason": "No official site could be established: what stands at Saint-Germain-de-Kamouraska is Rebond, le centre multidisciplinaire — a bouldering room, a circus school, a training room and a ceramics workshop inside the village church at 500 rue Jean-Baptiste-Moreau — and it publishes on Facebook and through the regional tourism board. Upstream records the row on Rue Principale under a different name, and no domain for either resolves.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 49.2827291,
@@ -479,9 +476,9 @@
     "name": "WRG MoonBoard",
     "country": "CA",
     "status": "unverified",
-    "candidate": "https://detroitrockgym.com/",
-    "reason": "No official site could be established, and this is the closest one of these has come to needing only a rule change. detroitrockgym.com serves Windsor Rock Gym, \"Windsor's only indoor rock climbing facility\", 1215 Walker Road — which the gazetteer puts at 42.31569,-83.00366, 2.7 km east of this coordinate. The row is WRG MoonBoard, its country is CA, and its nearest-city label is Detroit at 2 km, which is exactly what a Windsor venue looks like in a dataset that labels by the biggest city nearby. But the only signal that matches by the rules is the name, as an initialism, and one is not two.",
-    "checked": "2026-08-24"
+    "candidate": "http://www.windsorrockgym.com/",
+    "reason": "WRG is Windsor Rock Gym — \"Established in 2015, Windsor Rock Gym is the city's only purpose built rock climbing facility located between historic Walkerville and Ford City on Walker Road\", at 1215 Walker Road — and that address geocodes 2.7 km from this row. Upstream files the row under Detroit, on the other side of the river, so the town cannot be a signal either. The name fits and the place does not; with one signal the link is not recordable, and the domain serves no https in any case.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 46.63397,
