@@ -2922,6 +2922,81 @@
   "evidence": "Lun-Ven : 09h-23h | Week-end : 9h-21h"
  },
  {
+  "lat": 50.41619,
+  "lon": 4.43898,
+  "name": "Maniak Charleroi",
+  "country": "BE",
+  "source": "https://www.maniak.club/charleroi",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "10:00-22:30",
+   "tue": "10:00-22:30",
+   "wed": "10:00-22:30",
+   "thu": "10:00-22:30",
+   "fri": "10:00-22:30",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Horaires ouvert Lundi → Vendredi 10h — 22h30 Samedi & Dimanche 10h — 20h Jours fériés 10h — 19h Ouvert 7j/7",
+  "note": "The page says \"Ouvert 7j/7\" and then gives the week; public holidays run shorter and are an exception to it."
+ },
+ {
+  "lat": 50.6198,
+  "lon": 4.33027,
+  "name": "Maniak Nivelles",
+  "country": "BE",
+  "source": "https://www.maniak.club/nivelles",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "Adresse 13 avenue Jean Monnet 1401 Nivelles Horaires ouvert Lundi → Vendredi 10h — 23h Samedi & Dimanche 10h — 22h Jours fériés 10h — 19h Ouvert 7j/7",
+  "note": "Nivelles closes an hour later than Padoue and two later than Charleroi; the three halls do not share a week."
+ },
+ {
+  "lat": 50.82757,
+  "lon": 4.33196,
+  "name": "Maniak Padoue",
+  "country": "BE",
+  "source": "https://www.maniak.club/padoue",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Adresse 26 rue des Moines 1190 Forest Horaires ouvert Lundi → Vendredi 10h — 23h Samedi & Dimanche 10h — 21h Jours fériés 10h — 19h Ouvert 7j/7. Le parvis avant de l'église reste dédié au culte — entrée salle par l'arrière, côté rue des Moines.",
+  "note": "The front parvis is still used for worship and the climbing entrance is at the back; that is a door, not a second schedule."
+ },
+ {
   "lat": 50.92862,
   "lon": 5.33908,
   "name": "Monk Hasselt",
@@ -3018,6 +3093,32 @@
   },
   "evidence": "Openingsuren Maandag 10 - 23u | Dinsdag 10 - 23u | Woensdag 08 - 23u | Donderdag 10 - 23u | Vrijdag 10 - 23u | Zaterdag 10 - 19u45 | Zondag 10 - 21u45",
   "note": "The bar keeps its own, later hours in a second row of the same table."
+ },
+ {
+  "lat": 50.58334,
+  "lon": 5.85265,
+  "name": "The Wall Verviers",
+  "country": "BE",
+  "source": "https://www.thewall-escalade.be/fr/salles/verviers.htm",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "location-page",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "09:00-19:00",
+   "sun": "09:00-19:00"
+  },
+  "evidence": "Nos horaires Heures d'ouverture : Lundi - Vendredi : 12-22h Samedi : 09-19h Dimanche : 09-19h",
+  "note": "Saturday and Sunday are stated on separate lines even though they carry the same window."
  },
  {
   "lat": 51.07393,
@@ -20996,6 +21097,31 @@
   },
   "evidence": "Opening hours Monday: 15:00 - 22:00 Tuesday: 07:00 - 22:00 Wednesday: 07:00 - 22:00 Thursday: 07:00 - 22:00 Friday: 09:00 - 22:00 Saturday: 09:00 - 21:00 Sunday: 09:00 - 21:00",
   "note": "Every day listed separately, and the page confirms it against the day it is read on (\"We're open today from 09:00 to 21:00\"). The Easter hours in its news list are a dated exception."
+ },
+ {
+  "lat": 48.21503,
+  "lon": 17.01176,
+  "name": "SPOT Climbing Gym Bratislava",
+  "country": "SK",
+  "source": "https://boulderspot.sk/en/contact/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "14:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "08:00-21:00",
+   "sun": "08:00-21:00"
+  },
+  "evidence": "Opening Hours Monday 14:00 – 22:00 Tuesday 9:00 – 22:00 Wednesday 9:00 – 22:00 Thursday 9:00 – 22:00 Friday 9:00 – 22:00 Saturday, Sunday 8:00 – 21:00",
+  "note": "Monday opens five hours later than the rest of the week and is stated on its own line."
  },
  {
   "lat": 48.69571,

@@ -187,16 +187,6 @@
     "candidate": "https://theattic.be/"
   },
   {
-    "lat": 50.58334,
-    "lon": 5.85265,
-    "name": "The Wall Verviers",
-    "country": "BE",
-    "status": "unverified",
-    "candidate": "https://www.verviers.be/",
-    "reason": "No official site could be established: verviers.be is the Ville de Verviers, at Place du Marché 55. It shares the 4800 postcode with this row because it is the same town, and it publishes nothing about a climbing wall at Rue de Liège 148.",
-    "checked": "2026-08-24"
-  },
-  {
     "lat": 42.6977082,
     "lon": 23.3218675,
     "name": "Bonsist",
@@ -962,18 +952,20 @@
     "lon": 33.0574943,
     "name": "Limassol Climbing Club",
     "country": "CY",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. limassol.com.cy times out, limassolclimbing.com answers 404, and limassolclimbingclub.com and climbinglimassol.com do not resolve. No OSM climbing object near Limassol carries a website tag and upstream gives no address."
+    "status": "unavailable",
+    "candidate": "https://limassolclimbing.com/",
+    "reason": "The domain resolves and answers 404 on both apex and www — a registered name serving no site. Limassol Climbing Club publishes nothing else this file can store.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 49.1950602,
     "lon": 16.6068371,
     "name": "Flashboulderbar",
     "country": "CZ",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. flashboulderbar.cz and flashboulder.cz do not resolve, and no other name-derived domain answers. The nearest OSM climbing object carrying a website is Basecamp boulder Brno 268 m away, which is a different gym with a different name. Upstream gives no address for this venue."
+    "status": "closed",
+    "candidate": "http://www.flashbb.cz/aktualne",
+    "reason": "Flash Boulder Bar's own news page carries the notice \"Zavření Flashe — Přesně po dvanácti letech provozu jsme se rozhodli ukončit provoz naší – vaší brněnské stěny\": after exactly twelve years they decided to end the Brno wall. The site is only reachable over http; over https the same domain now serves an unrelated page that greets you with \"Vitejte na Marsu\".",
+    "checked": "2026-08-25"
   },
   {
     "lat": 49.7802011,
@@ -981,8 +973,9 @@
     "name": "Tendon Blok MoonBoard",
     "country": "CZ",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. tendonblok.cz and tendon-blok.cz do not resolve; blok.cz answers 466 Access Forbidden behind a shared-hosting certificate for *.r3.websupport.sk and serves nothing. No OSM climbing object near Havirov carries a website tag, and upstream gives no address."
+    "checked": "2026-08-25",
+    "reason": "The name resolves to somebody else: tendon.cz redirects to mytendon.cz, the rope manufacturer — \"Horolezecká a statická lana od výrobce\". Tendon Blok in Havířov carries the brand's name because the brand is Czech, not because the wall runs the domain.",
+    "candidate": "https://mytendon.cz/"
   },
   {
     "lat": 51.73263739999999,
@@ -1591,9 +1584,9 @@
     "name": "Mászóka",
     "country": "HU",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "The gazetteer points at maszokase.hu, which does not resolve; the one snapshot of it is 28 bytes reading \"web.arenadigital.hu\", a hosting placeholder. There has been nothing there to read for as long as the archive has looked.",
-    "candidate": "https://maszokase.hu/"
+    "candidate": "https://maszokabt.hu/",
+    "reason": "Mászóka Bt. is a real business in Szombathely and maszokabt.hu is the domain it is listed under, but the host does not answer on http or https, on apex or www. Nothing can be read from it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 47.18602620000001,
@@ -1699,10 +1692,10 @@
     "lon": 77.64637688835768,
     "name": "Langur Climbing Academy",
     "country": "IN",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — langur.com → \"langur.com - This website is for sale! - language system\"; langurclimbingacademy.in → \"Parked Domain name on Hostinger DNS system\"; langurclimbingacademy.com → \"Parked Domain name on Hostinger DNS system\", the venue's whole name as one label, langurclimbingacademy.in, answers 200 (\"Parked Domain name on Hostinger DNS system\") but its pages print no street, postal code or town matching this venue. Upstream records 33, Ether Harmony Estate, 560077, Bengaluru, and nothing opened printed it.",
-    "candidate": "https://langur.com/"
+    "status": "unavailable",
+    "candidate": "https://langurclimbingacademy.com/",
+    "reason": "The domain resolves to Hostinger's parking page — \"Parked Domain name on Hostinger DNS system\". Registered, and nothing behind it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 12.9691248,
@@ -1758,9 +1751,9 @@
     "name": "Björk MoonBoard 2016",
     "country": "IS",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — bjork.is → \"Björk Tóbaksverslun\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.bjork.is/"
+    "checked": "2026-08-25",
+    "reason": "klifurhusid.is is Klifurhúsið, \"heimili klifurs á Íslandi\", run by Klifurfélag Reykjavíkur at Ármúla 23, 108 Reykjavík — about 7 km from this row, which upstream places in Hafnarfjörður. Iceland's one big climbing house is not every board in the country.",
+    "candidate": "https://klifurhusid.is/"
   },
   {
     "lat": 65.259937,
@@ -1768,8 +1761,9 @@
     "name": "Herðubreið Klifur",
     "country": "IS",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "checked": "2026-08-25",
+    "reason": "The name resolves to somebody else: herdubreid.is is an Icelandic opinion magazine — columns, culture, Herðubreiðarlindir — whose pages currently also carry injected casino spam. Herðubreið Klifur is a wall in the east of the country and publishes nothing here.",
+    "candidate": "https://herdubreid.is/"
   },
   {
     "lat": 46.31051859999999,
@@ -1950,8 +1944,8 @@
     "name": "Climbat Amman",
     "country": "JO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — climbat.com → \"Climbat | Rocódromos y escalada indoor en España y Franc\". Upstream records 687 Jerusalem St, 11931, Naour, and nothing opened printed it.",
+    "checked": "2026-08-25",
+    "reason": "climbat.com is the real Climbat and names all seven of its centres — Avilés, Barcelona, Barakaldo, Madrid, Paris, Zaragoza, Murcia — under the heading \"Rocódromos y escalada indoor en España y Francia\". Amman is not among them and Jordan is not mentioned anywhere on the site.",
     "candidate": "https://climbat.com/"
   },
   {
@@ -2652,9 +2646,9 @@
     "name": "Club Monk",
     "country": "NL",
     "status": "unverified",
-    "reason": "The municipality lookup made Amsterdam the town to test, and monk.nl duly prints it — but Monk has one Amsterdam hall and it is at Aambeeldstraat 26, 1021 KB, in Amsterdam-Noord, some 6 km north of this coordinate, which sits in Overamstel by Diemen. The site names no Club Monk and no second Amsterdam address. In a city this size the municipality is not a signal.",
-    "candidate": "https://monk.nl/amsterdam/",
-    "checked": "2026-08-24"
+    "checked": "2026-08-25",
+    "reason": "monk.nl is Monk and lists five halls: Amsterdam, Eindhoven, Rotterdam, Hilversum, Hasselt. /club-amsterdam/ redirects to the root rather than serving a page, and Monk Amsterdam's own address — Aambeeldstraat 26, 1021 KB — geocodes 5.0 km from this row, which reverse-geocodes to H.J.E. Wenckebachweg 79 in Bajeskwartier. \"La Club\" on the same site is a series of women's training sessions, not a venue.",
+    "candidate": "https://monk.nl/"
   },
   {
     "lat": 51.0006238,
@@ -3307,19 +3301,9 @@
     "name": "Climbing Wall Rozlomity",
     "country": "SK",
     "status": "unverified",
-    "candidate": "https://climbingwall.sk/",
-    "reason": "No official site could be established: climbingwall.sk builds climbing walls and rope parks — \"Lezecké steny, lanové parky, projekčné a projektové práce\". It is a contractor, not the hall at this coordinate, and climbingwall.com is a Californian event-rental company.",
-    "checked": "2026-08-24"
-  },
-  {
-    "lat": 48.21503,
-    "lon": 17.01176,
-    "name": "SPOT Climbing Gym Bratislava",
-    "country": "SK",
-    "status": "unverified",
-    "reason": "spot.sk carries the venue's name and the right postcode — Kremencová 18, 841 07 Bratislava, the same 841 07 upstream records for Devínska Nová Ves — and it is an industrial automation company: \"Smart factory, Smart city, Smart home, Arduino PLC ISA-95\". A postcode district in a capital city is not a signal on its own.",
-    "candidate": "https://spot.sk/",
-    "checked": "2026-08-24"
+    "checked": "2026-08-25",
+    "reason": "lezeckastenakosice.sk is Lezecká stena Rozlomity and publishes a full week, but its address is Študentská 1, Galla centrum, Košice — in Košice-Sever, 2.6 km from this row, which reverse-geocodes to Južná trieda 2054/2A in Košice-Juh. The club subdomain that might have explained a second hall, rozlomityklub.rozlomity.sk, does not resolve.",
+    "candidate": "https://www.lezeckastenakosice.sk/"
   },
   {
     "lat": 33.503683607357665,
@@ -4079,8 +4063,9 @@
     "name": "Maties Moonboard",
     "country": "ZA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — maties.co.za → a timeout; maties.com → no answer / 403; matiesclimbing.co.za → 200 / 522. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "candidate": "https://matiesclimbing.co.za/",
+    "reason": "matiesclimbing.co.za resolves and is plainly the Stellenbosch university club's — the title is \"Maties Climbing\" — but the served body is the single line \"You need to enable JavaScript to run this app.\" No address, no city, no hours reach a client that does not run scripts, so the name is the only signal.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -26.0779819,
@@ -4088,8 +4073,8 @@
     "name": "Phoenix Strength and Fitness",
     "country": "ZA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — phoenix.co.za → \"Phoenix – Private Equity and Wealth Management\"; phoenix.com → \"Phoenix.com - Premium Digital Asset | DN.com\", the rest could not be opened — phoenixstrength.co.za → a certificate that does not cover its hostname / no answer; phoenixstrength.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://phoenix.co.za/"
+    "candidate": "https://phoenixstrength.com/",
+    "reason": "phoenixstrength.com resolves and serves an empty document — no title, no text at all. Phoenix Strength and Fitness in Randburg cannot be read off a blank page.",
+    "checked": "2026-08-25"
   }
 ]

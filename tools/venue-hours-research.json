@@ -493,36 +493,6 @@
   "reason": "Same hall as the venue about 15 m away, and the same page: the week is published under a holiday-period heading only."
  },
  {
-  "lat": 50.41619,
-  "lon": 4.43898,
-  "name": "Maniak Charleroi",
-  "country": "BE",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "reason": "The venue's own page — established as such this pass from a dated snapshot — is behind a Cloudflare interstitial that answers 403 to every request, so no schedule can be read from it. The snapshot the link rests on is not used for hours, because a schedule is exactly what changes between a capture and today. The town upstream records is Dampremy.",
-  "source": "https://charleroi.maniak.club/"
- },
- {
-  "lat": 50.6198,
-  "lon": 4.33027,
-  "name": "Maniak Nivelles",
-  "country": "BE",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "reason": "The venue's own page — established as such this pass from a dated snapshot — is behind a Cloudflare interstitial that answers 403 to every request, so no schedule can be read from it. The snapshot the link rests on is not used for hours, because a schedule is exactly what changes between a capture and today. The town upstream records is Nivelles.",
-  "source": "https://nivelles.maniak.club/"
- },
- {
-  "lat": 50.82757,
-  "lon": 4.33196,
-  "name": "Maniak Padoue",
-  "country": "BE",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "reason": "The venue's own page — established as such this pass from a dated snapshot — is behind a Cloudflare interstitial that answers 403 to every request, so no schedule can be read from it. The snapshot the link rests on is not used for hours, because a schedule is exactly what changes between a capture and today. The town upstream records is Forest.",
-  "source": "https://padoue.maniak.club/"
- },
- {
   "lat": 50.8511,
   "lon": 4.45897,
   "name": "Stone Age",
@@ -539,15 +509,6 @@
   "country": "BE",
   "status": "no-official-site",
   "checked": "2026-08-25",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 50.58334,
-  "lon": 5.85265,
-  "name": "The Wall Verviers",
-  "country": "BE",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -1765,8 +1726,8 @@
   "name": "Limassol Climbing Club",
   "country": "CY",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 35.1804178,
@@ -1793,9 +1754,9 @@
   "lon": 16.6068371,
   "name": "Flashboulderbar",
   "country": "CZ",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "closed",
+  "reason": "The footer of the old site still lists PO–PÁ 6:00–21:00 and SO/NE 8:00–20:00, but the wall it describes has been shut. A week outliving its venue is not a schedule.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 50.7220528,
@@ -1813,7 +1774,7 @@
   "name": "Tendon Blok MoonBoard",
   "country": "CZ",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -3722,9 +3683,9 @@
   "lon": 16.6218441,
   "name": "Mászóka",
   "country": "HU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "reason": "maszokabt.hu does not answer; there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 47.18602620000001,
@@ -3842,8 +3803,8 @@
   "name": "Langur Climbing Academy",
   "country": "IN",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 12.9691248,
@@ -3896,7 +3857,7 @@
   "name": "Björk MoonBoard 2016",
   "country": "IS",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -3905,7 +3866,7 @@
   "name": "Herðubreið Klifur",
   "country": "IS",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -4417,7 +4378,7 @@
   "name": "Climbat Amman",
   "country": "JO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -5396,7 +5357,7 @@
   "name": "Club Monk",
   "country": "NL",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -6813,7 +6774,7 @@
   "name": "Climbing Wall Rozlomity",
   "country": "SK",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -6865,15 +6826,6 @@
   "source": "https://www.rebelia.me/",
   "reason": "The footer states \"Pondelok - Piatok 06:00 - 15:00 / 15:00 - 20:00 (vstup iba s trénerom)\" and \"Sobota - Nedeľa 08:00 - 12:00 / 12:00 - 20:00 (vstup iba s trénerom)\". Each day is two windows and the later one can only be entered with a trainer. Publishing 06:00-20:00 would promise a door that is not open on its own terms, and publishing 06:00-15:00 would drop hours the centre says it keeps.",
   "checked": "2026-08-24"
- },
- {
-  "lat": 48.21503,
-  "lon": 17.01176,
-  "name": "SPOT Climbing Gym Bratislava",
-  "country": "SK",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 33.503683607357665,
@@ -8725,17 +8677,17 @@
   "lon": 18.8689313,
   "name": "Maties Moonboard",
   "country": "ZA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "reason": "The app renders client-side; nothing readable is served.",
+  "checked": "2026-08-25"
  },
  {
   "lat": -26.0779819,
   "lon": 27.9462566,
   "name": "Phoenix Strength and Fitness",
   "country": "ZA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "reason": "The document served is empty; there is no schedule on it.",
+  "checked": "2026-08-25"
  }
 ]

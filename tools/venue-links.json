@@ -2299,46 +2299,49 @@
     "lon": 4.43898,
     "name": "Maniak Charleroi",
     "country": "BE",
-    "website": "https://charleroi.maniak.club/",
-    "verified": "2026-08-24",
+    "website": "https://www.maniak.club/charleroi",
+    "verified": "2026-08-25",
     "provenance": "official-location-page",
     "signals": [
       "name",
-      "street-address",
+      "location-page",
       "postal-code",
-      "city",
-      "location-page"
+      "board-mention"
     ],
-    "note": "Maniak gives each hall a subdomain of its own, and this one is titled \"Accueil | Maniak Charleroi\" and prints \"…Bruxelles, 6020 Dampremy\" — the street, postal code and town upstream records. The live site answers 403 to every fetcher and header set, so the page was read from a dated snapshot of the venue's own site taken on 18 April 2025. A snapshot settles whose domain this is; it is not used to read anything that changes, and no hours are taken from it."
+    "note": "The chain runs a page per hall. This one gives its address as the building attached to Decathlon Dampremy, 6020 Charleroi — upstream has Chaussée de Bruxelles 100, 6020 Dampremy — and lists the Kilter Board this row is registered for. The row point reverse-geocodes to an OSM object called Maniak Charleroi."
   },
   {
     "lat": 50.6198,
     "lon": 4.33027,
     "name": "Maniak Nivelles",
     "country": "BE",
-    "website": "https://nivelles.maniak.club/",
-    "verified": "2026-08-24",
+    "website": "https://www.maniak.club/nivelles",
+    "verified": "2026-08-25",
     "provenance": "official-location-page",
     "signals": [
       "name",
-      "location-page"
+      "location-page",
+      "geocoded-address",
+      "board-mention"
     ],
-    "note": "Maniak's own subdomain for its Nivelles hall, titled \"Maniak Salle d'escalade Nivelles\". Upstream records no address for this entry and the town it names is inside the venue's own name, so what carries the second signal is the subdomain being the operator's page for this one hall rather than for the operator. The live site answers 403 to every fetcher and header set, so the page was read from a dated snapshot of the venue's own site taken on 23 April 2025. A snapshot settles whose domain this is; it is not used to read anything that changes, and no hours are taken from it."
+    "note": "13 avenue Jean Monnet, 1401 Nivelles geocodes 16 m from the row, onto an OSM object already named Maniak Nivelles, and the training-wall list names the Tension board this row is registered for."
   },
   {
     "lat": 50.82757,
     "lon": 4.33196,
     "name": "Maniak Padoue",
     "country": "BE",
-    "website": "https://padoue.maniak.club/",
-    "verified": "2026-08-24",
+    "website": "https://www.maniak.club/padoue",
+    "verified": "2026-08-25",
     "provenance": "official-location-page",
     "signals": [
       "name",
-      "city",
-      "location-page"
+      "location-page",
+      "street-address",
+      "postal-code",
+      "board-mention"
     ],
-    "note": "Maniak's own subdomain for its Padoue hall, titled \"Maniak Padoue - Salle d'escalade à Forest\" — the venue's name and the municipality upstream records for it. The live site answers 403 to every fetcher and header set, so the page was read from a dated snapshot of the venue's own site taken on 22 April 2025. A snapshot settles whose domain this is; it is not used to read anything that changes, and no hours are taken from it."
+    "note": "A church — Saint-Antoine de Padoue, built 1907 — that took its first route in June 2023. The page gives 26 rue des Moines, 1190 Forest against upstream's number 22 on the same street and postal code; the geocode lands 10 m from the row, so the street is right and one of the two house numbers is stale. The kilter board this row is registered for is named on the page."
   },
   {
     "lat": 50.92862,
@@ -2416,6 +2419,23 @@
       "postal-code"
     ],
     "note": "The contact page prints Avenue E. Mounier 87, 1200 Woluwe-Saint-Lambert, the address upstream records. The site titles itself the climbing hall and climbing school of the Woluwe sports centre, which is that address."
+  },
+  {
+    "lat": 50.58334,
+    "lon": 5.85265,
+    "name": "The Wall Verviers",
+    "country": "BE",
+    "website": "https://www.thewall-escalade.be/fr/salles/verviers.htm",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The chain's per-hall page for Verviers gives Rue de Liège 148, B-4800 Verviers — upstream's address line for line, including the number. The street geocodes to a 392 m centroid because OSM holds no house numbers on it, which is why the address match rather than the geocode is what carries this one."
   },
   {
     "lat": 51.07393,
@@ -18427,6 +18447,21 @@
       "city"
     ],
     "note": "The live host answers with a web-application-firewall block. A snapshot gives \"KONTAKTY Rebelia Kráľovská 8 Šaľa 927 01\", and this coordinate is 824/8 Kráľovská, 927 01 Šaľa — the street, the number and the postcode."
+  },
+  {
+    "lat": 48.21503,
+    "lon": 17.01176,
+    "name": "SPOT Climbing Gym Bratislava",
+    "country": "SK",
+    "website": "https://boulderspot.sk/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The contact block gives \"Devínska Nová Ves 7466 objekt C, areál Squarebizz - Bory\", which is upstream's address line with the industrial park spelled out."
   },
   {
     "lat": 48.69571,
