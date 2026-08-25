@@ -2206,8 +2206,8 @@
     "name": "ansanclimbing gym",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits 18 m from OpenStreetMap’s city node for 안산시, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match."
+    "reason": "No official site could be established: ansanclimbing.com does not resolve and the row carries a generic name — the town plus the word climbing — with no address or handle upstream.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.4460164,
@@ -2215,9 +2215,8 @@
     "name": "Bouldergarden",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — bouldergarden.com → \"HugeDomains.com\", the venue's whole name as one label, bouldergarden.com, answers 302 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.hugedomains.com/domain_profile.cfm?d=bouldergarden.com"
+    "reason": "No official site could be established: bouldergarden.co.kr does not resolve and nothing published in Bucheon carries the name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 35.82364,
@@ -2225,9 +2224,8 @@
     "name": "Chalk Up Climbing Center Wolseong 초크업 클라이밍",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — upclimbing.com.au → \"UP Climbing - Melbourne Bouldering Gym | Fun climbs, goo\"; www.upthebloc.com → \"Up The Bloc - Bouldering for Mississauga and Etobicoke\", the rest could not be opened — chalkupclimbing.com → 200. Upstream records 달서구 상원로 184-8 3층, and nothing opened printed it.",
-    "candidate": "https://upclimbing.com.au/"
+    "reason": "No official site could be established: chalkup.co.kr does not resolve and chalkupclimbing.com serves a one-byte document. What 초크업 클라이밍 publishes goes to Instagram (@chalk_up_climbing_) and a page on the quv.kr hosting platform, and the branch that platform describes is in 북구 침산남로, not the 달서구 상원로 address upstream records for this row.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.497738,
@@ -2235,9 +2233,8 @@
     "name": "Climb Emotion",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — emotion.co.kr → \"이모션글로벌\"; climb.com → \"climb.com\", the rest could not be opened — emotion.kr → 200; climb.kr → a certificate that does not cover its hostname; climb.co.kr → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://emotion.co.kr/"
+    "reason": "No official site could be established: climbemotion.com does not resolve and nothing published in Gangnam carries the name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.68945,
@@ -2245,9 +2242,8 @@
     "name": "Climbing Up the Wall Ilsan 업더월클라이밍 일산",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — upclimbing.com.au → \"UP Climbing - Melbourne Bouldering Gym | Fun climbs, goo\"; www.upthebloc.com → \"Up The Bloc - Bouldering for Mississauga and Etobicoke\". Upstream records 고양시 일산서구 덕이동 219-33, 10237, and nothing opened printed it.",
-    "candidate": "https://upclimbing.com.au/"
+    "reason": "No official site could be established: upthewall.co.kr does not resolve, and nothing published under 업더월클라이밍 could be reached; the address upstream holds, 고양시 일산서구 덕이동 219-33, appears only in directories.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.59521079281958,
@@ -2255,9 +2251,8 @@
     "name": "Cracker boardroom",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.theboardroomclimbing.com → \"Home - The Boardroom Climbing Ltd\"; cracker.co.kr → \"cracker.co.kr - This website is for sale! - cracker Reso\", the rest could not be opened — cracker.kr → a certificate that does not cover its hostname; cracker.com → no answer. Upstream records 223-8, Mangu-ro, 2117, Seoul, and nothing opened printed it.",
-    "candidate": "https://theboardroomclimbing.com/"
+    "reason": "No official site could be established: crackerboardroom.com does not resolve. The name reads as a board room rather than a gym, and nothing publishes at 망우로 223-8 under it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.4876288,
@@ -2265,9 +2260,8 @@
     "name": "Gate1_Climbing",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — gate1.kr → \"a page with no title\", the rest could not be opened — gate1.com → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://gate1.kr/"
+    "reason": "No official site could be established: gate1climbing.com does not resolve; the row carries an underscore in its name, which is how a handle is written rather than a business.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 36.7844993,
@@ -2275,9 +2269,8 @@
     "name": "Gorilla climbing's Moonboard",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — gorilla.com → \"gorilla.com\"; gorillaclimbing.com → \"Lunatogel – Situs Togel Online Terbaik dengan Akses Stab\", the rest could not be opened — gorilla.kr → a timeout; gorilla.co.kr → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits exactly on OpenStreetMap’s city node for 서산시, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match.",
-    "candidate": "https://gorilla.com/"
+    "reason": "No official site could be established: gorillaclimbing.co.kr does not resolve, and the row is named for a board inside a gym rather than for a venue.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 36.3643697,
@@ -2285,8 +2278,8 @@
     "name": "HanaGym_MoonBoard",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: hanagym.co.kr does not resolve, and the row is named for a board in a gym.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.26365,
@@ -2294,8 +2287,8 @@
     "name": "Kin:d",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records Seodundong 388, Suwon, and nothing opened printed it."
+    "reason": "No official site could be established: kind-climbing.com does not resolve, and a two-letter name with a colon in it cannot be searched usefully; nothing publishes at 서둔동 388 under it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.5518911,
@@ -2303,8 +2296,8 @@
     "name": "Koalaclimbinggym",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: koalaclimbing.co.kr does not resolve; this Seoul row is a second Koala with no address of its own.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 35.8386262,
@@ -2312,8 +2305,8 @@
     "name": "NewBee Climbing Gym",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — newbee.kr → no answer; newbee.com → a timeout; newbeeclimbing.com → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: newbeeclimbing.com resolves and returns nothing at all, on repeated tries.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.5697433,
@@ -2321,9 +2314,8 @@
     "name": "SeoulForest's moonboard",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — seoulforest.co.kr → \"서울포레스트 정신건강의학과의원 심리상담센터\", the rest could not be opened — seoulforest.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.seoulforest.co.kr/"
+    "reason": "No official site could be established: the row is possessive and names a board — a MoonBoard at Seoul Forest — rather than a venue, and nothing publishes under it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 35.2100142,
@@ -2331,8 +2323,8 @@
     "name": "SO Climing gym",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: soclimbing.co.kr does not resolve; the row name carries a typo (Climing) of the kind a registry entry gets and a business does not.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.25296,
@@ -2340,9 +2332,8 @@
     "name": "Superb Climbing",
     "country": "KR",
     "status": "unverified",
-    "candidate": "http://superb.co.kr/",
-    "reason": "No official site could be established: superb.co.kr answers a hosting placeholder that gives its own registration date and says the site is still being built — 사이트 구축 중입니다.",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: the second Suwon row for this gym, 90 m from the first; superbclimbing.com does not resolve and the handle upstream holds, superb_yeongtong, is an Instagram account.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.4967717,
@@ -2350,8 +2341,8 @@
     "name": "tigerbouldergym",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: tigerboulder.com does not resolve; the row name is a handle written without spaces.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.237587746871746,
@@ -2359,8 +2350,8 @@
     "name": "Yongin Climbing Center",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — yongin.kr → a certificate that does not cover its hostname; yongin.co.kr → a certificate that does not cover its hostname. Upstream records 76, Gyeongancheon-ro, Cheoin-gu, 66Q7+29, Yongin-si, and nothing opened printed it."
+    "reason": "No official site could be established: the wall is inside 용인종합운동장, the municipal stadium at 경안천로 76, and what publishes it is the city's public-sports booking portal rather than a site of its own. yonginclimbing.co.kr does not resolve.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.54253769652256,
@@ -2368,9 +2359,8 @@
     "name": "그루트 클라이밍 GROOT CLIMBING",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — groot.com → \"Waste Management Services | Waste Services | Groot\", the rest could not be opened — groot.kr → a timeout; groot.co.kr → 403. Upstream records B2, Yuhan Tower, 4779, Seoul, and nothing opened printed it.",
-    "candidate": "https://www.groot.com/"
+    "reason": "No official site could be established: groot.co.kr resolves and answers 403 to every request; grootclimbing.com does not resolve. Upstream records B2, Yuhan Tower, and nothing readable ties either domain to it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.48587,
@@ -2378,8 +2368,8 @@
     "name": "더클라임 양재점 The Climb Yangjae",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — yangjae.com → 200; theclimb.co.kr → a certificate that does not cover its hostname. Upstream records 서울특별시 강남구 남부순환로 2615 지하 1층, and nothing opened printed it."
+    "reason": "No official site could be established: 더클라임 is a real chain and theclimb.co.kr is its domain — and it serves nothing over https, and nothing but an empty document over http. Its branch pages cannot be read, so the Yangjae hall cannot be matched to one.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.59289,
@@ -2387,8 +2377,8 @@
     "name": "디스커버리 클라임스퀘어 Climbsquare ICN",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records 위 치: 인천광역시 서구 완정로 70 5층, and nothing opened printed it."
+    "reason": "No official site could be established: climbsquare.co.kr does not resolve. Upstream records 인천광역시 서구 완정로 70 5층 and files the row under Gimpo, which is a different city across the river.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.253109138501685,
@@ -2396,9 +2386,8 @@
     "name": "슈퍼비클라이밍 SuperB Climbing",
     "country": "KR",
     "status": "unverified",
-    "candidate": "http://superb.co.kr/",
-    "reason": "No official site could be established: Same placeholder as the row 90 m away; the domain was registered and has never carried a site.",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: superbclimbing.com does not resolve; the gym's handle, superb_yeongtong, appears on Instagram and nowhere this file can store.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.48132,
@@ -2406,8 +2395,8 @@
     "name": "에어즈락 클라이밍위례점 Ayers Rock Climbing Wirye",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — ayersrock.kr → 403; ayersrock.co.kr → a certificate that does not cover its hostname; ayersrock.com → a certificate that does not cover its hostname. Upstream records 에어즈락 클라이밍 김민정 서울 송파구 위례광장로 188 아이온스퀘어 12층, and nothing opened printed it."
+    "reason": "No official site could be established: ayersrock.co.kr resolves, serves nothing over https and an empty document over http. The chain exists; its pages do not arrive.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 33.32611,
@@ -2415,8 +2404,8 @@
     "name": "오루뭉 Orumung Climbing Gym",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records 제주도 서귀포시 표선면 표선리 697-3, and nothing opened printed it."
+    "reason": "No official site could be established: orumung.com does not resolve. The gym is on Jeju at 서귀포시 표선면 표선리 697-3 and publishes nowhere that a reader without an account can reach.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 35.22902,
@@ -2424,8 +2413,8 @@
     "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — waverock.co.kr → 403; waverock.com → no answer; wave.kr → a timeout. Upstream records 부산광역시 금정구 장전2동 360-40, and nothing opened printed it."
+    "reason": "No official site could be established: wave-rock.co.kr does not resolve, and the row is filed under Gijang while the address upstream holds is 금정구 장전2동, by Pusan National University — 25 km apart.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.67682,
@@ -2433,9 +2422,8 @@
     "name": "코알라클라이밍 Koala Climbing Kintex",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — koala.com → \"Koala Sofas, Mattresses & Furniture | Koala®\". Upstream records 경기도 고양시 일산서구 중앙로 1560-34 대화동, 이마파킹프라자 B1층, and nothing opened printed it.",
-    "candidate": "https://au.koala.com/"
+    "reason": "No official site could be established: koalaclimbing.co.kr does not resolve. Upstream records 고양시 일산서구 중앙로 1560-34 and files the row under Gimpo, the next city.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.56146,
@@ -2443,9 +2431,8 @@
     "name": "클라이밍 하남미사점 V10 Climbing Hanam Misa",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — v10climbing.com → \"a page with no title\". Upstream records 서울 경기도 하남시 미사강변동로 81 13층, and nothing opened printed it.",
-    "candidate": "https://www.v10climbing.it/"
+    "reason": "No official site could be established: v10climbing.com resolves and redirects to v10climbing.it — V10 Il Circolo, an Italian climbing club with COVID-era booking rules still on its front page. Same name, different continent.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 36.3603,
@@ -2453,8 +2440,8 @@
     "name": "클라이밍짐리드 충대점 Climbing Gym Lead Chungdae Branch",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records 대전광역시 유성구 대학로 76번안길 62 승은빌딩 5층, and nothing opened printed it."
+    "reason": "No official site could be established: climbinggymlead.com does not resolve, and nothing published at 대전 유성구 대학로 76번안길 62 carries the name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.50417,
@@ -2462,9 +2449,8 @@
     "name": "클라이밍파크 Climbing Park Shinnonhyun",
     "country": "KR",
     "status": "unverified",
-    "candidate": "https://www.270climbing.com/",
-    "reason": "No official site could be established: 270climbing.com is 270 Climbing Park at Bentham Lane, Witcombe, Gloucester GL3 4UD, with a UK phone number and a VAT-relief notice. This row is in 강남구, Seoul.",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: climbingpark.co.kr does not resolve, and nothing published at 강남대로 468 carries the name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.26647,
@@ -2472,8 +2458,8 @@
     "name": "클라임업 수원점 ClimbUp Suwon",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — climbup.com → a timeout. Upstream records 39, Gwongwang-ro 207beon-gil, Paldal-gu, Suwon-si, Gyeonggi-do, and nothing opened printed it."
+    "reason": "No official site could be established: climbup.co.kr does not resolve; nothing published at 권광로207번길 39 carries the name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.38468,
@@ -2481,9 +2467,8 @@
     "name": "클라임잇 목감 Climbit Mokgam",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — climbit.com → \"Climb It Holds | Coming Soon\". Upstream records 1st Fl, 24 Baemi-gol-gil, 414-2, Gyeonggi-do, and nothing opened printed it.",
-    "candidate": "https://climbit.com/"
+    "reason": "No official site could be established: climbit.co.kr does not resolve; nothing published at 배미골길 24 carries the name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 35.21132,
@@ -2491,9 +2476,8 @@
     "name": "핸드워크 클라이밍 양산점 Handwerk Climbing Yangsan",
     "country": "KR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — handwerk.com → \"handwerk.com: Das Fachportal für Entscheider im Handwerk\". Upstream records 광주 북구 임방울대로 1068 2층, and nothing opened printed it.",
-    "candidate": "https://handwerk.com/"
+    "reason": "No official site could be established: handwerk.co.kr does not resolve. Upstream records 광주 북구 임방울대로 1068 2층 — Gwangju — while the row's name says Yangsan, a town 200 km east.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 33.9005875,
