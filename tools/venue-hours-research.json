@@ -7656,15 +7656,6 @@
   "reason": "The only weekday-with-time on the site is inside a job advertisement — \"The camps run from 9am to 1pm Mon-Fri\" — which is when the summer camp runs, not when the wall is open."
  },
  {
-  "lat": 39.99335,
-  "lon": -83.03884,
-  "name": "Chambers Purely Boulders",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 41.22242,
   "lon": -86.41300299999999,
   "name": "Cliffs",
@@ -8015,22 +8006,13 @@
   "source": "https://goldcrushclimbing.com/"
  },
  {
-  "lat": 40.70695,
-  "lon": -73.92399,
-  "name": "GP81",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 40.726433,
   "lon": -73.95807669999999,
   "name": "GP81",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "closed",
+  "reason": "The hall at this address moved to Jefferson Street in Brooklyn, so there is no schedule to record here.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 42.92577,
@@ -8337,8 +8319,8 @@
   "name": "Prescott Rocks and Rec",
   "country": "US",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 45.5230622,
@@ -8460,9 +8442,10 @@
   "lon": -119.2152786,
   "name": "Rock Shop",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://www.rockshopclimbing.com/location-hours",
+  "reason": "The location page pairs the address with a single time range and no day at all: \"1965 Fowler Street, Richland, WA 99352 10:00 am - 10:00 pm (509) 619-0075\", followed by a list of holiday exceptions. No day name appears anywhere in the page, collapsed markup included, and reading a seven-day week out of one unlabelled range is an inference rather than a reading.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 32.33042,

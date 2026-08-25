@@ -4283,16 +4283,6 @@
     "candidate": "https://denver.com/"
   },
   {
-    "lat": 39.99335,
-    "lon": -83.03884,
-    "name": "Chambers Purely Boulders",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — chambers.com → \"Chambers | The World's Leading Lawyers & Law Firm Rankin\", the rest could not be opened — chambers.net → 200; chambers.org → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://chambers.com/"
-  },
-  {
     "lat": 41.22242,
     "lon": -86.41300299999999,
     "name": "Cliffs",
@@ -4441,24 +4431,14 @@
     "reason": "A personal name and a garage, and the dataset says the rest: where a street belongs, upstream records \"reservation only\". This is somebody's home wall, not a venue with a website, and this audit does not attach a link to one."
   },
   {
-    "lat": 40.70695,
-    "lon": -73.92399,
-    "name": "GP81",
-    "country": "US",
-    "status": "unverified",
-    "reason": "The handle gp81 spells eightyone, and eightyonegym.com is \"Bristol's home for those who live and breathe fitness\" — an independent bodybuilding gym in England with a boxing club and a café. This venue is on Wyckoff Avenue in Ridgewood, 11237.",
-    "candidate": "https://eightyonegym.com/",
-    "checked": "2026-08-24"
-  },
-  {
     "lat": 40.726433,
     "lon": -73.95807669999999,
     "name": "GP81",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — gp81.net → \"gp81 – লাইভ ক্যাসিনো ও স্পোর্টসবুক, Rocket ও Upay সুবিধা\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://gp81.net/"
+    "status": "closed",
+    "candidate": "https://www.gp-81.com/",
+    "reason": "This is GP81's old Greenpoint address, and the gym says so itself: \"NOW LOCATED AT: 379 Jefferson Street Brooklyn, NY 11237\" on the front page, and \"We were able to save our wall panels from Greenpoint and rebuild in our new home\" in the description of the new terrain. The other GP81 row, 3 km south-east, is the hall that exists.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 42.92577,
@@ -4571,9 +4551,9 @@
     "name": "Prescott Rocks and Rec",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — prescott.com → \"Prescott, Arizona Visitor Guide | Things to Do, Hotels &\", the rest could not be opened — prescottrocks.com → a certificate that does not cover its hostname; prescott.net → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.prescott.com/"
+    "candidate": "https://www.prescottrocksandrec.com/",
+    "reason": "No official site could be established: prescottrocksandrec.com is the domain every directory still gives for this gym, and it no longer resolves on any host. Prescott's other climbing gym, Gripstone, is a different business on North Lee Boulevard rather than this row's Iron Springs Road.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 32.715738,
@@ -4633,16 +4613,6 @@
     "candidate": "https://www.revivalclimbing.com/",
     "reason": "No official site could be established: revivalclimbing.com is the Revival Climbing Coalition, and it sells adjustable climbing walls, custom flooring and crash pads. It has four pages — walls, flooring, mats, shop — publishes no hall, no address and no hours, and its contact page is a bare form. The name matches and nothing else does, which is one signal.",
     "checked": "2026-08-25"
-  },
-  {
-    "lat": 46.2330513,
-    "lon": -119.2152786,
-    "name": "Rock Shop",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — blocshop.com/chabanel → \"Chabanel | Bloc Shop\"; blocshop.com/mile-ex → \"Mile-Ex | Bloc Shop\"; shop.org → \"Ideas shared. Connections made. Retail Transformed. | NR\", the rest could not be opened — shop.com → 403; shop.net → 403; rock-shop.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://blocshop.com/chabanel/"
   },
   {
     "lat": 33.5539143,
