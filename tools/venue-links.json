@@ -13891,6 +13891,148 @@
     "note": "クライミングバム runs two gyms and gives each a page. The 横浜店 page states 神奈川県横浜市都筑区中川中央1-25-1 ノースポートモール B1F; this coordinate reverse-geocodes to 中川中央一丁目, 都筑区, 横浜市, which is the same block. The page also lists 電光ムーンボード among the walls, and this row is listed for a MoonBoard. Upstream labels the row Azamino, which is the next station over."
   },
   {
+    "lat": 35.466192922450126,
+    "lon": 139.61703959444404,
+    "name": "D Bouldering Yokohama",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/yokohama/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the yokohama hall: 〒220-0004 神奈川県横浜市西区北幸2丁目2-1 ハマボールビルディング6階601区画 — upstream records the row as \"Hamabowl Building 6F\", the same building in English."
+  },
+  {
+    "lat": 35.5360182,
+    "lon": 139.6333741,
+    "name": "D-Bouldering Tsunashima",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/tsunashima/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page"
+    ],
+    "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the tsunashima hall: The hall has its own path and its own facility, beginner and concept pages under it. Upstream holds no address for the row and files it under Den'enchōfu, which is not Tsunashima, so the name and the page are what match."
+  },
+  {
+    "lat": 35.6549536,
+    "lon": 139.3379978,
+    "name": "D.Bouldering Hachioji",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/hachioji/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the hachioji hall: 〒192-0083 東京都八王子市旭町1-12 八王子オーパ6F — the town upstream records, for a row it holds no street line for."
+  },
+  {
+    "lat": 38.2260485,
+    "lon": 140.8755982,
+    "name": "Dbouldering-Sendai.nagamachi",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/sendai/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the sendai hall: 〒982-0011 宮城県仙台市太白区長町7-20-3 ザ・モール仙台長町 アウトドアスポーツ館 1階 — Sendai, the city upstream records."
+  },
+  {
+    "lat": 35.1861697,
+    "lon": 136.8909959,
+    "name": "Dbouldering-Sengencho",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/sengen-cho/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the sengen-cho hall: 〒451-0031 愛知県名古屋市西区城西2-11-13 第二泰水堂ビル2階 — Nagoya, the city upstream records."
+  },
+  {
+    "lat": 35.7234041,
+    "lon": 140.1000201,
+    "name": "Dbouldering+yachiyo",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/yachiyo/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the yachiyo hall: 〒276-0046 千葉県八千代市大和田新田312-19 — the town upstream records."
+  },
+  {
+    "lat": 35.98874,
+    "lon": 139.73564,
+    "name": "Dボルダリング春日部 D Bouldering Kasukabe",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/kasukabe/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the kasukabe hall: 〒344-0058 埼玉県春日部市栄町1丁目451 — upstream's \"1-451 Sakaemachi, 344-0058, Kasukabe\" exactly."
+  },
+  {
+    "lat": 35.64676,
+    "lon": 139.74775,
+    "name": "Dボルダリング田町 D Bouldering Tamachi",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/tamachi/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the tamachi hall: 〒108-0014 東京都港区芝5丁目33番11号 田町タワー3F — upstream's \"5-33-11 Shiba, 108-0014, Minato-ku\"."
+  },
+  {
+    "lat": 35.696,
+    "lon": 139.41101,
+    "name": "Dボルダリング立川 D Bouldering Tachikawa",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/tachikawa/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the tachikawa hall: 〒190-0023 東京都立川市柴崎町2-12-24 エム・ケー立川南ビル 5F — upstream carries the same postcode and town."
+  },
+  {
     "lat": 35.79173,
     "lon": 139.55376,
     "name": "Next Gen Bouldering",
@@ -13992,6 +14134,57 @@
       "coordinates"
     ],
     "note": "Read through the platform routes, the gym's own site prints 241 and 424-0065 — the building number and postal code in 清水区長崎241, 424-0065 that upstream records — and embeds a map of itself 173 m from this venue."
+  },
+  {
+    "lat": 35.58083,
+    "lon": 140.12505,
+    "name": "ディーボルダリングプラス 蘇我 D Bouldering Plus Soga",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/soga/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the soga hall: 〒260-0835 千葉県千葉市中央区川崎町57-5 ベイフロント蘇我 — upstream's \"Bayfront Soga, 57-5, Kawasaki-cho\"."
+  },
+  {
+    "lat": 32.82934,
+    "lon": 130.79125,
+    "name": "ディーボルダリングプラス熊本小山 D Bouldering Kumamoto-oyama",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/kumamoto-oyama/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the kumamoto-oyama hall: 〒861-8045 熊本県熊本市東区小山2-25-38 — upstream's \"2 Chome-25-38 Oyama, 861-8045\"."
+  },
+  {
+    "lat": 35.4425,
+    "lon": 139.36599,
+    "name": "ディーボルダリング本厚 D Bouldering Hon-Atsugi",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/honatsugi/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the honatsugi hall: 〒243-0018 神奈川県厚木市中町2-12-15 アミューあつぎ2F — upstream carries the same line, in Japanese, down to the building."
   },
   {
     "lat": 37.79381,
