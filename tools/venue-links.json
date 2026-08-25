@@ -14,6 +14,21 @@
     "note": "BlocCafé Climbing's own site, giving Andorra la Vella — the town upstream records for Carrer de les Costes 13."
   },
   {
+    "lat": 42.5100804,
+    "lon": 1.5387862,
+    "name": "Rocòdrom d'Escaldes-Engordany",
+    "country": "AD",
+    "website": "https://e-e.ad/publicacio/4886/rocodrom",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The wall is a municipal facility and the Comú d'Escaldes-Engordany runs a page for it, one of the eleven under Instal·lacions esportives — it is on the second page of that list, which is why a search of the first never found it. The page names the venue, the parish, and \"Zona específica d'entrenament amb campus i moonboard\", the board this row is registered for. Its address, Fiter i Rossell 71 planta -3, geocodes to a street centroid 556 m out, in the same hamlet — Els Vilars — that the row reverse-geocodes to, so the geocode supports it without being one of the signals."
+  },
+  {
     "lat": 25.16322,
     "lon": 55.23868,
     "name": "Mountain Extreme",

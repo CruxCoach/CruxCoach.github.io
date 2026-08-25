@@ -1,15 +1,5 @@
 [
   {
-    "lat": 42.5100804,
-    "lon": 1.5387862,
-    "name": "Rocòdrom d'Escaldes-Engordany",
-    "country": "AD",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — rocodrom.com → \"Coming Soon\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://rocodrom.com/"
-  },
-  {
     "lat": 25.2048493,
     "lon": 55.2707828,
     "name": "Engin MB",
@@ -80,7 +70,7 @@
     "name": "CABA Bucarelli",
     "country": "AR",
     "status": "unverified",
-    "reason": "No official site could be established: CABA Bucarelli is an address in Buenos Aires — the city abbreviation and a street — rather than a business name.",
+    "reason": "OSM carries an object called \"Boulder\" 17 m from this row, tagged sport=climbing, and no website tag at all. That is worth recording even though it closes nothing: the venue does stand where upstream says it does, so the coordinate is not what is stopping this row from being linked. No domain reaches it by any channel.",
     "checked": "2026-08-25"
   },
   {
@@ -89,7 +79,7 @@
     "name": "Arlberg klettergruppe",
     "country": "AT",
     "status": "unverified",
-    "reason": "No official site could be established: arlbergklettergruppe.at and klettergruppe-arlberg.at do not resolve, and the Arlberg climbing group publishes nothing under its own name that could be found. Upstream holds no address, town or handle for the row.",
+    "reason": "OSM carries an object called \"Boulderhalle Flirsch\" 115 m from this row, tagged sport=climbing, and no website tag at all. That is worth recording even though it closes nothing: the venue does stand where upstream says it does, so the coordinate is not what is stopping this row from being linked. No domain reaches it by any channel.",
     "checked": "2026-08-25"
   },
   {
@@ -452,8 +442,9 @@
     "name": "The Rock Wall Climbing Gym",
     "country": "CA",
     "status": "unverified",
-    "checked": "2026-08-25",
-    "reason": "No official site could be established: the object the gazetteer returns for this point is the ACT Arts Centre, whose site now redirects to arts-on.org, the Maple Ridge Pitt-Meadows Arts Council — a neighbour, and one on which the words climb and boulder do not appear. therockwall.ca, therockwallgym.com, rockwallclimbing.ca and therockwallclimbinggym.com do not resolve."
+    "candidate": "https://theactmapleridge.org/",
+    "reason": "OSM puts \"The ACT Arts Centre\" 12 m from this row and tags it website=theactmapleridge.org, which redirects to arts-on.org — a theatre and arts programme in Maple Ridge with no climbing anywhere in it. The map is describing the neighbour, not the gym: the other object it offers within 150 m is the Maple Ridge Leisure Centre pool. The Rock Wall Climbing Gym has no site the map or any other channel reaches.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 42.3149367,
@@ -471,7 +462,8 @@
     "name": "Boulder Halle Andermatt",
     "country": "CH",
     "status": "unverified",
-    "reason": "No official site could be established: the wall exists — Andermatt has a 13 m climbing wall with bouldering rooms, described as unsupervised, so climbers must belay themselves — but it publishes through the destination's tourism site rather than a site of its own, and kletterhalle-andermatt.ch and andermatt-klettern.ch do not resolve. A tourism portal listing a facility is not the facility's website.",
+    "candidate": "https://www.andermatt.ch/",
+    "reason": "The only website tag OSM offers within 150 m of this row belongs to an object called \"Andermatt\" and points at andermatt.ch, the valley's tourism site. A destination portal is not a venue's page, and the Boulder Halle Andermatt has none this audit can reach.",
     "checked": "2026-08-25"
   },
   {
@@ -590,7 +582,7 @@
     "name": "ATTIC V",
     "country": "CN",
     "status": "unverified",
-    "reason": "No official site could be established: ATTIC V in Wong Chuk Hang has no address upstream and atticv.hk does not resolve.",
+    "reason": "OSM carries an object called \"Attic V\" 19 m from this row, tagged sport=climbing, and no website tag at all. That is worth recording even though it closes nothing: the venue does stand where upstream says it does, so the coordinate is not what is stopping this row from being linked. No domain reaches it by any channel.",
     "checked": "2026-08-25"
   },
   {
@@ -1261,8 +1253,8 @@
     "name": "Uadibloc Malasaña",
     "country": "ES",
     "status": "unavailable",
-    "candidate": "https://uadibloc.com/",
-    "reason": "uadibloc.com is unmistakably the gym — the row's address, C de San Hermenegildo 25, is the one every listing gives for it — and the domain currently redirects to /cgi-sys/suspendedpage.cgi, the hosting company's account-suspended page, 122 bytes long. Nothing can be read from it today. Retry when the account is restored.",
+    "candidate": "https://www.uadibloc.com/",
+    "reason": "OSM has a \"Uadibloc\" 26 m from the row carrying website=uadibloc.com — the first genuinely useful thing the map has said about this venue. The domain resolves and serves /cgi-sys/suspendedpage.cgi: \"Account Suspended. This Account has been suspended. Contact your hosting provider for more information.\" The gym is there; its site is switched off.",
     "checked": "2026-08-25"
   },
   {
@@ -1300,10 +1292,10 @@
     "lon": 24.3348209,
     "name": "Nummelan Kiipeilyverstas",
     "country": "FI",
-    "status": "unverified",
+    "status": "unavailable",
     "candidate": "https://www.kiipeilyverstas.fi/",
-    "reason": "No official site could be established: The object at this coordinate is Nummelan kiipeilyverstas Kantti, tagged leisure=sports_centre and sport=climbing;bouldering — the venue itself — and its website tag is kiipeilyverstas.fi, which no longer resolves on any host. The tag outlived the domain.",
-    "checked": "2026-08-24"
+    "reason": "OSM has \"Nummelan kiipeilyverstas Kantti\" 7 m from the row, tagged sport=climbing;bouldering with website=kiipeilyverstas.fi — so the map both confirms the venue and names its domain. That domain does not exist: kiipeilyverstas.fi answers NXDOMAIN on apex and www, repeatedly. Search engines still serve cached copies of its pages, which is exactly the trap — a cached page is not a live one, and this file never stores a link it cannot fetch.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 60.0970945,
@@ -1348,10 +1340,10 @@
     "lon": 2.722797,
     "name": "Karma Fontainebleau",
     "country": "FR",
-    "status": "unverified",
+    "status": "unavailable",
     "candidate": "http://karma.ffme.fr/",
-    "reason": "No official site could be established: The object at this coordinate is Karma, tagged sport=climbing, and its website tag is karma.ffme.fr — a club subdomain of the French federation that no longer resolves. Neither karmafontainebleau.fr nor .com nor karma-fontainebleau.fr exists either, and the handle upstream records for the row is karmafontainebleau.",
-    "checked": "2026-08-24"
+    "reason": "OSM has a \"Karma\" 26 m from the row, tagged sport=climbing, with website=karma.ffme.fr — a club subdomain of the French federation rather than a domain of the venue's own. Nothing answers on it, over http or https. Upstream gives this row an Instagram handle and no address; a federation subdomain that does not resolve is not a substitute for either.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 48.87699,
@@ -1369,9 +1361,8 @@
     "name": "Refuge Vertical",
     "country": "FR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — refugeclimbing.com → \"Refuge Climbing and Fitness\", the rest could not be opened — refuge.fr → a timeout; refuge.com → 403; refugebouldering.com → 404 / no answer. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.refugeclimbing.com/"
+    "reason": "OSM puts the \"Gymnase Louis Grignon\" 7 m from this row — a municipal sports hall in Châlons-en-Champagne with no website tag — and the nearest thing that has one is the agglomeration's swimming pool. Refuge Vertical is a club wall inside a municipal gymnasium, and a room in a town's sports hall does not have a site of its own to link.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 49.11961,
@@ -1379,8 +1370,8 @@
     "name": "SUAPS Metz",
     "country": "FR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — suaps.fr → no answer. Upstream records Ile de Saulcy Cosec Gymnase universitaire, 57000, Metz, and nothing opened printed it."
+    "reason": "OSM puts the \"Complexe sportif universitaire\" 65 m from this row, which is what upstream's address — \"Ile de Saulcy Cosec Gymnase\" — already said: this is the wall of the SUAPS, the sports service of the Université de Lorraine, on the Saulcy island campus in Metz. A university sports service is not a venue with a page of its own, and no SUAPS page for this wall could be reached.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 52.406822,
@@ -2459,9 +2450,8 @@
     "name": "Virsotneclimbing",
     "country": "LV",
     "status": "unverified",
-    "checked": "2026-08-25",
-    "reason": "The name resolves to somebody else: virsotne.lv is the VIRSOTNE outdoor shop — \"Veikals VIRSOTNE | Tūrisma inventārs\" — which sells mountaineering kit across Latvia. A shop that shares a name with a wall is not that wall's page, and nothing on it identifies a bouldering room at this coordinate.",
-    "candidate": "https://virsotne.lv/"
+    "reason": "OSM carries an object called \"Virsotne\" 29 m from this row, tagged sport=climbing, and no website tag at all. That is worth recording even though it closes nothing: the venue does stand where upstream says it does, so the coordinate is not what is stopping this row from being linked. No domain reaches it by any channel. It also settles a doubt in the other direction: the venue at this point really is called Virsotne, and virsotne.lv really is the outdoor shop of that name. Sharing a name is all they are shown to share.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 25.7773245,

@@ -69,23 +69,25 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "accepted",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search",
+     "operator-index",
+     "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-08-25",
+    "result": "appointment-only",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe",
+     "booking-page"
     ]
    }
   },
@@ -400,19 +402,19 @@
     "pass": "2026-08-25",
     "result": "unverified",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
+     "web-search"
     ]
    },
    "hours": {
     "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
      "web-search"
@@ -478,18 +480,19 @@
     "pass": "2026-08-25",
     "result": "unverified",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
-     "web-search",
-     "previous-record"
+     "web-search"
     ]
    },
    "hours": {
     "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
      "web-search"
@@ -5416,10 +5419,10 @@
     "result": "unverified",
     "channels": [
      "osm-website-tag",
-     "previous-record",
-     "name-guess",
+     "map-block",
      "apex",
-     "www"
+     "www",
+     "web-search"
     ]
    },
    "hours": {
@@ -5427,10 +5430,10 @@
     "result": "no-official-site",
     "channels": [
      "osm-website-tag",
-     "previous-record",
-     "name-guess",
+     "map-block",
      "apex",
-     "www"
+     "www",
+     "web-search"
     ]
    }
   },
@@ -5913,18 +5916,19 @@
     "pass": "2026-08-25",
     "result": "unverified",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
-     "web-search",
-     "previous-record"
+     "web-search"
     ]
    },
    "hours": {
     "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
      "web-search"
@@ -6568,19 +6572,19 @@
     "pass": "2026-08-25",
     "result": "unverified",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
+     "web-search"
     ]
    },
    "hours": {
     "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
      "web-search"
@@ -12392,17 +12396,18 @@
     "pass": "2026-08-25",
     "result": "unavailable",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
-     "web-search",
-     "redirect"
+     "web-search"
     ]
    },
    "hours": {
     "pass": "2026-08-25",
-    "result": "inaccessible",
+    "result": "no-official-site",
     "channels": [
+     "venue-link",
      "path-probe"
     ]
    }
@@ -12676,22 +12681,22 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "unavailable",
     "channels": [
      "osm-website-tag",
-     "previous-record",
+     "map-block",
      "apex",
-     "www"
+     "www",
+     "web-search"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -13486,22 +13491,22 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
-    "result": "unverified",
+    "pass": "2026-08-25",
+    "result": "unavailable",
     "channels": [
      "osm-website-tag",
-     "previous-record",
+     "map-block",
      "apex",
-     "www"
+     "www",
+     "web-search"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -13608,23 +13613,25 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "unverified",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
-     "www"
+     "www",
+     "web-search"
     ]
    }
   },
@@ -13713,23 +13720,25 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "unverified",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
-     "www"
+     "www",
+     "web-search"
     ]
    }
   },
@@ -20780,11 +20789,10 @@
     "pass": "2026-08-25",
     "result": "unverified",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located",
      "web-search"
     ]
    },
@@ -20792,11 +20800,10 @@
     "pass": "2026-08-25",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
+     "osm-website-tag",
+     "map-block",
      "apex",
      "www",
-     "osm-website-tag",
-     "co-located",
      "web-search"
     ]
    }
