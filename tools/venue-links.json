@@ -14481,6 +14481,20 @@
     "note": "The record here had falkorswalls.com, a wall builder's 13 kB stub. The gym's own site is boulderings.lv — \"Falkors Bouldering Center\", \"Adress Unijas street 14, Riga 3rd floor\" — and this coordinate is Ūnijas iela 14, LV-1084, Teika. The gazetteer names the object at that point Falkors Boulderinga Centrs."
   },
   {
+    "lat": 46.976995,
+    "lon": 28.8597918,
+    "name": "Chisinau Bouldering Project",
+    "country": "MD",
+    "website": "https://bouldering.md/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "geocoded-address"
+    ],
+    "note": "The site names itself Chisinau Bouldering Project and gives Chișinău, Independenței 32/2, which geocodes 37 m from the row. Upstream files the row under Codru; it reverse-geocodes to Bulevardul Cuza-Vodă in Botanica, one street over from Independenței, which is the same corner of the city rather than a conflict."
+  },
+  {
     "lat": 35.88554,
     "lon": 14.47372,
     "name": "Crashpad Climbing Centre",
@@ -17537,6 +17551,20 @@
       "city"
     ],
     "note": "Fabrica de Catarat's own site, giving Bucharest — the city upstream records for Strada 11 Iunie 50. The venue name carries no town of its own, so the two are independent."
+  },
+  {
+    "lat": 46.5382673,
+    "lon": 24.5981647,
+    "name": "Hangout",
+    "country": "RO",
+    "website": "https://www.hang-out.ro/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "geocoded-address"
+    ],
+    "note": "str Livezeni nr 69, Târgu Mureș geocodes 22 m from the row. Upstream holds no address, so the page's own line is what places it."
   },
   {
     "lat": 44.4343,

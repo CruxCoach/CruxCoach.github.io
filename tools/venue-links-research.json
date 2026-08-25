@@ -191,9 +191,9 @@
     "lon": 23.3218675,
     "name": "Bonsist",
     "country": "BG",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. None of bonsist.bg, bonsist.com, bonsistclimbing.bg/.com, bonsistboulder.bg/.com or bonsistbouldering.bg/.com resolves, nor does bonsist.eu. No OSM climbing object within 500 m of the venue carries a website tag, and nothing curated sits within 200 m. The coordinate is not a building: it sits 11 m from OpenStreetMap’s city node for София, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match."
+    "status": "social-only",
+    "reason": "Bonsist in Studentski grad, Sofia publishes on an Instagram and Facebook presence under @bonsistclimbing and nowhere this file can hold. The one domain it points at is somebody else's house: its contact address is bons@sportcentereurope.bg, and sportcentereurope.bg is \"Спортен център Европа\", a general sports centre whose site offers fitness, Shape step, Kangoo Jumps and TRX and has no climbing section at all. A shared mailbox is not a shared website.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 43.4170423,
@@ -1535,10 +1535,9 @@
     "lon": 22.9444191,
     "name": "Crux Thessaloniki moonboard",
     "country": "GR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.crux24.cz → \"CRUX 24 - Lezecké centrum Harrachov\"; www.cruxclimbing.pt → \"Escalada | CRUX - Climbing Center | São Domingos de Rana\"; thecrux.com.au → \"Melbourne Indoor Bouldering / Rock Climbing Coburg, Brun\", the rest could not be opened — crux.gr → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.crux24.cz/"
+    "status": "social-only",
+    "reason": "Crux in Thessaloniki — the gym that brought the first MoonBoard to the city publishes on facebook.com/CruxThessaloniki and an Instagram account and nowhere this file can hold. No domain of its own resolves, and the address it gives out — Ναπολέοντος Ζέρβα 20 — appears only on directories and on those accounts. This field never holds a social profile.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 36.9533092,
@@ -1556,8 +1555,9 @@
     "name": "RockwayBoard",
     "country": "GR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "checked": "2026-08-25",
+    "reason": "rockwayclimbing.com is Rock Way and publishes a full week, and its address is Προβελεγγίου 4, Ηράκλειο 141 22 — which OSM confirms, carrying a \"Rockway\" at exactly that number. It sits 5,565 m from this row. The reason is worth recording: this row reverse-geocodes to Προβελέγγιου 6 in Άνω Πατήσια, Δήμος Αθηναίων. Attica has the street name twice, in two municipalities, and upstream's coordinate landed on the other one. A street line that matches is not a place that matches.",
+    "candidate": "https://rockwayclimbing.com/"
   },
   {
     "lat": 37.9838096,
@@ -1575,8 +1575,8 @@
     "name": "ΟΑΛΠ",
     "country": "GR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "checked": "2026-08-25",
+    "reason": "ΟΑΛΠ is a mountaineering and climbing club in Pyrgos, Ilia, and nothing under that name resolves — oalp.gr does not answer. Greek club walls of this kind are listed through the ΕΟΟΑ and ΟΦΟΕΣΕ federations rather than run as sites, and no page belonging to this club could be found by any channel."
   },
   {
     "lat": 47.2306851,
@@ -2464,16 +2464,6 @@
     "candidate": "https://virsotne.lv/"
   },
   {
-    "lat": 46.976995,
-    "lon": 28.8597918,
-    "name": "Chisinau Bouldering Project",
-    "country": "MD",
-    "status": "unverified",
-    "reason": "bouldering.md is this gym's domain — OSM maps Chisinau Bouldering Project 56 m away and tags it, and an archived copy is titled \"Chisinau Bouldering Project — скалодром в Молдове, Кишинёв\". Its /visit page answered once today, at 07:02 UTC, with a Google Maps embed at 46.9766,28.8601, 55 m from this coordinate; every request since, on three paths and two header sets, has come back as a Cloudflare challenge. One reading that cannot be repeated is not a second signal, so this stays open with the finding written down for the next pass.",
-    "candidate": "https://bouldering.md/",
-    "checked": "2026-08-24"
-  },
-  {
     "lat": 25.7773245,
     "lon": -109.0155187,
     "name": "ASCEND Climbing",
@@ -3044,16 +3034,6 @@
     "checked": "2026-08-24"
   },
   {
-    "lat": 46.5382673,
-    "lon": 24.5981647,
-    "name": "Hangout",
-    "country": "RO",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — hangout.com → \"Checking your browser...\", the rest could not be opened — hangout.ro → a timeout, the venue's whole name as one label, hangout.ro, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://hangout.com/"
-  },
-  {
     "lat": 46.1620524,
     "lon": 21.3183886,
     "name": "One Move Arad",
@@ -3068,10 +3048,9 @@
     "lon": 22.8779534,
     "name": "Qbik Climbing Center",
     "country": "RO",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — qbik.com → \"WinGate Proxy Server. Web Proxy for Windows\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.wingate.com/"
+    "status": "social-only",
+    "reason": "Qbik Climbing Center in Satu Mare publishes on facebook.com/QbikClimbing and instagram.com/qbik.climbingcenter and nowhere this file can hold. No domain of its own resolves, and the address it gives out — Strada Gheorghe Barițiu 25 — appears only on directories and on those accounts. This field never holds a social profile.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 47.1401745,
@@ -3079,9 +3058,8 @@
     "name": "Sălița de Cățărat",
     "country": "RO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — salita.com → \"SALITA.COM | Strategic-Grade domain names for establishe\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://salita.com/"
+    "checked": "2026-08-25",
+    "reason": "Sălița de Cățărat is the training hall of Alpin Club Repedea Iași, founded 2004, and it appears only through others: activity directories and the club-listings site that carries it. alpinclubrepedea.ro does not resolve. Iași's other halls — Climb Again, Groove Bouldering — do run their own sites, which is how this one was told apart from them rather than confused with them."
   },
   {
     "lat": 46.7836633,
