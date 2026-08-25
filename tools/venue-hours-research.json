@@ -282,9 +282,8 @@
   "name": "Crank Indoor Climbing",
   "country": "AU",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://crankclimbing.com.au/",
-  "reason": "The gym's own site answers 403 to every fetcher and header set. Its week may well be on it; nothing here can read it, and a schedule is not something to take from a snapshot two years old."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under crankclimbing.com.au, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": -37.9598854,
@@ -749,9 +748,8 @@
   "name": "Beta Bloc",
   "country": "CA",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.betabloc.ca/",
-  "reason": "The gym's own site answers 403 to every fetcher and header set. Its \"Heures d'ouverture\" heading is visible in an archived copy, but a schedule is not something to take from a snapshot."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under betabloc.ca, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 44.24383,
@@ -876,9 +874,9 @@
   "name": "Grand River Rocks Waterloo",
   "country": "CA",
   "status": "inaccessible",
+  "checked": "2026-08-25",
   "source": "https://grandriverrocks.com/waterloo/",
-  "reason": "The host now answers, and what it answers with is a block page: \"Access Restricted · IP Location Block ... The website owner has enabled geographic access controls. Your current location is not on their list of permitted regions, so the request was blocked before it reached the site.\" Nothing of the gym's own page is served to this reader.",
-  "checked": "2026-08-24"
+  "reason": "grandriverrocks.com does not refuse us, it relocates us: every request is redirected to blocked.iplocationblock.com, which explains itself plainly — \"The website owner has enabled geographic access controls. Your current location is not on their list of permitted regions, so the request was blocked before it reached the site.\" A different failure from a WAF, and worth naming as such: the page is not defended against us, it is simply not offered to where we are."
  },
  {
   "lat": 49.7016339,
@@ -1055,9 +1053,9 @@
   "name": "The Cove Bouldering + Cafe",
   "country": "CA",
   "status": "inaccessible",
+  "checked": "2026-08-25",
   "source": "https://www.covebouldering.com/hours",
-  "reason": "The site has a page called Hours and it renders in the browser: what arrives is 725 bytes of navigation with no times in it. The getting-here page, built the same way, does serve its text, so this is one page rather than the whole site. Retry when it serves.",
-  "checked": "2026-08-25"
+  "reason": "The Cove publishes an /hours page and links it from the footer of every other page, so the venue does state a week. What is served for that URL is 407 characters of navigation chrome and nothing else — the block holding the hours is assembled in the browser. Its FAQ and café-menu pages serve their text normally, so this is one embedded block rather than a site-wide render."
  },
  {
   "lat": 49.2193226,
@@ -1843,9 +1841,8 @@
   "name": "Boulderhaus Darmstadt",
   "country": "DE",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.boulderhaus.net/darmstadt/",
-  "reason": "Boulderhaus answers 403 to every fetcher and header set on every host, so its week cannot be read, and it is not taken from the archived copy the link rests on."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under boulderhaus.net, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 49.88094719999999,
@@ -1853,9 +1850,8 @@
   "name": "Boulderhaus Darmstadt",
   "country": "DE",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.boulderhaus.net/darmstadt/",
-  "reason": "Boulderhaus answers 403 to every fetcher and header set on every host, so its week cannot be read, and it is not taken from the archived copy the link rests on."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under boulderhaus.net, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 49.38701,
@@ -1863,9 +1859,8 @@
   "name": "Boulderhaus Heidelberg",
   "country": "DE",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.boulderhaus.net/heidelberg/",
-  "reason": "Boulderhaus answers 403 to every fetcher and header set on every host, so its week cannot be read, and it is not taken from the archived copy the link rests on."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under boulderhaus.net, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 49.5178159,
@@ -1873,9 +1868,8 @@
   "name": "Boulderhaus Mannheim",
   "country": "DE",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.boulderhaus.net/mannheim/",
-  "reason": "Boulderhaus answers 403 to every fetcher and header set on every host, so its week cannot be read, and it is not taken from the archived copy the link rests on."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under boulderhaus.net, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 49.51846,
@@ -1883,9 +1877,8 @@
   "name": "Boulderhaus Mannheim",
   "country": "DE",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.boulderhaus.net/mannheim/",
-  "reason": "Boulderhaus answers 403 to every fetcher and header set on every host, so its week cannot be read, and it is not taken from the archived copy the link rests on."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under boulderhaus.net, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 48.49913,
@@ -1893,9 +1886,8 @@
   "name": "Boulderhaus Reutlingen",
   "country": "DE",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.boulderhaus.net/reutlingen/",
-  "reason": "Boulderhaus answers 403 to every fetcher and header set on every host, so its week cannot be read, and it is not taken from the archived copy the link rests on."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under boulderhaus.net, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 50.937531,
@@ -1923,9 +1915,8 @@
   "name": "Crimp Boulderhalle",
   "country": "DE",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.crimp-heidelberg.com/",
-  "reason": "The hall's own site answers 403 to every fetcher and header set, so its week cannot be read, and it is not taken from the snapshot the link rests on."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under crimp-heidelberg.com, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 47.84818,
@@ -3467,9 +3458,8 @@
   "name": "Street Rocks",
   "country": "GB",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://cavca.org.uk/street-rocks/",
-  "reason": "The operator's site answers 403 and 401 to every fetcher and header set, so the wall's week cannot be read, and it is not taken from the snapshot the link rests on."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under cavca.org.uk, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 53.34023200000001,
@@ -4499,9 +4489,9 @@
   "name": "MOVEMENT Climbing Space",
   "country": "JP",
   "status": "inaccessible",
+  "checked": "2026-08-25",
   "source": "https://movementclimbingsp.wixsite.com/movement/price-time",
-  "reason": "The site has a page called 料金＆営業時間 and it renders in the browser: 354 bytes of navigation arrive, with the prices and the week among the parts that never do.",
-  "checked": "2026-08-25"
+  "reason": "The Wix site has a 料金＆営業時間 (Price & Hours) page and it is in the main navigation, but the served body is the heading 新規向けプラン and nothing more; the schedule is drawn client-side. Every page does serve the address, 〒963-8874 福島県郡山市深沢1丁目4-20, which is how the link was verified — but an address is not a week."
  },
  {
   "lat": 33.2395578,
@@ -7532,9 +7522,8 @@
   "name": "First Ascent Arlington Heights",
   "country": "US",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://faclimbing.com/arlington-heights/",
-  "reason": "The operator's site answers 403 to every fetcher and header set, so its week cannot be read. It is not taken from the archived copy the link rests on, because a schedule is exactly what changes between a snapshot and today."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under faclimbing.com, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 41.88408,
@@ -7542,9 +7531,8 @@
   "name": "First Ascent Block 37",
   "country": "US",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://faclimbing.com/chicago/block-37/",
-  "reason": "The operator's site answers 403 to every fetcher and header set, so its week cannot be read. It is not taken from the archived copy the link rests on, because a schedule is exactly what changes between a snapshot and today."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under faclimbing.com, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 40.43301,
@@ -7552,9 +7540,8 @@
   "name": "First Ascent Climbing Station Square",
   "country": "US",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://faclimbing.com/pittsburgh/station-square/",
-  "reason": "The operator's site answers 403 to every fetcher and header set, so its week cannot be read. It is not taken from the archived copy the link rests on, because a schedule is exactly what changes between a snapshot and today."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under faclimbing.com, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 41.88035,
@@ -7562,9 +7549,8 @@
   "name": "First Ascent West Loop",
   "country": "US",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://faclimbing.com/chicago/west-loop/",
-  "reason": "The operator's site answers 403 to every fetcher and header set, so its week cannot be read. It is not taken from the archived copy the link rests on, because a schedule is exactly what changes between a snapshot and today."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under faclimbing.com, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 35.20247,
@@ -7592,9 +7578,8 @@
   "name": "G1 Climbing + Fitness Broomfield",
   "country": "US",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.g1climbing.com/",
-  "reason": "The gym's own host answers 403 and its apex does not complete a TLS handshake from here, so no week can be read from it. It is not taken from the snapshot the link rests on."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under g1climbing.com, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 39.90652,
@@ -7602,9 +7587,8 @@
   "name": "G1 Climbing + Fitness Broomfield",
   "country": "US",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.g1climbing.com/",
-  "reason": "The same hall as the entry 17 m away: the host answers 403 and its apex does not complete a TLS handshake from here, so no week can be read."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under g1climbing.com, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 38.24316,
@@ -7621,9 +7605,8 @@
   "name": "Goat Climbing Gym",
   "country": "US",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://goatclimbinggym.com/",
-  "reason": "The gym's own site answers 403 to every fetcher and header set, so its week cannot be read, and it is not taken from the snapshot the link rests on."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under goatclimbinggym.com, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
   "lat": 39.21917,
@@ -7718,9 +7701,8 @@
   "name": "IBEX Climbing Gym",
   "country": "US",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://www.climbibex.com/",
-  "reason": "The site has a Location and Hours page in its navigation; the host answers 403 and the archive has never captured that path, so there is nothing to read the week from."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under ibexclimbinggym.com, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read. Worth recording: the linked domain climbibex.com no longer serves the site itself — it now redirects to ibexclimbinggym.com, and that is where the 403 comes from. The link still reaches the venue, by one hop."
  },
  {
   "lat": 43.2018837,
@@ -8437,9 +8419,8 @@
   "name": "The Proving Ground",
   "country": "US",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://tpgbouldering.com/",
-  "reason": "The host answers 403 to every fetcher. The snapshot that settled the link carries a week under the heading Regular Hours, and a week is not taken from a snapshot."
+  "checked": "2026-08-25",
+  "reason": "tpgbouldering.com resolves and its origin answers HTTP 520 — the CDN reached the server and got nothing it could serve. Not a refusal, a broken origin, and equally unreadable."
  },
  {
   "lat": 37.8715226,
@@ -8505,9 +8486,8 @@
   "name": "University of Minnesota Climbing Program",
   "country": "US",
   "status": "inaccessible",
-  "checked": "2026-08-24",
-  "source": "https://recwell.umn.edu/adventure/climbing/climbing-bouldering",
-  "reason": "The university's site answers 403 to every fetcher and header set. Its climbing page does publish a week — the archived copy shows \"Monday - Thursday 12:00 - 11:00 pm, Friday 12:00 - 10…\" and a separate open-bouldering table — and it is not taken from a snapshot, because a schedule is exactly what changes between the capture and today."
+  "checked": "2026-08-25",
+  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under recwell.umn.edu, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read. The university's recreation site is the venue's own page for this wall, and it is the whole site that is closed to us, not the climbing section."
  },
  {
   "lat": 27.6648274,
@@ -8582,9 +8562,8 @@
   "name": "Whetstone Climbing",
   "country": "US",
   "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://whetstoneclimbing.com/",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use. It stays in the retry queue."
+  "checked": "2026-08-25",
+  "reason": "whetstoneclimbing.com does not complete a connection on apex or www, over repeated tries with generous timeouts. The name resolves; nothing answers behind it."
  },
  {
   "lat": 37.99022,
