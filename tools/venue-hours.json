@@ -29099,6 +29099,32 @@
   "note": "Every day listed separately on the gym's own Location + Hours page, above its address. Friday alone opens later than the other weekdays."
  },
  {
+  "lat": 35.257508,
+  "lon": -120.641772,
+  "name": "The Pad Climbing San Luis Obispo",
+  "country": "US",
+  "source": "https://thepadclimbing.org/san-luis-obispo/",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-22:00",
+   "sun": "10:00-22:00"
+  },
+  "evidence": "THE PAD CLIMBING - SLO Location: 888 Ricardo Court San Luis Obispo, CA 93401 Phone: (844) 254-6287 Hours: Monday – Friday: 11am-10pm Saturday – Sunday: 10am-10pm Members get 24/7 access!",
+  "note": "On this hall's own page, under this hall's address. The 24/7 access advertised beside it is a membership rather than an opening."
+ },
+ {
   "lat": 37.51078,
   "lon": -121.95102,
   "name": "The Peak of Fremont",

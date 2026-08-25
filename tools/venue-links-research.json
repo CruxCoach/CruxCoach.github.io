@@ -4426,10 +4426,10 @@
     "lon": -82.54514,
     "name": "Fiddlehead",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — fiddlehead.com → \"Transform Your Business with AI-Powered Data Insights\"; fiddlehead.net → \"Fiddlehead Farm\", the rest could not be opened — fiddlehead.org → 200, the venue's whole name as one label, fiddlehead.com, answers 301 (\"301 Moved Permanently\") but its pages print no street, postal code or town matching this venue. Upstream records 701 Old Fanning Bridge Rd, 28732, Mills River, and nothing opened printed it.",
-    "candidate": "https://www.fiddlehead.com/"
+    "status": "closed",
+    "candidate": "https://fiddleheadff.com/",
+    "reason": "fiddleheadff.com is unquestionably this venue — \"ADDRESS: 701 Old Fanning Bridge Road Fletcher, North Carolina, 28732\" is upstream's street and postcode, and the climbing page names \"two 10-ft KILTER boards\" for a row upstream lists as a kilter. The site also carries, on its front page, \"Fiddlehead is Closing — Fiddlehead will be closing its doors, with our final day of operation on Sunday, August 30.\" Recorded here rather than published: the link would be live for five days and wrong afterwards, and nothing re-reads it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.563788,
@@ -4594,16 +4594,6 @@
     "reason": "No official site could be established: no candidate could be opened — metalmark.com → 503; metalmark.net → no answer / a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 45.00576,
-    "lon": -93.24989,
-    "name": "Minnesota Climbing Cooperative",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — minnesotaclimbing.org → \"On belay!\", the rest could not be opened — minnesota.com → 403; minnesota.net → 200; minnesota.org → 200. Upstream records 1620 Central Ave NE #178, 55413, Minneapolis, and nothing opened printed it.",
-    "candidate": "https://minnesotaclimbing.org/"
-  },
-  {
     "lat": 40.0647951,
     "lon": -82.5204425,
     "name": "Nightmare on Elm St",
@@ -4677,9 +4667,9 @@
     "name": "Revival Climbing Coalition",
     "country": "US",
     "status": "unverified",
-    "candidate": "https://revivalclimbing.com/",
-    "reason": "No official site could be established: revivalclimbing.com is the Revival Climbing Coalition's shop, and what it sells is walls: Adjustable Walls, Custom Flooring, Standard Mats. There is no gym on it and no address for one.",
-    "checked": "2026-08-24"
+    "candidate": "https://www.revivalclimbing.com/",
+    "reason": "No official site could be established: revivalclimbing.com is the Revival Climbing Coalition, and it sells adjustable climbing walls, custom flooring and crash pads. It has four pages — walls, flooring, mats, shop — publishes no hall, no address and no hours, and its contact page is a bare form. The name matches and nothing else does, which is one signal.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 45.1093,
@@ -4688,8 +4678,8 @@
     "country": "US",
     "status": "unverified",
     "candidate": "https://www.revivalclimbing.com/",
-    "reason": "No official site could be established, and the handle now says the company is right. revivalclimbing.com links instagram.com/revival_climbing, which is exactly the handle upstream records for this row — two parties agreeing about the account. What the site is, though, is the Coalition's product business: Adjustable Walls, Custom Flooring, Standard Mats, Shop, Our Story. Its contact page is a form with no address, its story page has none either, and two rows 15 km apart — this one and the Minneapolis one — would both have to claim it.",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: revivalclimbing.com is the Revival Climbing Coalition, and it sells adjustable climbing walls, custom flooring and crash pads. It has four pages — walls, flooring, mats, shop — publishes no hall, no address and no hours, and its contact page is a bare form. The name matches and nothing else does, which is one signal.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 39.848989,
@@ -4851,23 +4841,14 @@
     "candidate": "https://mine.com/"
   },
   {
-    "lat": 35.257508,
-    "lon": -120.641772,
-    "name": "The Pad Climbing San Luis Obispo",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — thepadclimbing.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
     "lat": 36.05224,
     "lon": -115.02411,
     "name": "The Pad Henderson",
     "country": "US",
-    "status": "unverified",
-    "candidate": "https://hendersonrocks.com/",
-    "reason": "No official site could be established: hendersonrocks.com is a family landscaping-materials business in Menomonie, Wisconsin, selling rock mulch and compost. The town in the name is a surname.",
-    "checked": "2026-08-24"
+    "status": "closed",
+    "candidate": "https://thepadclimbing.org/important-update-henderson-location-closure/",
+    "reason": "The operator's own notice closes it: \"We regret to inform you that our Henderson location will be closing on December 31, 2024 due to a significant increase in rent.\" The Pad's locations are now Binghamton, Santa Barbara and San Luis Obispo, with a Las Vegas hall at 9400 W Sahara described as projected for early 2027 — a different address and not yet built. A link to the notice is not a website for this venue.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.8715226,

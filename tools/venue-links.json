@@ -21447,6 +21447,22 @@
     "note": "The Turners are a society with a hall, and Rock Climbing at Turner Hall is one of the things in it. Their address is \"1034 North Vel R. Phillips Ave. Milwaukee, WI 53203\"; the coordinate reverse-geocodes to 1040 Vel R. Phillips Avenue, 53203 — the same street, the same postcode, the building next door."
   },
   {
+    "lat": 45.00576,
+    "lon": -93.24989,
+    "name": "Minnesota Climbing Cooperative",
+    "country": "US",
+    "website": "https://www.mnclimbingcoop.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The co-op's own site gives \"MN Climbing Co-op 1620 Central Ave NE, Suite 178 Minneapolis, MN 55413\" in the footer of every page — upstream's street, suite, postcode and town — and describes the hall in the historic Thorp Building."
+  },
+  {
     "lat": 30.3327,
     "lon": -95.46501,
     "name": "Moco Bouldering and Fitness",
@@ -24498,6 +24514,22 @@
       "city"
     ],
     "note": "The candidate's own pages carry the street line \"1030 white\", the town Atlanta, under the venue's name."
+  },
+  {
+    "lat": 35.257508,
+    "lon": -120.641772,
+    "name": "The Pad Climbing San Luis Obispo",
+    "country": "US",
+    "website": "https://thepadclimbing.org/san-luis-obispo/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "The Pad runs its halls from thepadclimbing.org, each on its own page: \"THE PAD CLIMBING - SLO Location: 888 Ricardo Court San Luis Obispo, CA 93401\". The page's gym-at-a-glance table lists the training walls as \"Tension, spray, campus\" — the board upstream records for this row. Upstream carries no address here, so the town is what the street line would otherwise confirm."
   },
   {
     "lat": 37.51078,

@@ -7906,9 +7906,10 @@
   "lon": -82.54514,
   "name": "Fiddlehead",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "closed",
+  "source": "https://fiddleheadff.com/hours/",
+  "reason": "The hours page states a full week — \"CLIMB/FITNESS HOURS Sunday: 8am–9pm Mon–Thurs: 12pm–8pm Friday: 12pm–7pm … Fiddlehead is closed every Saturday\" — but the venue has announced its final day of operation as Sunday 30 August 2026. A week published now outlives the gym by a few days and then misleads indefinitely.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 42.09078035751713,
@@ -8268,9 +8269,10 @@
   "lon": -93.24989,
   "name": "Minnesota Climbing Cooperative",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://www.mnclimbingcoop.com/open-hours",
+  "reason": "The co-op states \"Sundays from 11a—3p, Mondays from 5:30p—9:30p, First Fridays from 6p—9p\". Two of those are weekly and the third is monthly, so there is no week that is true every week: recording Friday as closed would be wrong once a month, and recording it as open would be wrong the other three times. Members hold a fob for 24/7 access, which is not an opening either.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 40.03007,
@@ -8431,8 +8433,8 @@
   "name": "Revival Climbing Coalition",
   "country": "US",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 45.1093,
@@ -8440,8 +8442,8 @@
   "name": "Revival Climbing Coalition",
   "country": "US",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 39.848989,
@@ -8868,22 +8870,14 @@
   "reason": "The gym publishes \"Summer Hours Monday-Friday 12:00-9:00 pm, Saturday 9:00 am-9:00pm, Sunday 9:00 am-7:00 pm\" and no regular-season week beside them. It separately reserves Mon/Tue/Thu/Fri 9am-12pm and Wednesday 5:30am-12pm for members, with no non-member guests during those hours."
  },
  {
-  "lat": 35.257508,
-  "lon": -120.641772,
-  "name": "The Pad Climbing San Luis Obispo",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 36.05224,
   "lon": -115.02411,
   "name": "The Pad Henderson",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "closed",
+  "source": "https://thepadclimbing.org/important-update-henderson-location-closure/",
+  "reason": "The hall shut on 31 December 2024 by its operator's own announcement, so there is no schedule to record.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 40.50952,
