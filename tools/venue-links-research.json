@@ -1603,9 +1603,8 @@
     "name": "Ballroom Moonboard",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "ballroom.com answers 522 on www and carries nothing that names Coventry; ballroomclimbing.co.uk and ballroomclimbing.com both answer 404. \"Ballroom Moonboard\" is a room nickname plus a board model.",
-    "candidate": "https://ballroom.com/"
+    "reason": "No official site could be established: the coordinate is Coventry's own centre point and nothing published in the city carries this name. Ballroom Moonboard reads as a board in a room somebody named, not a venue.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 51.5072178,
@@ -1613,9 +1612,8 @@
     "name": "Caffeine Heights (aka Ben's Moon Board)",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "caffeine.co.uk and caffeine.uk answer 403 to every fetcher and caffeine.com answers 500. The dataset name — \"Caffeine Heights (aka Ben's Moon Board)\" — is a private board under a nickname, and the coordinate is the centre of London.",
-    "candidate": "https://caffeine.co.uk/"
+    "reason": "No official site could be established, and the row is unlikely to be a venue: upstream calls it \"Caffeine Heights (aka Ben's Moon…)\" and places it at 51.5072,-0.1276, which is the value every gazetteer returns for the city of London itself. A private board given a joke name and a city centroid is not a place that can be verified.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 19.29568,
@@ -1632,8 +1630,8 @@
     "name": "Eshaness Schoolroom",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all: the name \"Eshaness Schoolroom\" yields no domain, no OSM climbing object within 500 m of this Shetland coordinate carries a website, and nothing curated is within 200 m."
+    "reason": "No official site could be established: Eshaness is a headland on the north-west of Shetland Mainland, and nothing published there carries this name as a venue. Shetland's only indoor wall, by the Recreational Trust's own account, is at the West Mainland Leisure Centre in Aith, 30 km south — \"the only one in Shetland, making it the most northerly climbing wall in the UK\". A board in a former schoolroom on that coast is a private one.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 54.328006,
@@ -1641,8 +1639,8 @@
     "name": "Kendal Board",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "kendal.co.uk and kendal.uk answer with nothing that names a climbing venue, and kendal.com presents a certificate that does not cover its hostname. \"Kendal Board\" is a board in a town, not a business name — the Lakeland operator's KendalWall is a separate, already-curated venue."
+    "reason": "No official site could be established: the coordinate reverse-geocodes to a dwelling — the gazetteer object at the point is tagged place=house — and no venue publishes under this name in or around Kendal. The name itself, Kendal Board, describes a board rather than a business.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 50.73215039999999,
@@ -1697,10 +1695,10 @@
     "lon": -2.585278,
     "name": "The GMC",
     "country": "GB",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "thegmc.com answers with nothing that names Guernsey or a climbing wall, and no other domain resolves for \"The GMC\".",
-    "candidate": "https://thegmc.com/"
+    "status": "unavailable",
+    "candidate": "https://www.gmc.org.gg/",
+    "reason": "The venue is the Guernsey Mountaineering Club's own bouldering cave — the club describes itself as having access to two indoor walls and running a cave of its own — and gmc.org.gg is its site. Every request to it, apex and www, http and https, front page and bouldering page alike, is answered 403. Nothing on it can be read from here.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 50.5299891,
@@ -1717,18 +1715,17 @@
     "name": "The Rock",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "therock.com and the-rock.co.uk present certificates that do not cover their hostnames, therock.uk does not answer and the-rock.com carries nothing about a wall in Gwynedd. The coordinate is not a building: it sits 31 m from OpenStreetMap’s town node for Harlech, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match."
+    "reason": "No official site could be established: nothing published on the Llŷn peninsula carries this name as a climbing venue, and \"The Rock\" is too generic to test: every candidate domain belongs to somebody else. Upstream holds no address, no town and no handle for the row.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 53.386304,
     "lon": -1.47619,
     "name": "The School Room",
     "country": "GB",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "theschoolroom.co.uk is a venue for hire in Bratton Clovelly, 400 km away; schoolroom.uk is an empty page and school.com a placeholder. \"The School Room\" in Sheffield is a private board.",
-    "candidate": "https://theschoolroom.co.uk/"
+    "status": "private",
+    "reason": "The School Room is the Sheffield training cellar the MoonBoard descends from, and Moon Climbing's own history of it says what it is: \"at the back of an industrial unit in Sheffield lies a reminder of a simpler age … the early Schoolroom pioneers\". It is a private training room reached by invitation, not a venue with a door, and it publishes nothing.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 51.5946799,
@@ -1736,8 +1733,8 @@
     "name": "YM Board",
     "country": "GB",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "ymboard.com does not resolve on either host, and no OSM climbing object within 500 m of Briton Ferry carries a website. \"YM Board\" is initials plus a board model."
+    "reason": "No official site could be established: nothing published in Briton Ferry or Neath carries this name as a venue, and no plausible domain resolves. YM Board reads as a board in a YMCA or similar hall rather than a business with its own door.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 41.71807,
