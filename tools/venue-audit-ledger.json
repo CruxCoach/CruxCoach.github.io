@@ -9848,9 +9848,11 @@
      "name-guess",
      "apex",
      "www",
+     "osm-website-tag",
+     "co-located",
      "web-search",
-     "operator-index",
-     "path-probe"
+     "redirect",
+     "co-located"
     ]
    },
    "hours": {
@@ -9860,7 +9862,11 @@
      "name-guess",
      "apex",
      "www",
-     "web-search"
+     "osm-website-tag",
+     "co-located",
+     "web-search",
+     "redirect",
+     "co-located"
     ]
    }
   },
@@ -14659,21 +14665,23 @@
    ],
    "website": {
     "pass": "2026-08-25",
-    "result": "unverified",
+    "result": "closed",
     "channels": [
      "name-guess",
      "apex",
      "www",
+     "osm-website-tag",
+     "co-located",
      "web-search",
-     "path-probe",
-     "redirect"
+     "operator-index"
     ]
    },
    "hours": {
     "pass": "2026-08-25",
-    "result": "no-official-site",
+    "result": "closed",
     "channels": [
-     "operator-index"
+     "venue-link",
+     "web-search"
     ]
    }
   },
@@ -14688,21 +14696,23 @@
    ],
    "website": {
     "pass": "2026-08-25",
-    "result": "unverified",
+    "result": "closed",
     "channels": [
      "name-guess",
      "apex",
      "www",
+     "osm-website-tag",
+     "co-located",
      "web-search",
-     "path-probe",
-     "redirect"
+     "operator-index"
     ]
    },
    "hours": {
     "pass": "2026-08-25",
-    "result": "no-official-site",
+    "result": "closed",
     "channels": [
-     "operator-index"
+     "venue-link",
+     "web-search"
     ]
    }
   },
@@ -18242,8 +18252,10 @@
      "name-guess",
      "apex",
      "www",
+     "osm-website-tag",
+     "co-located",
      "web-search",
-     "previous-record"
+     "co-located"
     ]
    },
    "hours": {
@@ -18253,7 +18265,10 @@
      "name-guess",
      "apex",
      "www",
-     "web-search"
+     "osm-website-tag",
+     "co-located",
+     "web-search",
+     "co-located"
     ]
    }
   },
@@ -31997,21 +32012,22 @@
    ],
    "website": {
     "pass": "2026-08-25",
-    "result": "unverified",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
+     "co-located",
+     "venue-link",
      "web-search",
-     "social-profile",
-     "co-located"
+     "apex"
     ]
    },
    "hours": {
     "pass": "2026-08-25",
-    "result": "ambiguous",
+    "result": "seasonal",
     "channels": [
-     "co-located"
+     "co-located",
+     "venue-link",
+     "web-search",
+     "apex"
     ]
    }
   },

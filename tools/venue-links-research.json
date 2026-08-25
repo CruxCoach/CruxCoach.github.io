@@ -1022,9 +1022,9 @@
     "name": "Stuntwerk Kirchheim",
     "country": "DE",
     "status": "unverified",
-    "candidate": "https://stuntwerk.de/",
-    "reason": "No official site could be established: Stuntwerk is a real chain and stuntwerk.de lists all of its halls — Duisburg, Essen, Köln Mülheim, Köln Zollstock, Krefeld, Rosenheim, Senden, Troisdorf, Trostberg — and Kirchheim is not among them. Whatever stands at this coordinate in Kirchheim unter Teck is not one of the chain's locations, or is no longer, and nothing else publishes under this name.",
-    "checked": "2026-08-25"
+    "checked": "2026-08-25",
+    "reason": "Stuntwerk lists nine halls — Duisburg, Essen, Köln Mülheim, Köln Zollstock, Krefeld, Rosenheim, Senden, Troisdorf, Trostberg — and Kirchheim is not one of them; stuntwerk-kirchheim.de redirects to the chain root rather than to a location page, which is not how Senden behaves (stuntwerk-senden.de serves its own site). The hall itself looks to be alive under another name: TOP Boulder Kirchheim gives its address as \"Stuttgarter Straße 47, 73230 Kirchheim unter Teck … Auf dem OFA\", the Otto-Ficker-Areal, and Stuntwerk Kirchheim's address was Otto-Ficker-Straße 9 on that same site. TOP Boulder is already a separate, linked row 850 m from this one. What stops this being recorded as a duplicate is the coordinate: this row reverse-geocodes to Dreikönigstraße 4 in the town centre, 745 m from Otto-Ficker-Straße, so the point does not sit on the hall either name would put it at.",
+    "candidate": "https://stuntwerk.de/"
   },
   {
     "lat": 49.9913901,
@@ -1441,9 +1441,9 @@
     "lon": -0.20453,
     "name": "The Boardroom Climbing Ltd. Wimbledon",
     "country": "GB",
-    "status": "unverified",
+    "status": "closed",
     "candidate": "https://theboardroomclimbing.com/",
-    "reason": "The Wimbledon hall is real — Upper Level, Wimbledon Quarter, 4 Queens Road SW19, with a MoonBoard and a Kilter Board, which is why upstream carries it as two rows 20 m apart — and it belongs to the same company, whose address there is wimbledon@theboardroomclimbing.com. The company's site is not about it: theboardroomclimbing.com publishes one hall, \"The BOARDROOM Climbing Ltd, Rectors Ln., Pentre, Queensferry, North Wales CH5 2DH\", with that hall's opening hours, and the word Wimbledon appears nowhere on it. /wimbledon/ and the FAQ item search still indexes both answer 404, and theboardroomclimbing.co.uk resolves without serving. A link to the Welsh gym's page is not a link to this one.",
+    "reason": "The operator's site is now a single-gym site: its Find Us page gives one address — Rectors Ln., Pentre, Queensferry, North Wales CH5 2DH — one phone number and one week, and a site-wide search for \"Wimbledon\" returns nothing at all. The Wimbledon branch, which had its own address at Wimbledon Quarter and its own wimbledon@ mailbox, announced in May 2025 that it would close permanently on 8 June 2025, citing leaks, rent and footfall. The operator having removed it from its own site is the part this record rests on. Upstream lists the hall twice, 20 m apart; both rows are the same closed gym.",
     "checked": "2026-08-25"
   },
   {
@@ -1451,9 +1451,9 @@
     "lon": -0.2042062,
     "name": "The Boardroom Wimbledon",
     "country": "GB",
-    "status": "unverified",
+    "status": "closed",
     "candidate": "https://theboardroomclimbing.com/",
-    "reason": "The Wimbledon hall is real — Upper Level, Wimbledon Quarter, 4 Queens Road SW19, with a MoonBoard and a Kilter Board, which is why upstream carries it as two rows 20 m apart — and it belongs to the same company, whose address there is wimbledon@theboardroomclimbing.com. The company's site is not about it: theboardroomclimbing.com publishes one hall, \"The BOARDROOM Climbing Ltd, Rectors Ln., Pentre, Queensferry, North Wales CH5 2DH\", with that hall's opening hours, and the word Wimbledon appears nowhere on it. /wimbledon/ and the FAQ item search still indexes both answer 404, and theboardroomclimbing.co.uk resolves without serving. A link to the Welsh gym's page is not a link to this one.",
+    "reason": "The operator's site is now a single-gym site: its Find Us page gives one address — Rectors Ln., Pentre, Queensferry, North Wales CH5 2DH — one phone number and one week, and a site-wide search for \"Wimbledon\" returns nothing at all. The Wimbledon branch, which had its own address at Wimbledon Quarter and its own wimbledon@ mailbox, announced in May 2025 that it would close permanently on 8 June 2025, citing leaks, rent and footfall. The operator having removed it from its own site is the part this record rests on. Upstream lists the hall twice, 20 m apart; both rows are the same closed gym.",
     "checked": "2026-08-25"
   },
   {
@@ -1982,9 +1982,9 @@
     "name": "CRUX Osaka",
     "country": "JP",
     "status": "unverified",
-    "candidate": "https://www.crux-jp.com/crux-osaka/",
-    "reason": "The second CRUX Osaka row sits 12 km from the first, in central Osaka, and the operator has one hall: CRUX 大阪 in Suita, at 広芝町16-9, which is where the other row is. The name resolves and the place does not, so this row keeps the name as its only signal.",
-    "checked": "2026-08-25"
+    "checked": "2026-08-25",
+    "reason": "crux-jp.com is the official site of クライミングジム CRUX and describes exactly one facility: \"CRUX（クラックス）は大阪・江坂にあるクライミング／ボルダリング施設です\" — Esaka, in Suita. Every price and every opening line on the site is headed 【 CRUX 大阪 】, singular. That facility is already linked, as the row at 34.7546,135.4994; this row sits 10 km south in central Osaka. Upstream has two rows called CRUX Osaka and the site supports only one of them.",
+    "candidate": "https://www.crux-jp.com/crux-osaka/"
   },
   {
     "lat": 35.274461,
@@ -3626,16 +3626,6 @@
     "status": "unverified",
     "candidate": "https://theedgehalfmoon.com/",
     "reason": "The gym is real and findable — The Edge Halfmoon, theedgehalfmoon.com, 1544 Route 9 — but it is not here. This row sits at 42.65258,-73.75623, in downtown Albany; the town of Halfmoon is 19.7 km north of it. Upstream files the row under Albany and carries no street line, so what the coordinate points at is a city rather than the hall, and a link would put a correct site on a marker two towns away from the gym.",
-    "checked": "2026-08-25"
-  },
-  {
-    "lat": 42.83418,
-    "lon": -108.72755,
-    "name": "Elemental Performance + Fitness",
-    "country": "US",
-    "status": "unverified",
-    "candidate": "https://lmntl.net/",
-    "reason": "This row and the one 37 m away are both called Elemental Performance + Fitness, and lmntl.net is certainly the gym. It cannot be attached here: the only signal that holds for this row is the name, because the site names the Tension Board 2 and says nothing about a grasshopper, upstream records no address or town for either row, and the site links no social account carrying the handle upstream holds. One signal is not two, and the neighbouring row is the one the evidence fits.",
     "checked": "2026-08-25"
   },
   {

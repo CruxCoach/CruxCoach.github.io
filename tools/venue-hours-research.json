@@ -2201,8 +2201,8 @@
   "name": "Stuntwerk Kirchheim",
   "country": "DE",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue — the chain it is named after does not list it — so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "checked": "2026-08-25",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 47.84814,
@@ -3476,8 +3476,8 @@
   "lon": -0.20453,
   "name": "The Boardroom Climbing Ltd. Wimbledon",
   "country": "GB",
-  "status": "no-official-site",
-  "reason": "The company's site publishes only its North Wales hall, so there is no page for this venue to read a schedule from.",
+  "status": "closed",
+  "reason": "The venue is closed; there is no week to read.",
   "checked": "2026-08-25"
  },
  {
@@ -3485,8 +3485,8 @@
   "lon": -0.2042062,
   "name": "The Boardroom Wimbledon",
   "country": "GB",
-  "status": "no-official-site",
-  "reason": "The company's site publishes only its North Wales hall, so there is no page for this venue to read a schedule from.",
+  "status": "closed",
+  "reason": "The venue is closed; there is no week to read.",
   "checked": "2026-08-25"
  },
  {
@@ -4405,8 +4405,8 @@
   "name": "CRUX Osaka",
   "country": "JP",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue — the gym of this name is 12 km away — so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "checked": "2026-08-25",
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 35.466192922450126,
@@ -7473,10 +7473,10 @@
   "lon": -108.72755,
   "name": "Elemental Performance + Fitness",
   "country": "US",
-  "status": "ambiguous",
+  "status": "seasonal",
+  "checked": "2026-08-25",
   "source": "https://lmntl.net/climbing-gym/",
-  "reason": "No site is established for this row, so there is nothing to read its hours from. The gym next to it publishes only season-labelled staffed hours in any case.",
-  "checked": "2026-08-25"
+  "reason": "Elemental publishes two labelled weeks and nothing else: \"Summer (June – August) Monday – Thursday 7am-7pm Friday 7am-4pm Saturday 10am – 4pm Closed: Sunday\" and \"Winter (September – May) Monday – Friday 7am-9pm Saturday & Sunday 10am – 4pm\". Every week on the page carries a season, so there is no standing week to publish. The page also draws the line this file cares about — \"The climbing gym and Tension Board 2 are open during staffed hours only … not open during our unstaffed hours even if you have 24-hour access\" — so the 24-hour member access is not an opening either. This matches the record already held for the twin."
  },
  {
   "lat": 40.3834,
