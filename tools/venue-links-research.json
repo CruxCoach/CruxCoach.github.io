@@ -396,8 +396,8 @@
     "name": "BULL STONE",
     "country": "BY",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. bullstone.by does not resolve and no other name-derived domain answers; the only \"Stone Climbing\" site that does is a climbing gym in northeast Florida. No OSM climbing object near Mahilyow carries a website tag, and upstream gives no address."
+    "reason": "No official site could be established: bullstone.by does not resolve; BULL STONE in Mahilyow publishes nothing reachable.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 44.24383,
@@ -3132,9 +3132,8 @@
     "name": "Atom Climbing Gym",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — atom.com → \"Atom: The #1 Domain Marketplace - Names & Domains for Sa\", the rest could not be opened — atom.ru → a certificate that does not cover its hostname / no answer. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.atom.com/"
+    "reason": "No official site could be established: atomclimbing.ru does not resolve; Atom Climbing Gym in Kalininsky publishes on VK. Russian climbing gyms publish on VKontakte and Telegram; the .ru domain a name suggests is usually somebody else's or for sale.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 51.654478,
@@ -3142,9 +3141,8 @@
     "name": "Energy Moon by Skalodrom.ru",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — energyby.com → \"HugeDomains.com\", the rest could not be opened — energymoon.com → 200; energy.ru → no answer; energy.com → 403. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.hugedomains.com/domain_profile.cfm?d=energyby.com"
+    "reason": "No official site could be established: \"Energy Moon by Skalodrom.ru\" names a board hosted by a directory — skalodrom.ru is a Russian climbing-wall listing site, not this venue's own page.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 59.90769869999999,
@@ -3152,8 +3150,8 @@
     "name": "Igels",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — igels.ru → no answer; igels.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: igels.ru resolves and returns nothing on repeated tries; Igels is in Адмиралтейский район and upstream holds no address.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 55.1644419,
@@ -3161,9 +3159,8 @@
     "name": "Iskra",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — iskraclimb.ru → \"Скалодром Искра в Челябинске для детей и взрослых\", the rest could not be opened — iskra.ru → a timeout; iskra.com → 403 / a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://iskraclimb.ru/"
+    "reason": "No official site could be established: iskra-climb.ru does not resolve; Iskra in Chelyabinsk publishes on VK. Russian climbing gyms publish on VKontakte and Telegram; the .ru domain a name suggests is usually somebody else's or for sale.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 56.2965039,
@@ -3171,8 +3168,8 @@
     "name": "LAD Moonboard",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: \"LAD Moonboard\" names a board inside a gym; lad-nn.ru resolves and is not a climbing wall. Russian climbing gyms publish on VKontakte and Telegram; the .ru domain a name suggests is usually somebody else's or for sale.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 44.952117,
@@ -3180,8 +3177,8 @@
     "name": "Limewall MoonBoard",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — limewall.ru → a timeout; limewall.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits 6 m from OpenStreetMap’s city node for Симферополь, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match."
+    "reason": "No official site could be established: \"Limewall MoonBoard\" names a board inside a gym; limewall.ru resolves and returns nothing.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 59.9516929,
@@ -3189,8 +3186,8 @@
     "name": "LU4 Climbing Gym",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: lu4.ru resolves and serves a site of online courses for mindful living — \"Онлайн-курсы для осознанной жизни\" — which is not LU4 Climbing Gym on Vasilyevsky Island.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 43.116352,
@@ -3198,9 +3195,8 @@
     "name": "Onsight",
     "country": "RU",
     "status": "unverified",
-    "reason": "onsight.ru answers again and is a Moscow café and outdoor brand — \"ПОКРОВКА 20/1 С1 10:00–23:00 … кофейня, лагерь и маршруты\" — 6,400 km from Vladivostok. The postcode 690000 the sweep matched is digits in its page, not an address.",
-    "candidate": "https://onsight.ru/",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: onsight.vl.ru resolves; Onsight in Vladivostok publishes nothing this file can store, and upstream holds no address for the row. Russian climbing gyms publish on VKontakte and Telegram; the .ru domain a name suggests is usually somebody else's or for sale.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 54.73479099999999,
@@ -3208,9 +3204,8 @@
     "name": "Rocklands",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.rocklands-climbing.com/sls → \"Rocklands Saarlouis - www.rocklands-climbing.com\"; rocklands.ru → \"Домен продается. Купить в магазине доменов Руцентр\"; rocklands.com → \"Rocklands Barbeque & Grilling Company | Virginia & Washi\", the rest could not be opened — rocklandsbouldering.com → a certificate that does not cover its hostname / no answer, the venue's whole name as one label, rocklands.ru, answers 200 (\"Домен продается. Купить в магазине доменов Руцентр\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.rocklands-climbing.com/sls/"
+    "reason": "No official site could be established: rocklands.ru resolves and displays \"Домен продается\" — the domain is for sale through RU-Center. Whatever Rocklands in Ufa publishes, it is not there.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 55.755826,
@@ -3218,8 +3213,8 @@
     "name": "Skalatoria",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — skalatoria.ru → 403, the venue's whole name as one label, skalatoria.ru, answers 403 (\"Attention Required! | Cloudflare\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: the coordinate is 55.7558,37.6173 — Red Square, the value gazetteers return for Moscow itself — and skalatoria.ru answers 403 to every request. A city centroid with a name attached cannot be verified.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 53.2415041,
@@ -3227,9 +3222,8 @@
     "name": "SMiLE JYM",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — smile.com → \"Domains.com\", the rest could not be opened — smile.ru → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://domains.com/"
+    "reason": "No official site could be established: smilejym.ru does not resolve — the row's name, SMiLE JYM, is itself a misspelling of gym — and nothing publishes under it in Samara. Russian climbing gyms publish on VKontakte and Telegram; the .ru domain a name suggests is usually somebody else's or for sale.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 55.72272899999999,
@@ -3237,8 +3231,8 @@
     "name": "SportStationMoon",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: \"SportStationMoon\" joins a venue name to a board, which is how a registry entry is written rather than a business.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 43.353946,
@@ -3246,9 +3240,8 @@
     "name": "Stena (The Wall)",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — stena.ru → \"Декоративная штукатурка Клавэль - официальный сайт произ\"; stena.com → \"Stena AB – One of Swedens largest family-owned companies\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.clavel.ru/"
+    "reason": "No official site could be established: the row is called \"Stena (The Wall)\" — the Russian word for wall with its translation appended, which is a description rather than a trading name — and its coordinate ends 132.2000.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 59.9342802,
@@ -3256,9 +3249,8 @@
     "name": "Tramontana",
     "country": "RU",
     "status": "unverified",
-    "reason": "tramontana.ru is a shop — \"магазин туристического снаряжения\" — and matched only on Saint Petersburg, which for a city of five million is not a signal.",
-    "candidate": "https://tramontana.ru/",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: Скалодром Трамонтана is real and publishes properly at climbingcenter.ru — \"м. Технологический институт, ул. Бронницкая, д. 24, 2 этаж. 9:00 - 23:30\" — and that address geocodes 2.3 km from this row, which sits in Центральный район rather than Адмиралтейский. The right gym at the wrong point, and upstream holds no street line to arbitrate.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 68.9585244,
@@ -3266,9 +3258,8 @@
     "name": "ViCKy MOON",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — vicky.ru → \"VICKY.RU. Domain name is available\"; vickymoon.com → \"vickymoon\", the rest could not be opened — vicky.com → a certificate that does not cover its hostname, the venue's whole name as one label, vickymoon.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://vicky.ru/en/"
+    "reason": "No official site could be established: \"ViCKy MOON\" is a first name and a board, in Murmansk, and nothing publishes under it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 45.036035,
@@ -3276,9 +3267,8 @@
     "name": "VVERH Gym Krasnodar",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — vverh.com → \"STUDIO VVERH\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.vverh.com/"
+    "reason": "No official site could be established: vverhgym.ru does not resolve; VVERH Gym in Krasnodar publishes on VK. Russian climbing gyms publish on VKontakte and Telegram; the .ru domain a name suggests is usually somebody else's or for sale.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 60.0218153,
@@ -3286,9 +3276,8 @@
     "name": "Vysota",
     "country": "RU",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — vysota.ru → \"О компании\"; vysota.com → \"vysota.com :: this domain is for sale\", the venue's whole name as one label, vysota.ru, answers 200 (\"О компании\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://vysota.ru/"
+    "reason": "No official site could be established: vysota-spb.ru resolves and belongs to a banquet hall on the Fontanka embankment — \"Высота — банкетный зал в Санкт-Петербурге\". The row is a climbing wall in Гражданка.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 59.37023,
@@ -3514,8 +3503,8 @@
     "name": "12C Board School (Gymnasium \"Millennium\" №318)",
     "country": "UA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: the row is the 12Climb board in a Kyiv school — \"12C Board School (Gymnasium …)\" — and a school gymnasium is not a venue with a door of its own. The sibling row at the KPI climbing club, which is a venue, was linked earlier in this audit.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 50.472918,
@@ -3523,8 +3512,8 @@
     "name": "12C Board School (Gymnasium 107 \"Vvedenskaya\")",
     "country": "UA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: the second Kyiv school row, at Gymnasium 107 in Podil; the same reasoning applies.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 49.7983766,
@@ -3532,8 +3521,8 @@
     "name": "Basement Climbing Gym",
     "country": "UA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — basement.com.ua → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: Basement Climbing Gym in Lviv holds no address upstream; the gazetteer object at the coordinate is a post office, and no domain resolves for the name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 49.422983,
@@ -3541,9 +3530,8 @@
     "name": "Symbiosis",
     "country": "UA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — symbiosis.ua → \"SYMBIOSIS | Український бренд одягу для всього світу | Я\"; symbiosis.com.ua → \"SYMBIOSIS | Український бренд одягу для всього світу | Я\"; symbiosis.com → \"Symbiosis - Decimator Design - Global Pro Video Distribu\", the venue's whole name as one label, symbiosis.ua, answers 200 (\"SYMBIOSIS | Український бренд одягу для всього світу | Якіст\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://symbiosis.ua/"
+    "reason": "No official site could be established: symbiosis.ua resolves and is not a climbing wall in Khmelnytskyi; nothing else publishes under the name.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 38.9822282,
