@@ -1620,6 +1620,34 @@
     "note": "The site prints \"21 MEPHAN STREET, FOOTSCRAY VIC 3011\", exactly the address upstream records, and names a Kilter Board. The Rainbow Rocket halls the chain matcher offered are in Germany and England."
   },
   {
+    "lat": -26.7275358,
+    "lon": 153.1208034,
+    "name": "Rockit 25 2019",
+    "country": "AU",
+    "website": "https://www.rockitclimbinggym.com.au/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "geocoded-address"
+    ],
+    "note": "Two rows a metre apart are one gym, and its site gives \"Location 1/37 Premier Cct, Warana QLD 4575\" — which geocodes 146 m from both. Upstream files them under Maroochydore, 8 km north, so the town could not be the second signal; the gazetteer object at the point is a patio builder, which is why the OSM tag never helped either."
+  },
+  {
+    "lat": -26.7276342,
+    "lon": 153.1207776,
+    "name": "Rockit Climbing Gym QLD",
+    "country": "AU",
+    "website": "https://www.rockitclimbinggym.com.au/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "geocoded-address"
+    ],
+    "note": "Two rows a metre apart are one gym, and its site gives \"Location 1/37 Premier Cct, Warana QLD 4575\" — which geocodes 146 m from both. Upstream files them under Maroochydore, 8 km north, so the town could not be the second signal; the gazetteer object at the point is a patio builder, which is why the OSM tag never helped either."
+  },
+  {
     "lat": -27.4577161,
     "lon": 153.0311127,
     "name": "Rocksports",
@@ -1736,6 +1764,20 @@
       "city"
     ],
     "note": "The site is The Crux, \"a bouldering gym in Coburg, Melbourne\", and names a Grasshopper Board — the board system this entry is listed for. The OSM node 26 m away carries thecruxclimbing.com.au, which redirects here over HTTPS; the three Crux halls the chain matcher offered are in Austin, Texas."
+  },
+  {
+    "lat": -38.1617913,
+    "lon": 144.3439997,
+    "name": "The Rock Adventure Centre",
+    "country": "AU",
+    "website": "https://rockadventures.com.au/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The centre's own site gives \"Find us at: Rear 403 (Barwon River End) Pakington St, Newtown, Geelong\" — the town upstream records — and its reviews describe the bouldering section upstairs \"with campus board and moon board\", which is the board upstream lists."
   },
   {
     "lat": -34.048437,
@@ -3820,6 +3862,20 @@
       "city"
     ],
     "note": "RockHaus Climbing Gym's own site, which describes itself as being in \"Vaughan, Ontario\" — and the coordinates of this venue fall inside the City of Vaughan. Upstream labels this venue with the nearest place in the offline gazetteer, which here is a neighbourhood rather than the municipality, so the town never matched. Asking OpenStreetMap which administrative area the coordinates fall in answers that — a geographic fact about the point, not a claim about any website — and the venue's own page then has to print it. The earlier record rejected this page for giving an address in another municipality; the municipality it was being compared against was Black Creek, a Toronto neighbourhood 4.3 km away that upstream had attached as the nearest place."
+  },
+  {
+    "lat": 49.1658836,
+    "lon": -123.9400648,
+    "name": "Romper Room Indoor Rock climbing Centre",
+    "country": "CA",
+    "website": "https://www.climbromperroom.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The gym's own site: \"Romper Room Indoor Rock Climbing Centre … Location 4385-B BOBAN DR NANAIMO, BC, V9T 5V9\" — the town upstream records for a row it holds no street line for."
   },
   {
     "lat": 45.48457,

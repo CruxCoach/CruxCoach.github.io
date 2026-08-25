@@ -310,9 +310,10 @@
   "lon": 115.918019,
   "name": "Iris Boulders Canning Vale",
   "country": "AU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.irisboulders.com.au/",
+  "reason": "The venue's domain does not answer, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": -37.9255978,
@@ -352,24 +353,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": -26.7275358,
-  "lon": 153.1208034,
-  "name": "Rockit 25 2019",
-  "country": "AU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": -26.7276342,
-  "lon": 153.1207776,
-  "name": "Rockit Climbing Gym QLD",
-  "country": "AU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": -33.83547,
   "lon": 151.05313,
   "name": "Sandbox Bouldering",
@@ -403,9 +386,10 @@
   "lon": 144.3439997,
   "name": "The Rock Adventure Centre",
   "country": "AU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "seasonal",
+  "source": "https://rockadventures.com.au/",
+  "reason": "Both weeks on the page carry a label and neither is the standing one: \"Opening Hours School Term Times: Monday – Friday 4pm-9:30pm, Saturday 10:00am-5:00pm, Sunday 1:00pm-5:00pm, Public Holidays 12:00pm-5:00pm\" and \"School Holiday Times: Monday, Wednesday, Friday, Saturday, Sunday 12:00pm-6:00pm, Tuesday and Thursday 12:00pm-9:30pm\". Term and holiday between them cover the year, and which applies depends on the Victorian school calendar rather than on the page.",
+  "checked": "2026-08-25"
  },
  {
   "lat": -27.45127,
@@ -1115,15 +1099,6 @@
   "lat": 48.3842148,
   "lon": -89.2436231,
   "name": "Rock Room",
-  "country": "CA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 49.1658836,
-  "lon": -123.9400648,
-  "name": "Romper Room Indoor Rock climbing Centre",
   "country": "CA",
   "status": "no-official-site",
   "checked": "2026-08-23",

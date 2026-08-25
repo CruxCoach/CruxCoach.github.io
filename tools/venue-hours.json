@@ -2180,6 +2180,56 @@
   "evidence": "MONDAY, WEDNESDAY | 630AM - 10PM | TUESDAY & THURSDAY & FRIDAY | 11AM - 10PM | SATURDAY & SUNDAY | 9AM - 9PM | 21 Mephan Street, Footscray VIC 3011"
  },
  {
+  "lat": -26.7275358,
+  "lon": 153.1208034,
+  "name": "Rockit 25 2019",
+  "country": "AU",
+  "source": "https://www.rockitclimbinggym.com.au/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "09:00-21:00",
+   "sat": "08:00-18:00",
+   "sun": "08:00-18:00"
+  },
+  "evidence": "Location 1/37 Premier Cct, Warana QLD 4575 … Opening Hours Mon - Fri: 9AM to 9PM Sat-Sun: 8AM to 6PM",
+  "note": "One hall, one week, in the footer under its address. Third-party listings split Monday and Friday out at 7am; the gym's own page does not."
+ },
+ {
+  "lat": -26.7276342,
+  "lon": 153.1207776,
+  "name": "Rockit Climbing Gym QLD",
+  "country": "AU",
+  "source": "https://www.rockitclimbinggym.com.au/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "09:00-21:00",
+   "sat": "08:00-18:00",
+   "sun": "08:00-18:00"
+  },
+  "evidence": "Location 1/37 Premier Cct, Warana QLD 4575 … Opening Hours Mon - Fri: 9AM to 9PM Sat-Sun: 8AM to 6PM",
+  "note": "One hall, one week, in the footer under its address. Third-party listings split Monday and Friday out at 7am; the gym's own page does not."
+ },
+ {
   "lat": -27.4577161,
   "lon": 153.0311127,
   "name": "Rocksports",
@@ -4711,6 +4761,31 @@
   },
   "evidence": "Monday - Friday 12pm - 10pm Saturday - Sunday 10am - 9pm",
   "note": "In the footer, above the copyright line and beside \"167 Chrislea Road, Unit 5, Vaughan, Ontario L4L 8N6\" — an address the page also states as structured data with latitude 43.7951617, eleven metres from this coordinate. The earlier read recorded no week here; the line sits in a div carrying two dozen generated class names, which is the kind of place a reader loses it."
+ },
+ {
+  "lat": 49.1658836,
+  "lon": -123.9400648,
+  "name": "Romper Room Indoor Rock climbing Centre",
+  "country": "CA",
+  "source": "https://www.climbromperroom.com/contact",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "14:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-18:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "HOURS MON 2:00 PM - 10:00 PM TUE 10:00 AM - 10:00 PM WED 10:00 AM - 10:00 PM THU 10:00 AM - 10:00 PM FRI 10:00 AM - 10:00 PM SAT 10:00 AM - 6:00 PM SUN 10:00 AM - 6:00 PM CLOSED JAN 1 JUL 1 DEC 24+25 DEC 31",
+  "note": "Seven days stated one per line beside the address, with four named calendar closures after them."
  },
  {
   "lat": 45.48457,

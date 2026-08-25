@@ -146,9 +146,10 @@
     "lon": 115.918019,
     "name": "Iris Boulders Canning Vale",
     "country": "AU",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "iris.com presents a certificate that does not cover its hostname and irisboulders.com.au does not resolve. Nothing found names a bouldering venue in Canning Vale."
+    "status": "unavailable",
+    "candidate": "https://www.irisboulders.com.au/",
+    "reason": "irisboulders.com.au is the gym's own domain and does not answer at all, apex or www. The address the directories give, 13 Tacoma Circuit in Canning Vale, geocodes 10 m from this row, so the row is certainly the gym — and the gym's own Instagram is reported as marking it permanently closed, which is a claim this file will not record on a third party's say-so. Retry, and treat a continuing silence as evidence.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -32.51346,
@@ -179,26 +180,6 @@
     "reason": "oakflats.au presents a certificate that does not cover its hostname, oakflats.com carries nothing and oakflats.com.au does not resolve. \"Oak Flats Schojo\" is a suburb plus a nickname."
   },
   {
-    "lat": -26.7275358,
-    "lon": 153.1208034,
-    "name": "Rockit 25 2019",
-    "country": "AU",
-    "status": "unverified",
-    "candidate": "https://www.rockitclimbing.com.au/",
-    "reason": "No official site could be established: Rock It runs two gyms and both are in Tasmania: rockitclimbing.com.au is Rock It Hobart and rockitbouldering.com.au is Rock It Derwent Park. This row is on the Sunshine Coast, 1,700 km north. rockit.com is an IT consultancy and rockit.au sells managed AI.",
-    "checked": "2026-08-24"
-  },
-  {
-    "lat": -26.7276342,
-    "lon": 153.1207776,
-    "name": "Rockit Climbing Gym QLD",
-    "country": "AU",
-    "status": "unverified",
-    "candidate": "https://www.rockitclimbing.com.au/",
-    "reason": "No official site could be established: Same Tasmanian pair as the row a few centimetres away.",
-    "checked": "2026-08-24"
-  },
-  {
     "lat": -36.78204239034518,
     "lon": 144.26338550176908,
     "name": "The Hold Co, Ltd.",
@@ -206,16 +187,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "hold.com.au and hold.au answer 500 and 302 behind certificates that do not cover their hostnames, and hold.com does not resolve. The one chain sibling named Hold is Hold On Tide in Germany. Nothing found names 80 Hattam St in Golden Gully."
-  },
-  {
-    "lat": -38.1617913,
-    "lon": 144.3439997,
-    "name": "The Rock Adventure Centre",
-    "country": "AU",
-    "status": "unverified",
-    "candidate": "https://adventureclimbing.com/",
-    "reason": "No official site could be established: adventureclimbing.com posts its closure dates and an emergency number beginning 207, which is Maine. This row is in Geelong, Victoria.",
-    "checked": "2026-08-24"
   },
   {
     "lat": 50.8503463,
@@ -532,16 +503,6 @@
     "checked": "2026-08-23",
     "reason": "rockroom.ca answers 200 but serves no title and no readable content, so there is nothing on it to match against this venue. No other name-derived domain resolves and upstream records no address for Thunder Bay.",
     "candidate": "https://rockroom.ca/"
-  },
-  {
-    "lat": 49.1658836,
-    "lon": -123.9400648,
-    "name": "Romper Room Indoor Rock climbing Centre",
-    "country": "CA",
-    "status": "unverified",
-    "candidate": "https://www.romperroom.com/",
-    "reason": "No official site could be established: romperroom.com sells rompers and boiler suits by named artists. The other spellings answer too — romper.com is a parenting magazine, romper-room.com a Japanese illustrator.",
-    "checked": "2026-08-24"
   },
   {
     "lat": 49.2193226,
