@@ -7552,9 +7552,10 @@
   "lon": -121.30336,
   "name": "Bend Endurance Academy",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://bendenduranceacademy.org/",
+  "reason": "The site serves no text to a reader that does not run its scripts, so there is no schedule to read.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 45.51164,
@@ -8365,8 +8366,8 @@
   "name": "Pull Harder",
   "country": "US",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 40.42839278916404,
@@ -8382,9 +8383,10 @@
   "lon": -115.1398296,
   "name": "R2C2 Gym",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://www.redrockclimbingcenter.com/",
+  "reason": "The only gym this name resolves to is 11.9 km from the row, so there is no venue here whose hours could be recorded.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 40.37632,
@@ -8418,9 +8420,10 @@
   "lon": -86.141057,
   "name": "Ripple Boulder",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://www.rippleboulder.co/",
+  "reason": "The site is still the pre-opening one — the title reads \"RIPPLE BOULDER COMING SOON\", the footer \"OPENING SOON!\", and the body sells founding memberships — even though the banner now says the gym is open. It pairs no day with a time anywhere.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 44.08939,
@@ -8451,15 +8454,6 @@
   "checked": "2026-08-25",
   "source": "https://www.rockcityclimbing.com/rctc/hoursanddirections",
   "reason": "The page headed \"operating hours\" states no hours: \"Training center access is limited due to staffing, team practices and special events, including Competition travel. For up-to-date closure info, please follow @rockcitytrainingcenter on instagram.\" A gym that publishes its schedule only on a social account, one closure at a time, has no week to read."
- },
- {
-  "lat": 38.04551,
-  "lon": -78.51579,
-  "name": "Rock Revolution",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 46.2330513,
@@ -8757,8 +8751,8 @@
   "name": "The Dojo",
   "country": "US",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 28.1057,
@@ -8806,8 +8800,8 @@
   "name": "The Mine Bouldering Gym",
   "country": "US",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The venue's domain serves its host's default page, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 43.65539,
@@ -8876,15 +8870,6 @@
   "checked": "2026-08-23",
   "source": "https://teamtouchstone.com/",
   "reason": "The same facility as the Team Touchstone entry 51 m away, whose read this repeats: the site yields 920 characters of text across the two dozen paths a venue usually puts its week on, and not one clock time anywhere in them. Touchstone's main site, which does publish hours, answers 403 to every fetch."
- },
- {
-  "lat": 38.6958687,
-  "lon": -90.41325189999999,
-  "name": "ULI Maryland Heights",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 40.0098042,

@@ -4257,10 +4257,10 @@
     "lon": -121.30336,
     "name": "Bend Endurance Academy",
     "country": "US",
-    "status": "unverified",
+    "status": "unavailable",
     "candidate": "https://bendenduranceacademy.org/",
-    "reason": "No official site could be established, and three separate channels now agree on why. The academy's own domain answers 200 with 4 kB of Angular shell; its bundles are the framework and an admin API client, and the words climb, Bend, address and 97702 appear in neither. The town-joined guess reaches bendrockgym.com, which is Bend Rock Gym, a different organisation. And the only verified link within 200 m — 8 m, in fact — is Boardworks Climbing at 222 SE Reed Market Rd, which calls itself \"Bend's only 24/7 climbing and fitness gym\" and never mentions the academy. Two organisations at one address are still two organisations.",
-    "checked": "2026-08-24"
+    "reason": "bendenduranceacademy.org is certainly the organisation's domain, but every path on it — the front page and the climbing calendar alike — returns about 4 kB of stylesheet and script with no text in it. The page is assembled in the browser, so there is nothing on the wire to match a street, a town or a board against. Retry if the site ever serves its content.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 45.51164,
@@ -4581,9 +4581,9 @@
     "name": "Pull Harder",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "pullharder.org matches this venue's name and gives San Diego, and neither is worth much here. The coordinate is 32.7157,-117.1611, which is the standard point for the city of San Diego, so \"San Diego\" says only that the placeholder and the site name the same city. The site itself is a training group's rather than a gym's: no address, no opening hours, and nothing identifying a wall the public can visit.",
-    "candidate": "https://www.pullharder.org/"
+    "candidate": "https://pullharder.com/",
+    "reason": "No official site could be established: pullharder.com resolves and answers, and what it returns is a one-byte document. pullharderclimbing.com and pullhardersd.com do not resolve. San Diego's commercial gyms — Mesa Rim, Grotto, Vertical Hold, The Wall, Vital — publish no hall under this name, which is the shape of a private board rather than a gym.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 40.42839278916404,
@@ -4600,9 +4600,9 @@
     "name": "R2C2 Gym",
     "country": "US",
     "status": "unverified",
-    "candidate": "https://www.r2c2.org/",
-    "reason": "No official site could be established: r2c2.org is a youth charity in Roseland, Chicago: \"R2C2 supports young people in Roseland at critical moments by building trusted relationships\". r2c2.com is a Fasthosts parking page. This row is in Las Vegas.",
-    "checked": "2026-08-24"
+    "candidate": "https://www.redrockclimbingcenter.com/",
+    "reason": "R2C2 is the Red Rock Climbing Center — the gym uses the initials itself, as @redrockclimbingcenter — and it is at 8201 W Charleston Blvd, which geocodes 11.9 km west of this row. The row sits at 36.16994,-115.13983, on the Strip near Sahara Avenue, where no climbing gym stands. Upstream holds no street line here, so the coordinate is all there is, and it does not point at the hall this name belongs to.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 40.37632,
@@ -4633,26 +4633,6 @@
     "candidate": "https://www.revivalclimbing.com/",
     "reason": "No official site could be established: revivalclimbing.com is the Revival Climbing Coalition, and it sells adjustable climbing walls, custom flooring and crash pads. It has four pages — walls, flooring, mats, shop — publishes no hall, no address and no hours, and its contact page is a bare form. The name matches and nothing else does, which is one signal.",
     "checked": "2026-08-25"
-  },
-  {
-    "lat": 39.848989,
-    "lon": -86.141057,
-    "name": "Ripple Boulder",
-    "country": "US",
-    "status": "unverified",
-    "reason": "rippleboulder.com answers and is an ice-cream shop — \"ripple!! Come taste the difference. We make our own flavors and many of the toppings with our in-store kitchen and bakery. hours Every day 12pm - 10pm\". Broad Ripple is a neighbourhood of Indianapolis and the name belongs to it before it belongs to either business.",
-    "candidate": "https://rippleboulder.com/",
-    "checked": "2026-08-24"
-  },
-  {
-    "lat": 38.04551,
-    "lon": -78.51579,
-    "name": "Rock Revolution",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — revolution.com → \"Revolution | D.C.-Based Venture, Real Estate & Hospitali\"; rock-revolution.com → \"Rock-Revolution.com - Domain Sale Proposal\"; rock.com → \"ROCK Family Office\", the rest could not be opened — revolution.net → 200; revolution.org → 200; rockrevolution.com → 200, the venue's whole name as one label, rockrevolution.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.revolution.com/"
   },
   {
     "lat": 46.2330513,
@@ -4759,9 +4739,9 @@
     "name": "The Dojo",
     "country": "US",
     "status": "unverified",
-    "reason": "thedojoclimbing.com is The Dojo Climbing at 7767 Toyosato, Nozawa Onsen, Nagano 389-2502 — Japan, not Westbrook, Maine, and closed for the summer at that. thedojo.com is a jiu-jitsu school and dojo.net is for sale.",
     "candidate": "https://thedojoclimbing.com/",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: thedojoclimbing.com is a real climbing café with a bouldering wall, and it is at \"7767 Toyosato, Nozawa Onsen, Nagano, Japan 389-2502\" — the other side of the planet from Westbrook, Maine. dojoclimbing.com and thedojomaine.com do not resolve, and the published lists of Maine climbing gyms name no Dojo.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 40.6460622,
@@ -4769,9 +4749,9 @@
     "name": "The Mine Bouldering Gym",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — mine.com → \"project_template_react\"; themine.net → \"themine.net - This website is for sale! - themine the mi\", the rest could not be opened — mine.net → no answer; mine.org → a timeout; themine.com → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits 4 m from OpenStreetMap’s town node for Park City, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match.",
-    "candidate": "https://mine.com/"
+    "candidate": "http://minebouldering.com/",
+    "reason": "No official site could be established: minebouldering.com is the domain every directory gives for this gym, and it no longer serves one. https does not complete a handshake at all, and http answers with the hosting company's default page — \"Welcome minebouldering.com - BlueHost.com … Web Hosting - courtesy of www.bluehost.com\", copyright 2012. A parked domain is not a website, and this file will not store an http URL in any case.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 36.05224,
@@ -4811,15 +4791,6 @@
     "reason": "The WELL is Sacramento State's recreation centre and thewell.csus.edu is certainly its site: the gazetteer has the building at this coordinate — 6000 J Street, 95819 — named The Well and tagged with that host, which is the address the site gives, and it has a Climbing section of its own. It serves only over http; the https port presents a certificate this machine cannot verify, on the bare host and on www alike. A link this dataset publishes has to be one a browser will open without a warning.",
     "candidate": "http://thewell.csus.edu/",
     "checked": "2026-08-24"
-  },
-  {
-    "lat": 38.6958687,
-    "lon": -90.41325189999999,
-    "name": "ULI Maryland Heights",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
     "lat": 27.6648274,

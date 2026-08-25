@@ -22756,6 +22756,20 @@
     ]
   },
   {
+    "lat": 39.848989,
+    "lon": -86.141057,
+    "name": "Ripple Boulder",
+    "country": "US",
+    "website": "https://www.rippleboulder.co/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The gym's own site: \"We are open!! right off the monon Trail, broad ripple, Indianapolis … 5255 Winthrop Ave Indianapolis, IN 46220\". Upstream files the row under Broad Ripple and holds no street line for it; the address the site gives geocodes to within 14 m of the row's coordinate, which is corroboration rather than a signal."
+  },
+  {
     "lat": 37.2636288,
     "lon": -79.9574233,
     "name": "River Rock Climbing",
@@ -22843,6 +22857,20 @@
       "city"
     ],
     "note": "Rock Mill Climbing's own site, giving Akron — the town upstream records. The first pass had reached millyoga.com. OSM carries this domain on the climbing object at the venue, which is how it was found; the match rests on what the page prints."
+  },
+  {
+    "lat": 38.04551,
+    "lon": -78.51579,
+    "name": "Rock Revolution",
+    "country": "US",
+    "website": "https://www.climbrockrevolution.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The gym's own site, which names itself \"Rock Revolution Climbing | Charlottesville, VA\" in every page title and gives \"2200 Old Ivy Road Charlottesville, VA 22903\" — the town upstream records for a row it holds no street line for."
   },
   {
     "lat": 32.33042,
@@ -24955,6 +24983,21 @@
       "postal-code",
       "city"
     ]
+  },
+  {
+    "lat": 38.6958687,
+    "lon": -90.41325189999999,
+    "name": "ULI Maryland Heights",
+    "country": "US",
+    "website": "https://www.upperlimits.com/maryland-heights/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "Upper Limits gives each hall its own section of upperlimits.com, and this one is /maryland-heights/ — the town upstream records — with marylandheights@upperlimits.com as its address and \"Team ULI\" as the name of its climbing team, which is what upstream calls the row. Its own hours page gives 1874 Lackland Hill Parkway, a street line upstream does not carry."
   },
   {
     "lat": 40.0098042,

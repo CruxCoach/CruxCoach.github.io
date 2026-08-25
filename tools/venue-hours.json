@@ -26963,6 +26963,31 @@
   "note": "Stated beside the gym's address on its Contact & Hours page."
  },
  {
+  "lat": 38.04551,
+  "lon": -78.51579,
+  "name": "Rock Revolution",
+  "country": "US",
+  "source": "https://www.climbrockrevolution.com/contact",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "city"
+  ],
+  "hours": {
+   "mon": "08:00-21:00",
+   "tue": "08:00-21:00",
+   "wed": "08:00-21:00",
+   "thu": "08:00-21:00",
+   "fri": "08:00-21:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "2200 Old Ivy Road Charlottesville, VA 22903 hours Sat & Sun: 9 am - 9 pm Mon-Fri: 8 am - 9 pm Member Hours: 6 - 8 am Tues & Thurs",
+  "note": "One hall, one week, printed twice on the contact page. The two hours before opening on Tuesday and Thursday are labelled member hours, so the public week starts at eight every weekday."
+ },
+ {
   "lat": 42.35021,
   "lon": -71.1147,
   "name": "Rock Spot Climbing Brookline",
@@ -29748,6 +29773,32 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Monday – Friday | 9am-10pm | Saturday & Sunday | 10am-8pm"
+ },
+ {
+  "lat": 38.6958687,
+  "lon": -90.41325189999999,
+  "name": "ULI Maryland Heights",
+  "country": "US",
+  "source": "https://www.upperlimits.com/maryland-heights/visit/locations-and-hours",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-18:00"
+  },
+  "evidence": "Location 1874 Lackland Hill Parkway St. Louis, MO 63146 Hours Monday – Friday: 11:00 AM. – 10:00 PM Saturday: 10:00 AM – 8:00 PM Sunday: 10:00 AM – 6:00 PM",
+  "note": "The hall's own hours page inside its own section of the chain site, repeated identically in that section's footer."
  },
  {
   "lat": 46.73246,
