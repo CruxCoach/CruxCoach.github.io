@@ -4468,27 +4468,10 @@
   "lon": 135.7516105,
   "name": "cairn climbing gym",
   "country": "JP",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 35.70682,
-  "lon": 139.66606,
-  "name": "CapyClimb",
-  "country": "JP",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 35.709834416741565,
-  "lon": 139.6658118837558,
-  "name": "CapyClimb",
-  "country": "JP",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "http://www.cairn-climbinggym.com/",
+  "reason": "The gym publishes one range for all seven days — 13:00〜23:00 — and qualifies it as 不定休, irregular closing, on every date containing a 1: the 1st, 11th, 21st and 31st. A week that is closed four days a month on dates rather than weekdays cannot be written as a weekly schedule, and no site is established for the row in any case.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 36.73843,
@@ -4605,9 +4588,10 @@
   "lon": 140.3596822,
   "name": "MOVEMENT Climbing Space",
   "country": "JP",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://movementclimbingsp.wixsite.com/movement/price-time",
+  "reason": "The site has a page called 料金＆営業時間 and it renders in the browser: 354 bytes of navigation arrive, with the prices and the week among the parts that never do.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 33.2395578,
@@ -4627,15 +4611,6 @@
   "checked": "2026-08-23",
   "source": "https://rhythmjapan.com/",
   "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
- },
- {
-  "lat": 35.699996,
-  "lon": 139.975146,
-  "name": "Rocky Funabashi",
-  "country": "JP",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 34.4875144,

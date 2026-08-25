@@ -16200,6 +16200,56 @@
   "note": "Replaces an \"inaccessible\" outcome: the page is WordPress and answers in full through its REST route where the rendered HTML gave nothing. The gym states 定休日 なし — no regular closing day — so all seven days are covered. The 最終受付 times are last admission, a quarter of an hour before closing, and are not the closing time."
  },
  {
+  "lat": 35.70682,
+  "lon": 139.66606,
+  "name": "CapyClimb",
+  "country": "JP",
+  "source": "https://capyclimb.com/ja/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "co-located",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-23:00",
+   "sun": "10:00-23:00"
+  },
+  "evidence": "アクセス 東京都中野区中野5丁目61-4 〒164-0001 月曜日〜日曜日 スタッフ常駐時間: 10:00 - 23:00 メンバー専用時間: 23:00 - 翌10:00（準備中）",
+  "note": "The gym states the two windows and labels them: staff present 10:00-23:00 every day of the week, and a members-only window from 23:00 to 10:00 marked as in preparation. The first is the public week."
+ },
+ {
+  "lat": 35.709834416741565,
+  "lon": 139.6658118837558,
+  "name": "CapyClimb",
+  "country": "JP",
+  "source": "https://capyclimb.com/ja/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-23:00",
+   "sun": "10:00-23:00"
+  },
+  "evidence": "アクセス 東京都中野区中野5丁目61-4 〒164-0001 月曜日〜日曜日 スタッフ常駐時間: 10:00 - 23:00 メンバー専用時間: 23:00 - 翌10:00（準備中）",
+  "note": "The gym states the two windows and labels them: staff present 10:00-23:00 every day of the week, and a members-only window from 23:00 to 10:00 marked as in preparation. The first is the public week."
+ },
+ {
   "lat": 35.55209809999999,
   "lon": 139.5794141,
   "name": "ClimbingBUM",
@@ -16500,6 +16550,31 @@
   },
   "evidence": "営業時間 平日 13:00 〜 22:00 土日祝 10:00 〜 19:00 定休日 火曜日",
   "note": "Weekdays against weekends-and-public-holidays, with Tuesday named as the closing day, printed beneath the gym's address. Tuesday is the weekday the 定休日 line removes from the 平日 band."
+ },
+ {
+  "lat": 35.699996,
+  "lon": 139.975146,
+  "name": "Rocky Funabashi",
+  "country": "JP",
+  "source": "https://www.rockyclimbing.com/funabashi/",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "■営業時間 平日：10:00 - 23:00 土日祝：10:00 - 21:00 ■TEL 047-431-4946 ■住所 〒273-0022 千葉県船橋市海神町2-225-1",
+  "note": "Printed at the top of this hall's own page, above its address and telephone number."
  },
  {
   "lat": 34.78667,

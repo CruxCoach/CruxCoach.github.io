@@ -2016,30 +2016,10 @@
     "lon": 135.7516105,
     "name": "cairn climbing gym",
     "country": "JP",
-    "status": "unverified",
-    "candidate": "https://www.cairn.co.jp/",
-    "reason": "No official site could be established: cairn.co.jp is ケルンコーヒー, a coffee roaster at the foot of the Southern Alps that has been roasting for sixty years.",
-    "checked": "2026-08-24"
-  },
-  {
-    "lat": 35.70682,
-    "lon": 139.66606,
-    "name": "CapyClimb",
-    "country": "JP",
-    "status": "unverified",
-    "candidate": "https://capyclimb.com/",
-    "reason": "No official site could be established, and the domain is almost certainly the gym's: capyclimb.jp redirects to capyclimb.com, and the Instagram handle upstream records for this venue is capyclimb. What capyclimb.com serves is 5,880 bytes of Next.js shell that renders no text at all, 404s on about, access, contact, info, shop, store and gym, and whose chunks contain neither 中野 nor 164-0001 nor the venue's own name. Guessing a domain is fine; believing it is not, and there is nothing on it to believe.",
-    "checked": "2026-08-24"
-  },
-  {
-    "lat": 35.709834416741565,
-    "lon": 139.6658118837558,
-    "name": "CapyClimb",
-    "country": "JP",
-    "status": "unverified",
-    "candidate": "https://capyclimb.com/",
-    "reason": "No official site could be established, and the domain is almost certainly the gym's: capyclimb.jp redirects to capyclimb.com, and the Instagram handle upstream records for this venue is capyclimb. What capyclimb.com serves is 5,880 bytes of Next.js shell that renders no text at all, 404s on about, access, contact, info, shop, store and gym, and whose chunks contain neither 中野 nor 164-0001 nor the venue's own name. Guessing a domain is fine; believing it is not, and there is nothing on it to believe.",
-    "checked": "2026-08-24"
+    "status": "http-only",
+    "candidate": "http://www.cairn-climbinggym.com/",
+    "reason": "CAIRN climbing gym [ケルン クライミングジム] is at \"〒600-8351 京都市下京区富永町690 古川ビル2F\" — Kyoto, the city upstream records — and states its own week: \"営業時間：13:00〜23:00（不定休1日11日21日31日が休み）\". Its domain answers nothing over https, and this file keeps https URLs only, so the identification is recorded here instead of linked.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 36.73843,
@@ -2139,16 +2119,6 @@
     "reason": "No official site could be established: no candidate could be opened — monolithe.com → 403, the venue's whole name as one label, monolithe.com, answers 302 (\"302 Found\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 37.40047759999999,
-    "lon": 140.3596822,
-    "name": "MOVEMENT Climbing Space",
-    "country": "JP",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — movementgyms.com/boulder → \"Rock Climbing Gym in Boulder | Movement Boulder\"; movementspace.com → \"MovementSpace – The ability to cross the room with inner\"; movementclimbing.com → \"Sportrock Climbing Centers | Climbing Gym\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://movementgyms.com/boulder/"
-  },
-  {
     "lat": 33.2395578,
     "lon": 131.609272,
     "name": "Oita Climbing Gym DAIBU",
@@ -2156,16 +2126,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 35.699996,
-    "lon": 139.975146,
-    "name": "Rocky Funabashi",
-    "country": "JP",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — rockyclimb.com.au → \"Rocky Climb — Indoor Climbing Gym in Rockhampton | Bould\", the rest could not be opened — rocky.jp → 200; rocky.co.jp → no answer / a timeout; rocky.com → no answer. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.rockyclimb.com/"
   },
   {
     "lat": 34.4875144,

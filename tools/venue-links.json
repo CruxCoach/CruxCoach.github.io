@@ -13874,6 +13874,38 @@
     "note": "Bouldering Gym leTruss's own site. Its home, contact and about pages all print 1666, the building number in 富山県富山市上大久保1666-1 that upstream records."
   },
   {
+    "lat": 35.70682,
+    "lon": 139.66606,
+    "name": "CapyClimb",
+    "country": "JP",
+    "website": "https://capyclimb.com/ja/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The second CapyClimb row, 34 m from the first, is the Tension — \"Kilter、Tension、スプレーウォール\" on the gym's own page. Upstream holds no street line for this one, so the town and the board carry it."
+  },
+  {
+    "lat": 35.709834416741565,
+    "lon": 139.6658118837558,
+    "name": "CapyClimb",
+    "country": "JP",
+    "website": "https://capyclimb.com/ja/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "CapyClimb's own site gives \"東京都中野区中野5丁目61-4 〒164-0001\" — upstream's \"5 Chome-61-4 Nakano, 164-0001\" exactly — and lists what is on the training wall: \"V4以上の課題。Kilter、Tension、スプレーウォール、フィンガーボード、キャンパスボード\". Upstream carries the gym as two rows 34 m apart, one for each of the first two, and this is the Kilter."
+  },
+  {
     "lat": 35.55209809999999,
     "lon": 139.5794141,
     "name": "ClimbingBUM",
@@ -14033,6 +14065,20 @@
     "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the tachikawa hall: 〒190-0023 東京都立川市柴崎町2-12-24 エム・ケー立川南ビル 5F — upstream carries the same postcode and town."
   },
   {
+    "lat": 37.40047759999999,
+    "lon": 140.3596822,
+    "name": "MOVEMENT Climbing Space",
+    "country": "JP",
+    "website": "https://movementclimbingsp.wixsite.com/movement",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The gym's own site — \"MOVEMENT Climbing Space ボルダリングジム | 福島県郡山市深沢\" — with \"福島県郡山市深沢1丁目4-20\" in the footer of every page. Kōriyama is the city upstream records for a row it holds no street line for."
+  },
+  {
     "lat": 35.79173,
     "lon": 139.55376,
     "name": "Next Gen Bouldering",
@@ -14104,6 +14150,20 @@
       "board-mention"
     ],
     "note": "riot-climbing.com is titled 名古屋市守山区のボルダリングジム｜ライオットクライミング and its footer gives 〒463-0079 愛知県名古屋市守山区幸心1-113. It also says the hall has a ムーンボード, which is the board upstream records for this row. The coordinate is not the gym: it falls in 中区, the centre of Nagoya, about seven kilometres from Moriyama-ku — a city point, not a hall."
+  },
+  {
+    "lat": 35.699996,
+    "lon": 139.975146,
+    "name": "Rocky Funabashi",
+    "country": "JP",
+    "website": "https://www.rockyclimbing.com/funabashi/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "location-page"
+    ],
+    "note": "ROCKY runs six halls in Tokyo, Chiba and Ibaraki and gives each its own path. This is 船橋店: \"■住所 〒273-0022 千葉県船橋市海神町2-225-1 ■電車 船橋駅から徒歩約10分\". Upstream names the row Rocky Funabashi and holds no street line for it."
   },
   {
     "lat": 34.78667,
