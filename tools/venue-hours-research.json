@@ -364,15 +364,6 @@
   "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,262 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
-  "lat": -36.78204239034518,
-  "lon": 144.26338550176908,
-  "name": "The Hold Co, Ltd.",
-  "country": "AU",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": -38.1617913,
   "lon": 144.3439997,
   "name": "The Rock Adventure Centre",
@@ -783,16 +774,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 44.37689,
-  "lon": -79.71844,
-  "name": "Alt. Rock",
-  "country": "CA",
-  "status": "inaccessible",
-  "checked": "2026-08-23",
-  "source": "https://altrock.ca/",
-  "reason": "Re-read through every route the platform publishes for itself, the site still yields nothing a fetcher can use — at most 44 characters, which is navigation. It stays in the retry queue."
- },
- {
   "lat": 49.19171,
   "lon": -123.09036,
   "name": "Approach Climbing",
@@ -838,8 +819,8 @@
   "name": "Campbell Supershed",
   "country": "CA",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 46.34282,
@@ -1083,9 +1064,10 @@
   "lon": -89.2436231,
   "name": "Rock Room",
   "country": "CA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.rockroomclimbing.ca/",
+  "reason": "The venue's site serves no text to a reader that does not run its scripts, so there is no schedule to read.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 49.6964,

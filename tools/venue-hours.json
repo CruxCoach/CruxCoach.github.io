@@ -2405,6 +2405,31 @@
   "evidence": "Mon - Fri: 10am - 10pm | Sat - Sun: 9am - 8pm"
  },
  {
+  "lat": -36.78204239034518,
+  "lon": 144.26338550176908,
+  "name": "The Hold Co, Ltd.",
+  "country": "AU",
+  "source": "https://thehold.studio/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code"
+  ],
+  "hours": {
+   "mon": "07:00-21:00",
+   "tue": "07:00-21:00",
+   "wed": "07:00-21:00",
+   "thu": "07:00-21:00",
+   "fri": "07:00-21:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Location 80 Hattam St Golden Gully, VIC 3555 Hours Weekdays 7am - 9pm Weekends 9am - 9pm",
+  "note": "Stated twice on the front page, in the hero and again in the footer, with the days grouped as weekdays and weekends rather than listed."
+ },
+ {
   "lat": -34.048437,
   "lon": 150.828968,
   "name": "Top Out Bouldering Gym",
@@ -3323,6 +3348,31 @@
    "sun": "08:30-22:00"
   },
   "evidence": "Mon 6:30 am - 11:00pm | Tue 6:30 am - 11:00 pm | Wed 6:30 am - 11:00 pm | Thu 6:30 am - 11:00 pm | Fri 6:30 am - 11:00 pm | Sat 8:30 am - 10:00 pm | Sun 8:30 am - 10:00 pm"
+ },
+ {
+  "lat": 44.37689,
+  "lon": -79.71844,
+  "name": "Alt. Rock",
+  "country": "CA",
+  "source": "https://www.altrock.co/",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "coordinates",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "15:00-22:00",
+   "tue": "12:00-22:00",
+   "wed": "12:00-22:00",
+   "thu": "12:00-22:00",
+   "fri": "12:00-20:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Hours of Operation Sunday: 10:00 am to 8:00 pm Monday: 3:00 pm to 10:00 pm Tuesday: 12:00 pm to 10:00 pm Wednesday: 12:00 pm to 10:00 pm Thursday: 12:00 pm to 10:00 pm Friday: 12:00 pm to 8:00 pm Saturday: 10:00 am to 8:00 pm",
+  "note": "Seven days one per line, and the page stamps itself: \"Last updated on: August 24, 2026\". Third-party listings still give Wednesday and Thursday a 10:30 start."
  },
  {
   "lat": 45.4468314,

@@ -1782,6 +1782,22 @@
     "note": "The site is The Crux, \"a bouldering gym in Coburg, Melbourne\", and names a Grasshopper Board — the board system this entry is listed for. The OSM node 26 m away carries thecruxclimbing.com.au, which redirects here over HTTPS; the three Crux halls the chain matcher offered are in Austin, Texas."
   },
   {
+    "lat": -36.78204239034518,
+    "lon": 144.26338550176908,
+    "name": "The Hold Co, Ltd.",
+    "country": "AU",
+    "website": "https://thehold.studio/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The gym trades as The Hold and publishes at thehold.studio: \"The Hold · Bendigo Bouldering … 80 Hattam St, Golden Gully VIC 3555\" — upstream's street, number, postcode and suburb."
+  },
+  {
     "lat": -38.1617913,
     "lon": 144.3439997,
     "name": "The Rock Adventure Centre",
@@ -2629,6 +2645,21 @@
       "street-address"
     ],
     "note": "The page's 1555 Saint-Patrick resolves 23 m from this upstream coordinate."
+  },
+  {
+    "lat": 44.37689,
+    "lon": -79.71844,
+    "name": "Alt. Rock",
+    "country": "CA",
+    "website": "https://www.altrock.co/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "Alt. Rock's own page publishes its coordinates outright — \"GPS Coordinates: -79.71867937964036, - 44.37659908350021\", the pair written longitude first and the latitude given a stray minus — which is 35 m from this row, and lists the training area as \"monkey rig, hang boards, campus board, Grasshopper board\", the board upstream records. Its address is 445 Dunlop Street West, Unit A, Barrie."
   },
   {
     "lat": 45.4468314,

@@ -170,15 +170,6 @@
     "reason": "oakflats.au presents a certificate that does not cover its hostname, oakflats.com carries nothing and oakflats.com.au does not resolve. \"Oak Flats Schojo\" is a suburb plus a nickname."
   },
   {
-    "lat": -36.78204239034518,
-    "lon": 144.26338550176908,
-    "name": "The Hold Co, Ltd.",
-    "country": "AU",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "hold.com.au and hold.au answer 500 and 302 behind certificates that do not cover their hostnames, and hold.com does not resolve. The one chain sibling named Hold is Hold On Tide in Germany. Nothing found names 80 Hattam St in Golden Gully."
-  },
-  {
     "lat": 50.8503463,
     "lon": 4.3517211,
     "name": "Gravity Lab",
@@ -416,16 +407,6 @@
     "reason": "No official site. bullstone.by does not resolve and no other name-derived domain answers; the only \"Stone Climbing\" site that does is a climbing gym in northeast Florida. No OSM climbing object near Mahilyow carries a website tag, and upstream gives no address."
   },
   {
-    "lat": 44.37689,
-    "lon": -79.71844,
-    "name": "Alt. Rock",
-    "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "altrock.ca answers only behind a TLS handshake failure — the host negotiates no usable connection at all, over either the apex or www — so nothing could be read. No other name-derived domain resolves and upstream records no address for Barrie. Retry when the host serves.",
-    "candidate": "https://altrock.ca/"
-  },
-  {
     "lat": 44.24383,
     "lon": -76.51328,
     "name": "Boiler Room",
@@ -441,9 +422,8 @@
     "name": "Campbell Supershed",
     "country": "CA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — campbell.com → \"Campbell | Home\", the rest could not be opened — campbell.ca → no answer. Upstream records 83 Campbell Ave, M6P 3T9, Toronto, and nothing opened printed it.",
-    "candidate": "https://www.campbell.com/"
+    "reason": "No official site could be established: nothing published in Toronto carries this name, and the city's indexed climbing gyms — Basecamp, The Rock Oasis, Toronto Climbing Academy, Boulderz — are all other businesses at other addresses. Upstream records 83 Campbell Ave, which is a light-industrial street in the Junction Triangle; a supershed on it with a Kilter board is the shape of a private wall rather than a venue.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 51.08836660000001,
@@ -479,10 +459,10 @@
     "lon": -89.2436231,
     "name": "Rock Room",
     "country": "CA",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "rockroom.ca answers 200 but serves no title and no readable content, so there is nothing on it to match against this venue. No other name-derived domain resolves and upstream records no address for Thunder Bay.",
-    "candidate": "https://rockroom.ca/"
+    "status": "unavailable",
+    "candidate": "https://www.rockroomclimbing.ca/",
+    "reason": "Rock Room is Thunder Bay's bouldering gym at 319 Victoria Ave E, opened in a soft launch in February 2026. Its domain is rockroomclimbing.ca and every path on it returns about 475 bytes and builds itself in the browser; /about, which search still indexes, answers 404. There is nothing on the wire to match.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 49.2193226,
