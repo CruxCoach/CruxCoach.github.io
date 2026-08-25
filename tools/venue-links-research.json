@@ -2776,39 +2776,26 @@
     "name": "Mango House",
     "country": "PH",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — mangohouse.ph → \"Redirecting...\"; mangohouse.com.ph → \"Redirecting...\"; mango-house.com → \"Mango House – What happens in Vegas stays in Vegas, but \", the rest could not be opened — mangohouse.com → 200; mango-house.ph → a certificate that does not cover its hostname; mango-house.com.ph → a certificate that does not cover its hostname, the venue's whole name as one label, mangohouse.ph, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://mangohouse.ph/"
-  },
-  {
-    "lat": 14.41624,
-    "lon": 121.04281,
-    "name": "Power Up Albang",
-    "country": "PH",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — upclimbing.com.au → \"UP Climbing - Melbourne Bouldering Gym | Fun climbs, goo\"; www.upthebloc.com → \"Up The Bloc - Bouldering for Mississauga and Etobicoke\"; powerup.ph → \"Redirecting...\", the rest could not be opened — powerupalbang.ph → a certificate that does not cover its hostname; powerupalbang.com.ph → a certificate that does not cover its hostname; power-up-albang.ph → a certificate that does not cover its hostname, the venue's whole name as one label, powerupalbang.ph, does not resolve. Upstream records 3305 Festival Mall Expansion Festival Supermall, 1781 Metro Manila, and nothing opened printed it.",
-    "candidate": "https://upclimbing.com.au/"
+    "checked": "2026-08-25",
+    "reason": "\"Mango House\" in Cainta leaves no trace at all: no domain of that name resolves, no directory of Philippine climbing gyms lists it — not Pilipinas Climbing's own list, not the several magazine round-ups of Metro Manila gyms — and the searches surface a different Cainta wall entirely, Nature's Camp on Herrera St. A grasshopper board in a house called Mango House reads like a private setup, and this file does not attach links to those."
   },
   {
     "lat": 14.66455,
     "lon": 121.07012,
     "name": "Power Up Tandang Sora",
     "country": "PH",
-    "status": "unverified",
-    "checked": "2026-08-25",
-    "reason": "poweruptandangsora.com is not Power Up. It serves \"Patikim · Philippine Venue Guide\", which introduces itself as an \"Independent Visit Guide\" to the venue — someone else's write-up parked on a domain built from the venue's name. It carries the address and it is accurate, and it is still not an official site: the venue did not write it and cannot correct it.",
-    "candidate": "https://poweruptandangsora.com/"
+    "status": "social-only",
+    "reason": "Re-read after the earlier finding that poweruptandangsora.com serves someone else's independent visit guide. The rest of the search space is now closed too: poweruptandangsora.ph, powerupts.com, powerup.ph and powerupclimbinggym.com do not resolve, and powerupclimbing.com — the obvious chain domain — resolves to a registrar lander. Power Up gives Alabang a domain of its own and gives Tandang Sora an Instagram account.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 14.6596839,
     "lon": 121.0347226,
     "name": "PowerUp TS",
     "country": "PH",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — powerup.ph → \"Redirecting...\"; powerup.com → \"Home | Power Up Products\", the rest could not be opened — powerupts.ph → a certificate that does not cover its hostname; powerupts.com.ph → a certificate that does not cover its hostname; powerup-ts.ph → a certificate that does not cover its hostname, the venue's whole name as one label, powerupts.ph, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://powerup.ph/"
+    "status": "social-only",
+    "reason": "Power Up runs a domain per branch — powerupalabang.com is real and readable — but nothing of that shape exists for Tandang Sora: poweruptandangsora.ph, powerupts.com, powerup.ph and powerupclimbinggym.com do not resolve, and powerupclimbing.com resolves only to a registrar lander at /lander. The chain publishes on instagram.com/powerup.climbing. This row reverse-geocodes to Road 1, Bagong Pag-asa, Quezon City — which is the address upstream attaches to its other Tandang Sora row, 4 km away.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 14.57599,
@@ -2816,19 +2803,18 @@
     "name": "The Bouldering Hive",
     "country": "PH",
     "status": "unverified",
-    "candidate": "http://bhiveph.ph/",
-    "reason": "No official site could be established: bhiveph.ph is the handle upstream records for this row and it resolves, but what it serves is 4,713 bytes titled \"Redirecting...\" whose whole body is an ad-blocker detection script. There is no page behind it and no address on it.",
-    "checked": "2026-08-24"
+    "candidate": "https://bhiveph.com/",
+    "reason": "bhiveph.com serves twenty-one characters, and its platform routes — the same Rezerv routes that gave Power Up Alabang its address — give nothing here. The page literally headed \"Locate us\" carries a Facebook link, an Instagram link, a YouTube link and a logo, and no address at all. The row does reverse-geocode to Theater Drive, Circuit Makati, which is where the gym is described as being; that still leaves the venue name as the only thing its own site says.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 10.7069075,
     "lon": 122.547782,
     "name": "Vertex Bouldering",
     "country": "PH",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — vertex.ph → \"Vertex Consulting — Capability Catalogue\"; vertex.com.ph → \"VERTEX - Experience luxury living with us.\"; vertex.com → \"Innovative Digital Solutions and IT Transformation | Ver\", the rest could not be opened — vertexbouldering.ph → a certificate that does not cover its hostname; vertexbouldering.com.ph → a certificate that does not cover its hostname; vertex-bouldering.ph → a certificate that does not cover its hostname, the venue's whole name as one label, vertexbouldering.ph, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.vertex.ph/"
+    "status": "social-only",
+    "reason": "Vertex Bouldering Iloilo — 250 m² on Pison Avenue, Brgy. San Rafael, Mandurriao, and the venue that held the 2024 Bouldering Nationals — publishes on facebook.com/vertex.iloilo and instagram.com/vertexbouldering. vertexbouldering.com does not resolve. A gym big enough to host a national championship and still no site of its own.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 50.0982854,

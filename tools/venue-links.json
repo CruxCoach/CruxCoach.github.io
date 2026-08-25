@@ -16888,6 +16888,20 @@
     "note": "The Gravity Well's own site, giving Nelson — the town upstream records — and naming the board this venue is listed for."
   },
   {
+    "lat": 14.41624,
+    "lon": 121.04281,
+    "name": "Power Up Albang",
+    "country": "PH",
+    "website": "https://powerupalabang.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "geocoded-address"
+    ],
+    "note": "The served HTML is eighteen characters — the site is drawn in the browser — but its platform routes serve the text, and the location page says \"Located in the heart of the NEW Wing of Filinvest Alabang\". That is a place rather than a street line, so it was measured rather than matched: the row reverse-geocodes to Civic Drive, Filinvest City, Muntinlupa 1781, and Festival Alabang geocodes 225 m from it. Upstream's address is 3305 Festival Mall Expansion, which is that building."
+  },
+  {
     "lat": 10.6850682,
     "lon": 122.5414119,
     "name": "The Pump Factory",
