@@ -5653,15 +5653,6 @@
   "reason": "The centre publishes activity slots — Aquasurf, Studentspa, Seniorspa — and no opening hours for the sports hall the climbing wall is in."
  },
  {
-  "lat": 59.9138688,
-  "lon": 10.7522454,
-  "name": "Blindern SIO Moonwall",
-  "country": "NO",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 60.62634,
   "lon": 8.56001,
   "name": "Buldretanken",
@@ -5744,8 +5735,8 @@
   "name": "Hemsedal Klatreklubb",
   "country": "NO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue — the centre 3.6 km away is a different entity — so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 62.32548,
@@ -5832,17 +5823,18 @@
   "name": "Kleivania Klatre Klubb",
   "country": "NO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 68.20843,
   "lon": 14.46631,
   "name": "Kong Øistein Hall",
   "country": "NO",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://www.lofotentindeklubb.no/klatreveggen",
+  "reason": "The club lists its week a day at a time and one day is simply not on the list: \"Åpningstider: Sommerstengt fram til 18. aug. mandag: 1800-2100, tirsdag: 1800-2100, onsdag: 2000-2200, torsdag: 1800-2100, lørdag: 1500-1700, søndag: 1800-2100\". Friday appears nowhere, in the text or in the markup, and the page adds that \"Veggen kan også bli åpnet utenfor ordinære åpningstider\" with the calendar updated instead. Six stated days do not make a week when the seventh is unmentioned rather than closed.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 68.43582769999999,
@@ -5899,17 +5891,18 @@
   "name": "Låven, Oppsal Gård",
   "country": "NO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 68.2079321,
   "lon": 14.4657356,
   "name": "Lofoten Tindeklubb",
   "country": "NO",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://www.lofotentindeklubb.no/klatreveggen",
+  "reason": "The club lists its week a day at a time and one day is simply not on the list: \"Åpningstider: Sommerstengt fram til 18. aug. mandag: 1800-2100, tirsdag: 1800-2100, onsdag: 2000-2200, torsdag: 1800-2100, lørdag: 1500-1700, søndag: 1800-2100\". Friday appears nowhere, in the text or in the markup, and the page adds that \"Veggen kan også bli åpnet utenfor ordinære åpningstider\" with the calendar updated instead. Six stated days do not make a week when the seventh is unmentioned rather than closed.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 58.02586,
@@ -6036,8 +6029,8 @@
   "name": "Trondheims beste buldresenter",
   "country": "NO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 60.96871,
@@ -6075,8 +6068,8 @@
   "name": "Ytre Snillfjord Idrettslag",
   "country": "NO",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": -36.8636501,

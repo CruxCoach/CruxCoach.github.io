@@ -3121,16 +3121,6 @@
     "candidate": "https://graviton.nl/"
   },
   {
-    "lat": 59.9138688,
-    "lon": 10.7522454,
-    "name": "Blindern SIO Moonwall",
-    "country": "NO",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "blindern.no is a price-comparison site and blindern.com carries nothing. \"Blindern SIO Moonwall\" is the University of Oslo campus plus the student welfare organisation and a board model; no page of SiO's was reached that describes this wall.",
-    "candidate": "https://blindern.no/"
-  },
-  {
     "lat": 60.62634,
     "lon": 8.56001,
     "name": "Buldretanken",
@@ -3164,9 +3154,9 @@
     "name": "Hemsedal Klatreklubb",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "hemsedal.no is the municipality and hemsedal.com the destination site for the valley; neither describes a climbing club's wall, and hemsedalklatreklubb does not resolve.",
-    "candidate": "https://hemsedal.no/"
+    "candidate": "https://www.hemsedalklatresenter.no/",
+    "reason": "Hemsedal does have a commercial wall with the right board — Hemsedal Klatresenter, run by Hemsedal Fjellsport: \"ligger i SkiStar Lodge Hemsedal Suites i Hemsedal skisenter … Vi har også en Moonboard buldrevegg.\" It is not this row. The ski centre geocodes 3.6 km from the coordinate, which sits 430 m from Trøim, the village centre; and upstream names the row a klatreklubb, which in Hemsedal is a Facebook group rather than the company. Two entities, one village, and the coordinate points at the other one.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 62.32548,
@@ -3183,18 +3173,8 @@
     "name": "Kleivania Klatre Klubb",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all: none of the name-derived domains for Kleivania Klatre Klubb exists, and no OSM climbing object within 500 m carries a website."
-  },
-  {
-    "lat": 68.20843,
-    "lon": 14.46631,
-    "name": "Kong Øistein Hall",
-    "country": "NO",
-    "status": "unverified",
-    "candidate": "https://lofotentindeklubb.no/",
-    "reason": "No official site could be established: Same club and the same post box as the row 8 m away; neither can be attached to a wall the site does not locate.",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: kleivania.no does not resolve, and nothing published in Vestvågøy carries the name. The island's climbing clubs publish under other names — Vest-Lofoten Klatreklubb at Mjånesveien 30 in Leknes, and Lofoten Tindeklubb in Kabelvåg — and neither is this row. Upstream holds no address for it; the handle it does hold, kleivania_klatre_klubb, is echoed on no page that could be found.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 64.0855357,
@@ -3212,19 +3192,8 @@
     "name": "Låven, Oppsal Gård",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "candidate": "https://laven.com/",
-    "reason": "laven.no does not answer on either host and laven.com is Laven Labels, a label printer. The dataset name is the building — Låven at Oppsal Gård, a farm barn in Oslo — and no OSM climbing object within 500 m carries a website."
-  },
-  {
-    "lat": 68.2079321,
-    "lon": 14.4657356,
-    "name": "Lofoten Tindeklubb",
-    "country": "NO",
-    "status": "unverified",
-    "candidate": "https://lofotentindeklubb.no/",
-    "reason": "No official site could be established: The club's site gives a post box — Postboks 85, 8301 Svolvær — and never states where the wall is. This coordinate is on Idrettsveien in Kabelvåg, a different town in the same municipality.",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: oppsalgaard.no and oppsal-gard.no do not resolve. Oppsal gård itself is well documented — a farm at Oppsalveien 20-22 in Oslo, with its barn photographed in the Østensjø local-history archive — and none of that documentation mentions climbing. A board in a barn on a private farm is not a venue that publishes.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 60.38464,
@@ -3252,8 +3221,8 @@
     "name": "Trondheims beste buldresenter",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "trondheims.no does not answer on either host. The dataset name — \"Trondheims beste buldresenter\" — is a description rather than a business name and yields nothing else to guess. The coordinate is not a building: it sits 11 m from OpenStreetMap’s city node for Trondheim, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match."
+    "reason": "No official site could be established: nothing is published under this name, which reads as a private board's joke title rather than a business — \"Trondheim's best bouldering centre\". Trondheim's commercial halls trade as Grip Klatring, Trondheim Klatresenter and Bulder & Brak, none of which is this row, and upstream holds no address or handle for it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 63.35346,
@@ -3261,9 +3230,8 @@
     "name": "Ytre Snillfjord Idrettslag",
     "country": "NO",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "ytre.no answers with an empty page and ytre.com with nothing readable. Nothing found names Vennastrandveien 1829 in Ytre Snillfjord.",
-    "candidate": "https://ytre.no/"
+    "reason": "No official site could be established: ysil.no and snillfjordil.no do not resolve. The club's wall is real — Vennastranda Bygdestudio, run by Ytre Snillfjord IL, which added a bouldering corner in 2024 — and where it appears is iheim.no, the municipality of Heim's directory of local associations. A municipal register is not the venue's own page.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -36.8636501,
