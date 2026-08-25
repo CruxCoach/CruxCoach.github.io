@@ -89,9 +89,8 @@
     "name": "Arlberg klettergruppe",
     "country": "AT",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — arlberg.at → \"Arlberg.at\"; arlberg.com → \"Arlberg | So schön kann Urlaub sein!\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.arlberg.at/"
+    "reason": "No official site could be established: arlbergklettergruppe.at and klettergruppe-arlberg.at do not resolve, and the Arlberg climbing group publishes nothing under its own name that could be found. Upstream holds no address, town or handle for the row.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 47.80278999999999,
@@ -99,8 +98,8 @@
     "name": "Mondbrett",
     "country": "AT",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: Mondbrett is German for the board itself, and nothing published in or around Wiener Neustadt carries it as a venue name. The town's bouldering hall is Bigwall Bouldering at Pottendorfer Straße 29, a different name and a different business. mondbrett.at does not resolve.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -33.89914,
@@ -601,23 +600,13 @@
     "checked": "2026-08-24"
   },
   {
-    "lat": 46.50714,
-    "lon": 8.71072,
-    "name": "Audan",
-    "country": "CH",
-    "status": "unverified",
-    "candidate": "https://www.audan.ch/",
-    "reason": "No official site could be established: audan.ch is Grotto Audan, a Ticinese restaurant and sport-fishing lakes at Ambrì in the Alta Leventina. Its schema.org geo block puts it 132 m from this coordinate, which is close enough to be the same corner of the valley and is the only thing that matches: the site is about food and fishing and never mentions climbing.",
-    "checked": "2026-08-24"
-  },
-  {
     "lat": 46.63397,
     "lon": 8.59349,
     "name": "Boulder Halle Andermatt",
     "country": "CH",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. boulderhalle-andermatt.ch, andermatt-boulder.ch, bouldern-andermatt.ch, bergsteigerzentrum-andermatt.ch and sportzentrum-andermatt.ch do not resolve or refuse the connection. andermatt.ch is the tourism region and andermatt.com is Andermatt Group AG, a property developer; neither is a climbing operator. As before, several unrelated facilities are listed for Andermatt and none can be tied to these coordinates."
+    "reason": "No official site could be established: the wall exists — Andermatt has a 13 m climbing wall with bouldering rooms, described as unsupervised, so climbers must belay themselves — but it publishes through the destination's tourism site rather than a site of its own, and kletterhalle-andermatt.ch and andermatt-klettern.ch do not resolve. A tourism portal listing a facility is not the facility's website.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 47.07702,
@@ -625,8 +614,8 @@
     "name": "La Déglingue",
     "country": "CH",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. ladeglingue.ch and deglingue.ch do not resolve; deglingue.com times out behind a certificate that does not cover the hostname; ladeglingue.com is a clothing shop. No OSM climbing object near La Chaux-de-Fonds carries a website tag and upstream gives no address."
+    "reason": "No official site could be established: ladeglingue.com resolves and is a French clothing shop — \"Vêtements décalés et accessoires originaux\", free shipping over €100 — not a bouldering room in La Chaux-de-Fonds, and deglingue.ch does not resolve. The town's published walls are Vertical Passion on Rue des Crêtets and the Halle Volta wall, neither of which is this row.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 47.3318164,
@@ -634,8 +623,8 @@
     "name": "Möhli",
     "country": "CH",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. moehli.ch, the punycode xn--mhli-loa.ch and moehli-boulder.ch do not resolve; mohli.com answers 200 with nothing on it. No OSM climbing object near St. Gallen carries a website tag and upstream gives no address."
+    "reason": "No official site could be established: moehli.ch does not resolve and moehli.com does not answer. St Gallen's published bouldering hall is the Boulderlounge at Zürcherstrasse 160, a different name; nothing carries Möhli as a venue.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -33.44107,
@@ -1198,9 +1187,8 @@
     "name": "Schmitten Power Room",
     "country": "DE",
     "status": "unverified",
-    "candidate": "https://www.schmitten.de/",
-    "reason": "No official site could be established: schmitten.de is the Gemeinde Schmitten, and its Anfahrt/Verkehr page carries a map pin 4 m from this coordinate — which says what the coordinate is rather than whose the site is. The row sits on the municipality's own point, 6.9 km from Neu-Anspach, and nothing on the commune's site mentions a climbing wall.",
-    "checked": "2026-08-24"
+    "reason": "No official site could be established: powerroom-schmitten.de and schmittenpowerroom.de do not resolve, and nothing published around Schmitten or Neu-Anspach carries this name. A power room is what a private training board is usually called.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 48.7023247,
@@ -1228,8 +1216,8 @@
     "name": "UNI Mainz Sportklettern",
     "country": "DE",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "unimainz.de answers with an empty document and no other domain resolves. The Hochschulsport pages of the Johannes Gutenberg University were not reached by any guess."
+    "reason": "No official site could be established: the university's general sports programme at ahs.uni-mainz.de lists over sixty sports and publishes its climbing as a course rather than a venue: no page on it states a hall, an address or a week. Mainz's public climbing centre is the DAV's Kletterkiste, a different operator, which itself says it has no fixed opening times because it is run by volunteers.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 51.29799,
