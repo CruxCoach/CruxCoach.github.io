@@ -16275,6 +16275,31 @@
   "note": "The branch page states its own hours under its own address, with 定休日：無 — no rest day. The 大阪店 page carries a different week, which is what makes this one scoped."
  },
  {
+  "lat": 35.1693221,
+  "lon": 136.9347092,
+  "name": "CUORE Imaike",
+  "country": "JP",
+  "source": "https://climbing-cuore.com/",
+  "checked": "2026-08-25",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "10:00-23:30",
+   "tue": "10:00-23:30",
+   "wed": "10:00-23:30",
+   "thu": "10:00-23:30",
+   "fri": "10:00-23:30",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "SHOP IMAIKE 名古屋市千種区今池1-6-4 シンエーハイツ千種1F 052-784-9100 平日・祝日：10:00～23:30・土日：10:00～21:00（定休日：無し）",
+  "note": "Each hall carries its own line: Nakagawa is 全日 10:00-22:00, Imaike splits weekdays and holidays from the weekend and states 定休日：無し, no closing day."
+ },
+ {
   "lat": 35.6549536,
   "lon": 139.3379978,
   "name": "D.Bouldering Hachioji",

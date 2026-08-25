@@ -13923,6 +13923,22 @@
     "note": "クライミングバム runs two gyms and gives each a page. The 横浜店 page states 神奈川県横浜市都筑区中川中央1-25-1 ノースポートモール B1F; this coordinate reverse-geocodes to 中川中央一丁目, 都筑区, 横浜市, which is the same block. The page also lists 電光ムーンボード among the walls, and this row is listed for a MoonBoard. Upstream labels the row Azamino, which is the next station over."
   },
   {
+    "lat": 35.1693221,
+    "lon": 136.9347092,
+    "name": "CUORE Imaike",
+    "country": "JP",
+    "website": "https://climbing-cuore.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "クオーレ runs two Nagoya halls and prints both in its footer with their own addresses and weeks. This is 今池: \"SHOP IMAIKE 名古屋市千種区今池1-6-4 シンエーハイツ千種1F\"."
+  },
+  {
     "lat": 35.466192922450126,
     "lon": 139.61703959444404,
     "name": "D Bouldering Yokohama",
@@ -14194,6 +14210,21 @@
       "coordinates"
     ],
     "note": "Read through the platform routes, the gym's own site prints 241 and 424-0065 — the building number and postal code in 清水区長崎241, 424-0065 that upstream records — and embeds a map of itself 173 m from this venue."
+  },
+  {
+    "lat": 34.75463,
+    "lon": 135.4994,
+    "name": "クラックス大阪 CRUX Osaka",
+    "country": "JP",
+    "website": "https://www.crux-jp.com/crux-osaka/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "CRUX 大阪 describes itself as \"1998年に大阪は吹田市に生まれたインドアクライミングの施設\" — born in Suita in 1998, which is the town upstream records — and its navigation gives both of its boards their own pages: ムーンボード and グラスホッパーボード. This row is the grasshopper."
   },
   {
     "lat": 35.58083,

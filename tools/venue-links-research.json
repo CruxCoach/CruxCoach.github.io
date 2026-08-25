@@ -2037,19 +2037,9 @@
     "name": "CRUX Osaka",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — thecrux.com.au → \"Melbourne Indoor Bouldering / Rock Climbing Coburg, Brun\"; www.cruxclimbing.pt → \"Escalada | CRUX - Climbing Center | São Domingos de Rana\"; crux.jp → \"株式会社クラックス\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://thecrux.com.au/"
-  },
-  {
-    "lat": 35.1693221,
-    "lon": 136.9347092,
-    "name": "CUORE Imaike",
-    "country": "JP",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — cuore.jp → \"株式会社クオーレ | ITで現実を変えるシステム開発\"; cuore.co.jp → \"株式会社クオーレ | ITで現実を変えるシステム開発\", the rest could not be opened — cuore.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://cuore.jp/"
+    "candidate": "https://www.crux-jp.com/crux-osaka/",
+    "reason": "The second CRUX Osaka row sits 12 km from the first, in central Osaka, and the operator has one hall: CRUX 大阪 in Suita, at 広芝町16-9, which is where the other row is. The name resolves and the place does not, so this row keeps the name as its only signal.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 35.274461,
@@ -2065,10 +2055,10 @@
     "lon": 139.8972751,
     "name": "GRANNY Minaminagareyama",
     "country": "JP",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — granny.co.jp → \"放課後等デイサービス の フランチャイズ 募集は Granny\", the rest could not be opened — granny.com → 404. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://granny.co.jp/"
+    "status": "http-only",
+    "candidate": "http://granny.attack-climb.jp/",
+    "reason": "Bouldering Granny is at 千葉県流山市南流山6-8-7, nine minutes from 南流山 station, and its 130-degree wall is the ムーンボード upstream records. Its site is on attack-climb.jp and answers nothing over https, so the identification is recorded here rather than linked.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 38.04837089999999,
@@ -2086,8 +2076,9 @@
     "name": "Joywall",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — joywall.com → a certificate that does not cover its hostname; joywallclimbing.com → a certificate that does not cover its hostname, the venue's whole name as one label, joywall.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against. The coordinate is not a building: it sits 50 m from OpenStreetMap’s city node for 久留米市, so the registry recorded the city and not the wall. No page can be matched to this venue by an address or a map, because there is nothing at the point to match."
+    "candidate": "http://joywall.com/",
+    "reason": "joywall.com resolves, serves only over http, and what it serves is a template: \"Under construction — Awesome Site in The Making. An amazing site is coming to this web address.\" Nothing on it names Kurume, a wall or a board.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 35.4304213,
@@ -2124,8 +2115,9 @@
     "name": "Oita Climbing Gym DAIBU",
     "country": "JP",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "candidate": "https://daibu-climbing.com/",
+    "reason": "daibu-climbing.com was the gym's domain — 大分県大分市小池原898, Tuesday to Friday 14:00-23:00 — and it now serves an Indonesian gambling site dressed as a Samsung storefront. A local blog reports the gym as closed. The domain has been taken over, so nothing on it is evidence about the hall either way.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 34.4875144,
@@ -2176,24 +2168,14 @@
     "candidate": "https://www.vortex.co.jp/"
   },
   {
-    "lat": 34.75463,
-    "lon": 135.4994,
-    "name": "クラックス大阪 CRUX Osaka",
-    "country": "JP",
-    "status": "unverified",
-    "reason": "thecrux.com.au is an Australian operator. The Osaka hall shares nothing with it but the word Crux, and the snapshot the sweep matched was a 6 kB page carrying that word and a grasshopper board reference.",
-    "candidate": "https://thecrux.com.au/",
-    "checked": "2026-08-24"
-  },
-  {
     "lat": 35.15172,
     "lon": 137.00298,
     "name": "ボルダリングジム　ラコンテント LaContento",
     "country": "JP",
-    "status": "unverified",
-    "candidate": "https://lacontento.com/",
-    "reason": "No official site could be established: lacontento.com is a Yokkaichi confectioner in Mie prefecture selling panna cotta gift sets, served in EUC-JP. This row is a bouldering gym in 名東区, Nagoya.",
-    "checked": "2026-08-24"
+    "status": "unavailable",
+    "candidate": "https://lacontento.jp/",
+    "reason": "ラコンテント is a Nagoya bouldering gym in 名東区 — upstream records 〒465-0068 愛知県名古屋市名東区牧の里2-1 — and one of the few in Japan with a Kilter Board, which is what upstream lists. lacontento.jp resolves and serves nothing: no response over https or http, on the apex or www. Retry when the host answers.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 33.29132,

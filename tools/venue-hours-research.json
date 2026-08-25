@@ -4488,17 +4488,8 @@
   "name": "CRUX Osaka",
   "country": "JP",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 35.1693221,
-  "lon": 136.9347092,
-  "name": "CUORE Imaike",
-  "country": "JP",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue — the gym of this name is 12 km away — so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 35.466192922450126,
@@ -4534,9 +4525,10 @@
   "lon": 139.8972751,
   "name": "GRANNY Minaminagareyama",
   "country": "JP",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "http://granny.attack-climb.jp/",
+  "reason": "The gym publishes two weeks side by side and labels them 有人営業 and 無人営業 — staffed and unstaffed. Staffed: 月曜日 定休日（祝日は休日時間帯で営業）, 火曜日〜金曜日 13:00〜22:00, 土日・祝日 10:00〜20:00. Unstaffed adds 8:00〜13:00 and 22:00〜23:00 on weekdays for people who have already been shown round in staffed hours. No site is established for the row, and the staffed week has a Monday rule that depends on whether the day is a public holiday.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 38.04837089999999,
@@ -4553,8 +4545,8 @@
   "name": "Joywall",
   "country": "JP",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 35.4304213,
@@ -4599,8 +4591,8 @@
   "name": "Oita Climbing Gym DAIBU",
   "country": "JP",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The venue's former domain has been taken over by an unrelated site, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 42.86238,
@@ -4662,9 +4654,10 @@
   "lon": 135.4994,
   "name": "クラックス大阪 CRUX Osaka",
   "country": "JP",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://www.crux-jp.com/crux-osaka/",
+  "reason": "The page has a 営業時間 entry in its navigation and no times anywhere in its text; the same is true of its address. Whatever the gym publishes about opening is in an image.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 35.4425,
@@ -4681,9 +4674,10 @@
   "lon": 137.00298,
   "name": "ボルダリングジム　ラコンテント LaContento",
   "country": "JP",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://lacontento.jp/",
+  "reason": "The venue's domain resolves and returns nothing, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 33.29132,
