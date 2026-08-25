@@ -39,6 +39,9 @@ node tools/dev/build-competition-fixtures.mjs
 
 # A loopback Nostr relay for the competition runbook. Never a public relay.
 node tools/dev/relay.mjs --port 7447
+
+# Re-apply the curated overlays (including venue ids) without a network fetch
+node tools/build-boards-data.mjs --overlays-only
 ```
 
 The lightweight `scripts/check` validates JavaScript, JSON, and the sitemap and
@@ -70,6 +73,16 @@ the repo.
      is the only feature that requests a browser permission; `map.locate()` keeps
      the coordinates in the page and transmits them nowhere. Both are disclosed
      on the privacy pages.
+     Each venue popup also opens the **venue report dialog** — `boards/report.js`
+     (ES module, DOM + fetch) over `boards/report-core.mjs` (taxonomy, checks,
+     request body; no DOM, so `node --test` drives the real thing). It is the one
+     surface on this site that SENDS something, and its rules are in
+     `tools/VENUE-REPORTS.md`. The short version: it signs nothing and holds no
+     key, it stores nothing anywhere in the browser, it carries no analytics
+     beacon, and offline it refuses rather than queueing a plaintext report onto
+     somebody's device. The wire contract is
+     `tools/venue-report-contract.v1.json`, committed byte-identically in
+     `cruxcoach-dashboard` and digest-pinned by a test in both repos.
   3. `sw.js` is a resilience service worker (stale-while-revalidate + mirror
      fallback from `mirrors.json`) so returning visitors survive an origin outage.
   4. Every HTML page loads `assets/anonymous-analytics.js` — except `get.html`,
@@ -202,6 +215,19 @@ for the full contract; the essentials:
   (~11 m) via `venueKey()`, so a multi-board gym renders as one composite marker.
   Valid `board` values are enforced centrally; unknown boards are dropped with a
   warning. Merge policy is **first-source-wins** by `(board, lat, lon)`.
+- **Stable identity** (`tools/venue-ids.mjs`): every venue gets `venue_id` and
+  every board and wall gets `instance_id`, assigned before any other overlay
+  because everything downstream refers to a venue by an id that must be the same
+  id it had yesterday. Ids are DERIVED from the venue key, so they need no state
+  and are identical on every machine. `tools/venue-ids.json` pins an id to a
+  venue whose coordinates actually moved; ambiguity refuses rather than guesses,
+  and a derived id colliding with a pinned one leaves that venue with no id
+  rather than giving two gyms one identity. A board id deliberately ignores the
+  fields a report is likely to be about (angle, hold set, LED), so a correction
+  does not orphan the report asking for it. **Never renumber**: a public report
+  filed yesterday names an id, and a changed derivation would point every open
+  report at nothing. A derivation change is a `v2_` prefix plus a ledger
+  migration, never an edit in place.
 - **Hand-curated overlays**, matched by the same `venueKey()` rounding and applied
   on every rebuild:
   - `tools/overrides.json` — corrects blank/wrong upstream fields (e.g. MoonBoard
@@ -231,6 +257,15 @@ for the full contract; the essentials:
     door, and tests grep every published artifact for them. Nothing computes an
     open-now state. Policy: `tools/VENUE-HOURS.md`; validation:
     `node tools/venue-hours-report.mjs`.
+  - `tools/venue-ids.json` — the identity ledger described above. A record needs
+    a reason; a pin with no `note` is refused, because the next person cannot
+    tell a real correction from a mistake somebody committed once.
+
+  **A public report never edits any of these files.** Reports arrive encrypted in
+  the maintainer's Inbox and are applied, if at all, by a human editing the
+   relevant overlay by hand — same standard of evidence as any other curated row.
+   Nothing in this repo reads the report database, and nothing in the dashboard
+   writes to this repo.
 - **Adapter guidelines**: drop free-form `description`/`bio` text at the adapter
   (historical MoonBoard entries contain SEO/casino spam); validate coordinate
   ranges; never propagate upstream email/phone.

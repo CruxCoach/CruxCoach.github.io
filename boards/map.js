@@ -25,8 +25,9 @@
       variant: 'Variant',
       type: 'Type',
       hardware: 'Hardware',
-      commercial: 'Commercial',
-      homeSetup: 'Home setup',
+      commercial: 'Marked commercial upstream',
+      homeSetup: 'Marked non-commercial upstream',
+      moonAccessNote: 'Upstream listing flag — not verified public access.',
       noLeds: 'No LEDs',
       wellpassNote: 'egym Wellpass coverage (DACH, manually curated).',
       inWellpass: 'In Wellpass',
@@ -34,6 +35,8 @@
       countryHdr: 'Country ({n})',
       countryNote: 'Applies to every venue.',
       resetFilters: 'Reset detail filters',
+      resetAllFilters: 'Show all venues',
+      noMatchingVenues: 'No venues match these filters.',
       locations: '{n} locations',
       statusOf: '{shown} of {total} locations',
       boardsInView: 'Boards in view',
@@ -57,6 +60,19 @@
       userLabel: 'User:',
       notOnWellpass: 'Not on egym Wellpass',
       openOsm: 'Open in OpenStreetMap →',
+      directions: 'Plan route →',
+      suggestCorrection: 'Open an issue',
+      reportCorrection: 'Report a correction',
+      reportCorrectionAria: 'Report a correction for {venue}',
+      venueIdLabel: 'Venue ID:',
+      accessHdr: 'Access',
+      accessNote: 'Venue-level access, manually verified where available.',
+      accessPublic: 'Public',
+      accessRestricted: 'Restricted',
+      accessPrivate: 'Private',
+      accessClosed: 'Closed',
+      accessUnknown: 'Not verified',
+      clusterLocations: '{n} locations',
       adjustableRange: 'adjustable {min}–{max}°',
       angleStepSuffix: ' in {step}° steps',
       adjustableSetTo: 'adjustable, set to {angle}°',
@@ -109,8 +125,9 @@
       variant: 'Variante',
       type: 'Typ',
       hardware: 'Hardware',
-      commercial: 'Kommerziell',
-      homeSetup: 'Privat (Homewall)',
+      commercial: 'Upstream als kommerziell gemeldet',
+      homeSetup: 'Upstream als nicht kommerziell gemeldet',
+      moonAccessNote: 'Upstream-Kennzeichnung — kein geprüfter öffentlicher Zugang.',
       noLeds: 'Keine LEDs',
       wellpassNote: 'egym-Wellpass-Abdeckung (DACH, manuell gepflegt).',
       inWellpass: 'In Wellpass',
@@ -118,6 +135,8 @@
       countryHdr: 'Land ({n})',
       countryNote: 'Gilt für jeden Standort.',
       resetFilters: 'Detailfilter zurücksetzen',
+      resetAllFilters: 'Alle Standorte anzeigen',
+      noMatchingVenues: 'Keine Standorte passen zu diesen Filtern.',
       locations: '{n} Standorte',
       statusOf: '{shown} von {total} Standorten',
       boardsInView: 'Boards in der Ansicht',
@@ -141,6 +160,19 @@
       userLabel: 'Nutzer:',
       notOnWellpass: 'Nicht bei egym Wellpass',
       openOsm: 'In OpenStreetMap öffnen →',
+      directions: 'Route planen →',
+      suggestCorrection: 'Issue eröffnen',
+      reportCorrection: 'Korrektur melden',
+      reportCorrectionAria: 'Korrektur für {venue} melden',
+      venueIdLabel: 'Venue-ID:',
+      accessHdr: 'Zugang',
+      accessNote: 'Zugang zum Standort, soweit verfügbar manuell geprüft.',
+      accessPublic: 'Öffentlich',
+      accessRestricted: 'Eingeschränkt',
+      accessPrivate: 'Privat',
+      accessClosed: 'Geschlossen',
+      accessUnknown: 'Nicht geprüft',
+      clusterLocations: '{n} Standorte',
       adjustableRange: 'verstellbar {min}–{max}°',
       angleStepSuffix: ' in {step}°-Schritten',
       adjustableSetTo: 'verstellbar, eingestellt auf {angle}°',
@@ -226,6 +258,7 @@
           moonLed:   Array.from(activeMoonLed),
           moonVar:   Array.from(activeMoonVariants),
           wellpass:  Array.from(activeWellpass),
+          access:    Array.from(activeAccess),
           sizes:     activeSizes === null ? null : Array.from(activeSizes),
           countries: activeCountries === null ? null : Array.from(activeCountries),
         },
@@ -246,6 +279,7 @@
     if (Array.isArray(f.moonLed)) activeMoonLed      = new Set(f.moonLed);
     if (Array.isArray(f.moonVar)) activeMoonVariants = new Set(f.moonVar);
     if (Array.isArray(f.wellpass)) activeWellpass    = new Set(f.wellpass);
+    if (Array.isArray(f.access))   activeAccess      = new Set(f.access);
     activeSizes     = Array.isArray(f.sizes)     ? new Set(f.sizes)     : null;
     activeCountries = Array.isArray(f.countries) ? new Set(f.countries) : null;
   }
@@ -275,7 +309,11 @@
     var out = { lat: lat, lon: lon, zoom: zoom, boards: null };
     for (var i = 1; i < parts.length; i++) {
       var kv = parts[i].split('=');
-      if (kv[0] !== 'b' || !kv[1]) continue;
+      if (kv[0] !== 'b' || kv.length < 2) continue;
+      if (kv[1] === '') {
+        out.boards = [];
+        continue;
+      }
       // Drop unknown ids rather than filtering everything away on a typo.
       var ids = kv[1].split(',').filter(function (id) { return !!COLOR[id]; });
       if (ids.length) out.boards = ids;
@@ -290,11 +328,11 @@
     var c = map.getCenter();
     var hash = '#' + c.lat.toFixed(4) + ',' + c.lng.toFixed(4) + ',' + map.getZoom();
     // Only spell out the board filter when it is not "everything".
-    if (activeBoards && activeBoards.size && activeBoards.size < BOARDS.length) {
-      hash += '&b=' + BOARDS
+    if (activeBoards && activeBoards.size < BOARDS.length) {
+      hash += '&b=' + (activeBoards.size ? BOARDS
         .filter(function (b) { return activeBoards.has(b.id); })
         .map(function (b) { return b.id; })
-        .join(',');
+        .join(',') : '');
     }
     if (hash !== location.hash) {
       try { history.replaceState(null, '', location.pathname + location.search + hash); }
@@ -313,6 +351,17 @@
   } else {
     map.setView([47.5, 9.5], 4);
   }
+
+  // Panels are clipped by the map container, not by the browser viewport.
+  // Measure that real container so Country + Reset remain reachable on phones
+  // regardless of header/footer height or browser chrome.
+  function updatePanelMaxHeight() {
+    var h = map.getContainer().clientHeight;
+    map.getContainer().style.setProperty('--map-panel-max-height', Math.max(160, h - 64) + 'px');
+  }
+  updatePanelMaxHeight();
+  map.on('resize', updatePanelMaxHeight);
+  window.addEventListener('resize', updatePanelMaxHeight);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -340,6 +389,16 @@
       });
     },
   }).addTo(map);
+
+  function labelClusterIcons() {
+    document.querySelectorAll('#map .marker-cluster').forEach(function (el) {
+      var count = parseInt(el.textContent, 10);
+      if (isFinite(count)) el.setAttribute('aria-label', tf(T.clusterLocations, { n: count }));
+    });
+  }
+  function scheduleClusterLabels() { setTimeout(labelClusterIcons, 0); }
+  map.on('moveend zoomend', scheduleClusterLabels);
+  cluster.on('animationend spiderfied unspiderfied', scheduleClusterLabels);
 
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -570,10 +629,47 @@
       '</div>';
   }
 
+  var ACCESS_LABEL = {
+    public: T.accessPublic,
+    restricted: T.accessRestricted,
+    private: T.accessPrivate,
+    closed: T.accessClosed,
+    unknown: T.accessUnknown,
+  };
+
+  function renderAccessLine(props) {
+    if (!ACCESS_LABEL[props.access] || props.access === 'unknown') return '';
+    return '<div class="popup-access popup-access-' + props.access + '">' +
+      escapeHtml(ACCESS_LABEL[props.access]) + '</div>';
+  }
+
+  // The in-page report button. Rendered only when the venue carries a stable
+  // id — without one there is nothing a report could be filed against, and a
+  // button that produces an unattributable report is worse than none. The
+  // handler is attached on popupopen, because Leaflet builds this HTML into the
+  // DOM after the fact.
+  function reportButtonHtml(props) {
+    if (typeof props.venue_id !== 'string') return '';
+    return ' · <button type="button" class="popup-report" data-venue-report="' +
+      escapeHtml(props.venue_id) + '" aria-label="' +
+      escapeHtml(tf(T.reportCorrectionAria, { venue: props.name || T.unnamed })) + '">' +
+      escapeHtml(T.reportCorrection) + '</button>';
+  }
+
+  // The venue id, shown because it is the handle a person needs when reporting
+  // that two entries are the same gym.
+  function venueIdHtml(props) {
+    if (typeof props.venue_id !== 'string') return '';
+    return '<br><span class="popup-venue-id"><span class="label">' + T.venueIdLabel + '</span> ' +
+      escapeHtml(props.venue_id) + '</span>';
+  }
+
   function buildPopupHtml(lat, lon, props) {
     var subtitleParts = [];
+    var nearest = (LANG === 'de' && props.city_nearest_de) ? props.city_nearest_de : props.city_nearest;
     if (props.city) subtitleParts.push(escapeHtml(props.city));
-    if (props.country) subtitleParts.push(escapeHtml(props.country));
+    else if (nearest) subtitleParts.push(escapeHtml(tf(T.nearCity, { city: nearest })));
+    if (props.country) subtitleParts.push(escapeHtml(countryName(props.country)));
     var subtitle = subtitleParts.length
       ? '<div class="meta">' + subtitleParts.join(', ') + '</div>'
       : '';
@@ -596,18 +692,27 @@
         '</div>'
       );
     }).join('');
+    var directionsUrl = 'https://www.openstreetmap.org/directions?to=' +
+      encodeURIComponent(lat + ',' + lon);
+    var correctionUrl = 'https://codeberg.org/CruxCoach/cruxcoach-pages/issues/new?title=' +
+      encodeURIComponent('Board map correction: ' + (props.name || T.unnamed));
     return (
       '<div class="popup">' +
-        '<h4>' + escapeHtml(props.name || T.unnamed) + '</h4>' +
+        '<h2>' + escapeHtml(props.name || T.unnamed) + '</h2>' +
         subtitle +
         renderSiteLine(props) +
         renderHoursSection(props) +
+        renderAccessLine(props) +
         wellpassLine +
         '<div class="popup-boards">' + sections + '</div>' +
         '<div class="popup-foot">' +
-          '<a href="https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lon +
-            '#map=17/' + lat + '/' + lon + '" target="_blank" rel="noopener">' + T.openOsm + '</a>' +
+          '<a href="' + escapeHtml(directionsUrl) + '" target="_blank" rel="noopener" referrerpolicy="no-referrer">' + T.directions + '</a>' +
+          ' · <a href="https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lon +
+            '#map=17/' + lat + '/' + lon + '" target="_blank" rel="noopener" referrerpolicy="no-referrer">' + T.openOsm + '</a>' +
+          reportButtonHtml(props) +
+          '<br><a href="' + escapeHtml(correctionUrl) + '" target="_blank" rel="noopener" referrerpolicy="no-referrer">' + T.suggestCorrection + '</a>' +
           ' · ' + lat.toFixed(5) + ', ' + lon.toFixed(5) +
+          venueIdHtml(props) +
         '</div>' +
       '</div>'
     );
@@ -619,22 +724,77 @@
     var icon;
     if (colors.length <= 1) {
       icon = L.divIcon({
-        html: '<div class="marker-dot" style="background:' + (colors[0] || '#888') + '"></div>',
+        html: '<div class="marker-dot" aria-hidden="true" style="background:' + (colors[0] || '#888') + '"></div>',
         className: '',
-        iconSize: [14, 14],
-        iconAnchor: [7, 7],
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
       });
     } else {
       icon = L.divIcon({
-        html: '<div class="marker-pie">' + pieMarkerSvg(colors, 18) + '</div>',
+        html: '<div class="marker-pie" aria-hidden="true">' + pieMarkerSvg(colors, 18) + '</div>',
         className: '',
-        iconSize: [18, 18],
-        iconAnchor: [9, 9],
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
       });
     }
-    return L.marker([lat, lon], { icon: icon })
-      .bindPopup(buildPopupHtml(lat, lon, props), { maxWidth: 320 });
+    var name = props.name || T.unnamed;
+    var marker = L.marker([lat, lon], { icon: icon, title: name, keyboard: true });
+    marker.on('add', function () {
+      var el = marker.getElement();
+      if (el) {
+        el.setAttribute('aria-label', name);
+        el.setAttribute('role', 'button');
+      }
+    });
+    return marker.bindPopup(buildPopupHtml(lat, lon, props), { maxWidth: 320 });
   }
+
+  // A popup is a detail dialog, not a visual tooltip. Move keyboard focus into
+  // it when opened, make every link reachable, close on Escape, then return
+  // focus to the marker that launched it.
+  var popupReturnFocus = null;
+  map.on('popupopen', function (event) {
+    popupReturnFocus = event.popup && event.popup._source && event.popup._source.getElement
+      ? event.popup._source.getElement()
+      : null;
+    var popup = event.popup && event.popup.getElement ? event.popup.getElement() : null;
+    var content = popup && popup.querySelector('.popup');
+    if (!content) return;
+    content.setAttribute('role', 'dialog');
+    content.setAttribute('aria-modal', 'false');
+    content.tabIndex = -1;
+    try { content.focus({ preventScroll: true }); } catch (e) { content.focus(); }
+
+    // The report module is an ES module and therefore deferred; this classic
+    // script has already run by the time it loads. Look it up now, so a module
+    // that never arrived leaves an inert button rather than a thrown error —
+    // and remove the button in that case, because a control that does nothing
+    // is a bug a visitor cannot diagnose.
+    var reportButton = content.querySelector('[data-venue-report]');
+    if (!reportButton) return;
+    var api = window.CruxCoachVenueReport;
+    if (!api || typeof api.open !== 'function') {
+      reportButton.remove();
+      return;
+    }
+    var record = recordsByVenueId[reportButton.getAttribute('data-venue-report')];
+    if (!record) { reportButton.remove(); return; }
+    reportButton.addEventListener('click', function () {
+      api.open(record.props, record.lat, record.lon, reportButton);
+    });
+  });
+  map.on('popupclose', function () {
+    if (popupReturnFocus && document.contains(popupReturnFocus)) {
+      try { popupReturnFocus.focus({ preventScroll: true }); } catch (e) { popupReturnFocus.focus(); }
+    }
+    popupReturnFocus = null;
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && document.querySelector('#map .leaflet-popup')) {
+      event.preventDefault();
+      map.closePopup();
+    }
+  });
 
   // ── Local venue search ────────────────────────────────────────────
   // A fully client-side search over the venues already in memory — gym
@@ -718,6 +878,7 @@
           wellpass: rec.wellpass, boards: rec.boards,
           website: rec.website,
           hours: rec.hours, hours_src: rec.hoursSrc,
+          access: rec.access, venue_id: rec.venueId,
         }))
         .openOn(map);
     }
@@ -954,7 +1115,27 @@
     return 'unknown';
   }
 
+  // Venue-level access is independent of MoonBoard's historical
+  // IsCommercial flag. The curated overlay may gradually populate these
+  // states; until then every venue remains visible and no access filter is
+  // rendered. This prevents an incomplete audit from hiding real gyms.
+  var ACCESS_STATES = [
+    { key: 'public', label: T.accessPublic },
+    { key: 'restricted', label: T.accessRestricted },
+    { key: 'private', label: T.accessPrivate },
+    { key: 'closed', label: T.accessClosed },
+    { key: 'unknown', label: T.accessUnknown },
+  ];
+  function accessKey(rec) {
+    return ACCESS_LABEL[rec.access] ? rec.access : 'unknown';
+  }
+
   var venueRecords = [];
+  // Venue id → the raw feature the report dialog needs. Kept separately from
+  // venueRecords because that array carries the search index and the filter
+  // state, none of which a report cares about — and because a popup opened from
+  // the search list rebuilds its content from a record rather than the feature.
+  var recordsByVenueId = Object.create(null);
   // Active sets — full set = "no constraint", same UX as the app's chips.
   var activeBoards = new Set(BOARDS.map(function (b) { return b.id; }));
   var activeLayouts = new Set(KILTER_LAYOUTS.map(function (l) { return l.key; }));
@@ -964,6 +1145,7 @@
   var activeMoonLed = new Set(MOON_LED.map(function (a) { return a.key; }));
   var activeMoonVariants = new Set(MOON_VARIANTS.map(function (v) { return v.key; }));
   var activeWellpass = new Set(WELLPASS_STATES.map(function (w) { return w.key; }));
+  var activeAccess = new Set(ACCESS_STATES.map(function (a) { return a.key; }));
   // Sizes + Countries can have many options; null = "no constraint", any
   // first toggle materialises the full set so the user removes from it.
   var activeSizes = null;
@@ -974,7 +1156,11 @@
   restoreFilters(savedState && savedState.filters);
   // A shared link states which board types it is about; that beats whatever
   // the recipient had selected before.
-  if (hashState && hashState.boards) activeBoards = new Set(hashState.boards);
+  if (hashState) {
+    activeBoards = new Set(hashState.boards === null
+      ? BOARDS.map(function (b) { return b.id; })
+      : hashState.boards);
+  }
   map.on('moveend', persist);
 
   function kilterEntryMatches(entry) {
@@ -1016,6 +1202,7 @@
     // Universal gates first (cheap, reject quickly).
     if (activeCountries && !activeCountries.has(rec.country || 'unknown')) return false;
     if (!activeWellpass.has(wellpassKey(rec))) return false;
+    if (!activeAccess.has(accessKey(rec))) return false;
     // Then per-board OR: at least one active board with a matching entry.
     for (var i = 0; i < rec.boards.length; i++) {
       var b = rec.boards[i];
@@ -1048,6 +1235,8 @@
       shown: shown.toLocaleString(LANG),
       total: venueRecords.length.toLocaleString(LANG),
     });
+    var empty = document.getElementById('map-empty');
+    if (empty) empty.hidden = shown !== 0;
   }
 
   function updateSectionVisibility() {
@@ -1065,10 +1254,20 @@
     activeMoonLed = new Set(MOON_LED.map(function (a) { return a.key; }));
     activeMoonVariants = new Set(MOON_VARIANTS.map(function (v) { return v.key; }));
     activeWellpass = new Set(WELLPASS_STATES.map(function (w) { return w.key; }));
+    activeAccess = new Set(ACCESS_STATES.map(function (a) { return a.key; }));
     activeSizes = null;
     activeCountries = null;
     document.querySelectorAll('.legend .chip[data-dim]').forEach(function (el) { el.classList.add('selected'); });
     applyFilter();
+  }
+
+  function resetAllFilters() {
+    activeBoards = new Set(BOARDS.map(function (b) { return b.id; }));
+    document.querySelectorAll('.legend input[type=checkbox]').forEach(function (cb) {
+      cb.checked = true;
+    });
+    resetDetailFilters();
+    updateSectionVisibility();
   }
 
   // ── Legend rendering ──────────────────────────────────────────────
@@ -1119,6 +1318,7 @@
       '<div class="board-section" data-board="moonboard">' +
         '<hr>' +
         '<div class="subhdr">' + T.moonSetup + '</div>' +
+        '<div class="subnote">' + T.moonAccessNote + '</div>' +
         '<div class="subhdr" style="margin-top:6px">' + T.variant + '</div>' +
         '<div class="chips">' +
           MOON_VARIANTS.map(function (v) {
@@ -1149,6 +1349,21 @@
       '<div class="chips">' +
         WELLPASS_STATES.map(function (w) {
           return chip('wellpass', w.key, w.label, stats.wellpassCounts[w.key], activeWellpass.has(w.key));
+        }).join('') +
+      '</div>'
+    );
+  }
+
+  function renderAccessSection(stats) {
+    if (!stats.accessDefined) return '';
+    return (
+      '<hr>' +
+      '<div class="subhdr">' + T.accessHdr + '</div>' +
+      '<div class="subnote">' + T.accessNote + '</div>' +
+      '<div class="chips">' +
+        ACCESS_STATES.map(function (state) {
+          return chip('access', state.key, state.label,
+            stats.accessCounts[state.key], activeAccess.has(state.key));
         }).join('') +
       '</div>'
     );
@@ -1324,6 +1539,8 @@
         '</svg>';
 
       var div = L.DomUtil.create('div', 'legend', wrap);
+      div.id = 'map-filters';
+      div.tabIndex = -1;
       var listPanel = L.DomUtil.create('div', 'venue-list', wrap);
 
       // A single polite live region for both the place jump and the locate
@@ -1594,6 +1811,15 @@
         setPanel('list');
       });
 
+      var skipLink = document.querySelector('.skip-map-controls');
+      if (skipLink) {
+        skipLink.addEventListener('click', function (ev) {
+          ev.preventDefault();
+          showPanel('filter');
+          setTimeout(function () { div.focus(); }, 0);
+        });
+      }
+
       // Refresh the list when the map moves/zooms — only if the list panel is
       // currently the open one (avoid DOM churn otherwise). The nearest list
       // is anchored to the visitor rather than the viewport, so panning must
@@ -1612,7 +1838,7 @@
       });
 
       var boardTypeSection =
-        '<h3>' + T.boardType + '</h3>' +
+        '<h2>' + T.boardType + '</h2>' +
         BOARDS.map(function (b) {
           return (
             '<label>' +
@@ -1630,6 +1856,7 @@
 
       div.innerHTML =
         boardTypeSection +
+        renderAccessSection(stats) +
         renderWellpassSection(stats) +
         renderKilterSection(stats) +
         renderMoonboardSection(stats) +
@@ -1666,6 +1893,7 @@
       moonLed: function () { return activeMoonLed; },
       moonVar: function () { return activeMoonVariants; },
       wellpass: function () { return activeWellpass; },
+      access: function () { return activeAccess; },
     };
     document.querySelectorAll('.legend .chip[data-dim]').forEach(function (el) {
       el.addEventListener('click', function () {
@@ -1690,6 +1918,9 @@
     document.querySelectorAll('.legend .filter-reset').forEach(function (btn) {
       btn.addEventListener('click', resetDetailFilters);
     });
+
+    var emptyReset = document.getElementById('map-empty-reset');
+    if (emptyReset) emptyReset.addEventListener('click', resetAllFilters);
 
     // Bulk All/None inside the many-option sub-sections (Country, Size).
     // "All" resets state to null (no constraint, same as fresh-page state);
@@ -1725,6 +1956,8 @@
       var moonLedCounts = { led: 0, 'no-led': 0, unknown: 0 };
       var moonVariantCounts = Object.fromEntries(MOON_VARIANTS.map(function (v) { return [v.key, 0]; }));
       var wellpassCounts = { yes: 0, no: 0, unknown: 0 };
+      var accessCounts = { public: 0, restricted: 0, private: 0, closed: 0, unknown: 0 };
+      var accessDefined = 0;
       var sizeMap = new Map();
       var countryMap = new Map();
 
@@ -1769,9 +2002,15 @@
         if (country) countryMap.set(country, (countryMap.get(country) || 0) + 1);
         var wellpass = (props.wellpass === true || props.wellpass === false) ? props.wellpass : null;
         wellpassCounts[wellpass === true ? 'yes' : wellpass === false ? 'no' : 'unknown']++;
+        var access = ACCESS_LABEL[props.access] ? props.access : null;
+        accessCounts[access || 'unknown']++;
+        if (access) accessDefined++;
 
         var marker = buildMarker(lat, lon, props);
         cluster.addLayer(marker);
+        if (typeof props.venue_id === 'string') {
+          recordsByVenueId[props.venue_id] = { props: props, lat: lat, lon: lon };
+        }
         // Precompute the normalized search fields once per venue so each
         // keystroke is a handful of indexOf() calls, not a re-normalize.
         var venueName = props.name || T.unnamed;
@@ -1794,6 +2033,8 @@
           website: props.website || null,
           hours: props.hours || null,
           hoursSrc: props.hours_src || null,
+          access: access,
+          venueId: typeof props.venue_id === 'string' ? props.venue_id : null,
           nName: normalizeText(venueName),
           nCity: props.city ? normalizeText(props.city) : '',
           nCountry: cName ? normalizeText(cName) : '',
@@ -1801,6 +2042,7 @@
             cName, boardLabels].filter(Boolean).join(' ')),
         });
       }
+      scheduleClusterLabels();
 
       var sizeOptions = Array.from(sizeMap.values()).sort(function (a, b) {
         return b.count - a.count || a.label.localeCompare(b.label);
@@ -1818,6 +2060,8 @@
         moonLedCounts: moonLedCounts,
         moonVariantCounts: moonVariantCounts,
         wellpassCounts: wellpassCounts,
+        accessCounts: accessCounts,
+        accessDefined: accessDefined,
         sizeOptions: sizeOptions,
         countryOptions: countryOptions,
       });

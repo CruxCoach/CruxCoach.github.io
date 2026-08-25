@@ -3,34 +3,6 @@
  "started": "2026-08-23",
  "items": [
   {
-   "lat": 0,
-   "lon": 0,
-   "name": "Fitbloc",
-   "country": "??",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
-    "channels": [
-     "name-guess",
-     "web-search"
-    ],
-    "note": "The dataset entry sits at 0,0 with no country, no city and no address — twelve commercial MoonBoards attached to a name and nothing else. Neither research log can hold an outcome for it (both require a real country code), and no discovery channel can start from a coordinate in the Gulf of Guinea. Recorded here so the row is not silently absent; it needs an upstream fix, not a curation pass."
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
-    "channels": [
-     "name-guess",
-     "web-search"
-    ],
-    "note": "The dataset entry sits at 0,0 with no country, no city and no address — twelve commercial MoonBoards attached to a name and nothing else. Neither research log can hold an outcome for it (both require a real country code), and no discovery channel can start from a coordinate in the Gulf of Guinea. Recorded here so the row is not silently absent; it needs an upstream fix, not a curation pass."
-   }
-  },
-  {
    "lat": 42.49797,
    "lon": 1.51116,
    "name": "BlocCafé Climbing",
@@ -261,35 +233,6 @@
      "name-guess",
      "apex",
      "www"
-    ]
-   }
-  },
-  {
-   "lat": -79.5855917,
-   "lon": 43.6044775,
-   "name": "Up The Bloc",
-   "country": "AQ",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
-    "channels": [
-     "venue-link",
-     "path-probe"
     ]
    }
   },
@@ -713,6 +656,24 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 47.525894,
+   "lon": 12.422342,
+   "name": "Koasa Boulder",
+   "country": "AT",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -1202,6 +1163,24 @@
      "www",
      "web-search"
     ]
+   }
+  },
+  {
+   "lat": -27.565676,
+   "lon": 151.947208,
+   "name": "Climb Toowoomba",
+   "country": "AU",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -4499,6 +4478,24 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 49.884857023039906,
+   "lon": -119.4229850502785,
+   "name": "Gneiss Climbing OG Banks",
+   "country": "CA",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -26926,6 +26923,24 @@
    }
   },
   {
+   "lat": 55.67094115452206,
+   "lon": 37.29276147791354,
+   "name": "Skalodrom",
+   "country": "RU",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 53.2415041,
    "lon": 50.2212463,
    "name": "SMiLE JYM",
@@ -36252,6 +36267,24 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 35.184391279939376,
+   "lon": -106.57514876931646,
+   "name": "Stone Age Climbing Gym North",
+   "country": "US",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {

@@ -24,10 +24,11 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 
 import * as hangtime from './sources/hangtime.mjs';
-import { renderListPage, renderStatsBlock, injectBetweenMarkers } from './render-static.mjs';
+import { boardVenueCounts, renderListPage, renderStatsBlock, injectBetweenMarkers } from './render-static.mjs';
 import { findNearestCity, loadCityIndex } from './nearest-city.mjs';
 import { applyVenueLinks, loadVenueLinks } from './venue-links.mjs';
 import { applyVenueHours, loadVenueHours } from './venue-hours.mjs';
+import { assignVenueIds, clearVenueIds, loadVenueIdLedger } from './venue-ids.mjs';
 
 const COUNTRY_CODER_PACKAGE = '@rapideditor/country-coder';
 const COUNTRY_CACHE = join(tmpdir(), 'cruxcoach-build-deps');
@@ -80,12 +81,31 @@ const NEAREST_CITY_MAX_KM = 25;
 const WELLPASS_FILE = join(REPO_ROOT, 'tools', 'wellpass.json');
 const VENUE_LINKS_FILE = join(REPO_ROOT, 'tools', 'venue-links.json');
 const VENUE_HOURS_FILE = join(REPO_ROOT, 'tools', 'venue-hours.json');
+const VENUE_IDS_FILE = join(REPO_ROOT, 'tools', 'venue-ids.json');
+const SOURCE_FRESHNESS_FILE = join(REPO_ROOT, 'tools', 'board-source-freshness.json');
 
 // 4-decimal precision ≈ 11 m at the equator. Tight enough to keep
 // neighbouring gyms separate, loose enough to collapse multi-board
 // installations that almost always share coordinates.
 function venueKey(lat, lon) {
   return `${lat.toFixed(4)}|${lon.toFixed(4)}`;
+}
+
+function loadSourceFreshness() {
+  const parsed = JSON.parse(readFileSync(SOURCE_FRESHNESS_FILE, 'utf8'));
+  if (parsed.repository !== 'Stevie-Ray/hangtime-climbing-boards' ||
+      !parsed.boards || typeof parsed.boards !== 'object') {
+    throw new Error('tools/board-source-freshness.json has an invalid source contract');
+  }
+  for (const board of BOARDS) {
+    const item = parsed.boards[board];
+    if (!item || !/^\d{4}-\d{2}-\d{2}$/.test(item.last_data_change) ||
+        !/^[0-9a-f]{40}$/.test(item.commit) ||
+        !['available', 'frozen'].includes(item.status)) {
+      throw new Error(`tools/board-source-freshness.json has invalid metadata for ${board}`);
+    }
+  }
+  return parsed;
 }
 
 function stripInternal(entry) {
@@ -265,7 +285,6 @@ async function buildFromSources() {
   }
 
   const features = [];
-  const perBoard = Object.fromEntries(BOARDS.map(b => [b, 0]));
   const perSource = Object.fromEntries(SOURCES.map(s => [s.id, 0]));
   let venuesWithMulti = 0;
   let countryFromCoder = 0;
@@ -344,13 +363,13 @@ async function buildFromSources() {
     const seenBoards = new Set();
     for (const e of venue.entries) {
       seenBoards.add(e.board);
-      perBoard[e.board]++;
       perSource[e._source]++;
     }
     if (seenBoards.size > 1) venuesWithMulti++;
   }
 
   const overlayStats = applyVenueOverlays(features);
+  const perBoard = boardVenueCounts(features);
 
   const meta = {
     generated_at: new Date().toISOString(),
@@ -368,9 +387,11 @@ async function buildFromSources() {
     wellpass: overlayStats.wellpass,
     venue_links: overlayStats.venue_links,
     venue_hours: overlayStats.venue_hours,
+    venue_ids: overlayStats.venue_ids,
     per_board: perBoard,
     per_source: perSource,
     sources: sourceMeta,
+    source_freshness: loadSourceFreshness(),
   };
 
   writeOutputs(features, meta);
@@ -390,6 +411,21 @@ async function buildFromSources() {
 // exactly the same set in exactly the same order; a curation-only run that
 // diverged from the nightly one would be worse than no shortcut at all.
 function applyVenueOverlays(features) {
+  // Identity first: every later overlay, and everything that reads the output,
+  // refers to a venue by an id that must already exist and must be the same id
+  // it had yesterday. Cleared and reassigned on every run so deleting a ledger
+  // record actually returns a venue to its derived id.
+  clearVenueIds(features);
+  const { entries: idLedger, errors: idErrors } = loadVenueIdLedger(VENUE_IDS_FILE);
+  for (const err of idErrors) process.stderr.write(`[build]   WARN ${err}\n`);
+  const { stats: venueIds, problems: idProblems } = assignVenueIds(features, idLedger);
+  for (const problem of idProblems) process.stderr.write(`[build]   WARN ${problem}\n`);
+  process.stderr.write(
+    `[build] venue ids: ${venueIds.derived} derived, ${venueIds.pinned} pinned, ` +
+    `${venueIds.unmatched} unmatched, ${venueIds.ambiguous} ambiguous, ` +
+    `${venueIds.collisions} collisions (of ${venueIds.defined} ledger records)\n`,
+  );
+
   const wellpass = applyWellpass(features);
   process.stderr.write(
     `[build] wellpass: ${wellpass.applied} applied, ` +
@@ -424,7 +460,12 @@ function applyVenueOverlays(features) {
     `${venueHours.rejected} rejected (of ${venueHours.defined} defined)\n`,
   );
 
-  return { wellpass, venue_links: venueLinks, venue_hours: venueHours };
+  return {
+    wellpass,
+    venue_links: venueLinks,
+    venue_hours: venueHours,
+    venue_ids: venueIds,
+  };
 }
 
 // Write the geojson, the meta, and both languages of static HTML.
@@ -476,6 +517,7 @@ function overlaysOnlyRebuild() {
   meta.wellpass = overlayStats.wellpass;
   meta.venue_links = overlayStats.venue_links;
   meta.venue_hours = overlayStats.venue_hours;
+  meta.venue_ids = overlayStats.venue_ids;
 
   writeOutputs(features, meta);
   process.stderr.write('[build] --overlays-only: geojson, meta and both directories rewritten\n');

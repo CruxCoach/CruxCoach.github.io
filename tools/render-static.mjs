@@ -79,6 +79,9 @@ const STRINGS = {
     hoursSourceAria: (venue) => `${venue} — official page the opening hours were read from`,
     hoursVenues: (n) => `<strong>${n}</strong> also list opening hours as published by the venue itself.
       Public holidays and short-notice changes may differ — the venue's own page is the authority.`,
+    freshnessIntro: 'The source package is fetched daily. Individual feeds only change when their upstream provider publishes new data:',
+    freshnessDate: 'Last upstream change',
+    frozen: 'feed frozen; entries may be outdated',
     backToMap: '← Back to the interactive map',
     footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Data CC-BY-4.0. Hosted by Codeberg e.V.',
     footerLinks: '<a href="/support.html">Support</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a>',
@@ -120,6 +123,9 @@ const STRINGS = {
     hoursVenues: (n) => `Bei <strong>${n}</strong> davon stehen zusätzlich die Öffnungszeiten, wie die Halle
       sie selbst veröffentlicht. Feiertage und kurzfristige Änderungen können abweichen — verbindlich
       ist die Seite der Halle.`,
+    freshnessIntro: 'Das Quellpaket wird täglich abgerufen. Einzelne Feeds ändern sich nur, wenn der jeweilige Anbieter neue Daten veröffentlicht:',
+    freshnessDate: 'Letzte Änderung upstream',
+    frozen: 'Feed eingefroren; Einträge können veraltet sein',
     backToMap: '← Zurück zur interaktiven Karte',
     footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Daten CC-BY-4.0. Gehostet bei Codeberg e.V.',
     footerLinks: '<a href="/de/support.html">Unterstützen</a> · <a href="/de/imprint.html">Impressum</a> · <a href="/de/privacy.html">Datenschutz</a>',
@@ -197,10 +203,24 @@ const COLLATORS = {
   de: new Intl.Collator('de', { sensitivity: 'base', numeric: true }),
 };
 
+// Count distinct venues per board. A source may contain several registrations
+// for the same board at one coordinate (Fitbloc once had twelve MoonBoard
+// rows); those are still one venue in both the map legend and this table.
+export function boardVenueCounts(features) {
+  const counts = Object.fromEntries(Object.keys(BOARD_LABELS).map(board => [board, 0]));
+  for (const feature of features) {
+    const seen = new Set((feature.properties?.boards ?? []).map(entry => entry.board));
+    for (const board of seen) {
+      if (Object.hasOwn(counts, board)) counts[board]++;
+    }
+  }
+  return counts;
+}
+
 // Per-board venue counts (>0 only), highest first. Sums exceed the venue total
 // because a multi-board gym is counted once per board it hosts.
-function boardCounts(meta) {
-  return Object.entries(meta.per_board)
+function boardCounts(features) {
+  return Object.entries(boardVenueCounts(features))
     .filter(([, n]) => n > 0)
     .sort((a, b) => b[1] - a[1])
     .map(([board, n]) => ({ board, label: BOARD_LABELS[board] ?? board, count: n }));
@@ -215,9 +235,9 @@ function countryCodes(features) {
   return set;
 }
 
-function boardCountsTable(meta, lang) {
+function boardCountsTable(features, meta, lang) {
   const S = STRINGS[lang];
-  const rows = boardCounts(meta)
+  const rows = boardCounts(features)
     .map(({ label, count }) => `      <tr><td>${esc(label)}</td><td>${fmt(count, lang)}</td></tr>`)
     .join('\n');
   return `<table class="board-counts">
@@ -227,6 +247,28 @@ ${rows}
     </tbody>
     <tfoot><tr><td>${S.tfootDistinct}</td><td>${fmt(meta.venue_features, lang)}</td></tr></tfoot>
   </table>`;
+}
+
+function sourceFreshnessTable(meta, lang) {
+  const records = meta.source_freshness?.boards;
+  if (!records) return '';
+  const S = STRINGS[lang];
+  const rows = Object.keys(BOARD_LABELS)
+    .filter(board => records[board])
+    .map(board => {
+      const record = records[board];
+      const warning = record.status === 'frozen'
+        ? ` <strong class="freshness-warning">${esc(S.frozen)}</strong>`
+        : '';
+      return `      <li><strong>${esc(BOARD_LABELS[board])}</strong>: ${esc(S.freshnessDate)} <time datetime="${esc(record.last_data_change)}">${esc(record.last_data_change)}</time>.${warning}</li>`;
+    }).join('\n');
+  return `
+    <div class="source-freshness">
+      <p>${S.freshnessIntro}</p>
+      <ul>
+${rows}
+      </ul>
+    </div>`;
 }
 
 // Inner HTML for the <!-- GENERATED:board-stats --> region in the map page
@@ -244,7 +286,7 @@ export function renderStatsBlock(features, meta, lang = 'en') {
   return `<p>
       ${S.statsIntro(fmt(meta.venue_features, lang), fmt(nCountries, lang))}
     </p>
-    ${boardCountsTable(meta, lang)}${linked}${hours}
+    ${boardCountsTable(features, meta, lang)}${linked}${hours}${sourceFreshnessTable(meta, lang)}
     <p>
       ${S.listTeaser(P.listHref, fmt(meta.venue_features, lang))}
     </p>`;
@@ -399,7 +441,7 @@ ${items}
 
   // Per-board sentence for the intro — concrete statistics are the strongest
   // evidence-backed lever for getting cited by generative engines.
-  const perBoardSentence = boardCounts(meta)
+  const perBoardSentence = boardCounts(features)
     .map(({ label, count }) => `${label} (${fmt(count, lang)})`)
     .join(', ');
 
@@ -550,7 +592,7 @@ ${LIST_HREFLANG}
       ${S.lede(P.mapHref, total, nCountries, esc(perBoardSentence))}
     </p>
 
-    ${boardCountsTable(meta, lang)}${linkedNote}${hoursNote}
+    ${boardCountsTable(features, meta, lang)}${linkedNote}${hoursNote}${sourceFreshnessTable(meta, lang)}
 
     <h2 style="border-top:0;margin-top:1.5rem;padding-top:0">${S.jumpToCountry}</h2>
     <ul class="toc">

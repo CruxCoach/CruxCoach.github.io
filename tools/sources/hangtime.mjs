@@ -168,6 +168,11 @@ function extractEntry(file, board, feat) {
   const name = pickName(props);
   if (lat === null || lon === null) return null;
   if (lat < -90 || lat > 90 || lon < -180 || lon > 180) return null;
+  // Exact Null Island coordinates are a missing-value sentinel in several
+  // upstream feeds, not a plausible climbing venue. Keeping one produces a
+  // very convincing marker in the Gulf of Guinea and can merge unrelated
+  // bad records into a single fake venue.
+  if (lat === 0 && lon === 0) return null;
   if (!name) return null;
   return {
     source: 'hangtime',
