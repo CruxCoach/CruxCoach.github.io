@@ -4062,9 +4062,10 @@
   "lon": 9.3982751,
   "name": "boulder factory",
   "country": "IT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.boulderfactory.it/",
+  "reason": "The venue's own domain does not resolve, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 44.98179,
@@ -4082,8 +4083,8 @@
   "name": "BoulderBarBoard",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 45.07759,
@@ -4111,8 +4112,8 @@
   "name": "Capanno Boulder",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 46.4090018,
@@ -4120,8 +4121,8 @@
   "name": "Chiodo fisso",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 42.8536043,
@@ -4157,8 +4158,8 @@
   "name": "Comelico Climb MOON",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The venue has no website of its own — only a Facebook page, where the opening evenings are announced — so there is no official page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 45.072977,
@@ -4166,17 +4167,18 @@
   "name": "CuboBardo",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 45.1992371,
   "lon": 9.1400311,
   "name": "Cus Pavia Climbing",
   "country": "IT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "source": "https://www.cuspavia.org/arrampicata-sportiva/",
+  "reason": "The only week on the site belongs to the secretariat — \"Orario di apertura Lunedì, martedì e giovedì dalle 14:30 alle 17:00, Mercoledì dalle 11:00 alle 12:00 e dalle 15:00 alle 19:00, Venerdì dalle 9:30 alle 12:00\" — which is when the office answers the door, not when the wall is open. The climbing page lists coaches, courses and the venue and pairs no day with a time.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 42.7635254,
@@ -4184,8 +4186,8 @@
   "name": "Fondino Moon",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 45.5107903,
@@ -4242,8 +4244,8 @@
   "name": "KRO Board",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 44.8845906,
@@ -4251,8 +4253,8 @@
   "name": "KUOTA 8.10",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 45.0677516,
@@ -4319,17 +4321,18 @@
   "name": "MONKEYBOARD",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 41.583844,
   "lon": 14.5940809,
   "name": "Morgia - Climbing Experience",
   "country": "IT",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://morgiaclimbing.it/",
+  "reason": "The bundle's hours section is headed \"ORARI DI APERTURA\" and carries one range, \"17:00 - 22:00\", with no day attached to it anywhere, plus \"Seguici sui nostri social per info su Aperture straordinarie\" and a note that \"Lunedì e Mercoledì, dalle 18:30 alle 20:00, il piano terra è dedicato ai corsi bambini\". A week cannot be read out of one unlabelled range.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 46.7198,
@@ -4417,8 +4420,8 @@
   "name": "Stitch MoonBoard",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 44.1689028,
@@ -4426,8 +4429,8 @@
   "name": "Supergiu1",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 45.5832245,
@@ -4435,8 +4438,8 @@
   "name": "The Care",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 44.43099,
@@ -4454,8 +4457,8 @@
   "name": "Up and Down Boulder Point",
   "country": "IT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 45.5565542,

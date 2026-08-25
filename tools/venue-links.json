@@ -12936,6 +12936,21 @@
     "note": "The Palasport runs the hall as Climbing Zoo Longarone and its page names the kilterboard; no street address is printed."
   },
   {
+    "lat": 45.1992371,
+    "lon": 9.1400311,
+    "name": "Cus Pavia Climbing",
+    "country": "IT",
+    "website": "https://www.cuspavia.org/arrampicata-sportiva/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "The university sports centre gives climbing its own section page, which states where the wall is: \"DOVE PalaCUS Via Bassi 11/13, Pavia\", with the club's own address, Via Bassi 9/a - 27100 Pavia, in the footer. Upstream calls the row Cus Pavia Climbing and files it under Pavia, and holds no street line for it."
+  },
+  {
     "lat": 44.8169827,
     "lon": 11.5975534,
     "name": "Deva Wall",
@@ -13226,6 +13241,20 @@
       "board-mention"
     ],
     "note": "The page is headed \"Home - BlockLand\", prints Via Enrico Berlinguer, 67100 L'Aquila (which geocodes 35 m from this venue) and names a MoonBoard, which is the board system this entry is listed for."
+  },
+  {
+    "lat": 41.583844,
+    "lon": 14.5940809,
+    "name": "Morgia - Climbing Experience",
+    "country": "IT",
+    "website": "https://morgiaclimbing.it/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "The site renders in the browser and serves 39 characters of text, so it was read out of its bundle instead. That bundle carries the hall's own map query — \"MORGIA - Climbing Experience, Strada Provinciale 48, 86010 Oratino CB\" — and its floor description: \"Primo Piano … Moon Board, System Wall & Pan Gullich … Moon Board Original: il leggendario pannello a 40° con setup originale\". Upstream names the row Morgia - Climbing Experience and lists it as a moonboard. Oratino is the village 2 km from the coordinate; upstream files the row under Campobasso, 6 km the other way, so the town is not counted."
   },
   {
     "lat": 45.021136,
