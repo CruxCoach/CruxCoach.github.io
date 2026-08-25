@@ -658,10 +658,10 @@
     "lon": 114.17565974232724,
     "name": "BoardRoom",
     "country": "CN",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.theboardroomclimbing.com → \"Home - The Boardroom Climbing Ltd\"; climbersrock.com/hours → \"Hours — CLIMBER'S ROCK\"; boardroom.com → \"Boardroom\", the rest could not be opened — boardroom.cn → a certificate that does not cover its hostname, the venue's whole name as one label, boardroom.cn, does not resolve. Upstream records 178-186 Johnston Rd, Wan Chai, Wan Chai, and nothing opened printed it.",
-    "candidate": "https://theboardroomclimbing.com/"
+    "status": "unavailable",
+    "candidate": "https://boardroom.fit/",
+    "reason": "BoardRoom on Johnston Road in Wan Chai holds boardroom.fit — the handle upstream records for its neighbouring row is boardroom.fit too — and the domain serves 24 bytes that assemble in the browser. Nothing on the wire names the street, the district or a board.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 23.1,
@@ -678,10 +678,10 @@
     "lon": 114.21928,
     "name": "Boulder MAD",
     "country": "CN",
-    "status": "unverified",
-    "candidate": "https://www.madclimbers.com/",
-    "reason": "No official site could be established: madclimbers.com is a bouldering gym and shop at Via Triumplina 251, 25136 Brescia, with an Italian VAT number in the footer. This row is on 鴻圖道, Kwun Tong.",
-    "checked": "2026-08-24"
+    "status": "unavailable",
+    "candidate": "https://bouldermad.com/",
+    "reason": "Boulder MAD is at \"Room 302-303, Weedon Centre\" in Ngau Tau Kok, and bouldermad.com answers every request with a one-byte document. The gazetteer object at the coordinate is a church, which is why the OSM tag never helped either.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 22.308099,
@@ -859,20 +859,10 @@
     "lon": 114.17568,
     "name": "The Board Room",
     "country": "CN",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — awesomewalls.ie/dublin → \"Indoor Climbing & Bouldering in Dublin | Awesome Walls\"; room.com → \"ROOM | Soundproof Office Phone Booths & Office Pods\"; the-board-room.com → \"the-board-room.com\", the rest could not be opened — theboardroom.com → a certificate that does not cover its hostname; theboard.com → a certificate that does not cover its hostname, the venue's whole name as one label, theboardroom.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://awesomewalls.ie/dublin/"
-  },
-  {
-    "lat": 22.34366,
-    "lon": 114.14026,
-    "name": "The Player Climbinggym",
-    "country": "CN",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — theplayer.com → \"Region blocked | ThePlayer.com\", the rest could not be opened — player.cn → a timeout; player.com.cn → a certificate that does not cover its hostname. Upstream records 6B & 6B1 Lai Chi Kok Bay Garden, 272 Lai King Hill Rd, Kowloon, and nothing opened printed it.",
-    "candidate": "https://theplayer.com/info"
+    "status": "unavailable",
+    "candidate": "https://boardroom.fit/",
+    "reason": "The second BoardRoom row, 11 m from the first and listed for the Tension board where the other is the Kilter. Same domain, same failure: 24 bytes of client-rendered shell.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 22.39666,
@@ -902,16 +892,6 @@
     "status": "unverified",
     "candidate": "https://urban-stone.com/",
     "reason": "No official site could be established: urban-stone.com is an engineering and fit-out consultancy in Riyadh, Saudi Arabia.",
-    "checked": "2026-08-24"
-  },
-  {
-    "lat": 22.37435,
-    "lon": 114.10891,
-    "name": "Vita Beta Climbing Gym",
-    "country": "CN",
-    "status": "unverified",
-    "candidate": "https://vita.com/",
-    "reason": "No official site could be established: vita.com and vita-beta.com are both VITA, the American trade association for embedded computing standards — \"VITA is an incorporated, non-profit organization\". The word Technology matches this row's address at Technology Plaza, Tsuen Wan only through the phrase \"committed to technology excellence\".",
     "checked": "2026-08-24"
   },
   {

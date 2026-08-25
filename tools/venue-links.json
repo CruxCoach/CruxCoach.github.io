@@ -5325,6 +5325,37 @@
     "note": "The gazetteer has the school 32 m from this coordinate tagged ichk.edu.hk, and its contact page gives \"International College Hong Kong, 60 Sha Tau Kok Road, Shek Chung Au, Sha Tau Kok, New Territories\" — the street and number upstream records for this row."
   },
   {
+    "lat": 22.34366,
+    "lon": 114.14026,
+    "name": "The Player Climbinggym",
+    "country": "CN",
+    "website": "https://www.theplayerclimbing.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The gym's own site: \"Mei Foo Shop 6B & 6B1, The Upper Ground Floor of Lai Chi Kok Bay Garden, 272 Lai King Hill Rd, Kowloon, Hong Kong\" — upstream records the row at \"6B & 6B1 Lai Chi Kok Bay…\", the same unit numbers and the same building."
+  },
+  {
+    "lat": 22.37435,
+    "lon": 114.10891,
+    "name": "Vita Beta Climbing Gym",
+    "country": "CN",
+    "website": "https://www.vitabeta.hk/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "Vita Beta runs two Hong Kong halls and prints both with their own addresses and weeks. This is Tsuen Wan: \"Unit 2, 1/F, Technology Plaza 29-35 Sha Tsui Road Tsuen Wan, New Territories\" — upstream's unit and building."
+  },
+  {
     "lat": 31.2,
     "lon": 121.4,
     "name": "上海嘉里城香蕉攀岩馆 Banana Bouldering Kerry Plus",

@@ -1435,9 +1435,10 @@
   "lon": 114.17565974232724,
   "name": "BoardRoom",
   "country": "CN",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://boardroom.fit/",
+  "reason": "The venue's site renders in the browser and serves no text, so there is no schedule to read.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 23.1,
@@ -1453,9 +1454,10 @@
   "lon": 114.21928,
   "name": "Boulder MAD",
   "country": "CN",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://bouldermad.com/",
+  "reason": "The venue's domain returns an empty document, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 22.308099,
@@ -1634,18 +1636,10 @@
   "lon": 114.17568,
   "name": "The Board Room",
   "country": "CN",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 22.34366,
-  "lon": 114.14026,
-  "name": "The Player Climbinggym",
-  "country": "CN",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://boardroom.fit/",
+  "reason": "The venue's site renders in the browser and serves no text, so there is no schedule to read.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 22.39666,
@@ -1669,15 +1663,6 @@
   "lat": 22.35573,
   "lon": 114.12541,
   "name": "Urban Stone Climbing Gym",
-  "country": "CN",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 22.37435,
-  "lon": 114.10891,
-  "name": "Vita Beta Climbing Gym",
   "country": "CN",
   "status": "no-official-site",
   "checked": "2026-08-23",
