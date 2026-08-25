@@ -4322,16 +4322,6 @@
     "checked": "2026-08-24"
   },
   {
-    "lat": 39.15657,
-    "lon": -84.42029,
-    "name": "Climb Time Oakley",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — climbtime.com → \"Redirecting...\"; climb.com → \"climb.com\"; climb.org → \"Climb Theatre - Inspiring and Propelling Young People\", the rest could not be opened — climb.net → a timeout; time.net → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://climbtime.com/"
-  },
-  {
     "lat": 39.4051669,
     "lon": -87.40626639999999,
     "name": "Climbing Cafe",
@@ -4366,10 +4356,10 @@
     "lon": -105.017,
     "name": "Denver Bouldering Club Central",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "denverboulderingclub.com is the club's own domain — an archived copy from 21 May 2026 is titled \"Denver Bouldering Club\" and names a Central location among its gyms — and it no longer serves: every host and scheme now returns Squarespace's \"Website Expired\" page. There is nothing to link a visitor to. The candidate the earlier pass recorded, denver.com, is the city's portal.",
-    "candidate": "https://denverboulderingclub.com/"
+    "status": "unavailable",
+    "candidate": "https://www.denverboulderingclub.com/",
+    "reason": "denverboulderingclub.com is the gym's own domain and search indexes still hold its /contact and /ourgyms pages, but every path on it now answers 404, including the front page — the apex redirects to www and www answers 404 for everything. Nothing can be read, and a domain that serves no page cannot be verified. Retry when it answers.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 42.6525793,
@@ -4377,9 +4367,9 @@
     "name": "Edge Halfmoon",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — theedgerockgym.com/home → \"The Edge Rock Gym - The Edge Rock Gym\"; edge.org → \"Edge.org\", the rest could not be opened — edge.net → a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://theedgerockgym.com/home/"
+    "candidate": "https://theedgehalfmoon.com/",
+    "reason": "The gym is real and findable — The Edge Halfmoon, theedgehalfmoon.com, 1544 Route 9 — but it is not here. This row sits at 42.65258,-73.75623, in downtown Albany; the town of Halfmoon is 19.7 km north of it. Upstream files the row under Albany and carries no street line, so what the coordinate points at is a city rather than the hall, and a link would put a correct site on a marker two towns away from the gym.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 42.83385,
@@ -4436,10 +4426,10 @@
     "lon": -77.44779,
     "name": "Foundation Climbing",
     "country": "US",
-    "status": "unverified",
-    "candidate": "https://richmondclimbing.com/",
-    "reason": "No official site could be established: richmondclimbing.com redirects into Triangle Rock Club's Richmond pages. This row is Foundation Climbing, which is not theirs.",
-    "checked": "2026-08-24"
+    "status": "unavailable",
+    "candidate": "https://www.foundationclimbing.com/",
+    "reason": "foundationclimbing.com resolves and is the only plausible domain for the name, but it answers 401 — the site is behind HTTP authentication and serves nothing to a visitor. Richmond's public climbing gyms are Peak Experiences on Overbrook Road and Triangle Rock Club on Thalbro Street, and neither is this row. Retry when the domain opens.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 38.24316,
@@ -4566,15 +4556,6 @@
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
   },
   {
-    "lat": 36.79074,
-    "lon": -119.75197,
-    "name": "MetalMark Climbing",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — metalmark.com → 503; metalmark.net → no answer / a timeout. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
     "lat": 40.0647951,
     "lon": -82.5204425,
     "name": "Nightmare on Elm St",
@@ -4583,15 +4564,6 @@
     "checked": "2026-08-23",
     "reason": "No official site could be established: the candidates that answered are somebody else's — nightmare.com → \"Nightmare Software\"; nightmare.org → \"Musings of a Disturbed GenX Mind\", the rest could not be opened — nightmareonelm.com → a timeout; nightmare.net → a timeout. Upstream records 43023, Granville, and nothing opened printed it.",
     "candidate": "https://nightmare.com/"
-  },
-  {
-    "lat": 42.519068,
-    "lon": -83.1170856,
-    "name": "Planet Rock Madison Heights",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for Planet Rock Madison Heights was planetclimbing.ch, a climbing gym in Switzerland — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
   },
   {
     "lat": 34.5603627,
@@ -4782,16 +4754,6 @@
     "candidate": "https://www.spireclimbing.com/"
   },
   {
-    "lat": 39.3907356,
-    "lon": -77.4162671,
-    "name": "The Boulder Yard",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — trianglerockclub.com/salvage-yard → \"Salvage Yard - Triangle Rock Club\"; yard.com → \"yard.com\"; yard.net → \"yard.net - This website is for sale! - yard backyard gar\", the rest could not be opened — yard.org → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://trianglerockclub.com/salvage-yard/"
-  },
-  {
     "lat": 43.72963,
     "lon": -70.30862,
     "name": "The Dojo",
@@ -4884,9 +4846,8 @@
     "name": "Voyager",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — voyager.com → \"Voyager Info-Systems! Free web tools and services.\", the rest could not be opened — voyager.net → a certificate that does not cover its hostname, the venue's whole name as one label, voyager.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.voyager.com/"
+    "reason": "No official site could be established: nothing published under this name in Albuquerque could be found. voyagerclimbing.com, voyagerboulder.com and voyagerabq.com do not resolve, and the city's commercial climbing gyms are Stone Age's two halls on Cutler Avenue and Alameda Boulevard, neither of which is this row or uses this name. A single MoonBoard under a name nobody publishes is the shape of a private board.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.99022,

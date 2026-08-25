@@ -19597,6 +19597,20 @@
     "note": "Climb So iLL gives each gym a subdomain, and this one answers live: it is titled \"Climb So iLL | Indoor Rock Climbing in St. Charles, MO\", describes \"the Steel Shop in St. Charles, Missouri\" — the venue's name and the town upstream records — and gives 63301."
   },
   {
+    "lat": 39.15657,
+    "lon": -84.42029,
+    "name": "Climb Time Oakley",
+    "country": "US",
+    "website": "https://www.oakley.ctoba.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "board-mention"
+    ],
+    "note": "Climb Time runs two Cincinnati halls, Blue Ash since 1993 and Oakley since 2019, each on its own subdomain of ctoba.com. The Oakley one describes itself as \"a 50ft tall full service facility with top-rope climbing, auto-belays, and lead climbing, as well as a tension training board, campus board\" — the board upstream records — and gives its address as 4460 Orkney Avenue, Cincinnati, OH 45209. Upstream files the row under Norwood, the town next door, so the town is not counted as a signal."
+  },
+  {
     "lat": 36.117947,
     "lon": -95.92112,
     "name": "Climb Tulsa",
@@ -21371,6 +21385,21 @@
     "note": "The page prints 970 Harvard Way without a ZIP; upstream's matches it."
   },
   {
+    "lat": 36.79074,
+    "lon": -119.75197,
+    "name": "MetalMark Climbing",
+    "country": "US",
+    "website": "https://touchstoneclimbing.com/metalmark/",
+    "verified": "2026-08-25",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "location-page"
+    ],
+    "note": "metalmark.com answered 503 and metalmark.net timed out; the gym is a Touchstone hall and lives in that chain's site under its own path. Its pages give \"MetalMark 4042 N. Cedar Ave Fresno, CA 93726\" — the town upstream records, for a row upstream holds no street line for."
+  },
+  {
     "lat": 40.74322,
     "lon": -74.16852,
     "name": "Method Climbing + Fitness",
@@ -22534,6 +22563,20 @@
       "location-page"
     ],
     "note": "Movement's own FAQ answers the question this row asks: \"Is Movement the same as Planet Granite, Earth Treks, The Cliffs, Summit, or Movement Climbing and Fitness? Yes, Planet Granite, Earth Treks, The Cliffs, Summit, and Movement Climbing and Fitness are now part of Movement. While the name has evolved, these gyms and communities continue under the Movement umbrella.\" The Belmont location page gives 100 El Camino Real, Belmont, CA 94002, and upstream puts this row 0.4 km from Belmont. It is recorded as a chain page because the file already links the same page from a second row 1.4 km away — the registry holds this gym twice, once under each name."
+  },
+  {
+    "lat": 42.519068,
+    "lon": -83.1170856,
+    "name": "Planet Rock Madison Heights",
+    "country": "US",
+    "website": "https://www.planet-rock.com/locations",
+    "verified": "2026-08-25",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The only candidate the guesser had found for this row was planetclimbing.ch, a gym in Switzerland. The Michigan chain is planet-rock.com, and its locations page carries \"Madison Heights 1103 W 13 Mile Road Madison Heights MI\" — the town upstream records — beside its other halls, which is what makes this the chain page rather than a location page. Upstream holds no address for this row, so the street line cannot be counted."
   },
   {
     "lat": 45.5136,
@@ -24066,6 +24109,21 @@
       "coordinates"
     ],
     "note": "The site carries this venue's name and embeds a map of itself — The Boulder Garden — 232 m from these coordinates. Upstream records no street address for the venue, so the name and the point the site publishes of itself are what carry the match."
+  },
+  {
+    "lat": 39.3907356,
+    "lon": -77.4162671,
+    "name": "The Boulder Yard",
+    "country": "US",
+    "website": "https://www.theboulderyardmd.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The gym's own site calls it \"Frederick's ONLY rock climbing gym\" — the town upstream records — lists \"Moon BOARD\" among the climbing on offer, which is the board upstream lists, and gives its address as 7315A Grove Road, Frederick, MD 21704. Upstream carries no street line for this row, and the directories still print an older address on Industry Lane."
   },
   {
     "lat": 40.05921,

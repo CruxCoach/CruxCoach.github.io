@@ -7712,15 +7712,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 39.15657,
-  "lon": -84.42029,
-  "name": "Climb Time Oakley",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 39.4051669,
   "lon": -87.40626639999999,
   "name": "Climbing Cafe",
@@ -7812,9 +7803,10 @@
   "lon": -105.017,
   "name": "Denver Bouldering Club Central",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-24",
-  "reason": "The club's site has expired and serves Squarespace's account-expired page, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.denverboulderingclub.com/",
+  "reason": "The venue's domain answers 404 on every path, so there is no page to read a schedule from yet.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 39.96262,
@@ -7841,9 +7833,10 @@
   "lon": -73.7562317,
   "name": "Edge Halfmoon",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "https://theedgehalfmoon.com/hours-rates/",
+  "reason": "The gym publishes a plain week — \"Hours of Operation Monday through Friday - 10:00 am to 10:00 pm, Saturday - 9:00 am to 9:00 pm, Sunday - 1:00 pm to 7:00 pm\" — but it belongs to a hall 19.7 km from this row's coordinate. Hours are recorded against the venue, and the venue this coordinate names is not established.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 18.42857,
@@ -7966,9 +7959,10 @@
   "lon": -77.44779,
   "name": "Foundation Climbing",
   "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://www.foundationclimbing.com/",
+  "reason": "The one candidate domain answers 401, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 39.90652,
@@ -8238,15 +8232,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 36.79074,
-  "lon": -119.75197,
-  "name": "MetalMark Climbing",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 40.74322,
   "lon": -74.16852,
   "name": "Method Climbing + Fitness",
@@ -8334,15 +8319,6 @@
   "checked": "2026-08-23",
   "reason": "Re-read 2026-08-23: unchanged. The homepage (and its schema.org openingHours) says Mon-Sun 6am-11pm, while the hours-rates page says Monday-Friday 5am-11pm and Saturday-Sunday 6am-11pm, and adds that the gym is closed to non-members every Tuesday 6pm-9pm.",
   "source": "https://northmassboulder.com/"
- },
- {
-  "lat": 42.519068,
-  "lon": -83.1170856,
-  "name": "Planet Rock Madison Heights",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 45.5136,
@@ -8766,15 +8742,6 @@
   "reason": "The site does hold a week, and only in machine-readable markup: a schema.org block reading \"Mo 08:00-22:00, Tu 08:00-22:00, We 08:00-22:00, Th 08:00-22:00, Fr 08:00-22:00, Sa 08:00-…\" beside a Squarespace business-hours setting of 8am - 10pm. No page states any of it in words — the visible text about hours is a notice that the gym keeps normal hours on Martin Luther King, Jr. Day. This audit publishes what a venue tells its visitors, not what its settings hold."
  },
  {
-  "lat": 39.3907356,
-  "lon": -77.4162671,
-  "name": "The Boulder Yard",
-  "country": "US",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 39.72003,
   "lon": -105.19289,
   "name": "The Climb Clinic Golden",
@@ -9003,8 +8970,8 @@
   "name": "Voyager",
   "country": "US",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 41.58709,
