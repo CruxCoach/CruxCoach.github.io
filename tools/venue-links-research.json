@@ -4288,8 +4288,8 @@
     "name": "Cliffs",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: this row sits outside Culver, Indiana, and the only climbing business called Cliffs is Cliffs of Id, a Touchstone gym at 2537 S Fairfax in Culver City, California — the same word in a town 3,000 km west. Indiana's published gym lists name nothing at this coordinate, and upstream carries neither an address nor a handle for it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 38.97134,
@@ -4316,10 +4316,10 @@
     "lon": -87.40626639999999,
     "name": "Climbing Cafe",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — cafe.com → \"Home - CAFE\"; cafe.net → \"Cafe.net - Find Cafes Nearby\"; cafe.org → \"Cafe.org — Venture Intelligence\", the rest could not be opened — climbingcafe.com → 200; climbing.org → no answer; cafeboulder.com → 200, the venue's whole name as one label, climbingcafe.com, answers 200 but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://cafe.com/"
+    "status": "unavailable",
+    "candidate": "https://www.climbingcafe.com/",
+    "reason": "The gym is real and its domain is climbingcafe.com — a climbing wall and a working café at 5070 S 7th St, Terre Haute — but the domain answers every path, apex and www alike, with a one-byte document. There is nothing on it to match a street or a town against. Retry when it serves a page.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 31.4645298,
@@ -4446,9 +4446,8 @@
     "name": "Hell Cave",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — hell.com → \"My Bible\"; hell.net → \"Checking your browser...\", the rest could not be opened — hellcave.net → 200; hell.org → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://mybible.com/"
+    "reason": "No official site could be established: nothing published anywhere carries this name as a venue. Dover's one commercial climbing gym is Indoor Ascent at 47 Broadway Street, 5 km north of this row and under a different name; \"Hell Cave\" reads as what a wall is called rather than what a business is called, and upstream holds no address or handle for the row.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 44.21913,
@@ -4662,9 +4661,9 @@
     "name": "Tension Training Center",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.spireclimbing.com → \"Spire Climbing + Fitness | Explore Climbing Today!\"; fluxtrainingcenter.com → \"Flux Training Center - Vista Climbing Gym\"; www.senderoneclimbing.com/santa-ana → \"Sender One SNA - Sender One Climbing\", the rest could not be opened — training.net → no answer; tensiontrainingcenter.com → a certificate that does not cover its hostname; tension.com → 403, the venue's whole name as one label, tensiontrainingcenter.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.spireclimbing.com/"
+    "candidate": "https://tensionclimbing.com/",
+    "reason": "This row is Tension Climbing's own training room in a Denver industrial park — 1,700 square feet, a $25/month training-zone membership, no walk-in trade. The only candidate is tensionclimbing.com, which this file refuses by policy: board makers' sites (tensionclimbing.com, moonboard.com, kilterboardapp.com) are never an official venue website, because a link to the manufacturer is not a link to the hall. Nothing else publishes an address or a week for it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 43.72963,
