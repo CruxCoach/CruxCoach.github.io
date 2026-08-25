@@ -3608,7 +3608,7 @@
   "name": "moon",
   "country": "GR",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -3742,21 +3742,12 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 31.75221,
-  "lon": 35.20792,
-  "name": "Allé מרכז הטיפוס של ירושלים",
-  "country": "IL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
   "lat": 32.78973879999999,
   "lon": 35.0409245,
   "name": "BoulderLab",
   "country": "IL",
   "status": "no-official-site",
-  "checked": "2026-08-23",
+  "checked": "2026-08-25",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
@@ -3768,15 +3759,6 @@
   "checked": "2026-08-23",
   "source": "https://isaacclimbing.com/",
   "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
- },
- {
-  "lat": 32.1074967,
-  "lon": 34.8938899,
-  "name": "Venga Petah Tikva",
-  "country": "IL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 32.92353,
@@ -6126,17 +6108,17 @@
   "name": "Rocódromo do Areeiro - Casal Vistoso",
   "country": "PT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The wall has no site of its own; a Facebook page is not a page this file reads hours from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 41.1544871,
   "lon": -8.587331,
   "name": "são rock",
   "country": "PT",
-  "status": "no-official-site",
-  "checked": "2026-08-24",
-  "reason": "The domain OSM points at serves a hosting placeholder, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "reason": "saorockclimbing.com answers 403; nothing can be read from it.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 41.1579438,
@@ -6144,8 +6126,8 @@
   "name": "São Rock",
   "country": "PT",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 41.18527,
@@ -8639,9 +8621,9 @@
   "lon": 18.46448,
   "name": "Krag Sentral",
   "country": "ZA",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "reason": "The served page is one word long; no schedule is on it.",
+  "checked": "2026-08-25"
  },
  {
   "lat": -33.9391263,

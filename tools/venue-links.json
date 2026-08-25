@@ -13106,6 +13106,22 @@
     "note": "UL Sport (Plassey Campus Arena CLG) runs the university's sports facilities and gives the wall its own page. The page names the University of Limerick, describes the 18 m wall as the tallest in Ireland and lists 'A 40 degree Moonboard' — which is the board system this venue is in the dataset for. ul.ie itself is the university's site and carries no page for the wall."
   },
   {
+    "lat": 31.75221,
+    "lon": 35.20792,
+    "name": "Allé מרכז הטיפוס של ירושלים",
+    "country": "IL",
+    "website": "https://alleclimb.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The site gives האומן 20, ירושלים — upstream's address line exactly — and names the קילטר board this row is registered for. The coordinate looked like a city centroid and is not: it reverse-geocodes to פארק המסילה in Makor Haim, and the homepage invites you to \"בואו לבקר אותנו על פארק המסילה, האומן 20 ירושלים\". The street itself geocodes to a 434 m centroid, so it is the park, not the geocode, that confirms the point."
+  },
+  {
     "lat": 32.06496,
     "lon": 34.78945,
     "name": "Isaac Climbing",
@@ -13132,6 +13148,20 @@
       "coordinates"
     ],
     "note": "The record said the host redirects and then fails to answer at all, and that the archive holds only a challenge page. It answers a patient reader. The page is Monkeys — מאנקיז — at מתחם נצבא פולג, נתניה, and the map link under that address resolves to a place called Monkeys Climbing Gym at 32.2766577, 34.8618323, which is 80 m from this coordinate. Upstream also records the Instagram handle monkeysclimbinggym, which is the domain."
+  },
+  {
+    "lat": 32.1074967,
+    "lon": 34.8938899,
+    "name": "Venga Petah Tikva",
+    "country": "IL",
+    "website": "https://vengavenga.co.il/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "geocoded-address"
+    ],
+    "note": "משה שוואלב 7, אזה\"ת סגולה, פתח תקווה geocodes 118 m from the row, and the row itself reverse-geocodes onto משה שוואלב in the Segula industrial zone. Upstream holds no address for this venue."
   },
   {
     "lat": 43.87544219999999,

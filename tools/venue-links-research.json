@@ -1536,9 +1536,8 @@
     "name": "moon",
     "country": "GR",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — moon.gr → \"moon.gr | fruits\"; moon.com → \"Moon.com: Betting Markets - Wager on Finance, Crypto & m\"; moonclimbing.com → \"Moon Climbing Clothing, Accessories & Training Equipment\", the rest could not be opened — moonclimb.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.fruits.co/en/domain/moon.gr"
+    "checked": "2026-08-25",
+    "reason": "The row is called \"moon\" — one lowercase word, which is a board rather than a business — and its coordinate sits on the Πάνορμος–Κάλυμνος road above Πόθια on Kalymnos. There is no trading name to search for, and boards on Kalymnos are as likely to be in a climbers' house or guesthouse as in a gym. Nothing to link, and nothing that would be safe to link if it were found."
   },
   {
     "lat": 38.0211906,
@@ -1639,34 +1638,14 @@
     "checked": "2026-08-25"
   },
   {
-    "lat": 31.75221,
-    "lon": 35.20792,
-    "name": "Allé מרכז הטיפוס של ירושלים",
-    "country": "IL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "allclimbing.com carries the venue's Latin name and the number 20, which is the building number in האומן 20; a bare 20 on a generic climbing domain is not a street match. Nothing on it prints the street name or places the wall in Jerusalem.",
-    "candidate": "https://allclimbing.com/"
-  },
-  {
     "lat": 32.78973879999999,
     "lon": 35.0409245,
     "name": "BoulderLab",
     "country": "IL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — boulderlab.com → \"This domain may be for sale\", the venue's whole name as one label, boulderlab.com, answers 200 (\"This domain may be for sale\") but its pages print no street, postal code or town matching this venue. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://boulderlab.com/"
-  },
-  {
-    "lat": 32.1074967,
-    "lon": 34.8938899,
-    "name": "Venga Petah Tikva",
-    "country": "IL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — www.vengabloc.ch → \"Bloc | Venga | La Sarraz\"; venga.com → \"All-in-One Crypto App: Buy, Sell, Swap & Earn | Venga\", the rest could not be opened — venga.co.il → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.vengabloc.ch/"
+    "checked": "2026-08-25",
+    "reason": "Boulder Haifa did move to Nesher — \"עכשיו בכתובת החדשה: החרושת 4, נשר\" — which is why it keeps surfacing for this row. HaHaroshet 4 geocodes 1,496 m away, in the Tel Hanan industrial area; this row reverse-geocodes to יעקב משלי in Check Post, Haifa. Different estate, different municipality on the ground, and a different name: the row is BoulderLab, not Boulder.",
+    "candidate": "https://www.boulder.co.il/"
   },
   {
     "lat": 32.92353,
@@ -2979,20 +2958,19 @@
     "lon": -9.1280699,
     "name": "Rocódromo do Areeiro - Casal Vistoso",
     "country": "PT",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — rocodromo.com → \"Buscador de rocódromos. Listado Climbing centers\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://rocodromos.com/"
+    "status": "social-only",
+    "reason": "The Rocódromo do Areeiro is an indoor wall inside the Complexo Desportivo Municipal do Casal Vistoso, run by the Federação de Campismo e Montanhismo de Portugal. The FCMP's own site publishes no page for it — its sitemap holds thirteen URLs and none is a facility — and the wall's only voice is a Facebook page under the name \"Rocódromo FCMP\". Lisbon does carry a city-directory entry for it, and lisboa.pt answers 403 to every request from here, so that channel could not be read either.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 41.1544871,
     "lon": -8.587331,
     "name": "são rock",
     "country": "PT",
-    "status": "unverified",
+    "status": "unavailable",
     "candidate": "https://saorockclimbing.com/",
-    "reason": "No official site could be established: The object at this coordinate is São Rock Climbing itself, tagged sport=climbing, and it carries saorockclimbing.com. The host answers, and what it answers is Locaweb's own error: \"403 Forbidden — Página não existente ou em construção\". The domain is registered and the site is not there.",
-    "checked": "2026-08-24"
+    "reason": "This row is São Rock, and the map says so plainly: it reverse-geocodes onto an OSM object called \"São Rock Climbing\" at Rua de Godim 312, Campanhã, 7 m away. The domain is saorockclimbing.com and it answers 403 to every request, on apex and www, over http and https. A page we are refused is a page we cannot read two signals off, and this file never stores a link it cannot fetch.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 41.1579438,
@@ -3000,8 +2978,9 @@
     "name": "São Rock",
     "country": "PT",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — saorock.com → a timeout, the venue's whole name as one label, saorock.com, does not resolve. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "candidate": "https://saorockclimbing.com/",
+    "reason": "Upstream carries São Rock twice, once as \"são rock\" and once as \"São Rock\". The first sits 7 m from the gym at Rua de Godim 312; this one is 3,523 m away, in central Porto rather than Campanhã. Whatever this coordinate is, it is not where the wall is, and the venue it names already has a row of its own.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 37.14661226641366,
@@ -4012,8 +3991,9 @@
     "name": "Krag Sentral",
     "country": "ZA",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — krag.co.za → a certificate that does not cover its hostname; krag.com → a timeout. Upstream records 48 Milton Rd, 7925, Observatory, and nothing opened printed it."
+    "candidate": "https://kragsentrale.co.za/",
+    "reason": "kragsentrale.co.za resolves and serves fourteen characters: its own name. Everything else is drawn in the browser. Upstream's address for this row — 48 Milton Rd, 7925, Observatory — is the address the gym is described by elsewhere, and Milton Road geocodes 154 m from the coordinate, so the row itself is sound. What is missing is a second signal on the page, and the page has one word on it. Worth noting for whoever retries: the gym is member-operated and staffless, entry by personal code around the clock, with day passes reported only on Mondays, Tuesdays and Thursdays — which is the shape of a venue whose hours this file would have had to fail closed on anyway.",
+    "checked": "2026-08-25"
   },
   {
     "lat": -33.9391263,
