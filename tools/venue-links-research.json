@@ -3162,9 +3162,9 @@
     "name": "Akademia Sportu Proem",
     "country": "PL",
     "status": "unverified",
-    "reason": "akademiasportu.com.pl is Krakowska Akademia Sportu, 200 km from Tomaszów Mazowiecki, and the sweep matched it on a bare \"62\".",
-    "candidate": "https://akademiasportu.com.pl/",
-    "checked": "2026-08-24"
+    "candidate": "https://sites.google.com/proemedu.pl/akademiasportuproem/",
+    "reason": "The club does publish, and the page is unmistakably this venue: \"Zajęcia Akademii Sportu odbywają się w Hali widowiskowo-sportowej Chrześcijańskiego Centrum Edukacyjnego Proem Edu, ul. Sosnowa 62/70, 97-200 Tomaszów Mazowiecki\" — upstream's street, postcode and town, with a Sekcja Wspinaczkowa of its own. It cannot be stored: the page is on sites.google.com, and this file refuses google.com and its subdomains along with the other aggregator hosts, because a page hosted on somebody else's platform is not the venue's own site. proemedu.pl itself belongs to the foundation and says nothing about the wall.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 51.919438,
@@ -3182,17 +3182,8 @@
     "country": "PL",
     "status": "unverified",
     "candidate": "https://blokline.pl/",
-    "reason": "No official site could be established, and the reason is now a rename rather than a dead domain. blokhaus.pl still resolves and redirects to blokline.pl, which is Ściana wspinaczkowa Poznań Blok Line at Kinepolis, Bolesława Krzywoustego 72, 61-144 Poznań — 1.8 km from this coordinate, which sits 0.5 km from the Poznań town point. The redirect is the operator's own act and is good evidence, but it is not a signal this file can count: blokline.pl never uses the name Blokhaus on any of its pages, so the only thing that matches is the town.",
-    "checked": "2026-08-24"
-  },
-  {
-    "lat": 52.3771,
-    "lon": 16.94313,
-    "name": "Boulderownia Groto Poznań",
-    "country": "PL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — boulderownia.pl → 200; boulderownia.com.pl → 200 / a certificate that does not cover its hostname. Upstream records Romana Maya 1, 61-371, Poznań, and nothing opened printed it."
+    "reason": "blokhaus.pl still resolves and redirects to blokline.pl, which is a working Poznań climbing wall — \"Kinepolis, Bolesława Krzywoustego 72, 61-144 Poznań\", open 9:00-23:00 on weekdays. It is not this one: that address geocodes 5.2 km from this row. A domain pointed at a successor or a sibling is not evidence about the hall at this coordinate.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 49.5668942,
@@ -3238,9 +3229,9 @@
     "name": "PARBAT",
     "country": "PL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — parbat.com → \"Checking your browser...\", the rest could not be opened — parbat.pl → 999. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://parbat.com/"
+    "candidate": "https://parbat.pl/",
+    "reason": "parbat.pl resolves and redirects to a LinkedIn profile, which is neither a climbing venue nor a website this file can store. The row sits on Kraków's centre point, 50.0647,19.9450, which is the value gazetteers return for the city itself, so there is no place here to identify either.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 53.12348040000001,
@@ -3277,10 +3268,9 @@
     "lon": 16.9513208,
     "name": "United Climbing",
     "country": "PL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — unitedclimbing.com → \"HugeDomains.com\", the rest could not be opened — united.pl → a timeout / no answer; united.com → 302 / nothing. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.hugedomains.com/domain_profile.cfm?d=unitedclimbing.com"
+    "status": "social-only",
+    "reason": "United Climbing Ścianka Wspinaczkowa is at ul. Unii Lubelskiej 3, 61-249 Poznań, with 300 m² of bouldering, and unitedclimbing.pl does not resolve on any host. What it publishes goes to Instagram (@united_climbing) and Facebook, with the rest in Polish business directories.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 39.5993,
