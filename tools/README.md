@@ -297,6 +297,136 @@ node tools/build-boards-data.mjs --overlays-only
   that from a drifted upstream coordinate.
 - Counts land in `boards.meta.json` under `venue_links`.
 
+## Venue opening hours
+
+`tools/venue-hours.json` attaches a manually verified weekly opening schedule to
+a venue, read from that venue's own official page.
+`tools/venue-hours-research.json` is the other half: every venue that was
+reviewed and got no hours, with a status and a reason. The full policy, the
+record schema, the day grammar and the decision note for the fields deliberately
+*not* built live in [`tools/VENUE-HOURS.md`](VENUE-HOURS.md).
+
+```bash
+# Validate the curated file against the committed venue data (exits non-zero on
+# anything the build would refuse). Run before committing a batch.
+node tools/venue-hours-report.mjs
+
+# Worklist for the next batch, and the schedules already published.
+node tools/venue-hours-report.mjs --todo DE,AT,CH --limit 40
+node tools/venue-hours-report.mjs --show
+
+# Re-apply the venue-level overlays and re-render, without pulling a new
+# upstream dataset into the same commit.
+node tools/build-boards-data.mjs --overlays-only
+```
+
+- **Matching**: the same `resolveVenueRecord()` the website links use — the
+  4-decimal `venueKey()`, then a 250 m proximity rematch that also requires the
+  country and the name to agree. Both overlays share one resolver so neither can
+  drift into being laxer than the other.
+- **Never on private venues**: `classifyVenue()` refuses `commercial: false`
+  MoonBoard-only venues, exactly as it does for links.
+- **Fail closed**: a schedule that is partial, contradictory, seasonal,
+  appointment-only or unreadable produces an outcome record, not hours. The
+  schema will not accept a week with a day missing, and it will not accept a day
+  it cannot spell canonically.
+- **The verification date and the evidence quote never ship.** `toPublicHours()`
+  passes exactly the seven-day array and the source URL into the dataset; the
+  `checked` date, the `evidence` quote, the `signals` and the `provenance` stay
+  in the curated file. Tests grep the published geojson and both directories for
+  each record's own date and evidence.
+- **No open-now state, ever.** The data has no timezone, no holiday calendar and
+  no notion of a one-off closure. Both renderers state the published week, label
+  it as the venue's own, and link the page it came from.
+- Counts land in `boards.meta.json` under `venue_hours`.
+
+## Keeping the two overlays honest over time (network tools)
+
+Both curated overlays record what a page said on the day it was read, and pages
+move. Two tools re-read them; both make network requests, so neither is part of
+`scripts/check` and both are run by hand after a curation batch.
+
+```bash
+# Fetch every published venue link and report what no longer answers. 404 and
+# 410 must be acted on; a 403 or no answer at all from a host that still
+# resolves is usually bot protection this machine cannot get past.
+node tools/venue-links-liveness.mjs
+
+# Re-read the source of every published week and report three things: where a
+# Squarespace business-hours setting or a schema.org block on the same page says
+# something different, where a time the record publishes is no longer printed on
+# the page at all, and where the page prints no time to a reader in the first
+# place (a single-page app, or a schedule in an image). A difference is a finding
+# to read, not a verdict — see "When a page states the week twice" in
+# VENUE-HOURS.md.
+node tools/venue-hours-conflict.mjs
+```
+
+Two more read a page the way a browser would rather than the way a fetcher
+does. They are for reopening a venue that is stuck, so they take the venues to
+try rather than sweeping the whole file, and they write one file per venue into
+a directory beside them.
+
+```bash
+# Where a page prints no address, read the pin out of the map it embeds and say
+# how far that is from the registry point. Eight shapes are covered: Google
+# embeds and query links, Squarespace location objects, schema.org
+# GeoCoordinates, generic lat/lng JSON, data attributes, OSM embeds, geo: URIs.
+node tools/venue-map-pin.mjs "41.7105,-86.1896=https://www.apexclimbinggym.com"
+
+# Where the rendered HTML has no day beside a time, look in the page's own
+# script bundle — a single-page app's text is still the page.
+node tools/venue-hours-bundle.mjs "47.5148,19.1143=https://fless.hu"
+
+# Where upstream records no street, ask the coordinate what street it is on and
+# look for that, and for its postcode, on the candidate's pages.
+node tools/venue-street-match.mjs "35.6534,-105.9925=https://climbsantafe.com"
+```
+
+## Coverage audit (`venue-audit.mjs`, `venue-audit-ledger.json`)
+
+```bash
+# Validate the ledger and print coverage; exits non-zero while any row is
+# still pending or unbacked by a real curated or research record.
+node tools/venue-audit.mjs
+
+# What is still open, and the next N rows to work on.
+node tools/venue-audit.mjs --queue DE
+node tools/venue-audit.mjs --next 20 --country US
+node tools/venue-audit.mjs --json
+```
+
+The two overlays above answer "what do we know?"; this answers "what have we
+looked at?", which is a different question and the one that decides whether a
+gap is real or merely unexamined.
+
+- **The worklist is frozen.** `venue-audit-ledger.json` holds one row per
+  eligible venue that lacked a website or hours when the audit opened — 1,475
+  of them — so the denominator cannot drift as venues are added upstream.
+  `computeWorklist()` recomputes it from the committed data and the test fails
+  if the two disagree.
+- **Every row must resolve to exactly one venue**, through the same
+  `resolveVenueRecord()` the overlays use. The one venue it cannot place —
+  Fitbloc, at coordinates 0,0 with no country — sits in an `unresolvable`
+  bucket, is exempt from the backing rule, and must carry a `note` on each
+  field it needs.
+- **Every decided outcome must be backed** by a real record in the matching
+  curated or research file. A row cannot claim `accepted` without a link, or
+  `seasonal` without an outcome record saying so.
+- **Retryable outcomes stay in the queue.** `unverified`, `unavailable` and
+  `pending` for websites; `inaccessible` and `pending` for hours. Those are
+  facts about one moment — a 403, a TLS failure, a page that renders in the
+  browser — rather than facts about the venue, so they are recorded and kept
+  open rather than closed as absent.
+- **The ledger never ships.** It is a working file: `venue-audit.test.mjs`
+  greps every published artifact for each row's contents and asserts no served
+  file references it.
+
+The audit's own findings — what it changed about candidate discovery, the
+shapes that decide an hours outcome, and the three upstream coordinate bugs it
+surfaced — are written up at the end of
+[`VENUE-LINKS.md`](VENUE-LINKS.md) and [`VENUE-HOURS.md`](VENUE-HOURS.md).
+
 ## Place index (`build-cities-data.mjs`)
 
 ```bash

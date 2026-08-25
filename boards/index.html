@@ -94,6 +94,14 @@
         },
         {
           "@type": "Question",
+          "name": "Where do the opening hours on the map come from?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "From the venue's own official website. Each schedule was read off the operator's page by hand, with the exact page recorded, and is shown as the venue published it. Nothing is taken from listings, reviews or OpenStreetMap, and the map never calculates whether a venue is open right now — public holidays and short-notice changes may differ, so the venue's page is the authority. Where a site publishes a season-dependent week, contradicts itself, or opens only by arrangement, no hours are shown at all."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Is the climbing board map free to use?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -493,10 +501,20 @@
   }
   .popup-wellpass-yes { color: #2a8e3d; }
   .popup-wellpass-no  { color: #999; font-weight: 500; }
-  /* Curated official-website link, plus the UTC date it was last verified —
-     this is hand-checked data, so the popup says how fresh the check is. */
+  /* Curated official-website link. The UTC date it was verified is curation
+     metadata and stays in tools/venue-links.json — it is never rendered. */
   .popup-site { margin: 4px 0 2px; font-size: 12px; }
   .popup-site .label { color: #999; margin-right: 4px; }
+  /* Curated opening hours: a small two-column block of day-run → times, with
+     the venue-supplied caveat and the source link underneath. Same rule as the
+     link above — the date it was checked lives in tools/venue-hours.json. */
+  .popup-hours { margin: 6px 0 2px; font-size: 12px; }
+  .popup-hours-head .label { color: #999; font-weight: 600; }
+  .popup-hours-row { display: flex; gap: 8px; line-height: 1.45; }
+  .popup-hours-days { color: #666; min-width: 58px; flex-shrink: 0; }
+  .popup-hours-time { color: #1a1a1a; }
+  .popup-hours-note { color: #888; font-size: 11px; margin-top: 3px; }
+  .popup-hours-note a { font-size: 11px; }
 
   /* About / attribution panel under the map — collapsed by default so the
      map gets the vertical space; click the summary to expand. */
@@ -705,7 +723,9 @@
     </tbody>
     <tfoot><tr><td>Distinct venues</td><td>2,835</td></tr></tfoot>
   </table>
-    <p><strong>1,001</strong> of them link to a manually verified official website.</p>
+    <p><strong>1,765</strong> of them link to a manually verified official website.</p>
+    <p><strong>1,288</strong> also list opening hours as published by the venue itself.
+      Public holidays and short-notice changes may differ — the venue's own page is the authority.</p>
     <p>
       Prefer a plain list? <a href="/boards/list.html">Browse the full directory of
       all 2,835 venues, grouped by country →</a>
@@ -719,7 +739,7 @@
       <li><strong>Narrow it down:</strong> filter Kilter venues by wall layout, angle and size; filter MoonBoard venues by setup year (2016, 2017 / 2019 Masters, 2024, Mini, School Room), commercial vs. home, and LED vs. non-LED.</li>
       <li><strong>Filter by country</strong> to check coverage in a specific region.</li>
       <li><strong>"Boards in view"</strong> lists every venue currently on screen — click an entry to jump straight to it.</li>
-      <li><strong>Click any marker</strong> for that venue's boards, wall details and a link to open the spot in OpenStreetMap.</li>
+      <li><strong>Click any marker</strong> for that venue's boards, wall details, its official website and opening hours where those have been verified, and a link to open the spot in OpenStreetMap.</li>
     </ul>
     <p>Your map position and filter choices are saved in your browser, so reloading the page returns you to the same view.</p>
 
@@ -783,6 +803,9 @@
       <dt>How accurate are the board locations and details?</dt>
       <dd>Coordinates and board metadata come from the public dataset, with a small set of hand-verified corrections such as MoonBoard hardware year. Details like wall angle reflect what owners submitted and can lag behind real-world changes.</dd>
 
+      <dt>Where do the opening hours on the map come from?</dt>
+      <dd>From the venue's own official website. Each schedule was read off the operator's page by hand, with the exact page recorded, and is shown as the venue published it. Nothing is taken from listings, reviews or OpenStreetMap, and the map never calculates whether a venue is open right now — public holidays and short-notice changes may differ, so the venue's page is the authority. Where a site publishes a season-dependent week, contradicts itself, or opens only by arrangement, no hours are shown at all.</dd>
+
       <dt>Is the climbing board map free to use?</dt>
       <dd>Yes. The map is part of CruxCoach, an open-source, ad-free project. It needs no account and costs nothing to use.</dd>
     </dl>
@@ -798,7 +821,7 @@
 
 <script src="/assets/vendor/leaflet/leaflet.js"></script>
 <script src="/assets/vendor/leaflet/leaflet.markercluster.js"></script>
-<script src="/boards/map.js?v=20260822-1"></script>
+<script src="/boards/map.js?v=20260823-1"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 
 <script>

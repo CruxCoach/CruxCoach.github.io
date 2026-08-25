@@ -27,6 +27,7 @@ import * as hangtime from './sources/hangtime.mjs';
 import { renderListPage, renderStatsBlock, injectBetweenMarkers } from './render-static.mjs';
 import { findNearestCity, loadCityIndex } from './nearest-city.mjs';
 import { applyVenueLinks, loadVenueLinks } from './venue-links.mjs';
+import { applyVenueHours, loadVenueHours } from './venue-hours.mjs';
 
 const COUNTRY_CODER_PACKAGE = '@rapideditor/country-coder';
 const COUNTRY_CACHE = join(tmpdir(), 'cruxcoach-build-deps');
@@ -78,6 +79,7 @@ const OVERRIDES_FILE = join(REPO_ROOT, 'tools', 'overrides.json');
 const NEAREST_CITY_MAX_KM = 25;
 const WELLPASS_FILE = join(REPO_ROOT, 'tools', 'wellpass.json');
 const VENUE_LINKS_FILE = join(REPO_ROOT, 'tools', 'venue-links.json');
+const VENUE_HOURS_FILE = join(REPO_ROOT, 'tools', 'venue-hours.json');
 
 // 4-decimal precision ≈ 11 m at the equator. Tight enough to keep
 // neighbouring gyms separate, loose enough to collapse multi-board
@@ -365,6 +367,7 @@ async function buildFromSources() {
     overrides: overrideStats,
     wellpass: overlayStats.wellpass,
     venue_links: overlayStats.venue_links,
+    venue_hours: overlayStats.venue_hours,
     per_board: perBoard,
     per_source: perSource,
     sources: sourceMeta,
@@ -404,7 +407,24 @@ function applyVenueOverlays(features) {
     `${venueLinks.rejected} rejected (of ${venueLinks.defined} defined)\n`,
   );
 
-  return { wellpass, venue_links: venueLinks };
+  // Opening hours last, and deliberately independent of the links: a venue may
+  // carry one, both or neither. Only the schedule and the page it was read from
+  // cross into the features — the check date, the quoted evidence and the
+  // matched signals stay in the curated file, which is why applyVenueHours() is
+  // the only thing that ever writes these two properties.
+  const hoursFile = loadVenueHours(VENUE_HOURS_FILE);
+  for (const err of hoursFile.errors) process.stderr.write(`[build]   WARN ${err}\n`);
+  const { stats: venueHours, problems: hoursProblems, notes: hoursNotes } =
+    applyVenueHours(features, hoursFile.entries);
+  for (const note of hoursNotes) process.stderr.write(`[build]   note: ${note}\n`);
+  for (const problem of hoursProblems) process.stderr.write(`[build]   WARN ${problem}\n`);
+  process.stderr.write(
+    `[build] venue hours: ${venueHours.applied} applied across ${venueHours.countries} countries, ` +
+    `${venueHours.unmatched} unmatched, ${venueHours.ambiguous} ambiguous, ` +
+    `${venueHours.rejected} rejected (of ${venueHours.defined} defined)\n`,
+  );
+
+  return { wellpass, venue_links: venueLinks, venue_hours: venueHours };
 }
 
 // Write the geojson, the meta, and both languages of static HTML.
@@ -455,6 +475,7 @@ function overlaysOnlyRebuild() {
   const overlayStats = applyVenueOverlays(features);
   meta.wellpass = overlayStats.wellpass;
   meta.venue_links = overlayStats.venue_links;
+  meta.venue_hours = overlayStats.venue_hours;
 
   writeOutputs(features, meta);
   process.stderr.write('[build] --overlays-only: geojson, meta and both directories rewritten\n');

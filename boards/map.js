@@ -46,6 +46,13 @@
       unnamed: '(unnamed)',
       addressLabel: 'Address:',
       websiteLabel: 'Official website:',
+      hoursLabel: 'Opening hours',
+      hoursNote: 'As published by the venue; public holidays and short-notice changes may differ.',
+      hoursSource: 'Official source',
+      hoursClosed: 'Closed',
+      hoursAllDay: '24 hours',
+      hoursNextDay: 'next day',
+      hoursDays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       instagramLabel: 'Instagram:',
       userLabel: 'User:',
       notOnWellpass: 'Not on egym Wellpass',
@@ -123,6 +130,13 @@
       unnamed: '(ohne Namen)',
       addressLabel: 'Adresse:',
       websiteLabel: 'Offizielle Website:',
+      hoursLabel: 'Öffnungszeiten',
+      hoursNote: 'Wie von der Halle veröffentlicht; Feiertage und kurzfristige Änderungen können abweichen.',
+      hoursSource: 'Offizielle Quelle',
+      hoursClosed: 'Geschlossen',
+      hoursAllDay: '24 Stunden',
+      hoursNextDay: 'Folgetag',
+      hoursDays: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'],
       instagramLabel: 'Instagram:',
       userLabel: 'Nutzer:',
       notOnWellpass: 'Nicht bei egym Wellpass',
@@ -458,6 +472,104 @@
       '</div>';
   }
 
+  // ── Curated opening hours ─────────────────────────────────────────
+  //
+  // Hours arrive on the venue as a 7-element array, Monday first, where '' is a
+  // day the venue itself states as closed. tools/venue-hours.mjs is what writes
+  // them, and it refuses anything it cannot spell canonically — but the map
+  // re-checks, because this came out of a fetched file and because a schedule
+  // rendered wrong is worse than one not rendered at all: a visitor acts on it.
+  //
+  // Nothing here computes whether the venue is open now. The popup states what
+  // the venue published and links the page it was read from; the clock, the
+  // visitor's timezone and public holidays are all things this data does not
+  // know, and guessing at them is how the previous hours dataset went wrong.
+  function parseHoursDay(spec) {
+    if (spec === '') return [];
+    var parts = String(spec).split(',');
+    var out = [];
+    for (var i = 0; i < parts.length; i++) {
+      var m = /^([0-2][0-9]):([0-5][0-9])-([0-2][0-9]):([0-5][0-9])$/.exec(parts[i]);
+      if (!m) return null;
+      var start = Number(m[1]) * 60 + Number(m[2]);
+      var end = Number(m[3]) * 60 + Number(m[4]);
+      if (start > 1439 || end > 1680 || end <= start) return null;
+      if (out.length && start <= out[out.length - 1].end) return null;
+      out.push({ start: start, end: end });
+    }
+    return out;
+  }
+
+  function safeHoursWeek(week) {
+    if (!Array.isArray(week) || week.length !== 7) return null;
+    var stated = 0;
+    for (var i = 0; i < 7; i++) {
+      if (typeof week[i] !== 'string') return null;
+      if (week[i] === '') continue;
+      if (!parseHoursDay(week[i])) return null;
+      stated++;
+    }
+    return stated > 0 ? week : null;
+  }
+
+  function pad2(n) {
+    return (n < 10 ? '0' : '') + n;
+  }
+
+  function formatHoursDay(spec) {
+    if (spec === '') return T.hoursClosed;
+    if (spec === '00:00-24:00') return T.hoursAllDay;
+    var ranges = parseHoursDay(spec);
+    if (!ranges) return '';
+    var out = [];
+    for (var i = 0; i < ranges.length; i++) {
+      var start = pad2(Math.floor(ranges[i].start / 60)) + ':' + pad2(ranges[i].start % 60);
+      var end = ranges[i].end;
+      var suffix = '';
+      if (end > 1440) { end -= 1440; suffix = ' (' + T.hoursNextDay + ')'; }
+      out.push(start + '–' + pad2(Math.floor(end / 60)) + ':' + pad2(end % 60) + suffix);
+    }
+    return out.join(', ');
+  }
+
+  // Runs of identical days collapse into one row, so a gym with the same
+  // weekday schedule is two lines rather than seven.
+  function formatHoursGroups(week) {
+    var groups = [];
+    var start = 0;
+    for (var i = 1; i <= week.length; i++) {
+      if (i < week.length && week[i] === week[start]) continue;
+      var end = i - 1;
+      groups.push({
+        days: start === end ? T.hoursDays[start] : T.hoursDays[start] + '–' + T.hoursDays[end],
+        hours: formatHoursDay(week[start])
+      });
+      start = i;
+    }
+    return groups;
+  }
+
+  function renderHoursSection(props) {
+    var week = safeHoursWeek(props.hours);
+    var src = safeSiteUrl(props.hours_src);
+    if (!week || !src) return '';
+    var rows = formatHoursGroups(week).map(function (g) {
+      return '<div class="popup-hours-row"><span class="popup-hours-days">' + escapeHtml(g.days) +
+        '</span><span class="popup-hours-time">' + escapeHtml(g.hours) + '</span></div>';
+    }).join('');
+    // The source is linked only when it is a different page from the official
+    // website already shown above; otherwise that link is the source.
+    var link = props.hours_src !== props.website
+      ? ' <a href="' + escapeHtml(src.href) + '" target="_blank" rel="noopener" referrerpolicy="origin">' +
+        escapeHtml(T.hoursSource) + '</a>'
+      : '';
+    return '<div class="popup-hours">' +
+      '<div class="popup-hours-head"><span class="label">' + escapeHtml(T.hoursLabel) + '</span></div>' +
+      rows +
+      '<div class="popup-hours-note">' + escapeHtml(T.hoursNote) + link + '</div>' +
+      '</div>';
+  }
+
   function buildPopupHtml(lat, lon, props) {
     var subtitleParts = [];
     if (props.city) subtitleParts.push(escapeHtml(props.city));
@@ -489,6 +601,7 @@
         '<h4>' + escapeHtml(props.name || T.unnamed) + '</h4>' +
         subtitle +
         renderSiteLine(props) +
+        renderHoursSection(props) +
         wellpassLine +
         '<div class="popup-boards">' + sections + '</div>' +
         '<div class="popup-foot">' +
@@ -604,6 +717,7 @@
           name: rec.name, city: rec.city, country: rec.country,
           wellpass: rec.wellpass, boards: rec.boards,
           website: rec.website,
+          hours: rec.hours, hours_src: rec.hoursSrc,
         }))
         .openOn(map);
     }
@@ -1678,6 +1792,8 @@
           countryName: cName,          // localized name — for search + display
           wellpass: wellpass,
           website: props.website || null,
+          hours: props.hours || null,
+          hoursSrc: props.hours_src || null,
           nName: normalizeText(venueName),
           nCity: props.city ? normalizeText(props.city) : '',
           nCountry: cName ? normalizeText(cName) : '',

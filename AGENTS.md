@@ -218,6 +218,19 @@ for the full contract; the essentials:
     built: `tools/VENUE-LINKS.md`. `node tools/venue-links-report.mjs` validates a
     batch; `node tools/build-boards-data.mjs --overlays-only` re-applies the
     venue-level overlays and re-renders without pulling a new upstream dataset.
+  - `tools/venue-hours.json` — one manually verified weekly opening schedule per
+    venue, read from that venue's **own official page** (never OSM, never a
+    listing or aggregator — the OSM-derived hours were withdrawn in `f670da0` for
+    being materially inaccurate, and nothing here is derived from them). Fails
+    closed hard: a week with a day the source does not state, a seasonal or
+    appointment-only rule, or a branch that cannot be identified produces an
+    outcome record in `tools/venue-hours-research.json`, not hours. **The
+    `checked` date, the `evidence` quote, the signals and the provenance are
+    internal and must never reach `boards.geojson`, either directory, the map
+    popup or anything else a browser fetches** — `toPublicHours()` is the only
+    door, and tests grep every published artifact for them. Nothing computes an
+    open-now state. Policy: `tools/VENUE-HOURS.md`; validation:
+    `node tools/venue-hours-report.mjs`.
 - **Adapter guidelines**: drop free-form `description`/`bio` text at the adapter
   (historical MoonBoard entries contain SEO/casino spam); validate coordinate
   ranges; never propagate upstream email/phone.

@@ -20,6 +20,7 @@
 // stays in boards.meta.json, which the page already links to.
 
 import { isCanonicalVenueUrl } from './venue-links.mjs';
+import { formatWeeklyHours, safePublicHours, sourceIsDistinct } from './venue-hours.mjs';
 
 // board id → human label, in the project's preferred spelling.
 export const BOARD_LABELS = {
@@ -73,6 +74,11 @@ const STRINGS = {
     nearCity: (city) => `near ${city}`,
     officialSiteAria: (venue) => `${venue} — official website`,
     linkedVenues: (n) => `<strong>${n}</strong> of them link to a manually verified official website.`,
+    hoursLabel: 'Opening hours:',
+    hoursSource: 'source',
+    hoursSourceAria: (venue) => `${venue} — official page the opening hours were read from`,
+    hoursVenues: (n) => `<strong>${n}</strong> also list opening hours as published by the venue itself.
+      Public holidays and short-notice changes may differ — the venue's own page is the authority.`,
     backToMap: '← Back to the interactive map',
     footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Data CC-BY-4.0. Hosted by Codeberg e.V.',
     footerLinks: '<a href="/support.html">Support</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a>',
@@ -108,6 +114,12 @@ const STRINGS = {
     nearCity: (city) => `bei ${city}`,
     officialSiteAria: (venue) => `${venue} — offizielle Website`,
     linkedVenues: (n) => `Bei <strong>${n}</strong> davon ist eine manuell geprüfte offizielle Website verlinkt.`,
+    hoursLabel: 'Öffnungszeiten:',
+    hoursSource: 'Quelle',
+    hoursSourceAria: (venue) => `${venue} — offizielle Seite, von der die Öffnungszeiten stammen`,
+    hoursVenues: (n) => `Bei <strong>${n}</strong> davon stehen zusätzlich die Öffnungszeiten, wie die Halle
+      sie selbst veröffentlicht. Feiertage und kurzfristige Änderungen können abweichen — verbindlich
+      ist die Seite der Halle.`,
     backToMap: '← Zurück zur interaktiven Karte',
     footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Daten CC-BY-4.0. Gehostet bei Codeberg e.V.',
     footerLinks: '<a href="/de/support.html">Unterstützen</a> · <a href="/de/imprint.html">Impressum</a> · <a href="/de/privacy.html">Datenschutz</a>',
@@ -226,10 +238,13 @@ export function renderStatsBlock(features, meta, lang = 'en') {
   const nLinked = linkedVenueCount(features);
   const linked = nLinked > 0 ? `
     <p>${S.linkedVenues(fmt(nLinked, lang))}</p>` : '';
+  const nHours = hoursVenueCount(features);
+  const hours = nHours > 0 ? `
+    <p>${S.hoursVenues(fmt(nHours, lang))}</p>` : '';
   return `<p>
       ${S.statsIntro(fmt(meta.venue_features, lang), fmt(nCountries, lang))}
     </p>
-    ${boardCountsTable(meta, lang)}${linked}
+    ${boardCountsTable(meta, lang)}${linked}${hours}
     <p>
       ${S.listTeaser(P.listHref, fmt(meta.venue_features, lang))}
     </p>`;
@@ -270,6 +285,38 @@ function venueSiteLink(props, lang) {
   const label = STRINGS[lang].officialSiteAria(props.name || '');
   return ` <a class="vsite" href="${esc(url)}" target="_blank" rel="noopener"`
     + ` referrerpolicy="origin" aria-label="${escAttr(label)}">${esc(host)}</a>`;
+}
+
+// Number of venues carrying curated opening hours.
+function hoursVenueCount(features) {
+  let n = 0;
+  for (const f of features) {
+    if (safePublicHours(f.properties)) n++;
+  }
+  return n;
+}
+
+// The curated opening hours for one venue, or '' when it has none.
+//
+// Same discipline as venueSiteLink() above: the week and its source URL reached
+// the geojson through tools/venue-hours.mjs, which refused anything malformed —
+// and both are re-validated here anyway, because this renderer writes 2,800
+// lines and is the last place that can still say no.
+//
+// The source link is rendered only when the hours came from a page other than
+// the venue's website link, which is already on the same line: on a page whose
+// weight scales with coverage, a second identical link on every line is the
+// kind of thing that turns a useful directory into a slow one.
+function venueHoursLine(props, lang) {
+  const hours = safePublicHours(props);
+  if (!hours) return '';
+  const S = STRINGS[lang];
+  const text = formatWeeklyHours(hours.week, lang);
+  const source = sourceIsDistinct(props)
+    ? ` <a class="vhours-src" href="${esc(hours.source)}" target="_blank" rel="noopener"`
+      + ` referrerpolicy="origin" aria-label="${escAttr(S.hoursSourceAria(props.name || ''))}">${esc(S.hoursSource)}</a>`
+    : '';
+  return ` <span class="vhours"><span class="vhours-label">${esc(S.hoursLabel)}</span> ${esc(text)}${source}</span>`;
 }
 
 // board id badges for a single venue, e.g. "Kilter Board · MoonBoard".
@@ -315,6 +362,10 @@ export function renderListPage(features, meta, lang = 'en') {
   const linkedNote = nLinked > 0
     ? `\n    <p class="linked-note">${S.linkedVenues(fmt(nLinked, lang))}</p>`
     : '';
+  const nHours = hoursVenueCount(features);
+  const hoursNote = nHours > 0
+    ? `\n    <p class="linked-note">${S.hoursVenues(fmt(nHours, lang))}</p>`
+    : '';
 
   const toc = groups
     .map(g => `<li><a href="#${anchorFor(g.code)}">${esc(g.name)}</a> <span class="muted">(${fmt(g.venues.length, lang)})</span></li>`)
@@ -336,7 +387,7 @@ export function renderListPage(features, meta, lang = 'en') {
       const boards = venueBoards(p)
         .map(b => `<span class="bt">${esc(b)}</span>`)
         .join(' ');
-      return `        <li><strong>${esc(p.name)}</strong>${city} ${boards}${venueSiteLink(p, lang)}</li>`;
+      return `        <li><strong>${esc(p.name)}</strong>${city} ${boards}${venueSiteLink(p, lang)}${venueHoursLine(p, lang)}</li>`;
     }).join('\n');
     return `    <section aria-labelledby="${anchorFor(g.code)}">
       <h2 id="${anchorFor(g.code)}">${esc(g.name)} <span class="muted">(${fmt(g.venues.length, lang)})</span></h2>
@@ -467,6 +518,13 @@ ${LIST_HREFLANG}
   a.vsite:hover, a.vsite:focus { color: var(--accent); border-bottom-color: var(--accent); }
   a.vsite::before { content: "\\2197\\a0"; color: var(--fg-mute); }
   .linked-note { color: var(--fg-soft); font-size: 0.95rem; }
+  /* Curated opening hours. A venue line is already dense, so the schedule sits
+     on its own row underneath rather than fighting the board badges for the
+     end of the line. */
+  .vhours { display: block; font-size: 0.8rem; color: var(--fg-soft); margin-top: 0.15rem; }
+  .vhours-label { color: var(--fg-mute); }
+  a.vhours-src { color: var(--fg-mute); border-bottom: 1px dotted var(--rule); }
+  a.vhours-src:hover, a.vhours-src:focus { color: var(--accent); border-bottom-color: var(--accent); }
   .backlink { display: inline-block; margin: 1.5rem 0; }
   footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; margin-top: 2rem; color: var(--fg-mute); font-size: 0.85rem; }
   footer .container { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
@@ -492,7 +550,7 @@ ${LIST_HREFLANG}
       ${S.lede(P.mapHref, total, nCountries, esc(perBoardSentence))}
     </p>
 
-    ${boardCountsTable(meta, lang)}${linkedNote}
+    ${boardCountsTable(meta, lang)}${linkedNote}${hoursNote}
 
     <h2 style="border-top:0;margin-top:1.5rem;padding-top:0">${S.jumpToCountry}</h2>
     <ul class="toc">
