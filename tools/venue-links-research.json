@@ -1332,9 +1332,9 @@
     "lon": 2.0837384,
     "name": "CANGLOMERAT",
     "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No candidate resolved at all: none of the name-derived domains for CANGLOMERAT exists, and no OSM climbing object within 500 m of Castellar del Vallès carries a website."
+    "status": "social-only",
+    "reason": "CANGLOMERAT is a climbing school in Castellar del Vallès — Carrer Sant Feliu 11, 0.6 km from this row — and it has no domain: canglomerat.cat, canglomerat.com and canglomeratclub.com all fail to resolve. What it publishes, it publishes on Facebook (facebook.com/CanglomeratClub) and through the town hall's own activity directory, and it takes contact by email. A Facebook page is a real web presence and not an official website, which is what this field promises.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 42.84032287502238,
@@ -1380,30 +1380,10 @@
     "lon": -0.43244,
     "name": "Gaia Climb Alzira",
     "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "The name reduces to \"gaia\": gaia.es is a corporate site, gaia.com a streaming service and gaia.cat the town hall of Gaià. Nothing found names West Albalat St 11B in Alzira.",
-    "candidate": "https://gaia.es/"
-  },
-  {
-    "lat": 41.54682,
-    "lon": 2.02887,
-    "name": "Gravetat Zero",
-    "country": "ES",
-    "status": "unverified",
-    "reason": "gravetatzero.com is a climbing-equipment shop at Carrer Alt de Pedrell 57, 08032 Barcelona; upstream puts this venue on Carrer de l'Anoia in Terrassa, 25 km away. The municipality lookup matched it on the word Barcelona, which for this point is the province at admin level 6 and not the town — the town is Terrassa.",
-    "candidate": "https://gravetatzero.com/",
-    "checked": "2026-08-24"
-  },
-  {
-    "lat": 41.54777,
-    "lon": 2.0316683,
-    "name": "Gravetat Zero",
-    "country": "ES",
-    "status": "unverified",
-    "reason": "gravetatzero.com is a climbing-equipment shop at Carrer Alt de Pedrell 57, 08032 Barcelona; upstream puts this venue on Carrer de l'Anoia in Terrassa, 25 km away. The municipality lookup matched it on the word Barcelona, which for this point is the province at admin level 6 and not the town — the town is Terrassa.",
-    "candidate": "https://gravetatzero.com/",
-    "checked": "2026-08-24"
+    "status": "unavailable",
+    "candidate": "https://gaiaclimb.com/",
+    "reason": "The gym is real and gaiaclimb.com is its domain — search indexes still hold its /que-ofrecemos and /eventos pages, and the address they carry, calle Albalat Oeste 11B in Alzira, is upstream's street line for this row. The domain does not resolve today: three lookups a few seconds apart returned nothing at all, on the apex and on www. Retry when DNS answers again.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 42.56289,
@@ -1411,19 +1391,19 @@
     "name": "Indoorwall Jaca",
     "country": "ES",
     "status": "unverified",
-    "candidate": "https://www.indoorwall.com/",
-    "reason": "No official site could be established: The gazetteer has an object called Indoorwall at this point, but the chain's own centre list — Alicante, El Clot, Getafe, Hospitalet, Igualada, Mallorca, Torrejón, Vic, Vilanova — has no Jaca in it, and the word appears nowhere on the page.",
-    "checked": "2026-08-24"
+    "candidate": "https://www.indoorwall.com/centros-indoorwall-rocodromos/indoorwall-jaca/",
+    "reason": "The hall was an Indoorwall centre at Calle Río Lubierre 2, upstream's street. Its page on the chain's site now redirects to a 404, and the chain's own list of centres — Getafe, El Clot, Hospitalet, Torrejón, Vic, Vilanova, Alicante, Mallorca, Igualada — no longer includes Jaca. That is enough to stop the chain page being this venue's website and not enough to say the hall is shut: it may have left the chain rather than closed, and no page under any other name could be found for it.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 41.5365584,
     "lon": 2.099233,
     "name": "La Panxa del Bou",
     "country": "ES",
-    "status": "unverified",
-    "reason": "lapanxadelbou.cat is a restaurant — \"Restaurante brasería en Ullastrell\" — matched, like Gravetat Zero, on the province name Barcelona rather than on Sabadell, which is the town this coordinate falls in.",
-    "candidate": "https://lapanxadelbou.cat/",
-    "checked": "2026-08-24"
+    "status": "unavailable",
+    "candidate": "http://lapanxadelbou.com/",
+    "reason": "lapanxadelbou.com resolves and answers, and what it serves is the Apache2 Debian default page — \"It works! … You should replace this file (located at /var/www/html/index.html)\". The paths the search index remembers, /tarifes4/ and /lapanxa/, answer 404 from ISPConfig, and https presents a certificate issued to webmail.travesa.cat, which does not cover this hostname. The site is not deployed on the host its domain points at.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 43.20919,
@@ -1506,20 +1486,20 @@
     "lon": -15.519481,
     "name": "Tagorock Arucas",
     "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "tagorock.com answers 526 on both hosts — a Cloudflare origin-certificate failure — so no page of it can be opened. Nothing else resolves for Tagorock Arucas. Worth re-reading: 526 is a fact about one moment.",
-    "candidate": "https://tagorock.com/"
+    "status": "unavailable",
+    "candidate": "https://www.tagorock.com/",
+    "reason": "Tagorock is a Gran Canaria climbing club that runs the municipal school in Arucas, which is what these two rows are. Its domain answers 526 — the origin's certificate is invalid, so the front end will not serve it — on every path. Even readable it would need care: tagorock.com presents itself as \"Rocódromo en Las Palmas\", at Calle Covadonga 20, which is a different hall 10 km from these rows.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 28.11281,
     "lon": -15.52012,
     "name": "Tagorock Arucas Climbing School",
     "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "Same operator as the venue about 70 m away, and the same 526 from tagorock.com on both hosts.",
-    "candidate": "https://tagorock.com/"
+    "status": "unavailable",
+    "candidate": "https://www.tagorock.com/",
+    "reason": "Tagorock is a Gran Canaria climbing club that runs the municipal school in Arucas, which is what these two rows are. Its domain answers 526 — the origin's certificate is invalid, so the front end will not serve it — on every path. Even readable it would need care: tagorock.com presents itself as \"Rocódromo en Las Palmas\", at Calle Covadonga 20, which is a different hall 10 km from these rows.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 42.1737408,
@@ -1536,10 +1516,10 @@
     "lon": -3.7089,
     "name": "Uadibloc Malasaña",
     "country": "ES",
-    "status": "unverified",
-    "checked": "2026-08-24",
-    "reason": "The gazetteer has an object 26 m from this coordinate — Calle de San Hermenegildo 25, 28015 — tagged uadibloc.com, which is as good a pointer as this channel gives. The host answers with \"Account Suspended. This Account has been suspended. Contact your hosting provider.\" There is nothing to read and so nothing to link.",
-    "candidate": "https://www.uadibloc.com/"
+    "status": "unavailable",
+    "candidate": "https://uadibloc.com/",
+    "reason": "uadibloc.com is unmistakably the gym — the row's address, C de San Hermenegildo 25, is the one every listing gives for it — and the domain currently redirects to /cgi-sys/suspendedpage.cgi, the hosting company's account-suspended page, 122 bytes long. Nothing can be read from it today. Retry when the account is restored.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 40.53623976991643,
@@ -1547,9 +1527,9 @@
     "name": "World Climbing",
     "country": "ES",
     "status": "unverified",
-    "candidate": "https://worldclimbing.com/",
-    "reason": "No official site could be established: worldclimbing.com is the competition-series site — World Climbing Series Bern, Prague, Comunidad de Madrid. It lists Alcobendas because a round was held there, which is also why this coordinate is where it is.",
-    "checked": "2026-08-24"
+    "candidate": "https://www.worldclimbing.com/",
+    "reason": "No official site could be established, and the name is the reason: World Climbing is the international competition series, whose Comunidad de Madrid round was held in Alcobendas in June 2026, and worldclimbing.com is that series' site — a calendar of events in Bern, Prague, Wujiang and Sukoró, not a hall. Upstream's address for the row, Av. de Fernando Alonso 65, publishes no climbing venue; Alcobendas' two public gyms are Sputnik at Calle la Granja 100 and Zero Climbing on Calle de los Sueños, neither of which is this. The row reads as a competition or builder's board rather than a gym.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 66.49311399999999,

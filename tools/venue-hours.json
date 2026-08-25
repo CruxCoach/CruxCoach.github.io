@@ -11267,6 +11267,56 @@
   "note": "The pool inside the same centre keeps its own, slightly shorter hours."
  },
  {
+  "lat": 41.54682,
+  "lon": 2.02887,
+  "name": "Gravetat Zero",
+  "country": "ES",
+  "source": "https://gravetat-zero.net/tarifes-i-horaris",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-22:30",
+   "tue": "09:00-22:30",
+   "wed": "09:00-22:30",
+   "thu": "09:00-22:30",
+   "fri": "09:00-22:30",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "HORARI DE DILLUNS A DIVENDRES DE 9:00h A 22:30h DISSABTES DE 9:00h A 21:00h DIUMENGES DE 9:00h A 21:00h",
+  "note": "The standing week, in Catalan, on the hall's own rates-and-hours page. A separate \"HORARI AGOST\" block splits August into 10-14 and 16-22:30 and a list of named public holidays follows it; both are exceptions to this week rather than competing weeks."
+ },
+ {
+  "lat": 41.54777,
+  "lon": 2.0316683,
+  "name": "Gravetat Zero",
+  "country": "ES",
+  "source": "https://gravetat-zero.net/tarifes-i-horaris",
+  "checked": "2026-08-25",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "city",
+   "co-located"
+  ],
+  "hours": {
+   "mon": "09:00-22:30",
+   "tue": "09:00-22:30",
+   "wed": "09:00-22:30",
+   "thu": "09:00-22:30",
+   "fri": "09:00-22:30",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "HORARI DE DILLUNS A DIVENDRES DE 9:00h A 22:30h DISSABTES DE 9:00h A 21:00h DIUMENGES DE 9:00h A 21:00h",
+  "note": "The standing week, in Catalan, on the hall's own rates-and-hours page. A separate \"HORARI AGOST\" block splits August into 10-14 and 16-22:30 and a list of named public holidays follows it; both are exceptions to this week rather than competing weeks."
+ },
+ {
   "lat": 38.03211,
   "lon": -1.14918,
   "name": "GUD Climbing Gym",

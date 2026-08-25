@@ -9202,6 +9202,35 @@
     ]
   },
   {
+    "lat": 41.54682,
+    "lon": 2.02887,
+    "name": "Gravetat Zero",
+    "country": "ES",
+    "website": "https://gravetat-zero.net/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ],
+    "note": "The gym's own site tells its own history: \"Gravetat Zero va ser un dels primers rocòdroms en obrir a Catalunya. Es va fundar a l'any 2012 al Carrer Sant Gaietà a Terrassa … A l'any 2022 ens vam traslladar al carrer l'Anoia a Terrassa\". Carrer de l'Anoia is upstream's street for this row, and it geocodes 165 m from the coordinate; Sant Gaietà, the address they left, is 2.8 km away, so both Terrassa rows are the current hall rather than one being the old one."
+  },
+  {
+    "lat": 41.54777,
+    "lon": 2.0316683,
+    "name": "Gravetat Zero",
+    "country": "ES",
+    "website": "https://gravetat-zero.net/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The second Terrassa row, 330 m from the first and 190 m from the street the gym moved to in 2022. Upstream holds no address for it, so the name and the town are what match; the site is the same hall's."
+  },
+  {
     "lat": 38.03211,
     "lon": -1.14918,
     "name": "GUD Climbing Gym",
