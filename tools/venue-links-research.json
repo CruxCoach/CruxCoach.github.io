@@ -3152,9 +3152,8 @@
     "name": "Adrenalina",
     "country": "PL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — adrenalina.pl → \"Aftermarket.eu\", the rest could not be opened — adrenalina.com.pl → a certificate that does not cover its hostname; adrenalina.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://t2910.am-track.pl/redir.php?panel=Market_Listing&params=id%3D3559957%26utm_source%3Dmarket_redirect%26utm_medium%3Dorganic&type=listing&id=3559957&medium=direct:direct"
+    "reason": "No official site could be established: adrenalina.pl resolves and belongs to somebody else; nothing published around Bieruń carries this name as a climbing venue, and upstream holds no address for the row.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 51.53491,
@@ -3172,8 +3171,8 @@
     "name": "balazs0315",
     "country": "PL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: the row is called balazs0315, which is a username rather than a venue name, and sits outside Ozorków where nothing publishes under it. That is a private board recorded under its owner's handle.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 52.406374,
@@ -3190,20 +3189,19 @@
     "lon": 22.2042044,
     "name": "Centrum Sportów Ekstremalnych - Sanok",
     "country": "PL",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — centrumsportow.pl → \"Oferta sprzedaży domeny centrumsportow.pl (centrum sport\"; centrum.pl → \"wiadomości i opinie prawdziwe i ciekawe - CENTRUM\"; centrum.com → \"Complete Multivitamins with Micronutrients | Centrum\", the rest could not be opened — centrumsportowekstremalnych.com → a certificate that does not cover its hostname; centrum.com.pl → 200. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://premium.pl/centrumsportow.pl"
+    "status": "http-only",
+    "candidate": "http://cse.sanok.biz.pl/",
+    "reason": "The wall is the Centrum Sportów Ekstremalnych in Sanok, run by the scouting club Harcerski Klub Górski \"Born To Climb\", and its site says so in its own header: \"CSE – ścianka wspinaczkowa w Sanoku … ul. Poprzeczna 2, Sanok\". The name and the town both match. It cannot be stored: cse.sanok.biz.pl answers nothing at all over https, and this file keeps https URLs only.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 53.0137902,
     "lon": 18.5984437,
     "name": "Gato",
     "country": "PL",
-    "status": "unverified",
-    "reason": "gatowalls.com builds climbing walls — \"Budowa ścian wspinaczkowych, parków linowych i fun climb\" — it does not run a hall in Toruń. A wall builder shares the vocabulary of every gym it has ever built, which is why the name sweep keeps offering them.",
-    "candidate": "https://gatowalls.com/",
-    "checked": "2026-08-24"
+    "status": "social-only",
+    "reason": "Centrum Wspinaczkowe GATO is at Wały gen. Sikorskiego 8 in Toruń, by the TOR-TOR ice rink, and has no domain of its own. It publishes on Instagram (@gatocentrum) and Facebook, and appears in the city's own visitor pages; those are listings rather than the venue's site.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 51.2510308,
@@ -3211,8 +3209,8 @@
     "name": "Kotłownia",
     "country": "PL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no candidate could be opened — kotlownia.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: Kotłownia is Polish for a boiler house, and the gazetteer object at this coordinate is a motorcycle parts shop. Nothing in Lublin publishes a climbing venue under this name; upstream holds no address or handle for the row.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 51.2464536,
@@ -3220,8 +3218,8 @@
     "name": "LCW Paderewski",
     "country": "PL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
+    "reason": "No official site could be established: LCW Paderewski names a Lublin sports hall — the Paderewski school complex — rather than a climbing business, and nothing publishes under it. Lublin's commercial walls trade under other names.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 50.0646501,
@@ -3239,19 +3237,18 @@
     "name": "SpiderMoon",
     "country": "PL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — spidermoon.com → \"SpiderMoon.com is for sale | HugeDomains\". Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://www.hugedomains.com/domain_profile.cfm?d=spidermoon.com"
+    "reason": "No official site could be established: spidermoon.pl does not resolve and nothing published in Bydgoszcz carries the name. SpiderMoon reads as a board's nickname — a MoonBoard in somebody's spider room — rather than a business.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 51.7592485,
     "lon": 19.4559833,
     "name": "Spot Boulder Caffe",
     "country": "PL",
-    "status": "unverified",
-    "candidate": "https://climbingspot.pl/",
-    "reason": "No official site could be established: ClimbingSpot.pl is a bouldering wall in Poznań, as its own title says. This coordinate is in Łódź, 200 km away.",
-    "checked": "2026-08-24"
+    "status": "unavailable",
+    "candidate": "https://spotboulder.pl/",
+    "reason": "Spot Boulder Caffe is at ul. Wersalska 47/75 in Łódź and spotboulder.pl is its own domain. It cannot be read: http redirects to https and https completes no handshake at all, so every request ends with nothing. Retry when the certificate is fixed.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 51.7806999,
@@ -3259,9 +3256,9 @@
     "name": "Stratosfera",
     "country": "PL",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — stratosfera.com.pl → \"a page with no title\"; stratosfera.com → \"a page with no title\", the rest could not be opened — stratosfera.pl → a certificate that does not cover its hostname. Upstream records no address for this venue, so there is no street line to test a candidate against.",
-    "candidate": "https://stratosfera.com.pl/"
+    "candidate": "http://stratosfera.org/",
+    "reason": "stratosfera.org is a climbing site — \"Stratosfera.org – kursy wspinaczkowe\" — with a Ścianka page that states \"Godziny otwarcia: poniedziałek – piątek 11-22, weekendy i święta 9-21\". Neither that page nor the front page names a town, a street or anything else that ties it to this coordinate, so the name is the only signal; and the domain serves nothing over https, which this file requires in any case.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 52.3727688,

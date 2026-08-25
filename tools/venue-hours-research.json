@@ -6112,8 +6112,8 @@
   "name": "Adrenalina",
   "country": "PL",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 51.53491,
@@ -6131,8 +6131,8 @@
   "name": "balazs0315",
   "country": "PL",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 50.2724967,
@@ -6168,9 +6168,10 @@
   "lon": 22.2042044,
   "name": "Centrum Sportów Ekstremalnych - Sanok",
   "country": "PL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "http://cse.sanok.biz.pl/",
+  "reason": "What the club publishes about time is a weekday afternoon window reported as 16:30-19:30 by third parties; its own pages carry the rules, the history and the local crags rather than a week. No day is paired with a time anywhere on the site itself.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 53.0137902,
@@ -6178,8 +6179,8 @@
   "name": "Gato",
   "country": "PL",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "The venue has no website of its own — Instagram, Facebook and city listings — so there is no official page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 51.2510308,
@@ -6187,8 +6188,8 @@
   "name": "Kotłownia",
   "country": "PL",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 51.2464536,
@@ -6196,8 +6197,8 @@
   "name": "LCW Paderewski",
   "country": "PL",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 50.23033,
@@ -6254,26 +6255,28 @@
   "name": "SpiderMoon",
   "country": "PL",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 51.7592485,
   "lon": 19.4559833,
   "name": "Spot Boulder Caffe",
   "country": "PL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "inaccessible",
+  "source": "https://spotboulder.pl/",
+  "reason": "The venue's domain forces https and serves nothing over it, so there is no page to read a schedule from.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 51.7806999,
   "lon": 19.4478,
   "name": "Stratosfera",
   "country": "PL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "ambiguous",
+  "source": "http://stratosfera.org/scianka/",
+  "reason": "The week is plain — \"poniedziałek – piątek 11-22, weekendy i święta 9-21\" — and the page it sits on names no location at all, so it cannot be attached to this venue. A third-party listing gives the same site a different week (10-22 every day), which is a second reason to leave it.",
+  "checked": "2026-08-25"
  },
  {
   "lat": 50.5638534,
