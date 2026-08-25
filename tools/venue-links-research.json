@@ -1497,9 +1497,9 @@
     "name": "Rocodromo Peramola",
     "country": "ES",
     "status": "unverified",
-    "checked": "2026-08-25",
+    "candidate": "https://www.peramola.cat/actualitat/noticies/inauguracio-del-rocodrom",
     "reason": "No official site could be established: the venue is municipal and the municipality publishes no page for it. Its own site search returns exactly one document for \"rocodrom\" — a notice dated 2 December 2024 announcing \"INAUGURACIÓ DEL CENTRE D'ACOLLIDA I DINAMITZACIÓ DE L'ESCALADA I ESPORTS DE MITJA MUNTANYA A PERAMOLA — ROCÒDROM CASINO\" for the following Saturday. A one-off news item with no address, no hours and no operator is not a website for the wall, and the ajuntament's own address (C/ Frederic Ribó, 8) is the building next door to the one upstream records.",
-    "candidate": "https://www.peramola.cat/actualitat/noticies/inauguracio-del-rocodrom"
+    "checked": "2026-08-25"
   },
   {
     "lat": 28.1129931,
@@ -4356,10 +4356,10 @@
     "lon": -96.837839,
     "name": "Dallas Bouldering Project",
     "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "dallasboulderingproject.com is the venue's own domain and answers 200, but serves a client-rendered page from which no content could be parsed. dallas-project.org, which the guesser reached first, prints Dallas but is not this gym. Retry when the site serves readable content.",
-    "candidate": "https://dallasboulderingproject.com/"
+    "status": "closed",
+    "candidate": "https://dallasboulderingproject.com/",
+    "reason": "The venue's own domain is now parked — the whole document is 114 bytes that send the browser to /lander — and Bouldering Project's own location list runs Austin, Boston, Brooklyn, Twin Cities, Phoenix, Salt Lake City, Seattle and Washington DC, with no Dallas on it. The record rests on the operator enumerating its halls rather than on a closure notice, but a chain that lists every gym it runs and omits this one is stating the same thing.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 39.72138,
@@ -4407,9 +4407,9 @@
     "name": "Evolution Boulders",
     "country": "US",
     "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site could be established: the candidates that answered are somebody else's — evolution.com → \"Evolution | B2B Live Casino, Slots, and Operator Tech\"; evolution.net → \"Home Health Care, Hospice, Palliative Care | Amedisys\"; evolution.org → \"Domain Registered at Safenames\", the venue's whole name as one label, evolutionboulders.com, answers 200 (\"EvolutionBoulders - DayToDay Stories\") but its pages print no street, postal code or town matching this venue. Upstream records 10371 Central Park Dr, 20110, Manassas, and nothing opened printed it.",
-    "candidate": "https://www.evolution.com/"
+    "candidate": "https://evolutionboulders.com/",
+    "reason": "No official site could be established: evolutionboulders.com is the gym's old domain and every index still points at it, but it now serves \"EvolutionBoulders - DayToDay Stories\", a generated blog with sections for the US, Canada, Australia, Cyprus, the UK, Japan, the UAE, New Zealand, Qatar and Singapore, posting about AI video courses. The /visit path the search index remembers answers 404. The domain has been taken over; nothing on it is about a climbing gym in Manassas.",
+    "checked": "2026-08-25"
   },
   {
     "lat": 33.7232,
@@ -4481,15 +4481,6 @@
     "candidate": "https://graniteworksgym.com/"
   },
   {
-    "lat": 37.22925,
-    "lon": -107.80896,
-    "name": "Gravity Lab",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. The only candidate that answered for Gravity Lab, Durango was gravityclimbing.ie, a climbing gym in Ireland — a different business on another continent, reached because a generic word in this venue's name is also in its own. Nothing was found that publishes a street, a postal code or a town matching this venue."
-  },
-  {
     "lat": 43.15504,
     "lon": -70.89446,
     "name": "Hell Cave",
@@ -4507,16 +4498,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no candidate could be opened — hinotch.com → 200. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 39.32747,
-    "lon": -120.2174,
-    "name": "High Altitude Fitness Truckee",
-    "country": "US",
-    "status": "unverified",
-    "candidate": "https://www.highaltitudefitness.com/",
-    "reason": "No official site could be established: highaltitudefitness.com is 251 Northwood Way, Ketchum, ID 83340, \"high performance fitness for Ketchum, Sun Valley and the Wood River valley\". This row is in Truckee, California, 800 km west.",
-    "checked": "2026-08-24"
   },
   {
     "lat": 42.83654,
@@ -4690,16 +4671,6 @@
     "reason": "rippleboulder.com answers and is an ice-cream shop — \"ripple!! Come taste the difference. We make our own flavors and many of the toppings with our in-store kitchen and bakery. hours Every day 12pm - 10pm\". Broad Ripple is a neighbourhood of Indianapolis and the name belongs to it before it belongs to either business.",
     "candidate": "https://rippleboulder.com/",
     "checked": "2026-08-24"
-  },
-  {
-    "lat": 41.14187,
-    "lon": -73.26536,
-    "name": "Rock Climbing Fairfield",
-    "country": "US",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "fairfield.com is a generic town-name domain and not this gym; it matched only because it prints the word Fairfield. No name-derived domain for a climbing venue at 85 Mill Plain Rd, 06824 resolves.",
-    "candidate": "https://www.fairfield.com/"
   },
   {
     "lat": 38.04551,

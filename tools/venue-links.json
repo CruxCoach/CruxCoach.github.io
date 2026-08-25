@@ -20494,6 +20494,23 @@
     "note": "GRAVITY BEAR's own site, giving Tulsa and naming the Tension Board this venue is listed for. The first pass had reached gravityclimbing.ie in Ireland. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
   },
   {
+    "lat": 37.22925,
+    "lon": -107.80896,
+    "name": "Gravity Lab",
+    "country": "US",
+    "website": "https://www.gravitylabclimbing.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "The gym's own site gives \"The Transformation: 732 CR 233, Durango, CO 81301\" — upstream's street in the same abbreviated form, with town and postcode — and lists \"a Kilter Board, campus board, and Spray wall\" for a row upstream records as a kilter."
+  },
+  {
     "lat": 41.0584299,
     "lon": -74.0984756,
     "name": "GRAVITY VAULT",
@@ -20913,6 +20930,23 @@
       "city"
     ],
     "note": "HiClimb trades as hawaiiclimb.com, which its Facebook handle (HawaiiClimb) echoes. Its connect page gives \"location 825 Ilaniwai St, Honolulu, Hawaii, 96813\" — upstream's street, town and postcode."
+  },
+  {
+    "lat": 39.32747,
+    "lon": -120.2174,
+    "name": "High Altitude Fitness Truckee",
+    "country": "US",
+    "website": "https://www.highaltitudefit.net/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "highaltitudefitness.com is a different gym of the same name in Ketchum, Idaho — the trap this row had already fallen into. The Tahoe business is highaltitudefit.net: \"Truckee Location: 11798 Donner Pass Road Truckee, CA 96161\", upstream's street, town and postcode, and its our-gyms page lists \"Campus Board and Kilter Board\" under THE TRUCKEE LOCATION for a row upstream records as a kilter."
   },
   {
     "lat": 35.18317,
@@ -22736,6 +22770,22 @@
       "city"
     ],
     "note": "Two rows 14 m apart are the gym and its training centre, and both are Rock City Climbing of Huntington Beach: \"16942 Gothard St Ste G Huntington Beach, CA 92647\", the street, suite and postcode upstream records for the training-centre row. The site carries a section for the training centre under the same domain."
+  },
+  {
+    "lat": 41.14187,
+    "lon": -73.26536,
+    "name": "Rock Climbing Fairfield",
+    "country": "US",
+    "website": "https://www.rockclimbfairfield.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "Upstream calls the row Rock Climbing Fairfield; the gym calls itself Rock Climb Fairfield and its footer reads \"Rock Climb Fairfield 85 Mill Plain Road Building T Fairfield, CT 06824\" — upstream's street, town and postcode, with a building letter upstream does not carry."
   },
   {
     "lat": 41.07565,
