@@ -32,8 +32,8 @@ CruxCoach is a non-commercial, community-developed Android application. It is no
 
 - [Zapstore](https://zapstore.dev/apps/com.cruxcoach.android) — recommended, auto-updates, Nostr-native verifiable builds
 - The website's single direct-APK button uses a first-party, no-log server-side health selector. It redirects only after the click to the available verified source and records one coarse daily click bucket without an identifier.
-- [Direct APK download from Codeberg](https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk) — direct link to the current release, kept up to date automatically; manual sideload, `.apk.sha256` integrity sidecar at the same URL + `.sha256`
-- [Direct APK fallback on Zapstore CDN](https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4) — content-addressed mirror of the exact same APK, kept in lockstep with the Codeberg link
+- [Direct APK download from Codeberg](https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.2/CruxCoach-v0.2.2.apk) — direct link to the current release, kept up to date automatically; manual sideload, `.apk.sha256` integrity sidecar at the same URL + `.sha256`
+- [Direct APK fallback on Zapstore CDN](https://cdn.zapstore.dev/d58fb2611ed663d3efb0084a1238e9d823261f7b4be0fbbbf437b11d660b2ae3) — content-addressed mirror of the exact same APK, kept in lockstep with the Codeberg link
 - Source build — clone the Codeberg repo and run `./gradlew :androidApp:assembleDebug`
 - [Obtainium](https://github.com/ImranR98/Obtainium) — open-source installer that tracks the Codeberg releases directly; add `https://codeberg.org/CruxCoach/CruxCoach` as a Codeberg source. No listing process, works today.
 - Planned future channel (no specific timeline): F-Droid main. IzzyOnDroid is ruled out — its inclusion policy rejects apps created in whole or in part by generative AI tools.
