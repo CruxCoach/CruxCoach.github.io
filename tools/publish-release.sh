@@ -90,7 +90,11 @@ echo "-- download links moved to ${apk_tag}"
 sitemap_pages=()
 for file in "${LINK_FILES[@]}"; do
   case "$file" in
-    *.html) [ "$file" = "404.html" ] || sitemap_pages+=("$file") ;;
+    # Shared-climb and legal pages are intentionally not indexed, so asking
+    # the strict sitemap updater to find them turns a valid release bump into
+    # a hard failure after all download links have already been rewritten.
+    404.html|privacy.html|de/privacy.html|imprint.html|de/imprint.html) ;;
+    *.html) sitemap_pages+=("$file") ;;
   esac
 done
 "$NODE_BIN" tools/update-sitemap-lastmod.mjs "${sitemap_pages[@]}" \

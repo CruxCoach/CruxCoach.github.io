@@ -134,6 +134,15 @@ test('the nightly updater never downloads the Codeberg APK for validation', () =
   assert.ok(!fetchTargets.includes('apkUrl'), 'never fetch the Codeberg asset');
 });
 
+test('release publication never sends non-indexed pages to the sitemap updater', () => {
+  const publisher = fs.readFileSync(
+    path.join(repoRoot, 'tools/publish-release.sh'), 'utf8');
+  assert.match(
+    publisher,
+    /404\.html\|privacy\.html\|de\/privacy\.html\|imprint\.html\|de\/imprint\.html\)/,
+  );
+});
+
 test('every direct-APK button carries the content-addressed mirror', () => {
   // The click-time last resort can only redirect to a target the markup names,
   // and it refuses anything that is not the Zapstore CDN blob for this release.
