@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-07",
+  "updated": "2026-08-29",
   "_comment": "Authoritative release-source list for the in-app updater (FEAT-050). The app asks EVERY entry each round and takes the highest version anyone reports — no entry can shadow another, so a stale or archived host cannot freeze updates. Order is still meaningful: on a version tie the earlier entry wins, and its URL is the one tried first for the download. Every downloaded APK is verified against its SHA-256 and against the TOFU-pinned signing certificate regardless of which entry served it, so the transport here is untrusted by design — see UpdateSource.kt. This file is the ONLY lever that can retire a release host for installs already in the field: the compiled-in defaults cannot be changed retroactively. Keep at least one usable entry, otherwise the app falls back to its embedded list.",
   "_retiring_a_host": "Removing a retired host or setting enabled:false is good hygiene — it saves every install one request per check — but it is no longer load-bearing for correctness: since the app sweeps all sources and takes the maximum version, a host left in place while frozen simply loses the comparison instead of hiding the others.",
   "sources": [
@@ -19,8 +19,8 @@
       "url": "https://api.github.com",
       "owner": "CruxCoach",
       "repo": "CruxCoach",
-      "enabled": false,
-      "_note": "DISABLED UNTIL github.com/CruxCoach/CruxCoach HAS RELEASES. As of 2026-08-07 that repo is a ref-only mirror of Codeberg: 20 branches, zero releases, zero assets. Codeberg's push-mirror copies git refs and nothing else. An enabled entry would therefore answer every check with 'no releases' and be counted as a healthy source that simply has no update — the quietest possible failure. Enable it in the same change that publishes the first release there (scripts/publish-github-release.sh in the app repo), and verify with curl that /repos/CruxCoach/CruxCoach/releases is non-empty first."
+      "enabled": true,
+      "_note": "Primary forge since v0.2.2. The protected release workflow publishes the signed APK here and mirrors the same verified bytes to Codeberg."
     },
     {
       "id": "zapstore",
