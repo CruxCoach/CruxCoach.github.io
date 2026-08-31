@@ -8228,38 +8228,6 @@
    }
   },
   {
-   "lat": 9.887011856968725,
-   "lon": -83.90448881843531,
-   "name": "Raccoon",
-   "country": "CR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   }
-  },
-  {
    "lat": 10.33361,
    "lon": -85.79444,
    "name": "TamaRocks Climbing + Fitness",
@@ -33967,8 +33935,8 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"

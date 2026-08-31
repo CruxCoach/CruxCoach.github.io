@@ -363,6 +363,28 @@ test('committed map data includes the missing boards and merges the corrected ve
     [41.5474876, 2.0961689],
   ]) assert.equal(at(features, lat, lon).length, 0);
 
+  const climbatAmman = at(features, 31.88255, 35.84339);
+  assert.equal(climbatAmman.length, 1);
+  assert.equal(climbatAmman[0].properties.boards[0].walls[0].adjustable, true);
+  assert.equal(climbatAmman[0].properties.boards[0].walls[0].min_angle, 0);
+  assert.equal(climbatAmman[0].properties.boards[0].walls[0].max_angle, 35);
+
+  const longmont = at(features, 40.16257, -105.04174);
+  assert.equal(longmont.length, 1);
+  assert.equal(longmont[0].properties.website, 'https://climbingcollective.co/longmont');
+  assert.equal(longmont[0].properties.hours.length, 7);
+  assert.equal(longmont[0].properties.boards[0].walls[0].size_label, '14x12 Super Tall, with Kickboard');
+
+  assert.equal(features.some(feature => feature.properties.name === 'Raccoon' && feature.properties.country === 'CR'), false);
+  for (const [lat, lon] of [
+    [31.9543786, 35.9105776],
+    [-6.1138942, 106.7853922],
+    [40.1588713, -105.107395],
+    [46.496264, 11.3559851],
+    [9.887011856968725, -83.90448881843531],
+    [9.8703962, -83.9405677],
+  ]) assert.equal(at(features, lat, lon).length, 0);
+
   assert.equal(at(features, 46.8753166, -96.7668897).length, 0);
 
   for (const [lat, lon] of [

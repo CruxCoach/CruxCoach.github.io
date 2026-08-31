@@ -921,15 +921,6 @@
     "reason": "No official site. eskalar.com is a HugeDomains parking page; eskalar.cr, eskalar.co.cr and eskalarcr.com do not resolve. No OSM climbing object near Escazu carries a website tag, so Centro Comercial Llamado Elspot, 10203 Escazu could not be matched against anything."
   },
   {
-    "lat": 9.887011856968725,
-    "lon": -83.90448881843531,
-    "name": "Raccoon",
-    "country": "CR",
-    "status": "unverified",
-    "checked": "2026-08-23",
-    "reason": "No official site. raccoon.com answers 403 and is an unrelated domain; raccoonclimbing.com serves a certificate that does not cover the hostname; raccoonclimbing.cr and raccooncr.com do not resolve. Nothing could be opened to test against Calle 19, 30106 Cartago."
-  },
-  {
     "lat": 34.6912057,
     "lon": 33.0574943,
     "name": "Limassol Climbing Club",
@@ -4568,5 +4559,64 @@
     "checked": "2026-08-31",
     "candidate": "https://salabatec.com/sab-contacte/",
     "reason": "Sala Batec's current Sabadell contact page identifies the branch at Carrer de Costa i Deu 79, 08205 Sabadell, and the operator's current site consistently publishes that sole Sabadell address. The address-bearing production Kilter row already represents it at 41.52992,2.09888. This same-name manufacturer-locator point is 2.0 km north and would duplicate the branch, so it is excluded in favour of the official-address replacement."
+  },
+  {
+    "lat": 9.887011856968725,
+    "lon": -83.90448881843531,
+    "name": "Raccoon",
+    "country": "CR",
+    "status": "announced",
+    "checked": "2026-08-31",
+    "candidate": "https://raccoonclimbingcr.com/",
+    "reason": "The newly available operator site identifies Raccoon Climbing in Cartago and uses the same telephone as Kilter's live manufacturer row, but its current headline says preparations for the inauguration of the new Kilter Board are still under way. The production marker therefore represents an announced board rather than a current installation and is withheld until the operator confirms that it has opened."
+  },
+  {
+    "lat": 9.8703962,
+    "lon": -83.9405677,
+    "name": "Raccoon",
+    "country": "CR",
+    "status": "announced",
+    "checked": "2026-08-31",
+    "candidate": "https://raccoonclimbingcr.com/",
+    "reason": "Kilter's live locator publishes this second coordinate as public and links the current operator domain, but the operator still describes the new Kilter Board's inauguration as forthcoming. The point also conflicts with the locator row's own Calle 19 address. It is withheld as the same announced installation rather than being treated as a second current Cartago board."
+  },
+  {
+    "lat": 31.9543786,
+    "lon": 35.9105776,
+    "name": "Climbat amman",
+    "country": "JO",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://international.visitjordan.com/wheretogo/amman?experienceId=2&tabId=138",
+    "reason": "Kilter's live locator itself prints 687 Jerusalem Street and the venue's current telephone number while placing the pin 10.2 km northeast. Jordan's official tourism board independently identifies the same Climbat Amman and telephone, and the address-bearing production row represents 687 Jerusalem Street in Naour at 31.88255,35.84339. The locator coordinate contradicts its own address and is excluded in favour of the corroborated production point."
+  },
+  {
+    "lat": -6.1138942,
+    "lon": 106.7853922,
+    "name": "Ape Boulder Camp",
+    "country": "ID",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "reason": "The live manufacturer row and production entry both print Jl. Kp. Rw. II No. 4 in Kebon Jeruk, while current independent venue descriptions identify Ape Boulder Camp, its Kilter Board and that exact West Jakarta address. The address-bearing production point is in Kebon Jeruk at -6.190983137451172,106.77520712298725; this locator point is 8.6 km north near Jakarta's waterfront and contradicts the row's own address, so it is excluded."
+  },
+  {
+    "lat": 40.1588713,
+    "lon": -105.107395,
+    "name": "Longmont Climbing Collective",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://climbingcollective.co/longmont",
+    "reason": "The manufacturer row still prints the former 33 S Pratt Parkway address. The operator's current branch page and current location list identify only 155 Pinnacle Street in Longmont, where the address-bearing production Kilter row sits at 40.16257,-105.04174. The old Pratt pin is 5.6 km west and no longer represents the current Longmont branch, so it is excluded rather than published as a second venue."
+  },
+  {
+    "lat": 46.496264,
+    "lon": 11.3559851,
+    "name": "Salewa Cube - WaltherPark",
+    "country": "IT",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.salewa-cube.com/de/waltherpark",
+    "reason": "The live manufacturer row and current official Waltherpark page both print Südtiroler Platz 1, 39100 Bozen. The address-bearing production venue represents that branch at 46.47043,11.31389, while this locator coordinate is 4.3 km east beside Salewa's separate headquarters area. The current operator distinguishes Headquarters and Waltherpark as separate locations, so this pin is excluded in favour of the branch-specific production row."
   }
 ]

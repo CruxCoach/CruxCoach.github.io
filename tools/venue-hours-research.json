@@ -1705,9 +1705,10 @@
   "lon": -83.90448881843531,
   "name": "Raccoon",
   "country": "CR",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-31",
+  "source": "https://raccoonclimbingcr.com/",
+  "reason": "The official page renders only the current day's 16:30-22:00 interval behind a collapsed 'open today' control and does not publish the other six named days in its document. One dynamic day is not a complete regular week, so no schedule is copied."
  },
  {
   "lat": 34.6912057,
@@ -7717,16 +7718,6 @@
   "checked": "2026-08-23",
   "source": "https://scl.cornell.edu/coe/lindseth-climbing-center",
   "reason": "The only week the centre publishes is headed \"Summer Hours (begins 5/26)\" — Monday, Wednesday and Friday 11:15am-1:15pm, Monday through Friday 5:00pm-9:00pm, Saturday and Sunday 1:00pm-5:00pm. It is a dated season with no stated end, and the page adds that hours change with special programming and closures."
- },
- {
-  "lat": 40.16257,
-  "lon": -105.04174,
-  "name": "Longmont Climbing Collective",
-  "country": "US",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://longmontclimbingcollective.com/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 67,425 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
  },
  {
   "lat": 34.134728,

@@ -22419,14 +22419,17 @@
     "lon": -105.04174,
     "name": "Longmont Climbing Collective",
     "country": "US",
-    "website": "https://longmontclimbingcollective.com/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
+    "website": "https://climbingcollective.co/longmont",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
     "signals": [
+      "name",
       "street-address",
       "postal-code",
-      "city"
-    ]
+      "city",
+      "location-page"
+    ],
+    "note": "The operator's current location page identifies 155 Pinnacle Street as its only Longmont branch. The former official domain now serves the same operator content under climbingcollective.co."
   },
   {
     "lat": 33.93541,

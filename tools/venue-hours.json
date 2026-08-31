@@ -32491,5 +32491,20 @@
   },
   "evidence": "Quarry Bay Branch: Level 2, K11 HACC, K11 ATELIER King's Road, 728 King's Road, Quarry Bay, Hong Kong. Hours Monday-Friday: 10:00 – 24:00; Saturday: 10:00 – 22:00; Sunday and Public Holidays: 10:00 – 20:00",
   "note": "The operator prints a separate address and complete seven-day week for Quarry Bay directly after the distinct Tsuen Wan branch block."
+ },
+ {
+  "lat": 40.16257,
+  "lon": -105.04174,
+  "name": "Longmont Climbing Collective",
+  "country": "US",
+  "source": "https://climbingcollective.co/longmont",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "postal-code", "city", "location-page", "hours-scope"],
+  "hours": {
+   "mon": "06:00-22:00", "tue": "06:00-22:00", "wed": "06:00-22:00",
+   "thu": "06:00-22:00", "fri": "06:00-22:00", "sat": "08:00-20:00", "sun": "08:00-20:00"
+  },
+  "evidence": "Longmont Climbing Collective, 155 Pinnacle Street, Longmont, CO 80504. Hours: Monday-Friday 6:00 AM-10:00 PM; Saturday-Sunday 8:00 AM-8:00 PM."
  }
 ]

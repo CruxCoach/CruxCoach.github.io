@@ -296,5 +296,28 @@
         }
       ]
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 31.88255,
+    "lon": 35.84339,
+    "name": "Climbat Amman",
+    "note": "Kilter's live locator describes the same 687 Jerusalem Street installation as an adjustable 0-35 degree 12x12 Original. Preserve the address-backed production coordinate but replace its stale fixed-at-35 representation with the current manufacturer profile.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 35,
+          "min_angle": 0,
+          "max_angle": 35,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
   }
 ]
