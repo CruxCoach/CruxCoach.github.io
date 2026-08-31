@@ -2131,14 +2131,14 @@
   "reason": "Re-read, and the earlier 'markup only' reading was wrong — the readable text does state a window, and it disagrees with the markup. The text says card holders may boulder 'jeden Tag von 00:00 - 24:00 Uhr'; the openingHours markup on the same pages says Mo–Su 10:00-23:00. Neither is a public walk-in week: 'Der Erstbesuch bei uns in der Boulderhalle Projekt Eins muss zu Servicezeiten stattfinden', and those are Tuesdays and the first Sunday of the month, 16–20 Uhr."
  },
  {
-  "lat": 48.69621,
-  "lon": 9.02313,
+  "lat": 48.6956085,
+  "lon": 9.023023,
   "name": "Roccadion",
   "country": "DE",
   "status": "seasonal",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "source": "https://www.roccadion.de/",
-  "reason": "Re-read: unchanged. The weekly table gives Dienstag and Donnerstag as 14–23 and immediately qualifies it: 'An Feiertagen und in den Schulferien ist Dienstag und Donnerstag von 10:00-23:00 Uhr geöffnet.' Two of the seven days depend on the Baden-Württemberg holiday calendar."
+  "reason": "Re-read after moving onto the exact coordinate in the venue's own directions link: unchanged. The weekly table gives Dienstag and Donnerstag as 14–23 and immediately qualifies it: 'An Feiertagen und in den Schulferien ist Dienstag und Donnerstag von 10:00-23:00 Uhr geöffnet.' Two of the seven days depend on the Baden-Württemberg holiday calendar."
  },
  {
   "lat": 51.68709,
@@ -5922,16 +5922,6 @@
   "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
-  "lat": 50.04933,
-  "lon": 19.97025,
-  "name": "MOOD",
-  "country": "PL",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://hellomood.pl/contact",
-  "reason": "The weekend is described around a competition rather than as an opening. Monday to Friday are plain enough (Monday 15:00-23:00, Tuesday to Friday 07:00-23:00), but Saturday reads \"From 9:00 to 16:00 — Championship qualifiers; during this time, the hall capacity is limited to 40 people. After that, we operate as usual\", with no closing time given at all, and Sunday is \"09:00-23:00: 09:00-13:00 Polish Championships\". A week cannot be read off that."
- },
- {
   "lat": 50.0646501,
   "lon": 19.9449799,
   "name": "PARBAT",
@@ -6103,16 +6093,6 @@
   "checked": "2026-08-24",
   "source": "https://zone.com.pt/",
   "reason": "No official page for this venue has been established — the operator's branch pages describe fitness clubs at four addresses, none of them this one — so there is no page to read a schedule from."
- },
- {
-  "lat": 44.38974,
-  "lon": 26.12165,
-  "name": "Climb Again Centrul",
-  "country": "RO",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://climbagain.ro/",
-  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
   "lat": 47.12658,
@@ -8363,13 +8343,14 @@
   "reason": "The climbing wall's hours are published as dated ranges rather than a week: \"May 18 - August 21*: M-F 2-6pm, Weekends 11am-2pm\", then \"August 22 - August 23 Closed\", then a further range from August 24 to December 17. There is no regular week behind them, and the ARC that houses the wall carries its own separate dated ranges."
  },
  {
-  "lat": 44.976,
-  "lon": -93.22948,
+  "lat": 44.9754795222,
+  "lon": -93.2297657585,
   "name": "University of Minnesota Climbing Program",
   "country": "US",
-  "status": "inaccessible",
-  "checked": "2026-08-25",
-  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under recwell.umn.edu, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read. The university's recreation site is the venue's own page for this wall, and it is the whole site that is closed to us, not the climbing section."
+  "status": "seasonal",
+  "checked": "2026-08-31",
+  "source": "https://recwell.umn.edu/welcome/hours-locations",
+  "reason": "The venue's own current page is readable again, but it publishes separate dated schedules rather than one durable week: RecWell Summer 2026 (May 9-September 4) is Monday-Friday 05:45-21:00, Saturday 10:00-16:00, Sunday 12:00-17:00; Fall 2026 (September 5-December 18) is Monday-Thursday 05:45-23:00, Friday 05:45-22:00, Saturday 08:00-21:00, Sunday 09:00-22:00, with named closures and reduced dates. The Climbing Training Center follows facility hours, so no undated regular week can be published."
  },
  {
   "lat": 27.6648274,

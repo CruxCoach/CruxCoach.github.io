@@ -4799,5 +4799,55 @@
     "checked": "2026-08-31",
     "candidate": "https://www.kraftreich-aufenfeld.at/de/",
     "reason": "Kraftreich's current official homepage identifies one hall and one Kilter Board at its venue-owned 47.266263,11.900404 coordinate. This third live locator row carries only the generic translated address Main St and sits 0.4 km west, so it is excluded as a duplicate mislocation."
+  },
+  {
+    "lat": 37.2287455,
+    "lon": -107.804335,
+    "name": "Gravity lab",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.gravitylabclimbing.com/",
+    "reason": "Gravity Lab's current homepage prints its sole 732 CR 233 Durango address, explicitly names the Kilter Board and publishes a venue-owned map point at 37.2291837,-107.8085475. The live manufacturer row repeats the address but places its pin 0.4 km east, so that conflicting point is excluded in favour of the page-owned location."
+  },
+  {
+    "lat": 62.7402591,
+    "lon": 7.1808245,
+    "name": "Molde Klatresenter",
+    "country": "NO",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://moldeklatresenter.no/kontakt-oss",
+    "reason": "Molde Klatresenter currently prints one Grandfjæra 22 C, 6415 Molde address throughout its site and explicitly names its adjustable Kilter and Tension Board 2. Norway's official address registry places 22C at 62.73608238635402,7.1818127676297765, where the three production board-system rows are consolidated; the manufacturer pin is 0.5 km north."
+  },
+  {
+    "lat": 44.3889081,
+    "lon": 26.1253279,
+    "name": "Climb Again",
+    "country": "RO",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://climbagain.ro/climb-again-bucuresti/",
+    "reason": "The current București branch page identifies Șoseaua Berceni 8, explicitly names its adjustable Kilter Board, and publishes a SportsActivityLocation coordinate at 44.397,26.098. The live manufacturer point is about 2.4 km east of that branch-owned point and would duplicate the corrected production venue."
+  },
+  {
+    "lat": 50.0468638,
+    "lon": 19.9708564,
+    "name": "MOOD",
+    "country": "PL",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://hellomood.pl/kontakt-boulderownia-w-centrum-krakowa/",
+    "reason": "MOOD's current contact page and venue-owned directions URL identify its sole hall as Stanisława Klimeckiego 14B, Kraków, exactly the address carried by the production row at 50.04933,19.97025. Kraków's current official city coverage independently identifies the same venue and address. The live locator point is 0.3 km south and is excluded as a conflicting duplicate pin."
+  },
+  {
+    "lat": 44.97399,
+    "lon": -93.2277285,
+    "name": "University of Minnesota Climbing Program",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://campusmaps.umn.edu/university-recreation-and-wellness-center",
+    "reason": "The university's current Climbing Training Center page places the Kilter Board inside Recreation and Wellness Center. The official Campus Maps page identifies that building as 01-169 at 123 Harvard Street SE and embeds its marker at 44.9754795222,-93.2297657585. The live manufacturer point is 0.2 km southeast and is excluded in favour of the university-owned building marker."
   }
 ]

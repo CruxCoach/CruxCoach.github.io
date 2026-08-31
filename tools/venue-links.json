@@ -8113,20 +8113,21 @@
     "note": "Address and boards verified on the site's own hall page."
   },
   {
-    "lat": 48.69621,
-    "lon": 9.02313,
+    "lat": 48.6956085,
+    "lon": 9.023023,
     "name": "Roccadion",
     "country": "DE",
     "website": "https://www.roccadion.de/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "city"
+      "city",
+      "coordinates"
     ],
-    "note": "Address verified on the site's own contact page."
+    "note": "The current homepage prints Silberweg 22 and links this exact destination coordinate from its own directions section."
   },
   {
     "lat": 49.80103,
@@ -13950,36 +13951,22 @@
     "note": "Bouldering Gym leTruss's own site. Its home, contact and about pages all print 1666, the building number in 富山県富山市上大久保1666-1 that upstream records."
   },
   {
-    "lat": 35.70682,
-    "lon": 139.66606,
+    "lat": 35.7067885,
+    "lon": 139.6660675,
     "name": "CapyClimb",
     "country": "JP",
     "website": "https://capyclimb.com/ja/",
-    "verified": "2026-08-25",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "city",
-      "board-mention"
-    ],
-    "note": "The second CapyClimb row, 34 m from the first, is the Tension — \"Kilter、Tension、スプレーウォール\" on the gym's own page. Upstream holds no street line for this one, so the town and the board carry it."
-  },
-  {
-    "lat": 35.709834416741565,
-    "lon": 139.6658118837558,
-    "name": "CapyClimb",
-    "country": "JP",
-    "website": "https://capyclimb.com/ja/",
-    "verified": "2026-08-25",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "postal-code",
       "city",
-      "board-mention"
+      "board-mention",
+      "coordinates"
     ],
-    "note": "CapyClimb's own site gives \"東京都中野区中野5丁目61-4 〒164-0001\" — upstream's \"5 Chome-61-4 Nakano, 164-0001\" exactly — and lists what is on the training wall: \"V4以上の課題。Kilter、Tension、スプレーウォール、フィンガーボード、キャンパスボード\". Upstream carries the gym as two rows 34 m apart, one for each of the first two, and this is the Kilter."
+    "note": "CapyClimb's current site gives 東京都中野区中野5丁目61-4, embeds this exact map point and lists both Kilter and Tension on its training wall. The two formerly split registry rows are one physical venue."
   },
   {
     "lat": 35.55209809999999,
@@ -16353,46 +16340,22 @@
     "note": "The club gives the hall its own page: \"Klatrehallen er en del av Mandalshallen og stod ferdig i 2005. Hallen har flere klatrevegger; hovedveggen som er 10 meter høy, kilterboard, fingerboard, campusboard og buldrevegg\", and describes the board at length — \"Kilterboard … veggen har 40 graders overheng og med LED-lys som lyser opp de problemene du velger deg ut via appen\". Upstream names the club and lists the row as a kilter."
   },
   {
-    "lat": 62.73626,
-    "lon": 7.18192,
+    "lat": 62.73608238635402,
+    "lon": 7.1818127676297765,
     "name": "Molde Klatresenter",
     "country": "NO",
     "website": "https://moldeklatresenter.no/",
-    "verified": "2026-08-23",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
-      "city"
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention",
+      "coordinates"
     ],
-    "note": "Same hall as the venue about 25 m away; the dataset lists Molde Klatresenter three times, once per board system."
-  },
-  {
-    "lat": 62.73644199999999,
-    "lon": 7.182532300000001,
-    "name": "Molde Klatresenter",
-    "country": "NO",
-    "website": "https://moldeklatresenter.no/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "city"
-    ],
-    "note": "Same hall as the two venues within 25 m; this is the MoonBoard entry of the three."
-  },
-  {
-    "lat": 62.73647,
-    "lon": 7.18253,
-    "name": "Molde Klatresenter",
-    "country": "NO",
-    "website": "https://moldeklatresenter.no/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "city"
-    ],
-    "note": "The site is Molde klatresenter and prints a 6415 Molde postcode; the upstream town is Molde. Only the www host is unreachable, so the apex is what is stored."
+    "note": "The current site prints one Grandfjæra 22 C, 6415 Molde hall and explicitly names Kilter and Tension Board 2. Norway's official address registry supplies this exact point, consolidating all three registry board-system rows."
   },
   {
     "lat": 67.28667,
@@ -17187,15 +17150,16 @@
     "lon": 19.97025,
     "name": "MOOD",
     "country": "PL",
-    "website": "https://hellomood.pl/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
+    "website": "https://hellomood.pl/kontakt-boulderownia-w-centrum-krakowa/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
-      "city"
+      "city",
+      "location-page"
     ],
-    "note": "MOOD's own site; its contact page prints Klimeckiego in Kraków, the street upstream records."
+    "note": "MOOD's current contact page identifies its sole Kraków hall at Stanisława Klimeckiego 14B and publishes a complete regular week. Its own directions URL uses postal code 30-706, matching the production row despite a conflicting 31-706 text line on the same page."
   },
   {
     "lat": 52.17105,
@@ -17538,19 +17502,21 @@
     "note": "Blokx's own site, printing 2 — the building number in Strada Caprioarei 2 that upstream records — and naming the MoonBoard this venue is listed for."
   },
   {
-    "lat": 44.38974,
-    "lon": 26.12165,
+    "lat": 44.397,
+    "lon": 26.098,
     "name": "Climb Again Centrul",
     "country": "RO",
-    "website": "https://climbagain.ro/",
-    "verified": "2026-08-23",
-    "provenance": "official-chain-page",
+    "website": "https://climbagain.ro/climb-again-bucuresti/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
-      "city"
+      "city",
+      "location-page",
+      "board-mention"
     ],
-    "note": "Climb Again's own site, printing Soseaua Berceni 8 in Bucharest — the street line upstream records for the Centrul hall. The association runs a second hall in Iasi, so this is recorded as a chain page."
+    "note": "The current București branch page prints Șoseaua Berceni 8, publishes its exact SportsActivityLocation coordinate, and explicitly identifies an adjustable Kilter Board with a 15-70 degree range."
   },
   {
     "lat": 47.12658,
@@ -21549,21 +21515,22 @@
     "note": "GRAVITY BEAR's own site, giving Tulsa and naming the Tension Board this venue is listed for. The first pass had reached gravityclimbing.ie in Ireland. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
   },
   {
-    "lat": 37.22925,
-    "lon": -107.80896,
+    "lat": 37.2291837,
+    "lon": -107.8085475,
     "name": "Gravity Lab",
     "country": "US",
     "website": "https://www.gravitylabclimbing.com/",
-    "verified": "2026-08-25",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "postal-code",
       "city",
-      "board-mention"
+      "board-mention",
+      "coordinates"
     ],
-    "note": "The gym's own site gives \"The Transformation: 732 CR 233, Durango, CO 81301\" — upstream's street in the same abbreviated form, with town and postcode — and lists \"a Kilter Board, campus board, and Spray wall\" for a row upstream records as a kilter."
+    "note": "The current homepage gives 732 CR 233, explicitly names the Kilter Board and publishes this coordinate in its own location object."
   },
   {
     "lat": 41.0584299,
@@ -26103,21 +26070,22 @@
     "note": "Illinois Campus Recreation's own climbing page, on the university's domain. Its facilities pages print 201 E Peabody Drive, Champaign, Il 61820 — the street, town and postal code upstream records — and the site names the Kilter Board this venue is listed for."
   },
   {
-    "lat": 44.976,
-    "lon": -93.22948,
+    "lat": 44.9754795222,
+    "lon": -93.2297657585,
     "name": "University of Minnesota Climbing Program",
     "country": "US",
-    "website": "https://recwell.umn.edu/adventure/climbing/climbing-bouldering",
-    "verified": "2026-08-24",
+    "website": "https://recwell.umn.edu/adventure/climbing/climbing-training-center",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
       "city",
-      "location-page"
+      "location-page",
+      "board-mention"
     ],
-    "note": "The University of Minnesota's Recreation and Wellness site gives climbing its own page, and the site prints \"123 Harvard Street SE Minneapolis, MN 55455\" — upstream's address to the letter. The host answers 403 to every fetcher and header set, so both pages were read from snapshots, of 18 July 2026 and 6 February 2026; the hours record stays inaccessible."
+    "note": "The university's current Climbing Training Center page explicitly identifies an adjustable Kilter Board on the first floor of the North Gym. Its current Campus Maps page identifies Recreation and Wellness Center building 01-169 at 123 Harvard Street SE and embeds the exact marker used for this record."
   },
   {
     "lat": 47.754739,

@@ -9766,15 +9766,15 @@
    }
   },
   {
-   "lat": 48.69621,
-   "lon": 9.02313,
+   "lat": 48.6956085,
+   "lon": 9.023023,
    "name": "Roccadion",
    "country": "DE",
    "needs": [
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "seasonal",
     "channels": [
      "venue-link",
@@ -18279,8 +18279,8 @@
    }
   },
   {
-   "lat": 35.70682,
-   "lon": 139.66606,
+   "lat": 35.7067885,
+   "lon": 139.6660675,
    "name": "CapyClimb",
    "country": "JP",
    "needs": [
@@ -18288,36 +18288,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-25",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 35.709834416741565,
-   "lon": 139.6658118837558,
-   "name": "CapyClimb",
-   "country": "JP",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -18327,7 +18298,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "venue-link",
@@ -23554,8 +23525,8 @@
    }
   },
   {
-   "lat": 62.73626,
-   "lon": 7.18192,
+   "lat": 62.73608238635402,
+   "lon": 7.1818127676297765,
    "name": "Molde Klatresenter",
    "country": "NO",
    "needs": [
@@ -23563,7 +23534,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -23574,65 +23545,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 62.73644199999999,
-   "lon": 7.182532300000001,
-   "name": "Molde Klatresenter",
-   "country": "NO",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 62.73647,
-   "lon": 7.18253,
-   "name": "Molde Klatresenter",
-   "country": "NO",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-24",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "venue-link",
@@ -25461,7 +25374,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -25472,8 +25385,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -26265,8 +26178,8 @@
    }
   },
   {
-   "lat": 44.38974,
-   "lon": 26.12165,
+   "lat": 44.397,
+   "lon": 26.098,
    "name": "Climb Again Centrul",
    "country": "RO",
    "needs": [
@@ -26274,7 +26187,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -26285,8 +26198,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -32914,8 +32827,8 @@
    }
   },
   {
-   "lat": 37.22925,
-   "lon": -107.80896,
+   "lat": 37.2291837,
+   "lon": -107.8085475,
    "name": "Gravity Lab",
    "country": "US",
    "needs": [
@@ -32923,7 +32836,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -32933,7 +32846,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "venue-link",
@@ -38097,8 +38010,8 @@
    }
   },
   {
-   "lat": 44.976,
-   "lon": -93.22948,
+   "lat": 44.9754795222,
+   "lon": -93.2297657585,
    "name": "University of Minnesota Climbing Program",
    "country": "US",
    "needs": [
@@ -38106,7 +38019,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "previous-record",
@@ -38115,8 +38028,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "inaccessible",
+    "pass": "2026-08-31",
+    "result": "seasonal",
     "channels": [
      "venue-link",
      "path-probe",
