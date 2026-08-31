@@ -27207,5 +27207,37 @@
       "board-mention"
     ],
     "note": "The municipal venue page identifies the public community centre, its bookable Kilter Board and Hovden location; the manufacturer locator supplies the matching Skulevegen address and coordinate."
+  },
+  {
+    "lat": 51.0876184,
+    "lon": -114.2424414,
+    "name": "Calgary Climbing Centre Rocky Mountain",
+    "country": "CA",
+    "website": "https://www.calgaryclimbing.com/",
+    "verified": "2026-08-31",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator's current five-location page names Rocky Mountain and prints 10721 West Valley Rd SW; Kilter's official locator independently identifies its public 12x12 Original board at that address."
+  },
+  {
+    "lat": 34.7471907,
+    "lon": -86.5823847,
+    "name": "High Point Climbing Lincoln Mill",
+    "country": "US",
+    "website": "https://www.highpointclimbing.com/locations/lincoln-mill",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The current Lincoln Mill page identifies the bouldering venue and address and advertises its Kilter Board clinic; the manufacturer locator supplies the matching board profile and coordinate."
   }
 ]

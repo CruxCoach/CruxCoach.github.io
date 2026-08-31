@@ -32354,5 +32354,35 @@
    "thu": "10:30-22:30", "fri": "10:30-22:30", "sat": "09:00-20:00", "sun": "09:00-20:00"
   },
   "evidence": "Lundi – vendredi : 10h30 à 22h30; Samedi & dimanche : 9h à 20h"
+ },
+ {
+  "lat": 51.0876184,
+  "lon": -114.2424414,
+  "name": "Calgary Climbing Centre Rocky Mountain",
+  "country": "CA",
+  "source": "https://www.calgaryclimbing.com/",
+  "checked": "2026-08-31",
+  "provenance": "official-chain-page",
+  "signals": ["venue-link", "street-address", "hours-scope"],
+  "hours": {
+   "mon": "06:00-23:00", "tue": "06:00-23:00", "wed": "06:00-23:00",
+   "thu": "06:00-23:00", "fri": "06:00-23:00", "sat": "08:00-22:00", "sun": "08:00-22:00"
+  },
+  "evidence": "Rocky Mountain — Mon - Fri: 6am to 11pm; Sat and Sun 8am to 10pm"
+ },
+ {
+  "lat": 34.7471907,
+  "lon": -86.5823847,
+  "name": "High Point Climbing Lincoln Mill",
+  "country": "US",
+  "source": "https://www.highpointclimbing.com/locations/lincoln-mill",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "street-address", "city"],
+  "hours": {
+   "mon": "14:00-21:00", "tue": "14:00-21:00", "wed": "14:00-21:00",
+   "thu": "14:00-21:00", "fri": "14:00-21:00", "sat": "12:00-20:00", "sun": "12:00-20:00"
+  },
+  "evidence": "Monday-Friday Open 2pm - 9pm; Saturday Open 12pm - 8pm; Sunday Open 12pm - 8pm"
  }
 ]

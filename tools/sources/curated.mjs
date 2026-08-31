@@ -464,6 +464,58 @@ const ENTRIES = [
     }],
   },
   {
+    // Current public branch and address:
+    // https://www.calgaryclimbing.com/
+    // Board/layout/size/frame and coordinates: official manufacturer locator
+    // StoreRocket id 33932768.
+    source: 'curated',
+    board: 'kilter',
+    name: 'Calgary Climbing Centre Rocky Mountain',
+    lat: 51.0876184,
+    lon: -114.2424414,
+    address: '10721 West Valley Rd SW, Calgary, AB T3B 5T2',
+    city: 'Calgary',
+    country: 'CA',
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: 'Original',
+      size_id: null,
+      size_label: '12x12',
+      adjustable: true,
+      angle: null,
+      min_angle: null,
+      max_angle: null,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
+    // Current public branch, address, board and regular hours:
+    // https://www.highpointclimbing.com/locations/lincoln-mill
+    // Layout/size/frame and coordinates: official manufacturer locator
+    // StoreRocket id 22029570.
+    source: 'curated',
+    board: 'kilter',
+    name: 'High Point Climbing Lincoln Mill',
+    lat: 34.7471907,
+    lon: -86.5823847,
+    address: '1300 Meridian St N Unit D400, Huntsville, AL 35801',
+    city: 'Huntsville',
+    country: 'US',
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: 'Original',
+      size_id: null,
+      size_label: '12x12',
+      adjustable: true,
+      angle: null,
+      min_angle: null,
+      max_angle: null,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
     // The anonymous official Tension app endpoint identifies the board:
     // https://tensionboardapp2.com/pins?gyms=1
     // The venue's current expansion notice confirms two adjustable training

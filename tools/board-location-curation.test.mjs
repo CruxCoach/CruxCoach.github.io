@@ -46,6 +46,8 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Hangar 18 Upland', 'kilter'],
     ["Block'Out Tours", 'kilter'],
     ['Hovden Grendehus', 'kilter'],
+    ['Calgary Climbing Centre Rocky Mountain', 'kilter'],
+    ['High Point Climbing Lincoln Mill', 'kilter'],
     ['KiipeilyAreena Salmisaari', 'tension'],
   ]);
   for (const entry of entries) {
@@ -234,6 +236,21 @@ test('committed map data includes the missing boards and merges the corrected ve
     [68.3432661, 16.8308976],
     [48.2080696, 16.3713095],
   ]) assert.equal(at(features, lat, lon).length, 0);
+
+  const rockyMountain = at(features, 51.0876184, -114.2424414);
+  assert.equal(rockyMountain.length, 1);
+  assert.equal(rockyMountain[0].properties.name, 'Calgary Climbing Centre Rocky Mountain');
+  assert.deepEqual(boardIds(rockyMountain[0]), ['kilter']);
+  assert.equal(rockyMountain[0].properties.website, 'https://www.calgaryclimbing.com/');
+  assert.equal(rockyMountain[0].properties.hours.length, 7);
+  assert.equal(rockyMountain[0].properties.boards[0].walls[0].size_label, '12x12');
+
+  const lincolnMill = at(features, 34.7471907, -86.5823847);
+  assert.equal(lincolnMill.length, 1);
+  assert.equal(lincolnMill[0].properties.name, 'High Point Climbing Lincoln Mill');
+  assert.deepEqual(boardIds(lincolnMill[0]), ['kilter']);
+  assert.equal(lincolnMill[0].properties.website, 'https://www.highpointclimbing.com/locations/lincoln-mill');
+  assert.equal(lincolnMill[0].properties.hours.length, 7);
 });
 
 test('the map bypasses pre-Quantum service-worker cache entries', () => {
