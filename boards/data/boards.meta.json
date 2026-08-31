@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-08-31T22:39:54.199Z",
+  "generated_at": "2026-08-31T22:53:17.393Z",
   "venue_features": 2836,
   "raw_entries": 3104,
   "venues_with_multiple_boards": 124,
   "country_from_coder": 2836,
   "country_from_fallback": 0,
   "country_missing": 0,
-  "city_from_upstream": 1088,
-  "city_from_nearest": 1624,
-  "city_missing": 124,
+  "city_from_upstream": 1091,
+  "city_from_nearest": 1622,
+  "city_missing": 123,
   "nearest_city_max_km": 25,
   "exclusions": {
-    "defined": 85,
+    "defined": 87,
     "matched_venues": 20,
     "excluded_entries": 21,
-    "unmatched": 65
+    "unmatched": 67
   },
   "overrides": {
-    "defined": 54,
-    "applied": 54,
+    "defined": 61,
+    "applied": 61,
     "unmatched": 0,
-    "conflicts": 101
+    "conflicts": 119
   },
   "wellpass": {
     "defined": 87,

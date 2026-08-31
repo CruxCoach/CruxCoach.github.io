@@ -519,6 +519,36 @@ test('committed map data includes the missing boards and merges the corrected ve
     assert.equal(venue[0].properties.hours.length, 7, name);
   }
 
+  for (const [name, lat, lon] of [
+    ['1778 CLIMBING', 31.20949, 121.49864],
+    ['Ascent 杭州顽攀攀岩', 30.188212, 120.210894],
+    ['Kin:D', 37.2667603, 127.0014613],
+    ['오루뭉 Orumung Climbing Gym', 33.324883, 126.8245979],
+  ]) {
+    const venue = at(features, lat, lon);
+    assert.equal(venue.length, 1, name);
+    assert.equal(venue[0].properties.name, name);
+    assert.deepEqual(boardIds(venue[0]), ['kilter']);
+  }
+
+  const betaJingan = at(features, 31.24035, 121.44879);
+  assert.equal(betaJingan.length, 1);
+  assert.equal(betaJingan[0].properties.name, 'Beta Boulders Gym JingAn');
+  assert.equal(betaJingan[0].properties.boards[0].walls[0].min_angle, 20);
+  assert.equal(betaJingan[0].properties.boards[0].walls[0].max_angle, 50);
+
+  const skLucky = at(features, 41.7169522, 44.7358542);
+  assert.equal(skLucky.length, 1);
+  assert.equal(skLucky[0].properties.name, 's.k.lucky');
+  assert.equal(skLucky[0].properties.boards[0].walls[0].min_angle, 30);
+  assert.equal(skLucky[0].properties.boards[0].walls[0].max_angle, 70);
+
+  const climbUsMisa = at(features, 37.5627864, 127.1933404);
+  assert.equal(climbUsMisa.length, 1);
+  assert.equal(climbUsMisa[0].properties.name, '클라임어스 미사점 Climb Us Hanam Misa');
+  assert.equal(climbUsMisa[0].properties.city, 'Hanam');
+  assert.deepEqual(boardIds(climbUsMisa[0]), ['kilter']);
+
   for (const [lat, lon] of [
     [31.9543786, 35.9105776],
     [-6.1138942, 106.7853922],
@@ -546,6 +576,8 @@ test('committed map data includes the missing boards and merges the corrected ve
     [47.2629903, 11.9012218],
     [47.2629056, 11.899269],
     [47.2666011, 11.8953282],
+    [14.6161226, -61.0308231],
+    [51.0155462, 13.8058261],
   ]) assert.equal(at(features, lat, lon).length, 0);
 
   assert.equal(at(features, 46.8753166, -96.7668897).length, 0);

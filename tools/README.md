@@ -599,8 +599,11 @@ The command retains no raw response and deliberately prints no phone or email.
 Rows under `candidates` are not additions: each still needs an unambiguous public
 venue identity and current primary evidence. Coordinate matches, known
 exclusions, explicit private rows and likely coordinate drift are separated so
-the residual worklist is reproducible. `--input file.json` accepts a previously
-fetched response for tests or an exact-repeat audit.
+the residual worklist is reproducible. A point within 250 m is a match only when
+the names or addresses identify the same venue; a 100 m co-location tolerance
+absorbs ordinary entrance/geocoding variation. This prevents a second gym in a
+dense city from disappearing merely because it is nearby. `--input file.json`
+accepts a previously fetched response for tests or an exact-repeat audit.
 
 ### Touchstone chain board audit
 

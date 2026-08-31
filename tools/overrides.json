@@ -689,5 +689,115 @@
       "lat": 44.9754795222,
       "lon": -93.2297657585
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 31.214574311841517,
+    "lon": 121.49361072562584,
+    "name": "1778 CLIMBING",
+    "note": "Move to Kilter's current public-locator point for the same exact A801, B1, 133 Hai Chao Road venue address; the frozen point is 0.7 km away.",
+    "set": {
+      "lat": 31.20949,
+      "lon": 121.49864
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 30.18347,
+    "lon": 120.21197,
+    "name": "Ascent 杭州顽攀攀岩",
+    "note": "Move to Kilter's current public-locator point for the same exact 杭州市滨江区江辉路376号3幢103室 venue address.",
+    "set": {
+      "lat": 30.188212,
+      "lon": 120.210894,
+      "city": "Hangzhou"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 31.237007,
+    "lon": 121.452322,
+    "name": "Beta Boulders Gym JingAn",
+    "note": "Move to Kilter's current public-locator point for the same exact Lane 667 Changhua Road Jing'an venue and add the locator's explicit adjustable 20-50 degree range.",
+    "set": {
+      "lat": 31.24035,
+      "lon": 121.44879,
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 8,
+          "size_label": "12x8, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 20,
+          "max_angle": 50,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 37.26365,
+    "lon": 126.99862,
+    "name": "Kin:d",
+    "note": "Move to Kilter's current public-locator point for the same Seodun-dong 388 venue, whose current operator channel and independent current visits identify it as Kin:D at 124 Sehwa-ro.",
+    "set": {
+      "lat": 37.2667603,
+      "lon": 127.0014613,
+      "name": "Kin:D"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 33.32611,
+    "lon": 126.83256,
+    "name": "오루뭉 Orumung Climbing Gym",
+    "note": "Move to Kilter's current locator point for the same exact Pyoseon-ri 697-3 record; retain the conservative no-website/no-hours state because no venue-owned public page is reachable.",
+    "set": {
+      "lat": 33.324883,
+      "lon": 126.8245979,
+      "city": "Seogwipo"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 41.71807,
+    "lon": 44.74083,
+    "name": "s.k.lucky",
+    "note": "Move to Kilter's current public-locator point for the same 6 University Street / Arena 2 venue and add the locator's explicit adjustable 30-70 degree range.",
+    "set": {
+      "lat": 41.7169522,
+      "lon": 44.7358542,
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 30,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 37.56146,
+    "lon": 127.19302,
+    "name": "클라이밍 하남미사점 V10 Climbing Hanam Misa",
+    "note": "Rename the hall to its current Climb Us identity and move to Kilter's current point for the same 81 Misagangbyeondong-ro, 13F address. A current national sports-safety study lists Climb Us Hanam Misa at Mangwol-dong 1116, the same Cube & Tower venue formerly published as V10.",
+    "set": {
+      "lat": 37.5627864,
+      "lon": 127.1933404,
+      "name": "클라임어스 미사점 Climb Us Hanam Misa",
+      "city": "Hanam"
+    }
   }
 ]

@@ -14,13 +14,15 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 import { haversineKm } from './build-cities-data.mjs';
-import { nameSimilarity } from './venue-links.mjs';
+import { nameSimilarity, normalizeName } from './venue-links.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const LOCATOR_URL = 'https://storerocket.io/api/user/vo8xyNypgn/locations?list_limit=25';
 export const MATCH_RADIUS_KM = 0.25;
+export const TIGHT_MATCH_RADIUS_KM = 0.1;
 export const DRIFT_RADIUS_KM = 25;
 export const NAME_MATCH_MIN = 0.72;
+export const ADDRESS_MATCH_MIN = 0.6;
 
 function finiteCoordinate(value, min, max) {
   const number = Number(value);
@@ -62,6 +64,31 @@ function closest(row, venues) {
   return best;
 }
 
+function compactName(value) {
+  return normalizeName(value).replaceAll(' ', '');
+}
+
+function nameIdentity(a, b) {
+  const left = compactName(a);
+  const right = compactName(b);
+  return nameSimilarity(a, b) >= NAME_MATCH_MIN
+    || (left.length >= 6 && right.length >= 6 && (left.includes(right) || right.includes(left)));
+}
+
+function addressSimilarity(a, b) {
+  const left = new Set(normalizeName(a).split(' ').filter(token => token.length > 1));
+  const right = new Set(normalizeName(b).split(' ').filter(token => token.length > 1));
+  if (!left.size || !right.size) return 0;
+  let shared = 0;
+  for (const token of left) if (right.has(token)) shared++;
+  return shared / Math.min(left.size, right.size);
+}
+
+function addressIdentity(row, venue) {
+  return Boolean(row.address) && (venue.addresses ?? []).some(address =>
+    addressSimilarity(row.address, address) >= ADDRESS_MATCH_MIN);
+}
+
 function matchingName(row, venues) {
   let best = null;
   for (const venue of venues) {
@@ -101,7 +128,11 @@ export function compareLocator(rows, venues, exclusions = []) {
 
   for (const row of valid) {
     const nearest = closest(row, venues);
-    if (nearest && nearest.km <= MATCH_RADIUS_KM) {
+    if (nearest && nearest.km <= MATCH_RADIUS_KM && (
+      nearest.km <= TIGHT_MATCH_RADIUS_KM
+      || nameIdentity(row.name, nearest.name)
+      || addressIdentity(row, nearest)
+    )) {
       categories.matched_coordinate.push(safeCandidate(row, nearest));
       continue;
     }
@@ -145,6 +176,10 @@ function mapVenues() {
     lat: feature.geometry.coordinates[1],
     lon: feature.geometry.coordinates[0],
     country: feature.properties.country ?? null,
+    addresses: feature.properties.boards
+      .filter(board => board.board === 'kilter')
+      .map(board => board.address)
+      .filter(Boolean),
   }));
 }
 
