@@ -804,16 +804,6 @@
     "checked": "2026-08-25"
   },
   {
-    "lat": 22.27708,
-    "lon": 114.17568,
-    "name": "The Board Room",
-    "country": "CN",
-    "status": "unavailable",
-    "candidate": "https://boardroom.fit/",
-    "reason": "The second BoardRoom row, 11 m from the first and listed for the Tension board where the other is the Kilter. Same domain, same failure: 24 bytes of client-rendered shell.",
-    "checked": "2026-08-25"
-  },
-  {
     "lat": 22.39666,
     "lon": 113.96695,
     "name": "TOP OUT Climbing",
@@ -4233,5 +4223,34 @@
     "checked": "2026-08-31",
     "candidate": "https://www.alchemyclimbing.com/about",
     "reason": "Alchemy's official history explicitly identifies itself as the former Tallahassee Rock Gym and says it evolved into the current gym inside a retro movie theater. Its current official address is 2810 Sharer Road, where the production row already carries the same 8x12 adjustable Kilter wall; the old 629 Industrial Drive locator point must not recreate the former site."
+  },
+  {
+    "lat": 46.8753166,
+    "lon": -96.7668897,
+    "name": "Nature of the North",
+    "country": "US",
+    "status": "closed",
+    "checked": "2026-08-31",
+    "candidate": "https://natureofthenorth.co/",
+    "reason": "The archived final version of the operator's own page states that the climbing wall closed on May 22, 2022, and quotes the owner saying they had decided to close the climbing-wall location while the organization shifted back to community events and outdoor activities. The current manufacturer pin is stale, not a public venue."
+  },
+  {
+    "lat": 34.1470692,
+    "lon": -94.7488631,
+    "name": "Climb Beavers Bend",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-31",
+    "candidate": "https://cragclimbbeaversbend.com/",
+    "reason": "The live manufacturer locator identifies a public 8x12 adjustable Homewall at the exact former Crag Climb address, and current regional tourism pages still list the gym. Its own domain now redirects to an unrelated survey site, however, so no current first-party page establishes that the public venue and board remain in operation."
+  },
+  {
+    "lat": 38.2811939,
+    "lon": -80.8529757,
+    "name": "The Board Room",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-31",
+    "reason": "The locator supplies only a generic name, a Main Street-level address, unspecified access and a 12x12 adjustable board profile. Searches found no operator page or other unambiguous current venue identity in Summersville; unrelated businesses named The Board Room must not be attached to this possible private setup."
   }
 ]

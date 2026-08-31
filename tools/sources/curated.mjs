@@ -530,6 +530,73 @@ const ENTRIES = [
     city: 'Helsinki',
     country: 'FI',
   },
+  {
+    // Current public climbing gym and exact address/hours:
+    // https://beastfingersclimbing.com/contact
+    // Board identity and coordinates:
+    // https://settercloset.com/pages/kb-locator (StoreRocket id 33869056)
+    source: 'curated',
+    board: 'kilter',
+    name: 'Beast Fingers',
+    lat: 39.7294843,
+    lon: -105.1264894,
+    address: '11485 W 8th Ave Suite 130, Lakewood, CO 80215',
+    city: 'Lakewood',
+    country: 'US',
+    walls: [],
+  },
+  {
+    // Current public gym, exact address and regular hours:
+    // https://318climbllc.wixsite.com/g-rockclimbing
+    // Board/access/layout/size/frame and coordinates:
+    // https://settercloset.com/pages/kb-locator (StoreRocket id 22029443)
+    source: 'curated',
+    board: 'kilter',
+    name: '318 Climb',
+    lat: 32.421234,
+    lon: -93.7419578,
+    address: '731 American Way, Shreveport, LA 71106',
+    city: 'Shreveport',
+    country: 'US',
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: 'Original',
+      size_id: null,
+      size_label: '8x12',
+      adjustable: true,
+      angle: null,
+      min_angle: null,
+      max_angle: null,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
+    // Current public venue, address, Kilter size and 25-60 degree range:
+    // https://boardroom.fit/
+    // Coordinate and Original-layout corroboration:
+    // https://settercloset.com/pages/kb-locator (StoreRocket id 31920782)
+    source: 'curated',
+    board: 'kilter',
+    name: 'The Board Room',
+    lat: 22.27708,
+    lon: 114.17568,
+    address: '1301-02 Chinachem Johnston Plaza, 178-186 Johnston Rd, Wan Chai, Hong Kong',
+    city: 'Wan Chai',
+    country: 'CN',
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: 'Original',
+      size_id: null,
+      size_label: '7x10',
+      adjustable: true,
+      angle: null,
+      min_angle: 25,
+      max_angle: 60,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
 ];
 
 export async function load() {

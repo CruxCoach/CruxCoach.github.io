@@ -7552,21 +7552,19 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unavailable",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "co-located"
+     "venue-link",
+     "path-probe",
+     "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "inaccessible",
+    "pass": "2026-08-31",
+    "result": "ambiguous",
     "channels": [
+     "venue-link",
      "path-probe"
     ]
    }

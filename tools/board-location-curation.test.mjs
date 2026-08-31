@@ -49,6 +49,9 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Calgary Climbing Centre Rocky Mountain', 'kilter'],
     ['High Point Climbing Lincoln Mill', 'kilter'],
     ['KiipeilyAreena Salmisaari', 'tension'],
+    ['Beast Fingers', 'kilter'],
+    ['318 Climb', 'kilter'],
+    ['The Board Room', 'kilter'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -265,6 +268,34 @@ test('committed map data includes the missing boards and merges the corrected ve
   const alchemy = at(features, 30.48009, -84.29684);
   assert.equal(alchemy.length, 1);
   assert.deepEqual(boardIds(alchemy[0]), ['kilter']);
+
+  const beastFingers = at(features, 39.7294843, -105.1264894);
+  assert.equal(beastFingers.length, 1);
+  assert.equal(beastFingers[0].properties.name, 'Beast Fingers');
+  assert.deepEqual(boardIds(beastFingers[0]), ['kilter']);
+  assert.equal(beastFingers[0].properties.website, 'https://beastfingersclimbing.com/');
+  assert.equal(beastFingers[0].properties.hours.length, 7);
+  assert.deepEqual(beastFingers[0].properties.boards[0].walls, []);
+
+  const climb318 = at(features, 32.421234, -93.7419578);
+  assert.equal(climb318.length, 1);
+  assert.equal(climb318[0].properties.name, '318 Climb');
+  assert.deepEqual(boardIds(climb318[0]), ['kilter']);
+  assert.equal(climb318[0].properties.website, 'https://318climbllc.wixsite.com/g-rockclimbing');
+  assert.equal(climb318[0].properties.hours.length, 7);
+  assert.equal(climb318[0].properties.boards[0].walls[0].size_label, '8x12');
+
+  const hongKongBoardRoom = at(features, 22.27708, 114.17568);
+  assert.equal(hongKongBoardRoom.length, 1);
+  assert.equal(hongKongBoardRoom[0].properties.name, 'The Board Room');
+  assert.deepEqual(new Set(boardIds(hongKongBoardRoom[0])), new Set(['kilter', 'tension']));
+  assert.equal(hongKongBoardRoom[0].properties.website, 'https://boardroom.fit/');
+  assert.equal(hongKongBoardRoom[0].properties.hours, undefined);
+  const hongKongKilter = hongKongBoardRoom[0].properties.boards.find(board => board.board === 'kilter');
+  assert.equal(hongKongKilter.walls[0].min_angle, 25);
+  assert.equal(hongKongKilter.walls[0].max_angle, 60);
+
+  assert.equal(at(features, 46.8753166, -96.7668897).length, 0);
 
   for (const [lat, lon] of [
     [41.484778, -81.7944535],

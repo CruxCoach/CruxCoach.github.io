@@ -32399,5 +32399,35 @@
    "thu": "09:00-21:00", "fri": "09:00-21:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
   },
   "evidence": "REGULAR HOURS: Monday-Friday: 9:00 am - 9:00 PM; Saturday-Sunday: 10:00 am - 8:00 pm"
+ },
+ {
+  "lat": 39.7294843,
+  "lon": -105.1264894,
+  "name": "Beast Fingers",
+  "country": "US",
+  "source": "https://beastfingersclimbing.com/contact",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "street-address", "postal-code", "city", "hours-scope"],
+  "hours": {
+   "mon": "10:00-20:00", "tue": "10:00-20:00", "wed": "10:00-20:00",
+   "thu": "10:00-20:00", "fri": "10:00-20:00", "sat": "closed", "sun": "closed"
+  },
+  "evidence": "Sunday Closed; Monday-Friday 10 AM-8 PM; Saturday Closed"
+ },
+ {
+  "lat": 32.421234,
+  "lon": -93.7419578,
+  "name": "318 Climb",
+  "country": "US",
+  "source": "https://318climbllc.wixsite.com/g-rockclimbing",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "street-address", "postal-code", "city", "hours-scope"],
+  "hours": {
+   "mon": "12:00-20:00", "tue": "12:00-20:00", "wed": "12:00-20:00",
+   "thu": "12:00-20:00", "fri": "15:00-20:00", "sat": "10:00-20:00", "sun": "13:00-18:00"
+  },
+  "evidence": "Monday-Thursday 12-8pm; Friday 3-8pm; Saturday 10am-8pm; Sunday 1-6pm"
  }
 ]
