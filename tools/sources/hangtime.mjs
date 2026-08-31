@@ -168,6 +168,10 @@ function extractEntry(file, board, feat) {
   const name = pickName(props);
   if (lat === null || lon === null) return null;
   if (lat < -90 || lat > 90 || lon < -180 || lon > 180) return null;
+  // Registries commonly use Null Island as an unknown/default coordinate.
+  // Multiple unrelated MoonBoard rows otherwise collapse into one apparently
+  // real venue there, so 0,0 is incomplete location data, not a map point.
+  if (lat === 0 && lon === 0) return null;
   if (!name) return null;
   return {
     source: 'hangtime',

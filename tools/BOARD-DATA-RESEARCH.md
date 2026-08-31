@@ -63,6 +63,7 @@ accepted evidence and rejected outcomes belong in their policy-owned files.
 | Date | Scope | Verified additions/corrections | Remaining objective gaps |
 | --- | --- | --- | --- |
 | 2026-08-31 | Baseline inventory | None; measurement only | Structured-source audit, stale-marker correction, 410 retry rows, board details, venue fields, Wellpass negatives |
+| 2026-08-31 | Stale/invalid marker correction | Removed 14 board rows at twelve closed venues and one wrong-place duplicate; rejected twelve additional MoonBoard registry rows at Null Island. Result: 2,834 venues / 3,079 board rows, zero missing countries, zero closed/duplicate production markers | 124 city gaps, 410 retry rows, 971 MoonBoard variant gaps, 1,318 MoonBoard angle gaps; structured-source audit still open |
 
 ## Final exhaustion rule
 

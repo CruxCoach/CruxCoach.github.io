@@ -27,6 +27,7 @@ const GEOJSON = join(REPO_ROOT, 'boards', 'data', 'boards.geojson');
 const HOURS = join(REPO_ROOT, 'tools', 'venue-hours.json');
 const RESEARCH = join(REPO_ROOT, 'tools', 'venue-hours-research.json');
 const LINKS = join(REPO_ROOT, 'tools', 'venue-links.json');
+const EXCLUSIONS = join(REPO_ROOT, 'tools', 'location-exclusions.json');
 
 // Piping a worklist into `head` is the normal way to use --todo, and closing the
 // pipe early would otherwise crash the process with an unhandled EPIPE.
@@ -109,7 +110,11 @@ function main() {
   // from a rounded coordinate still names one venue, and an outcome record that
   // no longer names any is a stale record worth surfacing.
   const byKey = buildVenueIndex(features);
+  const excludedKeys = new Set((existsSync(EXCLUSIONS) ? readJson(EXCLUSIONS) : [])
+    .filter(row => typeof row?.lat === 'number' && typeof row?.lon === 'number')
+    .map(row => venueKey(row.lat, row.lon)));
   const stale = [];
+  const retired = [];
   const reviewedKeys = new Set();
   for (const [i, e] of [...entries.entries()]) {
     const r = resolveVenueRecord(e, `venue-hours[${i}] "${e?.name}"`, byKey, features);
@@ -120,6 +125,10 @@ function main() {
   for (const [i, e] of [...research.entries.entries()]) {
     const r = resolveVenueRecord(e, `venue-hours-research[${i}] "${e?.name}"`, byKey, features);
     if (r.status !== 'ok') {
+      if (excludedKeys.has(venueKey(e.lat, e.lon))) {
+        retired.push(`${e.country} ${e.name}`);
+        continue;
+      }
       // A `private` outcome is the one refusal that is the point of the record.
       if (r.status !== 'private-venue') stale.push(r.reason);
       continue;
@@ -176,6 +185,7 @@ function main() {
       notes,
       research_errors: research.errors,
       stale_outcomes: stale,
+      retired_outcomes: retired,
       untraceable_times: untraceable,
       conflicts,
       research: researchByStatus,
@@ -238,6 +248,7 @@ function main() {
     process.stdout.write('\noutcome records that no longer name a venue\n');
     for (const t of stale) process.stdout.write(`  ${t}\n`);
   }
+  if (retired.length) process.stdout.write(`\nretired outcomes retained after production exclusion: ${retired.length}\n`);
   if (conflicts.length) {
     process.stdout.write('\nrecords fighting over one venue\n');
     for (const c of conflicts) process.stdout.write(`  ${c}\n`);

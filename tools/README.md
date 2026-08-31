@@ -239,6 +239,23 @@ nightly `cron-refresh.sh`).
   regenerated `boards/data/` files alongside `overrides.json`. Counts land in
   `boards.meta.json` under `overrides`.
 
+## Closed and duplicate upstream locations
+
+`tools/location-exclusions.json` removes an upstream coordinate only after a
+`closed` or `duplicate` decision at the same coordinate is backed by the
+primary-source research in `tools/venue-links-research.json`. The exclusion
+file intentionally carries no second copy of the evidence; its loader refuses
+an unbacked, differently named, undated, or contradictory row. Exclusions are
+applied before venue grouping and overrides, survive nightly upstream refreshes,
+and report stale/unmatched rows in `boards.meta.json`.
+
+Null Island is handled one step earlier: source adapters drop exact `0,0`
+coordinates as missing location data. Registry defaults from unrelated rows
+must never collapse into a public marker.
+
+After changing exclusions, run a full `node tools/build-boards-data.mjs` (not
+`--overlays-only`) and commit the regenerated dataset, metadata, and directories.
+
 ## egym Wellpass curation
 
 `tools/wellpass.json` flags which DACH venues are part of the egym Wellpass

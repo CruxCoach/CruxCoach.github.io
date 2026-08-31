@@ -30,6 +30,7 @@ import { renderListPage, renderStatsBlock, injectBetweenMarkers } from './render
 import { findNearestCity, loadCityIndex } from './nearest-city.mjs';
 import { applyVenueLinks, loadVenueLinks } from './venue-links.mjs';
 import { applyVenueHours, loadVenueHours } from './venue-hours.mjs';
+import { applyLocationExclusions, loadLocationExclusions } from './location-exclusions.mjs';
 
 const COUNTRY_CODER_PACKAGE = '@rapideditor/country-coder';
 const COUNTRY_CACHE = join(tmpdir(), 'cruxcoach-build-deps');
@@ -77,6 +78,8 @@ const BOARDS_INDEX = join(REPO_ROOT, 'boards', 'index.html');
 const BOARDS_INDEX_DE = join(REPO_ROOT, 'de', 'boards', 'index.html');
 const CITIES_FILE = join(REPO_ROOT, 'boards', 'data', 'cities.json');
 const OVERRIDES_FILE = join(REPO_ROOT, 'tools', 'overrides.json');
+const EXCLUSIONS_FILE = join(REPO_ROOT, 'tools', 'location-exclusions.json');
+const LINK_RESEARCH_FILE = join(REPO_ROOT, 'tools', 'venue-links-research.json');
 
 // How far a town may sit from a venue and still be a fair label for it. 25 km
 // covers a metro area and its suburbs without pinning a rural gym to a city
@@ -262,6 +265,18 @@ async function buildFromSources() {
     for (const key of thisSourceKeys) priorSourceKeys.add(key);
   }
 
+  const exclusionFile = loadLocationExclusions(EXCLUSIONS_FILE, LINK_RESEARCH_FILE);
+  if (exclusionFile.errors.length) throw new Error(exclusionFile.errors.join('\n'));
+  const excluded = applyLocationExclusions(allEntries, exclusionFile.entries);
+  for (const problem of excluded.problems) process.stderr.write(`[build]   WARN ${problem}\n`);
+  allEntries.length = 0;
+  allEntries.push(...excluded.entries);
+  const exclusionStats = excluded.stats;
+  process.stderr.write(
+    `[build] exclusions: ${exclusionStats.excluded_entries} entries removed at `
+    + `${exclusionStats.matched_venues} venues, ${exclusionStats.unmatched} unmatched\n`,
+  );
+
   const overrideStats = applyOverrides(allEntries);
   process.stderr.write(
     `[build] overrides: ${overrideStats.applied} applied, ` +
@@ -380,6 +395,7 @@ async function buildFromSources() {
     city_from_nearest: cityNearest,
     city_missing: cityMissing,
     nearest_city_max_km: NEAREST_CITY_MAX_KM,
+    exclusions: exclusionStats,
     overrides: overrideStats,
     wellpass: overlayStats.wellpass,
     venue_links: overlayStats.venue_links,

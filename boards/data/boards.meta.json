@@ -1,15 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:02:39.117Z",
-  "venue_features": 2848,
-  "raw_entries": 3105,
+  "generated_at": "2026-08-31T16:36:47.102Z",
+  "venue_features": 2834,
+  "raw_entries": 3079,
   "venues_with_multiple_boards": 111,
-  "country_from_coder": 2847,
+  "country_from_coder": 2834,
   "country_from_fallback": 0,
-  "country_missing": 1,
-  "city_from_upstream": 1067,
-  "city_from_nearest": 1655,
-  "city_missing": 126,
+  "country_missing": 0,
+  "city_from_upstream": 1062,
+  "city_from_nearest": 1648,
+  "city_missing": 124,
   "nearest_city_max_km": 25,
+  "exclusions": {
+    "defined": 13,
+    "matched_venues": 13,
+    "excluded_entries": 14,
+    "unmatched": 0
+  },
   "overrides": {
     "defined": 13,
     "applied": 13,
@@ -53,19 +59,19 @@
     }
   },
   "per_board": {
-    "kilter": 1124,
+    "kilter": 1119,
     "tension": 366,
     "grasshopper": 42,
     "decoy": 24,
     "soill": 12,
     "touchstone": 5,
     "aurora": 3,
-    "moonboard": 1516,
+    "moonboard": 1495,
     "12climb": 4,
     "quantum": 9
   },
   "per_source": {
-    "hangtime": 3094,
+    "hangtime": 3068,
     "curated": 2,
     "quantum": 9
   },
@@ -103,8 +109,8 @@
           "dropped": 0
         },
         "moonboard": {
-          "kept": 1514,
-          "dropped": 0
+          "kept": 1502,
+          "dropped": 12
         },
         "12climb": {
           "kept": 4,

@@ -18,6 +18,7 @@ const LINKS_FILE = join(REPO_ROOT, 'tools', 'venue-links.json');
 const LINKS_RESEARCH_FILE = join(REPO_ROOT, 'tools', 'venue-links-research.json');
 const HOURS_FILE = join(REPO_ROOT, 'tools', 'venue-hours.json');
 const HOURS_RESEARCH_FILE = join(REPO_ROOT, 'tools', 'venue-hours-research.json');
+const EXCLUSIONS_FILE = join(REPO_ROOT, 'tools', 'location-exclusions.json');
 const LIST_FILES = [
   join(REPO_ROOT, 'boards', 'list.html'),
   join(REPO_ROOT, 'de', 'boards', 'list.html'),
@@ -108,6 +109,7 @@ test('tools/venue-audit-ledger.json validates and names each venue once', () => 
 
   const features = readJson(GEOJSON_FILE).features;
   const byKey = buildVenueIndex(features);
+  const excluded = new Set(readJson(EXCLUSIONS_FILE).map(row => venueKey(row.lat, row.lon)));
   const seen = new Set();
   for (const [i, it] of ledger.items.entries()) {
     const r = resolveVenueRecord(it, `venue-audit-ledger[${i}] "${it.name}"`, byKey, features);
@@ -115,6 +117,9 @@ test('tools/venue-audit-ledger.json validates and names each venue once', () => 
       // A venue the shared resolver refuses is a finding, not a bad row: it can
       // hold no research record either, so the ledger is the only place its
       // outcome can live. It must sit on a real coordinate and say why.
+      if (excluded.has(venueKey(it.lat, it.lon))) continue;
+      if (it.lat === 0 && it.lon === 0
+        && it.needs.every(field => typeof it[field]?.note === 'string' && it[field].note.trim())) continue;
       assert.ok(byKey.has(venueKey(it.lat, it.lon)), r.reason);
       for (const field of it.needs) {
         assert.ok(it[field]?.note, `"${it.name}" is unresolvable (${r.status}) and its ${field} outcome says nothing about it`);

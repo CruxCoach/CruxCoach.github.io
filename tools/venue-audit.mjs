@@ -37,6 +37,7 @@ const LINKS = join(REPO_ROOT, 'tools', 'venue-links.json');
 const LINKS_RESEARCH = join(REPO_ROOT, 'tools', 'venue-links-research.json');
 const HOURS = join(REPO_ROOT, 'tools', 'venue-hours.json');
 const HOURS_RESEARCH = join(REPO_ROOT, 'tools', 'venue-hours-research.json');
+const EXCLUSIONS = join(REPO_ROOT, 'tools', 'location-exclusions.json');
 export const LEDGER = join(REPO_ROOT, 'tools', 'venue-audit-ledger.json');
 
 // The audit's own vocabulary. `accepted` means a record landed in the curated
@@ -171,6 +172,9 @@ function main() {
   const hours = loadVenueHours(HOURS);
   const hoursResearch = loadHoursResearch(HOURS_RESEARCH);
   const worklist = computeWorklist(features, links.entries, hours.entries);
+  const excludedKeys = new Set((existsSync(EXCLUSIONS) ? readJson(EXCLUSIONS) : [])
+    .filter(row => typeof row?.lat === 'number' && typeof row?.lon === 'number')
+    .map(row => venueKey(row.lat, row.lon)));
 
   if (process.argv.includes('--init')) {
     init(worklist);
@@ -198,12 +202,20 @@ function main() {
   // unauditable venue is a finding, not an omission.
   const seen = new Map();
   const unresolvable = [];
+  const retired = [];
+  const retiredUnbackedKeys = new Set();
   for (const [i, it] of ledger.items.entries()) {
     if (typeof it?.lat !== 'number' || typeof it?.lon !== 'number') continue;
     const r = resolveVenueRecord(it, `venue-audit-ledger[${i}] "${it.name}"`, byKey, features);
     if (r.status !== 'ok') {
       const k = venueKey(it.lat, it.lon);
-      if (byKey.has(k)) {
+      if (excludedKeys.has(k)) {
+        retired.push({ item: it, reason: `excluded from production after a backed ${it.website?.result ?? it.hours?.result} outcome` });
+      } else if (it.lat === 0 && it.lon === 0
+        && (it.needs ?? []).every(field => typeof it[field]?.note === 'string' && it[field].note.trim())) {
+        retired.push({ item: it, reason: 'invalid Null Island registry coordinate rejected by the source adapter' });
+        retiredUnbackedKeys.add(k);
+      } else if (byKey.has(k)) {
         unresolvable.push({ item: it, reason: r.reason });
         for (const field of it.needs ?? []) {
           if (!it[field]?.note) errors.push(`venue-audit-ledger: "${it.name}" cannot be resolved (${r.status}) and its ${field} outcome carries no note saying so`);
@@ -218,7 +230,10 @@ function main() {
     if (seen.has(k)) errors.push(`venue-audit-ledger: "${it.name}" and "${seen.get(k)}" are the same venue`);
     else seen.set(k, it.name);
   }
-  const unresolvableKeys = new Set(unresolvable.map(u => venueKey(u.item.lat, u.item.lon)));
+  const unresolvableKeys = new Set([
+    ...unresolvable.map(u => venueKey(u.item.lat, u.item.lon)),
+    ...retiredUnbackedKeys,
+  ]);
 
   // An outcome is only real if a record backs it. `accepted` means the curated
   // file carries the venue; anything else means the research log does, with the
@@ -313,6 +328,7 @@ function main() {
       worklist: worklist.length,
       tally, errors, unbacked,
       unresolvable: unresolvable.map(u => u.reason),
+      retired: retired.map(u => `${u.item.country} ${u.item.name}: ${u.reason}`),
       missing_rows: missingRows.map(w => `${w.country} ${w.name}`),
       queue: queue.length,
       coverage: [...perCountry.values()].sort((a, b) => b.items - a.items),
@@ -337,6 +353,7 @@ function main() {
     process.stdout.write(`  unauditable        ${unresolvable.length} (venue the shared resolver refuses — see the note on the row)\n`);
     for (const u of unresolvable) process.stdout.write(`    ${u.reason}\n`);
   }
+  if (retired.length) process.stdout.write(`  retired            ${retired.length} (backed exclusions retained in the frozen ledger)\n`);
 
   process.stdout.write('\nper country (decided / needed)\n');
   const rows = [...perCountry.values()].sort((a, b) => b.items - a.items);

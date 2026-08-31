@@ -83,6 +83,7 @@ export function buildAudit() {
   const hours = readJson('tools/venue-hours.json');
   const wellpass = readJson('tools/wellpass.json');
   const overrides = readJson('tools/overrides.json');
+  const exclusions = readJson('tools/location-exclusions.json');
 
   const features = geo.features ?? [];
   const boardRows = new Map();
@@ -154,6 +155,7 @@ export function buildAudit() {
       hours: { defined: hours.length, applied: meta.venue_hours?.applied ?? 0 },
       wellpass: { defined: wellpass.length, applied: meta.wellpass?.applied ?? 0 },
       overrides: { defined: overrides.length, applied: meta.overrides?.applied ?? 0 },
+      exclusions: { defined: exclusions.length, ...meta.exclusions },
     },
     research: {
       website_outcomes: countBy(linkResearch, 'status'),
