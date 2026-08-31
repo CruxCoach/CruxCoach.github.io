@@ -295,6 +295,30 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(hongKongKilter.walls[0].min_angle, 25);
   assert.equal(hongKongKilter.walls[0].max_angle, 60);
 
+  const player = at(features, 22.3424815, 114.1359859);
+  assert.equal(player.length, 1);
+  assert.equal(player[0].properties.name, 'The Player Climbinggym');
+  assert.deepEqual(boardIds(player[0]), ['kilter']);
+  assert.equal(player[0].properties.website, 'https://www.theplayerclimbing.com/');
+  assert.equal(player[0].properties.hours.length, 7);
+  assert.equal(at(features, 22.34366, 114.14026).length, 0);
+
+  const honAtsugi = at(features, 35.442445280250666, 139.3634466153931);
+  assert.equal(honAtsugi.length, 1);
+  assert.equal(honAtsugi[0].properties.name, 'ディーボルダリング本厚 D Bouldering Hon-Atsugi');
+  assert.deepEqual(boardIds(honAtsugi[0]), ['kilter']);
+  assert.equal(honAtsugi[0].properties.hours.length, 7);
+  assert.equal(at(features, 35.4425, 139.36599).length, 0);
+  assert.equal(at(features, 35.2605615, 139.1656818).length, 0);
+
+  const waveRockPnu = at(features, 35.22902, 129.08423);
+  assert.equal(waveRockPnu.length, 1);
+  assert.equal(waveRockPnu[0].properties.name, '웨이브락 클라이밍 Wave Rock Climbing (PNU)');
+  assert.deepEqual(boardIds(waveRockPnu[0]), ['kilter']);
+  assert.equal(waveRockPnu[0].properties.website, 'https://www.waverock.co.kr/pnu');
+  assert.equal(waveRockPnu[0].properties.hours.length, 7);
+  assert.equal(at(features, 35.1811693, 129.1036435).length, 0);
+
   assert.equal(at(features, 46.8753166, -96.7668897).length, 0);
 
   for (const [lat, lon] of [

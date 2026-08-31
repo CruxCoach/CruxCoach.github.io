@@ -2315,15 +2315,6 @@
     "checked": "2026-08-25"
   },
   {
-    "lat": 35.22902,
-    "lon": 129.08423,
-    "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
-    "country": "KR",
-    "status": "unverified",
-    "reason": "No official site could be established: wave-rock.co.kr does not resolve, and the row is filed under Gijang while the address upstream holds is 금정구 장전2동, by Pusan National University — 25 km apart.",
-    "checked": "2026-08-25"
-  },
-  {
     "lat": 37.67682,
     "lon": 126.74719,
     "name": "코알라클라이밍 Koala Climbing Kintex",
@@ -4252,5 +4243,35 @@
     "status": "unverified",
     "checked": "2026-08-31",
     "reason": "The locator supplies only a generic name, a Main Street-level address, unspecified access and a 12x12 adjustable board profile. Searches found no operator page or other unambiguous current venue identity in Summersville; unrelated businesses named The Board Room must not be attached to this possible private setup."
+  },
+  {
+    "lat": 35.2605615,
+    "lon": 139.1656818,
+    "name": "D Bouldering Hon-Atsugi",
+    "country": "JP",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.d-b-c.jp/top/honatsugi/",
+    "reason": "The operator's exact Hon-Atsugi branch page embeds 35.4424453,139.3634466 and prints the Amayu Atsugi address, while its current facility page explicitly identifies the Kilter Board. The manufacturer locator point is 27 km away near Odawara; production is moved onto the first-party pin and this old point must not create a second venue."
+  },
+  {
+    "lat": 35.1811693,
+    "lon": 129.1036435,
+    "name": "Waverock Climbing Gym (PNU)",
+    "country": "KR",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.waverock.co.kr/pnu",
+    "reason": "The current operator page identifies the PNU branch at 2F Terrace Park, 51 Jangjeononcheoncheon-ro in Geumjeong-gu. That is the address of the existing production venue at 35.22902,129.08423; the manufacturer point is 5.6 km away and must not create a duplicate branch."
+  },
+  {
+    "lat": 35.7048431,
+    "lon": 139.6187385,
+    "name": "B-PUMP Ogikubo and Shop",
+    "country": "JP",
+    "status": "unverified",
+    "checked": "2026-08-31",
+    "candidate": "https://pump-climbing.com/gym/bpump/",
+    "reason": "The current official branch page establishes a public gym, exact Ogikubo address and regular hours, but neither that page nor the operator's indexed current pages mention a Kilter Board. With manufacturer access unspecified, the board cannot be published from the locator alone."
   }
 ]

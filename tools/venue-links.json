@@ -5374,8 +5374,8 @@
     "note": "JUST CLIMB runs six Hong Kong halls and lists each on its venues page. This is 石門: \"JUST CLIMB｜Shek Mun 佔地4,000尺 香港首間24/7攀石場，開放24小時，設有人面識別進場\" — Hong Kong's first 24/7 climbing gym, open around the clock with face recognition at the door. Upstream records the row at \"Room 4, Basement, New Trade Plaza\" in Shek Mun. The domain is justclimb.hk; justclimb.com.hk, which the guesser tried, does not resolve."
   },
   {
-    "lat": 22.34366,
-    "lon": 114.14026,
+    "lat": 22.3424815,
+    "lon": 114.1359859,
     "name": "The Player Climbinggym",
     "country": "CN",
     "website": "https://www.theplayerclimbing.com/",
@@ -14344,8 +14344,8 @@
     "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the kumamoto-oyama hall: 〒861-8045 熊本県熊本市東区小山2-25-38 — upstream's \"2 Chome-25-38 Oyama, 861-8045\"."
   },
   {
-    "lat": 35.4425,
-    "lon": 139.36599,
+    "lat": 35.442445280250666,
+    "lon": 139.3634466153931,
     "name": "ディーボルダリング本厚 D Bouldering Hon-Atsugi",
     "country": "JP",
     "website": "https://www.d-b-c.jp/top/honatsugi/",
@@ -27289,5 +27289,21 @@
       "board-mention"
     ],
     "note": "The current operator site identifies the public Wan Chai gym, its Chinachem Johnston Plaza address and both its Kilter Board and Tension Board 2; the manufacturer locator independently corroborates the Kilter profile and coordinate."
+  },
+  {
+    "lat": 35.22902,
+    "lon": 129.08423,
+    "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
+    "country": "KR",
+    "website": "https://www.waverock.co.kr/pnu",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator's current PNU branch page identifies the public venue at 2F Terrace Park, 51 Jangjeononcheoncheon-ro in Geumjeong-gu; that address matches the existing production row and distinguishes it from the locator's misplaced point."
   }
 ]

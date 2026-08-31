@@ -7570,8 +7570,8 @@
    }
   },
   {
-   "lat": 22.34366,
-   "lon": 114.14026,
+   "lat": 22.3424815,
+   "lon": 114.1359859,
    "name": "The Player Climbinggym",
    "country": "CN",
    "needs": [
@@ -19492,8 +19492,8 @@
    }
   },
   {
-   "lat": 35.4425,
-   "lon": 139.36599,
+   "lat": 35.442445280250666,
+   "lon": 139.3634466153931,
    "name": "ディーボルダリング本厚 D Bouldering Hon-Atsugi",
    "country": "JP",
    "needs": [
@@ -19512,11 +19512,12 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "operator-index"
     ]
    }
   },
@@ -20443,25 +20444,22 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
+     "venue-link",
+     "operator-index",
+     "path-probe",
      "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "operator-index",
+     "path-probe"
     ]
    }
   },
