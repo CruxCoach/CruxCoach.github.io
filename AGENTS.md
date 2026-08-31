@@ -198,7 +198,8 @@ for the full contract; the essentials:
   `SOURCES` array in `build-boards-data.mjs`. `hangtime` (the
   `@hangtime/climbing-boards` npm package, Unlicense) is primary;
   `curated` is a deliberately small official-venue-page supplement for rows
-  missing from frozen or incomplete upstream feeds. The frontend reads only the
+  missing from frozen or incomplete upstream feeds; `quantum` is the reviewed
+  primary-source allowlist documented in `tools/QUANTUM-LOCATIONS.md`. The frontend reads only the
   merged GeoJSON and never knows which source a board came from.
 - **Venue grouping**: entries are grouped by `(lat, lon)` rounded to 4 decimals
   (~11 m) via `venueKey()`, so a multi-board gym renders as one composite marker.

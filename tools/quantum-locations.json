@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-08-25",
+  "locations": [
+    {
+      "id": "momentum-sofia",
+      "name": "Momentum Indoor Climbing Sofia",
+      "address": "111V Tsarigradsko Shose Blvd, 1784 Sofia, Bulgaria",
+      "city": "Sofia",
+      "country": "BG",
+      "lat": 42.6655983,
+      "lon": 23.37440014,
+      "models": ["Quantum Board XL 15×15", "Quantum Board (second board; model not published)"],
+      "website": "https://sofia.momentumclimbing.com/en/home-en/",
+      "public": true,
+      "verification": "primary",
+      "evidence": [
+        {
+          "url": "https://sofia.momentumclimbing.com/en/home-en/",
+          "claim": "The venue's current equipment list names the Quantum Board.",
+          "checked_at": "2026-08-25"
+        }
+      ]
+    },
+    {
+      "id": "momentum-plovdiv",
+      "name": "Momentum Indoor Climbing Plovdiv",
+      "address": "International Fair Plovdiv, Pavilion 14, 37 Tsar Boris III Obedinitel Blvd, 4003 Plovdiv, Bulgaria",
+      "city": "Plovdiv",
+      "country": "BG",
+      "lat": 42.15888,
+      "lon": 24.75558,
+      "models": ["Quantum Board XL 15×15", "Quantum Board Belay"],
+      "website": "https://plovdiv.momentumclimbing.com/en/",
+      "public": true,
+      "verification": "primary",
+      "evidence": [
+        {
+          "url": "https://plovdiv.momentumclimbing.com/en/",
+          "claim": "The venue lists a Quantum Board XL 15×15 and Quantum Board Belay at this location.",
+          "checked_at": "2026-08-25"
+        }
+      ]
+    },
+    {
+      "id": "pirin-golf",
+      "name": "Pirin Golf & Country Club",
+      "address": "Betolovoto area, 2760 Razlog, Bulgaria",
+      "city": "Razlog",
+      "country": "BG",
+      "lat": 41.8528485,
+      "lon": 23.4251548,
+      "models": ["Quantum Board XL 15×15"],
+      "website": "https://piringolf.bg/?lang=en",
+      "public": true,
+      "verification": "primary",
+      "evidence": [
+        {
+          "url": "https://walltopia.com/projects/pirin-golf-country-club-quantum-board-xl/",
+          "claim": "Walltopia documents the installed Quantum Board XL 15×15 project at Pirin Golf.",
+          "checked_at": "2026-08-25"
+        }
+      ]
+    },
+    {
+      "id": "arena-boulder-arco",
+      "name": "Arena Boulder",
+      "address": "Via Aldo Moro 9/A, 38062 Arco TN, Italy",
+      "city": "Arco",
+      "country": "IT",
+      "lat": 45.9064309,
+      "lon": 10.8768594,
+      "models": ["Quantum Board XL 15×15"],
+      "website": "https://www.arenaboulder.it/en/",
+      "public": true,
+      "verification": "primary",
+      "evidence": [
+        {
+          "url": "https://www.arenaboulder.it/en/the-gymnasium/",
+          "claim": "The official gym page names its adjustable Quantum Board.",
+          "checked_at": "2026-08-25"
+        }
+      ]
+    },
+    {
+      "id": "the-boulder-room-munich",
+      "name": "The Boulder Room",
+      "address": "Pineapple Park München, Arnulfstraße 195–199, 80634 München, Germany",
+      "city": "Munich",
+      "country": "DE",
+      "lat": 48.1474345,
+      "lon": 11.5228155,
+      "models": ["Quantum Board XL 15×15"],
+      "website": "https://www.theboulderroom.com/",
+      "public": true,
+      "verification": "primary",
+      "evidence": [
+        {
+          "url": "https://walltopia.com/de/projects/the-boulder-room-quantum-board-xl-15x15/",
+          "claim": "Walltopia documents Germany's first Quantum Board, an XL 15×15 at The Boulder Room.",
+          "checked_at": "2026-08-25"
+        }
+      ]
+    },
+    {
+      "id": "oaka-indoor-climbing",
+      "name": "OAKA Indoor Climbing",
+      "address": "37 Olympionikou Spyrou Loui, Gate D, Olympic Indoor Aquatics Center, 15123 Marousi, Athens, Greece",
+      "city": "Athens",
+      "country": "GR",
+      "lat": 38.038986,
+      "lon": 23.782281,
+      "models": ["Quantum Board M 12×12"],
+      "website": "https://oakaindoorclimbing.gr/en/",
+      "public": true,
+      "verification": "primary",
+      "evidence": [
+        {
+          "url": "https://cdn.walltopia.com/wp-content/uploads/20251121181310/WALLTOPIA_training_zones-brochure.pdf",
+          "claim": "Walltopia's official training-zone brochure captions the OAKA installation as Quantum Board M 12×12.",
+          "checked_at": "2026-08-25"
+        }
+      ]
+    },
+    {
+      "id": "momentum-trolley-square",
+      "name": "Momentum Indoor Climbing Trolley Square",
+      "address": "602 East 500 South, Suite P103, Salt Lake City, UT 84102, USA",
+      "city": "Salt Lake City",
+      "country": "US",
+      "lat": 40.757291020886484,
+      "lon": -111.8732246779946,
+      "models": ["Quantum Board (model not published)"],
+      "website": "https://momentumclimbing.com/trolleysquare/",
+      "public": true,
+      "verification": "primary",
+      "evidence": [
+        {
+          "url": "https://momentumclimbing.com/trolleysquare/tour/",
+          "claim": "The venue's official tour lists Quantum Board among its training boards.",
+          "checked_at": "2026-08-25"
+        }
+      ]
+    },
+    {
+      "id": "sputnik-guindalera",
+      "name": "Sputnik Climbing Guindalera",
+      "address": "Calle del Marqués de Monteagudo 17, 28028 Madrid, Spain",
+      "city": "Madrid",
+      "country": "ES",
+      "lat": 40.4370504,
+      "lon": -3.6687212,
+      "models": ["Quantum Board XL 15×15"],
+      "website": "https://sputnikclimbing.com/rocodromo-madrid/guindalera/",
+      "public": true,
+      "verification": "primary",
+      "evidence": [
+        {
+          "url": "https://elcohete.sputnikclimbing.com/como-sera-sputnik-guindalera/",
+          "claim": "Sputnik's official article describes the venue's 4.5 × 4.5 metre Quantum Board XL.",
+          "checked_at": "2026-08-25"
+        }
+      ]
+    },
+    {
+      "id": "vertigo-oriente",
+      "name": "Vertigo Oriente",
+      "address": "Avenida Infante Dom Henrique 334, Armazém 6, 1800-224 Lisboa, Portugal",
+      "city": "Lisbon",
+      "country": "PT",
+      "lat": 38.7638579,
+      "lon": -9.1039506,
+      "models": ["Quantum Board (model not published)"],
+      "website": "https://vertigoclimbing.pt/",
+      "public": true,
+      "verification": "primary",
+      "evidence": [
+        {
+          "url": "https://walltopia.com/projects/vertigo-oriente/",
+          "claim": "Walltopia's 2025 venue project lists Quantum Board among the installed products.",
+          "checked_at": "2026-08-25"
+        }
+      ]
+    }
+  ]
+}
+

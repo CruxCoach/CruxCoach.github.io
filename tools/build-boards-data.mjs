@@ -25,6 +25,7 @@ import { dirname, join } from 'node:path';
 
 import * as hangtime from './sources/hangtime.mjs';
 import * as curated from './sources/curated.mjs';
+import * as quantum from './sources/quantum.mjs';
 import { renderListPage, renderStatsBlock, injectBetweenMarkers } from './render-static.mjs';
 import { findNearestCity, loadCityIndex } from './nearest-city.mjs';
 import { applyVenueLinks, loadVenueLinks } from './venue-links.mjs';
@@ -50,11 +51,12 @@ async function loadCountryCoder() {
 const SOURCES = [
   { id: 'hangtime', mod: hangtime },
   { id: 'curated', mod: curated },
+  { id: 'quantum', mod: quantum },
 ];
 
 const BOARDS = [
   'kilter', 'tension', 'grasshopper', 'decoy', 'soill',
-  'touchstone', 'aurora', 'moonboard', '12climb',
+  'touchstone', 'aurora', 'moonboard', '12climb', 'quantum',
 ];
 
 // Priority when picking the venue's canonical name + city/country from
@@ -62,7 +64,8 @@ const BOARDS = [
 // most complete metadata (address/city/country/instagram) of any source.
 const NAME_PRIORITY = {
   kilter: 100, moonboard: 50, tension: 40, grasshopper: 30,
-  decoy: 30, soill: 30, touchstone: 30, aurora: 30, '12climb': 10,
+  decoy: 30, soill: 30, touchstone: 30, aurora: 30, quantum: 60,
+  '12climb': 10,
 };
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -344,6 +347,7 @@ async function buildFromSources() {
       const stripped = stripInternal(e);
       delete stripped.city;
       delete stripped.country;
+      delete stripped.website;
       return stripped;
     });
 

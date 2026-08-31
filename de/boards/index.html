@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kletterboard-Karte: Kilter-, Tension- &amp; MoonBoard-Standorte — CruxCoach</title>
-<meta name="description" content="Interaktive Weltkarte der Kletterboards — Kilter, Tension, MoonBoard und sechs weitere Systeme, 2.700+ Standorte. Filterbar nach Typ, Land und Wand-Details.">
+<meta name="description" content="Interaktive Weltkarte der Kletterboards — Kilter, Tension, MoonBoard, Quantum und sechs weitere Systeme, 2.700+ Standorte. Filterbar nach Typ, Land und Wand-Details.">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://cruxcoach.org/de/boards/">
@@ -84,7 +84,7 @@
           "name": "Warum fehlt das Board meiner Halle auf der Karte?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Die Karte zeigt nur Boards, die ein Betreiber öffentlich im Upstream-Datenfeed gelistet hat. Hat eine Halle ihr Board nie registriert oder als privat markiert, taucht es nicht auf. Der Datensatz wird täglich aktualisiert, sobald neue Einträge dazukommen."
+            "text": "Die Karte zeigt öffentliche Upstream-Einträge plus kuratierte MoonBoard- und Quantum-Board-Ergänzungen mit offiziellen Belegen der Halle oder des Herstellers. Private, versteckte und ungeprüfte Einträge bleiben ausgeschlossen."
           }
         },
         {
@@ -92,7 +92,7 @@
           "name": "Wie genau sind die Board-Standorte und -Details?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Koordinaten und Board-Metadaten stammen aus dem öffentlichen Datensatz, ergänzt um eine kleine Zahl handverifizierter Korrekturen wie das MoonBoard-Hardware-Jahr. Angaben wie der Wandwinkel geben wieder, was Betreiber eingetragen haben, und können der Realität hinterherhinken."
+            "text": "Koordinaten und Board-Metadaten stammen aus öffentlichen Datensätzen und geprüften Primärquellen, ergänzt um handverifizierte Korrekturen. Details können der Realität hinterherhinken."
           }
         },
         {
@@ -697,9 +697,9 @@
       Dies ist eine interaktive Weltkarte der <strong>Kletter-Trainingsboards</strong>
       — der standardisierten, app-gesteuerten Boulderwände für Krafttraining
       und weltweit geteilte Benchmark-Boulder. Sie verzeichnet mehr als 2.700
-      Standorte über neun Board-Systeme: das <strong>Kilter Board</strong>,
+      Standorte über zehn Board-Systeme: das <strong>Kilter Board</strong>,
       <strong>Tension Board</strong> und <strong>MoonBoard</strong>, dazu
-      Grasshopper, Decoy, So iLL, Touchstone, Aurora und 12climb. Die meisten
+      Grasshopper, Decoy, So iLL, Touchstone, Aurora, 12climb und Quantum Board. Die meisten
       sind kommerzielle Kletter- und Boulderhallen; einige sind private
       Homewall- oder Garagen-Setups, deren Besitzer den Standort öffentlich
       gelistet haben.
@@ -707,8 +707,8 @@
 
     <!-- GENERATED:board-stats START — produced by tools/build-boards-data.mjs; do not hand-edit between these markers, rebuild instead -->
     <p>
-      Die Karte verzeichnet derzeit <strong>2.841 Standorte</strong>
-      über <strong>neun Board-Systeme</strong> in <strong>85 Ländern</strong>.
+      Die Karte verzeichnet derzeit <strong>2.848 Standorte</strong>
+      über <strong>zehn Board-Systeme</strong> in <strong>85 Ländern</strong>.
       Zähler pro System (eine Halle mit zwei Boards zählt einmal pro System):
     </p>
     <table class="board-counts">
@@ -720,19 +720,20 @@
       <tr><td>Grasshopper</td><td>42</td></tr>
       <tr><td>Decoy</td><td>24</td></tr>
       <tr><td>So iLL</td><td>12</td></tr>
+      <tr><td>Quantum Board</td><td>9</td></tr>
       <tr><td>Touchstone</td><td>5</td></tr>
       <tr><td>12climb</td><td>4</td></tr>
       <tr><td>Aurora</td><td>3</td></tr>
     </tbody>
-    <tfoot><tr><td>Standorte gesamt</td><td>2.841</td></tr></tfoot>
+    <tfoot><tr><td>Standorte gesamt</td><td>2.848</td></tr></tfoot>
   </table>
-    <p>Bei <strong>1.764</strong> davon ist eine manuell geprüfte offizielle Website verlinkt.</p>
-    <p>Bei <strong>1.287</strong> davon stehen zusätzlich die Öffnungszeiten, wie die Halle
+    <p>Bei <strong>1.771</strong> davon ist eine manuell geprüfte offizielle Website verlinkt.</p>
+    <p>Bei <strong>1.293</strong> davon stehen zusätzlich die Öffnungszeiten, wie die Halle
       sie selbst veröffentlicht. Feiertage und kurzfristige Änderungen können abweichen — verbindlich
       ist die Seite der Halle.</p>
     <p>
       Lieber eine einfache Liste? <a href="/de/boards/list.html">Zum vollständigen Verzeichnis
-      aller 2.841 Standorte, nach Land gruppiert →</a>
+      aller 2.848 Standorte, nach Land gruppiert →</a>
     </p>
     <!-- GENERATED:board-stats END -->
 
@@ -767,17 +768,22 @@
       Die kostenlose, quelloffene <a href="/de/">CruxCoach-Android-App</a>
       steuert sieben dieser Systeme direkt — durchstöbere den Katalog und lass
       die Griffe per Bluetooth aufleuchten: auf dem Kilter Board, MoonBoard,
-      Tension, Grasshopper, Decoy, So iLL und Touchstone. Aurora und 12climb
+      Tension, Grasshopper, Decoy, So iLL und Touchstone. Aurora, 12climb und Quantum
       erscheinen nur als Standort-Ebenen.
     </p>
 
-    <h3>Datenquellen</h3>
+    <h3 id="data-sources">Datenquellen</h3>
     <ul>
       <li>
         <a href="https://github.com/Stevie-Ray/hangtime-climbing-boards">hangtime-climbing-boards</a>
         — ein täglich aktualisierter, gemeinfreier GeoJSON-Datensatz von
         Aurora-System-Boards (Kilter, Tension, Grasshopper, Decoy, So iLL,
         Touchstone, Aurora) plus MoonBoard und 12climb.
+      </li>
+      <li>
+        Quantum-Board-Standorte stammen aus einer manuell geprüften Positivliste. Jeder Eintrag
+        braucht eine öffentliche Primärquelle der Halle oder des Herstellers, eine vollständige
+        Adresse und gültige Koordinaten; private und Test-Einträge aus eWalls bleiben ausgeschlossen.
       </li>
       <li>
         Kartenkacheln von <a href="https://www.openstreetmap.org/copyright">OpenStreetMap-Mitwirkenden</a>.
@@ -803,7 +809,7 @@
       <dd>Kilter Board und Tension Board nutzen das Aurora-Climbing-System: LED-beleuchtete Griffe und meist ein verstellbarer Wandwinkel. Das MoonBoard setzt auf ein festes Griffraster in festem Winkel, mit eigener App und eigenen Benchmark-Bouldern. Die Systeme sind nicht kompatibel — ein Boulder von einem Board lässt sich nicht auf ein anderes übertragen.</dd>
 
       <dt>Warum fehlt das Board meiner Halle auf der Karte?</dt>
-      <dd>Die Karte zeigt nur Boards, die ein Betreiber öffentlich im Upstream-Datenfeed gelistet hat. Hat eine Halle ihr Board nie registriert oder als privat markiert, taucht es nicht auf. Der Datensatz wird täglich aktualisiert, sobald neue Einträge dazukommen.</dd>
+      <dd>Die Karte zeigt öffentliche Upstream-Einträge plus kuratierte MoonBoard- und Quantum-Board-Ergänzungen mit offiziellen Belegen der Halle oder des Herstellers. Private, versteckte und ungeprüfte Einträge bleiben ausgeschlossen.</dd>
 
       <dt>Wie genau sind die Board-Standorte und -Details?</dt>
       <dd>Koordinaten und Board-Metadaten stammen aus dem öffentlichen Datensatz, ergänzt um eine kleine Zahl handverifizierter Korrekturen wie das MoonBoard-Hardware-Jahr. Angaben wie der Wandwinkel geben wieder, was Betreiber eingetragen haben, und können der Realität hinterherhinken.</dd>
@@ -826,7 +832,7 @@
 
 <script src="/assets/vendor/leaflet/leaflet.js"></script>
 <script src="/assets/vendor/leaflet/leaflet.markercluster.js"></script>
-<script src="/boards/map.js?v=20260823-1"></script>
+<script src="/boards/map.js?v=20260831-1"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 
 <script>

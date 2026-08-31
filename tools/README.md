@@ -198,6 +198,12 @@ that upstream omits. Keep the official page beside the row as a reviewable
 comment, record the verification date in the adapter metadata, and use
 `overrides.json` instead when the upstream row already exists but is wrong.
 
+`sources/quantum.mjs` loads the separately reviewed public Quantum Board
+installations in `quantum-locations.json`. Because the eWalls catalogue does
+not reliably map boards to public venues, only records backed by primary
+venue/manufacturer evidence are admitted; the audit and exclusions live in
+`QUANTUM-LOCATIONS.md`.
+
 ## Manual overrides
 
 `tools/overrides.json` hand-corrects fields the upstream sources leave blank

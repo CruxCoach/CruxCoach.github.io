@@ -2485,8 +2485,8 @@
     "note": "The contacts page prints ul. \"187-ma\" 9, 1756 Sofia, which is the address upstream records, and the site names the Kilter Board this venue is listed for."
   },
   {
-    "lat": 42.66773,
-    "lon": 23.36823,
+    "lat": 42.6655983,
+    "lon": 23.37440014,
     "name": "Momentum Climbing Sofia",
     "country": "BG",
     "website": "https://sofia.momentumclimbing.com/",
@@ -26879,5 +26879,112 @@
       "board-mention"
     ],
     "note": "The venue's whole name as one domain label, which the guesser had not tried. The site carries this venue's name and names the MoonBoard it is listed for; upstream records no street address, so those are the two signals available."
+  },
+  {
+    "lat": 42.15888,
+    "lon": 24.75558,
+    "name": "Momentum Indoor Climbing Plovdiv",
+    "country": "BG",
+    "website": "https://plovdiv.momentumclimbing.com/en/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 41.8528485,
+    "lon": 23.4251548,
+    "name": "Pirin Golf & Country Club",
+    "country": "BG",
+    "website": "https://piringolf.bg/?lang=en",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city"
+    ]
+  },
+  {
+    "lat": 45.9064309,
+    "lon": 10.8768594,
+    "name": "Arena Boulder",
+    "country": "IT",
+    "website": "https://www.arenaboulder.it/en/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 48.1474345,
+    "lon": 11.5228155,
+    "name": "The Boulder Room",
+    "country": "DE",
+    "website": "https://www.theboulderroom.com/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 38.038986,
+    "lon": 23.782281,
+    "name": "OAKA Indoor Climbing",
+    "country": "GR",
+    "website": "https://oakaindoorclimbing.gr/en/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 40.4370504,
+    "lon": -3.6687212,
+    "name": "Sputnik Climbing Guindalera",
+    "country": "ES",
+    "website": "https://sputnikclimbing.com/rocodromo-madrid/guindalera/",
+    "verified": "2026-08-25",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 38.7638579,
+    "lon": -9.1039506,
+    "name": "Vertigo Oriente",
+    "country": "PT",
+    "website": "https://vertigoclimbing.pt/",
+    "verified": "2026-08-25",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ]
   }
 ]

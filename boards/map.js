@@ -193,6 +193,7 @@
     { id: 'touchstone',  label: 'Touchstone',    color: '#5b9bd5' },
     { id: 'aurora',      label: 'Aurora',        color: '#b93655' },
     { id: '12climb',     label: '12climb',       color: '#ed1667' },
+    { id: 'quantum',     label: 'Quantum Board', color: '#665cff' },
   ];
   var COLOR = Object.fromEntries(BOARDS.map(function (b) { return [b.id, b.color]; }));
   var LABEL = Object.fromEntries(BOARDS.map(function (b) { return [b.id, b.label]; }));
@@ -204,7 +205,9 @@
   // instead of snapping back to the world view with all filters on.
   // Storage is best-effort: any failure (private mode, quota, disabled) is
   // swallowed and the map simply falls back to its defaults.
-  var STORE_KEY = 'cc-boards-map-v1';
+  // Bump when the taxonomy changes so a previously saved "all boards"
+  // selection cannot silently hide the newly introduced Quantum Board.
+  var STORE_KEY = 'cc-boards-map-v2';
 
   function loadState() {
     try {
@@ -322,7 +325,7 @@
     // higher-zoom tiles for the same map zoom on those devices, doubling
     // effective resolution at the cost of ~4× tile requests in those areas.
     detectRetina: true,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · data <a href="https://github.com/Stevie-Ray/hangtime-climbing-boards">hangtime-climbing-boards</a>',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · <a href="#data-sources">board data sources</a>',
   }).addTo(map);
 
   // One cluster for ALL venues. We group by (lat, lon) at the build step, so
@@ -440,6 +443,14 @@
       else if (boardObj.led === false) tags.push(T.noLeds);
       if (typeof boardObj.angle === 'number') tags.push(boardObj.angle + '°');
       return tags.length ? '<div class="popup-wall">' + tags.join(' · ') + '</div>' : '';
+    }
+    if (b === 'quantum') {
+      var quantumBits = [];
+      if (Array.isArray(boardObj.models) && boardObj.models.length) {
+        quantumBits.push(boardObj.models.map(escapeHtml).join(' · '));
+      }
+      if (boardObj.address) quantumBits.push(escapeHtml(boardObj.address));
+      return quantumBits.length ? '<div class="popup-wall">' + quantumBits.join('<br>') + '</div>' : '';
     }
     if (boardObj.username) {
       return '<div class="popup-wall"><span class="label">' + T.userLabel + '</span> @' + escapeHtml(boardObj.username) + '</div>';
