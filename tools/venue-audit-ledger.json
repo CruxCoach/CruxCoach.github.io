@@ -7120,22 +7120,18 @@
     "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "web-search",
-     "social-profile",
-     "government-news",
-     "manufacturer-locator",
-     "map-directory",
-     "previous-record"
+      "name-guess",
+      "web-search",
+      "social-profile",
+      "previous-record"
     ]
    },
    "hours": {
     "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
-     "web-search",
-     "government-news",
-     "previous-record"
+      "web-search",
+      "previous-record"
     ]
    }
   },
@@ -7641,22 +7637,19 @@
     "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "web-search",
-     "social-profile",
-     "government-record",
-     "manufacturer-locator",
-     "previous-record"
+      "name-guess",
+      "web-search",
+      "social-profile",
+      "previous-record"
     ]
    },
    "hours": {
     "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
-     "web-search",
-     "government-record",
-     "previous-record"
+      "name-guess",
+      "web-search",
+      "previous-record"
     ]
    }
   },
@@ -17334,19 +17327,20 @@
    }
   },
   {
-   "lat": 44.49092,
-   "lon": 11.25031,
+   "lat": 44.4831,
+   "lon": 11.2621,
    "name": "Level 24",
    "country": "IT",
    "needs": [
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
-     "venue-link",
-     "path-probe"
+      "venue-link",
+      "path-probe",
+      "map-block"
     ]
    }
   },
@@ -20257,17 +20251,17 @@
     "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
-     "web-search",
-     "official-location-page",
-     "manufacturer-locator"
+      "web-search",
+      "path-probe",
+      "venue-link"
     ]
    },
    "hours": {
     "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
-     "venue-link",
-     "official-location-page"
+      "venue-link",
+      "path-probe"
     ]
    }
   },
@@ -29504,14 +29498,18 @@
     "pass": "2026-08-31",
     "result": "closed",
     "channels": [
-     "official-closure-notice"
+      "venue-link",
+      "web-search",
+      "path-probe"
     ]
    },
    "hours": {
     "pass": "2026-08-31",
     "result": "closed",
     "channels": [
-     "official-closure-notice"
+      "venue-link",
+      "web-search",
+      "path-probe"
     ]
    }
   },
@@ -31781,24 +31779,6 @@
     "channels": [
      "venue-link",
      "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 42.3938542,
-   "lon": -71.150421,
-   "name": "CRG Cambridge",
-   "country": "US",
-   "needs": [
-    "website"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "operator-index",
-     "co-located",
-     "previous-record"
     ]
    }
   },

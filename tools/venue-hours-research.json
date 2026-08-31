@@ -4063,14 +4063,14 @@
   "reason": "The academy covers CrossFit, climbing, martial arts, Equilibrium and dance and states no opening hours on the homepage or on the contact page."
  },
  {
-  "lat": 44.49092,
-  "lon": 11.25031,
+  "lat": 44.4831,
+  "lon": 11.2621,
   "name": "Level 24",
   "country": "IT",
   "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The week is stated as 10:00/24:00 with a separate closing time for the climbing rooms (23:00) and another for reception (21:00), after which entry is subscription-only; the site's schema.org openingHours is the placeholder 09:00-17:00 for all seven days.",
-  "source": "https://www.level24.it/contatti-info-level24/"
+  "checked": "2026-08-31",
+  "reason": "The current homepage states general opening as Monday-Friday 10:00-24:00 and weekends/holidays 09:00-20:00, but separately closes climbing rooms at 23:00/19:00 and reception at 21:00/17:30, after which entry is limited to subscribers or pass holders. Its structured openingHours still says 09:00-17:00 every day. Those scopes conflict, so no single public board-access week is published.",
+  "source": "https://www.level24.it/"
  },
  {
   "lat": 45.5415526,

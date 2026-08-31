@@ -4658,5 +4658,35 @@
     "status": "duplicate",
     "checked": "2026-08-31",
     "reason": "Kilter's live locator carries a second row for the same distinctive club name at the exact address-bearing production coordinate, 34.24296,108.93182, with the 12x12 Original adjustable profile. This generic Youyi East Road point 3.2 km east has no profile details and would duplicate that same manufacturer-listed venue, so it is excluded in favour of the exact row."
+  },
+  {
+    "lat": 52.3765411,
+    "lon": 4.871359,
+    "name": "Boulder Amsterdam",
+    "country": "NL",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://boulderneoliet.nl/en/amsterdam/faciliteiten/",
+    "reason": "The operator's current Amsterdam facilities page explicitly names its Kilter Board and repeatedly prints Gillis van Ledenberchstraat 62, 1052 VK Amsterdam. The address-bearing production row represents that branch at 52.38621,4.87252; this manufacturer point is 1.1 km south and would duplicate the same single Amsterdam hall, so it is excluded in favour of the branch-primary replacement."
+  },
+  {
+    "lat": -34.0274902,
+    "lon": 151.0684636,
+    "name": "Climb Fit Kirrawee",
+    "country": "AU",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.climbfit.com.au/location/climbfit-kirrawee/",
+    "reason": "Climb Fit's current Kirrawee page explicitly identifies its 12x12 fixed-40-degree Kilter Board, while the operator's contact and current event pages repeatedly print 23 Waratah Street, Kirrawee. The address-bearing production point represents that branch at -34.02845,151.07911; this locator point is 1.0 km west and is excluded in favour of the branch-primary row."
+  },
+  {
+    "lat": 51.5711465,
+    "lon": 5.0997929,
+    "name": "Klim en Boulderhal Block013",
+    "country": "NL",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://block013.nl/",
+    "reason": "The current official Block013 page embeds its route map at 51.5770,5.0920, within 13 m of the address-bearing production Kilter venue at 51.57716,5.09198. This same-name manufacturer point is 0.9 km southeast and would duplicate the one operator hall, so it is excluded in favour of the venue-owned map replacement."
   }
 ]

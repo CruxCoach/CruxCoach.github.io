@@ -385,6 +385,25 @@ test('committed map data includes the missing boards and merges the corrected ve
     '17:00-23:00', '10:00-19:00', '10:00-19:00',
   ]);
 
+  const level24 = at(features, 44.4831, 11.2621);
+  assert.equal(level24.length, 1);
+  assert.deepEqual(new Set(boardIds(level24[0])), new Set(['kilter', 'tension']));
+  assert.equal(level24[0].properties.website, 'https://www.level24.it/');
+  assert.equal(level24[0].properties.hours, undefined);
+  assert.equal(at(features, 44.49092, 11.25031).length, 0);
+
+  const centralRockCambridge = at(features, 42.3908, -71.1425);
+  assert.equal(centralRockCambridge.length, 1);
+  assert.equal(centralRockCambridge[0].properties.name, 'Central Rock Gym Cambridge');
+  assert.deepEqual(new Set(boardIds(centralRockCambridge[0])), new Set(['kilter', 'tension', 'aurora', 'moonboard']));
+  assert.equal(centralRockCambridge[0].properties.website, 'https://centralrockgym.com/cambridge/');
+  assert.equal(centralRockCambridge[0].properties.hours.length, 7);
+  for (const [lat, lon] of [
+    [42.39436, -71.15172],
+    [42.3908, -71.13989],
+    [42.3938542, -71.150421],
+  ]) assert.equal(at(features, lat, lon).length, 0);
+
   assert.equal(features.some(feature => feature.properties.name.includes('T-UP Climbing Gym A19')), false);
   for (const [lat, lon] of [
     [31.9543786, 35.9105776],
@@ -398,6 +417,9 @@ test('committed map data includes the missing boards and merges the corrected ve
     [25.00201, 121.20233],
     [24.9721514, 121.2053963],
     [34.24118, 108.96707],
+    [52.3765411, 4.871359],
+    [-34.0274902, 151.0684636],
+    [51.5711465, 5.0997929],
   ]) assert.equal(at(features, lat, lon).length, 0);
 
   assert.equal(at(features, 46.8753166, -96.7668897).length, 0);

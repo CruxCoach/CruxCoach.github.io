@@ -1237,15 +1237,17 @@
     "lon": 151.07911,
     "name": "Climb Fit Kirrawee",
     "country": "AU",
-    "website": "https://www.climbfit.com.au/",
-    "verified": "2026-08-23",
-    "provenance": "official-chain-page",
+    "website": "https://www.climbfit.com.au/location/climbfit-kirrawee/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
     "signals": [
-      "brand",
+      "name",
       "street-address",
-      "city"
+      "city",
+      "location-page",
+      "board-mention"
     ],
-    "note": "Climb Fit's locations page lists Kirrawee with \"23 Waratah St\", which is the street line upstream records. The climbfitkirrawee.com domain the OSM node carries has been taken over and now serves an unrelated lottery-results site."
+    "note": "The current Kirrawee branch page explicitly names its 12x12 fixed-40-degree Kilter Board; the operator's contact page and current events repeatedly print 23 Waratah Street, which is the address carried by this production row."
   },
   {
     "lat": -33.78746,
@@ -13489,8 +13491,8 @@
     "note": "The site is La Mole Sports Academy and prints Via Chivasso, 8 10098 Rivoli (TO); geocoding that address lands 99 m from this venue's coordinate. The upstream city is Collegno, the neighbouring town."
   },
   {
-    "lat": 44.49092,
-    "lon": 11.25031,
+    "lat": 44.4831,
+    "lon": 11.2621,
     "name": "Level 24",
     "country": "IT",
     "website": "https://www.level24.it/",
@@ -15043,13 +15045,14 @@
     "name": "Boulderhal Block013",
     "country": "NL",
     "website": "https://block013.nl/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
-      "city"
+      "city",
+      "coordinates"
     ],
-    "note": "The gym publishes no street address on any page we could open."
+    "note": "The current official homepage identifies the sole Tilburg hall and embeds its route map at 51.5770,5.0920, within 13 m of this production point."
   },
   {
     "lat": 51.59819,
@@ -19931,26 +19934,11 @@
   },
   {
     "lat": 42.3908,
-    "lon": -71.13989,
+    "lon": -71.1425,
     "name": "Central Rock Gym Cambridge",
     "country": "US",
     "website": "https://centralrockgym.com/cambridge/",
-    "verified": "2026-08-22",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "location-page",
-      "street-address"
-    ],
-    "note": "Upstream lists this Tension Board and Aurora separately, about 1 km from its Kilter entry; this coordinate is the nearer of the two to the gym's address."
-  },
-  {
-    "lat": 42.39436,
-    "lon": -71.15172,
-    "name": "Central Rock Gym Cambridge",
-    "country": "US",
-    "website": "https://centralrockgym.com/cambridge/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -19959,7 +19947,7 @@
       "city",
       "location-page"
     ],
-    "note": "The Alewife Brook Parkway address resolves about 930 m from this upstream coordinate; the gym's other upstream entry sits closer to it."
+    "note": "The current Cambridge branch page prints 170 Alewife Brook Parkway and its own Get Directions link resolves to this coordinate. Three formerly split Kilter, Tension and Aurora rows are consolidated onto that one physical hall."
   },
   {
     "lat": 40.75113,
@@ -20754,20 +20742,6 @@
       "postal-code",
       "city"
     ]
-  },
-  {
-    "lat": 42.3938542,
-    "lon": -71.150421,
-    "name": "CRG Cambridge",
-    "country": "US",
-    "website": "https://centralrockgym.com/cambridge/",
-    "verified": "2026-08-23",
-    "provenance": "official-location-page",
-    "signals": [
-      "city",
-      "location-page"
-    ],
-    "note": "Central Rock Gym's locations page lists exactly one hall called Cambridge — 170 Alewife Brook Pkwy, Cambridge, MA 02138 — and brands its other hall in the same city Harvard Square, at 20 Brattle St. This entry sits 121 m from the Alewife address and about 2.6 km from Brattle Street, so the Cambridge location page is its page. The map that page embeds sits 738 m away, which is why the coordinates are not claimed as a signal."
   },
   {
     "lat": 37.15166,

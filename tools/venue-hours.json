@@ -22934,16 +22934,19 @@
  },
  {
   "lat": 42.3908,
-  "lon": -71.13989,
+  "lon": -71.1425,
   "name": "Central Rock Gym Cambridge",
   "country": "US",
   "source": "https://centralrockgym.com/cambridge/",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
+   "name",
+   "street-address",
    "location-page",
-   "city"
+   "coordinates",
+   "hours-scope"
   ],
   "hours": {
    "mon": "07:00-22:30",
@@ -22954,32 +22957,8 @@
    "sat": "10:00-18:00",
    "sun": "10:00-18:00"
   },
-  "evidence": "Monday: 7am-10:30pm | Tuesday: 7am-10:30pm | Wednesday: 7am-10:30pm | Thursday: 7am-10:30pm | Friday: 11am-10:30pm | Saturday: 10am-6pm | Sunday: 10am-6pm",
-  "note": "The Central Rock Gym Cambridge entry 1,049 m away carries the same page and the address it prints, 170 Alewife Brook Pkwy. The operator brands its other hall in this city Harvard Square, at 20 Brattle St about 2.6 km from here, so the Cambridge hall is the nearer of the two by a wide margin. This entry comes from the Tension registry, which records no address."
- },
- {
-  "lat": 42.39436,
-  "lon": -71.15172,
-  "name": "Central Rock Gym Cambridge",
-  "country": "US",
-  "source": "https://centralrockgym.com/cambridge/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "07:00-22:30",
-   "tue": "07:00-22:30",
-   "wed": "07:00-22:30",
-   "thu": "07:00-22:30",
-   "fri": "11:00-22:30",
-   "sat": "10:00-18:00",
-   "sun": "10:00-18:00"
-  },
-  "evidence": "Monday: 7am-10:30pm | Tuesday: 7am-10:30pm | Wednesday: 7am-10:30pm | Thursday: 7am-10:30pm | Friday: 11am-10:30pm | Saturday: 10am-6pm | Sunday: 10am-6pm"
+  "evidence": "Cambridge, 170 Alewife Brook Pkwy, Cambridge, Massachusetts 02138. Hours Monday: 7am-10:30pm | Tuesday: 7am-10:30pm | Wednesday: 7am-10:30pm | Thursday: 7am-10:30pm | Friday: 11am-10:30pm | Saturday: 10am-6pm | Sunday: 10am-6pm",
+  "note": "The current branch page's Get Directions coordinate consolidates the formerly split Kilter, Tension, Aurora and MoonBoard rows at this one hall."
  },
  {
   "lat": 40.75113,
@@ -24187,31 +24166,6 @@
   },
   "evidence": "Mon & Wed Members only 6am - 10am | Monday - Friday 10am - 10pm | Saturday 10am - 7pm | Sunday 11am - 7pm",
   "note": "Members additionally get in 6–10am on Monday and Wednesday; the public week is what is recorded."
- },
- {
-  "lat": 42.3938542,
-  "lon": -71.150421,
-  "name": "CRG Cambridge",
-  "country": "US",
-  "source": "https://centralrockgym.com/cambridge/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "co-located",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "07:00-22:30",
-   "tue": "07:00-22:30",
-   "wed": "07:00-22:30",
-   "thu": "07:00-22:30",
-   "fri": "11:00-22:30",
-   "sat": "10:00-18:00",
-   "sun": "10:00-18:00"
-  },
-  "evidence": "Monday: 7am-10:30pm | Tuesday: 7am-10:30pm | Wednesday: 7am-10:30pm | Thursday: 7am-10:30pm | Friday: 11am-10:30pm | Saturday: 10am-6pm | Sunday: 10am-6pm",
-  "note": "The dataset lists this hall twice; the verified link sits on the twin entry a few metres away."
  },
  {
   "lat": 30.32642,

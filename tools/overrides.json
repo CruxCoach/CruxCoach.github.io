@@ -319,5 +319,72 @@
         }
       ]
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 44.49092,
+    "lon": 11.25031,
+    "name": "Level 24",
+    "note": "Move the stale registry point onto the Google map pin embedded by Level24's current homepage. The same page prints Via del Lavoro 45 and explicitly names its adjustable Kilter and Tension boards.",
+    "set": {
+      "lat": 44.4831,
+      "lon": 11.2621
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 44.49092,
+    "lon": 11.25031,
+    "name": "Level 24",
+    "note": "Co-locate the address-identical Tension row with Level24's Kilter row on the current official embedded map pin.",
+    "set": {
+      "lat": 44.4831,
+      "lon": 11.2621
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 42.39436,
+    "lon": -71.15172,
+    "name": "Central Rock Gym Cambridge",
+    "note": "Move the address-bearing Cambridge Kilter row onto the current branch page's own Get Directions coordinate for 170 Alewife Brook Parkway; companion overrides consolidate the other three board rows.",
+    "set": {
+      "lat": 42.3908,
+      "lon": -71.1425
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 42.3908,
+    "lon": -71.13989,
+    "name": "Central Rock Gym Cambridge",
+    "note": "Co-locate the split Tension row with the Kilter and Aurora rows on the current branch page's own Get Directions coordinate.",
+    "set": {
+      "lat": 42.3908,
+      "lon": -71.1425
+    }
+  },
+  {
+    "board": "aurora",
+    "lat": 42.3908,
+    "lon": -71.13989,
+    "name": "Central Rock Gym Cambridge",
+    "note": "Co-locate the split Aurora row with the Kilter and Tension rows on the current branch page's own Get Directions coordinate.",
+    "set": {
+      "lat": 42.3908,
+      "lon": -71.1425
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 42.3938542,
+    "lon": -71.150421,
+    "name": "CRG Cambridge",
+    "note": "Co-locate the fourth split Cambridge board row with Kilter, Tension and Aurora on the current branch page's Get Directions coordinate for the one 170 Alewife Brook Parkway hall.",
+    "set": {
+      "lat": 42.3908,
+      "lon": -71.1425,
+      "name": "Central Rock Gym Cambridge"
+    }
   }
 ]
