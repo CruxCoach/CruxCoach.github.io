@@ -32475,5 +32475,21 @@
   },
   "evidence": "HORAIRES Lundi – Vendredi 9H – 23H Samedi – Dimanche 10H – 20H Jours Fériés Horaires habituels 25 déc. & 1er janv. Fermé",
   "note": "The operator states one complete ordinary week and says holidays use the usual hours except for two named annual closure dates. Those exceptions do not alter the regular weekly schedule shown here."
+ },
+ {
+  "lat": 22.2919752,
+  "lon": 114.2075175,
+  "name": "Vita Beta Climbing Gym Quarry Bay",
+  "country": "CN",
+  "source": "https://www.vitabeta.hk/contact/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "street-address", "city", "location-page", "hours-scope"],
+  "hours": {
+   "mon": "10:00-24:00", "tue": "10:00-24:00", "wed": "10:00-24:00",
+   "thu": "10:00-24:00", "fri": "10:00-24:00", "sat": "10:00-22:00", "sun": "10:00-20:00"
+  },
+  "evidence": "Quarry Bay Branch: Level 2, K11 HACC, K11 ATELIER King's Road, 728 King's Road, Quarry Bay, Hong Kong. Hours Monday-Friday: 10:00 – 24:00; Saturday: 10:00 – 22:00; Sunday and Public Holidays: 10:00 – 20:00",
+  "note": "The operator prints a separate address and complete seven-day week for Quarry Bay directly after the distinct Tsuen Wan branch block."
  }
 ]

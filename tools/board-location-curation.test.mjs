@@ -52,6 +52,8 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Beast Fingers', 'kilter'],
     ['318 Climb', 'kilter'],
     ['The Board Room', 'kilter'],
+    ['Vita Beta Climbing Gym Quarry Bay', 'kilter'],
+    ['Rose Bloc Brossard', 'kilter'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -318,6 +320,20 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(waveRockPnu[0].properties.website, 'https://www.waverock.co.kr/pnu');
   assert.equal(waveRockPnu[0].properties.hours.length, 7);
   assert.equal(at(features, 35.1811693, 129.1036435).length, 0);
+
+  const vitaBetaQuarryBay = at(features, 22.2919752, 114.2075175);
+  assert.equal(vitaBetaQuarryBay.length, 1);
+  assert.equal(vitaBetaQuarryBay[0].properties.name, 'Vita Beta Climbing Gym Quarry Bay');
+  assert.deepEqual(boardIds(vitaBetaQuarryBay[0]), ['kilter']);
+  assert.equal(vitaBetaQuarryBay[0].properties.website, 'https://www.vitabeta.hk/contact/');
+  assert.equal(vitaBetaQuarryBay[0].properties.hours.length, 7);
+  assert.deepEqual(vitaBetaQuarryBay[0].properties.boards[0].walls, []);
+
+  const roseBlocBrossard = at(features, 45.48457, -73.46174);
+  assert.equal(roseBlocBrossard.length, 1);
+  assert.deepEqual(new Set(boardIds(roseBlocBrossard[0])), new Set(['kilter', 'tension']));
+  assert.equal(roseBlocBrossard[0].properties.website, 'https://www.rosebloc.com/brossard');
+  assert.equal(roseBlocBrossard[0].properties.hours.length, 7);
 
   assert.equal(at(features, 46.8753166, -96.7668897).length, 0);
 

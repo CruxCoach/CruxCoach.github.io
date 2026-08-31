@@ -597,6 +597,36 @@ const ENTRIES = [
       hold_set: null,
     }],
   },
+  {
+    // Current Quarry Bay branch and exact address/hours:
+    // https://www.vitabeta.hk/contact/
+    // Board identity and coordinates:
+    // https://settercloset.com/pages/kb-locator (StoreRocket id 22029744)
+    source: 'curated',
+    board: 'kilter',
+    name: 'Vita Beta Climbing Gym Quarry Bay',
+    lat: 22.2919752,
+    lon: 114.2075175,
+    address: "Level 2, K11 HACC, K11 ATELIER King's Road, 728 King's Road, Quarry Bay",
+    city: 'Hong Kong',
+    country: 'CN',
+    walls: [],
+  },
+  {
+    // Current branch, address and Kilter Board:
+    // https://www.rosebloc.com/brossard
+    // The point is the existing branch-specific Tension venue and is
+    // independently corroborated by Kilter's locator (StoreRocket id 22029823).
+    source: 'curated',
+    board: 'kilter',
+    name: 'Rose Bloc Brossard',
+    lat: 45.48457,
+    lon: -73.46174,
+    address: '1800 avenue Auguste, Greenfield Park, QC J4V 3R4',
+    city: 'Brossard',
+    country: 'CA',
+    walls: [],
+  },
 ];
 
 export async function load() {

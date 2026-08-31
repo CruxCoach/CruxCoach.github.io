@@ -4448,5 +4448,55 @@
     "checked": "2026-08-31",
     "candidate": "https://trailheadclimbing.ca/",
     "reason": "Trailhead's current official site identifies itself as Red Deer's climbing gym and repeatedly prints #108 33 McKenzie Crescent, Red Deer County AB T4S 2H4. The production Kilter row carries that exact address at 52.19682,-113.81868. This locator point is 6.9 km north and would duplicate the same single operator venue, so it is excluded in favour of the address-bearing primary-backed row."
+  },
+  {
+    "lat": 46.7416703,
+    "lon": 7.0807892,
+    "name": "L'Entrepôt",
+    "country": "CH",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://lentrepot.ch/activites/escalade/bloc/",
+    "reason": "The operator's current bouldering page explicitly identifies its Kilterboard and prints L'Entrepôt SA, Rue de l'Étang 25, 1630 Bulle. The two production rows at 46.6274,7.06666 and 46.62682,7.0669939 already represent that exact Kilter/MoonBoard hall. This locator point is 12.8 km north beside a different climbing venue and would invent a second L'Entrepôt branch, so it is excluded in favour of the branch-primary replacement."
+  },
+  {
+    "lat": 48.3069096,
+    "lon": 14.285918,
+    "name": "Boulderbar Linz",
+    "country": "AT",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://boulderbar.net/standorte/linz/",
+    "reason": "The operator's current Linz page identifies both its Kilterboard and Moonboard and prints the sole branch address Dr. Hermann-Thurner-Straße 1, 4060 Leonding. The address-bearing production Kilter venue already represents that hall at 48.24757,14.23284. This locator point is 7.7 km away in central Linz and would duplicate the same branch, so it is excluded in favour of the exact official-address row."
+  },
+  {
+    "lat": 32.741039,
+    "lon": -97.2849109,
+    "name": "Movement- Fort Worth",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://movementgyms.com/fort-worth/",
+    "reason": "Movement's current Fort Worth branch page prints 2828 W Lancaster Ave, Fort Worth TX 76107, while its first-party setting schedule explicitly names the Kilter Board. The address-bearing production row already represents that branch at 32.74779,-97.35812. This locator point is 6.9 km east and would create a duplicate Fort Worth gym, so it is excluded in favour of the branch-primary replacement."
+  },
+  {
+    "lat": 37.7921295,
+    "lon": -122.4106022,
+    "name": "Movement San Francisco",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://movementgyms.com/san-francisco/",
+    "reason": "Movement's current San Francisco page explicitly lists its Kilter Board and identifies the branch at 924 Mason Street in the Presidio. The address-bearing production row already represents that exact hall at 37.80432,-122.46842. This locator point is 5.3 km east in Nob Hill and would duplicate the branch, so it is excluded in favour of the current branch-primary row."
+  },
+  {
+    "lat": 44.6510588,
+    "lon": -63.5813959,
+    "name": "Seven Bays Bouldering",
+    "country": "CA",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://sevenbaysbouldering.com/bayerslake/gym/facility/",
+    "reason": "Seven Bays' current branch-specific pages assign the Kilter Board to Bayers Lake at 114 Chain Lake Drive and describe only fixed training walls plus a MoonBoard at Gottingen, whose 2019 Gottingen Street address matches this locator point. The address-bearing production Kilter row already represents Bayers Lake at 44.6376,-63.66395. The generic locator pin therefore assigns that board to the wrong branch and is excluded in favour of the branch-primary replacement."
   }
 ]
