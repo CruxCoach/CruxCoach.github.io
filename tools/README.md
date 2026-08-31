@@ -586,6 +586,25 @@ Backed source-coordinate overrides count as resolved only when the live pin
 matches the override selector and its target still lands on a current venue for
 the same board system; a stale override therefore fails closed as a candidate.
 
+### 12Climb manufacturer-KML audit
+
+12Climb maintains a public location KML. Its school product is not evidence of
+public venue access, so every placemark has a reviewed disposition in
+`12climb-location-decisions.json`. Recheck the live source without retaining its
+free-form descriptions:
+
+```bash
+node tools/12climb-locations-audit.mjs
+node tools/12climb-locations-audit.mjs --json
+```
+
+The audit exits non-zero for a new, removed, moved or renamed placemark, for a
+reviewed public point missing from production, or for a non-public/unverified
+point that appears in production. `--input file.kml` supports exact-repeat tests.
+Manufacturer identity and coordinates are candidate evidence only; a public
+addition still requires a current venue-controlled page establishing access and
+board persistence.
+
 ### Kilter manufacturer-locator audit
 
 Kilter's official locator page embeds a public StoreRocket dataset. It is a

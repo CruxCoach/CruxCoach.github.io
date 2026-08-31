@@ -218,6 +218,19 @@ const ENTRIES = [
     country: 'UA',
   },
   {
+    // The current operator page names the public climbing/bouldering hall,
+    // its 12Climb wall, exact address, drop-in access, and regular week:
+    // https://dynamica.od.ua/ua/skalolazanie-i-boldering/
+    // The manufacturer KML supplies the matching board coordinate.
+    source: 'curated',
+    board: '12climb',
+    name: 'SK Dynamica',
+    lat: 46.4723569,
+    lon: 30.7025312,
+    city: 'Odesa',
+    country: 'UA',
+  },
+  {
     // Current chain-wide board inventory and version:
     // https://touchstoneclimbing.com/touchstone-training-boards/
     // Branch identity/address: https://touchstoneclimbing.com/team-training-center/

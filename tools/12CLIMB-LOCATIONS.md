@@ -7,12 +7,19 @@ The manufacturer maintains a public Google My Maps KML, consumed by
 https://www.google.com/maps/d/kml?mid=193vm5XWh8uVnqQS71aVd130TNV2JkDnA&forcekml=1
 ```
 
-The 2026-08-31 source contains 35 placemarks. Only four have a `Name`; the
-other 31 put their identity in free-form `description`, which the generic
-adapter correctly refuses to publish. This review treats those descriptions as
-manufacturer candidate evidence only. A row enters `sources/curated.mjs` only
-when a current official venue page independently establishes public access and
-identity.
+The 2026-08-31 live source contains 35 placemarks and now names all of them.
+Hangtime 1.0.92's frozen conversion exposes only four names and leaves the
+other 31 identities in free-form `description`, which the generic adapter
+correctly refuses to publish. This review treats all manufacturer identities as
+candidate evidence only. A row enters `sources/curated.mjs` only when a current
+official venue page independently establishes public access and identity.
+
+The live comparison is reproducible and backed by the disposition ledger:
+
+```bash
+node tools/12climb-locations-audit.mjs
+node tools/12climb-locations-audit.mjs --json
+```
 
 The manufacturer's current [Board School page](https://www.12climb.com/12climb-board-school/)
 states that the school product is installed in sports halls for physical
@@ -38,13 +45,13 @@ not merely accepted as a candidate.
 | 4 | 50.4161340, 30.4683816 | Gymnasium Millennium 318 | removed by backed `non-public` exclusion |
 | 5 | 50.4729180, 30.5129492 | Gymnasium 107 Vvedenska | removed by backed `non-public` exclusion |
 | 6 | 50.4327164, 30.4871464 | School 221 | non-public school installation |
-| 7 | 50.4200512, 30.5173051 | no identity | unresolved; coordinate alone is insufficient |
-| 8 | 50.4173030, 30.5218166 | no identity | unresolved; coordinate alone is insufficient |
+| 7 | 50.4200512, 30.5173051 | School 37 | non-public school installation |
+| 8 | 50.4173030, 30.5218166 | School 130 | non-public school installation |
 | 9 | 50.4931937, 30.4078388 | School 45 | non-public school installation |
 | 10 | 50.4728109, 30.4767764 | School 1 | non-public school installation |
 | 11 | 50.4789751, 30.4028252 | School 95 | non-public school installation |
 | 12 | 50.4130181, 30.6316137 | Slovyanska Gymnasium | non-public school installation |
-| 13 | 50.4242990, 30.6474903 | no identity | unresolved; coordinate alone is insufficient |
+| 13 | 50.4242990, 30.6474903 | School 105 | non-public school installation |
 | 14 | 50.4525777, 30.4936768 | Lyceum 38 | non-public school installation |
 | 15 | 50.4145400, 30.6582892 | School 274 | non-public school installation |
 | 16 | 50.4519326, 30.4690384 | School 102 | non-public school installation |
@@ -57,28 +64,29 @@ not merely accepted as a candidate.
 | 23 | 50.4321962, 30.5492333 | School 171 | non-public school installation |
 | 24 | 50.4558006, 30.4999467 | School 138 | non-public school installation |
 | 25 | 50.4693718, 30.4162178 | School 172 | non-public school installation |
-| 26 | 49.2767636, 23.5186334 | no identity | unresolved; coordinate alone is insufficient |
+| 26 | 49.2767636, 23.5186334 | School 2 | non-public school installation |
 | 27 | 50.3335010, 30.3510772 | Britannica School | non-public school installation |
 | 28 | 50.4464461, 30.4430291 | Funattic | published via curated source; current official venue page confirms public gym and address |
 | 29 | 50.4734096, 30.4985010 | Hyperion Kyiv | published via curated source; current official venue page confirms public gym and address |
 | 30 | 50.5077410, 30.5028590 | School 239 | non-public school installation |
-| 31 | 50.0381060, 36.2849011 | no identity | unresolved; coordinate alone is insufficient |
+| 31 | 50.0381060, 36.2849011 | Block climbing gym, Kharkiv | unresolved; historical operator evidence identifies a climbing space and 2021 installation, but no current operator-controlled public-access page was found |
 | 32 | 50.9083891, 34.8006634 | Sumy Palace of Children and Youth | unresolved; youth institution, with no current public drop-in access evidence |
-| 33 | 46.4723569, 30.7025312 | no identity | unresolved; coordinate alone is insufficient |
-| 34 | 50.3783394, 30.4840921 | no identity | unresolved; coordinate alone is insufficient |
+| 33 | 46.4723569, 30.7025312 | SK Dynamica, Odesa | published via curated source; current operator page confirms public drop-in climbing, exact address, 12Climb wall and complete regular week |
+| 34 | 50.3783394, 30.4840921 | Midgard School | non-public school installation |
 
-## Balance after the first complete pass
+## Balance after the live-name pass
 
-- 5/35 points are published public venues: two existing KPIskala rows and
-  three recovered from unnamed manufacturer placemarks.
-- 20/35 are explicitly identified school installations and are not public
+- 6/35 points are published public venues: two existing KPIskala rows and
+  four recovered from the manufacturer source with venue-primary evidence.
+- 25/35 are explicitly identified school installations and are not public
   venue candidates on the available primary evidence.
-- 10/35 remain unresolved: six carry no identity at all and four identify an
-  institution without current, unambiguous public-access evidence.
+- 4/35 remain unresolved: Slavutych, the historical South Korean National
+  Climbing School, Block Kharkiv and the Sumy youth institution lack current,
+  unambiguous operator evidence for public access and board persistence.
 - No coordinates, descriptions, or identities are inferred from Google Maps;
   the Google-hosted file is the manufacturer's own declared source. Search and
   directory results were used only to locate primary pages.
 
-Recheck the ten unresolved rows on a later exhaustion pass. A new public row
+Recheck the four unresolved rows on a later exhaustion pass. A new public row
 still requires a current official venue or institution page; an old
 manufacturer placemark by itself is deliberately insufficient.
