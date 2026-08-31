@@ -667,19 +667,19 @@
     "note": "Address verified on the site's own contact page; it resolves to within 20 m of this venue."
   },
   {
-    "lat": 47.26657,
-    "lon": 11.90066,
+    "lat": 47.266263,
+    "lon": 11.900404,
     "name": "Kraftreich Aufenfeld",
     "country": "AT",
     "website": "https://www.kraftreich-aufenfeld.at/de/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "board-mention"
     ],
-    "note": "The operator publishes Aufenfeldweg 10 where upstream has Zillerstraße 6; that address resolves to within 160 m of this venue."
+    "note": "The current homepage explicitly names the Kilter Board, prints Aufenfeldweg 10 and publishes this exact geo coordinate in its own metadata."
   },
   {
     "lat": 47.06581,
@@ -8647,20 +8647,22 @@
     ]
   },
   {
-    "lat": 51.01574,
-    "lon": 13.8046,
+    "lat": 51.01528,
+    "lon": 13.808827,
     "name": "XXL Klettern Dresden",
     "country": "DE",
     "website": "https://www.xxl-klettern.de/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "brand",
       "street-address",
       "postal-code",
-      "city"
+      "city",
+      "board-mention",
+      "coordinates"
     ],
-    "note": "The hall trades as XXL' DIE WAND."
+    "note": "The hall trades as XXL' DIE WAND. Its current board page names both Kilter Boards and its official map link supplies this coordinate for Breitscheidstraße 40."
   },
   {
     "lat": 50.98225,
@@ -16000,20 +16002,22 @@
     ]
   },
   {
-    "lat": 59.28207,
-    "lon": 10.32679,
+    "lat": 59.2800086,
+    "lon": 10.316057,
     "name": "Høyt Under Taket Klatresenter Tønsberg",
     "country": "NO",
     "website": "https://hoytundertaket.no/tonsberg/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "location-page"
+      "location-page",
+      "board-mention",
+      "coordinates"
     ],
-    "note": "The Andebuveien address this entry carries resolves about 660 m away; the gym's other upstream entry sits on it. Upstream garbles the town as Semester Vestfold."
+    "note": "The branch's directions page prints Andebuveien 78 and links this exact map point; its current training-room page explicitly names the Kilter Board."
   },
   {
     "lat": 60.29332,
@@ -16475,21 +16479,6 @@
       "name",
       "city"
     ]
-  },
-  {
-    "lat": 59.27998270000001,
-    "lon": 10.3159612,
-    "name": "Sem/Tønsberg HUT",
-    "country": "NO",
-    "website": "https://hoytundertaket.no/tonsberg/",
-    "verified": "2026-08-22",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "location-page",
-      "street-address"
-    ],
-    "note": "Upstream lists this hall twice; this coordinate is the one 7 m from the page's Andebuveien 78, 3170 Sem."
   },
   {
     "lat": 58.93716,
@@ -19649,20 +19638,23 @@
     ]
   },
   {
-    "lat": 33.4042,
-    "lon": -111.95457,
+    "lat": 33.4004145,
+    "lon": -111.9529012,
     "name": "Bouldering Project Tempe",
     "country": "US",
     "website": "https://boulderingproject.com/location/tempe/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
       "city",
-      "location-page"
-    ]
+      "location-page",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "The current branch page embeds this map coordinate and its dedicated training-board page explicitly identifies both the adjustable 12x16 Original Kilter Board and Tension Board 2."
   },
   {
     "lat": 36.06755,
@@ -20825,31 +20817,14 @@
     "name": "Crux Climbing Center South",
     "country": "US",
     "website": "https://www.cruxclimbingcenter.com/south-austin/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "location-page",
       "street-address"
     ],
-    "note": "Upstream lists this hall twice; this coordinate is the one 86 m from the gym's Ralph Ablanedo address."
-  },
-  {
-    "lat": 30.181421802025056,
-    "lon": -97.79111214027573,
-    "name": "Crux Climbing Center South",
-    "country": "US",
-    "website": "https://www.cruxclimbingcenter.com/south-austin/",
-    "verified": "2026-08-22",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city",
-      "location-page"
-    ],
-    "note": "The Ralph Ablanedo address this entry carries resolves about 760 m away; the gym's other upstream entry sits on it."
+    "note": "The exact-address live Kilter point lands within 13 m of the existing Tension marker. Both formerly split rows are consolidated here for the one 220 Ralph Ablanedo hall."
   },
   {
     "lat": 33.23228,
@@ -22688,12 +22663,12 @@
     ]
   },
   {
-    "lat": 40.56449,
-    "lon": -111.89789,
+    "lat": 40.564419,
+    "lon": -111.8979183,
     "name": "Momentum Climbing Sandy",
     "country": "US",
     "website": "https://momentumclimbing.com/sandy/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -22701,23 +22676,7 @@
       "city",
       "postal-code"
     ],
-    "note": "Upstream lists this Grasshopper Board separately, 42 m from its Kilter entry."
-  },
-  {
-    "lat": 40.56486,
-    "lon": -111.89785,
-    "name": "Momentum Climbing Sandy",
-    "country": "US",
-    "website": "https://momentumclimbing.com/sandy/",
-    "verified": "2026-08-22",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "location-page",
-      "city",
-      "postal-code"
-    ],
-    "note": "The page prints 220 W. 10600 S.; upstream carries 200 W 10600 S."
+    "note": "The page prints 220 W 10600 S, explicitly names the Kilter Board and publishes this structured coordinate. The formerly split Kilter and Grasshopper rows are consolidated here."
   },
   {
     "lat": 40.62042,
@@ -23002,7 +22961,7 @@
     "name": "Movement Design District",
     "country": "US",
     "website": "https://movementgyms.com/design-district/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -27260,8 +27219,8 @@
     "note": "The current operator site identifies the public Wan Chai gym, its Chinachem Johnston Plaza address and both its Kilter Board and Tension Board 2; the manufacturer locator independently corroborates the Kilter profile and coordinate."
   },
   {
-    "lat": 35.22902,
-    "lon": 129.08423,
+    "lat": 35.2295856,
+    "lon": 129.0888247,
     "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
     "country": "KR",
     "website": "https://www.waverock.co.kr/pnu",
@@ -27273,7 +27232,7 @@
       "city",
       "location-page"
     ],
-    "note": "The operator's current PNU branch page identifies the public venue at 2F Terrace Park, 51 Jangjeononcheoncheon-ro in Geumjeong-gu; that address matches the existing production row and distinguishes it from the locator's misplaced point."
+    "note": "The operator's current PNU page identifies 2F Terrace Park at 51 Jangjeononcheoncheon-ro. Kilter's current exact-address point is within 23 m of the current national address coordinate for that building, correcting the frozen point 420 m west."
   },
   {
     "lat": -23.5560606,

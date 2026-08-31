@@ -409,5 +409,163 @@
       "lon": -74.2163694,
       "name": "Gravity Vault Montclair"
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 33.4042,
+    "lon": -111.95457,
+    "name": "Bouldering Project Tempe",
+    "note": "Move both training-board rows onto the coordinate in the current branch page's own map. The same page explicitly identifies an adjustable 12x16 Original Kilter Board, correcting the frozen 12x12 size.",
+    "set": {
+      "lat": 33.4004145,
+      "lon": -111.9529012,
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 28,
+          "size_label": "12x16 Super Wide, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 0,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 33.4042,
+    "lon": -111.95457,
+    "name": "Bouldering Project Tempe",
+    "note": "The current Tempe training-board page identifies both its Kilter and Tension Board 2 at the branch coordinate embedded in that page.",
+    "set": {
+      "lat": 33.4004145,
+      "lon": -111.9529012
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 30.181421802025056,
+    "lon": -97.79111214027573,
+    "name": "Crux Climbing Center South",
+    "note": "Consolidate the Kilter row with the existing Tension marker. Kilter's live row prints the branch's exact 220 Ralph Ablanedo address and lands within 13 m of that marker; the frozen Kilter point is 710 m north.",
+    "set": {
+      "lat": 30.17515,
+      "lon": -97.79041
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 59.28207,
+    "lon": 10.32679,
+    "name": "Høyt Under Taket Klatresenter Tønsberg",
+    "note": "Move onto the branch's own Get Directions pin, corroborated within 11 m by Kilter's current exact-address locator row, and correct the garbled upstream town.",
+    "set": {
+      "lat": 59.2800086,
+      "lon": 10.316057,
+      "city": "Sem"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 59.27998270000001,
+    "lon": 10.3159612,
+    "name": "Sem/Tønsberg HUT",
+    "note": "Consolidate the second upstream row for the same hall at the branch's own Get Directions pin; the official location and training-room pages establish one Høyt Under Taket Tønsberg venue at Andebuveien 78.",
+    "set": {
+      "lat": 59.2800086,
+      "lon": 10.316057,
+      "name": "Høyt Under Taket Klatresenter Tønsberg",
+      "city": "Sem"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 40.56486,
+    "lon": -111.89785,
+    "name": "Momentum Climbing Sandy",
+    "note": "Consolidate Kilter and Grasshopper at the current branch page's structured coordinate and correct the street number from the same page.",
+    "set": {
+      "lat": 40.564419,
+      "lon": -111.8979183,
+      "address": "220 W 10600 S, 84070, Sandy"
+    }
+  },
+  {
+    "board": "grasshopper",
+    "lat": 40.56449,
+    "lon": -111.89789,
+    "name": "Momentum Climbing Sandy",
+    "note": "Consolidate Kilter and Grasshopper at the current branch page's structured coordinate.",
+    "set": {
+      "lat": 40.564419,
+      "lon": -111.8979183
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 47.26657,
+    "lon": 11.90066,
+    "name": "Kraftreich Aufenfeld",
+    "note": "Use the exact geo coordinate and current Aufenfeldweg 10 address published in the venue's own page metadata; three live manufacturer pins conflict with that primary point.",
+    "set": {
+      "lat": 47.266263,
+      "lon": 11.900404,
+      "address": "Aufenfeldweg 10, 6274, Aschau",
+      "city": "Aschau"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 51.01574,
+    "lon": 13.8046,
+    "name": "XXL Klettern Dresden",
+    "note": "Move onto the coordinate in the venue's current official map link. Its current board page confirms two adjustable Original boards, 16x12 and 12x12, over a 20-70 degree range.",
+    "set": {
+      "lat": 51.01528,
+      "lon": 13.808827,
+      "walls": [
+        {
+          "wall_name": "Kilter Board 16x12",
+          "layout": "Original",
+          "size_id": 28,
+          "size_label": "12x16 Super Wide, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 20,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        },
+        {
+          "wall_name": "Kilter Board 12x12",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 20,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 35.22902,
+    "lon": 129.08423,
+    "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
+    "note": "Move onto Kilter's current exact-address point. The venue names 2F Terrace Park at 51 Jangjeononcheoncheon-ro, and the current national address record places that building within 23 m of the locator point, not 420 m west at the frozen coordinate.",
+    "set": {
+      "lat": 35.2295856,
+      "lon": 129.0888247,
+      "address": "2F Terrace Park, 51 Jangjeononcheoncheon-ro, Geumjeong-gu, Busan",
+      "city": "Busan"
+    }
   }
 ]

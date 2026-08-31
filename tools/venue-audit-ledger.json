@@ -10032,15 +10032,15 @@
    }
   },
   {
-   "lat": 51.01574,
-   "lon": 13.8046,
+      "lat": 51.01528,
+      "lon": 13.808827,
    "name": "XXL Klettern Dresden",
    "country": "DE",
    "needs": [
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
+        "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
      "venue-link",
@@ -20392,8 +20392,8 @@
    }
   },
   {
-   "lat": 35.22902,
-   "lon": 129.08423,
+      "lat": 35.2295856,
+      "lon": 129.0888247,
    "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
    "country": "KR",
    "needs": [
@@ -23018,8 +23018,8 @@
    }
   },
   {
-   "lat": 59.28207,
-   "lon": 10.32679,
+      "lat": 59.2800086,
+      "lon": 10.316057,
    "name": "Høyt Under Taket Klatresenter Tønsberg",
    "country": "NO",
    "needs": [
@@ -23759,23 +23759,6 @@
      "apex",
      "www",
      "web-search"
-    ]
-   }
-  },
-  {
-   "lat": 59.27998270000001,
-   "lon": 10.3159612,
-   "name": "Sem/Tønsberg HUT",
-   "country": "NO",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
     ]
    }
   },
@@ -39178,6 +39161,40 @@
    "hours": {
     "pass": "2026-08-25",
     "result": "no-hours-on-official-site",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 30.17515,
+   "lon": -97.79041,
+   "name": "Crux Climbing Center South",
+   "country": "US",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 47.266263,
+   "lon": 11.900404,
+   "name": "Kraftreich Aufenfeld",
+   "country": "AT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"

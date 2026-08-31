@@ -4749,5 +4749,55 @@
     "checked": "2026-08-31",
     "candidate": "https://movementgyms.com/the-hill/",
     "reason": "Movement's current official The Hill page prints 8021 Walnut Hill Ln, Dallas, TX 75231, exactly the address carried by the Kilter-and-Tension production venue at 32.88196,-96.76813. The current official Kilter locator confirms the board identity, but this locator point is 0.8 km north of the branch and is excluded in favour of the address-bearing row."
+  },
+  {
+    "lat": 40.5600056,
+    "lon": -111.8959944,
+    "name": "Momentum Climbing- Sandy",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://momentumclimbing.com/sandy/",
+    "reason": "Momentum's current Sandy page prints 220 W 10600 S, explicitly names its Kilter Board, and publishes a structured coordinate at 40.564419,-111.8979183 beside the existing Kilter and Grasshopper rows. This same-address manufacturer pin is 0.6 km south and is excluded while both board rows are consolidated on the venue-owned point."
+  },
+  {
+    "lat": 32.7962626,
+    "lon": -96.8224275,
+    "name": "Movement Climbing + Fitness Design District Dallas",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://movementgyms.com/design-district/",
+    "reason": "Movement's current Design District page and chain location finder both print 141 Glass Street, Dallas, TX 75207, exactly the address carried by the existing Kilter-and-Tension venue at 32.79005,-96.82311. The Kilter locator uses that same address but places its pin 0.7 km north; the conflicting point is excluded in favour of the address-bearing multi-board row."
+  },
+  {
+    "lat": 47.2629903,
+    "lon": 11.9012218,
+    "name": "Kraftreich Aufenfeld",
+    "country": "AT",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.kraftreich-aufenfeld.at/de/",
+    "reason": "Kraftreich's current official homepage explicitly names its Kilter Board, prints Aufenfeldweg 10, and publishes its own geo coordinate at 47.266263,11.900404. This older manufacturer row is 0.4 km south of that venue-owned point and is excluded as one of three duplicate locator representations of the same hall."
+  },
+  {
+    "lat": 47.2629056,
+    "lon": 11.899269,
+    "name": "Kraftreich Aufenfeld 1",
+    "country": "AT",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.kraftreich-aufenfeld.at/de/",
+    "reason": "Kraftreich's current official homepage identifies one hall and one Kilter Board at its venue-owned 47.266263,11.900404 coordinate. This second live locator row is 0.4 km south, and its Zillerstraße address conflicts with the operator's current Aufenfeldweg 10 address, so it is excluded as a duplicate mislocation."
+  },
+  {
+    "lat": 47.2666011,
+    "lon": 11.8953282,
+    "name": "Kraftreich Aufenfeld 2",
+    "country": "AT",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.kraftreich-aufenfeld.at/de/",
+    "reason": "Kraftreich's current official homepage identifies one hall and one Kilter Board at its venue-owned 47.266263,11.900404 coordinate. This third live locator row carries only the generic translated address Main St and sits 0.4 km west, so it is excluded as a duplicate mislocation."
   }
 ]

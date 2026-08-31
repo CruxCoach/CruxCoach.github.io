@@ -737,29 +737,6 @@
   "note": "The Bistro keeps separate, seasonal service times on the same page; the hall's own week is what is recorded."
  },
  {
-  "lat": 47.26657,
-  "lon": 11.90066,
-  "name": "Kraftreich Aufenfeld",
-  "country": "AT",
-  "source": "https://www.kraftreich-aufenfeld.at/de/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name"
-  ],
-  "hours": {
-   "mon": "09:00-23:00",
-   "tue": "07:30-23:00",
-   "wed": "09:00-23:00",
-   "thu": "09:00-23:00",
-   "fri": "09:00-23:00",
-   "sat": "09:00-23:00",
-   "sun": "09:00-23:00"
-  },
-  "evidence": "Montag bis Sonntag 09.00 bis 23.00 Uhr | DIENSTAGS ab 7:30 Uhr"
- },
- {
   "lat": 47.06581,
   "lon": 15.43051,
   "name": "Newton Boulderhalle Graz",
@@ -18793,8 +18770,8 @@
   "evidence": "Mandag 07:00-23:00 | Tirsdag 07:00-23:00 | Onsdag 07:00-23:00 | Torsdag 07:00-23:00 | Fredag 07:00-21:00 | Lørdag 09:00-21:00 | Søndag 09:00-21:00"
  },
  {
-  "lat": 59.28207,
-  "lon": 10.32679,
+  "lat": 59.2800086,
+  "lon": 10.316057,
   "name": "Høyt Under Taket Klatresenter Tønsberg",
   "country": "NO",
   "source": "https://hoytundertaket.no/tonsberg/informasjon/apningstider/",
@@ -19193,31 +19170,6 @@
   },
   "evidence": "Mandag–fredag 09:00–20:00 | Lørdag–søndag 11:00–17:00",
   "note": "The site's schema.org openingHours states the same week."
- },
- {
-  "lat": 59.27998270000001,
-  "lon": 10.3159612,
-  "name": "Sem/Tønsberg HUT",
-  "country": "NO",
-  "source": "https://hoytundertaket.no/tonsberg/informasjon/apningstider/",
-  "checked": "2026-08-24",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "hours-scope"
-  ],
-  "hours": {
-   "mon": "12:00-22:00",
-   "tue": "12:00-22:00",
-   "wed": "12:00-22:00",
-   "thu": "12:00-22:00",
-   "fri": "12:00-20:00",
-   "sat": "11:00-19:00",
-   "sun": "11:00-19:00"
-  },
-  "evidence": "Åpningstider Mandag 12:00 - 22:00 · Tirsdag 12:00 - 22:00 · Onsdag 12:00 - 22:00 · Torsdag 12:00 - 22:00 · Fredag 12:00 - 20:00 · Lørdag 11:00 - 19:00 · Søndag 11:00 - 19:00 (footer: Andebuveien 78, 3170 Sem)",
-  "note": "What the earlier reading took for two weeks that disagree is a dated exception above a standing one. The block on top is headed with its own dates — \"Sommer 22. juni – 16. august 2026\" at Skien, \"Uke 33. 10.august-16.august\" at Letohallen, \"uke 33. 10. juni – 16. august\" at Moss — and every one of those periods has ended. Beneath it the hall states its ordinary week under its own name, and all four halls state the same one. The page's schema.org block gives 09:00-17:00 for all seven days at every branch, which is the platform's placeholder and not a claim the operator has made."
  },
  {
   "lat": 58.93716,
@@ -22566,12 +22518,12 @@
   "evidence": "Saturday: 8am-9pm | Sunday: 8am-9pm Monday: 6am-10pm Tuesday: 6am-10pm Wednesday: 6am-10pm Thursday: 6am-10pm Friday: 6am-10pm"
  },
  {
-  "lat": 33.4042,
-  "lon": -111.95457,
+  "lat": 33.4004145,
+  "lon": -111.9529012,
   "name": "Bouldering Project Tempe",
   "country": "US",
   "source": "https://boulderingproject.com/location/tempe/",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -24216,56 +24168,6 @@
    "sun": "10:00-22:00"
   },
   "evidence": "Mon – Fri: 6AM – 11PM | Sat – Sun: 10AM – 10PM"
- },
- {
-  "lat": 30.17515,
-  "lon": -97.79041,
-  "name": "Crux Climbing Center South",
-  "country": "US",
-  "source": "https://www.cruxclimbingcenter.com/south-austin/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "11:00-23:00",
-   "tue": "11:00-23:00",
-   "wed": "11:00-23:00",
-   "thu": "11:00-23:00",
-   "fri": "11:00-23:00",
-   "sat": "09:00-22:00",
-   "sun": "09:00-22:00"
-  },
-  "evidence": "Mon – Fri: 6AM – 11PM | Sat – Sun: 9AM – 10PM … Who can come in 6am – 11am on mon-fri? Members are the only ones that can come in 6AM – 11AM on Monday through Friday. No walk-ins, guest passes, or punch pass holders may come before 11AM Mon-Fri.",
-  "note": "The gym itself opens at 6AM on weekdays, but the official FAQ states that no walk-in, guest pass or punch pass holder may enter before 11AM; the walk-in week is what is recorded."
- },
- {
-  "lat": 30.181421802025056,
-  "lon": -97.79111214027573,
-  "name": "Crux Climbing Center South",
-  "country": "US",
-  "source": "https://www.cruxclimbingcenter.com/south-austin/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "11:00-23:00",
-   "tue": "11:00-23:00",
-   "wed": "11:00-23:00",
-   "thu": "11:00-23:00",
-   "fri": "11:00-23:00",
-   "sat": "09:00-22:00",
-   "sun": "09:00-22:00"
-  },
-  "evidence": "Mon – Fri: 6AM – 11PM | Sat – Sun: 9AM – 10PM … Who can come in 6am – 11am on mon-fri? Members are the only ones that can come in 6AM – 11AM on Monday through Friday. No walk-ins, guest passes, or punch pass holders may come before 11AM Mon-Fri.",
-  "note": "The gym itself opens at 6AM on weekdays, but the official FAQ states that no walk-in, guest pass or punch pass holder may enter before 11AM; the walk-in week is what is recorded."
  },
  {
   "lat": 30.47847,
@@ -26442,12 +26344,12 @@
   "note": "Members additionally get in at 8AM on Saturday; the public week is what is recorded. The page’s schema.org openingHoursSpecification agrees."
  },
  {
-  "lat": 40.56449,
-  "lon": -111.89789,
+  "lat": 40.564419,
+  "lon": -111.8979183,
   "name": "Momentum Climbing Sandy",
   "country": "US",
   "source": "https://momentumclimbing.com/sandy/",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -26464,32 +26366,7 @@
    "sun": "10:00-18:00"
   },
   "evidence": "MONDAY – FRIDAY | 6AM – 11PM | SATURDAY | 10AM – 10PM | *Members Only 8AM – 10AM | SUNDAY | 10AM – 6PM",
-  "note": "Members additionally get in at 8AM on Saturday; the public week is what is recorded."
- },
- {
-  "lat": 40.56486,
-  "lon": -111.89785,
-  "name": "Momentum Climbing Sandy",
-  "country": "US",
-  "source": "https://momentumclimbing.com/sandy/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "name"
-  ],
-  "hours": {
-   "mon": "06:00-23:00",
-   "tue": "06:00-23:00",
-   "wed": "06:00-23:00",
-   "thu": "06:00-23:00",
-   "fri": "06:00-23:00",
-   "sat": "10:00-22:00",
-   "sun": "10:00-18:00"
-  },
-  "evidence": "MONDAY – FRIDAY | 6AM – 11PM | SATURDAY | 10AM – 10PM | *Members Only 8AM – 10AM | SUNDAY | 10AM – 6PM",
-  "note": "Members additionally get in at 8AM on Saturday; the public week is what is recorded."
+  "note": "Members additionally get in at 8AM on Saturday; the public week is what is recorded. The formerly split Kilter and Grasshopper rows are now one venue at the page's structured coordinate."
  },
  {
   "lat": 40.62042,
@@ -26911,7 +26788,7 @@
   "name": "Movement Design District",
   "country": "US",
   "source": "https://movementgyms.com/design-district/",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -32403,8 +32280,8 @@
   "evidence": "営業時間 平日：10:00-22:00 土日祝：10:00-20:00"
  },
  {
-  "lat": 35.22902,
-  "lon": 129.08423,
+  "lat": 35.2295856,
+  "lon": 129.0888247,
   "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
   "country": "KR",
   "source": "https://www.waverock.co.kr/pnu",

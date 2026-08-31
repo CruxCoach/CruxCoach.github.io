@@ -2227,14 +2227,14 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 51.01574,
-  "lon": 13.8046,
+  "lat": 51.01528,
+  "lon": 13.808827,
   "name": "XXL Klettern Dresden",
   "country": "DE",
   "status": "ambiguous",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "source": "https://www.xxl-klettern.de/",
-  "reason": "Re-read: unchanged. The homepage carries two versions of the same week and they disagree about Sunday — one block says 'Sonntag 09.00 – 21.00 Uhr Neu!', the other 'Sonntag 09.00 – 20.00 Uhr'."
+  "reason": "Re-read after moving the venue onto its official map point: unchanged. The current homepage carries two versions of the same week and they disagree about Sunday — one block says 'Sonntag 09.00 – 21.00 Uhr Neu!', the footer says 'Sonntag 09.00 – 20.00 Uhr'. The board article repeats the latter, but the operator has not removed the conflicting current homepage block."
  },
  {
   "lat": 49.0131548,
@@ -8620,5 +8620,25 @@
     "checked": "2026-08-31",
     "source": "https://www.fabricaescalada.com/unidades",
     "reason": "The current Vila Madalena branch block states Monday-Friday 07:00-22:00 and Saturday 10:00-19:00, then stops. Sunday is neither given a time nor marked closed. The complete Chacara week elsewhere on the same page shows that the operator does explicitly name Sundays when they apply, so the missing seventh day cannot be inferred."
+  },
+  {
+    "lat": 30.17515,
+    "lon": -97.79041,
+    "name": "Crux Climbing Center South",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-31",
+    "source": "https://www.cruxclimbingcenter.com/south-austin/",
+    "reason": "The current South homepage states Monday-Friday 06:00-23:00 and Saturday-Sunday 09:00-22:00, while its current branch contact page states the same weekdays but Saturday-Sunday 10:00-22:00. The homepage FAQ also limits weekday 06:00-11:00 access to members. The two previously duplicated public-hour overlays are withdrawn after consolidating the physical venue because the operator's own current pages no longer support one unambiguous walk-in week."
+  },
+  {
+    "lat": 47.266263,
+    "lon": 11.900404,
+    "name": "Kraftreich Aufenfeld",
+    "country": "AT",
+    "status": "ambiguous",
+    "checked": "2026-08-31",
+    "source": "https://www.kraftreich-aufenfeld.at/de/",
+    "reason": "The current homepage states daily 09:00-23:00 with Tuesday from 07:30, while the current official contact page states the same daily range but Tuesday from 06:00. Because both pages describe venue rather than kitchen hours and disagree on the same regular day, the previously published week is withdrawn until the operator resolves the conflict."
   }
 ]

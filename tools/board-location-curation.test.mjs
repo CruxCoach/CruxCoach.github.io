@@ -313,12 +313,15 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(at(features, 35.4425, 139.36599).length, 0);
   assert.equal(at(features, 35.2605615, 139.1656818).length, 0);
 
-  const waveRockPnu = at(features, 35.22902, 129.08423);
+  const waveRockPnu = at(features, 35.2295856, 129.0888247);
   assert.equal(waveRockPnu.length, 1);
   assert.equal(waveRockPnu[0].properties.name, '웨이브락 클라이밍 Wave Rock Climbing (PNU)');
+  assert.equal(waveRockPnu[0].properties.city, 'Busan');
+  assert.equal(waveRockPnu[0].properties.boards[0].address, '2F Terrace Park, 51 Jangjeononcheoncheon-ro, Geumjeong-gu, Busan');
   assert.deepEqual(boardIds(waveRockPnu[0]), ['kilter']);
   assert.equal(waveRockPnu[0].properties.website, 'https://www.waverock.co.kr/pnu');
   assert.equal(waveRockPnu[0].properties.hours.length, 7);
+  assert.equal(at(features, 35.22902, 129.08423).length, 0);
   assert.equal(at(features, 35.1811693, 129.1036435).length, 0);
 
   const vitaBetaQuarryBay = at(features, 22.2919752, 114.2075175);
@@ -437,6 +440,71 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(gravityVaultMontclair[0].properties.hours.length, 7);
   assert.equal(at(features, 40.81398, -74.20759).length, 0);
 
+  const tempe = at(features, 33.4004145, -111.9529012);
+  assert.equal(tempe.length, 1);
+  assert.deepEqual(new Set(boardIds(tempe[0])), new Set(['kilter', 'tension']));
+  const tempeKilter = tempe[0].properties.boards.find(board => board.board === 'kilter');
+  assert.equal(tempeKilter.walls[0].size_label, '12x16 Super Wide, with Kickboard');
+  assert.equal(tempe[0].properties.website, 'https://boulderingproject.com/location/tempe/');
+  assert.equal(tempe[0].properties.hours.length, 7);
+  assert.equal(at(features, 33.4042, -111.95457).length, 0);
+
+  const cruxSouth = at(features, 30.17515, -97.79041);
+  assert.equal(cruxSouth.length, 1);
+  assert.deepEqual(new Set(boardIds(cruxSouth[0])), new Set(['kilter', 'tension']));
+  assert.equal(cruxSouth[0].properties.boards.find(board => board.board === 'kilter').address, '220 Ralph Ablanedo Dr Unit 100, 78748, Austin');
+  assert.equal(cruxSouth[0].properties.website, 'https://www.cruxclimbingcenter.com/south-austin/');
+  assert.equal(cruxSouth[0].properties.hours, undefined);
+  assert.equal(at(features, 30.181421802025056, -97.79111214027573).length, 0);
+
+  const hutTonsberg = at(features, 59.2800086, 10.316057);
+  assert.equal(hutTonsberg.length, 1);
+  assert.equal(hutTonsberg[0].properties.name, 'Høyt Under Taket Klatresenter Tønsberg');
+  assert.equal(hutTonsberg[0].properties.city, 'Sem');
+  assert.deepEqual(new Set(boardIds(hutTonsberg[0])), new Set(['kilter', 'moonboard']));
+  assert.equal(hutTonsberg[0].properties.website, 'https://hoytundertaket.no/tonsberg/');
+  assert.equal(hutTonsberg[0].properties.hours.length, 7);
+  assert.equal(at(features, 59.28207, 10.32679).length, 0);
+  assert.equal(at(features, 59.2799827, 10.3159612).length, 0);
+
+  const momentumSandy = at(features, 40.564419, -111.8979183);
+  assert.equal(momentumSandy.length, 1);
+  assert.deepEqual(new Set(boardIds(momentumSandy[0])), new Set(['kilter', 'grasshopper']));
+  assert.equal(momentumSandy[0].properties.boards.find(board => board.board === 'kilter').address, '220 W 10600 S, 84070, Sandy');
+  assert.equal(momentumSandy[0].properties.website, 'https://momentumclimbing.com/sandy/');
+  assert.equal(momentumSandy[0].properties.hours.length, 7);
+  assert.equal(at(features, 40.56486, -111.89785).length, 0);
+  assert.equal(at(features, 40.56449, -111.89789).length, 0);
+
+  const movementDesignDistrict = at(features, 32.79005, -96.82311);
+  assert.equal(movementDesignDistrict.length, 1);
+  assert.deepEqual(new Set(boardIds(movementDesignDistrict[0])), new Set(['kilter', 'tension']));
+  assert.equal(movementDesignDistrict[0].properties.website, 'https://movementgyms.com/design-district/');
+  assert.equal(movementDesignDistrict[0].properties.hours.length, 7);
+
+  const kraftreich = at(features, 47.266263, 11.900404);
+  assert.equal(kraftreich.length, 1);
+  assert.equal(kraftreich[0].properties.city, 'Aschau');
+  assert.equal(kraftreich[0].properties.boards[0].address, 'Aufenfeldweg 10, 6274, Aschau');
+  assert.equal(kraftreich[0].properties.wellpass, true);
+  assert.equal(kraftreich[0].properties.website, 'https://www.kraftreich-aufenfeld.at/de/');
+  assert.equal(kraftreich[0].properties.hours, undefined);
+  assert.equal(at(features, 47.26657, 11.90066).length, 0);
+
+  const xxlDresden = at(features, 51.01528, 13.808827);
+  assert.equal(xxlDresden.length, 1);
+  assert.deepEqual(xxlDresden[0].properties.boards[0].walls.map(wall => wall.size_label), [
+    '12x16 Super Wide, with Kickboard',
+    '12x12, with Kickboard',
+  ]);
+  for (const wall of xxlDresden[0].properties.boards[0].walls) {
+    assert.equal(wall.min_angle, 20);
+    assert.equal(wall.max_angle, 70);
+  }
+  assert.equal(xxlDresden[0].properties.website, 'https://www.xxl-klettern.de/');
+  assert.equal(xxlDresden[0].properties.hours, undefined);
+  assert.equal(at(features, 51.01574, 13.8046).length, 0);
+
   for (const [name, lat, lon, boards] of [
     ['Tufas Boulder Lounge', 39.97622, -75.144, ['kilter', 'tension']],
     ['Vestveggen Bergen Klatreklubb', 60.46987, 5.31369, ['kilter']],
@@ -473,6 +541,11 @@ test('committed map data includes the missing boards and merges the corrected ve
     [60.4782741, 5.3138912],
     [42.6620646, 23.3662234],
     [32.8888947, -96.7670093],
+    [40.5600056, -111.8959944],
+    [32.7962626, -96.8224275],
+    [47.2629903, 11.9012218],
+    [47.2629056, 11.899269],
+    [47.2666011, 11.8953282],
   ]) assert.equal(at(features, lat, lon).length, 0);
 
   assert.equal(at(features, 46.8753166, -96.7668897).length, 0);
