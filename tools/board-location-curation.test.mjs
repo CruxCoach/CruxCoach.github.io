@@ -344,6 +344,25 @@ test('committed map data includes the missing boards and merges the corrected ve
   );
   assert.equal(at(features, 35.184391279939376, -106.57514876931646).length, 0);
 
+  const briancon = at(features, 44.9129157, 6.6212888);
+  assert.equal(briancon.length, 1);
+  assert.equal(briancon[0].properties.name, 'Briançon escalade');
+  assert.equal(briancon[0].properties.boards[0].address, 'Rue Marius Chancel, 05100, Briançon');
+  assert.equal(briancon[0].properties.website, 'https://briancon-escalade.fr/');
+  assert.equal(briancon[0].properties.hours, undefined);
+  assert.equal(at(features, 44.899596273874344, 6.63972697236616).length, 0);
+
+  const boulderoase = at(features, 48.66507970052178, 14.838631194315278);
+  assert.equal(boulderoase.length, 1);
+  assert.equal(boulderoase[0].properties.boards[0].walls[0].min_angle, 20);
+  assert.equal(boulderoase[0].properties.boards[0].walls[0].max_angle, 70);
+
+  for (const [lat, lon] of [
+    [48.6526006, 14.8397076],
+    [46.7730287, 6.6487804],
+    [41.5474876, 2.0961689],
+  ]) assert.equal(at(features, lat, lon).length, 0);
+
   assert.equal(at(features, 46.8753166, -96.7668897).length, 0);
 
   for (const [lat, lon] of [

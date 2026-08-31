@@ -407,7 +407,7 @@
     "name": "Boulderoase St. Martin",
     "country": "AT",
     "website": "https://dorfzentrum.st-martin.eu/boulderoase/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -10863,19 +10863,21 @@
     "note": "The site is a Bubble application and serves an empty frame; the one address in its bundle is the string \"27 Avenue de Toulouse, Montpellier\", which is upstream's address for this row word for word. The operator also runs a Castelnau hall, and no second address appears anywhere in the bundle."
   },
   {
-    "lat": 44.899596273874344,
-    "lon": 6.63972697236616,
+    "lat": 44.9129157,
+    "lon": 6.6212888,
     "name": "Briançon escalade",
     "country": "FR",
     "website": "https://briancon-escalade.fr/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
     "signals": [
       "name",
+      "street-address",
       "city",
-      "board-mention"
+      "board-mention",
+      "coordinates"
     ],
-    "note": "The club's own site for Briancon, the town upstream records, naming the Kilter Board this venue is listed for."
+    "note": "The club says its new Kilter Board entered service at Gymnase Chancel in December 2025 and its current 2026/27 page still assigns the board there. Briançon's municipal equipment map identifies Gymnase Chancel on Rue Marius Chancel, while the live manufacturer pin supplies the matching facility coordinate."
   },
   {
     "lat": 43.5753976,

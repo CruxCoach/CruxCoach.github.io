@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T20:35:12.402Z",
+  "generated_at": "2026-08-31T20:45:28.156Z",
   "venue_features": 2847,
   "raw_entries": 3106,
   "venues_with_multiple_boards": 118,
@@ -11,16 +11,16 @@
   "city_missing": 124,
   "nearest_city_max_km": 25,
   "exclusions": {
-    "defined": 51,
+    "defined": 54,
     "matched_venues": 18,
     "excluded_entries": 19,
-    "unmatched": 33
+    "unmatched": 36
   },
   "overrides": {
-    "defined": 24,
-    "applied": 24,
+    "defined": 26,
+    "applied": 26,
     "unmatched": 0,
-    "conflicts": 30
+    "conflicts": 34
   },
   "wellpass": {
     "defined": 87,
@@ -38,8 +38,8 @@
     "countries": 63,
     "by_provenance": {
       "official-chain-page": 133,
-      "official-location-page": 617,
-      "official-site": 1042
+      "official-location-page": 618,
+      "official-site": 1041
     }
   },
   "venue_hours": {

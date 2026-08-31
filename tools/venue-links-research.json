@@ -4538,5 +4538,35 @@
     "checked": "2026-08-31",
     "candidate": "https://climbstoneage.com/locations/stone-age-north/",
     "reason": "Stone Age's current North page identifies its sole North branch at 6200 Alameda Blvd NE, Albuquerque NM 87113. Both production Kilter profiles print that exact address and are consolidated onto one venue at 35.18458,-106.5756 in this batch. This generic locator point is 3.0 km west and would invent a third Stone Age location, so it is excluded in favour of the official-address replacement."
+  },
+  {
+    "lat": 48.6526006,
+    "lon": 14.8397076,
+    "name": "Boulderoase St. Martin",
+    "country": "AT",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://dorfzentrum.st-martin.eu/boulderoase/",
+    "reason": "The current official Boulderoase page identifies its Kilter Board and prints the only venue address, Sankt Martin 2, 3971 Sankt Martin. The address-bearing production row represents that facility at 48.66507970052178,14.838631194315278. This manufacturer-locator point is 1.4 km south of the named village facility and would duplicate it, so it is excluded in favour of the branch-primary replacement."
+  },
+  {
+    "lat": 46.7730287,
+    "lon": 6.6487804,
+    "name": "La Pile SA",
+    "country": "CH",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://lapile.ch/acces-et-horaires/",
+    "reason": "La Pile's current official access page identifies its single Yverdon hall at Avenue de Grandson 48, 1400 Yverdon-les-Bains. The address-bearing production Kilter row already represents that named hall at 46.78714,6.63162. This same-name manufacturer-locator point is 2.0 km southeast and would create a second La Pile facility the operator does not publish, so it is excluded in favour of the official-address replacement."
+  },
+  {
+    "lat": 41.5474876,
+    "lon": 2.0961689,
+    "name": "Sala Escalada Batec Sabadell",
+    "country": "ES",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://salabatec.com/sab-contacte/",
+    "reason": "Sala Batec's current Sabadell contact page identifies the branch at Carrer de Costa i Deu 79, 08205 Sabadell, and the operator's current site consistently publishes that sole Sabadell address. The address-bearing production Kilter row already represents it at 41.52992,2.09888. This same-name manufacturer-locator point is 2.0 km north and would duplicate the branch, so it is excluded in favour of the official-address replacement."
   }
 ]

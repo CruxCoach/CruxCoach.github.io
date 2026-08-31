@@ -261,5 +261,40 @@
       "lat": 35.18458,
       "lon": -106.5756
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 44.899596273874344,
+    "lon": 6.63972697236616,
+    "name": "Briançon escalade",
+    "note": "Move the stale Fortville registry point onto Kilter's current manufacturer pin for Gymnase Chancel. The club says the new board entered service there in December 2025, its current season page still assigns the board there, and the municipality identifies the facility on Rue Marius Chancel.",
+    "set": {
+      "lat": 44.9129157,
+      "lon": 6.6212888,
+      "address": "Rue Marius Chancel, 05100, Briançon"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 48.66507970052178,
+    "lon": 14.838631194315278,
+    "name": "Boulderoase St. Martin",
+    "note": "The venue's current official page says its hydraulic Kilter Board adjusts from 20 to 70 degrees; correct the stale zero-degree minimum while retaining the registry's independently structured wall size.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Homewall",
+          "size_id": 23,
+          "size_label": "Homewall 12x8 — Full Ride",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 20,
+          "max_angle": 70,
+          "angle_increments": 5,
+          "hold_set": 15
+        }
+      ]
+    }
   }
 ]
