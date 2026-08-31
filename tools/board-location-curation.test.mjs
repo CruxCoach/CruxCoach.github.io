@@ -93,6 +93,24 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.deepEqual(new Set(boardIds(spire[0])), new Set(['kilter', 'tension']));
   assert.equal(at(features, 45.656304, -111.069708).length, 0);
 
+  const fontWandsworth = at(features, 51.45496, -0.193);
+  assert.equal(fontWandsworth.length, 1);
+  assert.equal(fontWandsworth[0].properties.name, 'The Font Wandsworth');
+  assert.equal(fontWandsworth[0].properties.hours, undefined);
+  assert.equal(fontWandsworth[0].properties.website, 'https://www.the-font.co.uk/wandsworth');
+  assert.deepEqual(fontWandsworth[0].properties.boards[0].walls, [{
+    wall_name: 'Kilter Board',
+    layout: 'Original',
+    size_id: null,
+    size_label: '16x12',
+    adjustable: true,
+    angle: null,
+    min_angle: 15,
+    max_angle: 60,
+    angle_increments: null,
+    hold_set: null,
+  }]);
+
   for (const [name, lat, lon] of [
     ['Brooklyn Boulders Queensbridge', 40.7527726, -73.9405401],
     ['Hangar 18 Arcadia', 34.1432717, -118.0319401],

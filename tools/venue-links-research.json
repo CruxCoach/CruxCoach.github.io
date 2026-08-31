@@ -1388,8 +1388,9 @@
     "name": "Caffeine Heights (aka Ben's Moon Board)",
     "country": "GB",
     "status": "unverified",
-    "reason": "No official site could be established, and the row is unlikely to be a venue: upstream calls it \"Caffeine Heights (aka Ben's Moon…)\" and places it at 51.5072,-0.1276, which is the value every gazetteer returns for the city of London itself. A private board given a joke name and a city centroid is not a place that can be verified.",
-    "checked": "2026-08-25"
+    "candidate": "https://climbingdistrict.uk/climbing-gym/london-fields/",
+    "reason": "No official site could be established for Caffeine Heights, and the row is unlikely to be a venue: its coordinate is the generic centre point for London. Kilter's locator independently misplaces the former Stronghold London Fields at exactly this same default coordinate; the current operator instead identifies its Kilter Board at Unit 30 Canal Place, 5.7 km away, where the production venue already sits. A coordinate-wide exclusion cannot be used because it would also remove these unrelated MoonBoard rows, so both identities remain explicitly unresolved at this collision point.",
+    "checked": "2026-08-31"
   },
   {
     "lat": 19.29568,
@@ -4062,5 +4063,35 @@
     "checked": "2026-08-31",
     "candidate": "https://brooklynboulders.zendesk.com/hc/en-us/articles/360053061373-Phone-Numbers-Locations-and-Transit",
     "reason": "The current official location/contact article lists Queensbridge and West Loop and no Lincoln Park, while an official 2023 article still named Lincoln Park as a branch. No current first-party closure statement or branch page was found, and the old locator domain is not usable as current proof. Omission from a current list is not enough to publish or exclude this Kilter pin."
+  },
+  {
+    "lat": 50.9154376,
+    "lon": -1.4539954,
+    "name": "TCH Southampton",
+    "country": "GB",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.theclimbinghangar.com/locations/southampton",
+    "reason": "The current official Southampton page places the venue and its 50-degree Kilter Board at Third Avenue, SO15 0LD. The address-bearing production row is already at that real branch coordinate about 260 m east; this older manufacturer pin falls outside the building and would create a second marker for the same board."
+  },
+  {
+    "lat": 53.1046782,
+    "lon": -1.5623885,
+    "name": "The Climbing Hangar Sheffield",
+    "country": "GB",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.theclimbinghangar.com/locations/sheffield",
+    "reason": "The current official Sheffield page identifies its Kilter Board and exact Unit A & B, 15 Sutherland Street, S4 7WG address. The address-bearing production venue is already at that real branch in Sheffield; this locator point is roughly 36 km south near Matlock and is materially wrong."
+  },
+  {
+    "lat": 51.4471225,
+    "lon": -0.1911943,
+    "name": "The Font Climbing - Wandsworth",
+    "country": "GB",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.the-font.co.uk/announcement",
+    "reason": "The operator's official relocation announcement says the Wandsworth staff and existing 16x12 adjustable Kilter Board moved from the former Lydden Road gym to the new 52-58 Garratt Lane venue. The current branch page identifies that address, where the production board row already sits; this old locator coordinate must not create the retired branch again."
   }
 ]

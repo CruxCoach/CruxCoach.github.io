@@ -181,5 +181,29 @@
       "lon": -1.754,
       "name": "Rockstar Climbing & Bouldering"
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 51.45496,
+    "lon": -0.193,
+    "name": "Parthian Climbing Wandsworth",
+    "note": "The operator's relocation announcement says The Font moved its existing 16x12 adjustable Kilter Board to the current Garratt Lane venue; its current official board guide gives a 15-60 degree range. Normalize the former Parthian name and obsolete fixed 12x12 wall profile.",
+    "set": {
+      "name": "The Font Wandsworth",
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": null,
+          "size_label": "16x12",
+          "adjustable": true,
+          "angle": null,
+          "min_angle": 15,
+          "max_angle": 60,
+          "angle_increments": null,
+          "hold_set": null
+        }
+      ]
+    }
   }
 ]

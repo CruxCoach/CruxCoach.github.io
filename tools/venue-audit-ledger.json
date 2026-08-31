@@ -1463,6 +1463,23 @@
    }
   },
   {
+   "lat": -27.4549218,
+   "lon": 153.0328871,
+   "name": "ICP Boulder Hall & Showroom",
+   "country": "AU",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "no-hours-on-official-site",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": -33.8688197,
    "lon": 151.2092955,
    "name": "Illyria's Board",
@@ -2832,8 +2849,13 @@
     "hours"
    ],
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-25",
+    "result": "no-hours-on-official-site",
+    "channels": [
+     "venue-link",
+     "operator-index",
+     "path-probe"
+    ]
    }
   },
   {
@@ -14911,6 +14933,24 @@
     "pass": "2026-08-25",
     "result": "inaccessible",
     "channels": [
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 51.45496,
+   "lon": -0.193,
+   "name": "The Font Wandsworth",
+   "country": "GB",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "operator-index",
      "path-probe"
     ]
    }
@@ -33595,6 +33635,23 @@
    }
   },
   {
+   "lat": 37.6878446,
+   "lon": -113.081693,
+   "name": "Iron Cliffs Gym",
+   "country": "US",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "inaccessible",
+    "channels": [
+     "venue-link",
+     "booking-page"
+    ]
+   }
+  },
+  {
    "lat": 40.7876564,
    "lon": -73.4654844,
    "name": "Island Rock",
@@ -39186,40 +39243,6 @@
     "channels": [
      "venue-link",
      "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": -27.4549218,
-   "lon": 153.0328871,
-   "name": "ICP Boulder Hall & Showroom",
-   "country": "AU",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-08-31",
-    "result": "no-hours-on-official-site",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 37.6878446,
-   "lon": -113.081693,
-   "name": "Iron Cliffs Gym",
-   "country": "US",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-08-31",
-    "result": "inaccessible",
-    "channels": [
-     "venue-link",
-     "booking-page"
     ]
    }
   }

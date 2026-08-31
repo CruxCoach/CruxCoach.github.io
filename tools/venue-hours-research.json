@@ -8655,14 +8655,24 @@
   "source": "https://ironcliffs.com/",
   "reason": "The official site identifies the active public Cedar City gym but prints no weekly hours. Its official membership and pass portal is the remaining likely source and answers this research client with HTTP 403, so the schedule remains retryable rather than being inferred."
  },
- {
-  "lat": 33.84918,
+  {
+    "lat": 33.84918,
   "lon": -118.35146,
   "name": "Class 5 Climbing",
   "country": "US",
   "status": "duplicate",
   "checked": "2026-08-31",
-  "source": "https://touchstoneclimbing.com/class-5/",
-  "reason": "This is the same Class 5 gym as the address-bearing venue point 10 m away, whose current official branch schedule remains published. The second identical schedule was removed with the duplicate marker; no opening-hours information was lost."
- }
+    "source": "https://touchstoneclimbing.com/class-5/",
+    "reason": "This is the same Class 5 gym as the address-bearing venue point 10 m away, whose current official branch schedule remains published. The second identical schedule was removed with the duplicate marker; no opening-hours information was lost."
+  },
+  {
+    "lat": 51.45496,
+    "lon": -0.193,
+    "name": "The Font Wandsworth",
+    "country": "GB",
+    "status": "ambiguous",
+    "checked": "2026-08-31",
+    "source": "https://www.the-font.co.uk/wandsworth",
+    "reason": "The current branch page states Monday-Friday 06:00-22:00, while the operator's current locations homepage states Monday and Friday 06:00-21:00 and Tuesday-Thursday 06:00-22:00. A cached rendering of the same branch page still says 06:15-22:00. The formerly published week is withdrawn until the operator's own pages agree."
+  }
 ]
