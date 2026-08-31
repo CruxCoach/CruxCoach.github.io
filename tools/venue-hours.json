@@ -32506,5 +32506,21 @@
    "thu": "06:00-22:00", "fri": "06:00-22:00", "sat": "08:00-20:00", "sun": "08:00-20:00"
   },
   "evidence": "Longmont Climbing Collective, 155 Pinnacle Street, Longmont, CO 80504. Hours: Monday-Friday 6:00 AM-10:00 PM; Saturday-Sunday 8:00 AM-8:00 PM."
+ },
+ {
+  "lat": 37.59289,
+  "lon": 126.67303,
+  "name": "디스커버리 클라임스퀘어 Climbsquare ICN",
+  "country": "KR",
+  "source": "https://www.climbingsquare.kr/icn",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "city", "location-page", "hours-scope"],
+  "hours": {
+   "mon": "10:00-23:00", "tue": "10:00-23:00", "wed": "10:00-23:00",
+   "thu": "10:00-23:00", "fri": "17:00-23:00", "sat": "10:00-19:00", "sun": "10:00-19:00"
+  },
+  "evidence": "운영시간 - 월~목요일: 10.00~23.00 - 금요일: 17.00~23.00 - 토,일요일: 10.00~19.00 - 공휴일: 10.00~19.00",
+  "note": "The ICN branch page prints one ordinary seven-day schedule. Its separate public-holiday line does not alter the regular week recorded here."
  }
 ]

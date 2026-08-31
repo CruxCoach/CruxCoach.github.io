@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-08-31T20:54:59.926Z",
-  "venue_features": 2846,
-  "raw_entries": 3105,
+  "generated_at": "2026-08-31T21:06:19.974Z",
+  "venue_features": 2845,
+  "raw_entries": 3104,
   "venues_with_multiple_boards": 118,
-  "country_from_coder": 2846,
+  "country_from_coder": 2845,
   "country_from_fallback": 0,
   "country_missing": 0,
   "city_from_upstream": 1087,
-  "city_from_nearest": 1635,
+  "city_from_nearest": 1634,
   "city_missing": 124,
   "nearest_city_max_km": 25,
   "exclusions": {
-    "defined": 60,
-    "matched_venues": 19,
-    "excluded_entries": 20,
-    "unmatched": 41
+    "defined": 65,
+    "matched_venues": 20,
+    "excluded_entries": 21,
+    "unmatched": 45
   },
   "overrides": {
     "defined": 27,
@@ -43,8 +43,8 @@
     }
   },
   "venue_hours": {
-    "defined": 1313,
-    "applied": 1313,
+    "defined": 1314,
+    "applied": 1314,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -54,12 +54,12 @@
     "open_24h_days": 36,
     "by_provenance": {
       "official-chain-page": 108,
-      "official-location-page": 497,
+      "official-location-page": 498,
       "official-site": 708
     }
   },
   "per_board": {
-    "kilter": 1137,
+    "kilter": 1136,
     "tension": 368,
     "grasshopper": 42,
     "decoy": 24,
@@ -71,7 +71,7 @@
     "quantum": 9
   },
   "per_source": {
-    "hangtime": 3062,
+    "hangtime": 3061,
     "curated": 34,
     "quantum": 9
   },

@@ -18660,22 +18660,6 @@
     "note": "The gazetteer has the gym two metres from this coordinate tagged tupclimbing.tw. The operator gives each branch a path, and the Wanhua one prints \"10855 台北市萬華區大理街149號\" — upstream's address for this row, 大理街149號 in Wanhua."
   },
   {
-    "lat": 25.00201,
-    "lon": 121.20233,
-    "name": "原岩攀岩館─A19店 T-UP Climbing Gym A19 Branch",
-    "country": "TW",
-    "website": "https://tupclimbing.tw/branch/a19",
-    "verified": "2026-08-24",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city"
-    ],
-    "note": "The operator's page for this branch, printing \"320014 桃園市中壢區高鐵南路二段352號（Global Mall環球購物中心4樓）\" — upstream's address including the floor — and listing a Kilter board among its facilities."
-  },
-  {
     "lat": 50.4425234,
     "lon": 30.4495923,
     "name": "12C Board classic (Climbing gym \"KPIskala\")",
@@ -27344,5 +27328,21 @@
       "location-page"
     ],
     "note": "Vita Beta's current contact page separates its two halls and identifies this branch as Level 2, K11 HACC, K11 ATELIER King's Road, 728 King's Road, Quarry Bay. The manufacturer's exact pin independently identifies the Kilter Board at this second public branch."
+  },
+  {
+    "lat": 37.59289,
+    "lon": 126.67303,
+    "name": "디스커버리 클라임스퀘어 Climbsquare ICN",
+    "country": "KR",
+    "website": "https://www.climbingsquare.kr/icn",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator's current ICN headquarters page identifies the branch at 인천광역시 서구 완정로 70 5층, exactly the address carried by the production row. It also distinguishes the ICN, Songdo and Cheongna branches and lists a system-board area."
   }
 ]

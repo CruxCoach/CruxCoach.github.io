@@ -709,9 +709,10 @@
     "lon": 120.10717,
     "name": "Green Geckos Climbing Base 绿壁虎攀岩基地",
     "country": "CN",
-    "status": "unverified",
-    "reason": "No official site could be established: Green Geckos 绿壁虎 is inside 杭州汽车文化主题公园 and greengeckos.cn does not resolve. Mainland Chinese gyms publish on WeChat, Dianping and Xiaohongshu rather than on websites, and none of those is a site this file can store or a reader without an account can open.",
-    "checked": "2026-08-25"
+    "status": "ambiguous",
+    "candidate": "https://hznews.hangzhou.com.cn/jingji/content/2026-01/15/content_9162195.htm",
+    "reason": "Current Hangzhou reporting explicitly identifies Green Gecko as a tenant of Tcar杭州汽车文化主题公园, and a second current report places that park at 沈半路171号. That verifies the public venue and the production address, but not the production coordinate: the frozen point, Kilter's live locator point (which already carries an unrelated MoonBoard Left row), and the only precise directory point are all kilometres apart. No venue-owned page or primary embedded map resolves which point inside the 120-mu park is correct, and greengeckos.cn does not resolve. The marker therefore remains unchanged and retryable rather than being moved from directory data.",
+    "checked": "2026-08-31"
   },
   {
     "lat": 31.170532038108448,
@@ -817,9 +818,9 @@
     "lon": 113.8877,
     "name": "Upper Climbing Gym",
     "country": "CN",
-    "status": "unverified",
-    "reason": "No official site could be established: the row records only a district — 广东省深圳市宝安区 with a postcode — and no street. Nothing publishes under Upper Climbing Gym in Shenzhen that could be reached. Mainland Chinese gyms publish on WeChat, Dianping and Xiaohongshu rather than on websites, and none of those is a site this file can store or a reader without an account can open.",
-    "checked": "2026-08-25"
+    "status": "ambiguous",
+    "reason": "The production and locator rows both say only Upper Climbing Gym in Shenzhen with district-level addresses, while current discovery results distinguish multiple Upper branches, including Longhua and Qiaocheng. Shenzhen government records corroborate an Upper Qiaocheng climbing operator but do not identify its board or connect either manufacturer coordinate to a branch. No venue-owned branch page, exact address or Kilter statement was reachable, so neither point can be assigned or excluded without risking a cross-branch merge.",
+    "checked": "2026-08-31"
   },
   {
     "lat": 22.35573,
@@ -2267,15 +2268,6 @@
     "country": "KR",
     "status": "unverified",
     "reason": "No official site could be established: 더클라임 is a real chain and theclimb.co.kr is its domain — and it serves nothing over https, and nothing but an empty document over http. Its branch pages cannot be read, so the Yangjae hall cannot be matched to one.",
-    "checked": "2026-08-25"
-  },
-  {
-    "lat": 37.59289,
-    "lon": 126.67303,
-    "name": "디스커버리 클라임스퀘어 Climbsquare ICN",
-    "country": "KR",
-    "status": "unverified",
-    "reason": "No official site could be established: climbsquare.co.kr does not resolve. Upstream records 인천광역시 서구 완정로 70 5층 and files the row under Gimpo, which is a different city across the river.",
     "checked": "2026-08-25"
   },
   {
@@ -4618,5 +4610,53 @@
     "checked": "2026-08-31",
     "candidate": "https://www.salewa-cube.com/de/waltherpark",
     "reason": "The live manufacturer row and current official Waltherpark page both print Südtiroler Platz 1, 39100 Bozen. The address-bearing production venue represents that branch at 46.47043,11.31389, while this locator coordinate is 4.3 km east beside Salewa's separate headquarters area. The current operator distinguishes Headquarters and Waltherpark as separate locations, so this pin is excluded in favour of the branch-specific production row."
+  },
+  {
+    "lat": 30.2425899,
+    "lon": 120.16929,
+    "name": "CLIFFS 攀岩馆",
+    "country": "CN",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "reason": "Kilter's live row prints the exact production address, 杭州市上城区石桥路51号东方时代中心三楼, but places its pin 6.1 km away. The address-bearing production point at 30.29286,120.19591 is independently corroborated within about 60 m by the current mapped venue identity. The self-contradictory locator coordinate is excluded in favour of that address-bearing point; the venue still has no reachable official website or publishable hours."
+  },
+  {
+    "lat": 37.6248093,
+    "lon": 126.6704112,
+    "name": "디스커버리 클라임스퀘어 Climbsquare ICN",
+    "country": "KR",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.climbingsquare.kr/icn",
+    "reason": "The live manufacturer row prints 인천광역시 서구 완정로 70 5층 and links the operator's current ICN headquarters page, which prints that same exact address. The address-bearing production point at 37.59289,126.67303 represents the branch, while this locator pin is 3.6 km north and would duplicate it, so it is excluded in favour of the branch-primary row."
+  },
+  {
+    "lat": 25.00201,
+    "lon": 121.20233,
+    "name": "原岩攀岩館─A19店 T-UP Climbing Gym A19 Branch",
+    "country": "TW",
+    "status": "closed",
+    "checked": "2026-08-31",
+    "candidate": "https://tupclimbing.tw/news/announcement/584",
+    "reason": "The operator's dated closure notice states that 31 August 2026 is A19's final business day because its Global Mall lease expired. It was already 1 September in Taiwan when this review ran, so the formerly verified production branch is removed rather than retaining a stale marker. The planned future Zhongli branch is not treated as a relocation because no address or opening confirmation is published."
+  },
+  {
+    "lat": 24.9721514,
+    "lon": 121.2053963,
+    "name": "原岩攀岩館─A19店 T-UP Climbing Gym A19 Branch",
+    "country": "TW",
+    "status": "closed",
+    "checked": "2026-08-31",
+    "candidate": "https://tupclimbing.tw/news/announcement/584",
+    "reason": "This live manufacturer point names the same A19 branch and prints its Global Mall address. The operator states that 31 August 2026 was the branch's final business day; both the locator pin and the separate production pin are therefore excluded after closure."
+  },
+  {
+    "lat": 34.24118,
+    "lon": 108.96707,
+    "name": "老陕攀登共创俱乐部 Qin Climbing Co-Creation Club",
+    "country": "CN",
+    "status": "duplicate",
+    "checked": "2026-08-31",
+    "reason": "Kilter's live locator carries a second row for the same distinctive club name at the exact address-bearing production coordinate, 34.24296,108.93182, with the 12x12 Original adjustable profile. This generic Youyi East Road point 3.2 km east has no profile details and would duplicate that same manufacturer-listed venue, so it is excluded in favour of the exact row."
   }
 ]

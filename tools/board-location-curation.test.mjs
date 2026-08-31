@@ -376,6 +376,16 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(longmont[0].properties.boards[0].walls[0].size_label, '14x12 Super Tall, with Kickboard');
 
   assert.equal(features.some(feature => feature.properties.name === 'Raccoon' && feature.properties.country === 'CR'), false);
+
+  const climbSquareIcn = at(features, 37.59289, 126.67303);
+  assert.equal(climbSquareIcn.length, 1);
+  assert.equal(climbSquareIcn[0].properties.website, 'https://www.climbingsquare.kr/icn');
+  assert.deepEqual(climbSquareIcn[0].properties.hours, [
+    '10:00-23:00', '10:00-23:00', '10:00-23:00', '10:00-23:00',
+    '17:00-23:00', '10:00-19:00', '10:00-19:00',
+  ]);
+
+  assert.equal(features.some(feature => feature.properties.name.includes('T-UP Climbing Gym A19')), false);
   for (const [lat, lon] of [
     [31.9543786, 35.9105776],
     [-6.1138942, 106.7853922],
@@ -383,6 +393,11 @@ test('committed map data includes the missing boards and merges the corrected ve
     [46.496264, 11.3559851],
     [9.887011856968725, -83.90448881843531],
     [9.8703962, -83.9405677],
+    [30.2425899, 120.16929],
+    [37.6248093, 126.6704112],
+    [25.00201, 121.20233],
+    [24.9721514, 121.2053963],
+    [34.24118, 108.96707],
   ]) assert.equal(at(features, lat, lon).length, 0);
 
   assert.equal(at(features, 46.8753166, -96.7668897).length, 0);

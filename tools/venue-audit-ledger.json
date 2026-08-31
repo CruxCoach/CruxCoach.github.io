@@ -7117,25 +7117,25 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "ambiguous",
     "channels": [
      "name-guess",
-     "apex",
-     "www",
      "web-search",
      "social-profile",
+     "government-news",
+     "manufacturer-locator",
+     "map-directory",
      "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "web-search",
+     "government-news",
+     "previous-record"
     ]
    }
   },
@@ -7638,25 +7638,25 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "ambiguous",
     "channels": [
      "name-guess",
-     "apex",
-     "www",
      "web-search",
      "social-profile",
+     "government-record",
+     "manufacturer-locator",
      "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "web-search",
+     "government-record",
+     "previous-record"
     ]
    }
   },
@@ -20254,25 +20254,20 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
      "web-search",
-     "social-profile",
-     "previous-record"
+     "official-location-page",
+     "manufacturer-locator"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "official-location-page"
     ]
    }
   },
@@ -29506,19 +29501,17 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
-    "result": "accepted",
+    "pass": "2026-08-31",
+    "result": "closed",
     "channels": [
-     "osm-website-tag",
-     "name-guess",
-     "path-probe"
+     "official-closure-notice"
     ]
    },
    "hours": {
-    "pass": "2026-08-24",
-    "result": "ambiguous",
+    "pass": "2026-08-31",
+    "result": "closed",
     "channels": [
-     "venue-link"
+     "official-closure-notice"
     ]
    }
   },
