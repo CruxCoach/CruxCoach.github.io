@@ -345,6 +345,73 @@ const ENTRIES = [
     walls: [],
   },
   {
+    // Current public branch and address: https://qb.brooklynboulders.com/
+    // Kilter access/layout/size/frame and coordinates: official manufacturer
+    // locator https://settercloset.com/pages/kb-locator (StoreRocket id 22029425)
+    source: 'curated',
+    board: 'kilter',
+    name: 'Brooklyn Boulders Queensbridge',
+    lat: 40.7527726,
+    lon: -73.9405401,
+    address: '23-10 41st Ave, Long Island City, NY 11101',
+    city: 'Long Island City',
+    country: 'US',
+    walls: [{
+      wall_name: null,
+      layout: 'Original',
+      size_id: null,
+      size_label: '12x12',
+      adjustable: true,
+      angle: null,
+      min_angle: null,
+      max_angle: null,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
+    // Current public branch and address: https://climbhangar18.com/arcadia/
+    // Kilter identity and coordinates: official manufacturer locator
+    // https://settercloset.com/pages/kb-locator (StoreRocket id 22029453)
+    source: 'curated',
+    board: 'kilter',
+    name: 'Hangar 18 Arcadia',
+    lat: 34.1432717,
+    lon: -118.0319401,
+    address: '305 N Santa Anita Ave, Arcadia, CA 91006',
+    city: 'Arcadia',
+    country: 'US',
+    walls: [],
+  },
+  {
+    // Current public branch and address: https://climbhangar18.com/riverside/
+    // Kilter identity and coordinates: official manufacturer locator
+    // https://settercloset.com/pages/kb-locator (StoreRocket id 34137801)
+    source: 'curated',
+    board: 'kilter',
+    name: 'Hangar 18 Riverside',
+    lat: 33.9460709,
+    lon: -117.446141,
+    address: '6935 Arlington Avenue, Riverside, CA 92503',
+    city: 'Riverside',
+    country: 'US',
+    walls: [],
+  },
+  {
+    // Current public branch and address: https://climbhangar18.com/upland/
+    // Kilter identity and coordinates: official manufacturer locator
+    // https://settercloset.com/pages/kb-locator (StoreRocket id 34182346)
+    source: 'curated',
+    board: 'kilter',
+    name: 'Hangar 18 Upland',
+    lat: 34.0938889,
+    lon: -117.6475,
+    address: '256 E Stowell St, Upland, CA 91786',
+    city: 'Upland',
+    country: 'US',
+    walls: [],
+  },
+  {
     // The anonymous official Tension app endpoint identifies the board:
     // https://tensionboardapp2.com/pins?gyms=1
     // The venue's current expansion notice confirms two adjustable training

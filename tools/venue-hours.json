@@ -32294,5 +32294,75 @@
    "sun": "09:00-20:00"
   },
   "evidence": "Norfolk 1830 Lindsay Avenue Norfolk, Virginia 23504 Hours M-F: 8am - 10pm Sat: 9am - 10pm Sun: 9am - 8pm"
+ },
+ {
+  "lat": 40.7527726,
+  "lon": -73.9405401,
+  "name": "Brooklyn Boulders Queensbridge",
+  "country": "US",
+  "source": "https://qb.brooklynboulders.com/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "HOURS | M-F | 7AM-10PM | S-S | 9AM-8PM"
+ },
+ {
+  "lat": 34.1432717,
+  "lon": -118.0319401,
+  "name": "Hangar 18 Arcadia",
+  "country": "US",
+  "source": "https://climbhangar18.com/arcadia/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "location-page", "street-address", "city"],
+  "hours": {
+   "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+   "thu": "10:00-22:00", "fri": "10:00-21:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+  },
+  "evidence": "Monday 10:00 AM - 10:00 PM; Tuesday 10:00 AM - 10:00 PM; Wednesday 10:00 AM - 10:00 PM; Thursday 10:00 AM - 10:00 PM; Friday 10:00 AM - 9:00 PM; Saturday 10:00 AM - 8:00 PM; Sunday 10:00 AM - 8:00 PM"
+ },
+ {
+  "lat": 33.9460709,
+  "lon": -117.446141,
+  "name": "Hangar 18 Riverside",
+  "country": "US",
+  "source": "https://climbhangar18.com/riverside/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "location-page", "street-address", "city"],
+  "hours": {
+   "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+   "thu": "10:00-22:00", "fri": "10:00-21:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+  },
+  "evidence": "Monday 10:00 AM - 10:00 PM; Tuesday 10:00 AM - 10:00 PM; Wednesday 10:00 AM - 10:00 PM; Thursday 10:00 AM - 10:00 PM; Friday 10:00 AM - 9:00 PM; Saturday 10:00 AM - 8:00 PM; Sunday 10:00 AM - 8:00 PM"
+ },
+ {
+  "lat": 34.0938889,
+  "lon": -117.6475,
+  "name": "Hangar 18 Upland",
+  "country": "US",
+  "source": "https://climbhangar18.com/upland/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "location-page", "street-address", "city"],
+  "hours": {
+   "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+   "thu": "10:00-22:00", "fri": "10:00-21:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+  },
+  "evidence": "Monday 10:00 AM - 10:00 PM; Tuesday 10:00 AM - 10:00 PM; Wednesday 10:00 AM - 10:00 PM; Thursday 10:00 AM - 10:00 PM; Friday 10:00 AM - 9:00 PM; Saturday 10:00 AM - 8:00 PM; Sunday 10:00 AM - 8:00 PM"
  }
 ]

@@ -40,6 +40,10 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Class 5', 'touchstone'],
     ["Adventure Rock Walker's Point", 'kilter'],
     ['Latitude Climbing Norfolk', 'kilter'],
+    ['Brooklyn Boulders Queensbridge', 'kilter'],
+    ['Hangar 18 Arcadia', 'kilter'],
+    ['Hangar 18 Riverside', 'kilter'],
+    ['Hangar 18 Upland', 'kilter'],
     ['KiipeilyAreena Salmisaari', 'tension'],
   ]);
   for (const entry of entries) {
@@ -88,6 +92,18 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(spire.length, 1);
   assert.deepEqual(new Set(boardIds(spire[0])), new Set(['kilter', 'tension']));
   assert.equal(at(features, 45.656304, -111.069708).length, 0);
+
+  for (const [name, lat, lon] of [
+    ['Brooklyn Boulders Queensbridge', 40.7527726, -73.9405401],
+    ['Hangar 18 Arcadia', 34.1432717, -118.0319401],
+    ['Hangar 18 Riverside', 33.9460709, -117.446141],
+    ['Hangar 18 Upland', 34.0938889, -117.6475],
+  ]) {
+    const venue = at(features, lat, lon);
+    assert.equal(venue.length, 1);
+    assert.equal(venue[0].properties.name, name);
+    assert.deepEqual(boardIds(venue[0]), ['kilter']);
+  }
 
   for (const [name, lat, lon] of [
     ['Climbing SPACE', 50.4887793, 30.4906293],
