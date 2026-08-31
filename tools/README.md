@@ -582,6 +582,15 @@ exclusions, explicit private rows and likely coordinate drift are separated so
 the residual worklist is reproducible. `--input file.json` accepts a previously
 fetched response for tests or an exact-repeat audit.
 
+### Touchstone chain board audit
+
+Touchstone's current official training-board guide is a structured, chain-wide
+supplement for four supported systems. The reviewed matrix, count discrepancy,
+future installations and branch-level corroboration are recorded in
+`TOUCHSTONE-CHAIN-BOARDS.md`. Curated rows recover only current boards absent
+from the frozen registries; existing rows are corrected with `overrides.json`,
+and near-coordinate duplicates use the backed exclusion workflow.
+
 - Prefer sources with explicit public-domain or permissive licensing.
 - Drop free-form `description`/`bio` text at the adapter — historical
   MoonBoard entries contain SEO/casino spam from owner-set descriptions.

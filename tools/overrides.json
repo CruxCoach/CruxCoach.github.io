@@ -113,5 +113,28 @@
       "lat": 42.6655983,
       "lon": 23.37440014
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 37.81005,
+    "lon": -122.27017,
+    "name": "Great Western Power Company",
+    "note": "Touchstone's current official training-board guide states that every Kilter Board in its seven-location inventory is the adjustable 12x12 Original; correct the registry's obsolete 14x12 size while retaining its current set angle.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 45,
+          "min_angle": null,
+          "max_angle": null,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
   }
 ]

@@ -20423,21 +20423,6 @@
     "note": "The same gym as the row 10 m away, which upstream also records as Class 5 Climbing. Touchstone's page for it gives \"Torrance, CA\" and 90503; this row carries 20120 Hawthorne Blvd, 90503, Torrance, so the postcode matches as well as the town. Touchstone answers 403 to every fetcher, and the page was read from the same snapshot the neighbouring row rests on."
   },
   {
-    "lat": 33.84918,
-    "lon": -118.35146,
-    "name": "Class 5 Climbing",
-    "country": "US",
-    "website": "https://touchstoneclimbing.com/class-5/",
-    "verified": "2026-08-24",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "city",
-      "location-page"
-    ],
-    "note": "Touchstone's own page for Class 5, titled for the gym and giving \"Torrance, CA\" and 90503 — the town upstream records, for which no street is recorded. The host answers 403 to every fetcher and header set, so the page was read from a snapshot of 31 December 2025; the hours record stays inaccessible, because a schedule is not something to take from a snapshot."
-  },
-  {
     "lat": 36.35673,
     "lon": -94.21992,
     "name": "Climb Bentonville",
@@ -27099,5 +27084,24 @@
       "location-page"
     ],
     "note": "The current operator page identifies a public Kyiv climbing and bouldering venue at Kostiantynivska 73 / Kyrylivska 46; the 12Climb manufacturer KML independently identifies its board and matching coordinate."
+  },
+  {
+    "lat": 34.0331,
+    "lon": -118.3707,
+    "name": "Cliffs of Id",
+    "country": "US",
+    "website": "https://touchstoneclimbing.com/cliffs-of-id/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention",
+      "location-page",
+      "coordinates"
+    ],
+    "note": "The current official branch page identifies the public Culver City gym at 2537 S Fairfax Ave, and its own embedded map supplies the coordinate. The branch amenities page identifies its fixed 40-degree 2024 MoonBoard."
   }
 ]

@@ -32,6 +32,12 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Climbing SPACE', '12climb'],
     ['Funattic', '12climb'],
     ['Hyperion Kyiv', '12climb'],
+    ['Team Touchstone', 'moonboard'],
+    ['Pacific Pipe Climbing', 'moonboard'],
+    ['Cliffs of Id', 'moonboard'],
+    ['The Post Climbing', 'moonboard'],
+    ['Hyperion Climbing', 'moonboard'],
+    ['Class 5', 'touchstone'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -94,6 +100,42 @@ test('committed map data includes the missing boards and merges the corrected ve
   }
   assert.equal(at(features, 50.416134, 30.4683816).length, 0);
   assert.equal(at(features, 50.472918, 30.5129492).length, 0);
+
+  for (const [name, lat, lon, variant] of [
+    ['Team Touchstone', 37.85118, -122.29303, 'mb2019-masters'],
+    ['Pacific Pipe Climbing', 37.81644, -122.28852, 'mb2016'],
+    ['Cliffs of Id', 34.0331, -118.3707, 'mb2024'],
+    ['The Post Climbing', 34.16505, -118.15031, 'mb2019-masters'],
+    ['Hyperion Climbing', 37.48421, -122.21474, 'mb2024'],
+  ]) {
+    const venue = at(features, lat, lon);
+    assert.equal(venue.length, 1, name);
+    const moonboard = venue[0].properties.boards.find(board => board.board === 'moonboard');
+    assert.ok(moonboard, name);
+    assert.equal(moonboard.variant, variant, name);
+  }
+  const cliffs = at(features, 34.0331, -118.3707)[0];
+  assert.equal(cliffs.properties.boards[0].angle, 40);
+  assert.equal(cliffs.properties.website, 'https://touchstoneclimbing.com/cliffs-of-id/');
+  assert.equal(cliffs.properties.hours.length, 7);
+
+  const class5 = at(features, 33.84909, -118.35149);
+  assert.equal(class5.length, 1);
+  assert.deepEqual(new Set(boardIds(class5[0])), new Set(['kilter', 'tension', 'touchstone']));
+  assert.equal(at(features, 33.84918, -118.35146).length, 0);
+
+  const gwpc = at(features, 37.81005, -122.27017)[0];
+  const gwpcKilter = gwpc.properties.boards.find(board => board.board === 'kilter');
+  assert.equal(gwpcKilter.walls[0].size_label, '12x12, with Kickboard');
+
+  const touchstoneBoards = features.flatMap(feature => feature.properties.boards)
+    .filter(board => board.board === 'touchstone');
+  assert.equal(touchstoneBoards.length, 5);
+  for (const board of touchstoneBoards) {
+    assert.equal(board.adjustable, false);
+    assert.equal(board.angle, 35);
+    assert.equal(board.led, true);
+  }
 });
 
 test('the map bypasses pre-Quantum service-worker cache entries', () => {
@@ -103,6 +145,6 @@ test('the map bypasses pre-Quantum service-worker cache entries', () => {
   for (const page of ['boards/index.html', 'de/boards/index.html']) {
     const html = readFileSync(join(REPO_ROOT, page), 'utf8');
     assert.match(html, /rel="preload" href="\/boards\/data\/boards\.geojson\?v=20260831-quantum9"/);
-    assert.match(html, /map\.js\?v=20260831-2/);
+    assert.match(html, /map\.js\?v=20260831-3/);
   }
 });

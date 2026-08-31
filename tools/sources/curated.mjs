@@ -217,6 +217,103 @@ const ENTRIES = [
     city: 'Kyiv',
     country: 'UA',
   },
+  {
+    // Current chain-wide board inventory and version:
+    // https://touchstoneclimbing.com/touchstone-training-boards/
+    // Branch identity/address: https://touchstoneclimbing.com/team-training-center/
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Team Touchstone',
+    lat: 37.85118,
+    lon: -122.29303,
+    city: 'Berkeley',
+    country: 'US',
+    commercial: true,
+    led: null,
+    variant: 'mb2019-masters',
+    angle: null,
+  },
+  {
+    // Current chain-wide board inventory and version:
+    // https://touchstoneclimbing.com/touchstone-training-boards/
+    // Branch confirmation: https://touchstoneclimbing.com/pacific-pipe/tour-and-amenities/
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Pacific Pipe Climbing',
+    lat: 37.81644,
+    lon: -122.28852,
+    city: 'Oakland',
+    country: 'US',
+    commercial: true,
+    led: null,
+    variant: 'mb2016',
+    angle: null,
+  },
+  {
+    // Current board/version/angle and public branch details:
+    // https://touchstoneclimbing.com/cliffs-of-id/tour-and-amenities/
+    // The coordinate is the map pin embedded by that official branch page.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Cliffs of Id',
+    lat: 34.0331,
+    lon: -118.3707,
+    city: 'Culver City',
+    country: 'US',
+    commercial: true,
+    led: null,
+    variant: 'mb2024',
+    angle: 40,
+  },
+  {
+    // Current chain-wide board inventory and version:
+    // https://touchstoneclimbing.com/touchstone-training-boards/
+    // Branch confirmation: https://touchstoneclimbing.com/the-post/tour/
+    source: 'curated',
+    board: 'moonboard',
+    name: 'The Post Climbing',
+    lat: 34.16505,
+    lon: -118.15031,
+    city: 'Pasadena',
+    country: 'US',
+    commercial: true,
+    led: null,
+    variant: 'mb2019-masters',
+    angle: null,
+  },
+  {
+    // Current chain-wide board inventory and version:
+    // https://touchstoneclimbing.com/touchstone-training-boards/
+    // Branch confirmation: https://touchstoneclimbing.com/hyperion/tour-and-amenities/
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Hyperion Climbing',
+    lat: 37.48421,
+    lon: -122.21474,
+    city: 'Redwood City',
+    country: 'US',
+    commercial: true,
+    led: null,
+    variant: 'mb2024',
+    angle: null,
+  },
+  {
+    // The Touchstone app point is 10 m from the co-located Kilter/Tension
+    // point and produced a duplicate marker. The backed upstream exclusion
+    // removes that point; the current official branch/board guide establishes
+    // this replacement at the address-bearing venue coordinate.
+    source: 'curated',
+    board: 'touchstone',
+    name: 'Class 5',
+    lat: 33.84909,
+    lon: -118.35149,
+    city: 'Torrance',
+    country: 'US',
+    username: 'class5gym',
+    adjustable: false,
+    angle: 35,
+    led: true,
+  },
 ];
 
 export async function load() {

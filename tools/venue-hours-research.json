@@ -8654,5 +8654,15 @@
   "checked": "2026-08-31",
   "source": "https://ironcliffs.com/",
   "reason": "The official site identifies the active public Cedar City gym but prints no weekly hours. Its official membership and pass portal is the remaining likely source and answers this research client with HTTP 403, so the schedule remains retryable rather than being inferred."
+ },
+ {
+  "lat": 33.84918,
+  "lon": -118.35146,
+  "name": "Class 5 Climbing",
+  "country": "US",
+  "status": "duplicate",
+  "checked": "2026-08-31",
+  "source": "https://touchstoneclimbing.com/class-5/",
+  "reason": "This is the same Class 5 gym as the address-bearing venue point 10 m away, whose current official branch schedule remains published. The second identical schedule was removed with the duplicate marker; no opening-hours information was lost."
  }
 ]

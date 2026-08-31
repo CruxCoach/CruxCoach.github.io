@@ -48,7 +48,7 @@ export const WEBSITE_RESULTS = new Set([
   'unverified', 'no-website', 'social-only', 'http-only', 'pending',
 ]);
 export const HOURS_RESULTS = new Set([
-  'accepted', 'private', 'closed', 'no-official-site', 'no-hours-on-official-site',
+  'accepted', 'private', 'closed', 'duplicate', 'no-official-site', 'no-hours-on-official-site',
   'ambiguous', 'seasonal', 'appointment-only', 'inaccessible', 'pending',
 ]);
 

@@ -561,6 +561,7 @@ export function loadVenueHours(file) {
 export const RESEARCH_STATUS = new Set([
   'private',                   // home wall / not open to the public
   'closed',                    // venue is permanently closed
+  'duplicate',                 // same physical venue as another dataset entry
   'no-official-site',          // no official site to read hours from
   'no-hours-on-official-site', // the official site publishes no schedule
   'ambiguous',                 // contradictory, partial, or branch identity unclear

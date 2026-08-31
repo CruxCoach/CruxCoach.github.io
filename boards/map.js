@@ -452,10 +452,17 @@
       if (boardObj.address) quantumBits.push(escapeHtml(boardObj.address));
       return quantumBits.length ? '<div class="popup-wall">' + quantumBits.join('<br>') + '</div>' : '';
     }
+    var genericBits = [];
     if (boardObj.username) {
-      return '<div class="popup-wall"><span class="label">' + T.userLabel + '</span> @' + escapeHtml(boardObj.username) + '</div>';
+      genericBits.push('<span class="label">' + T.userLabel + '</span> @' + escapeHtml(boardObj.username));
     }
-    return '';
+    var genericTags = [];
+    if (boardObj.led === true) genericTags.push('LED');
+    else if (boardObj.led === false) genericTags.push(T.noLeds);
+    var genericAngle = angleSummary(boardObj);
+    if (genericAngle) genericTags.push(escapeHtml(genericAngle));
+    if (genericTags.length) genericBits.push(genericTags.join(' · '));
+    return genericBits.map(function (line) { return '<div class="popup-wall">' + line + '</div>'; }).join('');
   }
 
   // Curated official-website links (tools/venue-links.json) arrive through

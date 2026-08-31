@@ -23714,31 +23714,6 @@
   "note": "Touchstone gives each of its fifteen halls a page that opens with the hall's name, its street address and its week. This is Class 5's. The halls disagree with each other — 5AM at MetalMark, 10AM at The Studio and at Hyperion — so the block is this hall's and no other's."
  },
  {
-  "lat": 33.84918,
-  "lon": -118.35146,
-  "name": "Class 5 Climbing",
-  "country": "US",
-  "source": "https://touchstoneclimbing.com/class-5/",
-  "checked": "2026-08-24",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "06:30-22:00",
-   "tue": "06:30-22:00",
-   "wed": "06:30-22:00",
-   "thu": "06:30-22:00",
-   "fri": "06:30-22:00",
-   "sat": "09:00-19:00",
-   "sun": "09:00-19:00"
-  },
-  "evidence": "Touchstone Climbing Climbing Class 5 20120 Hawthorne Blvd Torrance, CA 90503 Get Directions M-F 6:30AM – 10:00PM S/S 9:00AM – 7:00PM 424-587-7166",
-  "note": "Touchstone gives each of its fifteen halls a page that opens with the hall's name, its street address and its week. This is Class 5's. The halls disagree with each other — 5AM at MetalMark, 10AM at The Studio and at Hyperion — so the block is this hall's and no other's."
- },
- {
   "lat": 36.35673,
   "lon": -94.21992,
   "name": "Climb Bentonville",
@@ -32288,5 +32263,32 @@
    "sun": "10:00-19:00"
   },
   "evidence": "Скеледром: Пн-Пт 11:00-21:45; Сб-Нд 10:00-19:00"
+ },
+ {
+  "lat": 34.0331,
+  "lon": -118.3707,
+  "name": "Cliffs of Id",
+  "country": "US",
+  "source": "https://touchstoneclimbing.com/cliffs-of-id/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "06:30-22:00",
+   "tue": "06:30-22:00",
+   "wed": "06:30-22:00",
+   "thu": "06:30-22:00",
+   "fri": "06:30-22:00",
+   "sat": "08:00-19:00",
+   "sun": "08:00-19:00"
+  },
+  "evidence": "M-F 6:30AM – 10:00PM; S/S 8:00AM – 7:00PM"
  }
 ]
