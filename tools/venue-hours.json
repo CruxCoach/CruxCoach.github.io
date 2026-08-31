@@ -32459,5 +32459,21 @@
    "thu": "12:00-22:30", "fri": "12:00-22:30", "sat": "10:00-21:00", "sun": "10:00-21:00"
   },
   "evidence": "PNU BRANCH Hours Mon-Fri 12:00-22:30; Sat & Sun 10:00-21:00; Holidays 10:00-21:00"
+ },
+ {
+  "lat": 48.10577,
+  "lon": 7.37538,
+  "name": "Salle D'Escalade Les Freres Mawem",
+  "country": "FR",
+  "source": "https://lesfreresmawem.fr/",
+  "checked": "2026-08-31",
+  "provenance": "official-site",
+  "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+  "hours": {
+   "mon": "09:00-23:00", "tue": "09:00-23:00", "wed": "09:00-23:00",
+   "thu": "09:00-23:00", "fri": "09:00-23:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+  },
+  "evidence": "HORAIRES Lundi – Vendredi 9H – 23H Samedi – Dimanche 10H – 20H Jours Fériés Horaires habituels 25 déc. & 1er janv. Fermé",
+  "note": "The operator states one complete ordinary week and says holidays use the usual hours except for two named annual closure dates. Those exceptions do not alter the regular weekly schedule shown here."
  }
 ]
