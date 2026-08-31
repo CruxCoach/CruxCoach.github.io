@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 import { haversineKm } from './build-cities-data.mjs';
-import { nameSimilarity, normalizeName } from './venue-links.mjs';
+import { nameSimilarity, normalizeName, venueKey } from './venue-links.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const LOCATOR_URL = 'https://storerocket.io/api/user/vo8xyNypgn/locations?list_limit=25';
@@ -23,6 +23,7 @@ export const TIGHT_MATCH_RADIUS_KM = 0.1;
 export const DRIFT_RADIUS_KM = 25;
 export const NAME_MATCH_MIN = 0.72;
 export const ADDRESS_MATCH_MIN = 0.6;
+const RESOLVED_RESEARCH_STATUS = new Set(['closed', 'duplicate', 'mislocated', 'non-public', 'announced']);
 
 function finiteCoordinate(value, min, max) {
   const number = Number(value);
@@ -89,17 +90,60 @@ function addressIdentity(row, venue) {
     addressSimilarity(row.address, address) >= ADDRESS_MATCH_MIN);
 }
 
-function matchingName(row, venues) {
+function matchingIdentity(row, venues) {
   let best = null;
   for (const venue of venues) {
     const similarity = nameSimilarity(row.name, venue.name);
-    if (similarity < NAME_MATCH_MIN) continue;
+    const addressSimilarityScore = Math.max(0, ...(venue.addresses ?? []).map(address =>
+      addressSimilarity(row.address, address)));
+    const byName = nameIdentity(row.name, venue.name);
+    const byAddress = Boolean(row.address) && addressSimilarityScore >= ADDRESS_MATCH_MIN;
+    if (!byName && !byAddress) continue;
     const km = haversineKm(row.lat, row.lon, venue.lat, venue.lon);
-    if (!best || similarity > best.similarity || (similarity === best.similarity && km < best.km)) {
-      best = { ...venue, km, similarity };
+    const identityScore = Math.max(similarity, addressSimilarityScore);
+    if (!best || identityScore > best.identityScore || (identityScore === best.identityScore && km < best.km)) {
+      best = {
+        ...venue,
+        km,
+        similarity,
+        addressSimilarity: addressSimilarityScore,
+        identityScore,
+        match_basis: byAddress ? 'address' : 'name',
+      };
     }
   }
   return best;
+}
+
+function researchDecision(row, research) {
+  return research.find(item => venueKey(item.lat, item.lon) === venueKey(row.lat, row.lon)
+    && nameIdentity(row.name, item.name));
+}
+
+function rowDetailScore(row) {
+  const access = row.access === 'public' || row.access === 'private' ? 4
+    : row.access === 'restricted' ? 2 : 0;
+  return access + (row.url ? 1 : 0) + Math.min(1, (row.filters?.length ?? 0) / 10);
+}
+
+function uniqueLocatorRows(rows) {
+  const unique = [];
+  const duplicates = [];
+  for (const row of rows) {
+    const index = unique.findIndex(item => venueKey(item.lat, item.lon) === venueKey(row.lat, row.lon)
+      && nameIdentity(item.name, row.name));
+    if (index < 0) {
+      unique.push(row);
+      continue;
+    }
+    if (rowDetailScore(row) > rowDetailScore(unique[index])) {
+      duplicates.push({ row: unique[index], duplicate_of: row });
+      unique[index] = row;
+    } else {
+      duplicates.push({ row, duplicate_of: unique[index] });
+    }
+  }
+  return { unique, duplicates };
 }
 
 function safeCandidate(row, nearest) {
@@ -116,17 +160,22 @@ function safeCandidate(row, nearest) {
   };
 }
 
-export function compareLocator(rows, venues, exclusions = []) {
+export function compareLocator(rows, venues, exclusions = [], research = []) {
   const { valid, invalid } = normalizeLocatorRows(rows);
+  const { unique, duplicates } = uniqueLocatorRows(valid);
   const categories = {
     matched_coordinate: [],
     excluded: [],
     private: [],
     probable_coordinate_drift: [],
     candidates: [],
+    duplicate_locator: duplicates.map(({ row, duplicate_of }) => ({
+      ...safeCandidate(row, null),
+      duplicate_of: { id: duplicate_of.id ?? null, name: duplicate_of.name },
+    })),
   };
 
-  for (const row of valid) {
+  for (const row of unique) {
     const nearest = closest(row, venues);
     if (nearest && nearest.km <= MATCH_RADIUS_KM && (
       nearest.km <= TIGHT_MATCH_RADIUS_KM
@@ -143,15 +192,29 @@ export function compareLocator(rows, venues, exclusions = []) {
       categories.excluded.push({ ...safeCandidate(row, nearest), exclusion: excluded.status });
       continue;
     }
+    const decision = researchDecision(row, research);
+    if (decision?.status === 'private') {
+      categories.private.push({ ...safeCandidate(row, nearest), research_status: decision.status });
+      continue;
+    }
+    if (decision && RESOLVED_RESEARCH_STATUS.has(decision.status)) {
+      categories.excluded.push({ ...safeCandidate(row, nearest), exclusion: decision.status });
+      continue;
+    }
     if (row.access === 'private') {
       categories.private.push(safeCandidate(row, nearest));
       continue;
     }
-    const nameMatch = matchingName(row, venues);
-    if (nameMatch && nameMatch.km <= DRIFT_RADIUS_KM) {
+    const identityMatch = matchingIdentity(row, venues);
+    if (identityMatch && identityMatch.km <= DRIFT_RADIUS_KM) {
       categories.probable_coordinate_drift.push({
         ...safeCandidate(row, nearest),
-        name_match: { name: nameMatch.name, distance_km: Number(nameMatch.km.toFixed(1)), similarity: Number(nameMatch.similarity.toFixed(2)) },
+        name_match: {
+          name: identityMatch.name,
+          distance_km: Number(identityMatch.km.toFixed(1)),
+          similarity: Number(identityMatch.similarity.toFixed(2)),
+          match_basis: identityMatch.match_basis,
+        },
       });
       continue;
     }
@@ -216,7 +279,8 @@ if (process.argv[1] && process.argv[1].endsWith('kilter-locator-audit.mjs')) {
   if (process.argv.includes('--input') && !input) throw new Error('--input needs a JSON file');
   const rows = await locatorRows(input);
   const exclusions = JSON.parse(readFileSync(join(ROOT, 'tools/location-exclusions.json'), 'utf8'));
-  const audit = compareLocator(rows, mapVenues(), exclusions);
+  const research = JSON.parse(readFileSync(join(ROOT, 'tools/venue-links-research.json'), 'utf8'));
+  const audit = compareLocator(rows, mapVenues(), exclusions, research);
   if (process.argv.includes('--json')) process.stdout.write(`${JSON.stringify(audit, null, 2)}\n`);
   else printText(audit);
 }

@@ -602,7 +602,14 @@ exclusions, explicit private rows and likely coordinate drift are separated so
 the residual worklist is reproducible. A point within 250 m is a match only when
 the names or addresses identify the same venue; a 100 m co-location tolerance
 absorbs ordinary entrance/geocoding variation. This prevents a second gym in a
-dense city from disappearing merely because it is nearby. `--input file.json`
+dense city from disappearing merely because it is nearby. Same-identity drift
+also compares the locator's address with Kilter addresses already in the map,
+so an operator rename does not hide a known bad pin. Conclusive, name-matched
+`venue-links-research.json` outcomes classify locator-only private/closed/
+duplicate/non-public/announced/mislocated rows without turning those decisions
+into production-wide coordinate exclusions. Same-identity submissions at the
+same rounded point are counted separately as locator duplicates, with the most
+detailed access/profile row retained for review. `--input file.json`
 accepts a previously fetched response for tests or an exact-repeat audit.
 
 ### Touchstone chain board audit

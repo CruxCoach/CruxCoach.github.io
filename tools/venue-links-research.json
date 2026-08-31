@@ -4874,5 +4874,63 @@
     "checked": "2026-08-31",
     "candidate": "https://www.xxl-klettern.de/",
     "reason": "The locator's XXL Sport identity and Breitscheidstraße 40a address are the same Dresden hall already published as XXL Klettern. The hall's current official board page explicitly names both Kilter Boards and its own directions link places the destination at 51.01528,13.808827, 0.2 km east of the locator point; retain that primary coordinate and exclude the conflicting manufacturer pin."
+  },
+  {
+    "lat": 20.6711991,
+    "lon": -103.3811801,
+    "name": "Americana Boulder",
+    "country": "MX",
+    "status": "unverified",
+    "checked": "2026-08-31",
+    "reason": "Kilter's locator describes an 8x12 adjustable Original wall available only to members or by reservation at a precise Guadalajara address. Spanish- and English-language searches found no venue-owned page, public business identity or current board announcement matching Americana Boulder. The restricted manufacturer record alone does not establish a publicly accessible climbing venue."
+  },
+  {
+    "lat": 5.8512195,
+    "lon": 118.048865,
+    "name": "Banana Climbing Gym",
+    "country": "MY",
+    "status": "social-only",
+    "checked": "2026-08-31",
+    "candidate": "https://www.facebook.com/bananaclimbinggym",
+    "reason": "The locator links only a Facebook page for this Sandakan gym and describes a public 12x12 Original board. Current climbing directories independently repeat the gym and Jalan Sibuga address, but no standalone operator site or other readable venue-primary page confirms the current board. The similarly named bananaclimbing.com belongs to an unrelated Shenzhen chain and must not be attached."
+  },
+  {
+    "lat": 40.1807885,
+    "lon": 44.5268566,
+    "name": "Boulderland Yerevan Climbing Gym",
+    "country": "AM",
+    "status": "social-only",
+    "checked": "2026-08-31",
+    "candidate": "https://www.instagram.com/boulderland_yerevan/",
+    "reason": "The manufacturer describes a public adjustable 12x12 Original wall and links only Boulderland's Instagram. Current climbing-organization and competition pages establish the public Yerevan gym, and the map already carries its MoonBoard about 0.2 km away, but neither source is the venue speaking and neither confirms a Kilter Board. Without a readable operator-primary board statement, the additional board is withheld."
+  },
+  {
+    "lat": -17.8041324,
+    "lon": -63.2092549,
+    "name": "Carls Board",
+    "country": "BO",
+    "status": "unverified",
+    "checked": "2026-08-31",
+    "reason": "The locator gives a house-form address, a personal board name and mutually mixed Public and Members/Reservations access labels for an adjustable 12x12 Original wall. Spanish- and English-language searches found no matching operator page or unambiguous public climbing business. It may be access-by-invitation home equipment, but that cannot be guessed into either a public venue or a private-address classification."
+  },
+  {
+    "lat": 31.8831785,
+    "lon": 34.7665235,
+    "name": "Grip Carbon - Carbon Grip",
+    "country": "IL",
+    "status": "unverified",
+    "checked": "2026-08-31",
+    "candidate": "https://www.carbon-grip.com/",
+    "reason": "Carbon Grip's current official site matches the exact Ge'alya address but identifies an ecommerce chalk and sports-products company, not a public climbing gym, and does not mention visitor access or an on-site Kilter Board. The locator's Public label cannot by itself turn business premises and private equipment into a public venue."
+  },
+  {
+    "lat": 42.4097692,
+    "lon": -71.1098194,
+    "name": "Liberty House",
+    "country": "US",
+    "status": "private",
+    "checked": "2026-08-31",
+    "candidate": "https://dchr.host/board",
+    "reason": "The linked owner-controlled personal page explicitly calls this a 7x10 Full Ride Homewall, with supervised weekend access only after contacting the owner, and withholds the address. It is an invitation-only home setup rather than a public climbing venue; its personal site and guessed venue context must not be published on the map."
   }
 ]
