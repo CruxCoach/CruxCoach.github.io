@@ -14774,9 +14774,9 @@
   "note": "The peak and off-peak bands are pricing, not opening; the centre states one week above them."
  },
  {
-  "lat": 51.5822099,
-  "lon": -1.753619,
-  "name": "Rockstar Climbing",
+  "lat": 51.58198,
+  "lon": -1.754,
+  "name": "Rockstar Climbing & Bouldering",
   "country": "GB",
   "source": "https://www.rockstarclimbing.co.uk/",
   "checked": "2026-08-24",
@@ -14798,33 +14798,7 @@
    "sun": "09:00-18:00"
   },
   "evidence": "Centre Buildings 3-5, The I.O Centre Radway Road, Swindon Wiltshire SN3 4WH … Opening Hours Monday to Friday 10:30-22:00 Saturday & Sunday 09:00-18:00",
-  "note": "Two bands covering all seven days, stated beneath the centre's address. Its schema.org openingHours opens the weekdays four hours earlier, at 06:30. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
- },
- {
-  "lat": 51.58198,
-  "lon": -1.754,
-  "name": "Rockstar Climbing & Bouldering",
-  "country": "GB",
-  "source": "https://www.rockstarclimbing.co.uk/",
-  "checked": "2026-08-24",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city",
-   "co-located"
-  ],
-  "hours": {
-   "mon": "10:30-22:00",
-   "tue": "10:30-22:00",
-   "wed": "10:30-22:00",
-   "thu": "10:30-22:00",
-   "fri": "10:30-22:00",
-   "sat": "09:00-18:00",
-   "sun": "09:00-18:00"
-  },
-  "evidence": "Opening Hours Monday to Friday 10:30-22:00 Saturday & Sunday 09:00-18:00",
-  "note": "The same hall as the Rockstar Climbing entry about 20 m away, which carries this week. The page's markup opens the weekdays at 06:30; the text is the statement."
+  "note": "The two legacy board-specific points are consolidated at this one centre. Its schema.org block opens weekdays at 06:30; the visible current text is the operator's maintained statement."
  },
  {
   "lat": 52.40906,
@@ -21427,37 +21401,12 @@
   "evidence": "Monday - Friday | 4pm - 10pm | Saturday | 11am - 8pm | Sunday | 1pm - 6pm"
  },
  {
-  "lat": 43.0248873,
-  "lon": -87.91302400000001,
-  "name": "Adventure Rock Moonboard",
+  "lat": 43.0249104,
+  "lon": -87.9130311,
+  "name": "Adventure Rock Walker's Point",
   "country": "US",
   "source": "https://adventurerock.com/",
-  "checked": "2026-08-23",
-  "provenance": "official-chain-page",
-  "signals": [
-   "venue-link",
-   "street-address",
-   "hours-scope"
-  ],
-  "hours": {
-   "mon": "09:00-22:00",
-   "tue": "09:00-22:00",
-   "wed": "09:00-22:00",
-   "thu": "09:00-22:00",
-   "fri": "09:00-22:00",
-   "sat": "09:00-20:00",
-   "sun": "09:00-20:00"
-  },
-  "evidence": "WKP | Bouldering | 613 S 2nd St, Milwaukee, WI 53204 | Monday Tuesday Wednesday Thursday Friday Saturday Sunday | x | 6 AM – 9 AM | x | 6 AM – 9 AM | x | x | x | Member Hours | 9 AM - 10 PM | 9 AM – 10 PM | 9 AM – 10 PM | 9 AM – 10 PM | 9 AM – 10 PM | 9 AM – 8 PM | 9 AM – 8 PM | Regular Hours",
-  "note": "The operator’s site carries one table per gym; Walker’s Point also opens to members at 6 AM on Tuesday and Thursday."
- },
- {
-  "lat": 43.02566,
-  "lon": -87.91254,
-  "name": "Adventure Rock WKP",
-  "country": "US",
-  "source": "https://adventurerock.com/",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "provenance": "official-chain-page",
   "signals": [
    "venue-link",
@@ -32318,5 +32267,32 @@
   },
   "evidence": "Opening hours Mon–Fri 10 am–10 pm; Sat–Sun 10 am–8 pm",
   "note": "The separately stated 08:00–10:00 Monday–Thursday window is members-only morning access; the published regular public week is retained here."
+ },
+ {
+  "lat": 36.8659723,
+  "lon": -76.2805601,
+  "name": "Latitude Climbing Norfolk",
+  "country": "US",
+  "source": "https://latitudeclimbing.com/norfolk/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Norfolk 1830 Lindsay Avenue Norfolk, Virginia 23504 Hours M-F: 8am - 10pm Sat: 9am - 10pm Sun: 9am - 8pm"
  }
 ]

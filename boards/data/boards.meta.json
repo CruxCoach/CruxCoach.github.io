@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-08-31T18:01:28.298Z",
-  "venue_features": 2838,
-  "raw_entries": 3091,
-  "venues_with_multiple_boards": 114,
-  "country_from_coder": 2838,
+  "generated_at": "2026-08-31T18:12:01.585Z",
+  "venue_features": 2837,
+  "raw_entries": 3093,
+  "venues_with_multiple_boards": 116,
+  "country_from_coder": 2837,
   "country_from_fallback": 0,
   "country_missing": 0,
-  "city_from_upstream": 1073,
-  "city_from_nearest": 1641,
+  "city_from_upstream": 1075,
+  "city_from_nearest": 1638,
   "city_missing": 124,
   "nearest_city_max_km": 25,
   "exclusions": {
-    "defined": 19,
+    "defined": 21,
     "matched_venues": 18,
     "excluded_entries": 19,
-    "unmatched": 1
+    "unmatched": 3
   },
   "overrides": {
-    "defined": 15,
-    "applied": 15,
+    "defined": 18,
+    "applied": 18,
     "unmatched": 0,
-    "conflicts": 11
+    "conflicts": 18
   },
   "wellpass": {
     "defined": 86,
@@ -28,8 +28,8 @@
     "unmatched": 0
   },
   "venue_links": {
-    "defined": 1779,
-    "applied": 1779,
+    "defined": 1778,
+    "applied": 1778,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -37,14 +37,14 @@
     "rejected": 0,
     "countries": 63,
     "by_provenance": {
-      "official-chain-page": 133,
-      "official-location-page": 603,
-      "official-site": 1043
+      "official-chain-page": 132,
+      "official-location-page": 604,
+      "official-site": 1042
     }
   },
   "venue_hours": {
-    "defined": 1300,
-    "applied": 1300,
+    "defined": 1299,
+    "applied": 1299,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -53,13 +53,13 @@
     "countries": 58,
     "open_24h_days": 36,
     "by_provenance": {
-      "official-chain-page": 108,
-      "official-location-page": 484,
-      "official-site": 708
+      "official-chain-page": 107,
+      "official-location-page": 485,
+      "official-site": 707
     }
   },
   "per_board": {
-    "kilter": 1123,
+    "kilter": 1125,
     "tension": 368,
     "grasshopper": 42,
     "decoy": 24,
@@ -72,7 +72,7 @@
   },
   "per_source": {
     "hangtime": 3063,
-    "curated": 19,
+    "curated": 21,
     "quantum": 9
   },
   "sources": {
@@ -119,7 +119,7 @@
       }
     },
     "curated": {
-      "entries": 19,
+      "entries": 21,
       "verified_on": "2026-08-31",
       "policy": "official-venue-pages"
     },

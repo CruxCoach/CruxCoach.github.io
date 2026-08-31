@@ -147,5 +147,39 @@
       "lat": 60.166129,
       "lon": 24.904168
     }
+  },
+  {
+    "board": "moonboard",
+    "lat": 43.0248873,
+    "lon": -87.91302400000001,
+    "name": "Adventure Rock Moonboard",
+    "note": "Normalize the legacy board-specific name onto the current official Walker's Point branch name; the current official Kilter pin is at the same rounded venue coordinate.",
+    "set": {
+      "name": "Adventure Rock Walker's Point"
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 43.02566,
+    "lon": -87.91254,
+    "name": "Adventure Rock WKP",
+    "note": "Move the 92 m drifted Tension pin onto the same official Walker's Point address and current official Kilter pin so one physical branch renders once.",
+    "set": {
+      "lat": 43.0249104,
+      "lon": -87.9130311,
+      "name": "Adventure Rock Walker's Point"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 51.5822099,
+    "lon": -1.753619,
+    "name": "Rockstar Climbing",
+    "note": "Move the board-specific MoonBoard point 35 m onto the address-bearing Kilter point for the same single current Rockstar Climbing Centre.",
+    "set": {
+      "lat": 51.58198,
+      "lon": -1.754,
+      "name": "Rockstar Climbing & Bouldering"
+    }
   }
 ]

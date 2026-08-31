@@ -38,6 +38,8 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['The Post Climbing', 'moonboard'],
     ['Hyperion Climbing', 'moonboard'],
     ['Class 5', 'touchstone'],
+    ["Adventure Rock Walker's Point", 'kilter'],
+    ['Latitude Climbing Norfolk', 'kilter'],
     ['KiipeilyAreena Salmisaari', 'tension'],
   ]);
   for (const entry of entries) {
@@ -149,6 +151,23 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(tilted.length, 1);
   assert.deepEqual(boardIds(tilted[0]), ['kilter']);
   assert.equal(at(features, 49.30953, -123.033253).length, 0);
+
+  const adventure = at(features, 43.0249104, -87.9130311);
+  assert.equal(adventure.length, 1);
+  assert.equal(adventure[0].properties.name, "Adventure Rock Walker's Point");
+  assert.deepEqual(new Set(boardIds(adventure[0])), new Set(['kilter', 'tension', 'moonboard']));
+  assert.equal(at(features, 43.02566, -87.91254).length, 0);
+
+  const latitude = at(features, 36.8659723, -76.2805601);
+  assert.equal(latitude.length, 1);
+  assert.deepEqual(boardIds(latitude[0]), ['kilter']);
+  assert.equal(latitude[0].properties.website, 'https://latitudeclimbing.com/norfolk/');
+  assert.equal(latitude[0].properties.hours.length, 7);
+
+  const rockstar = at(features, 51.58198, -1.754);
+  assert.equal(rockstar.length, 1);
+  assert.deepEqual(new Set(boardIds(rockstar[0])), new Set(['kilter', 'moonboard']));
+  assert.equal(at(features, 51.5822099, -1.753619).length, 0);
 });
 
 test('the map bypasses pre-Quantum service-worker cache entries', () => {

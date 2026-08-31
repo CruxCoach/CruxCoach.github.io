@@ -315,6 +315,36 @@ const ENTRIES = [
     led: true,
   },
   {
+    // Current public Walker's Point branch and address:
+    // https://adventurerock.com/walkers-point/
+    // Kilter identity and coordinates: official manufacturer locator
+    // https://settercloset.com/pages/kb-locator (StoreRocket id 33861670)
+    source: 'curated',
+    board: 'kilter',
+    name: "Adventure Rock Walker's Point",
+    lat: 43.0249104,
+    lon: -87.9130311,
+    address: '613 S 2nd St, Milwaukee, WI 53204',
+    city: 'Milwaukee',
+    country: 'US',
+    walls: [],
+  },
+  {
+    // Current public branch, street address and regular hours:
+    // https://latitudeclimbing.com/norfolk/
+    // Kilter identity and coordinates: official manufacturer locator
+    // https://settercloset.com/pages/kb-locator (StoreRocket id 22029538)
+    source: 'curated',
+    board: 'kilter',
+    name: 'Latitude Climbing Norfolk',
+    lat: 36.8659723,
+    lon: -76.2805601,
+    address: '1830 Lindsay Avenue, Norfolk, VA 23504',
+    city: 'Norfolk',
+    country: 'US',
+    walls: [],
+  },
+  {
     // The anonymous official Tension app endpoint identifies the board:
     // https://tensionboardapp2.com/pins?gyms=1
     // The venue's current expansion notice confirms two adjustable training

@@ -12326,21 +12326,6 @@
     "note": "The OSM node 50 m from this venue carries rockcity.co.uk, and geocoding \"Rockcity Climbing, Hull\" lands 50 m away. rockcityclimbing.com is a different Rock City in North America."
   },
   {
-    "lat": 51.5822099,
-    "lon": -1.753619,
-    "name": "Rockstar Climbing",
-    "country": "GB",
-    "website": "https://www.rockstarclimbing.co.uk/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city"
-    ]
-  },
-  {
     "lat": 51.58198,
     "lon": -1.754,
     "name": "Rockstar Climbing & Bouldering",
@@ -12354,7 +12339,7 @@
       "postal-code",
       "city"
     ],
-    "note": "Same physical centre as the MoonBoard entry ~35 m away; upstream lists the two boards separately."
+    "note": "The current site identifies one Rockstar Climbing Centre at Buildings 3-5, I.O Centre, Radway Road. Its embedded map corroborates this address-bearing point; the legacy MoonBoard point 35 m away is consolidated here."
   },
   {
     "lat": 52.40906,
@@ -18791,32 +18776,18 @@
     "note": "The gym's own 460 Brogdon Rd resolves 16 m from this coordinate."
   },
   {
-    "lat": 43.0248873,
-    "lon": -87.91302400000001,
-    "name": "Adventure Rock Moonboard",
+    "lat": 43.0249104,
+    "lon": -87.9130311,
+    "name": "Adventure Rock Walker's Point",
     "country": "US",
     "website": "https://adventurerock.com/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-chain-page",
     "signals": [
       "name",
       "street-address"
     ],
-    "note": "The operator lists more than one gym; its page gives this one as 613 S 2nd St, Milwaukee, WI 53204, which resolves 3 m from the coordinate."
-  },
-  {
-    "lat": 43.02566,
-    "lon": -87.91254,
-    "name": "Adventure Rock WKP",
-    "country": "US",
-    "website": "https://adventurerock.com/",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
-    "signals": [
-      "name",
-      "street-address"
-    ],
-    "note": "The operator lists more than one gym; its page gives this one as 613 S 2nd St, Milwaukee, WI 53204, which resolves 92 m from the coordinate."
+    "note": "The operator's current Walker's Point page identifies the public bouldering branch at 613 S 2nd St. The current official Kilter pin and legacy MoonBoard point coincide here; the 92 m drifted Tension point is consolidated onto the same branch."
   },
   {
     "lat": 33.66522,
@@ -27120,5 +27091,22 @@
       "location-page"
     ],
     "note": "The current official branch page identifies the public Salmisaari gym at Energiakatu 3, 00180 Helsinki. Its expansion notice identifies two adjustable training boards, while the official Tension app pin names the newly listed system."
+  },
+  {
+    "lat": 36.8659723,
+    "lon": -76.2805601,
+    "name": "Latitude Climbing Norfolk",
+    "country": "US",
+    "website": "https://latitudeclimbing.com/norfolk/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The current official branch page identifies the public Norfolk gym at 1830 Lindsay Avenue, Norfolk, Virginia 23504; the official Kilter locator independently identifies its board and matching coordinate."
   }
 ]
