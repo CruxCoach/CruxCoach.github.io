@@ -8,6 +8,7 @@ import { load as loadCurated } from './sources/curated.mjs';
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const GEOJSON = join(REPO_ROOT, 'boards', 'data', 'boards.geojson');
+const MAP_JS = join(REPO_ROOT, 'boards', 'map.js');
 
 const boardIds = feature => feature.properties.boards.map(board => board.board);
 const at = (features, lat, lon) => features.filter(feature => {
@@ -54,4 +55,15 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(gilching.length, 1);
   assert.deepEqual(new Set(boardIds(gilching[0])), new Set(['kilter', 'moonboard']));
   assert.equal(at(features, 48.1092285, 11.2899694).length, 0);
+});
+
+test('the map bypasses pre-Quantum service-worker cache entries', () => {
+  const map = readFileSync(MAP_JS, 'utf8');
+  assert.match(map, /fetch\('\/boards\/data\/boards\.geojson\?v=20260831-quantum9'\)/);
+
+  for (const page of ['boards/index.html', 'de/boards/index.html']) {
+    const html = readFileSync(join(REPO_ROOT, page), 'utf8');
+    assert.match(html, /rel="preload" href="\/boards\/data\/boards\.geojson\?v=20260831-quantum9"/);
+    assert.match(html, /map\.js\?v=20260831-2/);
+  }
 });

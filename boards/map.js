@@ -1723,7 +1723,9 @@
   }
 
   // ── Data load ─────────────────────────────────────────────────────
-  fetch('/boards/data/boards.geojson')
+  // A versioned URL bypasses venue data cached by a pre-Quantum service
+  // worker, while retaining stale-while-revalidate resilience for this release.
+  fetch('/boards/data/boards.geojson?v=20260831-quantum9')
     .then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.json();
