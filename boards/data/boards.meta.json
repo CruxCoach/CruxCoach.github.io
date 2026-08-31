@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-08-31T03:30:15.940Z",
-  "venue_features": 2842,
-  "raw_entries": 3094,
-  "venues_with_multiple_boards": 106,
-  "country_from_coder": 2841,
+  "generated_at": "2026-08-31T10:19:01.391Z",
+  "venue_features": 2841,
+  "raw_entries": 3096,
+  "venues_with_multiple_boards": 109,
+  "country_from_coder": 2840,
   "country_from_fallback": 0,
   "country_missing": 1,
-  "city_from_upstream": 1058,
-  "city_from_nearest": 1658,
+  "city_from_upstream": 1060,
+  "city_from_nearest": 1655,
   "city_missing": 126,
   "nearest_city_max_km": 25,
   "overrides": {
-    "defined": 10,
-    "applied": 10,
+    "defined": 12,
+    "applied": 12,
     "unmatched": 0,
-    "conflicts": 0
+    "conflicts": 6
   },
   "wellpass": {
     "defined": 84,
@@ -22,8 +22,8 @@
     "unmatched": 0
   },
   "venue_links": {
-    "defined": 1765,
-    "applied": 1765,
+    "defined": 1764,
+    "applied": 1764,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -32,13 +32,13 @@
     "countries": 63,
     "by_provenance": {
       "official-chain-page": 133,
-      "official-location-page": 595,
-      "official-site": 1037
+      "official-location-page": 596,
+      "official-site": 1035
     }
   },
   "venue_hours": {
-    "defined": 1288,
-    "applied": 1288,
+    "defined": 1287,
+    "applied": 1287,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -49,7 +49,7 @@
     "by_provenance": {
       "official-chain-page": 108,
       "official-location-page": 473,
-      "official-site": 707
+      "official-site": 706
     }
   },
   "per_board": {
@@ -60,11 +60,12 @@
     "soill": 12,
     "touchstone": 5,
     "aurora": 3,
-    "moonboard": 1514,
+    "moonboard": 1516,
     "12climb": 4
   },
   "per_source": {
-    "hangtime": 3094
+    "hangtime": 3094,
+    "curated": 2
   },
   "sources": {
     "hangtime": {
@@ -108,6 +109,11 @@
           "dropped": 31
         }
       }
+    },
+    "curated": {
+      "entries": 2,
+      "verified_on": "2026-08-31",
+      "policy": "official-venue-pages"
     }
   }
 }

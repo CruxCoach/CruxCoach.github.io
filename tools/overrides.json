@@ -1,6 +1,30 @@
 [
   {
     "board": "moonboard",
+    "lat": 48.1067623,
+    "lon": 11.5456929,
+    "name": "@kbthalkirchen",
+    "note": "Official venue page confirms this is the MoonBoard inside the co-located DAV Kilter venue; normalize the upstream point and name so the boards share one marker.",
+    "set": {
+      "lat": 48.107,
+      "lon": 11.54568,
+      "name": "DAV Kletter & Boulderzentrum München-Süd"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 48.1092285,
+    "lon": 11.2899694,
+    "name": "Kletter- und Boulderzentrum München",
+    "note": "The official Gilching address resolves to the existing DAV Kilter venue; normalize the approximate MoonBoard registry point and generic name so the boards share one marker.",
+    "set": {
+      "lat": 48.10135,
+      "lon": 11.30113,
+      "name": "DAV Kletter & Boulderzentrum München-West"
+    }
+  },
+  {
+    "board": "moonboard",
     "lat": 48.3896024,
     "lon": 10.8874895,
     "name": "Bloc-Hütte Augsburg",

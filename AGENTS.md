@@ -195,8 +195,10 @@ for the full contract; the essentials:
   cron makes no no-op commit. Don't hand-edit inside the markers; rebuild.
 - **Source adapters** live in `tools/sources/<name>.mjs`, each exporting
   `async load()` → `{ entries: NormalizedEntry[], meta }`. Register them in the
-  `SOURCES` array in `build-boards-data.mjs`. Currently only `hangtime` (the
-  `@hangtime/climbing-boards` npm package, Unlicense). The frontend reads only the
+  `SOURCES` array in `build-boards-data.mjs`. `hangtime` (the
+  `@hangtime/climbing-boards` npm package, Unlicense) is primary;
+  `curated` is a deliberately small official-venue-page supplement for rows
+  missing from frozen or incomplete upstream feeds. The frontend reads only the
   merged GeoJSON and never knows which source a board came from.
 - **Venue grouping**: entries are grouped by `(lat, lon)` rounded to 4 decimals
   (~11 m) via `venueKey()`, so a multi-board gym renders as one composite marker.

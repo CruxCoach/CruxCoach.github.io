@@ -192,6 +192,12 @@ The merge policy is **first-source-wins by `(board, lat, lon)`**: existing
 hangtime entries shadow later sources at the same coordinate. Change this
 in `build-boards-data.mjs` if you need richer merging.
 
+`sources/curated.mjs` is the intentionally small exception to automated feeds.
+Add a row there only when the venue's own current page confirms a public board
+that upstream omits. Keep the official page beside the row as a reviewable
+comment, record the verification date in the adapter metadata, and use
+`overrides.json` instead when the upstream row already exists but is wrong.
+
 ## Manual overrides
 
 `tools/overrides.json` hand-corrects fields the upstream sources leave blank

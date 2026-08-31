@@ -5677,22 +5677,6 @@
     ]
   },
   {
-    "lat": 48.1067623,
-    "lon": 11.5456929,
-    "name": "@kbthalkirchen",
-    "country": "DE",
-    "website": "https://www.kbthalkirchen.de/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city"
-    ],
-    "note": "Same physical gym as the Kilter entry ~27 m away; upstream lists the MoonBoard separately under the operator's social handle."
-  },
-  {
     "lat": 54.09754,
     "lon": 12.10269,
     "name": "45 Grad",
@@ -6510,6 +6494,22 @@
     "website": "https://www.boulderwelt-karlsruhe.de/",
     "verified": "2026-08-22",
     "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ]
+  },
+  {
+    "lat": 48.12578,
+    "lon": 11.61108,
+    "name": "Boulderwelt München Ost",
+    "country": "DE",
+    "website": "https://www.boulderwelt-muenchen-ost.de/halle/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
@@ -7720,21 +7720,6 @@
       "postal-code",
       "city"
     ]
-  },
-  {
-    "lat": 48.1092285,
-    "lon": 11.2899694,
-    "name": "Kletter- und Boulderzentrum München",
-    "country": "DE",
-    "website": "https://www.kbgilching.de/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "city",
-      "postal-code"
-    ],
-    "note": "The hall is the DAV Sektion München's Kletter- und Boulderzentrum München-West at Gilching; the site prints an 82205 Gilching address, which geocodes 977 m from this venue, and upstream files it under Gilching."
   },
   {
     "lat": 49.172197,

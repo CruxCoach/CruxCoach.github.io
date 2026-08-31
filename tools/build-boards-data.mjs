@@ -24,6 +24,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 
 import * as hangtime from './sources/hangtime.mjs';
+import * as curated from './sources/curated.mjs';
 import { renderListPage, renderStatsBlock, injectBetweenMarkers } from './render-static.mjs';
 import { findNearestCity, loadCityIndex } from './nearest-city.mjs';
 import { applyVenueLinks, loadVenueLinks } from './venue-links.mjs';
@@ -48,6 +49,7 @@ async function loadCountryCoder() {
 
 const SOURCES = [
   { id: 'hangtime', mod: hangtime },
+  { id: 'curated', mod: curated },
 ];
 
 const BOARDS = [
@@ -230,6 +232,7 @@ function applyWellpass(features) {
 async function buildFromSources() {
   const allEntries = [];
   const sourceMeta = {};
+  const priorSourceKeys = new Set();
 
   const iso1A2Code = await loadCountryCoder();
 
@@ -238,14 +241,22 @@ async function buildFromSources() {
     const { entries, meta } = await mod.load();
     process.stderr.write(`[build]   got ${entries.length} entries\n`);
     sourceMeta[id] = meta;
+    const thisSourceKeys = new Set();
     for (const e of entries) {
       if (!BOARDS.includes(e.board)) {
         process.stderr.write(`[build]   skip unknown board "${e.board}" from ${id}\n`);
         continue;
       }
+      const entryKey = `${e.board}|${venueKey(e.lat, e.lon)}`;
+      if (priorSourceKeys.has(entryKey)) {
+        process.stderr.write(`[build]   skip ${id} duplicate shadowed by an earlier source: ${entryKey}\n`);
+        continue;
+      }
       e._source = id;
       allEntries.push(e);
+      thisSourceKeys.add(entryKey);
     }
+    for (const key of thisSourceKeys) priorSourceKeys.add(key);
   }
 
   const overrideStats = applyOverrides(allEntries);
@@ -293,7 +304,8 @@ async function buildFromSources() {
     const props = { name: lead.name };
 
     const kilterEntry = venue.entries.find(e => e.board === 'kilter');
-    if (kilterEntry?.city) props.city = kilterEntry.city;
+    const cityEntry = ranked.find(e => e.city);
+    if (cityEntry?.city) props.city = cityEntry.city;
 
     // Where upstream gave us no city, borrow the nearest one from the place
     // index. It lands in its own field, never in `city`: this is "the closest

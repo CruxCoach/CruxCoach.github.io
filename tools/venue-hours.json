@@ -7233,30 +7233,6 @@
   "evidence": "Otevírací doba Pondělí 8:00 – 22:00 | Úterý 8:00 – 22:00 | Středa 8:00 – 22:00 | Čtvrtek 8:00 – 22:00 | Pátek 8:00 – 23:00 | Sobota 8:00 – 22:00 | Neděle 8:00 – 22:00"
  },
  {
-  "lat": 48.1067623,
-  "lon": 11.5456929,
-  "name": "@kbthalkirchen",
-  "country": "DE",
-  "source": "https://www.kbthalkirchen.de/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name"
-  ],
-  "hours": {
-   "mon": "07:00-23:00",
-   "tue": "07:00-23:00",
-   "wed": "07:00-23:00",
-   "thu": "07:00-23:00",
-   "fri": "07:00-23:00",
-   "sat": "08:00-23:00",
-   "sun": "08:00-23:00"
-  },
-  "evidence": "Mo – Fr: 7:00 – 23:00 | Sa, So, Feiertag: 8:00 – 23:00",
-  "note": "The kitchen keeps separate, shorter hours; these are the centre's."
- },
- {
   "lat": 54.09754,
   "lon": 12.10269,
   "name": "45 Grad",
@@ -8252,6 +8228,30 @@
    "sun": "08:00-23:00"
   },
   "evidence": "Mo-Fr 07:00 – 23:00 Uhr | Sa, So & Feiertag 08:00 – 23:00 Uhr"
+ },
+ {
+  "lat": 48.12578,
+  "lon": 11.61108,
+  "name": "Boulderwelt München Ost",
+  "country": "DE",
+  "source": "https://www.boulderwelt-muenchen-ost.de/halle/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "06:00-23:00",
+   "tue": "06:00-23:00",
+   "wed": "06:00-23:00",
+   "thu": "06:00-23:00",
+   "fri": "06:00-23:00",
+   "sat": "07:00-23:00",
+   "sun": "07:00-23:00"
+  },
+  "evidence": "Mo-Fr 06:00 – 23:00 Uhr | Sa, So & Feiertage 07:00 – 23:00 Uhr"
  },
  {
   "lat": 48.04129,
@@ -9740,31 +9740,6 @@
    "sun": "09:00-21:30"
   },
   "evidence": "Mo-Fr: 09:00-22:30 Uhr | Sa-So: 09:00-21:30 Uhr"
- },
- {
-  "lat": 48.1092285,
-  "lon": 11.2899694,
-  "name": "Kletter- und Boulderzentrum München",
-  "country": "DE",
-  "source": "https://www.kbgilching.de/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "city",
-   "postal-code"
-  ],
-  "hours": {
-   "mon": "14:00-23:00",
-   "tue": "07:00-23:00",
-   "wed": "09:00-23:00",
-   "thu": "09:00-23:00",
-   "fri": "09:00-23:00",
-   "sat": "09:00-21:00",
-   "sun": "09:00-21:00"
-  },
-  "evidence": "Öffnungszeiten DAV Kletter- und Boulderzentrum München-West: Mo: 14:00 – 23:00, Di: 07:00 – 23:00, Mi, Do, Fr: 09:00 – 23:00, Sa, So, Feiertag: 09:00 – 21:00. DAV-Servicestelle der Sektion München: Mo – Fr: 14:00-19:30, Sa – So: 09:00-18:00.",
-  "note": "The centre and the section's service desk have separate blocks and the centre's is the one recorded; holidays take the weekend hours. The DAV Kletter & Boulderzentrum München-West entry 1,206 m away carries the same page and the address it prints, Frühlingstraße 18 in Gilching; this entry comes from the MoonBoard registry, which records no address and places the hall roughly. The section's other Munich centres are in Thalkirchen and Freimann, tens of kilometres away, so there is no second hall this could be."
  },
  {
   "lat": 51.97887,
