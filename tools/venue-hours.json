@@ -17232,6 +17232,32 @@
   "note": "Stated beside the gym's address. Public holidays are grouped with the weekend."
  },
  {
+  "lat": 2.19316,
+  "lon": 102.23685,
+  "name": "Pampa Rock Climbing",
+  "country": "MY",
+  "source": "https://sgrh.swangarden.com/services/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "closed",
+   "tue": "14:00-22:00",
+   "wed": "14:00-22:00",
+   "thu": "14:00-22:00",
+   "fri": "14:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Operating Hours: Tuesday – Friday: 2PM – 10PM Saturday & Sunday: 10AM – 8PM Closed on Monday exclude School Holiday & Public Holiday.",
+  "note": "The official host-property page states Pampa's ordinary seven-day week beside the facility name and exact venue address. Its school- and public-holiday exception is not folded into the regular week; the public UI already warns that holiday changes may apply."
+ },
+ {
   "lat": 53.21729,
   "lon": 6.53861,
   "name": "Apex Boulders",

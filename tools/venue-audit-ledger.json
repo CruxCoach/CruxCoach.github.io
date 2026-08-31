@@ -6593,7 +6593,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "unverified",
     "channels": [
      "name-guess",
@@ -6601,11 +6601,12 @@
      "www",
      "web-search",
      "social-profile",
-     "previous-record"
+     "previous-record",
+     "operator-index"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -21638,8 +21639,8 @@
    }
   },
   {
-   "lat": 20.61837,
-   "lon": -103.43033,
+   "lat": 20.6332963,
+   "lon": -103.4365048,
    "name": "YE Escalada + Yoga Center",
    "country": "MX",
    "needs": [
@@ -21647,7 +21648,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "unverified",
     "channels": [
      "name-guess",
@@ -21655,11 +21656,12 @@
      "www",
      "web-search",
      "social-profile",
-     "previous-record"
+     "previous-record",
+     "operator-index"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -21912,8 +21914,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unavailable",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
@@ -21921,15 +21923,18 @@
      "osm-website-tag",
      "co-located",
      "web-search",
-     "social-profile"
+     "social-profile",
+     "operator-index",
+     "map-block"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "map-block"
     ]
    }
   },

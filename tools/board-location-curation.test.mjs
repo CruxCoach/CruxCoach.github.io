@@ -405,6 +405,30 @@ test('committed map data includes the missing boards and merges the corrected ve
   ]) assert.equal(at(features, lat, lon).length, 0);
 
   assert.equal(features.some(feature => feature.properties.name.includes('T-UP Climbing Gym A19')), false);
+
+  const acme189 = at(features, 31.24216, 121.44032);
+  assert.equal(acme189.length, 1);
+  assert.equal(acme189[0].properties.name, 'Acme Climbing 189');
+
+  const yeCenter = at(features, 20.6332963, -103.4365048);
+  assert.equal(yeCenter.length, 1);
+  assert.equal(yeCenter[0].properties.name, 'YE Escalada + Yoga Center');
+  assert.deepEqual(boardIds(yeCenter[0]), ['kilter']);
+  assert.equal(at(features, 20.61837, -103.43033).length, 0);
+
+  const pampa = at(features, 2.19316, 102.23685);
+  assert.equal(pampa.length, 1);
+  assert.equal(pampa[0].properties.website, 'https://sgrh.swangarden.com/services/');
+  assert.deepEqual(pampa[0].properties.hours, [
+    '', '14:00-22:00', '14:00-22:00', '14:00-22:00',
+    '14:00-22:00', '10:00-20:00', '10:00-20:00',
+  ]);
+
+  const bunkerKohTao = at(features, 10.07863798214502, 99.83063143857734);
+  assert.equal(bunkerKohTao.length, 1);
+  assert.equal(bunkerKohTao[0].properties.name, 'The Bunker Koh Tao');
+  assert.equal(bunkerKohTao[0].properties.website, 'https://kohtao-rockclimbing.com/climb-in-koh-tao/');
+
   for (const [lat, lon] of [
     [31.9543786, 35.9105776],
     [-6.1138942, 106.7853922],
@@ -420,6 +444,9 @@ test('committed map data includes the missing boards and merges the corrected ve
     [52.3765411, 4.871359],
     [-34.0274902, 151.0684636],
     [51.5711465, 5.0997929],
+    [31.23069, 121.4277],
+    [2.189594, 102.2500868],
+    [10.0666868, 99.8297437],
   ]) assert.equal(at(features, lat, lon).length, 0);
 
   assert.equal(at(features, 46.8753166, -96.7668897).length, 0);

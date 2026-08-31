@@ -564,8 +564,8 @@
     "name": "Acme Climbing 189",
     "country": "CN",
     "status": "unverified",
-    "reason": "No official site could be established: acmeclimbing.com does not resolve. Acme Climbing 189 is on the 5th floor of the 189 mall on 长寿路, and publishes through mall and city listings. Mainland Chinese gyms publish on WeChat, Dianping and Xiaohongshu rather than on websites, and none of those is a site this file can store or a reader without an account can open.",
-    "checked": "2026-08-25"
+    "reason": "No official site could be established: acmeclimbing.com does not resolve. The current venue is still the 189 Plaza branch on the fifth floor at 长寿路189号, confirmed by a current city directory and an official Shanghai sports-event source, but the venue publishes through WeChat, Dianping and Xiaohongshu rather than a website that this file can store or an unauthenticated reader can open.",
+    "checked": "2026-08-31"
   },
   {
     "lat": 30.18347,
@@ -2490,13 +2490,14 @@
     "checked": "2026-08-25"
   },
   {
-    "lat": 20.61837,
-    "lon": -103.43033,
+    "lat": 20.6332963,
+    "lon": -103.4365048,
     "name": "YE Escalada + Yoga Center",
     "country": "MX",
     "status": "unverified",
-    "reason": "No official site could be established: YE Escalada + Yoga Center is at Periférico #3000-A in Zapopan and yeescalada.mx does not resolve. Latin American climbing gyms publish on Instagram and Facebook; the domain a name suggests almost never resolves, and what does is somebody else.",
-    "checked": "2026-08-25"
+    "candidate": "https://wellhub.com/es-mx/search/partners/zHHj7OEQaC1wufnbY-_L-Uv5-8jKLy76xMTFfdAoz2nakwlj7ulJkTSaVNEAwc4Z/",
+    "reason": "No official site could be established: the address-bearing frozen row, Kilter's current official locator and a current partner location page agree on YE Escalada + Yoga Center at Periférico #3000-A in Zapopan, but yeescalada.mx does not resolve. The venue publishes through Instagram and Facebook, neither of which is an official website this file can attach.",
+    "checked": "2026-08-31"
   },
   {
     "lat": 3.13058,
@@ -2525,16 +2526,6 @@
     "status": "unverified",
     "checked": "2026-08-23",
     "reason": "No official site could be established: no name-derived domain resolved at all. Upstream records no address for this venue, so there is no street line to test a candidate against."
-  },
-  {
-    "lat": 2.19316,
-    "lon": 102.23685,
-    "name": "Pampa Rock Climbing",
-    "country": "MY",
-    "status": "unavailable",
-    "candidate": "https://pampaclimbing.com/",
-    "reason": "PAMPA Rock Climbing is listed everywhere with the website pampaclimbing.com, and that domain answers NXDOMAIN — it does not exist in DNS at all, on apex or www. What the venue actually runs is instagram.com/pamparockclimbing and a Facebook page. A domain that every directory repeats is not a domain that resolves.",
-    "checked": "2026-08-25"
   },
   {
     "lat": 1.5800393,
@@ -4688,5 +4679,35 @@
     "checked": "2026-08-31",
     "candidate": "https://block013.nl/",
     "reason": "The current official Block013 page embeds its route map at 51.5770,5.0920, within 13 m of the address-bearing production Kilter venue at 51.57716,5.09198. This same-name manufacturer point is 0.9 km southeast and would duplicate the one operator hall, so it is excluded in favour of the venue-owned map replacement."
+  },
+  {
+    "lat": 31.23069,
+    "lon": 121.4277,
+    "name": "Acme Climbing 189",
+    "country": "CN",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.shobserver.com/sgh/detail?id=1378651",
+    "reason": "The address-bearing production row puts Acme's explicitly named 189 branch at 长寿路189号189弄购物中心5楼. An official Shanghai sports-event page independently identifies 尽峰攀岩 at 长寿路189号189弄购物中心1栋L5层, and a current city directory still verifies that same branch and address. The production point at 31.24216,121.44032 represents the named mall; this manufacturer locator point is 1.8 km southwest and is excluded as a conflicting pin."
+  },
+  {
+    "lat": 2.189594,
+    "lon": 102.2500868,
+    "name": "Pampa Rock Climbing",
+    "country": "MY",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://sgrh.swangarden.com/services/",
+    "reason": "Swan Garden Resort Hotel's current official services page names its Pampa Rock Climbing facility and prints 2 Jalan KSB 2, Taman Kota Syahbandar, 75200 Melaka, exactly the address carried by the production row. The page's own structured map point is 68 m from production at 2.19316,102.23685; this same-name manufacturer point is 1.5 km east and is excluded in favour of the branch-primary location."
+  },
+  {
+    "lat": 10.0666868,
+    "lon": 99.8297437,
+    "name": "The Bunker Koh tao",
+    "country": "TH",
+    "status": "duplicate",
+    "checked": "2026-08-31",
+    "candidate": "https://kohtao-rockclimbing.com/",
+    "reason": "The live Kilter locator carries another current row named The Bunker Climbing Gym Koh Tao at 10.0784056,99.8306529, within 26 m of the address-bearing production venue. The venue's current official site says it is Koh Tao's one and only indoor climbing and bouldering gym and currently names its Kilter Board. This older same-island point 1.3 km south is therefore a duplicate, not a second public installation."
   }
 ]
