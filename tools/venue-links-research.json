@@ -4428,5 +4428,25 @@
     "checked": "2026-08-31",
     "candidate": "https://lesfreresmawem.fr/premiere-visite.html",
     "reason": "The manufacturer row says Colmar, France but its coordinate is in Boulder, Colorado. The venue's current official pages identify one public hall at 3 Rue Jacques Daguerre, 68000 Colmar and explicitly name its Kilter Board. The address-bearing production row already publishes that branch at 48.10577,7.37538, so the cross-continent locator point is excluded in favour of the primary-backed replacement."
+  },
+  {
+    "lat": 40.775381,
+    "lon": -73.4133223,
+    "name": "The Gravity Vault Westbury",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://gravityvault.com/locations/westbury-ny",
+    "reason": "The operator's current Westbury branch page names the adjustable Kilter and Tension 2 training boards and prints its exact address as Samanea New York Mall, 1500 Old Country Road, Westbury NY 11590. The address-bearing production Kilter/Tension venue already represents that branch at 40.74658,-73.59561. This locator point is 15.7 km east and would create a second Westbury branch the operator does not list, so it is excluded in favour of the branch-primary replacement."
+  },
+  {
+    "lat": 52.2550915,
+    "lon": -113.7820775,
+    "name": "Trailhead Climbing and Fitness",
+    "country": "CA",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://trailheadclimbing.ca/",
+    "reason": "Trailhead's current official site identifies itself as Red Deer's climbing gym and repeatedly prints #108 33 McKenzie Crescent, Red Deer County AB T4S 2H4. The production Kilter row carries that exact address at 52.19682,-113.81868. This locator point is 6.9 km north and would duplicate the same single operator venue, so it is excluded in favour of the address-bearing primary-backed row."
   }
 ]
