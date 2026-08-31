@@ -582,6 +582,9 @@ The tool discards account ids and usernames and retains no response. A pin is a
 candidate, not proof of current public access: review it against the venue's own
 current page. The endpoints have no published redistribution licence and omit
 addresses and board details, so Hangtime remains the normal ingest source.
+Backed source-coordinate overrides count as resolved only when the live pin
+matches the override selector and its target still lands on a current venue for
+the same board system; a stale override therefore fails closed as a candidate.
 
 ### Kilter manufacturer-locator audit
 

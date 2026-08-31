@@ -13,7 +13,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { haversineKm } from './build-cities-data.mjs';
-import { venueKey } from './venue-links.mjs';
+import { nameSimilarity, venueKey } from './venue-links.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const MATCH_RADIUS_KM = 0.25;
@@ -69,7 +69,19 @@ function publicRow(pin, nearest = null) {
   };
 }
 
-export function comparePinSets(documents, venuesByBoard, exclusions = []) {
+function resolvedOverride(pin, overrides, venues) {
+  const override = overrides.find(row => row.board === pin.board
+    && venueKey(row.lat, row.lon) === venueKey(pin.lat, pin.lon)
+    && nameSimilarity(row.name, pin.name) >= 0.5
+    && Number.isFinite(row.set?.lat)
+    && Number.isFinite(row.set?.lon));
+  if (!override) return null;
+  const target = closest({ lat: override.set.lat, lon: override.set.lon }, venues);
+  if (!target || target.km > MATCH_RADIUS_KM) return null;
+  return { override, target };
+}
+
+export function comparePinSets(documents, venuesByBoard, exclusions = [], overrides = []) {
   const excludedByKey = new Map(exclusions.map(row => [venueKey(row.lat, row.lon), row]));
   const boards = {};
   for (const board of Object.keys(BOARD_ENDPOINTS)) {
@@ -79,6 +91,7 @@ export function comparePinSets(documents, venuesByBoard, exclusions = []) {
     const venues = venuesByBoard[board] ?? [];
     const matched = [];
     const excluded = [];
+    const overridden = [];
     const candidates = [];
     for (const pin of valid) {
       const nearest = closest(pin, venues);
@@ -91,6 +104,18 @@ export function comparePinSets(documents, venuesByBoard, exclusions = []) {
         excluded.push({ ...publicRow(pin, nearest), exclusion: exclusion.status });
         continue;
       }
+      const resolution = resolvedOverride(pin, overrides, venues);
+      if (resolution) {
+        overridden.push({
+          ...publicRow(pin, nearest),
+          override_target: {
+            name: resolution.target.name,
+            lat: resolution.override.set.lat,
+            lon: resolution.override.set.lon,
+          },
+        });
+        continue;
+      }
       candidates.push(publicRow(pin, nearest));
     }
     boards[board] = {
@@ -99,9 +124,15 @@ export function comparePinSets(documents, venuesByBoard, exclusions = []) {
       valid: valid.length,
       invalid,
       map_venues: venues.length,
-      counts: { matched: matched.length, excluded: excluded.length, candidates: candidates.length },
+      counts: {
+        matched: matched.length,
+        excluded: excluded.length,
+        overridden: overridden.length,
+        candidates: candidates.length,
+      },
       matched,
       excluded,
+      overridden,
       candidates,
     };
   }
@@ -150,7 +181,7 @@ function inputPath(argv) {
 function printText(audit) {
   process.stdout.write('Aurora-family anonymous-pins audit\n');
   for (const [board, result] of Object.entries(audit.boards)) {
-    process.stdout.write(`  ${board.padEnd(12)} ${String(result.rows).padStart(4)} pins; ${result.counts.matched} matched, ${result.counts.excluded} excluded, ${result.counts.candidates} candidates\n`);
+    process.stdout.write(`  ${board.padEnd(12)} ${String(result.rows).padStart(4)} pins; ${result.counts.matched} matched, ${result.counts.overridden} overridden, ${result.counts.excluded} excluded, ${result.counts.candidates} candidates\n`);
   }
   process.stdout.write('\nUnresolved candidates (manufacturer pin + venue-primary-source review required)\n');
   for (const [board, result] of Object.entries(audit.boards)) {
@@ -165,7 +196,8 @@ if (process.argv[1] && process.argv[1].endsWith('aurora-pins-audit.mjs')) {
   if (process.argv.includes('--input') && !input) throw new Error('--input needs a JSON file');
   const documents = input ? JSON.parse(readFileSync(input, 'utf8')) : await fetchDocuments();
   const exclusions = JSON.parse(readFileSync(join(ROOT, 'tools/location-exclusions.json'), 'utf8'));
-  const audit = comparePinSets(documents, mapVenuesByBoard(), exclusions);
+  const overrides = JSON.parse(readFileSync(join(ROOT, 'tools/overrides.json'), 'utf8'));
+  const audit = comparePinSets(documents, mapVenuesByBoard(), exclusions, overrides);
   if (process.argv.includes('--json')) process.stdout.write(`${JSON.stringify(audit, null, 2)}\n`);
   else printText(audit);
 }

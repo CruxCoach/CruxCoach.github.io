@@ -21,7 +21,7 @@ freshness channel.
 
 | System | Anonymous endpoint rows | Disposition after this pass |
 | --- | ---: | --- |
-| Tension | 368 | 367 current pins match production; one announced pin is backed-excluded |
+| Tension | 368 | 365 pins match directly; two stale coordinates resolve through backed production overrides; one announced pin is backed-excluded |
 | Grasshopper | 42 | all 42 match |
 | Decoy | 24 | all 24 match |
 | So iLL | 12 | all 12 match |
@@ -32,6 +32,14 @@ The live endpoints total 454 valid pins with no malformed or Null Island rows.
 Production also has one reviewed Tension venue absent from the live endpoint
 (ICP Boulder Hall & Showroom), so equal aggregate totals are not evidence of
 row-for-row equality; the audit reports each category explicitly.
+
+Two Tension pins remain at pre-correction coordinates: Level24 and Bouldering
+Project Tempe. Their venue-owned pages place both Tension Boards at the same
+current branch points as their Kilter Boards, and the committed source-coordinate
+overrides encode those reviewed moves. The audit now recognizes an override only
+when its selector matches the live pin and its target resolves onto the current
+same-system map venue; a stale or mistyped override therefore remains visible as
+a candidate rather than suppressing one.
 
 ## Two new Tension pins
 
