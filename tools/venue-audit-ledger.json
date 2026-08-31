@@ -3192,29 +3192,28 @@
    }
   },
   {
-   "lat": -23.5829602,
-   "lon": -46.6744396,
-   "name": "FABRICA Escalada",
+   "lat": -23.5560606,
+   "lon": -46.6890446,
+   "name": "Fabrica Escalada Vila Madalena",
    "country": "BR",
    "needs": [
     "website",
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
-    "result": "ambiguous",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "operator-index",
+     "map-block"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
      "venue-link",
-     "path-probe"
+     "operator-index"
     ]
    }
   },

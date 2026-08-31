@@ -282,10 +282,10 @@
     "lon": -46.6744396,
     "name": "FABRICA Escalada",
     "country": "BR",
-    "status": "ambiguous",
-    "reason": "fabricaescalada.com/unidades lists exactly two halls, Rua da Paz 1823 in Chácara Santo Antônio and Rua Girassol 323 in Vila Madalena, and describes a Kilter Board at the Chácara unit. Upstream gives no address for this row, and its coordinate sits in central São Paulo between the two, near neither. Which unit this registry row is cannot be read off the operator's page.",
+    "status": "mislocated",
+    "reason": "The operator's current units page now distinguishes both branches and boards: Chacara at Rua da Paz 1823 has the Kilter Board, while Vila Madalena at Rua Girassol 323 has the MoonBoard. Its current structured location data publishes -23.5560606,-46.6890446 for Vila Madalena, 3.4 km from this frozen MoonBoard registry point. The row is moved and renamed onto that primary-source branch pin in the same batch.",
     "candidate": "https://www.fabricaescalada.com/unidades",
-    "checked": "2026-08-24"
+    "checked": "2026-08-31"
   },
   {
     "lat": -23.0204559,
@@ -4378,5 +4378,25 @@
     "checked": "2026-08-31",
     "candidate": "https://www.xiaoyuzhoufm.com/episode/65439c24d4c94bc46ad30d3a",
     "reason": "The locator point and printed address are at Chengdu's New Century Global Center, but a long-form interview with the training-room operator identifies PDZS as a 24-hour Kilter/MoonBoard facility at 6 Keyuan South 2nd Road and discusses its move from the old hall. This makes the locator point doubtful, but no current venue-owned page supplies a publishable replacement coordinate or confirms that the business still operates. Because the mislocation policy requires a primary-backed replacement in the same batch, the row remains an unresolved candidate rather than being excluded or silently moved."
+  },
+  {
+    "lat": -23.579349,
+    "lon": -46.6747226,
+    "name": "Fabrica Escalada Indoor",
+    "country": "BR",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.fabricaescalada.com/unidades",
+    "reason": "The operator's current units page identifies exactly two branches and assigns its Kilter Board only to Chacara at Rua da Paz 1823. This generic locator point is several kilometres from both current official branch locations and would create a second Kilter venue. The address-bearing production Kilter row already represents Chacara, while the frozen MoonBoard row is separately moved to the operator's structured Vila Madalena pin in this batch."
+  },
+  {
+    "lat": -23.6237082,
+    "lon": -46.7045917,
+    "name": "Fabrica Escalada Indoor (Unidade Chácara)",
+    "country": "BR",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.fabricaescalada.com/unidades",
+    "reason": "The operator's current Chacara block identifies its Kilter Board and exact Rua da Paz 1823 address. The existing production Kilter row carries that same official address at -23.62735,-46.70543, independently corroborated within 35 metres by the mapped climbing object used in its website review. This locator point is about 415 metres north and would duplicate the same branch, so it is excluded in favour of the address-bearing replacement already published."
   }
 ]
