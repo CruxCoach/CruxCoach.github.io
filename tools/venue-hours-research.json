@@ -1058,24 +1058,14 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 51.0779562,
-  "lon": -114.1337454,
-  "name": "University of Calgary Moonboard",
-  "country": "CA",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.ucalgary.ca/active-living/facilities/outdoor-centre/",
-  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 5,198 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
- },
- {
   "lat": 51.07767,
   "lon": -114.13419,
   "name": "University of Calgary Outdoor Centre",
   "country": "CA",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.ucalgary.ca/active-living/facilities/outdoor-centre/",
-  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 5,198 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
+  "status": "seasonal",
+  "checked": "2026-08-31",
+  "source": "https://active-living.ucalgary.ca/facilities/racquet-centre/hours",
+  "reason": "The current MoonBoard/Kilter page says both boards follow Racquet Centre hours. That official schedule publishes different September-April and May-August weeks plus dated holiday exceptions, so repository policy forbids flattening it to one regular public week."
  },
  {
   "lat": 43.60385,
@@ -7075,33 +7065,13 @@
   "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 2,448 characters carrying 1 clock time, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
-  "lat": 44.03886,
-  "lon": -121.30328,
-  "name": "Boardworks Climbing",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The only stated schedule is \"Open Hours: Tuesday - Thursday: 4p-8p\". Monday, Friday, Saturday and Sunday are neither stated as open nor as closed, and the gym otherwise runs on barcode access.",
-  "source": "https://www.boardworksclimbing.com/"
- },
- {
-  "lat": 44.03909,
-  "lon": -121.30325,
-  "name": "Boardworks Climbing",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The only stated schedule is \"Open Hours: Tuesday - Thursday: 4p-8p\". Monday, Friday, Saturday and Sunday are neither stated as open nor as closed, and the gym otherwise runs on barcode access.",
-  "source": "https://www.boardworksclimbing.com/"
- },
- {
   "lat": 44.03913,
   "lon": -121.3032,
   "name": "Boardworks Climbing",
   "country": "US",
   "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The only stated schedule is \"Open Hours: Tuesday - Thursday: 4p-8p\". Monday, Friday, Saturday and Sunday are neither stated as open nor as closed, and the gym otherwise runs on barcode access.",
+  "checked": "2026-08-31",
+  "reason": "The official page distinguishes 24/7 barcode access for members and punch-pass holders from staffed non-member hours of Tuesday-Thursday 16:00-20:00. That access-class-dependent schedule cannot be represented as one public seven-day week.",
   "source": "https://www.boardworksclimbing.com/"
  },
  {
@@ -8621,5 +8591,15 @@
     "checked": "2026-08-31",
     "source": "https://www.kraftreich-aufenfeld.at/de/",
     "reason": "The current homepage states daily 09:00-23:00 with Tuesday from 07:30, while the current official contact page states the same daily range but Tuesday from 06:00. Because both pages describe venue rather than kitchen hours and disagree on the same regular day, the previously published week is withdrawn until the operator resolves the conflict."
+  },
+  {
+    "lat": 45.52658504620519,
+    "lon": -122.43448777322068,
+    "name": "Rock Haven Climbing Gym",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-31",
+    "source": "https://www.rockhavenclimbing.com/",
+    "reason": "Current official pages disagree: the homepage, pricing, deals and routesetting pages show Monday/Wednesday/Friday/Saturday 09:00-22:00 and Sunday 09:00-20:00, while the facility page shows Monday/Wednesday/Saturday 09:00-21:00, Friday 09:00-22:00 and Sunday 09:00-20:00; the homepage JSON-LD separately ends Sunday at 19:00. No single week is safe to publish."
   }
 ]

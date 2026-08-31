@@ -643,6 +643,16 @@ future installations and branch-level corroboration are recorded in
 from the frozen registries; existing rows are corrected with `overrides.json`,
 and near-coordinate duplicates use the backed exclusion workflow.
 
+### MoonBoard replacement-source audit
+
+MoonBoard removed its former anonymous location feed in May 2026. The frozen
+Hangtime snapshot remains the baseline, while current public installations are
+recovered only from branch-primary venue pages. The repeatable search for a
+replacement manufacturer channel, including the authentication and App Check
+boundary in the current official client, is documented in
+`MOONBOARD-SOURCE-AUDIT.md`. Do not treat search results, social posts, app
+artifacts or the frozen registry itself as proof that a venue remains public.
+
 - Prefer sources with explicit public-domain or permissive licensing.
 - Drop free-form `description`/`bio` text at the adapter — historical
   MoonBoard entries contain SEO/casino spam from owner-set descriptions.

@@ -22,6 +22,9 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
   assert.deepEqual(entries.map(entry => [entry.name, entry.board]), [
     ['Boulderwelt München Ost', 'moonboard'],
     ['Boulderwelt Hamburg', 'moonboard'],
+    ['Boardworks Climbing', 'moonboard'],
+    ['Rock Haven Climbing Gym', 'moonboard'],
+    ['The Front Climbing Club Ogden', 'moonboard'],
     ['ICP Boulder Hall & Showroom', 'kilter'],
     ['ICP Boulder Hall & Showroom', 'tension'],
     ['BLOCK DOCK Petržalka', 'kilter'],
@@ -79,6 +82,38 @@ test('committed map data includes the missing boards and merges the corrected ve
   const hamburg = at(features, 53.55395, 10.02095);
   assert.equal(hamburg.length, 1);
   assert.deepEqual(new Set(boardIds(hamburg[0])), new Set(['kilter', 'moonboard']));
+
+  const boardworks = at(features, 44.03913, -121.3032);
+  assert.equal(boardworks.length, 1);
+  assert.deepEqual(new Set(boardIds(boardworks[0])), new Set(['kilter', 'tension', 'grasshopper', 'decoy', 'moonboard']));
+  assert.equal(boardworks[0].properties.city, 'Bend');
+  assert.equal(boardworks[0].properties.hours, undefined);
+  assert.equal(boardworks[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2024');
+  assert.equal(at(features, 44.03909, -121.30325).length, 0);
+  assert.equal(at(features, 44.03886, -121.30328).length, 0);
+
+  const rockHaven = at(features, 45.52658504620519, -122.43448777322068);
+  assert.equal(rockHaven.length, 1);
+  assert.equal(rockHaven[0].properties.name, 'Rock Haven Climbing Gym');
+  assert.equal(rockHaven[0].properties.city, 'Gresham');
+  assert.equal(rockHaven[0].properties.website, 'https://www.rockhavenclimbing.com/');
+  assert.equal(rockHaven[0].properties.hours, undefined);
+  assert.equal(rockHaven[0].properties.boards[0].variant, 'mb2024');
+
+  const frontOgden = at(features, 41.2311, -111.97512);
+  assert.equal(frontOgden.length, 1);
+  assert.deepEqual(new Set(boardIds(frontOgden[0])), new Set(['tension', 'moonboard']));
+  assert.equal(frontOgden[0].properties.city, 'Ogden');
+  assert.equal(frontOgden[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2024');
+  assert.equal(frontOgden[0].properties.boards.find(board => board.board === 'moonboard').angle, 40);
+
+  const calgaryOutdoor = at(features, 51.07767, -114.13419);
+  assert.equal(calgaryOutdoor.length, 1);
+  assert.deepEqual(new Set(boardIds(calgaryOutdoor[0])), new Set(['kilter', 'moonboard']));
+  assert.equal(calgaryOutdoor[0].properties.hours, undefined);
+  assert.equal(calgaryOutdoor[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2024');
+  assert.equal(calgaryOutdoor[0].properties.boards.find(board => board.board === 'moonboard').angle, 40);
+  assert.equal(at(features, 51.0779562, -114.1337454).length, 0);
 
   const thalkirchen = at(features, 48.107, 11.54568);
   assert.equal(thalkirchen.length, 1);

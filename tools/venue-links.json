@@ -4348,28 +4348,12 @@
     "note": "True North Climbing's own site, whose embedded map of itself sits 97 m from this venue; it gives 75 Carl Hall Road, Unit 14, Toronto M3K 2B9. Upstream records no address and files the venue under the Bathurst Manor neighbourhood."
   },
   {
-    "lat": 51.0779562,
-    "lon": -114.1337454,
-    "name": "University of Calgary Moonboard",
-    "country": "CA",
-    "website": "https://www.ucalgary.ca/active-living/facilities/outdoor-centre",
-    "verified": "2026-08-23",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "street-address",
-      "city",
-      "location-page"
-    ],
-    "note": "This venue is the MoonBoard 60 m from the Outdoor Centre entry, in the same building. The university's own facilities page for the Outdoor Centre prints 2500 University Drive NW, Calgary — the address upstream records. The first pass tried /recreation/facilities/climbing, /recreation/climbing and /recreation/facilities/climbing-gym, all of which are 404, and the Active Living section was never reached."
-  },
-  {
     "lat": 51.07767,
     "lon": -114.13419,
     "name": "University of Calgary Outdoor Centre",
     "country": "CA",
     "website": "https://www.ucalgary.ca/active-living/facilities/outdoor-centre",
-    "verified": "2026-08-23",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -4377,7 +4361,7 @@
       "city",
       "location-page"
     ],
-    "note": "This venue is the Outdoor Centre itself. The university's own facilities page for the Outdoor Centre prints 2500 University Drive NW, Calgary — the address upstream records. The first pass tried /recreation/facilities/climbing, /recreation/climbing and /recreation/facilities/climbing-gym, all of which are 404, and the Active Living section was never reached."
+    "note": "The university's current board page explicitly places the MoonBoard and Kilter Board together on the west side of the Racquet Centre and prints the campus address, confirming that the two legacy pins represent one public venue."
   },
   {
     "lat": 49.80656,
@@ -19435,47 +19419,20 @@
     "note": "Upstream carries no address; the page's own 539 East 2nd St. Ames, IA 50010 resolves 122 m from the coordinate."
   },
   {
-    "lat": 44.03886,
-    "lon": -121.30328,
-    "name": "Boardworks Climbing",
-    "country": "US",
-    "website": "https://www.boardworksclimbing.com/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address"
-    ],
-    "note": "Upstream lists this hall three times within 31 m; the site's Reed Market Rd address resolves 37 m from this coordinate."
-  },
-  {
-    "lat": 44.03909,
-    "lon": -121.30325,
-    "name": "Boardworks Climbing",
-    "country": "US",
-    "website": "https://www.boardworksclimbing.com/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address"
-    ],
-    "note": "Upstream lists this hall three times within 31 m; the site's Reed Market Rd address resolves 58 m from this coordinate."
-  },
-  {
     "lat": 44.03913,
     "lon": -121.3032,
     "name": "Boardworks Climbing",
     "country": "US",
     "website": "https://www.boardworksclimbing.com/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "postal-code",
       "city"
-    ]
+    ],
+    "note": "The official site identifies one gym at 222 SE Reed Market Rd containing all six boards; manufacturer pins for its Kilter, Tension, Grasshopper and Decoy installations have been consolidated here."
   },
   {
     "lat": 42.38226,
@@ -27266,5 +27223,22 @@
       "board-mention"
     ],
     "note": "The current sports-complex page invites adults and children to its public climbing and bouldering hall, explicitly names the interactive 12Climb wall, and prints 35 Buhaivska Street in Odesa. The manufacturer's exact Dynamica placemark lands on that address."
+  },
+  {
+    "lat": 45.52658504620519,
+    "lon": -122.43448777322068,
+    "name": "Rock Haven Climbing Gym",
+    "country": "US",
+    "website": "https://www.rockhavenclimbing.com/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The official facility page identifies the public Gresham gym and its MoonBoard 2024; the site's own current JSON-LD publishes 355 NE 223rd Avenue, Gresham OR 97030 and this exact point."
   }
 ]

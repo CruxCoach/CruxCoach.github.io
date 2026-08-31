@@ -33,6 +33,53 @@
   },
   {
     "board": "moonboard",
+    "lat": 51.0779562,
+    "lon": -114.1337454,
+    "name": "University of Calgary Moonboard",
+    "note": "The university's current board page places its MoonBoard and Kilter Board together on the west side of the Racquet Centre; normalize the legacy MoonBoard pin onto the address-bearing Kilter entry and apply the official 2024 hold set and fixed 40° configuration.",
+    "set": {
+      "lat": 51.07767,
+      "lon": -114.13419,
+      "name": "University of Calgary Outdoor Centre",
+      "variant": "mb2024",
+      "angle": 40
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 44.03909,
+    "lon": -121.30325,
+    "name": "Boardworks Climbing",
+    "note": "The official venue page identifies one gym at 222 SE Reed Market Rd containing all six boards; consolidate the slightly drifted manufacturer pins onto the address-bearing Kilter point.",
+    "set": {
+      "lat": 44.03913,
+      "lon": -121.3032
+    }
+  },
+  {
+    "board": "grasshopper",
+    "lat": 44.03886,
+    "lon": -121.30328,
+    "name": "Boardworks Climbing",
+    "note": "The official venue page identifies one gym at 222 SE Reed Market Rd containing all six boards; consolidate the slightly drifted manufacturer pins onto the address-bearing Kilter point.",
+    "set": {
+      "lat": 44.03913,
+      "lon": -121.3032
+    }
+  },
+  {
+    "board": "decoy",
+    "lat": 44.03886,
+    "lon": -121.30328,
+    "name": "Boardworks Climbing",
+    "note": "The official venue page identifies one gym at 222 SE Reed Market Rd containing all six boards; consolidate the slightly drifted manufacturer pins onto the address-bearing Kilter point.",
+    "set": {
+      "lat": 44.03913,
+      "lon": -121.3032
+    }
+  },
+  {
+    "board": "moonboard",
     "lat": 49.443067,
     "lon": 10.9598136,
     "name": "der steinbock Zirndorf Moon Board",

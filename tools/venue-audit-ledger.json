@@ -5685,35 +5685,6 @@
    }
   },
   {
-   "lat": 51.0779562,
-   "lon": -114.1337454,
-   "name": "University of Calgary Moonboard",
-   "country": "CA",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "operator-index",
-     "apex",
-     "www",
-     "path-probe",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
    "lat": 51.07767,
    "lon": -114.13419,
    "name": "University of Calgary Outdoor Centre",
@@ -5723,7 +5694,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "operator-index",
@@ -5734,8 +5705,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-31",
+    "result": "seasonal",
     "channels": [
      "venue-link",
      "path-probe"
@@ -30634,40 +30605,6 @@
    }
   },
   {
-   "lat": 44.03886,
-   "lon": -121.30328,
-   "name": "Boardworks Climbing",
-   "country": "US",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 44.03909,
-   "lon": -121.30325,
-   "name": "Boardworks Climbing",
-   "country": "US",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
    "lat": 44.03913,
    "lon": -121.3032,
    "name": "Boardworks Climbing",
@@ -30676,7 +30613,7 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
      "venue-link",
@@ -39084,6 +39021,23 @@
    "lat": 30.17515,
    "lon": -97.79041,
    "name": "Crux Climbing Center South",
+   "country": "US",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 45.52658504620519,
+   "lon": -122.43448777322068,
+   "name": "Rock Haven Climbing Gym",
    "country": "US",
    "needs": [
     "hours"

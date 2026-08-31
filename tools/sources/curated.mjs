@@ -36,6 +36,54 @@ const ENTRIES = [
     angle: null,
   },
   {
+    // Current public venue, address, and MoonBoard generation:
+    // https://www.boardworksclimbing.com/
+    // Board dimensions and adjustable range:
+    // https://www.boardworksclimbing.com/amenities
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Boardworks Climbing',
+    lat: 44.03913,
+    lon: -121.3032,
+    city: 'Bend',
+    country: 'US',
+    commercial: true,
+    led: true,
+    variant: 'mb2024',
+    angle: null,
+  },
+  {
+    // Current public venue, board generation, and address/coordinates:
+    // https://www.rockhavenclimbing.com/facility/
+    // https://www.rockhavenclimbing.com/
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Rock Haven Climbing Gym',
+    lat: 45.52658504620519,
+    lon: -122.43448777322068,
+    city: 'Gresham',
+    country: 'US',
+    commercial: true,
+    led: true,
+    variant: 'mb2024',
+    angle: null,
+  },
+  {
+    // Current branch, public access, fixed angle, and board generation:
+    // https://thefrontclimbingclub.com/ogden/amenities/
+    source: 'curated',
+    board: 'moonboard',
+    name: 'The Front Climbing Club Ogden',
+    lat: 41.2311,
+    lon: -111.97512,
+    city: 'Ogden',
+    country: 'US',
+    commercial: true,
+    led: true,
+    variant: 'mb2024',
+    angle: 40,
+  },
+  {
     // Public venue, address, and both boards:
     // https://climbicp.com/au/first-visit/
     // Kilter access/layout/size/frame/angle and coordinates:
