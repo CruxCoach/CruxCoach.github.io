@@ -53,3 +53,12 @@ test('mislocated entries are an explicit supported exclusion outcome', () => {
   assert.equal(result.stats.excluded_entries, 1);
   assert.deepEqual(result.entries, []);
 });
+
+test('institution-only installations are an explicit non-public outcome', () => {
+  const result = applyLocationExclusions(
+    [{ name: 'School board', board: '12climb', lat: 50.4, lon: 30.4 }],
+    [{ name: 'School board', status: 'non-public', lat: 50.4, lon: 30.4 }],
+  );
+  assert.equal(result.stats.excluded_entries, 1);
+  assert.deepEqual(result.entries, []);
+});

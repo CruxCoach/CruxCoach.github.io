@@ -178,6 +178,45 @@ const ENTRIES = [
       hold_set: null,
     }],
   },
+  {
+    // Public venue, address, and an interactive board:
+    // https://www.climbingspace.com.ua/about
+    // 12Climb board identity and coordinates come from the manufacturer's
+    // maintained location KML (placemark "Climbing gym Space, Kyiv").
+    source: 'curated',
+    board: '12climb',
+    name: 'Climbing SPACE',
+    lat: 50.4887793,
+    lon: 30.4906293,
+    city: 'Kyiv',
+    country: 'UA',
+  },
+  {
+    // Public venue, address, and current regular hours:
+    // https://funattic.com.ua/ua/
+    // 12Climb board identity and coordinates come from the manufacturer's
+    // maintained location KML (placemark "Funattic climbing gym").
+    source: 'curated',
+    board: '12climb',
+    name: 'Funattic',
+    lat: 50.4464461,
+    lon: 30.4430291,
+    city: 'Kyiv',
+    country: 'UA',
+  },
+  {
+    // Public venue, address, and current regular hours:
+    // https://hyperion.kiev.ua/ua/pro-klub
+    // 12Climb board identity and coordinates come from the manufacturer's
+    // maintained location KML (placemark "Hyperion climbing gym").
+    source: 'curated',
+    board: '12climb',
+    name: 'Hyperion Kyiv',
+    lat: 50.4734096,
+    lon: 30.498501,
+    city: 'Kyiv',
+    country: 'UA',
+  },
 ];
 
 export async function load() {

@@ -113,7 +113,8 @@ export function buildAudit() {
   });
 
   const adverse = [...linkResearch, ...hoursResearch]
-    .filter(r => r.status === 'closed' || r.status === 'duplicate' || r.status === 'mislocated');
+    .filter(r => r.status === 'closed' || r.status === 'duplicate'
+      || r.status === 'mislocated' || r.status === 'non-public');
   const adverseByKey = new Map();
   for (const row of adverse) {
     const key = venueKey(row.lat, row.lon);

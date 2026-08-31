@@ -239,10 +239,10 @@ nightly `cron-refresh.sh`).
   regenerated `boards/data/` files alongside `overrides.json`. Counts land in
   `boards.meta.json` under `overrides`.
 
-## Closed, duplicate, and mislocated upstream locations
+## Closed, duplicate, non-public, and mislocated upstream locations
 
 `tools/location-exclusions.json` removes an upstream coordinate only after a
-`closed`, `duplicate`, or `mislocated` decision at the same coordinate is backed by the
+`closed`, `duplicate`, `non-public`, or `mislocated` decision at the same coordinate is backed by the
 primary-source research in `tools/venue-links-research.json`. The exclusion
 file intentionally carries no second copy of the evidence; its loader refuses
 an unbacked, differently named, undated, or contradictory row. Exclusions are
@@ -257,6 +257,11 @@ must never collapse into a public marker.
 point (for example, a city-centre default between two named branches). The
 replacement location must be added from branch-specific primary evidence in the
 same batch; it is not a general-purpose way to discard an awkward coordinate.
+
+`non-public` is reserved for an institution-only installation whose primary
+sources identify no public climbing venue access, such as a board installed for
+physical-education lessons inside a school. It must not be used merely because
+public access has not yet been proved; those cases remain research candidates.
 
 After changing exclusions, run a full `node tools/build-boards-data.mjs` (not
 `--overlays-only`) and commit the regenerated dataset, metadata, and directories.

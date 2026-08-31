@@ -44,7 +44,7 @@ export const LEDGER = join(REPO_ROOT, 'tools', 'venue-audit-ledger.json');
 // file; everything else mirrors the status the matching research log recorded,
 // plus `pending`, which is the only value that keeps an item in the queue.
 export const WEBSITE_RESULTS = new Set([
-  'accepted', 'ambiguous', 'closed', 'private', 'duplicate', 'mislocated', 'unavailable',
+  'accepted', 'ambiguous', 'closed', 'private', 'duplicate', 'mislocated', 'non-public', 'unavailable',
   'unverified', 'no-website', 'social-only', 'http-only', 'pending',
 ]);
 export const HOURS_RESULTS = new Set([

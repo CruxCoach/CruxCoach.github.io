@@ -27050,5 +27050,54 @@
       "city"
     ],
     "note": "The venue's current site identifies Iron Cliffs Gym in Cedar City and sells public passes; Kilter's manufacturer locator supplies the matching board, branch address, and coordinates."
+  },
+  {
+    "lat": 50.4887793,
+    "lon": 30.4906293,
+    "name": "Climbing SPACE",
+    "country": "UA",
+    "website": "https://www.climbingspace.com.ua/about",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "The venue page identifies the current public Kyiv climbing gym, its exact Verbova 59 address, and an interactive board; the 12Climb manufacturer KML independently places its Board School at the same venue coordinate."
+  },
+  {
+    "lat": 50.4464461,
+    "lon": 30.4430291,
+    "name": "Funattic",
+    "country": "UA",
+    "website": "https://funattic.com.ua/ua/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The current venue page identifies the public Kyiv climbing center at Borshchahivska 154; the 12Climb manufacturer KML independently identifies the board and matching coordinate."
+  },
+  {
+    "lat": 50.4734096,
+    "lon": 30.498501,
+    "name": "Hyperion Kyiv",
+    "country": "UA",
+    "website": "https://hyperion.kiev.ua/ua/pro-klub",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The current operator page identifies a public Kyiv climbing and bouldering venue at Kostiantynivska 73 / Kyrylivska 46; the 12Climb manufacturer KML independently identifies its board and matching coordinate."
   }
 ]

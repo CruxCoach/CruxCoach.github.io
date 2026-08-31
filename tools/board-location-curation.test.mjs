@@ -29,6 +29,9 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Spire Climbing + Fitness Training Center', 'kilter'],
     ['Far North Climbing Gym', 'kilter'],
     ['Iron Cliffs Gym', 'kilter'],
+    ['Climbing SPACE', '12climb'],
+    ['Funattic', '12climb'],
+    ['Hyperion Kyiv', '12climb'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -76,6 +79,21 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(spire.length, 1);
   assert.deepEqual(new Set(boardIds(spire[0])), new Set(['kilter', 'tension']));
   assert.equal(at(features, 45.656304, -111.069708).length, 0);
+
+  for (const [name, lat, lon] of [
+    ['Climbing SPACE', 50.4887793, 30.4906293],
+    ['Funattic', 50.4464461, 30.4430291],
+    ['Hyperion Kyiv', 50.4734096, 30.498501],
+  ]) {
+    const venue = at(features, lat, lon);
+    assert.equal(venue.length, 1);
+    assert.equal(venue[0].properties.name, name);
+    assert.deepEqual(boardIds(venue[0]), ['12climb']);
+    assert.ok(venue[0].properties.website);
+    assert.equal(venue[0].properties.hours.length, 7);
+  }
+  assert.equal(at(features, 50.416134, 30.4683816).length, 0);
+  assert.equal(at(features, 50.472918, 30.5129492).length, 0);
 });
 
 test('the map bypasses pre-Quantum service-worker cache entries', () => {

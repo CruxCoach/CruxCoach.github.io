@@ -32210,5 +32210,83 @@
    "sun": "09:00-21:00"
   },
   "evidence": "Hours: 7 days/week, 9:00 AM - 9:00 PM"
+ },
+ {
+  "lat": 50.4887793,
+  "lon": 30.4906293,
+  "name": "Climbing SPACE",
+  "country": "UA",
+  "source": "https://www.climbingspace.com.ua/about",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Пн 12-22, Вт 8-22, Ср 10-22, Чт 8-22, Пт 12-22, Сб 10-21, Нд 10-21"
+ },
+ {
+  "lat": 50.4464461,
+  "lon": 30.4430291,
+  "name": "Funattic",
+  "country": "UA",
+  "source": "https://funattic.com.ua/ua/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "11:00-21:45",
+   "tue": "11:00-21:45",
+   "wed": "11:00-21:45",
+   "thu": "11:00-21:45",
+   "fri": "11:00-21:45",
+   "sat": "11:00-18:00",
+   "sun": "11:00-18:00"
+  },
+  "evidence": "ПН-ПТ 11:00 до 21:45; СБ-НД 11:00 до 18:00"
+ },
+ {
+  "lat": 50.4734096,
+  "lon": 30.498501,
+  "name": "Hyperion Kyiv",
+  "country": "UA",
+  "source": "https://hyperion.kiev.ua/ua/pro-klub",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "11:00-21:45",
+   "tue": "11:00-21:45",
+   "wed": "11:00-21:45",
+   "thu": "11:00-21:45",
+   "fri": "11:00-21:45",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Скеледром: Пн-Пт 11:00-21:45; Сб-Нд 10:00-19:00"
  }
 ]
