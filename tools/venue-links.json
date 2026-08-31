@@ -24765,22 +24765,6 @@
     "note": "This coordinate is the actual training centre, on Innovation Lane, 6.8 km from the main gym."
   },
   {
-    "lat": 45.656304,
-    "lon": -111.069708,
-    "name": "Spire Climbing Center Training Facility",
-    "country": "US",
-    "website": "https://www.spireclimbing.com/",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city"
-    ],
-    "note": "The operator runs a main gym and a training centre off one page; upstream labels this entry the training facility, but its 13 Enterprise Blvd address is the main gym's."
-  },
-  {
     "lat": 38.801099,
     "lon": -77.1263623,
     "name": "Sportrock",
@@ -26986,5 +26970,85 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": -27.4549218,
+    "lon": 153.0328871,
+    "name": "ICP Boulder Hall & Showroom",
+    "country": "AU",
+    "website": "https://climbicp.com/au/first-visit/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "The venue's current first-visit page names the ICP Boulder Hall & Showroom, its Fortitude Valley address, public paid entry, and both Kilter and Tension training boards."
+  },
+  {
+    "lat": 48.1312802,
+    "lon": 17.0998312,
+    "name": "BLOCK DOCK Petržalka",
+    "country": "SK",
+    "website": "https://www.blockdock.me/petrzalka",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 48.2146345,
+    "lon": 17.1641254,
+    "name": "BLOCK DOCK Rača",
+    "country": "SK",
+    "website": "https://www.blockdock.me/raca",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 40.8709508,
+    "lon": -124.0899342,
+    "name": "Far North Climbing Gym",
+    "country": "US",
+    "website": "https://farnortharcata.com/",
+    "verified": "2026-08-31",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The venue's own current site identifies the public Arcata gym and exact address; Kilter's manufacturer locator independently identifies the board at that address."
+  },
+  {
+    "lat": 37.6878446,
+    "lon": -113.081693,
+    "name": "Iron Cliffs Gym",
+    "country": "US",
+    "website": "https://ironcliffs.com/",
+    "verified": "2026-08-31",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's current site identifies Iron Cliffs Gym in Cedar City and sells public passes; Kilter's manufacturer locator supplies the matching board, branch address, and coordinates."
   }
 ]

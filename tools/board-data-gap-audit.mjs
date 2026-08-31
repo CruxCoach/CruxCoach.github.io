@@ -113,11 +113,11 @@ export function buildAudit() {
   });
 
   const adverse = [...linkResearch, ...hoursResearch]
-    .filter(r => r.status === 'closed' || r.status === 'duplicate');
+    .filter(r => r.status === 'closed' || r.status === 'duplicate' || r.status === 'mislocated');
   const adverseByKey = new Map();
   for (const row of adverse) {
     const key = venueKey(row.lat, row.lon);
-    if (!adverseByKey.has(key) || row.status === 'duplicate') adverseByKey.set(key, row.status);
+    if (!adverseByKey.has(key) || row.status === 'duplicate' || row.status === 'mislocated') adverseByKey.set(key, row.status);
   }
   const staleMarkers = features.filter(f => {
     const [lon, lat] = f.geometry.coordinates;

@@ -44,15 +44,15 @@ evidence and identity checks required by the relevant source or overlay policy.
 
 | Board/system | Current structured source | Known supplementary channel | Initial state |
 | --- | --- | --- | --- |
-| Kilter | `@hangtime/climbing-boards` | official venue/equipment pages | Global manufacturer/registry source and omissions not yet re-audited in this pass |
-| Tension | `@hangtime/climbing-boards` | official venue/equipment pages | Same; normalized source currently has usernames only |
-| Grasshopper | `@hangtime/climbing-boards` | official venue/equipment pages | Same; low count needs manufacturer-directory review |
-| Decoy | `@hangtime/climbing-boards` | official venue/equipment pages | Same; low count needs manufacturer-directory review |
-| So iLL | `@hangtime/climbing-boards` | official venue/equipment pages | Same; low count needs manufacturer-directory review |
-| Touchstone | `@hangtime/climbing-boards` | official chain pages | Same; chain catalogue needs direct comparison |
-| Aurora | `@hangtime/climbing-boards` | official venue/equipment pages | Same; low count needs manufacturer-directory review |
-| MoonBoard | `@hangtime/climbing-boards` plus two curated rows | official MoonBoard and venue pages | Variant/angle gaps and stale/private/invalid registry rows require systematic review |
-| 12Climb | `@hangtime/climbing-boards` | manufacturer/venue pages | Adapter drops 31 malformed upstream records; exclusion reasons need audit |
+| Kilter | `@hangtime/climbing-boards` PowerSync export | Kilter's official public StoreRocket locator plus venue pages | Locator comparison is reproducible; 76 residual candidates remain after the first correction batch |
+| Tension | `@hangtime/climbing-boards` | official venue/equipment pages | Public `/pins?gyms=1` currently returns an empty gym list; Hangtime preserves its prior data rather than erasing it |
+| Grasshopper | `@hangtime/climbing-boards` | official venue/equipment pages | Public `/pins?gyms=1` currently returns an empty gym list; no separate official locator found yet |
+| Decoy | `@hangtime/climbing-boards` | official venue/equipment pages | Public `/pins?gyms=1` currently returns an empty gym list; no separate official locator found yet |
+| So iLL | `@hangtime/climbing-boards` | official venue/equipment pages | Public `/pins?gyms=1` currently returns an empty gym list; no separate official board locator found yet |
+| Touchstone | `@hangtime/climbing-boards` | official Touchstone chain pages | Public `/pins?gyms=1` currently returns an empty gym list; chain catalogue comparison remains open |
+| Aurora | `@hangtime/climbing-boards` | official venue/equipment pages | Public `/pins?gyms=1` currently returns an empty gym list; no separate official locator found yet |
+| MoonBoard | frozen Hangtime registry plus curated rows | official MoonBoard and venue pages | Hangtime documents that MoonBoard removed `GetMapMarkers` in May 2026; no replacement public official location endpoint found yet |
+| 12Climb | manufacturer-maintained public Google My Maps KML through Hangtime | manufacturer/venue pages | KML has 35 placemarks; 31 lack a name field and are currently dropped. Many identify schools, so public-access review remains open rather than bulk import |
 | Quantum | reviewed primary-source allowlist | eWalls discovery catalogue plus official pages | Fifteen catalogue records and named external candidates were reviewed on 2026-08-25 |
 
 ## Iteration log
@@ -64,6 +64,8 @@ accepted evidence and rejected outcomes belong in their policy-owned files.
 | --- | --- | --- | --- |
 | 2026-08-31 | Baseline inventory | None; measurement only | Structured-source audit, stale-marker correction, 410 retry rows, board details, venue fields, Wellpass negatives |
 | 2026-08-31 | Stale/invalid marker correction | Removed 14 board rows at twelve closed venues and one wrong-place duplicate; rejected twelve additional MoonBoard registry rows at Null Island. Result: 2,834 venues / 3,079 board rows, zero missing countries, zero closed/duplicate production markers | 124 city gaps, 410 retry rows, 971 MoonBoard variant gaps, 1,318 MoonBoard angle gaps; structured-source audit still open |
+| 2026-08-31 | Kilter manufacturer locator, first pass | Added a reproducible, networked comparison against Kilter's public manufacturer locator. Of 1,220 locator rows, 1,213 had usable coordinates. After the batch, 1,022 match an existing Kilter venue within 250 m, twelve match backed exclusions, 33 are explicitly private, and 70 are likely coordinate drift. Primary evidence added ICP Boulder Hall & Showroom (Kilter and Tension), Far North, and Iron Cliffs; moved Spire's Kilter details from the wrongly geocoded main facility onto its real multi-board Training Center. The residual candidate list fell from 81 to 76. | Review all 76 residual locator candidates and every probable-drift row; explicitly ledger stale branches such as old BFF Bukit Timah and moved The Font Wandsworth. |
+| 2026-08-31 | BLOCK DOCK branch correction | Replaced one upstream MoonBoard marker at a city-centre default point with the operator's two current branches: MoonBoard at Rača and Kilter at Petržalka. Added branch-specific official sites and both complete regular weeks. | Recheck other multi-branch operator rows and coordinate-drift findings for the same failure mode. |
 
 ## Final exhaustion rule
 

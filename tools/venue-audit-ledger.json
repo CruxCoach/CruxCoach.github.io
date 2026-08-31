@@ -28609,7 +28609,7 @@
    ],
    "website": {
     "pass": "2026-08-24",
-    "result": "ambiguous",
+    "result": "mislocated",
     "channels": [
      "osm-website-tag",
      "name-guess",
@@ -39224,6 +39224,40 @@
     "channels": [
      "venue-link",
      "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": -27.4549218,
+   "lon": 153.0328871,
+   "name": "ICP Boulder Hall & Showroom",
+   "country": "AU",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "no-hours-on-official-site",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 37.6878446,
+   "lon": -113.081693,
+   "name": "Iron Cliffs Gym",
+   "country": "US",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "inaccessible",
+    "channels": [
+     "venue-link",
+     "booking-page"
     ]
    }
   }

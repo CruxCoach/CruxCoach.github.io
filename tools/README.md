@@ -239,10 +239,10 @@ nightly `cron-refresh.sh`).
   regenerated `boards/data/` files alongside `overrides.json`. Counts land in
   `boards.meta.json` under `overrides`.
 
-## Closed and duplicate upstream locations
+## Closed, duplicate, and mislocated upstream locations
 
 `tools/location-exclusions.json` removes an upstream coordinate only after a
-`closed` or `duplicate` decision at the same coordinate is backed by the
+`closed`, `duplicate`, or `mislocated` decision at the same coordinate is backed by the
 primary-source research in `tools/venue-links-research.json`. The exclusion
 file intentionally carries no second copy of the evidence; its loader refuses
 an unbacked, differently named, undated, or contradictory row. Exclusions are
@@ -252,6 +252,11 @@ and report stale/unmatched rows in `boards.meta.json`.
 Null Island is handled one step earlier: source adapters drop exact `0,0`
 coordinates as missing location data. Registry defaults from unrelated rows
 must never collapse into a public marker.
+
+`mislocated` is reserved for a real venue or board placed at a materially wrong
+point (for example, a city-centre default between two named branches). The
+replacement location must be added from branch-specific primary evidence in the
+same batch; it is not a general-purpose way to discard an awkward coordinate.
 
 After changing exclusions, run a full `node tools/build-boards-data.mjs` (not
 `--overlays-only`) and commit the regenerated dataset, metadata, and directories.
@@ -552,6 +557,25 @@ no-op rebuild produces no diff.
 in `humans.txt`, the privacy pages, and `cities.meta.json`.
 
 ## Data-source guidelines
+
+### Kilter manufacturer-locator audit
+
+Kilter's official locator page embeds a public StoreRocket dataset. It is a
+valuable candidate channel, but not a safe production feed: it includes private
+home walls, stale/closed venues, duplicate submissions, Null Island and several
+coordinates in the wrong country. Compare it manually with the committed map:
+
+```bash
+node tools/kilter-locator-audit.mjs
+node tools/kilter-locator-audit.mjs --json
+```
+
+The command retains no raw response and deliberately prints no phone or email.
+Rows under `candidates` are not additions: each still needs an unambiguous public
+venue identity and current primary evidence. Coordinate matches, known
+exclusions, explicit private rows and likely coordinate drift are separated so
+the residual worklist is reproducible. `--input file.json` accepts a previously
+fetched response for tests or an exact-repeat audit.
 
 - Prefer sources with explicit public-domain or permissive licensing.
 - Drop free-form `description`/`bio` text at the adapter — historical

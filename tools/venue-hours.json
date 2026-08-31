@@ -32132,5 +32132,83 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Vertigo Oriente Monday-Friday 12:00-23:00 Saturday-Sunday 10:00-20:00"
+ },
+ {
+  "lat": 48.1312802,
+  "lon": 17.0998312,
+  "name": "BLOCK DOCK Petržalka",
+  "country": "SK",
+  "source": "https://www.blockdock.me/petrzalka",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "14:00-22:00",
+   "sat": "08:00-21:00",
+   "sun": "08:00-21:00"
+  },
+  "evidence": "BLOCK DOCK PETRŽALKA: Pondelok 7:00–22:00, Utorok 7:00–22:00, Streda 7:00–22:00, Štvrtok 7:00–22:00, Piatok 14:00–22:00, Sobota 8:00–21:00, Nedeľa 8:00–21:00"
+ },
+ {
+  "lat": 48.2146345,
+  "lon": 17.1641254,
+  "name": "BLOCK DOCK Rača",
+  "country": "SK",
+  "source": "https://www.blockdock.me/raca",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "14:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "08:00-21:00",
+   "sun": "08:00-21:00"
+  },
+  "evidence": "BLOCK DOCK RAČA: Pondelok 14:00–22:00, Utorok 7:00–22:00, Streda 7:00–22:00, Štvrtok 7:00–22:00, Piatok 7:00–22:00, Sobota 8:00–21:00, Nedeľa 8:00–21:00"
+ },
+ {
+  "lat": 40.8709508,
+  "lon": -124.0899342,
+  "name": "Far North Climbing Gym",
+  "country": "US",
+  "source": "https://farnortharcata.com/",
+  "checked": "2026-08-31",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "09:00-21:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Hours: 7 days/week, 9:00 AM - 9:00 PM"
  }
 ]

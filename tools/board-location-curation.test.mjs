@@ -16,17 +16,25 @@ const at = (features, lat, lon) => features.filter(feature => {
   return featureLat.toFixed(4) === lat.toFixed(4) && featureLon.toFixed(4) === lon.toFixed(4);
 });
 
-test('curated source contains only the two officially verified MoonBoard gaps', async () => {
+test('curated source contains only the explicitly reviewed primary-source gaps', async () => {
   const { entries, meta } = await loadCurated();
   assert.equal(meta.verified_on, '2026-08-31');
   assert.deepEqual(entries.map(entry => [entry.name, entry.board]), [
     ['Boulderwelt München Ost', 'moonboard'],
     ['Boulderwelt Hamburg', 'moonboard'],
+    ['ICP Boulder Hall & Showroom', 'kilter'],
+    ['ICP Boulder Hall & Showroom', 'tension'],
+    ['BLOCK DOCK Petržalka', 'kilter'],
+    ['BLOCK DOCK Rača', 'moonboard'],
+    ['Spire Climbing + Fitness Training Center', 'kilter'],
+    ['Far North Climbing Gym', 'kilter'],
+    ['Iron Cliffs Gym', 'kilter'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
-    assert.equal(entry.commercial, true);
     assert.ok(Number.isFinite(entry.lat) && Number.isFinite(entry.lon));
+    if (entry.board === 'moonboard') assert.equal(entry.commercial, true);
+    if (entry.board === 'kilter') assert.ok(Array.isArray(entry.walls));
   }
 });
 
@@ -55,6 +63,19 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(gilching.length, 1);
   assert.deepEqual(new Set(boardIds(gilching[0])), new Set(['kilter', 'moonboard']));
   assert.equal(at(features, 48.1092285, 11.2899694).length, 0);
+
+  const blockDockPetrzalka = at(features, 48.1312802, 17.0998312);
+  assert.equal(blockDockPetrzalka.length, 1);
+  assert.deepEqual(boardIds(blockDockPetrzalka[0]), ['kilter']);
+  const blockDockRaca = at(features, 48.2146345, 17.1641254);
+  assert.equal(blockDockRaca.length, 1);
+  assert.deepEqual(boardIds(blockDockRaca[0]), ['moonboard']);
+  assert.equal(at(features, 48.1485965, 17.1077478).length, 0);
+
+  const spire = at(features, 45.67642, -111.14422);
+  assert.equal(spire.length, 1);
+  assert.deepEqual(new Set(boardIds(spire[0])), new Set(['kilter', 'tension']));
+  assert.equal(at(features, 45.656304, -111.069708).length, 0);
 });
 
 test('the map bypasses pre-Quantum service-worker cache entries', () => {

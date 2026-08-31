@@ -44,3 +44,12 @@ test('committed excluded coordinates do not reach the public dataset', () => {
   });
   assert.deepEqual(leaked, []);
 });
+
+test('mislocated entries are an explicit supported exclusion outcome', () => {
+  const result = applyLocationExclusions(
+    [{ name: 'Wrong city point', board: 'moonboard', lat: 48.1, lon: 17.1 }],
+    [{ name: 'Wrong city point', status: 'mislocated', lat: 48.1, lon: 17.1 }],
+  );
+  assert.equal(result.stats.excluded_entries, 1);
+  assert.deepEqual(result.entries, []);
+});

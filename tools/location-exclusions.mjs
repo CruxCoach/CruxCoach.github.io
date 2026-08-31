@@ -1,5 +1,5 @@
 // Fail-closed removal of upstream venue rows that primary-source research has
-// established as closed or duplicate. The evidence remains in
+// established as closed, duplicate or materially mislocated. The evidence remains in
 // venue-links-research.json; this file only selects which backed decisions are
 // strong enough to keep out of every future rebuild.
 
@@ -7,7 +7,7 @@ import { readFileSync } from 'node:fs';
 
 import { venueKey } from './venue-links.mjs';
 
-const ALLOWED = new Set(['closed', 'duplicate']);
+const ALLOWED = new Set(['closed', 'duplicate', 'mislocated']);
 
 export function loadLocationExclusions(file, researchFile) {
   let rows;
@@ -37,7 +37,7 @@ export function loadLocationExclusions(file, researchFile) {
       errors.push(`${where}: lat/lon must be finite numbers`); return;
     }
     if (typeof row.name !== 'string' || !row.name.trim()) errors.push(`${where}: name must be non-empty`);
-    if (!ALLOWED.has(row.status)) errors.push(`${where}: status must be closed or duplicate`);
+    if (!ALLOWED.has(row.status)) errors.push(`${where}: status must be closed, duplicate or mislocated`);
     const key = venueKey(row.lat, row.lon);
     if (seen.has(key)) errors.push(`${where}: duplicate exclusion coordinate ${key}`);
     seen.add(key);

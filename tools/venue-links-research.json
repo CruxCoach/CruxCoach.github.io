@@ -3223,8 +3223,8 @@
     "lon": 17.1077478,
     "name": "Block Dock",
     "country": "SK",
-    "status": "ambiguous",
-    "reason": "blockdock.me is certainly the operator, and it runs two Bratislava halls with different weeks: Rača at Púchovská 14, 831 06, opening at 14:00 on Mondays and 7:00 the rest of the week, and Petržalka at Einsteinova 33, 851 01, in the EINPARK centre. This coordinate is Hodžovo námestie in Staré Mesto — the middle of the city, 2 km from one hall and 6 km from the other — so it is a city point and not either of them.",
+    "status": "mislocated",
+    "reason": "The current official operator pages now disambiguate the branches and boards: Rača at Púchovská 14 has the MoonBoard, while Petržalka at Einsteinova 33 has the Kilter Board. This upstream coordinate is Hodžovo námestie in Staré Mesto, neither branch. The wrong mixed marker is retired and both branch-specific replacements are added from those primary pages in the same batch.",
     "candidate": "https://www.blockdock.me/petrzalka",
     "checked": "2026-08-24"
   },
@@ -3992,5 +3992,15 @@
     "candidate": "https://phoenixstrength.com/",
     "reason": "phoenixstrength.com resolves and serves an empty document — no title, no text at all. Phoenix Strength and Fitness in Randburg cannot be read off a blank page.",
     "checked": "2026-08-25"
+  },
+  {
+    "lat": 45.656304,
+    "lon": -111.069708,
+    "name": "Spire Climbing Center Training Facility",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.spireclimbing.com/hours-locations",
+    "reason": "The current official Hours & Locations page places the Main Facility at this row's 13 Enterprise Blvd address but explicitly places both the adjustable Kilter Board and adjustable Tension Board at the Training Center, 10 Innovation Ln Unit C. The existing Tension registry point is at that branch. This Kilter-only row is therefore retired and its verified wall details are moved onto the real Training Center marker."
   }
 ]
