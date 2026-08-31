@@ -23027,6 +23027,23 @@
    }
   },
   {
+   "lat": 59.5635815,
+   "lon": 7.3548335,
+   "name": "Hovden Grendehus",
+   "country": "NO",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 61.21709,
    "lon": 6.06983,
    "name": "Høyanger Klatreklubb",

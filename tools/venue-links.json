@@ -27176,5 +27176,36 @@
       "location-page"
     ],
     "note": "The current official branch page identifies the public Upland gym at 256 E Stowell St; the official Kilter locator independently identifies its board and matching coordinate."
+  },
+  {
+    "lat": 47.4325601,
+    "lon": 0.6943276,
+    "name": "Block'Out Tours",
+    "country": "FR",
+    "website": "https://www.blockout.fr/tours/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The official Tours contact page identifies 7-9 Avenue du Danemark and the operator's current board article says the Kilter Board is available at this branch."
+  },
+  {
+    "lat": 59.5635815,
+    "lon": 7.3548335,
+    "name": "Hovden Grendehus",
+    "country": "NO",
+    "website": "https://www.bykle.kommune.no/tenester/kultur-og-fritid/kulturhus/hovden-grendehus/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The municipal venue page identifies the public community centre, its bookable Kilter Board and Hovden location; the manufacturer locator supplies the matching Skulevegen address and coordinate."
   }
 ]

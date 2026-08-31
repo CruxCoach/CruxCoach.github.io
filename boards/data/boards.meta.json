@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-08-31T18:29:00.095Z",
-  "venue_features": 2841,
-  "raw_entries": 3097,
+  "generated_at": "2026-08-31T18:49:51.021Z",
+  "venue_features": 2843,
+  "raw_entries": 3099,
   "venues_with_multiple_boards": 116,
-  "country_from_coder": 2841,
+  "country_from_coder": 2843,
   "country_from_fallback": 0,
   "country_missing": 0,
-  "city_from_upstream": 1079,
+  "city_from_upstream": 1081,
   "city_from_nearest": 1638,
   "city_missing": 124,
   "nearest_city_max_km": 25,
   "exclusions": {
-    "defined": 24,
+    "defined": 28,
     "matched_venues": 18,
     "excluded_entries": 19,
-    "unmatched": 6
+    "unmatched": 10
   },
   "overrides": {
     "defined": 19,
@@ -23,13 +23,13 @@
     "conflicts": 20
   },
   "wellpass": {
-    "defined": 86,
-    "applied": 86,
+    "defined": 87,
+    "applied": 87,
     "unmatched": 0
   },
   "venue_links": {
-    "defined": 1782,
-    "applied": 1782,
+    "defined": 1784,
+    "applied": 1784,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -38,13 +38,13 @@
     "countries": 63,
     "by_provenance": {
       "official-chain-page": 132,
-      "official-location-page": 608,
+      "official-location-page": 610,
       "official-site": 1042
     }
   },
   "venue_hours": {
-    "defined": 1302,
-    "applied": 1302,
+    "defined": 1303,
+    "applied": 1303,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -54,12 +54,12 @@
     "open_24h_days": 36,
     "by_provenance": {
       "official-chain-page": 107,
-      "official-location-page": 488,
+      "official-location-page": 489,
       "official-site": 707
     }
   },
   "per_board": {
-    "kilter": 1129,
+    "kilter": 1131,
     "tension": 368,
     "grasshopper": 42,
     "decoy": 24,
@@ -72,7 +72,7 @@
   },
   "per_source": {
     "hangtime": 3063,
-    "curated": 25,
+    "curated": 27,
     "quantum": 9
   },
   "sources": {
@@ -119,7 +119,7 @@
       }
     },
     "curated": {
-      "entries": 25,
+      "entries": 27,
       "verified_on": "2026-08-31",
       "policy": "official-venue-pages"
     },

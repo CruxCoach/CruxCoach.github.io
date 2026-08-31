@@ -4093,5 +4093,75 @@
     "checked": "2026-08-31",
     "candidate": "https://www.the-font.co.uk/announcement",
     "reason": "The operator's official relocation announcement says the Wandsworth staff and existing 16x12 adjustable Kilter Board moved from the former Lydden Road gym to the new 52-58 Garratt Lane venue. The current branch page identifies that address, where the production board row already sits; this old locator coordinate must not create the retired branch again."
+  },
+  {
+    "lat": 47.6786416,
+    "lon": 9.8310068,
+    "name": "GriP Kletter- & Vereinszentrum",
+    "country": "DE",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.dav-gp.de/grip-kletterzentrum/kontakt",
+    "reason": "The official current contact page places the public GriP Kletterzentrum at John-F.-Kennedy-Str. 3, 73037 Göppingen, and the venue page confirms its Kilter Board. The manufacturer row itself carries that address but puts the pin roughly 116 km south near Wangen. The existing address-bearing production row is already on the matching Göppingen building."
+  },
+  {
+    "lat": 54.3385925,
+    "lon": 10.1187506,
+    "name": "NORDBLOC - Kletterzentrum Kiel",
+    "country": "DE",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.urbanapes.de/kiel/",
+    "reason": "The locator's old Nordbloc URL now redirects to the current Urban Apes Kiel branch page, which places the same Kilter Board at Grasweg 40. The address-bearing production row already represents that current hall about 1.2 km away; retaining this old pin would duplicate it."
+  },
+  {
+    "lat": 68.3432661,
+    "lon": 16.8308976,
+    "name": "68°Nord Buldrehall, Narvik klatreklubb",
+    "country": "NO",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.narvikklatreklubb.no/68nordbuldrehall/",
+    "reason": "The current official 68°Nord pages identify one operating hall and explicitly refer to its Kilter Board. The existing address-bearing production row places that hall at Teknologiveien 4 in Narvik, while this manufacturer pin is 27.8 km southwest; it is a stale wrong point, not a second venue."
+  },
+  {
+    "lat": 48.2080696,
+    "lon": 16.3713095,
+    "name": "Austria basislager",
+    "country": "AT",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://alpenverein-austria.at/kletterzentrum/",
+    "reason": "The official current Kletterzentrum Basislager page identifies its 8x12 Kilter Board and the exact Rotenturmstraße 14 address. The production venue already carries that address and board about 390 m northeast; the restricted-access locator pin at a generic central-Wien point must not create a duplicate."
+  },
+  {
+    "lat": 50.8628444,
+    "lon": 20.7152386,
+    "name": "BaRocka",
+    "country": "PL",
+    "status": "unverified",
+    "checked": "2026-08-31",
+    "candidate": "https://barocka.com/",
+    "reason": "The official site identifies BaRocka as a designer and manufacturer of climbing facilities and system walls, including Kilter Boards, at a Kielce-area business address. It does not identify this coordinate as a public climbing gym or say that visitors can use an on-site board. The locator's public label is insufficient to infer public venue access."
+  },
+  {
+    "lat": 68.8738385,
+    "lon": 17.8420514,
+    "name": "Salangshallen",
+    "country": "NO",
+    "status": "unverified",
+    "checked": "2026-08-31",
+    "candidate": "https://www.salangen.kommune.no/tjenester/kultur-og-fritid/salangshallen",
+    "reason": "The current official municipal page confirms a managed climbing wall inside Salangshallen but does not identify it as a Kilter Board. Current municipal planning documents mention a Kilterboard project without establishing installation, opening or public access. The manufacturer pin remains a candidate, not publishable proof."
+  },
+  {
+    "lat": 48.2029016,
+    "lon": 16.3727712,
+    "name": "Edelweiß",
+    "country": "AT",
+    "status": "unverified",
+    "checked": "2026-08-31",
+    "candidate": "https://www.alpenverein-edelweiss.at/alpenverein-edelweiss/sportklettern/edelweiss-center/",
+    "reason": "Kilter's locator carries two same-coordinate records differing only in capitalization near the current Edelweiss Walfischgasse hall. The official current branch page confirms the public hall and address but its detailed equipment list does not name a Kilter Board, and no current first-party board announcement was found. Both duplicate locator records remain unresolved rather than being published or excluded."
   }
 ]

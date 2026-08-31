@@ -412,6 +412,58 @@ const ENTRIES = [
     walls: [],
   },
   {
+    // Current public venue, address, board and 0-70 degree frame range:
+    // https://www.blockout.fr/actus/kilter-board-tours/
+    // Address and coordinates: official manufacturer locator StoreRocket
+    // id 33905308, corroborated by https://www.blockout.fr/tours/contact/
+    source: 'curated',
+    board: 'kilter',
+    name: "Block'Out Tours",
+    lat: 47.4325601,
+    lon: 0.6943276,
+    address: '7-9 Avenue du Danemark, 37100 Tours',
+    city: 'Tours',
+    country: 'FR',
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: null,
+      size_id: null,
+      size_label: null,
+      adjustable: true,
+      angle: null,
+      min_angle: 0,
+      max_angle: 70,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
+    // Current public municipal venue, board, booking and dimensions:
+    // https://www.bykle.kommune.no/tenester/kultur-og-fritid/kulturhus/hovden-grendehus/
+    // Address/layout/size/frame and coordinates: official manufacturer locator
+    // StoreRocket id 22029698. Its conflicting range filters are not copied.
+    source: 'curated',
+    board: 'kilter',
+    name: 'Hovden Grendehus',
+    lat: 59.5635815,
+    lon: 7.3548335,
+    address: 'Skulevegen 19, 4755 Hovden',
+    city: 'Hovden',
+    country: 'NO',
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: 'Original',
+      size_id: null,
+      size_label: '12x12',
+      adjustable: true,
+      angle: null,
+      min_angle: null,
+      max_angle: null,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
     // The anonymous official Tension app endpoint identifies the board:
     // https://tensionboardapp2.com/pins?gyms=1
     // The venue's current expansion notice confirms two adjustable training

@@ -32339,5 +32339,20 @@
    "thu": "10:00-22:00", "fri": "10:00-21:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
   },
   "evidence": "Monday 10:00 AM - 10:00 PM; Tuesday 10:00 AM - 10:00 PM; Wednesday 10:00 AM - 10:00 PM; Thursday 10:00 AM - 10:00 PM; Friday 10:00 AM - 9:00 PM; Saturday 10:00 AM - 8:00 PM; Sunday 10:00 AM - 8:00 PM"
+ },
+ {
+  "lat": 47.4325601,
+  "lon": 0.6943276,
+  "name": "Block'Out Tours",
+  "country": "FR",
+  "source": "https://www.blockout.fr/tours/contact/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "street-address", "city"],
+  "hours": {
+   "mon": "10:30-22:30", "tue": "10:30-22:30", "wed": "10:30-22:30",
+   "thu": "10:30-22:30", "fri": "10:30-22:30", "sat": "09:00-20:00", "sun": "09:00-20:00"
+  },
+  "evidence": "Lundi – vendredi : 10h30 à 22h30; Samedi & dimanche : 9h à 20h"
  }
 ]

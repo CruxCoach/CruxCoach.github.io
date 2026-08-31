@@ -44,6 +44,8 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Hangar 18 Arcadia', 'kilter'],
     ['Hangar 18 Riverside', 'kilter'],
     ['Hangar 18 Upland', 'kilter'],
+    ["Block'Out Tours", 'kilter'],
+    ['Hovden Grendehus', 'kilter'],
     ['KiipeilyAreena Salmisaari', 'tension'],
   ]);
   for (const entry of entries) {
@@ -202,6 +204,36 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(rockstar.length, 1);
   assert.deepEqual(new Set(boardIds(rockstar[0])), new Set(['kilter', 'moonboard']));
   assert.equal(at(features, 51.5822099, -1.753619).length, 0);
+
+  const tours = at(features, 47.4325601, 0.6943276);
+  assert.equal(tours.length, 1);
+  assert.equal(tours[0].properties.name, "Block'Out Tours");
+  assert.deepEqual(boardIds(tours[0]), ['kilter']);
+  assert.equal(tours[0].properties.website, 'https://www.blockout.fr/tours/');
+  assert.equal(tours[0].properties.hours.length, 7);
+  assert.equal(tours[0].properties.boards[0].walls[0].min_angle, 0);
+  assert.equal(tours[0].properties.boards[0].walls[0].max_angle, 70);
+
+  const hovden = at(features, 59.5635815, 7.3548335);
+  assert.equal(hovden.length, 1);
+  assert.equal(hovden[0].properties.name, 'Hovden Grendehus');
+  assert.deepEqual(boardIds(hovden[0]), ['kilter']);
+  assert.equal(hovden[0].properties.website, 'https://www.bykle.kommune.no/tenester/kultur-og-fritid/kulturhus/hovden-grendehus/');
+  assert.equal(hovden[0].properties.hours, undefined);
+  assert.equal(hovden[0].properties.boards[0].walls[0].size_label, '12x12');
+
+  const goeppingen = at(features, 48.70867, 9.67442);
+  assert.equal(goeppingen.length, 1);
+  assert.equal(goeppingen[0].properties.name, 'GriP Kletter & Vereinszentrum');
+  assert.deepEqual(boardIds(goeppingen[0]), ['kilter']);
+  assert.equal(goeppingen[0].properties.wellpass, true);
+
+  for (const [lat, lon] of [
+    [47.6786416, 9.8310068],
+    [54.3385925, 10.1187506],
+    [68.3432661, 16.8308976],
+    [48.2080696, 16.3713095],
+  ]) assert.equal(at(features, lat, lon).length, 0);
 });
 
 test('the map bypasses pre-Quantum service-worker cache entries', () => {
