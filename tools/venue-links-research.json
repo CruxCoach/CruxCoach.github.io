@@ -4498,5 +4498,45 @@
     "checked": "2026-08-31",
     "candidate": "https://sevenbaysbouldering.com/bayerslake/gym/facility/",
     "reason": "Seven Bays' current branch-specific pages assign the Kilter Board to Bayers Lake at 114 Chain Lake Drive and describe only fixed training walls plus a MoonBoard at Gottingen, whose 2019 Gottingen Street address matches this locator point. The address-bearing production Kilter row already represents Bayers Lake at 44.6376,-63.66395. The generic locator pin therefore assigns that board to the wrong branch and is excluded in favour of the branch-primary replacement."
+  },
+  {
+    "lat": 47.5807155,
+    "lon": 7.5734512,
+    "name": "Alpi360",
+    "country": "FR",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://alpi360.com/",
+    "reason": "ALPI360's current site assigns its Kilter Board to the La Comète wall in Hésingue, and the municipality's current site identifies La Comète at 16 rue du 20 Novembre, 68220 Hésingue. The address-bearing production row already represents that facility at 47.58075164301288,7.520278057672328. This locator point is 4.0 km east across the Swiss border and cannot represent the named French hall, so it is excluded in favour of the two-primary-signal replacement."
+  },
+  {
+    "lat": 43.318334,
+    "lon": -1.9812313,
+    "name": "The Factory Boulder",
+    "country": "ES",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.thefactoryboulder.com/instalaciones",
+    "reason": "The operator's current facilities page explicitly lists its Kilter Board, MoonBoard and System Board, while its contact page identifies the venue at Ursalto kalea 4, 20014 Donostia. The address-bearing production Kilter row already represents that single hall at 43.30261,-1.94377. This locator point is 3.5 km east and would duplicate the venue, so it is excluded in favour of the current branch-primary replacement."
+  },
+  {
+    "lat": 33.5597332,
+    "lon": -117.7242795,
+    "name": "Sender One Aliso Viejo",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.senderoneclimbing.com/aliso-viejo/",
+    "reason": "Sender One's current Aliso Viejo page identifies the now-open branch at 26505 Aliso Creek Road, Aliso Viejo CA 92656, and the address-bearing production Kilter row represents that exact branch at 33.579669449221754,-117.72424701111056. This locator point is 2.2 km due south and would create a second Aliso Viejo gym the operator does not list, so it is excluded in favour of the branch-primary replacement."
+  },
+  {
+    "lat": 35.1797291,
+    "lon": -106.6077592,
+    "name": "Stone Age- North",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://climbstoneage.com/locations/stone-age-north/",
+    "reason": "Stone Age's current North page identifies its sole North branch at 6200 Alameda Blvd NE, Albuquerque NM 87113. Both production Kilter profiles print that exact address and are consolidated onto one venue at 35.18458,-106.5756 in this batch. This generic locator point is 3.0 km west and would invent a third Stone Age location, so it is excluded in favour of the official-address replacement."
   }
 ]

@@ -335,6 +335,15 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(roseBlocBrossard[0].properties.website, 'https://www.rosebloc.com/brossard');
   assert.equal(roseBlocBrossard[0].properties.hours.length, 7);
 
+  const stoneAgeNorth = at(features, 35.18458, -106.5756);
+  assert.equal(stoneAgeNorth.length, 1);
+  assert.deepEqual(boardIds(stoneAgeNorth[0]), ['kilter', 'kilter', 'tension']);
+  assert.deepEqual(
+    stoneAgeNorth[0].properties.boards.filter(board => board.board === 'kilter').map(board => board.walls[0].size_label),
+    ['12x8, with Kickboard', '12x12, with Kickboard'],
+  );
+  assert.equal(at(features, 35.184391279939376, -106.57514876931646).length, 0);
+
   assert.equal(at(features, 46.8753166, -96.7668897).length, 0);
 
   for (const [lat, lon] of [
