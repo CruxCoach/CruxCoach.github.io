@@ -36,6 +36,10 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(munichEast.length, 1);
   assert.equal(munichEast[0].properties.name, 'Boulderwelt München Ost');
   assert.deepEqual(boardIds(munichEast[0]), ['moonboard']);
+  assert.equal(munichEast[0].properties.wellpass, true);
+  assert.equal(munichEast[0].properties.boards[0].led, true);
+  assert.equal(munichEast[0].properties.boards[0].angle, 40);
+  assert.equal(munichEast[0].properties.boards[0].variant, null);
 
   const hamburg = at(features, 53.55395, 10.02095);
   assert.equal(hamburg.length, 1);

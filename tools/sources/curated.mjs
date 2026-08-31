@@ -7,7 +7,8 @@
 
 const ENTRIES = [
   {
-    // https://www.boulderwelt-muenchen-ost.de/halle/
+    // Current presence: https://www.boulderwelt-muenchen-ost.de/halle/
+    // LED + 40°: https://www.boulderwelt-muenchen-ost.de/moonboard/
     source: 'curated',
     board: 'moonboard',
     name: 'Boulderwelt München Ost',
@@ -16,9 +17,9 @@ const ENTRIES = [
     city: 'München',
     country: 'DE',
     commercial: true,
-    led: null,
+    led: true,
     variant: null,
-    angle: null,
+    angle: 40,
   },
   {
     // https://www.boulderwelt-hamburg.de/halle/
