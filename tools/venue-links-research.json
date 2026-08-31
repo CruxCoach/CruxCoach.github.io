@@ -4709,5 +4709,45 @@
     "checked": "2026-08-31",
     "candidate": "https://kohtao-rockclimbing.com/",
     "reason": "The live Kilter locator carries another current row named The Bunker Climbing Gym Koh Tao at 10.0784056,99.8306529, within 26 m of the address-bearing production venue. The venue's current official site says it is Koh Tao's one and only indoor climbing and bouldering gym and currently names its Kilter Board. This older same-island point 1.3 km south is therefore a duplicate, not a second public installation."
+  },
+  {
+    "lat": 39.9831168,
+    "lon": -75.1376867,
+    "name": "Tufas Boulder Lounge",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://tufasboulderlounge.com/",
+    "reason": "Tufas' current official homepage prints 1614 N. 5th Street, Philadelphia, PA 19122, exactly the address carried by the multi-board production venue at 39.97622,-75.144. This live Kilter locator point is 0.9 km northeast and would duplicate that branch, so it is excluded in favour of the address-bearing production row."
+  },
+  {
+    "lat": 60.4782741,
+    "lon": 5.3138912,
+    "name": "Vestveggen Bergen Klatreklubb",
+    "country": "NO",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://bergenklatreklubb.no/",
+    "reason": "Bergen Klatreklubb's current official page prints Åsane Senter 60, 5130 Nyborg, exactly the address carried by the production venue at 60.46987,5.31369. The current official Kilter locator establishes the board identity, but its point is 0.9 km north of that address-bearing club row and is excluded as a conflicting duplicate pin."
+  },
+  {
+    "lat": 42.6620646,
+    "lon": 23.3662234,
+    "name": "Momentum Climbing Sofia",
+    "country": "BG",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://sofia.momentumclimbing.com/",
+    "reason": "Momentum Sofia's current official page prints бул. Цариградско шосе 111В, София 1784 and explicitly lists its Kilter Board and two Quantum Boards. That exact address belongs to the existing three-board production venue at 42.6655983,23.37440014; this live Kilter locator point is 0.8 km southwest and would duplicate it, so it is excluded."
+  },
+  {
+    "lat": 32.8888947,
+    "lon": -96.7670093,
+    "name": "Movement Climbing + Fitness Dallas the Hill",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://movementgyms.com/the-hill/",
+    "reason": "Movement's current official The Hill page prints 8021 Walnut Hill Ln, Dallas, TX 75231, exactly the address carried by the Kilter-and-Tension production venue at 32.88196,-96.76813. The current official Kilter locator confirms the board identity, but this locator point is 0.8 km north of the branch and is excluded in favour of the address-bearing row."
   }
 ]

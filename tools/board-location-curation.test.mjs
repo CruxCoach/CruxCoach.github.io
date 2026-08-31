@@ -429,6 +429,28 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(bunkerKohTao[0].properties.name, 'The Bunker Koh Tao');
   assert.equal(bunkerKohTao[0].properties.website, 'https://kohtao-rockclimbing.com/climb-in-koh-tao/');
 
+  const gravityVaultMontclair = at(features, 40.8124034, -74.2163694);
+  assert.equal(gravityVaultMontclair.length, 1);
+  assert.equal(gravityVaultMontclair[0].properties.name, 'Gravity Vault Montclair');
+  assert.deepEqual(new Set(boardIds(gravityVaultMontclair[0])), new Set(['kilter', 'moonboard']));
+  assert.equal(gravityVaultMontclair[0].properties.website, 'https://gravityvault.com/locations/montclair-nj');
+  assert.equal(gravityVaultMontclair[0].properties.hours.length, 7);
+  assert.equal(at(features, 40.81398, -74.20759).length, 0);
+
+  for (const [name, lat, lon, boards] of [
+    ['Tufas Boulder Lounge', 39.97622, -75.144, ['kilter', 'tension']],
+    ['Vestveggen Bergen Klatreklubb', 60.46987, 5.31369, ['kilter']],
+    ['Momentum Climbing Sofia', 42.6655983, 23.37440014, ['kilter', 'quantum']],
+    ['Movement The Hill Dallas', 32.88196, -96.76813, ['kilter', 'tension']],
+  ]) {
+    const venue = at(features, lat, lon);
+    assert.equal(venue.length, 1, name);
+    assert.equal(venue[0].properties.name, name);
+    assert.deepEqual(new Set(boardIds(venue[0])), new Set(boards));
+    assert.ok(venue[0].properties.website, name);
+    assert.equal(venue[0].properties.hours.length, 7, name);
+  }
+
   for (const [lat, lon] of [
     [31.9543786, 35.9105776],
     [-6.1138942, 106.7853922],
@@ -447,6 +469,10 @@ test('committed map data includes the missing boards and merges the corrected ve
     [31.23069, 121.4277],
     [2.189594, 102.2500868],
     [10.0666868, 99.8297437],
+    [39.9831168, -75.1376867],
+    [60.4782741, 5.3138912],
+    [42.6620646, 23.3662234],
+    [32.8888947, -96.7670093],
   ]) assert.equal(at(features, lat, lon).length, 0);
 
   assert.equal(at(features, 46.8753166, -96.7668897).length, 0);

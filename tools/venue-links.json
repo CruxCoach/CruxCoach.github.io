@@ -21627,14 +21627,17 @@
     "name": "Gravity Vault Montclair",
     "country": "US",
     "website": "https://gravityvault.com/locations/montclair-nj",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "location-page",
-      "street-address"
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
     ],
-    "note": "Upstream lists this hall twice; this coordinate is the one 20 m from the gym's Seymour address."
+    "note": "The current Montclair page prints 8 Seymour Plaza, Montclair NJ 07042 and explicitly lists both its 12-foot adjustable Kilter Board and 8-foot adjustable MoonBoard. Those formerly split registry rows are now one physical venue at the address-near MoonBoard point; both live Kilter locator points land within 20 m of it."
   },
   {
     "lat": 40.33661,
@@ -25637,23 +25640,6 @@
       "city",
       "location-page"
     ]
-  },
-  {
-    "lat": 40.81398,
-    "lon": -74.20759,
-    "name": "The Gravity Vault Montclair",
-    "country": "US",
-    "website": "https://gravityvault.com/locations/montclair-nj",
-    "verified": "2026-08-22",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city",
-      "location-page"
-    ],
-    "note": "The Seymour address this entry carries resolves about 740 m away; the gym's other upstream entry sits on it."
   },
   {
     "lat": 40.74658,
