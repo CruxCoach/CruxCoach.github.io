@@ -201,6 +201,7 @@ test('validateResearchEntry keeps rejected candidates well-described', () => {
   assert.match(validateResearchEntry({ ...base, reason: '' })[0], /reason/);
   assert.match(validateResearchEntry({ ...base, website: 'https://x.test/' })[0], /unknown field/);
   assert.ok(RESEARCH_STATUS.has('private') && RESEARCH_STATUS.has('closed'));
+  assert.ok(RESEARCH_STATUS.has('announced'));
 });
 
 // ── name matching ───────────────────────────────────────────────────

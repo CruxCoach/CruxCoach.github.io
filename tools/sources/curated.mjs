@@ -314,6 +314,21 @@ const ENTRIES = [
     angle: 35,
     led: true,
   },
+  {
+    // The anonymous official Tension app endpoint identifies the board:
+    // https://tensionboardapp2.com/pins?gyms=1
+    // The venue's current expansion notice confirms two adjustable training
+    // boards and its branch page confirms public access and the exact address:
+    // https://kiipeilyareena.com/salmisaaren-uusi-laajennus-avataan-maanantaina-28-7-klo-13/
+    // https://kiipeilyareena.com/en/locations/salmisaari/
+    source: 'curated',
+    board: 'tension',
+    name: 'KiipeilyAreena Salmisaari',
+    lat: 60.166129,
+    lon: 24.904168,
+    city: 'Helsinki',
+    country: 'FI',
+  },
 ];
 
 export async function load() {

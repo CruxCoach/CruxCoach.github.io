@@ -440,6 +440,7 @@ export const RESEARCH_STATUS = new Set([
   'duplicate',    // same venue as another dataset entry
   'mislocated',   // real venue/board assigned to a materially wrong map point
   'non-public',   // institutional installation with no public venue access
+  'announced',    // manufacturer pin exists, but venue says not open/current yet
   'unavailable',  // candidate site does not resolve, or is parked
   'unverified',   // a candidate exists but the second signal never matched
   'no-website',   // venue genuinely has no site of its own

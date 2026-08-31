@@ -62,3 +62,12 @@ test('institution-only installations are an explicit non-public outcome', () => 
   assert.equal(result.stats.excluded_entries, 1);
   assert.deepEqual(result.entries, []);
 });
+
+test('an announced pin is withheld until the venue says it is current', () => {
+  const result = applyLocationExclusions(
+    [{ name: 'Future board', board: 'tension', lat: 49.3, lon: -123.0 }],
+    [{ name: 'Future board', status: 'announced', lat: 49.3, lon: -123.0 }],
+  );
+  assert.equal(result.stats.excluded_entries, 1);
+  assert.deepEqual(result.entries, []);
+});

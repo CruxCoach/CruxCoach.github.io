@@ -91,7 +91,8 @@ that a venue is open to the public. It is never licence to guess.
 | `note` | optional, ignored by the build |
 
 Research records use `status` (`ambiguous`, `closed`, `private`, `duplicate`,
-`unavailable`, `unverified`, `no-website`, `social-only`, `http-only`),
+`mislocated`, `non-public`, `announced`, `unavailable`, `unverified`,
+`no-website`, `social-only`, `http-only`),
 `checked`, `reason`, and an optional untrusted `candidate` string.
 
 ## Matching, and how it fails closed

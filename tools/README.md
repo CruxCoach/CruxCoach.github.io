@@ -239,10 +239,10 @@ nightly `cron-refresh.sh`).
   regenerated `boards/data/` files alongside `overrides.json`. Counts land in
   `boards.meta.json` under `overrides`.
 
-## Closed, duplicate, non-public, and mislocated upstream locations
+## Closed, duplicate, non-public, announced, and mislocated upstream locations
 
 `tools/location-exclusions.json` removes an upstream coordinate only after a
-`closed`, `duplicate`, `non-public`, or `mislocated` decision at the same coordinate is backed by the
+`closed`, `duplicate`, `non-public`, `announced`, or `mislocated` decision at the same coordinate is backed by the
 primary-source research in `tools/venue-links-research.json`. The exclusion
 file intentionally carries no second copy of the evidence; its loader refuses
 an unbacked, differently named, undated, or contradictory row. Exclusions are
@@ -262,6 +262,11 @@ same batch; it is not a general-purpose way to discard an awkward coordinate.
 sources identify no public climbing venue access, such as a board installed for
 physical-education lessons inside a school. It must not be used merely because
 public access has not yet been proved; those cases remain research candidates.
+
+`announced` is reserved for a manufacturer pin that the venue's own current
+page explicitly says is still “coming soon” or otherwise not open. It prevents
+an app's premature pin from being presented as a current public installation;
+the outcome must be rechecked and removed once the venue announces opening.
 
 After changing exclusions, run a full `node tools/build-boards-data.mjs` (not
 `--overlays-only`) and commit the regenerated dataset, metadata, and directories.
@@ -562,6 +567,21 @@ no-op rebuild produces no diff.
 in `humans.txt`, the privacy pages, and `cities.meta.json`.
 
 ## Data-source guidelines
+
+### Aurora-family anonymous-pins audit
+
+Tension, Grasshopper, Decoy, So iLL, Touchstone and Aurora expose small
+anonymous manufacturer-app pin lists. Compare all six with the committed map:
+
+```bash
+node tools/aurora-pins-audit.mjs
+node tools/aurora-pins-audit.mjs --json
+```
+
+The tool discards account ids and usernames and retains no response. A pin is a
+candidate, not proof of current public access: review it against the venue's own
+current page. The endpoints have no published redistribution licence and omit
+addresses and board details, so Hangtime remains the normal ingest source.
 
 ### Kilter manufacturer-locator audit
 

@@ -32290,5 +32290,33 @@
    "sun": "08:00-19:00"
   },
   "evidence": "M-F 6:30AM – 10:00PM; S/S 8:00AM – 7:00PM"
+ },
+ {
+  "lat": 60.166129,
+  "lon": 24.904168,
+  "name": "KiipeilyAreena Salmisaari",
+  "country": "FI",
+  "source": "https://kiipeilyareena.com/en/locations/salmisaari/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Opening hours Mon–Fri 10 am–10 pm; Sat–Sun 10 am–8 pm",
+  "note": "The separately stated 08:00–10:00 Monday–Thursday window is members-only morning access; the published regular public week is retained here."
  }
 ]

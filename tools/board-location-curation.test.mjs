@@ -38,6 +38,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['The Post Climbing', 'moonboard'],
     ['Hyperion Climbing', 'moonboard'],
     ['Class 5', 'touchstone'],
+    ['KiipeilyAreena Salmisaari', 'tension'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -136,6 +137,18 @@ test('committed map data includes the missing boards and merges the corrected ve
     assert.equal(board.angle, 35);
     assert.equal(board.led, true);
   }
+
+  const salmisaari = at(features, 60.166129, 24.904168);
+  assert.equal(salmisaari.length, 1);
+  assert.deepEqual(new Set(boardIds(salmisaari[0])), new Set(['kilter', 'tension']));
+  assert.equal(salmisaari[0].properties.website, 'https://kiipeilyareena.com/en/locations/salmisaari/');
+  assert.equal(salmisaari[0].properties.hours.length, 7);
+  assert.equal(at(features, 60.16622370498926, 24.904248473015482).length, 0);
+
+  const tilted = at(features, 49.30961, -123.03323);
+  assert.equal(tilted.length, 1);
+  assert.deepEqual(boardIds(tilted[0]), ['kilter']);
+  assert.equal(at(features, 49.30953, -123.033253).length, 0);
 });
 
 test('the map bypasses pre-Quantum service-worker cache entries', () => {

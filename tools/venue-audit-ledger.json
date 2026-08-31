@@ -12681,8 +12681,8 @@
    }
   },
   {
-   "lat": 60.16622370498926,
-   "lon": 24.904248473015482,
+   "lat": 60.166129,
+   "lon": 24.904168,
    "name": "KiipeilyAreena Salmisaari",
    "country": "FI",
    "needs": [
@@ -12690,12 +12690,20 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-31",
+    "result": "accepted",
+    "channels": [
+     "operator-index",
+     "venue-link"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-31",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
