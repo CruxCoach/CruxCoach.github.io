@@ -251,6 +251,26 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.deepEqual(boardIds(lincolnMill[0]), ['kilter']);
   assert.equal(lincolnMill[0].properties.website, 'https://www.highpointclimbing.com/locations/lincoln-mill');
   assert.equal(lincolnMill[0].properties.hours.length, 7);
+
+  const stationSquare = at(features, 40.43301, -80.00449);
+  assert.equal(stationSquare.length, 1);
+  assert.deepEqual(boardIds(stationSquare[0]), ['decoy']);
+  assert.equal(stationSquare[0].properties.hours.length, 7);
+
+  const nosotrosLakewood = at(features, 41.47324, -81.77932);
+  assert.equal(nosotrosLakewood.length, 1);
+  assert.deepEqual(boardIds(nosotrosLakewood[0]), ['kilter']);
+  assert.equal(nosotrosLakewood[0].properties.boards[0].walls.length, 2);
+
+  const alchemy = at(features, 30.48009, -84.29684);
+  assert.equal(alchemy.length, 1);
+  assert.deepEqual(boardIds(alchemy[0]), ['kilter']);
+
+  for (const [lat, lon] of [
+    [41.484778, -81.7944535],
+    [40.433068, -80.004656],
+    [30.4333434, -84.2922747],
+  ]) assert.equal(at(features, lat, lon).length, 0);
 });
 
 test('the map bypasses pre-Quantum service-worker cache entries', () => {

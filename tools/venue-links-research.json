@@ -4183,5 +4183,55 @@
     "checked": "2026-08-31",
     "candidate": "https://cultivateclimbing.com/",
     "reason": "Cultivate's current official site lists The Bunker, Foundy Street and Highland Station as its Asheville locations and no longer names a venue called The River. The old locator coordinate does not match any current branch address, but the operator does not explicitly say whether this board closed or moved, so it cannot be remapped or excluded."
+  },
+  {
+    "lat": 41.484778,
+    "lon": -81.7944535,
+    "name": "Nosotros Climbing & Weights",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.gonosotros.com/nosotros-lakewood",
+    "reason": "The current official Lakewood page places both the 7x10 static and 12x12 adjustable Kilter Boards at 13000 Athens Avenue. The exact production venue already carries both walls at that address; this older locator point about 1.8 km away, whose address is mistyped as 1300 Athens Avenue, is not a second venue."
+  },
+  {
+    "lat": 41.5013952,
+    "lon": -81.6762843,
+    "name": "Nosotros Downtown",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-31",
+    "candidate": "https://www.gonosotros.com/",
+    "reason": "The current official homepage and FAQ identify only the Lakewood venue at 13000 Athens Avenue, but other still-accessible operator membership and shop pages continue to claim access to Nosotros Downtown and two locations. Without an explicit current branch page, closure notice or explanation of those conflicting pages, this old locator row cannot safely be published or excluded."
+  },
+  {
+    "lat": 32.9096743,
+    "lon": -96.7422905,
+    "name": "Summit- Dallas",
+    "country": "US",
+    "status": "unverified",
+    "checked": "2026-08-31",
+    "candidate": "https://movementgyms.com/dfw/",
+    "reason": "The current operator's official Dallas-Fort Worth location list has six gyms and no branch named Summit Dallas. Movement The Hill is a current but different address 3.9 km away, and no first-party closure, relocation or board-transfer statement was found, so the old fixed-board locator pin cannot be remapped or excluded."
+  },
+  {
+    "lat": 40.433068,
+    "lon": -80.004656,
+    "name": "FA Climbing Station Square",
+    "country": "US",
+    "status": "closed",
+    "checked": "2026-08-31",
+    "candidate": "https://faclimbing.com/pittsburgh/station-square/",
+    "reason": "The current official Station Square page lists the venue's training area in detail and names a Decoy Board, campus boards and hangboards, but no Kilter Board. The public gym remains open at the same address; it is specifically the old Kilter installation represented by the manufacturer locator row that has been retired."
+  },
+  {
+    "lat": 30.4333434,
+    "lon": -84.2922747,
+    "name": "Tallahassee Rock Gym",
+    "country": "US",
+    "status": "mislocated",
+    "checked": "2026-08-31",
+    "candidate": "https://www.alchemyclimbing.com/about",
+    "reason": "Alchemy's official history explicitly identifies itself as the former Tallahassee Rock Gym and says it evolved into the current gym inside a retro movie theater. Its current official address is 2810 Sharer Road, where the production row already carries the same 8x12 adjustable Kilter wall; the old 629 Industrial Drive locator point must not recreate the former site."
   }
 ]

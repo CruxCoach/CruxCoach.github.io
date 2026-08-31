@@ -21333,14 +21333,16 @@
     "name": "First Ascent Climbing Station Square",
     "country": "US",
     "website": "https://faclimbing.com/pittsburgh/station-square/",
-    "verified": "2026-08-24",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
+      "street-address",
+      "postal-code",
       "city",
       "location-page"
     ],
-    "note": "First Ascent's own page for its Station Square gym, titled \"FA Station Square | Climbing, Yoga & Fitness in Pittsburgh\" — the venue's name and the city upstream records, for which no street is recorded. The operator's whole site answers 403 to every fetcher and header set, so this page was read from a snapshot of 26 May 2026. A snapshot settles whose page this is and nothing else; the hours record stays inaccessible."
+    "note": "First Ascent's current Station Square page prints the gym name, 195 W Station Square Drive, Pittsburgh and PA 15219, matching the venue and current Kilter locator address. It also publishes a complete regular-hours week; the page's separately labelled holiday exceptions are not copied into the weekly schedule."
   },
   {
     "lat": 41.88035,
