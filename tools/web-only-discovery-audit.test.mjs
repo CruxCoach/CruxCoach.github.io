@@ -2,14 +2,14 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { auditWebDiscovery, loadAudit } from './web-only-discovery-audit.mjs';
 
-test('committed web-only matrix is valid and remains visibly unfinished', () => {
+test('committed web-only matrix contains every primary cell exactly once', () => {
   const audit = loadAudit();
   assert.deepEqual(audit.errors, []);
   assert.equal(audit.expected, 240);
-  assert.ok(audit.completed > 0, 'the committed ledger should retain completed coverage work');
+  assert.equal(audit.completed, audit.expected);
   assert.equal(audit.completed + audit.missing.length, audit.expected);
-  assert.ok(audit.missing.length > 0, 'the exhaustion gate must remain visibly unfinished');
-  assert.deepEqual(audit.completePasses, []);
+  assert.deepEqual(audit.missing, []);
+  assert.deepEqual(audit.completePasses, ['A', 'B']);
   assert.ok(audit.rechecks > 0, 'historical repeat work must remain independently auditable without creating new work');
   assert.ok(audit.candidates >= 3, 'the seed candidate history must not be lost');
 });

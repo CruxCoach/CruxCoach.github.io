@@ -39566,6 +39566,35 @@
     ],
     "note": "The current official page has a season-limited Tuesday session and leaves two weekdays unstated; the precise outcome is backed by venue-hours-research.json."
    }
+  },
+  {
+   "lat": 49.8313774,
+   "lon": 23.9967892,
+   "name": "The Wall Lviv",
+   "country": "UA",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "path-probe",
+     "map-block"
+    ],
+    "note": "The current operator page confirms the public venue, 12Climb wall, exact street address and first-party business-location coordinate; the accepted link is backed by venue-links.json."
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ],
+    "note": "The current operator page prints two contradictory full-week schedules in one contact area; neither is selected, and the exact conflict is backed by venue-hours-research.json."
+   }
   }
  ]
 }

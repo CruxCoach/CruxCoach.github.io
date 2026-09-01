@@ -54,3 +54,30 @@ primary cells and are excluded from every worker package. The main
 `research/board-data-completion` worktree is integration-only while those workers
 run. Generated data and static HTML are rebuilt there only after all reviewed
 worker commits are merged.
+
+## Primary-cell completion outcome (2026-09-01)
+
+All three disjoint worker allocations were completed and reviewed before
+integration. The final ledger contains all 240 primary keys exactly once, with
+1,475 recorded exact queries, 7,372 visible results reviewed, 345 candidate
+occurrences across cells and 348 durable candidate dispositions. The 29 older
+recheck records remain historical only; none was used to enlarge or restart the
+primary matrix. No primary cell remains pending, and neither pass has a missing
+board/region key.
+
+The isolated commits were integrated conservatively into
+`research/board-data-completion`. Web-only discovery added MoonBoard to the
+already verified Boulder Indoor venue and added the public 12Climb installation
+at The Wall Lviv with its official page and first-party site coordinate. The
+Wall's own page prints two conflicting weekly schedules, so no hours were
+published and the conflict is recorded in `venue-hours-research.json`.
+
+There were no cell-level technical failures. Candidate-level access boundaries
+remain explicit rather than causing a repeat: Carpatic Climbing Gym's exact
+operator social post is fetch-throttled while the readable official site does
+not name its Quantum Board, and the unidentified IFSC Europe athlete-facility
+document returns HTTP 403 while venue identity and ordinary public access are
+also unresolved. Announced, private/home, institution-only, branch-ambiguous,
+geodata-unresolved and secondary-only findings likewise remain in the candidate
+or field-specific research ledgers. No access control, login, CAPTCHA or rate
+limit was bypassed.
