@@ -239,6 +239,51 @@
       "results_reviewed": 76,
       "candidates_found": 0,
       "note": "Independent regional, capital-city, Cyrillic spelling and ccTLD searches found no venue candidate. The dominant false-positive class was identically named horticultural LED lighting; all such results were excluded."
+    },
+    {
+      "pass": "A",
+      "board": "quantum",
+      "region": "east-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "ja", "ko", "zh"],
+      "queries": [
+        "\"Quantum Board\" (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (Japan OR Korea OR China OR Taiwan OR Hong Kong OR Macau)",
+        "\"QuantumBoard\" (climbing OR bouldering OR gym OR training) (Japan OR Korea OR China OR Taiwan OR Hong Kong OR Macau)",
+        "\"Quantum climbing board\" (Japan OR Korea OR China OR Taiwan OR Hong Kong OR Macau)",
+        "\"Quantum Board\" (Tokyo OR Osaka OR Seoul OR Busan OR Beijing OR Shanghai OR Taipei OR Hong Kong) climbing",
+        "\"Quantum Board\" (クライミングジム OR ボルダリングジム OR トレーニングエリア OR 設備) 日本",
+        "\"QuantumBoard\" (クライミング OR ボルダリング OR トレーニング) 日本",
+        "\"Quantum Board\" (클라이밍짐 OR 볼더링짐 OR 트레이닝존 OR 시설) 한국",
+        "\"QuantumBoard\" (클라이밍 OR 볼더링 OR 트레이닝) 대한민국",
+        "\"量子板\" (攀岩馆 OR 抱石馆 OR 训练区 OR 训练板) 攀岩",
+        "\"Quantum Board\" (攀岩馆 OR 抱石馆 OR 攀石館 OR 抱石場)",
+        "\"量子训练板\" 攀岩馆 OR 抱石馆",
+        "\"QuantumBoard\" 攀岩 中国 OR 台湾 OR 香港",
+        "\"Quantum Board\" site:.jp クライミング OR ボルダリング",
+        "\"Quantum Board\" site:.kr 클라이밍 OR 볼더링",
+        "\"Quantum Board\" site:.cn 攀岩 OR 抱石",
+        "\"Quantum Board\" site:.tw 攀岩 OR 抱石",
+        "\"Quantum Board\" site:.hk climbing OR bouldering",
+        "\"Quantum Board\" site:.mo climbing OR bouldering",
+        "\"Quantum Board\" site:instagram.com (Japan OR Korea OR China OR Taiwan OR Hong Kong) climbing",
+        "\"Quantum Board\" site:facebook.com (Japan OR Korea OR China OR Taiwan OR Hong Kong) climbing",
+        "site:walltopia.com/projects \"Quantum Board\" (Japan OR Korea OR China OR Taiwan OR Hong Kong)",
+        "site:walltopia.com.cn \"Quantum Board\" 攀岩馆",
+        "site:walltopia.com.cn \"量子板\" 项目 OR 场馆",
+        "site:walltopia.com \"Quantum Board\" (Tokyo OR Seoul OR Shanghai OR Taipei OR Hong Kong)",
+        "site:walltopia.com \"Quantum Board XL 15×15\" \"Party Day Shanghai\"",
+        "site:walltopia.com/projects \"Party Day Shanghai\"",
+        "\"Party Day Shanghai\" climbing official",
+        "\"Party Day\" Shanghai climbing gym Quantum Board",
+        "site:walltopia.com/projects/ \"Quantum Board XL 15×15\"",
+        "site:walltopia.com/projects/ \"Quantum Board XL 15x15\"",
+        "\"Quantum Board XL 15×15\" Walltopia project",
+        "\"Quantum Board XL 15x15\" Walltopia venue"
+      ],
+      "results_reviewed": 112,
+      "candidates_found": 1,
+      "note": "Independent English, Japanese, Korean, Chinese, capital-city, ccTLD, social-domain and manufacturer-project searches found no installed public East Asian Quantum Board. A search-index juxtaposition that appeared to pair Quantum Board XL with Party Day Shanghai was checked against the dedicated manufacturer project page and rejected."
     }
   ],
   "candidates": [
@@ -442,6 +487,15 @@
       "status": "announced",
       "official_sources": ["https://www.instagram.com/p/DYm-y-zxjAK/"],
       "note": "The planned Sofia bouldering branch includes a Quantum Board, but operator leadership states an end-of-2026 opening target. It is not yet a public venue and remains withheld."
+    },
+    {
+      "board": "quantum",
+      "name": "Party Day Shanghai",
+      "region": "east-asia",
+      "discovered_by": "Pass A manufacturer-project index follow-through",
+      "status": "rejected",
+      "official_sources": ["https://walltopia.com/projects/party-day-shanghai/"],
+      "note": "A flattened Walltopia project index placed the separate labels 'Quantum Board XL 15×15' and 'Party Day Shanghai' next to each other. The dedicated 2026 manufacturer project page lists Fun Walls, Rope Walls, Boulder Walls, holds and volumes only; it does not identify a Quantum Board. No production record is warranted."
     }
   ]
 }
