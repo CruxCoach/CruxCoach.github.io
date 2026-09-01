@@ -100,6 +100,47 @@
       "results_reviewed": 104,
       "candidates_found": 1,
       "note": "Local-language, capital-city, ccTLD and named-operator follow-up searches found no currently open, operator-confirmed Quantum venue. Brak Buldring Oslo is withheld because its own current homepage still says it is opening soon and does not yet document the board."
+    },
+    {
+      "pass": "A",
+      "board": "quantum",
+      "region": "southern-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "es", "pt", "it", "el"],
+      "queries": [
+        "\"Quantum Board\" (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (Spain OR Portugal OR Italy OR Greece OR Malta OR Cyprus)",
+        "\"QuantumBoard\" (climbing OR bouldering OR gym OR training) (Spain OR Portugal OR Italy OR Greece OR Malta OR Cyprus)",
+        "\"Quantum Board\" (rocódromo OR \"sala de búlder\" OR \"zona de entrenamiento\") España",
+        "\"Quantum Board\" (\"ginásio de escalada\" OR \"academia de escalada\" OR \"área de treino\") Portugal",
+        "\"Quantum Board\" (\"palestra di arrampicata\" OR \"sala boulder\" OR \"area allenamento\") Italia",
+        "\"Quantum Board\" (αναρρίχηση OR γυμναστήριο OR προπόνηση) Ελλάδα",
+        "\"Quantum Board\" (climbing gym OR bouldering OR training) Malta",
+        "\"Quantum Board\" (climbing gym OR bouldering OR training) Cyprus",
+        "OAKA Greece climbing \"Quantum Board\"",
+        "\"Quantum Board M\" Oaka Greece climbing",
+        "site:oaka.com.gr climbing Quantum Board",
+        "site:.gr \"Quantum Board\" climbing",
+        "OAKA climbing gym Athens official website bouldering",
+        "OAKA αναρρίχηση Quantum Board",
+        "OAKA bouldering Athens Instagram official Quantum",
+        "\"OAKA\" \"Quantum Board\" Athens",
+        "\"Quantum Board\" site:.es rocódromo OR escalada",
+        "\"Quantum Board\" site:.pt escalada OR boulder",
+        "\"Quantum Board\" site:.it arrampicata OR boulder",
+        "\"Quantum Board\" site:.gr αναρρίχηση OR climbing",
+        "\"Quantum Board\" site:.mt climbing OR bouldering",
+        "\"Quantum Board\" site:.cy climbing OR bouldering",
+        "\"Quantum Board\" Madrid climbing gym",
+        "\"Quantum Board\" Lisbon OR Lisboa climbing gym",
+        "Crux Climbing Center Portugal official Quantum Board",
+        "\"Crux Climbing Center\" \"Quantum board\"",
+        "site:cruxclimbing.pt Quantum OR board OR painel",
+        "Crux escalada São Domingos de Rana Quantum Instagram"
+      ],
+      "results_reviewed": 116,
+      "candidates_found": 6,
+      "note": "Multilingual, country-specific, ccTLD and operator follow-through searches reconfirmed five existing production venues: Arena Boulder, Presa B+, OAKA Indoor Climbing, Sputnik Guindalera and Vertigo Oriente. A directory-only claim for Crux Climbing Center was rejected because its current official equipment list names Kilter Board and MoonBoard, not Quantum Board."
     }
   ],
   "candidates": [
@@ -210,6 +251,45 @@
       "status": "announced",
       "official_sources": ["https://brakbuldring.no/"],
       "note": "A current trade report describes a planned Quantum Board, but the operator homepage still says 'ÅPNER SNART' and does not itself document the board. Withheld until the venue is publicly open and the board is confirmed by an acceptable primary source."
+    },
+    {
+      "board": "quantum",
+      "name": "OAKA Indoor Climbing",
+      "region": "southern-europe",
+      "discovered_by": "Pass A Greek and Athens-specific venue searches",
+      "status": "existing",
+      "official_sources": [
+        "https://cdn.walltopia.com/wp-content/uploads/20251121181310/WALLTOPIA_training_zones-brochure.pdf",
+        "https://oakaindoorclimbing.gr/en/"
+      ],
+      "note": "Walltopia's current brochure identifies the installed Quantum Board M 12×12 at OAKA, while the operator site confirms the active public Athens venue. The production allowlist already contained this record."
+    },
+    {
+      "board": "quantum",
+      "name": "Sputnik Climbing Guindalera",
+      "region": "southern-europe",
+      "discovered_by": "Pass A Spanish and Madrid-specific venue searches",
+      "status": "existing",
+      "official_sources": ["https://sputnikclimbing.com/guindalera/"],
+      "note": "The current venue was rediscovered and matched to the existing production Quantum Board XL record."
+    },
+    {
+      "board": "quantum",
+      "name": "Vertigo Oriente",
+      "region": "southern-europe",
+      "discovered_by": "Pass A Portuguese and Lisbon-specific venue searches",
+      "status": "existing",
+      "official_sources": ["https://walltopia.com/projects/vertigo-oriente/"],
+      "note": "Walltopia's project page reconfirmed the existing Lisbon production venue and installed Quantum Board."
+    },
+    {
+      "board": "quantum",
+      "name": "Crux Climbing Center",
+      "region": "southern-europe",
+      "discovered_by": "Pass A Portuguese directory discovery with operator-page follow-through",
+      "status": "rejected",
+      "official_sources": ["https://www.cruxclimbing.pt/"],
+      "note": "A community directory labels the venue as having a Quantum Board, but the current operator equipment list explicitly names Kilter Board and MoonBoard and does not name Quantum. The secondary claim is insufficient and no Quantum record is published."
     }
   ]
 }

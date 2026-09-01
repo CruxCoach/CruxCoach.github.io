@@ -73,6 +73,10 @@ against a public venue or manufacturer source.
   notice show a new hall preparing to open in autumn 2026; no current
   operator-controlled page establishes that the planned Quantum Board is open
   to visitors yet.
+- Crux Climbing Center, São Domingos de Rana: a community hall directory labels
+  the venue as having a Quantum Board, but the current operator equipment page
+  explicitly lists Kilter Board and MoonBoard instead. Without primary Quantum
+  evidence, the directory claim is rejected.
 - Madrid 2025, Paris, CWA and HFA installations: temporary trade-show or event
   boards, not durable public venues.
 
