@@ -1788,7 +1788,467 @@
     {"pass":"B","board":"grasshopper","region":"east-asia","status":"complete","checked":"2026-09-01","languages":["ja","ko","zh","en"],"queries":["\"Grasshopper Board\" (オープン OR 導入 OR 新設 OR リニューアル OR ニュース) (日本 OR 韓国 OR 台湾 OR 香港) クライミング","\"グラスホッパーボード\" (設置 OR ボルダリングジム OR トレーニングエリア OR 新店舗)"],"results_reviewed":10,"candidates_found":2,"note":"Japanese installation searches reconfirmed CRUX Osaka through current secondary editorial material and found a historical time-limited Kurashiki installation. Osaka is already represented and the expired temporary setup is withheld."},
     {"pass":"B","board":"grasshopper","region":"south-southeast-asia","status":"complete","checked":"2026-09-01","languages":["en"],"queries":["\"Grasshopper Board\" (opening OR installed OR renovation OR news OR new gym) (India OR Singapore OR Malaysia OR Thailand OR Philippines OR Indonesia)","\"GrasshopperBoard\" (new bouldering gym OR installation OR training area OR grand opening) (Singapore OR Manila OR Bangkok OR Kuala Lumpur OR Jakarta OR India)"],"results_reviewed":14,"candidates_found":2,"note":"Independent regional opening/install searches reconfirmed current Climba operator evidence and surfaced only directory-level corroboration. No precise legitimate point was completed, so no production row is guessed."},
     {"pass":"B","board":"grasshopper","region":"oceania","status":"complete","checked":"2026-09-01","languages":["en"],"queries":["\"Grasshopper Board\" (installed OR opening OR renovation OR news OR new gym) (Australia OR New Zealand)","\"GrasshopperBoard\" (grand opening OR installation OR training area OR redevelopment) (Sydney OR Melbourne OR Brisbane OR Perth OR Auckland OR Wellington)"],"results_reviewed":8,"candidates_found":1,"note":"Independent opening/install searches reconfirmed Sandbox through its current operator facility page; no additional public venue survived review."},
-    {"pass":"B","board":"grasshopper","region":"middle-east-africa","status":"complete","checked":"2026-09-01","languages":["en","fr","ar"],"queries":["\"Grasshopper Board\" (opening OR installed OR renovation OR news OR new gym) (Israel OR UAE OR Saudi Arabia OR Turkey OR South Africa)","\"GrasshopperBoard\" (افتتاح OR تركيب OR salle escalade OR new climbing gym) (Dubai OR Israel OR Morocco OR Egypt OR Kenya OR South Africa)"],"results_reviewed":5,"candidates_found":0,"note":"Independent English, French and Arabic installation/news searches found distributor product material only, with no venue-specific public installation."}
+    {"pass":"B","board":"grasshopper","region":"middle-east-africa","status":"complete","checked":"2026-09-01","languages":["en","fr","ar"],"queries":["\"Grasshopper Board\" (opening OR installed OR renovation OR news OR new gym) (Israel OR UAE OR Saudi Arabia OR Turkey OR South Africa)","\"GrasshopperBoard\" (افتتاح OR تركيب OR salle escalade OR new climbing gym) (Dubai OR Israel OR Morocco OR Egypt OR Kenya OR South Africa)"],"results_reviewed":5,"candidates_found":0,"note":"Independent English, French and Arabic installation/news searches found distributor product material only, with no venue-specific public installation."},
+    {
+      "pass": "A",
+      "board": "touchstone",
+      "region": "north-america",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (USA OR Canada OR Mexico)",
+        "\"Touchstone training board\" (gym OR walls OR training OR FAQ) (United States OR Canada OR México)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 5,
+      "note": "Independent facility searches surfaced the five current California installations. All reconcile to the existing production rows and current chain audit; Aisle 19 remains explicitly coming soon and was withheld."
+    },
+    {
+      "pass": "A",
+      "board": "touchstone",
+      "region": "latin-america",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "es",
+        "pt",
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (rocódromo OR sala de búlder OR zona de entrenamiento) (Argentina OR Brasil OR Chile OR Colombia OR Perú)",
+        "\"Touchstone LED board\" (ginásio de escalada OR academia de escalada OR instalaciones) (Brasil OR América Latina)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual facility and training-area searches found no identifiable public Touchstone Board venue in latin america."
+    },
+    {
+      "pass": "A",
+      "board": "touchstone",
+      "region": "western-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "en",
+        "fr",
+        "nl"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (climbing gym OR bouldering gym OR facilities OR training area) (UK OR France OR Belgium OR Netherlands OR Ireland)",
+        "\"Touchstone training board\" (salle de bloc OR boulderhal OR klimhal OR trainingsruimte) (France OR Belgique OR Nederland)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual facility and training-area searches found no identifiable public Touchstone Board venue in western europe."
+    },
+    {
+      "pass": "A",
+      "board": "touchstone",
+      "region": "dach",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "de",
+        "fr",
+        "it"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (Boulderhalle OR Kletterhalle OR Trainingsbereich OR Ausstattung) (Deutschland OR Österreich OR Schweiz)",
+        "\"Touchstone LED board\" (salle de bloc OR palestra di arrampicata OR FAQ) (Schweiz OR Suisse OR Svizzera)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual facility and training-area searches found no identifiable public Touchstone Board venue in dach."
+    },
+    {
+      "pass": "A",
+      "board": "touchstone",
+      "region": "nordics-baltics",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "en",
+        "sv",
+        "no",
+        "da",
+        "fi"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (climbing gym OR bouldering OR training area) (Sweden OR Norway OR Denmark OR Finland OR Iceland OR Estonia OR Latvia OR Lithuania)",
+        "\"Touchstone training board\" (klätterhall OR klatrehall OR klatrehal OR kiipeilyhalli)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual facility and training-area searches found no identifiable public Touchstone Board venue in nordics baltics."
+    },
+    {
+      "pass": "A",
+      "board": "touchstone",
+      "region": "southern-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "es",
+        "pt",
+        "it",
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (rocódromo OR palestra di arrampicata OR sala boulder OR training area) (Spain OR Portugal OR Italy OR Greece)",
+        "\"Touchstone LED board\" (zona de entrenamiento OR painel de treino OR pannello di allenamento) (España OR Portugal OR Italia)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual facility and training-area searches found no identifiable public Touchstone Board venue in southern europe."
+    },
+    {
+      "pass": "A",
+      "board": "touchstone",
+      "region": "central-eastern-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "pl",
+        "cs",
+        "hu",
+        "ro",
+        "hr",
+        "sl",
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (ścianka wspinaczkowa OR bulderownia OR climbing gym OR training area) (Poland OR Czechia OR Hungary OR Romania OR Croatia OR Slovenia)",
+        "\"Touchstone training board\" (panel treningowy OR strefa treningowa OR bouldering gym) (Polska OR Czechy OR Bałkany)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual facility and training-area searches found no identifiable public Touchstone Board venue in central eastern europe."
+    },
+    {
+      "pass": "A",
+      "board": "touchstone",
+      "region": "eastern-europe-central-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "ru",
+        "uk",
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (скалодром OR боулдеринг OR тренировочная зона OR climbing gym) (Russia OR Ukraine OR Georgia OR Kazakhstan)",
+        "\"Touchstone LED board\" (установили OR training board OR facilities) (Россия OR Украина OR Казахстан OR Грузия)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual facility and training-area searches found no identifiable public Touchstone Board venue in eastern europe central asia."
+    },
+    {
+      "pass": "A",
+      "board": "touchstone",
+      "region": "east-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "ja",
+        "ko",
+        "zh",
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (クライミングジム OR ボルダリングジム OR トレーニングエリア OR 施設紹介) (日本 OR 韓国 OR 台湾 OR 中国)",
+        "\"Touchstone training board\" (클라이밍짐 OR 攀岩馆 OR 抱石馆 OR トレーニングボード)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual facility and training-area searches found no identifiable public Touchstone Board venue in east asia."
+    },
+    {
+      "pass": "A",
+      "board": "touchstone",
+      "region": "south-southeast-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (climbing gym OR bouldering gym OR training area OR facilities) (India OR Thailand OR Singapore OR Malaysia OR Indonesia OR Philippines OR Vietnam)",
+        "\"Touchstone LED board\" (climbing OR bouldering OR training) (India OR Nepal OR Southeast Asia OR Singapore)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual facility and training-area searches found no identifiable public Touchstone Board venue in south southeast asia."
+    },
+    {
+      "pass": "A",
+      "board": "touchstone",
+      "region": "oceania",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (climbing gym OR bouldering gym OR training area OR facilities) (Australia OR New Zealand)",
+        "\"Touchstone training board\" (climbing centre OR bouldering gym OR training board) (Australia OR New Zealand)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual facility and training-area searches found no identifiable public Touchstone Board venue in oceania."
+    },
+    {
+      "pass": "A",
+      "board": "touchstone",
+      "region": "middle-east-africa",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "en",
+        "fr",
+        "tr"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (climbing gym OR bouldering gym OR salle d'escalade OR training area) (UAE OR Israel OR Turkey OR South Africa OR Morocco OR Kenya)",
+        "\"Touchstone LED board\" (salle de bloc OR climbing gym OR facilities) (Africa OR Middle East OR Türkiye)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual facility and training-area searches found no identifiable public Touchstone Board venue in middle east africa."
+    },
+    {
+      "pass": "B",
+      "board": "touchstone",
+      "region": "north-america",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (installed OR opening OR new board OR expansion OR news) (USA OR Canada OR Mexico)",
+        "\"Touchstone training board\" (grand opening OR renovation OR blog OR official Instagram) (United States OR Canada OR México)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 5,
+      "note": "Opening, installation, renovation and news searches resurfaced the same five current California installations, including Hyperion opening coverage. All reconcile to existing production; Aisle 19 remains withheld as coming soon."
+    },
+    {
+      "pass": "B",
+      "board": "touchstone",
+      "region": "latin-america",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "es",
+        "pt",
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (apertura OR instalado OR renovación OR noticias) (Argentina OR Brasil OR Chile OR Colombia OR Perú)",
+        "\"Touchstone LED board\" (inauguração OR novo painel OR ampliação OR Instagram oficial) (Brasil OR América Latina)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual opening, installation, renovation, news and operator-social searches found no additional identifiable public Touchstone Board venue in latin america."
+    },
+    {
+      "pass": "B",
+      "board": "touchstone",
+      "region": "western-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "en",
+        "fr",
+        "nl"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (opening OR installed OR renovation OR news OR blog) (UK OR France OR Belgium OR Netherlands OR Ireland)",
+        "\"Touchstone training board\" (ouverture OR installé OR rénovation OR actualités OR officiële Instagram) (France OR Belgique OR Nederland)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual opening, installation, renovation, news and operator-social searches found no additional identifiable public Touchstone Board venue in western europe."
+    },
+    {
+      "pass": "B",
+      "board": "touchstone",
+      "region": "dach",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "de",
+        "fr",
+        "it"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (Neueröffnung OR installiert OR Umbau OR Neuigkeiten OR Blog) (Deutschland OR Österreich OR Schweiz)",
+        "\"Touchstone LED board\" (ouverture OR installato OR agrandissement OR Instagram officiel) (Suisse OR Svizzera)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual opening, installation, renovation, news and operator-social searches found no additional identifiable public Touchstone Board venue in dach."
+    },
+    {
+      "pass": "B",
+      "board": "touchstone",
+      "region": "nordics-baltics",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "en",
+        "sv",
+        "no",
+        "da",
+        "fi"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (installed OR opening OR renovation OR news OR blog) (Sweden OR Norway OR Denmark OR Finland OR Iceland OR Baltics)",
+        "\"Touchstone training board\" (installerad OR installert OR åbning OR utvidelse OR nyheter) (Sverige OR Norge OR Danmark OR Finland)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual opening, installation, renovation, news and operator-social searches found no additional identifiable public Touchstone Board venue in nordics baltics."
+    },
+    {
+      "pass": "B",
+      "board": "touchstone",
+      "region": "southern-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "es",
+        "pt",
+        "it",
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (apertura OR instalado OR installato OR ristrutturazione OR notizie) (Spain OR Portugal OR Italy OR Greece)",
+        "\"Touchstone LED board\" (inauguración OR novo painel OR ampliamento OR Instagram ufficiale) (España OR Portugal OR Italia)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual opening, installation, renovation, news and operator-social searches found no additional identifiable public Touchstone Board venue in southern europe."
+    },
+    {
+      "pass": "B",
+      "board": "touchstone",
+      "region": "central-eastern-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "pl",
+        "cs",
+        "hu",
+        "ro",
+        "hr",
+        "sl",
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (otwarcie OR zainstalowano OR remont OR aktualności OR blog) (Poland OR Czechia OR Hungary OR Romania OR Balkans)",
+        "\"Touchstone training board\" (new board OR expansion OR official Instagram) (Poland OR Croatia OR Slovenia OR Serbia OR Romania)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual opening, installation, renovation, news and operator-social searches found no additional identifiable public Touchstone Board venue in central eastern europe."
+    },
+    {
+      "pass": "B",
+      "board": "touchstone",
+      "region": "eastern-europe-central-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "ru",
+        "uk",
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (открытие OR установили OR реконструкция OR новости OR блог) (Russia OR Ukraine OR Georgia OR Kazakhstan)",
+        "\"Touchstone LED board\" (new gym OR installed OR official Instagram) (Central Asia OR Кавказ OR Казахстан)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual opening, installation, renovation, news and operator-social searches found no additional identifiable public Touchstone Board venue in eastern europe central asia."
+    },
+    {
+      "pass": "B",
+      "board": "touchstone",
+      "region": "east-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "ja",
+        "ko",
+        "zh",
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (新規オープン OR 設置 OR 導入 OR 改装 OR お知らせ) (日本 OR 韓国 OR 台湾 OR 中国)",
+        "\"Touchstone training board\" (신규 오픈 OR 설치 OR 리모델링 OR 官方Instagram OR 新闻) (韓国 OR 台湾 OR 香港 OR 中国)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual opening, installation, renovation, news and operator-social searches found no additional identifiable public Touchstone Board venue in east asia."
+    },
+    {
+      "pass": "B",
+      "board": "touchstone",
+      "region": "south-southeast-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (opening OR installed OR renovation OR news OR blog) (India OR Thailand OR Singapore OR Malaysia OR Indonesia OR Philippines OR Vietnam)",
+        "\"Touchstone LED board\" (new gym OR new board OR expansion OR official Instagram) (India OR Southeast Asia OR Singapore)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual opening, installation, renovation, news and operator-social searches found no additional identifiable public Touchstone Board venue in south southeast asia."
+    },
+    {
+      "pass": "B",
+      "board": "touchstone",
+      "region": "oceania",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "en"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (opening OR installed OR renovation OR news OR blog) (Australia OR New Zealand)",
+        "\"Touchstone training board\" (new gym OR new board OR expansion OR official Instagram) (Australia OR New Zealand)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual opening, installation, renovation, news and operator-social searches found no additional identifiable public Touchstone Board venue in oceania."
+    },
+    {
+      "pass": "B",
+      "board": "touchstone",
+      "region": "middle-east-africa",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": [
+        "en",
+        "fr",
+        "tr"
+      ],
+      "queries": [
+        "\"Touchstone Board\" (opening OR installed OR renovation OR news OR blog) (UAE OR Israel OR Turkey OR South Africa OR Morocco OR Kenya)",
+        "\"Touchstone LED board\" (ouverture OR installé OR new gym OR official Instagram) (Africa OR Middle East OR Türkiye)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Multilingual opening, installation, renovation, news and operator-social searches found no additional identifiable public Touchstone Board venue in middle east africa."
+    }
   ],
   "rechecks": [
     {
@@ -5912,6 +6372,66 @@
     {"board":"grasshopper","name":"Climba","region":"south-southeast-asia","discovered_by":"Primary Passes A/B Singapore facility and opening searches","status":"withheld-geodata-reconciliation","official_sources":["https://www.climba.sg/","https://www.climba.sg/faq"],"note":"The current operator homepage and FAQ prove a public Grasshopper board, day-pass inclusion and the exact street address at 61 Robinson Road. A legitimate precise coordinate point was not completed in this batch, so the otherwise strong candidate is withheld rather than geocoded from a directory."},
     {"board":"grasshopper","name":"The Bouldering Hive","region":"south-southeast-asia","discovered_by":"Primary Pass A Philippines facility search","status":"reconciled-existing-secondary-only-board-claim","official_sources":[],"note":"Discovery surfaced only public video/directory evidence for the Makati Grasshopper board. The existing structured row is retained, but no production detail is added without a readable current operator-primary page."},
     {"board":"grasshopper","name":"Sandbox Bouldering","region":"oceania","discovered_by":"Primary Passes A/B Australian facility and installation searches","status":"reconciled-existing-structured-source","official_sources":["https://sandboxbouldering.com.au/"],"note":"The current operator page proves the public full-size 12x12 Grasshopper board adjustable from 35 to 65 degrees. The venue and board are already represented."},
-    {"board":"grasshopper","name":"The Crux","region":"oceania","discovered_by":"Primary Pass A Australian facility search","status":"reconciled-existing-structured-source","official_sources":["https://www.thecrux.com.au/culture-facility-melbourne-coburg-brunswick-bouldering"],"note":"The current operator facility page proves Australia's first Grasshopper board, fully adjustable from 15 to 60 degrees, at the public Coburg North gym. The Grasshopper venue already exists in production."}
+    {"board":"grasshopper","name":"The Crux","region":"oceania","discovered_by":"Primary Pass A Australian facility search","status":"reconciled-existing-structured-source","official_sources":["https://www.thecrux.com.au/culture-facility-melbourne-coburg-brunswick-bouldering"],"note":"The current operator facility page proves Australia's first Grasshopper board, fully adjustable from 15 to 60 degrees, at the public Coburg North gym. The Grasshopper venue already exists in production."},
+    {
+      "board": "touchstone",
+      "name": "Team Touchstone",
+      "region": "north-america",
+      "discovered_by": "Primary Pass A facility and Pass B opening/news searches",
+      "status": "reconciled-existing-chain-audit",
+      "official_sources": [
+        "https://touchstoneclimbing.com/team-training-center/",
+        "https://touchstoneclimbing.com/touchstone-training-boards/"
+      ],
+      "note": "The current Team Training Center board page confirms a fixed 35-degree LED Touchstone Board. The venue, official link and board details already exist in production."
+    },
+    {
+      "board": "touchstone",
+      "name": "Pacific Pipe Climbing",
+      "region": "north-america",
+      "discovered_by": "Primary Pass A facility and Pass B opening/news searches",
+      "status": "reconciled-existing-chain-audit",
+      "official_sources": [
+        "https://touchstoneclimbing.com/pacific-pipe/",
+        "https://touchstoneclimbing.com/touchstone-training-boards/"
+      ],
+      "note": "The current official chain guide and operator history confirm Pacific Pipe's Touchstone Board. The venue, official link and 35-degree LED details already exist in production."
+    },
+    {
+      "board": "touchstone",
+      "name": "The Post Climbing",
+      "region": "north-america",
+      "discovered_by": "Primary Pass A facility and Pass B opening/news searches",
+      "status": "reconciled-existing-chain-audit",
+      "official_sources": [
+        "https://touchstoneclimbing.com/the-post/",
+        "https://touchstoneclimbing.com/touchstone-training-boards/"
+      ],
+      "note": "The current branch page independently confirms The Post's Touchstone Board despite its omission from the central guide subsection. The venue and verified details already exist in production."
+    },
+    {
+      "board": "touchstone",
+      "name": "Class 5",
+      "region": "north-america",
+      "discovered_by": "Primary Pass A facility and Pass B opening/news searches",
+      "status": "reconciled-existing-chain-audit",
+      "official_sources": [
+        "https://touchstoneclimbing.com/class-5/",
+        "https://touchstoneclimbing.com/touchstone-training-boards/"
+      ],
+      "note": "The current branch and chain guide identify Class 5's Touchstone Board. Its duplicate point was already resolved and the board is already attached to the surviving public venue."
+    },
+    {
+      "board": "touchstone",
+      "name": "Hyperion Climbing",
+      "region": "north-america",
+      "discovered_by": "Primary Pass A facility and Pass B opening/news searches",
+      "status": "reconciled-existing-chain-audit",
+      "official_sources": [
+        "https://touchstoneclimbing.com/hyperion/",
+        "https://touchstoneclimbing.com/touchstone-training-boards/"
+      ],
+      "note": "The current branch material and opening coverage identify Hyperion's fixed 35-degree LED Touchstone Board. The venue and verified details already exist in production."
+    }
   ]
 }
