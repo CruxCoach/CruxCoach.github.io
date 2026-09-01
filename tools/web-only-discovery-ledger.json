@@ -383,6 +383,58 @@
       "results_reviewed": 72,
       "candidates_found": 2,
       "note": "Multilingual regional, city, named-chain and manufacturer-project searches found no public installed Quantum Board in the matrix region. One Abu Dhabi result explicitly described a private household sports complex and was rejected. Sputnik Asturias appeared as out-of-region spillover but its operator still says the branch is coming soon, so it remains withheld."
+    },
+    {
+      "pass": "A",
+      "board": "quantum",
+      "region": "north-america",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "fr", "es"],
+      "queries": [
+        "\"Quantum Board\" (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (USA OR Canada OR Mexico)",
+        "\"QuantumBoard\" (climbing OR bouldering OR gym OR training) (United States OR Canada OR Mexico)",
+        "\"Quantum climbing board\" (USA OR Canada OR Mexico)",
+        "\"Quantum Board\" climbing gym (New York OR Los Angeles OR Chicago OR Houston OR Toronto OR Vancouver OR Montreal OR Mexico City)",
+        "site:cultivateclimbing.com \"Highland Station\" Quantum Board",
+        "site:cultivateclimbing.com \"Highland Station\" Asheville",
+        "Cultivate Climbing Highland Station official opening Quantum Board",
+        "\"Highland Station\" Asheville \"Quantum Board\"",
+        "\"Quantum Board\" (Movement OR Touchstone OR Momentum OR \"Central Rock Gym\" OR \"The Cliffs\" OR \"Bouldering Project\") climbing",
+        "\"Quantum Board\" (\"The Pad\" OR \"High Point\" OR \"Mesa Rim\" OR \"Sender One\" OR Sportrock) climbing",
+        "\"Quantum Board\" (\"USA Climbing\" OR \"National Training Center\" OR university)",
+        "site:movementgyms.com \"Quantum Board\"",
+        "site:touchstoneclimbing.com \"Quantum Board\"",
+        "site:momentumclimbing.com \"Quantum Board\"",
+        "site:centralrockgym.com \"Quantum Board\"",
+        "site:thepadclimbing.org \"Quantum Board\" OR Quantum",
+        "site:highpointclimbing.com \"Quantum Board\"",
+        "site:mesarim.com \"Quantum Board\"",
+        "site:senderoneclimbing.com \"Quantum Board\"",
+        "\"Quantum Board\" (\"salle d'escalade\" OR \"salle de bloc\" OR \"zone d'entraînement\") (Canada OR Québec OR Montréal)",
+        "\"QuantumBoard\" (escalade OR bloc OR entraînement) (Canada OR Québec)",
+        "\"Quantum Board\" (rocódromo OR \"gimnasio de escalada\" OR \"zona de entrenamiento\") México",
+        "\"QuantumBoard\" (escalada OR boulder OR entrenamiento) México",
+        "site:.ca \"Quantum Board\" climbing",
+        "site:.ca \"Quantum Board\" bouldering",
+        "site:.mx \"Quantum Board\" escalada",
+        "site:.mx \"Quantum Board\" boulder",
+        "\"Quantum Board\" climbing (California OR Oregon OR Washington OR Nevada OR Arizona OR Colorado OR Utah)",
+        "\"Quantum Board\" climbing (Texas OR Oklahoma OR Kansas OR Missouri OR Illinois OR Minnesota)",
+        "\"Quantum Board\" climbing (Florida OR Georgia OR Carolinas OR Virginia OR Tennessee OR Alabama)",
+        "\"Quantum Board\" climbing (New York OR Boston OR Pennsylvania OR Maryland OR Ohio OR Michigan)",
+        "\"Quantum Board\" climbing gym \"opening\" USA",
+        "\"Quantum Board\" bouldering \"coming soon\" Canada OR USA",
+        "\"Quantum Board\" climbing renovation OR expansion USA OR Canada",
+        "\"Quantum Board\" climbing gym Instagram USA OR Canada",
+        "site:walltopia.com/projects \"Quantum Board\" (USA OR Canada OR Mexico)",
+        "site:usaclimbing.org \"Quantum Board\"",
+        "site:cultivateclimbing.com Quantum Highland",
+        "site:exploreasheville.com \"Quantum Board\""
+      ],
+      "results_reviewed": 129,
+      "candidates_found": 4,
+      "note": "Independent regional, multilingual, city/state, ccTLD, chain, opening/renovation, social-domain and manufacturer-project searches reconfirmed Momentum Trolley Square as the only currently open public North American Quantum venue. Cultivate Highland Station and The Pad Las Vegas remain operator-confirmed future openings. USA Climbing's National Training Center has an installed board but is an athlete/event facility rather than a generally public climbing venue, so it remains withheld."
     }
   ],
   "candidates": [
@@ -613,6 +665,45 @@
       "status": "announced",
       "official_sources": ["https://sputnikclimbing.com/en/climbing-wall-Asturias/lugones/"],
       "note": "The operator confirms the planned Quantum Board XL and Lugones identity, but the same current page says the climbing wall is coming soon and describes amenities in the future tense. It remains withheld until an explicit public opening is verified."
+    },
+    {
+      "board": "quantum",
+      "name": "Momentum Indoor Climbing Trolley Square",
+      "region": "north-america",
+      "discovered_by": "Pass A regional, chain-domain and city/state searches",
+      "status": "existing",
+      "official_sources": ["https://momentumclimbing.com/trolleysquare/tour/"],
+      "note": "The operator's current tour page explicitly lists Quantum Board and Kilter Board at the active Salt Lake City venue. The production allowlist already contains this record."
+    },
+    {
+      "board": "quantum",
+      "name": "Cultivate Climbing Highland Station",
+      "region": "north-america",
+      "discovered_by": "Pass A opening and Asheville city searches",
+      "status": "announced",
+      "official_sources": [
+        "https://cultivateclimbing.com/climbing/highlands/",
+        "https://www.exploreasheville.com/media-center/news-releases/asheville-brightens-2026-art-immersive-experiences"
+      ],
+      "note": "The operator page says the Highland Station branch is coming in 2026 and will have two training boards; Asheville's official tourism press release identifies one as the country's second Quantum Board. It is withheld until the operator confirms that the venue is publicly open."
+    },
+    {
+      "board": "quantum",
+      "name": "The Pad Climbing Las Vegas",
+      "region": "north-america",
+      "discovered_by": "Pass A chain-domain, opening and western-state searches",
+      "status": "announced",
+      "official_sources": ["https://thepadclimbing.org/vegas-valley-updates/"],
+      "note": "The operator gives the address as 9400 W Sahara and plans a Quantum Board XL, but projects an early-2027 opening. It remains withheld until public opening is verified."
+    },
+    {
+      "board": "quantum",
+      "name": "USA Climbing National Training Center",
+      "region": "north-america",
+      "discovered_by": "Pass A university, national-training-center and Salt Lake City searches",
+      "status": "restricted-access",
+      "official_sources": ["https://d1n1qj9geboqnb.cloudfront.net/ifsc/public/lfg2tyubh10fqh0ny76850tuhs3l"],
+      "note": "The official competition document identifies an installed Walltopia Quantum Board at 504 W 300 S, Salt Lake City, but describes the center as an athlete warm-up facility with event-controlled access. It is not established as a generally public venue and is withheld."
     }
   ]
 }
