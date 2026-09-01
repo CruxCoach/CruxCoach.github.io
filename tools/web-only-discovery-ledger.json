@@ -202,6 +202,43 @@
       "results_reviewed": 162,
       "candidates_found": 6,
       "note": "Country, local-language, ccTLD, operator and manufacturer-domain searches reconfirmed Momentum Sofia, Momentum Plovdiv and Pirin Golf. Poziom 450 Boulder and Carpatic remain retryable primary-evidence gaps; their accessible official sites prove the venues but not the boards, while exact operator Instagram posts were throttled. Momentum Bulgaria Mall remains an announced end-of-2026 project."
+    },
+    {
+      "pass": "A",
+      "board": "quantum",
+      "region": "eastern-europe-central-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "ru", "uk"],
+      "queries": [
+        "\"Quantum Board\" (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (Ukraine OR Russia OR Belarus OR Georgia OR Armenia OR Azerbaijan OR Kazakhstan OR Kyrgyzstan OR Uzbekistan)",
+        "\"QuantumBoard\" (climbing OR bouldering OR gym OR training) (Ukraine OR Russia OR Belarus OR Georgia OR Armenia OR Azerbaijan OR Kazakhstan OR Kyrgyzstan OR Uzbekistan)",
+        "\"Quantum Board\" (скалодром OR \"боулдеринг зал\" OR \"тренировочная зона\") (Россия OR Украина OR Беларусь)",
+        "\"Quantum Board\" (скалодром OR боулдеринг OR тренировка) (Казахстан OR Кыргызстан OR Узбекистан)",
+        "\"Quantum Board\" (climbing gym OR bouldering OR training) (Georgia OR Tbilisi OR Armenia OR Yerevan)",
+        "\"Quantum Board\" (climbing gym OR bouldering OR training) (Azerbaijan OR Baku)",
+        "\"Quantum Board\" (climbing gym OR bouldering OR training) (Kazakhstan OR Almaty OR Astana)",
+        "\"Quantum Board\" (climbing gym OR bouldering OR training) (Kyrgyzstan OR Bishkek OR Uzbekistan OR Tashkent)",
+        "\"Quantum Board\" скалодром Россия",
+        "\"Quantum Board\" скалодром Украина",
+        "\"Quantum Board\" скалодром Беларусь",
+        "\"QuantumBoard\" (Москва OR Санкт-Петербург OR Киев OR Минск)",
+        "\"Quantum Board\" site:.ua скалодром OR боулдеринг",
+        "\"Quantum Board\" site:.ru скалодром OR боулдеринг",
+        "\"Quantum Board\" site:.by скалодром OR боулдеринг",
+        "\"Quantum Board\" site:.ge climbing OR bouldering",
+        "\"Quantum Board\" site:.am climbing OR bouldering",
+        "\"Quantum Board\" site:.az climbing OR bouldering",
+        "\"Quantum Board\" site:.kz скалодром OR боулдеринг",
+        "\"Quantum Board\" site:.kg скалодром OR боулдеринг",
+        "\"Quantum Board\" site:.uz скалодром OR боулдеринг",
+        "\"QuantumBoard\" (Tbilisi OR Yerevan OR Baku OR Almaty OR Astana OR Bishkek OR Tashkent) climbing",
+        "\"Квантум борд\" скалодром OR боулдеринг",
+        "\"Квантум-борд\" скалодром OR боулдеринг"
+      ],
+      "results_reviewed": 76,
+      "candidates_found": 0,
+      "note": "Independent regional, capital-city, Cyrillic spelling and ccTLD searches found no venue candidate. The dominant false-positive class was identically named horticultural LED lighting; all such results were excluded."
     }
   ],
   "candidates": [
