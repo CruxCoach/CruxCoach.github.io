@@ -1380,7 +1380,367 @@
     {"pass":"B","board":"tension","region":"east-asia","status":"complete","checked":"2026-09-01","languages":["ja","ko","zh","en"],"queries":["\"Tension Board 2\" (新規オープン OR 設置 OR 導入 OR 改装 OR お知らせ) 日本 2025 2026","\"Tension Board 2\" (신규 오픈 OR 설치 OR 도입 OR 리모델링 OR 소식 OR 安装 OR 引进 OR 新闻) (한국 OR 中国 OR 台湾 OR 香港) 2025 2026"],"results_reviewed":6,"candidates_found":0,"note":"Japanese, Korean and Chinese installation/news searches produced no venue-specific current result."},
     {"pass":"B","board":"tension","region":"south-southeast-asia","status":"complete","checked":"2026-09-01","languages":["en"],"queries":["\"Tension Board 2\" (installed OR opening OR renovation OR expansion OR news OR blog) (India OR Nepal OR Thailand OR Vietnam OR Malaysia OR Singapore) 2025 2026","TB2 (new gym OR installed OR official Instagram OR news) climbing (Indonesia OR Philippines OR Cambodia OR Pakistan OR Bangladesh OR Sri Lanka) 2025 2026"],"results_reviewed":8,"candidates_found":1,"note":"Independent opening/news searches found a current Adrenaline operator board page but not enough branch identity in the result to alter production; unrelated new gyms without Tension evidence were discarded."},
     {"pass":"B","board":"tension","region":"oceania","status":"complete","checked":"2026-09-01","languages":["en"],"queries":["\"Tension Board 2\" (installed OR opening OR renovation OR expansion OR news) (Australia OR New Zealand) 2025 2026","TB2 (new gym OR installed OR official Instagram OR blog) (Sydney OR Melbourne OR Brisbane OR Perth OR Auckland OR Wellington) 2025 2026"],"results_reviewed":8,"candidates_found":0,"note":"Independent installation/news searches yielded no additional venue-controlled candidate beyond the facilities already discovered in Pass A."},
-    {"pass":"B","board":"tension","region":"middle-east-africa","status":"complete","checked":"2026-09-01","languages":["en","fr"],"queries":["\"Tension Board 2\" (installed OR opening OR renovation OR expansion OR news) (Israel OR UAE OR Saudi Arabia OR Turkey OR South Africa) 2025 2026","\"TensionBoard\" (ouverture OR installé OR news OR official Instagram) (Morocco OR Tunisia OR Egypt OR Kenya OR Malawi OR Lebanon OR Jordan) climbing 2025 2026"],"results_reviewed":4,"candidates_found":0,"note":"Independent English and French installation/news searches produced no venue-specific current Tension result."}
+    {"pass":"B","board":"tension","region":"middle-east-africa","status":"complete","checked":"2026-09-01","languages":["en","fr"],"queries":["\"Tension Board 2\" (installed OR opening OR renovation OR expansion OR news) (Israel OR UAE OR Saudi Arabia OR Turkey OR South Africa) 2025 2026","\"TensionBoard\" (ouverture OR installé OR news OR official Instagram) (Morocco OR Tunisia OR Egypt OR Kenya OR Malawi OR Lebanon OR Jordan) climbing 2025 2026"],"results_reviewed":4,"candidates_found":0,"note":"Independent English and French installation/news searches produced no venue-specific current Tension result."},
+    {
+      "pass": "A",
+      "board": "soill",
+      "region": "north-america",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "fr", "es"],
+      "queries": [
+        "\"So iLL Board\" (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (USA OR Canada OR Mexico)",
+        "\"Soill Board\" (gym OR training board OR FAQ) (United States OR Canada OR México)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 2,
+      "note": "Independent venue and facility searches found Rifle Climbing Center and HEXROCK Climbing; both were reconciled to existing structured So iLL rows and current official venue pages."
+    },
+    {
+      "pass": "A",
+      "board": "soill",
+      "region": "latin-america",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["es", "pt"],
+      "queries": [
+        "\"So iLL Board\" (rocódromo OR \"sala de búlder\" OR \"zona de entrenamiento\") (Argentina OR Brasil OR Chile OR Colombia OR Perú)",
+        "\"Soill Board\" (ginásio de escalada OR academia de escalada OR instalaciones) (Brasil OR América Latina)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Independent Spanish and Portuguese venue and training searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "A",
+      "board": "soill",
+      "region": "western-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "fr", "nl"],
+      "queries": [
+        "\"So iLL Board\" (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (UK OR France OR Belgium OR Netherlands OR Ireland)",
+        "\"So iLL Board\" (salle de bloc OR boulderhal OR klimhal OR trainingsruimte) (France OR Belgique OR Nederland)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 1,
+      "note": "A Dutch review surfaced Beest Boulders Breda; reconciliation found the So iLL row and official venue link already present, while the review remained discovery-only."
+    },
+    {
+      "pass": "A",
+      "board": "soill",
+      "region": "dach",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["de", "en", "fr", "it"],
+      "queries": [
+        "\"So iLL Board\" (Boulderhalle OR Kletterhalle OR Trainingsbereich OR Ausstattung) (Deutschland OR Österreich OR Schweiz)",
+        "\"Soill Board\" (salle de bloc OR palestra di arrampicata OR FAQ) (Schweiz OR Suisse OR Svizzera)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Independent multilingual facility searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "A",
+      "board": "soill",
+      "region": "nordics-baltics",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en"],
+      "queries": [
+        "\"So iLL Board\" (climbing gym OR bouldering OR training area) (Sweden OR Norway OR Denmark OR Finland OR Iceland OR Estonia OR Latvia OR Lithuania)",
+        "\"So iLL Connect Board\" (klätterhall OR klatrehall OR klatrehal OR kiipeilyhalli)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Regional and Nordic-language venue searches returned product and distributor pages but no installed public venue."
+    },
+    {
+      "pass": "A",
+      "board": "soill",
+      "region": "southern-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["es", "pt", "it", "en"],
+      "queries": [
+        "\"So iLL Board\" (rocódromo OR palestra di arrampicata OR sala boulder OR training area) (Spain OR Portugal OR Italy OR Greece)",
+        "\"Soill Board\" (zona de entrenamiento OR painel de treino OR pannello di allenamento) (España OR Portugal OR Italia)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Independent multilingual venue and training searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "A",
+      "board": "soill",
+      "region": "central-eastern-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["pl", "en"],
+      "queries": [
+        "\"So iLL Board\" (ścianka wspinaczkowa OR bulderownia OR climbing gym OR training area) (Poland OR Czechia OR Hungary OR Romania OR Croatia OR Slovenia)",
+        "\"Soill Connect Board\" (panel treningowy OR strefa treningowa OR bouldering gym) (Polska OR Czechy OR Bałkany)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Polish and English regional searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "A",
+      "board": "soill",
+      "region": "eastern-europe-central-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["ru", "en"],
+      "queries": [
+        "\"So iLL Board\" (скалодром OR боулдеринг OR тренировочная зона OR climbing gym) (Russia OR Ukraine OR Georgia OR Kazakhstan)",
+        "\"Soill Board\" (установили OR training board OR facilities) (Россия OR Украина OR Казахстан OR Грузия)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Russian and English regional searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "A",
+      "board": "soill",
+      "region": "east-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["ja", "ko", "zh", "en"],
+      "queries": [
+        "\"So iLL Board\" (クライミングジム OR ボルダリングジム OR トレーニングエリア OR 施設紹介) (日本 OR 韓国 OR 台湾 OR 中国)",
+        "\"So iLL Connect Board\" (클라이밍짐 OR 攀岩馆 OR 抱石馆 OR トレーニングボード)"
+      ],
+      "results_reviewed": 7,
+      "candidates_found": 0,
+      "note": "Japanese, Korean and Chinese facility searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "A",
+      "board": "soill",
+      "region": "south-southeast-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en"],
+      "queries": [
+        "\"So iLL Board\" (climbing gym OR bouldering gym OR training area OR facilities) (India OR Thailand OR Singapore OR Malaysia OR Indonesia OR Philippines OR Vietnam)",
+        "\"Soill Connect Board\" (climbing OR bouldering OR training) (India OR Nepal OR Southeast Asia OR Singapore)"
+      ],
+      "results_reviewed": 6,
+      "candidates_found": 0,
+      "note": "Regional facility searches produced no identifiable public venue candidate; retailer and generic training content were rejected."
+    },
+    {
+      "pass": "A",
+      "board": "soill",
+      "region": "oceania",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en"],
+      "queries": [
+        "\"So iLL Board\" (climbing gym OR bouldering gym OR training area OR facilities) (Australia OR New Zealand)",
+        "\"So iLL Connect Board\" (climbing centre OR bouldering gym OR training board) (Australia OR New Zealand)"
+      ],
+      "results_reviewed": 7,
+      "candidates_found": 0,
+      "note": "Australia and New Zealand searches returned product-system pages but no identifiable installed public venue."
+    },
+    {
+      "pass": "A",
+      "board": "soill",
+      "region": "middle-east-africa",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "fr"],
+      "queries": [
+        "\"So iLL Board\" (climbing gym OR bouldering gym OR salle d'escalade OR training area) (UAE OR Israel OR Turkey OR South Africa OR Morocco OR Kenya)",
+        "\"Soill Connect Board\" (salle de bloc OR climbing gym OR facilities) (Africa OR Middle East OR Türkiye)"
+      ],
+      "results_reviewed": 6,
+      "candidates_found": 0,
+      "note": "English and French regional searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "B",
+      "board": "soill",
+      "region": "north-america",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "fr", "es"],
+      "queries": [
+        "\"So iLL Connect Board\" (installed OR opening OR \"new board\" OR expansion OR news) (USA OR Canada OR Mexico)",
+        "\"So iLL Board\" (\"grand opening\" OR renovation OR blog OR \"official Instagram\") (United States OR Canada OR México)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 2,
+      "note": "Opening and installation searches rediscovered current public HEXROCK Climbing and Rifle Climbing Center; both So iLL rows and venue details already exist."
+    },
+    {
+      "pass": "B",
+      "board": "soill",
+      "region": "latin-america",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["es", "pt"],
+      "queries": [
+        "\"So iLL Connect Board\" (apertura OR instalado OR renovación OR noticias) (Argentina OR Brasil OR Chile OR Colombia OR Perú)",
+        "\"Soill Board\" (inauguração OR novo painel OR ampliação OR Instagram oficial) (Brasil OR América Latina)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Independent Spanish and Portuguese opening and installation searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "B",
+      "board": "soill",
+      "region": "western-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "fr", "nl"],
+      "queries": [
+        "\"So iLL Connect Board\" (opening OR installed OR renovation OR news OR blog) (UK OR France OR Belgium OR Netherlands OR Ireland)",
+        "\"So iLL Board\" (ouverture OR installé OR rénovation OR actualités OR officiële Instagram) (France OR Belgique OR Nederland)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Independent opening, renovation and news searches produced no new identifiable venue beyond generic product pages."
+    },
+    {
+      "pass": "B",
+      "board": "soill",
+      "region": "dach",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["de", "en", "fr", "it"],
+      "queries": [
+        "\"So iLL Connect Board\" (Neueröffnung OR installiert OR Umbau OR Neuigkeiten OR Blog) (Deutschland OR Österreich OR Schweiz)",
+        "\"Soill Board\" (ouverture OR installato OR agrandissement OR Instagram officiel) (Suisse OR Svizzera)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Independent multilingual opening and installation searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "B",
+      "board": "soill",
+      "region": "nordics-baltics",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en"],
+      "queries": [
+        "\"So iLL Connect Board\" (installed OR opening OR renovation OR news OR blog) (Sweden OR Norway OR Denmark OR Finland OR Iceland OR Baltics)",
+        "\"So iLL Board\" (installerad OR installert OR åbning OR utvidelse OR nyheter) (Sverige OR Norge OR Danmark OR Finland)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Regional opening and news searches returned a distributor listing but no venue-controlled installation evidence."
+    },
+    {
+      "pass": "B",
+      "board": "soill",
+      "region": "southern-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["es", "pt", "it", "en"],
+      "queries": [
+        "\"So iLL Connect Board\" (apertura OR instalado OR installato OR ristrutturazione OR notizie) (Spain OR Portugal OR Italy OR Greece)",
+        "\"Soill Board\" (inauguración OR novo painel OR ampliamento OR Instagram ufficiale) (España OR Portugal OR Italia)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Independent multilingual opening, installation and news searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "B",
+      "board": "soill",
+      "region": "central-eastern-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["pl", "en"],
+      "queries": [
+        "\"So iLL Connect Board\" (otwarcie OR zainstalowano OR remont OR aktualności OR blog) (Poland OR Czechia OR Hungary OR Romania OR Balkans)",
+        "\"Soill Board\" (new board OR expansion OR official Instagram) (Poland OR Croatia OR Slovenia OR Serbia OR Romania)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Polish and English opening and installation searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "B",
+      "board": "soill",
+      "region": "eastern-europe-central-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["ru", "en"],
+      "queries": [
+        "\"So iLL Connect Board\" (открытие OR установили OR реконструкция OR новости OR блог) (Russia OR Ukraine OR Georgia OR Kazakhstan)",
+        "\"Soill Board\" (new gym OR installed OR official Instagram) (Central Asia OR Кавказ OR Казахстан)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Russian and English opening, installation and news searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "B",
+      "board": "soill",
+      "region": "east-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["ja", "ko", "zh", "en"],
+      "queries": [
+        "\"So iLL Connect Board\" (新規オープン OR 設置 OR 導入 OR 改装 OR お知らせ) (日本 OR 韓国 OR 台湾 OR 中国)",
+        "\"Soill Board\" (신규 오픈 OR 설치 OR 리모델링 OR 官方Instagram OR 新闻) (韓国 OR 台湾 OR 香港 OR 中国)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Japanese, Korean and Chinese opening and installation searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "B",
+      "board": "soill",
+      "region": "south-southeast-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en"],
+      "queries": [
+        "\"So iLL Connect Board\" (opening OR installed OR renovation OR news OR blog) (India OR Thailand OR Singapore OR Malaysia OR Indonesia OR Philippines OR Vietnam)",
+        "\"Soill Board\" (new gym OR new board OR expansion OR official Instagram) (India OR Southeast Asia OR Singapore)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Regional opening and installation searches produced no venue; a Singapore fingerboard retailer was rejected as a different product."
+    },
+    {
+      "pass": "B",
+      "board": "soill",
+      "region": "oceania",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en"],
+      "queries": [
+        "\"So iLL Connect Board\" (opening OR installed OR renovation OR news OR blog) (Australia OR New Zealand)",
+        "\"Soill Board\" (new gym OR new board OR expansion OR official Instagram) (Australia OR New Zealand)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "Australia and New Zealand opening and installation searches produced no identifiable public venue candidate."
+    },
+    {
+      "pass": "B",
+      "board": "soill",
+      "region": "middle-east-africa",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "fr"],
+      "queries": [
+        "\"So iLL Connect Board\" (opening OR installed OR renovation OR news OR blog) (UAE OR Israel OR Turkey OR South Africa OR Morocco OR Kenya)",
+        "\"Soill Board\" (ouverture OR installé OR new gym OR official Instagram) (Africa OR Middle East OR Türkiye)"
+      ],
+      "results_reviewed": 9,
+      "candidates_found": 0,
+      "note": "English and French opening, installation and operator-social searches produced no identifiable public venue candidate."
+    }
   ],
   "rechecks": [
     {
@@ -5442,6 +5802,33 @@
     {"board":"tension","name":"The Board Room Hong Kong","region":"east-asia","discovered_by":"Primary Pass A multilingual facility search","status":"reconciled-existing-structured-source","official_sources":["https://boardroom.fit/"],"note":"The current operator page proves Hong Kong's public adjustable 12x12 Tension Board 2 at 35-60 degrees. The production venue already exists."},
     {"board":"tension","name":"fit · bloc Telok Ayer","region":"south-southeast-asia","discovered_by":"Primary Pass A regional facility search","status":"reconciled-existing-structured-source","official_sources":["https://fitbloc.com/"],"note":"The operator's current branch description assigns the Tension Board 2 specifically to Telok Ayer. The branch-specific row, official website and hours already exist."},
     {"board":"tension","name":"Sandbox Bouldering","region":"oceania","discovered_by":"Primary Pass A Australian facility search","status":"reconciled-existing-structured-source","official_sources":["https://sandboxbouldering.com.au/"],"note":"The current operator homepage proves the public full-size adjustable Tension Board 2 alongside three other supported systems. Its Tension row was already represented."},
-    {"board":"tension","name":"Dynomite Gym Albion Park Rail","region":"oceania","discovered_by":"Primary Pass A Australian facility search","status":"reconciled-existing-structured-source","official_sources":["https://www.dynomite.net.au/albion-park-gym"],"note":"The branch page proves public access, exact address, Tension Board 2 and a complete week. The branch-specific row, link and hours were already represented."}
+    {"board":"tension","name":"Dynomite Gym Albion Park Rail","region":"oceania","discovered_by":"Primary Pass A Australian facility search","status":"reconciled-existing-structured-source","official_sources":["https://www.dynomite.net.au/albion-park-gym"],"note":"The branch page proves public access, exact address, Tension Board 2 and a complete week. The branch-specific row, link and hours were already represented."},
+    {
+      "board": "soill",
+      "name": "Rifle Climbing Center",
+      "region": "north-america",
+      "discovered_by": "Primary Pass A facility and Pass B opening/news searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://www.rifleclimbingcenter.com/about-the-gym"],
+      "note": "The current operator page confirms a public 8x12 So iLL Board adjustable from 0 to 65 degrees. The matching So iLL venue row, official link and regular hours were already present, so no production edit was needed."
+    },
+    {
+      "board": "soill",
+      "name": "HEXROCK Climbing",
+      "region": "north-america",
+      "discovered_by": "Primary Pass A facility and Pass B opening/news searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://www.hexrockclimbing.com/"],
+      "note": "The current operator page confirms the open Sarasota venue and its 12x12 So iLL Connect Board. The matching So iLL row, official link and complete regular week were already present."
+    },
+    {
+      "board": "soill",
+      "name": "Beest Boulders Breda",
+      "region": "western-europe",
+      "discovered_by": "Primary Pass A Dutch facility search",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://beestboulders.com/locaties/breda/"],
+      "note": "A third-party venue review discovered the So iLL Board, and the exact venue already has a structured So iLL row and official branch link. The review was treated only as discovery; no unsupported production detail was copied."
+    }
   ]
 }
