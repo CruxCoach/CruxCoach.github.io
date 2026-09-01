@@ -20,6 +20,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
   const { entries, meta } = await loadCurated();
   assert.equal(meta.verified_on, '2026-09-01');
   assert.deepEqual(entries.map(entry => [entry.name, entry.board]), [
+    ['Boulder Indoor', 'moonboard'],
     ['Boulderwelt München Ost', 'moonboard'],
     ['Boulderwelt Hamburg', 'moonboard'],
     ['Boardworks Climbing', 'moonboard'],
@@ -69,6 +70,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Funattic', '12climb'],
     ['Hyperion Kyiv', '12climb'],
     ['SK Dynamica', '12climb'],
+    ['The Wall Lviv', '12climb'],
     ['Team Touchstone', 'moonboard'],
     ['Pacific Pipe Climbing', 'moonboard'],
     ['Cliffs of Id', 'moonboard'],

@@ -873,6 +873,19 @@ const ENTRIES = [
     country: 'UA',
   },
   {
+    // Current public venue, 12Climb wall, exact address and the operator
+    // site's own business-location coordinates (conflicting schedules stay
+    // in the hours research ledger):
+    // https://www.thewall.lviv.ua/about
+    source: 'curated',
+    board: '12climb',
+    name: 'The Wall Lviv',
+    lat: 49.8313774,
+    lon: 23.9967892,
+    city: 'Lviv',
+    country: 'UA',
+  },
+  {
     // Current chain-wide board inventory and version:
     // https://touchstoneclimbing.com/touchstone-training-boards/
     // Branch identity/address: https://touchstoneclimbing.com/team-training-center/

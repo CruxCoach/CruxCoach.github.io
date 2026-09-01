@@ -26980,6 +26980,24 @@
     "note": "The current operator page identifies a public Kyiv climbing and bouldering venue at Kostiantynivska 73 / Kyrylivska 46; the 12Climb manufacturer KML independently identifies its board and matching coordinate."
   },
   {
+    "lat": 49.8313774,
+    "lon": 23.9967892,
+    "name": "The Wall Lviv",
+    "country": "UA",
+    "website": "https://www.thewall.lviv.ua/about",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page",
+      "coordinates"
+    ],
+    "note": "The current operator page identifies the public Lviv climbing venue at Heroiv UPA 72, explicitly describes its 12Climb interactive wall, and supplies the matching precise business-location coordinate in the first-party site data. Its two conflicting schedule renderings remain non-production research."
+  },
+  {
     "lat": 34.0331,
     "lon": -118.3707,
     "name": "Cliffs of Id",
