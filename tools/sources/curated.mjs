@@ -1540,6 +1540,35 @@ const ENTRIES = [
     }],
   },
   {
+    // Current public venue, exact address, 16x12 Original Kilter Board and
+    // adjustable 0-70 degree range:
+    // https://bigwallsport.ru/
+    // https://bigwallsport.ru/blog/chto-takoe-kilter-board
+    // The independently maintained OSM Arena Plaza building-part centroid
+    // matches the operator's Ленинградский проспект 36 address.
+    source: 'curated',
+    board: 'kilter',
+    name: 'Bigwall Sport Динамо',
+    lat: 55.791307,
+    lon: 37.5598289,
+    address: 'Ленинградский проспект, 36, Москва, Russia',
+    city: 'Moscow',
+    country: 'RU',
+    commercial: true,
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: 'Original',
+      size_id: null,
+      size_label: '16x12',
+      adjustable: true,
+      angle: null,
+      min_angle: 0,
+      max_angle: 70,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
     // The same current operator page explicitly identifies Tension Board 2.
     // The public schema has no Tension model-detail field.
     source: 'curated',

@@ -32815,5 +32815,21 @@
     },
     "evidence": "Lun.-Mar. e Gio.: 10.00-22.30 | Mercoledì: 09.30-22.30 | Venerdì: 10.00-21.30 | Sabato, Domenica e festivi: 10.00-20.30",
     "note": "The current operator directions page states one complete regular week for the climbing centre; separately listed later bar closing times are not copied."
+  },
+  {
+    "lat": 55.791307,
+    "lon": 37.5598289,
+    "name": "Bigwall Sport Динамо",
+    "country": "RU",
+    "source": "https://bigwallsport.ru/usloviya-okazaniya-uslug",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "07:00-23:30", "tue": "07:00-23:30", "wed": "07:00-23:30",
+      "thu": "07:00-23:30", "fri": "07:00-23:30", "sat": "08:00-23:00", "sun": "08:00-23:00"
+    },
+    "evidence": "Динамо (г. Москва, Ленинградский проспект, дом 36): понедельник - пятница с 7:00 до 23:30, выходные и праздники с 8:00 до 23:00",
+    "note": "The operator's current terms explicitly scope one complete ordinary week to the Динамо branch. Holiday weekend hours are an exception and do not alter the regular Monday-Friday schedule."
   }
 ]

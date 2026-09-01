@@ -105,6 +105,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Beta Boulders Malmö', 'kilter'],
     ['Project Konepaja', 'kilter'],
     ['Vertikale', 'kilter'],
+    ['Bigwall Sport Динамо', 'kilter'],
     ['Project Konepaja', 'tension'],
     ['Project Konepaja', 'moonboard'],
   ]);
@@ -919,6 +920,34 @@ test('committed map data includes the missing boards and merges the corrected ve
   ]);
   assert.equal(vertikale[0].properties.boards[0].walls[0].adjustable, true);
   assert.equal(vertikale[0].properties.boards[0].walls[0].angle, null);
+
+  const bigwallDinamo = at(features, 55.791307, 37.5598289);
+  assert.equal(bigwallDinamo.length, 1);
+  assert.equal(bigwallDinamo[0].properties.name, 'Bigwall Sport Динамо');
+  assert.equal(bigwallDinamo[0].properties.city, 'Moscow');
+  assert.deepEqual(boardIds(bigwallDinamo[0]), ['kilter']);
+  assert.equal(bigwallDinamo[0].properties.website, 'https://bigwallsport.ru/');
+  assert.deepEqual(bigwallDinamo[0].properties.hours, [
+    '07:00-23:30',
+    '07:00-23:30',
+    '07:00-23:30',
+    '07:00-23:30',
+    '07:00-23:30',
+    '08:00-23:00',
+    '08:00-23:00',
+  ]);
+  assert.deepEqual(bigwallDinamo[0].properties.boards[0].walls[0], {
+    wall_name: 'Kilter Board',
+    layout: 'Original',
+    size_id: null,
+    size_label: '16x12',
+    adjustable: true,
+    angle: null,
+    min_angle: 0,
+    max_angle: 70,
+    angle_increments: null,
+    hold_set: null,
+  });
 
   const climbUsMisa = at(features, 37.5627864, 127.1933404);
   assert.equal(climbUsMisa.length, 1);

@@ -914,6 +914,71 @@
       "results_reviewed": 376,
       "candidates_found": 3,
       "note": "Independent multilingual country, city, ccTLD, FAQ, event-facility and operator-domain searches were run before comparison with production. Current official venue hits in Poland, Czechia, Slovakia, Hungary, Romania, Bulgaria, Slovenia and Croatia reconciled to existing records; dedicated English and local-language searches found no current public Kilter venue in Serbia, Bosnia and Herzegovina, Montenegro, North Macedonia, Albania or Moldova. The only new identities were a restricted athlete warm-up installation in Prague, an unbuilt Ljubljana design option rather than committed equipment, and an unidentified event-guide result whose primary document returns HTTP 403. None meets production policy, so this cell has zero production additions."
+    },
+    {
+      "pass": "A",
+      "board": "kilter",
+      "region": "eastern-europe-central-asia",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["ru", "uk", "ka", "hy", "az", "kk", "en"],
+      "queries": [
+        "(\"Kilter Board\" OR Kilterboard) (скалодром OR боулдеринг зал OR тренировочная зона OR оснащение) (Россия OR Украина OR Беларусь)",
+        "(\"Kilter Board\" OR Kilterboard) (Москва OR Санкт-Петербург OR Киев OR Львов OR Минск) скалодром",
+        "site:.ru (\"Kilter Board\" OR Kilterboard) (скалодром OR боулдеринг OR тренировка OR зал)",
+        "site:.ua OR site:.by (\"Kilter Board\" OR Kilterboard) (скалодром OR боулдеринг OR climbing)",
+        "(\"Kilter Board\" OR Kilterboard) (climbing gym OR bouldering gym OR training area OR facilities) (Georgia OR Armenia OR Azerbaijan)",
+        "(\"Kilter Board\" OR Kilterboard) (Tbilisi OR Batumi OR Yerevan OR Gyumri OR Baku) climbing",
+        "site:.ge OR site:.am OR site:.az (\"Kilter Board\" OR Kilterboard) climbing",
+        "(\"Kilter Board\" OR Kilterboard) (скалодром OR боулдеринг OR тренировочная зона) (Грузия OR Армения OR Азербайджан OR Тбилиси OR Ереван OR Баку)",
+        "(\"Kilter Board\" OR Kilterboard) (climbing gym OR bouldering gym OR training area OR facilities) (Kazakhstan OR Kyrgyzstan OR Uzbekistan)",
+        "(\"Kilter Board\" OR Kilterboard) (Almaty OR Astana OR Bishkek OR Tashkent OR Samarkand) climbing",
+        "site:.kz OR site:.kg OR site:.uz (\"Kilter Board\" OR Kilterboard) climbing",
+        "(\"Kilter Board\" OR Kilterboard) (скалодром OR боулдеринг зал OR тренировочная зона) (Казахстан OR Кыргызстан OR Узбекистан OR Алматы OR Астана OR Бишкек OR Ташкент)",
+        "\"Kilter Board\" \"АВТОТОР-АРЕНА\"",
+        "site:avtotor-arena.ru (Kilter OR килтер OR скалодром)",
+        "\"Kilter Board\" \"Сосновый Бор\" спортивная школа",
+        "site:sport-bor.ru OR site:sbor.ru \"Kilter Board\" скалолазание",
+        "site:bigwallsport.ru \"Kilter Board\" \"Динамо\"",
+        "site:bigwallsport.ru \"Боулдер-зал м. Динамо\" часы работы цены",
+        "site:bigwallsport.ru \"Ленинградский пр-т, д. 36\" Kilter",
+        "\"Бигвол Динамо\" Kilter Board официальный",
+        "\"килтер борд\" (скалодром OR боулдеринг OR зал OR тренажер) Россия",
+        "\"килтерборд\" (скалодром OR боулдеринг OR зал) Россия",
+        "\"Kilter Board\" (Калининград OR Екатеринбург OR Новосибирск OR Казань OR Нижний Новгород OR Сочи)",
+        "\"Kilter Board\" (Ростов OR Краснодар OR Самара OR Уфа OR Пермь OR Красноярск OR Владивосток) скалодром",
+        "\"Kilter Board\" (скеледром OR боулдерінг OR тренувальна зона OR обладнання) Україна",
+        "\"Kilterboard\" (Київ OR Львів OR Харків OR Одеса OR Дніпро) скелелазіння",
+        "\"Кілтер борд\" (скеледром OR боулдерінг OR Київ OR Львів)",
+        "site:.ua (Kilterboard OR \"Kilter Board\" OR \"Кілтер\")",
+        "(\"Kilter Board\" OR Kilterboard OR килтерборд) (Минск OR Гомель OR Брест OR Гродно OR Могилёв) скалодром",
+        "site:.by (\"Kilter Board\" OR Kilterboard OR килтер) скалолазание",
+        "(\"Kilter Board\" OR Kilterboard) Беларусь climbing gym facilities",
+        "\"Килтер борд\" Беларусь скалодром",
+        "\"Kilter Board\" (თბილისი OR ბათუმი OR საქართველო)",
+        "\"Kilter Board\" (Երևան OR Հայաստան OR Yerevan) climbing gym",
+        "\"Kilter Board\" (Bakı OR Azərbaycan OR Baku) climbing gym",
+        "Kilterboard (Tbilisi OR Yerevan OR Baku) (facilities OR training OR bouldering)",
+        "\"килтер борд\" (Алматы OR Астана OR Бишкек OR Ташкент)",
+        "\"Kilterboard\" (Алматы OR Астана OR Бишкек OR Ташкент)",
+        "\"Kilter Board\" (Қ Алматы OR Қазақстан OR Қырғызстан OR Өзбекстан)",
+        "site:.kz OR site:.kg OR site:.uz (килтер OR Kilter) (скалодром OR climbing OR bouldering)",
+        "\"Kilter Board\" FAQ climbing gym (Russia OR Ukraine OR Belarus OR Georgia OR Armenia)",
+        "\"Kilter Board\" (вопросы OR FAQ OR инфраструктура OR оснащение) скалодром",
+        "site:bigwallsport.ru OR site:gym-skalodrom.ru OR site:severnayastena.ru (Kilter OR килтер)",
+        "site:cozyrock.kz OR site:caveboulder.kz OR site:vervar.am (Kilter OR килтер OR board)",
+        "site:skalodrom.ru/ready-objects/ \"Kilter Board\"",
+        "site:avtotor-arena.ru (Kilter OR килтер) скалодром",
+        "site:rusclimbing.ru (\"Kilter Board\" OR килтерборд) (Москва OR Калининград OR Бахчисарай OR Сосновый Бор)",
+        "(\"Original Kilter Board\" OR \"Kilter Homewall\") (Russia OR Ukraine OR Georgia OR Kazakhstan OR Armenia OR Azerbaijan OR Kyrgyzstan OR Uzbekistan)",
+        "\"Бахчисарай\" \"Kilter Board\" скалодром",
+        "\"Бахчисарай\" килтерборд скалолазание спортивная школа",
+        "\"Сосновый Бор\" \"Kilter Board\" скалодром спортивная школа",
+        "\"АВТОТОР-АРЕНА\" (Kilter OR килтерборд) 2026"
+      ],
+      "results_reviewed": 344,
+      "candidates_found": 4,
+      "note": "Independent Russian, Ukrainian, Georgian, Armenian, Azerbaijani, Kazakh and English country, city, ccTLD, FAQ, facility and operator-domain searches found Bigwall Sport Динамо outside every known structured board source. Current operator pages prove public access, a 16x12 Original adjustable 0-70 degree Kilter Board, exact address and complete week; an independently maintained OSM building part supplies the point, so the venue and details were integrated. Existing results in Russia, Georgia and Kazakhstan were reconciled only after discovery. Dedicated searches found no current public Kilter venue in Ukraine, Belarus, Armenia, Azerbaijan, Kyrgyzstan or Uzbekistan. Avtotor Arena lacks a current venue-owned board statement, while the Sosnovy Bor and Bakhchisarai sports-school installations lack ordinary public-access evidence; all remain withheld. Because this cell yielded production data, Kilter Pass A must be repeated after its first complete pass."
     }
   ],
   "candidates": [
@@ -1455,6 +1520,49 @@
       "status": "pending-primary-evidence",
       "official_sources": ["https://d1n1qj9geboqnb.cloudfront.net/ifsc/public/dcztfd1mtalo2y6g29cr5cb864yo"],
       "note": "Search-indexed text from an official IFSC Europe event guide states that a training area had 200 bouldering problems and a Kilter Board, but the exact venue identity could not be established. Direct retrieval of the source returns HTTP 403 from this environment; no access control was bypassed. The likely athlete/event-only context and unresolved identity make this a retryable research item, not production evidence."
+    },
+    {
+      "board": "kilter",
+      "name": "Bigwall Sport Динамо",
+      "region": "eastern-europe-central-asia",
+      "discovered_by": "Pass A Russian venue, FAQ and operator-domain searches",
+      "status": "published",
+      "official_sources": [
+        "https://bigwallsport.ru/",
+        "https://bigwallsport.ru/blog/chto-takoe-kilter-board",
+        "https://bigwallsport.ru/usloviya-okazaniya-uslug"
+      ],
+      "note": "Current operator pages establish public independent access, the exact Динамо branch address, a 16x12 Original Kilter Board adjustable from 0 to 70 degrees and the complete regular week. OSM's independently maintained Arena Plaza building-part centroid matches the address. The venue, official link and hours were added to production."
+    },
+    {
+      "board": "kilter",
+      "name": "Дворец спорта АВТОТОР-АРЕНА",
+      "region": "eastern-europe-central-asia",
+      "discovered_by": "Pass A Russian facility and exact-project searches",
+      "status": "pending-current-board-evidence",
+      "official_sources": [
+        "https://skalodrom.ru/ready-objects/",
+        "https://avtotor-arena.ru/services/obekty-avtotor-areny/futbolnyy-kompleks-i-skalodrom/"
+      ],
+      "note": "The wall builder records a March 2026 Kilter Board installation at the Kaliningrad sports palace, and the current operator page establishes a public climbing wall, address and schedule. The current venue-controlled page does not identify the Kilter Board itself, so the repository's venue-primary board rule is not met and no marker is published."
+    },
+    {
+      "board": "kilter",
+      "name": "Unidentified Sosnovy Bor sports school",
+      "region": "eastern-europe-central-asia",
+      "discovered_by": "Pass A Russian facility, city and exact-project searches",
+      "status": "pending-public-access",
+      "official_sources": ["https://skalodrom.ru/ready-objects/"],
+      "note": "The wall builder records a March 2026 Kilter Board for an unnamed sports school in Sosnovy Bor. No unambiguous operator identity or ordinary public access was found. No school context, coordinate or public venue access is guessed, so the installation remains research only."
+    },
+    {
+      "board": "kilter",
+      "name": "Bakhchisarai sports-school training facility",
+      "region": "eastern-europe-central-asia",
+      "discovered_by": "Pass A federation-facility and exact-city searches",
+      "status": "restricted-access",
+      "official_sources": ["https://rusclimbing.ru/conf25/2025-02-08%20-%20%D0%9F%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%20%D0%BE%D1%82%D1%87-%D0%B2%D1%8B%D0%B1%20%D0%9A%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D0%B8%20%D0%A4%D0%A1%D0%A0%20-%20%D0%9F%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%201.pdf"],
+      "note": "The Russian climbing federation reports Kilter and MoonBoards installed in 2024 in a Bakhchisarai sports school's special physical-training hall. Available current material describes youth-section and athlete training, not ordinary independent public access. The school facility is therefore withheld without an inferred public venue identity or coordinate."
     }
   ]
 }
