@@ -4396,9 +4396,10 @@
   "lon": 139.4077784,
   "name": "HUT WALL",
   "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "status": "no-hours-on-official-site",
+  "source": "https://hutwall.shopinfo.jp/",
+  "reason": "The current operator site identifies the venue and carries dated monthly schedule posts through August 2026, but does not state a complete regular week in text. Its older notice says future schedule announcements move to Instagram, so image/social calendars are not converted into recurring public hours.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 33.3192865,

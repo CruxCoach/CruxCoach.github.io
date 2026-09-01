@@ -222,6 +222,19 @@ rows lose inherited LED/generation/angle claims that their branch-primary
 sources do not support; CUORE's explicit 2019 generation is retained. The
 Japanese balance is 20 current, two unverified and 23 pending.
 
+Four further legacy rows were then checked against current operator surfaces.
+BoulderGarden SaBo and HUT WALL are demonstrably active public gyms, but their
+current sites do not name the frozen MoonBoard rows; only secondary sources do.
+CAIRN's venue identity remains visible in a 2025 manufacturer retailer list,
+while its HTTP-only operator site is inaccessible and the available MoonBoard
+claim is a decade old. Activ-A has no accessible current operator page, a 2021
+post-relocation visitor report is its latest board signal, and the production
+point appears to be its pre-relocation site. All four therefore remain
+`unverified`, and inherited LED/generation claims are cleared. HUT WALL's
+current operator page does independently repair its previously unresolved
+official website. The ledger now stands at 20 current, six unverified and 19
+pending.
+
 CAL-COLO's current operator page explicitly identifies both its Kilter Board
 and an LED-guided MoonBoard at the same Kizugawa address. Because the Kilter
 venue already carries a precise independently corroborated point, the missing

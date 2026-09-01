@@ -1098,5 +1098,37 @@
     "name": "Dbouldering+yachiyo",
     "note": "The active branch page does not identify a MoonBoard and the current board signal is secondary; clear the inherited LED claim pending operator evidence.",
     "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.6933453,
+    "lon": 138.6873168,
+    "name": "Activ-A",
+    "note": "No current operator evidence establishes board service or LEDs, and the legacy point appears to predate the venue's relocation. Clear the unsupported inherited LED claim pending exact current-primary reconciliation.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 34.6551456,
+    "lon": 133.9195019,
+    "name": "BoulderGarden SaBo",
+    "note": "The active operator site does not identify a MoonBoard; clear the frozen registry's unsupported LED claim.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.00033250000001,
+    "lon": 135.7516105,
+    "name": "cairn climbing gym",
+    "note": "No current primary source establishes the board or its inherited non-LED detail.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 38.04837089999999,
+    "lon": 139.4077784,
+    "name": "HUT WALL",
+    "note": "The current operator page does not state a MoonBoard generation or LED equipment; clear both frozen claims pending branch-primary evidence.",
+    "set": { "variant": null, "led": null }
   }
 ]
