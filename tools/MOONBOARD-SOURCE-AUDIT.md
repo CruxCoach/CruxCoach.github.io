@@ -4,7 +4,7 @@ MoonBoard is the one large registry in the map whose upstream location feed is
 no longer live. This note records the replacement-source search so a future
 refresh can distinguish a genuinely new public channel from repeated work.
 
-## Current state — 2026-08-31
+## Current state — 2026-09-01
 
 - `@hangtime/climbing-boards` 1.0.92 is still the latest package and documents
   that MoonBoard removed `https://moonboard.com/MoonBoard/GetMapMarkers` in May
@@ -71,3 +71,22 @@ Exact searches for the 2025 Mini set produced manufacturer/product pages and
 private/home installations but no branch-primary public venue. Nothing was
 added from those results. Regional and multilingual searches for all six
 generations remain in progress; this first batch is not an exhaustion claim.
+
+The second regional pass recovered five further current public 2024
+installations from operator-owned pages: Beyond Bouldering Thebarton and
+Hangdog Wollongong in Australia, Boulder Co Christchurch in New Zealand, and
+Gallery Bouldering Oxford and Social Climbing Coventry in the United Kingdom.
+Gallery's hydraulic wall is verified at 25–40°, while Beyond's board is fixed
+at 40°; the other three operators do not publish a safely normalizable angle.
+Hangdog states that it has both a Classic and a 2024 MoonBoard, but the public
+schema intentionally publishes one `moonboard` entry for that physical venue
+rather than inventing a second variant from an underspecified “Classic” label.
+
+The same pass consolidated Boulder Heads' MoonBoard and Tension Board at the
+operator's one Baringa address and classified its MoonBoard as 2024/fixed 40°.
+Grand Wall Bouldering Co-op's current page establishes a 2024 LED board, while
+its 24/7 access is member-only after onboarding and issuance of a personal
+code; that access rule remains an `appointment-only` research outcome rather
+than a public regular week. These changes raise the map to 1,508 MoonBoard rows
+at 1,383 physical venues. Regional and multilingual recovery remains in
+progress; this second batch is not an exhaustion claim either.

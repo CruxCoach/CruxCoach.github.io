@@ -25,6 +25,11 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Boardworks Climbing', 'moonboard'],
     ['Rock Haven Climbing Gym', 'moonboard'],
     ['The Front Climbing Club Ogden', 'moonboard'],
+    ['Beyond Bouldering Thebarton', 'moonboard'],
+    ['Boulder Co Christchurch', 'moonboard'],
+    ['Gallery Bouldering', 'moonboard'],
+    ['Hangdog Climbing Gym Wollongong', 'moonboard'],
+    ['Social Climbing Coventry', 'moonboard'],
     ['ICP Boulder Hall & Showroom', 'kilter'],
     ['ICP Boulder Hall & Showroom', 'tension'],
     ['BLOCK DOCK Petržalka', 'kilter'],
@@ -114,6 +119,48 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(calgaryOutdoor[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2024');
   assert.equal(calgaryOutdoor[0].properties.boards.find(board => board.board === 'moonboard').angle, 40);
   assert.equal(at(features, 51.0779562, -114.1337454).length, 0);
+
+  for (const [name, lat, lon, boards] of [
+    ['Beyond Bouldering Thebarton', -34.91386, 138.57631, ['kilter', 'tension', 'moonboard']],
+    ['Boulder Co Christchurch', -43.53832, 172.59476, ['kilter', 'moonboard']],
+    ['Social Climbing Coventry', 52.40906, -1.51112, ['tension', 'moonboard']],
+  ]) {
+    const venue = at(features, lat, lon);
+    assert.equal(venue.length, 1, name);
+    assert.equal(venue[0].properties.name, name);
+    assert.deepEqual(new Set(boardIds(venue[0])), new Set(boards));
+    assert.equal(venue[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2024');
+    assert.equal(venue[0].properties.hours.length, 7);
+  }
+
+  const gallery = at(features, 51.7474718, -1.2401007);
+  assert.equal(gallery.length, 1);
+  assert.equal(gallery[0].properties.name, 'Gallery Bouldering');
+  assert.equal(gallery[0].properties.website, 'https://gallerybouldering.co.uk/');
+  assert.deepEqual(gallery[0].properties.hours, [
+    '07:00-22:00', '08:00-22:00', '07:00-22:00', '08:00-22:00',
+    '08:00-22:00', '08:00-22:00', '08:00-22:00',
+  ]);
+
+  const hangdogWollongong = at(features, -34.436991, 150.886987);
+  assert.equal(hangdogWollongong.length, 1);
+  assert.equal(hangdogWollongong[0].properties.name, 'Hangdog Climbing Gym Wollongong');
+  assert.equal(hangdogWollongong[0].properties.website, 'https://hangdog.com.au/');
+  assert.equal(hangdogWollongong[0].properties.hours.length, 7);
+  assert.equal(hangdogWollongong[0].properties.boards[0].variant, 'mb2024');
+
+  const boulderHeads = at(features, -26.807137, 153.070112);
+  assert.equal(boulderHeads.length, 1);
+  assert.equal(boulderHeads[0].properties.city, 'Baringa');
+  assert.deepEqual(new Set(boardIds(boulderHeads[0])), new Set(['tension', 'moonboard']));
+  assert.equal(boulderHeads[0].properties.boards.find(board => board.board === 'moonboard').angle, 40);
+  assert.equal(at(features, -26.80713, 153.07039).length, 0);
+
+  const grandWall = at(features, 49.7016339, -123.1558121);
+  assert.equal(grandWall.length, 1);
+  assert.equal(grandWall[0].properties.boards[0].variant, 'mb2024');
+  assert.equal(grandWall[0].properties.boards[0].led, true);
+  assert.equal(grandWall[0].properties.hours, undefined);
 
   const thalkirchen = at(features, 48.107, 11.54568);
   assert.equal(thalkirchen.length, 1);

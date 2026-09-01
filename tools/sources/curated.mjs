@@ -84,6 +84,88 @@ const ENTRIES = [
     angle: 40,
   },
   {
+    // Current branch, public access, exact branch address, fixed angle, and
+    // board generation: https://beyondbouldering.com.au/thebarton/
+    // The coordinate is its existing address-bearing Kilter/Tension venue.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Beyond Bouldering Thebarton',
+    lat: -34.91386,
+    lon: 138.57631,
+    city: 'Thebarton',
+    country: 'AU',
+    commercial: true,
+    led: true,
+    variant: 'mb2024',
+    angle: 40,
+  },
+  {
+    // Current branch, public access, address, and board generation:
+    // https://www.boulderco.co.nz/locations/christchurch/facility-chch/
+    // The coordinate is its existing Kilter venue and sits four metres from
+    // the operator's current structured location point.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Boulder Co Christchurch',
+    lat: -43.53832,
+    lon: 172.59476,
+    city: 'Riccarton',
+    country: 'NZ',
+    commercial: true,
+    led: true,
+    variant: 'mb2024',
+    angle: null,
+  },
+  {
+    // Current public venue and adjustable 25°-40° 2024 MoonBoard:
+    // https://gallerybouldering.co.uk/facilities/
+    // Address: https://gallerybouldering.co.uk/ ; coordinate independently
+    // matched to that exact address through OpenStreetMap/Nominatim.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Gallery Bouldering',
+    lat: 51.7474718,
+    lon: -1.2401007,
+    city: 'Oxford',
+    country: 'GB',
+    commercial: true,
+    led: true,
+    variant: 'mb2024',
+    angle: null,
+  },
+  {
+    // Current public access, both MoonBoards, address, exact coordinate, and
+    // hours: https://hangdog.com.au/bouldering and https://hangdog.com.au/
+    // The venue also has a second Classic board; the public map schema stores
+    // one row per system/venue, so the current 2024 generation is represented.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Hangdog Climbing Gym Wollongong',
+    lat: -34.436991,
+    lon: 150.886987,
+    city: 'Wollongong',
+    country: 'AU',
+    commercial: true,
+    led: true,
+    variant: 'mb2024',
+    angle: null,
+  },
+  {
+    // Current branch, public access, address, and board generation:
+    // https://social-climbing.com/centres/coventry
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Social Climbing Coventry',
+    lat: 52.40906,
+    lon: -1.51112,
+    city: 'Coventry',
+    country: 'GB',
+    commercial: true,
+    led: true,
+    variant: 'mb2024',
+    angle: null,
+  },
+  {
     // Public venue, address, and both boards:
     // https://climbicp.com/au/first-visit/
     // Kilter access/layout/size/frame/angle and coordinates:

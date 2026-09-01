@@ -1025,7 +1025,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -1036,36 +1036,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": -26.80713,
-   "lon": 153.07039,
-   "name": "Boulder Heads",
-   "country": "AU",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-24",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "venue-link",
@@ -4639,8 +4610,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-31",
+    "result": "appointment-only",
     "channels": [
      "venue-link",
      "path-probe"

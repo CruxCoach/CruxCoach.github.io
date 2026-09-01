@@ -79,6 +79,41 @@
     }
   },
   {
+    "board": "tension",
+    "lat": -26.80713,
+    "lon": 153.07039,
+    "name": "Boulder Heads",
+    "note": "The current official training-board page places its MoonBoard 2024 and Tension Board 2 together at one 19 Edison Crescent venue; consolidate the two manufacturer pins and add the official locality.",
+    "set": {
+      "lat": -26.807137,
+      "lon": 153.070112,
+      "city": "Baringa"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": -26.807137,
+    "lon": 153.070112,
+    "name": "Boulder Heads",
+    "note": "The official training-board page confirms this is the Baringa branch and its 2024 MoonBoard remains fixed at 40°.",
+    "set": {
+      "city": "Baringa",
+      "variant": "mb2024",
+      "angle": 40
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 49.7016339,
+    "lon": -123.1558121,
+    "name": "Grand Wall Bouldering Co-operative",
+    "note": "The co-operative's current facilities page explicitly identifies its LED MoonBoard as the 2024 hold set.",
+    "set": {
+      "variant": "mb2024",
+      "led": true
+    }
+  },
+  {
     "board": "moonboard",
     "lat": 49.443067,
     "lon": 10.9598136,

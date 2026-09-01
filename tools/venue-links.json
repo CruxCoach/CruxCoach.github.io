@@ -1156,22 +1156,7 @@
       "street-address",
       "coordinates"
     ],
-    "note": "The site is Boulder Heads Indoor Rock Climbing and prints 19 Edison Cres, Baringa QLD 4551; geocoding that address lands 193 m from this venue. boulderheads.com does not resolve."
-  },
-  {
-    "lat": -26.80713,
-    "lon": 153.07039,
-    "name": "Boulder Heads",
-    "country": "AU",
-    "website": "https://boulder-heads.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "coordinates"
-    ],
-    "note": "Same hall as the venue a few metres away — the Tension entry beside the MoonBoard one — and the same site."
+    "note": "The current training-board page places the MoonBoard 2024 and Tension Board 2 together at the one 19 Edison Crescent, Baringa venue; their manufacturer pins are consolidated here."
   },
   {
     "lat": -37.77623,
@@ -27240,5 +27225,39 @@
       "board-mention"
     ],
     "note": "The official facility page identifies the public Gresham gym and its MoonBoard 2024; the site's own current JSON-LD publishes 355 NE 223rd Avenue, Gresham OR 97030 and this exact point."
+  },
+  {
+    "lat": 51.7474718,
+    "lon": -1.2401007,
+    "name": "Gallery Bouldering",
+    "country": "GB",
+    "website": "https://gallerybouldering.co.uk/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The venue's current facilities page identifies its public Oxford gym and adjustable 2024 MoonBoard; its homepage prints The Gallery, 54 Marston Street, and the point independently matches that exact address in OpenStreetMap."
+  },
+  {
+    "lat": -34.436991,
+    "lon": 150.886987,
+    "name": "Hangdog Climbing Gym Wollongong",
+    "country": "AU",
+    "website": "https://hangdog.com.au/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "Hangdog's current bouldering page establishes public casual access and both its Classic and 2024 MoonBoards. The operator's homepage JSON-LD publishes 130 Auburn Street, Wollongong and this exact coordinate."
   }
 ]
