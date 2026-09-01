@@ -1,0 +1,56 @@
+{
+  "schema": "cruxcoach-web-only-discovery-matrix-v1",
+  "minimum_completed_passes": 2,
+  "boards": [
+    { "id": "kilter", "spellings": ["Kilter Board", "KilterBoard", "Original Kilter Board", "Kilter Homewall"] },
+    { "id": "tension", "spellings": ["Tension Board", "TensionBoard", "Tension Board 2", "TB2"] },
+    { "id": "grasshopper", "spellings": ["Grasshopper Board", "GrasshopperBoard", "Grasshopper climbing board"] },
+    { "id": "decoy", "spellings": ["Decoy Board", "DecoyBoard", "Decoy climbing board"] },
+    { "id": "soill", "spellings": ["So iLL Board", "Soill Board", "So iLL training board"] },
+    { "id": "touchstone", "spellings": ["Touchstone Board", "Touchstone training board", "Touchstone LED board"] },
+    { "id": "aurora", "spellings": ["Aurora Board", "AuroraBoard", "Aurora climbing board"] },
+    { "id": "moonboard", "spellings": ["MoonBoard", "Moon Board", "Mini MoonBoard", "MoonBoard 2016", "MoonBoard Masters 2017", "MoonBoard 2019", "MoonBoard 2024"] },
+    { "id": "12climb", "spellings": ["12Climb", "12 Climb", "12C Board", "12Climb Board"] },
+    { "id": "quantum", "spellings": ["Quantum Board", "QuantumBoard", "Quantum climbing board"] }
+  ],
+  "passes": [
+    {
+      "id": "A",
+      "independent_formulation": "board names plus venue, facility and training-area terminology",
+      "query_families": ["venue", "facility", "training", "faq"]
+    },
+    {
+      "id": "B",
+      "independent_formulation": "board names plus opening, installation, renovation, news, blog and operator-social terminology",
+      "query_families": ["opening", "installation", "renovation", "news", "operator-social"]
+    }
+  ],
+  "lexicons": {
+    "en": { "venue": ["climbing gym", "bouldering gym"], "facility": ["facilities", "walls"], "training": ["training board", "training area"], "faq": ["FAQ"], "opening": ["new gym", "grand opening"], "installation": ["installed", "new board"], "renovation": ["renovation", "expansion"], "news": ["news", "blog"], "operator-social": ["official Instagram", "official Facebook"] },
+    "de": { "venue": ["Kletterhalle", "Boulderhalle"], "facility": ["Ausstattung", "Wände"], "training": ["Trainingsboard", "Trainingsbereich"], "faq": ["häufige Fragen"], "opening": ["Neueröffnung"], "installation": ["installiert", "neues Board"], "renovation": ["Umbau", "Erweiterung"], "news": ["Neuigkeiten", "Blog"], "operator-social": ["offizielles Instagram"] },
+    "fr": { "venue": ["salle d'escalade", "salle de bloc"], "facility": ["équipements", "murs"], "training": ["pan d'entraînement", "espace entraînement"], "faq": ["FAQ"], "opening": ["ouverture"], "installation": ["installé", "nouveau pan"], "renovation": ["rénovation", "agrandissement"], "news": ["actualités", "blog"], "operator-social": ["Instagram officiel"] },
+    "es": { "venue": ["rocódromo", "gimnasio de escalada", "sala de búlder"], "facility": ["instalaciones", "muros"], "training": ["tabla de entrenamiento", "zona de entrenamiento"], "faq": ["preguntas frecuentes"], "opening": ["apertura"], "installation": ["instalado", "nuevo tablero"], "renovation": ["renovación", "ampliación"], "news": ["noticias", "blog"], "operator-social": ["Instagram oficial"] },
+    "pt": { "venue": ["ginásio de escalada", "academia de escalada"], "facility": ["instalações", "paredes"], "training": ["painel de treino", "área de treino"], "faq": ["perguntas frequentes"], "opening": ["inauguração"], "installation": ["instalado", "novo painel"], "renovation": ["renovação", "ampliação"], "news": ["notícias", "blog"], "operator-social": ["Instagram oficial"] },
+    "it": { "venue": ["palestra di arrampicata", "sala boulder"], "facility": ["strutture", "pareti"], "training": ["pannello di allenamento", "area allenamento"], "faq": ["domande frequenti"], "opening": ["apertura"], "installation": ["installato", "nuovo pannello"], "renovation": ["ristrutturazione", "ampliamento"], "news": ["notizie", "blog"], "operator-social": ["Instagram ufficiale"] },
+    "nl": { "venue": ["klimhal", "boulderhal"], "facility": ["faciliteiten", "wanden"], "training": ["trainingsbord", "trainingsruimte"], "faq": ["veelgestelde vragen"], "opening": ["opening"], "installation": ["geïnstalleerd", "nieuw bord"], "renovation": ["verbouwing", "uitbreiding"], "news": ["nieuws", "blog"], "operator-social": ["officiële Instagram"] },
+    "pl": { "venue": ["ścianka wspinaczkowa", "bulderownia"], "facility": ["obiekt", "ściany"], "training": ["panel treningowy", "strefa treningowa"], "faq": ["FAQ"], "opening": ["otwarcie"], "installation": ["zainstalowano", "nowy panel"], "renovation": ["remont", "rozbudowa"], "news": ["aktualności", "blog"], "operator-social": ["oficjalny Instagram"] },
+    "ru": { "venue": ["скалодром", "боулдеринг зал"], "facility": ["оснащение", "стены"], "training": ["тренировочный стенд", "тренировочная зона"], "faq": ["вопросы"], "opening": ["открытие"], "installation": ["установили", "новый стенд"], "renovation": ["реконструкция", "расширение"], "news": ["новости", "блог"], "operator-social": ["официальный Instagram"] },
+    "ja": { "venue": ["クライミングジム", "ボルダリングジム"], "facility": ["施設紹介", "設備"], "training": ["トレーニングボード", "トレーニングエリア"], "faq": ["よくある質問"], "opening": ["新規オープン", "開店"], "installation": ["設置", "導入"], "renovation": ["改装", "増設"], "news": ["お知らせ", "ブログ"], "operator-social": ["公式Instagram"] },
+    "ko": { "venue": ["클라이밍짐", "볼더링짐"], "facility": ["시설", "벽"], "training": ["트레이닝 보드", "훈련 구역"], "faq": ["자주 묻는 질문"], "opening": ["신규 오픈", "개장"], "installation": ["설치", "도입"], "renovation": ["리모델링", "확장"], "news": ["소식", "블로그"], "operator-social": ["공식 인스타그램"] },
+    "zh": { "venue": ["攀岩馆", "抱石馆"], "facility": ["设施", "岩壁"], "training": ["训练板", "训练区"], "faq": ["常见问题"], "opening": ["新开业", "开幕"], "installation": ["安装", "引进"], "renovation": ["改造", "扩建"], "news": ["新闻", "博客"], "operator-social": ["官方Instagram", "官方微博"] }
+  },
+  "regions": [
+    { "id": "north-america", "countries": ["US", "CA", "MX"], "languages": ["en", "fr", "es"] },
+    { "id": "latin-america", "countries": ["AR", "BO", "BR", "CL", "CO", "CR", "EC", "GT", "PE", "UY", "VE"], "languages": ["es", "pt"] },
+    { "id": "western-europe", "countries": ["GB", "IE", "FR", "BE", "NL", "LU"], "languages": ["en", "fr", "nl"] },
+    { "id": "dach", "countries": ["DE", "AT", "CH"], "languages": ["de", "en", "fr", "it"] },
+    { "id": "nordics-baltics", "countries": ["DK", "SE", "NO", "FI", "IS", "EE", "LV", "LT"], "languages": ["en"] },
+    { "id": "southern-europe", "countries": ["ES", "PT", "IT", "GR", "MT", "CY"], "languages": ["es", "pt", "it", "en"] },
+    { "id": "central-eastern-europe", "countries": ["PL", "CZ", "SK", "HU", "RO", "BG", "SI", "HR", "RS", "BA", "ME", "MK", "AL", "MD"], "languages": ["pl", "en"] },
+    { "id": "eastern-europe-central-asia", "countries": ["UA", "RU", "BY", "GE", "AM", "AZ", "KZ", "KG", "UZ"], "languages": ["ru", "en"] },
+    { "id": "east-asia", "countries": ["JP", "KR", "CN", "TW", "HK", "MO"], "languages": ["ja", "ko", "zh", "en"] },
+    { "id": "south-southeast-asia", "countries": ["IN", "NP", "PK", "BD", "LK", "TH", "VN", "MY", "SG", "ID", "PH", "KH"], "languages": ["en"] },
+    { "id": "oceania", "countries": ["AU", "NZ"], "languages": ["en"] },
+    { "id": "middle-east-africa", "countries": ["AE", "BH", "IL", "IR", "JO", "LB", "OM", "QA", "SA", "TR", "EG", "MA", "TN", "ZA", "KE", "MW"], "languages": ["en", "fr"] }
+  ]
+}

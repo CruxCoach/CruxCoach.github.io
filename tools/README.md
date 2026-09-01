@@ -583,6 +583,20 @@ in `humans.txt`, the privacy pages, and `cities.meta.json`.
 
 ## Data-source guidelines
 
+### Independent web-only discovery audit
+
+Public boards can exist without any app feed, manufacturer locator or registry
+row. The independent multilingual search matrix, exact-query coverage ledger and
+candidate history live in [`WEB-ONLY-DISCOVERY.md`](WEB-ONLY-DISCOVERY.md).
+
+```bash
+node tools/web-only-discovery-audit.mjs
+```
+
+The two required passes use different query formulations across every supported
+board and world region. A snippet or directory is discovery only; normal current
+official-venue evidence and geodata policy still gate every production change.
+
 ### Aurora-family anonymous-pins audit
 
 Tension, Grasshopper, Decoy, So iLL, Touchstone and Aurora expose small
