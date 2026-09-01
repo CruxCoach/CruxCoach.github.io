@@ -9484,18 +9484,15 @@
     ]
   },
   {
-    "lat": 41.5625,
-    "lon": 1.99852,
-    "name": "GeoBoulder",
+    "lat": 41.5623017,
+    "lon": 1.9985057,
+    "name": "Geo Boulder",
     "country": "ES",
-    "website": "https://geoboulder.es/",
-    "verified": "2026-08-22",
+    "website": "https://www.geoboulder.es/",
+    "verified": "2026-09-01",
     "provenance": "official-site",
-    "signals": [
-      "name",
-      "postal-code",
-      "city"
-    ]
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage explicitly identifies Geo Boulder's public Terrassa climbing facility, Kilter Board and Carrer de Murillo 18 address; its current rates page sells unrestricted day access. OSM way 984715106 is the exact independently maintained building at that house number and supplies the centroid."
   },
   {
     "lat": 42.83755,

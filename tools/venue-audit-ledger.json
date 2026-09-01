@@ -11379,16 +11379,16 @@
    }
   },
   {
-   "lat": 41.5625,
-   "lon": 1.99852,
-   "name": "GeoBoulder",
+   "lat": 41.5623017,
+   "lon": 1.9985057,
+   "name": "Geo Boulder",
    "country": "ES",
    "needs": [
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-24",
-    "result": "seasonal",
+    "pass": "2026-09-01",
+    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"

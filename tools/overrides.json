@@ -1326,5 +1326,19 @@
       "lon": 8.50559518406294,
       "city": "Zürich"
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 41.5625,
+    "lon": 1.99852,
+    "name": "GeoBoulder",
+    "note": "The current operator pages identify Geo Boulder at Carrer de Murillo 18 in Terrassa. Normalize the upstream name and approximate point to OSM way 984715106, the exact independently maintained building at that address.",
+    "set": {
+      "lat": 41.5623017,
+      "lon": 1.9985057,
+      "name": "Geo Boulder",
+      "address": "Carrer de Murillo 18, 08224 Terrassa, Spain",
+      "city": "Terrassa"
+    }
   }
 ]

@@ -1674,9 +1674,53 @@
       "candidates_found": 2,
       "production_changes": 4,
       "note": "The second independent Nordic/Baltic Pass A used hall-tour, equipment, training-room, local-language facility, smaller-city, ccTLD, federation, operator-domain and exact-club formulations distinct from the original cell. Varhaughallen was absent from all known structured sources: the current club pages establish paid drop-in climbing open to everyone, the club's completion report documents delivery and active use of the Kilter Board, its official venue page supplies the address, and an independently maintained exact named club-owned OSM sports-centre way supplies matching geodata. The venue and official website are published; its school-calendar-only sessions are retained as a seasonal hours outcome. A fundraising lead for Norsk Tindesenter was followed through to the current operator pages, which independently reconcile its existing structured Kilter row and now expressly tie climbing drop-in access to a complete daily 10:00-21:00 week; those hours resolve the old ambiguity and are published alongside the corrected current venue-specific URL. Beta Göteborg and other announced cases remain unopened or unverified. All other current official hits reconciled to existing production rows. This productive repeat requires another complete Nordic/Baltic Pass A after iteration 2 of all regions."
+    },
+    {
+      "pass": "A",
+      "board": "kilter",
+      "region": "southern-europe",
+      "iteration": 2,
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "es", "pt", "it", "el"],
+      "queries": [
+        "\"Kilter Board\" (\"visita virtual\" OR equipamiento OR servicios OR \"qué encontrarás\") rocódromo España",
+        "\"Kilterboard\" (\"nuestras paredes\" OR \"zona técnica\" OR \"área de fuerza\" OR comodidades) boulder España",
+        "\"Kilter Board\" (\"conhece o espaço\" OR equipamentos OR serviços OR \"o que temos\") escalada Portugal",
+        "\"Kilterboard\" (\"zona técnica\" OR \"espaço de treino\" OR comodidades OR infraestrutura) boulder Portugal",
+        "\"Kilter Board\" (pareti OR attrezzature OR servizi OR \"area training\") palestra arrampicata Italia",
+        "\"Kilterboard\" (la nostra palestra OR strutture OR allenamento OR sala boulder) Italia",
+        "\"Kilter Board\" (εγκαταστάσεις OR προπόνηση OR αίθουσα OR τοίχος) αναρρίχηση Ελλάδα",
+        "\"Kilterboard\" (facilities OR training area OR our gym OR wall) (Malta OR Cyprus)",
+        "\"Kilter Board\" (instalaciones OR equipamiento OR \"zona de entrenamiento\") (Terrassa OR Girona OR Tarragona OR Castellón OR Alicante OR Murcia OR Granada OR Sevilla OR Córdoba OR Bilbao OR Burgos)",
+        "\"Kilterboard\" (rocódromo OR boulder) (Canarias OR Tenerife OR Gran Canaria OR Mallorca OR Menorca OR Ibiza OR Galicia OR Asturias)",
+        "\"Kilter Board\" (palestra OR boulder OR arrampicata) (Sicilia OR Sardegna OR Calabria OR Puglia OR Campania OR Toscana OR Liguria)",
+        "\"Kilterboard\" (palestra OR centro OR sala OR parete) (Bologna OR Firenze OR Roma OR Napoli OR Bari OR Palermo OR Catania OR Venezia OR Verona)",
+        "\"Kilter Board\" (instalações OR equipamento OR \"área de treino\" OR paredes) (Porto OR Braga OR Coimbra OR Faro OR Setúbal OR Aveiro OR Madeira OR Açores)",
+        "\"Kilterboard\" (ginásio OR escalada OR boulder OR treino) (Lisboa OR Porto OR Madeira OR Açores)",
+        "\"Kilter Board\" (εγκαταστάσεις OR εξοπλισμός OR προπονητική OR αναρρίχηση) (Αθήνα OR Θεσσαλονίκη OR Πάτρα OR Κρήτη OR Λάρισα)",
+        "\"Kilterboard\" (climbing OR bouldering OR gym OR training) (Athens OR Thessaloniki OR Crete OR Patras OR Nicosia OR Limassol OR Malta)",
+        "\"Climbing Hub Gorizia\" (aperto OR apertura OR orari OR Kilter OR palestra)",
+        "site:climbinghub.it Gorizia Kilter OR apertura OR orari",
+        "\"Sharma Climbing Zaragoza\" (apertura OR dirección OR Kilter OR instalaciones)",
+        "site:sharmaclimbing.com Zaragoza Kilter OR opening OR apertura"
+      ],
+      "results_reviewed": 135,
+      "candidates_found": 19,
+      "production_changes": 3,
+      "note": "The second independent Southern European Pass A used venue-tour, equipment, amenity, training-space, smaller-city, island, local-language, opening-state and exact-operator formulations distinct from the original cell. Independent discovery found Geo Boulder in Terrassa before inventory reconciliation; comparison then exposed an existing structured row hidden by the upstream 'GeoBoulder' spelling and an approximate point. Current operator pages establish public day access, the Kilter Board and exact Carrer de Murillo 18 address, while OSM's exact address building supplies matching geodata. The existing row is normalized to that identity and point and its official-site evidence is refreshed; an undated temporary closure notice makes its otherwise stated regular week unsafe and is retained as an hours outcome. Official pages for Rocópolis, Crux, SKALA ROCO, Fanàtic, Rock & Wall, Urban Boulder, In Rock, Stone Age, Big Walls, Grip, Orobia, Akira, Level 24, Infinity, Gravita Zero, Rockstar Cyprus, North Wall and others likewise reconciled only afterward to existing production rows. Climbing Hub Gorizia still lacks accessible current operator proof of opening, and Sharma Zaragoza remains a future opening. Greece and Malta again yielded no current public venue. This productive repeat requires another complete Southern European Pass A after iteration 2 of all regions."
     }
   ],
   "candidates": [
+    {
+      "board": "kilter",
+      "name": "Geo Boulder",
+      "region": "southern-europe",
+      "discovered_by": "Pass A iteration 2 Spanish facility, smaller-city and exact-operator searches",
+      "status": "corrected-existing-structured-source",
+      "official_sources": ["https://www.geoboulder.es/", "https://www.geoboulder.es/catalogo", "https://www.geoboulder.es/contacto"],
+      "note": "The current operator homepage identifies the Kilter Board and exact Terrassa address, and its rates page sells public day access. OSM way 984715106 is the exact building at Carrer de Murillo 18 and supplies the centroid. Inventory reconciliation only after discovery found an existing structured row under the compressed name 'GeoBoulder' and an approximate point; that row is normalized instead of creating a duplicate. The regular week is withheld because the current contact page also carries an undated temporary closure notice."
+    },
     {
       "board": "kilter",
       "name": "The Newsroom - The Climbing Academy",
