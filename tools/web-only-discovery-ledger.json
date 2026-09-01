@@ -1782,6 +1782,61 @@
       "candidates_found": 17,
       "production_changes": 6,
       "note": "The second independent Central/Eastern European Pass A used facility-description, equipment, training-area, smaller-city, opening, renovation, federation, regional-directory, operator-domain and exact-club formulations distinct from the original cell. Inventory reconciliation happened only after discovery. Current official pages then sharpened three existing rows: Climb Again Iași now has its branch-specific website and verified 15-60 degree range; Plezalni Center Ljubljana has a verified 22.5-70 degree range; and Vertical Spirit's location-specific contact page now states a complete regular public week, replacing the obsolete hours outcome. Balkan Climbing, Bolder Scena Kranj, Boulder Zona, Jungle Letňany and the other current official hits reconcile to existing structured rows. AK Črna remains withheld: a government decision identifies the exact Kilterboard Homewall proposal among rejected 2025 funding applications, while the municipality's 2026 draft budget describes the climbing-wall project only as applied for; the operator's current wall page never identifies the board and still labels its occupancy schedule 2024/25. Searches found no current public Kilter venue in Serbia, Bosnia and Herzegovina, Montenegro, North Macedonia, Albania, Kosovo or Moldova. Because verified details changed, this region requires another complete Pass A after iteration 2 of all regions."
+    },
+    {
+      "pass": "A",
+      "board": "kilter",
+      "region": "eastern-europe-central-asia",
+      "iteration": 2,
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["ru", "uk", "be", "ka", "hy", "az", "kk", "ky", "uz", "mn", "en"],
+      "queries": [
+        "\"Kilter Board\" (наш зал OR оборудование OR тренажёры OR \"зона подготовки\") (Тула OR Воронеж OR Саратов OR Волгоград OR Ижевск OR Тюмень OR Омск)",
+        "\"килтерборд\" (открытие OR новинка OR реконструкция OR установили) скалодром Россия",
+        "\"Kilterboard\" (оснащение OR инфраструктура OR \"что есть\" OR \"тренировочная стена\") боулдеринг Россия",
+        "\"Kilter Board\" (Архангельск OR Мурманск OR Петрозаводск OR Ярославль OR Рязань OR Челябинск OR Хабаровск) скалолазание",
+        "\"Kilter Board\" (наша зала OR обладнання OR послуги OR тренувальна стіна) (Вінниця OR Запоріжжя OR Чернівці OR Івано-Франківськ OR Ужгород)",
+        "\"Кілтерборд\" (відкриття OR новинка OR ремонт OR встановили) скеледром Україна",
+        "\"Kilterboard\" (наш зал OR оборудование OR услуги OR тренировочная стена) (Витебск OR Бобруйск OR Барановичи OR Пинск)",
+        "\"килтерборд\" (открытие OR новый OR установили OR тренировка) скалодром Беларусь",
+        "\"Kilter Board\" (ჩვენი დარბაზი OR აღჭურვილობა OR სავარჯიშო კედელი OR გახსნა) (თბილისი OR ბათუმი OR ქუთაისი)",
+        "\"Kilterboard\" (facilities OR equipment OR opening OR renovation) (Tbilisi OR Batumi OR Kutaisi OR Georgia) climbing",
+        "\"Kilter Board\" (մեր սրահը OR սարքավորումներ OR մարզման պատ OR բացում) (Երևան OR Գյումրի)",
+        "\"Kilterboard\" (facilities OR equipment OR opening OR renovation) (Yerevan OR Gyumri OR Armenia) climbing",
+        "\"Kilter Board\" (наш зал OR оборудование OR услуги OR тренировочная стена) (Казань OR Самара OR Уфа OR Пермь OR Екатеринбург OR Новосибирск)",
+        "\"килтерборд\" (открытие OR новинка OR реконструкция OR установили) (Красноярск OR Владивосток OR Хабаровск OR Иркутск OR Томск) скалодром",
+        "site:.ru \"Kilter Board\" (обзор зала OR инфраструктура OR оснащение OR тренировочная зона) скалодром",
+        "site:rusclimbing.ru (Kilterboard OR \"Kilter Board\" OR килтерборд) скалодром",
+        "\"Kilter Board\" (наш зал OR оборудование OR тренировочная стена OR открытие) (Донецк OR Луганск OR Херсон OR Полтава OR Черкассы OR Сумы) скалолазание",
+        "\"Кілтер борд\" (наш зал OR обладнання OR тренувальна стіна OR відкриття) (Київ OR Львів OR Харків OR Одеса OR Дніпро)",
+        "site:.ua (\"Kilter Board\" OR Кілтерборд) (новини OR відкриття OR реконструкція OR скеледром)",
+        "site:climbing.org.ua (\"Kilter Board\" OR Кілтер OR Kilterboard)",
+        "\"Kilter Board\" (наш зал OR оборудование OR услуги OR тренировочная стена) (Гомель OR Гродно OR Могилёв OR Брест OR Витебск)",
+        "site:.by (килтерборд OR \"Kilter Board\") (открытие OR новый OR установили OR скалодром)",
+        "\"Kilterboard\" (наша зала OR абсталяванне OR трэніровачная сцяна OR адкрыццё) Беларусь",
+        "site:climbing.by (Kilter OR килтер OR Kilterboard)",
+        "\"Kilter Board\" (ჩვენი დარბაზი OR აღჭურვილობა OR სავარჯიშო კედელი OR გახსნა OR განახლება) საქართველო",
+        "site:.ge (Kilterboard OR \"Kilter Board\") (კლდეზე ცოცვა OR დარბაზი OR ბოულდერინგი)",
+        "\"Kilter Board\" (մեր սրահը OR սարքավորումներ OR մարզման պատ OR բացում OR վերանորոգում) Հայաստան",
+        "site:.am (Kilterboard OR \"Kilter Board\") (մագլցում OR սրահ OR բոուլդերինգ)",
+        "\"Kilter Board\" (zalımız OR avadanlıq OR məşq divarı OR açılış OR yenilənmə) (Bakı OR Gəncə OR Azərbaycan)",
+        "site:.az (Kilterboard OR \"Kilter Board\") (dırmanma OR zal OR bouldering)",
+        "\"Kilter Board\" (наш зал OR оборудование OR тренировочная стена OR открытие) (Алматы OR Астана OR Шымкент OR Караганда OR Актобе)",
+        "site:.kz (Kilterboard OR \"Kilter Board\" OR килтерборд) (скалодром OR боулдеринг OR зал OR открытие)",
+        "\"Kilter Board\" (наш зал OR оборудование OR тренировочная стена OR открытие) (Бишкек OR Ош OR Кыргызстан)",
+        "site:.kg (Kilterboard OR \"Kilter Board\" OR килтерборд) (скалодром OR боулдеринг OR зал)",
+        "\"Kilter Board\" (zalimiz OR jihozlar OR mashg'ulot devori OR ochilish) (Toshkent OR Samarqand OR O'zbekiston)",
+        "site:.uz (Kilterboard OR \"Kilter Board\" OR килтерборд) (скалодром OR climbing OR bouldering)",
+        "\"Kilter Board\" (Душанбе OR Таджикистан OR Dushanbe OR Tajikistan) (скалодром OR climbing OR bouldering OR зал)",
+        "\"Kilter Board\" (Ашхабад OR Туркменистан OR Ashgabat OR Turkmenistan) (climbing OR bouldering OR скалодром)",
+        "\"Kilter Board\" (Улаанбаатар OR Монгол OR Ulaanbaatar OR Mongolia) (climbing gym OR bouldering OR авиралт)",
+        "site:.mn (Kilterboard OR \"Kilter Board\") (climbing OR bouldering OR авиралт)"
+      ],
+      "results_reviewed": 203,
+      "candidates_found": 3,
+      "production_changes": 3,
+      "note": "The second independent Eastern European/Central Asian Pass A used smaller-city, current facility, equipment, opening, renovation, federation, ccTLD and local-language formulations distinct from the original cell, and expanded the region to Tajikistan, Turkmenistan and Mongolia. GYM Skalodrom.RU was discovered from current operator pages before inventory reconciliation; comparison then found its structured Kilter row but exposed a wrong Moscow locality and missing official details. The operator proves the public Odintsovo venue, exact address, 12x12 adjustable 30-70 degree Kilter Board and daily 10:00-23:00 week, while OSM independently confirms the existing point on the named address parcel; city, address, website and hours are therefore published. Current official hits for CozyRock and the social-only s.k.lucky identity reconciled to existing rows only afterward. The federal Yug Sport report documents athlete-training Kilter and Moon boards in Kislovodsk but not ordinary public access; builder records for Avtotor Arena and Sosnovy Bor still lack venue-primary public-access proof. No additional current public venue was found in Ukraine, Belarus, Armenia, Azerbaijan, Kyrgyzstan, Uzbekistan, Tajikistan, Turkmenistan or Mongolia. Because verified details changed, this region requires another complete Pass A after iteration 2 of all regions."
     }
   ],
   "candidates": [
@@ -2839,6 +2894,33 @@
         "https://www.crna.si/images/2025/GRADIVO_K_TO%C4%8CKI_3_-_Obravnava_in_sprejem_osnutka_Odloka_o_prpra%C4%8Dunu__Ob%C4%8Dine_%C4%8Crna_na_koro%C5%A1kem_za_leto_2026.pdf"
       ],
       "note": "The Slovenian government decision identifies the exact 'Izgradnja in montaža plezalne stene - Kilterboard home wall' proposal under rejected 2025 funding applications. The municipality's 2026 draft budget describes project OB016-25-0016 only as submitted to a sports-foundation call. The current club wall page establishes conditional public access for PZS members and accompanied day guests, but never identifies a Kilter Board and still labels its occupancy schedule 2024/25. A rejected or pending capital proposal is not installation evidence; retry current club facility, budget and news pages without publishing it."
+    },
+    {
+      "board": "kilter",
+      "name": "GYM Skalodrom.RU",
+      "region": "eastern-europe-central-asia",
+      "discovered_by": "Pass A iteration 2 Russian facility, smaller-city and operator-domain searches",
+      "status": "corrected-existing-structured-source",
+      "official_sources": ["https://gym-skalodrom.ru/", "https://gym-skalodrom.ru/contacts"],
+      "note": "Independent discovery found the current operator page before inventory comparison. It proves the public Odintsovo venue, Kilter Board, 12x12 size, adjustable 30-70 degree range, exact address and daily schedule. The existing structured row already had the board configuration and matching point but incorrectly called the city Moscow and lacked official website and hours; those gaps are corrected rather than adding a duplicate."
+    },
+    {
+      "board": "kilter",
+      "name": "Federal training base Yug Sport",
+      "region": "eastern-europe-central-asia",
+      "discovered_by": "Pass A iteration 2 Russian federation and training-facility searches",
+      "status": "rejected-non-public-training-base",
+      "official_sources": ["https://rusclimbing.ru/conf25/2025-02-08%20-%20%D0%9F%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%20%D0%BE%D1%82%D1%87-%D0%B2%D1%8B%D0%B1%20%D0%9A%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D0%B8%20%D0%A4%D0%A1%D0%A0%20-%20%D0%9F%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%201.pdf"],
+      "note": "The Russian federation's current conference report says Kilter Board and MoonBoard were installed in 2024 in the special-physical-training hall at the federal Yug Sport training base in Kislovodsk. The document describes organized national-team camps, not ordinary public venue access, and no current venue-owned public-access page was found; the restricted training installation is not published."
+    },
+    {
+      "board": "kilter",
+      "name": "s.k.lucky",
+      "region": "eastern-europe-central-asia",
+      "discovered_by": "Pass A iteration 2 Georgian local-language facility searches",
+      "status": "reconciled-existing-social-only-source",
+      "official_sources": ["https://www.instagram.com/s.k.lucky/"],
+      "note": "Independent Georgian searches rediscovered the current operator social profile's public Kilter and Arena 2 address statements. Inventory comparison only afterward found the existing structured row and its already documented social-only website outcome. A directory mirror and its copied hours remain discovery hints, not official-site evidence, so no website or hours are published."
     }
   ]
 }

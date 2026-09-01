@@ -32920,5 +32920,21 @@
     },
     "evidence": "PROGRAM — Luni–vineri: 09.00–22.00 — Sâmbăta: 09.00–17.00 — Duminica: ÎNCHIS",
     "note": "The current Romanian contact page identifies the Baicului 80 hall and states one complete regular public-access week. Separately listed appointment-only weekend events are not public access; named Easter, Christmas and New Year closures are ordinary exceptions."
+  },
+  {
+    "lat": 55.67094115452206,
+    "lon": 37.29276147791354,
+    "name": "GYM Skalodrom.RU",
+    "country": "RU",
+    "source": "https://gym-skalodrom.ru/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-23:00", "tue": "10:00-23:00", "wed": "10:00-23:00",
+      "thu": "10:00-23:00", "fri": "10:00-23:00", "sat": "10:00-23:00", "sun": "10:00-23:00"
+    },
+    "evidence": "Адрес: г. Одинцово, ул. Транспортная 2, стр. 19 — Время работы: ежедневно с 10:00 до 23:00",
+    "note": "The current operator homepage states one complete daily schedule in its contact block for the same Odintsovo venue whose facility section identifies the Kilter Board."
   }
 ]

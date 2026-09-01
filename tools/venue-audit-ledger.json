@@ -27091,12 +27091,21 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "operator-index",
+     "osm-website-tag"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
