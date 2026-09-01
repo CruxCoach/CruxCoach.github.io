@@ -2562,6 +2562,45 @@
     {
       "pass": "A",
       "board": "kilter",
+      "region": "middle-east-africa",
+      "iteration": 3,
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "ar", "he", "tr", "fr", "af", "sw"],
+      "queries": [
+        "\"Kilter Board\" (day pass OR walk in OR casual entry OR first visit) (Dubai OR Abu Dhabi OR Riyadh OR Jeddah OR Doha)",
+        "\"Kilter Board\" (facility map OR floor plan OR equipment list OR training zone) (UAE OR Saudi Arabia OR Qatar OR Bahrain OR Oman)",
+        "\"Kilterboard\" (relocated OR moved OR replaced OR removed) climbing (UAE OR Saudi Arabia OR Qatar)",
+        "\"كيلتر بورد\" (تذكرة يومية OR دخول OR زيارة أولى OR مرافق) (دبي OR أبوظبي OR الرياض OR جدة OR الدوحة)",
+        "\"Kilter Board\" (day pass OR walk in OR first visit OR facilities) (Israel OR Tel Aviv OR Jerusalem OR Haifa)",
+        "\"קיר קילטר\" (כניסה חד פעמית OR ביקור ראשון OR מתקנים OR אזור אימון) ישראל",
+        "\"Kilter Board\" (günlük giriş OR ilk ziyaret OR tesisler OR salon planı) Türkiye tırmanış",
+        "\"Kilterboard\" (taşındı OR kaldırıldı OR değiştirildi OR yeni adres) tırmanış Türkiye",
+        "\"Kilter Board\" (day pass OR walk in OR first visit OR facilities) (Jordan OR Lebanon OR Egypt OR Morocco)",
+        "\"كيلتر بورد\" (دخول يومي OR زيارة أولى OR مرافق OR منطقة تدريب) (الأردن OR لبنان OR مصر OR المغرب)",
+        "\"Kilter Board\" (plan de salle OR équipements actuels OR espace entraînement OR entrée journée) (Maroc OR Tunisie OR Algérie)",
+        "\"Kilterboard\" (déménagé OR remplacé OR retiré OR nouvelle adresse) escalade (Maroc OR Tunisie OR Algérie)",
+        "\"Kilter Board\" (day pass OR walk in OR first visit OR facilities) (South Africa OR Namibia OR Botswana)",
+        "\"Kilter Board\" (floor plan OR equipment list OR training zone OR current facilities) (Cape Town OR Johannesburg OR Pretoria OR Durban)",
+        "\"Kilterboard\" (relocated OR moved OR replaced OR removed) climbing South Africa",
+        "\"Kilter Board\" (dagpas OR eerste besoek OR fasiliteite OR oefenarea) Suid-Afrika",
+        "\"Kilter Board\" (day pass OR walk in OR first visit OR facilities) (Kenya OR Tanzania OR Uganda OR Rwanda)",
+        "\"Kilter Board\" (facility map OR equipment list OR training zone) (Nairobi OR Kampala OR Kigali OR Dar es Salaam)",
+        "\"Kilterboard\" (relocated OR moved OR replaced OR removed) climbing (Kenya OR Tanzania OR Uganda)",
+        "\"Kilter Board\" (kiingilio cha siku OR ziara ya kwanza OR vifaa OR eneo la mazoezi) (Kenya OR Tanzania)",
+        "\"Kilter Board\" (day pass OR facilities OR \"training zone\") (Malawi OR Zambia OR Zimbabwe OR Mozambique)",
+        "\"Kilterboard\" (\"first visit\" OR equipment OR moved OR removed) (Lilongwe OR Lusaka OR Harare OR Maputo OR Windhoek)",
+        "site:cityrock.co.za (Kilter OR \"training board\") (Johannesburg OR Pretoria OR \"Cape Town\")",
+        "(site:bloc11.co.za OR site:climbmalawi.com) (Kilter OR facilities OR training OR \"day pass\")"
+      ],
+      "results_reviewed": 183,
+      "candidates_found": 8,
+      "production_changes": 2,
+      "note": "The third independent Middle East/Africa Pass A used current drop-in, first-visit, facility-map, equipment-list, training-zone, relocation, removal, smaller-city, operator-domain and translated formulations distinct from the first two cells. Discovery preceded inventory reconciliation. Campus Karmiel's previously unreachable operator site is now readable and verifies the exact venue identity, address, adjustable Kilter Board, public day admission and complete regular week, so its official link and hours are published. Boulderhane, Climbat Amman, Vertikaz, CityROCK's current branches and the Climb Malawi community-board launch reconciled to existing production only afterward. Search snippets and directories did not replace venue-primary evidence. iClimb Rishon LeZion remains withheld because the designer's Kilter claim still conflicts with the operator's board history; Arena Gym remains branch- and public-access-ambiguous; Climbat Amman has no current readable venue-primary board page; and temporary World Climbing event boards are not public permanent venues. This productive cell requires another complete Kilter Pass A iteration across all regions."
+    },
+    {
+      "pass": "A",
+      "board": "kilter",
       "region": "dach",
       "iteration": 2,
       "status": "complete",
@@ -3115,7 +3154,7 @@
       "name": "UWL REC Climbing Gym",
       "region": "north-america",
       "discovered_by": "Pass A iteration 3 university public-access searches",
-      "status": "reconciled-existing-structured-source",
+      "status": "published-official-link-and-hours",
       "official_sources": [
         "https://www.uwlax.edu/recsports/climbing-gym/"
       ],
@@ -5191,6 +5230,78 @@
       "status": "reconciled-existing-structured-source",
       "official_sources": ["https://www.gravitywell.co.nz/"],
       "note": "The current operator homepage reconfirms the public Nelson venue, complete week and full-size 12x12 Kilter Board adjustable from 5 to 70 degrees. Reconciliation found the venue, site, hours and range already published."
+    },
+    {
+      "board": "kilter",
+      "name": "Boulderhane",
+      "region": "middle-east-africa",
+      "discovered_by": "Pass A iteration 3 Turkish current-access and facility searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://boulderhane.com/"],
+      "note": "The current operator page reconfirms the public Istanbul venue and Kilter training board. The matching venue, official link and regular week were already published."
+    },
+    {
+      "board": "kilter",
+      "name": "Campus Karmiel",
+      "region": "middle-east-africa",
+      "discovered_by": "Pass A iteration 3 Hebrew current-access and facility searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://campuswall.co.il/"],
+      "note": "The previously unreachable operator site now proves the exact Hebrew-named venue at 9 HaHermesh Street, its adjustable Kilter Board, public day admission and a complete regular week. The official link and hours are published on the existing structured row."
+    },
+    {
+      "board": "kilter",
+      "name": "Climbat Amman",
+      "region": "middle-east-africa",
+      "discovered_by": "Pass A iteration 3 Jordan current-access search",
+      "status": "reconciled-existing-secondary-only-board-claim",
+      "official_sources": [],
+      "note": "A directory result repeats a Kilter and day-pass claim, but directories and snippets are discovery-only. The existing structured row is retained; no board detail or venue link is added without a current readable operator-primary page."
+    },
+    {
+      "board": "kilter",
+      "name": "Vertikaz",
+      "region": "middle-east-africa",
+      "discovered_by": "Pass A iteration 3 French North Africa and Indian Ocean search",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://vertikaz.fr/"],
+      "note": "The current Saint-Pierre operator site reconfirms Réunion's public Kilter venue. The venue, official link and regular week were already published."
+    },
+    {
+      "board": "kilter",
+      "name": "CityROCK South Africa branches",
+      "region": "middle-east-africa",
+      "discovered_by": "Pass A iteration 3 South African facility and operator-domain searches",
+      "status": "reconciled-existing-branch-drift-retry",
+      "official_sources": ["https://cityrock.co.za/fitness-gym/", "https://cityrock.co.za/about/"],
+      "note": "Current operator pages reconfirm all three public branches and their addresses and hours, but the equipment page names Kilter only at Johannesburg. Johannesburg and Pretoria have independent current operator support; Cape Town remains an omission-versus-structured-source drift retry rather than being removed without affirmative evidence."
+    },
+    {
+      "board": "kilter",
+      "name": "Climb Malawi / Climb Centre Lilongwe",
+      "region": "middle-east-africa",
+      "discovered_by": "Pass A iteration 3 southern Africa and operator-domain searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://globalclimbing.org/kilter-global-community-boards-malawi", "https://climbmalawi.com/"],
+      "note": "The partner-primary launch page reconfirms the live long-term community Kilter Board at the public Climb Centre in Lilongwe. The structured Kilter row and operator link already represent it; the separately sourced nearby MoonBoard row is not guessed into a coordinate merge."
+    },
+    {
+      "board": "kilter",
+      "name": "iClimb Rishon LeZion",
+      "region": "middle-east-africa",
+      "discovered_by": "Pass A iteration 3 Hebrew current-facility search",
+      "status": "repeat-unverified-conflicting-primary-context",
+      "official_sources": ["https://iclimb.co.il/", "https://west-design.co.il/store/iclimb/", "https://iclimb.co.il/manara/%D7%A8%D7%90%D7%A9%D7%99/"],
+      "note": "The public branch remains current and its facility designer still names an adjustable Kilter, but current operator material does not. The operator's Manara board history conflicts with the designer claim, so the candidate remains withheld pending branch-primary confirmation."
+    },
+    {
+      "board": "kilter",
+      "name": "Arena Gym / Saudi Climbing and Hiking Federation",
+      "region": "middle-east-africa",
+      "discovered_by": "Pass A iteration 3 Gulf current-access and facility searches",
+      "status": "repeat-unverified-branch-and-access",
+      "official_sources": ["https://www.saudiclimbing.com/", "https://thearenasa.com/"],
+      "note": "Federation material still proves an athlete-development Kilter at Arena Gym, while the current operator presence does not assign it to Riyadh or Jeddah or establish ordinary public board access. The branch-ambiguous candidate remains withheld."
     }
   ]
 }

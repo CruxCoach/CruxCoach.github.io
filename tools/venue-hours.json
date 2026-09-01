@@ -15740,6 +15740,32 @@
   "note": "Sunday through Thursday share one window, and Friday and Saturday each get their own — the ordinary shape of an Israeli week, and all seven days are covered by it."
  },
  {
+  "lat": 32.92353,
+  "lon": 35.31213,
+  "name": "קמפוס מועדון טיפוס Campus Karmiel",
+  "country": "IL",
+  "source": "https://www.campuswall.co.il/",
+  "checked": "2026-09-01",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "16:00-22:00",
+   "tue": "16:00-22:00",
+   "wed": "16:00-22:00",
+   "thu": "16:00-23:00",
+   "fri": "10:00-16:00",
+   "sat": "11:00-18:00",
+   "sun": "16:00-23:00"
+  },
+  "evidence": "שעות פעילות: א' 16:00-23:00 | ב'-ד' 16:00-22:00 | ה' 16:00-23:00 | ו' 10:00-16:00 | ש' 11:00-18:00",
+  "note": "The operator prints all seven days twice on its homepage. The Israeli Sunday-first schedule is transposed into this file's Monday-first order."
+ },
+ {
   "lat": 45.673384290029745,
   "lon": 9.231829044179566,
   "name": "AKIRA Climbing",
