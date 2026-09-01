@@ -541,6 +541,67 @@
       "results_reviewed": 248,
       "candidates_found": 4,
       "note": "Independent English, French and Spanish regional, state/province, city, university, chain-domain and facility searches found no missing currently open general-public Kilter venue. One existing Mexican venue gained a newly verified official link, full week and maximum angle; two future installations and one sponsor-gated university facility remain withheld. Existing Canadian, US and Mexican chain and university hits were checked against production rather than assumed absent."
+    },
+    {
+      "pass": "A",
+      "board": "kilter",
+      "region": "latin-america",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["es", "pt", "en"],
+      "queries": [
+        "(\"Kilter Board\" OR KilterBoard) (gimnasio de escalada OR rocódromo OR boulder OR instalaciones OR \"zona de entrenamiento\") (Argentina OR Chile OR Colombia OR Perú OR Ecuador OR Paraguay OR Uruguay OR Bolivia)",
+        "(\"Kilter Board\" OR KilterBoard) (academia de escalada OR muro de escalada OR sala de boulder OR entrenamiento) (Argentina OR Chile OR Colombia OR Perú OR Ecuador)",
+        "(\"Kilter Board\" OR KilterBoard) (ginásio de escalada OR academia de escalada OR boulder OR instalações OR \"área de treinamento\") Brasil",
+        "(\"Kilter Board\" OR KilterBoard) (climbing gym OR bouldering gym OR facilities OR \"training area\") (Brazil OR Argentina OR Chile OR Colombia OR Peru OR Ecuador)",
+        "(\"Kilter Board\" OR KilterBoard) (gimnasio de escalada OR rocódromo OR boulder OR instalaciones) (Costa Rica OR Guatemala OR Panamá OR Honduras OR El Salvador OR Nicaragua)",
+        "(\"Kilter Board\" OR KilterBoard) (climbing gym OR bouldering gym OR training area) (Caribbean OR Puerto Rico OR Dominican Republic OR Jamaica OR Trinidad)",
+        "\"Kilter Board\" (San José OR Guatemala City OR Panamá City OR San Salvador OR Tegucigalpa OR Santo Domingo OR San Juan) climbing",
+        "\"Kilter Board\" (Asunción OR Montevideo OR La Paz OR Santa Cruz OR Caracas OR Georgetown OR Paramaribo) climbing OR escalada",
+        "\"Kilter Board\" (Buenos Aires OR Córdoba OR Mendoza OR Rosario OR Santiago OR Concepción OR Valparaíso) escalada boulder",
+        "\"Kilter Board\" (Bogotá OR Medellín OR Cali OR Barranquilla OR Lima OR Arequipa OR Quito OR Cuenca) escalada boulder",
+        "\"Kilter Board\" (São Paulo OR Rio de Janeiro OR Belo Horizonte OR Curitiba OR Brasília OR Porto Alegre OR Florianópolis) escalada",
+        "\"Kilter Board\" (Recife OR Salvador OR Fortaleza OR Goiânia OR Campinas OR Vitória OR Manaus) escalada",
+        "site:.br (\"Kilter Board\" OR KilterBoard) (escalada OR boulder OR treinamento OR instalações)",
+        "site:.ar (\"Kilter Board\" OR KilterBoard) (escalada OR boulder OR entrenamiento OR instalaciones)",
+        "site:.cl (\"Kilter Board\" OR KilterBoard) (escalada OR boulder OR entrenamiento OR instalaciones)",
+        "site:.co (\"Kilter Board\" OR KilterBoard) (escalada OR boulder OR entrenamiento OR instalaciones)",
+        "site:.pe (\"Kilter Board\" OR KilterBoard) (escalada OR boulder OR entrenamiento OR instalaciones)",
+        "site:.ec (\"Kilter Board\" OR KilterBoard) (escalada OR boulder OR entrenamiento OR instalaciones)",
+        "site:.uy (\"Kilter Board\" OR KilterBoard) (escalada OR boulder OR entrenamiento OR instalaciones)",
+        "site:.py (\"Kilter Board\" OR KilterBoard) (escalada OR boulder OR entrenamiento OR instalaciones)",
+        "site:.bo (\"Kilter Board\" OR KilterBoard) (escalada OR boulder OR entrenamiento OR instalaciones)",
+        "site:.cr (\"Kilter Board\" OR KilterBoard) (escalada OR boulder OR entrenamiento OR instalaciones)",
+        "site:.gt (\"Kilter Board\" OR KilterBoard) (escalada OR boulder OR entrenamiento OR instalaciones)",
+        "site:.pa (\"Kilter Board\" OR KilterBoard) (escalada OR boulder OR entrenamiento OR instalaciones)",
+        "\"Kilter Board\" escalada Brasil academia boulder",
+        "\"KilterBoard\" Brasil ginásio escalada",
+        "\"Kilter Board\" (São Paulo OR Rio de Janeiro OR Curitiba OR Florianópolis OR Belo Horizonte)",
+        "\"Kilter Board\" (Brasília OR Recife OR Salvador OR Fortaleza OR Porto Alegre OR Campinas)",
+        "\"Kilter Board\" (Argentina OR Uruguay OR Paraguay OR Bolivia) gimnasio escalada",
+        "\"Kilter Board\" (Colombia OR Perú OR Ecuador OR Venezuela) gimnasio escalada",
+        "\"Kilter Board\" (Costa Rica OR Guatemala OR Panamá OR Honduras OR El Salvador) gimnasio escalada",
+        "\"Kilter Board\" (Puerto Rico OR República Dominicana OR Jamaica OR Trinidad) climbing gym",
+        "site:epsilonsportzone.com (Kilter OR escalada OR climbing)",
+        "\"Epsilon Sport Zone\" Ecuador dirección escalada",
+        "\"Epsilon\" \"Kilter Board\" Ecuador",
+        "site:epsilon-ee15.integralis360.website/ESCALADA Epsilon",
+        "\"Epsilon Sport Zone\" latitude longitude",
+        "\"Epsilon Sport Zone\" \"De los Ruiseñores\"",
+        "\"Epsilon Sport Zone\" Tumbaco coordenadas",
+        "site:openstreetmap.org \"Epsilon Sport Zone\"",
+        "\"Parque de Escalada Silos\" Kilter Board",
+        "\"Parque de Escalada Silos\" Chile oficial",
+        "site:instagram.com \"Parque de Escalada Silos\" Kilter",
+        "site:ind.cl \"Parque de Escalada Silos\"",
+        "site:deportelibre.cl Kilter",
+        "site:deportelibre.cl \"Kilter Board\"",
+        "\"Los Silos\" \"Kilter Board\" Chile escalada",
+        "\"Parque Los Silos\" Kilterboard"
+      ],
+      "results_reviewed": 226,
+      "candidates_found": 3,
+      "note": "Independent Spanish, Portuguese and English regional, country, capital/city, ccTLD, Caribbean, official-facility and operator-site searches found Epsilon Sport Zone outside every known structured board source. Its current operator pages prove public Kilter and MoonBoard access, regular climbing-area hours and the Tumbaco address; an architect-primary project point independently corroborated by OSM makes the venue publishable, so both systems and its venue details were integrated. Raccoon Climbing remains operator-confirmed as not yet inaugurated, and Parque Los Silos remains withheld because official records prove only an approved 2023 Kilter acquisition project, not current installation or persistence. Existing Latin American venue hits were checked against production rather than treated as automatically new. Because this cell yielded new production data, Kilter Pass A must be repeated after the first complete pass."
     }
   ],
   "candidates": [
@@ -862,6 +923,41 @@
         "https://crc.gatech.edu/rules-and-policies/"
       ],
       "note": "The university proves a 12x12 electric-hydraulic Kilter Board at its 750 Ferst Drive Campus Recreation Center. CRC use requires a BuzzCard plus membership or day pass, and a non-member may enter only on a guest pass sponsored by a current member. Because an unaffiliated visitor cannot independently obtain ordinary public access, the installation is retained as restricted-access research rather than published as a public venue."
+    },
+    {
+      "board": "kilter",
+      "name": "Epsilon Sport Zone",
+      "region": "latin-america",
+      "discovered_by": "Pass A Spanish/English Quito city, facility and operator-domain searches",
+      "status": "published",
+      "official_sources": [
+        "https://www.epsilonsportzone.com/ESCALADA",
+        "https://www.epsilonsportzone.com/contacto",
+        "https://baq2024.arquitecturapanamericana.com/proyectos/epsilon-sport-zone/"
+      ],
+      "note": "The current operator climbing, facilities, contact and tariff pages establish an active public Tumbaco venue with Kilter Board and MoonBoard, a complete climbing-area week and the Lateral Ruta Viva address. The venue architect's project page supplies its precise point, independently corroborated by OSM's sports-centre parcel on De los Condores. Both supported boards, the official site and hours were added to production."
+    },
+    {
+      "board": "kilter",
+      "name": "Raccoon Climbing",
+      "region": "latin-america",
+      "discovered_by": "Pass A Central America regional and Costa Rica facility searches",
+      "status": "announced",
+      "official_sources": ["https://raccoonclimbingcr.com/"],
+      "note": "The independent web search rediscovered the Cartago operator page, whose current headline still says preparations for inauguration of the new Kilter Board are under way. The existing announced research outcome remains correct and no current public marker is published."
+    },
+    {
+      "board": "kilter",
+      "name": "Parque de Escalada Los Silos",
+      "region": "latin-america",
+      "discovered_by": "Pass A Chile facility search with government-record and operator-domain follow-through",
+      "status": "pending-current-board-evidence",
+      "official_sources": [
+        "https://www.camara.cl/verdoc.aspx?prmID=158532&prmTIPO=OFICIO_FISCALIZACION_RESPUESTA",
+        "https://www.munistgo.cl/municipalidad-de-santiago-entrega-en-comodato-el-sector-los-silos-del-parque-de-los-reyes-a-la-fundacion-deporte-libre/",
+        "https://deportelibre.cl/urban-fest-deportelibre/"
+      ],
+      "note": "Chile's official donation record proves approval of a 2023 project to acquire a Kilter Board for the public Parque Los Silos. Current municipal and operator pages prove the public climbing venue remains active, but none of the accessible current primary pages confirms that the board was installed or persists. An approved acquisition is not production evidence, so the candidate remains retryable and withheld."
     }
   ]
 }

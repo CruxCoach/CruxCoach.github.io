@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-01T05:29:57.543Z",
-  "venue_features": 2861,
-  "raw_entries": 3150,
-  "venues_with_multiple_boards": 141,
-  "country_from_coder": 2861,
+  "generated_at": "2026-09-01T05:39:08.367Z",
+  "venue_features": 2862,
+  "raw_entries": 3152,
+  "venues_with_multiple_boards": 142,
+  "country_from_coder": 2862,
   "country_from_fallback": 0,
   "country_missing": 0,
-  "city_from_upstream": 1144,
+  "city_from_upstream": 1145,
   "city_from_nearest": 1594,
   "city_missing": 123,
   "nearest_city_max_km": 25,
@@ -28,51 +28,51 @@
     "unmatched": 0
   },
   "venue_links": {
-    "defined": 1821,
-    "applied": 1821,
+    "defined": 1822,
+    "applied": 1822,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
     "private_refused": 0,
     "rejected": 0,
-    "countries": 63,
+    "countries": 64,
     "by_provenance": {
       "official-chain-page": 128,
       "official-location-page": 644,
-      "official-site": 1049
+      "official-site": 1050
     }
   },
   "venue_hours": {
-    "defined": 1334,
-    "applied": 1334,
+    "defined": 1335,
+    "applied": 1335,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
     "private_refused": 0,
     "rejected": 0,
-    "countries": 59,
+    "countries": 60,
     "open_24h_days": 36,
     "by_provenance": {
       "official-chain-page": 108,
       "official-location-page": 512,
-      "official-site": 714
+      "official-site": 715
     }
   },
   "per_board": {
-    "kilter": 1139,
+    "kilter": 1140,
     "tension": 370,
     "grasshopper": 42,
     "decoy": 24,
     "soill": 12,
     "touchstone": 5,
     "aurora": 3,
-    "moonboard": 1537,
+    "moonboard": 1538,
     "12climb": 6,
     "quantum": 12
   },
   "per_source": {
     "hangtime": 3058,
-    "curated": 80,
+    "curated": 82,
     "quantum": 12
   },
   "sources": {
@@ -119,7 +119,7 @@
       }
     },
     "curated": {
-      "entries": 80,
+      "entries": 82,
       "verified_on": "2026-09-01",
       "policy": "official-venue-pages"
     },

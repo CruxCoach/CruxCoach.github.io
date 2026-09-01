@@ -1435,6 +1435,40 @@ const ENTRIES = [
     variant: null,
     angle: null,
   },
+  {
+    // Current public venue, Kilter Board, exact address and regular week:
+    // https://www.epsilonsportzone.com/ESCALADA
+    // https://www.epsilonsportzone.com/contacto
+    // The venue architect's project page supplies the exact point, which OSM
+    // independently places inside the sports-centre parcel on De los Condores:
+    // https://baq2024.arquitecturapanamericana.com/proyectos/epsilon-sport-zone/
+    source: 'curated',
+    board: 'kilter',
+    name: 'Epsilon Sport Zone',
+    lat: -0.22624910683982,
+    lon: -78.408823013306,
+    address: 'Lateral Ruta Viva, 170903 Tumbaco, Ecuador',
+    city: 'Tumbaco',
+    country: 'EC',
+    commercial: true,
+    walls: [],
+  },
+  {
+    // The same current operator pages also identify the venue's MoonBoard.
+    // Its generation, LEDs and angle are not stated, so they remain unknown.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Epsilon Sport Zone',
+    lat: -0.22624910683982,
+    lon: -78.408823013306,
+    address: 'Lateral Ruta Viva, 170903 Tumbaco, Ecuador',
+    city: 'Tumbaco',
+    country: 'EC',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
 ];
 
 export async function load() {
