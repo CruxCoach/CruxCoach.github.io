@@ -1536,5 +1536,40 @@
       "name": "TOTEM Vernier",
       "address": "Avenue de l'Étang 67, 1219 Vernier, Switzerland"
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 35.20247,
+    "lon": -111.61827,
+    "name": "Flagstaff Climbing - Main Street Boulders",
+    "note": "The venue's current official amenities page identifies two separate adjustable Kilter systems: a 12x12 Original from 5 to 70 degrees and an 8x12 Fullride from 10 to 60 degrees. Replace the one-wall registry profile with both operator-authored configurations without inventing an app-internal size id for the second board.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 5,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        },
+        {
+          "wall_name": "Kilter Fullride Board",
+          "layout": "Homewall — Full Ride",
+          "size_id": null,
+          "size_label": "8x12",
+          "adjustable": true,
+          "angle": null,
+          "min_angle": 10,
+          "max_angle": 60,
+          "angle_increments": null,
+          "hold_set": null
+        }
+      ]
+    }
   }
 ]

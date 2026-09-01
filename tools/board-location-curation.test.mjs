@@ -1193,6 +1193,20 @@ test('committed map data includes the missing boards and merges the corrected ve
     '04:30-21:00', '05:00-19:00', '06:00-19:00',
   ]);
 
+  const mainStreet = at(features, 35.20247, -111.61827);
+  assert.equal(mainStreet.length, 1);
+  const mainStreetKilter = mainStreet[0].properties.boards.find(board => board.board === 'kilter');
+  assert.equal(mainStreetKilter.walls.length, 2);
+  assert.deepEqual(mainStreetKilter.walls.map(wall => [wall.size_label, wall.min_angle, wall.max_angle]), [
+    ['12x12, with Kickboard', 5, 70],
+    ['8x12', 10, 60],
+  ]);
+
+  const roca = at(features, 44.08939, -92.51209);
+  assert.equal(roca.length, 1);
+  assert.equal(roca[0].properties.website, 'https://www.climbroca.com/');
+  assert.equal(roca[0].properties.hours, undefined);
+
   for (const [lat, lon] of [
     [31.9543786, 35.9105776],
     [-6.1138942, 106.7853922],
