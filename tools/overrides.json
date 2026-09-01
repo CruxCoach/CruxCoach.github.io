@@ -1467,5 +1467,51 @@
         }
       ]
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 52.56398,
+    "lon": 13.40988,
+    "name": "Berta Block Boulderhalle Berlin",
+    "note": "The current official facilities page identifies the existing 16x12 Kilter Board as adjustable from 15 to 70 degrees. Retain the matching registry layout and fill its missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 28,
+          "size_label": "12x16 Super Wide, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 15,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 48.19613,
+    "lon": 16.31488,
+    "name": "Die Knäpperei",
+    "note": "The current official hall page identifies one Flachgasse 30 venue containing both Tension and Kilter boards. Move the nearby registry-only Tension point onto the exact address-bearing Kilter point so the physical gym renders once.",
+    "set": {
+      "lat": 48.196208449388536,
+      "lon": 16.315214120473954,
+      "city": "Wien"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 46.21936,
+    "lon": 6.10238,
+    "name": "TOTEM Le Môll",
+    "note": "The current official branch page names this venue TOTEM Vernier and publishes its complete Avenue de l'Étang address while retaining the Kilter Board. Normalize the legacy branch name and abbreviated address.",
+    "set": {
+      "name": "TOTEM Vernier",
+      "address": "Avenue de l'Étang 67, 1219 Vernier, Switzerland"
+    }
   }
 ]

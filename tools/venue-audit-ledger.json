@@ -6217,15 +6217,28 @@
    }
   },
   {
-   "lat": 46.21936,
-   "lon": 6.10238,
-   "name": "TOTEM Le Môll",
+   "lat": 46.2221988,
+   "lon": 6.0728865,
+   "name": "TOTEM Meyrin",
    "country": "CH",
    "needs": [
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-24",
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
+   "lat": 46.21936,
+   "lon": 6.10238,
+   "name": "TOTEM Vernier",
+   "country": "CH",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
     "result": "no-hours-on-official-site",
     "channels": [
      "venue-link",

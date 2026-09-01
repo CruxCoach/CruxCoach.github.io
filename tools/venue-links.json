@@ -462,23 +462,6 @@
     ]
   },
   {
-    "lat": 48.19613,
-    "lon": 16.31488,
-    "name": "Die Knäpperei",
-    "country": "AT",
-    "website": "https://dieknaepperei.at/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city",
-      "board-mention"
-    ],
-    "note": "Same physical gym as the Kilter entry 28 m away; upstream lists the Tension board separately."
-  },
-  {
     "lat": 48.196208449388536,
     "lon": 16.315214120473954,
     "name": "Die Knäpperei",
@@ -5221,18 +5204,38 @@
   {
     "lat": 46.21936,
     "lon": 6.10238,
-    "name": "TOTEM Le Môll",
+    "name": "TOTEM Vernier",
     "country": "CH",
-    "website": "https://totem.ch/ve",
-    "verified": "2026-08-22",
+    "website": "https://totem.ch/vernier",
+    "verified": "2026-09-01",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
       "city",
-      "location-page"
-    ]
+      "location-page",
+      "board-mention"
+    ],
+    "note": "The current branch page identifies the legacy Le Môll venue as TOTEM Vernier, gives its exact address and names its Kilter Board."
+  },
+  {
+    "lat": 46.2221988,
+    "lon": 6.0728865,
+    "name": "TOTEM Meyrin",
+    "country": "CH",
+    "website": "https://totem.ch/meyrin",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "The current branch page identifies the public Meyrin venue, its exact address and its Kilter Board."
   },
   {
     "lat": 46.2876938,

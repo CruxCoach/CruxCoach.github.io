@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-01T09:29:57.997Z",
+  "generated_at": "2026-09-01T09:50:50.738Z",
   "venue_features": 2866,
-  "raw_entries": 3169,
-  "venues_with_multiple_boards": 149,
+  "raw_entries": 3171,
+  "venues_with_multiple_boards": 150,
   "country_from_coder": 2866,
   "country_from_fallback": 0,
   "country_missing": 0,
-  "city_from_upstream": 1157,
-  "city_from_nearest": 1586,
+  "city_from_upstream": 1158,
+  "city_from_nearest": 1585,
   "city_missing": 123,
   "nearest_city_max_km": 25,
   "exclusions": {
@@ -17,10 +17,10 @@
     "unmatched": 66
   },
   "overrides": {
-    "defined": 119,
-    "applied": 119,
+    "defined": 122,
+    "applied": 122,
     "unmatched": 0,
-    "conflicts": 202
+    "conflicts": 207
   },
   "wellpass": {
     "defined": 87,
@@ -38,41 +38,41 @@
     "countries": 64,
     "by_provenance": {
       "official-chain-page": 124,
-      "official-location-page": 661,
-      "official-site": 1049
+      "official-location-page": 662,
+      "official-site": 1048
     }
   },
   "venue_hours": {
-    "defined": 1349,
-    "applied": 1349,
+    "defined": 1348,
+    "applied": 1348,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
     "private_refused": 0,
     "rejected": 0,
     "countries": 60,
-    "open_24h_days": 43,
+    "open_24h_days": 36,
     "by_provenance": {
       "official-chain-page": 109,
       "official-location-page": 525,
-      "official-site": 715
+      "official-site": 714
     }
   },
   "per_board": {
-    "kilter": 1151,
+    "kilter": 1152,
     "tension": 371,
     "grasshopper": 42,
     "decoy": 24,
     "soill": 12,
     "touchstone": 5,
     "aurora": 3,
-    "moonboard": 1543,
+    "moonboard": 1544,
     "12climb": 6,
     "quantum": 12
   },
   "per_source": {
     "hangtime": 3052,
-    "curated": 105,
+    "curated": 107,
     "quantum": 12
   },
   "sources": {
@@ -119,7 +119,7 @@
       }
     },
     "curated": {
-      "entries": 105,
+      "entries": 107,
       "verified_on": "2026-09-01",
       "policy": "official-venue-pages"
     },

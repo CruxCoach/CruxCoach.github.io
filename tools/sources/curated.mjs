@@ -1957,6 +1957,41 @@ const ENTRIES = [
     variant: null,
     angle: null,
   },
+  {
+    // The current operator facilities page lists two fixed 40° MoonBoards
+    // (2019 and 2024) alongside the existing Kilter/Tension installations:
+    // https://www.bertablock.de/%C3%BCber-uns
+    // The public schema has one MoonBoard row per venue, so retain truthful
+    // system presence without selecting one generation over the other.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Berta Block Boulderhalle Berlin',
+    lat: 52.56398,
+    lon: 13.40988,
+    address: 'Mühlenstraße 62, 13187 Berlin, Germany',
+    city: 'Berlin',
+    country: 'DE',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: 40,
+  },
+  {
+    // The current official branch page proves a public Kilter Board and gives
+    // the exact Meyrin address. The coordinates are the matching named OSM
+    // sports-centre node at that same address:
+    // https://totem.ch/meyrin
+    source: 'curated',
+    board: 'kilter',
+    name: 'TOTEM Meyrin',
+    lat: 46.2221988,
+    lon: 6.0728865,
+    address: 'Rue Emma-Kammacher 5B, Etage A, 1217 Meyrin, Switzerland',
+    city: 'Meyrin',
+    country: 'CH',
+    commercial: true,
+    walls: [],
+  },
 ];
 
 export async function load() {

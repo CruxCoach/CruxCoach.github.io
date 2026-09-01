@@ -1177,12 +1177,12 @@
  {
   "lat": 46.21936,
   "lon": 6.10238,
-  "name": "TOTEM Le Môll",
+  "name": "TOTEM Vernier",
   "country": "CH",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-24",
-  "source": "https://totem.ch/ve",
-  "reason": "The site does hold a week, and only in machine-readable markup: a schema.org openingHours block reading \"Mo-Fr 09:00-23:00, Sa 09:00-23:00, Su 09:00-21:00\", beside an openingHoursSpecification block saying the same. No page states any of it in words. This audit publishes what a venue tells its visitors and not what its settings hold, so the week is recorded here and not published — the same call as Island Rock Climbing Gym."
+  "source": "https://totem.ch/vernier",
+  "reason": "The current branch page identifies the legacy Le Môll venue as TOTEM Vernier. It says opening hours are updated automatically at the top, but the complete readable content exposes no weekday/time pairs. A previously indexed legacy path held a week only in machine-readable settings; this audit publishes what the current venue page tells visitors and does not preserve stale hidden settings."
  },
  {
   "lat": 46.2876938,
@@ -8597,5 +8597,15 @@
     "checked": "2026-09-01",
     "source": "https://www.vil.no/klatring/treningstider/",
     "reason": "The current club page offers open public climbing Tuesday 18:00-20:00 and Wednesday 19:00-20:00, but explicitly says the climbing group's activity follows the school calendar. Those term-time sessions are not a year-round regular week, and the remaining days are not stated as closed, so no seven-day schedule is inferred."
+  },
+  {
+    "lat": 46.2221988,
+    "lon": 6.0728865,
+    "name": "TOTEM Meyrin",
+    "country": "CH",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-09-01",
+    "source": "https://totem.ch/meyrin",
+    "reason": "The current official branch page says its opening hours are updated automatically at the top of the page, but the complete readable page content exposes no weekday/time pairs. No schedule is inferred from search snippets or directories."
   }
 ]
