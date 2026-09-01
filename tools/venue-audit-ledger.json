@@ -19617,17 +19617,30 @@
    }
   },
   {
-   "lat": 37.4460164,
-   "lon": 126.8023545,
-   "name": "Bouldergarden",
+   "lat": 37.44572502448479,
+   "lon": 126.80167496802616,
+   "name": "볼더가든 클라이밍 Bouldergarden",
    "country": "KR",
    "needs": [
     "website",
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "social-only",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-official-site",
     "channels": [
      "name-guess",
      "apex",
@@ -19635,16 +19648,6 @@
      "web-search",
      "social-profile",
      "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
     ]
    }
   },
