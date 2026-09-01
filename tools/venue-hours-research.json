@@ -7944,15 +7944,15 @@
   "source": "https://campusrec.tcu.edu/outdoor-programs/outdoor-center-and-climbing-wall-hours/",
   "reason": "The wall's own hours page prints one week and labels it: \"Summer Hours Monday – Thursday 12:00 pm – 4:00 pm Friday 12:00pm – 4:00pm Saturday – Sunday 12:00pm – 4:00pm\". A university term-time week is implied by the label and printed nowhere."
  },
- {
-  "lat": 37.85118,
-  "lon": -122.29303,
-  "name": "Team Touchstone",
-  "country": "US",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://teamtouchstone.com/",
-  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 920 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
+  {
+    "lat": 37.85118,
+    "lon": -122.29303,
+    "name": "Team Touchstone",
+    "country": "US",
+    "status": "appointment-only",
+    "checked": "2026-09-01",
+    "source": "https://touchstoneclimbing.com/team-training-center/",
+    "reason": "The current location page prints a weekday and weekend member schedule but calls the venue a 'Touchstone Members-Only Climbing Gym', requires check-in at Berkeley Ironworks and says it is open only when not used for other purposes, with a separate closure calendar. These are conditional member slots, not regular public opening hours."
  },
  {
   "lat": 39.81416,
@@ -8127,16 +8127,6 @@
   "source": "http://thewell.csus.edu/climbing/",
   "reason": "For the record, since the page was read: it states \"Hours Top Rope: Monday-Friday: 12:00 pm – 10:00 pm, Saturday: 10:00 am - 3:00 pm\" and stops. Sunday is not on the page — not a time and not a closed marker — and the Family Climb line beneath is \"Select Saturdays\", a programme rather than a seventh day. No week could be published from it even if the host served https.",
   "checked": "2026-08-24"
- },
- {
-  "lat": 37.85155,
-  "lon": -122.2926806,
-  "name": "Touchstone Team Training Center",
-  "country": "US",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://teamtouchstone.com/",
-  "reason": "The same facility as the Team Touchstone entry 51 m away, whose read this repeats: the site yields 920 characters of text across the two dozen paths a venue usually puts its week on, and not one clock time anywhere in them. Touchstone's main site, which does publish hours, answers 403 to every fetch."
  },
  {
   "lat": 40.0098042,

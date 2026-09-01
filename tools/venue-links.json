@@ -24980,14 +24980,18 @@
     "lon": -122.29303,
     "name": "Team Touchstone",
     "country": "US",
-    "website": "https://teamtouchstone.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
+    "website": "https://touchstoneclimbing.com/team-training-center/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
-      "board-mention"
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention",
+      "location-page"
     ],
-    "note": "Team Touchstone's own site, matching the venue's name and naming the Touchstone board it is listed for. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
+    "note": "Touchstone's current Team Training Center page identifies the members-only Berkeley facility at 795 Potter Street and states that it has five climbing boards; the location's amenities page names its Kilter, Moon, Tension and Touchstone boards. The existing address-bearing Team Touchstone marker is the same venue."
   },
   {
     "lat": 42.9347612,
@@ -25938,20 +25942,6 @@
       "city"
     ],
     "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Santa Clarita, the town upstream records."
-  },
-  {
-    "lat": 37.85155,
-    "lon": -122.2926806,
-    "name": "Touchstone Team Training Center",
-    "country": "US",
-    "website": "https://teamtouchstone.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "coordinates"
-    ],
-    "note": "The same facility as the Team Touchstone entry 51 m away at 795 Potter Street, Berkeley, which carries this link already; this entry names it in full as the team training centre. The operator's main site answers 403 to any fetch, and this is the one Touchstone page that does not."
   },
   {
     "lat": 35.8109137,

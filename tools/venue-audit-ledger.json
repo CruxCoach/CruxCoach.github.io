@@ -36967,19 +36967,17 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
-     "social-profile",
-     "name-guess",
-     "apex",
-     "www",
+     "venue-link",
+     "web-search",
      "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "appointment-only",
     "channels": [
      "venue-link",
      "path-probe"
@@ -38262,34 +38260,6 @@
    "hours": {
     "pass": "2026-08-23",
     "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 37.85155,
-   "lon": -122.2926806,
-   "name": "Touchstone Team Training Center",
-   "country": "US",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "co-located",
-     "previous-record",
-     "apex",
-     "www"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
     "channels": [
      "venue-link",
      "path-probe"
