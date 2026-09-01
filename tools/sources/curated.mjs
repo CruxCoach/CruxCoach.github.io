@@ -329,6 +329,36 @@ const ENTRIES = [
     walls: [],
   },
   {
+    // The venue owner's current training-board page identifies a public,
+    // app-connected LED MoonBoard on the shared hydraulic training frame:
+    // https://www.discoverycs.com/training-board
+    // Co-locate with the existing exact-address Kilter venue. The page does
+    // not identify the MoonBoard generation or a board-specific angle.
+    source: 'curated',
+    board: 'moonboard',
+    name: '디스커버리 클라임스퀘어 Climbsquare ICN',
+    lat: 37.59289,
+    lon: 126.67303,
+    city: 'Incheon',
+    country: 'KR',
+    commercial: true,
+    led: true,
+    variant: null,
+    angle: null,
+  },
+  {
+    // The same current operator page explicitly identifies a Tension Board
+    // on the public three-board training frame at ClimbSquare ICN:
+    // https://www.discoverycs.com/training-board
+    source: 'curated',
+    board: 'tension',
+    name: '디스커버리 클라임스퀘어 Climbsquare ICN',
+    lat: 37.59289,
+    lon: 126.67303,
+    city: 'Incheon',
+    country: 'KR',
+  },
+  {
     // Public venue, address, and both boards:
     // https://climbicp.com/au/first-visit/
     // Kilter access/layout/size/frame/angle and coordinates:

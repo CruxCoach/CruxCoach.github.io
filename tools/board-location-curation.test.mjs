@@ -40,6 +40,8 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Portside Boulders Joondalup', 'moonboard'],
     ['カルコロ CAL-COLO', 'moonboard'],
     ['하나클라이밍짐 Hana Climbing Gym', 'kilter'],
+    ['디스커버리 클라임스퀘어 Climbsquare ICN', 'moonboard'],
+    ['디스커버리 클라임스퀘어 Climbsquare ICN', 'tension'],
     ['ICP Boulder Hall & Showroom', 'kilter'],
     ['ICP Boulder Hall & Showroom', 'tension'],
     ['BLOCK DOCK Petržalka', 'kilter'],
@@ -129,6 +131,15 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(calgaryOutdoor[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2024');
   assert.equal(calgaryOutdoor[0].properties.boards.find(board => board.board === 'moonboard').angle, 40);
   assert.equal(at(features, 51.0779562, -114.1337454).length, 0);
+
+  const climbSquare = at(features, 37.59289, 126.67303);
+  assert.equal(climbSquare.length, 1);
+  assert.equal(climbSquare[0].properties.name, '디스커버리 클라임스퀘어 Climbsquare ICN');
+  assert.deepEqual(new Set(boardIds(climbSquare[0])), new Set(['kilter', 'moonboard', 'tension']));
+  const climbSquareMoon = climbSquare[0].properties.boards.find(board => board.board === 'moonboard');
+  assert.equal(climbSquareMoon.led, true);
+  assert.equal(climbSquareMoon.variant, null);
+  assert.equal(climbSquareMoon.angle, null);
 
   for (const [name, lat, lon, boards] of [
     ['Beyond Bouldering Thebarton', -34.91386, 138.57631, ['kilter', 'tension', 'moonboard']],

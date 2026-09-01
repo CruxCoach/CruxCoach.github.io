@@ -52,6 +52,10 @@ function normalize(value) { return value.normalize('NFKC').replace(/\s+/g, '').t
 
 export function auditCandidates(candidates, decisions, mapVenues = []) {
   const validStatuses = new Set(['pending', 'published', 'unverified', 'social-only', 'closed', 'ambiguous']);
+  const validFields = new Set([
+    'region', 'name', 'generation', 'status', 'sources', 'note',
+    'map_name', 'lat', 'lon',
+  ]);
   const malformed = [];
   const decisionKeys = new Map();
   decisions.forEach((row, index) => {
@@ -59,6 +63,22 @@ export function auditCandidates(candidates, decisions, mapVenues = []) {
       || ![2016, 2017, 2024].includes(row.generation) || !validStatuses.has(row.status)) {
       malformed.push(`decision ${index} is malformed`);
       return;
+    }
+    for (const field of Object.keys(row)) {
+      if (!validFields.has(field)) malformed.push(`decision ${index} has unknown field ${field}`);
+    }
+    if (row.status === 'pending') {
+      if (row.sources !== undefined || row.note !== undefined) {
+        malformed.push(`pending decision ${index} must not claim evidence`);
+      }
+    } else {
+      if (!Array.isArray(row.sources) || !row.sources.length
+        || row.sources.some(source => typeof source !== 'string' || !source.startsWith('https://'))) {
+        malformed.push(`decided decision ${index} needs HTTPS sources`);
+      }
+      if (typeof row.note !== 'string' || !row.note.trim()) {
+        malformed.push(`decided decision ${index} needs a note`);
+      }
     }
     if (row.status === 'published' && (!Number.isFinite(row.lat) || !Number.isFinite(row.lon))) {
       malformed.push(`published decision ${index} has no coordinate`);

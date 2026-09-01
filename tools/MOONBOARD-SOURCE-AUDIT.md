@@ -172,6 +172,40 @@ dated operator notice states that the MoonBoard changed from the 2019 setup to
 the 2016 setup in July 2022, correcting the frozen row's 2017-Masters label.
 The discovery list also claims a second 2024 board, but the current operator
 page describes only one MoonBoard and does not name a 2024 setup, so that second
-row remains unverified. The reproducible audit now has one published and one
-unverified disposition, 54 pending candidate rows, and 13 production rows whose
-legacy labels still need reconciliation.
+row remains unverified.
+
+The next Korean disposition pass settled five more source rows without lowering
+the publication bar. OnFleek's current operator site confirms one public
+MoonBoard at its sole stated Cheonho address, and its current facility image is
+visibly the dense sky-blue/wood 2024 setup, not the list's 2016 claim. It remains
+unpublished because no acceptable independent source yet fixes the venue to a
+precise coordinate; the purported Samsung branch is separately unverified
+because the same current site names only Cheonho. ClimbTogether's operator site
+confirms its current Wonju venue and address but neither names nor depicts a
+MoonBoard. The municipal page for Jungnang Sports Climbing Stadium likewise
+describes the public Yongma Waterfall Park walls without naming a system board.
+Finally, Climbing Park Seongsu's own post says the venue ended operations on 25
+August 2026, so it is closed rather than a missing addition. The audit now has
+one published, five unverified, one closed and 49 pending candidate rows; 13
+production rows still need reconciliation. Every non-pending row carries its
+exact HTTPS evidence URLs, and the audit rejects decided rows without them.
+
+ClimbSquare ICN's venue-owning company supplies the next publishable Korean
+reconciliation. Its current training-board page explicitly identifies a public
+three-board hydraulic frame with app-connected LED MoonBoard, Kilter Board and
+Tension Board at the exact-address Kilter venue already in production. The
+missing MoonBoard and Tension Board are therefore co-located there. The page
+does not identify the MoonBoard generation or a board-specific angle, so the
+discovery list's 2016 label is not promoted into those fields.
+
+Three other high-confidence identity matches remain deliberately unpublished.
+Kin:D's public operator profile is current, and multiple independent opening
+and visit reports agree on a 2024 MoonBoard beside the production Kilter Board,
+but the accessible operator posts do not identify it and older posts require
+authentication to search. A current independent visit likewise confirms both
+boards at Koala Kintex, while no current operator board statement was found.
+Koala's operator-controlled Kakao channel confirms the Sangam venue but not a
+MoonBoard. Secondary revisions conflict over whether the two Koala boards are
+2016 or 2024, so neither is published. The audit now has two published, eight
+unverified, one closed and 45 pending rows; 13 production-only MoonBoard labels
+still require reconciliation.

@@ -22,6 +22,21 @@ test('the audit exposes source drift and accidental publication', () => {
   assert.equal(audit.accidentallyPublished.length, 1);
 });
 
+test('every decided row carries explicit HTTPS provenance while pending rows claim none', () => {
+  const candidates = [
+    { region: '강원', name: '결정 짐', generation: 2024 },
+    { region: '강원', name: '대기 짐', generation: 2016 },
+  ];
+  const decisions = [
+    { region: '강원', name: '결정 짐', generation: 2024, status: 'unverified', note: 'Checked.', sources: [] },
+    { region: '강원', name: '대기 짐', generation: 2016, status: 'pending', note: 'Not checked.' },
+  ];
+  assert.deepEqual(auditCandidates(candidates, decisions).malformed, [
+    'decided decision 0 needs HTTPS sources',
+    'pending decision 1 must not claim evidence',
+  ]);
+});
+
 test('the committed Korean inventory accounts for the current open reconciliation queue', () => {
   const decisions = JSON.parse(readFileSync(join(ROOT, 'tools/moonboard-korea-decisions.json'), 'utf8'));
   const geojson = JSON.parse(readFileSync(join(ROOT, 'boards/data/boards.geojson'), 'utf8'));
@@ -32,7 +47,7 @@ test('the committed Korean inventory accounts for the current open reconciliatio
   const audit = auditCandidates(candidates, decisions, venues);
   assert.equal(decisions.length, 56);
   assert.equal(new Set(decisions.map(row => row.name)).size, 55);
-  assert.deepEqual(audit.counts, { pending: 54, published: 1, unverified: 1, 'social-only': 0, closed: 0, ambiguous: 0 });
+  assert.deepEqual(audit.counts, { pending: 45, published: 2, unverified: 8, 'social-only': 0, closed: 1, ambiguous: 0 });
   assert.deepEqual(audit.malformed, []);
   assert.deepEqual(audit.missingPublished, []);
   assert.deepEqual(audit.accidentallyPublished, []);

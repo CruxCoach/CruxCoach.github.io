@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-01T00:37:41.057Z",
+  "generated_at": "2026-09-01T00:54:29.781Z",
   "venue_features": 2838,
-  "raw_entries": 3123,
-  "venues_with_multiple_boards": 137,
+  "raw_entries": 3125,
+  "venues_with_multiple_boards": 138,
   "country_from_coder": 2838,
   "country_from_fallback": 0,
   "country_missing": 0,
-  "city_from_upstream": 1106,
-  "city_from_nearest": 1609,
+  "city_from_upstream": 1107,
+  "city_from_nearest": 1608,
   "city_missing": 123,
   "nearest_city_max_km": 25,
   "exclusions": {
@@ -60,19 +60,19 @@
   },
   "per_board": {
     "kilter": 1137,
-    "tension": 369,
+    "tension": 370,
     "grasshopper": 42,
     "decoy": 24,
     "soill": 12,
     "touchstone": 5,
     "aurora": 3,
-    "moonboard": 1516,
+    "moonboard": 1517,
     "12climb": 6,
     "quantum": 9
   },
   "per_source": {
     "hangtime": 3061,
-    "curated": 53,
+    "curated": 55,
     "quantum": 9
   },
   "sources": {
@@ -119,7 +119,7 @@
       }
     },
     "curated": {
-      "entries": 53,
+      "entries": 55,
       "verified_on": "2026-09-01",
       "policy": "official-venue-pages"
     },
