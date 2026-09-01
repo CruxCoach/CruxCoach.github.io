@@ -115,6 +115,57 @@
   },
   {
     "board": "moonboard",
+    "lat": 49.2386079,
+    "lon": 10.6036822,
+    "name": "BOULDER HALL - Burgoberbach",
+    "note": "The venue's current MoonBoard setup page explicitly instructs visitors to select the 2024 board at 40 degrees.",
+    "set": {
+      "variant": "mb2024",
+      "angle": 40
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 49.7967105,
+    "lon": 9.902870300000002,
+    "name": "DAV-Kletterzentrum Würzburg",
+    "note": "The section's current training-area page identifies its completed MoonBoard as the 2024 setup at fixed 40 degrees.",
+    "set": {
+      "variant": "mb2024",
+      "angle": 40
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 49.4521018,
+    "lon": 11.0766654,
+    "name": "TSV 1846 Nürnberg - Bouldern",
+    "note": "The club's 3 March 2026 operator post states that its full MoonBoard was upgraded to the current 2024 hold setup; keep the separate Mini 2020 row unchanged.",
+    "match": {
+      "name": "TSV 1846 Nürnberg - Bouldern"
+    },
+    "set": {
+      "variant": "mb2024",
+      "led": true
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 45.6570925,
+    "lon": 13.8102992,
+    "name": "Gravità Zero MOON BOARD",
+    "note": "The operator's current 2025 reopening page identifies one Via alle Cave 55 venue with its Kilter Board and a 2019 MoonBoard fixed at 40 degrees; consolidate the two manufacturer pins.",
+    "set": {
+      "lat": 45.65702,
+      "lon": 13.81049,
+      "name": "Gravità Zero",
+      "city": "Trieste",
+      "variant": "mb2019-masters",
+      "angle": 40
+    }
+  },
+  {
+    "board": "moonboard",
     "lat": 49.443067,
     "lon": 10.9598136,
     "name": "der steinbock Zirndorf Moon Board",

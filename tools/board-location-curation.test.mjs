@@ -18,7 +18,7 @@ const at = (features, lat, lon) => features.filter(feature => {
 
 test('curated source contains only the explicitly reviewed primary-source gaps', async () => {
   const { entries, meta } = await loadCurated();
-  assert.equal(meta.verified_on, '2026-08-31');
+  assert.equal(meta.verified_on, '2026-09-01');
   assert.deepEqual(entries.map(entry => [entry.name, entry.board]), [
     ['Boulderwelt München Ost', 'moonboard'],
     ['Boulderwelt Hamburg', 'moonboard'],
@@ -30,6 +30,11 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Gallery Bouldering', 'moonboard'],
     ['Hangdog Climbing Gym Wollongong', 'moonboard'],
     ['Social Climbing Coventry', 'moonboard'],
+    ['Solo Escalade Toulouse', 'moonboard'],
+    ['Rainbow Rocket Boulders', 'moonboard'],
+    ['Double Dyno', 'moonboard'],
+    ['TSV 1846 Nürnberg - Bouldern', 'tension'],
+    ['Lezard', 'moonboard'],
     ['ICP Boulder Hall & Showroom', 'kilter'],
     ['ICP Boulder Hall & Showroom', 'tension'],
     ['BLOCK DOCK Petržalka', 'kilter'],
@@ -161,6 +166,60 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(grandWall[0].properties.boards[0].variant, 'mb2024');
   assert.equal(grandWall[0].properties.boards[0].led, true);
   assert.equal(grandWall[0].properties.hours, undefined);
+
+  for (const [name, lat, lon] of [
+    ['BOULDER HALL - Burgoberbach', 49.2386079, 10.6036822],
+    ['DAV-Kletterzentrum Würzburg', 49.7967105, 9.902870300000002],
+  ]) {
+    const venue = at(features, lat, lon);
+    assert.equal(venue.length, 1, name);
+    assert.equal(venue[0].properties.boards[0].variant, 'mb2024');
+    assert.equal(venue[0].properties.boards[0].angle, 40);
+  }
+
+  const rainbowRocket = at(features, 47.7387, 10.33247);
+  assert.equal(rainbowRocket.length, 1);
+  assert.deepEqual(new Set(boardIds(rainbowRocket[0])), new Set(['kilter', 'moonboard']));
+  assert.equal(rainbowRocket[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2024');
+
+  const soloToulouse = at(features, 43.62005, 1.42052);
+  assert.equal(soloToulouse.length, 1);
+  assert.equal(soloToulouse[0].properties.name, 'Solo Escalade Toulouse');
+  assert.deepEqual(new Set(boardIds(soloToulouse[0])), new Set(['kilter', 'moonboard']));
+  assert.equal(soloToulouse[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2024');
+  assert.equal(soloToulouse[0].properties.boards.find(board => board.board === 'moonboard').led, null);
+  assert.equal(soloToulouse[0].properties.hours, undefined);
+
+  const tsvNuremberg = at(features, 49.4521018, 11.0766654);
+  assert.equal(tsvNuremberg.length, 1);
+  assert.deepEqual(new Set(boardIds(tsvNuremberg[0])), new Set(['moonboard', 'tension']));
+  assert.equal(tsvNuremberg[0].properties.website, 'https://tsvbouldern.de/');
+  assert.deepEqual(
+    tsvNuremberg[0].properties.boards.filter(board => board.board === 'moonboard').map(board => board.variant),
+    ['mb2024', 'mini-2020'],
+  );
+  assert.equal(tsvNuremberg[0].properties.hours, undefined);
+
+  const doubleDyno = at(features, 39.2538197, 9.1132358);
+  assert.equal(doubleDyno.length, 1);
+  assert.equal(doubleDyno[0].properties.name, 'Double Dyno');
+  assert.equal(doubleDyno[0].properties.website, 'https://www.doubledyno.it/');
+  assert.equal(doubleDyno[0].properties.hours, undefined);
+
+  const lezard = at(features, 45.6792606, 8.9475553);
+  assert.equal(lezard.length, 1);
+  assert.equal(lezard[0].properties.name, 'Lezard');
+  assert.deepEqual(boardIds(lezard[0]), ['moonboard']);
+  assert.equal(lezard[0].properties.website, 'https://www.lezardclimb.it/');
+  assert.equal(lezard[0].properties.hours, undefined);
+
+  const gravitaZero = at(features, 45.65702, 13.81049);
+  assert.equal(gravitaZero.length, 1);
+  assert.deepEqual(new Set(boardIds(gravitaZero[0])), new Set(['kilter', 'moonboard']));
+  assert.equal(gravitaZero[0].properties.website, 'https://www.gravitazerotrieste.it/');
+  assert.equal(gravitaZero[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2019-masters');
+  assert.equal(gravitaZero[0].properties.boards.find(board => board.board === 'moonboard').angle, 40);
+  assert.equal(at(features, 45.6570925, 13.8102992).length, 0);
 
   const thalkirchen = at(features, 48.107, 11.54568);
   assert.equal(thalkirchen.length, 1);

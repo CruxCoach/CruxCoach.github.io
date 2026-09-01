@@ -166,6 +166,86 @@ const ENTRIES = [
     angle: null,
   },
   {
+    // Current public venue, exact address, and 2024 MoonBoard generation:
+    // https://www.soloescalade.fr/
+    // The coordinate is its existing address-bearing Kilter venue. The page
+    // does not state LEDs or an angle, so neither is inferred.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Solo Escalade Toulouse',
+    lat: 43.62005,
+    lon: 1.42052,
+    city: 'Toulouse',
+    country: 'FR',
+    commercial: true,
+    led: null,
+    variant: 'mb2024',
+    angle: null,
+  },
+  {
+    // Current public venue, exact address, and 2024 hold configuration:
+    // https://rainbowrocket-boulders.de/
+    // The coordinate is its existing address-bearing Kilter venue.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Rainbow Rocket Boulders',
+    lat: 47.7387,
+    lon: 10.33247,
+    city: 'Kempten Bavaria',
+    country: 'DE',
+    commercial: true,
+    led: true,
+    variant: 'mb2024',
+    angle: null,
+  },
+  {
+    // Current public venue, MoonBoard, address and ordinary weekday access:
+    // https://www.doubledyno.it/palestra
+    // https://www.doubledyno.it/contatti
+    // The point independently matches the exact street number in OSM.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Double Dyno',
+    lat: 39.2538197,
+    lon: 9.1132358,
+    city: 'Cagliari',
+    country: 'IT',
+    commercial: true,
+    led: true,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current member club, exact address, current Tension Board 2 and its
+    // adjustable 25°-60° range: https://tsvbouldern.de/
+    // The public schema has no Tension wall-detail fields; retain the verified
+    // system presence without inventing an app username.
+    source: 'curated',
+    board: 'tension',
+    name: 'TSV 1846 Nürnberg - Bouldern',
+    lat: 49.4521018,
+    lon: 11.0766654,
+    city: 'Nürnberg',
+    country: 'DE',
+  },
+  {
+    // Current public venue, exact address, and MoonBoard presence:
+    // https://www.lezardclimb.it/
+    // The exact named venue point is independently corroborated by OSM. The
+    // operator does not state the generation, LEDs or angle, so they stay null.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Lezard',
+    lat: 45.6792606,
+    lon: 8.9475553,
+    city: 'Mozzate',
+    country: 'IT',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
     // Public venue, address, and both boards:
     // https://climbicp.com/au/first-visit/
     // Kilter access/layout/size/frame/angle and coordinates:
@@ -777,7 +857,7 @@ export async function load() {
     entries: ENTRIES.map(entry => ({ ...entry })),
     meta: {
       entries: ENTRIES.length,
-      verified_on: '2026-08-31',
+      verified_on: '2026-09-01',
       policy: 'official-venue-pages',
     },
   };

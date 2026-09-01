@@ -107,7 +107,9 @@ function stripInternal(entry) {
 // conflict (replacing a non-null upstream value) is logged so a stale
 // override stays visible. An entry matches by board + (lat, lon) at
 // venueKey precision (~11 m), so the hand-edited file may carry coordinates
-// at any precision. Returns counts recorded in boards.meta.json.
+// at any precision. When several same-system rows share one venue, an
+// optional exact `match` object selects the intended row without corrupting
+// a second generation or wall. Returns counts recorded in boards.meta.json.
 function applyOverrides(entries) {
   const stats = { defined: 0, applied: 0, unmatched: 0, conflicts: 0 };
   if (!existsSync(OVERRIDES_FILE)) return stats;
@@ -150,7 +152,21 @@ function applyOverrides(entries) {
       return;
     }
 
-    const matches = byKey.get(`${ov.board}|${venueKey(ov.lat, ov.lon)}`) ?? [];
+    if (ov.match !== undefined && (!ov.match || typeof ov.match !== 'object'
+      || Array.isArray(ov.match) || Object.keys(ov.match).length === 0)) {
+      process.stderr.write(`[build]   WARN ${where}: optional "match" must be a non-empty object — skipped\n`);
+      return;
+    }
+    const allowedMatchFields = new Set(['name', 'variant', 'commercial', 'led', 'angle', '_source']);
+    if (ov.match && Object.keys(ov.match).some(field => !allowedMatchFields.has(field))) {
+      process.stderr.write(`[build]   WARN ${where}: "match" contains an unsupported field — skipped\n`);
+      return;
+    }
+
+    const candidates = byKey.get(`${ov.board}|${venueKey(ov.lat, ov.lon)}`) ?? [];
+    const matches = ov.match
+      ? candidates.filter(entry => Object.entries(ov.match).every(([field, value]) => Object.is(entry[field], value)))
+      : candidates;
     if (matches.length === 0) {
       stats.unmatched++;
       process.stderr.write(`[build]   WARN ${where}: no ${ov.board} entry near ${ov.lat}, ${ov.lon} — stale override?\n`);

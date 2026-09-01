@@ -90,3 +90,37 @@ code; that access rule remains an `appointment-only` research outcome rather
 than a public regular week. These changes raise the map to 1,508 MoonBoard rows
 at 1,383 physical venues. Regional and multilingual recovery remains in
 progress; this second batch is not an exhaustion claim either.
+
+The first German/French/Italian-language pass added two public venues absent
+from the frozen feed: Rainbow Rocket Boulders in Kempten with the current 2024
+configuration, and Double Dyno in Cagliari/Pirri with a current LED MoonBoard
+whose generation and angle the operator does not state. It also supplied fixed
+40° details for the existing 2024 boards at Boulder Hall Burgoberbach and DAV
+Würzburg, and classified TSV 1846 Nürnberg's full-size board as the 2024 set
+without overwriting its distinct Mini 2020 row. The TSV operator additionally
+establishes a current adjustable Tension Board 2, which is now represented at
+the same venue. Gravità Zero's two 17 m-apart registry points are now one
+Trieste venue on the operator's current domain, with the MoonBoard classified
+as 2019 Masters at fixed 40°.
+
+Two tempting search results were deliberately not added. Granit
+Rueil-Malmaison's still-indexed equipment page describes a 25° MoonBoard, but
+the operator's current closure notice states that the gym permanently closed
+on 17 March 2026; that exclusion was already backed in the venue research
+ledger. CAI Valdagno's 2025 bulletin establishes a public LED 2024 MoonBoard at
+Palavolta for the 2024/25 season, but no current 2025/26 or 2026 operator page
+could be found. Without current access confirmation it remains a retry
+candidate rather than a production marker. Multilingual recovery remains in
+progress and this pass is not an exhaustion claim.
+
+The continuation of that pass recovered two more current public installations.
+Solo Escalade Toulouse's operator page explicitly lists a 2024 MoonBoard beside
+the Kilter Board already present at its exact address-bearing map point. Lezard's
+current association page identifies its public Mozzate gym, exact Via Anna Frank
+1/3 address and MoonBoard; the exact named venue point is independently present
+in OpenStreetMap. Neither operator states an angle, and Lezard states neither a
+generation nor LEDs, so those fields remain unknown. Solo's separately labelled
+September–June and summer weeks and Lezard's summer, weather-dependent weekend
+access remain internal research outcomes rather than misleading regular hours.
+The map now contains 1,512 MoonBoard rows at 1,387 physical venues. Regional and
+multilingual recovery is still in progress; this is not an exhaustion claim.

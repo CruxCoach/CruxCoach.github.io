@@ -3990,20 +3990,10 @@
   "lon": 13.81049,
   "name": "Gravità Zero",
   "country": "IT",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://gravitazero.it/",
-  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 44,815 characters carrying 120 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
- },
- {
-  "lat": 45.6570925,
-  "lon": 13.8102992,
-  "name": "Gravità Zero MOON BOARD",
-  "country": "IT",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://gravitazero.it/",
-  "reason": "The same hall as the Gravità Zero entry 17 m away, whose read this repeats: the site was read on the two dozen paths a venue usually puts its week on, yields 44,815 characters carrying 120 clock times, and states no day of the week beside any of them — they are prices and class times rather than an opening schedule."
+  "status": "ambiguous",
+  "checked": "2026-09-01",
+  "source": "https://www.gravitazerotrieste.it/informazioni-utili-per-laccesso-alla-sala-boulder/",
+  "reason": "The current access page states changing Monday-Friday gym hours but does not state Saturday or Sunday at all, while other page headers expose a different partial week. Policy forbids inferring that omitted days are closed, so no complete regular week is published."
  },
  {
   "lat": 40.6031306,
@@ -8601,5 +8591,35 @@
     "checked": "2026-08-31",
     "source": "https://www.rockhavenclimbing.com/",
     "reason": "Current official pages disagree: the homepage, pricing, deals and routesetting pages show Monday/Wednesday/Friday/Saturday 09:00-22:00 and Sunday 09:00-20:00, while the facility page shows Monday/Wednesday/Saturday 09:00-21:00, Friday 09:00-22:00 and Sunday 09:00-20:00; the homepage JSON-LD separately ends Sunday at 19:00. No single week is safe to publish."
+  },
+  {
+    "lat": 49.4521018,
+    "lon": 11.0766654,
+    "name": "TSV 1846 Nürnberg - Bouldern",
+    "country": "DE",
+    "status": "appointment-only",
+    "checked": "2026-09-01",
+    "source": "https://tsvbouldern.de/",
+    "reason": "The club states that 24/7 access is restricted to members and a non-member may only arrange a trial session by email. That is not a regular public opening week."
+  },
+  {
+    "lat": 39.2538197,
+    "lon": 9.1132358,
+    "name": "Double Dyno",
+    "country": "IT",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://www.doubledyno.it/orari-tariffe",
+    "reason": "The official hours page states distinct Monday-Friday opening times but says nothing about Saturday or Sunday. A complete seven-day week cannot be published without guessing that the two omitted days are closed."
+  },
+  {
+    "lat": 45.6792606,
+    "lon": 8.9475553,
+    "name": "Lezard",
+    "country": "IT",
+    "status": "seasonal",
+    "checked": "2026-09-01",
+    "source": "https://www.lezardclimb.it/",
+    "reason": "The current official page labels the displayed schedule as summer hours and makes Saturday-Sunday opening conditional on bad weather. It is not a stable regular seven-day week."
   }
 ]

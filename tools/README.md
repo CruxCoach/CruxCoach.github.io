@@ -228,7 +228,12 @@ nightly `cron-refresh.sh`).
 - **Matching**: by `board` + `(lat, lon)` rounded to 4 decimals (~11 m — the
   same precision as venue grouping), so the file may carry coordinates at any
   precision. `name` is a human label only; the build warns if it doesn't
-  match the entry that was matched on, which catches coordinate typos.
+  match the entry that was matched on, which catches coordinate typos. If a
+  venue has multiple rows of the same board type, add an exact `match` object
+  using one or more of `name`, `variant`, `commercial`, `led`, `angle`, or
+  `_source`; without it the correction deliberately applies to every matching
+  row and the build warns. This is what keeps an upgraded full-size MoonBoard
+  from rewriting a distinct Mini at the same venue.
 - **Semantics**: every key under `set` is written onto the matched per-board
   object and wins over the upstream value. Replacing a non-null upstream
   value is logged and counted as a conflict, so a stale override stays

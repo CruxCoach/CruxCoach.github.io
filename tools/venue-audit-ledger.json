@@ -734,6 +734,23 @@
    }
   },
   {
+   "lat": 47.266263,
+   "lon": 11.900404,
+   "name": "Kraftreich Aufenfeld",
+   "country": "AT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 47.80278999999999,
    "lon": 16.23318,
    "name": "Mondbrett",
@@ -7063,18 +7080,18 @@
     "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
-      "name-guess",
-      "web-search",
-      "social-profile",
-      "previous-record"
+     "name-guess",
+     "web-search",
+     "social-profile",
+     "previous-record"
     ]
    },
    "hours": {
     "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
-      "web-search",
-      "previous-record"
+     "web-search",
+     "previous-record"
     ]
    }
   },
@@ -7580,19 +7597,19 @@
     "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
-      "name-guess",
-      "web-search",
-      "social-profile",
-      "previous-record"
+     "name-guess",
+     "web-search",
+     "social-profile",
+     "previous-record"
     ]
    },
    "hours": {
     "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
-      "name-guess",
-      "web-search",
-      "previous-record"
+     "name-guess",
+     "web-search",
+     "previous-record"
     ]
    }
   },
@@ -9915,6 +9932,23 @@
    }
   },
   {
+   "lat": 49.4521018,
+   "lon": 11.0766654,
+   "name": "TSV 1846 Nürnberg - Bouldern",
+   "country": "DE",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "appointment-only",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 49.9913901,
    "lon": 8.2450697,
    "name": "UNI Mainz Sportklettern",
@@ -9974,15 +10008,15 @@
    }
   },
   {
-      "lat": 51.01528,
-      "lon": 13.808827,
+   "lat": 51.01528,
+   "lon": 13.808827,
    "name": "XXL Klettern Dresden",
    "country": "DE",
    "needs": [
     "hours"
    ],
    "hours": {
-        "pass": "2026-08-31",
+    "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
      "venue-link",
@@ -16834,6 +16868,23 @@
    }
   },
   {
+   "lat": 39.2538197,
+   "lon": 9.1132358,
+   "name": "Double Dyno",
+   "country": "IT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 43.108311,
    "lon": 12.366431,
    "name": "Dreamtime",
@@ -16957,7 +17008,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -16968,36 +17019,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 45.6570925,
-   "lon": 13.8102992,
-   "name": "Gravità Zero MOON BOARD",
-   "country": "IT",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "co-located",
-     "previous-record",
-     "apex",
-     "www"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"
@@ -17281,9 +17304,26 @@
     "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
-      "venue-link",
-      "path-probe",
-      "map-block"
+     "venue-link",
+     "path-probe",
+     "map-block"
+    ]
+   }
+  },
+  {
+   "lat": 45.6792606,
+   "lon": 8.9475553,
+   "name": "Lezard",
+   "country": "IT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -20165,17 +20205,17 @@
     "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
-      "web-search",
-      "path-probe",
-      "venue-link"
+     "web-search",
+     "path-probe",
+     "venue-link"
     ]
    },
    "hours": {
     "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
-      "venue-link",
-      "path-probe"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -20305,8 +20345,8 @@
    }
   },
   {
-      "lat": 35.2295856,
-      "lon": 129.0888247,
+   "lat": 35.2295856,
+   "lon": 129.0888247,
    "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
    "country": "KR",
    "needs": [
@@ -20356,38 +20396,6 @@
    },
    "hours": {
     "pass": "2026-08-25",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
-    ]
-   }
-  },
-  {
-   "lat": 37.5627864,
-   "lon": 127.1933404,
-   "name": "클라임어스 미사점 Climb Us Hanam Misa",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-31",
-    "result": "social-only",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -20452,6 +20460,38 @@
    },
    "hours": {
     "pass": "2026-08-25",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search"
+    ]
+   }
+  },
+  {
+   "lat": 37.5627864,
+   "lon": 127.1933404,
+   "name": "클라임어스 미사점 Climb Us Hanam Misa",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-08-31",
+    "result": "social-only",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ]
+   },
+   "hours": {
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -22931,8 +22971,8 @@
    }
   },
   {
-      "lat": 59.2800086,
-      "lon": 10.316057,
+   "lat": 59.2800086,
+   "lon": 10.316057,
    "name": "Høyt Under Taket Klatresenter Tønsberg",
    "country": "NO",
    "needs": [
@@ -29341,18 +29381,18 @@
     "pass": "2026-08-31",
     "result": "closed",
     "channels": [
-      "venue-link",
-      "web-search",
-      "path-probe"
+     "venue-link",
+     "web-search",
+     "path-probe"
     ]
    },
    "hours": {
     "pass": "2026-08-31",
     "result": "closed",
     "channels": [
-      "venue-link",
-      "web-search",
-      "path-probe"
+     "venue-link",
+     "web-search",
+     "path-probe"
     ]
    }
   },
@@ -31636,6 +31676,23 @@
    "hours": {
     "pass": "2026-08-23",
     "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 30.17515,
+   "lon": -97.79041,
+   "name": "Crux Climbing Center South",
+   "country": "US",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"
@@ -35027,6 +35084,23 @@
    "hours": {
     "pass": "2026-08-25",
     "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 45.52658504620519,
+   "lon": -122.43448777322068,
+   "name": "Rock Haven Climbing Gym",
+   "country": "US",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"
@@ -38982,57 +39056,6 @@
    "hours": {
     "pass": "2026-08-25",
     "result": "no-hours-on-official-site",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 30.17515,
-   "lon": -97.79041,
-   "name": "Crux Climbing Center South",
-   "country": "US",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-08-31",
-    "result": "ambiguous",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 45.52658504620519,
-   "lon": -122.43448777322068,
-   "name": "Rock Haven Climbing Gym",
-   "country": "US",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-08-31",
-    "result": "ambiguous",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 47.266263,
-   "lon": 11.900404,
-   "name": "Kraftreich Aufenfeld",
-   "country": "AT",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-08-31",
-    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"

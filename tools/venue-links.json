@@ -13320,28 +13320,17 @@
     "lon": 13.81049,
     "name": "Gravità Zero",
     "country": "IT",
-    "website": "https://gravitazero.it/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
+    "website": "https://www.gravitazerotrieste.it/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
-      "street-address"
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
     ],
-    "note": "Gravità Zero's own site, printing 55 — the building number in \"Via alle cave, 55, 34128, Trieste\" that upstream records."
-  },
-  {
-    "lat": 45.6570925,
-    "lon": 13.8102992,
-    "name": "Gravità Zero MOON BOARD",
-    "country": "IT",
-    "website": "https://gravitazero.it/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "coordinates"
-    ],
-    "note": "The same hall as the Gravità Zero entry 17 m away at Via alle cave 55, Trieste, which carries this link already: this entry is that gym's MoonBoard, registered separately. The site is the gym's own and matches the name."
+    "note": "The operator's current Sala Boulder and access pages identify its one Via alle Cave 55, Trieste venue and both the MoonBoard and Kilter Board now consolidated at this point."
   },
   {
     "lat": 44.55963,
@@ -27259,5 +27248,56 @@
       "board-mention"
     ],
     "note": "Hangdog's current bouldering page establishes public casual access and both its Classic and 2024 MoonBoards. The operator's homepage JSON-LD publishes 130 Auburn Street, Wollongong and this exact coordinate."
+  },
+  {
+    "lat": 49.4521018,
+    "lon": 11.0766654,
+    "name": "TSV 1846 Nürnberg - Bouldern",
+    "country": "DE",
+    "website": "https://tsvbouldern.de/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The club's current page prints its Fuggerstraße 9 Nürnberg address and identifies both its 2024 MoonBoard and adjustable Tension Board 2."
+  },
+  {
+    "lat": 39.2538197,
+    "lon": 9.1132358,
+    "name": "Double Dyno",
+    "country": "IT",
+    "website": "https://www.doubledyno.it/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The operator's current gym page identifies its public Cagliari/Pirri hall and LED MoonBoard; its contact page prints Via del Timo 21, whose exact street number independently resolves to this OSM point."
+  },
+  {
+    "lat": 45.6792606,
+    "lon": 8.9475553,
+    "name": "Lezard",
+    "country": "IT",
+    "website": "https://www.lezardclimb.it/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The association's current site identifies the public climbing gym, its MoonBoard and Via Anna Frank 1/3, 22076 Mozzate address; the exact named venue point is independently corroborated by OpenStreetMap."
   }
 ]
