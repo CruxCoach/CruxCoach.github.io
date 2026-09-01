@@ -488,6 +488,59 @@
       "results_reviewed": 138,
       "candidates_found": 1,
       "note": "Independent Spanish, Portuguese and English regional, country, capital-city, ccTLD, named-venue, opening/renovation, social-domain and manufacturer-project searches found only La Roca Asunción. Walltopia proves the 2026 public bouldering venue and fixed Quantum Board M, but no accessible operator-controlled page or other acceptable source supplies a precise address and matchable point; the record remains withheld pending geodata. Other results were product marketing, grow-light homonyms or out-of-region spillovers."
+    },
+    {
+      "pass": "A",
+      "board": "kilter",
+      "region": "north-america",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "fr", "es"],
+      "queries": [
+        "(\"Kilter Board\" OR KilterBoard OR \"Original Kilter Board\" OR \"Kilter Homewall\") (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (USA OR Canada OR Mexico)",
+        "\"Kilter Board\" climbing gym (New York OR Los Angeles OR Chicago OR Houston OR Toronto OR Vancouver OR Montreal OR Mexico City)",
+        "\"Kilter Board\" (\"training board\" OR \"training area\" OR amenities OR FAQ) (United States OR Canada OR Mexico)",
+        "\"Kilter Homewall\" (gym OR climbing OR bouldering) (USA OR Canada OR Mexico)",
+        "(\"Kilter Board\" OR KilterBoard) (\"salle d'escalade\" OR \"salle de bloc\" OR \"espace entraînement\" OR équipements) (Canada OR Québec OR Montréal)",
+        "(\"Kilter Board\" OR KilterBoard) (rocódromo OR \"gimnasio de escalada\" OR \"zona de entrenamiento\" OR instalaciones) México",
+        "site:.ca (\"Kilter Board\" OR KilterBoard) climbing OR bouldering",
+        "site:.mx (\"Kilter Board\" OR KilterBoard) escalada OR boulder",
+        "site:movementgyms.com \"Kilter Board\"",
+        "site:centralrockgym.com \"Kilter Board\"",
+        "site:touchstoneclimbing.com \"Kilter Board\"",
+        "site:boulderingproject.com \"Kilter Board\"",
+        "site:vitalclimbinggym.com \"Kilter Board\"",
+        "site:momentumclimbing.com \"Kilter Board\"",
+        "site:senderoneclimbing.com \"Kilter Board\"",
+        "site:mesarim.com \"Kilter Board\"",
+        "(\"Kilter Board\" OR KilterBoard) climbing (California OR Oregon OR Washington OR Nevada OR Arizona OR Utah OR Colorado)",
+        "(\"Kilter Board\" OR KilterBoard) climbing (Texas OR Oklahoma OR Kansas OR Missouri OR Illinois OR Minnesota OR Wisconsin)",
+        "(\"Kilter Board\" OR KilterBoard) climbing (Florida OR Georgia OR Carolinas OR Virginia OR Tennessee OR Alabama)",
+        "(\"Kilter Board\" OR KilterBoard) climbing (New York OR Massachusetts OR Pennsylvania OR Maryland OR Ohio OR Michigan)",
+        "site:crc.gatech.edu climbing wall Kilter Board address access community membership",
+        "site:crc.gatech.edu memberships community guest day pass",
+        "Georgia Tech Campus Recreation Center climbing wall official address",
+        "site:gatech.edu \"Kilter Board\" climbing",
+        "site:map.gatech.edu \"Campus Recreation Center\"",
+        "site:gatech.edu \"Campus Recreation Center\" \"latitude\"",
+        "site:gatech.edu \"750 Ferst Drive\" map",
+        "site:gatech.edu \"Kilter Board\" climbing",
+        "(\"Kilter Board\" OR KilterBoard) (climbing OR bouldering OR facilities OR amenities) (Alberta OR \"British Columbia\" OR Ontario OR Quebec OR Manitoba OR \"Nova Scotia\")",
+        "\"Kilter Board\" (Vancouver OR Calgary OR Edmonton OR Toronto OR Ottawa OR Montréal OR Quebec OR Halifax OR Winnipeg)",
+        "(\"Kilter Board\" OR KilterBoard) (university OR college OR campus OR recreation center) (Canada OR USA)",
+        "site:.edu \"Kilter Board\" (climbing OR bouldering)",
+        "(\"Kilter Board\" OR KilterBoard) (rocódromo OR boulder OR escalada OR instalaciones OR entrenamiento) (México OR CDMX OR Monterrey OR Guadalajara OR Puebla)",
+        "\"Kilter Board\" (Querétaro OR León OR Mérida OR Tijuana OR Chihuahua OR Oaxaca OR Cancún) escalada",
+        "site:adamanta.mx \"Kilter\" OR \"Kilter Board\"",
+        "(\"Kilter Board\" OR KilterBoard) (gimnasio de escalada OR zona de entrenamiento) (México OR Mexican)",
+        "site:firstascentclimbing.com \"Kilter Board\"",
+        "site:gravityvault.com \"Kilter Board\"",
+        "site:highpointclimbing.com \"Kilter Board\"",
+        "site:climbhangar18.com \"Kilter Board\""
+      ],
+      "results_reviewed": 248,
+      "candidates_found": 4,
+      "note": "Independent English, French and Spanish regional, state/province, city, university, chain-domain and facility searches found no missing currently open general-public Kilter venue. One existing Mexican venue gained a newly verified official link, full week and maximum angle; two future installations and one sponsor-gated university facility remain withheld. Existing Canadian, US and Mexican chain and university hits were checked against production rather than assumed absent."
     }
   ],
   "candidates": [
@@ -769,6 +822,46 @@
         "https://www.instagram.com/larocaboulder/"
       ],
       "note": "Walltopia's current 2026 project page proves a public Asunción bouldering gym with a fixed-angle Quantum Board M and links the operator profile. The accessible official material does not identify a street address or precise coordinate, and same-name restaurant results create a concrete misidentification risk. Publication is deferred until the climbing venue can be placed unambiguously."
+    },
+    {
+      "board": "kilter",
+      "name": "Summit Escalada",
+      "region": "north-america",
+      "discovered_by": "Pass A Spanish-language Mexico facility and city searches",
+      "status": "existing-enriched",
+      "official_sources": ["https://summitescalada.com/instalaciones/"],
+      "note": "The production venue already carried the public Zapopan Kilter Board. Its newly discoverable current operator page now proves the exact matching address, Original layout adjustable to 70 degrees and a complete regular week; those missing production details were integrated."
+    },
+    {
+      "board": "kilter",
+      "name": "Wingspan Climbing",
+      "region": "north-america",
+      "discovered_by": "Pass A Canada province/city and facility searches",
+      "status": "announced",
+      "official_sources": ["https://wingspanclimbing.com/"],
+      "note": "The operator identifies a planned 12x12 Kilter Board and 3068 Beta Avenue, Burnaby, but says the gym is coming in early 2027. It remains withheld until public opening is verified."
+    },
+    {
+      "board": "kilter",
+      "name": "Touchstone Sacramento Pipeworks",
+      "region": "north-america",
+      "discovered_by": "Pass A chain-domain and California searches",
+      "status": "announced",
+      "official_sources": ["https://touchstoneclimbing.com/touchstone-training-boards/"],
+      "note": "Touchstone's current official board guide lists a Kilter Board at Sacramento Pipeworks as coming soon. The planned installation is not presented as a current public board and remains withheld."
+    },
+    {
+      "board": "kilter",
+      "name": "Georgia Tech Campus Recreation Center",
+      "region": "north-america",
+      "discovered_by": "Pass A university, campus-recreation and Georgia searches",
+      "status": "restricted-access",
+      "official_sources": [
+        "https://crc.gatech.edu/locations/",
+        "https://crc.gatech.edu/contact/",
+        "https://crc.gatech.edu/rules-and-policies/"
+      ],
+      "note": "The university proves a 12x12 electric-hydraulic Kilter Board at its 750 Ferst Drive Campus Recreation Center. CRC use requires a BuzzCard plus membership or day pass, and a non-member may enter only on a guest pass sponsored by a current member. Because an unaffiliated visitor cannot independently obtain ordinary public access, the installation is retained as restricted-access research rather than published as a public venue."
     }
   ]
 }

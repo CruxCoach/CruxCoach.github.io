@@ -1281,5 +1281,28 @@
       "address": "神奈川県横浜市都筑区中川中央1-25-1 ノースポート・モールB1F",
       "city": "Yokohama"
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 20.64019,
+    "lon": -103.40967,
+    "name": "Summit Escalada",
+    "note": "The current official facilities page identifies the existing 12x12 Original Kilter Board as adjustable to 70 degrees; retain the upstream layout and size while filling its missing maximum angle.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": null,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
   }
 ]

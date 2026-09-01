@@ -21608,25 +21608,28 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
      "social-profile",
-     "previous-record"
+     "previous-record",
+     "canonical"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "web-search"
+     "web-search",
+     "venue-link",
+     "path-probe"
     ]
    }
   },
