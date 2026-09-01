@@ -435,6 +435,59 @@
       "results_reviewed": 129,
       "candidates_found": 4,
       "note": "Independent regional, multilingual, city/state, ccTLD, chain, opening/renovation, social-domain and manufacturer-project searches reconfirmed Momentum Trolley Square as the only currently open public North American Quantum venue. Cultivate Highland Station and The Pad Las Vegas remain operator-confirmed future openings. USA Climbing's National Training Center has an installed board but is an athlete/event facility rather than a generally public climbing venue, so it remains withheld."
+    },
+    {
+      "pass": "A",
+      "board": "quantum",
+      "region": "latin-america",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["es", "pt", "en"],
+      "queries": [
+        "\"Quantum Board\" (rocódromo OR \"gimnasio de escalada\" OR \"sala de búlder\" OR \"zona de entrenamiento\") (Argentina OR Chile OR Colombia OR Perú OR Ecuador OR Uruguay OR Paraguay)",
+        "\"QuantumBoard\" (escalada OR boulder OR entrenamiento) (Argentina OR Chile OR Colombia OR Perú OR Ecuador OR Uruguay OR Paraguay)",
+        "\"Quantum Board\" (\"ginásio de escalada\" OR \"academia de escalada\" OR \"área de treino\") Brasil",
+        "\"QuantumBoard\" (escalada OR boulder OR treinamento) Brasil",
+        "\"Quantum Board\" (rocódromo OR gimnasio OR escalada) (Paraguay OR Asunción OR Bolivia OR Uruguay)",
+        "\"Quantum Board\" (rocódromo OR gimnasio OR escalada) (Costa Rica OR Guatemala OR Panamá OR El Salvador)",
+        "\"Quantum Board\" (rocódromo OR gimnasio OR escalada) (Colombia OR Bogotá OR Medellín OR Ecuador OR Quito OR Perú OR Lima)",
+        "\"Quantum Board\" (rocódromo OR gimnasio OR escalada) (Argentina OR Buenos Aires OR Chile OR Santiago)",
+        "\"La Roca Asunción\" boulder official address",
+        "\"La Roca Boulder\" Asunción Instagram dirección",
+        "site:instagram.com/larocaboulder Asunción apertura",
+        "site:walltopia.com/projects \"La Roca Asunción\"",
+        "\"larocaboulder\" Asunción dirección",
+        "\"larocaboulder\" Paraguay apertura 2026",
+        "\"La Roca Boulder\" Paraguay \"Quantum Board\"",
+        "\"La Roca Boulder\" Asunción escalada",
+        "site:.ar \"Quantum Board\" escalada OR boulder",
+        "site:.br \"Quantum Board\" escalada OR boulder",
+        "site:.cl \"Quantum Board\" escalada OR boulder",
+        "site:.co \"Quantum Board\" escalada OR boulder",
+        "site:.pe \"Quantum Board\" escalada OR boulder",
+        "site:.ec \"Quantum Board\" escalada OR boulder",
+        "site:.py \"Quantum Board\" escalada OR boulder",
+        "site:.uy \"Quantum Board\" escalada OR boulder",
+        "site:.bo \"Quantum Board\" escalada OR boulder",
+        "site:.cr \"Quantum Board\" escalada OR boulder",
+        "site:.gt \"Quantum Board\" escalada OR boulder",
+        "site:.ve \"Quantum Board\" escalada OR boulder",
+        "site:walltopia.com/projects \"Quantum Board\" (Brazil OR Argentina OR Chile OR Colombia OR Peru OR Paraguay)",
+        "site:walltopia.com/es/proyectos \"Quantum Board\" (Latinoamérica OR Paraguay OR Brasil OR Chile)",
+        "\"Quantum Board\" escalada (apertura OR inauguración OR ampliación OR renovación) Latinoamérica",
+        "\"Quantum Board\" escalada Instagram (Brasil OR Argentina OR Chile OR Colombia OR Paraguay)",
+        "\"Quantum Board\" climbing gym (São Paulo OR Rio de Janeiro OR Belo Horizonte OR Curitiba OR Brasília)",
+        "\"Quantum Board\" climbing gym (Buenos Aires OR Córdoba OR Mendoza OR Santiago OR Valparaíso)",
+        "\"Quantum Board\" climbing gym (Bogotá OR Medellín OR Cali OR Lima OR Quito OR Guayaquil)",
+        "\"Quantum Board\" climbing gym (Asunción OR Montevideo OR La Paz OR Santa Cruz OR Caracas)",
+        "\"Quantum Board\" (\"Casa de Pedra\" OR \"Boulder Point\" OR \"90 Graus\" OR \"Campo Base\") Brasil escalada",
+        "\"Quantum Board\" (\"Muro Mall Sport\" OR \"Casa Boulder\" OR \"El Muro\" OR \"Zenit Climbing\") Chile escalada",
+        "\"Quantum Board\" (\"Gran Pared\" OR \"Zona de Bloque\" OR \"Zona de Escalada\" OR \"Roca Sólida\") Colombia",
+        "\"Quantum Board\" (Realization OR Rustik OR \"El Muro\" OR \"Campus Escalada\") Argentina"
+      ],
+      "results_reviewed": 138,
+      "candidates_found": 1,
+      "note": "Independent Spanish, Portuguese and English regional, country, capital-city, ccTLD, named-venue, opening/renovation, social-domain and manufacturer-project searches found only La Roca Asunción. Walltopia proves the 2026 public bouldering venue and fixed Quantum Board M, but no accessible operator-controlled page or other acceptable source supplies a precise address and matchable point; the record remains withheld pending geodata. Other results were product marketing, grow-light homonyms or out-of-region spillovers."
     }
   ],
   "candidates": [
@@ -704,6 +757,18 @@
       "status": "restricted-access",
       "official_sources": ["https://d1n1qj9geboqnb.cloudfront.net/ifsc/public/lfg2tyubh10fqh0ny76850tuhs3l"],
       "note": "The official competition document identifies an installed Walltopia Quantum Board at 504 W 300 S, Salt Lake City, but describes the center as an athlete warm-up facility with event-controlled access. It is not established as a generally public venue and is withheld."
+    },
+    {
+      "board": "quantum",
+      "name": "La Roca Asunción",
+      "region": "latin-america",
+      "discovered_by": "Pass A Spanish/Portuguese regional, Asunción city and manufacturer-project searches",
+      "status": "pending-geodata",
+      "official_sources": [
+        "https://walltopia.com/es/proyectos/la-roca/",
+        "https://www.instagram.com/larocaboulder/"
+      ],
+      "note": "Walltopia's current 2026 project page proves a public Asunción bouldering gym with a fixed-angle Quantum Board M and links the operator profile. The accessible official material does not identify a street address or precise coordinate, and same-name restaurant results create a concrete misidentification risk. Publication is deferred until the climbing venue can be placed unambiguously."
     }
   ]
 }
