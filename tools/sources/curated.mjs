@@ -359,6 +359,26 @@ const ENTRIES = [
     country: 'KR',
   },
   {
+    // The venue's current, document-backed business profile explicitly names
+    // a public MoonBoard wall and supplies the exact address and embedded point:
+    // https://www.daangn.com/kr/local-profile/%EC%98%A4%ED%84%B0%ED%81%B4%EB%9D%BC%EC%9D%B4%EB%B0%8D-7hmm4gijbo8u/
+    // Busan's current merchant register independently matches the operator to
+    // 498 Nakdong-daero, second floor. Neither source states the generation,
+    // LEDs or angle, so the discovery list's 2024 label is not copied.
+    source: 'curated',
+    board: 'moonboard',
+    name: '오터클라이밍 OTTERCLIMBING',
+    lat: 35.1088403702862,
+    lon: 128.967159324406,
+    address: '부산광역시 사하구 낙동대로 498, 2층',
+    city: 'Busan',
+    country: 'KR',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
     // Public venue, address, and both boards:
     // https://climbicp.com/au/first-visit/
     // Kilter access/layout/size/frame/angle and coordinates:

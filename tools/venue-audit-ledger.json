@@ -20288,6 +20288,36 @@
    }
   },
   {
+   "lat": 35.1088403702862,
+   "lon": 128.967159324406,
+   "name": "오터클라이밍 OTTERCLIMBING",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "social-only",
+    "channels": [
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ],
+    "note": "The operator's current marketplace business profile names only Instagram and Naver update channels; no standalone official HTTPS website was found."
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-official-site",
+    "channels": [
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ],
+    "note": "Marketplace and directory times are not an official-site schedule and currently conflict on the weekend."
+   }
+  },
+  {
    "lat": 33.324883,
    "lon": 126.8245979,
    "name": "오루뭉 Orumung Climbing Gym",

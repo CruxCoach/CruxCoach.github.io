@@ -209,3 +209,42 @@ MoonBoard. Secondary revisions conflict over whether the two Koala boards are
 2016 or 2024, so neither is published. The audit now has two published, eight
 unverified, one closed and 45 pending rows; 13 production-only MoonBoard labels
 still require reconciliation.
+
+The next current-channel pass dispositioned three more claimed 2024 setups.
+RockTree Bundang's operator website and public profile establish the branch, but
+neither identifies a MoonBoard; the detailed 2022 visit describes only an
+adjustable spray wall. SeoulForest Jongno's current operator profile and branch
+post establish the exact production venue, but its accessible posts do not name
+the claimed system board. SO Climbing is still a current public gym at the
+exact-address production point according to the national sports-safety report,
+and a 2018 report proves a historical MoonBoard, but no accessible current
+operator source supports the discovery list's 2024 claim. All three therefore
+remain unverified rather than being used to rewrite existing rows. OnFleek's
+June 2026 operator competition post now independently confirms current
+MoonBoard use and the national report supplies its exact street address, but no
+legitimate precise coordinate is available; an address centroid is not used.
+The audit now has two published, eleven unverified, one closed and 42 pending
+rows; all 13 production-only labels remain explicitly unreconciled.
+
+OTTERCLIMBING is the third publishable Korean candidate. Its current,
+document-backed operator business profile explicitly lists a public MoonBoard
+wall, the exact second-floor address and an embedded venue point; Busan's
+current merchant register independently matches the business and floor. The
+operator does not state a generation, LEDs or angle, so none is inferred from
+the discovery list's 2024 label. The marketplace profile and its linked social
+channel are not promoted to an official website, and conflicting third-party
+weekend schedules keep hours out of production. The map now contains 1,518
+MoonBoard rows at 1,393 physical venues; the Korean audit has three published,
+eleven unverified, one closed and 41 pending rows, with all 13 legacy
+production-only labels still awaiting identity reconciliation.
+
+The 2024 candidate tranche is now exhausted. Seosuwon Climbing Center remains
+a current public venue at one consistently reported Suwon address, but its
+accessible membership and climbing-log pages do not mention a MoonBoard and no
+operator-controlled board statement is readable. Gwang Climbing is likewise a
+current public Changwon venue identified by the provincial education authority
+and current activity data, but none of the accessible sources names a system
+board. Their apparent Naver operator channels are robots-blocked; no login or
+access-control workaround was attempted. Both discovery-list claims therefore
+remain unverified. Together with the published OTTERCLIMBING row, this leaves
+three published, thirteen unverified, one closed and 39 pending candidates.

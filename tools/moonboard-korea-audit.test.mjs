@@ -47,7 +47,7 @@ test('the committed Korean inventory accounts for the current open reconciliatio
   const audit = auditCandidates(candidates, decisions, venues);
   assert.equal(decisions.length, 56);
   assert.equal(new Set(decisions.map(row => row.name)).size, 55);
-  assert.deepEqual(audit.counts, { pending: 45, published: 2, unverified: 8, 'social-only': 0, closed: 1, ambiguous: 0 });
+  assert.deepEqual(audit.counts, { pending: 39, published: 3, unverified: 13, 'social-only': 0, closed: 1, ambiguous: 0 });
   assert.deepEqual(audit.malformed, []);
   assert.deepEqual(audit.missingPublished, []);
   assert.deepEqual(audit.accidentallyPublished, []);

@@ -42,6 +42,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['하나클라이밍짐 Hana Climbing Gym', 'kilter'],
     ['디스커버리 클라임스퀘어 Climbsquare ICN', 'moonboard'],
     ['디스커버리 클라임스퀘어 Climbsquare ICN', 'tension'],
+    ['오터클라이밍 OTTERCLIMBING', 'moonboard'],
     ['ICP Boulder Hall & Showroom', 'kilter'],
     ['ICP Boulder Hall & Showroom', 'tension'],
     ['BLOCK DOCK Petržalka', 'kilter'],
@@ -140,6 +141,16 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(climbSquareMoon.led, true);
   assert.equal(climbSquareMoon.variant, null);
   assert.equal(climbSquareMoon.angle, null);
+
+  const otter = at(features, 35.1088403702862, 128.967159324406);
+  assert.equal(otter.length, 1);
+  assert.equal(otter[0].properties.name, '오터클라이밍 OTTERCLIMBING');
+  assert.equal(otter[0].properties.city, 'Busan');
+  assert.equal(otter[0].properties.website, undefined);
+  assert.equal(otter[0].properties.hours, undefined);
+  assert.equal(otter[0].properties.boards[0].variant, null);
+  assert.equal(otter[0].properties.boards[0].led, null);
+  assert.equal(otter[0].properties.boards[0].angle, null);
 
   for (const [name, lat, lon, boards] of [
     ['Beyond Bouldering Thebarton', -34.91386, 138.57631, ['kilter', 'tension', 'moonboard']],
