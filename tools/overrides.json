@@ -1130,5 +1130,29 @@
     "name": "HUT WALL",
     "note": "The current operator page does not state a MoonBoard generation or LED equipment; clear both frozen claims pending branch-primary evidence.",
     "set": { "variant": null, "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 33.3192865,
+    "lon": 130.5083735,
+    "name": "Joywall",
+    "note": "The current JOYWALL operator site does not identify a MoonBoard; clear the unsupported inherited non-LED claim.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.40047759999999,
+    "lon": 140.3596822,
+    "name": "MOVEMENT Climbing Space / TRAILROCK",
+    "note": "Current operator sites do not establish MoonBoard light equipment at either MOVEMENT or the separately located TRAILROCK; clear both co-located frozen claims while their source-level identity is resolved.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 36.0227505,
+    "lon": 139.7355048,
+    "name": "OKKUROCK",
+    "note": "The current operator facility surface does not establish the inherited non-LED detail.",
+    "set": { "led": null }
   }
 ]

@@ -36,13 +36,25 @@ test('exclusions remove every entry at a backed coordinate and report stale rows
 
 test('committed excluded coordinates do not reach the public dataset', () => {
   const exclusions = JSON.parse(readFileSync(EXCLUSIONS, 'utf8'));
-  const excluded = new Set(exclusions.map(row => venueKey(row.lat, row.lon)));
+  const excluded = new Set(exclusions.filter(row => !row.match).map(row => venueKey(row.lat, row.lon)));
   const features = JSON.parse(readFileSync(GEOJSON, 'utf8')).features;
   const leaked = features.filter(feature => {
     const [lon, lat] = feature.geometry.coordinates;
     return excluded.has(venueKey(lat, lon));
   });
   assert.deepEqual(leaked, []);
+});
+
+test('a selective exclusion removes one bad source row without deleting its real co-located venue', () => {
+  const result = applyLocationExclusions([
+    { name: 'Real Gym', board: 'moonboard', lat: 37.4, lon: 140.3 },
+    { name: 'Wrong Gym', board: 'moonboard', lat: 37.4, lon: 140.3 },
+  ], [{
+    name: 'Wrong Gym', status: 'mislocated', lat: 37.4, lon: 140.3,
+    match: { board: 'moonboard', name: 'Wrong Gym' },
+  }]);
+  assert.deepEqual(result.entries.map(row => row.name), ['Real Gym']);
+  assert.equal(result.stats.excluded_entries, 1);
 });
 
 test('mislocated entries are an explicit supported exclusion outcome', () => {

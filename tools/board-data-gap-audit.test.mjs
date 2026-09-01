@@ -20,5 +20,10 @@ test('board data gap audit keeps retryable and stale-marker findings visible', (
   const audit = buildAudit();
   assert.ok(Number.isInteger(audit.research.retry_queue));
   assert.ok(Array.isArray(audit.quality_findings.closed_or_duplicate_markers_still_published));
+  assert.equal(
+    audit.quality_findings.closed_or_duplicate_markers_still_published.some(row => row.name === 'MOVEMENT Climbing Space'),
+    false,
+    'a valid co-located venue must not be reported when only the selectively matched source row was excluded',
+  );
   assert.ok(Array.isArray(audit.quality_findings.null_island_markers));
 });

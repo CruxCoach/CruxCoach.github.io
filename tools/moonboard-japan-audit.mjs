@@ -8,6 +8,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const VALID_STATUSES = new Set([
   'pending', 'current', 'unverified', 'closed', 'private', 'ambiguous', 'mislocated',
 ]);
+const EXCLUDED_STATUSES = new Set(['closed', 'mislocated']);
 
 function normalize(value) {
   return value.normalize('NFKC').replace(/\s+/g, '').toLocaleLowerCase('ja');
@@ -32,7 +33,7 @@ export function mapInventory(geojson) {
   };
 }
 
-export function auditInventory(inventory, decisions) {
+export function auditInventory(inventory, decisions, exclusions = []) {
   const validFields = new Set(['name', 'lat', 'lon', 'status', 'sources', 'note']);
   const malformed = [];
   const decisionKeys = new Map();
@@ -65,8 +66,12 @@ export function auditInventory(inventory, decisions) {
     decisionKeys.set(rowKey, row);
   });
 
+  const backedExclusions = new Set(exclusions
+    .filter(row => EXCLUDED_STATUSES.has(row?.status))
+    .map(row => `${key(row)}|${normalize(row.name)}|${row.status}`));
   const stale = decisions.filter(row => !inventory.venues.some(venue => key(venue) === key(row)
-    && normalize(venue.name) === normalize(row.name)));
+    && normalize(venue.name) === normalize(row.name))
+    && !backedExclusions.has(`${key(row)}|${normalize(row.name)}|${row.status}`));
   const unknownMapVenues = inventory.venues.filter(venue => !decisions.some(row => key(venue) === key(row)
     && normalize(venue.name) === normalize(row.name)));
   const counts = Object.fromEntries([...VALID_STATUSES].map(status => [status, 0]));
@@ -85,7 +90,8 @@ export function auditInventory(inventory, decisions) {
 if (process.argv[1]?.endsWith('moonboard-japan-audit.mjs')) {
   const geojson = JSON.parse(readFileSync(join(ROOT, 'boards/data/boards.geojson'), 'utf8'));
   const decisions = JSON.parse(readFileSync(join(ROOT, 'tools/moonboard-japan-decisions.json'), 'utf8'));
-  const audit = auditInventory(mapInventory(geojson), decisions);
+  const exclusions = JSON.parse(readFileSync(join(ROOT, 'tools/location-exclusions.json'), 'utf8'));
+  const audit = auditInventory(mapInventory(geojson), decisions, exclusions);
   process.stdout.write(`Japanese MoonBoard production audit: ${audit.venues} venues; ${audit.rawBoardRows} board rows; ${audit.counts.current} current; ${audit.counts.pending} pending\n`);
   if (process.argv.includes('--json') || audit.malformed.length || audit.stale.length
     || audit.unknownMapVenues.length) process.stdout.write(`${JSON.stringify(audit, null, 2)}\n`);

@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-09-01T02:33:22.307Z",
-  "venue_features": 2848,
-  "raw_entries": 3136,
+  "generated_at": "2026-09-01T02:44:30.820Z",
+  "venue_features": 2847,
+  "raw_entries": 3134,
   "venues_with_multiple_boards": 139,
-  "country_from_coder": 2848,
+  "country_from_coder": 2847,
   "country_from_fallback": 0,
   "country_missing": 0,
   "city_from_upstream": 1125,
-  "city_from_nearest": 1600,
+  "city_from_nearest": 1599,
   "city_missing": 123,
   "nearest_city_max_km": 25,
   "exclusions": {
-    "defined": 88,
-    "matched_venues": 21,
-    "excluded_entries": 22,
+    "defined": 90,
+    "matched_venues": 23,
+    "excluded_entries": 24,
     "unmatched": 67
   },
   "overrides": {
-    "defined": 92,
-    "applied": 92,
+    "defined": 95,
+    "applied": 95,
     "unmatched": 0,
-    "conflicts": 164
+    "conflicts": 167
   },
   "wellpass": {
     "defined": 87,
@@ -28,8 +28,8 @@
     "unmatched": 0
   },
   "venue_links": {
-    "defined": 1800,
-    "applied": 1800,
+    "defined": 1801,
+    "applied": 1801,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -38,13 +38,13 @@
     "countries": 63,
     "by_provenance": {
       "official-chain-page": 128,
-      "official-location-page": 632,
+      "official-location-page": 633,
       "official-site": 1040
     }
   },
   "venue_hours": {
-    "defined": 1321,
-    "applied": 1321,
+    "defined": 1322,
+    "applied": 1322,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -54,7 +54,7 @@
     "open_24h_days": 36,
     "by_provenance": {
       "official-chain-page": 108,
-      "official-location-page": 501,
+      "official-location-page": 502,
       "official-site": 712
     }
   },
@@ -66,12 +66,12 @@
     "soill": 12,
     "touchstone": 5,
     "aurora": 3,
-    "moonboard": 1528,
+    "moonboard": 1526,
     "12climb": 6,
     "quantum": 9
   },
   "per_source": {
-    "hangtime": 3060,
+    "hangtime": 3058,
     "curated": 67,
     "quantum": 9
   },

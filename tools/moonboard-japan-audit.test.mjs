@@ -32,15 +32,16 @@ test('the Japan audit fails closed on malformed, stale and unreviewed rows', () 
 test('the committed ledger accounts for every Japanese MoonBoard venue and setup', () => {
   const geojson = JSON.parse(readFileSync(join(ROOT, 'boards/data/boards.geojson'), 'utf8'));
   const decisions = JSON.parse(readFileSync(join(ROOT, 'tools/moonboard-japan-decisions.json'), 'utf8'));
-  const audit = auditInventory(mapInventory(geojson), decisions);
+  const exclusions = JSON.parse(readFileSync(join(ROOT, 'tools/location-exclusions.json'), 'utf8'));
+  const audit = auditInventory(mapInventory(geojson), decisions, exclusions);
   assert.equal(decisions.length, 45);
-  assert.equal(audit.venues, 45);
-  assert.equal(audit.rawBoardRows, 46);
+  assert.equal(audit.venues, 44);
+  assert.equal(audit.rawBoardRows, 44);
   assert.deepEqual(audit.counts, {
-    pending: 19,
+    pending: 15,
     current: 20,
-    unverified: 6,
-    closed: 0,
+    unverified: 9,
+    closed: 1,
     private: 0,
     ambiguous: 0,
     mislocated: 0,

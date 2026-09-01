@@ -115,9 +115,16 @@ export function buildAudit() {
   const adverse = [...linkResearch, ...hoursResearch]
     .filter(r => r.status === 'closed' || r.status === 'duplicate'
       || r.status === 'mislocated' || r.status === 'non-public');
+  const selectiveExclusions = new Set(exclusions
+    .filter(row => row.match)
+    .map(row => `${venueKey(row.lat, row.lon)}\0${row.name}\0${row.status}`));
   const adverseByKey = new Map();
   for (const row of adverse) {
     const key = venueKey(row.lat, row.lon);
+    // A selective exclusion deliberately leaves another valid source row at
+    // the same point. Its matched bad row is gone even though the venue marker
+    // remains, so coordinate-only stale-marker detection must ignore it.
+    if (selectiveExclusions.has(`${key}\0${row.name}\0${row.status}`)) continue;
     if (!adverseByKey.has(key) || row.status === 'duplicate' || row.status === 'mislocated') adverseByKey.set(key, row.status);
   }
   const staleMarkers = features.filter(f => {

@@ -254,14 +254,24 @@ an unbacked, differently named, undated, or contradictory row. Exclusions are
 applied before venue grouping and overrides, survive nightly upstream refreshes,
 and report stale/unmatched rows in `boards.meta.json`.
 
+By default an exclusion removes every source row at the rounded coordinate. If
+one demonstrably wrong upstream row shares its point with a real venue, an exact
+`match` containing both `board` and source `name` removes only that row. Use this
+only for a proven source collision: the selector is deliberately narrower than
+an override selector, and tests must assert that the valid co-located row stays
+published.
+
 Null Island is handled one step earlier: source adapters drop exact `0,0`
 coordinates as missing location data. Registry defaults from unrelated rows
 must never collapse into a public marker.
 
 `mislocated` is reserved for a real venue or board placed at a materially wrong
-point (for example, a city-centre default between two named branches). The
-replacement location must be added from branch-specific primary evidence in the
-same batch; it is not a general-purpose way to discard an awkward coordinate.
+point (for example, a city-centre default between two named branches). Resolve
+the replacement identity from branch-specific primary evidence in the same
+batch. Publish its corrected point only when current primary evidence also
+establishes the supported board and public access; otherwise the research ledger
+must explain why it remains withheld. It is not a general-purpose way to discard
+an awkward coordinate.
 
 `non-public` is reserved for an institution-only installation whose primary
 sources identify no public climbing venue access, such as a board installed for

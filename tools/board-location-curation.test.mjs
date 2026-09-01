@@ -578,6 +578,13 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(at(features, 35.4425, 139.36599).length, 0);
   assert.equal(at(features, 35.2605615, 139.1656818).length, 0);
 
+  const movementKoriyama = at(features, 37.40047759999999, 140.3596822);
+  assert.equal(movementKoriyama.length, 1);
+  assert.equal(movementKoriyama[0].properties.name, 'MOVEMENT Climbing Space');
+  assert.deepEqual(boardIds(movementKoriyama[0]), ['moonboard']);
+  assert.equal(movementKoriyama[0].properties.boards[0].led, null);
+  assert.equal(at(features, 33.2395578, 131.609272).length, 0, 'closed DAIBU must stay excluded');
+
   const waveRockPnu = at(features, 35.2295856, 129.0888247);
   assert.equal(waveRockPnu.length, 1);
   assert.equal(waveRockPnu[0].properties.name, '웨이브락 클라이밍 Wave Rock Climbing (PNU)');

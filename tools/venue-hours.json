@@ -16649,6 +16649,32 @@
   "note": "Three lines covering seven days, printed under LOCATION beside the address: Monday, Tuesday and Thursday close at 22:00, Wednesday and Friday at 23:00, and the weekend and public holidays run 10:00 to 21:00."
  },
  {
+  "lat": 33.3192865,
+  "lon": 130.5083735,
+  "name": "Joywall",
+  "country": "JP",
+  "source": "https://kurume.joywallclimbing.com/access/",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "closed",
+   "tue": "14:00-23:00",
+   "wed": "14:00-23:00",
+   "thu": "18:00-23:00",
+   "fri": "14:00-23:00",
+   "sat": "11:00-21:00",
+   "sun": "11:00-21:00"
+  },
+  "evidence": "クライミングジムJOYWALL久留米 〒839-0814 福岡県久留米市山川追分2-3-1 … 営業時間 火・水・金 14:00~23:00 木 18:00~23:00 土・日・祝 11:00~21:00 定休日 月曜のほか数日程不定休あり",
+  "note": "The current access page states one ordinary seven-day week beside the exact branch address. Additional irregular closure dates are announced separately and do not replace the stated regular hours."
+ },
+ {
   "lat": 36.0227505,
   "lon": 139.7355048,
   "name": "OKKUROCK",

@@ -235,6 +235,22 @@ current operator page does independently repair its previously unresolved
 official website. The ledger now stands at 20 current, six unverified and 19
 pending.
 
+The next four-row legacy pass separates current venue identity from current
+board proof. JOYWALL's current operator site establishes the Kurume branch,
+exact address, official website and a complete regular week, but does not name
+the frozen MoonBoard; OKKUROCK's current operator site likewise establishes an
+active public venue without stating that the board remains. Both are therefore
+`unverified`, and their unsupported inherited LED claims are cleared. DAIBU's
+operator announced a 30 November 2025 closure, so its stale production marker
+is removed. Finally, the frozen TRAILROCK row was found to share MOVEMENT
+Climbing Space's coordinate byte-for-byte even though both current operator
+sites give distinct Koriyama addresses. A selective source-row exclusion now
+removes only TRAILROCK while preserving MOVEMENT's real marker; neither current
+site states a MoonBoard, so MOVEMENT remains `unverified` and no corrected
+TRAILROCK board is guessed. The Japanese ledger now accounts for 44 published
+venues and 44 MoonBoard rows: 20 current, nine unverified and 15 pending, plus
+the excluded DAIBU closure.
+
 CAL-COLO's current operator page explicitly identifies both its Kilter Board
 and an LED-guided MoonBoard at the same Kizugawa address. Because the Kilter
 venue already carries a precise independently corroborated point, the missing

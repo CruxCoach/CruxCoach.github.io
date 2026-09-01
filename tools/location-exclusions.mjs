@@ -30,7 +30,7 @@ export function loadLocationExclusions(file, researchFile) {
     if (!row || typeof row !== 'object' || Array.isArray(row)) {
       errors.push(`${where}: must be an object`); return;
     }
-    const known = new Set(['lat', 'lon', 'name', 'status']);
+    const known = new Set(['lat', 'lon', 'name', 'status', 'match']);
     for (const key of Object.keys(row)) if (!known.has(key)) errors.push(`${where}: unknown field "${key}"`);
     if (typeof row.lat !== 'number' || !Number.isFinite(row.lat)
       || typeof row.lon !== 'number' || !Number.isFinite(row.lon)) {
@@ -38,6 +38,13 @@ export function loadLocationExclusions(file, researchFile) {
     }
     if (typeof row.name !== 'string' || !row.name.trim()) errors.push(`${where}: name must be non-empty`);
     if (!ALLOWED.has(row.status)) errors.push(`${where}: status must be closed, duplicate, mislocated, non-public or announced`);
+    if (row.match !== undefined && (!row.match || typeof row.match !== 'object'
+      || Array.isArray(row.match)
+      || Object.keys(row.match).some(key => !['board', 'name'].includes(key))
+      || typeof row.match.board !== 'string' || !row.match.board
+      || typeof row.match.name !== 'string' || !row.match.name)) {
+      errors.push(`${where}: match must contain only non-empty string board and name`);
+    }
     const key = venueKey(row.lat, row.lon);
     if (seen.has(key)) errors.push(`${where}: duplicate exclusion coordinate ${key}`);
     seen.add(key);
@@ -65,7 +72,13 @@ export function applyLocationExclusions(entries, exclusions) {
   const problems = [];
   for (const entry of entries) {
     const key = venueKey(entry.lat, entry.lon);
-    if (!byKey.has(key)) { kept.push(entry); continue; }
+    const exclusion = byKey.get(key);
+    if (!exclusion) { kept.push(entry); continue; }
+    if (exclusion.match
+      && (entry.board !== exclusion.match.board || entry.name !== exclusion.match.name)) {
+      kept.push(entry);
+      continue;
+    }
     matched.set(key, matched.get(key) + 1);
   }
   for (const exclusion of exclusions) {

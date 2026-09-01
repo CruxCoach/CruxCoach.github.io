@@ -1962,16 +1962,6 @@
     "checked": "2026-08-25"
   },
   {
-    "lat": 33.3192865,
-    "lon": 130.5083735,
-    "name": "Joywall",
-    "country": "JP",
-    "status": "unverified",
-    "candidate": "http://joywall.com/",
-    "reason": "joywall.com resolves, serves only over http, and what it serves is a template: \"Under construction — Awesome Site in The Making. An amazing site is coming to this web address.\" Nothing on it names Kurume, a wall or a board.",
-    "checked": "2026-08-25"
-  },
-  {
     "lat": 37.7445357,
     "lon": 139.1825675,
     "name": "little forest",
@@ -1981,14 +1971,24 @@
     "checked": "2026-08-25"
   },
   {
+    "lat": 37.40047759999999,
+    "lon": 140.3596822,
+    "name": "TRAILROCK",
+    "country": "JP",
+    "status": "mislocated",
+    "candidate": "https://www.trailrock.net/",
+    "reason": "The frozen TRAILROCK MoonBoard row copied MOVEMENT Climbing Space's exact Fukazawa coordinate. TRAILROCK's current official site identifies a separate active gym at 5-22 Wakabacho, Koriyama, while MOVEMENT's current official site identifies the venue at the published point. The source row is selectively removed without removing MOVEMENT; no MoonBoard is republished at TRAILROCK because its current operator site does not state one.",
+    "checked": "2026-09-01"
+  },
+  {
     "lat": 33.2395578,
     "lon": 131.609272,
     "name": "Oita Climbing Gym DAIBU",
     "country": "JP",
-    "status": "unverified",
-    "candidate": "https://daibu-climbing.com/",
-    "reason": "daibu-climbing.com was the gym's domain — 大分県大分市小池原898, Tuesday to Friday 14:00-23:00 — and it now serves an Indonesian gambling site dressed as a Samsung storefront. A local blog reports the gym as closed. The domain has been taken over, so nothing on it is evidence about the hall either way.",
-    "checked": "2026-08-25"
+    "status": "closed",
+    "candidate": "https://www.instagram.com/p/DQBShX-CdAR/",
+    "reason": "The venue's official @daibu.climbing announcement says the eleven-year gym closed on 30 November 2025; the local closure report embeds that exact operator post. Its former daibu-climbing.com domain has since been taken over by an unrelated gambling storefront and is deliberately not published.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 34.4875144,
