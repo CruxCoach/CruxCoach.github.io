@@ -1,8 +1,8 @@
 # Quantum Board location audit
 
-Checked 2026-08-31. The public map uses only active venues with a complete
+Checked 2026-09-01. The public map uses only active venues with a complete
 address, usable coordinates and an explicit primary-source statement that a
-Quantum Board is installed. `quantum-locations.json` contains the nine records
+Quantum Board is installed. `quantum-locations.json` contains the twelve records
 that passed. It also retains the exact public evidence used for each marker.
 
 The 2026-08-31 pass rechecked all nine published venues against their current
@@ -13,6 +13,15 @@ WordPress API and sitemap are Cloudflare-blocked, so the catalogue could not be
 enumerated through a machine endpoint; the ordinary public project pages and
 search index were used without attempting to bypass that restriction. The pass
 found one newly documented installation, La Roca, but no new publishable pin.
+
+An independent multilingual open-web pass on 2026-09-01 found three current
+installations absent from the structured eWalls audit and the reviewed
+allowlist: Chletterai in Appenzell, Das Kraftwerk in Althofen and Presa B+ in
+Bologna. Each venue's current official page explicitly names its Quantum Board
+and exact address. Coordinates come from the Swiss and Austrian official
+address registers for the first two and an independently matched exact OSM
+street-number point for Presa B+. The queries and candidate decisions are
+recorded in `web-only-discovery-ledger.json`.
 
 ## eWalls location API audit
 

@@ -6,10 +6,11 @@ test('committed web-only matrix is valid and remains visibly unfinished', () => 
   const audit = loadAudit();
   assert.deepEqual(audit.errors, []);
   assert.equal(audit.expected, 240);
-  assert.equal(audit.completed, 0);
-  assert.equal(audit.missing.length, 240);
+  assert.ok(audit.completed > 0, 'the committed ledger should retain completed coverage work');
+  assert.equal(audit.completed + audit.missing.length, audit.expected);
+  assert.ok(audit.missing.length > 0, 'the exhaustion gate must remain visibly unfinished');
   assert.deepEqual(audit.completePasses, []);
-  assert.equal(audit.candidates, 3);
+  assert.ok(audit.candidates >= 3, 'the seed candidate history must not be lost');
 });
 
 test('a coverage cell counts only with reproducible evidence', () => {

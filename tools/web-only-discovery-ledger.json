@@ -1,7 +1,33 @@
 {
   "schema": "cruxcoach-web-only-discovery-ledger-v1",
   "opened": "2026-09-01",
-  "coverage": [],
+  "coverage": [
+    {
+      "pass": "A",
+      "board": "quantum",
+      "region": "dach",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["de", "en", "fr", "it"],
+      "queries": [
+        "\"Quantum Board\" (Boulderhalle OR Kletterhalle OR Trainingsbereich) Deutschland Österreich Schweiz",
+        "\"QuantumBoard\" (Boulderhalle OR Kletterhalle OR Trainingsboard) Deutschland Österreich Schweiz",
+        "\"Quantum Board\" (salle d'escalade OR salle de bloc OR espace entraînement) Suisse",
+        "\"Quantum Board\" (palestra di arrampicata OR sala boulder OR area allenamento) Svizzera",
+        "\"Quantum Board\" (\"climbing gym\" OR \"bouldering gym\" OR \"training area\") Germany Austria Switzerland",
+        "\"Quantum Board\" Boulderhalle Deutschland",
+        "\"Quantum Board\" Boulderhalle Österreich",
+        "\"Quantum Board\" Boulderhalle Schweiz",
+        "\"Funderstraße 2\" \"Althofen\"",
+        "site:das-kraftwerk.at Quantumboard Althofen",
+        "site:chletterai.ch Quantum-board Appenzell",
+        "\"Quantum Board\" \"Althofen\""
+      ],
+      "results_reviewed": 58,
+      "candidates_found": 6,
+      "note": "Country-separated and multilingual searches were run independently of the existing venue inventory. Two DACH venues were published, two existing records were reconfirmed, one announced venue remained withheld, and one Italian spillover was published under its correct region."
+    }
+  ],
   "candidates": [
     {
       "board": "moonboard",
@@ -29,6 +55,69 @@
       "status": "corrected-existing",
       "official_sources": ["https://climbingbum.jp/yokohama/"],
       "note": "The web-only hit exposed a generic name and displaced registry point. It does not count as completed matrix coverage."
+    },
+    {
+      "board": "quantum",
+      "name": "The Boulder Room",
+      "region": "dach",
+      "discovered_by": "Pass A multilingual venue and training-area queries",
+      "status": "existing",
+      "official_sources": ["https://www.theboulderroom.com/"],
+      "note": "The official current page reconfirmed the existing Munich venue and adjustable 25°–60° Quantum Board."
+    },
+    {
+      "board": "quantum",
+      "name": "Chletterai",
+      "region": "dach",
+      "discovered_by": "Pass A country-specific German and Swiss venue queries",
+      "status": "published",
+      "official_sources": ["https://www.chletterai.ch/die-halle"],
+      "note": "The operator page proves the public Quantum Board and exact Appenzell address; the Swiss official address register supplies the point. The same page also yielded a separately published MoonBoard."
+    },
+    {
+      "board": "moonboard",
+      "name": "Chletterai",
+      "region": "dach",
+      "discovered_by": "Quantum Pass A official-page follow-through",
+      "status": "published",
+      "official_sources": ["https://www.chletterai.ch/die-halle"],
+      "note": "The official hall page names both systems; this MoonBoard was absent from the structured upstream dataset."
+    },
+    {
+      "board": "quantum",
+      "name": "Das Kraftwerk Althofen",
+      "region": "dach",
+      "discovered_by": "Pass A country-specific German and Austrian training-area queries",
+      "status": "published",
+      "official_sources": ["https://www.das-kraftwerk.at/bereiche/boulderhalle"],
+      "note": "The operator's current bouldering page proves public access, Quantum Board presence and address; Austria's official address register supplies the point."
+    },
+    {
+      "board": "quantum",
+      "name": "Gamsblock Boulderhalle",
+      "region": "dach",
+      "discovered_by": "Pass A country-specific German venue query",
+      "status": "announced",
+      "official_sources": [],
+      "note": "Current discovery still points only to a planned autumn-2026 opening. The prior Quantum audit remains fail-closed until an operator-controlled page establishes public opening."
+    },
+    {
+      "board": "quantum",
+      "name": "Arena Boulder",
+      "region": "southern-europe",
+      "discovered_by": "Pass A Italian-language DACH query spillover",
+      "status": "existing",
+      "official_sources": ["https://www.arenaboulder.it/en/the-gymnasium/"],
+      "note": "Search spillover outside DACH reconfirmed the existing Arco record; it does not count as DACH coverage."
+    },
+    {
+      "board": "quantum",
+      "name": "Presa B+",
+      "region": "southern-europe",
+      "discovered_by": "Pass A English-language DACH query spillover",
+      "status": "published",
+      "official_sources": ["https://www.presabpiu.it/en/chi-siamo/"],
+      "note": "The operator's current page proves the public Bologna venue, Quantum Board and exact address. It is logged in its correct region and does not count as DACH coverage."
     }
   ]
 }

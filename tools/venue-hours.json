@@ -32743,5 +32743,37 @@
     },
     "evidence": "営業時間 | 平日：17:00～22:00 | 土・日・祝日：10:00～20:00 | 定休日 火曜日",
     "note": "The current operator homepage states the complete ordinary week. Its separate Tuesday closure overrides the general weekday hours."
+  },
+  {
+    "lat": 47.32550048828125,
+    "lon": 9.41860580444336,
+    "name": "Chletterai",
+    "country": "CH",
+    "source": "https://www.chletterai.ch/preise-%C3%B6ffungszeiten",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "closed", "tue": "16:00-22:00", "wed": "14:00-22:00",
+      "thu": "16:00-22:00", "fri": "16:00-22:00", "sat": "10:00-18:00", "sun": "10:00-18:00"
+    },
+    "evidence": "Öffnungszeiten | Montag Geschlossen | Dienstag 16:00 - 22:00 Uhr | Mittwoch 14:00 - 22:00 Uhr | Donnerstag 16:00 - 22:00 Uhr | Freitag 16:00 - 22:00 Uhr | Samstag 10:00 - 18:00 Uhr | Sonntag 10:00 - 18:00 Uhr",
+    "note": "The current official venue page states all seven ordinary days. Its separate summer self-check-in notice changes staffing and entry method, not the published opening week."
+  },
+  {
+    "lat": 44.5046563,
+    "lon": 11.3531891,
+    "name": "Presa B+",
+    "country": "IT",
+    "source": "https://www.presabpiu.it/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+      "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "10:00-22:00", "sun": "10:00-22:00"
+    },
+    "evidence": "Giorno | Apertura | Chiusura Boulder | Lunedì 10:00 22:00 | Martedì 10:00 22:00 | Mercoledì 10:00 22:00 | Giovedì 10:00 22:00 | Venerdì 10:00 22:00 | Sabato 10:00 22:00 | Domenica 10:00 22:00",
+    "note": "The current operator homepage states the complete ordinary bouldering week. Its separately dated 2026-2027 holiday closures are one-off exceptions, not competing seasonal schedules."
   }
 ]

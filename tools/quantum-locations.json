@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-31",
+  "checked_at": "2026-09-01",
   "locations": [
     {
       "id": "momentum-sofia",
@@ -99,6 +99,66 @@
           "url": "https://walltopia.com/de/projects/the-boulder-room-quantum-board-xl-15x15/",
           "claim": "Walltopia documents Germany's first Quantum Board, an XL 15×15 at The Boulder Room.",
           "checked_at": "2026-08-31"
+        }
+      ]
+    },
+    {
+      "id": "chletterai-appenzell",
+      "name": "Chletterai",
+      "address": "Weissbadstrasse 50, 9050 Appenzell, Switzerland",
+      "city": "Appenzell",
+      "country": "CH",
+      "lat": 47.32550048828125,
+      "lon": 9.41860580444336,
+      "models": ["Quantum Board (model not published)"],
+      "website": "https://www.chletterai.ch/",
+      "public": true,
+      "verification": "primary",
+      "evidence": [
+        {
+          "url": "https://www.chletterai.ch/die-halle",
+          "claim": "The current official hall page names its MoonBoard and Quantum Board and publishes the exact Appenzell address.",
+          "checked_at": "2026-09-01"
+        }
+      ]
+    },
+    {
+      "id": "das-kraftwerk-althofen",
+      "name": "Das Kraftwerk Althofen",
+      "address": "Funderstraße 2, 9330 Althofen, Austria",
+      "city": "Althofen",
+      "country": "AT",
+      "lat": 46.8665648313,
+      "lon": 14.4689992553,
+      "models": ["Quantum Board (model not published)"],
+      "website": "https://www.das-kraftwerk.at/bereiche/boulderhalle",
+      "public": true,
+      "verification": "primary",
+      "evidence": [
+        {
+          "url": "https://www.das-kraftwerk.at/bereiche/boulderhalle",
+          "claim": "The current official bouldering page names the Quantum Board in the training area and publishes the exact Althofen address.",
+          "checked_at": "2026-09-01"
+        }
+      ]
+    },
+    {
+      "id": "presa-b-plus-bologna",
+      "name": "Presa B+",
+      "address": "Via Emilio Zago 7 F/E, 40128 Bologna BO, Italy",
+      "city": "Bologna",
+      "country": "IT",
+      "lat": 44.5046563,
+      "lon": 11.3531891,
+      "models": ["Quantum Board (model not published)"],
+      "website": "https://www.presabpiu.it/",
+      "public": true,
+      "verification": "primary",
+      "evidence": [
+        {
+          "url": "https://www.presabpiu.it/en/chi-siamo/",
+          "claim": "The current official gym page names the Quantum Board in the public training area and publishes the exact Bologna address.",
+          "checked_at": "2026-09-01"
         }
       ]
     },

@@ -1416,6 +1416,25 @@ const ENTRIES = [
     variant: 'mb2019-masters',
     angle: 40,
   },
+  {
+    // Current public venue, MoonBoard, exact address and regular week:
+    // https://www.chletterai.ch/die-halle
+    // https://www.chletterai.ch/preise-%C3%B6ffungszeiten
+    // Switzerland's official swisstopo address service supplies the exact
+    // building point for Weissbadstrasse 50.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Chletterai',
+    lat: 47.32550048828125,
+    lon: 9.41860580444336,
+    address: 'Weissbadstrasse 50, 9050 Appenzell, Switzerland',
+    city: 'Appenzell',
+    country: 'CH',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
 ];
 
 export async function load() {

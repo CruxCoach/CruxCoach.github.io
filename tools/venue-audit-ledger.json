@@ -39313,6 +39313,17 @@
     "pass": "2026-09-01", "result": "ambiguous",
     "channels": ["venue-link", "path-probe", "web-search"]
    }
+  },
+  {
+   "lat": 46.8665648313,
+   "lon": 14.4689992553,
+   "name": "Das Kraftwerk Althofen",
+   "country": "AT",
+   "needs": ["hours"],
+   "hours": {
+    "pass": "2026-09-01", "result": "seasonal",
+    "channels": ["venue-link", "path-probe", "web-search"]
+   }
   }
  ]
 }
