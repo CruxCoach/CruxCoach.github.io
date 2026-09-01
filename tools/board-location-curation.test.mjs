@@ -38,6 +38,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ["Portside Boulders O'Connor", 'moonboard'],
     ['Portside Boulders Willetton', 'moonboard'],
     ['Portside Boulders Joondalup', 'moonboard'],
+    ['カルコロ CAL-COLO', 'moonboard'],
     ['ICP Boulder Hall & Showroom', 'kilter'],
     ['ICP Boulder Hall & Showroom', 'tension'],
     ['BLOCK DOCK Petržalka', 'kilter'],
@@ -233,6 +234,14 @@ test('committed map data includes the missing boards and merges the corrected ve
     assert.equal(venue[0].properties.hours.length, 7);
   }
   assert.equal(at(features, -31.91396, 115.8168689).length, 0);
+
+  const calColo = at(features, 34.78667, 135.81206);
+  assert.equal(calColo.length, 1);
+  assert.equal(calColo[0].properties.name, 'カルコロ CAL-COLO');
+  assert.deepEqual(new Set(boardIds(calColo[0])), new Set(['kilter', 'moonboard']));
+  assert.equal(calColo[0].properties.boards.find(board => board.board === 'moonboard').led, true);
+  assert.equal(calColo[0].properties.boards.find(board => board.board === 'moonboard').variant, null);
+  assert.equal(calColo[0].properties.hours.length, 7);
 
   const gravitaZero = at(features, 45.65702, 13.81049);
   assert.equal(gravitaZero.length, 1);

@@ -297,6 +297,23 @@ const ENTRIES = [
     angle: 40,
   },
   {
+    // Current public venue, exact address and LED MoonBoard:
+    // https://cal-colo.com/
+    // Co-locate with its existing exact-address Kilter venue. The operator
+    // does not state a generation or angle, so both stay unknown.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'カルコロ CAL-COLO',
+    lat: 34.78667,
+    lon: 135.81206,
+    city: 'Kizugawa',
+    country: 'JP',
+    commercial: true,
+    led: true,
+    variant: null,
+    angle: null,
+  },
+  {
     // Public venue, address, and both boards:
     // https://climbicp.com/au/first-visit/
     // Kilter access/layout/size/frame/angle and coordinates:

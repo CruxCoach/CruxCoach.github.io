@@ -145,3 +145,20 @@ geocoder whose terms require its own displayed map/attribution was not imported
 into the dataset. Both remain explicit coordinate-retry candidates. The wider
 Asia-Pacific and multilingual pass remains in progress; this is not an
 exhaustion claim.
+
+CAL-COLO's current operator page explicitly identifies both its Kilter Board
+and an LED-guided MoonBoard at the same Kizugawa address. Because the Kilter
+venue already carries a precise independently corroborated point, the missing
+MoonBoard can be added without importing an address centroid or third-party map
+coordinate. The operator does not identify the generation or angle, so those
+fields remain unknown. The map now contains 1,516 MoonBoard rows at 1,391
+physical venues.
+
+The Korean-language discovery pass starts from a reproducible nationwide list
+published in August 2025. Its CSV names 59 boards at 58 venues (one venue has
+both 2016 and 2024 sets), while the frozen manufacturer snapshot contains no
+South Korean MoonBoard row at all. That is a discovery gap, not evidence for 59
+additions: the list is third-party, includes renames and closures, and links to
+a commercial map service. Its names and stated generations are being audited
+one by one against current operator-controlled sources and independent precise
+geodata; none will be imported solely from the list or its map links.
