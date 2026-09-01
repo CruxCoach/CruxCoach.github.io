@@ -141,6 +141,67 @@
       "results_reviewed": 116,
       "candidates_found": 6,
       "note": "Multilingual, country-specific, ccTLD and operator follow-through searches reconfirmed five existing production venues: Arena Boulder, Presa B+, OAKA Indoor Climbing, Sputnik Guindalera and Vertigo Oriente. A directory-only claim for Crux Climbing Center was rejected because its current official equipment list names Kilter Board and MoonBoard, not Quantum Board."
+    },
+    {
+      "pass": "A",
+      "board": "quantum",
+      "region": "central-eastern-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "pl", "cs", "sk", "hu", "ro", "bg", "sl", "hr", "sr"],
+      "queries": [
+        "\"Quantum Board\" (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (Poland OR Czechia OR Slovakia OR Hungary OR Romania OR Bulgaria OR Slovenia OR Croatia OR Serbia)",
+        "\"QuantumBoard\" (climbing OR bouldering OR gym OR training) (Poland OR Czechia OR Slovakia OR Hungary OR Romania OR Bulgaria OR Slovenia OR Croatia OR Serbia)",
+        "\"Quantum Board\" (ścianka wspinaczkowa OR bulderownia OR \"strefa treningowa\") Polska",
+        "\"Quantum Board\" (lezecká stěna OR boulder OR tréninková zóna) (Česko OR Czechia OR Slovensko)",
+        "Poziom 450 Bouldering official Quantum Board",
+        "\"Poziom 450\" \"Quantum Board\"",
+        "site:poziom450.pl Quantum OR boulder OR trening",
+        "\"Poziom 450 Bouldering\" official website address",
+        "site:poziom450.pl Kresowa 6 Quantum",
+        "site:poziom450.pl \"Poziom 450 Boulder\"",
+        "\"Kresowa 6\" \"Quantum Board\"",
+        "\"Poziom 450 Boulder\" Quantum",
+        "\"Poziom 450\" QuantumBoard Instagram",
+        "\"Poziom450\" \"Quantum Board\" Instagram Facebook",
+        "\"Poziom 450 Boulder\" \"QuantumBoard\"",
+        "site:facebook.com Poziom450 QuantumBoard",
+        "Carpatic climbing Bucharest official Quantum Board",
+        "\"Carpatic\" \"QuantumBoard XL\" Bucharest",
+        "site:carpatic.ro Quantum Board OR QuantumBoard",
+        "Carpatic climbing Instagram Quantum Board XL",
+        "\"DYMgYtBDUzr\" Carpatic",
+        "\"DYMgYtBDUzr\" QuantumBoard",
+        "\"DYm-y-zxjAK\" Momentum Bulgaria Mall",
+        "\"Bulgaria Mall\" QuantumBoard Momentum Climbing",
+        "\"Quantum Board\" (mászóterem OR boulder OR edzőterület) Magyarország",
+        "\"Quantum Board\" (sală de escaladă OR bouldering OR zonă de antrenament) România",
+        "\"Quantum Board\" (зала за катерене OR боулдър OR тренировъчна зона) България",
+        "\"Quantum Board\" (plezalni center OR balvanska dvorana OR trening) Slovenija",
+        "\"Quantum Board\" (penjački centar OR boulder OR trening) (Hrvatska OR Croatia OR Srbija OR Serbia)",
+        "\"Quantum Board\" (climbing gym OR bouldering OR training) (Bosnia OR Montenegro OR Macedonia OR Albania OR Moldova)",
+        "\"Quantum Board\" (lezecká stena OR boulder OR tréning) Slovensko",
+        "\"Quantum Board\" (climbing gym OR bouldering OR training) (Hungary OR Romania OR Slovenia OR Croatia)",
+        "\"Quantum Board\" site:.pl wspinaczka",
+        "\"Quantum Board\" site:.cz lezení OR boulder",
+        "\"Quantum Board\" site:.sk lezenie OR boulder",
+        "\"Quantum Board\" site:.hu mászás OR boulder",
+        "\"Quantum Board\" site:.ro escalada OR bouldering",
+        "\"Quantum Board\" site:.bg катерене OR climbing",
+        "\"Quantum Board\" site:.si plezanje OR boulder",
+        "\"Quantum Board\" site:.hr penjanje OR boulder",
+        "\"Quantum Board\" site:.rs penjanje OR boulder",
+        "\"Quantum Board\" site:.ba climbing OR boulder",
+        "\"Quantum Board\" site:.mk climbing OR boulder",
+        "\"Quantum Board\" site:.al climbing OR boulder",
+        "site:walltopia.com/projects Carpatic Quantum Board",
+        "site:walltopia.com \"Carpatic\" \"Quantum Board\"",
+        "site:walltopia.com/projects \"Poziom 450\"",
+        "site:walltopia.com \"Poziom 450\" \"Quantum Board\""
+      ],
+      "results_reviewed": 162,
+      "candidates_found": 6,
+      "note": "Country, local-language, ccTLD, operator and manufacturer-domain searches reconfirmed Momentum Sofia, Momentum Plovdiv and Pirin Golf. Poziom 450 Boulder and Carpatic remain retryable primary-evidence gaps; their accessible official sites prove the venues but not the boards, while exact operator Instagram posts were throttled. Momentum Bulgaria Mall remains an announced end-of-2026 project."
     }
   ],
   "candidates": [
@@ -290,6 +351,60 @@
       "status": "rejected",
       "official_sources": ["https://www.cruxclimbing.pt/"],
       "note": "A community directory labels the venue as having a Quantum Board, but the current operator equipment list explicitly names Kilter Board and MoonBoard and does not name Quantum. The secondary claim is insufficient and no Quantum record is published."
+    },
+    {
+      "board": "quantum",
+      "name": "Momentum Indoor Climbing Sofia",
+      "region": "central-eastern-europe",
+      "discovered_by": "Pass A Bulgarian venue and training-area searches",
+      "status": "existing",
+      "official_sources": ["https://sofia.momentumclimbing.com/en/home-en/"],
+      "note": "The current operator page reconfirmed the public Sofia venue and its two Quantum Boards; the production marker already represents them at one venue."
+    },
+    {
+      "board": "quantum",
+      "name": "Momentum Indoor Climbing Plovdiv",
+      "region": "central-eastern-europe",
+      "discovered_by": "Pass A Bulgarian venue and training-area searches",
+      "status": "existing",
+      "official_sources": ["https://plovdiv.momentumclimbing.com/en/"],
+      "note": "The current operator page reconfirmed the existing public Plovdiv production venue."
+    },
+    {
+      "board": "quantum",
+      "name": "Pirin Golf & Country Club",
+      "region": "central-eastern-europe",
+      "discovered_by": "Pass A Bulgarian venue and manufacturer-project searches",
+      "status": "existing",
+      "official_sources": ["https://walltopia.com/projects/pirin-golf-country-club-quantum-board-xl/"],
+      "note": "Walltopia's current project page reconfirmed the installed Quantum Board XL represented by the existing production record."
+    },
+    {
+      "board": "quantum",
+      "name": "Poziom 450 Boulder",
+      "region": "central-eastern-europe",
+      "discovered_by": "Pass A Polish venue search with operator-site and opening follow-through",
+      "status": "pending-primary-evidence",
+      "official_sources": ["https://boulder.poziom450.pl/"],
+      "note": "The operator site proves the active Kresowa 6 bouldering branch, while a current industry report claims a Walltopia Quantum Board. No accessible operator or manufacturer page yet names the board, so the venue remains withheld and retryable."
+    },
+    {
+      "board": "quantum",
+      "name": "Carpatic Climbing Gym",
+      "region": "central-eastern-europe",
+      "discovered_by": "Pass A Romanian venue search and renovation-report follow-through",
+      "status": "pending-primary-evidence",
+      "official_sources": ["https://carpatic.ro/", "https://www.instagram.com/p/DYMgYtBDUzr/"],
+      "note": "The official venue identity and address are clear, and a current industry report attributes an installed Quantum Board XL to the operator's exact Instagram post. The official post itself is fetch-throttled and the accessible operator site does not name the board, so publication is deferred for a legitimate retry."
+    },
+    {
+      "board": "quantum",
+      "name": "Momentum Indoor Climbing Bulgaria Mall",
+      "region": "central-eastern-europe",
+      "discovered_by": "Pass A Bulgarian venue search and operator-project follow-through",
+      "status": "announced",
+      "official_sources": ["https://www.instagram.com/p/DYm-y-zxjAK/"],
+      "note": "The planned Sofia bouldering branch includes a Quantum Board, but operator leadership states an end-of-2026 opening target. It is not yet a public venue and remains withheld."
     }
   ]
 }

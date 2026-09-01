@@ -77,6 +77,17 @@ against a public venue or manufacturer source.
   the venue as having a Quantum Board, but the current operator equipment page
   explicitly lists Kilter Board and MoonBoard instead. Without primary Quantum
   evidence, the directory claim is rejected.
+- Poziom 450 Boulder, Sosnowiec: the active Kresowa 6 branch and its January
+  2026 opening are established by operator-controlled pages, and a current
+  industry report claims a Quantum Board. No accessible operator or Walltopia
+  page names the board, so the candidate remains withheld for primary evidence.
+- Carpatic Climbing Gym, Bucharest: a current renovation report identifies an
+  installed Quantum Board XL and links the operator's exact Instagram post.
+  That post is fetch-throttled and the accessible operator site does not name
+  the board; retry the primary post rather than promoting the secondary claim.
+- Momentum Bulgaria Mall, Sofia: operator leadership describes a new branch
+  targeted for the end of 2026, and the project announcement includes a Quantum
+  Board. It is not yet an active public venue.
 - Madrid 2025, Paris, CWA and HFA installations: temporary trade-show or event
   boards, not durable public venues.
 
