@@ -658,6 +658,19 @@ boundary in the current official client, is documented in
 `MOONBOARD-SOURCE-AUDIT.md`. Do not treat search results, social posts, app
 artifacts or the frozen registry itself as proof that a venue remains public.
 
+Japan's legacy production inventory has its own fail-closed review ledger:
+
+```bash
+node tools/moonboard-japan-audit.mjs
+node tools/moonboard-japan-audit.mjs --json
+```
+
+`moonboard-japan-decisions.json` contains one row per physical Japanese venue,
+while the audit separately counts raw MoonBoard objects so a multi-setup venue
+cannot hide source drift. A `pending` row carries no claimed evidence; every
+decided row requires HTTPS provenance and a note. The audit exits non-zero if a
+map row is new, renamed, moved or removed without an accompanying decision.
+
 - Prefer sources with explicit public-domain or permissive licensing.
 - Drop free-form `description`/`bio` text at the adapter — historical
   MoonBoard entries contain SEO/casino spam from owner-set descriptions.

@@ -184,6 +184,17 @@ venue in this pass means Japan is not exhausted; subsequent passes must retry
 the two withheld candidates and audit the remaining legacy production rows for
 current identity, closure and board service.
 
+That legacy review is now a reproducible, fail-closed inventory rather than a
+prose-only task. `moonboard-japan-decisions.json` accounts for all 45 physical
+Japanese production venues and `moonboard-japan-audit.mjs` independently counts
+their 46 MoonBoard objects (MOVEMENT has two). Twelve venues checked in the two
+current operator/authority passes are marked current with per-row provenance;
+the remaining 33 are deliberately evidence-free `pending` rows. The audit and
+its unit test reject malformed decisions as well as any new, renamed, moved or
+removed production venue. This establishes the denominator, not exhaustion:
+each pending row still requires a current identity, closure, public-access and
+board-service decision.
+
 CAL-COLO's current operator page explicitly identifies both its Kilter Board
 and an LED-guided MoonBoard at the same Kizugawa address. Because the Kilter
 venue already carries a precise independently corroborated point, the missing
