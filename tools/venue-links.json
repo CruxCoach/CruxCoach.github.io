@@ -16428,14 +16428,17 @@
     "lon": 7.69012,
     "name": "Norsk Tindesenter",
     "country": "NO",
-    "website": "https://norsktindesenter.no/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
+    "website": "https://www.tindesenteret.no/klatrevegg",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
+      "street-address",
       "postal-code",
-      "city"
-    ]
+      "city",
+      "board-mention"
+    ],
+    "note": "The current operator climbing page identifies Carls Hall at Norsk Tindesenter, its Havnegata 2 address and Kilter Board. The linked current opening and price pages establish public paid drop-in access."
   },
   {
     "lat": 63.6883879,
@@ -27867,5 +27870,16 @@
     "provenance": "official-location-page",
     "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
     "note": "The current branch-primary board-social page explicitly assigns a Kilter Board to The Newsroom and says its boards are open to everyone whenever the venue is open. The operator contact page identifies the branch at 124 Portman Street, while OSM's independently maintained exact named sports-centre node supplies the matching point."
+  },
+  {
+    "lat": 58.62273,
+    "lon": 5.6619005,
+    "name": "Varhaughallen - Varhaug IL Klatring",
+    "country": "NO",
+    "website": "https://www.vil.no/klatring/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "city", "coordinates", "board-mention", "location-page"],
+    "note": "The current club climbing and schedule pages place the public climbing room inside Varhaughallen and offer paid drop-in access to everyone on two weekly sessions. The club's 2024 completion report says the Kilter Board was delivered, installed and in active use. The official venue page and business register identify Opstadvegen 583, while OSM's exact named, club-owned sports-centre building supplies the matching point."
   }
 ]

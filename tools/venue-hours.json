@@ -32888,5 +32888,21 @@
     },
     "evidence": "The Newsroom — 124 Portman Street Kinning Park, Glasgow G41 1EJ — Mon-Fri: 7am-10pm — Sat-Sun: 8am-8pm",
     "note": "The current operator contact page lists the branch by name and exact address immediately beside one complete regular week."
+  },
+  {
+    "lat": 62.56787,
+    "lon": 7.69012,
+    "name": "Norsk Tindesenter",
+    "country": "NO",
+    "source": "https://www.tindesenteret.no/apningstider",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-21:00", "tue": "10:00-21:00", "wed": "10:00-21:00",
+      "thu": "10:00-21:00", "fri": "10:00-21:00", "sat": "10:00-21:00", "sun": "10:00-21:00"
+    },
+    "evidence": "Når restauranten Tindestua er åpen er det mulig for drop in i klatrehallen. … åpningstider tindestua: MANDAG - SØNDAG: 10.00 - 21.00",
+    "note": "The current venue opening page expressly ties climbing-hall drop-in access to the restaurant's stated daily week. Its linked current climbing page identifies the Kilter Board and exact Havnegata 2 venue."
   }
 ]

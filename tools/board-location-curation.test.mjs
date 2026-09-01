@@ -115,6 +115,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Project Konepaja', 'tension'],
     ['Project Konepaja', 'moonboard'],
     ['The Newsroom - The Climbing Academy', 'kilter'],
+    ['Varhaughallen - Varhaug IL Klatring', 'kilter'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -946,6 +947,20 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(betaMalmo[0].properties.hours, undefined);
   assert.equal(betaMalmo[0].properties.boards[0].walls[0].min_angle, 15);
   assert.equal(betaMalmo[0].properties.boards[0].walls[0].max_angle, 70);
+
+  const varhaughallen = at(features, 58.62273, 5.6619005);
+  assert.equal(varhaughallen.length, 1);
+  assert.equal(varhaughallen[0].properties.name, 'Varhaughallen - Varhaug IL Klatring');
+  assert.equal(varhaughallen[0].properties.city, 'Varhaug');
+  assert.deepEqual(boardIds(varhaughallen[0]), ['kilter']);
+  assert.equal(varhaughallen[0].properties.website, 'https://www.vil.no/klatring/');
+  assert.equal(varhaughallen[0].properties.hours, undefined);
+
+  const norskTindesenter = at(features, 62.56787, 7.69012);
+  assert.equal(norskTindesenter.length, 1);
+  assert.equal(norskTindesenter[0].properties.name, 'Norsk Tindesenter');
+  assert.equal(norskTindesenter[0].properties.website, 'https://www.tindesenteret.no/klatrevegg');
+  assert.deepEqual(norskTindesenter[0].properties.hours, Array(7).fill('10:00-21:00'));
 
   const vertikale = at(features, 46.7203221, 11.6568287);
   assert.equal(vertikale.length, 1);

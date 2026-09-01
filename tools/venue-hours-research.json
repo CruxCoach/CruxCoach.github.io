@@ -5453,16 +5453,6 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 62.56787,
-  "lon": 7.69012,
-  "name": "Norsk Tindesenter",
-  "country": "NO",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The page publishes staffed reception hours and the café's, but no opening schedule for the climbing hall itself.",
-  "source": "https://norsktindesenter.no/"
- },
- {
   "lat": 63.6883879,
   "lon": 9.657686499999999,
   "name": "Ørland klatreklubb",
@@ -8654,5 +8644,15 @@
     "checked": "2026-09-01",
     "source": "https://kle-sch.at/bouldern/",
     "reason": "The current operator page states Monday, Tuesday, Thursday and Friday 15:00-21:00 plus Saturday and Sunday 10:00-21:00, but says nothing about Wednesday. It separately offers daily 06:00-23:00 chip-card access after an in-person purchase. A missing weekday and two access classes cannot be normalized into one public seven-day week without inference."
+  },
+  {
+    "lat": 58.62273,
+    "lon": 5.6619005,
+    "name": "Varhaughallen - Varhaug IL Klatring",
+    "country": "NO",
+    "status": "seasonal",
+    "checked": "2026-09-01",
+    "source": "https://www.vil.no/klatring/treningstider/",
+    "reason": "The current club page offers open public climbing Tuesday 18:00-20:00 and Wednesday 19:00-20:00, but explicitly says the climbing group's activity follows the school calendar. Those term-time sessions are not a year-round regular week, and the remaining days are not stated as closed, so no seven-day schedule is inferred."
   }
 ]

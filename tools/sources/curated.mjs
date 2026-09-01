@@ -1772,6 +1772,35 @@ const ENTRIES = [
       hold_set: null,
     }],
   },
+  {
+    // Current club access and facility pages plus the club's completion report:
+    // https://www.vil.no/klatring/treningstider/
+    // https://www.vil.no/klatring/
+    // https://www.vil.no/wp-content/uploads/2025/03/D_Arsmelding-alle-grupper-2024.pdf
+    // OSM way 310286930 is the exact named Varhaughallen sports-centre
+    // building, owned by the same club, and supplies the point.
+    source: 'curated',
+    board: 'kilter',
+    name: 'Varhaughallen - Varhaug IL Klatring',
+    lat: 58.62273,
+    lon: 5.6619005,
+    address: 'Opstadvegen 583, 4360 Varhaug, Norway',
+    city: 'Varhaug',
+    country: 'NO',
+    commercial: true,
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: null,
+      size_id: null,
+      size_label: null,
+      adjustable: null,
+      angle: null,
+      min_angle: null,
+      max_angle: null,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
 ];
 
 export async function load() {

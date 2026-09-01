@@ -24037,11 +24037,12 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -24438,6 +24439,24 @@
     "channels": [
      "venue-link",
      "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 58.62273,
+   "lon": 5.6619005,
+   "name": "Varhaughallen - Varhaug IL Klatring",
+   "country": "NO",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
     ]
    }
   },
