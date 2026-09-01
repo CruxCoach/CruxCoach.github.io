@@ -26,6 +26,80 @@
       "results_reviewed": 58,
       "candidates_found": 6,
       "note": "Country-separated and multilingual searches were run independently of the existing venue inventory. Two DACH venues were published, two existing records were reconfirmed, one announced venue remained withheld, and one Italian spillover was published under its correct region."
+    },
+    {
+      "pass": "A",
+      "board": "quantum",
+      "region": "western-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "fr", "nl"],
+      "queries": [
+        "\"Quantum Board\" (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (UK OR Ireland OR France OR Belgium OR Netherlands OR Luxembourg)",
+        "\"Quantum Board\" (\"salle d'escalade\" OR \"salle de bloc\" OR équipements OR \"espace entraînement\") (France OR Belgique OR Luxembourg)",
+        "\"Quantum Board\" (klimhal OR boulderhal OR faciliteiten OR trainingsruimte) (Nederland OR België)",
+        "\"QuantumBoard\" (gym OR bouldering OR climbing OR training) (Britain OR Ireland OR France OR Belgium OR Netherlands OR Luxembourg)",
+        "\"Quantum Board\" (\"climbing wall\" OR \"bouldering gym\" OR \"training board\") (UK OR Britain OR England OR Scotland OR Wales)",
+        "\"Quantum Board\" (\"climbing gym\" OR \"bouldering gym\" OR \"training area\") Ireland",
+        "\"Quantum Board\" (\"salle de bloc\" OR \"salle d'escalade\" OR \"pan d'entraînement\") France",
+        "\"Quantum Board\" (boulderhal OR klimzaal OR trainingsruimte) (Belgium OR België OR Belgique)",
+        "\"Quantum Board\" (boulderhal OR klimhal OR trainingsruimte) Nederland",
+        "\"Quantum Board\" (\"salle d'escalade\" OR \"salle de bloc\" OR \"espace entraînement\") Luxembourg",
+        "\"QuantumBoard\" Netherlands bouldering",
+        "\"QuantumBoard\" Luxembourg escalade",
+        "\"Quantum Board\" site:.fr escalade",
+        "\"Quantum Board\" site:.be escalade",
+        "\"Quantum Board\" site:.nl boulder",
+        "\"Quantum Board\" site:.lu escalade",
+        "\"Quantum Board\" site:arkose.com",
+        "\"Quantum Board\" site:climb-up.fr",
+        "\"Quantum Board\" site:theclimbinghangar.com OR site:depotclimbing.co.uk OR site:theclimbingacademy.com",
+        "\"Quantum Board\" site:mountain-network.nl OR site:boulderhaldecampus.nl OR site:monk.nl"
+      ],
+      "results_reviewed": 60,
+      "candidates_found": 1,
+      "note": "Independent multilingual, country-specific, ccTLD and major-chain domain searches found no verifiable currently open Quantum venue in Western Europe. Monoliet Roeselare remains an operator-confirmed 2027 opening and is withheld from production."
+    },
+    {
+      "pass": "A",
+      "board": "quantum",
+      "region": "nordics-baltics",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "sv", "no", "da", "fi", "is", "et", "lv", "lt"],
+      "queries": [
+        "\"Quantum Board\" (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (Sweden OR Norway OR Denmark OR Finland OR Iceland OR Estonia OR Latvia OR Lithuania)",
+        "\"QuantumBoard\" (climbing OR bouldering OR gym OR training) (Sweden OR Norway OR Denmark OR Finland OR Iceland OR Estonia OR Latvia OR Lithuania)",
+        "\"Quantum Board\" (klätterhall OR boulderhall OR träningsområde) (Sverige OR Sweden)",
+        "\"Quantum Board\" (klatrehall OR buldring OR treningsområde) (Norge OR Norway)",
+        "\"Quantum Board\" (klatrehal OR bouldering OR træningsområde) (Danmark OR Denmark)",
+        "\"Quantum Board\" (kiipeilyhalli OR boulderointi OR harjoittelualue) (Suomi OR Finland)",
+        "\"Quantum Board\" (klifursalur OR æfingasvæði OR klifur) (Ísland OR Iceland)",
+        "\"Quantum Board\" (ronimissaal OR bouldering OR treeninguala) (Eesti OR Estonia)",
+        "\"Quantum Board\" (kāpšanas zāle OR bouldering OR treniņu zona) (Latvija OR Latvia)",
+        "\"Quantum Board\" (laipiojimo salė OR riedulių salė OR treniruočių zona) (Lietuva OR Lithuania)",
+        "\"Quantum Board\" (kiipeilykeskus OR klättercenter OR klatresenter) Scandinavia",
+        "\"Quantum Board\" (Tallinn OR Riga OR Vilnius OR Helsinki OR Stockholm OR Oslo OR Copenhagen OR Reykjavik)",
+        "Brak Buldring Oslo official Quantum Board",
+        "site:brakbuldring.no Quantum Board OR Quantumboard OR treningsbrett",
+        "\"premium gym\" \"adjustable Quantum Board\" climbing",
+        "\"adjustable Quantum Board\" Sweden climbing gym",
+        "\"Quantum Board\" site:.se klättring OR bouldering",
+        "\"Quantum Board\" site:.no klatring OR buldring",
+        "\"Quantum Board\" site:.dk klatring OR bouldering",
+        "\"Quantum Board\" site:.fi kiipeily OR bouldering",
+        "\"Quantum Board\" site:.is klifur",
+        "\"Quantum Board\" site:.ee ronimine OR bouldering",
+        "\"Quantum Board\" site:.lv kāpšana OR bouldering",
+        "\"Quantum Board\" site:.lt laipiojimas OR bouldering",
+        "\"Klyv Klatresenter\" \"Quantum Board\"",
+        "Gripster climbing \"Quantum Board\"",
+        "Konepaja climbing \"Quantum Board\"",
+        "\"Brak Buldring\" \"Quantum Board\""
+      ],
+      "results_reviewed": 104,
+      "candidates_found": 1,
+      "note": "Local-language, capital-city, ccTLD and named-operator follow-up searches found no currently open, operator-confirmed Quantum venue. Brak Buldring Oslo is withheld because its own current homepage still says it is opening soon and does not yet document the board."
     }
   ],
   "candidates": [
@@ -118,6 +192,24 @@
       "status": "published",
       "official_sources": ["https://www.presabpiu.it/en/chi-siamo/"],
       "note": "The operator's current page proves the public Bologna venue, Quantum Board and exact address. It is logged in its correct region and does not count as DACH coverage."
+    },
+    {
+      "board": "quantum",
+      "name": "Monoliet Roeselare",
+      "region": "western-europe",
+      "discovered_by": "Pass A multilingual venue and country-specific searches",
+      "status": "announced",
+      "official_sources": ["https://klimzaalmonoliet.be/"],
+      "note": "The operator page names a Walltopia Quantum Board but gives 2027 as the opening year. It is not a currently public venue and remains withheld until opening can be verified."
+    },
+    {
+      "board": "quantum",
+      "name": "Brak Buldring",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A English and Norwegian venue searches with operator-page follow-through",
+      "status": "announced",
+      "official_sources": ["https://brakbuldring.no/"],
+      "note": "A current trade report describes a planned Quantum Board, but the operator homepage still says 'ÅPNER SNART' and does not itself document the board. Withheld until the venue is publicly open and the board is confirmed by an acceptable primary source."
     }
   ]
 }
