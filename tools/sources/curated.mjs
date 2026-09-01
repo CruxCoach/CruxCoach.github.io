@@ -7,22 +7,6 @@
 
 const ENTRIES = [
   {
-    // Current public branch and MoonBoard amenity:
-    // https://www.calgaryclimbing.com/
-    // The coordinate is the existing address-bearing Chinook Kilter venue.
-    source: 'curated',
-    board: 'moonboard',
-    name: 'Calgary Climbing Center Chinook',
-    lat: 50.99044,
-    lon: -114.06805,
-    city: 'Calgary',
-    country: 'CA',
-    commercial: true,
-    led: null,
-    variant: null,
-    angle: null,
-  },
-  {
     // Current public venue, MoonBoard and exact venue identity:
     // https://www.boulderindoor.com/en/facilities
     // The coordinate is its existing address-bearing Kilter venue.
