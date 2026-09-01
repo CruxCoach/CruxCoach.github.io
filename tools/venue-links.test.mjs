@@ -15,6 +15,7 @@ import { renderListPage } from './render-static.mjs';
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const LINKS_FILE = join(REPO_ROOT, 'tools', 'venue-links.json');
 const RESEARCH_FILE = join(REPO_ROOT, 'tools', 'venue-links-research.json');
+const EXCLUSIONS_FILE = join(REPO_ROOT, 'tools', 'location-exclusions.json');
 const GEOJSON_FILE = join(REPO_ROOT, 'boards', 'data', 'boards.geojson');
 const MAP_JS = join(REPO_ROOT, 'boards', 'map.js');
 
@@ -201,6 +202,7 @@ test('validateResearchEntry keeps rejected candidates well-described', () => {
   assert.match(validateResearchEntry({ ...base, reason: '' })[0], /reason/);
   assert.match(validateResearchEntry({ ...base, website: 'https://x.test/' })[0], /unknown field/);
   assert.ok(RESEARCH_STATUS.has('private') && RESEARCH_STATUS.has('closed'));
+  assert.ok(RESEARCH_STATUS.has('announced'));
 });
 
 // ── name matching ───────────────────────────────────────────────────
@@ -573,16 +575,27 @@ test('tools/venue-links-research.json validates and stays out of production', ()
   assert.deepEqual(errors, []);
 
   const seen = new Set();
+  const researchByKey = new Map();
   for (const e of research) {
     const k = venueKey(e.lat, e.lon);
     assert.ok(!seen.has(k), `duplicate research entry for ${e.name}`);
     seen.add(k);
+    researchByKey.set(k, e);
   }
 
   const { entries } = loadVenueLinks(LINKS_FILE);
+  const selective = new Set(JSON.parse(readFileSync(EXCLUSIONS_FILE, 'utf8'))
+    .filter(row => row.match)
+    .map(row => `${venueKey(row.lat, row.lon)}\0${row.name}\0${row.status}`));
   for (const e of entries) {
-    assert.ok(!seen.has(venueKey(e.lat, e.lon)),
-      `"${e.name}" is both curated and logged as rejected — it can only be one`);
+    const key = venueKey(e.lat, e.lon);
+    if (!seen.has(key)) continue;
+    const rejected = researchByKey.get(key);
+    assert.ok(
+      rejected.name !== e.name
+        && selective.has(`${key}\0${rejected.name}\0${rejected.status}`),
+      `"${e.name}" is both curated and logged as rejected without a selective source-row exclusion`,
+    );
   }
 });
 

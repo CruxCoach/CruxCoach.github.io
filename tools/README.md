@@ -228,7 +228,12 @@ nightly `cron-refresh.sh`).
 - **Matching**: by `board` + `(lat, lon)` rounded to 4 decimals (~11 m — the
   same precision as venue grouping), so the file may carry coordinates at any
   precision. `name` is a human label only; the build warns if it doesn't
-  match the entry that was matched on, which catches coordinate typos.
+  match the entry that was matched on, which catches coordinate typos. If a
+  venue has multiple rows of the same board type, add an exact `match` object
+  using one or more of `name`, `variant`, `commercial`, `led`, `angle`, or
+  `_source`; without it the correction deliberately applies to every matching
+  row and the build warns. This is what keeps an upgraded full-size MoonBoard
+  from rewriting a distinct Mini at the same venue.
 - **Semantics**: every key under `set` is written onto the matched per-board
   object and wins over the upstream value. Replacing a non-null upstream
   value is logged and counted as a conflict, so a stale override stays
@@ -238,6 +243,48 @@ nightly `cron-refresh.sh`).
 - After editing, rebuild (`node tools/build-boards-data.mjs`) and commit the
   regenerated `boards/data/` files alongside `overrides.json`. Counts land in
   `boards.meta.json` under `overrides`.
+
+## Closed, duplicate, non-public, announced, and mislocated upstream locations
+
+`tools/location-exclusions.json` removes an upstream coordinate only after a
+`closed`, `duplicate`, `non-public`, `announced`, or `mislocated` decision at the same coordinate is backed by the
+primary-source research in `tools/venue-links-research.json`. The exclusion
+file intentionally carries no second copy of the evidence; its loader refuses
+an unbacked, differently named, undated, or contradictory row. Exclusions are
+applied before venue grouping and overrides, survive nightly upstream refreshes,
+and report stale/unmatched rows in `boards.meta.json`.
+
+By default an exclusion removes every source row at the rounded coordinate. If
+one demonstrably wrong upstream row shares its point with a real venue, an exact
+`match` containing both `board` and source `name` removes only that row. Use this
+only for a proven source collision: the selector is deliberately narrower than
+an override selector, and tests must assert that the valid co-located row stays
+published.
+
+Null Island is handled one step earlier: source adapters drop exact `0,0`
+coordinates as missing location data. Registry defaults from unrelated rows
+must never collapse into a public marker.
+
+`mislocated` is reserved for a real venue or board placed at a materially wrong
+point (for example, a city-centre default between two named branches). Resolve
+the replacement identity from branch-specific primary evidence in the same
+batch. Publish its corrected point only when current primary evidence also
+establishes the supported board and public access; otherwise the research ledger
+must explain why it remains withheld. It is not a general-purpose way to discard
+an awkward coordinate.
+
+`non-public` is reserved for an institution-only installation whose primary
+sources identify no public climbing venue access, such as a board installed for
+physical-education lessons inside a school. It must not be used merely because
+public access has not yet been proved; those cases remain research candidates.
+
+`announced` is reserved for a manufacturer pin that the venue's own current
+page explicitly says is still “coming soon” or otherwise not open. It prevents
+an app's premature pin from being presented as a current public installation;
+the outcome must be rechecked and removed once the venue announces opening.
+
+After changing exclusions, run a full `node tools/build-boards-data.mjs` (not
+`--overlays-only`) and commit the regenerated dataset, metadata, and directories.
 
 ## egym Wellpass curation
 
@@ -535,6 +582,120 @@ no-op rebuild produces no diff.
 in `humans.txt`, the privacy pages, and `cities.meta.json`.
 
 ## Data-source guidelines
+
+### Independent web-only discovery audit
+
+Public boards can exist without any app feed, manufacturer locator or registry
+row. The independent multilingual search matrix, exact-query coverage ledger and
+candidate history live in [`WEB-ONLY-DISCOVERY.md`](WEB-ONLY-DISCOVERY.md).
+
+```bash
+node tools/web-only-discovery-audit.mjs
+```
+
+The two required primary passes use different query formulations across every
+supported board and world region. Each of the 240 primary cells is searched
+exactly once; productive cells and retryable technical failures do not trigger
+whole-cell repetitions. A snippet or directory is discovery only; normal current
+official-venue evidence and geodata policy still gate every production change.
+
+### Aurora-family anonymous-pins audit
+
+Tension, Grasshopper, Decoy, So iLL, Touchstone and Aurora expose small
+anonymous manufacturer-app pin lists. Compare all six with the committed map:
+
+```bash
+node tools/aurora-pins-audit.mjs
+node tools/aurora-pins-audit.mjs --json
+```
+
+The tool discards account ids and usernames and retains no response. A pin is a
+candidate, not proof of current public access: review it against the venue's own
+current page. The endpoints have no published redistribution licence and omit
+addresses and board details, so Hangtime remains the normal ingest source.
+Backed source-coordinate overrides count as resolved only when the live pin
+matches the override selector and its target still lands on a current venue for
+the same board system; a stale override therefore fails closed as a candidate.
+
+### 12Climb manufacturer-KML audit
+
+12Climb maintains a public location KML. Its school product is not evidence of
+public venue access, so every placemark has a reviewed disposition in
+`12climb-location-decisions.json`. Recheck the live source without retaining its
+free-form descriptions:
+
+```bash
+node tools/12climb-locations-audit.mjs
+node tools/12climb-locations-audit.mjs --json
+```
+
+The audit exits non-zero for a new, removed, moved or renamed placemark, for a
+reviewed public point missing from production, or for a non-public/unverified
+point that appears in production. `--input file.kml` supports exact-repeat tests.
+Manufacturer identity and coordinates are candidate evidence only; a public
+addition still requires a current venue-controlled page establishing access and
+board persistence.
+
+### Kilter manufacturer-locator audit
+
+Kilter's official locator page embeds a public StoreRocket dataset. It is a
+valuable candidate channel, but not a safe production feed: it includes private
+home walls, stale/closed venues, duplicate submissions, Null Island and several
+coordinates in the wrong country. Compare it manually with the committed map:
+
+```bash
+node tools/kilter-locator-audit.mjs
+node tools/kilter-locator-audit.mjs --json
+```
+
+The command retains no raw response and deliberately prints no phone or email.
+Rows under `candidates` are not additions: each still needs an unambiguous public
+venue identity and current primary evidence. Coordinate matches, known
+exclusions, explicit private rows and likely coordinate drift are separated so
+the residual worklist is reproducible. A point within 250 m is a match only when
+the names or addresses identify the same venue; a 100 m co-location tolerance
+absorbs ordinary entrance/geocoding variation. This prevents a second gym in a
+dense city from disappearing merely because it is nearby. Same-identity drift
+also compares the locator's address with Kilter addresses already in the map,
+so an operator rename does not hide a known bad pin. Conclusive, name-matched
+`venue-links-research.json` outcomes classify locator-only private/closed/
+duplicate/non-public/announced/mislocated rows without turning those decisions
+into production-wide coordinate exclusions. Same-identity submissions at the
+same rounded point are counted separately as locator duplicates, with the most
+detailed access/profile row retained for review. `--input file.json`
+accepts a previously fetched response for tests or an exact-repeat audit.
+
+### Touchstone chain board audit
+
+Touchstone's current official training-board guide is a structured, chain-wide
+supplement for four supported systems. The reviewed matrix, count discrepancy,
+future installations and branch-level corroboration are recorded in
+`TOUCHSTONE-CHAIN-BOARDS.md`. Curated rows recover only current boards absent
+from the frozen registries; existing rows are corrected with `overrides.json`,
+and near-coordinate duplicates use the backed exclusion workflow.
+
+### MoonBoard replacement-source audit
+
+MoonBoard removed its former anonymous location feed in May 2026. The frozen
+Hangtime snapshot remains the baseline, while current public installations are
+recovered only from branch-primary venue pages. The repeatable search for a
+replacement manufacturer channel, including the authentication and App Check
+boundary in the current official client, is documented in
+`MOONBOARD-SOURCE-AUDIT.md`. Do not treat search results, social posts, app
+artifacts or the frozen registry itself as proof that a venue remains public.
+
+Japan's legacy production inventory has its own fail-closed review ledger:
+
+```bash
+node tools/moonboard-japan-audit.mjs
+node tools/moonboard-japan-audit.mjs --json
+```
+
+`moonboard-japan-decisions.json` contains one row per physical Japanese venue,
+while the audit separately counts raw MoonBoard objects so a multi-setup venue
+cannot hide source drift. A `pending` row carries no claimed evidence; every
+decided row requires HTTPS provenance and a note. The audit exits non-zero if a
+map row is new, renamed, moved or removed without an accompanying decision.
 
 - Prefer sources with explicit public-domain or permissive licensing.
 - Drop free-form `description`/`bio` text at the adapter — historical

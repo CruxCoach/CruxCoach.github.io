@@ -33,6 +33,176 @@
   },
   {
     "board": "moonboard",
+    "lat": 51.0779562,
+    "lon": -114.1337454,
+    "name": "University of Calgary Moonboard",
+    "note": "The university's current board page places its MoonBoard and Kilter Board together on the west side of the Racquet Centre; normalize the legacy MoonBoard pin onto the address-bearing Kilter entry and apply the official 2024 hold set and fixed 40° configuration.",
+    "set": {
+      "lat": 51.07767,
+      "lon": -114.13419,
+      "name": "University of Calgary Outdoor Centre",
+      "variant": "mb2024",
+      "angle": 40
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 44.03909,
+    "lon": -121.30325,
+    "name": "Boardworks Climbing",
+    "note": "The official venue page identifies one gym at 222 SE Reed Market Rd containing all six boards; consolidate the slightly drifted manufacturer pins onto the address-bearing Kilter point.",
+    "set": {
+      "lat": 44.03913,
+      "lon": -121.3032
+    }
+  },
+  {
+    "board": "grasshopper",
+    "lat": 44.03886,
+    "lon": -121.30328,
+    "name": "Boardworks Climbing",
+    "note": "The official venue page identifies one gym at 222 SE Reed Market Rd containing all six boards; consolidate the slightly drifted manufacturer pins onto the address-bearing Kilter point.",
+    "set": {
+      "lat": 44.03913,
+      "lon": -121.3032
+    }
+  },
+  {
+    "board": "decoy",
+    "lat": 44.03886,
+    "lon": -121.30328,
+    "name": "Boardworks Climbing",
+    "note": "The official venue page identifies one gym at 222 SE Reed Market Rd containing all six boards; consolidate the slightly drifted manufacturer pins onto the address-bearing Kilter point.",
+    "set": {
+      "lat": 44.03913,
+      "lon": -121.3032
+    }
+  },
+  {
+    "board": "tension",
+    "lat": -26.80713,
+    "lon": 153.07039,
+    "name": "Boulder Heads",
+    "note": "The current official training-board page places its MoonBoard 2024 and Tension Board 2 together at one 19 Edison Crescent venue; consolidate the two manufacturer pins and add the official locality.",
+    "set": {
+      "lat": -26.807137,
+      "lon": 153.070112,
+      "city": "Baringa"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": -26.807137,
+    "lon": 153.070112,
+    "name": "Boulder Heads",
+    "note": "The official training-board page confirms this is the Baringa branch and its 2024 MoonBoard remains fixed at 40°.",
+    "set": {
+      "city": "Baringa",
+      "variant": "mb2024",
+      "angle": 40
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 49.7016339,
+    "lon": -123.1558121,
+    "name": "Grand Wall Bouldering Co-operative",
+    "note": "The co-operative's current facilities page explicitly identifies its LED MoonBoard as the 2024 hold set.",
+    "set": {
+      "variant": "mb2024",
+      "led": true
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 49.2386079,
+    "lon": 10.6036822,
+    "name": "BOULDER HALL - Burgoberbach",
+    "note": "The venue's current MoonBoard setup page explicitly instructs visitors to select the 2024 board at 40 degrees.",
+    "set": {
+      "variant": "mb2024",
+      "angle": 40
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 49.7967105,
+    "lon": 9.902870300000002,
+    "name": "DAV-Kletterzentrum Würzburg",
+    "note": "The section's current training-area page identifies its completed MoonBoard as the 2024 setup at fixed 40 degrees.",
+    "set": {
+      "variant": "mb2024",
+      "angle": 40
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 49.4521018,
+    "lon": 11.0766654,
+    "name": "TSV 1846 Nürnberg - Bouldern",
+    "note": "The club's 3 March 2026 operator post states that its full MoonBoard was upgraded to the current 2024 hold setup; keep the separate Mini 2020 row unchanged.",
+    "match": {
+      "name": "TSV 1846 Nürnberg - Bouldern"
+    },
+    "set": {
+      "variant": "mb2024",
+      "led": true
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 45.65702,
+    "lon": 13.81049,
+    "name": "Gravità Zero",
+    "note": "The operator's current Sala Boulder page identifies its standard 12x12 Kilter Board as adjustable from 25 to 70 degrees.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 25,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 45.6570925,
+    "lon": 13.8102992,
+    "name": "Gravità Zero MOON BOARD",
+    "note": "The operator's current 2025 reopening page identifies one Via alle Cave 55 venue with its Kilter Board and a 2019 MoonBoard fixed at 40 degrees; consolidate the two manufacturer pins.",
+    "set": {
+      "lat": 45.65702,
+      "lon": 13.81049,
+      "name": "Gravità Zero",
+      "city": "Trieste",
+      "variant": "mb2019-masters",
+      "angle": 40
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": -31.91396,
+    "lon": 115.8168689,
+    "name": "Portside Boulders - Osborne Park",
+    "note": "The operator's current four-branch MoonBoard guide states this is the Osborne Park 2016 board at fixed 40 degrees; consolidate it onto the exact address-bearing Kilter venue 17 m away.",
+    "set": {
+      "lat": -31.91385,
+      "lon": 115.81699,
+      "name": "Portside Osborne Park",
+      "city": "Osborne Park",
+      "angle": 40
+    }
+  },
+  {
+    "board": "moonboard",
     "lat": 49.443067,
     "lon": 10.9598136,
     "name": "der steinbock Zirndorf Moon Board",
@@ -112,6 +282,1455 @@
     "set": {
       "lat": 42.6655983,
       "lon": 23.37440014
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 37.81005,
+    "lon": -122.27017,
+    "name": "Great Western Power Company",
+    "note": "Touchstone's current official training-board guide states that every Kilter Board in its seven-location inventory is the adjustable 12x12 Original; correct the registry's obsolete 14x12 size while retaining its current set angle.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 45,
+          "min_angle": null,
+          "max_angle": null,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 60.16622370498926,
+    "lon": 24.904248473015482,
+    "name": "KiipeilyAreena Salmisaari",
+    "note": "Move the existing Kilter point 11 m onto the co-located current official Tension app pin so the two training boards at the same official Salmisaari branch do not split across a rounding boundary.",
+    "set": {
+      "lat": 60.166129,
+      "lon": 24.904168
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 43.0248873,
+    "lon": -87.91302400000001,
+    "name": "Adventure Rock Moonboard",
+    "note": "Normalize the legacy board-specific name onto the current official Walker's Point branch name; the current official Kilter pin is at the same rounded venue coordinate.",
+    "set": {
+      "name": "Adventure Rock Walker's Point"
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 43.02566,
+    "lon": -87.91254,
+    "name": "Adventure Rock WKP",
+    "note": "Move the 92 m drifted Tension pin onto the same official Walker's Point address and current official Kilter pin so one physical branch renders once.",
+    "set": {
+      "lat": 43.0249104,
+      "lon": -87.9130311,
+      "name": "Adventure Rock Walker's Point"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 51.5822099,
+    "lon": -1.753619,
+    "name": "Rockstar Climbing",
+    "note": "Move the board-specific MoonBoard point 35 m onto the address-bearing Kilter point for the same single current Rockstar Climbing Centre.",
+    "set": {
+      "lat": 51.58198,
+      "lon": -1.754,
+      "name": "Rockstar Climbing & Bouldering"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 51.45496,
+    "lon": -0.193,
+    "name": "Parthian Climbing Wandsworth",
+    "note": "The operator's relocation announcement says The Font moved its existing 16x12 adjustable Kilter Board to the current Garratt Lane venue; its current official board guide gives a 15-60 degree range. Normalize the former Parthian name and obsolete fixed 12x12 wall profile.",
+    "set": {
+      "name": "The Font Wandsworth",
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": null,
+          "size_label": "16x12",
+          "adjustable": true,
+          "angle": null,
+          "min_angle": 15,
+          "max_angle": 60,
+          "angle_increments": null,
+          "hold_set": null
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 35.4425,
+    "lon": 139.36599,
+    "name": "ディーボルダリング本厚 D Bouldering Hon-Atsugi",
+    "note": "Move the existing board onto the coordinate embedded by the operator's exact Hon-Atsugi branch page; its printed Amayu Atsugi address and current facility page also identify the Kilter Board.",
+    "set": {
+      "lat": 35.442445280250666,
+      "lon": 139.3634466153931
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 22.34366,
+    "lon": 114.14026,
+    "name": "The Player Climbinggym",
+    "note": "Move the 459 m drifted registry point onto the businessLocationCoordinates embedded by the venue's own current site; the official address and live manufacturer locator identify the same Mei Foo gym there.",
+    "set": {
+      "lat": 22.3424815,
+      "lon": 114.1359859
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": -23.5829602,
+    "lon": -46.6744396,
+    "name": "FABRICA Escalada",
+    "note": "Move the frozen registry point onto the Vila Madalena branch coordinate published in the operator site's current structured data. The same branch block identifies Rua Girassol 323 and its MoonBoard; the Chacara branch separately identifies its Kilter Board.",
+    "set": {
+      "lat": -23.5560606,
+      "lon": -46.6890446,
+      "name": "Fabrica Escalada Vila Madalena",
+      "city": "São Paulo"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 14.41624,
+    "lon": 121.04281,
+    "name": "Power Up Albang",
+    "note": "Correct the frozen registry typo to the spelling used by the venue's current official site and location page.",
+    "set": {
+      "name": "Power Up Alabang"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 35.184391279939376,
+    "lon": -106.57514876931646,
+    "name": "Stone Age Climbing Gym North",
+    "note": "Co-locate the second address-identical Kilter profile with the first Stone Age North row. Both upstream rows print 6200 Alameda Blvd NE and the operator publishes only one North branch at that address, so they are two boards inside one physical venue rather than two gyms 50 m apart.",
+    "set": {
+      "lat": 35.18458,
+      "lon": -106.5756
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 44.899596273874344,
+    "lon": 6.63972697236616,
+    "name": "Briançon escalade",
+    "note": "Move the stale Fortville registry point onto Kilter's current manufacturer pin for Gymnase Chancel. The club says the new board entered service there in December 2025, its current season page still assigns the board there, and the municipality identifies the facility on Rue Marius Chancel.",
+    "set": {
+      "lat": 44.9129157,
+      "lon": 6.6212888,
+      "address": "Rue Marius Chancel, 05100, Briançon"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 48.66507970052178,
+    "lon": 14.838631194315278,
+    "name": "Boulderoase St. Martin",
+    "note": "The venue's current official page says its hydraulic Kilter Board adjusts from 20 to 70 degrees; correct the stale zero-degree minimum while retaining the registry's independently structured wall size.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Homewall",
+          "size_id": 23,
+          "size_label": "Homewall 12x8 — Full Ride",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 20,
+          "max_angle": 70,
+          "angle_increments": 5,
+          "hold_set": 15
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 31.88255,
+    "lon": 35.84339,
+    "name": "Climbat Amman",
+    "note": "Kilter's live locator describes the same 687 Jerusalem Street installation as an adjustable 0-35 degree 12x12 Original. Preserve the address-backed production coordinate but replace its stale fixed-at-35 representation with the current manufacturer profile.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 35,
+          "min_angle": 0,
+          "max_angle": 35,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 44.49092,
+    "lon": 11.25031,
+    "name": "Level 24",
+    "note": "Move the stale registry point onto the Google map pin embedded by Level24's current homepage. The same page prints Via del Lavoro 45 and explicitly names its adjustable Kilter and Tension boards.",
+    "set": {
+      "lat": 44.4831,
+      "lon": 11.2621
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 44.49092,
+    "lon": 11.25031,
+    "name": "Level 24",
+    "note": "Co-locate the address-identical Tension row with Level24's Kilter row on the current official embedded map pin.",
+    "set": {
+      "lat": 44.4831,
+      "lon": 11.2621
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 42.39436,
+    "lon": -71.15172,
+    "name": "Central Rock Gym Cambridge",
+    "note": "Move the address-bearing Cambridge Kilter row onto the current branch page's own Get Directions coordinate for 170 Alewife Brook Parkway; companion overrides consolidate the other three board rows.",
+    "set": {
+      "lat": 42.3908,
+      "lon": -71.1425
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 42.3908,
+    "lon": -71.13989,
+    "name": "Central Rock Gym Cambridge",
+    "note": "Co-locate the split Tension row with the Kilter and Aurora rows on the current branch page's own Get Directions coordinate.",
+    "set": {
+      "lat": 42.3908,
+      "lon": -71.1425
+    }
+  },
+  {
+    "board": "aurora",
+    "lat": 42.3908,
+    "lon": -71.13989,
+    "name": "Central Rock Gym Cambridge",
+    "note": "Co-locate the split Aurora row with the Kilter and Tension rows on the current branch page's own Get Directions coordinate.",
+    "set": {
+      "lat": 42.3908,
+      "lon": -71.1425
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 42.3938542,
+    "lon": -71.150421,
+    "name": "CRG Cambridge",
+    "note": "Co-locate the fourth split Cambridge board row with Kilter, Tension and Aurora on the current branch page's Get Directions coordinate for the one 170 Alewife Brook Parkway hall.",
+    "set": {
+      "lat": 42.3908,
+      "lon": -71.1425,
+      "name": "Central Rock Gym Cambridge"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 20.61837,
+    "lon": -103.43033,
+    "name": "YE Escalada + Yoga Center",
+    "note": "Move the frozen row onto Kilter's current official YE CENTER locator point. The frozen row itself prints Periférico #3000-A, while the current manufacturer row and current partner location page independently place that exact branch at the replacement point rather than 1.8 km south.",
+    "set": {
+      "lat": 20.6332963,
+      "lon": -103.4365048
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 40.81398,
+    "lon": -74.20759,
+    "name": "The Gravity Vault Montclair",
+    "note": "Move the split Kilter row onto the existing Montclair MoonBoard marker. The current branch page identifies one 8 Seymour Plaza hall and explicitly lists both its adjustable Kilter Board and adjustable MoonBoard; the two live Kilter locator points sit within 20 m of the MoonBoard marker, not the stale Kilter coordinate 740 m east.",
+    "set": {
+      "lat": 40.8124034,
+      "lon": -74.2163694,
+      "name": "Gravity Vault Montclair"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 33.4042,
+    "lon": -111.95457,
+    "name": "Bouldering Project Tempe",
+    "note": "Move both training-board rows onto the coordinate in the current branch page's own map. The same page explicitly identifies an adjustable 12x16 Original Kilter Board, correcting the frozen 12x12 size.",
+    "set": {
+      "lat": 33.4004145,
+      "lon": -111.9529012,
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 28,
+          "size_label": "12x16 Super Wide, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 0,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 33.4042,
+    "lon": -111.95457,
+    "name": "Bouldering Project Tempe",
+    "note": "The current Tempe training-board page identifies both its Kilter and Tension Board 2 at the branch coordinate embedded in that page.",
+    "set": {
+      "lat": 33.4004145,
+      "lon": -111.9529012
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 30.181421802025056,
+    "lon": -97.79111214027573,
+    "name": "Crux Climbing Center South",
+    "note": "Consolidate the Kilter row with the existing Tension marker. Kilter's live row prints the branch's exact 220 Ralph Ablanedo address and lands within 13 m of that marker; the frozen Kilter point is 710 m north.",
+    "set": {
+      "lat": 30.17515,
+      "lon": -97.79041
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 59.28207,
+    "lon": 10.32679,
+    "name": "Høyt Under Taket Klatresenter Tønsberg",
+    "note": "Move onto the branch's own Get Directions pin, corroborated within 11 m by Kilter's current exact-address locator row, and correct the garbled upstream town.",
+    "set": {
+      "lat": 59.2800086,
+      "lon": 10.316057,
+      "city": "Sem"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 59.27998270000001,
+    "lon": 10.3159612,
+    "name": "Sem/Tønsberg HUT",
+    "note": "Consolidate the second upstream row for the same hall at the branch's own Get Directions pin; the official location and training-room pages establish one Høyt Under Taket Tønsberg venue at Andebuveien 78.",
+    "set": {
+      "lat": 59.2800086,
+      "lon": 10.316057,
+      "name": "Høyt Under Taket Klatresenter Tønsberg",
+      "city": "Sem"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 40.56486,
+    "lon": -111.89785,
+    "name": "Momentum Climbing Sandy",
+    "note": "Consolidate Kilter and Grasshopper at the current branch page's structured coordinate and correct the street number from the same page.",
+    "set": {
+      "lat": 40.564419,
+      "lon": -111.8979183,
+      "address": "220 W 10600 S, 84070, Sandy"
+    }
+  },
+  {
+    "board": "grasshopper",
+    "lat": 40.56449,
+    "lon": -111.89789,
+    "name": "Momentum Climbing Sandy",
+    "note": "Consolidate Kilter and Grasshopper at the current branch page's structured coordinate.",
+    "set": {
+      "lat": 40.564419,
+      "lon": -111.8979183
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 47.26657,
+    "lon": 11.90066,
+    "name": "Kraftreich Aufenfeld",
+    "note": "Use the exact geo coordinate and current Aufenfeldweg 10 address published in the venue's own page metadata; three live manufacturer pins conflict with that primary point.",
+    "set": {
+      "lat": 47.266263,
+      "lon": 11.900404,
+      "address": "Aufenfeldweg 10, 6274, Aschau",
+      "city": "Aschau"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 47.84818,
+    "lon": 12.82114,
+    "name": "DAV Boulderhalle Teisendorf",
+    "note": "The venue's current official Kilterboard page identifies its installed 12x12 Original Standard Layout and states an adjustable range from 0 to 50 degrees. Preserve the structured wall identity while filling the missing verified limits.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 0,
+          "max_angle": 50,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 51.01574,
+    "lon": 13.8046,
+    "name": "XXL Klettern Dresden",
+    "note": "Move onto the coordinate in the venue's current official map link. Its current board page confirms two adjustable Original boards, 16x12 and 12x12, over a 20-70 degree range.",
+    "set": {
+      "lat": 51.01528,
+      "lon": 13.808827,
+      "walls": [
+        {
+          "wall_name": "Kilter Board 16x12",
+          "layout": "Original",
+          "size_id": 28,
+          "size_label": "12x16 Super Wide, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 20,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        },
+        {
+          "wall_name": "Kilter Board 12x12",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 20,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 35.22902,
+    "lon": 129.08423,
+    "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
+    "note": "Move onto Kilter's current exact-address point. The venue names 2F Terrace Park at 51 Jangjeononcheoncheon-ro, and the current national address record places that building within 23 m of the locator point, not 420 m west at the frozen coordinate.",
+    "set": {
+      "lat": 35.2295856,
+      "lon": 129.0888247,
+      "address": "2F Terrace Park, 51 Jangjeononcheoncheon-ro, Geumjeong-gu, Busan",
+      "city": "Busan"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 35.709834416741565,
+    "lon": 139.6658118837558,
+    "name": "CapyClimb",
+    "note": "Consolidate the Kilter and Tension rows on the exact coordinate in the venue's current embedded map, which also accompanies its exact Nakano address and explicit list of both boards.",
+    "set": {
+      "lat": 35.7067885,
+      "lon": 139.6660675,
+      "city": "Nakano City, Tokyo"
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 35.70682,
+    "lon": 139.66606,
+    "name": "CapyClimb",
+    "note": "Normalize the second CapyClimb row to the venue-owned map point so both supported boards form one physical venue.",
+    "set": {
+      "lat": 35.7067885,
+      "lon": 139.6660675,
+      "city": "Nakano City, Tokyo",
+      "address": "5 Chome-61-4 Nakano, 164-0001, Nakano City, Tokyo"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 37.22925,
+    "lon": -107.80896,
+    "name": "Gravity Lab",
+    "note": "Use the coordinate in the current venue homepage's own location object. The page prints the same 732 CR 233 address and explicitly names the Kilter Board; the live manufacturer point is 0.4 km east.",
+    "set": {
+      "lat": 37.2291837,
+      "lon": -107.8085475
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 62.73647,
+    "lon": 7.18253,
+    "name": "Molde Klatresenter",
+    "note": "Consolidate all three board-system rows at the Norwegian address registry point for the venue's current official Grandfjæra 22 C address; the venue's facilities page explicitly names Kilter and Tension Board 2.",
+    "set": {
+      "lat": 62.73608238635402,
+      "lon": 7.1818127676297765,
+      "address": "Grandfjæra 22 C, 6415, Molde",
+      "city": "Molde"
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 62.73626,
+    "lon": 7.18192,
+    "name": "Molde Klatresenter",
+    "note": "Consolidate the Tension row at the exact point for the one Grandfjæra 22 C hall named by the current venue facilities page.",
+    "set": {
+      "lat": 62.73608238635402,
+      "lon": 7.1818127676297765,
+      "address": "Grandfjæra 22 C, 6415, Molde",
+      "city": "Molde"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 62.73644199999999,
+    "lon": 7.182532300000001,
+    "name": "Molde Klatresenter",
+    "note": "Consolidate the third registry row at the exact point for the venue's one current Grandfjæra 22 C hall.",
+    "set": {
+      "lat": 62.73608238635402,
+      "lon": 7.1818127676297765,
+      "address": "Grandfjæra 22 C, 6415, Molde",
+      "city": "Molde"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 48.69621,
+    "lon": 9.02313,
+    "name": "Roccadion",
+    "note": "Move onto the exact destination coordinate in the current venue homepage's own map link for Silberweg 22, reducing both production and manufacturer drift without treating either approximate point as authoritative.",
+    "set": {
+      "lat": 48.6956085,
+      "lon": 9.023023
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 44.38974,
+    "lon": 26.12165,
+    "name": "Climb Again Centrul",
+    "note": "Move to the coordinate published in the current branch page's SportsActivityLocation data. The same page identifies Șoseaua Berceni 8, explicitly names the Kilter Board, and gives its adjustable 15-70 degree range.",
+    "set": {
+      "lat": 44.397,
+      "lon": 26.098,
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 15,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 44.976,
+    "lon": -93.22948,
+    "name": "University of Minnesota Climbing Program",
+    "note": "Use the marker coordinate embedded by the university's current Campus Maps page for Recreation and Wellness Center building 01-169 at 123 Harvard Street SE. The current RecWell training-center page identifies its adjustable Kilter Board inside that building.",
+    "set": {
+      "lat": 44.9754795222,
+      "lon": -93.2297657585
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 31.214574311841517,
+    "lon": 121.49361072562584,
+    "name": "1778 CLIMBING",
+    "note": "Move to Kilter's current public-locator point for the same exact A801, B1, 133 Hai Chao Road venue address; the frozen point is 0.7 km away.",
+    "set": {
+      "lat": 31.20949,
+      "lon": 121.49864
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 30.18347,
+    "lon": 120.21197,
+    "name": "Ascent 杭州顽攀攀岩",
+    "note": "Move to Kilter's current public-locator point for the same exact 杭州市滨江区江辉路376号3幢103室 venue address.",
+    "set": {
+      "lat": 30.188212,
+      "lon": 120.210894,
+      "city": "Hangzhou"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 31.237007,
+    "lon": 121.452322,
+    "name": "Beta Boulders Gym JingAn",
+    "note": "Move to Kilter's current public-locator point for the same exact Lane 667 Changhua Road Jing'an venue and add the locator's explicit adjustable 20-50 degree range.",
+    "set": {
+      "lat": 31.24035,
+      "lon": 121.44879,
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 8,
+          "size_label": "12x8, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 20,
+          "max_angle": 50,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 37.26365,
+    "lon": 126.99862,
+    "name": "Kin:d",
+    "note": "Move to Kilter's current public-locator point for the same Seodun-dong 388 venue, whose current operator channel and independent current visits identify it as Kin:D at 124 Sehwa-ro.",
+    "set": {
+      "lat": 37.2667603,
+      "lon": 127.0014613,
+      "name": "Kin:D"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 33.32611,
+    "lon": 126.83256,
+    "name": "오루뭉 Orumung Climbing Gym",
+    "note": "Move to Kilter's current locator point for the same exact Pyoseon-ri 697-3 record; retain the conservative no-website/no-hours state because no venue-owned public page is reachable.",
+    "set": {
+      "lat": 33.324883,
+      "lon": 126.8245979,
+      "city": "Seogwipo"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 41.71807,
+    "lon": 44.74083,
+    "name": "s.k.lucky",
+    "note": "Move to Kilter's current public-locator point for the same 6 University Street / Arena 2 venue and add the locator's explicit adjustable 30-70 degree range.",
+    "set": {
+      "lat": 41.7169522,
+      "lon": 44.7358542,
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 30,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 37.56146,
+    "lon": 127.19302,
+    "name": "클라이밍 하남미사점 V10 Climbing Hanam Misa",
+    "note": "Rename the hall to its current Climb Us identity and move to Kilter's current point for the same 81 Misagangbyeondong-ro, 13F address. A current national sports-safety study lists Climb Us Hanam Misa at Mangwol-dong 1116, the same Cube & Tower venue formerly published as V10.",
+    "set": {
+      "lat": 37.5627864,
+      "lon": 127.1933404,
+      "name": "클라임어스 미사점 Climb Us Hanam Misa",
+      "city": "Hanam"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 36.3643697,
+    "lon": 127.3247016,
+    "name": "HanaGym_MoonBoard",
+    "note": "The operator's current facility page identifies Hana Climbing Gym and its MoonBoard at Daejeon World Cup Stadium. Its 29 July 2022 system-board notice says the MoonBoard changed from the 2019 setup to the 2016 setup; no later operator page establishes a different generation.",
+    "set": {
+      "name": "하나클라이밍짐 Hana Climbing Gym",
+      "city": "Daejeon",
+      "variant": "mb2016"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.4460164,
+    "lon": 126.8023545,
+    "name": "Bouldergarden",
+    "note": "The venue's current operator-authored business profile identifies its public 2016 MoonBoard, exact 49 Eungehosu-ro address and embedded coordinate; the national sports-safety report independently identifies Boulder Garden at the same address. Correct the legacy city-centre-nearest point and English-only name to the current venue identity.",
+    "set": {
+      "lat": 37.44572502448479,
+      "lon": 126.80167496802616,
+      "name": "볼더가든 클라이밍 Bouldergarden",
+      "city": "Siheung",
+      "variant": "mb2016"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.4876288,
+    "lon": 126.9945297,
+    "name": "Gate1_Climbing",
+    "note": "The 2025 national sports-safety report identifies Gate One Climbing at 3 Seocho-daero 26-gil, within metres of the registry point. Correct only the venue identity and city; continued MoonBoard service and generation remain unverified.",
+    "set": {
+      "name": "게이트원 클라이밍 Gate One Climbing",
+      "city": "Seoul"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.497738,
+    "lon": 127.0409539,
+    "name": "Climb Emotion",
+    "note": "The 2025 national sports-safety report identifies Climb Emotion at 27 Nonhyeon-ro 76-gil, within metres of the registry point. Correct only the bilingual venue identity and city; continued MoonBoard service and generation remain unverified.",
+    "set": {
+      "name": "클라임 이모션 Climb Emotion",
+      "city": "Seoul"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.4967717,
+    "lon": 126.776494,
+    "name": "tigerbouldergym",
+    "note": "The official operator page and 2025 national sports-safety report match Tiger Boulder Climbing Gym and its Bucheon address to this point. Correct the venue identity and city, while retaining the authority report's undated planned-closure warning in the research ledger.",
+    "set": {
+      "name": "타이거볼더클라이밍짐 Tiger Boulder Climbing Gym",
+      "city": "Bucheon"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.5697433,
+    "lon": 126.9899785,
+    "name": "SeoulForest's moonboard",
+    "note": "The current operator profile and August 2026 branch post identify SeoulForest Climbing Jongno at 96 Supyo-ro, within tens of metres of this point. Correct the possessive board label and city without inferring a generation.",
+    "set": {
+      "name": "서울숲클라이밍 종로 SeoulForest Climbing Jongno",
+      "city": "Seoul"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.2100142,
+    "lon": 129.0688702,
+    "name": "SO Climing gym",
+    "note": "The upstream description claims both 2016 and 2024 setups. The one-variant map schema cannot truthfully reduce that to the parser's preferred 2024 token, so leave the variant unknown; the materially displaced coordinate remains documented for current-primary resolution.",
+    "set": {
+      "variant": null
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.9461485,
+    "lon": 139.4770721,
+    "name": "Monolithe",
+    "note": "The current Monolithe Kawagoe wall page identifies its LED MoonBoard, while the operator's branch page identifies the Yamada 1430-1 venue and complete regular week. Preserve the legacy point but restore the current first-party identity details.",
+    "set": {
+      "name": "モノリス川越店 Monolithe",
+      "address": "埼玉県川越市山田1430-1",
+      "city": "Kawagoe",
+      "led": true
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.4304213,
+    "lon": 133.8260633,
+    "name": "Kurayoshi Sport Climbing Center",
+    "note": "The current operator page confirms the active public climbing centre and a prefectural facility inventory confirms its MoonBoard wall. Neither primary source establishes the inherited 2024 generation or LED equipment, so leave both details unknown.",
+    "set": {
+      "variant": null,
+      "led": null
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.1693221,
+    "lon": 136.9347092,
+    "name": "CUORE Imaike",
+    "note": "The current branch page explicitly supports the 2019 version, but does not state LEDs or angle. Preserve the generation and leave the unsupported LED detail unknown.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.5360182,
+    "lon": 139.6333741,
+    "name": "D-Bouldering Tsunashima",
+    "note": "Current branch-primary pages repeatedly confirm a MoonBoard but do not state its generation, LEDs or angle. Clear unsupported inherited detail.",
+    "set": { "variant": null, "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.6549536,
+    "lon": 139.3379978,
+    "name": "D.Bouldering Hachioji",
+    "note": "The operator's relocation page confirms a MoonBoard at the current OPA branch, but current primary material does not establish the inherited generation, LEDs or angle.",
+    "set": { "variant": null, "led": null, "angle": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 38.2260485,
+    "lon": 140.8755982,
+    "name": "Dbouldering-Sendai.nagamachi",
+    "note": "Current operator material establishes the branch but not its MoonBoard; a secondary venue profile is not enough to preserve the inherited LED claim.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.1861697,
+    "lon": 136.8909959,
+    "name": "Dbouldering-Sengencho",
+    "note": "A 2025 branch-primary reset schedule confirms the MoonBoard remains available, but does not identify the inherited 2024 generation or LEDs.",
+    "set": { "variant": null, "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.7234041,
+    "lon": 140.1000201,
+    "name": "Dbouldering+yachiyo",
+    "note": "The active branch page does not identify a MoonBoard and the current board signal is secondary; clear the inherited LED claim pending operator evidence.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.6933453,
+    "lon": 138.6873168,
+    "name": "Activ-A",
+    "note": "No current operator evidence establishes board service or LEDs, and the legacy point appears to predate the venue's relocation. Clear the unsupported inherited LED claim pending exact current-primary reconciliation.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 34.6551456,
+    "lon": 133.9195019,
+    "name": "BoulderGarden SaBo",
+    "note": "The active operator site does not identify a MoonBoard; clear the frozen registry's unsupported LED claim.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.00033250000001,
+    "lon": 135.7516105,
+    "name": "cairn climbing gym",
+    "note": "No current primary source establishes the board or its inherited non-LED detail.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 38.04837089999999,
+    "lon": 139.4077784,
+    "name": "HUT WALL",
+    "note": "The current operator page does not state a MoonBoard generation or LED equipment; clear both frozen claims pending branch-primary evidence.",
+    "set": { "variant": null, "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 33.3192865,
+    "lon": 130.5083735,
+    "name": "Joywall",
+    "note": "The current JOYWALL operator site does not identify a MoonBoard; clear the unsupported inherited non-LED claim.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.40047759999999,
+    "lon": 140.3596822,
+    "name": "MOVEMENT Climbing Space / TRAILROCK",
+    "note": "Current operator sites do not establish MoonBoard light equipment at either MOVEMENT or the separately located TRAILROCK; clear both co-located frozen claims while their source-level identity is resolved.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 36.0227505,
+    "lon": 139.7355048,
+    "name": "OKKUROCK",
+    "note": "The current operator facility surface does not establish the inherited non-LED detail.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.274461,
+    "lon": 136.2596226,
+    "name": "goodboulderingMOONBOARD",
+    "note": "The current operator site does not identify a MoonBoard or light equipment; clear the inherited non-LED claim.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.8364848,
+    "lon": 139.8972751,
+    "name": "GRANNY Minaminagareyama",
+    "note": "No accessible current operator source supports the inherited non-LED or 40-degree details; clear both pending branch-primary evidence.",
+    "set": { "led": null, "angle": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.7445357,
+    "lon": 139.1825675,
+    "name": "little forest",
+    "note": "The current operator site does not identify a MoonBoard or light equipment; clear the inherited non-LED claim.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 32.8031004,
+    "lon": 130.7078911,
+    "name": "The Ranch",
+    "note": "The current operator facility page confirms the exact Kumamoto address and MoonBoard but does not state LED equipment; publish the address and clear the inherited non-LED claim.",
+    "set": { "address": "熊本県熊本市南区平田町1-8-12", "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 36.3479482,
+    "lon": 140.3030609,
+    "name": "vortex",
+    "note": "The current operator site and account confirm the exact Kasama address and MoonBoard but do not state LED equipment; publish the address and clear the inherited non-LED claim.",
+    "set": { "address": "茨城県笠間市八雲2-6-2", "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.6452443,
+    "lon": 136.0554408,
+    "name": "First moon board in Hokuriku",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.3697747,
+    "lon": 140.1007046,
+    "name": "mariyatsu board",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 32.9794831,
+    "lon": 130.8133329,
+    "name": "N-mura Board",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 32.9351492,
+    "lon": 130.5627537,
+    "name": "RobertBug",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 34.2682843,
+    "lon": 134.1342933,
+    "name": "TJRwall",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.7453849,
+    "lon": 139.42665,
+    "name": "Tokyo Powder",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 36.3894816,
+    "lon": 139.0634281,
+    "name": "WALLSTREET",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 48.3842148,
+    "lon": -89.2436231,
+    "name": "Rock Room",
+    "note": "The current operator site and the refreshed address-bearing Kilter row establish one Thunder Bay venue 16 m away. Merge the legacy MoonBoard at that current point and clear its unsupported inherited 2016/LED details.",
+    "set": {
+      "lat": 48.38436086978212,
+      "lon": -89.24355872698759,
+      "name": "Rock Room",
+      "address": "319 Victoria Ave E, Thunder Bay, ON P7C 1A4",
+      "city": "Thunder Bay",
+      "variant": null,
+      "led": null,
+      "angle": null
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.55209809999999,
+    "lon": 139.5794141,
+    "name": "ClimbingBUM",
+    "note": "The current Yokohama branch page gives Nakagawachuo 1-25-1 and identifies its illuminated MoonBoard. Move the generic registry pin to Japan GSI's exact address point and publish the branch identity.",
+    "set": {
+      "lat": 35.553181,
+      "lon": 139.579468,
+      "name": "Climbing Bum Yokohama",
+      "address": "神奈川県横浜市都筑区中川中央1-25-1 ノースポート・モールB1F",
+      "city": "Yokohama"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 20.64019,
+    "lon": -103.40967,
+    "name": "Summit Escalada",
+    "note": "The current official facilities page identifies the existing 12x12 Original Kilter Board as adjustable to 70 degrees; retain the upstream layout and size while filling its missing maximum angle.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": null,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 3.1006116,
+    "lon": 101.6320434,
+    "name": "BHub Bouldering 2024 Moonboard",
+    "note": "The current operator consistently names the venue BHub Bouldering; remove the upstream board-generation suffix from the public venue identity before grouping it with the independently verified Kilter row.",
+    "set": {
+      "name": "BHub Bouldering"
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 47.3807,
+    "lon": 8.50559,
+    "name": "Mitō Bouldering",
+    "note": "The current operator page identifies one Badenerstrasse 434 venue containing both its 12x12 Tension Board 2 and 12x12 Kilter Board. Consolidate the eight-metre manufacturer-pin drift onto the address-bearing Kilter point.",
+    "set": {
+      "lat": 47.38077156036091,
+      "lon": 8.50559518406294,
+      "city": "Zürich"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 41.5625,
+    "lon": 1.99852,
+    "name": "GeoBoulder",
+    "note": "The current operator pages identify Geo Boulder at Carrer de Murillo 18 in Terrassa. Normalize the upstream name and approximate point to OSM way 984715106, the exact independently maintained building at that address.",
+    "set": {
+      "lat": 41.5623017,
+      "lon": 1.9985057,
+      "name": "Geo Boulder",
+      "address": "Carrer de Murillo 18, 08224 Terrassa, Spain",
+      "city": "Terrassa"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 47.12658,
+    "lon": 27.62568,
+    "name": "Climb Again Iasi",
+    "note": "The current official Iași branch page identifies its Kilter Board as adjustable from 15 to 60 degrees; retain the upstream Original 12x12 layout while filling the missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 15,
+          "max_angle": 60,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 46.0497,
+    "lon": 14.54866,
+    "name": "Plezalni Center Ljubljana",
+    "note": "The current official venue-specific Kilter Board page identifies the existing Homewall 10x12 Full Ride and states that its adjustable range is 22.5-70 degrees.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Homewall",
+          "size_id": 25,
+          "size_label": "Homewall 10x12 — Full Ride",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 22.5,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 15
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 55.67094115452206,
+    "lon": 37.29276147791354,
+    "name": "GYM Skalodrom.RU",
+    "note": "The current operator homepage and contact page identify the public climbing centre in Odintsovo at Transportnaya 2, building 19; OSM independently places the existing upstream point on the named Moscow Pump Plant parcel at that address. Correct the upstream Moscow locality and abbreviated address while retaining the matching point and already-correct 12x12 adjustable 30-70 degree board configuration.",
+    "set": {
+      "city": "Odintsovo",
+      "address": "Transportnaya ulitsa 2, building 19, 143006, Odintsovo"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 33.22722,
+    "lon": 132.7108,
+    "name": "松野町コミュニティセンター Matsuno Town Community Center",
+    "note": "Matsuno Town's current official tourism page identifies the public reservation-based Kilter Board at Matsumaru 343 and states that its hydraulic frame adjusts from 90 to 160 degrees, i.e. 0-70 degrees overhanging. Retain the matching Original 12x12 registry profile and fill its missing range.",
+    "set": {
+      "city": "Matsuno",
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 0,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 1.27571,
+    "lon": 103.79443,
+    "name": "Lighthouse Climbing PTE",
+    "note": "Lighthouse Climbing's current dedicated Kilter page confirms its 12x12 Original board is fully adjustable from 0 to 70 degrees. Retain the matching registry layout and fill its missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 0,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": -33.83541,
+    "lon": 151.05309,
+    "name": "Sandbox Bouldering",
+    "note": "Sandbox's current operator homepage confirms its full-size 12x12 Kilter Board is adjustable from 35 to 65 degrees. Retain the matching registry layout and fill its missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 35,
+          "max_angle": 65,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 52.56398,
+    "lon": 13.40988,
+    "name": "Berta Block Boulderhalle Berlin",
+    "note": "The current official facilities page identifies the existing 16x12 Kilter Board as adjustable from 15 to 70 degrees. Retain the matching registry layout and fill its missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 28,
+          "size_label": "12x16 Super Wide, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 15,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "tension",
+    "lat": 48.19613,
+    "lon": 16.31488,
+    "name": "Die Knäpperei",
+    "note": "The current official hall page identifies one Flachgasse 30 venue containing both Tension and Kilter boards. Move the nearby registry-only Tension point onto the exact address-bearing Kilter point so the physical gym renders once.",
+    "set": {
+      "lat": 48.196208449388536,
+      "lon": 16.315214120473954,
+      "city": "Wien"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 46.21936,
+    "lon": 6.10238,
+    "name": "TOTEM Le Môll",
+    "note": "The current official branch page names this venue TOTEM Vernier and publishes its complete Avenue de l'Étang address while retaining the Kilter Board. Normalize the legacy branch name and abbreviated address.",
+    "set": {
+      "name": "TOTEM Vernier",
+      "address": "Avenue de l'Étang 67, 1219 Vernier, Switzerland"
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 35.20247,
+    "lon": -111.61827,
+    "name": "Flagstaff Climbing - Main Street Boulders",
+    "note": "The venue's current official amenities page identifies two separate adjustable Kilter systems: a 12x12 Original from 5 to 70 degrees and an 8x12 Fullride from 10 to 60 degrees. Replace the one-wall registry profile with both operator-authored configurations without inventing an app-internal size id for the second board.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 5,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        },
+        {
+          "wall_name": "Kilter Fullride Board",
+          "layout": "Homewall — Full Ride",
+          "size_id": null,
+          "size_label": "8x12",
+          "adjustable": true,
+          "angle": null,
+          "min_angle": 10,
+          "max_angle": 60,
+          "angle_increments": null,
+          "hold_set": null
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 66.31997,
+    "lon": 14.19856,
+    "name": "Rana Klatresenter",
+    "note": "The current official first-visit page identifies the existing adjustable Kilter Board as 15 to 60 degrees. Retain the registry's Original 12x12 layout and fill its missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 15,
+          "max_angle": 60,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 40.33956,
+    "lon": -3.84857,
+    "name": "Climbat X-Madrid",
+    "note": "The current official Kilter article identifies the existing Original 12x12 wall as adjustable from 0 to 70 degrees. Retain the registry layout and fill the missing limits.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 0,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 45.69573,
+    "lon": 9.61979,
+    "name": "Orobia Climbing",
+    "note": "The current official training-area page identifies the existing motorized Kilter Board as adjustable up to 70 degrees. It states no minimum, so only the missing maximum is filled.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": null,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 48.98238,
+    "lon": 12.1954,
+    "name": "Projekt Eins",
+    "note": "The current official concept page identifies the existing Original 12x12 Kilter Board as electrically adjustable from 20 to 70 degrees. Retain the registry layout and fill the missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 20,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 47.75974,
+    "lon": 11.57895,
+    "name": "DAV Kletter & Boulderzentrum Bad Tölz",
+    "note": "The current official training-room page identifies the existing Kilter Board as hydraulically adjustable from 30 to 70 degrees. Retain the registry layout and fill the missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 30,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": -23.37473390979055,
+    "lon": 150.50910055119093,
+    "name": "Rocky Climb",
+    "note": "The current official homepage embeds exact coordinates for the one public venue at 100 Bolsover Street and identifies both Kilter and Moon boards in its training zone. Normalize the nearby registry points onto that venue coordinate.",
+    "set": {
+      "lat": -23.3750836,
+      "lon": 150.5090362
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": -23.3750142,
+    "lon": 150.5090838,
+    "name": "Rocky Climb Moon",
+    "note": "The current official homepage embeds exact coordinates for the one public venue at 100 Bolsover Street and identifies both Kilter and Moon boards in its training zone. Normalize the separate registry row and board-specific name onto the same venue.",
+    "set": {
+      "lat": -23.3750836,
+      "lon": 150.5090362,
+      "name": "Rocky Climb"
     }
   }
 ]

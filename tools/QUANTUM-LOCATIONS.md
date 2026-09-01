@@ -1,9 +1,27 @@
 # Quantum Board location audit
 
-Checked 2026-08-25. The public map uses only active venues with a complete
+Checked 2026-09-01. The public map uses only active venues with a complete
 address, usable coordinates and an explicit primary-source statement that a
-Quantum Board is installed. `quantum-locations.json` contains the nine records
+Quantum Board is installed. `quantum-locations.json` contains the twelve records
 that passed. It also retains the exact public evidence used for each marker.
+
+The 2026-08-31 pass rechecked all nine published venues against their current
+operator or manufacturer pages. It also searched Walltopia's current public
+project catalogue and product material, the named operator sites below, and
+exact-name/location queries for additional installations. Walltopia's public
+WordPress API and sitemap are Cloudflare-blocked, so the catalogue could not be
+enumerated through a machine endpoint; the ordinary public project pages and
+search index were used without attempting to bypass that restriction. The pass
+found one newly documented installation, La Roca, but no new publishable pin.
+
+An independent multilingual open-web pass on 2026-09-01 found three current
+installations absent from the structured eWalls audit and the reviewed
+allowlist: Chletterai in Appenzell, Das Kraftwerk in Althofen and Presa B+ in
+Bologna. Each venue's current official page explicitly names its Quantum Board
+and exact address. Coordinates come from the Swiss and Austrian official
+address registers for the first two and an independently matched exact OSM
+street-number point for Presa B+. The queries and candidate decisions are
+recorded in `web-only-discovery-ledger.json`.
 
 ## eWalls location API audit
 
@@ -36,14 +54,43 @@ against a public venue or manufacturer source.
 - USA Climbing National Training Center, Salt Lake City: a primary event
   document confirms a Quantum Board, but public use is restricted; not a
   normal venue pin.
-- La Roca Asunción: a Quantum Board M is confirmed, but no sufficiently
-  reliable full address and coordinate pair was found.
-- Sputnik Lugones, The Pad Las Vegas, Monoliet and Gamsbloc: announced or
-  planned, not verified as active.
+- La Roca Asunción: Walltopia's current 2026 project page now identifies the
+  venue, city, operator account and fixed-angle Quantum Board M. Neither that
+  page nor the operator's public Instagram surface publishes a street address
+  or usable coordinate, and exact-name discovery searches found no independent
+  identity match. It therefore remains withheld for geodata, not board proof.
+- Sputnik Lugones: the operator now publishes Avenida de Gijón s/n, the
+  planned adjustable Quantum Board XL and a September 2026 target, but its
+  branch/contact pages still say `Próximamente`. Recheck after an explicit
+  opening notice.
+- The Pad Las Vegas: the operator confirms 9400 W Sahara Avenue and a planned
+  Quantum Board XL, but projects an early-2027 opening and labels the branch
+  `COMING SOON`.
+- Monoliet, Roeselare: the operator's current construction update and homepage
+  name the planned Walltopia Quantum Board and a 2027 opening. It is not yet an
+  active venue.
+- Gamsblock, Kiefersfelden: current construction reporting and a public hiring
+  notice show a new hall preparing to open in autumn 2026; no current
+  operator-controlled page establishes that the planned Quantum Board is open
+  to visitors yet.
+- Crux Climbing Center, São Domingos de Rana: a community hall directory labels
+  the venue as having a Quantum Board, but the current operator equipment page
+  explicitly lists Kilter Board and MoonBoard instead. Without primary Quantum
+  evidence, the directory claim is rejected.
+- Poziom 450 Boulder, Sosnowiec: the active Kresowa 6 branch and its January
+  2026 opening are established by operator-controlled pages, and a current
+  industry report claims a Quantum Board. No accessible operator or Walltopia
+  page names the board, so the candidate remains withheld for primary evidence.
+- Carpatic Climbing Gym, Bucharest: a current renovation report identifies an
+  installed Quantum Board XL and links the operator's exact Instagram post.
+  That post is fetch-throttled and the accessible operator site does not name
+  the board; retry the primary post rather than promoting the secondary claim.
+- Momentum Bulgaria Mall, Sofia: operator leadership describes a new branch
+  targeted for the end of 2026, and the project announcement includes a Quantum
+  Board. It is not yet an active public venue.
 - Madrid 2025, Paris, CWA and HFA installations: temporary trade-show or event
   boards, not durable public venues.
 
 This audit is intentionally conservative. Missing a pin is preferable to
 directing climbers to a test record, private facility or board that is not yet
 open.
-

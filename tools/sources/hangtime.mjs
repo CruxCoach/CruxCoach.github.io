@@ -154,7 +154,20 @@ function extractBoardFields(board, props) {
       // Raw Description otherwise dropped: spam-prone user-submitted text.
     };
   }
-  // Aurora-style boards (tension, grasshopper, decoy, soill, touchstone, aurora)
+  if (board === 'touchstone') {
+    const out = {};
+    if (typeof props.username === 'string' && props.username.trim()) {
+      out.username = props.username.trim();
+    }
+    // Touchstone's current official system guide defines the standardized
+    // board itself as fixed at 35 degrees with LEDs. This is a board-model
+    // property, not a venue guess, so it applies to every registry row.
+    out.adjustable = false;
+    out.angle = 35;
+    out.led = true;
+    return out;
+  }
+  // Aurora-style boards (tension, grasshopper, decoy, soill, aurora)
   // and 12climb: only `username` carries useful extra signal beyond name+coords.
   if (typeof props.username === 'string' && props.username.trim()) {
     return { username: props.username.trim() };
@@ -168,6 +181,10 @@ function extractEntry(file, board, feat) {
   const name = pickName(props);
   if (lat === null || lon === null) return null;
   if (lat < -90 || lat > 90 || lon < -180 || lon > 180) return null;
+  // Registries commonly use Null Island as an unknown/default coordinate.
+  // Multiple unrelated MoonBoard rows otherwise collapse into one apparently
+  // real venue there, so 0,0 is incomplete location data, not a map point.
+  if (lat === 0 && lon === 0) return null;
   if (!name) return null;
   return {
     source: 'hangtime',

@@ -493,54 +493,6 @@
   "note": "The site's schema.org openingHoursSpecification states the same week."
  },
  {
-  "lat": 48.29891,
-  "lon": 14.2749,
-  "name": "Der Steinbock Linz",
-  "country": "AT",
-  "source": "https://www.dersteinbock-linz.at/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "09:00-23:00",
-   "tue": "07:00-23:00",
-   "wed": "09:00-23:00",
-   "thu": "07:00-23:00",
-   "fri": "09:00-23:00",
-   "sat": "09:00-22:00",
-   "sun": "09:00-22:00"
-  },
-  "evidence": "Mo, Mi & Fr 09:00 Uhr bis 23:00 Uhr | Di & Do 07:00 Uhr bis 23:00 Uhr | Sa & So 09:00 Uhr bis 22:00 Uhr"
- },
- {
-  "lat": 48.19613,
-  "lon": 16.31488,
-  "name": "Die Knäpperei",
-  "country": "AT",
-  "source": "https://dieknaepperei.at/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name"
-  ],
-  "hours": {
-   "mon": "00:00-24:00",
-   "tue": "00:00-24:00",
-   "wed": "00:00-24:00",
-   "thu": "00:00-24:00",
-   "fri": "00:00-24:00",
-   "sat": "00:00-24:00",
-   "sun": "00:00-24:00"
-  },
-  "evidence": "Öffnungszeiten: Montag - Sonntag: 0 - 24 Uhr",
-  "note": "Round the clock; entry runs through the venue's own session booking, which the page links beside the hours."
- },
- {
   "lat": 48.196208449388536,
   "lon": 16.315214120473954,
   "name": "Die Knäpperei",
@@ -735,29 +687,6 @@
   },
   "evidence": "Mo – So 6:00 – 22:00",
   "note": "The Bistro keeps separate, seasonal service times on the same page; the hall's own week is what is recorded."
- },
- {
-  "lat": 47.26657,
-  "lon": 11.90066,
-  "name": "Kraftreich Aufenfeld",
-  "country": "AT",
-  "source": "https://www.kraftreich-aufenfeld.at/de/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name"
-  ],
-  "hours": {
-   "mon": "09:00-23:00",
-   "tue": "07:30-23:00",
-   "wed": "09:00-23:00",
-   "thu": "09:00-23:00",
-   "fri": "09:00-23:00",
-   "sat": "09:00-23:00",
-   "sun": "09:00-23:00"
-  },
-  "evidence": "Montag bis Sonntag 09.00 bis 23.00 Uhr | DIENSTAGS ab 7:30 Uhr"
  },
  {
   "lat": 47.06581,
@@ -1486,34 +1415,7 @@
    "sun": "10:00-18:00"
   },
   "evidence": "19 Edison Cres, Baringa QLD 4551 … HOURS Mon + Tues 12:30 - 9:30pm Wed 9am - 9:30pm Thurs + Fri 12:30 - 9:30pm Sat 9am - 7pm Sun 10am - 6pm",
-  "note": "Wednesday opens three and a half hours before the other weekdays, which the page's own openingHours markup flattens by putting it with them. Recorded ambiguous until the rule was written down: an openingHours block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
- },
- {
-  "lat": -26.80713,
-  "lon": 153.07039,
-  "name": "Boulder Heads",
-  "country": "AU",
-  "source": "https://boulder-heads.com/",
-  "checked": "2026-08-24",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city",
-   "street-address",
-   "postal-code"
-  ],
-  "hours": {
-   "mon": "12:30-21:30",
-   "tue": "12:30-21:30",
-   "wed": "09:00-21:30",
-   "thu": "12:30-21:30",
-   "fri": "12:30-21:30",
-   "sat": "09:00-19:00",
-   "sun": "10:00-18:00"
-  },
-  "evidence": "19 Edison Cres, Baringa QLD 4551 … HOURS Mon + Tues 12:30 - 9:30pm Wed 9am - 9:30pm Thurs + Fri 12:30 - 9:30pm Sat 9am - 7pm Sun 10am - 6pm",
-  "note": "Wednesday opens three and a half hours before the other weekdays, which the page's own openingHours markup flattens by putting it with them. The same hall as the entry 20 m away. Recorded ambiguous until the rule was written down: an openingHours block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
+  "note": "The current board-specific page repeats the visible complete week beside the shared 19 Edison Crescent address; the former second overlay represented the same physical hall. The Squarespace setting shortens Wednesday to 12:30-21:30, while the maintained visible week says 09:00-21:30."
  },
  {
   "lat": -37.77623,
@@ -1984,36 +1886,12 @@
   "note": "The operator's own openingHoursSpecification says the same thing — Monday, Wednesday, Friday 06:00-22:00, Tuesday and Thursday 09:00-22:00, Saturday and Sunday 10:00-17:00 — which is the cheapest confirmation available and it agrees."
  },
  {
-  "lat": -31.91396,
-  "lon": 115.8168689,
-  "name": "Portside Boulders - Osborne Park",
-  "country": "AU",
-  "source": "https://www.portsideboulders.com.au/locations/osborne-park",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "name"
-  ],
-  "hours": {
-   "mon": "10:00-22:00",
-   "tue": "06:00-22:00",
-   "wed": "10:00-22:00",
-   "thu": "06:00-22:00",
-   "fri": "10:00-22:00",
-   "sat": "08:00-19:00",
-   "sun": "08:00-19:00"
-  },
-  "evidence": "Osborne Park | Opening Hours | Monday 10:00 AM 10:00 PM | Tuesday 6:00 AM 10:00 PM | Wednesday 10:00 AM 10:00 PM | Thursday 6:00 AM 10:00 PM | Friday 10:00 AM 10:00 PM | Saturday 8:00 AM 7:00 PM | Sunday 8:00 AM 7:00 PM"
- },
- {
   "lat": -31.75081,
   "lon": 115.76338,
   "name": "Portside Boulders Joondalup",
   "country": "AU",
   "source": "https://www.portsideboulders.com.au/locations/joondalup",
-  "checked": "2026-08-23",
+  "checked": "2026-09-01",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -2037,7 +1915,7 @@
   "name": "Portside Osborne Park",
   "country": "AU",
   "source": "https://www.portsideboulders.com.au/locations/osborne-park",
-  "checked": "2026-08-23",
+  "checked": "2026-09-01",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -2054,6 +1932,54 @@
    "sun": "08:00-19:00"
   },
   "evidence": "Osborne Park | 73 Walters Dr, Osborne Park WA 6017 | Opening Hours | Monday 10:00 AM 10:00 PM | Tuesday 6:00 AM 10:00 PM | Wednesday 10:00 AM 10:00 PM | Thursday 6:00 AM 10:00 PM | Friday 10:00 AM 10:00 PM | Saturday 8:00 AM 7:00 PM | Sunday 8:00 AM 7:00 PM"
+ },
+ {
+  "lat": -32.0577678,
+  "lon": 115.7856163,
+  "name": "Portside Boulders O'Connor",
+  "country": "AU",
+  "source": "https://www.portsideboulders.com.au/locations/oconnor",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "06:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "06:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "08:00-19:00",
+   "sun": "08:00-19:00"
+  },
+  "evidence": "O'Connor | Opening Hours | Monday 10:00 AM – 10:00 PM | Tuesday 6:00 AM – 10:00 PM | Wednesday 10:00 AM – 10:00 PM | Thursday 6:00 AM – 10:00 PM | Friday 10:00 AM – 10:00 PM | Saturday 8:00 AM – 7:00 PM | Sunday 8:00 AM – 7:00 PM"
+ },
+ {
+  "lat": -32.0400023,
+  "lon": 115.8865878,
+  "name": "Portside Boulders Willetton",
+  "country": "AU",
+  "source": "https://www.portsideboulders.com.au/locations/willetton",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "location-page",
+   "street-address"
+  ],
+  "hours": {
+   "mon": "06:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "06:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "08:00-19:00",
+   "sun": "08:00-19:00"
+  },
+  "evidence": "Willetton | Opening Hours | Monday 6:00 AM – 10:00 PM | Tuesday 10:00 AM – 10:00 PM | Wednesday 6:00 AM – 10:00 PM | Thursday 10:00 AM – 10:00 PM | Friday 10:00 AM – 10:00 PM | Saturday 8:00 AM – 7:00 PM | Sunday 8:00 AM – 7:00 PM"
  },
  {
   "lat": -32.94153,
@@ -2154,31 +2080,6 @@
   },
   "evidence": "Hours of Operation — Monday–Friday 7am–10pm. Saturday–Sunday & Public Holidays 8am–8pm. 4-6 Elmsleigh Rd Derwent Park, Tas 7009",
   "note": "Stated twice on the page, identically."
- },
- {
-  "lat": -37.7870301,
-  "lon": 144.885586,
-  "name": "Rocket",
-  "country": "AU",
-  "source": "https://rocket-climbing.com.au/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "street-address",
-   "postal-code"
-  ],
-  "hours": {
-   "mon": "06:30-22:00",
-   "tue": "11:00-22:00",
-   "wed": "06:30-22:00",
-   "thu": "11:00-22:00",
-   "fri": "11:00-22:00",
-   "sat": "09:00-21:00",
-   "sun": "09:00-21:00"
-  },
-  "evidence": "Opening Hours — 21 MEPHAN STREET, FOOTSCRAY VIC 3011. MONDAY, WEDNESDAY 630AM - 10PM. TUESDAY & THURSDAY & FRIDAY 11AM - 10PM. SATURDAY & SUNDAY 9AM - 9PM",
-  "note": "Same page as the Kilter entry a few metres away."
  },
  {
   "lat": -37.78692,
@@ -2305,12 +2206,12 @@
   "note": "Same page as its twin."
  },
  {
-  "lat": -23.37473390979055,
-  "lon": 150.50910055119093,
+  "lat": -23.3750836,
+  "lon": 150.5090362,
   "name": "Rocky Climb",
   "country": "AU",
-  "source": "https://rockyclimb.com.au/",
-  "checked": "2026-08-23",
+  "source": "https://www.rockyclimb.com/",
+  "checked": "2026-09-01",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -2319,40 +2220,15 @@
   ],
   "hours": {
    "mon": "closed",
-   "tue": "closed",
+   "tue": "15:00-20:00",
    "wed": "12:00-20:00",
    "thu": "12:00-20:00",
    "fri": "12:00-20:00",
    "sat": "08:00-20:00",
-   "sun": "08:00-20:00"
+   "sun": "08:00-17:00"
   },
-  "evidence": "Open to members and the public. Rope climbing wall remains closed. | Monday Closed | Tuesday Closed | Wednesday 12:00 PM – 8:00 PM | Thursday 12:00 PM – 8:00 PM | Friday 12:00 PM – 8:00 PM | Saturday 8:00 AM – 8:00 PM | Sunday 8:00 AM – 8:00 PM",
-  "note": "The café next door keeps its own longer week (Wed–Fri from 6:30 AM, weekends 6:30 AM–2 PM) and is listed separately; the page’s two schema.org blocks match the two facilities."
- },
- {
-  "lat": -23.3750142,
-  "lon": 150.5090838,
-  "name": "Rocky Climb Moon",
-  "country": "AU",
-  "source": "https://rockyclimb.com.au/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "closed",
-   "tue": "closed",
-   "wed": "12:00-20:00",
-   "thu": "12:00-20:00",
-   "fri": "12:00-20:00",
-   "sat": "08:00-20:00",
-   "sun": "08:00-20:00"
-  },
-  "evidence": "Open to members and the public. Rope climbing wall remains closed. | Monday Closed | Tuesday Closed | Wednesday 12:00 PM – 8:00 PM | Thursday 12:00 PM – 8:00 PM | Friday 12:00 PM – 8:00 PM | Saturday 8:00 AM – 8:00 PM | Sunday 8:00 AM – 8:00 PM",
-  "note": "The café next door keeps its own longer week (Wed–Fri from 6:30 AM, weekends 6:30 AM–2 PM) and is listed separately; the page’s two schema.org blocks match the two facilities."
+  "evidence": "Open to members and the public. Rope climbing 3:30 – 7:00 PM, Tuesday to Friday. | Monday Closed | Tuesday 3:00 PM – 8:00 PM | Wednesday 12:00 PM – 8:00 PM | Thursday 12:00 PM – 8:00 PM | Friday 12:00 PM – 8:00 PM | Saturday 8:00 AM – 8:00 PM | Sunday 8:00 AM – 5:00 PM",
+  "note": "The visible current climbing week and the venue's own structured data agree. The café has a separate longer week and is not used. This one record now covers the co-located Kilter and Moon boards after their official-coordinate consolidation."
  },
  {
   "lat": -33.8791418,
@@ -2427,7 +2303,7 @@
    "sun": "09:00-21:00"
   },
   "evidence": "Location 80 Hattam St Golden Gully, VIC 3555 Hours Weekdays 7am - 9pm Weekends 9am - 9pm",
-  "note": "Stated twice on the front page, in the hero and again in the footer, with the days grouped as weekdays and weekends rather than listed."
+  "note": "Stated twice on the front page, in the hero and again in the footer, with the days grouped as weekdays and weekends rather than listed. The site's Squarespace/schema.org setting opens weekdays at 08:00 instead of the visible 07:00; the visible repeated statement is published under the documented precedence rule."
  },
  {
   "lat": -34.048437,
@@ -2751,30 +2627,6 @@
   },
   "evidence": "Openingsuren maandag 17 - 23 u · dinsdag 12 - 23 u · woensdag 12 - 23 u · donderdag 12 - 23 u · vrijdag 12 - 23 u · zaterdag 12 - 23 u · zondag 10 - 20 u",
   "note": "A complete week with a Monday that breaks the pattern. The line beneath it, \"Aangepaste openingsuren in de schoolvakanties!\", announces that school holidays differ and gives no times, so it is a note and not a second week; the page's own openingHours markup, Monday–Saturday 11:00-23:00 and Sunday 11:00-20:00, is a third answer and loses to the words. This hall is klimkaffee.net and is unrelated to the Mechelen and Herentals halls on klimkaffee.be, which no longer list an Oudenburg branch at all."
- },
- {
-  "lat": 51.03327,
-  "lon": 3.75706,
-  "name": "Klimzaal Arsenaal",
-  "country": "BE",
-  "source": "https://www.klimzaalarsenaal.be/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "10:00-23:00",
-   "tue": "10:00-23:00",
-   "wed": "10:00-23:00",
-   "thu": "10:00-23:00",
-   "fri": "10:00-23:00",
-   "sat": "10:00-21:30",
-   "sun": "10:00-21:30"
-  },
-  "evidence": "MAANDAG - VRIJDAG: 10:00 - 23:00 (bar tot 00:00) WEEKEND: 10:00 - 21:30 (bar tot 22:00)"
  },
  {
   "lat": 51.0412937,
@@ -4684,7 +4536,7 @@
    "sun": "07:00-21:00"
   },
   "evidence": "OPENING HOURS GYM Mon - Sat: 7am - 10pm Sunday: 7am - 9pm CAFE Sun - Tue: 7am - 8pm Wed - Sat: 7am - 9pm",
-  "note": "The café and pizza counter keep their own hours and are listed separately; the page’s schema.org block names the gym week and agrees."
+  "note": "The café and pizza counter keep their own hours and are listed separately. The conflict reader combines another facility block into Wednesday and reports 15:00-20:00; the visible location-specific gym week states 07:00-22:00."
  },
  {
   "lat": 45.40876,
@@ -4709,7 +4561,7 @@
    "sun": "07:00-22:00"
   },
   "evidence": "OPENING HOURS GYM Mon - Sat: 7am - 11pm Sunday: 7am - 10pm CAFE 7am-9pm Everyday",
-  "note": "The café keeps its own hours and is listed separately; the page’s schema.org block names the gym week and agrees."
+  "note": "The café keeps its own hours and is listed separately. The conflict reader combines another facility block into Wednesday and reports 07:00-20:00; the visible location-specific gym week states 07:00-23:00."
  },
  {
   "lat": 45.56611,
@@ -5691,7 +5543,7 @@
    "sun": "12:00-18:00"
   },
   "evidence": "Hours of Operation Monday closed (for now) Tuesday - Friday 2 PM to 11 PM Saturday + Sunday noon to 6 PM",
-  "note": "Monday is stated closed rather than left out. The front page carries the same block with \"Monday - CLOSED\"; the hours page adds \"(for now)\", which is a note about the closure rather than a different schedule."
+  "note": "Monday is stated closed rather than left out. The front page carries the same block with \"Monday - CLOSED\"; the hours page adds \"(for now)\", which is a note about the closure rather than a different schedule. The Squarespace business-hours object has every day closed and is stale/unconfigured."
  },
  {
   "lat": 47.52622,
@@ -6428,29 +6280,6 @@
   "evidence": "Leutschenbach: Mo – Fr 08:00 – 23:00 | Sa – So 10:00 – 20:00"
  },
  {
-  "lat": 47.3807,
-  "lon": 8.50559,
-  "name": "Mitō Bouldering",
-  "country": "CH",
-  "source": "https://www.mito-bouldering.ch/de/hours",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name"
-  ],
-  "hours": {
-   "mon": "07:00-22:00",
-   "tue": "07:00-22:00",
-   "wed": "07:00-22:00",
-   "thu": "07:00-22:00",
-   "fri": "07:00-22:00",
-   "sat": "08:00-20:00",
-   "sun": "08:00-18:00"
-  },
-  "evidence": "Reguläre Öffnungszeiten: Montag – Freitag 07:00 – 22:00 | Samstag 08:00 – 20:00 | Sonntag 08:00 – 18:00"
- },
- {
   "lat": 47.38077156036091,
   "lon": 8.50559518406294,
   "name": "Mitō Bouldering",
@@ -6481,7 +6310,7 @@
   "name": "Momentum Olten",
   "country": "CH",
   "source": "https://www.momentumolten.ch/",
-  "checked": "2026-08-23",
+  "checked": "2026-09-01",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -6498,7 +6327,7 @@
    "sun": "10:00-18:30"
   },
   "evidence": "Montag, 17.30 – 21.30 Uhr | Dienstag, 17.30 – 21.30 Uhr | Mittwoch, 14.00 – 21.30 Uhr | Donnerstag, 17.30 – 21.30 Uhr | Freitag, geschlossen | Samstag, 14.00 – 18.30 Uhr | Sonntag, 10.00 – 18.30 Uhr",
-  "note": "Subscribers with an access badge get in at any time; the staffed week is what is recorded. On the last Sunday of the month the arena opens to sport at 12:00."
+  "note": "Subscribers with an access badge get in at any time; the staffed week is what is recorded. On the last Sunday of the month the arena opens to sport at 12:00. A dated storm closure from 28 August through 6 September 2026 is a one-off exception, not a replacement regular week."
  },
  {
   "lat": 46.96234,
@@ -6800,8 +6629,8 @@
   "note": "The chain states this hall and Tai Koo as its two 24-hour sites and the others with ordinary hours, so the scope is explicit. Entry is by face recognition after registering, which is the same grade of access as an unstaffed gym opened with a PIN: a pass is on sale to anyone."
  },
  {
-  "lat": 22.34366,
-  "lon": 114.14026,
+  "lat": 22.3424815,
+  "lon": 114.1359859,
   "name": "The Player Climbinggym",
   "country": "CN",
   "source": "https://www.theplayerclimbing.com/",
@@ -8933,7 +8762,7 @@
    "sun": "09:00-22:00"
   },
   "evidence": "Öffnungszeiten Regulär: Mo-Do 14:00 Uhr bis 23:00 Uhr, Fr-So 09:00 Uhr bis 22:00 Uhr · Schulferien: Mo-Do 10:00 Uhr bis 23:00 Uhr, Fr-So 09:00 Uhr bis 22:00 Uhr",
-  "note": "The hall labels one of its two weeks \"Regulär\" and the other \"Schulferien\", so which is the week and which is the exception is the site's own answer rather than a reading of it. The line about public holidays, open 09:00 to 22:00, is a third exception."
+  "note": "The hall labels one of its two weeks \"Regulär\" and the other \"Schulferien\", so which is the week and which is the exception is the site's own answer rather than a reading of it. The line about public holidays, open 09:00 to 22:00, is a third exception. The Squarespace business-hours object has every day closed and is stale/unconfigured."
  },
  {
   "lat": 48.08027,
@@ -10033,7 +9862,7 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Öffnungszeiten Mo-Fr: 14 – 22 Uhr · Wochenende & Feiertage: 10 – 20 Uhr · Schulferien: 10 – 22 Uhr",
-  "note": "The undated week covers all seven days; the third line is the school-holiday exception, and public holidays are folded into the weekend line. The hall is at Berliner Str. 25, 89250 Senden, the Bavarian one, which is where this coordinate falls."
+  "note": "The undated week covers all seven days; the third line is the school-holiday exception, and public holidays are folded into the weekend line. The hall is at Berliner Str. 25, 89250 Senden, the Bavarian one, which is where this coordinate falls. Its schema.org block opens Wednesday at 10:00 instead of the visible regular 14:00."
  },
  {
   "lat": 52.2680906,
@@ -11052,7 +10881,7 @@
    "sun": "09:00-23:00"
   },
   "evidence": "Opening hours | Tobaksbyen - Tobaksvejen 20, 2860 Søborg | Monday - Friday : 09:00 - 22:00 | Saturday & Sunday: 09:00 – 20:00 | Kødbyen - Flæsketorvet 89, 1711 København | Monday-Sunday: 09:00-23:00 | Thursdays from 07:00-23:00",
-  "note": "The site publishes a block per hall; the site’s own schema.org openingHours (09:00-23:00 every day) matches this one."
+  "note": "The site publishes a visible block per hall. Its site-wide schema.org setting says 09:00-23:00 every day, but this hall's maintained visible block alone opens Thursday at 07:00; the location-specific text is published."
  },
  {
   "lat": 55.69291,
@@ -11941,6 +11770,84 @@
   },
   "evidence": "Horarios — Lun – Vie: 10:00 – 14:00 / 16:00 – 22:30. Sab: 11:00 – 20:00. Dom: 11:00 – 15:00",
   "note": "Stated identically in the footer of every page; the weekday split is stored as the page states it."
+ },
+ {
+  "lat": 41.42486,
+  "lon": 2.18593,
+  "name": "Monobloc La Sagrera",
+  "country": "ES",
+  "source": "https://www.monobloc.es/la-sagrera",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "MONOBLOC LA SAGRERA. Carrer d'Olesa, 71 — 08027 Barcelona. Horario: Lunes a viernes: 9:00 - 22:00. Fines de semana: 10:00 - 20:00.",
+  "note": "The current visible branch page resolves the old chain-level structured-data ambiguity and states the complete week beside this branch's exact address."
+ },
+ {
+  "lat": 41.15835,
+  "lon": 1.12149,
+  "name": "Monobloc Reus",
+  "country": "ES",
+  "source": "https://www.monobloc.es/reus",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "MONOBLOC REUS. Carrer de Sabadell, 24 — 43204 Reus. Horario: Lunes a viernes: 9:00 - 22:00. Fines de semana: 10:00 - 20:00.",
+  "note": "The current visible branch page resolves the old chain-level structured-data ambiguity and states the complete week beside this branch's exact address."
+ },
+ {
+  "lat": 41.3666,
+  "lon": 2.13958,
+  "name": "Monobloc Sants",
+  "country": "ES",
+  "source": "https://www.monobloc.es/sants",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "MONOBLOC SANTS. Carrer de la Mineria, 51 — 08038 Barcelona. Horario: Lunes a viernes: 9:00 - 22:00. Fines de semana: 10:00 - 21:00.",
+  "note": "The current visible branch page resolves the old chain-level structured-data ambiguity and states the complete week beside this branch's exact address."
  },
  {
   "lat": 38.34201590000001,
@@ -13710,7 +13617,7 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 18:00",
-  "note": "Upstream carries this gym twice, about 60 m apart."
+  "note": "Upstream carries this gym twice, about 60 m apart. The shared schema.org setting says 08:00-20:00 on Sunday, while the Hounslow page's visible visitor week says 10:00-18:00."
  },
  {
   "lat": 53.4139403,
@@ -14457,7 +14364,7 @@
   "name": "Hang.",
   "country": "GB",
   "source": "https://www.the-font.co.uk/hounslow",
-  "checked": "2026-08-23",
+  "checked": "2026-09-01",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -14474,7 +14381,8 @@
    "sat": "10:00-18:00",
    "sun": "10:00-18:00"
   },
-  "evidence": "Monday to Friday: 10:00 - 21:30 | Saturday to Sunday: 10:00 - 18:00"
+  "evidence": "Monday to Friday: 10:00 - 21:30 | Saturday to Sunday: 10:00 - 18:00",
+  "note": "The shared schema.org setting says 08:00-20:00 on Sunday, while the Hounslow page's visible visitor week says 10:00-18:00."
  },
  {
   "lat": 50.85264,
@@ -14651,31 +14559,6 @@
   "note": "The week is stated twice, once in a card and once in the footer, and the two agree — which also settles that the bare \"6:00\" of the footer is the morning. Each statement is headed by the branch address, so the New Basford week beside it cannot be mistaken for this one."
  },
  {
-  "lat": 51.45496,
-  "lon": -0.193,
-  "name": "Parthian Climbing Wandsworth",
-  "country": "GB",
-  "source": "https://www.the-font.co.uk/wandsworth",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "name",
-   "city",
-   "location-page"
-  ],
-  "hours": {
-   "mon": "06:15-22:00",
-   "tue": "06:15-22:00",
-   "wed": "06:15-22:00",
-   "thu": "06:15-22:00",
-   "fri": "06:15-22:00",
-   "sat": "09:00-18:00",
-   "sun": "09:00-18:00"
-  },
-  "evidence": "Monday to Friday: 06:15 - 22:00 | Saturday to Sunday: 09:00 - 18:00"
- },
- {
   "lat": 52.193636,
   "lon": -2.221575,
   "name": "Redpoint Worcester",
@@ -14774,9 +14657,9 @@
   "note": "The peak and off-peak bands are pricing, not opening; the centre states one week above them."
  },
  {
-  "lat": 51.5822099,
-  "lon": -1.753619,
-  "name": "Rockstar Climbing",
+  "lat": 51.58198,
+  "lon": -1.754,
+  "name": "Rockstar Climbing & Bouldering",
   "country": "GB",
   "source": "https://www.rockstarclimbing.co.uk/",
   "checked": "2026-08-24",
@@ -14798,33 +14681,7 @@
    "sun": "09:00-18:00"
   },
   "evidence": "Centre Buildings 3-5, The I.O Centre Radway Road, Swindon Wiltshire SN3 4WH … Opening Hours Monday to Friday 10:30-22:00 Saturday & Sunday 09:00-18:00",
-  "note": "Two bands covering all seven days, stated beneath the centre's address. Its schema.org openingHours opens the weekdays four hours earlier, at 06:30. Recorded ambiguous until the rule was written down: a schema.org block is published once from a settings screen and left behind, so it is not an equal claim to the text a visitor reads."
- },
- {
-  "lat": 51.58198,
-  "lon": -1.754,
-  "name": "Rockstar Climbing & Bouldering",
-  "country": "GB",
-  "source": "https://www.rockstarclimbing.co.uk/",
-  "checked": "2026-08-24",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city",
-   "co-located"
-  ],
-  "hours": {
-   "mon": "10:30-22:00",
-   "tue": "10:30-22:00",
-   "wed": "10:30-22:00",
-   "thu": "10:30-22:00",
-   "fri": "10:30-22:00",
-   "sat": "09:00-18:00",
-   "sun": "09:00-18:00"
-  },
-  "evidence": "Opening Hours Monday to Friday 10:30-22:00 Saturday & Sunday 09:00-18:00",
-  "note": "The same hall as the Rockstar Climbing entry about 20 m away, which carries this week. The page's markup opens the weekdays at 06:30; the text is the statement."
+  "note": "The two legacy board-specific points are consolidated at this one centre. Its schema.org block opens weekdays at 06:30; the visible current text is the operator's maintained statement."
  },
  {
   "lat": 52.40906,
@@ -15286,7 +15143,7 @@
   "name": "The Font Climbing Borough",
   "country": "GB",
   "source": "https://www.the-font.co.uk/borough",
-  "checked": "2026-08-23",
+  "checked": "2026-09-01",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -15303,7 +15160,8 @@
    "sat": "10:00-18:00",
    "sun": "10:00-18:00"
   },
-  "evidence": "Monday to Friday: 07:00 - 22:00 | Saturday to Sunday: 10:00 - 18:00"
+  "evidence": "Monday to Friday: 07:00 - 22:00 | Saturday to Sunday: 10:00 - 18:00",
+  "note": "The shared schema.org setting says 08:00-20:00 on Sunday, while the Borough page's visible visitor week says 10:00-18:00."
  },
  {
   "lat": 53.384714,
@@ -15882,6 +15740,58 @@
   "note": "Sunday through Thursday share one window, and Friday and Saturday each get their own — the ordinary shape of an Israeli week, and all seven days are covered by it."
  },
  {
+  "lat": 32.92353,
+  "lon": 35.31213,
+  "name": "קמפוס מועדון טיפוס Campus Karmiel",
+  "country": "IL",
+  "source": "https://www.campuswall.co.il/",
+  "checked": "2026-09-01",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "16:00-22:00",
+   "tue": "16:00-22:00",
+   "wed": "16:00-22:00",
+   "thu": "16:00-23:00",
+   "fri": "10:00-16:00",
+   "sat": "11:00-18:00",
+   "sun": "16:00-23:00"
+  },
+  "evidence": "שעות פעילות: א' 16:00-23:00 | ב'-ד' 16:00-22:00 | ה' 16:00-23:00 | ו' 10:00-16:00 | ש' 11:00-18:00",
+  "note": "The operator prints all seven days twice on its homepage. The Israeli Sunday-first schedule is transposed into this file's Monday-first order."
+ },
+ {
+  "lat": 45.673384290029745,
+  "lon": 9.231829044179566,
+  "name": "AKIRA Climbing",
+  "country": "IT",
+  "source": "https://www.akiraclimbing.it/",
+  "checked": "2026-09-01",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-19:30",
+   "sun": "10:00-19:30"
+  },
+  "evidence": "Orari di apertura. Lunedì – venerdì · 10.00 – 23.00. Sabato – domenica · 10.00 – 19.30. Piazza Risorgimento 1, Carate Brianza. Aperto da agosto 2026.",
+  "note": "The current operator homepage gives the ordinary seven-day week, exact address and open-since-August status; its separate September Open Day slots are events, not the venue schedule."
+ },
+ {
   "lat": 45.5452,
   "lon": 9.28872,
   "name": "Big Walls",
@@ -16059,7 +15969,7 @@
   "name": "Ikigai Climbing",
   "country": "IT",
   "source": "https://www.ikigai-climbing.it/",
-  "checked": "2026-08-24",
+  "checked": "2026-09-01",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -16075,7 +15985,7 @@
    "sun": "10:00-19:30"
   },
   "evidence": "Lun - Ven 10:00 / 22:30 Orari Sala arrampicata 10:00 / 23:00 Orari Bar 10:00 / 23:30 Orari Palestra Sab - Dom 10:00 / 19:30 Orari Sala arrampicata 10:00 / 19:30 Orari Bar 10:00 / 20:00 Orari Palestra",
-  "note": "Three scopes under one heading, each a time then its label: the climbing hall, the bar and the fitness room close at different times. The board is in the Sala arrampicata, so that is the week taken; the bar half an hour later and the fitness room an hour later are the other two rooms, not this one."
+  "note": "Three scopes under one heading, each a time then its label: the climbing hall, the bar and the fitness room close at different times. The board is in the Sala arrampicata, so that is the week taken; the bar half an hour later and the fitness room an hour later are the other two rooms, not this one. The conflict reader's missing-22:30 finding is a slash-separated-layout parsing limitation; the current visible page still prints the recorded climbing-hall week."
  },
  {
   "lat": 46.01495,
@@ -16425,37 +16335,12 @@
   "note": "Replaces an \"inaccessible\" outcome: the page is WordPress and answers in full through its REST route where the rendered HTML gave nothing. The gym states 定休日 なし — no regular closing day — so all seven days are covered. The 最終受付 times are last admission, a quarter of an hour before closing, and are not the closing time."
  },
  {
-  "lat": 35.70682,
-  "lon": 139.66606,
+  "lat": 35.7067885,
+  "lon": 139.6660675,
   "name": "CapyClimb",
   "country": "JP",
   "source": "https://capyclimb.com/ja/",
-  "checked": "2026-08-25",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "co-located",
-   "hours-scope"
-  ],
-  "hours": {
-   "mon": "10:00-23:00",
-   "tue": "10:00-23:00",
-   "wed": "10:00-23:00",
-   "thu": "10:00-23:00",
-   "fri": "10:00-23:00",
-   "sat": "10:00-23:00",
-   "sun": "10:00-23:00"
-  },
-  "evidence": "アクセス 東京都中野区中野5丁目61-4 〒164-0001 月曜日〜日曜日 スタッフ常駐時間: 10:00 - 23:00 メンバー専用時間: 23:00 - 翌10:00（準備中）",
-  "note": "The gym states the two windows and labels them: staff present 10:00-23:00 every day of the week, and a members-only window from 23:00 to 10:00 marked as in preparation. The first is the public week."
- },
- {
-  "lat": 35.709834416741565,
-  "lon": 139.6658118837558,
-  "name": "CapyClimb",
-  "country": "JP",
-  "source": "https://capyclimb.com/ja/",
-  "checked": "2026-08-25",
+  "checked": "2026-08-31",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -16472,15 +16357,15 @@
    "sun": "10:00-23:00"
   },
   "evidence": "アクセス 東京都中野区中野5丁目61-4 〒164-0001 月曜日〜日曜日 スタッフ常駐時間: 10:00 - 23:00 メンバー専用時間: 23:00 - 翌10:00（準備中）",
-  "note": "The gym states the two windows and labels them: staff present 10:00-23:00 every day of the week, and a members-only window from 23:00 to 10:00 marked as in preparation. The first is the public week."
+  "note": "The gym states the two windows and labels them: staff present 10:00-23:00 every day of the week, and a members-only window from 23:00 to 10:00 marked as in preparation. The first is the public week; both board-system rows are now one venue at the page's embedded map point."
  },
  {
-  "lat": 35.55209809999999,
-  "lon": 139.5794141,
-  "name": "ClimbingBUM",
+  "lat": 35.553181,
+  "lon": 139.579468,
+  "name": "Climbing Bum Yokohama",
   "country": "JP",
   "source": "https://climbingbum.jp/yokohama/",
-  "checked": "2026-08-24",
+  "checked": "2026-09-01",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -16751,6 +16636,32 @@
   "note": "Three lines covering seven days, printed under LOCATION beside the address: Monday, Tuesday and Thursday close at 22:00, Wednesday and Friday at 23:00, and the weekend and public holidays run 10:00 to 21:00."
  },
  {
+  "lat": 33.3192865,
+  "lon": 130.5083735,
+  "name": "Joywall",
+  "country": "JP",
+  "source": "https://kurume.joywallclimbing.com/access/",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "location-page",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "closed",
+   "tue": "14:00-23:00",
+   "wed": "14:00-23:00",
+   "thu": "18:00-23:00",
+   "fri": "14:00-23:00",
+   "sat": "11:00-21:00",
+   "sun": "11:00-21:00"
+  },
+  "evidence": "クライミングジムJOYWALL久留米 〒839-0814 福岡県久留米市山川追分2-3-1 … 営業時間 火・水・金 14:00~23:00 木 18:00~23:00 土・日・祝 11:00~21:00 定休日 月曜のほか数日程不定休あり",
+  "note": "The current access page states one ordinary seven-day week beside the exact branch address. Additional irregular closure dates are announced separately and do not replace the stated regular hours."
+ },
+ {
   "lat": 36.0227505,
   "lon": 139.7355048,
   "name": "OKKUROCK",
@@ -16801,13 +16712,13 @@
   "note": "The gym states that general visitors may use it only during staff hours, so those are the public opening; Monday is excluded from the weekday band in so many words — 平日の月曜日を除く — and is recorded closed. The last-entry times an hour or two before closing are an admission cutoff, not a shorter opening, and the 営業カレンダー beside them is a calendar of dated exceptions."
  },
  {
-  "lat": 35.18145060000001,
-  "lon": 136.9065571,
+  "lat": 35.205871,
+  "lon": 136.94425,
   "name": "RIOT CLIMBING",
   "country": "JP",
   "source": "https://riot-climbing.com/",
-  "checked": "2026-08-24",
-  "provenance": "official-site",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
   "signals": [
    "venue-link",
    "street-address",
@@ -16825,6 +16736,62 @@
   },
   "evidence": "営業時間 平日 13:00 〜 22:00 土日祝 10:00 〜 19:00 定休日 火曜日",
   "note": "Weekdays against weekends-and-public-holidays, with Tuesday named as the closing day, printed beneath the gym's address. Tuesday is the weekday the 定休日 line removes from the 平日 band."
+ },
+ {
+  "lat": 34.511873,
+  "lon": 136.64258,
+  "name": "SunnyDipper Climbing",
+  "country": "JP",
+  "source": "https://sunnydipper.com/%e3%81%94%e5%88%a9%e7%94%a8%e6%96%99%e9%87%91%e3%83%bb%e5%96%b6%e6%a5%ad%e6%99%82%e9%96%93/",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "closed",
+   "tue": "14:00-22:30",
+   "wed": "14:00-22:30",
+   "thu": "14:00-22:30",
+   "fri": "14:00-22:30",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "営業時間 月曜日 定休日 火～金 14:00～22:30 土・日 10:00～20:00 ムーンボードのみの利用",
+  "note": "The operator's current price-and-hours page states a complete ordinary week and explicitly covers MoonBoard-only visits."
+ },
+ {
+  "lat": 36.3479482,
+  "lon": 140.3030609,
+  "name": "vortex",
+  "country": "JP",
+  "source": "https://climbinggym-vortex.shopinfo.jp/pages/5751139/profile",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "16:00-22:30",
+   "tue": "16:00-22:30",
+   "wed": "16:00-22:30",
+   "thu": "16:00-22:30",
+   "fri": "closed",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "営業時間 金曜定休（祝日は営業） 平日 16:00-22:30 土日祝 10:00-20:00",
+  "note": "The current operator location page states the ordinary weekday and weekend bands and Friday closure. The public-holiday exception does not change the regular Friday week."
  },
  {
   "lat": 35.699996,
@@ -17104,7 +17071,7 @@
    "sun": "09:00-22:00"
   },
   "evidence": "Adress Unijas street 14, Riga 3rd floor · Working hours 10:00-23:00 Monday - Friday 09:00-22:00 Saturday - Sunday",
-  "note": "Two lines covering the week, printed directly beneath the address."
+  "note": "Two lines covering the week, printed directly beneath the address. The Squarespace business-hours object has every day closed, a stale unconfigured setting rather than the visible venue statement."
  },
  {
   "lat": 46.976995,
@@ -17259,7 +17226,7 @@
  {
   "lat": 3.1006116,
   "lon": 101.6320434,
-  "name": "BHub Bouldering 2024 Moonboard",
+  "name": "BHub Bouldering",
   "country": "MY",
   "source": "https://bhubbouldering.com/",
   "checked": "2026-08-23",
@@ -17281,6 +17248,32 @@
   },
   "evidence": "Mon - Fri: 11:00 - 23:00 Sat, Sun, PH: 09:00 - 20:00",
   "note": "Stated beside the gym's address. Public holidays are grouped with the weekend."
+ },
+ {
+  "lat": 2.19316,
+  "lon": 102.23685,
+  "name": "Pampa Rock Climbing",
+  "country": "MY",
+  "source": "https://sgrh.swangarden.com/services/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "closed",
+   "tue": "14:00-22:00",
+   "wed": "14:00-22:00",
+   "thu": "14:00-22:00",
+   "fri": "14:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Operating Hours: Tuesday – Friday: 2PM – 10PM Saturday & Sunday: 10AM – 8PM Closed on Monday exclude School Holiday & Public Holiday.",
+  "note": "The official host-property page states Pampa's ordinary seven-day week beside the facility name and exact venue address. Its school- and public-holiday exception is not folded into the regular week; the public UI already warns that holiday changes may apply."
  },
  {
   "lat": 53.21729,
@@ -17305,30 +17298,6 @@
    "sun": "09:00-22:00"
   },
   "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 09:00 – 23:00 | Dinsdag 09:00 – 23:00 | Woensdag 09:00 – 23:00 | Donderdag 09:00 – 23:00 | Vrijdag 09:00 – 23:00 | Zaterdag 09:00 – 22:00 | Zondag 09:00 – 22:00"
- },
- {
-  "lat": 53.1406108,
-  "lon": 4.2517792,
-  "name": "Beacon Climbing Centre",
-  "country": "NL",
-  "source": "https://www.beaconclimbing.com/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "10:00-21:00",
-   "tue": "10:00-21:00",
-   "wed": "10:00-21:00",
-   "thu": "08:00-21:00",
-   "fri": "10:00-21:00",
-   "sat": "10:00-18:30",
-   "sun": "10:00-18:30"
-  },
-  "evidence": "Monday, Tuesday, Wednesday and Friday | 10am - 9pm | Thursday 8am - 9pm | Weekends 10am - 6:30pm | Bank Holidays 10am - 9pm | Phone 01286 677 322",
-  "note": "The dataset entry carries a positive longitude and so lands in the North Sea; the venue itself is the Caernarfon wall, which is what its recorded city says."
  },
  {
   "lat": 52.0695268,
@@ -17875,7 +17844,7 @@
   "name": "Boulderhal Zuidhaven",
   "country": "NL",
   "source": "https://www.boulderhalzuidhaven.nl/openingstijden/",
-  "checked": "2026-08-23",
+  "checked": "2026-09-01",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -17891,7 +17860,8 @@
    "sat": "08:30-21:00",
    "sun": "08:30-21:00"
   },
-  "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 08:30 – 23:00 | Dinsdag 08:30 – 23:00 | Woensdag 08:30 – 23:00 | Donderdag 08:30 – 23:00 | Vrijdag 08:30 – 23:00 | Zaterdag 08:30 – 21:00 | Zondag 08:30 – 21:00"
+  "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 08:30 – 23:00 | Dinsdag 08:30 – 23:00 | Woensdag 08:30 – 23:00 | Donderdag 08:30 – 23:00 | Vrijdag 08:30 – 23:00 | Zaterdag 08:30 – 21:00 | Zondag 08:30 – 21:00",
+  "note": "The current page still prints the complete recorded week. Its separate live 'today open until 21:00' line caused the drift detector to misclassify 21:00; the labelled regular-hours table is unchanged."
  },
  {
   "lat": 52.22366,
@@ -18818,8 +18788,8 @@
   "evidence": "Mandag 07:00-23:00 | Tirsdag 07:00-23:00 | Onsdag 07:00-23:00 | Torsdag 07:00-23:00 | Fredag 07:00-21:00 | Lørdag 09:00-21:00 | Søndag 09:00-21:00"
  },
  {
-  "lat": 59.28207,
-  "lon": 10.32679,
+  "lat": 59.2800086,
+  "lon": 10.316057,
   "name": "Høyt Under Taket Klatresenter Tønsberg",
   "country": "NO",
   "source": "https://hoytundertaket.no/tonsberg/informasjon/apningstider/",
@@ -19071,12 +19041,12 @@
   "note": "The hall states one week — weekdays and weekend — and lists its supervised sessions separately inside it."
  },
  {
-  "lat": 62.73626,
-  "lon": 7.18192,
+  "lat": 62.73608238635402,
+  "lon": 7.1818127676297765,
   "name": "Molde Klatresenter",
   "country": "NO",
   "source": "https://moldeklatresenter.no/apningstider",
-  "checked": "2026-08-24",
+  "checked": "2026-08-31",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -19093,57 +19063,7 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Molde Klatresenter Åpningstider Mandag - Torsdag 8:00-22:00 Fredag 8:00-20:00 Lørdag - Søndag 10:00-20:00 ... Grandfjæra 22 C 6415 Molde",
-  "note": "The record for all three rows at this hall said the site carries activity slots and no opening. It carries both: the slots are on the home page under \"Dette skjer hos oss\", and the week is on /apningstider, which the home page links to by name and the sitemap does not list. Friday closes two hours before the other weekdays."
- },
- {
-  "lat": 62.73644199999999,
-  "lon": 7.182532300000001,
-  "name": "Molde Klatresenter",
-  "country": "NO",
-  "source": "https://moldeklatresenter.no/apningstider",
-  "checked": "2026-08-24",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "08:00-22:00",
-   "tue": "08:00-22:00",
-   "wed": "08:00-22:00",
-   "thu": "08:00-22:00",
-   "fri": "08:00-20:00",
-   "sat": "10:00-20:00",
-   "sun": "10:00-20:00"
-  },
-  "evidence": "Molde Klatresenter Åpningstider Mandag - Torsdag 8:00-22:00 Fredag 8:00-20:00 Lørdag - Søndag 10:00-20:00 ... Grandfjæra 22 C 6415 Molde",
-  "note": "The record for all three rows at this hall said the site carries activity slots and no opening. It carries both: the slots are on the home page under \"Dette skjer hos oss\", and the week is on /apningstider, which the home page links to by name and the sitemap does not list. Friday closes two hours before the other weekdays."
- },
- {
-  "lat": 62.73647,
-  "lon": 7.18253,
-  "name": "Molde Klatresenter",
-  "country": "NO",
-  "source": "https://moldeklatresenter.no/apningstider",
-  "checked": "2026-08-24",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "08:00-22:00",
-   "tue": "08:00-22:00",
-   "wed": "08:00-22:00",
-   "thu": "08:00-22:00",
-   "fri": "08:00-20:00",
-   "sat": "10:00-20:00",
-   "sun": "10:00-20:00"
-  },
-  "evidence": "Molde Klatresenter Åpningstider Mandag - Torsdag 8:00-22:00 Fredag 8:00-20:00 Lørdag - Søndag 10:00-20:00 ... Grandfjæra 22 C 6415 Molde",
-  "note": "The record for all three rows at this hall said the site carries activity slots and no opening. It carries both: the slots are on the home page under \"Dette skjer hos oss\", and the week is on /apningstider, which the home page links to by name and the sitemap does not list. Friday closes two hours before the other weekdays."
+  "note": "The week is on /apningstider and covers all seven days; Friday closes two hours before the other weekdays. The three formerly split board-system rows are now one venue at the official address-registry point for Grandfjæra 22 C."
  },
  {
   "lat": 67.28667,
@@ -19218,31 +19138,6 @@
   },
   "evidence": "Mandag–fredag 09:00–20:00 | Lørdag–søndag 11:00–17:00",
   "note": "The site's schema.org openingHours states the same week."
- },
- {
-  "lat": 59.27998270000001,
-  "lon": 10.3159612,
-  "name": "Sem/Tønsberg HUT",
-  "country": "NO",
-  "source": "https://hoytundertaket.no/tonsberg/informasjon/apningstider/",
-  "checked": "2026-08-24",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "hours-scope"
-  ],
-  "hours": {
-   "mon": "12:00-22:00",
-   "tue": "12:00-22:00",
-   "wed": "12:00-22:00",
-   "thu": "12:00-22:00",
-   "fri": "12:00-20:00",
-   "sat": "11:00-19:00",
-   "sun": "11:00-19:00"
-  },
-  "evidence": "Åpningstider Mandag 12:00 - 22:00 · Tirsdag 12:00 - 22:00 · Onsdag 12:00 - 22:00 · Torsdag 12:00 - 22:00 · Fredag 12:00 - 20:00 · Lørdag 11:00 - 19:00 · Søndag 11:00 - 19:00 (footer: Andebuveien 78, 3170 Sem)",
-  "note": "What the earlier reading took for two weeks that disagree is a dated exception above a standing one. The block on top is headed with its own dates — \"Sommer 22. juni – 16. august 2026\" at Skien, \"Uke 33. 10.august-16.august\" at Letohallen, \"uke 33. 10. juni – 16. august\" at Moss — and every one of those periods has ended. Beneath it the hall states its ordinary week under its own name, and all four halls state the same one. The page's schema.org block gives 09:00-17:00 for all seven days at every branch, which is the platform's placeholder and not a claim the operator has made."
  },
  {
   "lat": 58.93716,
@@ -19668,7 +19563,7 @@
  {
   "lat": 14.41624,
   "lon": 121.04281,
-  "name": "Power Up Albang",
+  "name": "Power Up Alabang",
   "country": "PH",
   "source": "https://powerupalabang.com/location",
   "checked": "2026-08-25",
@@ -20574,7 +20469,7 @@
    "sun": "06:00-23:00"
   },
   "evidence": "Open Daily 6:00 AM - 11:00 PM ... What are your opening hours? We're open 7 days a week from 6:00 AM to 11:00 PM. Come climb with us anytime!",
-  "note": "The banner and the FAQ say the same thing twice, in English and in Arabic, and nothing else on the site states a different day."
+  "note": "The banner and the FAQ say the same thing twice, in English and in Arabic. A schema.org object reports Wednesday as 16:00-23:00, but the maintained visible bilingual statements both say 06:00-23:00 daily."
  },
  {
   "lat": 63.39079,
@@ -20996,6 +20891,32 @@
   "note": "The operator states which outlets each line covers."
  },
  {
+  "lat": 1.30508,
+  "lon": 103.85142,
+  "name": "Boulder Movement Rochor",
+  "country": "SG",
+  "source": "https://www.boulderm.com/locations/our-gyms/rochor",
+  "checked": "2026-09-01",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Rochor 2 Serangoon Road #02-12, Tekka Place Singapore 218227 operating hours Sun, Sat, PH 10:00am - 21:00pm Mon to Fri 11:00am - 22:00pm",
+  "note": "The current branch page prints one weekday window and one Saturday/Sunday/public-holiday window beside Rochor's exact address."
+ },
+ {
   "lat": 1.27917,
   "lon": 103.84651,
   "name": "fit • bloc Telok Ayer",
@@ -21095,7 +21016,7 @@
    "sun": "10:00-22:00"
   },
   "evidence": "Opening Hours* Weekdays: 10am - 10pm Weekends: 10am – 10pm",
-  "note": "The same window every day, stated beside the address. The asterisk points to route resetting every Monday and Thursday between 8am and 3pm, during which parts of the walls are closed; that is a partial closure inside the opening, not a change to it."
+  "note": "The same window every day, stated beside the address. The asterisk points to route resetting every Monday and Thursday between 8am and 3pm, during which parts of the walls are closed; that is a partial closure inside the opening, not a change to it. The page's unrelated class/event schema times are misread as a business week by the conflict tool; they do not replace the visible venue hours."
  },
  {
   "lat": 46.0731693,
@@ -21427,37 +21348,12 @@
   "evidence": "Monday - Friday | 4pm - 10pm | Saturday | 11am - 8pm | Sunday | 1pm - 6pm"
  },
  {
-  "lat": 43.0248873,
-  "lon": -87.91302400000001,
-  "name": "Adventure Rock Moonboard",
+  "lat": 43.0249104,
+  "lon": -87.9130311,
+  "name": "Adventure Rock Walker's Point",
   "country": "US",
   "source": "https://adventurerock.com/",
-  "checked": "2026-08-23",
-  "provenance": "official-chain-page",
-  "signals": [
-   "venue-link",
-   "street-address",
-   "hours-scope"
-  ],
-  "hours": {
-   "mon": "09:00-22:00",
-   "tue": "09:00-22:00",
-   "wed": "09:00-22:00",
-   "thu": "09:00-22:00",
-   "fri": "09:00-22:00",
-   "sat": "09:00-20:00",
-   "sun": "09:00-20:00"
-  },
-  "evidence": "WKP | Bouldering | 613 S 2nd St, Milwaukee, WI 53204 | Monday Tuesday Wednesday Thursday Friday Saturday Sunday | x | 6 AM – 9 AM | x | 6 AM – 9 AM | x | x | x | Member Hours | 9 AM - 10 PM | 9 AM – 10 PM | 9 AM – 10 PM | 9 AM – 10 PM | 9 AM – 10 PM | 9 AM – 8 PM | 9 AM – 8 PM | Regular Hours",
-  "note": "The operator’s site carries one table per gym; Walker’s Point also opens to members at 6 AM on Tuesday and Thursday."
- },
- {
-  "lat": 43.02566,
-  "lon": -87.91254,
-  "name": "Adventure Rock WKP",
-  "country": "US",
-  "source": "https://adventurerock.com/",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "provenance": "official-chain-page",
   "signals": [
    "venue-link",
@@ -22020,7 +21916,7 @@
    "sun": "12:00-18:00"
   },
   "evidence": "BC's Climbing Gym in New Paltz, NY We Specialize in High-Quality Boulder Problems for Adults. HOURS Monday - Friday: 2pm-9pm Saturday: 12pm-9pm Sunday: 12pm-6pm CONTACT Phone: 845-255-7625 ... 234 Main Street New Paltz, NY 12561 (We are Located in the Walgreen's Plaza, on the backside of the building).",
-  "note": "Three lines under the gym's own name and above its own address. Saturday and Sunday both open at noon and close three hours apart."
+  "note": "Three lines under the gym's own name and above its own address. Saturday and Sunday both open at noon and close three hours apart. The stale Squarespace/schema.org settings instead open Monday at 17:00, Saturday at 14:00 and omit Sunday."
  },
  {
   "lat": 30.32726,
@@ -22114,7 +22010,7 @@
    "sun": "10:00-19:00"
   },
   "evidence": "SF Location - 1414 Van Ness Ave., SF, CA 94109 | Mon-Fri - 11am-10pm; Sat-Sun - 10am-7pm | Berkeley Location - 1607 Shattuck Ave., Berkeley, CA | Mon-Fri - 7am-10pm; Sat-Sun - 10am-7pm",
-  "note": "The operator lists its two gyms with an address and an hours line each; the San Francisco one opens at 11am."
+  "note": "The operator lists its two gyms with an address and an hours line each; the San Francisco one opens at 11am. The site-wide Squarespace/schema.org setting also says 11:00 for weekdays, but Berkeley's maintained visible location block says 07:00."
  },
  {
   "lat": 37.78891,
@@ -22616,12 +22512,12 @@
   "evidence": "Saturday: 8am-9pm | Sunday: 8am-9pm Monday: 6am-10pm Tuesday: 6am-10pm Wednesday: 6am-10pm Thursday: 6am-10pm Friday: 6am-10pm"
  },
  {
-  "lat": 33.4042,
-  "lon": -111.95457,
+  "lat": 33.4004145,
+  "lon": -111.9529012,
   "name": "Bouldering Project Tempe",
   "country": "US",
   "source": "https://boulderingproject.com/location/tempe/",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -23010,16 +22906,19 @@
  },
  {
   "lat": 42.3908,
-  "lon": -71.13989,
+  "lon": -71.1425,
   "name": "Central Rock Gym Cambridge",
   "country": "US",
   "source": "https://centralrockgym.com/cambridge/",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
+   "name",
+   "street-address",
    "location-page",
-   "city"
+   "coordinates",
+   "hours-scope"
   ],
   "hours": {
    "mon": "07:00-22:30",
@@ -23030,32 +22929,8 @@
    "sat": "10:00-18:00",
    "sun": "10:00-18:00"
   },
-  "evidence": "Monday: 7am-10:30pm | Tuesday: 7am-10:30pm | Wednesday: 7am-10:30pm | Thursday: 7am-10:30pm | Friday: 11am-10:30pm | Saturday: 10am-6pm | Sunday: 10am-6pm",
-  "note": "The Central Rock Gym Cambridge entry 1,049 m away carries the same page and the address it prints, 170 Alewife Brook Pkwy. The operator brands its other hall in this city Harvard Square, at 20 Brattle St about 2.6 km from here, so the Cambridge hall is the nearer of the two by a wide margin. This entry comes from the Tension registry, which records no address."
- },
- {
-  "lat": 42.39436,
-  "lon": -71.15172,
-  "name": "Central Rock Gym Cambridge",
-  "country": "US",
-  "source": "https://centralrockgym.com/cambridge/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "07:00-22:30",
-   "tue": "07:00-22:30",
-   "wed": "07:00-22:30",
-   "thu": "07:00-22:30",
-   "fri": "11:00-22:30",
-   "sat": "10:00-18:00",
-   "sun": "10:00-18:00"
-  },
-  "evidence": "Monday: 7am-10:30pm | Tuesday: 7am-10:30pm | Wednesday: 7am-10:30pm | Thursday: 7am-10:30pm | Friday: 11am-10:30pm | Saturday: 10am-6pm | Sunday: 10am-6pm"
+  "evidence": "Cambridge, 170 Alewife Brook Pkwy, Cambridge, Massachusetts 02138. Hours Monday: 7am-10:30pm | Tuesday: 7am-10:30pm | Wednesday: 7am-10:30pm | Thursday: 7am-10:30pm | Friday: 11am-10:30pm | Saturday: 10am-6pm | Sunday: 10am-6pm",
+  "note": "The current branch page's Get Directions coordinate consolidates the formerly split Kilter, Tension, Aurora and MoonBoard rows at this one hall."
  },
  {
   "lat": 40.75113,
@@ -23714,31 +23589,6 @@
   "note": "Touchstone gives each of its fifteen halls a page that opens with the hall's name, its street address and its week. This is Class 5's. The halls disagree with each other — 5AM at MetalMark, 10AM at The Studio and at Hyperion — so the block is this hall's and no other's."
  },
  {
-  "lat": 33.84918,
-  "lon": -118.35146,
-  "name": "Class 5 Climbing",
-  "country": "US",
-  "source": "https://touchstoneclimbing.com/class-5/",
-  "checked": "2026-08-24",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "06:30-22:00",
-   "tue": "06:30-22:00",
-   "wed": "06:30-22:00",
-   "thu": "06:30-22:00",
-   "fri": "06:30-22:00",
-   "sat": "09:00-19:00",
-   "sun": "09:00-19:00"
-  },
-  "evidence": "Touchstone Climbing Climbing Class 5 20120 Hawthorne Blvd Torrance, CA 90503 Get Directions M-F 6:30AM – 10:00PM S/S 9:00AM – 7:00PM 424-587-7166",
-  "note": "Touchstone gives each of its fifteen halls a page that opens with the hall's name, its street address and its week. This is Class 5's. The halls disagree with each other — 5AM at MetalMark, 10AM at The Studio and at Hyperion — so the block is this hall's and no other's."
- },
- {
   "lat": 36.35673,
   "lon": -94.21992,
   "name": "Climb Bentonville",
@@ -24290,31 +24140,6 @@
   "note": "Members additionally get in 6–10am on Monday and Wednesday; the public week is what is recorded."
  },
  {
-  "lat": 42.3938542,
-  "lon": -71.150421,
-  "name": "CRG Cambridge",
-  "country": "US",
-  "source": "https://centralrockgym.com/cambridge/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "co-located",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "07:00-22:30",
-   "tue": "07:00-22:30",
-   "wed": "07:00-22:30",
-   "thu": "07:00-22:30",
-   "fri": "11:00-22:30",
-   "sat": "10:00-18:00",
-   "sun": "10:00-18:00"
-  },
-  "evidence": "Monday: 7am-10:30pm | Tuesday: 7am-10:30pm | Wednesday: 7am-10:30pm | Thursday: 7am-10:30pm | Friday: 11am-10:30pm | Saturday: 10am-6pm | Sunday: 10am-6pm",
-  "note": "The dataset lists this hall twice; the verified link sits on the twin entry a few metres away."
- },
- {
   "lat": 30.32642,
   "lon": -97.71691,
   "name": "Crux Climbing Center Central",
@@ -24337,56 +24162,6 @@
    "sun": "10:00-22:00"
   },
   "evidence": "Mon – Fri: 6AM – 11PM | Sat – Sun: 10AM – 10PM"
- },
- {
-  "lat": 30.17515,
-  "lon": -97.79041,
-  "name": "Crux Climbing Center South",
-  "country": "US",
-  "source": "https://www.cruxclimbingcenter.com/south-austin/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "11:00-23:00",
-   "tue": "11:00-23:00",
-   "wed": "11:00-23:00",
-   "thu": "11:00-23:00",
-   "fri": "11:00-23:00",
-   "sat": "09:00-22:00",
-   "sun": "09:00-22:00"
-  },
-  "evidence": "Mon – Fri: 6AM – 11PM | Sat – Sun: 9AM – 10PM … Who can come in 6am – 11am on mon-fri? Members are the only ones that can come in 6AM – 11AM on Monday through Friday. No walk-ins, guest passes, or punch pass holders may come before 11AM Mon-Fri.",
-  "note": "The gym itself opens at 6AM on weekdays, but the official FAQ states that no walk-in, guest pass or punch pass holder may enter before 11AM; the walk-in week is what is recorded."
- },
- {
-  "lat": 30.181421802025056,
-  "lon": -97.79111214027573,
-  "name": "Crux Climbing Center South",
-  "country": "US",
-  "source": "https://www.cruxclimbingcenter.com/south-austin/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "11:00-23:00",
-   "tue": "11:00-23:00",
-   "wed": "11:00-23:00",
-   "thu": "11:00-23:00",
-   "fri": "11:00-23:00",
-   "sat": "09:00-22:00",
-   "sun": "09:00-22:00"
-  },
-  "evidence": "Mon – Fri: 6AM – 11PM | Sat – Sun: 9AM – 10PM … Who can come in 6am – 11am on mon-fri? Members are the only ones that can come in 6AM – 11AM on Monday through Friday. No walk-ins, guest passes, or punch pass holders may come before 11AM Mon-Fri.",
-  "note": "The gym itself opens at 6AM on weekdays, but the official FAQ states that no walk-in, guest pass or punch pass holder may enter before 11AM; the walk-in week is what is recorded."
  },
  {
   "lat": 30.47847,
@@ -25128,12 +24903,12 @@
   "evidence": "Weekdays: 9am 9pm Weekends: 9am 8pm | HOLIDAY HOURS | Memorial Day: Closed Independence Day: Closed"
  },
  {
-  "lat": 37.22925,
-  "lon": -107.80896,
+  "lat": 37.2291837,
+  "lon": -107.8085475,
   "name": "Gravity Lab",
   "country": "US",
   "source": "https://www.gravitylabclimbing.com/",
-  "checked": "2026-08-25",
+  "checked": "2026-08-31",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -25208,7 +24983,7 @@
   "name": "Gravity Vault Montclair",
   "country": "US",
   "source": "https://gravityvault.com/locations/montclair-nj",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -25224,7 +24999,8 @@
    "sat": "09:00-20:00",
    "sun": "09:00-20:00"
   },
-  "evidence": "Sun Sunday 9:00 am - 8:00 pm | Mon Monday 9:00 am - 10:00 pm | Tue Tuesday 9:00 am - 10:00 pm | Wed Wednesday 9:00 am - 10:00 pm | Thu Thursday 9:00 am - 10:00 pm | Fri Friday 9:00 am - 10:00 pm | Sat Saturday 9:00 am - 8:00 pm"
+  "evidence": "Sun Sunday 9:00 am - 8:00 pm | Mon Monday 9:00 am - 10:00 pm | Tue Tuesday 9:00 am - 10:00 pm | Wed Wednesday 9:00 am - 10:00 pm | Thu Thursday 9:00 am - 10:00 pm | Fri Friday 9:00 am - 10:00 pm | Sat Saturday 9:00 am - 8:00 pm",
+  "note": "The current page states this complete week for the one 8 Seymour Plaza hall and names both board systems now consolidated at this marker."
  },
  {
   "lat": 40.33661,
@@ -26562,12 +26338,12 @@
   "note": "Members additionally get in at 8AM on Saturday; the public week is what is recorded. The page’s schema.org openingHoursSpecification agrees."
  },
  {
-  "lat": 40.56449,
-  "lon": -111.89789,
+  "lat": 40.564419,
+  "lon": -111.8979183,
   "name": "Momentum Climbing Sandy",
   "country": "US",
   "source": "https://momentumclimbing.com/sandy/",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -26584,32 +26360,7 @@
    "sun": "10:00-18:00"
   },
   "evidence": "MONDAY – FRIDAY | 6AM – 11PM | SATURDAY | 10AM – 10PM | *Members Only 8AM – 10AM | SUNDAY | 10AM – 6PM",
-  "note": "Members additionally get in at 8AM on Saturday; the public week is what is recorded."
- },
- {
-  "lat": 40.56486,
-  "lon": -111.89785,
-  "name": "Momentum Climbing Sandy",
-  "country": "US",
-  "source": "https://momentumclimbing.com/sandy/",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "name"
-  ],
-  "hours": {
-   "mon": "06:00-23:00",
-   "tue": "06:00-23:00",
-   "wed": "06:00-23:00",
-   "thu": "06:00-23:00",
-   "fri": "06:00-23:00",
-   "sat": "10:00-22:00",
-   "sun": "10:00-18:00"
-  },
-  "evidence": "MONDAY – FRIDAY | 6AM – 11PM | SATURDAY | 10AM – 10PM | *Members Only 8AM – 10AM | SUNDAY | 10AM – 6PM",
-  "note": "Members additionally get in at 8AM on Saturday; the public week is what is recorded."
+  "note": "Members additionally get in at 8AM on Saturday; the public week is what is recorded. The formerly split Kilter and Grasshopper rows are now one venue at the page's structured coordinate."
  },
  {
   "lat": 40.62042,
@@ -27031,7 +26782,7 @@
   "name": "Movement Design District",
   "country": "US",
   "source": "https://movementgyms.com/design-district/",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -27672,7 +27423,7 @@
    "sun": "09:00-20:00"
   },
   "evidence": "Omaha 2809 S 125th AVE Suite 297 Omaha, NE 68144 (531) 283-5200 Omaha Hours Weekdays: 9 am - 10 pm Weekends: 9 am - 8pm",
-  "note": "The page states each hall's week under that hall's own address and heads this one \"Omaha Hours\", so it cannot be confused with Lincoln's, which opens at 11 on weekdays."
+  "note": "The page states each hall's week under that hall's own address and heads this one \"Omaha Hours\", so it cannot be confused with Lincoln's, which opens at 11 on weekdays. The site-wide Squarespace/schema.org week matches neither the labelled Omaha block nor its weekend."
  },
  {
   "lat": 43.190476,
@@ -27834,7 +27585,7 @@
   "name": "On The Rocks Climbing Gym",
   "country": "US",
   "source": "https://climbontherocks.com/",
-  "checked": "2026-08-23",
+  "checked": "2026-09-01",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -27852,7 +27603,7 @@
    "sun": "09:00-18:00"
   },
   "evidence": "Location 8701 Leavitt Rd. Elyria, OH. 44035 Gym Hours Monday : 11am - 9pm Tuesday: 3pm - 9pm Wednesday: 9am - 9pm Thursday: 3pm - 9pm Friday : 11am- 9pm Saturday : 9am - 6pm Sunday : 9am - 6pm",
-  "note": "Every day is listed separately beneath the gym's address; no two weekdays are alike."
+  "note": "Every day is listed separately beneath the gym's address; no two weekdays are alike. The current homepage and address-hours page still print the exact recorded week; the drift reader did not normalize the meridiem-only 11am token to 11:00."
  },
  {
   "lat": 36.1664,
@@ -27907,7 +27658,7 @@
    "sun": "09:00-21:00"
   },
   "evidence": "Hours Monday 3:00 PM - 10:00 PM Tuesday 6:00 AM - 10:00 PM Wednesday 6:00 AM - 10:00 PM Thursday 6:00 AM - 10:00 PM Friday 6:00 AM - 10:00 PM Saturday 9:00 AM - 9:00 PM Sunday 9:00 AM - 9:00 PM",
-  "note": "Every day is listed separately, directly under the gym's address. Monday alone opens in the afternoon."
+  "note": "Every day is listed separately, directly under the gym's address. Monday alone opens in the afternoon. The Squarespace/schema.org setting is an older, substantially different week and is noted rather than substituted for the visible location statement."
  },
  {
   "lat": 37.81644,
@@ -30524,30 +30275,6 @@
   "evidence": "Sun Sunday Sunday 9:00 am - 8:00 pm | Mon Monday Monday 9:00 am - 10:00 pm | Tue Tuesday Tuesday 9:00 am - 10:00 pm | Wed Wednesday Wednesday 9:00 am - 10:00 pm | Thu Thursday Thursday 9:00 am - 10:00 pm | Fri Friday Friday 9:00 am - 10:00 pm | Sat Saturday Saturday 9:00 am - 8:00 pm"
  },
  {
-  "lat": 40.81398,
-  "lon": -74.20759,
-  "name": "The Gravity Vault Montclair",
-  "country": "US",
-  "source": "https://gravityvault.com/locations/montclair-nj",
-  "checked": "2026-08-23",
-  "provenance": "official-location-page",
-  "signals": [
-   "venue-link",
-   "location-page",
-   "city"
-  ],
-  "hours": {
-   "mon": "09:00-22:00",
-   "tue": "09:00-22:00",
-   "wed": "09:00-22:00",
-   "thu": "09:00-22:00",
-   "fri": "09:00-22:00",
-   "sat": "09:00-20:00",
-   "sun": "09:00-20:00"
-  },
-  "evidence": "Sun Sunday 9:00 am - 8:00 pm | Mon Monday 9:00 am - 10:00 pm | Tue Tuesday 9:00 am - 10:00 pm | Wed Wednesday 9:00 am - 10:00 pm | Thu Thursday 9:00 am - 10:00 pm | Fri Friday 9:00 am - 10:00 pm | Sat Saturday 9:00 am - 8:00 pm"
- },
- {
   "lat": 40.74658,
   "lon": -73.59561,
   "name": "The Gravity Vault Westbury",
@@ -31196,7 +30923,7 @@
    "sun": "08:00-20:00"
   },
   "evidence": "gym hours mon-wed-fri 12p-10p tues-thurs 6a-10p sat-sun 8a-8p address 17229 15th Ave NE Shoreline, WA 98155",
-  "note": "The gym groups its days as Monday/Wednesday/Friday and Tuesday/Thursday, which alternate between a noon and a 6am opening, with the weekend stated separately. The block sits directly above its address."
+  "note": "The gym groups its days as Monday/Wednesday/Friday and Tuesday/Thursday, which alternate between a noon and a 6am opening, with the weekend stated separately. The block sits directly above its address. Its flat 08:00 weekday Squarespace/schema.org setting disagrees and is treated as stale markup."
  },
  {
   "lat": 47.75546,
@@ -31221,7 +30948,7 @@
    "sun": "08:00-20:00"
   },
   "evidence": "gym hours mon-wed-fri 12p-10p tues-thurs 6a-10p sat-sun 8a-8p address 17229 15th Ave NE Shoreline, WA 98155",
-  "note": "The gym groups its days as Monday/Wednesday/Friday and Tuesday/Thursday, which alternate between a noon and a 6am opening, with the weekend stated separately. The block sits directly above its address."
+  "note": "The gym groups its days as Monday/Wednesday/Friday and Tuesday/Thursday, which alternate between a noon and a 6am opening, with the weekend stated separately. The block sits directly above its address. Its flat 08:00 weekday Squarespace/schema.org setting disagrees and is treated as stale markup."
  },
  {
   "lat": 40.12617,
@@ -31774,32 +31501,6 @@
   "note": "Stated directly above the gym's address."
  },
  {
-  "lat": 21.0556469,
-  "lon": 105.8415127,
-  "name": "VietClimb MoonBoard",
-  "country": "VN",
-  "source": "https://vietclimb.vn/",
-  "checked": "2026-08-24",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "co-located",
-   "city",
-   "hours-scope"
-  ],
-  "hours": {
-   "mon": "10:00-22:00",
-   "tue": "10:00-22:00",
-   "wed": "10:00-22:00",
-   "thu": "10:00-22:00",
-   "fri": "10:00-22:00",
-   "sat": "09:00-22:00",
-   "sun": "09:00-22:00"
-  },
-  "evidence": "Hours Monday - Friday: 10am-10pm Saturday-Sunday: 9am-10pm Address 2 Ng. 76 An Dương, Yên Phụ, Tây Hồ, Hà Nội",
-  "note": "Stated directly above the gym's address, and the same week as the row 177 m away, because it is the same hall."
- },
- {
   "lat": -33.910389,
   "lon": 18.4726632,
   "name": "Bloc 11 - Paarden Eiland",
@@ -32132,5 +31833,1236 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Vertigo Oriente Monday-Friday 12:00-23:00 Saturday-Sunday 10:00-20:00"
- }
+ },
+ {
+  "lat": 48.1312802,
+  "lon": 17.0998312,
+  "name": "BLOCK DOCK Petržalka",
+  "country": "SK",
+  "source": "https://www.blockdock.me/petrzalka",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "14:00-22:00",
+   "sat": "08:00-21:00",
+   "sun": "08:00-21:00"
+  },
+  "evidence": "BLOCK DOCK PETRŽALKA: Pondelok 7:00–22:00, Utorok 7:00–22:00, Streda 7:00–22:00, Štvrtok 7:00–22:00, Piatok 14:00–22:00, Sobota 8:00–21:00, Nedeľa 8:00–21:00",
+  "note": "The location page's visible branch-labelled week differs from the site's Squarespace/schema.org setting on Monday, Wednesday and both weekend days; the visible location statement is published."
+ },
+ {
+  "lat": 48.2146345,
+  "lon": 17.1641254,
+  "name": "BLOCK DOCK Rača",
+  "country": "SK",
+  "source": "https://www.blockdock.me/raca",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "14:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "08:00-21:00",
+   "sun": "08:00-21:00"
+  },
+  "evidence": "BLOCK DOCK RAČA: Pondelok 14:00–22:00, Utorok 7:00–22:00, Streda 7:00–22:00, Štvrtok 7:00–22:00, Piatok 7:00–22:00, Sobota 8:00–21:00, Nedeľa 8:00–21:00",
+  "note": "The location page's visible branch-labelled week differs from the site's Squarespace/schema.org setting on Wednesday, Friday and both weekend days; the visible location statement is published."
+ },
+ {
+  "lat": 40.8709508,
+  "lon": -124.0899342,
+  "name": "Far North Climbing Gym",
+  "country": "US",
+  "source": "https://farnortharcata.com/",
+  "checked": "2026-08-31",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city"
+  ],
+  "hours": {
+   "mon": "09:00-21:00",
+   "tue": "09:00-21:00",
+   "wed": "09:00-21:00",
+   "thu": "09:00-21:00",
+   "fri": "09:00-21:00",
+   "sat": "09:00-21:00",
+   "sun": "09:00-21:00"
+  },
+  "evidence": "Hours: 7 days/week, 9:00 AM - 9:00 PM"
+ },
+ {
+  "lat": 50.4887793,
+  "lon": 30.4906293,
+  "name": "Climbing SPACE",
+  "country": "UA",
+  "source": "https://www.climbingspace.com.ua/about",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "12:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "12:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Пн 12-22, Вт 8-22, Ср 10-22, Чт 8-22, Пт 12-22, Сб 10-21, Нд 10-21"
+ },
+ {
+  "lat": 50.4464461,
+  "lon": 30.4430291,
+  "name": "Funattic",
+  "country": "UA",
+  "source": "https://funattic.com.ua/ua/",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "11:00-21:45",
+   "tue": "11:00-21:45",
+   "wed": "11:00-21:45",
+   "thu": "11:00-21:45",
+   "fri": "11:00-21:45",
+   "sat": "11:00-18:00",
+   "sun": "11:00-18:00"
+  },
+  "evidence": "ПН-ПТ 11:00 до 21:45; СБ-НД 11:00 до 18:00",
+  "note": "The maintained visible week closes weekdays at 21:45; a schema.org block alone shortens Wednesday to 21:30."
+ },
+ {
+  "lat": 50.4734096,
+  "lon": 30.498501,
+  "name": "Hyperion Kyiv",
+  "country": "UA",
+  "source": "https://hyperion.kiev.ua/ua/pro-klub",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "11:00-21:45",
+   "tue": "11:00-21:45",
+   "wed": "11:00-21:45",
+   "thu": "11:00-21:45",
+   "fri": "11:00-21:45",
+   "sat": "10:00-19:00",
+   "sun": "10:00-19:00"
+  },
+  "evidence": "Скеледром: Пн-Пт 11:00-21:45; Сб-Нд 10:00-19:00"
+ },
+ {
+  "lat": 34.0331,
+  "lon": -118.3707,
+  "name": "Cliffs of Id",
+  "country": "US",
+  "source": "https://touchstoneclimbing.com/cliffs-of-id/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "06:30-22:00",
+   "tue": "06:30-22:00",
+   "wed": "06:30-22:00",
+   "thu": "06:30-22:00",
+   "fri": "06:30-22:00",
+   "sat": "08:00-19:00",
+   "sun": "08:00-19:00"
+  },
+  "evidence": "M-F 6:30AM – 10:00PM; S/S 8:00AM – 7:00PM"
+ },
+ {
+  "lat": 60.166129,
+  "lon": 24.904168,
+  "name": "KiipeilyAreena Salmisaari",
+  "country": "FI",
+  "source": "https://kiipeilyareena.com/en/locations/salmisaari/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "10:00-22:00",
+   "tue": "10:00-22:00",
+   "wed": "10:00-22:00",
+   "thu": "10:00-22:00",
+   "fri": "10:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "Opening hours Mon–Fri 10 am–10 pm; Sat–Sun 10 am–8 pm",
+  "note": "The separately stated 08:00–10:00 Monday–Thursday window is members-only morning access; the published regular public week is retained here."
+ },
+ {
+  "lat": 36.8659723,
+  "lon": -76.2805601,
+  "name": "Latitude Climbing Norfolk",
+  "country": "US",
+  "source": "https://latitudeclimbing.com/norfolk/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "08:00-22:00",
+   "tue": "08:00-22:00",
+   "wed": "08:00-22:00",
+   "thu": "08:00-22:00",
+   "fri": "08:00-22:00",
+   "sat": "09:00-22:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "Norfolk 1830 Lindsay Avenue Norfolk, Virginia 23504 Hours M-F: 8am - 10pm Sat: 9am - 10pm Sun: 9am - 8pm"
+ },
+ {
+  "lat": 40.7527726,
+  "lon": -73.9405401,
+  "name": "Brooklyn Boulders Queensbridge",
+  "country": "US",
+  "source": "https://qb.brooklynboulders.com/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "07:00-22:00",
+   "tue": "07:00-22:00",
+   "wed": "07:00-22:00",
+   "thu": "07:00-22:00",
+   "fri": "07:00-22:00",
+   "sat": "09:00-20:00",
+   "sun": "09:00-20:00"
+  },
+  "evidence": "HOURS | M-F | 7AM-10PM | S-S | 9AM-8PM"
+ },
+ {
+  "lat": 34.1432717,
+  "lon": -118.0319401,
+  "name": "Hangar 18 Arcadia",
+  "country": "US",
+  "source": "https://climbhangar18.com/arcadia/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "location-page", "street-address", "city"],
+  "hours": {
+   "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+   "thu": "10:00-22:00", "fri": "10:00-21:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+  },
+  "evidence": "Monday 10:00 AM - 10:00 PM; Tuesday 10:00 AM - 10:00 PM; Wednesday 10:00 AM - 10:00 PM; Thursday 10:00 AM - 10:00 PM; Friday 10:00 AM - 9:00 PM; Saturday 10:00 AM - 8:00 PM; Sunday 10:00 AM - 8:00 PM"
+ },
+ {
+  "lat": 33.9460709,
+  "lon": -117.446141,
+  "name": "Hangar 18 Riverside",
+  "country": "US",
+  "source": "https://climbhangar18.com/riverside/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "location-page", "street-address", "city"],
+  "hours": {
+   "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+   "thu": "10:00-22:00", "fri": "10:00-21:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+  },
+  "evidence": "Monday 10:00 AM - 10:00 PM; Tuesday 10:00 AM - 10:00 PM; Wednesday 10:00 AM - 10:00 PM; Thursday 10:00 AM - 10:00 PM; Friday 10:00 AM - 9:00 PM; Saturday 10:00 AM - 8:00 PM; Sunday 10:00 AM - 8:00 PM"
+ },
+ {
+  "lat": 34.0938889,
+  "lon": -117.6475,
+  "name": "Hangar 18 Upland",
+  "country": "US",
+  "source": "https://climbhangar18.com/upland/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "location-page", "street-address", "city"],
+  "hours": {
+   "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+   "thu": "10:00-22:00", "fri": "10:00-21:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+  },
+  "evidence": "Monday 10:00 AM - 10:00 PM; Tuesday 10:00 AM - 10:00 PM; Wednesday 10:00 AM - 10:00 PM; Thursday 10:00 AM - 10:00 PM; Friday 10:00 AM - 9:00 PM; Saturday 10:00 AM - 8:00 PM; Sunday 10:00 AM - 8:00 PM"
+ },
+ {
+  "lat": 47.4325601,
+  "lon": 0.6943276,
+  "name": "Block'Out Tours",
+  "country": "FR",
+  "source": "https://www.blockout.fr/tours/contact/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "street-address", "city"],
+  "hours": {
+   "mon": "10:30-22:30", "tue": "10:30-22:30", "wed": "10:30-22:30",
+   "thu": "10:30-22:30", "fri": "10:30-22:30", "sat": "09:00-20:00", "sun": "09:00-20:00"
+  },
+  "evidence": "Lundi – vendredi : 10h30 à 22h30; Samedi & dimanche : 9h à 20h"
+ },
+ {
+  "lat": 51.0876184,
+  "lon": -114.2424414,
+  "name": "Calgary Climbing Centre Rocky Mountain",
+  "country": "CA",
+  "source": "https://www.calgaryclimbing.com/",
+  "checked": "2026-08-31",
+  "provenance": "official-chain-page",
+  "signals": ["venue-link", "street-address", "hours-scope"],
+  "hours": {
+   "mon": "06:00-23:00", "tue": "06:00-23:00", "wed": "06:00-23:00",
+   "thu": "06:00-23:00", "fri": "06:00-23:00", "sat": "08:00-22:00", "sun": "08:00-22:00"
+  },
+  "evidence": "Rocky Mountain — Mon - Fri: 6am to 11pm; Sat and Sun 8am to 10pm"
+ },
+ {
+  "lat": 34.7471907,
+  "lon": -86.5823847,
+  "name": "High Point Climbing Lincoln Mill",
+  "country": "US",
+  "source": "https://www.highpointclimbing.com/locations/lincoln-mill",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "street-address", "city"],
+  "hours": {
+   "mon": "14:00-21:00", "tue": "14:00-21:00", "wed": "14:00-21:00",
+   "thu": "14:00-21:00", "fri": "14:00-21:00", "sat": "12:00-20:00", "sun": "12:00-20:00"
+  },
+  "evidence": "Monday-Friday Open 2pm - 9pm; Saturday Open 12pm - 8pm; Sunday Open 12pm - 8pm"
+ },
+ {
+  "lat": 40.43301,
+  "lon": -80.00449,
+  "name": "First Ascent Climbing Station Square",
+  "country": "US",
+  "source": "https://faclimbing.com/pittsburgh/station-square/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+  "hours": {
+   "mon": "09:00-21:00", "tue": "09:00-21:00", "wed": "09:00-21:00",
+   "thu": "09:00-21:00", "fri": "09:00-21:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+  },
+  "evidence": "REGULAR HOURS: Monday-Friday: 9:00 am - 9:00 PM; Saturday-Sunday: 10:00 am - 8:00 pm"
+ },
+ {
+  "lat": 39.7294843,
+  "lon": -105.1264894,
+  "name": "Beast Fingers",
+  "country": "US",
+  "source": "https://beastfingersclimbing.com/contact",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "street-address", "postal-code", "city", "hours-scope"],
+  "hours": {
+   "mon": "10:00-20:00", "tue": "10:00-20:00", "wed": "10:00-20:00",
+   "thu": "10:00-20:00", "fri": "10:00-20:00", "sat": "closed", "sun": "closed"
+  },
+  "evidence": "Sunday Closed; Monday-Friday 10 AM-8 PM; Saturday Closed",
+  "note": "The visible contact page explicitly states the weekday week and weekend closures. The Squarespace business-hours object has every day closed and is an unconfigured setting, not the venue's maintained statement."
+ },
+ {
+  "lat": 32.421234,
+  "lon": -93.7419578,
+  "name": "318 Climb",
+  "country": "US",
+  "source": "https://318climbllc.wixsite.com/g-rockclimbing",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "street-address", "postal-code", "city", "hours-scope"],
+  "hours": {
+   "mon": "12:00-20:00", "tue": "12:00-20:00", "wed": "12:00-20:00",
+   "thu": "12:00-20:00", "fri": "15:00-20:00", "sat": "10:00-20:00", "sun": "13:00-18:00"
+  },
+  "evidence": "Monday-Thursday 12-8pm; Friday 3-8pm; Saturday 10am-8pm; Sunday 1-6pm"
+ },
+ {
+  "lat": 35.442445280250666,
+  "lon": 139.3634466153931,
+  "name": "ディーボルダリング本厚 D Bouldering Hon-Atsugi",
+  "country": "JP",
+  "source": "https://www.d-b-c.jp/kids/hon-atsugi/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "street-address", "postal-code", "city", "location-page", "hours-scope"],
+  "hours": {
+   "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+   "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+  },
+  "evidence": "営業時間 平日：10:00-22:00 土日祝：10:00-20:00"
+ },
+ {
+  "lat": 35.2295856,
+  "lon": 129.0888247,
+  "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
+  "country": "KR",
+  "source": "https://www.waverock.co.kr/pnu",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "street-address", "city", "location-page", "hours-scope"],
+  "hours": {
+   "mon": "12:00-22:30", "tue": "12:00-22:30", "wed": "12:00-22:30",
+   "thu": "12:00-22:30", "fri": "12:00-22:30", "sat": "10:00-21:00", "sun": "10:00-21:00"
+  },
+  "evidence": "PNU BRANCH Hours Mon-Fri 12:00-22:30; Sat & Sun 10:00-21:00; Holidays 10:00-21:00"
+ },
+ {
+  "lat": 48.10577,
+  "lon": 7.37538,
+  "name": "Salle D'Escalade Les Freres Mawem",
+  "country": "FR",
+  "source": "https://lesfreresmawem.fr/",
+  "checked": "2026-08-31",
+  "provenance": "official-site",
+  "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+  "hours": {
+   "mon": "09:00-23:00", "tue": "09:00-23:00", "wed": "09:00-23:00",
+   "thu": "09:00-23:00", "fri": "09:00-23:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+  },
+  "evidence": "HORAIRES Lundi – Vendredi 9H – 23H Samedi – Dimanche 10H – 20H Jours Fériés Horaires habituels 25 déc. & 1er janv. Fermé",
+  "note": "The operator states one complete ordinary week and says holidays use the usual hours except for two named annual closure dates. Those exceptions do not alter the regular weekly schedule shown here."
+ },
+ {
+  "lat": 22.2919752,
+  "lon": 114.2075175,
+  "name": "Vita Beta Climbing Gym Quarry Bay",
+  "country": "CN",
+  "source": "https://www.vitabeta.hk/contact/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "street-address", "city", "location-page", "hours-scope"],
+  "hours": {
+   "mon": "10:00-24:00", "tue": "10:00-24:00", "wed": "10:00-24:00",
+   "thu": "10:00-24:00", "fri": "10:00-24:00", "sat": "10:00-22:00", "sun": "10:00-20:00"
+  },
+  "evidence": "Quarry Bay Branch: Level 2, K11 HACC, K11 ATELIER King's Road, 728 King's Road, Quarry Bay, Hong Kong. Hours Monday-Friday: 10:00 – 24:00; Saturday: 10:00 – 22:00; Sunday and Public Holidays: 10:00 – 20:00",
+  "note": "The operator prints a separate address and complete seven-day week for Quarry Bay directly after the distinct Tsuen Wan branch block."
+ },
+ {
+  "lat": 40.16257,
+  "lon": -105.04174,
+  "name": "Longmont Climbing Collective",
+  "country": "US",
+  "source": "https://climbingcollective.co/longmont",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "postal-code", "city", "location-page", "hours-scope"],
+  "hours": {
+   "mon": "06:00-22:00", "tue": "06:00-22:00", "wed": "06:00-22:00",
+   "thu": "06:00-22:00", "fri": "06:00-22:00", "sat": "08:00-20:00", "sun": "08:00-20:00"
+  },
+  "evidence": "Longmont Climbing Collective, 155 Pinnacle Street, Longmont, CO 80504. Hours: Monday-Friday 6:00 AM-10:00 PM; Saturday-Sunday 8:00 AM-8:00 PM."
+ },
+  {
+   "lat": 37.59289,
+  "lon": 126.67303,
+  "name": "디스커버리 클라임스퀘어 Climbsquare ICN",
+  "country": "KR",
+  "source": "https://www.climbingsquare.kr/icn",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "city", "location-page", "hours-scope"],
+  "hours": {
+   "mon": "10:00-23:00", "tue": "10:00-23:00", "wed": "10:00-23:00",
+   "thu": "10:00-23:00", "fri": "17:00-23:00", "sat": "10:00-19:00", "sun": "10:00-19:00"
+  },
+  "evidence": "운영시간 - 월~목요일: 10.00~23.00 - 금요일: 17.00~23.00 - 토,일요일: 10.00~19.00 - 공휴일: 10.00~19.00",
+   "note": "The ICN branch page prints one ordinary seven-day schedule. Its separate public-holiday line does not alter the regular week recorded here."
+ },
+ {
+  "lat": 44.397,
+  "lon": 26.098,
+  "name": "Climb Again Centrul",
+  "country": "RO",
+  "source": "https://climbagain.ro/climb-again-bucuresti/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "city", "location-page", "hours-scope"],
+  "hours": {
+   "mon": "13:00-21:00", "tue": "13:00-22:00", "wed": "13:00-21:00",
+   "thu": "13:00-22:00", "fri": "13:00-21:00", "sat": "10:00-15:30", "sun": "10:00-15:30"
+  },
+  "evidence": "Luni, Miercuri, Vineri: 13:00-21:00; Marți și Joi: 13:00-22:00; Sâmbătă și Duminică: 10:00-15:30",
+  "note": "The branch page states a complete ordinary week. It separately warns that private weekend events can affect access and asks visitors to confirm, which is an exception caveat rather than an appointment-only schedule."
+ },
+ {
+  "lat": 50.04933,
+  "lon": 19.97025,
+  "name": "MOOD",
+  "country": "PL",
+  "source": "https://hellomood.pl/kontakt-boulderownia-w-centrum-krakowa/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "city", "location-page", "hours-scope"],
+  "hours": {
+   "mon": "15:00-23:00", "tue": "07:00-23:00", "wed": "07:00-23:00",
+   "thu": "07:00-23:00", "fri": "07:00-23:00", "sat": "09:00-23:00", "sun": "09:00-22:00"
+  },
+  "evidence": "Poniedziałek 15:00-23:00; Wtorek-Piątek 07:00-23:00; Sobota 09:00-23:00; Niedziela 09:00-22:00",
+  "note": "The current contact page has replaced the temporary competition-week wording with one complete regular schedule."
+ },
+ {
+  "lat": 46.4723569,
+  "lon": 30.7025312,
+  "name": "SK Dynamica",
+  "country": "UA",
+  "source": "https://dynamica.od.ua/ua/skalolazanie-i-boldering/",
+  "checked": "2026-08-31",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "city", "board-mention", "hours-scope"],
+  "hours": {
+   "mon": "08:00-22:00", "tue": "08:00-22:00", "wed": "08:00-22:00",
+   "thu": "08:00-22:00", "fri": "08:00-22:00", "sat": "08:00-22:00", "sun": "08:00-22:00"
+  },
+  "evidence": "Графік роботи: Будні: 08:00–22:00; Сб, Нд: 08:00–22:00. Оренда з 8 до 22 (без вихідних)",
+  "note": "The location page states the same 08:00–22:00 hours for weekdays and both weekend days, and separately says the climbing hall is available without days off."
+ },
+ {
+  "lat": 51.7474718,
+  "lon": -1.2401007,
+  "name": "Gallery Bouldering",
+  "country": "GB",
+  "source": "https://gallerybouldering.co.uk/",
+  "checked": "2026-08-31",
+  "provenance": "official-site",
+  "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+  "hours": {
+   "mon": "07:00-22:00", "tue": "08:00-22:00", "wed": "07:00-22:00",
+   "thu": "08:00-22:00", "fri": "08:00-22:00", "sat": "08:00-22:00", "sun": "08:00-22:00"
+  },
+  "evidence": "Open 8am – 10pm every day; open from 7am Mondays and Wednesdays",
+  "note": "The homepage states the complete regular week and names both early-opening days explicitly."
+ },
+ {
+  "lat": -34.436991,
+  "lon": 150.886987,
+  "name": "Hangdog Climbing Gym Wollongong",
+  "country": "AU",
+  "source": "https://hangdog.com.au/",
+  "checked": "2026-08-31",
+  "provenance": "official-site",
+  "signals": ["venue-link", "name", "street-address", "city", "coordinates", "hours-scope"],
+  "hours": {
+   "mon": "10:00-21:00", "tue": "10:00-21:00", "wed": "10:00-21:00",
+   "thu": "10:00-21:00", "fri": "10:00-21:00", "sat": "09:00-18:00", "sun": "09:00-17:00"
+  },
+  "evidence": "Hours | Mon – Fri: 10am – 9pm | Saturday: 9am – 6pm | Sunday: 9am – 5pm | Location | 130 Auburn Street Wollongong NSW 2500",
+  "note": "The visible homepage, bouldering page and structured opening-hours block all state the same complete week."
+ },
+ {
+  "lat": 35.600647,
+  "lon": 139.352181,
+  "name": "BolBol",
+  "country": "JP",
+  "source": "https://bol-bol.com/",
+  "checked": "2026-09-01",
+  "provenance": "official-site",
+  "signals": ["venue-link", "name", "street-address", "city", "coordinates", "hours-scope"],
+  "hours": {
+   "mon": "closed", "tue": "14:00-23:00", "wed": "14:00-23:00",
+   "thu": "14:00-23:00", "fri": "14:00-23:00", "sat": "10:00-21:00", "sun": "10:00-21:00"
+  },
+  "evidence": "平日：14:00～23:00 / 休日：10:00～21:00 / 定休日: 月曜（月曜が祝日の場合翌日の火曜がお休み）",
+  "note": "The homepage states the ordinary weekday/weekend week and Monday closure. The public-holiday substitution is an exception rather than a second regular week."
+ },
+ {
+  "lat": 36.263468,
+  "lon": 139.347351,
+  "name": "Blue Bird BOULDERING GYM",
+  "country": "JP",
+  "source": "https://climbing-bluebird.jp/about",
+  "checked": "2026-09-01",
+  "provenance": "official-site",
+  "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+  "hours": {
+   "mon": "closed", "tue": "12:00-23:00", "wed": "12:00-23:00",
+   "thu": "17:00-23:00", "fri": "12:00-23:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+  },
+  "evidence": "営業時間 | 平日 火・水・金 12時～23時まで | 木 17時～23時まで | 土日祝 10時～20時まで | 定休日 月曜日",
+  "note": "The current operator page states every ordinary day. A Monday public holiday shifts that week's closure to Tuesday, a dated calendar exception rather than the regular week."
+ },
+ {
+  "lat": 35.370733,
+  "lon": 136.647393,
+  "name": "ボルダリング＆クライミングパーク ひょうたん島 大垣店",
+  "country": "JP",
+  "source": "https://park.hyoutanjima.jp/",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+  "hours": {
+   "mon": "closed", "tue": "16:30-22:00", "wed": "16:30-22:00",
+   "thu": "16:30-22:00", "fri": "16:30-22:00", "sat": "13:00-22:00", "sun": "10:00-19:00"
+  },
+  "evidence": "定休日：毎週月曜（祝日でも休み） | 営業時間：火曜〜金曜日 16時半 [16:30]〜22時 | 土曜日 13時〜22時 | 日曜日 10時〜19時",
+  "note": "The current Ogaki location page states the complete ordinary week and explicitly confirms that Monday remains closed on holidays. Its Japanese '16時半' means 16:30; the conflict reader's missing-16:30 finding is only a locale-normalization limitation."
+ },
+ {
+  "lat": 35.662423,
+  "lon": 139.462647,
+  "name": "WEST ROCK Fuchu",
+  "country": "JP",
+  "source": "https://www.westrock-climbing.com/intro_fuchu/",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+  "hours": {
+   "mon": "13:00-23:00", "tue": "13:00-23:00", "wed": "13:00-23:00",
+   "thu": "13:00-23:00", "fri": "13:00-23:00", "sat": "10:00-22:00", "sun": "10:00-21:00"
+  },
+  "evidence": "営業時間 | 平日 13:00～23:00 / 土曜 10:00～22:00 | 日祝 10:00～21:00 | 定休日 年中無休",
+  "note": "The branch page states a complete seven-day week and year-round operation."
+ },
+ {
+  "lat": 36.50025,
+  "lon": 136.872064,
+  "name": "桜ヶ池クライミングセンター",
+  "country": "JP",
+  "source": "https://climbingcenter.jp/",
+  "checked": "2026-09-01",
+  "provenance": "official-site",
+  "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+  "hours": {
+   "mon": "09:30-21:30", "tue": "09:30-21:30", "wed": "09:30-21:30",
+   "thu": "closed", "fri": "09:30-21:30", "sat": "09:30-21:30", "sun": "09:30-20:00"
+  },
+  "evidence": "営業時間：9:30～21:30（日・祝 20:00まで） | 休館日：木曜日 | 木曜日が祝日の場合は開館",
+  "note": "The homepage states the complete ordinary week. Thursday-holiday openings and other temporary closures are calendar exceptions."
+ },
+ {
+  "lat": 35.115149,
+  "lon": 136.872711,
+  "name": "カラフルロック Colorful Rock",
+  "country": "JP",
+  "source": "https://colorfulrock.com/en",
+  "checked": "2026-09-01",
+  "provenance": "official-site",
+  "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+  "hours": {
+   "mon": "10:00-22:30", "tue": "10:00-22:30", "wed": "10:00-22:30",
+   "thu": "10:00-22:30", "fri": "10:00-22:30", "sat": "10:00-21:00", "sun": "10:00-21:00"
+  },
+  "evidence": "Opening hours | Weekdays 10:00–22:30 | Weekends & public holidays 10:00–21:00",
+    "note": "The operator's current English guide states the complete ordinary week; its Japanese schedule page carries temporary closure notices separately."
+  },
+  {
+    "lat": 38.001454,
+    "lon": 140.624956,
+    "name": "ROCONESS",
+    "country": "JP",
+    "source": "https://roconess.com/%E6%96%BD%E8%A8%AD%E6%A1%88%E5%86%85/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "closed", "wed": "10:00-22:00",
+      "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "10:00-22:00", "sun": "10:00-22:00"
+    },
+    "evidence": "営業時間 10：00～22：00 | 休業日 火曜日・その他店舗カレンダーによる",
+    "note": "The current facility, climbing-area and use-guide pages repeat the same ordinary schedule; additional calendar closures are temporary exceptions."
+  },
+  {
+    "lat": 33.861438,
+    "lon": 132.742492,
+    "name": "愛媛クライミングジム iTTE",
+    "country": "JP",
+    "source": "https://itte-climbing.com/price-and-hours.html",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+    "hours": {
+      "mon": "closed", "tue": "17:00-23:00", "wed": "17:00-23:00",
+      "thu": "17:00-23:00", "fri": "17:00-23:00", "sat": "13:00-23:00", "sun": "13:00-21:00"
+    },
+    "evidence": "定休日 ※月曜日が祝日の場合は営業 →翌日火曜日振替休日 | 火～木曜 17:00~23:00 | 金曜 17:00~23:00 | 土曜 13:00~23:00 | 日曜・祝日 13:00~21:00",
+    "note": "The current official hours page states every ordinary day. Holiday substitutions and earlier openings during school holidays are exceptions to the regular week."
+  },
+  {
+    "lat": 35.983114,
+    "lon": 140.642811,
+    "name": "アオロク ao_roc.climbing",
+    "country": "JP",
+    "source": "https://aoroc.jp/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "17:00-22:00", "wed": "10:00-22:00",
+      "thu": "17:00-22:00", "fri": "17:00-22:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "月/水 10:00-22:00 | 火/木/金 17:00-22:00 | 土日祝 10:00-20:00",
+    "note": "The current homepage, facility page and access page all repeat the same complete ordinary week."
+  },
+  {
+    "lat": 35.9461485,
+    "lon": 139.4770721,
+    "name": "モノリス川越店 Monolithe",
+    "country": "JP",
+    "source": "https://www.boulderinggym.jp/%E3%81%94%E4%BA%88%E7%B4%84",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+    "hours": {
+      "mon": "13:30-22:30", "tue": "13:30-22:30", "wed": "13:30-22:30",
+      "thu": "13:30-22:30", "fri": "13:30-22:30", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "川越店 | 平日：13：30 [13:30]～22：30 [22:30] | 土日祝：10：00 [10:00]～20：00 [20:00] | TEL：049-299-7188 | 川越店 1430-1 Yamada, Kawagoe",
+    "note": "The current branch block distinguishes Kawagoe from the operator's separate Sakado schedule and supplies the complete ordinary week."
+  },
+  {
+    "lat": 34.75463,
+    "lon": 135.4994,
+    "name": "クラックス大阪 CRUX Osaka",
+    "country": "JP",
+    "source": "https://www.crux-jp.com/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "hours-scope"],
+    "hours": {
+      "mon": "closed", "tue": "14:00-22:30", "wed": "14:00-22:30",
+      "thu": "14:00-22:30", "fri": "14:00-22:30", "sat": "10:00-19:00", "sun": "10:00-19:00"
+    },
+    "evidence": "CRUX 大阪 | 定休日：月（月が祝祭日の場合は翌火曜日） | 火―金 14:00 ~ 22:30 | 土 10:00 ~ 19:00 | 日 ＆ 祝 10:00 ~ 19:00 | 〒564-0052 大阪府吹田市広芝町16-9",
+    "note": "The current official homepage scopes the complete ordinary week and exact address to CRUX Osaka. Holiday substitution is an exception and does not alter the regular Monday closure."
+  },
+  {
+    "lat": 37.7445357,
+    "lon": 139.1825675,
+    "name": "little forest",
+    "country": "JP",
+    "source": "https://bouldering-littleforest.simdif.com/%E5%96%B6%E6%A5%AD%E6%99%82%E9%96%93.html",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+    "hours": {
+      "mon": "closed", "tue": "closed", "wed": "18:00-22:00",
+      "thu": "18:00-22:00", "fri": "18:00-22:00", "sat": "10:00-18:00", "sun": "10:00-18:00"
+    },
+    "evidence": "水木金曜日 午後6時 [18:00]～午後10時 [22:00] 土日祭日 午前10時 [10:00]～午後6時 [18:00] 定休日 月曜・火曜日 閉店の1時間前が最終入店時刻です。",
+    "note": "The current operator hours page states all seven ordinary days in one schedule; holiday opening is an exception and does not change the regular Monday and Tuesday closures."
+  },
+  {
+    "lat": 26.157273,
+    "lon": 127.651206,
+    "name": "D.Bouldering Okinawa Toyosaki",
+    "country": "JP",
+    "source": "https://www.d-b-c.jp/top/okinawa/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "10:00-23:00", "tue": "10:00-23:00", "wed": "10:00-23:00",
+      "thu": "10:00-23:00", "fri": "10:00-23:00", "sat": "10:00-21:00", "sun": "10:00-21:00"
+    },
+    "evidence": "営業時間 | 平日 10:00〜23:00 | 土日祝 10:00〜21:00 | 年中無休",
+    "note": "The current branch page states the complete ordinary week. Its warning that maintenance may cause one or two exceptional closures per year does not change the regular schedule."
+  },
+  {
+    "lat": 43.051019,
+    "lon": 141.384596,
+    "name": "Rainbow Cliff",
+    "country": "JP",
+    "source": "https://www.rainbow-cliff.co.jp/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+    "hours": {
+      "mon": "17:00-22:00", "tue": "17:00-22:00", "wed": "13:00-22:00",
+      "thu": "17:00-22:00", "fri": "17:00-22:00", "sat": "11:00-20:00", "sun": "11:00-20:00"
+    },
+    "evidence": "営業時間 | 月〜金 17:00〜22:00 | 水 13:00〜22:00 | 土日祝 11:00〜20:00 | 北海道札幌市白石区東札幌2条2丁目3-26",
+    "note": "The operator's current homepage states the ordinary weekday range, the Wednesday exception and the complete weekend schedule alongside the exact venue address."
+  },
+  {
+    "lat": 35.7035691,
+    "lon": 139.7517476,
+    "name": "スポドリ！ Spo-Dori!",
+    "country": "JP",
+    "source": "https://www.tokyo-dome.co.jp/spo-dori/information/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+      "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "10:00-22:00", "sun": "10:00-22:00"
+    },
+    "evidence": "営業時間 | ボルダリング・バッティングエリア | 全日 10:00～22:00 | 年中無休",
+    "note": "Tokyo Dome's current operator information page explicitly scopes the all-day schedule and year-round operation to the bouldering area. Event or seasonal changes are exceptions, not the regular week."
+  },
+  {
+    "lat": 35.847428,
+    "lon": 139.626441,
+    "name": "Climbing Gym Penguin",
+    "country": "JP",
+    "source": "https://penguin-climb.com/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+    "hours": {
+      "mon": "closed", "tue": "13:00-23:00", "wed": "13:00-23:00",
+      "thu": "13:00-23:00", "fri": "13:00-23:00", "sat": "11:00-21:00", "sun": "10:00-20:00"
+    },
+    "evidence": "営業時間 | 火曜～金曜 13：00～23：00 | 土曜 11：00～21：00 | 日曜・祝日 10：00～20：00 | 定休日 毎週月曜日（祝日の場合は営業。振り替え休日無し）",
+    "note": "The current operator homepage states the complete ordinary week. Holiday Monday opening is an exception and does not change the regular Monday closure."
+  },
+  {
+    "lat": 33.56772,
+    "lon": 130.442022,
+    "name": "Mono Climbing Studio Hakata",
+    "country": "JP",
+    "source": "https://mono-climbing.com/shopinfo/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+    "hours": {
+      "mon": "06:00-26:00", "tue": "06:00-26:00", "wed": "06:00-26:00",
+      "thu": "06:00-26:00", "fri": "06:00-26:00", "sat": "06:00-26:00", "sun": "06:00-26:00"
+    },
+    "evidence": "モノクライミング博多 | 営業時間 | 平日・土日祝 6：00～26：00 | 住所 福岡市博多区那珂３丁目２７−２７",
+    "note": "The current operator page scopes the all-day schedule and exact address to the Hakata branch. The closing time is stored as 26:00 so the public renderer correctly labels 02:00 as the next day."
+  },
+  {
+    "lat": 34.664854,
+    "lon": 135.502672,
+    "name": "D.Bouldering pluslead namba",
+    "country": "JP",
+    "source": "https://www.d-b-c.jp/top/namba/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "10:00-23:00", "tue": "10:00-23:00", "wed": "10:00-23:00",
+      "thu": "10:00-23:00", "fri": "10:00-23:00", "sat": "10:00-21:00", "sun": "10:00-21:00"
+    },
+    "evidence": "ディーボルダリングプラスリード なんば | 〒542-0075 大阪府大阪市中央区難波千日前12−35 | 平日：10:00～23:00 | 土日祝：10:00～21:00 | 休業日：年中無休",
+    "note": "The current branch page states the exact venue address and complete ordinary week. Public holidays follow the weekend hours and do not change the regular Monday-to-Friday schedule."
+  },
+  {
+    "lat": 33.571178,
+    "lon": 133.561081,
+    "name": "クライミングジム＆ショップ ストーンラブ",
+    "country": "JP",
+    "source": "https://www.stone0-0729.com/cont5/main.html",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "11:00-22:00", "tue": "11:00-22:00", "wed": "15:00-22:00",
+      "thu": "11:00-22:00", "fri": "closed", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "営業時間 | 月、火、木 11：00～22：00 | 水曜日 15：00～22：00 | 土日祝 10：00～20：00 | 定休日 金曜日（金曜日が祝日の場合は営業）",
+    "note": "The current operator hours page states every ordinary weekday and the weekend schedule. Holiday Friday opening is an exception and does not change the regular Friday closure."
+  },
+  {
+    "lat": 35.029583,
+    "lon": 136.66954,
+    "name": "Climbing Gym Canyon",
+    "country": "JP",
+    "source": "https://www.climbingcanyon.com/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "17:00-22:00", "tue": "closed", "wed": "17:00-22:00",
+      "thu": "17:00-22:00", "fri": "17:00-22:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "営業時間 | 平日：17:00～22:00 | 土・日・祝日：10:00～20:00 | 定休日 火曜日",
+    "note": "The current operator homepage states the complete ordinary week. Its separate Tuesday closure overrides the general weekday hours."
+  },
+  {
+    "lat": 47.32550048828125,
+    "lon": 9.41860580444336,
+    "name": "Chletterai",
+    "country": "CH",
+    "source": "https://www.chletterai.ch/preise-%C3%B6ffungszeiten",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "closed", "tue": "16:00-22:00", "wed": "14:00-22:00",
+      "thu": "16:00-22:00", "fri": "16:00-22:00", "sat": "10:00-18:00", "sun": "10:00-18:00"
+    },
+    "evidence": "Öffnungszeiten | Montag Geschlossen | Dienstag 16:00 - 22:00 Uhr | Mittwoch 14:00 - 22:00 Uhr | Donnerstag 16:00 - 22:00 Uhr | Freitag 16:00 - 22:00 Uhr | Samstag 10:00 - 18:00 Uhr | Sonntag 10:00 - 18:00 Uhr",
+    "note": "The current official venue page states all seven ordinary days. Its separate summer self-check-in notice changes staffing and entry method, not the published opening week."
+  },
+  {
+    "lat": 44.5046563,
+    "lon": 11.3531891,
+    "name": "Presa B+",
+    "country": "IT",
+    "source": "https://www.presabpiu.it/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+      "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "10:00-22:00", "sun": "10:00-22:00"
+    },
+    "evidence": "Giorno | Apertura | Chiusura Boulder | Lunedì 10:00 22:00 | Martedì 10:00 22:00 | Mercoledì 10:00 22:00 | Giovedì 10:00 22:00 | Venerdì 10:00 22:00 | Sabato 10:00 22:00 | Domenica 10:00 22:00",
+    "note": "The current operator homepage states the complete ordinary bouldering week. Its separately dated 2026-2027 holiday closures are one-off exceptions, not competing seasonal schedules."
+  },
+  {
+    "lat": 20.64019,
+    "lon": -103.40967,
+    "name": "Summit Escalada",
+    "country": "MX",
+    "source": "https://summitescalada.com/instalaciones/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "07:00-22:30", "tue": "07:00-22:30", "wed": "07:00-22:30",
+      "thu": "07:00-22:30", "fri": "07:00-22:30", "sat": "09:00-20:00", "sun": "09:00-18:00"
+    },
+    "evidence": "Hours | Lunes a Viernes → 7:00am - 10:30pm | Sabado → 9am - 8pm | Domingo→ 9am - 6pm",
+    "note": "The current operator facilities page states one complete ordinary week directly above the venue's exact address."
+  },
+  {
+    "lat": -0.22624910683982,
+    "lon": -78.408823013306,
+    "name": "Epsilon Sport Zone",
+    "country": "EC",
+    "source": "https://www.epsilonsportzone.com/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "14:00-22:00", "tue": "14:00-22:00", "wed": "14:00-22:00",
+      "thu": "14:00-22:00", "fri": "14:00-22:00", "sat": "08:00-18:00", "sun": "08:00-18:00"
+    },
+    "evidence": "Horarios Área de Escalada | Lunes a Viernes: De 14h00 a 22h00 | Sábados: De 8h00 a 18h00 | Domingos: De 8h00 a 18h00",
+    "note": "The current operator homepage explicitly scopes this complete regular week to the climbing area; the broader sports centre has different hours."
+  },
+  {
+    "lat": 60.1940603,
+    "lon": 24.9457109,
+    "name": "Project Konepaja",
+    "country": "FI",
+    "source": "https://projectkonepaja.com/frontpage-english/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "06:00-24:00", "tue": "06:00-24:00", "wed": "06:00-24:00",
+      "thu": "06:00-24:00", "fri": "06:00-24:00", "sat": "06:00-24:00", "sun": "06:00-24:00"
+    },
+    "evidence": "Opening hours: Open every day from 06-24 with a single ticket (webshop), serial card or membership. Normalized: 06:00-24:00.",
+    "note": "The current operator page states a complete regular visitor-access week. Its shorter customer-service hours describe staffing, not access to the venue."
+  },
+  {
+    "lat": 46.7203221,
+    "lon": 11.6568287,
+    "name": "Vertikale",
+    "country": "IT",
+    "source": "https://vertikale.it/it/indicazioni-e-orari-di-apertura/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:30", "tue": "10:00-22:30", "wed": "09:30-22:30",
+      "thu": "10:00-22:30", "fri": "10:00-21:30", "sat": "10:00-20:30", "sun": "10:00-20:30"
+    },
+    "evidence": "Lun.-Mar. e Gio.: 10.00-22.30 | Mercoledì: 09.30-22.30 | Venerdì: 10.00-21.30 | Sabato, Domenica e festivi: 10.00-20.30",
+    "note": "The current operator directions page states one complete regular week for the climbing centre; separately listed later bar closing times are not copied."
+  },
+  {
+    "lat": 55.791307,
+    "lon": 37.5598289,
+    "name": "Bigwall Sport Динамо",
+    "country": "RU",
+    "source": "https://bigwallsport.ru/usloviya-okazaniya-uslug",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "07:00-23:30", "tue": "07:00-23:30", "wed": "07:00-23:30",
+      "thu": "07:00-23:30", "fri": "07:00-23:30", "sat": "08:00-23:00", "sun": "08:00-23:00"
+    },
+    "evidence": "Динамо (г. Москва, Ленинградский проспект, дом 36): понедельник - пятница с 7:00 до 23:30, выходные и праздники с 8:00 до 23:00",
+    "note": "The operator's current terms explicitly scope one complete ordinary week to the Динамо branch. Holiday weekend hours are an exception and do not alter the regular Monday-Friday schedule."
+  },
+  {
+    "lat": 3.051063,
+    "lon": 101.6705112,
+    "name": "BUMP Bouldering Pavilion Bukit Jalil",
+    "country": "MY",
+    "source": "https://www.bumpbouldering.com/pavilion-bukit-jalil",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+      "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "10:00-22:00", "sun": "10:00-22:00"
+    },
+    "evidence": "Opening Hours — Weekdays, Weekends & Public Holidays — 10:00 AM - 10:00 PM",
+    "note": "The current operator branch page states one daily schedule covering weekdays and weekends. Public holidays are included as the same exceptional schedule."
+  },
+  {
+    "lat": -12.4303626,
+    "lon": 130.8568256,
+    "name": "Gecko Climb",
+    "country": "AU",
+    "source": "https://geckoclimb.com.au/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-21:00", "tue": "10:00-21:00", "wed": "06:00-21:00",
+      "thu": "10:00-21:00", "fri": "10:00-21:00", "sat": "10:00-18:00", "sun": "10:00-18:00"
+    },
+    "evidence": "Monday, Tuesday, Thursday, Friday: 10:00am - 9pm; Wednesday: 6am - 9pm; Saturday, Sunday and public holidays: 10am - 6pm",
+    "note": "The current operator homepage states one complete regular venue week. The separately stated weekday school-term rope-wall opening of 10:30 and closing of 20:30 applies only to that sub-area, not general venue access."
+  },
+  {
+    "lat": 48.1750125,
+    "lon": 11.5579576,
+    "name": "Munich Action Park",
+    "country": "DE",
+    "source": "https://www.olympiapark.de/de/sport/munich-action-park",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "15:00-22:00", "tue": "15:00-22:00", "wed": "15:00-22:00",
+      "thu": "15:00-22:00", "fri": "15:00-22:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "Öffnungszeiten Munich Action Park — Mo - Fr 15:00 - 22:00 — Sa 10:00 - 20:00",
+    "note": "The current municipal operator page states one complete regular venue week. A dated summer-holiday notice merely confirms Monday access and does not replace the displayed regular schedule."
+  },
+  {
+    "lat": -0.21926596177731264,
+    "lon": -78.44734262883618,
+    "name": "El Muro",
+    "country": "EC",
+    "source": "https://www.elmuroescalada.com/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+      "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "10:00-19:00", "sun": "10:00-19:00"
+    },
+    "evidence": "El Muro Escalada … Cumbayá, en El Potrero San Luis, en la vía Lumbisí … Horarios de Atención — Lunes a Viernes 10 AM - 10 PM — Sábados y Domingos 10 AM - 7 PM",
+    "note": "The current operator homepage states one complete regular week directly below the Cumbayá venue identity and location."
+  },
+  {
+    "lat": 55.8504352,
+    "lon": -4.281947,
+    "name": "The Newsroom - The Climbing Academy",
+    "country": "GB",
+    "source": "https://www.theclimbingacademy.com/contact/",
+    "checked": "2026-09-01",
+    "provenance": "official-chain-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "07:00-22:00", "tue": "07:00-22:00", "wed": "07:00-22:00",
+      "thu": "07:00-22:00", "fri": "07:00-22:00", "sat": "08:00-20:00", "sun": "08:00-20:00"
+    },
+    "evidence": "The Newsroom — 124 Portman Street Kinning Park, Glasgow G41 1EJ — Mon-Fri: 7am-10pm — Sat-Sun: 8am-8pm",
+    "note": "The current operator contact page lists the branch by name and exact address immediately beside one complete regular week."
+  },
+  {
+    "lat": 62.56787,
+    "lon": 7.69012,
+    "name": "Norsk Tindesenter",
+    "country": "NO",
+    "source": "https://www.tindesenteret.no/apningstider",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-21:00", "tue": "10:00-21:00", "wed": "10:00-21:00",
+      "thu": "10:00-21:00", "fri": "10:00-21:00", "sat": "10:00-21:00", "sun": "10:00-21:00"
+    },
+    "evidence": "Når restauranten Tindestua er åpen er det mulig for drop in i klatrehallen. … åpningstider tindestua: MANDAG - SØNDAG: 10.00 - 21.00",
+    "note": "The current venue opening page expressly ties climbing-hall drop-in access to the restaurant's stated daily week. Its linked current climbing page identifies the Kilter Board and exact Havnegata 2 venue."
+  },
+  {
+    "lat": 44.4485,
+    "lon": 26.15137,
+    "name": "Vertical Spirit",
+    "country": "RO",
+    "source": "https://verticalspirit.ro/contact/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "09:00-22:00", "tue": "09:00-22:00", "wed": "09:00-22:00",
+      "thu": "09:00-22:00", "fri": "09:00-22:00", "sat": "09:00-17:00", "sun": "closed"
+    },
+    "evidence": "PROGRAM — Luni–vineri: 09.00–22.00 — Sâmbăta: 09.00–17.00 — Duminica: ÎNCHIS",
+    "note": "The current Romanian contact page identifies the Baicului 80 hall and states one complete regular public-access week. Separately listed appointment-only weekend events are not public access; named Easter, Christmas and New Year closures are ordinary exceptions."
+  },
+  {
+    "lat": 55.67094115452206,
+    "lon": 37.29276147791354,
+    "name": "GYM Skalodrom.RU",
+    "country": "RU",
+    "source": "https://gym-skalodrom.ru/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-23:00", "tue": "10:00-23:00", "wed": "10:00-23:00",
+      "thu": "10:00-23:00", "fri": "10:00-23:00", "sat": "10:00-23:00", "sun": "10:00-23:00"
+    },
+    "evidence": "Адрес: г. Одинцово, ул. Транспортная 2, стр. 19 — Время работы: ежедневно с 10:00 до 23:00",
+    "note": "The current operator homepage states one complete daily schedule in its contact block for the same Odintsovo venue whose facility section identifies the Kilter Board."
+  },
+  {
+    "lat": 7.9752039,
+    "lon": 98.3404014,
+    "name": "REBEL Rock Climbing",
+    "country": "TH",
+    "source": "https://www.rebelrockclimbing.com/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "closed", "tue": "10:00-20:00", "wed": "10:00-20:00",
+      "thu": "10:00-20:00", "fri": "10:00-20:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "Opening hours: Tuesday - Sunday, 10am - 8pm (last check-in before 6.30 pm) (Closed on Monday)",
+    "note": "The current operator homepage states a complete ordinary week for the same exact Phuket venue whose facilities list the Kilter Board. The earlier last-check-in time is not represented as an opening boundary."
+  },
+  {
+    "lat": 3.12019,
+    "lon": 101.67444,
+    "name": "Camp5 Eco City",
+    "country": "MY",
+    "source": "https://www.camp5.com/ecocity/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+      "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "OPEN HOURS — Mon – Fri 10AM – 10PM — Weekends 10AM – 8PM — Public Holidays 10AM – 8PM",
+    "note": "The current Eco City branch page states one complete regular branch week. Its separate warning that temporary or public-holiday changes may be announced on Facebook is an exception and is not folded into the ordinary week."
+  },
+  {
+    "lat": 13.72308,
+    "lon": 100.53072,
+    "name": "Magnus' Climbing Gym",
+    "country": "TH",
+    "source": "https://www.magnusthecapybara.com/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "00:00-24:00", "tue": "00:00-24:00", "wed": "00:00-24:00",
+      "thu": "00:00-24:00", "fri": "00:00-24:00", "sat": "00:00-24:00", "sun": "00:00-24:00"
+    },
+    "evidence": "Register: Create an account by signing up with your details. This registers you as a member of the gym, granting 24/7 access. … 24/7 Access & Self Payment: With your membership active, enjoy round-the-clock gym access.",
+    "note": "The current operator page offers registration and a self-service day pass to the public, then explicitly states round-the-clock access for registered members. This is a regular access week, not an inferred listing claim."
+  },
+  {
+    "lat": -33.89914,
+    "lon": 151.0434,
+    "name": "1UP Bouldering",
+    "country": "AU",
+    "source": "https://www.oneupbouldering.com.au/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+      "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "08:00-22:00", "sun": "08:00-22:00"
+    },
+    "evidence": "Hours — Mon – Fri 10am – 10pm — Sat – Sun 8am – 10pm",
+    "note": "The current operator homepage states one complete regular week in the footer beside the exact Chullora address. The site now serves readable first-party text, resolving the former inaccessible outcome."
+  },
+  {
+    "lat": -27.565676,
+    "lon": 151.947208,
+    "name": "Climb Toowoomba",
+    "country": "AU",
+    "source": "https://climb-australia.com.au/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "14:00-21:00", "tue": "14:00-21:00", "wed": "14:00-21:00",
+      "thu": "15:00-21:00", "fri": "14:00-21:00", "sat": "08:00-20:00", "sun": "10:00-16:00"
+    },
+    "evidence": "Opening Hours — Mon – 2pm to 9pm — Tue – 2pm to 9pm — Wed – 2pm to 9pm — Thu – 3pm to 9pm — Fri – 2pm to 9pm — Sat – 8am to 8pm — Sun – 10am to 4pm",
+    "note": "The current operator homepage states a complete ordinary week for its one public Toowoomba venue. Private and school bookings outside these hours are exceptions and are not folded into the public week."
+  },
+  {
+    "lat": -27.45127,
+    "lon": 153.0454,
+    "name": "TotalFusion Platinum Newstead",
+    "country": "AU",
+    "source": "https://totalfusion.com.au/tfp-newstead/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "04:30-22:00", "tue": "04:30-22:00", "wed": "04:30-22:00",
+      "thu": "04:30-22:00", "fri": "04:30-21:00", "sat": "05:00-19:00", "sun": "06:00-19:00"
+    },
+    "evidence": "Club Open Hours — Monday 4:30 am - 10:00 pm — Tuesday 4:30 am - 10:00 pm — Wednesday 4:30 am - 10:00 pm — Thursday 4:30 am - 10:00 pm — Friday 4:30 am - 9:00 pm — Saturday 5:00 am - 7:00 pm — Sunday 6:00 am - 7:00 pm",
+    "note": "The current Newstead branch page visibly states one complete club week and exact branch identity. Its linked current gym-floor page assigns the Kilter wall to the all-member calisthenics room; the separately labelled spa and creche schedules are not used."
+  }
 ]

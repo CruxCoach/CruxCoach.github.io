@@ -43,6 +43,7 @@ test('credentials and non-HTTPS links are rejected', () => {
 });
 
 test('committed map data publishes all verified Quantum venues without research evidence', () => {
+  const source = JSON.parse(readFileSync(new URL('./quantum-locations.json', import.meta.url), 'utf8'));
   const geojson = JSON.parse(readFileSync(new URL('../boards/data/boards.geojson', import.meta.url), 'utf8'));
   const quantum = geojson.features.flatMap((feature) =>
     feature.properties.boards
@@ -50,7 +51,7 @@ test('committed map data publishes all verified Quantum venues without research 
       .map((board) => ({ feature, board })),
   );
 
-  assert.equal(quantum.length, 9);
+  assert.equal(quantum.length, source.locations.length);
   assert.ok(quantum.every(({ board }) => board._source === 'quantum'));
   assert.ok(quantum.every(({ board }) => Array.isArray(board.models) && board.models.length > 0));
   assert.ok(quantum.every(({ board }) => !('evidence' in board) && !('website' in board)));

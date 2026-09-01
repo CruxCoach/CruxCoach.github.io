@@ -512,6 +512,7 @@ Nothing in it reaches `boards.geojson`, the map or the directories.
 | --- | --- |
 | `private` | home wall — never carries hours |
 | `closed` | the venue is permanently closed |
+| `duplicate` | another dataset point represents the same physical venue and retains the schedule |
 | `no-official-site` | no official site to read a schedule from |
 | `no-hours-on-official-site` | the official site publishes no schedule |
 | `ambiguous` | contradictory, partial, or the branch cannot be identified |

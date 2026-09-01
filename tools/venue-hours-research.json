@@ -230,16 +230,6 @@
   "reason": "Re-read: unchanged. No schedule appears on the homepage or on any page linked from it."
  },
  {
-  "lat": -33.89914,
-  "lon": 151.0434,
-  "name": "1UP Bouldering",
-  "country": "AU",
-  "status": "inaccessible",
-  "source": "https://www.oneupbouldering.com.au/",
-  "reason": "The venue's site serves no text to a reader that does not run its scripts, so there is no schedule to read.",
-  "checked": "2026-08-25"
- },
- {
   "lat": -25.215260569377044,
   "lon": 153.1519274200911,
   "name": "7x10 HW NK",
@@ -344,24 +334,14 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": -33.83547,
-  "lon": 151.05313,
-  "name": "Sandbox Bouldering",
-  "country": "AU",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://sandboxbouldering.com.au/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,262 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
- },
- {
   "lat": -33.83541,
   "lon": 151.05309,
   "name": "Sandbox Bouldering",
   "country": "AU",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
+  "status": "ambiguous",
+  "checked": "2026-09-01",
   "source": "https://sandboxbouldering.com.au/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,262 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
+  "reason": "The current operator site now states staffed onboarding windows on Monday, Wednesday, Friday and Saturday and offers full-day passes plus unlimited memberships, but never states the venue's complete access week. Staffed hours are not necessarily opening hours, Tuesday, Thursday and Sunday remain unstated, and one youth page even differs on Monday's staffed closing time. No regular week can be inferred."
  },
  {
   "lat": -38.1617913,
@@ -372,16 +352,6 @@
   "source": "https://rockadventures.com.au/",
   "reason": "Both weeks on the page carry a label and neither is the standing one: \"Opening Hours School Term Times: Monday – Friday 4pm-9:30pm, Saturday 10:00am-5:00pm, Sunday 1:00pm-5:00pm, Public Holidays 12:00pm-5:00pm\" and \"School Holiday Times: Monday, Wednesday, Friday, Saturday, Sunday 12:00pm-6:00pm, Tuesday and Thursday 12:00pm-9:30pm\". Term and holiday between them cover the year, and which applies depends on the Victorian school calendar rather than on the page.",
   "checked": "2026-08-25"
- },
- {
-  "lat": -27.45127,
-  "lon": 153.0454,
-  "name": "TotalFusion Platinum Newstead",
-  "country": "AU",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-24",
-  "source": "https://totalfusion.com.au/",
-  "reason": "The site does hold a week, and only in machine-readable markup: a schema.org openingHours block reading \"Monday,Tuesday,Wednesday,Thursday,Friday 05:00-20:00 Saturday 06:00-17:00 Sunday 07:30-17:00\". No page states any of it in words. This audit publishes what a venue tells its visitors and not what its settings hold, so the week is recorded here and not published — the same call as Island Rock Climbing Gym."
  },
  {
   "lat": -27.5146928,
@@ -610,16 +580,6 @@
   "status": "no-official-site",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
   "checked": "2026-08-25"
- },
- {
-  "lat": -23.5829602,
-  "lon": -46.6744396,
-  "name": "FABRICA Escalada",
-  "country": "BR",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://www.fabricaescalada.com/unidades",
-  "reason": "Which of Fabrica's two units this entry is cannot be settled — upstream says Itaim Bibi and the operator publishes only Chacara Santo Antonio and Vila Madalena — so neither unit's week can be attributed to it. The Vila Madalena block does not state a Sunday in any case."
  },
  {
   "lat": -23.5635839,
@@ -884,10 +844,10 @@
   "lon": -123.1558121,
   "name": "Grand Wall Bouldering Co-operative",
   "country": "CA",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://grandwallbouldering.com/",
-  "reason": "No opening hours appear on any page of the site that could be opened."
+  "status": "appointment-only",
+  "checked": "2026-08-31",
+  "source": "https://grandwallbouldering.com/pages/the-space",
+  "reason": "The co-operative states 24/7 access only after membership purchase and volunteer-arranged onboarding for a personal door code. It has no conventional staffed opening week, so member access cannot be published as general public hours."
  },
  {
   "lat": 43.2585528,
@@ -1019,14 +979,14 @@
   "checked": "2026-08-24"
  },
  {
-  "lat": 48.3842148,
-  "lon": -89.2436231,
+  "lat": 48.38436086978212,
+  "lon": -89.24355872698759,
   "name": "Rock Room",
   "country": "CA",
-  "status": "inaccessible",
+  "status": "no-hours-on-official-site",
   "source": "https://www.rockroomclimbing.ca/",
-  "reason": "The venue's site serves no text to a reader that does not run its scripts, so there is no schedule to read.",
-  "checked": "2026-08-25"
+  "reason": "The current operator homepage, facility, pricing, programming and contact pages establish the public venue and its boards but publish no complete regular opening week. Program and party time slots are not venue hours.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 49.6964,
@@ -1068,24 +1028,14 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 51.0779562,
-  "lon": -114.1337454,
-  "name": "University of Calgary Moonboard",
-  "country": "CA",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.ucalgary.ca/active-living/facilities/outdoor-centre/",
-  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 5,198 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
- },
- {
   "lat": 51.07767,
   "lon": -114.13419,
   "name": "University of Calgary Outdoor Centre",
   "country": "CA",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.ucalgary.ca/active-living/facilities/outdoor-centre/",
-  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 5,198 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
+  "status": "seasonal",
+  "checked": "2026-08-31",
+  "source": "https://active-living.ucalgary.ca/facilities/racquet-centre/hours",
+  "reason": "The current MoonBoard/Kilter page says both boards follow Racquet Centre hours. That official schedule publishes different September-April and May-August weeks plus dated holiday exceptions, so repository policy forbids flattening it to one regular public week."
  },
  {
   "lat": 43.60385,
@@ -1227,12 +1177,12 @@
  {
   "lat": 46.21936,
   "lon": 6.10238,
-  "name": "TOTEM Le Môll",
+  "name": "TOTEM Vernier",
   "country": "CH",
   "status": "no-hours-on-official-site",
   "checked": "2026-08-24",
-  "source": "https://totem.ch/ve",
-  "reason": "The site does hold a week, and only in machine-readable markup: a schema.org openingHours block reading \"Mo-Fr 09:00-23:00, Sa 09:00-23:00, Su 09:00-21:00\", beside an openingHoursSpecification block saying the same. No page states any of it in words. This audit publishes what a venue tells its visitors and not what its settings hold, so the week is recorded here and not published — the same call as Island Rock Climbing Gym."
+  "source": "https://totem.ch/vernier",
+  "reason": "The current branch page identifies the legacy Le Môll venue as TOTEM Vernier. It says opening hours are updated automatically at the top, but the complete readable content exposes no weekday/time pairs. A previously indexed legacy path held a week only in machine-readable settings; this audit publishes what the current venue page tells visitors and does not preserve stale hidden settings."
  },
  {
   "lat": 46.2876938,
@@ -1320,8 +1270,8 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 31.214574311841517,
-  "lon": 121.49361072562584,
+  "lat": 31.20949,
+  "lon": 121.49864,
   "name": "1778 CLIMBING",
   "country": "CN",
   "status": "no-official-site",
@@ -1335,11 +1285,11 @@
   "country": "CN",
   "status": "no-official-site",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "checked": "2026-08-31"
  },
  {
-  "lat": 30.18347,
-  "lon": 120.21197,
+  "lat": 30.188212,
+  "lon": 120.210894,
   "name": "Ascent 杭州顽攀攀岩",
   "country": "CN",
   "status": "no-official-site",
@@ -1374,8 +1324,8 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 31.237007,
-  "lon": 121.452322,
+  "lat": 31.24035,
+  "lon": 121.44879,
   "name": "Beta Boulders Gym JingAn",
   "country": "CN",
   "status": "no-official-site",
@@ -1480,8 +1430,9 @@
   "name": "Green Geckos Climbing Base 绿壁虎攀岩基地",
   "country": "CN",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "source": "https://hznews.hangzhou.com.cn/jingji/content/2026-01/15/content_9162195.htm",
+  "reason": "Current Hangzhou reporting confirms the active gym inside Tcar park, but neither that primary identity source nor any reachable venue-owned page publishes Green Gecko's weekly schedule. Directory hours are not eligible under the opening-hours policy.",
+  "checked": "2026-08-31"
  },
  {
   "lat": 31.170532038108448,
@@ -1588,10 +1539,10 @@
   "lon": 114.17568,
   "name": "The Board Room",
   "country": "CN",
-  "status": "inaccessible",
+  "status": "ambiguous",
   "source": "https://boardroom.fit/",
-  "reason": "The venue's site renders in the browser and serves no text, so there is no schedule to read.",
-  "checked": "2026-08-25"
+  "reason": "The current official site publishes staffed access for Monday-Thursday and weekends but states no Friday hours. Its separate members-only daily 06:00-23:00 access is a different access class, so the page does not establish one complete regular public seven-day schedule.",
+  "checked": "2026-08-31"
  },
  {
   "lat": 22.39666,
@@ -1608,8 +1559,8 @@
   "name": "Upper Climbing Gym",
   "country": "CN",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "reason": "Current discovery results show multiple Shenzhen Upper branches, but no reachable venue-owned branch page identifies which one this generic manufacturer row represents or publishes a complete weekly schedule. Directory and social snippets cannot supply hours under policy.",
+  "checked": "2026-08-31"
  },
  {
   "lat": 22.35573,
@@ -1715,9 +1666,10 @@
   "lon": -83.90448881843531,
   "name": "Raccoon",
   "country": "CR",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "status": "no-hours-on-official-site",
+  "checked": "2026-08-31",
+  "source": "https://raccoonclimbingcr.com/",
+  "reason": "The official page renders only the current day's 16:30-22:00 interval behind a collapsed 'open today' control and does not publish the other six named days in its document. One dynamic day is not a complete regular week, so no schedule is copied."
  },
  {
   "lat": 34.6912057,
@@ -2139,14 +2091,14 @@
   "reason": "Re-read, and the earlier 'markup only' reading was wrong — the readable text does state a window, and it disagrees with the markup. The text says card holders may boulder 'jeden Tag von 00:00 - 24:00 Uhr'; the openingHours markup on the same pages says Mo–Su 10:00-23:00. Neither is a public walk-in week: 'Der Erstbesuch bei uns in der Boulderhalle Projekt Eins muss zu Servicezeiten stattfinden', and those are Tuesdays and the first Sunday of the month, 16–20 Uhr."
  },
  {
-  "lat": 48.69621,
-  "lon": 9.02313,
+  "lat": 48.6956085,
+  "lon": 9.023023,
   "name": "Roccadion",
   "country": "DE",
   "status": "seasonal",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "source": "https://www.roccadion.de/",
-  "reason": "Re-read: unchanged. The weekly table gives Dienstag and Donnerstag as 14–23 and immediately qualifies it: 'An Feiertagen und in den Schulferien ist Dienstag und Donnerstag von 10:00-23:00 Uhr geöffnet.' Two of the seven days depend on the Baden-Württemberg holiday calendar."
+  "reason": "Re-read after moving onto the exact coordinate in the venue's own directions link: unchanged. The weekly table gives Dienstag and Donnerstag as 14–23 and immediately qualifies it: 'An Feiertagen und in den Schulferien ist Dienstag und Donnerstag von 10:00-23:00 Uhr geöffnet.' Two of the seven days depend on the Baden-Württemberg holiday calendar."
  },
  {
   "lat": 51.68709,
@@ -2235,14 +2187,14 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 51.01574,
-  "lon": 13.8046,
+  "lat": 51.01528,
+  "lon": 13.808827,
   "name": "XXL Klettern Dresden",
   "country": "DE",
   "status": "ambiguous",
-  "checked": "2026-08-23",
+  "checked": "2026-08-31",
   "source": "https://www.xxl-klettern.de/",
-  "reason": "Re-read: unchanged. The homepage carries two versions of the same week and they disagree about Sunday — one block says 'Sonntag 09.00 – 21.00 Uhr Neu!', the other 'Sonntag 09.00 – 20.00 Uhr'."
+  "reason": "Re-read after moving the venue onto its official map point: unchanged. The current homepage carries two versions of the same week and they disagree about Sunday — one block says 'Sonntag 09.00 – 21.00 Uhr Neu!', the footer says 'Sonntag 09.00 – 20.00 Uhr'. The board article repeats the latter, but the operator has not removed the conflicting current homepage block."
  },
  {
   "lat": 49.0131548,
@@ -2357,15 +2309,6 @@
   "lat": -2.90054,
   "lon": -79.01702,
   "name": "C-TR3S Climbing + Fitness",
-  "country": "EC",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": -0.21926596177731264,
-  "lon": -78.44734262883618,
-  "name": "El Muro",
   "country": "EC",
   "status": "no-official-site",
   "checked": "2026-08-23",
@@ -2577,14 +2520,14 @@
   "source": "https://gekoaventura.com/"
  },
  {
-  "lat": 41.5625,
-  "lon": 1.99852,
-  "name": "GeoBoulder",
+  "lat": 41.5623017,
+  "lon": 1.9985057,
+  "name": "Geo Boulder",
   "country": "ES",
-  "status": "seasonal",
-  "checked": "2026-08-24",
-  "source": "https://geoboulder.es/contacto",
-  "reason": "The record here said the schedule could not be transcribed, because it had been read in machine translation — \"from 9 a.m. to 14 p.m. and from 18 p.m. to 10 p.m.\" The Spanish page is perfectly clear: \"Horario Agosto — Lunes a viernes: de 9h a 14h y de 18h a 22h. Sábado y Domingo: cerrado.\" What blocks it is the heading. That is August's week and the site publishes no other, so it runs out with the month."
+  "status": "ambiguous",
+  "checked": "2026-09-01",
+  "source": "https://www.geoboulder.es/contacto",
+  "reason": "The current operator contact page no longer labels its Monday-Friday split schedule and weekend closure as August-only, but immediately adds an undated 'Del 17 al 21: tancat' notice without a month or expiry. Because the page does not distinguish a safely current regular week from that temporary exception, no opening schedule is published until the notice is removed or dated."
  },
  {
   "lat": 42.56289,
@@ -2656,34 +2599,14 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 41.42486,
-  "lon": 2.18593,
-  "name": "Monobloc La Sagrera",
+  "lat": 41.7962914,
+  "lon": 0.8100862,
+  "name": "Boulder Balaguer",
   "country": "ES",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The site publishes two schema.org openingHoursSpecification blocks that disagree about the weekend (Saturday and Sunday closing at 20:00 in one and 21:00 in the other), and no schedule a reader can see.",
-  "source": "https://monobloc.es/"
- },
- {
-  "lat": 41.15835,
-  "lon": 1.12149,
-  "name": "Monobloc Reus",
-  "country": "ES",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The site publishes two schema.org openingHoursSpecification blocks that disagree about the weekend (Saturday and Sunday closing at 20:00 in one and 21:00 in the other), and no schedule a reader can see.",
-  "source": "https://monobloc.es/"
- },
- {
-  "lat": 41.3666,
-  "lon": 2.13958,
-  "name": "Monobloc Sants",
-  "country": "ES",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The site publishes two schema.org openingHoursSpecification blocks that disagree about the weekend (Saturday and Sunday closing at 20:00 in one and 21:00 in the other), and no schedule a reader can see.",
-  "source": "https://monobloc.es/"
+  "status": "appointment-only",
+  "checked": "2026-09-01",
+  "reason": "The operator states two access regimes: card-holding members may enter 09:00-23:00 weekdays and 09:00-21:00 weekends, while members without a card may enter only 17:00-23:00 weekdays and the same weekend window. Day tickets are available only after a prior access request and all users need the specified federation licence. No one regular walk-in week truthfully represents those conditions, so hours remain unpublished.",
+  "source": "https://cebalaguer.cat/boulder-balaguer/"
  },
  {
   "lat": 42.1757535,
@@ -3114,14 +3037,14 @@
   "checked": "2026-08-24"
  },
  {
-  "lat": 44.899596273874344,
-  "lon": 6.63972697236616,
+  "lat": 44.9129157,
+  "lon": 6.6212888,
   "name": "Briançon escalade",
   "country": "FR",
   "status": "appointment-only",
-  "checked": "2026-08-23",
-  "source": "https://briancon-escalade.fr/",
-  "reason": "The club publishes session times for its members rather than an opening: \"Du bloc à l'Argentière la Bessée pour les adhérents de Briançon Escalade, c'est deux fois par semaine : le mercredi de 19h à 21h00, le samedi de 17h...\". Those are club sessions, at a hall in another town, open to members."
+  "checked": "2026-08-31",
+  "source": "https://briancon-escalade.fr/la-saison-2026-2027-est-lancee-les-adhesions-les-creneaux.html",
+  "reason": "The current page publishes supervised and autonomous climbing slots for club members at Gymnase Chancel, not public walk-in opening hours. Access remains conditional on membership and the responsible person for each assigned slot, so no regular public week is published."
  },
  {
   "lat": 43.5753976,
@@ -3248,16 +3171,6 @@
   "status": "no-official-site",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
   "checked": "2026-08-25"
- },
- {
-  "lat": 48.10577,
-  "lon": 7.37538,
-  "name": "Salle D'Escalade Les Freres Mawem",
-  "country": "FR",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://lesfreresmawem.fr/",
-  "reason": "The hall states only that it is open seven days a week — \"7j/7 Ouvert\" — and its Horaires & Contact page carries no times. A frequency is not a schedule."
  },
  {
   "lat": 43.62005,
@@ -3585,13 +3498,13 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 41.71807,
-  "lon": 44.74083,
+  "lat": 41.7169522,
+  "lon": 44.7358542,
   "name": "s.k.lucky",
   "country": "GE",
   "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
+  "checked": "2026-08-31",
+  "reason": "The venue publishes current address and Kilter details through social channels only; no independent official site supplies a complete regular week."
  },
  {
   "lat": 40.6400629,
@@ -3759,15 +3672,6 @@
   "checked": "2026-08-23",
   "source": "https://isaacclimbing.com/",
   "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
- },
- {
-  "lat": 32.92353,
-  "lon": 35.31213,
-  "name": "קמפוס מועדון טיפוס Campus Karmiel",
-  "country": "IL",
-  "status": "no-official-site",
-  "checked": "2026-08-23",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
   "lat": 13.07569651593886,
@@ -4018,20 +3922,10 @@
   "lon": 13.81049,
   "name": "Gravità Zero",
   "country": "IT",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://gravitazero.it/",
-  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 44,815 characters carrying 120 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
- },
- {
-  "lat": 45.6570925,
-  "lon": 13.8102992,
-  "name": "Gravità Zero MOON BOARD",
-  "country": "IT",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://gravitazero.it/",
-  "reason": "The same hall as the Gravità Zero entry 17 m away, whose read this repeats: the site was read on the two dozen paths a venue usually puts its week on, yields 44,815 characters carrying 120 clock times, and states no day of the week beside any of them — they are prices and class times rather than an opening schedule."
+  "status": "ambiguous",
+  "checked": "2026-09-01",
+  "source": "https://www.gravitazerotrieste.it/informazioni-utili-per-laccesso-alla-sala-boulder/",
+  "reason": "The current access page states changing Monday-Friday gym hours but does not state Saturday or Sunday at all, while other page headers expose a different partial week. Policy forbids inferring that omitted days are closed, so no complete regular week is published."
  },
  {
   "lat": 40.6031306,
@@ -4081,14 +3975,14 @@
   "reason": "The academy covers CrossFit, climbing, martial arts, Equilibrium and dance and states no opening hours on the homepage or on the contact page."
  },
  {
-  "lat": 44.49092,
-  "lon": 11.25031,
+  "lat": 44.4831,
+  "lon": 11.2621,
   "name": "Level 24",
   "country": "IT",
   "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The week is stated as 10:00/24:00 with a separate closing time for the climbing rooms (23:00) and another for reception (21:00), after which entry is subscription-only; the site's schema.org openingHours is the placeholder 09:00-17:00 for all seven days.",
-  "source": "https://www.level24.it/contatti-info-level24/"
+  "checked": "2026-08-31",
+  "reason": "The current homepage states general opening as Monday-Friday 10:00-24:00 and weekends/holidays 09:00-20:00, but separately closes climbing rooms at 23:00/19:00 and reception at 21:00/17:30, after which entry is limited to subscribers or pass holders. Its structured openingHours still says 09:00-17:00 every day. Those scopes conflict, so no single public board-access week is published.",
+  "source": "https://www.level24.it/"
  },
  {
   "lat": 45.5415526,
@@ -4415,9 +4309,10 @@
   "lon": 136.2596226,
   "name": "goodboulderingMOONBOARD",
   "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "status": "ambiguous",
+  "source": "https://goodbouldering.com/",
+  "reason": "The current operator homepage says weekdays and public holidays 16:00-23:00, weekends 11:00-21:00 and Monday closed, while the operator's current official LINE account says Tuesday-Friday 14:00-23:00. The two first-party surfaces conflict on weekday opening time, so no week is published.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 35.8364848,
@@ -4427,43 +4322,17 @@
   "status": "ambiguous",
   "source": "http://granny.attack-climb.jp/",
   "reason": "The gym publishes two weeks side by side and labels them 有人営業 and 無人営業 — staffed and unstaffed. Staffed: 月曜日 定休日（祝日は休日時間帯で営業）, 火曜日〜金曜日 13:00〜22:00, 土日・祝日 10:00〜20:00. Unstaffed adds 8:00〜13:00 and 22:00〜23:00 on weekdays for people who have already been shown round in staffed hours. No site is established for the row, and the staffed week has a Monday rule that depends on whether the day is a public holiday.",
-  "checked": "2026-08-25"
+  "checked": "2026-09-01"
  },
  {
   "lat": 38.04837089999999,
   "lon": 139.4077784,
   "name": "HUT WALL",
   "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
- },
- {
-  "lat": 33.3192865,
-  "lon": 130.5083735,
-  "name": "Joywall",
-  "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
- },
- {
-  "lat": 37.7445357,
-  "lon": 139.1825675,
-  "name": "little forest",
-  "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
- },
- {
-  "lat": 35.9461485,
-  "lon": 139.4770721,
-  "name": "Monolithe",
-  "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "status": "no-hours-on-official-site",
+  "source": "https://hutwall.shopinfo.jp/",
+  "reason": "The current operator site identifies the venue and carries dated monthly schedule posts through August 2026, but does not state a complete regular week in text. Its older notice says future schedule announcements move to Instagram, so image/social calendars are not converted into recurring public hours.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 37.40047759999999,
@@ -4489,19 +4358,10 @@
   "lon": 140.70229,
   "name": "Rhythm Japan Niseko",
   "country": "JP",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://rhythmjapan.com/",
-  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
- },
- {
-  "lat": 34.4875144,
-  "lon": 136.7093359,
-  "name": "SunnyDipperMoonBoard",
-  "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "status": "seasonal",
+  "checked": "2026-09-01",
+  "source": "https://rhythmjapan.com/activity-hub",
+  "reason": "The current official page identifies this as the Summer Activity Hub, and current 2026 operator material publishes only the summer season opening rather than an undated complete regular week. An older launch release gave daily summer hours, but a dated seasonal schedule is not simplified into regular year-round hours."
  },
  {
   "lat": 39.11843,
@@ -4517,9 +4377,10 @@
   "lon": 130.7078911,
   "name": "The Ranch",
   "country": "JP",
-  "status": "no-official-site",
-  "reason": "No storable site is established for this venue — its own domain is http-only — so no schedule is recorded from it.",
-  "checked": "2026-08-25"
+  "status": "ambiguous",
+  "source": "http://www.theranchgym.com/intro.html",
+  "reason": "The live operator pages conflict: intro.html states Tuesday-Friday 12:00-22:00, weekends and holidays 12:00-19:00 and irregular closures announced monthly, while access.html still states weekdays 11:00-22:00, weekends 12:00-19:00 and Monday plus irregular closures. With differing opening times and no fixed weekly closure pattern, no regular week is published.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 35.6894875,
@@ -4529,35 +4390,6 @@
   "status": "ambiguous",
   "source": "https://volny.net/",
   "reason": "VOLNY publishes a week — 月～木 14:00～23:00, 金 10:00～23:00, 土 13:00～22:00, 日・祝 11:00～21:00 — for a hall 11 km from this coordinate. The venue at this point is not established.",
-  "checked": "2026-08-25"
- },
- {
-  "lat": 36.3479482,
-  "lon": 140.3030609,
-  "name": "vortex",
-  "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
- },
- {
-  "lat": 34.75463,
-  "lon": 135.4994,
-  "name": "クラックス大阪 CRUX Osaka",
-  "country": "JP",
-  "status": "no-hours-on-official-site",
-  "source": "https://www.crux-jp.com/crux-osaka/",
-  "reason": "The page has a 営業時間 entry in its navigation and no times anywhere in its text; the same is true of its address. Whatever the gym publishes about opening is in an image.",
-  "checked": "2026-08-25"
- },
- {
-  "lat": 35.4425,
-  "lon": 139.36599,
-  "name": "ディーボルダリング本厚 D Bouldering Hon-Atsugi",
-  "country": "JP",
-  "status": "no-hours-on-official-site",
-  "source": "https://www.d-b-c.jp/top/honatsugi/",
-  "reason": "This hall's page carries its address, its access notes and its prices, and states no hours in its text at all — unlike its sister halls, which print a 都度利用受付時間 block. Whatever it publishes about opening is in an image.",
   "checked": "2026-08-25"
  },
  {
@@ -4584,9 +4416,10 @@
   "lon": 132.7108,
   "name": "松野町コミュニティセンター Matsuno Town Community Center",
   "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "status": "appointment-only",
+  "source": "https://matsuno-kankou.com/news/5105.html",
+  "reason": "Matsuno Town's official venue page states public use windows but requires advance telephone reservation, an application at the town-hall counter and first-use instruction. Appointment-only access is deliberately not published as a regular walk-in week.",
+  "checked": "2026-09-01"
  },
  {
   "lat": -3.3446354,
@@ -4612,17 +4445,17 @@
   "name": "ansanclimbing gym",
   "country": "KR",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "reason": "Only a historical venue page and former operator cafe could be established; no current official page supplies a schedule for this displaced registry point.",
+  "checked": "2026-09-01"
  },
  {
-  "lat": 37.4460164,
-  "lon": 126.8023545,
-  "name": "Bouldergarden",
+  "lat": 37.44572502448479,
+  "lon": 126.80167496802616,
+  "name": "볼더가든 클라이밍 Bouldergarden",
   "country": "KR",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "reason": "The operator-authored Daangn profile publishes a weekly schedule, but Daangn is a marketplace and independent directories conflict on weekend times. No standalone official venue page supplies a complete regular week, so no hours are published.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 35.82364,
@@ -4636,11 +4469,11 @@
  {
   "lat": 37.497738,
   "lon": 127.0409539,
-  "name": "Climb Emotion",
+  "name": "클라임 이모션 Climb Emotion",
   "country": "KR",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "reason": "The current national sports-safety report establishes the exact public venue, but its former domain does not resolve and no current official website supplies a schedule.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 37.68945,
@@ -4663,11 +4496,11 @@
  {
   "lat": 37.4876288,
   "lon": 126.9945297,
-  "name": "Gate1_Climbing",
+  "name": "게이트원 클라이밍 Gate One Climbing",
   "country": "KR",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "reason": "The current national sports-safety report establishes the exact public venue, but its former domain does not resolve and no current official website supplies a schedule.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 36.7844993,
@@ -4675,22 +4508,13 @@
   "name": "Gorilla climbing's Moonboard",
   "country": "KR",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "reason": "Only a historical installation report and a current third-party activity directory identify the venue; no current official page supplies a schedule for this displaced registry point.",
+  "checked": "2026-09-01"
  },
  {
-  "lat": 36.3643697,
-  "lon": 127.3247016,
-  "name": "HanaGym_MoonBoard",
-  "country": "KR",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
- },
- {
-  "lat": 37.26365,
-  "lon": 126.99862,
-  "name": "Kin:d",
+  "lat": 37.2667603,
+  "lon": 127.0014613,
+  "name": "Kin:D",
   "country": "KR",
   "status": "no-official-site",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
@@ -4702,26 +4526,27 @@
   "name": "Koalaclimbinggym",
   "country": "KR",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "reason": "The current Sangam operator channel is social-only and the former domain does not resolve; no official website supplies a complete regular week for this materially displaced registry point.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 35.8386262,
   "lon": 128.6124429,
   "name": "NewBee Climbing Gym",
   "country": "KR",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "status": "inaccessible",
+  "reason": "The official page is indexed with complete schedules for two branches, but its TLS certificate expired on 7 March 2025 and a normal HTTPS client cannot open it; the registry point also names neither branch. Search snippets are not a publishable hours source.",
+  "source": "https://www.newbeeclimbing.com/locationstaff",
+  "checked": "2026-09-01"
  },
  {
   "lat": 37.5697433,
   "lon": 126.9899785,
-  "name": "SeoulForest's moonboard",
+  "name": "서울숲클라이밍 종로 SeoulForest Climbing Jongno",
   "country": "KR",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "reason": "The current branch publishes through an operator Instagram profile, not an official website with a complete regular weekly schedule.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 35.2100142,
@@ -4729,8 +4554,8 @@
   "name": "SO Climing gym",
   "country": "KR",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "reason": "The current national sports-safety report establishes SO Climbing Gym at an address about 5.8 km from this point, but its former domain does not resolve and no current official schedule can safely be attached to the displaced row.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 37.25296,
@@ -4744,11 +4569,12 @@
  {
   "lat": 37.4967717,
   "lon": 126.776494,
-  "name": "tigerbouldergym",
+  "name": "타이거볼더클라이밍짐 Tiger Boulder Climbing Gym",
   "country": "KR",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "status": "ambiguous",
+  "reason": "The official operator page identifies the venue but the 2025 national sports-safety report marks it as scheduled to close without a date. No current closure statement resolves whether any published week would describe public access now.",
+  "source": "https://tigerbouldergym.modoo.at/",
+  "checked": "2026-09-01"
  },
  {
   "lat": 37.237587746871746,
@@ -4778,15 +4604,6 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 37.59289,
-  "lon": 126.67303,
-  "name": "디스커버리 클라임스퀘어 Climbsquare ICN",
-  "country": "KR",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
- },
- {
   "lat": 37.253109138501685,
   "lon": 127.07714303019016,
   "name": "슈퍼비클라이밍 SuperB Climbing",
@@ -4805,8 +4622,8 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 33.32611,
-  "lon": 126.83256,
+  "lat": 33.324883,
+  "lon": 126.8245979,
   "name": "오루뭉 Orumung Climbing Gym",
   "country": "KR",
   "status": "no-official-site",
@@ -4824,15 +4641,6 @@
   "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 419 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
  },
  {
-  "lat": 35.22902,
-  "lon": 129.08423,
-  "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
-  "country": "KR",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
- },
- {
   "lat": 37.67682,
   "lon": 126.74719,
   "name": "코알라클라이밍 Koala Climbing Kintex",
@@ -4842,13 +4650,13 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 37.56146,
-  "lon": 127.19302,
-  "name": "클라이밍 하남미사점 V10 Climbing Hanam Misa",
+  "lat": 37.5627864,
+  "lon": 127.1933404,
+  "name": "클라임어스 미사점 Climb Us Hanam Misa",
   "country": "KR",
   "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "reason": "The current Climb Us identity is corroborated at the former V10 address, but its only operator channel found is a robots-blocked Naver blog. Directory and visitor schedules are not an acceptable substitute for a readable venue-primary complete week.",
+  "checked": "2026-08-31"
  },
  {
   "lat": 36.3603,
@@ -5114,22 +4922,13 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 20.64019,
-  "lon": -103.40967,
-  "name": "Summit Escalada",
-  "country": "MX",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
- },
- {
-  "lat": 20.61837,
-  "lon": -103.43033,
+  "lat": 20.6332963,
+  "lon": -103.4365048,
   "name": "YE Escalada + Yoga Center",
   "country": "MX",
   "status": "no-official-site",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "checked": "2026-08-31"
  },
  {
   "lat": 3.13058,
@@ -5151,24 +4950,14 @@
   "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 86,507 characters carrying 300 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
-  "lat": 3.12019,
-  "lon": 101.67444,
-  "name": "Camp5 Eco City",
-  "country": "MY",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.camp5.com/",
-  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
- },
- {
   "lat": 3.12049,
   "lon": 101.67436,
   "name": "Camp5 Eco City",
   "country": "MY",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.camp5.com/",
-  "reason": "The same hall as the Camp5 Eco City entry 33 m away, whose read this repeats: the operator's site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time."
+  "status": "duplicate",
+  "checked": "2026-09-01",
+  "source": "https://www.camp5.com/ecocity/",
+  "reason": "The branch page now states a complete week for the one Eco City venue. This isolated Tension marker is a duplicate 35 m from the address-bearing Kilter point and is replaced by a curated row at the composite venue, where the verified schedule is published once."
  },
  {
   "lat": 3.09145,
@@ -5197,15 +4986,6 @@
   "status": "no-official-site",
   "checked": "2026-08-23",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
- },
- {
-  "lat": 2.19316,
-  "lon": 102.23685,
-  "name": "Pampa Rock Climbing",
-  "country": "MY",
-  "status": "no-official-site",
-  "reason": "The domain the venue is listed under does not resolve; there is no page to read a schedule from.",
-  "checked": "2026-08-25"
  },
  {
   "lat": 5.4372,
@@ -5605,16 +5385,6 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 62.56787,
-  "lon": 7.69012,
-  "name": "Norsk Tindesenter",
-  "country": "NO",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The page publishes staffed reception hours and the café's, but no opening schedule for the climbing hall itself.",
-  "source": "https://norsktindesenter.no/"
- },
- {
   "lat": 63.6883879,
   "lon": 9.657686499999999,
   "name": "Ørland klatreklubb",
@@ -5977,16 +5747,6 @@
   "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
-  "lat": 50.04933,
-  "lon": 19.97025,
-  "name": "MOOD",
-  "country": "PL",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "source": "https://hellomood.pl/contact",
-  "reason": "The weekend is described around a competition rather than as an opening. Monday to Friday are plain enough (Monday 15:00-23:00, Tuesday to Friday 07:00-23:00), but Saturday reads \"From 9:00 to 16:00 — Championship qualifiers; during this time, the hall capacity is limited to 40 people. After that, we operate as usual\", with no closing time given at all, and Sunday is \"09:00-23:00: 09:00-13:00 Polish Championships\". A week cannot be read off that."
- },
- {
   "lat": 50.0646501,
   "lon": 19.9449799,
   "name": "PARBAT",
@@ -6160,24 +5920,14 @@
   "reason": "No official page for this venue has been established — the operator's branch pages describe fitness clubs at four addresses, none of them this one — so there is no page to read a schedule from."
  },
  {
-  "lat": 44.38974,
-  "lon": 26.12165,
-  "name": "Climb Again Centrul",
-  "country": "RO",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://climbagain.ro/",
-  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
- },
- {
   "lat": 47.12658,
   "lon": 27.62568,
   "name": "Climb Again Iasi",
   "country": "RO",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://climbagain.ro/",
-  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
+  "status": "ambiguous",
+  "checked": "2026-09-01",
+  "source": "https://climbagain.ro/climb-again-iasi/",
+  "reason": "The current branch page now states general access Monday-Friday 15:00-21:45 and Saturday 15:00-19:00, but states nothing for Sunday. The chain-wide footer carries a different weekend schedule for the București branch, so Sunday cannot be inferred and the incomplete Iași week is withheld."
  },
  {
   "lat": 46.5382673,
@@ -6234,16 +5984,6 @@
   "status": "no-official-site",
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
   "checked": "2026-08-25"
- },
- {
-  "lat": 44.4485,
-  "lon": 26.15137,
-  "name": "Vertical Spirit",
-  "country": "RO",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://verticalspirit.ro/",
-  "reason": "The only times on the site are for reaching the staff — \"Ne găsești de luni până vineri 09.00 – 17.00. Nu răspundem? Lasă-ne un mesaj\" — which is when the telephone is answered, not when the hall is open."
  },
  {
   "lat": 59.999622,
@@ -6665,16 +6405,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 1.30508,
-  "lon": 103.85142,
-  "name": "Boulder Movement Rochor",
-  "country": "SG",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.boulderm.com/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 2,004 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
- },
- {
   "lat": 46.0682733,
   "lon": 14.5194972,
   "name": "BALVANIJA MOONBOARD",
@@ -6805,18 +6535,10 @@
   "lon": 100.530565,
   "name": "Capybara board",
   "country": "TH",
-  "status": "no-hours-on-official-site",
-  "reason": "Same venue, same problem: the domain serves a title and the Carrd page states no schedule.",
-  "checked": "2026-08-25"
- },
- {
-  "lat": 13.72308,
-  "lon": 100.53072,
-  "name": "Magnus' Climbing Gym",
-  "country": "TH",
-  "status": "no-hours-on-official-site",
-  "reason": "Nothing but a title is served on the venue's own domain, and the Carrd page states no schedule. Third-party listings describe the gym as open 24 hours, which is exactly the kind of claim this file requires the venue itself to make.",
-  "checked": "2026-08-25"
+  "status": "duplicate",
+  "source": "https://www.magnusthecapybara.com/",
+  "reason": "The current operator page now states 24/7 member access for the one Magnus gym and lists its three board apps. The capybara-named MoonBoard marker is a duplicate 35 m from the address-bearing Magnus Kilter/Tension point and is replaced there; the verified schedule is published once on the composite venue.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 18.7880135,
@@ -6915,10 +6637,10 @@
   "lon": 121.20233,
   "name": "原岩攀岩館─A19店 T-UP Climbing Gym A19 Branch",
   "country": "TW",
-  "status": "ambiguous",
-  "source": "https://tupclimbing.tw/branch/a19",
-  "reason": "The branch page states 【一～五】11:00-23:00 【六、日】11:00-22:00, and the news list on that same page is headed by 原岩A19店結束營業公告 — a notice that this branch is ceasing business, dated 23 July 2026. A week printed above an announcement that the hall is closing is not one to publish.",
-  "checked": "2026-08-24"
+  "status": "closed",
+  "source": "https://tupclimbing.tw/news/announcement/584",
+  "reason": "The operator states that 31 August 2026 was A19's final business day because its Global Mall lease expired. The branch was closed in its local timezone when checked, so its formerly printed week is not published.",
+  "checked": "2026-08-31"
  },
  {
   "lat": 23.01146,
@@ -7150,33 +6872,13 @@
   "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 2,448 characters carrying 1 clock time, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
-  "lat": 44.03886,
-  "lon": -121.30328,
-  "name": "Boardworks Climbing",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The only stated schedule is \"Open Hours: Tuesday - Thursday: 4p-8p\". Monday, Friday, Saturday and Sunday are neither stated as open nor as closed, and the gym otherwise runs on barcode access.",
-  "source": "https://www.boardworksclimbing.com/"
- },
- {
-  "lat": 44.03909,
-  "lon": -121.30325,
-  "name": "Boardworks Climbing",
-  "country": "US",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The only stated schedule is \"Open Hours: Tuesday - Thursday: 4p-8p\". Monday, Friday, Saturday and Sunday are neither stated as open nor as closed, and the gym otherwise runs on barcode access.",
-  "source": "https://www.boardworksclimbing.com/"
- },
- {
   "lat": 44.03913,
   "lon": -121.3032,
   "name": "Boardworks Climbing",
   "country": "US",
   "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The only stated schedule is \"Open Hours: Tuesday - Thursday: 4p-8p\". Monday, Friday, Saturday and Sunday are neither stated as open nor as closed, and the gym otherwise runs on barcode access.",
+  "checked": "2026-08-31",
+  "reason": "The official page distinguishes 24/7 barcode access for members and punch-pass holders from staffed non-member hours of Tuesday-Thursday 16:00-20:00. That access-class-dependent schedule cannot be represented as one public seven-day week.",
   "source": "https://www.boardworksclimbing.com/"
  },
  {
@@ -7491,15 +7193,6 @@
   "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under faclimbing.com, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
  },
  {
-  "lat": 40.43301,
-  "lon": -80.00449,
-  "name": "First Ascent Climbing Station Square",
-  "country": "US",
-  "status": "inaccessible",
-  "checked": "2026-08-25",
-  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under faclimbing.com, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read."
- },
- {
   "lat": 41.88035,
   "lon": -87.65213,
   "name": "First Ascent West Loop",
@@ -7767,16 +7460,6 @@
   "reason": "The only week the centre publishes is headed \"Summer Hours (begins 5/26)\" — Monday, Wednesday and Friday 11:15am-1:15pm, Monday through Friday 5:00pm-9:00pm, Saturday and Sunday 1:00pm-5:00pm. It is a dated season with no stated end, and the page adds that hours change with special programming and closures."
  },
  {
-  "lat": 40.16257,
-  "lon": -105.04174,
-  "name": "Longmont Climbing Collective",
-  "country": "US",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://longmontclimbingcollective.com/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 67,425 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
- },
- {
   "lat": 34.134728,
   "lon": -116.3130661,
   "name": "MarkhamUP Pro Board",
@@ -7976,9 +7659,9 @@
   "name": "Roca Climbing & Fitness",
   "country": "US",
   "status": "seasonal",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The page carries two weeks — a regular one (Mon-Fri 12pm-9:30pm, Sat 10am-8pm, Sun 10am-6pm) and a \"June-August Hours\" one that shortens Saturday to 6:00pm — and the second is the one in force at the time of checking.",
-  "source": "https://rocaclimbingfitness.com/"
+  "checked": "2026-09-01",
+  "reason": "The operator's current canonical page carries separate September-May and June-August weeks. Even though the first is now in force, the repository does not publish a season-dependent schedule as one timeless regular week.",
+  "source": "https://www.climbroca.com/"
  },
  {
   "lat": 33.71672,
@@ -8131,8 +7814,8 @@
   "country": "US",
   "status": "ambiguous",
   "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The operator runs two Bozeman facilities — a Main Facility (13 Enterprise Blvd, Mon-Fri 6am-10pm) and a Training Center (10 Innovation Ln, Mon-Fri 3pm-8pm) — and the two dataset entries carry names that fit either. The Training Center page adds \"Hours at this facility fluctuate\".",
-  "source": "https://www.spireclimbing.com/"
+  "reason": "Re-read 2026-08-31: the current branch page now clearly identifies the Training Center at 10 Innovation Ln and states public hours only for Tuesday/Thursday 4pm-8pm, plus a separate members/punch-holders-only extended-access week. It never explicitly states whether the public is closed on the other five days, so a complete public seven-day schedule still cannot be published.",
+  "source": "https://www.spireclimbing.com/hours-locations"
  },
  {
   "lat": 45.656304,
@@ -8222,15 +7905,15 @@
   "source": "https://campusrec.tcu.edu/outdoor-programs/outdoor-center-and-climbing-wall-hours/",
   "reason": "The wall's own hours page prints one week and labels it: \"Summer Hours Monday – Thursday 12:00 pm – 4:00 pm Friday 12:00pm – 4:00pm Saturday – Sunday 12:00pm – 4:00pm\". A university term-time week is implied by the label and printed nowhere."
  },
- {
-  "lat": 37.85118,
-  "lon": -122.29303,
-  "name": "Team Touchstone",
-  "country": "US",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://teamtouchstone.com/",
-  "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes — the document plus its JSON-LD, Wix, Next.js, Nuxt, WordPress and Squarespace payloads. The pages yield 920 characters of text and not one clock time anywhere in them, so there is no schedule to misread."
+  {
+    "lat": 37.85118,
+    "lon": -122.29303,
+    "name": "Team Touchstone",
+    "country": "US",
+    "status": "appointment-only",
+    "checked": "2026-09-01",
+    "source": "https://touchstoneclimbing.com/team-training-center/",
+    "reason": "The current location page prints a weekday and weekend member schedule but calls the venue a 'Touchstone Members-Only Climbing Gym', requires check-in at Berkeley Ironworks and says it is open only when not used for other purposes, with a separate closure calendar. These are conditional member slots, not regular public opening hours."
  },
  {
   "lat": 39.81416,
@@ -8407,16 +8090,6 @@
   "checked": "2026-08-24"
  },
  {
-  "lat": 37.85155,
-  "lon": -122.2926806,
-  "name": "Touchstone Team Training Center",
-  "country": "US",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://teamtouchstone.com/",
-  "reason": "The same facility as the Team Touchstone entry 51 m away, whose read this repeats: the site yields 920 characters of text across the two dozen paths a venue usually puts its week on, and not one clock time anywhere in them. Touchstone's main site, which does publish hours, answers 403 to every fetch."
- },
- {
   "lat": 40.0098042,
   "lon": -105.2691736,
   "name": "University of Colorado Boulder",
@@ -8437,13 +8110,14 @@
   "reason": "The climbing wall's hours are published as dated ranges rather than a week: \"May 18 - August 21*: M-F 2-6pm, Weekends 11am-2pm\", then \"August 22 - August 23 Closed\", then a further range from August 24 to December 17. There is no regular week behind them, and the ARC that houses the wall carries its own separate dated ranges."
  },
  {
-  "lat": 44.976,
-  "lon": -93.22948,
+  "lat": 44.9754795222,
+  "lon": -93.2297657585,
   "name": "University of Minnesota Climbing Program",
   "country": "US",
-  "status": "inaccessible",
-  "checked": "2026-08-25",
-  "reason": "The site is behind a WAF that answers 403 to every request from here, on every path tried under recwell.umn.edu, to both readers available to this audit and with browser headers. Nothing of the page body is served, so there is no week to read. The university's recreation site is the venue's own page for this wall, and it is the whole site that is closed to us, not the climbing section."
+  "status": "seasonal",
+  "checked": "2026-08-31",
+  "source": "https://recwell.umn.edu/welcome/hours-locations",
+  "reason": "The venue's own current page is readable again, but it publishes separate dated schedules rather than one durable week: RecWell Summer 2026 (May 9-September 4) is Monday-Friday 05:45-21:00, Saturday 10:00-16:00, Sunday 12:00-17:00; Fall 2026 (September 5-December 18) is Monday-Thursday 05:45-23:00, Friday 05:45-22:00, Saturday 08:00-21:00, Sunday 09:00-22:00, with named closures and reduced dates. The Climbing Training Center follows facility hours, so no undated regular week can be published."
  },
  {
   "lat": 27.6648274,
@@ -8634,5 +8308,295 @@
   "checked": "2026-08-25",
   "source": "https://piringolf.bg/wellness-and-sports/sports-zone/?lang=en",
   "reason": "The current official Sports Zone page describes the sports center and fitness facilities but publishes no complete day-by-day opening schedule for the climbing or sports area. The general contact page explicitly says department hours may differ, so its reception window cannot safely be used for this venue marker."
- }
+ },
+ {
+  "lat": -27.4549218,
+  "lon": 153.0328871,
+  "name": "ICP Boulder Hall & Showroom",
+  "country": "AU",
+  "status": "no-hours-on-official-site",
+  "checked": "2026-09-01",
+  "source": "https://climbicp.com/contact-us/",
+  "reason": "The current official contact page identifies the Boulder Hall at its exact Fortitude Valley address but publishes no regular week. The former AU first-visit page exposed only a dynamic open-now word and now redirects to a 404 EU route, so no day-by-day schedule can safely be published from it."
+ },
+ {
+  "lat": 37.6878446,
+  "lon": -113.081693,
+  "name": "Iron Cliffs Gym",
+  "country": "US",
+  "status": "inaccessible",
+  "checked": "2026-08-31",
+  "source": "https://ironcliffs.com/",
+  "reason": "The official site identifies the active public Cedar City gym but prints no weekly hours. Its official membership and pass portal is the remaining likely source and answers this research client with HTTP 403, so the schedule remains retryable rather than being inferred."
+ },
+  {
+    "lat": 33.84918,
+  "lon": -118.35146,
+  "name": "Class 5 Climbing",
+  "country": "US",
+  "status": "duplicate",
+  "checked": "2026-08-31",
+    "source": "https://touchstoneclimbing.com/class-5/",
+    "reason": "This is the same Class 5 gym as the address-bearing venue point 10 m away, whose current official branch schedule remains published. The second identical schedule was removed with the duplicate marker; no opening-hours information was lost."
+  },
+  {
+    "lat": 51.45496,
+    "lon": -0.193,
+    "name": "The Font Wandsworth",
+    "country": "GB",
+    "status": "ambiguous",
+    "checked": "2026-08-31",
+    "source": "https://www.the-font.co.uk/wandsworth",
+    "reason": "The current branch page states Monday-Friday 06:00-22:00, while the operator's current locations homepage states Monday and Friday 06:00-21:00 and Tuesday-Thursday 06:00-22:00. A cached rendering of the same branch page still says 06:15-22:00. The formerly published week is withdrawn until the operator's own pages agree."
+  },
+  {
+    "lat": 59.5635815,
+    "lon": 7.3548335,
+    "name": "Hovden Grendehus",
+    "country": "NO",
+    "status": "seasonal",
+    "checked": "2026-08-31",
+    "source": "https://www.bykle.kommune.no/tenester/kultur-og-fritid/kulturhus/hovden-grendehus/",
+    "reason": "The official municipal page states an ordinary Monday-Friday week but replaces it with a reduced 09:00-16:00 regime in six named holiday weeks and closes for weeks 27-31 in summer. A single standing seven-day schedule would therefore be wrong for recurring parts of every year."
+  },
+  {
+    "lat": -23.5560606,
+    "lon": -46.6890446,
+    "name": "Fabrica Escalada Vila Madalena",
+    "country": "BR",
+    "status": "ambiguous",
+    "checked": "2026-08-31",
+    "source": "https://www.fabricaescalada.com/unidades",
+    "reason": "The current Vila Madalena branch block states Monday-Friday 07:00-22:00 and Saturday 10:00-19:00, then stops. Sunday is neither given a time nor marked closed. The complete Chacara week elsewhere on the same page shows that the operator does explicitly name Sundays when they apply, so the missing seventh day cannot be inferred."
+  },
+  {
+    "lat": 30.17515,
+    "lon": -97.79041,
+    "name": "Crux Climbing Center South",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-31",
+    "source": "https://www.cruxclimbingcenter.com/south-austin/",
+    "reason": "The current South homepage states Monday-Friday 06:00-23:00 and Saturday-Sunday 09:00-22:00, while its current branch contact page states the same weekdays but Saturday-Sunday 10:00-22:00. The homepage FAQ also limits weekday 06:00-11:00 access to members. The two previously duplicated public-hour overlays are withdrawn after consolidating the physical venue because the operator's own current pages no longer support one unambiguous walk-in week."
+  },
+  {
+    "lat": 47.266263,
+    "lon": 11.900404,
+    "name": "Kraftreich Aufenfeld",
+    "country": "AT",
+    "status": "ambiguous",
+    "checked": "2026-08-31",
+    "source": "https://www.kraftreich-aufenfeld.at/de/",
+    "reason": "The current homepage states daily 09:00-23:00 with Tuesday from 07:30, while the current official contact page states the same daily range but Tuesday from 06:00. Because both pages describe venue rather than kitchen hours and disagree on the same regular day, the previously published week is withdrawn until the operator resolves the conflict."
+  },
+  {
+    "lat": 45.52658504620519,
+    "lon": -122.43448777322068,
+    "name": "Rock Haven Climbing Gym",
+    "country": "US",
+    "status": "ambiguous",
+    "checked": "2026-08-31",
+    "source": "https://www.rockhavenclimbing.com/",
+    "reason": "Current official pages disagree: the homepage, pricing, deals and routesetting pages show Monday/Wednesday/Friday/Saturday 09:00-22:00 and Sunday 09:00-20:00, while the facility page shows Monday/Wednesday/Saturday 09:00-21:00, Friday 09:00-22:00 and Sunday 09:00-20:00; the homepage JSON-LD separately ends Sunday at 19:00. No single week is safe to publish."
+  },
+  {
+    "lat": 49.4521018,
+    "lon": 11.0766654,
+    "name": "TSV 1846 Nürnberg - Bouldern",
+    "country": "DE",
+    "status": "appointment-only",
+    "checked": "2026-09-01",
+    "source": "https://tsvbouldern.de/",
+    "reason": "The club states that 24/7 access is restricted to members and a non-member may only arrange a trial session by email. That is not a regular public opening week."
+  },
+  {
+    "lat": 39.2538197,
+    "lon": 9.1132358,
+    "name": "Double Dyno",
+    "country": "IT",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://www.doubledyno.it/orari-tariffe",
+    "reason": "The official hours page states distinct Monday-Friday opening times but says nothing about Saturday or Sunday. A complete seven-day week cannot be published without guessing that the two omitted days are closed."
+  },
+  {
+    "lat": 45.6792606,
+    "lon": 8.9475553,
+    "name": "Lezard",
+    "country": "IT",
+    "status": "seasonal",
+    "checked": "2026-09-01",
+    "source": "https://www.lezardclimb.it/",
+    "reason": "The current official page labels the displayed schedule as summer hours and makes Saturday-Sunday opening conditional on bad weather. It is not a stable regular seven-day week."
+  },
+  {
+    "lat": 35.1088403702862,
+    "lon": 128.967159324406,
+    "name": "오터클라이밍 OTTERCLIMBING",
+    "country": "KR",
+    "status": "no-official-site",
+    "checked": "2026-09-01",
+    "source": "https://www.daangn.com/kr/local-profile/%EC%98%A4%ED%84%B0%ED%81%B4%EB%9D%BC%EC%9D%B4%EB%B0%8D-7hmm4gijbo8u/",
+    "reason": "No standalone official website was found. The operator-written marketplace profile shows a generic 12:00-22:00 field, while current directories separately report shorter weekend hours; marketplace, directory and social-profile schedules are discovery hints only under the hours policy, so no regular week is published."
+  },
+  {
+    "lat": 34.821599,
+    "lon": 137.236109,
+    "name": "ボルダTO9蒲郡店",
+    "country": "JP",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://bto9-ga.com/",
+    "reason": "The current operator page splits access by staffing and age: Monday and Wednesday are 08:00-22:00 unmanned for adults after adding the official LINE account; Tuesday, Thursday and Friday are unmanned 08:00-17:00 and staffed 17:00-22:00; Saturday and Sunday are staffed 10:00-18:00. A single regular public week would hide the adult-only and account-gated conditions, so no hours are published."
+  },
+  {
+    "lat": 39.6960587,
+    "lon": 140.1449691,
+    "name": "TO-DO Climbing",
+    "country": "JP",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://www.matsumoto-car.com/todoclimbing",
+    "reason": "The operator's current climbing homepage states weekdays 14:00-22:00 and weekends/public holidays 11:00-20:00, while its current facility page states weekdays 13:00-22:00 and weekends/public holidays 10:00-20:00. Both identify Monday as the regular closure, but the opening times conflict, so no single week is published."
+  },
+  {
+    "lat": -6.168997632532928,
+    "lon": 106.92485794232918,
+    "name": "Dreamstone Boulders Kelapa Gading",
+    "country": "ID",
+    "status": "no-official-site",
+    "checked": "2026-09-01",
+    "source": "https://linktr.ee/dreamstoneboulders",
+    "reason": "Current searches found only the operator's Linktree and linked social/contact surfaces, not a standalone official venue website. No third-party or social-profile schedule is substituted for venue-primary hours."
+  },
+  {
+    "lat": 36.3643697,
+    "lon": 127.3247016,
+    "name": "하나클라이밍짐 Hana Climbing Gym",
+    "country": "KR",
+    "status": "inaccessible",
+    "checked": "2026-09-01",
+    "source": "https://www.hanasports.or.kr/info/use_info.php",
+    "reason": "The operator's recently indexed use-information page stated a complete ordinary week, but the apex and www host currently have no DNS address record and cannot be re-read. The former schedule is withdrawn from production and remains a retry rather than being preserved from a search-engine cache."
+  },
+  {
+    "lat": 48.29891,
+    "lon": 14.2749,
+    "name": "Der Steinbock Linz",
+    "country": "AT",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://www.dersteinbock-linz.at/",
+    "reason": "Two current official pages disagree. The homepage announces adjusted hours and states 09:00-23:00 for every weekday, while the operator's current address/opening-hours page still states 07:00-23:00 on Tuesday and Thursday and 09:00-23:00 on the other weekdays. Both state 09:00-22:00 on weekends; no complete week is published until the operator resolves the weekday conflict."
+  },
+  {
+    "lat": 35.551848,
+    "lon": 140.388894,
+    "name": "クライミングジム猿吉 Sarukichi",
+    "country": "JP",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://sarukichi-jp.jimdofree.com/",
+    "reason": "The accessible operator page still states weekdays 16:00-22:00, weekends and holidays 12:00-20:00 and every Tuesday closed, while multiple current venue surfaces report materially longer hours and only first/third Tuesday closures. The operator surface has no recent dated update that resolves the drift, so publishing its apparent legacy week as current would be unsafe."
+  },
+  {
+    "lat": 35.14829,
+    "lon": 136.866307,
+    "name": "Climbing Gym GANBA",
+    "country": "JP",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://ganba-climbing.com/index.html",
+    "reason": "The accessible operator page states weekday opening at 18:00, weekends at 10:00 and treats holidays like weekdays, while several current venue surfaces report 13:00 weekday opening and apply weekend hours to holidays. The static operator page carries no recent dated update that resolves the drift, so no regular week is published."
+  },
+  {
+    "lat": 46.8665648313,
+    "lon": 14.4689992553,
+    "name": "Das Kraftwerk Althofen",
+    "country": "AT",
+    "status": "seasonal",
+    "checked": "2026-09-01",
+    "source": "https://www.das-kraftwerk.at/bereiche/boulderhalle",
+    "reason": "The current official page labels its only displayed schedule 'Sommerferien' and states daily 13:00-18:00 for that holiday period. Other current pages on the same operator domain retain different older weeks, so no undated regular seven-day schedule can be published safely."
+  },
+  {
+    "lat": 55.5958063,
+    "lon": 13.0040046,
+    "name": "Beta Boulders Malmö",
+    "country": "SE",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-09-01",
+    "source": "https://betaboulders.se/malmo/",
+    "reason": "The current operator branch, prices and terms pages prove public operation but state no regular week. A generic organization schema block says 09:00-17:00 daily while the public-facing price page defines peak periods beyond 17:00, so it is not branch opening evidence. Directory schedules are deliberately not substituted."
+  },
+  {
+    "lat": 46.6589636,
+    "lon": 13.0567438,
+    "name": "KLE-SCH Kletter- und Schießzentrum St. Daniel",
+    "country": "AT",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://kle-sch.at/bouldern/",
+    "reason": "The current operator page states Monday, Tuesday, Thursday and Friday 15:00-21:00 plus Saturday and Sunday 10:00-21:00, but says nothing about Wednesday. It separately offers daily 06:00-23:00 chip-card access after an in-person purchase. A missing weekday and two access classes cannot be normalized into one public seven-day week without inference."
+  },
+  {
+    "lat": 58.62273,
+    "lon": 5.6619005,
+    "name": "Varhaughallen - Varhaug IL Klatring",
+    "country": "NO",
+    "status": "seasonal",
+    "checked": "2026-09-01",
+    "source": "https://www.vil.no/klatring/treningstider/",
+    "reason": "The current club page offers open public climbing Tuesday 18:00-20:00 and Wednesday 19:00-20:00, but explicitly says the climbing group's activity follows the school calendar. Those term-time sessions are not a year-round regular week, and the remaining days are not stated as closed, so no seven-day schedule is inferred."
+  },
+  {
+    "lat": 51.03327,
+    "lon": 3.75706,
+    "name": "Klimzaal Arsenaal",
+    "country": "BE",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://www.klimzaalarsenaal.be/",
+    "reason": "The current official homepage contradicts itself in visible text: its main opening-hours section says weekends 10:00-21:30 (bar until 22:00), while the footer says weekends 10:00-22:00. The weekday hours agree, but the public weekend closing time cannot be selected without guessing, so the formerly published week is withdrawn."
+  },
+  {
+    "lat": 46.2221988,
+    "lon": 6.0728865,
+    "name": "TOTEM Meyrin",
+    "country": "CH",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-09-01",
+    "source": "https://totem.ch/meyrin",
+    "reason": "The current official branch page says its opening hours are updated automatically at the top of the page, but the complete readable page content exposes no weekday/time pairs. No schedule is inferred from search snippets or directories."
+  },
+  {
+    "lat": 21.0556469,
+    "lon": 105.8415127,
+    "name": "VietClimb MoonBoard",
+    "country": "VN",
+    "status": "duplicate",
+    "checked": "2026-09-01",
+    "source": "https://vietclimb.vn/bouldering-gym",
+    "reason": "The current venue-authored facility page places the Kilter Board and MoonBoard at the one public Hanoi address. This displaced registry row is excluded as a duplicate; the verified week already attached to the address-bearing VietClimb venue therefore remains the single published schedule."
+  },
+  {
+    "lat": 48.60642,
+    "lon": 15.16941,
+    "name": "Kletterhalle Zwettl",
+    "country": "AT",
+    "status": "seasonal",
+    "checked": "2026-09-01",
+    "source": "https://www.alpenverein.at/waldviertel/klettern/020_Kletterhalle-zwettl.php",
+    "reason": "The current official hall page publishes Tuesday 18:40-20:30 only from November through April, Wednesday 18:00-20:00, Saturday 15:00-17:00 and Sunday 14:00-17:00. It does not state Monday or Friday as closed, and the Tuesday season qualifier makes this neither a complete nor year-round regular week, so no seven-day schedule is inferred."
+  },
+  {
+    "lat": 49.8313774,
+    "lon": 23.9967892,
+    "name": "The Wall Lviv",
+    "country": "UA",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://www.thewall.lviv.ua/about",
+    "reason": "The current operator page exposes two different full-week schedules in the same contact area: Monday-Friday 10:00-20:00 and weekends 09:30-19:30, then an explicitly labelled climbing-gym schedule of Monday/Wednesday/Friday 12:00-22:00, Tuesday/Thursday 08:00-22:00 and weekends 10:00-21:00. The relationship between them is not explained, so no single week is selected for production."
+  }
 ]

@@ -407,7 +407,7 @@
     "name": "Boulderoase St. Martin",
     "country": "AT",
     "website": "https://dorfzentrum.st-martin.eu/boulderoase/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -460,23 +460,6 @@
       "city",
       "board-mention"
     ]
-  },
-  {
-    "lat": 48.19613,
-    "lon": 16.31488,
-    "name": "Die Knäpperei",
-    "country": "AT",
-    "website": "https://dieknaepperei.at/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city",
-      "board-mention"
-    ],
-    "note": "Same physical gym as the Kilter entry 28 m away; upstream lists the Tension board separately."
   },
   {
     "lat": 48.196208449388536,
@@ -667,19 +650,19 @@
     "note": "Address verified on the site's own contact page; it resolves to within 20 m of this venue."
   },
   {
-    "lat": 47.26657,
-    "lon": 11.90066,
+    "lat": 47.266263,
+    "lon": 11.900404,
     "name": "Kraftreich Aufenfeld",
     "country": "AT",
     "website": "https://www.kraftreich-aufenfeld.at/de/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "board-mention"
     ],
-    "note": "The operator publishes Aufenfeldweg 10 where upstream has Zillerstraße 6; that address resolves to within 160 m of this venue."
+    "note": "The current homepage explicitly names the Kilter Board, prints Aufenfeldweg 10 and publishes this exact geo coordinate in its own metadata."
   },
   {
     "lat": 47.06581,
@@ -1156,22 +1139,7 @@
       "street-address",
       "coordinates"
     ],
-    "note": "The site is Boulder Heads Indoor Rock Climbing and prints 19 Edison Cres, Baringa QLD 4551; geocoding that address lands 193 m from this venue. boulderheads.com does not resolve."
-  },
-  {
-    "lat": -26.80713,
-    "lon": 153.07039,
-    "name": "Boulder Heads",
-    "country": "AU",
-    "website": "https://boulder-heads.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "coordinates"
-    ],
-    "note": "Same hall as the venue a few metres away — the Tension entry beside the MoonBoard one — and the same site."
+    "note": "The current training-board page places the MoonBoard 2024 and Tension Board 2 together at the one 19 Edison Crescent, Baringa venue; their manufacturer pins are consolidated here."
   },
   {
     "lat": -37.77623,
@@ -1237,15 +1205,17 @@
     "lon": 151.07911,
     "name": "Climb Fit Kirrawee",
     "country": "AU",
-    "website": "https://www.climbfit.com.au/",
-    "verified": "2026-08-23",
-    "provenance": "official-chain-page",
+    "website": "https://www.climbfit.com.au/location/climbfit-kirrawee/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
     "signals": [
-      "brand",
+      "name",
       "street-address",
-      "city"
+      "city",
+      "location-page",
+      "board-mention"
     ],
-    "note": "Climb Fit's locations page lists Kirrawee with \"23 Waratah St\", which is the street line upstream records. The climbfitkirrawee.com domain the OSM node carries has been taken over and now serves an unrelated lottery-results site."
+    "note": "The current Kirrawee branch page explicitly names its 12x12 fixed-40-degree Kilter Board; the operator's contact page and current events repeatedly print 23 Waratah Street, which is the address carried by this production row."
   },
   {
     "lat": -33.78746,
@@ -1515,50 +1485,73 @@
     "note": "The site is Mountain Strong, Canberra, names a MoonBoard — the board system this entry is listed for — and the OSM node 21 m away carries the same domain. Its Fyshwick page prints 66-68 Townsville St, Fyshwick ACT 2609."
   },
   {
-    "lat": -31.91396,
-    "lon": 115.8168689,
-    "name": "Portside Boulders - Osborne Park",
-    "country": "AU",
-    "website": "https://www.portsideboulders.com.au/locations",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
-    "signals": [
-      "name",
-      "street-address",
-      "city"
-    ],
-    "note": "Upstream lists this hall twice, 17 m apart."
-  },
-  {
     "lat": -31.75081,
     "lon": 115.76338,
     "name": "Portside Boulders Joondalup",
     "country": "AU",
-    "website": "https://www.portsideboulders.com.au/locations",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
+    "website": "https://www.portsideboulders.com.au/locations/joondalup",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
-      "city"
+      "city",
+      "board-mention"
     ],
-    "note": "The page's Royce Court, Joondalup resolves 43 m from this upstream coordinate."
+    "note": "The current branch page identifies the public Joondalup venue, Royce Court address and both its Decoy and Moon Boards; the operator's MoonBoard guide states its 2024 fixed-40-degree setup."
   },
   {
     "lat": -31.91385,
     "lon": 115.81699,
     "name": "Portside Osborne Park",
     "country": "AU",
-    "website": "https://www.portsideboulders.com.au/locations",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
+    "website": "https://www.portsideboulders.com.au/locations/osborne-park",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "city"
+      "city",
+      "board-mention"
     ],
-    "note": "The operator gives its four Perth gyms one page and lists each by address."
+    "note": "The current branch page prints 73 Walters Drive, Osborne Park and identifies the public venue; the operator's current MoonBoard guide classifies its 2016 fixed-40-degree board. The former 17 m duplicate is consolidated here."
+  },
+  {
+    "lat": -32.0577678,
+    "lon": 115.7856163,
+    "name": "Portside Boulders O'Connor",
+    "country": "AU",
+    "website": "https://www.portsideboulders.com.au/locations/oconnor",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The current branch page identifies the public O'Connor venue and MoonBoard at 12 Murphy Street; the operator's guide states the 2024 fixed-40-degree setup, and OSM independently corroborates the exact address point."
+  },
+  {
+    "lat": -32.0400023,
+    "lon": 115.8865878,
+    "name": "Portside Boulders Willetton",
+    "country": "AU",
+    "website": "https://www.portsideboulders.com.au/locations/willetton",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The current branch page identifies the public Willetton venue and MoonBoard at 8 Kembla Way; the operator's guide states the 2019 fixed-40-degree setup, and OSM independently corroborates the exact address point."
   },
   {
     "lat": -32.94153,
@@ -1621,34 +1614,19 @@
     "note": "The site is Rock It Derwent Park and prints \"4-6 Elmsleigh Road, Derwent Park, TAS 7009\", exactly the address upstream records."
   },
   {
-    "lat": -37.7870301,
-    "lon": 144.885586,
-    "name": "Rocket",
-    "country": "AU",
-    "website": "https://rocket-climbing.com.au/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code"
-    ],
-    "note": "Same hall as the venue a few metres away — the MoonBoard entry beside the Kilter one — and the same site and address."
-  },
-  {
     "lat": -37.78692,
     "lon": 144.88556,
     "name": "Rocket Climbing",
     "country": "AU",
     "website": "https://rocket-climbing.com.au/",
-    "verified": "2026-08-23",
+    "verified": "2026-09-01",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "postal-code"
     ],
-    "note": "The site prints \"21 MEPHAN STREET, FOOTSCRAY VIC 3011\", exactly the address upstream records, and names a Kilter Board. The Rainbow Rocket halls the chain matcher offered are in Germany and England."
+    "note": "The current operator page prints 21 Mephan Street, Footscray VIC 3011 and identifies one public venue with a 45-degree Kilter Board plus 2016 and 2024 MoonBoards. The displaced MoonBoard-only marker is consolidated here."
   },
   {
     "lat": -26.7275358,
@@ -1709,48 +1687,22 @@
     "note": "Same hall as the venue a metre away — the Tension entry beside the MoonBoard one — and the same site."
   },
   {
-    "lat": -23.37473390979055,
-    "lon": 150.50910055119093,
+    "lat": -23.3750836,
+    "lon": 150.5090362,
     "name": "Rocky Climb",
     "country": "AU",
-    "website": "https://rockyclimb.com.au/",
-    "verified": "2026-08-22",
+    "website": "https://www.rockyclimb.com/",
+    "verified": "2026-09-01",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "city"
-    ]
-  },
-  {
-    "lat": -23.3750142,
-    "lon": 150.5090838,
-    "name": "Rocky Climb Moon",
-    "country": "AU",
-    "website": "https://rockyclimb.com.au/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address"
+      "city",
+      "coordinates",
+      "board-mention"
     ],
-    "note": "Upstream lists this MoonBoard separately, 31 m from its Kilter entry."
-  },
-  {
-    "lat": -33.83547,
-    "lon": 151.05313,
-    "name": "Sandbox Bouldering",
-    "country": "AU",
-    "website": "https://sandboxbouldering.com.au/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "city"
-    ],
-    "note": "Same hall as the venue a metre away — the Grasshopper entry beside the Kilter and Tension one — and the same site."
+    "note": "The former .com.au URL now redirects to this canonical operator homepage. Its current facility copy identifies both Kilter and Moon boards in one public training zone, and its structured venue block supplies the exact 100 Bolsover Street coordinates used to consolidate the two nearby registry markers."
   },
   {
     "lat": -33.83541,
@@ -1758,14 +1710,14 @@
     "name": "Sandbox Bouldering",
     "country": "AU",
     "website": "https://sandboxbouldering.com.au/",
-    "verified": "2026-08-23",
+    "verified": "2026-09-01",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "city"
     ],
-    "note": "The site prints \"Unit A2, 27-29 Fariola Street, Silverwater\", exactly the address upstream records, and names every board system the pair of entries here is listed for."
+    "note": "The current operator homepage prints Unit A2, 27-29 Fariola Street, Silverwater and names its full-size adjustable Grasshopper, Tension 2 and Kilter boards plus a fixed 2016 MoonBoard. The displaced Grasshopper-only marker is consolidated here."
   },
   {
     "lat": -33.8791418,
@@ -1846,14 +1798,17 @@
     "lon": 153.0454,
     "name": "TotalFusion Platinum Newstead",
     "country": "AU",
-    "website": "https://totalfusion.com.au/",
-    "verified": "2026-08-23",
-    "provenance": "official-chain-page",
+    "website": "https://totalfusion.com.au/tfp-newstead/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
-      "brand",
-      "city"
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
     ],
-    "note": "TotalFusion lists Newstead among its clubs, and this venue is the Newstead entry; the operator publishes no per-location page a fetch can read."
+    "note": "The current Newstead branch page identifies TotalFusion Platinum, its 1 Gasworks Lane address and complete club week; its linked gym-floor page explicitly lists the inclined Kilter climbing wall. The older registry point is within the same Gasworks/Longland complex."
   },
   {
     "lat": -37.86987,
@@ -4346,28 +4301,12 @@
     "note": "True North Climbing's own site, whose embedded map of itself sits 97 m from this venue; it gives 75 Carl Hall Road, Unit 14, Toronto M3K 2B9. Upstream records no address and files the venue under the Bathurst Manor neighbourhood."
   },
   {
-    "lat": 51.0779562,
-    "lon": -114.1337454,
-    "name": "University of Calgary Moonboard",
-    "country": "CA",
-    "website": "https://www.ucalgary.ca/active-living/facilities/outdoor-centre",
-    "verified": "2026-08-23",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "street-address",
-      "city",
-      "location-page"
-    ],
-    "note": "This venue is the MoonBoard 60 m from the Outdoor Centre entry, in the same building. The university's own facilities page for the Outdoor Centre prints 2500 University Drive NW, Calgary — the address upstream records. The first pass tried /recreation/facilities/climbing, /recreation/climbing and /recreation/facilities/climbing-gym, all of which are 404, and the Active Living section was never reached."
-  },
-  {
     "lat": 51.07767,
     "lon": -114.13419,
     "name": "University of Calgary Outdoor Centre",
     "country": "CA",
-    "website": "https://www.ucalgary.ca/active-living/facilities/outdoor-centre",
-    "verified": "2026-08-23",
+    "website": "https://outdoor-centre.ucalgary.ca/climbingbouldering-wall/moonboard-kilter-board",
+    "verified": "2026-09-01",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -4375,7 +4314,7 @@
       "city",
       "location-page"
     ],
-    "note": "This venue is the Outdoor Centre itself. The university's own facilities page for the Outdoor Centre prints 2500 University Drive NW, Calgary — the address upstream records. The first pass tried /recreation/facilities/climbing, /recreation/climbing and /recreation/facilities/climbing-gym, all of which are 404, and the Active Living section was never reached."
+    "note": "The university's current board-specific page explicitly places the MoonBoard and Kilter Board together on the west side of the Racquet Centre, states the fixed 40° MoonBoard and adjustable 0–70° Kilter configurations, and prints the campus address. It replaces the university URL that now returns 404."
   },
   {
     "lat": 49.80656,
@@ -5025,23 +4964,6 @@
     "note": "Two Zurich locations share one site; the site lists this one by street address."
   },
   {
-    "lat": 47.3807,
-    "lon": 8.50559,
-    "name": "Mitō Bouldering",
-    "country": "CH",
-    "website": "https://www.mito-bouldering.ch/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city",
-      "board-mention"
-    ],
-    "note": "Same physical gym as the Kilter entry 8 m away; upstream lists the Tension board separately."
-  },
-  {
     "lat": 47.38077156036091,
     "lon": 8.50559518406294,
     "name": "Mitō Bouldering",
@@ -5271,18 +5193,38 @@
   {
     "lat": 46.21936,
     "lon": 6.10238,
-    "name": "TOTEM Le Môll",
+    "name": "TOTEM Vernier",
     "country": "CH",
-    "website": "https://totem.ch/ve",
-    "verified": "2026-08-22",
+    "website": "https://totem.ch/vernier",
+    "verified": "2026-09-01",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
       "city",
-      "location-page"
-    ]
+      "location-page",
+      "board-mention"
+    ],
+    "note": "The current branch page identifies the legacy Le Môll venue as TOTEM Vernier, gives its exact address and names its Kilter Board."
+  },
+  {
+    "lat": 46.2221988,
+    "lon": 6.0728865,
+    "name": "TOTEM Meyrin",
+    "country": "CH",
+    "website": "https://totem.ch/meyrin",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page",
+      "board-mention"
+    ],
+    "note": "The current branch page identifies the public Meyrin venue, its exact address and its Kilter Board."
   },
   {
     "lat": 46.2876938,
@@ -5374,8 +5316,8 @@
     "note": "JUST CLIMB runs six Hong Kong halls and lists each on its venues page. This is 石門: \"JUST CLIMB｜Shek Mun 佔地4,000尺 香港首間24/7攀石場，開放24小時，設有人面識別進場\" — Hong Kong's first 24/7 climbing gym, open around the clock with face recognition at the door. Upstream records the row at \"Room 4, Basement, New Trade Plaza\" in Shek Mun. The domain is justclimb.hk; justclimb.com.hk, which the guesser tried, does not resolve."
   },
   {
-    "lat": 22.34366,
-    "lon": 114.14026,
+    "lat": 22.3424815,
+    "lon": 114.1359859,
     "name": "The Player Climbinggym",
     "country": "CN",
     "website": "https://www.theplayerclimbing.com/",
@@ -8111,20 +8053,21 @@
     "note": "Address and boards verified on the site's own hall page."
   },
   {
-    "lat": 48.69621,
-    "lon": 9.02313,
+    "lat": 48.6956085,
+    "lon": 9.023023,
     "name": "Roccadion",
     "country": "DE",
     "website": "https://www.roccadion.de/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "city"
+      "city",
+      "coordinates"
     ],
-    "note": "Address verified on the site's own contact page."
+    "note": "The current homepage prints Silberweg 22 and links this exact destination coordinate from its own directions section."
   },
   {
     "lat": 49.80103,
@@ -8645,20 +8588,22 @@
     ]
   },
   {
-    "lat": 51.01574,
-    "lon": 13.8046,
+    "lat": 51.01528,
+    "lon": 13.808827,
     "name": "XXL Klettern Dresden",
     "country": "DE",
     "website": "https://www.xxl-klettern.de/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "brand",
       "street-address",
       "postal-code",
-      "city"
+      "city",
+      "board-mention",
+      "coordinates"
     ],
-    "note": "The hall trades as XXL' DIE WAND."
+    "note": "The hall trades as XXL' DIE WAND. Its current board page names both Kilter Boards and its official map link supplies this coordinate for Breitscheidstraße 40."
   },
   {
     "lat": 50.98225,
@@ -9187,6 +9132,22 @@
     ]
   },
   {
+    "lat": 41.7962914,
+    "lon": 0.8100862,
+    "name": "Boulder Balaguer",
+    "country": "ES",
+    "website": "https://cebalaguer.cat/boulder-balaguer/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "The club's current Boulder Balaguer page identifies its public day-access facility and both KilterBoard and MoonBoard. OSM node 10856004907 independently names the exact climbing sports centre Rocòdrom Boulder Balaguer at Avinguda del Comte Jaume d'Urgell 28, matching the operator's venue name and Balaguer identity."
+  },
+  {
     "lat": 41.61267,
     "lon": 0.66268,
     "name": "Boulder Indoor",
@@ -9504,18 +9465,15 @@
     ]
   },
   {
-    "lat": 41.5625,
-    "lon": 1.99852,
-    "name": "GeoBoulder",
+    "lat": 41.5623017,
+    "lon": 1.9985057,
+    "name": "Geo Boulder",
     "country": "ES",
-    "website": "https://geoboulder.es/",
-    "verified": "2026-08-22",
+    "website": "https://www.geoboulder.es/",
+    "verified": "2026-09-01",
     "provenance": "official-site",
-    "signals": [
-      "name",
-      "postal-code",
-      "city"
-    ]
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage explicitly identifies Geo Boulder's public Terrassa climbing facility, Kilter Board and Carrer de Murillo 18 address; its current rates page sells unrestricted day access. OSM way 984715106 is the exact independently maintained building at that house number and supplies the centroid."
   },
   {
     "lat": 42.83755,
@@ -9730,48 +9688,54 @@
     "lon": 2.18593,
     "name": "Monobloc La Sagrera",
     "country": "ES",
-    "website": "https://monobloc.es/",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
+    "website": "https://www.monobloc.es/la-sagrera",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "city"
+      "city",
+      "location-page",
+      "board-mention"
     ],
-    "note": "The operator's three halls share one site; it lists this one by street address."
+    "note": "The current branch page identifies MONOBLOC LA SAGRERA at Carrer d'Olesa 71, 08027 Barcelona and explicitly lists its KilterBoard, matching the structured row."
   },
   {
     "lat": 41.15835,
     "lon": 1.12149,
     "name": "Monobloc Reus",
     "country": "ES",
-    "website": "https://monobloc.es/",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
+    "website": "https://www.monobloc.es/reus",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "city"
+      "city",
+      "location-page",
+      "board-mention"
     ],
-    "note": "The operator's three halls share one site; it lists this one by street address."
+    "note": "The current branch page identifies MONOBLOC REUS at Carrer de Sabadell 24, 43204 Reus and explicitly lists its KilterBoard, matching the structured row."
   },
   {
     "lat": 41.3666,
     "lon": 2.13958,
     "name": "Monobloc Sants",
     "country": "ES",
-    "website": "https://monobloc.es/",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
+    "website": "https://www.monobloc.es/sants",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "city"
+      "city",
+      "location-page",
+      "board-mention"
     ],
-    "note": "The operator's three halls share one site; it lists MONOBLOC SANTS at Carrer de la Mineria, 51 — 08038 Barcelona, the address upstream carries."
+    "note": "The current branch page identifies MONOBLOC SANTS at Carrer de la Mineria 51, 08038 Barcelona and explicitly lists its KilterBoard XXL, matching the structured row."
   },
   {
     "lat": 38.34201590000001,
@@ -10863,19 +10827,21 @@
     "note": "The site is a Bubble application and serves an empty frame; the one address in its bundle is the string \"27 Avenue de Toulouse, Montpellier\", which is upstream's address for this row word for word. The operator also runs a Castelnau hall, and no second address appears anywhere in the bundle."
   },
   {
-    "lat": 44.899596273874344,
-    "lon": 6.63972697236616,
+    "lat": 44.9129157,
+    "lon": 6.6212888,
     "name": "Briançon escalade",
     "country": "FR",
     "website": "https://briancon-escalade.fr/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
     "signals": [
       "name",
+      "street-address",
       "city",
-      "board-mention"
+      "board-mention",
+      "coordinates"
     ],
-    "note": "The club's own site for Briancon, the town upstream records, naming the Kilter Board this venue is listed for."
+    "note": "The club says its new Kilter Board entered service at Gymnase Chancel in December 2025 and its current 2026/27 page still assigns the board there. Briançon's municipal equipment map identifies Gymnase Chancel on Rue Marius Chancel, while the live manufacturer pin supplies the matching facility coordinate."
   },
   {
     "lat": 43.5753976,
@@ -11251,14 +11217,16 @@
     "name": "Salle D'Escalade Les Freres Mawem",
     "country": "FR",
     "website": "https://lesfreresmawem.fr/",
-    "verified": "2026-08-23",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
+      "street-address",
       "postal-code",
-      "city"
+      "city",
+      "board-mention"
     ],
-    "note": "The Mawem brothers' own climbing hall site, printing the 68000 postal code and the town upstream records."
+    "note": "The Mawem brothers' current hall site identifies the public Colmar venue at 3 Rue Jacques Daguerre, prints the 68000 postal code, and names the Kilter Board among the spaces included with admission."
   },
   {
     "lat": 43.62005,
@@ -12236,10 +12204,10 @@
   {
     "lat": 51.45496,
     "lon": -0.193,
-    "name": "Parthian Climbing Wandsworth",
+    "name": "The Font Wandsworth",
     "country": "GB",
-    "website": "https://www.the-font.co.uk/wandsworth-2-0",
-    "verified": "2026-08-22",
+    "website": "https://www.the-font.co.uk/wandsworth",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "street-address",
@@ -12247,7 +12215,7 @@
       "city",
       "location-page"
     ],
-    "note": "The centre now trades as The Font Wandsworth; upstream still carries its former name, Parthian Climbing Wandsworth."
+    "note": "The current location page identifies The Font Wandsworth at 52-58 Garratt Lane. The operator's relocation notice says the existing 16x12 adjustable Kilter Board moved from Lydden Road into this venue."
   },
   {
     "lat": 52.21725,
@@ -12326,21 +12294,6 @@
     "note": "The OSM node 50 m from this venue carries rockcity.co.uk, and geocoding \"Rockcity Climbing, Hull\" lands 50 m away. rockcityclimbing.com is a different Rock City in North America."
   },
   {
-    "lat": 51.5822099,
-    "lon": -1.753619,
-    "name": "Rockstar Climbing",
-    "country": "GB",
-    "website": "https://www.rockstarclimbing.co.uk/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city"
-    ]
-  },
-  {
     "lat": 51.58198,
     "lon": -1.754,
     "name": "Rockstar Climbing & Bouldering",
@@ -12354,7 +12307,7 @@
       "postal-code",
       "city"
     ],
-    "note": "Same physical centre as the MoonBoard entry ~35 m away; upstream lists the two boards separately."
+    "note": "The current site identifies one Rockstar Climbing Centre at Buildings 3-5, I.O Centre, Radway Road. Its embedded map corroborates this address-bearing point; the legacy MoonBoard point 35 m away is consolidated here."
   },
   {
     "lat": 52.40906,
@@ -13149,6 +13102,38 @@
     "note": "משה שוואלב 7, אזה\"ת סגולה, פתח תקווה geocodes 118 m from the row, and the row itself reverse-geocodes onto משה שוואלב in the Segula industrial zone. Upstream holds no address for this venue."
   },
   {
+    "lat": 32.92353,
+    "lon": 35.31213,
+    "name": "קמפוס מועדון טיפוס Campus Karmiel",
+    "country": "IL",
+    "website": "https://www.campuswall.co.il/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The current operator homepage names Campus climbing club in Karmiel, prints 9 HaHermesh Street exactly as upstream records it, and describes its adjustable LED Kilter Board."
+  },
+  {
+    "lat": 45.673384290029745,
+    "lon": 9.231829044179566,
+    "name": "AKIRA Climbing",
+    "country": "IT",
+    "website": "https://www.akiraclimbing.it/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The current operator site states that Akira Climbing Center opened on 27 August 2026 at Piazza Risorgimento 1, Carate Brianza and identifies its variable-angle Kilter Board. The name, full address and board match the existing structured row."
+  },
+  {
     "lat": 43.87544219999999,
     "lon": 10.2541854,
     "name": "Air Climbing Moonboard",
@@ -13357,28 +13342,17 @@
     "lon": 13.81049,
     "name": "Gravità Zero",
     "country": "IT",
-    "website": "https://gravitazero.it/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
+    "website": "https://www.gravitazerotrieste.it/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
-      "street-address"
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
     ],
-    "note": "Gravità Zero's own site, printing 55 — the building number in \"Via alle cave, 55, 34128, Trieste\" that upstream records."
-  },
-  {
-    "lat": 45.6570925,
-    "lon": 13.8102992,
-    "name": "Gravità Zero MOON BOARD",
-    "country": "IT",
-    "website": "https://gravitazero.it/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "coordinates"
-    ],
-    "note": "The same hall as the Gravità Zero entry 17 m away at Via alle cave 55, Trieste, which carries this link already: this entry is that gym's MoonBoard, registered separately. The site is the gym's own and matches the name."
+    "note": "The operator's current Sala Boulder and access pages identify its one Via alle Cave 55, Trieste venue and both the MoonBoard and Kilter Board now consolidated at this point."
   },
   {
     "lat": 44.55963,
@@ -13500,8 +13474,8 @@
     "note": "The site is La Mole Sports Academy and prints Via Chivasso, 8 10098 Rivoli (TO); geocoding that address lands 99 m from this venue's coordinate. The upstream city is Collegno, the neighbouring town."
   },
   {
-    "lat": 44.49092,
-    "lon": 11.25031,
+    "lat": 44.4831,
+    "lon": 11.2621,
     "name": "Level 24",
     "country": "IT",
     "website": "https://www.level24.it/",
@@ -13943,6 +13917,20 @@
     "note": "BoulderGarden SaBo's own site, giving Okayama — the city upstream records."
   },
   {
+    "lat": 38.04837089999999,
+    "lon": 139.4077784,
+    "name": "HUT WALL",
+    "country": "JP",
+    "website": "https://hutwall.shopinfo.jp/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "HUT WALL's current operator site identifies the Tainai public gym, prints its exact Nakajo 3210 address and phone, and carries 2026 operating notices."
+  },
+  {
     "lat": 36.60036,
     "lon": 137.19879,
     "name": "Bouldering Gym leTruss",
@@ -13957,44 +13945,30 @@
     "note": "Bouldering Gym leTruss's own site. Its home, contact and about pages all print 1666, the building number in 富山県富山市上大久保1666-1 that upstream records."
   },
   {
-    "lat": 35.70682,
-    "lon": 139.66606,
+    "lat": 35.7067885,
+    "lon": 139.6660675,
     "name": "CapyClimb",
     "country": "JP",
     "website": "https://capyclimb.com/ja/",
-    "verified": "2026-08-25",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "city",
-      "board-mention"
-    ],
-    "note": "The second CapyClimb row, 34 m from the first, is the Tension — \"Kilter、Tension、スプレーウォール\" on the gym's own page. Upstream holds no street line for this one, so the town and the board carry it."
-  },
-  {
-    "lat": 35.709834416741565,
-    "lon": 139.6658118837558,
-    "name": "CapyClimb",
-    "country": "JP",
-    "website": "https://capyclimb.com/ja/",
-    "verified": "2026-08-25",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "postal-code",
       "city",
-      "board-mention"
+      "board-mention",
+      "coordinates"
     ],
-    "note": "CapyClimb's own site gives \"東京都中野区中野5丁目61-4 〒164-0001\" — upstream's \"5 Chome-61-4 Nakano, 164-0001\" exactly — and lists what is on the training wall: \"V4以上の課題。Kilter、Tension、スプレーウォール、フィンガーボード、キャンパスボード\". Upstream carries the gym as two rows 34 m apart, one for each of the first two, and this is the Kilter."
+    "note": "CapyClimb's current site gives 東京都中野区中野5丁目61-4, embeds this exact map point and lists both Kilter and Tension on its training wall. The two formerly split registry rows are one physical venue."
   },
   {
-    "lat": 35.55209809999999,
-    "lon": 139.5794141,
-    "name": "ClimbingBUM",
+    "lat": 35.553181,
+    "lon": 139.579468,
+    "name": "Climbing Bum Yokohama",
     "country": "JP",
     "website": "https://climbingbum.jp/yokohama/",
-    "verified": "2026-08-24",
+    "verified": "2026-09-01",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -14003,7 +13977,7 @@
       "location-page",
       "board-mention"
     ],
-    "note": "クライミングバム runs two gyms and gives each a page. The 横浜店 page states 神奈川県横浜市都筑区中川中央1-25-1 ノースポートモール B1F; this coordinate reverse-geocodes to 中川中央一丁目, 都筑区, 横浜市, which is the same block. The page also lists 電光ムーンボード among the walls, and this row is listed for a MoonBoard. Upstream labels the row Azamino, which is the next station over."
+    "note": "クライミングバム runs two gyms and gives each a page. The 横浜店 page states 神奈川県横浜市都筑区中川中央1-25-1 ノースポート・モールB1F and lists 電光ムーンボード. Japan's official GSI address search supplies this exact point, replacing the generic registry pin about 120 metres south."
   },
   {
     "lat": 35.1693221,
@@ -14179,6 +14153,22 @@
     "note": "The centre is a prefectural facility — 鳥取県立倉吉体育文化会館 — and its site gives the climbing hall its own page: \"倉吉スポーツクライミングセンター 主要設備 リード壁／スピード壁／ボルダリング\", at 〒682-0023 倉吉市山根529-2. Kurayoshi is the town upstream records."
   },
   {
+    "lat": 33.3192865,
+    "lon": 130.5083735,
+    "name": "Joywall",
+    "country": "JP",
+    "website": "https://kurume.joywallclimbing.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "street-address",
+      "location-page"
+    ],
+    "note": "JOYWALL's current Kurume operator site identifies the public gym and prints its exact Yamakawa Oiwake 2-3-1 address, matching the named Kurume venue point."
+  },
+  {
     "lat": 37.40047759999999,
     "lon": 140.3596822,
     "name": "MOVEMENT Climbing Space",
@@ -14237,33 +14227,105 @@
     "note": "QRiMo's own site, titled \"Home|ボルダリング ワールド- QRiMo- 御前崎 静岡 浜松\" — the venue's name and Omaezaki, the municipality its coordinates fall in. Upstream labels this venue with the nearest gazetteer place, which is a neighbourhood; the municipality its coordinates fall in is what the page names. Upstream calls the place Kikugawa, the neighbouring city."
   },
   {
+    "lat": 33.22722,
+    "lon": 132.7108,
+    "name": "松野町コミュニティセンター Matsuno Town Community Center",
+    "country": "JP",
+    "website": "https://matsuno-kankou.com/news/5105.html",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "board-mention"
+    ],
+    "note": "Matsuno Town's current official tourism page is dedicated to this Kilter Board, identifies the Community Center and Matsumaru 343 address, and gives its public reservation procedure and board details."
+  },
+  {
     "lat": 42.86238,
     "lon": 140.70229,
     "name": "Rhythm Japan Niseko",
     "country": "JP",
-    "website": "https://rhythmjapan.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "city"
-    ],
-    "note": "Rhythm Japan's own site for its Niseko operation, giving Hokkaido — the region upstream records for Yamada, Kutchan."
-  },
-  {
-    "lat": 35.18145060000001,
-    "lon": 136.9065571,
-    "name": "RIOT CLIMBING",
-    "country": "JP",
-    "website": "https://riot-climbing.com/",
-    "verified": "2026-08-24",
-    "provenance": "official-site",
+    "website": "https://rhythmjapan.com/activity-hub",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "city",
       "board-mention"
     ],
-    "note": "riot-climbing.com is titled 名古屋市守山区のボルダリングジム｜ライオットクライミング and its footer gives 〒463-0079 愛知県名古屋市守山区幸心1-113. It also says the hall has a ムーンボード, which is the board upstream records for this row. The coordinate is not the gym: it falls in 中区, the centre of Nagoya, about seven kilometres from Moriyama-ku — a city point, not a hall."
+    "note": "Rhythm Japan's current venue-specific page identifies the Niseko Rhythm Hirafu Activity Hub and its Kilter Board. Current 2026 operator stories still call the flagship Rhythm Hirafu store the Activity Hub; OSM independently places the structured point on the named Rhythm Base Niseko building."
+  },
+  {
+    "lat": 35.205871,
+    "lon": 136.94425,
+    "name": "RIOT CLIMBING",
+    "country": "JP",
+    "website": "https://riot-climbing.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The current operator homepage identifies RIOT CLIMBING, its installed MoonBoard and 〒463-0079 愛知県名古屋市守山区幸心1-113. The published marker is the matching representative point for 幸心一丁目113 in MLIT's 2025 block-level location-reference file 23_2025.csv; the old central-Nagoya registry point is excluded."
+  },
+  {
+    "lat": 34.511873,
+    "lon": 136.64258,
+    "name": "SunnyDipper Climbing",
+    "country": "JP",
+    "website": "https://sunnydipper.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "Current operator pages identify SunnyDipper Climbing, explicitly offer MoonBoard-only use and give 〒519-0403 三重県度会郡玉城町井倉115-2 第5倉庫. The published marker is the matching representative point for 井倉115 in MLIT's 2025 block-level location-reference file 24_2025.csv; the old Ise registry point is excluded."
+  },
+  {
+    "lat": 32.8031004,
+    "lon": 130.7078911,
+    "name": "The Ranch",
+    "country": "JP",
+    "website": "https://theranch.shop/about",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "The current operator shop identifies The Ranch climbing gym in Kumamoto and links the live gym site. That official facility page gives 〒860-0826 熊本市南区平田町1-8-12 and labels its MOON BOARD, matching the legacy point and board identity; the stable HTTPS shop page is published because the linked gym site serves HTTP only."
+  },
+  {
+    "lat": 36.3479482,
+    "lon": 140.3030609,
+    "name": "vortex",
+    "country": "JP",
+    "website": "https://climbinggym-vortex.shopinfo.jp/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The current operator site identifies VORTEX at 〒309-1736 茨城県笠間市八雲2-6-2, while its current official account explicitly lists the MoonBoard. The legacy point lies inside the same 八雲二丁目6 address block represented by MLIT's 2025 point."
   },
   {
     "lat": 35.699996,
@@ -14285,13 +14347,14 @@
     "name": "カルコロ CAL-COLO",
     "country": "JP",
     "website": "https://cal-colo.com/",
-    "verified": "2026-08-23",
+    "verified": "2026-09-01",
     "provenance": "official-site",
     "signals": [
       "name",
+      "street-address",
       "board-mention"
     ],
-    "note": "CAL-COLO's own site, matching the venue's name and naming the board it is listed for."
+    "note": "CAL-COLO's current site matches the venue and exact Kizugawa address and explicitly identifies both its Kilter Board and LED-guided MoonBoard."
   },
   {
     "lat": 35.01308,
@@ -14359,8 +14422,8 @@
     "note": "D.Bouldering runs thirty-odd halls in Japan from d-b-c.jp, each with its own path under /top/. The chain is why every domain guess failed: d-bouldering.com, d-bouldering.jp and dbouldering.jp all fail to resolve, and the gyms trade under a name that is not their domain. This is the kumamoto-oyama hall: 〒861-8045 熊本県熊本市東区小山2-25-38 — upstream's \"2 Chome-25-38 Oyama, 861-8045\"."
   },
   {
-    "lat": 35.4425,
-    "lon": 139.36599,
+    "lat": 35.442445280250666,
+    "lon": 139.3634466153931,
     "name": "ディーボルダリング本厚 D Bouldering Hon-Atsugi",
     "country": "JP",
     "website": "https://www.d-b-c.jp/top/honatsugi/",
@@ -14624,6 +14687,23 @@
     "note": "Ameyalli's own site, printing both halves of the street line upstream records: 12 de Diciembre, and the number 3050."
   },
   {
+    "lat": 20.64019,
+    "lon": -103.40967,
+    "name": "Summit Escalada",
+    "country": "MX",
+    "website": "https://summitescalada.com/instalaciones/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
+    ],
+    "note": "The current operator facilities page identifies Summit Escalada, its Original Kilter Board and Av. Adolfo López Mateos Sur 4255 Local 2, 45070 Zapopan, matching the production venue's name and complete upstream street line."
+  },
+  {
     "lat": 21.9082665,
     "lon": -102.2948845,
     "name": "Drop Climbing",
@@ -14714,7 +14794,7 @@
   {
     "lat": 3.1006116,
     "lon": 101.6320434,
-    "name": "BHub Bouldering 2024 Moonboard",
+    "name": "BHub Bouldering",
     "country": "MY",
     "website": "https://bhubbouldering.com/",
     "verified": "2026-08-23",
@@ -14745,30 +14825,17 @@
     "lon": 101.67444,
     "name": "Camp5 Eco City",
     "country": "MY",
-    "website": "https://www.camp5.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-chain-page",
-    "signals": [
-      "brand",
-      "postal-code",
-      "city"
-    ],
-    "note": "Camp5 publishes its KL Eco City gym on its own site, with the 59200 postal code and the city upstream records. The operator runs several gyms, so this is a chain page."
-  },
-  {
-    "lat": 3.12049,
-    "lon": 101.67436,
-    "name": "Camp5 Eco City",
-    "country": "MY",
-    "website": "https://www.camp5.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-chain-page",
+    "website": "https://www.camp5.com/ecocity/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
+      "street-address",
+      "postal-code",
       "city",
-      "coordinates"
+      "board-mention"
     ],
-    "note": "The same hall as the Camp5 Eco City entry 33 m away at Lot 07 & 08, 4th Floor, KL Eco City, which carries this link already — the dataset registers this gym twice under one name. The operator's site lists Eco City among its gyms with the same Bangsar address, and is the only page either entry has."
+    "note": "Camp5's current Eco City branch page identifies the public venue, its exact KL Eco City Mall address, day access and Kilter, Moon and Tension training walls."
   },
   {
     "lat": 3.09145,
@@ -14800,6 +14867,24 @@
     "note": "Project Rock publishes its Gurney gym on its own site, with the 10250 postal code and the city upstream records."
   },
   {
+    "lat": 2.19316,
+    "lon": 102.23685,
+    "name": "Pampa Rock Climbing",
+    "country": "MY",
+    "website": "https://sgrh.swangarden.com/services/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "location-page"
+    ],
+    "note": "Swan Garden Resort Hotel's official services page identifies Pampa Rock Climbing as its on-site climbing facility, prints the production row's exact 2 Jalan KSB 2, Taman Kota Syahbandar, 75200 Melaka address, and publishes a structured map point 68 m from the venue. The previously repeated pampaclimbing.com domain remains nonexistent; the host property's own current location page is the verified source."
+  },
+  {
     "lat": 53.21729,
     "lon": 6.53861,
     "name": "Apex Boulders",
@@ -14814,22 +14899,6 @@
       "city",
       "board-mention"
     ]
-  },
-  {
-    "lat": 53.1406108,
-    "lon": 4.2517792,
-    "name": "Beacon Climbing Centre",
-    "country": "NL",
-    "website": "https://www.beaconclimbing.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city"
-    ],
-    "note": "The name and the whole address match: the site is Beacon Climbing Centre and prints Zone 5, Cibyn Estate, LL55 2BD, Caernarfon, which is what upstream records for this venue. The coordinates do not, and cannot: upstream files it at 53.1406,4.2518, a point in the North Sea off Texel, and classifies it as Dutch. Caernarfon is at 53.1406,-4.2518 — the same latitude with the longitude sign flipped. The link is recorded on the name and the address, which agree completely, and the coordinates are deliberately not claimed as a signal."
   },
   {
     "lat": 51.5955,
@@ -15054,13 +15123,14 @@
     "name": "Boulderhal Block013",
     "country": "NL",
     "website": "https://block013.nl/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
-      "city"
+      "city",
+      "coordinates"
     ],
-    "note": "The gym publishes no street address on any page we could open."
+    "note": "The current official homepage identifies the sole Tilburg hall and embeds its route map at 51.5770,5.0920, within 13 m of this production point."
   },
   {
     "lat": 51.59819,
@@ -15990,20 +16060,22 @@
     ]
   },
   {
-    "lat": 59.28207,
-    "lon": 10.32679,
+    "lat": 59.2800086,
+    "lon": 10.316057,
     "name": "Høyt Under Taket Klatresenter Tønsberg",
     "country": "NO",
     "website": "https://hoytundertaket.no/tonsberg/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "location-page"
+      "location-page",
+      "board-mention",
+      "coordinates"
     ],
-    "note": "The Andebuveien address this entry carries resolves about 660 m away; the gym's other upstream entry sits on it. Upstream garbles the town as Semester Vestfold."
+    "note": "The branch's directions page prints Andebuveien 78 and links this exact map point; its current training-room page explicitly names the Kilter Board."
   },
   {
     "lat": 60.29332,
@@ -16339,46 +16411,22 @@
     "note": "The club gives the hall its own page: \"Klatrehallen er en del av Mandalshallen og stod ferdig i 2005. Hallen har flere klatrevegger; hovedveggen som er 10 meter høy, kilterboard, fingerboard, campusboard og buldrevegg\", and describes the board at length — \"Kilterboard … veggen har 40 graders overheng og med LED-lys som lyser opp de problemene du velger deg ut via appen\". Upstream names the club and lists the row as a kilter."
   },
   {
-    "lat": 62.73626,
-    "lon": 7.18192,
+    "lat": 62.73608238635402,
+    "lon": 7.1818127676297765,
     "name": "Molde Klatresenter",
     "country": "NO",
     "website": "https://moldeklatresenter.no/",
-    "verified": "2026-08-23",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
-      "city"
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention",
+      "coordinates"
     ],
-    "note": "Same hall as the venue about 25 m away; the dataset lists Molde Klatresenter three times, once per board system."
-  },
-  {
-    "lat": 62.73644199999999,
-    "lon": 7.182532300000001,
-    "name": "Molde Klatresenter",
-    "country": "NO",
-    "website": "https://moldeklatresenter.no/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "city"
-    ],
-    "note": "Same hall as the two venues within 25 m; this is the MoonBoard entry of the three."
-  },
-  {
-    "lat": 62.73647,
-    "lon": 7.18253,
-    "name": "Molde Klatresenter",
-    "country": "NO",
-    "website": "https://moldeklatresenter.no/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "city"
-    ],
-    "note": "The site is Molde klatresenter and prints a 6415 Molde postcode; the upstream town is Molde. Only the www host is unreachable, so the apex is what is stored."
+    "note": "The current site prints one Grandfjæra 22 C, 6415 Molde hall and explicitly names Kilter and Tension Board 2. Norway's official address registry supplies this exact point, consolidating all three registry board-system rows."
   },
   {
     "lat": 67.28667,
@@ -16399,14 +16447,17 @@
     "lon": 7.69012,
     "name": "Norsk Tindesenter",
     "country": "NO",
-    "website": "https://norsktindesenter.no/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
+    "website": "https://www.tindesenteret.no/klatrevegg",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
+      "street-address",
       "postal-code",
-      "city"
-    ]
+      "city",
+      "board-mention"
+    ],
+    "note": "The current operator climbing page identifies Carls Hall at Norsk Tindesenter, its Havnegata 2 address and Kilter Board. The linked current opening and price pages establish public paid drop-in access."
   },
   {
     "lat": 63.6883879,
@@ -16465,21 +16516,6 @@
       "name",
       "city"
     ]
-  },
-  {
-    "lat": 59.27998270000001,
-    "lon": 10.3159612,
-    "name": "Sem/Tønsberg HUT",
-    "country": "NO",
-    "website": "https://hoytundertaket.no/tonsberg/",
-    "verified": "2026-08-22",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "location-page",
-      "street-address"
-    ],
-    "note": "Upstream lists this hall twice; this coordinate is the one 7 m from the page's Andebuveien 78, 3170 Sem."
   },
   {
     "lat": 58.93716,
@@ -16875,7 +16911,7 @@
   {
     "lat": 14.41624,
     "lon": 121.04281,
-    "name": "Power Up Albang",
+    "name": "Power Up Alabang",
     "country": "PH",
     "website": "https://powerupalabang.com/",
     "verified": "2026-08-25",
@@ -17188,15 +17224,16 @@
     "lon": 19.97025,
     "name": "MOOD",
     "country": "PL",
-    "website": "https://hellomood.pl/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
+    "website": "https://hellomood.pl/kontakt-boulderownia-w-centrum-krakowa/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
-      "city"
+      "city",
+      "location-page"
     ],
-    "note": "MOOD's own site; its contact page prints Klimeckiego in Kraków, the street upstream records."
+    "note": "MOOD's current contact page identifies its sole Kraków hall at Stanisława Klimeckiego 14B and publishes a complete regular week. Its own directions URL uses postal code 30-706, matching the production row despite a conflicting 31-706 text line on the same page."
   },
   {
     "lat": 52.17105,
@@ -17539,33 +17576,38 @@
     "note": "Blokx's own site, printing 2 — the building number in Strada Caprioarei 2 that upstream records — and naming the MoonBoard this venue is listed for."
   },
   {
-    "lat": 44.38974,
-    "lon": 26.12165,
+    "lat": 44.397,
+    "lon": 26.098,
     "name": "Climb Again Centrul",
     "country": "RO",
-    "website": "https://climbagain.ro/",
-    "verified": "2026-08-23",
-    "provenance": "official-chain-page",
+    "website": "https://climbagain.ro/climb-again-bucuresti/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
-      "city"
+      "city",
+      "location-page",
+      "board-mention"
     ],
-    "note": "Climb Again's own site, printing Soseaua Berceni 8 in Bucharest — the street line upstream records for the Centrul hall. The association runs a second hall in Iasi, so this is recorded as a chain page."
+    "note": "The current București branch page prints Șoseaua Berceni 8, publishes its exact SportsActivityLocation coordinate, and explicitly identifies an adjustable Kilter Board with a 15-70 degree range."
   },
   {
     "lat": 47.12658,
     "lon": 27.62568,
     "name": "Climb Again Iasi",
     "country": "RO",
-    "website": "https://climbagain.ro/",
-    "verified": "2026-08-23",
-    "provenance": "official-chain-page",
+    "website": "https://climbagain.ro/climb-again-iasi/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
-      "city"
+      "street-address",
+      "city",
+      "location-page",
+      "board-mention"
     ],
-    "note": "The same association's site, which names its Iasi hall and the town upstream records for it. Its Bucharest hall is described separately on the same site."
+    "note": "The current Iași branch page identifies the public climbing hall, its Kilter Board with a 15-60 degree range, and Stradela Plopii fără Soț 18-22, refining the abbreviated upstream street address."
   },
   {
     "lat": 47.046159,
@@ -18230,15 +18272,15 @@
     "lon": 103.85142,
     "name": "Boulder Movement Rochor",
     "country": "SG",
-    "website": "https://www.boulderm.com/",
-    "verified": "2026-08-23",
+    "website": "https://www.boulderm.com/locations/our-gyms/rochor",
+    "verified": "2026-09-01",
     "provenance": "official-chain-page",
     "signals": [
       "brand",
       "postal-code",
       "street-address"
     ],
-    "note": "Boulder Movement publishes its Rochor gym on its own site, with the 218227 postal code and 2 Serangoon Rd upstream records."
+    "note": "Boulder Movement's current Rochor branch page prints 2 Serangoon Road #02-12, Tekka Place, Singapore 218227, exactly identifying the upstream venue, and replaces the former generic chain homepage."
   },
   {
     "lat": 1.33109,
@@ -18671,22 +18713,6 @@
     "note": "The gazetteer has the gym two metres from this coordinate tagged tupclimbing.tw. The operator gives each branch a path, and the Wanhua one prints \"10855 台北市萬華區大理街149號\" — upstream's address for this row, 大理街149號 in Wanhua."
   },
   {
-    "lat": 25.00201,
-    "lon": 121.20233,
-    "name": "原岩攀岩館─A19店 T-UP Climbing Gym A19 Branch",
-    "country": "TW",
-    "website": "https://tupclimbing.tw/branch/a19",
-    "verified": "2026-08-24",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city"
-    ],
-    "note": "The operator's page for this branch, printing \"320014 桃園市中壢區高鐵南路二段352號（Global Mall環球購物中心4樓）\" — upstream's address including the floor — and listing a Kilter board among its facilities."
-  },
-  {
     "lat": 50.4425234,
     "lon": 30.4495923,
     "name": "12C Board classic (Climbing gym \"KPIskala\")",
@@ -18791,32 +18817,18 @@
     "note": "The gym's own 460 Brogdon Rd resolves 16 m from this coordinate."
   },
   {
-    "lat": 43.0248873,
-    "lon": -87.91302400000001,
-    "name": "Adventure Rock Moonboard",
+    "lat": 43.0249104,
+    "lon": -87.9130311,
+    "name": "Adventure Rock Walker's Point",
     "country": "US",
     "website": "https://adventurerock.com/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-chain-page",
     "signals": [
       "name",
       "street-address"
     ],
-    "note": "The operator lists more than one gym; its page gives this one as 613 S 2nd St, Milwaukee, WI 53204, which resolves 3 m from the coordinate."
-  },
-  {
-    "lat": 43.02566,
-    "lon": -87.91254,
-    "name": "Adventure Rock WKP",
-    "country": "US",
-    "website": "https://adventurerock.com/",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
-    "signals": [
-      "name",
-      "street-address"
-    ],
-    "note": "The operator lists more than one gym; its page gives this one as 613 S 2nd St, Milwaukee, WI 53204, which resolves 92 m from the coordinate."
+    "note": "The operator's current Walker's Point page identifies the public bouldering branch at 613 S 2nd St. The current official Kilter pin and legacy MoonBoard point coincide here; the 92 m drifted Tension point is consolidated onto the same branch."
   },
   {
     "lat": 33.66522,
@@ -19500,47 +19512,20 @@
     "note": "Upstream carries no address; the page's own 539 East 2nd St. Ames, IA 50010 resolves 122 m from the coordinate."
   },
   {
-    "lat": 44.03886,
-    "lon": -121.30328,
-    "name": "Boardworks Climbing",
-    "country": "US",
-    "website": "https://www.boardworksclimbing.com/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address"
-    ],
-    "note": "Upstream lists this hall three times within 31 m; the site's Reed Market Rd address resolves 37 m from this coordinate."
-  },
-  {
-    "lat": 44.03909,
-    "lon": -121.30325,
-    "name": "Boardworks Climbing",
-    "country": "US",
-    "website": "https://www.boardworksclimbing.com/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address"
-    ],
-    "note": "Upstream lists this hall three times within 31 m; the site's Reed Market Rd address resolves 58 m from this coordinate."
-  },
-  {
     "lat": 44.03913,
     "lon": -121.3032,
     "name": "Boardworks Climbing",
     "country": "US",
     "website": "https://www.boardworksclimbing.com/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "postal-code",
       "city"
-    ]
+    ],
+    "note": "The official site identifies one gym at 222 SE Reed Market Rd containing all six boards; manufacturer pins for its Kilter, Tension, Grasshopper and Decoy installations have been consolidated here."
   },
   {
     "lat": 42.38226,
@@ -19669,20 +19654,23 @@
     ]
   },
   {
-    "lat": 33.4042,
-    "lon": -111.95457,
+    "lat": 33.4004145,
+    "lon": -111.9529012,
     "name": "Bouldering Project Tempe",
     "country": "US",
     "website": "https://boulderingproject.com/location/tempe/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
       "city",
-      "location-page"
-    ]
+      "location-page",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "The current branch page embeds this map coordinate and its dedicated training-board page explicitly identifies both the adjustable 12x16 Original Kilter Board and Tension Board 2."
   },
   {
     "lat": 36.06755,
@@ -19972,26 +19960,11 @@
   },
   {
     "lat": 42.3908,
-    "lon": -71.13989,
+    "lon": -71.1425,
     "name": "Central Rock Gym Cambridge",
     "country": "US",
     "website": "https://centralrockgym.com/cambridge/",
-    "verified": "2026-08-22",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "location-page",
-      "street-address"
-    ],
-    "note": "Upstream lists this Tension Board and Aurora separately, about 1 km from its Kilter entry; this coordinate is the nearer of the two to the gym's address."
-  },
-  {
-    "lat": 42.39436,
-    "lon": -71.15172,
-    "name": "Central Rock Gym Cambridge",
-    "country": "US",
-    "website": "https://centralrockgym.com/cambridge/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -20000,7 +19973,7 @@
       "city",
       "location-page"
     ],
-    "note": "The Alewife Brook Parkway address resolves about 930 m from this upstream coordinate; the gym's other upstream entry sits closer to it."
+    "note": "The current Cambridge branch page prints 170 Alewife Brook Parkway and its own Get Directions link resolves to this coordinate. Three formerly split Kilter, Tension and Aurora rows are consolidated onto that one physical hall."
   },
   {
     "lat": 40.75113,
@@ -20423,21 +20396,6 @@
     "note": "The same gym as the row 10 m away, which upstream also records as Class 5 Climbing. Touchstone's page for it gives \"Torrance, CA\" and 90503; this row carries 20120 Hawthorne Blvd, 90503, Torrance, so the postcode matches as well as the town. Touchstone answers 403 to every fetcher, and the page was read from the same snapshot the neighbouring row rests on."
   },
   {
-    "lat": 33.84918,
-    "lon": -118.35146,
-    "name": "Class 5 Climbing",
-    "country": "US",
-    "website": "https://touchstoneclimbing.com/class-5/",
-    "verified": "2026-08-24",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "city",
-      "location-page"
-    ],
-    "note": "Touchstone's own page for Class 5, titled for the gym and giving \"Torrance, CA\" and 90503 — the town upstream records, for which no street is recorded. The host answers 403 to every fetcher and header set, so the page was read from a snapshot of 31 December 2025; the hours record stays inaccessible, because a schedule is not something to take from a snapshot."
-  },
-  {
     "lat": 36.35673,
     "lon": -94.21992,
     "name": "Climb Bentonville",
@@ -20812,20 +20770,6 @@
     ]
   },
   {
-    "lat": 42.3938542,
-    "lon": -71.150421,
-    "name": "CRG Cambridge",
-    "country": "US",
-    "website": "https://centralrockgym.com/cambridge/",
-    "verified": "2026-08-23",
-    "provenance": "official-location-page",
-    "signals": [
-      "city",
-      "location-page"
-    ],
-    "note": "Central Rock Gym's locations page lists exactly one hall called Cambridge — 170 Alewife Brook Pkwy, Cambridge, MA 02138 — and brands its other hall in the same city Harvard Square, at 20 Brattle St. This entry sits 121 m from the Alewife address and about 2.6 km from Brattle Street, so the Cambridge location page is its page. The map that page embeds sits 738 m away, which is why the coordinates are not claimed as a signal."
-  },
-  {
     "lat": 37.15166,
     "lon": -80.41082,
     "name": "Crimper's Climbing",
@@ -20889,31 +20833,14 @@
     "name": "Crux Climbing Center South",
     "country": "US",
     "website": "https://www.cruxclimbingcenter.com/south-austin/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "location-page",
       "street-address"
     ],
-    "note": "Upstream lists this hall twice; this coordinate is the one 86 m from the gym's Ralph Ablanedo address."
-  },
-  {
-    "lat": 30.181421802025056,
-    "lon": -97.79111214027573,
-    "name": "Crux Climbing Center South",
-    "country": "US",
-    "website": "https://www.cruxclimbingcenter.com/south-austin/",
-    "verified": "2026-08-22",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city",
-      "location-page"
-    ],
-    "note": "The Ralph Ablanedo address this entry carries resolves about 760 m away; the gym's other upstream entry sits on it."
+    "note": "The exact-address live Kilter point lands within 13 m of the existing Tension marker. Both formerly split rows are consolidated here for the one 220 Ralph Ablanedo hall."
   },
   {
     "lat": 33.23228,
@@ -21377,14 +21304,16 @@
     "name": "First Ascent Climbing Station Square",
     "country": "US",
     "website": "https://faclimbing.com/pittsburgh/station-square/",
-    "verified": "2026-08-24",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
+      "street-address",
+      "postal-code",
       "city",
       "location-page"
     ],
-    "note": "First Ascent's own page for its Station Square gym, titled \"FA Station Square | Climbing, Yoga & Fitness in Pittsburgh\" — the venue's name and the city upstream records, for which no street is recorded. The operator's whole site answers 403 to every fetcher and header set, so this page was read from a snapshot of 26 May 2026. A snapshot settles whose page this is and nothing else; the hours record stays inaccessible."
+    "note": "First Ascent's current Station Square page prints the gym name, 195 W Station Square Drive, Pittsburgh and PA 15219, matching the venue and current Kilter locator address. It also publishes a complete regular-hours week; the page's separately labelled holiday exceptions are not copied into the weekly schedule."
   },
   {
     "lat": 41.88035,
@@ -21636,21 +21565,22 @@
     "note": "GRAVITY BEAR's own site, giving Tulsa and naming the Tension Board this venue is listed for. The first pass had reached gravityclimbing.ie in Ireland. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
   },
   {
-    "lat": 37.22925,
-    "lon": -107.80896,
+    "lat": 37.2291837,
+    "lon": -107.8085475,
     "name": "Gravity Lab",
     "country": "US",
     "website": "https://www.gravitylabclimbing.com/",
-    "verified": "2026-08-25",
+    "verified": "2026-08-31",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "postal-code",
       "city",
-      "board-mention"
+      "board-mention",
+      "coordinates"
     ],
-    "note": "The gym's own site gives \"The Transformation: 732 CR 233, Durango, CO 81301\" — upstream's street in the same abbreviated form, with town and postcode — and lists \"a Kilter Board, campus board, and Spray wall\" for a row upstream records as a kilter."
+    "note": "The current homepage gives 732 CR 233, explicitly names the Kilter Board and publishes this coordinate in its own location object."
   },
   {
     "lat": 41.0584299,
@@ -21689,14 +21619,17 @@
     "name": "Gravity Vault Montclair",
     "country": "US",
     "website": "https://gravityvault.com/locations/montclair-nj",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "location-page",
-      "street-address"
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
     ],
-    "note": "Upstream lists this hall twice; this coordinate is the one 20 m from the gym's Seymour address."
+    "note": "The current Montclair page prints 8 Seymour Plaza, Montclair NJ 07042 and explicitly lists both its 12-foot adjustable Kilter Board and 8-foot adjustable MoonBoard. Those formerly split registry rows are now one physical venue at the address-near MoonBoard point; both live Kilter locator points land within 20 m of it."
   },
   {
     "lat": 40.33661,
@@ -22457,14 +22390,17 @@
     "lon": -105.04174,
     "name": "Longmont Climbing Collective",
     "country": "US",
-    "website": "https://longmontclimbingcollective.com/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
+    "website": "https://climbingcollective.co/longmont",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
     "signals": [
+      "name",
       "street-address",
       "postal-code",
-      "city"
-    ]
+      "city",
+      "location-page"
+    ],
+    "note": "The operator's current location page identifies 155 Pinnacle Street as its only Longmont branch. The former official domain now serves the same operator content under climbingcollective.co."
   },
   {
     "lat": 33.93541,
@@ -22744,12 +22680,12 @@
     ]
   },
   {
-    "lat": 40.56449,
-    "lon": -111.89789,
+    "lat": 40.564419,
+    "lon": -111.8979183,
     "name": "Momentum Climbing Sandy",
     "country": "US",
     "website": "https://momentumclimbing.com/sandy/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -22757,23 +22693,7 @@
       "city",
       "postal-code"
     ],
-    "note": "Upstream lists this Grasshopper Board separately, 42 m from its Kilter entry."
-  },
-  {
-    "lat": 40.56486,
-    "lon": -111.89785,
-    "name": "Momentum Climbing Sandy",
-    "country": "US",
-    "website": "https://momentumclimbing.com/sandy/",
-    "verified": "2026-08-22",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "location-page",
-      "city",
-      "postal-code"
-    ],
-    "note": "The page prints 220 W. 10600 S.; upstream carries 200 W 10600 S."
+    "note": "The page prints 220 W 10600 S, explicitly names the Kilter Board and publishes this structured coordinate. The formerly split Kilter and Grasshopper rows are consolidated here."
   },
   {
     "lat": 40.62042,
@@ -23058,7 +22978,7 @@
     "name": "Movement Design District",
     "country": "US",
     "website": "https://movementgyms.com/design-district/",
-    "verified": "2026-08-22",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
@@ -23962,14 +23882,15 @@
     "lon": -92.51209,
     "name": "Roca Climbing & Fitness",
     "country": "US",
-    "website": "https://rocaclimbingfitness.com/",
-    "verified": "2026-08-22",
+    "website": "https://www.climbroca.com/",
+    "verified": "2026-09-01",
     "provenance": "official-site",
     "signals": [
       "street-address",
       "postal-code",
       "city"
-    ]
+    ],
+    "note": "The former rocaclimbingfitness.com domain now serves the same operator page with a canonical URL on climbroca.com; the current page still prints 6071 Rome Circle NW, Rochester, MN 55901."
   },
   {
     "lat": 33.71672,
@@ -24765,22 +24686,6 @@
     "note": "This coordinate is the actual training centre, on Innovation Lane, 6.8 km from the main gym."
   },
   {
-    "lat": 45.656304,
-    "lon": -111.069708,
-    "name": "Spire Climbing Center Training Facility",
-    "country": "US",
-    "website": "https://www.spireclimbing.com/",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city"
-    ],
-    "note": "The operator runs a main gym and a training centre off one page; upstream labels this entry the training facility, but its 13 Enterprise Blvd address is the main gym's."
-  },
-  {
     "lat": 38.801099,
     "lon": -77.1263623,
     "name": "Sportrock",
@@ -25119,14 +25024,18 @@
     "lon": -122.29303,
     "name": "Team Touchstone",
     "country": "US",
-    "website": "https://teamtouchstone.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
+    "website": "https://touchstoneclimbing.com/team-training-center/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
-      "board-mention"
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention",
+      "location-page"
     ],
-    "note": "Team Touchstone's own site, matching the venue's name and naming the Touchstone board it is listed for. The upstream record carries the venue's own social handle; taken as a domain label it gives this host, which no name-derived guess had produced."
+    "note": "Touchstone's current Team Training Center page identifies the members-only Berkeley facility at 795 Potter Street and states that it has five climbing boards; the location's amenities page names its Kilter, Moon, Tension and Touchstone boards. The existing address-bearing Team Touchstone marker is the same venue."
   },
   {
     "lat": 42.9347612,
@@ -25714,23 +25623,6 @@
     ]
   },
   {
-    "lat": 40.81398,
-    "lon": -74.20759,
-    "name": "The Gravity Vault Montclair",
-    "country": "US",
-    "website": "https://gravityvault.com/locations/montclair-nj",
-    "verified": "2026-08-22",
-    "provenance": "official-location-page",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city",
-      "location-page"
-    ],
-    "note": "The Seymour address this entry carries resolves about 740 m away; the gym's other upstream entry sits on it."
-  },
-  {
     "lat": 40.74658,
     "lon": -73.59561,
     "name": "The Gravity Vault Westbury",
@@ -26096,20 +25988,6 @@
     "note": "The venue's own name taken as a single domain label, which the guesser had not tried because it drops generic words first. The site carries this venue's name and gives Santa Clarita, the town upstream records."
   },
   {
-    "lat": 37.85155,
-    "lon": -122.2926806,
-    "name": "Touchstone Team Training Center",
-    "country": "US",
-    "website": "https://teamtouchstone.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "coordinates"
-    ],
-    "note": "The same facility as the Team Touchstone entry 51 m away at 795 Potter Street, Berkeley, which carries this link already; this entry names it in full as the team training centre. The operator's main site answers 403 to any fetch, and this is the one Touchstone page that does not."
-  },
-  {
     "lat": 35.8109137,
     "lon": -78.82097739999999,
     "name": "TRC Morrisville",
@@ -26233,21 +26111,22 @@
     "note": "Illinois Campus Recreation's own climbing page, on the university's domain. Its facilities pages print 201 E Peabody Drive, Champaign, Il 61820 — the street, town and postal code upstream records — and the site names the Kilter Board this venue is listed for."
   },
   {
-    "lat": 44.976,
-    "lon": -93.22948,
+    "lat": 44.9754795222,
+    "lon": -93.2297657585,
     "name": "University of Minnesota Climbing Program",
     "country": "US",
-    "website": "https://recwell.umn.edu/adventure/climbing/climbing-bouldering",
-    "verified": "2026-08-24",
+    "website": "https://recwell.umn.edu/adventure/climbing/climbing-training-center",
+    "verified": "2026-08-31",
     "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
       "city",
-      "location-page"
+      "location-page",
+      "board-mention"
     ],
-    "note": "The University of Minnesota's Recreation and Wellness site gives climbing its own page, and the site prints \"123 Harvard Street SE Minneapolis, MN 55455\" — upstream's address to the letter. The host answers 403 to every fetcher and header set, so both pages were read from snapshots, of 18 July 2026 and 6 February 2026; the hours record stays inaccessible."
+    "note": "The university's current Climbing Training Center page explicitly identifies an adjustable Kilter Board on the first floor of the North Gym. Its current Campus Maps page identifies Recreation and Wellness Center building 01-169 at 123 Harvard Street SE and embeds the exact marker used for this record."
   },
   {
     "lat": 47.754739,
@@ -26735,21 +26614,6 @@
     "note": "VietClimb's own site, printing the 100000 postal code and Hanoi, the city upstream records."
   },
   {
-    "lat": 21.0556469,
-    "lon": 105.8415127,
-    "name": "VietClimb MoonBoard",
-    "country": "VN",
-    "website": "https://vietclimb.vn/",
-    "verified": "2026-08-24",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "city",
-      "coordinates"
-    ],
-    "note": "This is the MoonBoard registry's entry for the board inside VietClimb: 177 m from the Kilter row, in Ba Dinh, which is the district beside the An Dương address the gym prints. There is one VietClimb in Hanoi and its site names no second hall."
-  },
-  {
     "lat": -34.0429148,
     "lon": 18.4799535,
     "name": "Bloc 11 - Diep River",
@@ -26986,5 +26850,1118 @@
       "city",
       "location-page"
     ]
+  },
+  {
+    "lat": -27.4549218,
+    "lon": 153.0328871,
+    "name": "ICP Boulder Hall & Showroom",
+    "country": "AU",
+    "website": "https://climbicp.com/contact-us/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "ICP's current official contact page identifies the Boulder Hall contact channel and exact 1/435 St Pauls Terrace, Fortitude Valley address. The former AU first-visit URL now redirects to the EU locale and returns 404; its indexed operator copy and the operator's current 2023-recap page separately identify both Kilter and Tension training boards."
+  },
+  {
+    "lat": 48.1312802,
+    "lon": 17.0998312,
+    "name": "BLOCK DOCK Petržalka",
+    "country": "SK",
+    "website": "https://www.blockdock.me/petrzalka",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 48.2146345,
+    "lon": 17.1641254,
+    "name": "BLOCK DOCK Rača",
+    "country": "SK",
+    "website": "https://www.blockdock.me/raca",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page"
+    ]
+  },
+  {
+    "lat": 40.8709508,
+    "lon": -124.0899342,
+    "name": "Far North Climbing Gym",
+    "country": "US",
+    "website": "https://farnortharcata.com/",
+    "verified": "2026-08-31",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The venue's own current site identifies the public Arcata gym and exact address; Kilter's manufacturer locator independently identifies the board at that address."
+  },
+  {
+    "lat": 37.6878446,
+    "lon": -113.081693,
+    "name": "Iron Cliffs Gym",
+    "country": "US",
+    "website": "https://ironcliffs.com/",
+    "verified": "2026-08-31",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "city"
+    ],
+    "note": "The venue's current site identifies Iron Cliffs Gym in Cedar City and sells public passes; Kilter's manufacturer locator supplies the matching board, branch address, and coordinates."
+  },
+  {
+    "lat": 50.4887793,
+    "lon": 30.4906293,
+    "name": "Climbing SPACE",
+    "country": "UA",
+    "website": "https://www.climbingspace.com.ua/about",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page"
+    ],
+    "note": "The venue page identifies the current public Kyiv climbing gym, its exact Verbova 59 address, and an interactive board; the 12Climb manufacturer KML independently places its Board School at the same venue coordinate."
+  },
+  {
+    "lat": 50.4464461,
+    "lon": 30.4430291,
+    "name": "Funattic",
+    "country": "UA",
+    "website": "https://funattic.com.ua/ua/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The current venue page identifies the public Kyiv climbing center at Borshchahivska 154; the 12Climb manufacturer KML independently identifies the board and matching coordinate."
+  },
+  {
+    "lat": 50.4734096,
+    "lon": 30.498501,
+    "name": "Hyperion Kyiv",
+    "country": "UA",
+    "website": "https://hyperion.kiev.ua/ua/pro-klub",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The current operator page identifies a public Kyiv climbing and bouldering venue at Kostiantynivska 73 / Kyrylivska 46; the 12Climb manufacturer KML independently identifies its board and matching coordinate."
+  },
+  {
+    "lat": 49.8313774,
+    "lon": 23.9967892,
+    "name": "The Wall Lviv",
+    "country": "UA",
+    "website": "https://www.thewall.lviv.ua/about",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention",
+      "location-page",
+      "coordinates"
+    ],
+    "note": "The current operator page identifies the public Lviv climbing venue at Heroiv UPA 72, explicitly describes its 12Climb interactive wall, and supplies the matching precise business-location coordinate in the first-party site data. Its two conflicting schedule renderings remain non-production research."
+  },
+  {
+    "lat": 34.0331,
+    "lon": -118.3707,
+    "name": "Cliffs of Id",
+    "country": "US",
+    "website": "https://touchstoneclimbing.com/cliffs-of-id/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention",
+      "location-page",
+      "coordinates"
+    ],
+    "note": "The current official branch page identifies the public Culver City gym at 2537 S Fairfax Ave, and its own embedded map supplies the coordinate. The branch amenities page identifies its fixed 40-degree 2024 MoonBoard."
+  },
+  {
+    "lat": 60.166129,
+    "lon": 24.904168,
+    "name": "KiipeilyAreena Salmisaari",
+    "country": "FI",
+    "website": "https://kiipeilyareena.com/en/locations/salmisaari/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The current official branch page identifies the public Salmisaari gym at Energiakatu 3, 00180 Helsinki. Its expansion notice identifies two adjustable training boards, while the official Tension app pin names the newly listed system."
+  },
+  {
+    "lat": 36.8659723,
+    "lon": -76.2805601,
+    "name": "Latitude Climbing Norfolk",
+    "country": "US",
+    "website": "https://latitudeclimbing.com/norfolk/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The current official branch page identifies the public Norfolk gym at 1830 Lindsay Avenue, Norfolk, Virginia 23504; the official Kilter locator independently identifies its board and matching coordinate."
+  },
+  {
+    "lat": 40.7527726,
+    "lon": -73.9405401,
+    "name": "Brooklyn Boulders Queensbridge",
+    "country": "US",
+    "website": "https://qb.brooklynboulders.com/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The current Queensbridge site identifies the public gym at 23-10 41st Ave, Long Island City, NY 11101; the official Kilter locator independently identifies its board and matching coordinate."
+  },
+  {
+    "lat": 34.1432717,
+    "lon": -118.0319401,
+    "name": "Hangar 18 Arcadia",
+    "country": "US",
+    "website": "https://climbhangar18.com/arcadia/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The current official branch page identifies the public Arcadia gym at 305 N Santa Anita Ave; the official Kilter locator independently identifies its board and matching coordinate."
+  },
+  {
+    "lat": 33.9460709,
+    "lon": -117.446141,
+    "name": "Hangar 18 Riverside",
+    "country": "US",
+    "website": "https://climbhangar18.com/riverside/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The current official branch page identifies the separate Riverside gym at 6935 Arlington Avenue; the official Kilter locator independently identifies its board and matching coordinate."
+  },
+  {
+    "lat": 34.0938889,
+    "lon": -117.6475,
+    "name": "Hangar 18 Upland",
+    "country": "US",
+    "website": "https://climbhangar18.com/upland/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "location-page"
+    ],
+    "note": "The current official branch page identifies the public Upland gym at 256 E Stowell St; the official Kilter locator independently identifies its board and matching coordinate."
+  },
+  {
+    "lat": 47.4325601,
+    "lon": 0.6943276,
+    "name": "Block'Out Tours",
+    "country": "FR",
+    "website": "https://www.blockout.fr/tours/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The official Tours contact page identifies 7-9 Avenue du Danemark and the operator's current board article says the Kilter Board is available at this branch."
+  },
+  {
+    "lat": 59.5635815,
+    "lon": 7.3548335,
+    "name": "Hovden Grendehus",
+    "country": "NO",
+    "website": "https://www.bykle.kommune.no/tenester/kultur-og-fritid/kulturhus/hovden-grendehus/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention"
+    ],
+    "note": "The municipal venue page identifies the public community centre, its bookable Kilter Board and Hovden location; the manufacturer locator supplies the matching Skulevegen address and coordinate."
+  },
+  {
+    "lat": 51.0876184,
+    "lon": -114.2424414,
+    "name": "Calgary Climbing Centre Rocky Mountain",
+    "country": "CA",
+    "website": "https://www.calgaryclimbing.com/",
+    "verified": "2026-08-31",
+    "provenance": "official-chain-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator's current five-location page names Rocky Mountain and prints 10721 West Valley Rd SW; Kilter's official locator independently identifies its public 12x12 Original board at that address."
+  },
+  {
+    "lat": 34.7471907,
+    "lon": -86.5823847,
+    "name": "High Point Climbing Lincoln Mill",
+    "country": "US",
+    "website": "https://www.highpointclimbing.com/locations/lincoln-mill",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The current Lincoln Mill page identifies the bouldering venue and address and advertises its Kilter Board clinic; the manufacturer locator supplies the matching board profile and coordinate."
+  },
+  {
+    "lat": 39.7294843,
+    "lon": -105.1264894,
+    "name": "Beast Fingers",
+    "country": "US",
+    "website": "https://beastfingersclimbing.com/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The operator's current contact page identifies its public climbing gym at Suite 130, 11485 W 8th Ave in Lakewood; the manufacturer locator independently identifies the matching Kilter installation and coordinate."
+  },
+  {
+    "lat": 32.421234,
+    "lon": -93.7419578,
+    "name": "318 Climb",
+    "country": "US",
+    "website": "https://318climbllc.wixsite.com/g-rockclimbing",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city"
+    ],
+    "note": "The current operator page identifies the public G-Rock/318 Climb gym at 731 American Way in Shreveport; the manufacturer locator independently supplies the matching Kilter board profile and coordinate."
+  },
+  {
+    "lat": 22.27708,
+    "lon": 114.17568,
+    "name": "The Board Room",
+    "country": "CN",
+    "website": "https://boardroom.fit/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The current operator site identifies the public Wan Chai gym, its Chinachem Johnston Plaza address and both its Kilter Board and Tension Board 2; the manufacturer locator independently corroborates the Kilter profile and coordinate."
+  },
+  {
+    "lat": 35.2295856,
+    "lon": 129.0888247,
+    "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
+    "country": "KR",
+    "website": "https://www.waverock.co.kr/pnu",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator's current PNU page identifies 2F Terrace Park at 51 Jangjeononcheoncheon-ro. Kilter's current exact-address point is within 23 m of the current national address coordinate for that building, correcting the frozen point 420 m west."
+  },
+  {
+    "lat": -23.5560606,
+    "lon": -46.6890446,
+    "name": "Fabrica Escalada Vila Madalena",
+    "country": "BR",
+    "website": "https://www.fabricaescalada.com/unidades",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The operator's current units page names the Vila Madalena branch, prints Rua Girassol 323, identifies its MoonBoard, and publishes this coordinate in the site's structured organization/location data. The distinct Chacara block identifies the chain's Kilter Board at Rua da Paz 1823."
+  },
+  {
+    "lat": 22.2919752,
+    "lon": 114.2075175,
+    "name": "Vita Beta Climbing Gym Quarry Bay",
+    "country": "CN",
+    "website": "https://www.vitabeta.hk/contact/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "Vita Beta's current contact page separates its two halls and identifies this branch as Level 2, K11 HACC, K11 ATELIER King's Road, 728 King's Road, Quarry Bay. The manufacturer's exact pin independently identifies the Kilter Board at this second public branch."
+  },
+  {
+    "lat": 37.59289,
+    "lon": 126.67303,
+    "name": "디스커버리 클라임스퀘어 Climbsquare ICN",
+    "country": "KR",
+    "website": "https://www.climbingsquare.kr/icn",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "location-page"
+    ],
+    "note": "The operator's current ICN headquarters page identifies the branch at 인천광역시 서구 완정로 70 5층, exactly the address carried by the production row. It also distinguishes the ICN, Songdo and Cheongna branches and lists a system-board area."
+  },
+  {
+    "lat": 46.4723569,
+    "lon": 30.7025312,
+    "name": "SK Dynamica",
+    "country": "UA",
+    "website": "https://dynamica.od.ua/ua/skalolazanie-i-boldering/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The current sports-complex page invites adults and children to its public climbing and bouldering hall, explicitly names the interactive 12Climb wall, and prints 35 Buhaivska Street in Odesa. The manufacturer's exact Dynamica placemark lands on that address."
+  },
+  {
+    "lat": 45.52658504620519,
+    "lon": -122.43448777322068,
+    "name": "Rock Haven Climbing Gym",
+    "country": "US",
+    "website": "https://www.rockhavenclimbing.com/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The official facility page identifies the public Gresham gym and its MoonBoard 2024; the site's own current JSON-LD publishes 355 NE 223rd Avenue, Gresham OR 97030 and this exact point."
+  },
+  {
+    "lat": 51.7474718,
+    "lon": -1.2401007,
+    "name": "Gallery Bouldering",
+    "country": "GB",
+    "website": "https://gallerybouldering.co.uk/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The venue's current facilities page identifies its public Oxford gym and adjustable 2024 MoonBoard; its homepage prints The Gallery, 54 Marston Street, and the point independently matches that exact address in OpenStreetMap."
+  },
+  {
+    "lat": -34.436991,
+    "lon": 150.886987,
+    "name": "Hangdog Climbing Gym Wollongong",
+    "country": "AU",
+    "website": "https://hangdog.com.au/",
+    "verified": "2026-08-31",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "Hangdog's current bouldering page establishes public casual access and both its Classic and 2024 MoonBoards. The operator's homepage JSON-LD publishes 130 Auburn Street, Wollongong and this exact coordinate."
+  },
+  {
+    "lat": 49.4521018,
+    "lon": 11.0766654,
+    "name": "TSV 1846 Nürnberg - Bouldern",
+    "country": "DE",
+    "website": "https://tsvbouldern.de/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The club's current page prints its Fuggerstraße 9 Nürnberg address and identifies both its 2024 MoonBoard and adjustable Tension Board 2."
+  },
+  {
+    "lat": 39.2538197,
+    "lon": 9.1132358,
+    "name": "Double Dyno",
+    "country": "IT",
+    "website": "https://www.doubledyno.it/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The operator's current gym page identifies its public Cagliari/Pirri hall and LED MoonBoard; its contact page prints Via del Timo 21, whose exact street number independently resolves to this OSM point."
+  },
+  {
+    "lat": 45.6792606,
+    "lon": 8.9475553,
+    "name": "Lezard",
+    "country": "IT",
+    "website": "https://www.lezardclimb.it/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The association's current site identifies the public climbing gym, its MoonBoard and Via Anna Frank 1/3, 22076 Mozzate address; the exact named venue point is independently corroborated by OpenStreetMap."
+  },
+  {
+    "lat": 35.600647,
+    "lon": 139.352181,
+    "name": "BolBol",
+    "country": "JP",
+    "website": "https://bol-bol.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "BolBol's current operator site identifies its Sagamihara gym, full Hashimoto address, LED MoonBoard and regular public access. Its venue-owned map configuration places the marker at this coordinate."
+  },
+  {
+    "lat": 36.263468,
+    "lon": 139.347351,
+    "name": "Blue Bird BOULDERING GYM",
+    "country": "JP",
+    "website": "https://climbing-bluebird.jp/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The current operator site identifies Blue Bird, its public MoonBoard and 米沢町13 address. The representative point for that exact lot comes from MLIT's 2025 block-level location-reference file 10_2025.csv."
+  },
+  {
+    "lat": 35.370733,
+    "lon": 136.647393,
+    "name": "ボルダリング＆クライミングパーク ひょうたん島 大垣店",
+    "country": "JP",
+    "website": "https://park.hyoutanjima.jp/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The operator's current Ogaki page identifies the public gym, MoonBoard and 東町4丁目1番地3 address. The representative point for that exact address comes from MLIT's 2025 block-level location-reference file 21_2025.csv."
+  },
+  {
+    "lat": 35.662423,
+    "lon": 139.462647,
+    "name": "WEST ROCK Fuchu",
+    "country": "JP",
+    "website": "https://www.westrock-climbing.com/intro_fuchu/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "WEST ROCK's current branch page identifies the public Fuchu gym, MoonBoard and 分梅町5-9-1 address. MLIT's 2025 block-level location-reference file 13_2025.csv supplies the matching address point; the page's mismatched Google-derived JSON-LD coordinate is not imported."
+  },
+  {
+    "lat": 36.50025,
+    "lon": 136.872064,
+    "name": "桜ヶ池クライミングセンター",
+    "country": "JP",
+    "website": "https://climbingcenter.jp/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The current operator site identifies Sakuragaike Climbing Center, its app-connected 130-degree MoonBoard and 立野原東1511 address. The exact address point comes from MLIT's 2025 block-level location-reference file 16_2025.csv."
+  },
+  {
+    "lat": 35.115149,
+    "lon": 136.872711,
+    "name": "カラフルロック Colorful Rock",
+    "country": "JP",
+    "website": "https://colorfulrock.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "Colorful Rock's current site identifies the Nagoya gym, exact 須成町3丁目14 address and permanent 2016 MoonBoard. Its own JSON-LD and MLIT's 2025 block-level location-reference file 23_2025.csv independently give the same coordinate."
+  },
+  {
+    "lat": 34.821599,
+    "lon": 137.236109,
+    "name": "ボルダTO9蒲郡店",
+    "country": "JP",
+    "website": "https://bto9-ga.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage identifies the active Gamagori gym, its MoonBoard and current 府相町一丁目110 address. The operator's historical 端廻796 address, the municipality's 2021 old/new-address table and MLIT's 2018 lot record establish the same parcel without importing commercial-map coordinates."
+  },
+  {
+    "lat": 38.001454,
+    "lon": 140.624956,
+    "name": "ROCONESS",
+    "country": "JP",
+    "website": "https://roconess.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator site identifies the reservation-based public Shiroishi gym, its 2019 Masters LED MoonBoard and 字兎作3-1 address. MLIT's 2025 block-level location-reference file 04_2025.csv supplies the representative point for the exact lot."
+  },
+  {
+    "lat": 33.861438,
+    "lon": 132.742492,
+    "name": "愛媛クライミングジム iTTE",
+    "country": "JP",
+    "website": "https://itte-climbing.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The operator's current facility and access pages identify iTTE, its public MoonBoard and 久万ノ台639-1 address. MLIT's 2025 block-level location-reference file 38_2025.csv supplies the exact lot's representative point."
+  },
+  {
+    "lat": 35.983114,
+    "lon": 140.642811,
+    "name": "アオロク ao_roc.climbing",
+    "country": "JP",
+    "website": "https://aoroc.jp/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The operator's current facility page identifies the public Kashima gym, MoonBoard and 宮津台4752-10 address. MLIT's 2025 block-level location-reference file 08_2025.csv supplies the representative point for the exact lot."
+  },
+  {
+    "lat": 35.9461485,
+    "lon": 139.4770721,
+    "name": "モノリス川越店 Monolithe",
+    "country": "JP",
+    "website": "https://www.boulderinggym.jp/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The operator's current wall page explicitly identifies an LED MoonBoard and the same site labels the branch at 山田1430-1 as 川越店. The legacy registry point is retained because it identifies that branch; no coordinate is taken from a commercial map."
+  },
+  {
+    "lat": 35.274461,
+    "lon": 136.2596226,
+    "name": "goodboulderingMOONBOARD",
+    "country": "JP",
+    "website": "https://goodbouldering.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates"],
+    "note": "The current operator homepage identifies グッぼる彦根 at 522-0043 滋賀県彦根市小泉町34-8, matching the legacy venue name and point. The link is venue identity only; its current text does not establish the MoonBoard."
+  },
+  {
+    "lat": 37.7445357,
+    "lon": 139.1825675,
+    "name": "little forest",
+    "country": "JP",
+    "website": "https://bouldering-littleforest.simdif.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates"],
+    "note": "The operator's current site identifies クライミング＆ボルダリング リトルフォレスト at 新潟県五泉市寺沢3-5-37, matching the legacy venue point and identity."
+  },
+  {
+    "lat": 39.6960587,
+    "lon": 140.1449691,
+    "name": "TO-DO Climbing",
+    "country": "JP",
+    "website": "https://www.matsumoto-car.com/todoclimbing",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator climbing and facility pages identify the active Akita venue, MoonBoard and 上北手百崎字石川22 address. The exact named TO-DOクライミング building in OpenStreetMap (way 774885092) independently supplies the point; MLIT's current Akita address file has no 石川22 row."
+  },
+  {
+    "lat": 26.157273,
+    "lon": 127.651206,
+    "name": "D.Bouldering Okinawa Toyosaki",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/okinawa/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current branch and facility pages identify D.Bouldering Okinawa Toyosaki, its 130-degree MoonBoard and イーアス沖縄豊崎3F address. MLIT's 2025 Okinawa Location Reference Information supplies the representative point for the exact 豊崎3 lot; the mall's official access page independently confirms 豊崎3-35."
+  },
+  {
+    "lat": 48.38436086978212,
+    "lon": -89.24355872698759,
+    "name": "Rock Room",
+    "country": "CA",
+    "website": "https://www.rockroomclimbing.ca/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator facility and programming pages identify the public Thunder Bay gym at 319 Victoria Ave E and explicitly name both its Kilter Board and Moon Board. The newly refreshed structured source supplies the same exact address and coordinate."
+  },
+  {
+    "lat": 43.051019,
+    "lon": 141.384596,
+    "name": "Rainbow Cliff",
+    "country": "JP",
+    "website": "https://www.rainbow-cliff.co.jp/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage identifies Rainbow Cliff, its public MoonBoard and 北海道札幌市白石区東札幌2条2丁目3-26 address. MLIT's 2025 location-reference file supplies the representative point for the exact 東札幌二条二丁目3 lot."
+  },
+  {
+    "lat": 35.7035691,
+    "lon": 139.7517476,
+    "name": "スポドリ！ Spo-Dori!",
+    "country": "JP",
+    "website": "https://www.tokyo-dome.co.jp/spo-dori/bouldering/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "Tokyo Dome's current bouldering and access pages identify Spo-Dori!, its LED MoonBoard and 後楽1-3-61 黄色いビル3F address. The exact named Yellow Building in OSM (way 45977419) independently supplies the point."
+  },
+  {
+    "lat": 35.847428,
+    "lon": 139.626441,
+    "name": "Climbing Gym Penguin",
+    "country": "JP",
+    "website": "https://penguin-climb.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage identifies Climbing Gym Penguin, its public MoonBoard and 埼玉県さいたま市桜区田島4-40-16 address. MLIT's 2025 location-reference file supplies the representative point for the exact 田島四丁目40 lot."
+  },
+  {
+    "lat": 33.56772,
+    "lon": 130.442022,
+    "name": "Mono Climbing Studio Hakata",
+    "country": "JP",
+    "website": "https://mono-climbing.com/shopinfo/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "brand", "street-address", "city", "coordinates", "board-mention"],
+    "note": "The current operator's Hakata section identifies the public branch, its MoonBoard and 福岡市博多区那珂3丁目27-27 address. MLIT's 2025 location-reference file supplies the representative point for the exact 那珂三丁目27 block."
+  },
+  {
+    "lat": 34.664854,
+    "lon": 135.502672,
+    "name": "D.Bouldering pluslead namba",
+    "country": "JP",
+    "website": "https://www.d-b-c.jp/top/namba/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "brand", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator branch and facility pages identify the public Namba venue, its 130-degree MoonBoard and 大阪市中央区難波千日前12-35 address. MLIT's 2025 location-reference file supplies the representative point for the exact 難波千日前12 block."
+  },
+  {
+    "lat": 35.551848,
+    "lon": 140.388894,
+    "name": "クライミングジム猿吉 Sarukichi",
+    "country": "JP",
+    "website": "https://sarukichi-jp.jimdofree.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The accessible operator homepage and facility page identify the public Togane venue, its LED MoonBoard on a 130-degree wall and 千葉県東金市家徳288-1 address. Togane's 2025 merchant list confirms the current venue identity, and MLIT's 2025 file supplies the representative point for exact lot 288."
+  },
+  {
+    "lat": 35.14829,
+    "lon": 136.866307,
+    "name": "Climbing Gym GANBA",
+    "country": "JP",
+    "website": "https://ganba-climbing.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The accessible operator homepage and facility page identify the public Nagoya gym, installed LED MoonBoard and 名古屋市中川区南脇町2-3 address. MLIT's 2025 file supplies the representative point for the exact block and lot."
+  },
+  {
+    "lat": 33.571178,
+    "lon": 133.561081,
+    "name": "クライミングジム＆ショップ ストーンラブ",
+    "country": "JP",
+    "website": "https://www.stone0-0729.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator venue page identifies the public Kochi gym and its LED MoonBoard; its access page publishes 高知市南川添1205. Japan's official GSI address search resolves the normalized 南川添12-5 address to this exact point."
+  },
+  {
+    "lat": 35.029583,
+    "lon": 136.66954,
+    "name": "Climbing Gym Canyon",
+    "country": "JP",
+    "website": "https://www.climbingcanyon.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage identifies the public Asahi gym, its 2019 MoonBoard at 40 degrees and 三重県三重郡朝日町大字柿468-1 address. Japan's official GSI address search supplies this exact point."
+  },
+  {
+    "lat": 47.32550048828125,
+    "lon": 9.41860580444336,
+    "name": "Chletterai",
+    "country": "CH",
+    "website": "https://www.chletterai.ch/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator hall page identifies Chletterai, its MoonBoard and Quantum Board, and Weissbadstrasse 50 in Appenzell. Switzerland's official swisstopo address service supplies the exact building point."
+  },
+  {
+    "lat": 46.8665648313,
+    "lon": 14.4689992553,
+    "name": "Das Kraftwerk Althofen",
+    "country": "AT",
+    "website": "https://www.das-kraftwerk.at/bereiche/boulderhalle",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator bouldering page identifies the public Kraftwerk Althofen venue, Quantum Board and Funderstraße 2 address. Austria's official address register supplies the exact point."
+  },
+  {
+    "lat": 44.5046563,
+    "lon": 11.3531891,
+    "name": "Presa B+",
+    "country": "IT",
+    "website": "https://www.presabpiu.it/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator site identifies the public Bologna gym, Quantum Board and Via Emilio Zago 7 F/E address. OSM's independently maintained exact street-number point supplies the coordinate."
+  },
+  {
+    "lat": -0.22624910683982,
+    "lon": -78.408823013306,
+    "name": "Epsilon Sport Zone",
+    "country": "EC",
+    "website": "https://www.epsilonsportzone.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator facilities, climbing and contact pages identify the public Tumbaco venue, its Kilter Board and MoonBoard, public day products and Lateral Ruta Viva address. The architect's project page supplies the exact venue point, independently corroborated by OSM's sports-centre parcel on De los Condores."
+  },
+  {
+    "lat": 60.1940603,
+    "lon": 24.9457109,
+    "name": "Project Konepaja",
+    "country": "FI",
+    "website": "https://projectkonepaja.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator pages identify the public Helsinki venue, Kilter Board, Tension Board 2, MoonBoard 2024, visitor access and Konepajanpasaasi address. OSM's independently maintained exact named venue point supplies the coordinate."
+  },
+  {
+    "lat": 55.5958063,
+    "lon": 13.0040046,
+    "name": "Beta Boulders Malmö",
+    "country": "SE",
+    "website": "https://betaboulders.se/malmo/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator location, prices and terms pages establish an operating public Malmö branch at Spångatan 3B with day passes, memberships and an adjustable 15-70 degree Kilter Board. An independent exact-address point lands inside the same OSM commercial building whose centroid supplies the marker. The operator's older group homepage still saying opening in 2026 is stale relative to these live branch surfaces."
+  },
+  {
+    "lat": 46.7203221,
+    "lon": 11.6568287,
+    "name": "Vertikale",
+    "country": "IT",
+    "website": "https://vertikale.it/it/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator hall, price and directions pages establish the public Bressanone climbing centre, day-ticket access, Kilter Board and Piazza Priel 9 address. OSM's independently maintained exact named sports-centre node supplies the coordinate."
+  },
+  {
+    "lat": 55.791307,
+    "lon": 37.5598289,
+    "name": "Bigwall Sport Динамо",
+    "country": "RU",
+    "website": "https://bigwallsport.ru/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage, contacts and board guide identify the public Bigwall Sport Динамо branch, its 16x12 Original adjustable Kilter Board and Ленинградский проспект 36 address. OSM's independently maintained Arena Plaza building-part centroid supplies the point."
+  },
+  {
+    "lat": 3.051063,
+    "lon": 101.6705112,
+    "name": "BUMP Bouldering Pavilion Bukit Jalil",
+    "country": "MY",
+    "website": "https://www.bumpbouldering.com/pavilion-bukit-jalil",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The operator's current branch page identifies the Kilter Board, exact Level 5 Pavilion Bukit Jalil unit, public hours and 20-70 degree adjustable range. The mall's current first-party tenant page independently establishes the operating branch, while OSM's named mall centroid supplies the point."
+  },
+  {
+    "lat": -12.4303626,
+    "lon": 130.8568256,
+    "name": "Gecko Climb",
+    "country": "AU",
+    "website": "https://geckoclimb.com.au/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The operator's current homepage, contact and coaching pages identify Darwin's public climbing centre, Kilter Board courses, public day access and 2 Snell Street address. OSM's independently maintained exact named sports-centre node supplies the coordinate."
+  },
+  {
+    "lat": 46.6589636,
+    "lon": 13.0567438,
+    "name": "KLE-SCH Kletter- und Schießzentrum St. Daniel",
+    "country": "AT",
+    "website": "https://kle-sch.at/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator bouldering and climbing pages identify the public St. Daniel centre, exact address and adjustable 0-70 degree Kilter Board. OSM's independently maintained exact named building supplies the point."
+  },
+  {
+    "lat": 48.1750125,
+    "lon": 11.5579576,
+    "name": "Munich Action Park",
+    "country": "DE",
+    "website": "https://www.olympiapark.de/de/sport/munich-action-park",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The municipal operator's current venue and bouldering pages identify the open public Munich Action Park, visitor tickets and adjustable Kilter Board; current municipal records supply Spiridon-Louis-Ring 3. OSM's independently maintained named building supplies the point."
+  },
+  {
+    "lat": -0.21926596177731264,
+    "lon": -78.44734262883618,
+    "name": "El Muro",
+    "country": "EC",
+    "website": "https://www.elmuroescalada.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "city", "coordinates", "board-mention"],
+    "note": "The current operator site identifies El Muro Escalada in Cumbayá, on Vía Lumbisí at El Potrero San Luis, and its operator-controlled waiver names the Kilterboard, angle controls and app. OSM's independently maintained exact named climbing-centre node is 106 m from the upstream point on the same road, making the venue identity unambiguous."
+  },
+  {
+    "lat": 55.8504352,
+    "lon": -4.281947,
+    "name": "The Newsroom - The Climbing Academy",
+    "country": "GB",
+    "website": "https://www.theclimbingacademy.com/locations/the-newsroom/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current branch-primary board-social page explicitly assigns a Kilter Board to The Newsroom and says its boards are open to everyone whenever the venue is open. The operator contact page identifies the branch at 124 Portman Street, while OSM's independently maintained exact named sports-centre node supplies the matching point."
+  },
+  {
+    "lat": 58.62273,
+    "lon": 5.6619005,
+    "name": "Varhaughallen - Varhaug IL Klatring",
+    "country": "NO",
+    "website": "https://www.vil.no/klatring/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "city", "coordinates", "board-mention", "location-page"],
+    "note": "The current club climbing and schedule pages place the public climbing room inside Varhaughallen and offer paid drop-in access to everyone on two weekly sessions. The club's 2024 completion report says the Kilter Board was delivered, installed and in active use. The official venue page and business register identify Opstadvegen 583, while OSM's exact named, club-owned sports-centre building supplies the matching point."
+  },
+  {
+    "lat": 55.67094115452206,
+    "lon": 37.29276147791354,
+    "name": "GYM Skalodrom.RU",
+    "country": "RU",
+    "website": "https://gym-skalodrom.ru/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage identifies the Odintsovo climbing centre, public self-guided visits, its Kilter Board and exact Transportnaya 2 building 19 address. OSM independently places the existing point on the named industrial parcel at that address."
+  },
+  {
+    "lat": 7.9752039,
+    "lon": 98.3404014,
+    "name": "REBEL Rock Climbing",
+    "country": "TH",
+    "website": "https://www.rebelrockclimbing.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage identifies the public Phuket climbing venue, its Kilter Board and exact 194/6 Moo 7 Srisoonthorn address. OSM independently maps the exact named sport-centre node at that address."
+  },
+  {
+    "lat": 13.72308,
+    "lon": 100.53072,
+    "name": "Magnus' Climbing Gym",
+    "country": "TH",
+    "website": "https://www.magnusthecapybara.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "social-handle", "board-mention", "coordinates"],
+    "note": "Magnus' current operator page names the gym, links the same magnusclimbinggym social handle carried by its Tension registry row, offers public member/day-pass access and lists Kilter, Moon and Tension Board apps. The capybara-named MoonBoard registry marker 35 m away is consolidated with the address-bearing Kilter/Tension point."
+  },
+  {
+    "lat": -33.89914,
+    "lon": 151.0434,
+    "name": "1UP Bouldering",
+    "country": "AU",
+    "website": "https://www.oneupbouldering.com.au/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "board-mention"],
+    "note": "The current operator homepage identifies the public Chullora gym and exact Unit 1/4 Brunker Road address, while its facilities page carries the venue's Kilter Board image and training area. The site now serves readable first-party text, resolving the former unavailable outcome."
+  },
+  {
+    "lat": -27.565676,
+    "lon": 151.947208,
+    "name": "Climb Toowoomba",
+    "country": "AU",
+    "website": "https://climb-australia.com.au/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city"],
+    "note": "The current operator homepage identifies the open public Toowoomba bouldering gym, exact 25 Prescott Street address, walk-in access and complete regular week. The Kilter row itself is retained from the registry rather than inferred from a search snippet."
+  },
+  {
+    "lat": 48.60642,
+    "lon": 15.16941,
+    "name": "Kletterhalle Zwettl",
+    "country": "AT",
+    "website": "https://www.alpenverein.at/waldviertel/klettern/020_Kletterhalle-zwettl.php",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current Alpenverein hall page proves paid public access and registration at Kletterhalle Zwettl; the section's official 2025 magazine documents the adjustable Kilter Board completed in 2024 inside the Sportmittelschule hall. The official Austrian climbing-facility finder independently labels use as public, and OSM way 29474116 identifies the exact named school building at Schulgasse 24."
   }
 ]

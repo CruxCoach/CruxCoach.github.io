@@ -620,6 +620,60 @@
    }
   },
   {
+   "lat": 46.8665648313,
+   "lon": 14.4689992553,
+   "name": "Das Kraftwerk Althofen",
+   "country": "AT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ]
+   }
+  },
+  {
+   "lat": 48.29891,
+   "lon": 14.2749,
+   "name": "Der Steinbock Linz",
+   "country": "AT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "previous-record"
+    ]
+   }
+  },
+  {
+   "lat": 46.6589636,
+   "lon": 13.0567438,
+   "name": "KLE-SCH Kletter- und Schießzentrum St. Daniel",
+   "country": "AT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ],
+    "note": "The official bouldering page omits Wednesday from its staffed week and separately states daily chip-card access, so one complete public week cannot be normalized without inference."
+   }
+  },
+  {
    "lat": 46.78353,
    "lon": 15.54574,
    "name": "Kletterhalle Alpenverein Leibnitz",
@@ -734,6 +788,23 @@
    }
   },
   {
+   "lat": 47.266263,
+   "lon": 11.900404,
+   "name": "Kraftreich Aufenfeld",
+   "country": "AT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 47.80278999999999,
    "lon": 16.23318,
    "name": "Mondbrett",
@@ -791,20 +862,18 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unavailable",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
      "web-search",
      "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "inaccessible",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
+     "venue-link",
      "path-probe"
     ]
    }
@@ -1025,7 +1094,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -1036,36 +1105,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": -26.80713,
-   "lon": 153.07039,
-   "name": "Boulder Heads",
-   "country": "AU",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-24",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "venue-link",
@@ -1232,12 +1272,20 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "path-probe"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -1456,6 +1504,23 @@
    "hours": {
     "pass": "2026-08-23",
     "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": -27.4549218,
+   "lon": 153.0328871,
+   "name": "ICP Boulder Hall & Showroom",
+   "country": "AU",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "no-hours-on-official-site",
     "channels": [
      "venue-link",
      "path-probe"
@@ -1798,35 +1863,6 @@
    }
   },
   {
-   "lat": -37.7870301,
-   "lon": 144.885586,
-   "name": "Rocket",
-   "country": "AU",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
    "lat": -37.78692,
    "lon": 144.88556,
    "name": "Rocket Climbing",
@@ -1963,35 +1999,6 @@
    }
   },
   {
-   "lat": -33.83547,
-   "lon": 151.05313,
-   "name": "Sandbox Bouldering",
-   "country": "AU",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
    "lat": -33.83541,
    "lon": 151.05309,
    "name": "Sandbox Bouldering",
@@ -2012,8 +2019,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"
@@ -2174,8 +2181,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-24",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -2832,8 +2839,13 @@
     "hours"
    ],
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-25",
+    "result": "no-hours-on-official-site",
+    "channels": [
+     "venue-link",
+     "operator-index",
+     "path-probe"
+    ]
    }
   },
   {
@@ -3170,29 +3182,28 @@
    }
   },
   {
-   "lat": -23.5829602,
-   "lon": -46.6744396,
-   "name": "FABRICA Escalada",
+   "lat": -23.5560606,
+   "lon": -46.6890446,
+   "name": "Fabrica Escalada Vila Madalena",
    "country": "BR",
    "needs": [
     "website",
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
-    "result": "ambiguous",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "operator-index",
+     "map-block"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
      "venue-link",
-     "path-probe"
+     "operator-index"
     ]
    }
   },
@@ -4618,8 +4629,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-31",
+    "result": "appointment-only",
     "channels": [
      "venue-link",
      "path-probe"
@@ -5166,8 +5177,8 @@
    }
   },
   {
-   "lat": 48.3842148,
-   "lon": -89.2436231,
+   "lat": 48.38436086978212,
+   "lon": -89.24355872698759,
    "name": "Rock Room",
    "country": "CA",
    "needs": [
@@ -5175,20 +5186,20 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unavailable",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
      "web-search",
-     "path-probe"
+     "apex",
+     "path-probe",
+     "map-block"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "inaccessible",
+    "pass": "2026-09-01",
+    "result": "no-hours-on-official-site",
     "channels": [
+     "venue-link",
      "path-probe"
     ]
    }
@@ -5664,35 +5675,6 @@
    }
   },
   {
-   "lat": 51.0779562,
-   "lon": -114.1337454,
-   "name": "University of Calgary Moonboard",
-   "country": "CA",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "operator-index",
-     "apex",
-     "www",
-     "path-probe",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
    "lat": 51.07767,
    "lon": -114.13419,
    "name": "University of Calgary Outdoor Centre",
@@ -5702,7 +5684,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
      "operator-index",
@@ -5713,8 +5695,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-31",
+    "result": "seasonal",
     "channels": [
      "venue-link",
      "path-probe"
@@ -6235,15 +6217,28 @@
    }
   },
   {
-   "lat": 46.21936,
-   "lon": 6.10238,
-   "name": "TOTEM Le Môll",
+   "lat": 46.2221988,
+   "lon": 6.0728865,
+   "name": "TOTEM Meyrin",
    "country": "CH",
    "needs": [
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-24",
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
+   "lat": 46.21936,
+   "lon": 6.10238,
+   "name": "TOTEM Vernier",
+   "country": "CH",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
     "result": "no-hours-on-official-site",
     "channels": [
      "venue-link",
@@ -6531,8 +6526,8 @@
    }
   },
   {
-   "lat": 31.214574311841517,
-   "lon": 121.49361072562584,
+   "lat": 31.20949,
+   "lon": 121.49864,
    "name": "1778 CLIMBING",
    "country": "CN",
    "needs": [
@@ -6540,8 +6535,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "social-only",
     "channels": [
      "name-guess",
      "apex",
@@ -6552,7 +6547,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -6572,7 +6567,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "unverified",
     "channels": [
      "name-guess",
@@ -6580,11 +6575,12 @@
      "www",
      "web-search",
      "social-profile",
-     "previous-record"
+     "previous-record",
+     "operator-index"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -6595,8 +6591,8 @@
    }
   },
   {
-   "lat": 30.18347,
-   "lon": 120.21197,
+   "lat": 30.188212,
+   "lon": 120.210894,
    "name": "Ascent 杭州顽攀攀岩",
    "country": "CN",
    "needs": [
@@ -6604,7 +6600,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "unverified",
     "channels": [
      "name-guess",
@@ -6616,7 +6612,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -6741,8 +6737,8 @@
    }
   },
   {
-   "lat": 31.237007,
-   "lon": 121.452322,
+   "lat": 31.24035,
+   "lon": 121.44879,
    "name": "Beta Boulders Gym JingAn",
    "country": "CN",
    "needs": [
@@ -6750,8 +6746,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "social-only",
     "channels": [
      "name-guess",
      "apex",
@@ -6762,7 +6758,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -6814,16 +6810,19 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unavailable",
+    "pass": "2026-09-01",
+    "result": "duplicate",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
      "social-profile",
-     "path-probe"
-    ]
+     "path-probe",
+     "co-located",
+     "previous-record"
+    ],
+    "note": "The later duplicate audit established that this Kilter row and the nearby Tension row are the same one operator-addressed Board Room venue; the website outcome now follows the backed exclusion record."
    },
    "hours": {
     "pass": "2026-08-25",
@@ -7096,25 +7095,21 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "ambiguous",
     "channels": [
      "name-guess",
-     "apex",
-     "www",
      "web-search",
      "social-profile",
      "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "web-search",
+     "previous-record"
     ]
    }
   },
@@ -7530,28 +7525,26 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unavailable",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "co-located"
+     "venue-link",
+     "path-probe",
+     "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "inaccessible",
+    "pass": "2026-08-31",
+    "result": "ambiguous",
     "channels": [
+     "venue-link",
      "path-probe"
     ]
    }
   },
   {
-   "lat": 22.34366,
-   "lon": 114.14026,
+   "lat": 22.3424815,
+   "lon": 114.1359859,
    "name": "The Player Climbinggym",
    "country": "CN",
    "needs": [
@@ -7619,25 +7612,22 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "ambiguous",
     "channels": [
      "name-guess",
-     "apex",
-     "www",
      "web-search",
      "social-profile",
      "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "web-search",
+     "previous-record"
     ]
    }
   },
@@ -8180,38 +8170,6 @@
    "lat": 9.93965,
    "lon": -84.15605,
    "name": "Eskalar",
-   "country": "CR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   }
-  },
-  {
-   "lat": 9.887011856968725,
-   "lon": -83.90448881843531,
-   "name": "Raccoon",
    "country": "CR",
    "needs": [
     "website",
@@ -9785,15 +9743,15 @@
    }
   },
   {
-   "lat": 48.69621,
-   "lon": 9.02313,
+   "lat": 48.6956085,
+   "lon": 9.023023,
    "name": "Roccadion",
    "country": "DE",
    "needs": [
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "seasonal",
     "channels": [
      "venue-link",
@@ -9992,6 +9950,23 @@
    }
   },
   {
+   "lat": 49.4521018,
+   "lon": 11.0766654,
+   "name": "TSV 1846 Nürnberg - Bouldern",
+   "country": "DE",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "appointment-only",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 49.9913901,
    "lon": 8.2450697,
    "name": "UNI Mainz Sportklettern",
@@ -10051,15 +10026,15 @@
    }
   },
   {
-   "lat": 51.01574,
-   "lon": 13.8046,
+   "lat": 51.01528,
+   "lon": 13.808827,
    "name": "XXL Klettern Dresden",
    "country": "DE",
    "needs": [
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
      "venue-link",
@@ -10561,25 +10536,22 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
+     "operator-index",
      "apex",
      "www",
-     "osm-website-tag",
+     "path-probe",
      "co-located"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -11371,16 +11343,16 @@
    }
   },
   {
-   "lat": 41.5625,
-   "lon": 1.99852,
-   "name": "GeoBoulder",
+   "lat": 41.5623017,
+   "lon": 1.9985057,
+   "name": "Geo Boulder",
    "country": "ES",
    "needs": [
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-24",
-    "result": "seasonal",
+    "pass": "2026-09-01",
+    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"
@@ -11740,6 +11712,23 @@
    }
   },
   {
+   "lat": 41.7962914,
+   "lon": 0.8100862,
+   "name": "Boulder Balaguer",
+   "country": "ES",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "appointment-only",
+    "channels": [
+     "venue-link",
+     "web-search"
+    ]
+   }
+  },
+  {
    "lat": 41.42486,
    "lon": 2.18593,
    "name": "Monobloc La Sagrera",
@@ -11748,11 +11737,12 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -11765,11 +11755,12 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -11782,11 +11773,12 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -12681,8 +12673,8 @@
    }
   },
   {
-   "lat": 60.16622370498926,
-   "lon": 24.904248473015482,
+   "lat": 60.166129,
+   "lon": 24.904168,
    "name": "KiipeilyAreena Salmisaari",
    "country": "FI",
    "needs": [
@@ -12690,12 +12682,20 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-31",
+    "result": "accepted",
+    "channels": [
+     "operator-index",
+     "venue-link"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-08-31",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -13206,8 +13206,8 @@
    }
   },
   {
-   "lat": 44.899596273874344,
-   "lon": 6.63972697236616,
+   "lat": 44.9129157,
+   "lon": 6.6212888,
    "name": "Briançon escalade",
    "country": "FR",
    "needs": [
@@ -13215,7 +13215,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -13226,7 +13226,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "appointment-only",
     "channels": [
      "venue-link",
@@ -13748,11 +13748,11 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "apex"
     ]
    }
   },
@@ -14553,23 +14553,6 @@
    }
   },
   {
-   "lat": 51.5822099,
-   "lon": -1.753619,
-   "name": "Rockstar Climbing",
-   "country": "GB",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
    "lat": 51.58198,
    "lon": -1.754,
    "name": "Rockstar Climbing & Bouldering",
@@ -14925,6 +14908,24 @@
    }
   },
   {
+   "lat": 51.45496,
+   "lon": -0.193,
+   "name": "The Font Wandsworth",
+   "country": "GB",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "operator-index",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 53.390203,
    "lon": -1.471551,
    "name": "The Foundry",
@@ -15126,8 +15127,8 @@
    }
   },
   {
-   "lat": 41.71807,
-   "lon": 44.74083,
+   "lat": 41.7169522,
+   "lon": 44.7358542,
    "name": "s.k.lucky",
    "country": "GE",
    "needs": [
@@ -15135,8 +15136,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "social-only",
     "channels": [
      "name-guess",
      "apex",
@@ -15146,7 +15147,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -15775,6 +15776,34 @@
    }
   },
   {
+   "lat": -6.168997632532928,
+   "lon": 106.92485794232918,
+   "name": "Dreamstone Boulders Kelapa Gading",
+   "country": "ID",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "social-only",
+    "channels": [
+     "web-search",
+     "apex",
+     "www",
+     "path-probe"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-official-site",
+    "channels": [
+     "web-search",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": -6.99707,
    "lon": 107.55413,
    "name": "Goodang Bouldering",
@@ -16141,23 +16170,19 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
+     "web-search",
+     "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -16452,12 +16477,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ]
    }
   },
   {
@@ -16902,6 +16938,23 @@
    }
   },
   {
+   "lat": 39.2538197,
+   "lon": 9.1132358,
+   "name": "Double Dyno",
+   "country": "IT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 43.108311,
    "lon": 12.366431,
    "name": "Dreamtime",
@@ -17025,7 +17078,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -17036,36 +17089,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 45.6570925,
-   "lon": 13.8102992,
-   "name": "Gravità Zero MOON BOARD",
-   "country": "IT",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "co-located",
-     "previous-record",
-     "apex",
-     "www"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"
@@ -17338,16 +17363,34 @@
    }
   },
   {
-   "lat": 44.49092,
-   "lon": 11.25031,
+   "lat": 44.4831,
+   "lon": 11.2621,
    "name": "Level 24",
    "country": "IT",
    "needs": [
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "map-block"
+    ]
+   }
+  },
+  {
+   "lat": 45.6792606,
+   "lon": 8.9475553,
+   "name": "Lezard",
+   "country": "IT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "seasonal",
     "channels": [
      "venue-link",
      "path-probe"
@@ -18202,6 +18245,62 @@
    }
   },
   {
+   "lat": 36.263468,
+   "lon": 139.347351,
+   "name": "Blue Bird BOULDERING GYM",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 35.600647,
+   "lon": 139.352181,
+   "name": "BolBol",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 34.6551456,
    "lon": 133.9195019,
    "name": "BoulderGarden SaBo",
@@ -18288,8 +18387,8 @@
    }
   },
   {
-   "lat": 35.70682,
-   "lon": 139.66606,
+   "lat": 35.7067885,
+   "lon": 139.6660675,
    "name": "CapyClimb",
    "country": "JP",
    "needs": [
@@ -18297,36 +18396,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-25",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 35.709834416741565,
-   "lon": 139.6658118837558,
-   "name": "CapyClimb",
-   "country": "JP",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -18336,11 +18406,56 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 35.553181,
+   "lon": 139.579468,
+   "name": "Climbing Bum Yokohama",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "previous-record",
+     "apex",
+     "www"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 35.14829,
+   "lon": 136.866307,
+   "name": "Climbing Gym GANBA",
+   "country": "JP",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -18376,33 +18491,6 @@
    }
   },
   {
-   "lat": 35.55209809999999,
-   "lon": 139.5794141,
-   "name": "ClimbingBUM",
-   "country": "JP",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "previous-record",
-     "apex",
-     "www"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
    "lat": 34.6645243,
    "lon": 135.5213199,
    "name": "CRUX Osaka",
@@ -18412,8 +18500,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "mislocated",
     "channels": [
      "name-guess",
      "apex",
@@ -18737,24 +18825,24 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
-     "previous-record"
+     "previous-record",
+     "operator-index"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "operator-index",
+     "previous-record"
     ]
    }
   },
@@ -18796,24 +18884,23 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
+     "operator-index",
      "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "no-hours-on-official-site",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -18827,24 +18914,23 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
+     "operator-index",
      "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -18886,24 +18972,24 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
-     "previous-record"
+     "previous-record",
+     "operator-index",
+     "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -18917,24 +19003,21 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
      "apex",
-     "www",
      "web-search",
-     "previous-record"
+     "path-probe",
+     "map-block"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -19006,15 +19089,16 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "closed",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
      "redirect",
-     "previous-record"
+     "previous-record",
+     "social-profile"
     ]
    },
    "hours": {
@@ -19105,17 +19189,18 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "seasonal",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "operator-index"
     ]
    }
   },
   {
-   "lat": 35.18145060000001,
-   "lon": 136.9065571,
+   "lat": 35.205871,
+   "lon": 136.94425,
    "name": "RIOT CLIMBING",
    "country": "JP",
    "needs": [
@@ -19123,17 +19208,19 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
+     "web-search",
+     "operator-index",
      "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-24",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
      "venue-link",
@@ -19170,33 +19257,61 @@
    }
   },
   {
-   "lat": 34.4875144,
-   "lon": 136.7093359,
-   "name": "SunnyDipperMoonBoard",
+   "lat": 38.001454,
+   "lon": 140.624956,
+   "name": "ROCONESS",
    "country": "JP",
    "needs": [
     "website",
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 34.511873,
+   "lon": 136.64258,
+   "name": "SunnyDipper Climbing",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
+     "operator-index",
      "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "path-probe",
+     "operator-index"
     ]
    }
   },
@@ -19241,20 +19356,51 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "http-only",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
-     "path-probe"
+     "path-probe",
+     "operator-index"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "ambiguous",
     "channels": [
+     "venue-link",
+     "path-probe",
+     "operator-index"
+    ]
+   }
+  },
+  {
+   "lat": 39.6960587,
+   "lon": 140.1449691,
+   "name": "TO-DO Climbing",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
      "path-probe"
     ]
    }
@@ -19269,8 +19415,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "mislocated",
     "channels": [
      "name-guess",
      "apex",
@@ -19280,10 +19426,11 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-09-01",
     "result": "ambiguous",
     "channels": [
-     "web-search"
+     "web-search",
+     "operator-index"
     ]
    }
   },
@@ -19297,8 +19444,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
@@ -19308,13 +19455,97 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search"
+    ]
+   }
+  },
+  {
+   "lat": 35.662423,
+   "lon": 139.462647,
+   "name": "WEST ROCK Fuchu",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 35.983114,
+   "lon": 140.642811,
+   "name": "アオロク ao_roc.climbing",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 35.115149,
+   "lon": 136.872711,
+   "name": "カラフルロック Colorful Rock",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -19377,6 +19608,24 @@
    }
   },
   {
+   "lat": 35.551848,
+   "lon": 140.388894,
+   "name": "クライミングジム猿吉 Sarukichi",
+   "country": "JP",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ]
+   }
+  },
+  {
    "lat": 34.75463,
    "lon": 135.4994,
    "name": "クラックス大阪 CRUX Osaka",
@@ -19396,8 +19645,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -19463,8 +19712,8 @@
    }
   },
   {
-   "lat": 35.4425,
-   "lon": 139.36599,
+   "lat": 35.442445280250666,
+   "lon": 139.3634466153931,
    "name": "ディーボルダリング本厚 D Bouldering Hon-Atsugi",
    "country": "JP",
    "needs": [
@@ -19483,8 +19732,65 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-31",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "operator-index"
+    ]
+   }
+  },
+  {
+   "lat": 34.821599,
+   "lon": 137.236109,
+   "name": "ボルダTO9蒲郡店",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 35.370733,
+   "lon": 136.647393,
+   "name": "ボルダリング＆クライミングパーク ひょうたん島 大垣店",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -19551,6 +19857,34 @@
    }
   },
   {
+   "lat": 33.861438,
+   "lon": 132.742492,
+   "name": "愛媛クライミングジム iTTE",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 33.22722,
    "lon": 132.7108,
    "name": "松野町コミュニティセンター Matsuno Town Community Center",
@@ -19560,24 +19894,49 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
-     "apex",
-     "www",
      "web-search",
-     "previous-record"
+     "operator-index",
+     "co-located"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "appointment-only",
     "channels": [
-     "name-guess",
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 36.50025,
+   "lon": 136.872064,
+   "name": "桜ヶ池クライミングセンター",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
      "apex",
-     "www",
-     "web-search"
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -19649,7 +20008,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-09-01",
     "result": "unverified",
     "channels": [
      "name-guess",
@@ -19661,39 +20020,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
-    ]
-   }
-  },
-  {
-   "lat": 37.4460164,
-   "lon": 126.8023545,
-   "name": "Bouldergarden",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-09-01",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -19707,38 +20034,6 @@
    "lat": 35.82364,
    "lon": 128.5275,
    "name": "Chalk Up Climbing Center Wolseong 초크업 클라이밍",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
-    ]
-   }
-  },
-  {
-   "lat": 37.497738,
-   "lon": 127.0409539,
-   "name": "Climb Emotion",
    "country": "KR",
    "needs": [
     "website",
@@ -19832,38 +20127,6 @@
    }
   },
   {
-   "lat": 37.4876288,
-   "lon": 126.9945297,
-   "name": "Gate1_Climbing",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
-    ]
-   }
-  },
-  {
    "lat": 36.7844993,
    "lon": 126.4503169,
    "name": "Gorilla climbing's Moonboard",
@@ -19873,7 +20136,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-09-01",
     "result": "unverified",
     "channels": [
      "name-guess",
@@ -19885,7 +20148,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-09-01",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -19896,17 +20159,17 @@
    }
   },
   {
-   "lat": 36.3643697,
-   "lon": 127.3247016,
-   "name": "HanaGym_MoonBoard",
+   "lat": 37.2667603,
+   "lon": 127.0014613,
+   "name": "Kin:D",
    "country": "KR",
    "needs": [
     "website",
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "social-only",
     "channels": [
      "name-guess",
      "apex",
@@ -19917,39 +20180,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
-    ]
-   }
-  },
-  {
-   "lat": 37.26365,
-   "lon": 126.99862,
-   "name": "Kin:d",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -19969,8 +20200,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "social-only",
     "channels": [
      "name-guess",
      "apex",
@@ -19981,7 +20212,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-09-01",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -20001,8 +20232,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "unavailable",
     "channels": [
      "name-guess",
      "apex",
@@ -20013,40 +20244,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
-    ]
-   }
-  },
-  {
-   "lat": 37.5697433,
-   "lon": 126.9899785,
-   "name": "SeoulForest's moonboard",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "inaccessible",
     "channels": [
      "name-guess",
      "apex",
@@ -20065,7 +20264,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-09-01",
     "result": "unverified",
     "channels": [
      "name-guess",
@@ -20077,7 +20276,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-09-01",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -20091,38 +20290,6 @@
    "lat": 37.25296,
    "lon": 127.07628,
    "name": "Superb Climbing",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
-    ]
-   }
-  },
-  {
-   "lat": 37.4967717,
-   "lon": 126.776494,
-   "name": "tigerbouldergym",
    "country": "KR",
    "needs": [
     "website",
@@ -20174,6 +20341,38 @@
    },
    "hours": {
     "pass": "2026-08-25",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search"
+    ]
+   }
+  },
+  {
+   "lat": 37.4876288,
+   "lon": 126.9945297,
+   "name": "게이트원 클라이밍 Gate One Climbing",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -20257,8 +20456,70 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "path-probe",
+     "venue-link"
+    ]
+   },
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 37.44572502448479,
+   "lon": 126.80167496802616,
+   "name": "볼더가든 클라이밍 Bouldergarden",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "social-only",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ]
+   }
+  },
+  {
+   "lat": 37.5697433,
+   "lon": 126.9899785,
+   "name": "서울숲클라이밍 종로 SeoulForest Climbing Jongno",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "social-only",
     "channels": [
      "name-guess",
      "apex",
@@ -20269,7 +20530,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-09-01",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -20344,8 +20605,8 @@
    }
   },
   {
-   "lat": 33.32611,
-   "lon": 126.83256,
+   "lat": 33.324883,
+   "lon": 126.8245979,
    "name": "오루뭉 Orumung Climbing Gym",
    "country": "KR",
    "needs": [
@@ -20353,7 +20614,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "unverified",
     "channels": [
      "name-guess",
@@ -20365,7 +20626,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -20373,6 +20634,36 @@
      "www",
      "web-search"
     ]
+   }
+  },
+  {
+   "lat": 35.1088403702862,
+   "lon": 128.967159324406,
+   "name": "오터클라이밍 OTTERCLIMBING",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "social-only",
+    "channels": [
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ],
+    "note": "The operator's current marketplace business profile names only Instagram and Naver update channels; no standalone official HTTPS website was found."
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-official-site",
+    "channels": [
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ],
+    "note": "Marketplace and directory times are not an official-site schedule and currently conflict on the weekend."
    }
   },
   {
@@ -20405,8 +20696,8 @@
    }
   },
   {
-   "lat": 35.22902,
-   "lon": 129.08423,
+   "lat": 35.2295856,
+   "lon": 129.0888247,
    "name": "웨이브락 클라이밍 Wave Rock Climbing (PNU)",
    "country": "KR",
    "needs": [
@@ -20414,25 +20705,22 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
+     "venue-link",
+     "operator-index",
+     "path-probe",
      "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "operator-index",
+     "path-probe"
     ]
    }
   },
@@ -20440,38 +20728,6 @@
    "lat": 37.67682,
    "lon": 126.74719,
    "name": "코알라클라이밍 Koala Climbing Kintex",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
-    ]
-   }
-  },
-  {
-   "lat": 37.56146,
-   "lon": 127.19302,
-   "name": "클라이밍 하남미사점 V10 Climbing Hanam Misa",
    "country": "KR",
    "needs": [
     "website",
@@ -20565,6 +20821,70 @@
    }
   },
   {
+   "lat": 37.497738,
+   "lon": 127.0409539,
+   "name": "클라임 이모션 Climb Emotion",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search"
+    ]
+   }
+  },
+  {
+   "lat": 37.5627864,
+   "lon": 127.1933404,
+   "name": "클라임어스 미사점 Climb Us Hanam Misa",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-08-31",
+    "result": "social-only",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ]
+   },
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search"
+    ]
+   }
+  },
+  {
    "lat": 37.26647,
    "lon": 127.03122,
    "name": "클라임업 수원점 ClimbUp Suwon",
@@ -20625,6 +20945,74 @@
      "apex",
      "www",
      "web-search"
+    ]
+   }
+  },
+  {
+   "lat": 37.4967717,
+   "lon": 126.776494,
+   "name": "타이거볼더클라이밍짐 Tiger Boulder Climbing Gym",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search"
+    ]
+   }
+  },
+  {
+   "lat": 36.3643697,
+   "lon": 127.3247016,
+   "name": "하나클라이밍짐 Hana Climbing Gym",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "unavailable",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record",
+     "operator-index",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "inaccessible",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "venue-link",
+     "operator-index"
     ]
    }
   },
@@ -21632,31 +22020,34 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
      "social-profile",
-     "previous-record"
+     "previous-record",
+     "canonical"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "web-search"
+     "web-search",
+     "venue-link",
+     "path-probe"
     ]
    }
   },
   {
-   "lat": 20.61837,
-   "lon": -103.43033,
+   "lat": 20.6332963,
+   "lon": -103.4365048,
    "name": "YE Escalada + Yoga Center",
    "country": "MX",
    "needs": [
@@ -21664,7 +22055,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "unverified",
     "channels": [
      "name-guess",
@@ -21672,11 +22063,12 @@
      "www",
      "web-search",
      "social-profile",
-     "previous-record"
+     "previous-record",
+     "operator-index"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -21719,7 +22111,7 @@
   {
    "lat": 3.1006116,
    "lon": 101.6320434,
-   "name": "BHub Bouldering 2024 Moonboard",
+   "name": "BHub Bouldering",
    "country": "MY",
    "needs": [
     "website",
@@ -21794,39 +22186,12 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 3.12049,
-   "lon": 101.67436,
-   "name": "Camp5 Eco City",
-   "country": "MY",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
-     "co-located",
-     "previous-record",
-     "apex",
-     "www"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
-    "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "operator-index"
     ]
    }
   },
@@ -21929,8 +22294,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unavailable",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
@@ -21938,15 +22303,18 @@
      "osm-website-tag",
      "co-located",
      "web-search",
-     "social-profile"
+     "social-profile",
+     "operator-index",
+     "map-block"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "map-block"
     ]
    }
   },
@@ -22092,14 +22460,15 @@
     "website"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
+    "pass": "2026-09-01",
+    "result": "mislocated",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "osm-website-tag",
-     "co-located"
+     "co-located",
+     "web-search"
     ]
    }
   },
@@ -22996,6 +23365,23 @@
    }
   },
   {
+   "lat": 59.5635815,
+   "lon": 7.3548335,
+   "name": "Hovden Grendehus",
+   "country": "NO",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 61.21709,
    "lon": 6.06983,
    "name": "Høyanger Klatreklubb",
@@ -23013,8 +23399,8 @@
    }
   },
   {
-   "lat": 59.28207,
-   "lon": 10.32679,
+   "lat": 59.2800086,
+   "lon": 10.316057,
    "name": "Høyt Under Taket Klatresenter Tønsberg",
    "country": "NO",
    "needs": [
@@ -23549,8 +23935,8 @@
    }
   },
   {
-   "lat": 62.73626,
-   "lon": 7.18192,
+   "lat": 62.73608238635402,
+   "lon": 7.1818127676297765,
    "name": "Molde Klatresenter",
    "country": "NO",
    "needs": [
@@ -23558,7 +23944,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -23569,65 +23955,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 62.73644199999999,
-   "lon": 7.182532300000001,
-   "name": "Molde Klatresenter",
-   "country": "NO",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 62.73647,
-   "lon": 7.18253,
-   "name": "Molde Klatresenter",
-   "country": "NO",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-24",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "venue-link",
@@ -23671,11 +23999,12 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -23754,23 +24083,6 @@
      "apex",
      "www",
      "web-search"
-    ]
-   }
-  },
-  {
-   "lat": 59.27998270000001,
-   "lon": 10.3159612,
-   "name": "Sem/Tønsberg HUT",
-   "country": "NO",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
     ]
    }
   },
@@ -24089,6 +24401,24 @@
     "channels": [
      "venue-link",
      "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 58.62273,
+   "lon": 5.6619005,
+   "name": "Varhaughallen - Varhaug IL Klatring",
+   "country": "NO",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -24614,7 +24944,7 @@
   {
    "lat": 14.41624,
    "lon": 121.04281,
-   "name": "Power Up Albang",
+   "name": "Power Up Alabang",
    "country": "PH",
    "needs": [
     "website",
@@ -25473,7 +25803,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -25484,8 +25814,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -26277,8 +26607,8 @@
    }
   },
   {
-   "lat": 44.38974,
-   "lon": 26.12165,
+   "lat": 44.397,
+   "lon": 26.098,
    "name": "Climb Again Centrul",
    "country": "RO",
    "needs": [
@@ -26286,7 +26616,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -26297,8 +26627,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -26315,7 +26645,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -26326,8 +26656,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"
@@ -26641,8 +26971,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -26723,12 +27053,21 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "operator-index",
+     "osm-website-tag"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -27398,6 +27737,25 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 55.5958063,
+   "lon": 13.0040046,
+   "name": "Beta Boulders Malmö",
+   "country": "SE",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-hours-on-official-site",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ],
+    "note": "The current operator branch, prices and terms pages prove public operation but state no regular week. A generic organization schema block says 09:00-17:00 daily while the public-facing price page defines peak periods beyond 17:00, so it is not branch opening evidence. Directory schedules are deliberately not substituted."
    }
   },
   {
@@ -28242,11 +28600,12 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -28609,7 +28968,7 @@
    ],
    "website": {
     "pass": "2026-08-24",
-    "result": "ambiguous",
+    "result": "mislocated",
     "channels": [
      "osm-website-tag",
      "name-guess",
@@ -28990,8 +29349,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "duplicate",
     "channels": [
      "name-guess",
      "apex",
@@ -28999,16 +29358,21 @@
      "osm-website-tag",
      "co-located",
      "web-search",
-     "co-located"
-    ]
+     "co-located",
+     "previous-record"
+    ],
+    "note": "The current Magnus operator page and the nearby composite marker establish this capybara-named row as the same physical venue; the website outcome now follows the backed duplicate exclusion."
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "duplicate",
     "channels": [
      "venue-link",
-     "path-probe"
-    ]
+     "path-probe",
+     "co-located",
+     "previous-record"
+    ],
+    "note": "The schedule belongs once on the surviving Magnus composite venue; this excluded duplicate's hours outcome now matches the backed research record."
    }
   },
   {
@@ -29021,8 +29385,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
@@ -29034,11 +29398,12 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "operator-index"
     ]
    }
   },
@@ -29495,19 +29860,21 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
-    "result": "accepted",
+    "pass": "2026-08-31",
+    "result": "closed",
     "channels": [
-     "osm-website-tag",
-     "name-guess",
+     "venue-link",
+     "web-search",
      "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-24",
-    "result": "ambiguous",
+    "pass": "2026-08-31",
+    "result": "closed",
     "channels": [
-     "venue-link"
+     "venue-link",
+     "web-search",
+     "path-probe"
     ]
    }
   },
@@ -29671,8 +30038,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "non-public",
     "channels": [
      "name-guess",
      "apex",
@@ -29703,8 +30070,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-08-31",
+    "result": "non-public",
     "channels": [
      "name-guess",
      "apex",
@@ -30731,40 +31098,6 @@
    }
   },
   {
-   "lat": 44.03886,
-   "lon": -121.30328,
-   "name": "Boardworks Climbing",
-   "country": "US",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 44.03909,
-   "lon": -121.30325,
-   "name": "Boardworks Climbing",
-   "country": "US",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
    "lat": 44.03913,
    "lon": -121.3032,
    "name": "Boardworks Climbing",
@@ -30773,7 +31106,7 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-08-31",
     "result": "ambiguous",
     "channels": [
      "venue-link",
@@ -31246,35 +31579,6 @@
      "co-located",
      "venue-link",
      "archive"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 33.84918,
-   "lon": -118.35146,
-   "name": "Class 5 Climbing",
-   "country": "US",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-24",
-    "result": "accepted",
-    "channels": [
-     "osm-website-tag",
-     "operator-index",
-     "apex",
-     "www",
-     "previous-record"
     ]
    },
    "hours": {
@@ -31810,24 +32114,6 @@
    }
   },
   {
-   "lat": 42.3938542,
-   "lon": -71.150421,
-   "name": "CRG Cambridge",
-   "country": "US",
-   "needs": [
-    "website"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "operator-index",
-     "co-located",
-     "previous-record"
-    ]
-   }
-  },
-  {
    "lat": 37.15166,
    "lon": -80.41082,
    "name": "Crimper's Climbing",
@@ -31872,6 +32158,23 @@
    "hours": {
     "pass": "2026-08-23",
     "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 30.17515,
+   "lon": -97.79041,
+   "name": "Crux Climbing Center South",
+   "country": "US",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"
@@ -32588,13 +32891,11 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "inaccessible",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe",
-     "apex",
-     "www"
+     "path-probe"
     ]
    }
   },
@@ -32973,8 +33274,8 @@
    }
   },
   {
-   "lat": 37.22925,
-   "lon": -107.80896,
+   "lat": 37.2291837,
+   "lon": -107.8085475,
    "name": "Gravity Lab",
    "country": "US",
    "needs": [
@@ -32982,7 +33283,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "name-guess",
@@ -32992,7 +33293,7 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "venue-link",
@@ -33633,6 +33934,23 @@
    }
   },
   {
+   "lat": 37.6878446,
+   "lon": -113.081693,
+   "name": "Iron Cliffs Gym",
+   "country": "US",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "inaccessible",
+    "channels": [
+     "venue-link",
+     "booking-page"
+    ]
+   }
+  },
+  {
    "lat": 40.7876564,
    "lon": -73.4654844,
    "name": "Island Rock",
@@ -33938,8 +34256,8 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-08-31",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
@@ -35162,11 +35480,12 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
+    "pass": "2026-09-01",
     "result": "seasonal",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -35248,6 +35567,23 @@
    "hours": {
     "pass": "2026-08-25",
     "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 45.52658504620519,
+   "lon": -122.43448777322068,
+   "name": "Rock Haven Climbing Gym",
+   "country": "US",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-08-31",
+    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"
@@ -36419,24 +36755,6 @@
    }
   },
   {
-   "lat": 35.184391279939376,
-   "lon": -106.57514876931646,
-   "name": "Stone Age Climbing Gym North",
-   "country": "US",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": null,
-    "result": "pending"
-   },
-   "hours": {
-    "pass": null,
-    "result": "pending"
-   }
-  },
-  {
    "lat": 35.18458,
    "lon": -106.5756,
    "name": "Stone Age Climbing Gym North",
@@ -36686,19 +37004,17 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
-     "social-profile",
-     "name-guess",
-     "apex",
-     "www",
+     "venue-link",
+     "web-search",
      "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "appointment-only",
     "channels": [
      "venue-link",
      "path-probe"
@@ -37988,34 +38304,6 @@
    }
   },
   {
-   "lat": 37.85155,
-   "lon": -122.2926806,
-   "name": "Touchstone Team Training Center",
-   "country": "US",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "co-located",
-     "previous-record",
-     "apex",
-     "www"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
    "lat": 35.8109137,
    "lon": -78.82097739999999,
    "name": "TRC Morrisville",
@@ -38157,8 +38445,8 @@
    }
   },
   {
-   "lat": 44.976,
-   "lon": -93.22948,
+   "lat": 44.9754795222,
+   "lon": -93.2297657585,
    "name": "University of Minnesota Climbing Program",
    "country": "US",
    "needs": [
@@ -38166,7 +38454,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
+    "pass": "2026-08-31",
     "result": "accepted",
     "channels": [
      "previous-record",
@@ -38175,8 +38463,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "inaccessible",
+    "pass": "2026-08-31",
+    "result": "seasonal",
     "channels": [
      "venue-link",
      "path-probe",
@@ -38972,27 +39260,31 @@
   {
    "lat": 21.0556469,
    "lon": 105.8415127,
-   "name": "VietClimb MoonBoard",
+   "name": "Retired displaced MoonBoard registry point",
    "country": "VN",
    "needs": [
     "website",
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
-    "result": "accepted",
+    "pass": "2026-09-01",
+    "result": "duplicate",
     "channels": [
      "co-located",
-     "venue-link"
-    ]
+     "venue-link",
+     "previous-record"
+    ],
+    "note": "The current venue-authored facility page places both boards at the one address-bearing VietClimb venue; this displaced row now follows the backed duplicate exclusion."
    },
    "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
+    "pass": "2026-09-01",
+    "result": "duplicate",
     "channels": [
      "venue-link",
-     "path-probe"
-    ]
+     "path-probe",
+     "previous-record"
+    ],
+    "note": "The current venue-authored facility page places both boards at the one address-bearing VietClimb venue; this displaced row now follows the backed duplicate exclusion."
    }
   },
   {
@@ -39225,6 +39517,83 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 51.03327,
+   "lon": 3.75706,
+   "name": "Klimzaal Arsenaal",
+   "country": "BE",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ],
+    "note": "A fresh Web-only recheck found two conflicting visible weekend closing times on the current official homepage; the previously accepted schedule was withdrawn and the precise conflict is backed by venue-hours-research.json."
+    }
+  },
+  {
+   "lat": 48.60642,
+   "lon": 15.16941,
+   "name": "Kletterhalle Zwettl",
+   "country": "AT",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "path-probe",
+     "osm-website-tag"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ],
+    "note": "The current official page has a season-limited Tuesday session and leaves two weekdays unstated; the precise outcome is backed by venue-hours-research.json."
+   }
+  },
+  {
+   "lat": 49.8313774,
+   "lon": 23.9967892,
+   "name": "The Wall Lviv",
+   "country": "UA",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "path-probe",
+     "map-block"
+    ],
+    "note": "The current operator page confirms the public venue, 12Climb wall, exact street address and first-party business-location coordinate; the accepted link is backed by venue-links.json."
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ],
+    "note": "The current operator page prints two contradictory full-week schedules in one contact area; neither is selected, and the exact conflict is backed by venue-hours-research.json."
    }
   }
  ]
