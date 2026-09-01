@@ -19843,32 +19843,36 @@
   {
    "lat": 36.3643697,
    "lon": 127.3247016,
-   "name": "HanaGym_MoonBoard",
+   "name": "하나클라이밍짐 Hana Climbing Gym",
    "country": "KR",
    "needs": [
     "website",
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
      "social-profile",
-     "previous-record"
+     "previous-record",
+     "operator-index",
+     "map-block"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
-     "web-search"
+     "web-search",
+     "venue-link",
+     "operator-index"
     ]
    }
   },

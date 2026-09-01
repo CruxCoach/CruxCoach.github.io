@@ -32358,5 +32358,21 @@
   },
   "evidence": "Hours | Mon – Fri: 10am – 9pm | Saturday: 9am – 6pm | Sunday: 9am – 5pm | Location | 130 Auburn Street Wollongong NSW 2500",
   "note": "The visible homepage, bouldering page and structured opening-hours block all state the same complete week."
+ },
+ {
+  "lat": 36.3643697,
+  "lon": 127.3247016,
+  "name": "하나클라이밍짐 Hana Climbing Gym",
+  "country": "KR",
+  "source": "https://www.hanasports.or.kr/info/use_info.php",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+  "hours": {
+   "mon": "closed", "tue": "11:00-23:00", "wed": "11:00-23:00",
+   "thu": "11:00-23:00", "fri": "11:00-23:00", "sat": "11:00-19:00", "sun": "11:00-19:00"
+  },
+  "evidence": "화 ~ 금 11:00 ~ 23:00; 주말, 공휴일 11:00 ~ 19:00; ※ 매주 월요일은 휴무입니다.",
+  "note": "The operator's use-information page states the complete ordinary week; public holidays share the weekend hours and do not alter the seven-day schedule."
  }
 ]

@@ -314,6 +314,21 @@ const ENTRIES = [
     angle: null,
   },
   {
+    // Current public venue, exact address, and Kilter Board:
+    // https://hanasports.or.kr/hcg/introduce.php
+    // Co-locate with the existing MoonBoard at Daejeon World Cup Stadium.
+    // The operator publishes no safely normalizable Kilter wall geometry.
+    source: 'curated',
+    board: 'kilter',
+    name: '하나클라이밍짐 Hana Climbing Gym',
+    lat: 36.3643697,
+    lon: 127.3247016,
+    address: '대전광역시 유성구 월드컵대로 32, 대전월드컵경기장 남서관 1층',
+    city: 'Daejeon',
+    country: 'KR',
+    walls: [],
+  },
+  {
     // Public venue, address, and both boards:
     // https://climbicp.com/au/first-visit/
     // Kilter access/layout/size/frame/angle and coordinates:

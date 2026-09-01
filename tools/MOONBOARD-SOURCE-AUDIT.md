@@ -155,10 +155,23 @@ fields remain unknown. The map now contains 1,516 MoonBoard rows at 1,391
 physical venues.
 
 The Korean-language discovery pass starts from a reproducible nationwide list
-published in August 2025. Its CSV names 59 boards at 58 venues (one venue has
-both 2016 and 2024 sets), while the frozen manufacturer snapshot contains no
-South Korean MoonBoard row at all. That is a discovery gap, not evidence for 59
-additions: the list is third-party, includes renames and closures, and links to
-a commercial map service. Its names and stated generations are being audited
-one by one against current operator-controlled sources and independent precise
-geodata; none will be imported solely from the list or its map links.
+published in August 2025. Its CSV names 56 boards at 55 venues (one venue has
+both 2016 and 2024 sets), while production contains 14 South Korean MoonBoard
+rows. None of the Korean candidate names normalizes directly to those legacy
+English/user labels, so the first reconciliation queue explicitly retains all
+14 instead of assuming either a match or a gap. The list is third-party,
+includes renames and closures, and links to a commercial map service. Its names
+and stated generations are being audited one by one against current
+operator-controlled sources and independent precise geodata; none will be
+imported solely from the list or its map links.
+
+The first Korean reconciliation resolves Hana Climbing Gym. Its current
+operator page identifies the public gym, exact Daejeon World Cup Stadium
+location, MoonBoard and Kilter Board, and publishes a complete regular week. A
+dated operator notice states that the MoonBoard changed from the 2019 setup to
+the 2016 setup in July 2022, correcting the frozen row's 2017-Masters label.
+The discovery list also claims a second 2024 board, but the current operator
+page describes only one MoonBoard and does not name a 2024 setup, so that second
+row remains unverified. The reproducible audit now has one published and one
+unverified disposition, 54 pending candidate rows, and 13 production rows whose
+legacy labels still need reconciliation.
