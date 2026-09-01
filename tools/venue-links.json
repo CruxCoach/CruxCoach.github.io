@@ -14899,22 +14899,6 @@
     ]
   },
   {
-    "lat": 53.1406108,
-    "lon": 4.2517792,
-    "name": "Beacon Climbing Centre",
-    "country": "NL",
-    "website": "https://www.beaconclimbing.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city"
-    ],
-    "note": "The name and the whole address match: the site is Beacon Climbing Centre and prints Zone 5, Cibyn Estate, LL55 2BD, Caernarfon, which is what upstream records for this venue. The coordinates do not, and cannot: upstream files it at 53.1406,4.2518, a point in the North Sea off Texel, and classifies it as Dutch. Caernarfon is at 53.1406,-4.2518 — the same latitude with the longitude sign flipped. The link is recorded on the name and the address, which agree completely, and the coordinates are deliberately not claimed as a signal."
-  },
-  {
     "lat": 51.5955,
     "lon": 4.75718,
     "name": "Beest Boulders Breda",

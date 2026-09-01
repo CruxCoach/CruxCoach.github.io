@@ -22075,14 +22075,15 @@
     "website"
    ],
    "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
+    "pass": "2026-09-01",
+    "result": "mislocated",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "osm-website-tag",
-     "co-located"
+     "co-located",
+     "web-search"
     ]
    }
   },

@@ -602,6 +602,71 @@
       "results_reviewed": 226,
       "candidates_found": 3,
       "note": "Independent Spanish, Portuguese and English regional, country, capital/city, ccTLD, Caribbean, official-facility and operator-site searches found Epsilon Sport Zone outside every known structured board source. Its current operator pages prove public Kilter and MoonBoard access, regular climbing-area hours and the Tumbaco address; an architect-primary project point independently corroborated by OSM makes the venue publishable, so both systems and its venue details were integrated. Raccoon Climbing remains operator-confirmed as not yet inaugurated, and Parque Los Silos remains withheld because official records prove only an approved 2023 Kilter acquisition project, not current installation or persistence. Existing Latin American venue hits were checked against production rather than treated as automatically new. Because this cell yielded new production data, Kilter Pass A must be repeated after the first complete pass."
+    },
+    {
+      "pass": "A",
+      "board": "kilter",
+      "region": "western-europe",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "fr", "nl"],
+      "queries": [
+        "(\"Kilter Board\" OR KilterBoard OR \"Original Kilter Board\" OR \"Kilter Homewall\") (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (UK OR Ireland OR France OR Belgium OR Netherlands OR Luxembourg)",
+        "(\"Kilter Board\" OR KilterBoard) (salle d'escalade OR salle de bloc OR installations OR zone d'entraînement) (France OR Belgique OR Luxembourg)",
+        "(\"Kilter Board\" OR KilterBoard) (klimhal OR boulderhal OR faciliteiten OR trainingsruimte) (Nederland OR België)",
+        "\"Kilter Board\" climbing gym (London OR Manchester OR Birmingham OR Glasgow OR Dublin OR Belfast OR Paris OR Brussels OR Amsterdam)",
+        "\"Belgium Boulder City\" Kilter Board official",
+        "site:belgiumbouldercity.be Kilter",
+        "site:kbfvzw.be \"Kilter Board\" klimzaal",
+        "\"Kilter Board\" (Aalst OR Belgium Boulder City)",
+        "(\"Kilter Board\" OR Kilterboard) (facilities OR training OR gym) (England OR Scotland OR Wales OR Northern Ireland)",
+        "site:.uk (\"Kilter Board\" OR Kilterboard) (climbing OR bouldering)",
+        "\"Kilter Board\" (London OR Bristol OR Leeds OR Sheffield OR Liverpool OR Manchester OR Birmingham OR Nottingham OR Glasgow OR Edinburgh OR Cardiff)",
+        "\"Kilter Board\" (The Climbing Hangar OR Depot Climbing OR Flashpoint OR Parthian OR Eden Rock OR Rockcity) UK",
+        "site:.fr (\"Kilter Board\" OR Kilterboard) (escalade OR bloc OR entraînement OR installations)",
+        "site:.be (\"Kilter Board\" OR Kilterboard) (escalade OR bloc OR klimzaal OR boulderhal)",
+        "site:.nl (\"Kilter Board\" OR Kilterboard) (klimmen OR boulderen OR klimhal OR boulderhal)",
+        "site:.lu (\"Kilter Board\" OR Kilterboard) (escalade OR bloc OR klimmen OR boulderen)",
+        "\"Kilter Board\" escalade France",
+        "\"Kilter Board\" boulderen Nederland",
+        "\"Kilter Board\" escalade Belgique",
+        "\"Kilter Board\" climbing Ireland",
+        "\"Kilter Board\" (Paris Lyon Marseille Toulouse Nantes Bordeaux Lille Strasbourg Montpellier Rennes Grenoble) escalade",
+        "\"Kilter Board\" (Climb Up OR Vertical'Art OR Arkose OR Block'Out OR \"Climbing District\" OR \"The Roof\")",
+        "\"Kilter Board\" (Bruxelles OR Antwerpen OR Gent OR Liège OR Namur OR Charleroi OR Leuven OR Hasselt)",
+        "\"Kilter Board\" (Amsterdam OR Rotterdam OR Utrecht OR Eindhoven OR Groningen OR Tilburg OR Nijmegen OR Arnhem)",
+        "\"Kilter Board\" (Dublin OR Cork OR Galway OR Limerick OR Belfast OR Letterkenny) climbing",
+        "\"Kilter Board\" (Leeds OR Sheffield OR Liverpool OR Manchester OR Birmingham OR Nottingham OR Bristol OR Cardiff OR Glasgow OR Edinburgh) climbing",
+        "\"Kilter Board\" (\"The Climbing Hangar\" OR \"Depot Climbing\" OR Flashpoint OR Parthian OR \"Eden Rock\" OR Rockcity)",
+        "site:.co.uk \"Kilter Board\" climbing gym facilities",
+        "site:beaconclimbing.com Kilter Board address Caernarfon",
+        "\"Beacon Climbing Centre\" \"4.2517792\"",
+        "\"Beacon Climbing Centre\" Kilter Board Caernarfon",
+        "site:beaconclimbing.com facilities Kilter",
+        "site:facebook.com/beaconclimbing \"Kilter\"",
+        "site:instagram.com/beaconclimbing \"Kilter\"",
+        "site:beaconclimbing.com/wp-content/uploads Kilter",
+        "\"Beacon Climbing Centre\" \"Kilter Board\"",
+        "site:blocry.be Kilter Board installation ouverte",
+        "site:uclouvain.be Blocry \"Kilter\"",
+        "\"Blocry\" \"Kilter Board\" 2026",
+        "site:facebook.com \"Blocry\" \"Kilter\"",
+        "site:entrecieletterre.be Blocry Kilter",
+        "site:entrecieletterre.be \"Kilter Board\"",
+        "site:entrecieletterre.be actualités Blocry installation",
+        "\"Entre Ciel & Terre\" Blocry Kilter",
+        "(\"Original Kilter Board\" OR \"Kilter Homewall\" OR Kilterboard) gym UK Ireland France Belgium Netherlands Luxembourg",
+        "\"Kilterboard\" \"training area\" (UK OR Ireland OR France OR Belgium OR Netherlands OR Luxembourg)",
+        "\"Kilterboard\" \"espace entraînement\" France Belgique",
+        "\"Kilterboard\" trainingsruimte Nederland België",
+        "site:theclimbinghangar.com/locations \"Kilter Board\"",
+        "site:depotclimbing.co.uk \"Kilter Board\"",
+        "site:edenrockclimbing.com \"Kilter Board\"",
+        "site:flashpointclimbing.com \"Kilter Board\""
+      ],
+      "results_reviewed": 278,
+      "candidates_found": 2,
+      "note": "Independent multilingual country, city, ccTLD, facility and operator-chain searches were checked against production only after discovery. Current official venue pages reconfirmed the visible French, Belgian, Dutch, Luxembourgish, Irish and British hits. Beacon's operator pages exposed a materially wrong duplicate source row whose longitude sign was reversed, causing its Caernarfon address to be published in the Netherlands; the incorrect point was excluded while the official current 45-degree board remains at the existing North Wales venue. Entre Ciel & Terre's Blocry record remains under review because an April installation notice and later venue pages do not provide a clear current board-state statement. Because this cell produced a production correction, Kilter Pass A must be repeated after the first complete pass."
     }
   ],
   "candidates": [
@@ -958,6 +1023,29 @@
         "https://deportelibre.cl/urban-fest-deportelibre/"
       ],
       "note": "Chile's official donation record proves approval of a 2023 project to acquire a Kilter Board for the public Parque Los Silos. Current municipal and operator pages prove the public climbing venue remains active, but none of the accessible current primary pages confirms that the board was installed or persists. An approved acquisition is not production evidence, so the candidate remains retryable and withheld."
+    },
+    {
+      "board": "kilter",
+      "name": "Beacon Climbing Centre duplicate pin",
+      "region": "western-europe",
+      "discovered_by": "Pass A British city, chain and official-facility searches followed by production comparison",
+      "status": "corrected-existing",
+      "official_sources": [
+        "https://www.beaconclimbing.com/",
+        "https://www.beaconclimbing.com/training/"
+      ],
+      "note": "The current operator pages establish one public Caernarfon venue and its fixed 45-degree Kilter Board. A second production source row carried the same Caernarfon address at positive rather than negative longitude and was consequently labeled Netherlands. The mislocated duplicate was excluded; the correct North Wales venue remains published."
+    },
+    {
+      "board": "kilter",
+      "name": "Entre Ciel & Terre | Blocry",
+      "region": "western-europe",
+      "discovered_by": "Pass A Belgian operator, facility and current-status searches",
+      "status": "pending-current-board-evidence",
+      "official_sources": [
+        "https://www.entrecieletterre.be/jamais-grimpe/"
+      ],
+      "note": "An indexed April 2026 operator notice described Kilter installation as still being finalized, while current operator pages confirm the public Blocry hall but do not explicitly state the board's present state. The structured source still publishes it. This ambiguity is retained for a targeted current-state retry rather than inferred from elapsed time."
     }
   ]
 }

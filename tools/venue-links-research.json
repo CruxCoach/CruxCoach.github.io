@@ -4895,5 +4895,15 @@
     "checked": "2026-09-01",
     "candidate": "https://hanasports.or.kr/hcg/introduce.php",
     "reason": "The operator site was indexed within the last seven months with the exact stadium address and an explicit MoonBoard/Kilter facility page, but the domain currently has authoritative nameservers and no address record: the apex and www host do not resolve. A dead URL is not published as the venue website; retry the operator domain or a confirmed replacement without weakening the existing board-identity evidence."
+  },
+  {
+    "lat": 53.1406108,
+    "lon": 4.2517792,
+    "name": "Beacon Climbing Centre",
+    "country": "NL",
+    "status": "mislocated",
+    "checked": "2026-09-01",
+    "candidate": "https://www.beaconclimbing.com/training/",
+    "reason": "Beacon's current official training page confirms its fixed 45-degree Kilter Board, while its current homepage identifies the sole venue as Zone 5 Cibyn Estate, Caernarfon LL55 2BD in North Wales. The address-bearing production row already represents that hall at 53.13859,-4.25283. This second source row has the longitude sign reversed, is consequently country-coded as Netherlands despite carrying the Caernarfon address, and must be excluded as a materially mislocated duplicate."
   }
 ]
