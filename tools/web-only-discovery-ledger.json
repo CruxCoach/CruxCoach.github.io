@@ -1358,6 +1358,75 @@
       "note": "Independent German, English, French and Italian regional, country, metro, ccTLD, chain, DAV/SAC, facility, FAQ, model-spelling and operator-domain searches were completed before inventory comparison across Germany, Austria and Switzerland. Current operator pages exposed two public Kilter venues absent from every known board feed: KLE-SCH St. Daniel with an adjustable 0-70 degree board and Munich Action Park with an adjustable board. Both are integrated with exact official identity, independently matched OSM points and official websites; MAP also has a complete operator-stated week, while KLE-SCH's unstated Wednesday and separate chip-card access stay in the hours research ledger. The same search consolidated Mitō Zürich's Kilter and Tension rows from two points eight metres apart onto its one address-bearing venue. Lausanne-Beaulieu's operator announces the Kilter's replacement during current works, but completion and the successor Tension installation are not yet unambiguous, so no removal or addition is guessed. Sonthofen likewise has only a historical installation plan and a current board-generic facility page. A builder's Google-backed installation map is retained solely as a structured-source audit lead, not copied. Because this cell yielded production facts, all of Kilter Pass A must now repeat with different formulations."
     }
   ],
+  "rechecks": [
+    {
+      "pass": "A",
+      "board": "kilter",
+      "region": "north-america",
+      "iteration": 2,
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "fr", "es"],
+      "queries": [
+        "\"Kilter Board\" (\"gym tour\" OR \"facility tour\" OR \"what we offer\" OR equipment) climbing USA",
+        "\"Kilterboard\" (\"training boards\" OR \"board room\" OR \"training zone\" OR \"wall map\") climbing United States",
+        "\"Kilter Board\" (\"our walls\" OR \"training walls\" OR \"climbing terrain\" OR \"gym features\") bouldering US",
+        "\"Original Kilter\" (climbing center OR climbing centre OR boulder gym) United States",
+        "\"Kilter Board\" (amenities OR equipment OR \"gym features\") climbing (Maine OR Vermont OR \"New Hampshire\" OR Massachusetts OR Connecticut OR Rhode Island)",
+        "\"Kilter Board\" (\"our facility\" OR \"training boards\" OR \"gym tour\") climbing (New York OR \"New Jersey\" OR Pennsylvania OR Delaware OR Maryland)",
+        "\"Kilterboard\" (facilities OR \"training wall\" OR \"board room\") climbing (Virginia OR \"West Virginia\" OR Kentucky OR Tennessee OR \"North Carolina\" OR \"South Carolina\")",
+        "\"Kilter Board\" (\"our walls\" OR amenities OR equipment) bouldering (Georgia OR Florida OR Alabama OR Mississippi OR Louisiana OR Arkansas)",
+        "\"Kilter Board\" (\"facility tour\" OR amenities OR \"training center\" OR \"our gym\") climbing (Ohio OR Michigan OR Indiana OR Illinois OR Wisconsin)",
+        "\"Kilterboard\" (equipment OR \"training boards\" OR \"gym features\") bouldering (Minnesota OR Iowa OR Missouri OR Kansas OR Nebraska OR Dakotas)",
+        "\"Kilter Board\" (\"our walls\" OR \"training zone\" OR \"gym tour\") climbing (Texas OR Oklahoma OR \"New Mexico\")",
+        "\"Kilter Board\" (amenities OR equipment OR \"what we offer\") bouldering (Colorado OR Wyoming OR Montana OR Idaho)",
+        "\"Kilter Board\" (\"facility\" OR amenities OR \"training wall\" OR \"gym tour\") climbing (Utah OR Arizona OR Nevada)",
+        "\"Kilterboard\" (\"our gym\" OR \"training boards\" OR \"climbing terrain\") (California OR Hawaii OR Alaska)",
+        "\"Kilter Board\" (equipment OR \"what we offer\" OR \"board room\") climbing (Washington OR Oregon)",
+        "\"Kilter Homewall\" (public gym OR day pass OR visitor OR bouldering) (US OR USA OR Canada)",
+        "\"Kilter Board\" (\"gym tour\" OR amenities OR \"training boards\" OR équipement) climbing (Ontario OR Toronto OR Ottawa)",
+        "\"Kilterboard\" (\"our facility\" OR \"training wall\" OR \"what we offer\") climbing (Alberta OR Calgary OR Edmonton OR Saskatchewan OR Manitoba)",
+        "\"Kilter Board\" (équipements OR installations OR \"zone d'entraînement\" OR visite) (Québec OR Montréal OR Sherbrooke) escalade",
+        "\"Kilter Board\" (amenities OR facilities OR \"training area\") climbing (\"British Columbia\" OR Vancouver OR Victoria OR Kelowna)",
+        "\"Kilter Board\" (facilities OR amenities OR \"training room\") climbing (\"Nova Scotia\" OR Halifax OR \"New Brunswick\" OR Newfoundland OR PEI)",
+        "\"Kilterboard\" (climbing centre OR bouldering gym OR training area) (Yukon OR Nunavut OR \"Northwest Territories\")",
+        "\"Kilter Board\" (équipement OR installations OR entraînement) escalade (Canada OR Québec) -Montréal",
+        "\"Kilter Board\" (tour OR facility OR amenities) climbing Canada -Toronto -Vancouver -Calgary",
+        "\"Kilter Board\" (equipamiento OR \"muro de entrenamiento\" OR \"recorrido del gimnasio\" OR servicios) escalada México",
+        "\"Kilterboard\" (instalaciones OR amenidades OR \"zona de entrenamiento\") boulder (CDMX OR Guadalajara OR Monterrey)",
+        "\"Kilter Board\" (rocódromo OR gimnasio OR muro) (Querétaro OR León OR Aguascalientes OR San Luis Potosí OR Morelia)",
+        "\"Kilter Board\" (escalada OR boulder OR entrenamiento) (Tijuana OR Mexicali OR Hermosillo OR Chihuahua OR Torreón)",
+        "site:.mx \"Kilter Board\" (instalaciones OR equipamiento OR entrenamiento) -tienda -venta",
+        "site:.mx \"Kilterboard\" (gimnasio OR rocódromo OR boulder) -producto",
+        "\"Kilter Board\" (Mérida OR Cancún OR Oaxaca OR Veracruz OR Puebla OR Toluca) escalada",
+        "\"Kilterboard\" (Culiacán OR Mazatlán OR Durango OR Zacatecas OR Tampico OR Villahermosa) boulder",
+        "site:movementgyms.com (amenities OR tour OR training) Kilter",
+        "site:centralrockgym.com (location OR facility OR training) Kilter",
+        "site:boulderingproject.com (\"training boards\" OR \"Kilter Board\") (location OR gym)",
+        "site:touchstoneclimbing.com (\"tour and amenities\" OR \"Kilter Training Board\")",
+        "site:sheridanymca.org (climbing OR bouldering) (Kilter OR day pass OR guest OR membership OR hours OR address)",
+        "site:sheridanymca.org \"417 North Jefferson\" OR \"Sheridan County YMCA\" address hours day pass",
+        "site:recwell.umn.edu climbing training center community membership day pass public access",
+        "site:recwell.wisc.edu climbing Kilter Board community membership guest day pass public",
+        "site:sheridanymca.org \"day pass\" \"non-member\" facility membership",
+        "site:sheridanymca.org membership rates \"day pass\" guest Sheridan County YMCA",
+        "site:recwell.wisc.edu memberships community member eligibility day pass Bakke general public",
+        "site:recwell.wisc.edu \"community membership\" OR \"guest pass\" Bakke Recreation Wellbeing Center",
+        "site:sheridanymca.org/membership \"guest\" OR \"day\" OR \"pass\"",
+        "site:sheridanymca.org \"non-member guest\" YMCA Sheridan pass",
+        "site:sheridanymca.org \"Community Member\" climbing bouldering",
+        "\"Sheridan County YMCA\" \"day pass\"",
+        "Bakke Recreation Wellbeing Center OpenStreetMap 1976 Observatory Drive",
+        "site:openstreetmap.org \"Bakke Recreation\" Madison",
+        "site:map.wisc.edu \"Bakke Recreation\" coordinates",
+        "site:recwell.wisc.edu Bakke Recreation Wellbeing Center address 1976 Observatory"
+      ],
+      "results_reviewed": 316,
+      "candidates_found": 2,
+      "production_changes": 0,
+      "note": "A second independent North American Pass A used gym-tour, wall-map, amenity, equipment, state/province, Mexican city, chain-domain and university/community-access formulations not used in the original cell. UW–Madison's Bakke Center was discovered independently but reconciled afterward to an existing Hangtime-backed production row with the same official identity and correctly withheld seasonal hours. Sheridan County YMCA's current operator page describes integrated campus-board and 'Kilter board terrain' within one 12-foot generic bouldering wall; it does not establish a standardized app board, so the lead is retained as a rejected candidate rather than guessed into production. All other current official venue hits reconciled to existing rows. This repeat produced no production change."
+    }
+  ],
   "candidates": [
     {
       "board": "moonboard",
@@ -2300,6 +2369,24 @@
       "status": "pending-structured-source-policy-audit",
       "official_sources": ["https://versys-gmbh.de/trainingswaende/"],
       "note": "The builder says it has implemented Kilter Boards in numerous German halls and exposes a map through Google Maps. The map is retained only as a lead for a later structured-source and licensing audit: no Google data is copied, and every surfaced identity still requires venue-primary confirmation and legitimate independent geodata."
+    },
+    {
+      "board": "kilter",
+      "name": "Bakke Recreation & Wellbeing Center",
+      "region": "north-america",
+      "discovered_by": "Pass A iteration 2 university, facility and community-access searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://recwell.wisc.edu/locations/climbing/", "https://recwell.wisc.edu/memberships/", "https://recwell.wisc.edu/locations/bakke/"],
+      "note": "The repeat found strong current operator proof of an adjustable app-driven Kilter Board and access for any adult community member or Madison visitor. Inventory comparison was deliberately performed only afterward and found the exact venue already published from Hangtime at the same address and point, with an official website and a correct seasonal-hours outcome. It is therefore not a web-only production addition."
+    },
+    {
+      "board": "kilter",
+      "name": "Sheridan County YMCA bouldering wall",
+      "region": "north-america",
+      "discovered_by": "Pass A iteration 2 Wyoming facility and exact-operator searches",
+      "status": "rejected-nonstandard-kilter-terrain",
+      "official_sources": ["https://sheridanymca.org/climbing/", "https://sheridanymca.org/contact-us/"],
+      "note": "The operator's current page describes one 12-foot generic bouldering wall with an integrated campus board and 'Kilter board terrain'. It does not say Kilter Board, identify an app/layout, or describe a separate standardized system wall; the wording is consistent with Kilter holds or terrain incorporated into a conventional wall. Venue identity and facility hours cannot cure missing board identity, so no production row is inferred."
     }
   ]
 }

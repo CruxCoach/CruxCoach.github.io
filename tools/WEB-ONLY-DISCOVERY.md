@@ -9,8 +9,12 @@ source knows it.
 spellings/models, twelve world regions, multilingual venue/facility/training and
 opening/installation/renovation/news/social lexicons, and two independent pass
 formulations. `web-only-discovery-ledger.json` records exact completed queries and
-candidate dispositions. The Cartesian completion denominator is 2 passes × 10
-boards × 12 regions = 240 cells.
+candidate dispositions. Its separate `rechecks` array preserves every required
+repeat without overwriting the original cell: `iteration` starts at 2 and each
+record carries the exact queries, reviewed-result count, candidate count and
+number of production changes. The Cartesian completion denominator is 2 passes ×
+10 boards × 12 regions = 240 cells; repeats are reported separately and never
+inflate it.
 
 Run `node tools/web-only-discovery-audit.mjs`. A cell is complete only when it
 records its date, languages, exact queries, reviewed-result count and candidate

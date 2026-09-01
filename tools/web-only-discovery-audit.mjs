@@ -48,6 +48,23 @@ export function auditWebDiscovery(matrix, ledger) {
       if (errors.length === errorCount) completed.add(key);
     }
   }
+  const recheckSeen = new Set();
+  for (const [index, row] of (ledger.rechecks ?? []).entries()) {
+    const key = `${row.pass}|${row.board}|${row.region}|${row.iteration}`;
+    if (!passIds.has(row.pass) || !boardIds.has(row.board) || !regionIds.has(row.region)) errors.push(`rechecks[${index}] has unknown matrix key`);
+    if (!Number.isInteger(row.iteration) || row.iteration < 2) errors.push(`rechecks[${index}] has invalid iteration`);
+    if (recheckSeen.has(key)) errors.push(`rechecks[${index}] duplicates ${key}`);
+    recheckSeen.add(key);
+    if (row.status !== 'complete') errors.push(`rechecks[${index}] is not complete`);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(row.checked ?? '')) errors.push(`rechecks[${index}] lacks checked date`);
+    if (!Array.isArray(row.languages) || row.languages.length === 0) errors.push(`rechecks[${index}] lacks languages`);
+    if (!Array.isArray(row.queries) || row.queries.length === 0) errors.push(`rechecks[${index}] lacks exact queries`);
+    if (row.queries?.some(query => typeof query !== 'string' || !query.trim())) errors.push(`rechecks[${index}] has invalid query`);
+    if (!Number.isInteger(row.results_reviewed) || row.results_reviewed < 0) errors.push(`rechecks[${index}] has invalid reviewed count`);
+    if (!Number.isInteger(row.candidates_found) || row.candidates_found < 0) errors.push(`rechecks[${index}] has invalid candidate count`);
+    if (!Number.isInteger(row.production_changes) || row.production_changes < 0) errors.push(`rechecks[${index}] has invalid production-change count`);
+    if (typeof row.note !== 'string' || !row.note.trim()) errors.push(`rechecks[${index}] lacks note`);
+  }
   for (const [index, row] of ledger.candidates.entries()) {
     if (!boardIds.has(row.board)) errors.push(`candidate[${index}] has unknown board`);
     if (!regionIds.has(row.region)) errors.push(`candidate[${index}] has unknown region`);
@@ -57,7 +74,7 @@ export function auditWebDiscovery(matrix, ledger) {
   }
   const missing = [...expected].filter(key => !completed.has(key));
   const completePasses = matrix.passes.filter(pass => matrix.boards.every(board => matrix.regions.every(region => completed.has(`${pass.id}|${board.id}|${region.id}`)))).map(pass => pass.id);
-  return { expected: expected.size, completed: completed.size, missing, completePasses, candidates: ledger.candidates.length, errors };
+  return { expected: expected.size, completed: completed.size, missing, completePasses, rechecks: recheckSeen.size, candidates: ledger.candidates.length, errors };
 }
 
 export function loadAudit(root = ROOT) {
@@ -68,7 +85,7 @@ export function loadAudit(root = ROOT) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const audit = loadAudit();
-  console.log(`web-only discovery: ${audit.completed}/${audit.expected} matrix cells complete; ${audit.candidates} candidates; complete passes: ${audit.completePasses.join(', ') || 'none'}`);
+  console.log(`web-only discovery: ${audit.completed}/${audit.expected} matrix cells complete; ${audit.rechecks} repeated cells; ${audit.candidates} candidates; complete passes: ${audit.completePasses.join(', ') || 'none'}`);
   if (audit.errors.length) console.error(audit.errors.join('\n'));
   if (audit.missing.length) console.log(`pending cells: ${audit.missing.length}`);
   process.exitCode = audit.errors.length ? 1 : 0;
