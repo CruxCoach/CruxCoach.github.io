@@ -493,30 +493,6 @@
   "note": "The site's schema.org openingHoursSpecification states the same week."
  },
  {
-  "lat": 48.29891,
-  "lon": 14.2749,
-  "name": "Der Steinbock Linz",
-  "country": "AT",
-  "source": "https://www.dersteinbock-linz.at/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "09:00-23:00",
-   "tue": "07:00-23:00",
-   "wed": "09:00-23:00",
-   "thu": "07:00-23:00",
-   "fri": "09:00-23:00",
-   "sat": "09:00-22:00",
-   "sun": "09:00-22:00"
-  },
-  "evidence": "Mo, Mi & Fr 09:00 Uhr bis 23:00 Uhr | Di & Do 07:00 Uhr bis 23:00 Uhr | Sa & So 09:00 Uhr bis 22:00 Uhr"
- },
- {
   "lat": 48.19613,
   "lon": 16.31488,
   "name": "Die Knäpperei",
@@ -1463,7 +1439,7 @@
    "sun": "10:00-18:00"
   },
   "evidence": "19 Edison Cres, Baringa QLD 4551 … HOURS Mon + Tues 12:30 - 9:30pm Wed 9am - 9:30pm Thurs + Fri 12:30 - 9:30pm Sat 9am - 7pm Sun 10am - 6pm",
-  "note": "The current board-specific page repeats the visible complete week beside the shared 19 Edison Crescent address; the former second overlay represented the same physical hall."
+  "note": "The current board-specific page repeats the visible complete week beside the shared 19 Edison Crescent address; the former second overlay represented the same physical hall. The Squarespace setting shortens Wednesday to 12:30-21:30, while the maintained visible week says 09:00-21:30."
  },
  {
   "lat": -37.77623,
@@ -2401,7 +2377,7 @@
    "sun": "09:00-21:00"
   },
   "evidence": "Location 80 Hattam St Golden Gully, VIC 3555 Hours Weekdays 7am - 9pm Weekends 9am - 9pm",
-  "note": "Stated twice on the front page, in the hero and again in the footer, with the days grouped as weekdays and weekends rather than listed."
+  "note": "Stated twice on the front page, in the hero and again in the footer, with the days grouped as weekdays and weekends rather than listed. The site's Squarespace/schema.org setting opens weekdays at 08:00 instead of the visible 07:00; the visible repeated statement is published under the documented precedence rule."
  },
  {
   "lat": -34.048437,
@@ -4658,7 +4634,7 @@
    "sun": "07:00-21:00"
   },
   "evidence": "OPENING HOURS GYM Mon - Sat: 7am - 10pm Sunday: 7am - 9pm CAFE Sun - Tue: 7am - 8pm Wed - Sat: 7am - 9pm",
-  "note": "The café and pizza counter keep their own hours and are listed separately; the page’s schema.org block names the gym week and agrees."
+  "note": "The café and pizza counter keep their own hours and are listed separately. The conflict reader combines another facility block into Wednesday and reports 15:00-20:00; the visible location-specific gym week states 07:00-22:00."
  },
  {
   "lat": 45.40876,
@@ -4683,7 +4659,7 @@
    "sun": "07:00-22:00"
   },
   "evidence": "OPENING HOURS GYM Mon - Sat: 7am - 11pm Sunday: 7am - 10pm CAFE 7am-9pm Everyday",
-  "note": "The café keeps its own hours and is listed separately; the page’s schema.org block names the gym week and agrees."
+  "note": "The café keeps its own hours and is listed separately. The conflict reader combines another facility block into Wednesday and reports 07:00-20:00; the visible location-specific gym week states 07:00-23:00."
  },
  {
   "lat": 45.56611,
@@ -5665,7 +5641,7 @@
    "sun": "12:00-18:00"
   },
   "evidence": "Hours of Operation Monday closed (for now) Tuesday - Friday 2 PM to 11 PM Saturday + Sunday noon to 6 PM",
-  "note": "Monday is stated closed rather than left out. The front page carries the same block with \"Monday - CLOSED\"; the hours page adds \"(for now)\", which is a note about the closure rather than a different schedule."
+  "note": "Monday is stated closed rather than left out. The front page carries the same block with \"Monday - CLOSED\"; the hours page adds \"(for now)\", which is a note about the closure rather than a different schedule. The Squarespace business-hours object has every day closed and is stale/unconfigured."
  },
  {
   "lat": 47.52622,
@@ -6455,7 +6431,7 @@
   "name": "Momentum Olten",
   "country": "CH",
   "source": "https://www.momentumolten.ch/",
-  "checked": "2026-08-23",
+  "checked": "2026-09-01",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -6472,7 +6448,7 @@
    "sun": "10:00-18:30"
   },
   "evidence": "Montag, 17.30 – 21.30 Uhr | Dienstag, 17.30 – 21.30 Uhr | Mittwoch, 14.00 – 21.30 Uhr | Donnerstag, 17.30 – 21.30 Uhr | Freitag, geschlossen | Samstag, 14.00 – 18.30 Uhr | Sonntag, 10.00 – 18.30 Uhr",
-  "note": "Subscribers with an access badge get in at any time; the staffed week is what is recorded. On the last Sunday of the month the arena opens to sport at 12:00."
+  "note": "Subscribers with an access badge get in at any time; the staffed week is what is recorded. On the last Sunday of the month the arena opens to sport at 12:00. A dated storm closure from 28 August through 6 September 2026 is a one-off exception, not a replacement regular week."
  },
  {
   "lat": 46.96234,
@@ -8907,7 +8883,7 @@
    "sun": "09:00-22:00"
   },
   "evidence": "Öffnungszeiten Regulär: Mo-Do 14:00 Uhr bis 23:00 Uhr, Fr-So 09:00 Uhr bis 22:00 Uhr · Schulferien: Mo-Do 10:00 Uhr bis 23:00 Uhr, Fr-So 09:00 Uhr bis 22:00 Uhr",
-  "note": "The hall labels one of its two weeks \"Regulär\" and the other \"Schulferien\", so which is the week and which is the exception is the site's own answer rather than a reading of it. The line about public holidays, open 09:00 to 22:00, is a third exception."
+  "note": "The hall labels one of its two weeks \"Regulär\" and the other \"Schulferien\", so which is the week and which is the exception is the site's own answer rather than a reading of it. The line about public holidays, open 09:00 to 22:00, is a third exception. The Squarespace business-hours object has every day closed and is stale/unconfigured."
  },
  {
   "lat": 48.08027,
@@ -10007,7 +9983,7 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Öffnungszeiten Mo-Fr: 14 – 22 Uhr · Wochenende & Feiertage: 10 – 20 Uhr · Schulferien: 10 – 22 Uhr",
-  "note": "The undated week covers all seven days; the third line is the school-holiday exception, and public holidays are folded into the weekend line. The hall is at Berliner Str. 25, 89250 Senden, the Bavarian one, which is where this coordinate falls."
+  "note": "The undated week covers all seven days; the third line is the school-holiday exception, and public holidays are folded into the weekend line. The hall is at Berliner Str. 25, 89250 Senden, the Bavarian one, which is where this coordinate falls. Its schema.org block opens Wednesday at 10:00 instead of the visible regular 14:00."
  },
  {
   "lat": 52.2680906,
@@ -11026,7 +11002,7 @@
    "sun": "09:00-23:00"
   },
   "evidence": "Opening hours | Tobaksbyen - Tobaksvejen 20, 2860 Søborg | Monday - Friday : 09:00 - 22:00 | Saturday & Sunday: 09:00 – 20:00 | Kødbyen - Flæsketorvet 89, 1711 København | Monday-Sunday: 09:00-23:00 | Thursdays from 07:00-23:00",
-  "note": "The site publishes a block per hall; the site’s own schema.org openingHours (09:00-23:00 every day) matches this one."
+  "note": "The site publishes a visible block per hall. Its site-wide schema.org setting says 09:00-23:00 every day, but this hall's maintained visible block alone opens Thursday at 07:00; the location-specific text is published."
  },
  {
   "lat": 55.69291,
@@ -13684,7 +13660,7 @@
    "sun": "10:00-20:00"
   },
   "evidence": "Monday – Friday 10:00 – 22:00 | Saturday – Sunday 10:00 – 20:00 | Bank Holidays 10:00 – 18:00",
-  "note": "Upstream carries this gym twice, about 60 m apart."
+  "note": "Upstream carries this gym twice, about 60 m apart. The shared schema.org setting says 08:00-20:00 on Sunday, while the Hounslow page's visible visitor week says 10:00-18:00."
  },
  {
   "lat": 53.4139403,
@@ -14431,7 +14407,7 @@
   "name": "Hang.",
   "country": "GB",
   "source": "https://www.the-font.co.uk/hounslow",
-  "checked": "2026-08-23",
+  "checked": "2026-09-01",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -14448,7 +14424,8 @@
    "sat": "10:00-18:00",
    "sun": "10:00-18:00"
   },
-  "evidence": "Monday to Friday: 10:00 - 21:30 | Saturday to Sunday: 10:00 - 18:00"
+  "evidence": "Monday to Friday: 10:00 - 21:30 | Saturday to Sunday: 10:00 - 18:00",
+  "note": "The shared schema.org setting says 08:00-20:00 on Sunday, while the Hounslow page's visible visitor week says 10:00-18:00."
  },
  {
   "lat": 50.85264,
@@ -15209,7 +15186,7 @@
   "name": "The Font Climbing Borough",
   "country": "GB",
   "source": "https://www.the-font.co.uk/borough",
-  "checked": "2026-08-23",
+  "checked": "2026-09-01",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -15226,7 +15203,8 @@
    "sat": "10:00-18:00",
    "sun": "10:00-18:00"
   },
-  "evidence": "Monday to Friday: 07:00 - 22:00 | Saturday to Sunday: 10:00 - 18:00"
+  "evidence": "Monday to Friday: 07:00 - 22:00 | Saturday to Sunday: 10:00 - 18:00",
+  "note": "The shared schema.org setting says 08:00-20:00 on Sunday, while the Borough page's visible visitor week says 10:00-18:00."
  },
  {
   "lat": 53.384714,
@@ -15982,7 +15960,7 @@
   "name": "Ikigai Climbing",
   "country": "IT",
   "source": "https://www.ikigai-climbing.it/",
-  "checked": "2026-08-24",
+  "checked": "2026-09-01",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -15998,7 +15976,7 @@
    "sun": "10:00-19:30"
   },
   "evidence": "Lun - Ven 10:00 / 22:30 Orari Sala arrampicata 10:00 / 23:00 Orari Bar 10:00 / 23:30 Orari Palestra Sab - Dom 10:00 / 19:30 Orari Sala arrampicata 10:00 / 19:30 Orari Bar 10:00 / 20:00 Orari Palestra",
-  "note": "Three scopes under one heading, each a time then its label: the climbing hall, the bar and the fitness room close at different times. The board is in the Sala arrampicata, so that is the week taken; the bar half an hour later and the fitness room an hour later are the other two rooms, not this one."
+  "note": "Three scopes under one heading, each a time then its label: the climbing hall, the bar and the fitness room close at different times. The board is in the Sala arrampicata, so that is the week taken; the bar half an hour later and the fitness room an hour later are the other two rooms, not this one. The conflict reader's missing-22:30 finding is a slash-separated-layout parsing limitation; the current visible page still prints the recorded climbing-hall week."
  },
  {
   "lat": 46.01495,
@@ -17084,7 +17062,7 @@
    "sun": "09:00-22:00"
   },
   "evidence": "Adress Unijas street 14, Riga 3rd floor · Working hours 10:00-23:00 Monday - Friday 09:00-22:00 Saturday - Sunday",
-  "note": "Two lines covering the week, printed directly beneath the address."
+  "note": "Two lines covering the week, printed directly beneath the address. The Squarespace business-hours object has every day closed, a stale unconfigured setting rather than the visible venue statement."
  },
  {
   "lat": 46.976995,
@@ -17881,7 +17859,7 @@
   "name": "Boulderhal Zuidhaven",
   "country": "NL",
   "source": "https://www.boulderhalzuidhaven.nl/openingstijden/",
-  "checked": "2026-08-23",
+  "checked": "2026-09-01",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -17897,7 +17875,8 @@
    "sat": "08:30-21:00",
    "sun": "08:30-21:00"
   },
-  "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 08:30 – 23:00 | Dinsdag 08:30 – 23:00 | Woensdag 08:30 – 23:00 | Donderdag 08:30 – 23:00 | Vrijdag 08:30 – 23:00 | Zaterdag 08:30 – 21:00 | Zondag 08:30 – 21:00"
+  "evidence": "Onze huidige reguliere openingstijden zijn: Maandag 08:30 – 23:00 | Dinsdag 08:30 – 23:00 | Woensdag 08:30 – 23:00 | Donderdag 08:30 – 23:00 | Vrijdag 08:30 – 23:00 | Zaterdag 08:30 – 21:00 | Zondag 08:30 – 21:00",
+  "note": "The current page still prints the complete recorded week. Its separate live 'today open until 21:00' line caused the drift detector to misclassify 21:00; the labelled regular-hours table is unchanged."
  },
  {
   "lat": 52.22366,
@@ -20505,7 +20484,7 @@
    "sun": "06:00-23:00"
   },
   "evidence": "Open Daily 6:00 AM - 11:00 PM ... What are your opening hours? We're open 7 days a week from 6:00 AM to 11:00 PM. Come climb with us anytime!",
-  "note": "The banner and the FAQ say the same thing twice, in English and in Arabic, and nothing else on the site states a different day."
+  "note": "The banner and the FAQ say the same thing twice, in English and in Arabic. A schema.org object reports Wednesday as 16:00-23:00, but the maintained visible bilingual statements both say 06:00-23:00 daily."
  },
  {
   "lat": 63.39079,
@@ -21026,7 +21005,7 @@
    "sun": "10:00-22:00"
   },
   "evidence": "Opening Hours* Weekdays: 10am - 10pm Weekends: 10am – 10pm",
-  "note": "The same window every day, stated beside the address. The asterisk points to route resetting every Monday and Thursday between 8am and 3pm, during which parts of the walls are closed; that is a partial closure inside the opening, not a change to it."
+  "note": "The same window every day, stated beside the address. The asterisk points to route resetting every Monday and Thursday between 8am and 3pm, during which parts of the walls are closed; that is a partial closure inside the opening, not a change to it. The page's unrelated class/event schema times are misread as a business week by the conflict tool; they do not replace the visible venue hours."
  },
  {
   "lat": 46.0731693,
@@ -21926,7 +21905,7 @@
    "sun": "12:00-18:00"
   },
   "evidence": "BC's Climbing Gym in New Paltz, NY We Specialize in High-Quality Boulder Problems for Adults. HOURS Monday - Friday: 2pm-9pm Saturday: 12pm-9pm Sunday: 12pm-6pm CONTACT Phone: 845-255-7625 ... 234 Main Street New Paltz, NY 12561 (We are Located in the Walgreen's Plaza, on the backside of the building).",
-  "note": "Three lines under the gym's own name and above its own address. Saturday and Sunday both open at noon and close three hours apart."
+  "note": "Three lines under the gym's own name and above its own address. Saturday and Sunday both open at noon and close three hours apart. The stale Squarespace/schema.org settings instead open Monday at 17:00, Saturday at 14:00 and omit Sunday."
  },
  {
   "lat": 30.32726,
@@ -22020,7 +21999,7 @@
    "sun": "10:00-19:00"
   },
   "evidence": "SF Location - 1414 Van Ness Ave., SF, CA 94109 | Mon-Fri - 11am-10pm; Sat-Sun - 10am-7pm | Berkeley Location - 1607 Shattuck Ave., Berkeley, CA | Mon-Fri - 7am-10pm; Sat-Sun - 10am-7pm",
-  "note": "The operator lists its two gyms with an address and an hours line each; the San Francisco one opens at 11am."
+  "note": "The operator lists its two gyms with an address and an hours line each; the San Francisco one opens at 11am. The site-wide Squarespace/schema.org setting also says 11:00 for weekdays, but Berkeley's maintained visible location block says 07:00."
  },
  {
   "lat": 37.78891,
@@ -27433,7 +27412,7 @@
    "sun": "09:00-20:00"
   },
   "evidence": "Omaha 2809 S 125th AVE Suite 297 Omaha, NE 68144 (531) 283-5200 Omaha Hours Weekdays: 9 am - 10 pm Weekends: 9 am - 8pm",
-  "note": "The page states each hall's week under that hall's own address and heads this one \"Omaha Hours\", so it cannot be confused with Lincoln's, which opens at 11 on weekdays."
+  "note": "The page states each hall's week under that hall's own address and heads this one \"Omaha Hours\", so it cannot be confused with Lincoln's, which opens at 11 on weekdays. The site-wide Squarespace/schema.org week matches neither the labelled Omaha block nor its weekend."
  },
  {
   "lat": 43.190476,
@@ -27595,7 +27574,7 @@
   "name": "On The Rocks Climbing Gym",
   "country": "US",
   "source": "https://climbontherocks.com/",
-  "checked": "2026-08-23",
+  "checked": "2026-09-01",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -27613,7 +27592,7 @@
    "sun": "09:00-18:00"
   },
   "evidence": "Location 8701 Leavitt Rd. Elyria, OH. 44035 Gym Hours Monday : 11am - 9pm Tuesday: 3pm - 9pm Wednesday: 9am - 9pm Thursday: 3pm - 9pm Friday : 11am- 9pm Saturday : 9am - 6pm Sunday : 9am - 6pm",
-  "note": "Every day is listed separately beneath the gym's address; no two weekdays are alike."
+  "note": "Every day is listed separately beneath the gym's address; no two weekdays are alike. The current homepage and address-hours page still print the exact recorded week; the drift reader did not normalize the meridiem-only 11am token to 11:00."
  },
  {
   "lat": 36.1664,
@@ -27668,7 +27647,7 @@
    "sun": "09:00-21:00"
   },
   "evidence": "Hours Monday 3:00 PM - 10:00 PM Tuesday 6:00 AM - 10:00 PM Wednesday 6:00 AM - 10:00 PM Thursday 6:00 AM - 10:00 PM Friday 6:00 AM - 10:00 PM Saturday 9:00 AM - 9:00 PM Sunday 9:00 AM - 9:00 PM",
-  "note": "Every day is listed separately, directly under the gym's address. Monday alone opens in the afternoon."
+  "note": "Every day is listed separately, directly under the gym's address. Monday alone opens in the afternoon. The Squarespace/schema.org setting is an older, substantially different week and is noted rather than substituted for the visible location statement."
  },
  {
   "lat": 37.81644,
@@ -30933,7 +30912,7 @@
    "sun": "08:00-20:00"
   },
   "evidence": "gym hours mon-wed-fri 12p-10p tues-thurs 6a-10p sat-sun 8a-8p address 17229 15th Ave NE Shoreline, WA 98155",
-  "note": "The gym groups its days as Monday/Wednesday/Friday and Tuesday/Thursday, which alternate between a noon and a 6am opening, with the weekend stated separately. The block sits directly above its address."
+  "note": "The gym groups its days as Monday/Wednesday/Friday and Tuesday/Thursday, which alternate between a noon and a 6am opening, with the weekend stated separately. The block sits directly above its address. Its flat 08:00 weekday Squarespace/schema.org setting disagrees and is treated as stale markup."
  },
  {
   "lat": 47.75546,
@@ -30958,7 +30937,7 @@
    "sun": "08:00-20:00"
   },
   "evidence": "gym hours mon-wed-fri 12p-10p tues-thurs 6a-10p sat-sun 8a-8p address 17229 15th Ave NE Shoreline, WA 98155",
-  "note": "The gym groups its days as Monday/Wednesday/Friday and Tuesday/Thursday, which alternate between a noon and a 6am opening, with the weekend stated separately. The block sits directly above its address."
+  "note": "The gym groups its days as Monday/Wednesday/Friday and Tuesday/Thursday, which alternate between a noon and a 6am opening, with the weekend stated separately. The block sits directly above its address. Its flat 08:00 weekday Squarespace/schema.org setting disagrees and is treated as stale markup."
  },
  {
   "lat": 40.12617,
@@ -31876,7 +31855,7 @@
   "name": "BLOCK DOCK Petržalka",
   "country": "SK",
   "source": "https://www.blockdock.me/petrzalka",
-  "checked": "2026-08-31",
+  "checked": "2026-09-01",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -31894,7 +31873,8 @@
    "sat": "08:00-21:00",
    "sun": "08:00-21:00"
   },
-  "evidence": "BLOCK DOCK PETRŽALKA: Pondelok 7:00–22:00, Utorok 7:00–22:00, Streda 7:00–22:00, Štvrtok 7:00–22:00, Piatok 14:00–22:00, Sobota 8:00–21:00, Nedeľa 8:00–21:00"
+  "evidence": "BLOCK DOCK PETRŽALKA: Pondelok 7:00–22:00, Utorok 7:00–22:00, Streda 7:00–22:00, Štvrtok 7:00–22:00, Piatok 14:00–22:00, Sobota 8:00–21:00, Nedeľa 8:00–21:00",
+  "note": "The location page's visible branch-labelled week differs from the site's Squarespace/schema.org setting on Monday, Wednesday and both weekend days; the visible location statement is published."
  },
  {
   "lat": 48.2146345,
@@ -31902,7 +31882,7 @@
   "name": "BLOCK DOCK Rača",
   "country": "SK",
   "source": "https://www.blockdock.me/raca",
-  "checked": "2026-08-31",
+  "checked": "2026-09-01",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -31920,7 +31900,8 @@
    "sat": "08:00-21:00",
    "sun": "08:00-21:00"
   },
-  "evidence": "BLOCK DOCK RAČA: Pondelok 14:00–22:00, Utorok 7:00–22:00, Streda 7:00–22:00, Štvrtok 7:00–22:00, Piatok 7:00–22:00, Sobota 8:00–21:00, Nedeľa 8:00–21:00"
+  "evidence": "BLOCK DOCK RAČA: Pondelok 14:00–22:00, Utorok 7:00–22:00, Streda 7:00–22:00, Štvrtok 7:00–22:00, Piatok 7:00–22:00, Sobota 8:00–21:00, Nedeľa 8:00–21:00",
+  "note": "The location page's visible branch-labelled week differs from the site's Squarespace/schema.org setting on Wednesday, Friday and both weekend days; the visible location statement is published."
  },
  {
   "lat": 40.8709508,
@@ -31980,7 +31961,7 @@
   "name": "Funattic",
   "country": "UA",
   "source": "https://funattic.com.ua/ua/",
-  "checked": "2026-08-31",
+  "checked": "2026-09-01",
   "provenance": "official-location-page",
   "signals": [
    "venue-link",
@@ -31998,7 +31979,8 @@
    "sat": "11:00-18:00",
    "sun": "11:00-18:00"
   },
-  "evidence": "ПН-ПТ 11:00 до 21:45; СБ-НД 11:00 до 18:00"
+  "evidence": "ПН-ПТ 11:00 до 21:45; СБ-НД 11:00 до 18:00",
+  "note": "The maintained visible week closes weekdays at 21:45; a schema.org block alone shortens Wednesday to 21:30."
  },
  {
   "lat": 50.4734096,
@@ -32244,14 +32226,15 @@
   "name": "Beast Fingers",
   "country": "US",
   "source": "https://beastfingersclimbing.com/contact",
-  "checked": "2026-08-31",
+  "checked": "2026-09-01",
   "provenance": "official-location-page",
   "signals": ["venue-link", "street-address", "postal-code", "city", "hours-scope"],
   "hours": {
    "mon": "10:00-20:00", "tue": "10:00-20:00", "wed": "10:00-20:00",
    "thu": "10:00-20:00", "fri": "10:00-20:00", "sat": "closed", "sun": "closed"
   },
-  "evidence": "Sunday Closed; Monday-Friday 10 AM-8 PM; Saturday Closed"
+  "evidence": "Sunday Closed; Monday-Friday 10 AM-8 PM; Saturday Closed",
+  "note": "The visible contact page explicitly states the weekday week and weekend closures. The Squarespace business-hours object has every day closed and is an unconfigured setting, not the venue's maintained statement."
  },
  {
   "lat": 32.421234,
@@ -32442,22 +32425,6 @@
   "note": "The visible homepage, bouldering page and structured opening-hours block all state the same complete week."
  },
  {
-  "lat": 36.3643697,
-  "lon": 127.3247016,
-  "name": "하나클라이밍짐 Hana Climbing Gym",
-  "country": "KR",
-  "source": "https://www.hanasports.or.kr/info/use_info.php",
-  "checked": "2026-09-01",
-  "provenance": "official-location-page",
-  "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
-  "hours": {
-   "mon": "closed", "tue": "11:00-23:00", "wed": "11:00-23:00",
-   "thu": "11:00-23:00", "fri": "11:00-23:00", "sat": "11:00-19:00", "sun": "11:00-19:00"
-  },
-  "evidence": "화 ~ 금 11:00 ~ 23:00; 주말, 공휴일 11:00 ~ 19:00; ※ 매주 월요일은 휴무입니다.",
-  "note": "The operator's use-information page states the complete ordinary week; public holidays share the weekend hours and do not alter the seven-day schedule."
- },
- {
   "lat": 35.600647,
   "lon": 139.352181,
   "name": "BolBol",
@@ -32503,7 +32470,7 @@
    "thu": "16:30-22:00", "fri": "16:30-22:00", "sat": "13:00-22:00", "sun": "10:00-19:00"
   },
   "evidence": "定休日：毎週月曜（祝日でも休み） | 営業時間：火曜〜金曜日 16時半 [16:30]〜22時 | 土曜日 13時〜22時 | 日曜日 10時〜19時",
-  "note": "The current Ogaki location page states the complete ordinary week and explicitly confirms that Monday remains closed on holidays."
+  "note": "The current Ogaki location page states the complete ordinary week and explicitly confirms that Monday remains closed on holidays. Its Japanese '16時半' means 16:30; the conflict reader's missing-16:30 finding is only a locale-normalization limitation."
  },
  {
   "lat": 35.662423,
@@ -32648,5 +32615,21 @@
     },
     "evidence": "水木金曜日 午後6時 [18:00]～午後10時 [22:00] 土日祭日 午前10時 [10:00]～午後6時 [18:00] 定休日 月曜・火曜日 閉店の1時間前が最終入店時刻です。",
     "note": "The current operator hours page states all seven ordinary days in one schedule; holiday opening is an exception and does not change the regular Monday and Tuesday closures."
+  },
+  {
+    "lat": 26.157273,
+    "lon": 127.651206,
+    "name": "D.Bouldering Okinawa Toyosaki",
+    "country": "JP",
+    "source": "https://www.d-b-c.jp/top/okinawa/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "10:00-23:00", "tue": "10:00-23:00", "wed": "10:00-23:00",
+      "thu": "10:00-23:00", "fri": "10:00-23:00", "sat": "10:00-21:00", "sun": "10:00-21:00"
+    },
+    "evidence": "営業時間 | 平日 10:00〜23:00 | 土日祝 10:00〜21:00 | 年中無休",
+    "note": "The current branch page states the complete ordinary week. Its warning that maintenance may cause one or two exceptional closures per year does not change the regular schedule."
   }
 ]

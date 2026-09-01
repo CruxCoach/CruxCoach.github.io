@@ -6,7 +6,7 @@ refresh can distinguish a genuinely new public channel from repeated work.
 
 ## Current state — 2026-09-01
 
-- `@hangtime/climbing-boards` 1.0.92 is still the latest package and documents
+- `@hangtime/climbing-boards` 1.0.93 is the current audited package and documents
   that MoonBoard removed `https://moonboard.com/MoonBoard/GetMapMarkers` in May
   2026. Its bundled MoonBoard GeoJSON is therefore a frozen snapshot, not a
   current manufacturer feed.
@@ -374,3 +374,43 @@ board. Their apparent Naver operator channels are robots-blocked; no login or
 access-control workaround was attempted. Both discovery-list claims therefore
 remain unverified. Together with the published OTTERCLIMBING row, this leaves
 three published, thirteen unverified, one closed and 39 pending candidates.
+
+The first post-ledger Japanese discovery retry resolves two of the three named
+open candidates without weakening the provenance boundary. TO-DO Climbing's
+current operator facility page explicitly labels its MoonBoard and exact Akita
+address. MLIT's current Akita file genuinely has no 石川22 record, but the exact
+named venue building is independently present in OpenStreetMap; that point is
+published only in combination with the operator's current identity, address and
+board statement. The operator's two current pages disagree by one hour on both
+weekday and weekend opening, so hours remain an `ambiguous` outcome.
+
+D.Bouldering's current Okinawa Toyosaki branch and facility pages explicitly
+identify the MoonBoard, exact iias Toyosaki address and 130-degree wall. The
+representative point for the exact 豊崎3 lot comes from MLIT's 2025 Okinawa
+Location Reference Information, and the angle is normalized to 40 degrees from
+vertical. The same branch page supplies a complete regular week. Neither venue
+states a supported generation or LEDs, so those fields remain unknown.
+
+FUNNY BONE was rechecked across the correct current operator domain
+`r.goope.jp/funnybone`—homepage, facility photographs, access, pricing,
+calendar, current announcements and indexed archives. The gym is demonstrably
+active in 2026, but its only explicit operator MoonBoard statement remains the
+May 2020 reopening post. The unrelated `funnyb.jp` business is not used. FUNNY
+BONE therefore remains a documented currency retry rather than a production
+addition. The Japanese audit now accounts for 49 decisions and 45 production
+venues / MoonBoard rows: 26 current, 12 unverified, seven private, three
+mislocated and one closed, with zero pending or unknown map rows. Because this
+retry yielded two venues, a fresh nationwide Japanese discovery pass is still
+required before any regional exhaustion claim.
+
+The same full rebuild advanced Hangtime from 1.0.92 to 1.0.93, so its delta was
+audited rather than accepted as opaque churn. Dreamstone Boulders Kelapa Gading
+is a new address-bearing structured Kilter row; only operator social/Linktree
+surfaces were found, so no website or hours are inferred. Rock Room's new
+address-bearing Kilter row sits 16 metres from its legacy MoonBoard point. The
+current operator site explicitly names both boards at 319 Victoria Ave E, so an
+override merges the legacy MoonBoard onto that venue and clears the unsupported
+inherited 2016/LED claims. Salmisaari's now-upstream Tension row replaces the
+former curated duplicate. This source refresh and the two Japanese additions
+produce 2,849 venues / 3,137 board rows, including 1,527 MoonBoards at 1,403
+venues, without publishing a duplicate Rock Room marker.

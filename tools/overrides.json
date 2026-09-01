@@ -1250,5 +1250,22 @@
     "name": "WALLSTREET",
     "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
     "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 48.3842148,
+    "lon": -89.2436231,
+    "name": "Rock Room",
+    "note": "The current operator site and the refreshed address-bearing Kilter row establish one Thunder Bay venue 16 m away. Merge the legacy MoonBoard at that current point and clear its unsupported inherited 2016/LED details.",
+    "set": {
+      "lat": 48.38436086978212,
+      "lon": -89.24355872698759,
+      "name": "Rock Room",
+      "address": "319 Victoria Ave E, Thunder Bay, ON P7C 1A4",
+      "city": "Thunder Bay",
+      "variant": null,
+      "led": null,
+      "angle": null
+    }
   }
 ]

@@ -427,16 +427,6 @@
     "checked": "2026-08-24"
   },
   {
-    "lat": 48.3842148,
-    "lon": -89.2436231,
-    "name": "Rock Room",
-    "country": "CA",
-    "status": "unavailable",
-    "candidate": "https://www.rockroomclimbing.ca/",
-    "reason": "Rock Room is Thunder Bay's bouldering gym at 319 Victoria Ave E, opened in a soft launch in February 2026. Its domain is rockroomclimbing.ca and every path on it returns about 475 bytes and builds itself in the browser; /about, which search still indexes, answers 404. There is nothing on the wire to match.",
-    "checked": "2026-08-25"
-  },
-  {
     "lat": 49.2193226,
     "lon": -122.5983981,
     "name": "The Rock Wall Climbing Gym",
@@ -4894,5 +4884,25 @@
     "checked": "2026-09-01",
     "candidate": "https://www.instagram.com/otterclimbing/",
     "reason": "The venue's current document-backed Daangn business profile identifies its public hall, MoonBoard and exact address, but Daangn is a marketplace/directory and the profile points only to Instagram and Naver for operator updates. No standalone official HTTPS website was found, so neither the marketplace page nor a social profile is published as the venue website."
+  },
+  {
+    "lat": -6.168997632532928,
+    "lon": 106.92485794232918,
+    "name": "Dreamstone Boulders Kelapa Gading",
+    "country": "ID",
+    "status": "social-only",
+    "checked": "2026-09-01",
+    "candidate": "https://linktr.ee/dreamstoneboulders",
+    "reason": "The refreshed structured Kilter source identifies the Kelapa Gading public venue, exact address and board geometry. Current searches found only the operator's Linktree and linked social/contact surfaces, not a standalone official HTTPS venue site; an aggregator landing page is not published as the website."
+  },
+  {
+    "lat": 36.3643697,
+    "lon": 127.3247016,
+    "name": "하나클라이밍짐 Hana Climbing Gym",
+    "country": "KR",
+    "status": "unavailable",
+    "checked": "2026-09-01",
+    "candidate": "https://hanasports.or.kr/hcg/introduce.php",
+    "reason": "The operator site was indexed within the last seven months with the exact stadium address and an explicit MoonBoard/Kilter facility page, but the domain currently has authoritative nameservers and no address record: the apex and www host do not resolve. A dead URL is not published as the venue website; retry the operator domain or a confirmed replacement without weakening the existing board-identity evidence."
   }
 ]

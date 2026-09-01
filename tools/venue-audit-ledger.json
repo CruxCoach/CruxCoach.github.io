@@ -5175,8 +5175,8 @@
    }
   },
   {
-   "lat": 48.3842148,
-   "lon": -89.2436231,
+   "lat": 48.38436086978212,
+   "lon": -89.24355872698759,
    "name": "Rock Room",
    "country": "CA",
    "needs": [
@@ -5184,20 +5184,20 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unavailable",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
      "web-search",
-     "path-probe"
+     "apex",
+     "path-probe",
+     "map-block"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "inaccessible",
+    "pass": "2026-09-01",
+    "result": "no-hours-on-official-site",
     "channels": [
+     "venue-link",
      "path-probe"
     ]
    }
@@ -5682,7 +5682,7 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-31",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
      "operator-index",
@@ -19856,7 +19856,7 @@
    ],
    "website": {
     "pass": "2026-09-01",
-    "result": "accepted",
+    "result": "unavailable",
     "channels": [
      "name-guess",
      "apex",
@@ -19870,7 +19870,7 @@
    },
    "hours": {
     "pass": "2026-09-01",
-    "result": "accepted",
+    "result": "inaccessible",
     "channels": [
      "name-guess",
      "apex",
@@ -39249,6 +39249,47 @@
    "hours": {
     "pass": "2026-09-01", "result": "accepted",
     "channels": ["venue-link", "path-probe"]
+   }
+  },
+  {
+   "lat": -6.168997632532928,
+   "lon": 106.92485794232918,
+   "name": "Dreamstone Boulders Kelapa Gading",
+   "country": "ID",
+   "needs": ["website", "hours"],
+   "website": {
+    "pass": "2026-09-01", "result": "social-only",
+    "channels": ["web-search", "apex", "www", "path-probe"]
+   },
+   "hours": {
+    "pass": "2026-09-01", "result": "no-official-site",
+    "channels": ["web-search", "path-probe"]
+   }
+  },
+  {
+   "lat": 39.6960587,
+   "lon": 140.1449691,
+   "name": "TO-DO Climbing",
+   "country": "JP",
+   "needs": ["website", "hours"],
+   "website": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["web-search", "apex", "path-probe", "map-block"]
+   },
+   "hours": {
+    "pass": "2026-09-01", "result": "ambiguous",
+    "channels": ["venue-link", "path-probe"]
+   }
+  },
+  {
+   "lat": 48.29891,
+   "lon": 14.2749,
+   "name": "Der Steinbock Linz",
+   "country": "AT",
+   "needs": ["hours"],
+   "hours": {
+    "pass": "2026-09-01", "result": "ambiguous",
+    "channels": ["venue-link", "path-probe", "previous-record"]
    }
   }
  ]

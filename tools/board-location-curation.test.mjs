@@ -51,6 +51,8 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['愛媛クライミングジム iTTE', 'moonboard'],
     ['アオロク ao_roc.climbing', 'moonboard'],
     ['カルコロ CAL-COLO', 'moonboard'],
+    ['TO-DO Climbing', 'moonboard'],
+    ['D.Bouldering Okinawa Toyosaki', 'moonboard'],
     ['クラックス大阪 CRUX Osaka', 'moonboard'],
     ['하나클라이밍짐 Hana Climbing Gym', 'kilter'],
     ['디스커버리 클라임스퀘어 Climbsquare ICN', 'moonboard'],
@@ -83,7 +85,6 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Hovden Grendehus', 'kilter'],
     ['Calgary Climbing Centre Rocky Mountain', 'kilter'],
     ['High Point Climbing Lincoln Mill', 'kilter'],
-    ['KiipeilyAreena Salmisaari', 'tension'],
     ['Beast Fingers', 'kilter'],
     ['318 Climb', 'kilter'],
     ['The Board Room', 'kilter'],
@@ -296,6 +297,8 @@ test('committed map data includes the missing boards and merges the corrected ve
     ['ROCONESS', 38.001454, 140.624956, '宮城県白石市字兎作3-1', true],
     ['愛媛クライミングジム iTTE', 33.861438, 132.742492, '愛媛県松山市久万ノ台639-1', true],
     ['アオロク ao_roc.climbing', 35.983114, 140.642811, '茨城県鹿嶋市宮津台4752-10', true],
+    ['TO-DO Climbing', 39.6960587, 140.1449691, '秋田県秋田市上北手百崎字石川22', false],
+    ['D.Bouldering Okinawa Toyosaki', 26.157273, 127.651206, '沖縄県豊見城市字豊崎3-35 イーアス沖縄豊崎3F', true],
   ]) {
     const venue = at(features, lat, lon);
     assert.equal(venue.length, 1, name);
@@ -307,6 +310,18 @@ test('committed map data includes the missing boards and merges the corrected ve
   const roconess = at(features, 38.001454, 140.624956)[0].properties.boards[0];
   assert.equal(roconess.variant, 'mb2019-masters');
   assert.equal(roconess.led, true);
+  const okinawa = at(features, 26.157273, 127.651206)[0].properties.boards[0];
+  assert.equal(okinawa.angle, 40);
+  assert.equal(okinawa.variant, null);
+  assert.equal(okinawa.led, null);
+
+  const rockRoom = at(features, 48.38436086978212, -89.24355872698759);
+  assert.equal(rockRoom.length, 1);
+  assert.equal(rockRoom[0].properties.name, 'Rock Room');
+  assert.deepEqual(new Set(boardIds(rockRoom[0])), new Set(['kilter', 'moonboard']));
+  assert.equal(rockRoom[0].properties.website, 'https://www.rockroomclimbing.ca/');
+  assert.equal(rockRoom[0].properties.hours, undefined);
+  assert.equal(at(features, 48.3842148, -89.2436231).length, 0);
 
   const monolithe = at(features, 35.9461485, 139.4770721);
   assert.equal(monolithe.length, 1);
@@ -338,7 +353,10 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.deepEqual(new Set(boardIds(hana[0])), new Set(['kilter', 'moonboard']));
   assert.equal(hana[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2016');
   assert.deepEqual(hana[0].properties.boards.find(board => board.board === 'kilter').walls, []);
-  assert.equal(hana[0].properties.hours.length, 7);
+  assert.equal(hana[0].properties.website, undefined,
+    'the operator domain currently has no DNS address, so its dead link stays out of production');
+  assert.equal(hana[0].properties.hours, undefined,
+    'hours that cannot be re-read from the operator must remain a retryable research outcome');
 
   const gravitaZero = at(features, 45.65702, 13.81049);
   assert.equal(gravitaZero.length, 1);

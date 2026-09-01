@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-09-01T03:04:11.179Z",
-  "venue_features": 2846,
-  "raw_entries": 3133,
-  "venues_with_multiple_boards": 139,
-  "country_from_coder": 2846,
+  "generated_at": "2026-09-01T03:23:24.035Z",
+  "venue_features": 2849,
+  "raw_entries": 3137,
+  "venues_with_multiple_boards": 140,
+  "country_from_coder": 2849,
   "country_from_fallback": 0,
   "country_missing": 0,
-  "city_from_upstream": 1127,
-  "city_from_nearest": 1596,
+  "city_from_upstream": 1131,
+  "city_from_nearest": 1595,
   "city_missing": 123,
   "nearest_city_max_km": 25,
   "exclusions": {
     "defined": 93,
-    "matched_venues": 26,
-    "excluded_entries": 27,
-    "unmatched": 67
+    "matched_venues": 27,
+    "excluded_entries": 28,
+    "unmatched": 66
   },
   "overrides": {
-    "defined": 107,
-    "applied": 107,
+    "defined": 108,
+    "applied": 108,
     "unmatched": 0,
-    "conflicts": 180
+    "conflicts": 184
   },
   "wellpass": {
     "defined": 87,
@@ -28,8 +28,8 @@
     "unmatched": 0
   },
   "venue_links": {
-    "defined": 1806,
-    "applied": 1806,
+    "defined": 1808,
+    "applied": 1808,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -38,13 +38,13 @@
     "countries": 63,
     "by_provenance": {
       "official-chain-page": 128,
-      "official-location-page": 638,
-      "official-site": 1040
+      "official-location-page": 639,
+      "official-site": 1041
     }
   },
   "venue_hours": {
-    "defined": 1325,
-    "applied": 1325,
+    "defined": 1324,
+    "applied": 1324,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -55,37 +55,37 @@
     "by_provenance": {
       "official-chain-page": 108,
       "official-location-page": 506,
-      "official-site": 711
+      "official-site": 710
     }
   },
   "per_board": {
-    "kilter": 1137,
+    "kilter": 1139,
     "tension": 370,
     "grasshopper": 42,
     "decoy": 24,
     "soill": 12,
     "touchstone": 5,
     "aurora": 3,
-    "moonboard": 1525,
+    "moonboard": 1527,
     "12climb": 6,
     "quantum": 9
   },
   "per_source": {
-    "hangtime": 3055,
-    "curated": 69,
+    "hangtime": 3058,
+    "curated": 70,
     "quantum": 9
   },
   "sources": {
     "hangtime": {
       "package": "@hangtime/climbing-boards",
-      "version": "1.0.92",
+      "version": "1.0.93",
       "counts": {
         "kilter": {
-          "kept": 1124,
+          "kept": 1126,
           "dropped": 0
         },
         "tension": {
-          "kept": 366,
+          "kept": 368,
           "dropped": 0
         },
         "grasshopper": {
@@ -119,7 +119,7 @@
       }
     },
     "curated": {
-      "entries": 69,
+      "entries": 70,
       "verified_on": "2026-09-01",
       "policy": "official-venue-pages"
     },

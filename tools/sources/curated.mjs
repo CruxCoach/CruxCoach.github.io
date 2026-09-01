@@ -538,6 +538,46 @@ const ENTRIES = [
     angle: null,
   },
   {
+    // Current public venue, exact address and MoonBoard:
+    // https://www.matsumoto-car.com/tcfacility
+    // The exact named building point is independently corroborated by OSM
+    // way 774885092. MLIT's current Akita address file does not contain the
+    // operator's 石川22 lot. The operator does not state generation, LEDs or
+    // angle, so those details stay unknown.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'TO-DO Climbing',
+    lat: 39.6960587,
+    lon: 140.1449691,
+    address: '秋田県秋田市上北手百崎字石川22',
+    city: 'Akita',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current public branch, exact address and 130-degree MoonBoard:
+    // https://www.d-b-c.jp/top/okinawa/facility/
+    // https://www.d-b-c.jp/top/okinawa/
+    // MLIT's current Okinawa Location Reference Information supplies the
+    // representative point for the exact 豊崎3 lot. The operator does not
+    // state a supported generation or LEDs. 130° is 40° from vertical.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'D.Bouldering Okinawa Toyosaki',
+    lat: 26.157273,
+    lon: 127.651206,
+    address: '沖縄県豊見城市字豊崎3-35 イーアス沖縄豊崎3F',
+    city: 'Tomigusuku',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: 40,
+  },
+  {
     // The current branch page identifies both the MoonBoard and Grasshopper
     // Board at the one public CRUX Osaka venue in Suita and embeds this exact
     // coordinate: https://www.crux-jp.com/crux-osaka/
@@ -1113,21 +1153,6 @@ const ENTRIES = [
       angle_increments: null,
       hold_set: null,
     }],
-  },
-  {
-    // The anonymous official Tension app endpoint identifies the board:
-    // https://tensionboardapp2.com/pins?gyms=1
-    // The venue's current expansion notice confirms two adjustable training
-    // boards and its branch page confirms public access and the exact address:
-    // https://kiipeilyareena.com/salmisaaren-uusi-laajennus-avataan-maanantaina-28-7-klo-13/
-    // https://kiipeilyareena.com/en/locations/salmisaari/
-    source: 'curated',
-    board: 'tension',
-    name: 'KiipeilyAreena Salmisaari',
-    lat: 60.166129,
-    lon: 24.904168,
-    city: 'Helsinki',
-    country: 'FI',
   },
   {
     // Current public climbing gym and exact address/hours:
