@@ -98,6 +98,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['クライミングジム猿吉 Sarukichi', 'moonboard'],
     ['Climbing Gym GANBA', 'moonboard'],
     ['クライミングジム＆ショップ ストーンラブ', 'moonboard'],
+    ['Climbing Gym Canyon', 'moonboard'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -158,6 +159,17 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(stoneLove[0].properties.boards[0].led, true);
   assert.equal(stoneLove[0].properties.boards[0].variant, null);
   assert.equal(stoneLove[0].properties.boards[0].angle, null);
+
+  const canyon = at(features, 35.029583, 136.66954);
+  assert.equal(canyon.length, 1);
+  assert.equal(canyon[0].properties.name, 'Climbing Gym Canyon');
+  assert.equal(canyon[0].properties.website, 'https://www.climbingcanyon.com/');
+  assert.deepEqual(canyon[0].properties.hours, [
+    '17:00-22:00', '', '17:00-22:00', '17:00-22:00',
+    '17:00-22:00', '10:00-20:00', '10:00-20:00',
+  ]);
+  assert.equal(canyon[0].properties.boards[0].variant, 'mb2019-masters');
+  assert.equal(canyon[0].properties.boards[0].angle, 40);
 
   const calgaryOutdoor = at(features, 51.07767, -114.13419);
   assert.equal(calgaryOutdoor.length, 1);

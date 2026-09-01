@@ -1399,6 +1399,23 @@ const ENTRIES = [
     variant: null,
     angle: null,
   },
+  {
+    // Current public venue, MoonBoard 2019 at 40 degrees, exact address and week:
+    // https://www.climbingcanyon.com/
+    // GSI's official address search resolves 朝日町柿468-1 to this exact point.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Climbing Gym Canyon',
+    lat: 35.029583,
+    lon: 136.66954,
+    address: '三重県三重郡朝日町大字柿468-1',
+    city: 'Asahi',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: 'mb2019-masters',
+    angle: 40,
+  },
 ];
 
 export async function load() {

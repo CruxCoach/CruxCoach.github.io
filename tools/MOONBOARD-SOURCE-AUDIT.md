@@ -549,3 +549,26 @@ decisions and 53 production venues / MoonBoard rows: 34 current, 12 unverified,
 seven private, three mislocated and one closed. The whole dataset contains 2,857
 venues and 3,145 board rows, including 1,535 MoonBoards at 1,411 venues, 1,816
 official websites and 1,330 complete regular weeks.
+
+The next restart searched Japanese operator pages by installation language
+(`ムーンボードを設置`, `ムーンボード設置`, `MoonBoardを設置`, and
+`ムーンボード導入`) rather than by directory membership. The current operator
+pages found for RIOT Climbing, ao_roc and Rainbow Cliff resolve to already
+reviewed production venues. Edge and Sofa's operator archive explicitly closes
+the old Suwa installation on 27 February 2022, and the private-home construction
+results are non-public by their own descriptions. The remaining outcomes are:
+
+| Candidate | Outcome | Primary-source boundary |
+| --- | --- | --- |
+| Climbing Gym Canyon | published | Current operator homepage names its public 2019 MoonBoard at 40 degrees, exact address and complete week; official GSI address point. |
+| ボルダリングジム キイストーン三川 | closed/withheld | The board claim survives only on the operator's old LINE page; the Mikawa venue closed in October 2022, so current-looking directory rows are rejected. |
+
+Canyon is absent from the frozen registry and has no nearby production venue,
+so the official GSI point does not create a duplicate. Its operator explicitly
+states the setup as 2019 at 40 degrees; LEDs remain unknown. Because this
+different-channel restart again yielded a publishable venue, Japan is still not
+exhausted and another independent pass is required. Japan now has 58 reviewed
+decisions and 54 production venues / MoonBoard rows: 35 current, 12 unverified,
+seven private, three mislocated and one closed. The whole dataset contains 2,858
+venues and 3,146 board rows, including 1,536 MoonBoards at 1,412 venues, 1,817
+official websites and 1,331 complete regular weeks.

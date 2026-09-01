@@ -32727,5 +32727,21 @@
     },
     "evidence": "営業時間 | 月、火、木 11：00～22：00 | 水曜日 15：00～22：00 | 土日祝 10：00～20：00 | 定休日 金曜日（金曜日が祝日の場合は営業）",
     "note": "The current operator hours page states every ordinary weekday and the weekend schedule. Holiday Friday opening is an exception and does not change the regular Friday closure."
+  },
+  {
+    "lat": 35.029583,
+    "lon": 136.66954,
+    "name": "Climbing Gym Canyon",
+    "country": "JP",
+    "source": "https://www.climbingcanyon.com/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "17:00-22:00", "tue": "closed", "wed": "17:00-22:00",
+      "thu": "17:00-22:00", "fri": "17:00-22:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "営業時間 | 平日：17:00～22:00 | 土・日・祝日：10:00～20:00 | 定休日 火曜日",
+    "note": "The current operator homepage states the complete ordinary week. Its separate Tuesday closure overrides the general weekday hours."
   }
 ]
