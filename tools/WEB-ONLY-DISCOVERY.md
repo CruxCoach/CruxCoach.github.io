@@ -9,12 +9,11 @@ source knows it.
 spellings/models, twelve world regions, multilingual venue/facility/training and
 opening/installation/renovation/news/social lexicons, and two independent pass
 formulations. `web-only-discovery-ledger.json` records exact completed queries and
-candidate dispositions. Its separate `rechecks` array preserves every required
-repeat without overwriting the original cell: `iteration` starts at 2 and each
-record carries the exact queries, reviewed-result count, candidate count and
-number of production changes. The Cartesian completion denominator is 2 passes ×
-10 boards × 12 regions = 240 cells; repeats are reported separately and never
-inflate it.
+candidate dispositions. Its separate `rechecks` array preserves historical repeat
+work completed before the primary-cell-only policy took effect; those records
+remain auditable but create no further work. The Cartesian completion denominator
+is 2 passes × 10 boards × 12 regions = 240 primary cells. Each primary cell is
+searched exactly once, and historical rechecks never inflate that denominator.
 
 Run `node tools/web-only-discovery-audit.mjs`. A cell is complete only when it
 records its date, languages, exact queries, reviewed-result count and candidate
@@ -28,7 +27,11 @@ seasonal, inaccessible and contradictory cases remain explicit outcomes.
 Pass A combines board spellings with venue, facility, training-area and FAQ
 terms. Pass B independently combines them with opening, installation,
 renovation, news/blog and operator-social terms. Both must cover every matrix
-cell. If either pass yields new verified data, integrate it and restart that pass;
-only a later zero-yield run can count toward exhaustion. The three initial
-candidate rows document pre-track Japanese web-only findings and intentionally
-count as zero completed cells.
+cell exactly once. A productive cell is integrated and validated but does not
+restart its region, board or pass. Retryable technical failures are documented in
+the candidate or research ledger and likewise do not trigger a whole-cell rerun.
+Web-only completion means all 240 primary cells have reproducible coverage,
+remaining technical blockers are explicit, and the integrated production diff has
+passed central regeneration, reports, full tests and a privacy/leak audit. The
+three initial candidate rows document pre-track Japanese web-only findings and
+intentionally count as zero completed cells.

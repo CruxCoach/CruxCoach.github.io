@@ -85,7 +85,7 @@ export function loadAudit(root = ROOT) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const audit = loadAudit();
-  console.log(`web-only discovery: ${audit.completed}/${audit.expected} matrix cells complete; ${audit.rechecks} repeated cells; ${audit.candidates} candidates; complete passes: ${audit.completePasses.join(', ') || 'none'}`);
+  console.log(`web-only discovery: ${audit.completed}/${audit.expected} primary cells complete; ${audit.rechecks} historical rechecks; ${audit.candidates} candidates; complete primary passes: ${audit.completePasses.join(', ') || 'none'}`);
   if (audit.errors.length) console.error(audit.errors.join('\n'));
   if (audit.missing.length) console.log(`pending cells: ${audit.missing.length}`);
   process.exitCode = audit.errors.length ? 1 : 0;

@@ -10,7 +10,7 @@ test('committed web-only matrix is valid and remains visibly unfinished', () => 
   assert.equal(audit.completed + audit.missing.length, audit.expected);
   assert.ok(audit.missing.length > 0, 'the exhaustion gate must remain visibly unfinished');
   assert.deepEqual(audit.completePasses, []);
-  assert.ok(audit.rechecks > 0, 'productive passes must retain independently auditable repeat work');
+  assert.ok(audit.rechecks > 0, 'historical repeat work must remain independently auditable without creating new work');
   assert.ok(audit.candidates >= 3, 'the seed candidate history must not be lost');
 });
 
@@ -30,7 +30,7 @@ test('a coverage cell counts only with reproducible evidence', () => {
   assert.ok(audit.errors.some(error => error.includes('lacks exact queries')));
 });
 
-test('repeat runs preserve separate exact-query and yield evidence', () => {
+test('historical repeat runs remain valid audit evidence without counting as primary cells', () => {
   const matrix = {
     schema: 'cruxcoach-web-only-discovery-matrix-v1',
     minimum_completed_passes: 2,
@@ -44,5 +44,7 @@ test('repeat runs preserve separate exact-query and yield evidence', () => {
   ] };
   const audit = auditWebDiscovery(matrix, ledger);
   assert.equal(audit.rechecks, 1);
+  assert.equal(audit.completed, 0);
+  assert.equal(audit.missing.length, 2);
   assert.deepEqual(audit.errors, []);
 });

@@ -593,8 +593,10 @@ candidate history live in [`WEB-ONLY-DISCOVERY.md`](WEB-ONLY-DISCOVERY.md).
 node tools/web-only-discovery-audit.mjs
 ```
 
-The two required passes use different query formulations across every supported
-board and world region. A snippet or directory is discovery only; normal current
+The two required primary passes use different query formulations across every
+supported board and world region. Each of the 240 primary cells is searched
+exactly once; productive cells and retryable technical failures do not trigger
+whole-cell repetitions. A snippet or directory is discovery only; normal current
 official-venue evidence and geodata policy still gate every production change.
 
 ### Aurora-family anonymous-pins audit
