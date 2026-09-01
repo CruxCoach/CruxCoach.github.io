@@ -14208,18 +14208,34 @@
     "note": "QRiMo's own site, titled \"Home|ボルダリング ワールド- QRiMo- 御前崎 静岡 浜松\" — the venue's name and Omaezaki, the municipality its coordinates fall in. Upstream labels this venue with the nearest gazetteer place, which is a neighbourhood; the municipality its coordinates fall in is what the page names. Upstream calls the place Kikugawa, the neighbouring city."
   },
   {
+    "lat": 33.22722,
+    "lon": 132.7108,
+    "name": "松野町コミュニティセンター Matsuno Town Community Center",
+    "country": "JP",
+    "website": "https://matsuno-kankou.com/news/5105.html",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "board-mention"
+    ],
+    "note": "Matsuno Town's current official tourism page is dedicated to this Kilter Board, identifies the Community Center and Matsumaru 343 address, and gives its public reservation procedure and board details."
+  },
+  {
     "lat": 42.86238,
     "lon": 140.70229,
     "name": "Rhythm Japan Niseko",
     "country": "JP",
-    "website": "https://rhythmjapan.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
+    "website": "https://rhythmjapan.com/activity-hub",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
-      "city"
+      "city",
+      "board-mention"
     ],
-    "note": "Rhythm Japan's own site for its Niseko operation, giving Hokkaido — the region upstream records for Yamada, Kutchan."
+    "note": "Rhythm Japan's current venue-specific page identifies the Niseko Rhythm Hirafu Activity Hub and its Kilter Board. Current 2026 operator stories still call the flagship Rhythm Hirafu store the Activity Hub; OSM independently places the structured point on the named Rhythm Base Niseko building."
   },
   {
     "lat": 35.205871,

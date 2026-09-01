@@ -19198,11 +19198,12 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "seasonal",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "operator-index"
     ]
    }
   },
@@ -19902,24 +19903,21 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
-     "apex",
-     "www",
      "web-search",
-     "previous-record"
+     "operator-index",
+     "co-located"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "appointment-only",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "path-probe"
     ]
    }
   },

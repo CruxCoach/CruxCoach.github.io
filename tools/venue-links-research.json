@@ -618,10 +618,10 @@
     "lon": 114.17565974232724,
     "name": "BoardRoom",
     "country": "CN",
-    "status": "unavailable",
+    "status": "duplicate",
     "candidate": "https://boardroom.fit/",
-    "reason": "BoardRoom on Johnston Road in Wan Chai holds boardroom.fit — the handle upstream records for its neighbouring row is boardroom.fit too — and the domain serves 24 bytes that assemble in the browser. Nothing on the wire names the street, the district or a board.",
-    "checked": "2026-08-25"
+    "reason": "This Kilter registry row is the same Board Room at 1301-02 Chinachem Johnston Plaza as the Tension registry row 13 metres away. The current operator page identifies one Wan Chai venue containing both boards; the consolidated production marker uses the operator-backed Tension point and this duplicate source row is excluded.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 23.1,
@@ -2009,15 +2009,6 @@
     "country": "JP",
     "status": "unverified",
     "reason": "No official site could be established: 九州クライミングベースSAGA opened in November 2023 inside 佐賀県立多久高校 at 北多久町大字小侍23 — upstream's address — and it publishes through the prefecture's own pages and the city of Taku's, rather than a site of its own. kyushuclimbingbase.jp and kcb-saga.jp do not resolve. A prefectural news page is not the venue's website.",
-    "checked": "2026-08-25"
-  },
-  {
-    "lat": 33.22722,
-    "lon": 132.7108,
-    "name": "松野町コミュニティセンター Matsuno Town Community Center",
-    "country": "JP",
-    "status": "unverified",
-    "reason": "No official site could be established: the venue is a municipal community centre in 松野町, and neither the town nor the centre publishes a page for its wall: the prefecture's sports-camp pages list other Ehime facilities and not this one.",
     "checked": "2026-08-25"
   },
   {

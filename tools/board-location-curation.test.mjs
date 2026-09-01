@@ -88,6 +88,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Beast Fingers', 'kilter'],
     ['318 Climb', 'kilter'],
     ['The Board Room', 'kilter'],
+    ['The Player Climbinggym', 'moonboard'],
     ['Vita Beta Climbing Gym Quarry Bay', 'kilter'],
     ['Rose Bloc Brossard', 'kilter'],
     ['Rainbow Cliff', 'moonboard'],
@@ -677,11 +678,12 @@ test('committed map data includes the missing boards and merges the corrected ve
   const hongKongKilter = hongKongBoardRoom[0].properties.boards.find(board => board.board === 'kilter');
   assert.equal(hongKongKilter.walls[0].min_angle, 25);
   assert.equal(hongKongKilter.walls[0].max_angle, 60);
+  assert.equal(at(features, 22.277204660983397, 114.17565974232724).length, 0);
 
   const player = at(features, 22.3424815, 114.1359859);
   assert.equal(player.length, 1);
   assert.equal(player[0].properties.name, 'The Player Climbinggym');
-  assert.deepEqual(boardIds(player[0]), ['kilter']);
+  assert.deepEqual(new Set(boardIds(player[0])), new Set(['kilter', 'moonboard']));
   assert.equal(player[0].properties.website, 'https://www.theplayerclimbing.com/');
   assert.equal(player[0].properties.hours.length, 7);
   assert.equal(at(features, 22.34366, 114.14026).length, 0);

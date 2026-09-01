@@ -1222,6 +1222,24 @@ const ENTRIES = [
     }],
   },
   {
+    // Current venue-primary facility page identifies both the Kilter Board and
+    // Moon Board at this exact public branch; the existing Kilter registry row
+    // supplies the branch point and street address:
+    // https://www.theplayerclimbing.com/facilities
+    source: 'curated',
+    board: 'moonboard',
+    name: 'The Player Climbinggym',
+    lat: 22.3424815,
+    lon: 114.1359859,
+    address: '6B & 6B1 Lai Chi Kok Bay Garden, 272 Lai King Hill Rd, Kowloon, Hong Kong',
+    city: 'Kowloon',
+    country: 'CN',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
     // Current Quarry Bay branch and exact address/hours:
     // https://www.vitabeta.hk/contact/
     // Board identity and coordinates:

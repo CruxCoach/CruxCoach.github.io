@@ -1397,5 +1397,29 @@
       "city": "Odintsovo",
       "address": "Transportnaya ulitsa 2, building 19, 143006, Odintsovo"
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 33.22722,
+    "lon": 132.7108,
+    "name": "松野町コミュニティセンター Matsuno Town Community Center",
+    "note": "Matsuno Town's current official tourism page identifies the public reservation-based Kilter Board at Matsumaru 343 and states that its hydraulic frame adjusts from 90 to 160 degrees, i.e. 0-70 degrees overhanging. Retain the matching Original 12x12 registry profile and fill its missing range.",
+    "set": {
+      "city": "Matsuno",
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 0,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
   }
 ]
