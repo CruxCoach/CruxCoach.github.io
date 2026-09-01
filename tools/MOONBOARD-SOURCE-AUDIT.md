@@ -187,13 +187,26 @@ current identity, closure and board service.
 That legacy review is now a reproducible, fail-closed inventory rather than a
 prose-only task. `moonboard-japan-decisions.json` accounts for all 45 physical
 Japanese production venues and `moonboard-japan-audit.mjs` independently counts
-their 46 MoonBoard objects (MOVEMENT has two). Twelve venues checked in the two
-current operator/authority passes are marked current with per-row provenance;
-the remaining 33 are deliberately evidence-free `pending` rows. The audit and
+their 46 MoonBoard objects (MOVEMENT has two). At creation, twelve venues
+checked in the two operator/authority passes were marked current with per-row
+provenance and the remaining 33 were deliberately evidence-free `pending`
+rows. The audit and
 its unit test reject malformed decisions as well as any new, renamed, moved or
 removed production venue. This establishes the denominator, not exhaustion:
 each pending row still requires a current identity, closure, public-access and
 board-service decision.
+
+The first legacy batch resolves four more rows. Current branch pages explicitly
+identify ClimbingBUM Yokohama's illuminated MoonBoard and QRiMo's full-set,
+non-LED MoonBoard. Tottori's official facility inventory identifies the
+MoonBoard wall at the current prefectural Kurayoshi centre, but does not support
+the registry's 2024 generation or LED flags, so those details are cleared.
+CRUX exposes a material duplicate/mislocation: its current branch page names
+both the MoonBoard and Grasshopper Board at the one CRUX Osaka venue in Suita
+and embeds a point matching the existing Grasshopper row, while the legacy
+MoonBoard sat about 10 km south without a second branch identity. The old point
+is backed as mislocated and its replacement is co-located in Suita. The Japanese
+ledger is now 16 current / 29 pending, still 45 venues / 46 board rows.
 
 CAL-COLO's current operator page explicitly identifies both its Kilter Board
 and an LED-guided MoonBoard at the same Kizugawa address. Because the Kilter

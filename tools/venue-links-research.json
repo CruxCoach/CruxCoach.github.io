@@ -1937,9 +1937,9 @@
     "lon": 135.5213199,
     "name": "CRUX Osaka",
     "country": "JP",
-    "status": "unverified",
-    "checked": "2026-08-25",
-    "reason": "crux-jp.com is the official site of クライミングジム CRUX and describes exactly one facility: \"CRUX（クラックス）は大阪・江坂にあるクライミング／ボルダリング施設です\" — Esaka, in Suita. Every price and every opening line on the site is headed 【 CRUX 大阪 】, singular. That facility is already linked, as the row at 34.7546,135.4994; this row sits 10 km south in central Osaka. Upstream has two rows called CRUX Osaka and the site supports only one of them.",
+    "status": "mislocated",
+    "checked": "2026-09-01",
+    "reason": "CRUX's current official branch page identifies exactly one CRUX Osaka venue, at 16-9 Hiroshiba-cho in Suita, and explicitly says both its MoonBoard and Grasshopper Board are installed there. Its embedded operator-controlled point is 34.754642750784,135.49943953701, matching the existing Grasshopper venue. This legacy MoonBoard point lies about 10 km south in central Osaka and has no operator-supported branch identity, so it is removed and replaced at the exact current venue in the same batch.",
     "candidate": "https://www.crux-jp.com/crux-osaka/"
   },
   {

@@ -500,6 +500,25 @@ const ENTRIES = [
     angle: null,
   },
   {
+    // The current branch page identifies both the MoonBoard and Grasshopper
+    // Board at the one public CRUX Osaka venue in Suita and embeds this exact
+    // coordinate: https://www.crux-jp.com/crux-osaka/
+    // The legacy MoonBoard point in central Osaka is backed as mislocated.
+    // Generation, LEDs and branch-specific angle are not stated.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'クラックス大阪 CRUX Osaka',
+    lat: 34.75463,
+    lon: 135.4994,
+    address: '大阪府吹田市広芝町16-9',
+    city: 'Suita',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
     // Current public venue, exact address, and Kilter Board:
     // https://hanasports.or.kr/hcg/introduce.php
     // Co-locate with the existing MoonBoard at Daejeon World Cup Stadium.

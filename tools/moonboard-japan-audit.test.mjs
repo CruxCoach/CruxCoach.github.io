@@ -37,8 +37,8 @@ test('the committed ledger accounts for every Japanese MoonBoard venue and setup
   assert.equal(audit.venues, 45);
   assert.equal(audit.rawBoardRows, 46);
   assert.deepEqual(audit.counts, {
-    pending: 33,
-    current: 12,
+    pending: 29,
+    current: 16,
     unverified: 0,
     closed: 0,
     private: 0,

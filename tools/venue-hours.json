@@ -32534,5 +32534,21 @@
     },
     "evidence": "川越店 | 平日：13：30 [13:30]～22：30 [22:30] | 土日祝：10：00 [10:00]～20：00 [20:00] | TEL：049-299-7188 | 川越店 1430-1 Yamada, Kawagoe",
     "note": "The current branch block distinguishes Kawagoe from the operator's separate Sakado schedule and supplies the complete ordinary week."
+  },
+  {
+    "lat": 34.75463,
+    "lon": 135.4994,
+    "name": "クラックス大阪 CRUX Osaka",
+    "country": "JP",
+    "source": "https://www.crux-jp.com/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "hours-scope"],
+    "hours": {
+      "mon": "closed", "tue": "14:00-22:30", "wed": "14:00-22:30",
+      "thu": "14:00-22:30", "fri": "14:00-22:30", "sat": "10:00-19:00", "sun": "10:00-19:00"
+    },
+    "evidence": "CRUX 大阪 | 定休日：月（月が祝祭日の場合は翌火曜日） | 火―金 14:00 ~ 22:30 | 土 10:00 ~ 19:00 | 日 ＆ 祝 10:00 ~ 19:00 | 〒564-0052 大阪府吹田市広芝町16-9",
+    "note": "The current official homepage scopes the complete ordinary week and exact address to CRUX Osaka. Holiday substitution is an exception and does not alter the regular Monday closure."
   }
 ]
