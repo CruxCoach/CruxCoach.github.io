@@ -35,3 +35,22 @@ remaining technical blockers are explicit, and the integrated production diff ha
 passed central regeneration, reports, full tests and a privacy/leak audit. The
 three initial candidate rows document pre-track Japanese web-only findings and
 intentionally count as zero completed cells.
+
+## Primary-cell completion allocation (2026-09-01)
+
+The primary-only transition was frozen at integration commit `e0f379a`, with 24
+of 240 primary cells complete and 216 open. The open keys are partitioned without
+overlap across three isolated worktrees based on that same commit:
+
+- `research/web-primary-tension-decoy`: Tension, Grasshopper and Decoy, Passes A
+  and B in all twelve regions (72 cells).
+- `research/web-primary-soill-aurora`: So iLL, Touchstone and Aurora, Passes A and
+  B in all twelve regions (72 cells).
+- `research/web-primary-moon-kilterb`: MoonBoard and 12Climb, Passes A and B in
+  all twelve regions, plus Pass B only for Kilter and Quantum (72 cells).
+
+Kilter Pass A and Quantum Pass A were already represented by the 24 completed
+primary cells and are excluded from every worker package. The main
+`research/board-data-completion` worktree is integration-only while those workers
+run. Generated data and static HTML are rebuilt there only after all reviewed
+worker commits are merged.
