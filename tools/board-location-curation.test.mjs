@@ -1157,6 +1157,15 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(sandbox[0].properties.website, 'https://sandboxbouldering.com.au/');
   assert.equal(sandbox[0].properties.hours, undefined);
 
+  const rana = at(features, 66.31997, 14.19856);
+  assert.equal(rana.length, 1);
+  assert.equal(rana[0].properties.name, 'Rana Klatresenter');
+  const ranaKilter = rana[0].properties.boards.find(board => board.board === 'kilter');
+  assert.equal(ranaKilter.walls[0].size_label, '12x12, with Kickboard');
+  assert.equal(ranaKilter.walls[0].adjustable, true);
+  assert.equal(ranaKilter.walls[0].min_angle, 15);
+  assert.equal(ranaKilter.walls[0].max_angle, 60);
+
   const rocket = at(features, -37.78692, 144.88556);
   assert.equal(rocket.length, 1);
   assert.equal(rocket[0].properties.name, 'Rocket Climbing');

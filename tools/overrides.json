@@ -1571,5 +1571,28 @@
         }
       ]
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 66.31997,
+    "lon": 14.19856,
+    "name": "Rana Klatresenter",
+    "note": "The current official first-visit page identifies the existing adjustable Kilter Board as 15 to 60 degrees. Retain the registry's Original 12x12 layout and fill its missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 15,
+          "max_angle": 60,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
   }
 ]

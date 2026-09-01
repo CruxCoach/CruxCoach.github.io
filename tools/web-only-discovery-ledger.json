@@ -2891,6 +2891,69 @@
       "candidates_found": 6,
       "production_changes": 0,
       "note": "The fourth independent Latin American Pass A used current drop-in, pricing, facility-map, equipment-inventory, relocation, renovation, second-tier-city, Caribbean, ccTLD, public-social and exact-retry formulations in Spanish, Portuguese and English. Discovery preceded inventory reconciliation. Current operator pages reconfirmed Fábrica Chácara, Epsilon and the already-published regional Kilter venues. ConceClimb's Kilter claim and current address remain available only through the independent Escala directory rather than a readable venue-primary page, so the known coordinate split is not guessed away. Blocs Brasil's operator Linktree proves the exact active venue identity but still does not name either board; a March opening report remains discovery-only for its MoonBoard claim. Raccoon's own current page still says its new Kilter Board inauguration is approaching rather than complete. Current Los Silos activity proves the public climbing venue remains active, but neither the operator page nor accessible current operator material confirms that the approved 2023 Kilter acquisition was installed and persists. No new venue, closure or publishable detail survived reconciliation, so production counts remain unchanged. This cell is zero-yield, although North America's productive iteration 4 already requires a fifth complete Kilter Pass A across every region."
+    },
+    {
+      "pass": "A",
+      "board": "kilter",
+      "region": "nordics-baltics",
+      "iteration": 3,
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["sv", "no", "da", "fi", "is", "fo", "et", "lv", "lt", "en"],
+      "queries": [
+        "\"Kilter Board\" (dagspass OR engångsentré OR priser OR första besök) klätterhall Sverige 2026",
+        "\"Kilterboard\" (hallkarta OR aktuell utrustning OR träningsrum OR faciliteter) bouldering Sverige",
+        "\"Kilter Board\" (flyttad OR ersatt OR uppgraderad OR ombyggd) klätterhall Sverige 2025 2026",
+        "\"Kilterboard\" (Helsingborg OR Lund OR Halmstad OR Kristianstad OR Jönköping OR Växjö) klättring",
+        "\"Kilter Board\" (drop-in OR dagspass OR priser OR første besøk) klatresenter Norge 2026",
+        "\"Kilterboard\" (anleggskart OR nåværende utstyr OR treningsrom OR fasiliteter) buldring Norge",
+        "\"Kilter Board\" (flyttet OR erstattet OR oppgradert OR ombygd) klatresenter Norge 2025 2026",
+        "\"Kilterboard\" (Kristiansand OR Arendal OR Tvedestrand OR Larvik OR Kongsberg OR Gjøvik) klatring",
+        "\"Kilter Board\" (dagsbillet OR drop-in OR priser OR første besøg) klatrecenter Danmark 2026",
+        "\"Kilterboard\" (halkort OR aktuelt udstyr OR træningsrum OR faciliteter) bouldering Danmark",
+        "\"Kilter Board\" (flyttet OR udskiftet OR opgraderet OR ombygget) klatrehal Danmark 2025 2026",
+        "\"Kilterboard\" (Vejle OR Horsens OR Randers OR Herning OR Silkeborg OR Sønderborg) klatring",
+        "\"Kilter Board\" (kertalippu OR päiväpassi OR hinnat OR ensimmäinen käynti) kiipeilyhalli Suomi 2026",
+        "\"Kilterboard\" (hallikartta OR nykyiset varusteet OR harjoitteluhuone OR palvelut) boulderointi Suomi",
+        "\"Kilter Board\" (siirretty OR korvattu OR päivitetty OR remontoitu) kiipeilyhalli Suomi 2025 2026",
+        "\"Kilterboard\" (Pori OR Vaasa OR Seinäjoki OR Joensuu OR Lappeenranta OR Rovaniemi) kiipeily",
+        "\"Kilter Board\" (day pass OR first visit OR facilities OR prices) climbing (Iceland OR Faroe Islands OR Greenland) 2026",
+        "\"Kilterboard\" (Reykjavík OR Akureyri OR Hafnarfjörður OR Kópavogur) (opið OR aðstaða OR klifur)",
+        "\"Kilter Board\" (Tórshavn OR Klaksvík OR Føroyar) (klatring OR venjing OR høll)",
+        "\"Kilterboard\" (Nuuk OR Sisimiut OR Ilulissat) climbing gym facilities",
+        "\"Kilter Board\" (päevapilet OR hinnad OR esimene külastus OR lahtiolekuajad) ronimissaal Eesti 2026",
+        "\"Kilterboard\" (saaliplaan OR praegune varustus OR treeningruum OR võimalused) ronimine Eesti",
+        "\"Kilter Board\" (kolis OR asendati OR uuendati OR renoveeriti) ronimissaal Eesti 2025 2026",
+        "\"Kilterboard\" (Pärnu OR Narva OR Rakvere OR Viljandi OR Võru OR Kuressaare) ronimine",
+        "\"Kilter Board\" (dienas biļete OR cenas OR pirmais apmeklējums OR darba laiks) kāpšanas zāle Latvija 2026",
+        "\"Kilterboard\" (zāles plāns OR pašreizējais aprīkojums OR treniņu telpa) kāpšana Latvija",
+        "\"Kilter Board\" (pārcelta OR nomainīta OR atjaunota OR renovēta) kāpšanas zāle Latvija 2025 2026",
+        "\"Kilterboard\" (Riga OR Jelgava OR Liepāja OR Ventspils OR Valmiera OR Cēsis) kāpšana",
+        "\"Kilter Board\" (dienos bilietas OR kainos OR pirmas apsilankymas OR darbo laikas) laipiojimo salė Lietuva 2026",
+        "\"Kilterboard\" (salės planas OR dabartinė įranga OR treniruočių kambarys) laipiojimas Lietuva",
+        "\"Kilter Board\" (perkelta OR pakeista OR atnaujinta OR renovuota) laipiojimo salė Lietuva 2025 2026",
+        "\"Kilterboard\" (Vilnius OR Kaunas OR Klaipėda OR Šiauliai OR Panevėžys OR Alytus) laipiojimas",
+        "site:betaboulders.se (Göteborg OR Gothenburg) (Kilter OR öppet OR öppnar OR adress) 2026",
+        "\"Beta Boulders Göteborg\" (open OR opened OR opening OR address OR Kilter) 2026",
+        "site:boulderkeskus.com (Turku OR Halinen) (Kilter OR auki OR avataan OR opening) 2026",
+        "\"BK Turku\" (opened OR opening OR avajaiset OR Kilterboard) 2026",
+        "site:aalborgklatreklub.dk (Kilterboard OR \"kilter board\") (2024 OR 2025 OR 2026 OR installeret OR opstillet)",
+        "site:aalborgklatreklub.dk (faciliteter OR hallen OR udvidelse) Kilter",
+        "site:rkhr.no (Kilterboard OR klatrevegg) (gjest OR offentlig OR drop-in OR pris) 2026",
+        "site:rkhr.no Haugland Kilterboard current access",
+        "site:areklatterhall.se (Kilterboard OR öppettider OR priser OR besök) 2026",
+        "site:ambassaden-trening.no (Kilter OR buldring OR åpningstider OR medlemskap)",
+        "site:fordeklatresenter.no OR site:ranaklatresenter.no \"Kilter\" (åpningstider OR første besøk OR fasiliteter)",
+        "site:sogndal.spenst.no OR site:campussogndal.no Kilterboard (priser OR adgang OR åpningstider OR adresse)",
+        "site:moldeklatresenter.no (Kilterboard OR \"Tension Board 2\") (justerbar OR fasiliteter OR åpningstider)",
+        "site:bergenklatresenter.no (Kilterboard OR \"40 grader\") (Laksevåg OR fasiliteter OR åpningstider)",
+        "site:jumpyard.se \"Kilter Board\" (Åre OR Karlstad OR öppettider OR aktiviteter)",
+        "site:koldingklatreklub.klub-modul.dk (Kilterboard OR \"25 eller 40 grader\" OR faciliteter)"
+      ],
+      "results_reviewed": 240,
+      "candidates_found": 8,
+      "production_changes": 1,
+      "note": "The third independent Nordic/Baltic Pass A used current admission, equipment-map, relocation, smaller-city, operator-domain and exact-retry formulations in ten languages. Discovery preceded inventory reconciliation. Rana Klatresenter's current first-visit page newly proves its existing 12x12 adjustable Kilter range of 15 to 60 degrees, which is published. Åre Klätterhall, Ambassaden, Førde, Sogndal, Molde and both Bergen branches reconciled to existing production only afterward. Kolding's facilities page places the 25/40-degree sentence with its MoonBoard rather than unambiguously with the following Kilter heading, so no Kilter range is inferred. JumpYard Karlstad's operator page conflicts between a 45-degree statement and a 70-percent statement, so its registry wall remains unchanged. Beta Göteborg and BK Turku remain announced; Haugland remains restricted; Aalborg's Kilter proposal was explicitly rejected. No new public venue or closure survived reconciliation. This productive cell requires another complete Kilter Pass A iteration across all regions."
     }
   ],
   "candidates": [
@@ -4696,6 +4759,78 @@
       "status": "pending-opening",
       "official_sources": ["https://thenookclimbing.co.uk/"],
       "note": "The current operator homepage still says coming soon, opening this summer, and asks visitors to subscribe for the opening notice. The named Kilter Board and exact address remain an announcement rather than a current public venue."
+    },
+    {
+      "board": "kilter",
+      "name": "Rana Klatresenter",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A iteration 3 Norwegian current-facility and exact-operator searches",
+      "status": "published-detail-enrichment",
+      "official_sources": ["https://ranaklatresenter.no/ditt-forste-besok"],
+      "note": "The current operator first-visit page explicitly identifies the public venue's adjustable Kilter Board as 15 to 60 degrees. Reconciliation found the 12x12 Original board, official site and regular week already published; the missing verified angle range is now added without changing its registry layout."
+    },
+    {
+      "board": "kilter",
+      "name": "JumpYard Karlstad",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A iteration 3 Swedish chain-domain and current-activity searches",
+      "status": "pending-consistent-operator-wall-detail",
+      "official_sources": ["https://jumpyard.se/karlstad/kilter-board/"],
+      "note": "The current branch-primary page proves the public Kilter Board and exact Sågverksgatan 4 identity, already represented in production. Its wall copy says both that the wall can be angled 45 degrees and later that it can be angled up to 70 percent, while the registry reports 30 degrees. The conflicting angle/unit statements are not used to overwrite the structured wall until the operator clarifies them."
+    },
+    {
+      "board": "kilter",
+      "name": "Kolding Klatreklub",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A iteration 3 Danish exact-facilities search",
+      "status": "reconciled-existing-ambiguous-detail-withheld",
+      "official_sources": ["https://koldingklatreklub.klub-modul.dk/faciliteter"],
+      "note": "The current official facilities page reconfirms the public 12x12 Kilter Board and exact club identity. Its 25-or-40-degree sentence follows the MoonBoard paragraph before the Kilter heading, so that range cannot safely be assigned to the Kilter Board and production remains unchanged."
+    },
+    {
+      "board": "kilter",
+      "name": "Bergen Klatresenter Laksevåg and Fana",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A iteration 3 Norwegian chain and exact-angle searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://www.bergenklatresenter.no/", "https://www.bergenklatresenter.no/bks-laksevag/", "https://www.bergenklatresenter.no/fana/"],
+      "note": "Current chain and branch pages explicitly confirm fixed 40-degree Kilter Boards at both public Bergen branches. Reconciliation found both board records, branch identities, links and regular weeks already published; no duplicate or redundant override is added."
+    },
+    {
+      "board": "kilter",
+      "name": "Beta Boulders Göteborg",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A iteration 3 Swedish exact-opening retry",
+      "status": "announced",
+      "official_sources": ["https://betaboulders.se/"],
+      "note": "The current operator group page still announces Göteborg for 2026 without a branch address or affirmative opening notice. Its planned adjustable Kilter Board remains a retry rather than a public production marker."
+    },
+    {
+      "board": "kilter",
+      "name": "Boulderkeskus Turku",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A iteration 3 Finnish exact-opening retry",
+      "status": "announced",
+      "official_sources": ["https://www.boulderkeskus.com/en/blog/news/newsletter-from-bk-178", "https://www.boulderkeskus.com/en/blog/news/newsletter-from-bk-38"],
+      "note": "Current operator material still gives an October 2026 opening and sells founder memberships before opening. The announced 12x12 Kilter Board and MoonBoard 2024 remain withheld pending affirmative public-opening and installation evidence."
+    },
+    {
+      "board": "kilter",
+      "name": "Røde Kors Haugland Rehabiliteringssenter",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A iteration 3 Norwegian access retry",
+      "status": "restricted-access",
+      "official_sources": ["https://www.rkhr.no/aktivitet/gymsal-og-klatrevegg/", "https://www.rkhr.no/"],
+      "note": "The operator still presents the Kilter wall as staff-supported rehabilitation activity for patients and publishes general-public access only for the pool. Ordinary independent public board access remains unproven, so the institutional installation stays research-only."
+    },
+    {
+      "board": "kilter",
+      "name": "Aalborg Klatreklub",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A iteration 3 Danish proposal and current-facilities retry",
+      "status": "rejected-proposal",
+      "official_sources": ["https://aalborgklatreklub.dk/cms/clubnjklatreklub/ClubImages/Generalforsamlinger/2022/Ordinaer_generalforsamling_referat_2022.pdf", "https://www.aalborgklatreklub.dk/om-klubben"],
+      "note": "The official minutes explicitly record that the Kilter purchase proposal was voted down, and the current 2026 facilities material still omits a Kilter Board. The proposal remains rejected production evidence."
     }
   ]
 }
