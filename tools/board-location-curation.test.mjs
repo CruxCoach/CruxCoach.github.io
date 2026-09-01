@@ -38,6 +38,12 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ["Portside Boulders O'Connor", 'moonboard'],
     ['Portside Boulders Willetton', 'moonboard'],
     ['Portside Boulders Joondalup', 'moonboard'],
+    ['BolBol', 'moonboard'],
+    ['Blue Bird BOULDERING GYM', 'moonboard'],
+    ['ボルダリング＆クライミングパーク ひょうたん島 大垣店', 'moonboard'],
+    ['WEST ROCK Fuchu', 'moonboard'],
+    ['桜ヶ池クライミングセンター', 'moonboard'],
+    ['カラフルロック Colorful Rock', 'moonboard'],
     ['カルコロ CAL-COLO', 'moonboard'],
     ['하나클라이밍짐 Hana Climbing Gym', 'kilter'],
     ['디스커버리 클라임스퀘어 Climbsquare ICN', 'moonboard'],
@@ -257,6 +263,24 @@ test('committed map data includes the missing boards and merges the corrected ve
     assert.equal(venue[0].properties.hours.length, 7);
   }
   assert.equal(at(features, -31.91396, 115.8168689).length, 0);
+
+  for (const [name, lat, lon, address] of [
+    ['BolBol', 35.600647, 139.352181, '神奈川県相模原市緑区橋本4-9-28'],
+    ['Blue Bird BOULDERING GYM', 36.263468, 139.347351, '群馬県太田市米沢町13番地'],
+    ['ボルダリング＆クライミングパーク ひょうたん島 大垣店', 35.370733, 136.647393, '岐阜県大垣市東町4丁目1番地3'],
+    ['WEST ROCK Fuchu', 35.662423, 139.462647, '東京都府中市分梅町5-9-1'],
+    ['桜ヶ池クライミングセンター', 36.50025, 136.872064, '富山県南砺市立野原東1511'],
+    ['カラフルロック Colorful Rock', 35.115149, 136.872711, '愛知県名古屋市港区須成町3丁目14番'],
+  ]) {
+    const venue = at(features, lat, lon);
+    assert.equal(venue.length, 1, name);
+    assert.equal(venue[0].properties.name, name);
+    assert.equal(venue[0].properties.boards[0].address, address);
+    assert.equal(venue[0].properties.website.startsWith('https://'), true);
+    assert.equal(venue[0].properties.hours.length, 7);
+  }
+  assert.equal(at(features, 36.50025, 136.872064)[0].properties.boards[0].angle, 40);
+  assert.equal(at(features, 35.115149, 136.872711)[0].properties.boards[0].variant, 'mb2016');
 
   const calColo = at(features, 34.78667, 135.81206);
   assert.equal(calColo.length, 1);

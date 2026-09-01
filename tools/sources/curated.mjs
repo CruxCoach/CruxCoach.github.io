@@ -297,6 +297,116 @@ const ENTRIES = [
     angle: 40,
   },
   {
+    // Current public venue, exact address, LED MoonBoard and regular access:
+    // https://bol-bol.com/gym/facilities
+    // The venue-owned map configuration places its marker at this coordinate.
+    // The operator does not state a generation or angle.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'BolBol',
+    lat: 35.600647,
+    lon: 139.352181,
+    address: '神奈川県相模原市緑区橋本4-9-28',
+    city: 'Sagamihara',
+    country: 'JP',
+    commercial: true,
+    led: true,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current public venue and MoonBoard:
+    // https://climbing-bluebird.jp/about
+    // Its exact 米沢町13 address resolves to the representative lot point in
+    // MLIT's 2025 block-level location-reference file 10_2025.csv.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Blue Bird BOULDERING GYM',
+    lat: 36.263468,
+    lon: 139.347351,
+    address: '群馬県太田市米沢町13番地',
+    city: 'Ota',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current public venue, MoonBoard, exact address and regular access:
+    // https://park.hyoutanjima.jp/
+    // 東町4丁目1 in MLIT's 2025 block-level location-reference file
+    // 21_2025.csv supplies this representative address point.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'ボルダリング＆クライミングパーク ひょうたん島 大垣店',
+    lat: 35.370733,
+    lon: 136.647393,
+    address: '岐阜県大垣市東町4丁目1番地3',
+    city: 'Ogaki',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current public venue, MoonBoard, exact address and regular access:
+    // https://www.westrock-climbing.com/intro_fuchu/
+    // 分梅町5丁目9 in MLIT's 2025 block-level location-reference file
+    // 13_2025.csv supplies this representative address point. The coordinate
+    // in the page's Google-derived JSON-LD is 1.6 km away and is not used.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'WEST ROCK Fuchu',
+    lat: 35.662423,
+    lon: 139.462647,
+    address: '東京都府中市分梅町5-9-1',
+    city: 'Fuchu',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current public venue, app-connected MoonBoard and exact address:
+    // https://climbingcenter.jp/floor
+    // The operator states a 130-degree wall (40 degrees from vertical).
+    // 立野原東1511 in MLIT's 2025 block-level location-reference file
+    // 16_2025.csv supplies this representative address point.
+    source: 'curated',
+    board: 'moonboard',
+    name: '桜ヶ池クライミングセンター',
+    lat: 36.50025,
+    lon: 136.872064,
+    address: '富山県南砺市立野原東1511',
+    city: 'Nanto',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: 40,
+  },
+  {
+    // Current public venue, exact address and current 2016 setup:
+    // https://colorfulrock.com/climbingwall
+    // The venue's own JSON-LD and MLIT's 2025 block-level reference point for
+    // 須成町3丁目14 independently give the same coordinate.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'カラフルロック Colorful Rock',
+    lat: 35.115149,
+    lon: 136.872711,
+    address: '愛知県名古屋市港区須成町3丁目14番',
+    city: 'Nagoya',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: 'mb2016',
+    angle: null,
+  },
+  {
     // Current public venue, exact address and LED MoonBoard:
     // https://cal-colo.com/
     // Co-locate with its existing exact-address Kilter venue. The operator

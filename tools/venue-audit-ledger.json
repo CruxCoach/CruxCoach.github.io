@@ -39098,6 +39098,96 @@
      "path-probe"
     ]
    }
+  },
+  {
+   "lat": 35.600647,
+   "lon": 139.352181,
+   "name": "BolBol",
+   "country": "JP",
+   "needs": ["website", "hours"],
+   "website": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["web-search", "apex", "path-probe", "map-block"]
+   },
+   "hours": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["venue-link", "path-probe"]
+   }
+  },
+  {
+   "lat": 36.263468,
+   "lon": 139.347351,
+   "name": "Blue Bird BOULDERING GYM",
+   "country": "JP",
+   "needs": ["website", "hours"],
+   "website": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["web-search", "apex", "path-probe", "map-block"]
+   },
+   "hours": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["venue-link", "path-probe"]
+   }
+  },
+  {
+   "lat": 35.370733,
+   "lon": 136.647393,
+   "name": "ボルダリング＆クライミングパーク ひょうたん島 大垣店",
+   "country": "JP",
+   "needs": ["website", "hours"],
+   "website": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["web-search", "apex", "path-probe", "map-block"]
+   },
+   "hours": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["venue-link", "path-probe"]
+   }
+  },
+  {
+   "lat": 35.662423,
+   "lon": 139.462647,
+   "name": "WEST ROCK Fuchu",
+   "country": "JP",
+   "needs": ["website", "hours"],
+   "website": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["web-search", "apex", "path-probe", "map-block"]
+   },
+   "hours": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["venue-link", "path-probe"]
+   }
+  },
+  {
+   "lat": 36.50025,
+   "lon": 136.872064,
+   "name": "桜ヶ池クライミングセンター",
+   "country": "JP",
+   "needs": ["website", "hours"],
+   "website": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["web-search", "apex", "path-probe", "map-block"]
+   },
+   "hours": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["venue-link", "path-probe"]
+   }
+  },
+  {
+   "lat": 35.115149,
+   "lon": 136.872711,
+   "name": "カラフルロック Colorful Rock",
+   "country": "JP",
+   "needs": ["website", "hours"],
+   "website": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["web-search", "apex", "path-probe", "map-block"]
+   },
+   "hours": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["venue-link", "path-probe"]
+   }
   }
  ]
 }

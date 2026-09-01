@@ -32374,5 +32374,101 @@
   },
   "evidence": "화 ~ 금 11:00 ~ 23:00; 주말, 공휴일 11:00 ~ 19:00; ※ 매주 월요일은 휴무입니다.",
   "note": "The operator's use-information page states the complete ordinary week; public holidays share the weekend hours and do not alter the seven-day schedule."
+ },
+ {
+  "lat": 35.600647,
+  "lon": 139.352181,
+  "name": "BolBol",
+  "country": "JP",
+  "source": "https://bol-bol.com/",
+  "checked": "2026-09-01",
+  "provenance": "official-site",
+  "signals": ["venue-link", "name", "street-address", "city", "coordinates", "hours-scope"],
+  "hours": {
+   "mon": "closed", "tue": "14:00-23:00", "wed": "14:00-23:00",
+   "thu": "14:00-23:00", "fri": "14:00-23:00", "sat": "10:00-21:00", "sun": "10:00-21:00"
+  },
+  "evidence": "平日：14:00～23:00 / 休日：10:00～21:00 / 定休日: 月曜（月曜が祝日の場合翌日の火曜がお休み）",
+  "note": "The homepage states the ordinary weekday/weekend week and Monday closure. The public-holiday substitution is an exception rather than a second regular week."
+ },
+ {
+  "lat": 36.263468,
+  "lon": 139.347351,
+  "name": "Blue Bird BOULDERING GYM",
+  "country": "JP",
+  "source": "https://climbing-bluebird.jp/about",
+  "checked": "2026-09-01",
+  "provenance": "official-site",
+  "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+  "hours": {
+   "mon": "closed", "tue": "12:00-23:00", "wed": "12:00-23:00",
+   "thu": "17:00-23:00", "fri": "12:00-23:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+  },
+  "evidence": "営業時間 | 平日 火・水・金 12時～23時まで | 木 17時～23時まで | 土日祝 10時～20時まで | 定休日 月曜日",
+  "note": "The current operator page states every ordinary day. A Monday public holiday shifts that week's closure to Tuesday, a dated calendar exception rather than the regular week."
+ },
+ {
+  "lat": 35.370733,
+  "lon": 136.647393,
+  "name": "ボルダリング＆クライミングパーク ひょうたん島 大垣店",
+  "country": "JP",
+  "source": "https://park.hyoutanjima.jp/",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+  "hours": {
+   "mon": "closed", "tue": "16:30-22:00", "wed": "16:30-22:00",
+   "thu": "16:30-22:00", "fri": "16:30-22:00", "sat": "13:00-22:00", "sun": "10:00-19:00"
+  },
+  "evidence": "定休日：毎週月曜（祝日でも休み） | 営業時間：火曜〜金曜日 16時半 [16:30]〜22時 | 土曜日 13時〜22時 | 日曜日 10時〜19時",
+  "note": "The current Ogaki location page states the complete ordinary week and explicitly confirms that Monday remains closed on holidays."
+ },
+ {
+  "lat": 35.662423,
+  "lon": 139.462647,
+  "name": "WEST ROCK Fuchu",
+  "country": "JP",
+  "source": "https://www.westrock-climbing.com/intro_fuchu/",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+  "hours": {
+   "mon": "13:00-23:00", "tue": "13:00-23:00", "wed": "13:00-23:00",
+   "thu": "13:00-23:00", "fri": "13:00-23:00", "sat": "10:00-22:00", "sun": "10:00-21:00"
+  },
+  "evidence": "営業時間 | 平日 13:00～23:00 / 土曜 10:00～22:00 | 日祝 10:00～21:00 | 定休日 年中無休",
+  "note": "The branch page states a complete seven-day week and year-round operation."
+ },
+ {
+  "lat": 36.50025,
+  "lon": 136.872064,
+  "name": "桜ヶ池クライミングセンター",
+  "country": "JP",
+  "source": "https://climbingcenter.jp/",
+  "checked": "2026-09-01",
+  "provenance": "official-site",
+  "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+  "hours": {
+   "mon": "09:30-21:30", "tue": "09:30-21:30", "wed": "09:30-21:30",
+   "thu": "closed", "fri": "09:30-21:30", "sat": "09:30-21:30", "sun": "09:30-20:00"
+  },
+  "evidence": "営業時間：9:30～21:30（日・祝 20:00まで） | 休館日：木曜日 | 木曜日が祝日の場合は開館",
+  "note": "The homepage states the complete ordinary week. Thursday-holiday openings and other temporary closures are calendar exceptions."
+ },
+ {
+  "lat": 35.115149,
+  "lon": 136.872711,
+  "name": "カラフルロック Colorful Rock",
+  "country": "JP",
+  "source": "https://colorfulrock.com/en",
+  "checked": "2026-09-01",
+  "provenance": "official-site",
+  "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+  "hours": {
+   "mon": "10:00-22:30", "tue": "10:00-22:30", "wed": "10:00-22:30",
+   "thu": "10:00-22:30", "fri": "10:00-22:30", "sat": "10:00-21:00", "sun": "10:00-21:00"
+  },
+  "evidence": "Opening hours | Weekdays 10:00–22:30 | Weekends & public holidays 10:00–21:00",
+  "note": "The operator's current English guide states the complete ordinary week; its Japanese schedule page carries temporary closure notices separately."
  }
 ]

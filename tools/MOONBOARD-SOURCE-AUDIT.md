@@ -135,14 +135,23 @@ Kilter marker 17 m away. The guide describes the boards as app-connected LEDs,
 so that detail is recorded for all four. The map now contains 1,515 MoonBoard
 rows at 1,390 physical venues.
 
-The first Japanese-language search also found current operator-controlled pages
-for BolBol in Sagamihara and Blue Bird Bouldering Gym in Ota that state public
-MoonBoards, full street addresses and regular schedules. Neither venue exists in
-the frozen registry. They are not published yet: accessible OpenStreetMap data
-does not establish an exact venue point, and the address-only neighborhood
-centroids are too imprecise. Google Maps was not used, and a third-party Japanese
-geocoder whose terms require its own displayed map/attribution was not imported
-into the dataset. Both remain explicit coordinate-retry candidates. The wider
+The Japanese coordinate retry now resolves BolBol and Blue Bird without using
+Google or Apple Maps. BolBol's operator-authored map configuration binds its
+full Hashimoto address to a precise marker. Blue Bird's exact 米沢町13 lot is in
+the Ministry of Land, Infrastructure, Transport and Tourism's freely reusable
+2025 block-level Location Reference Information. The same MLIT source also
+resolves three other documented retries: Hyoutanjima Ogaki, WEST ROCK Fuchu and
+Sakuragaike Climbing Center. Each current operator page identifies the public
+MoonBoard, exact address and complete regular week. Sakuragaike further states
+that its MoonBoard wall is 130 degrees, normalized to 40 degrees from vertical.
+Generation and LED fields remain unknown wherever the operator is silent.
+
+That regional retry also found Colorful Rock, a current Nagoya gym missing from
+the frozen registry. Its operator page states a permanent MoonBoard and a May
+2025 change from Masters 2017 to the 2016 setup; its own JSON-LD coordinate is
+independently identical to the MLIT address point. All six venues receive
+official links and complete operator-stated weeks. The published map cites the
+MLIT Location Reference Information in both language versions. The wider
 Asia-Pacific and multilingual pass remains in progress; this is not an
 exhaustion claim.
 
