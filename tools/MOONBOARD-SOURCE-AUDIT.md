@@ -208,6 +208,20 @@ MoonBoard sat about 10 km south without a second branch identity. The old point
 is backed as mislocated and its replacement is co-located in Suita. The Japanese
 ledger is now 16 current / 29 pending, still 45 venues / 46 board rows.
 
+The D.Bouldering chain pass then checks every Japanese production branch label
+against its own operator path instead of transferring equipment between
+branches. Tsunashima's current facility/concept pages repeatedly name its
+MoonBoard; Hachioji's operator relocation page promises the board at the current
+OPA branch and the branch remains active through 2026; Sengen-cho's May 2025
+reset schedule explicitly keeps the MoonBoard area open and its news continues
+in 2026. CUORE Imaike's branch page explicitly states the 2019 version and its
+operator homepage remains current. Sendai-Nagamachi and Yachiyo are different:
+their active branch pages do not name a MoonBoard, while only detailed
+independent venue reports do. They remain `unverified`, not current. All six
+rows lose inherited LED/generation/angle claims that their branch-primary
+sources do not support; CUORE's explicit 2019 generation is retained. The
+Japanese balance is 20 current, two unverified and 23 pending.
+
 CAL-COLO's current operator page explicitly identifies both its Kilter Board
 and an LED-guided MoonBoard at the same Kizugawa address. Because the Kilter
 venue already carries a precise independently corroborated point, the missing

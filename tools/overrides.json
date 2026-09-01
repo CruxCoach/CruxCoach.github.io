@@ -1050,5 +1050,53 @@
       "variant": null,
       "led": null
     }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.1693221,
+    "lon": 136.9347092,
+    "name": "CUORE Imaike",
+    "note": "The current branch page explicitly supports the 2019 version, but does not state LEDs or angle. Preserve the generation and leave the unsupported LED detail unknown.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.5360182,
+    "lon": 139.6333741,
+    "name": "D-Bouldering Tsunashima",
+    "note": "Current branch-primary pages repeatedly confirm a MoonBoard but do not state its generation, LEDs or angle. Clear unsupported inherited detail.",
+    "set": { "variant": null, "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.6549536,
+    "lon": 139.3379978,
+    "name": "D.Bouldering Hachioji",
+    "note": "The operator's relocation page confirms a MoonBoard at the current OPA branch, but current primary material does not establish the inherited generation, LEDs or angle.",
+    "set": { "variant": null, "led": null, "angle": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 38.2260485,
+    "lon": 140.8755982,
+    "name": "Dbouldering-Sendai.nagamachi",
+    "note": "Current operator material establishes the branch but not its MoonBoard; a secondary venue profile is not enough to preserve the inherited LED claim.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.1861697,
+    "lon": 136.8909959,
+    "name": "Dbouldering-Sengencho",
+    "note": "A 2025 branch-primary reset schedule confirms the MoonBoard remains available, but does not identify the inherited 2024 generation or LEDs.",
+    "set": { "variant": null, "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.7234041,
+    "lon": 140.1000201,
+    "name": "Dbouldering+yachiyo",
+    "note": "The active branch page does not identify a MoonBoard and the current board signal is secondary; clear the inherited LED claim pending operator evidence.",
+    "set": { "led": null }
   }
 ]
