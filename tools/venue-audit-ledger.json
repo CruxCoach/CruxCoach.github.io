@@ -6810,16 +6810,19 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unavailable",
+    "pass": "2026-09-01",
+    "result": "duplicate",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
      "social-profile",
-     "path-probe"
-    ]
+     "path-probe",
+     "co-located",
+     "previous-record"
+    ],
+    "note": "The later duplicate audit established that this Kilter row and the nearby Tension row are the same one operator-addressed Board Room venue; the website outcome now follows the backed exclusion record."
    },
    "hours": {
     "pass": "2026-08-25",
@@ -29318,8 +29321,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "duplicate",
     "channels": [
      "name-guess",
      "apex",
@@ -29327,16 +29330,21 @@
      "osm-website-tag",
      "co-located",
      "web-search",
-     "co-located"
-    ]
+     "co-located",
+     "previous-record"
+    ],
+    "note": "The current Magnus operator page and the nearby composite marker establish this capybara-named row as the same physical venue; the website outcome now follows the backed duplicate exclusion."
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "duplicate",
     "channels": [
      "venue-link",
-     "path-probe"
-    ]
+     "path-probe",
+     "co-located",
+     "previous-record"
+    ],
+    "note": "The schedule belongs once on the surviving Magnus composite venue; this excluded duplicate's hours outcome now matches the backed research record."
    }
   },
   {
@@ -39476,6 +39484,25 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 51.03327,
+   "lon": 3.75706,
+   "name": "Klimzaal Arsenaal",
+   "country": "BE",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ],
+    "note": "A fresh Web-only recheck found two conflicting visible weekend closing times on the current official homepage; the previously accepted schedule was withdrawn and the precise conflict is backed by venue-hours-research.json."
    }
   }
  ]
