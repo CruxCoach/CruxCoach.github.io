@@ -1513,6 +1513,33 @@ const ENTRIES = [
     walls: [],
   },
   {
+    // Current public day access, exact address and adjustable board currently at 40°:
+    // https://vertikale.it/it/die-vertikale/
+    // https://vertikale.it/it/prezzi/
+    // The exact named OSM sports-centre node independently matches the address.
+    source: 'curated',
+    board: 'kilter',
+    name: 'Vertikale',
+    lat: 46.7203221,
+    lon: 11.6568287,
+    address: 'Piazza Priel 9, 39042 Bressanone, Italy',
+    city: 'Bressanone',
+    country: 'IT',
+    commercial: true,
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: null,
+      size_id: null,
+      size_label: null,
+      adjustable: true,
+      angle: null,
+      min_angle: null,
+      max_angle: null,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
     // The same current operator page explicitly identifies Tension Board 2.
     // The public schema has no Tension model-detail field.
     source: 'curated',

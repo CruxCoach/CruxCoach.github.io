@@ -32799,5 +32799,21 @@
     },
     "evidence": "Opening hours: Open every day from 06-24 with a single ticket (webshop), serial card or membership. Normalized: 06:00-24:00.",
     "note": "The current operator page states a complete regular visitor-access week. Its shorter customer-service hours describe staffing, not access to the venue."
+  },
+  {
+    "lat": 46.7203221,
+    "lon": 11.6568287,
+    "name": "Vertikale",
+    "country": "IT",
+    "source": "https://vertikale.it/it/indicazioni-e-orari-di-apertura/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:30", "tue": "10:00-22:30", "wed": "09:30-22:30",
+      "thu": "10:00-22:30", "fri": "10:00-21:30", "sat": "10:00-20:30", "sun": "10:00-20:30"
+    },
+    "evidence": "Lun.-Mar. e Gio.: 10.00-22.30 | Mercoledì: 09.30-22.30 | Venerdì: 10.00-21.30 | Sabato, Domenica e festivi: 10.00-20.30",
+    "note": "The current operator directions page states one complete regular week for the climbing centre; separately listed later bar closing times are not copied."
   }
 ]

@@ -104,6 +104,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Epsilon Sport Zone', 'moonboard'],
     ['Beta Boulders Malmö', 'kilter'],
     ['Project Konepaja', 'kilter'],
+    ['Vertikale', 'kilter'],
     ['Project Konepaja', 'tension'],
     ['Project Konepaja', 'moonboard'],
   ]);
@@ -900,6 +901,24 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(betaMalmo[0].properties.hours, undefined);
   assert.equal(betaMalmo[0].properties.boards[0].walls[0].min_angle, 15);
   assert.equal(betaMalmo[0].properties.boards[0].walls[0].max_angle, 70);
+
+  const vertikale = at(features, 46.7203221, 11.6568287);
+  assert.equal(vertikale.length, 1);
+  assert.equal(vertikale[0].properties.name, 'Vertikale');
+  assert.equal(vertikale[0].properties.city, 'Bressanone');
+  assert.deepEqual(boardIds(vertikale[0]), ['kilter']);
+  assert.equal(vertikale[0].properties.website, 'https://vertikale.it/it/');
+  assert.deepEqual(vertikale[0].properties.hours, [
+    '10:00-22:30',
+    '10:00-22:30',
+    '09:30-22:30',
+    '10:00-22:30',
+    '10:00-21:30',
+    '10:00-20:30',
+    '10:00-20:30',
+  ]);
+  assert.equal(vertikale[0].properties.boards[0].walls[0].adjustable, true);
+  assert.equal(vertikale[0].properties.boards[0].walls[0].angle, null);
 
   const climbUsMisa = at(features, 37.5627864, 127.1933404);
   assert.equal(climbUsMisa.length, 1);
