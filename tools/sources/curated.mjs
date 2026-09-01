@@ -246,6 +246,57 @@ const ENTRIES = [
     angle: null,
   },
   {
+    // Current branch, exact address, 2024 setup, LEDs and fixed 40° angle:
+    // https://www.portsideboulders.com.au/locations/oconnor
+    // https://www.portsideboulders.com.au/post/moonboard
+    // The exact address point is independently corroborated by OSM.
+    source: 'curated',
+    board: 'moonboard',
+    name: "Portside Boulders O'Connor",
+    lat: -32.0577678,
+    lon: 115.7856163,
+    city: "O'Connor",
+    country: 'AU',
+    commercial: true,
+    led: true,
+    variant: 'mb2024',
+    angle: 40,
+  },
+  {
+    // Current branch, exact address, 2019 setup, LEDs and fixed 40° angle:
+    // https://www.portsideboulders.com.au/locations/willetton
+    // https://www.portsideboulders.com.au/post/moonboard
+    // The exact address point is independently corroborated by OSM.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Portside Boulders Willetton',
+    lat: -32.0400023,
+    lon: 115.8865878,
+    city: 'Willetton',
+    country: 'AU',
+    commercial: true,
+    led: true,
+    variant: 'mb2019-masters',
+    angle: 40,
+  },
+  {
+    // Current branch, public access, 2024 setup, LEDs and fixed 40° angle:
+    // https://www.portsideboulders.com.au/locations/joondalup
+    // https://www.portsideboulders.com.au/post/moonboard
+    // Co-locate with the current manufacturer-app Decoy venue.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Portside Boulders Joondalup',
+    lat: -31.75081,
+    lon: 115.76338,
+    city: 'Joondalup',
+    country: 'AU',
+    commercial: true,
+    led: true,
+    variant: 'mb2024',
+    angle: 40,
+  },
+  {
     // Public venue, address, and both boards:
     // https://climbicp.com/au/first-visit/
     // Kilter access/layout/size/frame/angle and coordinates:

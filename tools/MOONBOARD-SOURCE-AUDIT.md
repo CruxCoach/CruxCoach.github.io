@@ -124,3 +124,24 @@ September–June and summer weeks and Lezard's summer, weather-dependent weekend
 access remain internal research outcomes rather than misleading regular hours.
 The map now contains 1,512 MoonBoard rows at 1,387 physical venues. Regional and
 multilingual recovery is still in progress; this is not an exhaustion claim.
+
+Portside Boulders provides a particularly strong chain-wide primary source: its
+current MoonBoard guide names all four Perth branches and gives each generation
+and fixed 40° angle, while the four current branch pages establish public access,
+identity, address and complete regular weeks. O'Connor and Joondalup therefore
+gain their missing 2024 boards, Willetton gains its missing 2019 board, and
+Osborne Park's existing 2016 board is consolidated with the address-bearing
+Kilter marker 17 m away. The guide describes the boards as app-connected LEDs,
+so that detail is recorded for all four. The map now contains 1,515 MoonBoard
+rows at 1,390 physical venues.
+
+The first Japanese-language search also found current operator-controlled pages
+for BolBol in Sagamihara and Blue Bird Bouldering Gym in Ota that state public
+MoonBoards, full street addresses and regular schedules. Neither venue exists in
+the frozen registry. They are not published yet: accessible OpenStreetMap data
+does not establish an exact venue point, and the address-only neighborhood
+centroids are too imprecise. Google Maps was not used, and a third-party Japanese
+geocoder whose terms require its own displayed map/attribution was not imported
+into the dataset. Both remain explicit coordinate-retry candidates. The wider
+Asia-Pacific and multilingual pass remains in progress; this is not an
+exhaustion claim.

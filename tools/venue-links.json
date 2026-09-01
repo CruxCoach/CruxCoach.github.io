@@ -1502,50 +1502,73 @@
     "note": "The site is Mountain Strong, Canberra, names a MoonBoard — the board system this entry is listed for — and the OSM node 21 m away carries the same domain. Its Fyshwick page prints 66-68 Townsville St, Fyshwick ACT 2609."
   },
   {
-    "lat": -31.91396,
-    "lon": 115.8168689,
-    "name": "Portside Boulders - Osborne Park",
-    "country": "AU",
-    "website": "https://www.portsideboulders.com.au/locations",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
-    "signals": [
-      "name",
-      "street-address",
-      "city"
-    ],
-    "note": "Upstream lists this hall twice, 17 m apart."
-  },
-  {
     "lat": -31.75081,
     "lon": 115.76338,
     "name": "Portside Boulders Joondalup",
     "country": "AU",
-    "website": "https://www.portsideboulders.com.au/locations",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
+    "website": "https://www.portsideboulders.com.au/locations/joondalup",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
-      "city"
+      "city",
+      "board-mention"
     ],
-    "note": "The page's Royce Court, Joondalup resolves 43 m from this upstream coordinate."
+    "note": "The current branch page identifies the public Joondalup venue, Royce Court address and both its Decoy and Moon Boards; the operator's MoonBoard guide states its 2024 fixed-40-degree setup."
   },
   {
     "lat": -31.91385,
     "lon": 115.81699,
     "name": "Portside Osborne Park",
     "country": "AU",
-    "website": "https://www.portsideboulders.com.au/locations",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
+    "website": "https://www.portsideboulders.com.au/locations/osborne-park",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "city"
+      "city",
+      "board-mention"
     ],
-    "note": "The operator gives its four Perth gyms one page and lists each by address."
+    "note": "The current branch page prints 73 Walters Drive, Osborne Park and identifies the public venue; the operator's current MoonBoard guide classifies its 2016 fixed-40-degree board. The former 17 m duplicate is consolidated here."
+  },
+  {
+    "lat": -32.0577678,
+    "lon": 115.7856163,
+    "name": "Portside Boulders O'Connor",
+    "country": "AU",
+    "website": "https://www.portsideboulders.com.au/locations/oconnor",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The current branch page identifies the public O'Connor venue and MoonBoard at 12 Murphy Street; the operator's guide states the 2024 fixed-40-degree setup, and OSM independently corroborates the exact address point."
+  },
+  {
+    "lat": -32.0400023,
+    "lon": 115.8865878,
+    "name": "Portside Boulders Willetton",
+    "country": "AU",
+    "website": "https://www.portsideboulders.com.au/locations/willetton",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The current branch page identifies the public Willetton venue and MoonBoard at 8 Kembla Way; the operator's guide states the 2019 fixed-40-degree setup, and OSM independently corroborates the exact address point."
   },
   {
     "lat": -32.94153,

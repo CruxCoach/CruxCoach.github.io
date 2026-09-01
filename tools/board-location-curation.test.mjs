@@ -35,6 +35,9 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Double Dyno', 'moonboard'],
     ['TSV 1846 Nürnberg - Bouldern', 'tension'],
     ['Lezard', 'moonboard'],
+    ["Portside Boulders O'Connor", 'moonboard'],
+    ['Portside Boulders Willetton', 'moonboard'],
+    ['Portside Boulders Joondalup', 'moonboard'],
     ['ICP Boulder Hall & Showroom', 'kilter'],
     ['ICP Boulder Hall & Showroom', 'tension'],
     ['BLOCK DOCK Petržalka', 'kilter'],
@@ -212,6 +215,24 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.deepEqual(boardIds(lezard[0]), ['moonboard']);
   assert.equal(lezard[0].properties.website, 'https://www.lezardclimb.it/');
   assert.equal(lezard[0].properties.hours, undefined);
+
+  for (const [name, lat, lon, boards, variant] of [
+    ["Portside Boulders O'Connor", -32.0577678, 115.7856163, ['moonboard'], 'mb2024'],
+    ['Portside Boulders Willetton', -32.0400023, 115.8865878, ['moonboard'], 'mb2019-masters'],
+    ['Portside Boulders Joondalup', -31.75081, 115.76338, ['decoy', 'moonboard'], 'mb2024'],
+    ['Portside Osborne Park', -31.91385, 115.81699, ['kilter', 'moonboard'], 'mb2016'],
+  ]) {
+    const venue = at(features, lat, lon);
+    assert.equal(venue.length, 1, name);
+    assert.equal(venue[0].properties.name, name);
+    assert.deepEqual(new Set(boardIds(venue[0])), new Set(boards));
+    const moonboard = venue[0].properties.boards.find(board => board.board === 'moonboard');
+    assert.equal(moonboard.variant, variant);
+    assert.equal(moonboard.angle, 40);
+    assert.equal(moonboard.led, true);
+    assert.equal(venue[0].properties.hours.length, 7);
+  }
+  assert.equal(at(features, -31.91396, 115.8168689).length, 0);
 
   const gravitaZero = at(features, 45.65702, 13.81049);
   assert.equal(gravitaZero.length, 1);
