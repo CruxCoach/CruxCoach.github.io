@@ -1614,6 +1614,50 @@ const ENTRIES = [
     }],
   },
   {
+    // Current public venue, Kilter Board and complete regular week:
+    // https://www.northernrocks.co.nz/our-gym/
+    // Reuse the existing address-matched Tension venue coordinate so both
+    // verified public boards group as one marker.
+    source: 'curated',
+    board: 'kilter',
+    name: 'Northern Rocks',
+    lat: -36.77531,
+    lon: 174.73321,
+    address: '111 Diana Drive, Glenfield, Auckland 0629, New Zealand',
+    city: 'Auckland',
+    country: 'NZ',
+    commercial: true,
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: null,
+      size_id: null,
+      size_label: null,
+      adjustable: true,
+      angle: null,
+      min_angle: null,
+      max_angle: null,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
+    // Current public venue and Kilter Board:
+    // https://geckoclimb.com.au/
+    // https://geckoclimb.com.au/classes-and-coaching/
+    // OSM's independently maintained exact named sports-centre node matches
+    // the operator's 2 Snell Street address.
+    source: 'curated',
+    board: 'kilter',
+    name: 'Gecko Climb',
+    lat: -12.4303626,
+    lon: 130.8568256,
+    address: '2 Snell Street, Woolner, NT 0820, Australia',
+    city: 'Darwin',
+    country: 'AU',
+    commercial: true,
+    walls: [],
+  },
+  {
     // The same current operator page explicitly identifies Tension Board 2.
     // The public schema has no Tension model-detail field.
     source: 'curated',

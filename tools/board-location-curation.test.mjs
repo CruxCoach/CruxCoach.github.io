@@ -108,6 +108,8 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Bigwall Sport Динамо', 'kilter'],
     ['BHub Bouldering', 'kilter'],
     ['BUMP Bouldering Pavilion Bukit Jalil', 'kilter'],
+    ['Northern Rocks', 'kilter'],
+    ['Gecko Climb', 'kilter'],
     ['Project Konepaja', 'tension'],
     ['Project Konepaja', 'moonboard'],
   ]);
@@ -977,6 +979,39 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(bumpBukitJalil[0].properties.boards[0].walls[0].adjustable, true);
   assert.equal(bumpBukitJalil[0].properties.boards[0].walls[0].min_angle, 20);
   assert.equal(bumpBukitJalil[0].properties.boards[0].walls[0].max_angle, 70);
+
+  const northernRocks = at(features, -36.77531, 174.73321);
+  assert.equal(northernRocks.length, 1);
+  assert.equal(northernRocks[0].properties.name, 'Northern Rocks');
+  assert.equal(northernRocks[0].properties.city, 'Auckland');
+  assert.deepEqual(new Set(boardIds(northernRocks[0])), new Set(['tension', 'kilter']));
+  assert.equal(northernRocks[0].properties.website, 'https://northernrocks.co.nz/');
+  assert.deepEqual(northernRocks[0].properties.hours, [
+    '10:00-22:00',
+    '10:00-22:00',
+    '10:00-22:00',
+    '10:00-22:00',
+    '10:00-22:00',
+    '08:00-20:00',
+    '08:00-20:00',
+  ]);
+  assert.equal(northernRocks[0].properties.boards.find(board => board.board === 'kilter').walls[0].adjustable, true);
+
+  const geckoClimb = at(features, -12.4303626, 130.8568256);
+  assert.equal(geckoClimb.length, 1);
+  assert.equal(geckoClimb[0].properties.name, 'Gecko Climb');
+  assert.equal(geckoClimb[0].properties.city, 'Darwin');
+  assert.deepEqual(boardIds(geckoClimb[0]), ['kilter']);
+  assert.equal(geckoClimb[0].properties.website, 'https://geckoclimb.com.au/');
+  assert.deepEqual(geckoClimb[0].properties.hours, [
+    '10:00-21:00',
+    '10:00-21:00',
+    '06:00-21:00',
+    '10:00-21:00',
+    '10:00-21:00',
+    '10:00-18:00',
+    '10:00-18:00',
+  ]);
 
   const climbUsMisa = at(features, 37.5627864, 127.1933404);
   assert.equal(climbUsMisa.length, 1);
