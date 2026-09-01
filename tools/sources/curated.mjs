@@ -1641,6 +1641,65 @@ const ENTRIES = [
     }],
   },
   {
+    // Current public bouldering area, exact address and adjustable 0-70 degree
+    // Kilter Board:
+    // https://kle-sch.at/bouldern/
+    // https://kle-sch.at/klettern/
+    // OSM's independently maintained exact named building at St. Daniel 100
+    // supplies the point. The operator leaves Wednesday unstated in its
+    // displayed week, so no opening-hours overlay is inferred here.
+    source: 'curated',
+    board: 'kilter',
+    name: 'KLE-SCH Kletter- und Schießzentrum St. Daniel',
+    lat: 46.6589636,
+    lon: 13.0567438,
+    address: 'St. Daniel 100, 9635 Dellach, Austria',
+    city: 'Dellach',
+    country: 'AT',
+    commercial: true,
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: null,
+      size_id: null,
+      size_label: null,
+      adjustable: true,
+      angle: null,
+      min_angle: 0,
+      max_angle: 70,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
+    // Current public venue and adjustable Kilter Board:
+    // https://www.olympiapark.de/de/sport/munich-action-park/bouldern
+    // https://www.olympiapark.de/de/sport/munich-action-park
+    // The municipal operator and city pages establish the public venue,
+    // complete week and Spiridon-Louis-Ring 3 address. OSM's independently
+    // maintained named Munich Action Park building supplies the point.
+    source: 'curated',
+    board: 'kilter',
+    name: 'Munich Action Park',
+    lat: 48.1750125,
+    lon: 11.5579576,
+    address: 'Spiridon-Louis-Ring 3, 80809 München, Germany',
+    city: 'München',
+    country: 'DE',
+    commercial: true,
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: null,
+      size_id: null,
+      size_label: null,
+      adjustable: true,
+      angle: null,
+      min_angle: null,
+      max_angle: null,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
     // Current public venue and Kilter Board:
     // https://geckoclimb.com.au/
     // https://geckoclimb.com.au/classes-and-coaching/

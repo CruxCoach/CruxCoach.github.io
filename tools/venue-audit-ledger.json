@@ -620,6 +620,60 @@
    }
   },
   {
+   "lat": 46.8665648313,
+   "lon": 14.4689992553,
+   "name": "Das Kraftwerk Althofen",
+   "country": "AT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ]
+   }
+  },
+  {
+   "lat": 48.29891,
+   "lon": 14.2749,
+   "name": "Der Steinbock Linz",
+   "country": "AT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "previous-record"
+    ]
+   }
+  },
+  {
+   "lat": 46.6589636,
+   "lon": 13.0567438,
+   "name": "KLE-SCH Kletter- und Schießzentrum St. Daniel",
+   "country": "AT",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ],
+    "note": "The official bouldering page omits Wednesday from its staffed week and separately states daily chip-card access, so one complete public week cannot be normalized without inference."
+   }
+  },
+  {
    "lat": 46.78353,
    "lon": 15.54574,
    "name": "Kletterhalle Alpenverein Leibnitz",
@@ -15741,6 +15795,34 @@
    }
   },
   {
+   "lat": -6.168997632532928,
+   "lon": 106.92485794232918,
+   "name": "Dreamstone Boulders Kelapa Gading",
+   "country": "ID",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "social-only",
+    "channels": [
+     "web-search",
+     "apex",
+     "www",
+     "path-probe"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-official-site",
+    "channels": [
+     "web-search",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": -6.99707,
    "lon": 107.55413,
    "name": "Goodang Bouldering",
@@ -18175,6 +18257,62 @@
    }
   },
   {
+   "lat": 36.263468,
+   "lon": 139.347351,
+   "name": "Blue Bird BOULDERING GYM",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 35.600647,
+   "lon": 139.352181,
+   "name": "BolBol",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 34.6551456,
    "lon": 133.9195019,
    "name": "BoulderGarden SaBo",
@@ -18289,6 +18427,51 @@
    }
   },
   {
+   "lat": 35.553181,
+   "lon": 139.579468,
+   "name": "Climbing Bum Yokohama",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "previous-record",
+     "apex",
+     "www"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 35.14829,
+   "lon": 136.866307,
+   "name": "Climbing Gym GANBA",
+   "country": "JP",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ]
+   }
+  },
+  {
    "lat": 36.73843,
    "lon": 138.33728,
    "name": "Climbing House KN",
@@ -18316,33 +18499,6 @@
      "apex",
      "www",
      "web-search"
-    ]
-   }
-  },
-  {
-   "lat": 35.553181,
-   "lon": 139.579468,
-   "name": "Climbing Bum Yokohama",
-   "country": "JP",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-09-01",
-    "result": "accepted",
-    "channels": [
-     "previous-record",
-     "apex",
-     "www"
-    ]
-   },
-   "hours": {
-    "pass": "2026-09-01",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
     ]
    }
   },
@@ -19112,6 +19268,34 @@
    }
   },
   {
+   "lat": 38.001454,
+   "lon": 140.624956,
+   "name": "ROCONESS",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 34.511873,
    "lon": 136.64258,
    "name": "SunnyDipper Climbing",
@@ -19205,6 +19389,34 @@
    }
   },
   {
+   "lat": 39.6960587,
+   "lon": 140.1449691,
+   "name": "TO-DO Climbing",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 35.6894875,
    "lon": 139.6917064,
    "name": "VOLNY",
@@ -19265,6 +19477,90 @@
    }
   },
   {
+   "lat": 35.662423,
+   "lon": 139.462647,
+   "name": "WEST ROCK Fuchu",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 35.983114,
+   "lon": 140.642811,
+   "name": "アオロク ao_roc.climbing",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 35.115149,
+   "lon": 136.872711,
+   "name": "カラフルロック Colorful Rock",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 34.78667,
    "lon": 135.81206,
    "name": "カルコロ CAL-COLO",
@@ -19319,6 +19615,24 @@
     "channels": [
      "venue-link",
      "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 35.551848,
+   "lon": 140.388894,
+   "name": "クライミングジム猿吉 Sarukichi",
+   "country": "JP",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -19439,6 +19753,62 @@
    }
   },
   {
+   "lat": 34.821599,
+   "lon": 137.236109,
+   "name": "ボルダTO9蒲郡店",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
+   "lat": 35.370733,
+   "lon": 136.647393,
+   "name": "ボルダリング＆クライミングパーク ひょうたん島 大垣店",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 35.15172,
    "lon": 137.00298,
    "name": "ボルダリングジム　ラコンテント LaContento",
@@ -19498,6 +19868,34 @@
    }
   },
   {
+   "lat": 33.861438,
+   "lon": 132.742492,
+   "name": "愛媛クライミングジム iTTE",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
+   }
+  },
+  {
    "lat": 33.22722,
    "lon": 132.7108,
    "name": "松野町コミュニティセンター Matsuno Town Community Center",
@@ -19525,6 +19923,34 @@
      "apex",
      "www",
      "web-search"
+    ]
+   }
+  },
+  {
+   "lat": 36.50025,
+   "lon": 136.872064,
+   "name": "桜ヶ池クライミングセンター",
+   "country": "JP",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "apex",
+     "path-probe",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -19619,41 +20045,6 @@
    }
   },
   {
-   "lat": 37.44572502448479,
-   "lon": 126.80167496802616,
-   "name": "볼더가든 클라이밍 Bouldergarden",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-09-01",
-    "result": "social-only",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record",
-     "map-block"
-    ]
-   },
-   "hours": {
-    "pass": "2026-09-01",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   }
-  },
-  {
    "lat": 35.82364,
    "lon": 128.5275,
    "name": "Chalk Up Climbing Center Wolseong 초크업 클라이밍",
@@ -19676,38 +20067,6 @@
    },
    "hours": {
     "pass": "2026-08-25",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
-    ]
-   }
-  },
-  {
-   "lat": 37.497738,
-   "lon": 127.0409539,
-   "name": "클라임 이모션 Climb Emotion",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-09-01",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-09-01",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -19782,38 +20141,6 @@
    }
   },
   {
-   "lat": 37.4876288,
-   "lon": 126.9945297,
-   "name": "게이트원 클라이밍 Gate One Climbing",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-09-01",
-    "result": "unverified",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-09-01",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
-    ]
-   }
-  },
-  {
    "lat": 36.7844993,
    "lon": 126.4503169,
    "name": "Gorilla climbing's Moonboard",
@@ -19842,42 +20169,6 @@
      "apex",
      "www",
      "web-search"
-    ]
-   }
-  },
-  {
-   "lat": 36.3643697,
-   "lon": 127.3247016,
-   "name": "하나클라이밍짐 Hana Climbing Gym",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-09-01",
-    "result": "unavailable",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record",
-     "operator-index",
-     "map-block"
-    ]
-   },
-   "hours": {
-    "pass": "2026-09-01",
-    "result": "inaccessible",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "venue-link",
-     "operator-index"
     ]
    }
   },
@@ -19978,38 +20269,6 @@
    }
   },
   {
-   "lat": 37.5697433,
-   "lon": 126.9899785,
-   "name": "서울숲클라이밍 종로 SeoulForest Climbing Jongno",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-09-01",
-    "result": "social-only",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-09-01",
-    "result": "no-official-site",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
-    ]
-   }
-  },
-  {
    "lat": 35.2100142,
    "lon": 129.0688702,
    "name": "SO Climing gym",
@@ -20074,38 +20333,6 @@
    }
   },
   {
-   "lat": 37.4967717,
-   "lon": 126.776494,
-   "name": "타이거볼더클라이밍짐 Tiger Boulder Climbing Gym",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-09-01",
-    "result": "ambiguous",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ]
-   },
-   "hours": {
-    "pass": "2026-09-01",
-    "result": "ambiguous",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
-    ]
-   }
-  },
-  {
    "lat": 37.237587746871746,
    "lon": 127.21341258770649,
    "name": "Yongin Climbing Center",
@@ -20128,6 +20355,38 @@
    },
    "hours": {
     "pass": "2026-08-25",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search"
+    ]
+   }
+  },
+  {
+   "lat": 37.4876288,
+   "lon": 126.9945297,
+   "name": "게이트원 클라이밍 Gate One Climbing",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
     "result": "no-official-site",
     "channels": [
      "name-guess",
@@ -20229,6 +20488,73 @@
    }
   },
   {
+   "lat": 37.44572502448479,
+   "lon": 126.80167496802616,
+   "name": "볼더가든 클라이밍 Bouldergarden",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "social-only",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ]
+   }
+  },
+  {
+   "lat": 37.5697433,
+   "lon": 126.9899785,
+   "name": "서울숲클라이밍 종로 SeoulForest Climbing Jongno",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "social-only",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search"
+    ]
+   }
+  },
+  {
    "lat": 37.253109138501685,
    "lon": 127.07714303019016,
    "name": "슈퍼비클라이밍 SuperB Climbing",
@@ -20293,36 +20619,6 @@
    }
   },
   {
-   "lat": 35.1088403702862,
-   "lon": 128.967159324406,
-   "name": "오터클라이밍 OTTERCLIMBING",
-   "country": "KR",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-09-01",
-    "result": "social-only",
-    "channels": [
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ],
-    "note": "The operator's current marketplace business profile names only Instagram and Naver update channels; no standalone official HTTPS website was found."
-   },
-   "hours": {
-    "pass": "2026-09-01",
-    "result": "no-official-site",
-    "channels": [
-     "web-search",
-     "social-profile",
-     "previous-record"
-    ],
-    "note": "Marketplace and directory times are not an official-site schedule and currently conflict on the weekend."
-   }
-  },
-  {
    "lat": 33.324883,
    "lon": 126.8245979,
    "name": "오루뭉 Orumung Climbing Gym",
@@ -20352,6 +20648,36 @@
      "www",
      "web-search"
     ]
+   }
+  },
+  {
+   "lat": 35.1088403702862,
+   "lon": 128.967159324406,
+   "name": "오터클라이밍 OTTERCLIMBING",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "social-only",
+    "channels": [
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ],
+    "note": "The operator's current marketplace business profile names only Instagram and Naver update channels; no standalone official HTTPS website was found."
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-official-site",
+    "channels": [
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ],
+    "note": "Marketplace and directory times are not an official-site schedule and currently conflict on the weekend."
    }
   },
   {
@@ -20509,6 +20835,38 @@
    }
   },
   {
+   "lat": 37.497738,
+   "lon": 127.0409539,
+   "name": "클라임 이모션 Climb Emotion",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "unverified",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-official-site",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search"
+    ]
+   }
+  },
+  {
    "lat": 37.5627864,
    "lon": 127.1933404,
    "name": "클라임어스 미사점 Climb Us Hanam Misa",
@@ -20601,6 +20959,74 @@
      "apex",
      "www",
      "web-search"
+    ]
+   }
+  },
+  {
+   "lat": 37.4967717,
+   "lon": 126.776494,
+   "name": "타이거볼더클라이밍짐 Tiger Boulder Climbing Gym",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search"
+    ]
+   }
+  },
+  {
+   "lat": 36.3643697,
+   "lon": 127.3247016,
+   "name": "하나클라이밍짐 Hana Climbing Gym",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "unavailable",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "social-profile",
+     "previous-record",
+     "operator-index",
+     "map-block"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "inaccessible",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search",
+     "venue-link",
+     "operator-index"
     ]
    }
   },
@@ -27324,6 +27750,25 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 55.5958063,
+   "lon": 13.0040046,
+   "name": "Beta Boulders Malmö",
+   "country": "SE",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "no-hours-on-official-site",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ],
+    "note": "The current operator branch, prices and terms pages prove public operation but state no regular week. A generic organization schema block says 09:00-17:00 daily while the public-facing price page defines peak periods beyond 17:00, so it is not branch opening evidence. Directory schedules are deliberately not substituted."
    }
   },
   {
@@ -39103,242 +39548,6 @@
      "venue-link",
      "path-probe"
     ]
-   }
-  },
-  {
-   "lat": 35.600647,
-   "lon": 139.352181,
-   "name": "BolBol",
-   "country": "JP",
-   "needs": ["website", "hours"],
-   "website": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["web-search", "apex", "path-probe", "map-block"]
-   },
-   "hours": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["venue-link", "path-probe"]
-   }
-  },
-  {
-   "lat": 36.263468,
-   "lon": 139.347351,
-   "name": "Blue Bird BOULDERING GYM",
-   "country": "JP",
-   "needs": ["website", "hours"],
-   "website": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["web-search", "apex", "path-probe", "map-block"]
-   },
-   "hours": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["venue-link", "path-probe"]
-   }
-  },
-  {
-   "lat": 35.370733,
-   "lon": 136.647393,
-   "name": "ボルダリング＆クライミングパーク ひょうたん島 大垣店",
-   "country": "JP",
-   "needs": ["website", "hours"],
-   "website": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["web-search", "apex", "path-probe", "map-block"]
-   },
-   "hours": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["venue-link", "path-probe"]
-   }
-  },
-  {
-   "lat": 35.662423,
-   "lon": 139.462647,
-   "name": "WEST ROCK Fuchu",
-   "country": "JP",
-   "needs": ["website", "hours"],
-   "website": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["web-search", "apex", "path-probe", "map-block"]
-   },
-   "hours": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["venue-link", "path-probe"]
-   }
-  },
-  {
-   "lat": 36.50025,
-   "lon": 136.872064,
-   "name": "桜ヶ池クライミングセンター",
-   "country": "JP",
-   "needs": ["website", "hours"],
-   "website": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["web-search", "apex", "path-probe", "map-block"]
-   },
-   "hours": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["venue-link", "path-probe"]
-   }
-  },
-  {
-   "lat": 35.115149,
-   "lon": 136.872711,
-   "name": "カラフルロック Colorful Rock",
-   "country": "JP",
-   "needs": ["website", "hours"],
-   "website": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["web-search", "apex", "path-probe", "map-block"]
-   },
-   "hours": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["venue-link", "path-probe"]
-   }
-  },
-  {
-   "lat": 34.821599,
-   "lon": 137.236109,
-   "name": "ボルダTO9蒲郡店",
-   "country": "JP",
-   "needs": ["website", "hours"],
-   "website": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["web-search", "apex", "path-probe", "map-block"]
-   },
-   "hours": {
-    "pass": "2026-09-01", "result": "ambiguous",
-    "channels": ["venue-link", "path-probe"]
-   }
-  },
-  {
-   "lat": 38.001454,
-   "lon": 140.624956,
-   "name": "ROCONESS",
-   "country": "JP",
-   "needs": ["website", "hours"],
-   "website": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["web-search", "apex", "path-probe", "map-block"]
-   },
-   "hours": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["venue-link", "path-probe"]
-   }
-  },
-  {
-   "lat": 33.861438,
-   "lon": 132.742492,
-   "name": "愛媛クライミングジム iTTE",
-   "country": "JP",
-   "needs": ["website", "hours"],
-   "website": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["web-search", "apex", "path-probe", "map-block"]
-   },
-   "hours": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["venue-link", "path-probe"]
-   }
-  },
-  {
-   "lat": 35.983114,
-   "lon": 140.642811,
-   "name": "アオロク ao_roc.climbing",
-   "country": "JP",
-   "needs": ["website", "hours"],
-   "website": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["web-search", "apex", "path-probe", "map-block"]
-   },
-   "hours": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["venue-link", "path-probe"]
-   }
-  },
-  {
-   "lat": -6.168997632532928,
-   "lon": 106.92485794232918,
-   "name": "Dreamstone Boulders Kelapa Gading",
-   "country": "ID",
-   "needs": ["website", "hours"],
-   "website": {
-    "pass": "2026-09-01", "result": "social-only",
-    "channels": ["web-search", "apex", "www", "path-probe"]
-   },
-   "hours": {
-    "pass": "2026-09-01", "result": "no-official-site",
-    "channels": ["web-search", "path-probe"]
-   }
-  },
-  {
-   "lat": 39.6960587,
-   "lon": 140.1449691,
-   "name": "TO-DO Climbing",
-   "country": "JP",
-   "needs": ["website", "hours"],
-   "website": {
-    "pass": "2026-09-01", "result": "accepted",
-    "channels": ["web-search", "apex", "path-probe", "map-block"]
-   },
-   "hours": {
-    "pass": "2026-09-01", "result": "ambiguous",
-    "channels": ["venue-link", "path-probe"]
-   }
-  },
-  {
-   "lat": 48.29891,
-   "lon": 14.2749,
-   "name": "Der Steinbock Linz",
-   "country": "AT",
-   "needs": ["hours"],
-   "hours": {
-    "pass": "2026-09-01", "result": "ambiguous",
-    "channels": ["venue-link", "path-probe", "previous-record"]
-   }
-  },
-  {
-   "lat": 35.551848,
-   "lon": 140.388894,
-   "name": "クライミングジム猿吉 Sarukichi",
-   "country": "JP",
-   "needs": ["hours"],
-   "hours": {
-    "pass": "2026-09-01", "result": "ambiguous",
-    "channels": ["venue-link", "path-probe", "web-search"]
-   }
-  },
-  {
-   "lat": 35.14829,
-   "lon": 136.866307,
-   "name": "Climbing Gym GANBA",
-   "country": "JP",
-   "needs": ["hours"],
-   "hours": {
-    "pass": "2026-09-01", "result": "ambiguous",
-    "channels": ["venue-link", "path-probe", "web-search"]
-   }
-  },
-  {
-   "lat": 46.8665648313,
-   "lon": 14.4689992553,
-   "name": "Das Kraftwerk Althofen",
-   "country": "AT",
-   "needs": ["hours"],
-   "hours": {
-    "pass": "2026-09-01", "result": "seasonal",
-    "channels": ["venue-link", "path-probe", "web-search"]
-   }
-  },
-  {
-   "lat": 55.5958063,
-   "lon": 13.0040046,
-   "name": "Beta Boulders Malmö",
-   "country": "SE",
-   "needs": ["hours"],
-   "hours": {
-    "pass": "2026-09-01", "result": "no-hours-on-official-site",
-    "channels": ["venue-link", "path-probe", "web-search"],
-    "note": "The current operator branch, prices and terms pages prove public operation but state no regular week. A generic organization schema block says 09:00-17:00 daily while the public-facing price page defines peak periods beyond 17:00, so it is not branch opening evidence. Directory schedules are deliberately not substituted."
    }
   }
  ]

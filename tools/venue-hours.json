@@ -6378,29 +6378,6 @@
   "evidence": "Leutschenbach: Mo – Fr 08:00 – 23:00 | Sa – So 10:00 – 20:00"
  },
  {
-  "lat": 47.3807,
-  "lon": 8.50559,
-  "name": "Mitō Bouldering",
-  "country": "CH",
-  "source": "https://www.mito-bouldering.ch/de/hours",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name"
-  ],
-  "hours": {
-   "mon": "07:00-22:00",
-   "tue": "07:00-22:00",
-   "wed": "07:00-22:00",
-   "thu": "07:00-22:00",
-   "fri": "07:00-22:00",
-   "sat": "08:00-20:00",
-   "sun": "08:00-18:00"
-  },
-  "evidence": "Reguläre Öffnungszeiten: Montag – Freitag 07:00 – 22:00 | Samstag 08:00 – 20:00 | Sonntag 08:00 – 18:00"
- },
- {
   "lat": 47.38077156036091,
   "lon": 8.50559518406294,
   "name": "Mitō Bouldering",
@@ -32863,5 +32840,21 @@
     },
     "evidence": "Monday, Tuesday, Thursday, Friday: 10:00am - 9pm; Wednesday: 6am - 9pm; Saturday, Sunday and public holidays: 10am - 6pm",
     "note": "The current operator homepage states one complete regular venue week. The separately stated weekday school-term rope-wall opening of 10:30 and closing of 20:30 applies only to that sub-area, not general venue access."
+  },
+  {
+    "lat": 48.1750125,
+    "lon": 11.5579576,
+    "name": "Munich Action Park",
+    "country": "DE",
+    "source": "https://www.olympiapark.de/de/sport/munich-action-park",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "15:00-22:00", "tue": "15:00-22:00", "wed": "15:00-22:00",
+      "thu": "15:00-22:00", "fri": "15:00-22:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "Öffnungszeiten Munich Action Park — Mo - Fr 15:00 - 22:00 — Sa 10:00 - 20:00",
+    "note": "The current municipal operator page states one complete regular venue week. A dated summer-holiday notice merely confirms Monday access and does not replace the displayed regular schedule."
   }
 ]

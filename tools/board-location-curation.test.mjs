@@ -109,6 +109,8 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['BHub Bouldering', 'kilter'],
     ['BUMP Bouldering Pavilion Bukit Jalil', 'kilter'],
     ['Northern Rocks', 'kilter'],
+    ['KLE-SCH Kletter- und Schießzentrum St. Daniel', 'kilter'],
+    ['Munich Action Park', 'kilter'],
     ['Gecko Climb', 'kilter'],
     ['Project Konepaja', 'tension'],
     ['Project Konepaja', 'moonboard'],
@@ -123,6 +125,33 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
 
 test('committed map data includes the missing boards and merges the corrected venues', () => {
   const features = JSON.parse(readFileSync(GEOJSON, 'utf8')).features;
+
+  const kleSch = at(features, 46.6589636, 13.0567438);
+  assert.equal(kleSch.length, 1);
+  assert.equal(kleSch[0].properties.name, 'KLE-SCH Kletter- und Schießzentrum St. Daniel');
+  assert.deepEqual(boardIds(kleSch[0]), ['kilter']);
+  assert.equal(kleSch[0].properties.boards[0].walls[0].adjustable, true);
+  assert.equal(kleSch[0].properties.boards[0].walls[0].min_angle, 0);
+  assert.equal(kleSch[0].properties.boards[0].walls[0].max_angle, 70);
+  assert.equal(kleSch[0].properties.website, 'https://kle-sch.at/');
+  assert.equal(kleSch[0].properties.hours, undefined);
+
+  const actionPark = at(features, 48.1750125, 11.5579576);
+  assert.equal(actionPark.length, 1);
+  assert.equal(actionPark[0].properties.name, 'Munich Action Park');
+  assert.deepEqual(boardIds(actionPark[0]), ['kilter']);
+  assert.equal(actionPark[0].properties.boards[0].walls[0].adjustable, true);
+  assert.equal(actionPark[0].properties.website, 'https://www.olympiapark.de/de/sport/munich-action-park');
+  assert.deepEqual(actionPark[0].properties.hours, [
+    '15:00-22:00', '15:00-22:00', '15:00-22:00', '15:00-22:00',
+    '15:00-22:00', '10:00-20:00', '10:00-20:00',
+  ]);
+
+  const mito = at(features, 47.38077156036091, 8.50559518406294);
+  assert.equal(mito.length, 1);
+  assert.equal(mito[0].properties.name, 'Mitō Bouldering');
+  assert.deepEqual(new Set(boardIds(mito[0])), new Set(['kilter', 'tension']));
+  assert.equal(at(features, 47.3807, 8.50559).length, 0);
 
   const munichEast = at(features, 48.12578, 11.61108);
   assert.equal(munichEast.length, 1);

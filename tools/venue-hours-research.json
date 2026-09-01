@@ -8653,5 +8653,15 @@
     "checked": "2026-09-01",
     "source": "https://betaboulders.se/malmo/",
     "reason": "The current operator branch, prices and terms pages prove public operation but state no regular week. A generic organization schema block says 09:00-17:00 daily while the public-facing price page defines peak periods beyond 17:00, so it is not branch opening evidence. Directory schedules are deliberately not substituted."
+  },
+  {
+    "lat": 46.6589636,
+    "lon": 13.0567438,
+    "name": "KLE-SCH Kletter- und Schießzentrum St. Daniel",
+    "country": "AT",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://kle-sch.at/bouldern/",
+    "reason": "The current operator page states Monday, Tuesday, Thursday and Friday 15:00-21:00 plus Saturday and Sunday 10:00-21:00, but says nothing about Wednesday. It separately offers daily 06:00-23:00 chip-card access after an in-person purchase. A missing weekday and two access classes cannot be normalized into one public seven-day week without inference."
   }
 ]

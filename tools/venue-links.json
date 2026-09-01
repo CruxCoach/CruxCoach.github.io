@@ -5019,23 +5019,6 @@
     "note": "Two Zurich locations share one site; the site lists this one by street address."
   },
   {
-    "lat": 47.3807,
-    "lon": 8.50559,
-    "name": "Mitō Bouldering",
-    "country": "CH",
-    "website": "https://www.mito-bouldering.ch/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code",
-      "city",
-      "board-mention"
-    ],
-    "note": "Same physical gym as the Kilter entry 8 m away; upstream lists the Tension board separately."
-  },
-  {
     "lat": 47.38077156036091,
     "lon": 8.50559518406294,
     "name": "Mitō Bouldering",
@@ -27840,5 +27823,27 @@
     "provenance": "official-site",
     "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
     "note": "The operator's current homepage, contact and coaching pages identify Darwin's public climbing centre, Kilter Board courses, public day access and 2 Snell Street address. OSM's independently maintained exact named sports-centre node supplies the coordinate."
+  },
+  {
+    "lat": 46.6589636,
+    "lon": 13.0567438,
+    "name": "KLE-SCH Kletter- und Schießzentrum St. Daniel",
+    "country": "AT",
+    "website": "https://kle-sch.at/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator bouldering and climbing pages identify the public St. Daniel centre, exact address and adjustable 0-70 degree Kilter Board. OSM's independently maintained exact named building supplies the point."
+  },
+  {
+    "lat": 48.1750125,
+    "lon": 11.5579576,
+    "name": "Munich Action Park",
+    "country": "DE",
+    "website": "https://www.olympiapark.de/de/sport/munich-action-park",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The municipal operator's current venue and bouldering pages identify the open public Munich Action Park, visitor tickets and adjustable Kilter Board; current municipal records supply Spiridon-Louis-Ring 3. OSM's independently maintained named building supplies the point."
   }
 ]
