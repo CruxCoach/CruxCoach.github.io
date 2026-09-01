@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
-import { auditCandidates, parseCandidates } from './moonboard-korea-audit.mjs';
+import { auditCandidates, auditProductionVenues, parseCandidates } from './moonboard-korea-audit.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -37,12 +37,32 @@ test('every decided row carries explicit HTTPS provenance while pending rows cla
   ]);
 });
 
+test('the production audit fails closed on stale, duplicate and unreviewed map rows', () => {
+  const venues = [
+    { name: 'Reviewed Gym', lat: 37.1, lon: 127.1 },
+    { name: 'Unknown Gym', lat: 37.2, lon: 127.2 },
+  ];
+  const decisions = [
+    { name: 'Reviewed Gym', lat: 37.1, lon: 127.1, status: 'current-exact', sources: ['https://example.com/'], note: 'Checked.' },
+    { name: 'Wrong Name', lat: 37.1, lon: 127.1, status: 'private', sources: ['https://example.com/'], note: 'Checked.' },
+  ];
+  const audit = auditProductionVenues(venues, decisions);
+  assert.deepEqual(audit.malformed, ['duplicate production decision 1']);
+  assert.equal(audit.stale.length, 1);
+  assert.deepEqual(audit.unknownMapVenues.map(row => row.name), ['Unknown Gym']);
+});
+
 test('the committed Korean inventory accounts for the current open reconciliation queue', () => {
   const decisions = JSON.parse(readFileSync(join(ROOT, 'tools/moonboard-korea-decisions.json'), 'utf8'));
+  const productionDecisions = JSON.parse(readFileSync(join(ROOT, 'tools/moonboard-korea-production-decisions.json'), 'utf8'));
   const geojson = JSON.parse(readFileSync(join(ROOT, 'boards/data/boards.geojson'), 'utf8'));
   const venues = geojson.features.filter(feature => feature.properties.country === 'KR'
     && feature.properties.boards.some(row => row.board === 'moonboard'))
-    .map(feature => ({ name: feature.properties.name }));
+    .map(feature => ({
+      name: feature.properties.name,
+      lat: feature.geometry.coordinates[1],
+      lon: feature.geometry.coordinates[0],
+    }));
   const candidates = decisions.map(({ region, name, generation }) => ({ region, name, generation }));
   const audit = auditCandidates(candidates, decisions, venues);
   assert.equal(decisions.length, 56);
@@ -52,4 +72,17 @@ test('the committed Korean inventory accounts for the current open reconciliatio
   assert.deepEqual(audit.missingPublished, []);
   assert.deepEqual(audit.accidentallyPublished, []);
   assert.equal(audit.unknownMapVenues.length, 12);
+  const productionAudit = auditProductionVenues(venues, productionDecisions, decisions);
+  assert.equal(productionDecisions.length, 12);
+  assert.deepEqual(productionAudit.counts, {
+    'current-exact': 3,
+    'historical-mislocated': 3,
+    'current-mislocated': 2,
+    private: 2,
+    'branch-ambiguous': 1,
+    'closure-pending': 1,
+  });
+  assert.deepEqual(productionAudit.malformed, []);
+  assert.deepEqual(productionAudit.stale, []);
+  assert.deepEqual(productionAudit.unknownMapVenues, []);
 });

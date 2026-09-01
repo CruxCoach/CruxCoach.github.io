@@ -109,6 +109,52 @@ export function auditCandidates(candidates, decisions, mapVenues = []) {
   return { rows: candidates.length, counts, malformed, missing, stale, missingPublished, accidentallyPublished, unknownMapVenues };
 }
 
+function productionKey(row) {
+  return `${Number(row.lat).toFixed(4)},${Number(row.lon).toFixed(4)}`;
+}
+
+export function auditProductionVenues(mapVenues, decisions, candidateDecisions = []) {
+  const validStatuses = new Set([
+    'current-exact', 'historical-mislocated', 'current-mislocated',
+    'private', 'branch-ambiguous', 'closure-pending',
+  ]);
+  const validFields = new Set(['name', 'lat', 'lon', 'status', 'sources', 'note']);
+  const malformed = [];
+  const decisionKeys = new Map();
+  decisions.forEach((row, index) => {
+    if (!row || typeof row.name !== 'string' || !row.name.trim()
+      || !Number.isFinite(row.lat) || !Number.isFinite(row.lon)
+      || !validStatuses.has(row.status)) {
+      malformed.push(`production decision ${index} is malformed`);
+      return;
+    }
+    for (const field of Object.keys(row)) {
+      if (!validFields.has(field)) malformed.push(`production decision ${index} has unknown field ${field}`);
+    }
+    if (!Array.isArray(row.sources) || !row.sources.length
+      || row.sources.some(source => typeof source !== 'string' || !source.startsWith('https://'))) {
+      malformed.push(`production decision ${index} needs HTTPS sources`);
+    }
+    if (typeof row.note !== 'string' || !row.note.trim()) {
+      malformed.push(`production decision ${index} needs a note`);
+    }
+    const rowKey = productionKey(row);
+    if (decisionKeys.has(rowKey)) malformed.push(`duplicate production decision ${index}`);
+    decisionKeys.set(rowKey, row);
+  });
+
+  const publishedKeys = new Set(candidateDecisions.filter(row => row.status === 'published')
+    .map(row => productionKey(row)));
+  const reviewableMapVenues = mapVenues.filter(row => !publishedKeys.has(productionKey(row)));
+  const stale = decisions.filter(row => !reviewableMapVenues.some(venue => productionKey(venue) === productionKey(row)
+    && normalize(venue.name) === normalize(row.name)));
+  const unknownMapVenues = reviewableMapVenues.filter(venue => !decisions.some(row => productionKey(venue) === productionKey(row)
+    && normalize(venue.name) === normalize(row.name)));
+  const counts = Object.fromEntries([...validStatuses].map(status => [status, 0]));
+  decisions.forEach(row => { if (validStatuses.has(row.status)) counts[row.status] += 1; });
+  return { rows: decisions.length, counts, malformed, stale, unknownMapVenues };
+}
+
 function mapVenues() {
   const geojson = JSON.parse(readFileSync(join(ROOT, 'boards/data/boards.geojson'), 'utf8'));
   return geojson.features.filter(feature => feature.properties.country === 'KR'
@@ -132,8 +178,14 @@ if (process.argv[1]?.endsWith('moonboard-korea-audit.mjs')) {
   }
   const candidates = parseCandidates(source);
   const decisions = JSON.parse(readFileSync(join(ROOT, 'tools/moonboard-korea-decisions.json'), 'utf8'));
+  const productionDecisions = JSON.parse(readFileSync(join(ROOT, 'tools/moonboard-korea-production-decisions.json'), 'utf8'));
   const audit = auditCandidates(candidates, decisions, mapVenues());
-  process.stdout.write(`Korean MoonBoard candidate audit: ${audit.rows} boards; ${new Set(candidates.map(row => row.name)).size} named venues; ${audit.counts.published} reconciled as published; ${audit.counts.pending} pending; ${audit.unknownMapVenues.length} production rows not yet reconciled\n`);
-  if (process.argv.includes('--json') || hasIssues(audit)) process.stdout.write(`${JSON.stringify(audit, null, 2)}\n`);
-  if (hasIssues(audit)) process.exitCode = 1;
+  const productionAudit = auditProductionVenues(mapVenues(), productionDecisions, decisions);
+  process.stdout.write(`Korean MoonBoard candidate audit: ${audit.rows} boards; ${new Set(candidates.map(row => row.name)).size} named venues; ${audit.counts.published} reconciled as published; ${audit.counts.pending} pending; ${productionAudit.unknownMapVenues.length} production rows not yet reviewed\n`);
+  if (process.argv.includes('--json') || hasIssues(audit) || productionAudit.malformed.length
+    || productionAudit.stale.length || productionAudit.unknownMapVenues.length) {
+    process.stdout.write(`${JSON.stringify({ ...audit, production: productionAudit }, null, 2)}\n`);
+  }
+  if (hasIssues(audit) || productionAudit.malformed.length || productionAudit.stale.length
+    || productionAudit.unknownMapVenues.length) process.exitCode = 1;
 }

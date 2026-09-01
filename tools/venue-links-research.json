@@ -2108,8 +2108,8 @@
     "name": "ansanclimbing gym",
     "country": "KR",
     "status": "unverified",
-    "reason": "No official site could be established: ansanclimbing.com does not resolve and the row carries a generic name — the town plus the word climbing — with no address or handle upstream.",
-    "checked": "2026-08-25"
+    "reason": "A 2018 venue page identifies Ansan Climbing Center and its former operator cafe at 14 Darigan-ro, about 1.1 km from this registry point. Exact-name searches found no current operator page, the old domain does not resolve, and the venue is absent from the 2025 national sports-safety inventory; a historical identity cannot supply a current website.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 37.44572502448479,
@@ -2133,11 +2133,11 @@
   {
     "lat": 37.497738,
     "lon": 127.0409539,
-    "name": "Climb Emotion",
+    "name": "클라임 이모션 Climb Emotion",
     "country": "KR",
     "status": "unverified",
-    "reason": "No official site could be established: climbemotion.com does not resolve and nothing published in Gangnam carries the name.",
-    "checked": "2026-08-25"
+    "reason": "The 2025 national sports-safety report matches Climb Emotion and 27 Nonhyeon-ro 76-gil to this exact point, but climbemotion.com does not resolve and the accessible operator channels are historical or social-only. Current public identity is established; no current official website is.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 37.68945,
@@ -2160,11 +2160,11 @@
   {
     "lat": 37.4876288,
     "lon": 126.9945297,
-    "name": "Gate1_Climbing",
+    "name": "게이트원 클라이밍 Gate One Climbing",
     "country": "KR",
     "status": "unverified",
-    "reason": "No official site could be established: gate1climbing.com does not resolve; the row carries an underscore in its name, which is how a handle is written rather than a business.",
-    "checked": "2026-08-25"
+    "reason": "The 2025 national sports-safety report matches Gate One Climbing and 3 Seocho-daero 26-gil to this exact point. Its former operator domain does not resolve and only historical/social channels remain accessible, so no current official website is published.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 36.7844993,
@@ -2172,8 +2172,8 @@
     "name": "Gorilla climbing's Moonboard",
     "country": "KR",
     "status": "unverified",
-    "reason": "No official site could be established: gorillaclimbing.co.kr does not resolve, and the row is named for a board inside a gym rather than for a venue.",
-    "checked": "2026-08-25"
+    "reason": "A historical installation page and current climbing-log directory identify Gorilla Climbing at 3443 Seohae-ro, about 2 km from this generic Seosan point. gorillaclimbing.co.kr does not resolve and no accessible operator-controlled current page establishes a website or continued board service.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 37.2667603,
@@ -2190,27 +2190,30 @@
     "lon": 126.9917937,
     "name": "Koalaclimbinggym",
     "country": "KR",
-    "status": "unverified",
-    "reason": "No official site could be established: koalaclimbing.co.kr does not resolve; this Seoul row is a second Koala with no address of its own.",
-    "checked": "2026-08-25"
+    "status": "social-only",
+    "candidate": "https://pf.kakao.com/_kmALxb",
+    "reason": "Koala's current operator channel and the 2025 national sports-safety report identify the active Sangam hall at 396 World Cup buk-ro, roughly 9 km from this registry point. koalaclimbing.co.kr does not resolve and the operator publishes only social/channel surfaces, not a venue website; the point is retained in the board audit as mislocated pending current board evidence.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 35.8386262,
     "lon": 128.6124429,
     "name": "NewBee Climbing Gym",
     "country": "KR",
-    "status": "unverified",
-    "reason": "No official site could be established: newbeeclimbing.com resolves and returns nothing at all, on repeated tries.",
-    "checked": "2026-08-25"
+    "status": "unavailable",
+    "candidate": "https://www.newbeeclimbing.com/locationstaff",
+    "reason": "NewBee's current official page is indexed with KNU and Suseong branch identities, addresses and schedules, but its TLS certificate expired on 7 March 2025 and a normal HTTPS client cannot open it. The board point matches neither branch precisely and the upstream 'MoonBoard 2025' description names no branch, so neither the unsafe URL nor a branch link is published.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 37.5697433,
     "lon": 126.9899785,
-    "name": "SeoulForest's moonboard",
+    "name": "서울숲클라이밍 종로 SeoulForest Climbing Jongno",
     "country": "KR",
-    "status": "unverified",
-    "reason": "No official site could be established: the row is possessive and names a board — a MoonBoard at Seoul Forest — rather than a venue, and nothing publishes under it.",
-    "checked": "2026-08-25"
+    "status": "social-only",
+    "candidate": "https://www.instagram.com/seoulforest_jongro/",
+    "reason": "The current operator profile and August 2026 branch post identify SeoulForest Climbing Jongno at 96 Supyo-ro, matching this point. The branch publishes through Instagram and no location-specific official website was found; its map label is corrected from the possessive board name without promoting the social profile as a website.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 35.2100142,
@@ -2218,8 +2221,8 @@
     "name": "SO Climing gym",
     "country": "KR",
     "status": "unverified",
-    "reason": "No official site could be established: soclimbing.co.kr does not resolve; the row name carries a typo (Climing) of the kind a registry entry gets and a business does not.",
-    "checked": "2026-08-25"
+    "reason": "The 2025 national sports-safety report identifies current SO Climbing Gym at 61 Geumgok-daero 303beon-gil, about 5.8 km from this registry point. soclimbing.co.kr does not resolve and no accessible current operator site was found; the wrong point is retained in the board audit pending current board evidence rather than linked to the exact-address venue.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 37.25296,
@@ -2233,11 +2236,12 @@
   {
     "lat": 37.4967717,
     "lon": 126.776494,
-    "name": "tigerbouldergym",
+    "name": "타이거볼더클라이밍짐 Tiger Boulder Climbing Gym",
     "country": "KR",
-    "status": "unverified",
-    "reason": "No official site could be established: tigerboulder.com does not resolve; the row name is a handle written without spaces.",
-    "checked": "2026-08-25"
+    "status": "ambiguous",
+    "candidate": "https://tigerbouldergym.modoo.at/",
+    "reason": "The official operator page and 2025 national sports-safety report match Tiger Boulder Climbing Gym and its Bucheon address to this exact point. The authority report marks the venue as scheduled to close without a date, while the operator page remains online and carries no current closure statement; publishing a link before current operating status is resolved would be misleading.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 37.237587746871746,

@@ -972,5 +972,59 @@
       "city": "Siheung",
       "variant": "mb2016"
     }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.4876288,
+    "lon": 126.9945297,
+    "name": "Gate1_Climbing",
+    "note": "The 2025 national sports-safety report identifies Gate One Climbing at 3 Seocho-daero 26-gil, within metres of the registry point. Correct only the venue identity and city; continued MoonBoard service and generation remain unverified.",
+    "set": {
+      "name": "게이트원 클라이밍 Gate One Climbing",
+      "city": "Seoul"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.497738,
+    "lon": 127.0409539,
+    "name": "Climb Emotion",
+    "note": "The 2025 national sports-safety report identifies Climb Emotion at 27 Nonhyeon-ro 76-gil, within metres of the registry point. Correct only the bilingual venue identity and city; continued MoonBoard service and generation remain unverified.",
+    "set": {
+      "name": "클라임 이모션 Climb Emotion",
+      "city": "Seoul"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.4967717,
+    "lon": 126.776494,
+    "name": "tigerbouldergym",
+    "note": "The official operator page and 2025 national sports-safety report match Tiger Boulder Climbing Gym and its Bucheon address to this point. Correct the venue identity and city, while retaining the authority report's undated planned-closure warning in the research ledger.",
+    "set": {
+      "name": "타이거볼더클라이밍짐 Tiger Boulder Climbing Gym",
+      "city": "Bucheon"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.5697433,
+    "lon": 126.9899785,
+    "name": "SeoulForest's moonboard",
+    "note": "The current operator profile and August 2026 branch post identify SeoulForest Climbing Jongno at 96 Supyo-ro, within tens of metres of this point. Correct the possessive board label and city without inferring a generation.",
+    "set": {
+      "name": "서울숲클라이밍 종로 SeoulForest Climbing Jongno",
+      "city": "Seoul"
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.2100142,
+    "lon": 129.0688702,
+    "name": "SO Climing gym",
+    "note": "The upstream description claims both 2016 and 2024 setups. The one-variant map schema cannot truthfully reduce that to the parser's preferred 2024 token, so leave the variant unknown; the materially displaced coordinate remains documented for current-primary resolution.",
+    "set": {
+      "variant": null
+    }
   }
 ]
