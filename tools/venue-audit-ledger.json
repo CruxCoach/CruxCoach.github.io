@@ -39540,6 +39540,35 @@
      "web-search"
     ],
     "note": "A fresh Web-only recheck found two conflicting visible weekend closing times on the current official homepage; the previously accepted schedule was withdrawn and the precise conflict is backed by venue-hours-research.json."
+    }
+  },
+  {
+   "lat": 48.60642,
+   "lon": 15.16941,
+   "name": "Kletterhalle Zwettl",
+   "country": "AT",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "path-probe",
+     "osm-website-tag"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ],
+    "note": "The current official page has a season-limited Tuesday session and leaves two weekdays unstated; the precise outcome is backed by venue-hours-research.json."
    }
   }
  ]

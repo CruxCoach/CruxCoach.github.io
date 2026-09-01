@@ -1640,5 +1640,51 @@
         }
       ]
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 48.98238,
+    "lon": 12.1954,
+    "name": "Projekt Eins",
+    "note": "The current official concept page identifies the existing Original 12x12 Kilter Board as electrically adjustable from 20 to 70 degrees. Retain the registry layout and fill the missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 20,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 47.75974,
+    "lon": 11.57895,
+    "name": "DAV Kletter & Boulderzentrum Bad Tölz",
+    "note": "The current official training-room page identifies the existing Kilter Board as hydraulically adjustable from 30 to 70 degrees. Retain the registry layout and fill the missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 30,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
   }
 ]

@@ -2063,6 +2063,35 @@ const ENTRIES = [
     variant: null,
     angle: null,
   },
+  {
+    // The Alpenverein Waldviertel's current hall page proves public paid
+    // access, while its official 2025 magazine documents the adjustable
+    // Kilter Board completed in 2024 inside the Sportmittelschule hall:
+    // https://www.alpenverein.at/waldviertel/klettern/020_Kletterhalle-zwettl.php
+    // https://www.alpenverein.at/waldviertel/publikationen/dokumente/2025_Alpenvereinsnachrichten.pdf
+    // OSM way 29474116 independently identifies the exact school building.
+    source: 'curated',
+    board: 'kilter',
+    name: 'Kletterhalle Zwettl',
+    lat: 48.60642,
+    lon: 15.16941,
+    address: 'Schulgasse 24, 3910 Zwettl, Austria',
+    city: 'Zwettl',
+    country: 'AT',
+    commercial: true,
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: null,
+      size_id: null,
+      size_label: null,
+      adjustable: true,
+      angle: null,
+      min_angle: null,
+      max_angle: null,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
 ];
 
 export async function load() {

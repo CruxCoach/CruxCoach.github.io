@@ -131,6 +131,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['VietClimb', 'moonboard'],
     ['Boulder Balaguer', 'kilter'],
     ['Boulder Balaguer', 'moonboard'],
+    ['Kletterhalle Zwettl', 'kilter'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -163,6 +164,14 @@ test('committed map data includes the missing boards and merges the corrected ve
     '15:00-22:00', '15:00-22:00', '15:00-22:00', '15:00-22:00',
     '15:00-22:00', '10:00-20:00', '10:00-20:00',
   ]);
+
+  const zwettl = at(features, 48.60642, 15.16941);
+  assert.equal(zwettl.length, 1);
+  assert.equal(zwettl[0].properties.name, 'Kletterhalle Zwettl');
+  assert.deepEqual(boardIds(zwettl[0]), ['kilter']);
+  assert.equal(zwettl[0].properties.boards[0].walls[0].adjustable, true);
+  assert.equal(zwettl[0].properties.website, 'https://www.alpenverein.at/waldviertel/klettern/020_Kletterhalle-zwettl.php');
+  assert.equal(zwettl[0].properties.hours, undefined);
 
   const newsroom = at(features, 55.8504352, -4.281947);
   assert.equal(newsroom.length, 1);

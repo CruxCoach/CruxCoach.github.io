@@ -27929,5 +27929,16 @@
     "provenance": "official-location-page",
     "signals": ["name", "street-address", "postal-code", "city"],
     "note": "The current operator homepage identifies the open public Toowoomba bouldering gym, exact 25 Prescott Street address, walk-in access and complete regular week. The Kilter row itself is retained from the registry rather than inferred from a search snippet."
+  },
+  {
+    "lat": 48.60642,
+    "lon": 15.16941,
+    "name": "Kletterhalle Zwettl",
+    "country": "AT",
+    "website": "https://www.alpenverein.at/waldviertel/klettern/020_Kletterhalle-zwettl.php",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current Alpenverein hall page proves paid public access and registration at Kletterhalle Zwettl; the section's official 2025 magazine documents the adjustable Kilter Board completed in 2024 inside the Sportmittelschule hall. The official Austrian climbing-facility finder independently labels use as public, and OSM way 29474116 identifies the exact named school building at Schulgasse 24."
   }
 ]
