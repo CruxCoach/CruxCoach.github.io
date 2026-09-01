@@ -1469,6 +1469,77 @@ const ENTRIES = [
     variant: null,
     angle: null,
   },
+  {
+    // Current public venue, exact address, board and adjustable range:
+    // https://betaboulders.se/malmo/
+    // https://betaboulders.se/prices/
+    // The address-directory point lands inside the same OSM commercial
+    // building whose centroid is used here; no map-platform data is used.
+    source: 'curated',
+    board: 'kilter',
+    name: 'Beta Boulders Malmö',
+    lat: 55.5958063,
+    lon: 13.0040046,
+    address: 'Spångatan 3B, 211 44 Malmö, Sweden',
+    city: 'Malmö',
+    country: 'SE',
+    commercial: true,
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: null,
+      size_id: null,
+      size_label: null,
+      adjustable: true,
+      angle: null,
+      min_angle: 15,
+      max_angle: 70,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
+    // Current public venue, board presence, address and regular access:
+    // https://projectkonepaja.com/frontpage-english/
+    // The named OSM venue point independently matches Konepajanpasaasi.
+    source: 'curated',
+    board: 'kilter',
+    name: 'Project Konepaja',
+    lat: 60.1940603,
+    lon: 24.9457109,
+    address: 'Konepajanpasaasi, 00510 Helsinki, Finland',
+    city: 'Helsinki',
+    country: 'FI',
+    commercial: true,
+    walls: [],
+  },
+  {
+    // The same current operator page explicitly identifies Tension Board 2.
+    // The public schema has no Tension model-detail field.
+    source: 'curated',
+    board: 'tension',
+    name: 'Project Konepaja',
+    lat: 60.1940603,
+    lon: 24.9457109,
+    address: 'Konepajanpasaasi, 00510 Helsinki, Finland',
+    city: 'Helsinki',
+    country: 'FI',
+  },
+  {
+    // The same current operator page explicitly identifies MoonBoard 2024.
+    // LEDs and angle are not stated, so neither is inferred.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Project Konepaja',
+    lat: 60.1940603,
+    lon: 24.9457109,
+    address: 'Konepajanpasaasi, 00510 Helsinki, Finland',
+    city: 'Helsinki',
+    country: 'FI',
+    commercial: true,
+    led: null,
+    variant: 'mb2024',
+    angle: null,
+  },
 ];
 
 export async function load() {

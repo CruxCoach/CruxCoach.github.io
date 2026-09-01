@@ -667,6 +667,91 @@
       "results_reviewed": 278,
       "candidates_found": 2,
       "note": "Independent multilingual country, city, ccTLD, facility and operator-chain searches were checked against production only after discovery. Current official venue pages reconfirmed the visible French, Belgian, Dutch, Luxembourgish, Irish and British hits. Beacon's operator pages exposed a materially wrong duplicate source row whose longitude sign was reversed, causing its Caernarfon address to be published in the Netherlands; the incorrect point was excluded while the official current 45-degree board remains at the existing North Wales venue. Entre Ciel & Terre's Blocry record remains under review because an April installation notice and later venue pages do not provide a clear current board-state statement. Because this cell produced a production correction, Kilter Pass A must be repeated after the first complete pass."
+    },
+    {
+      "pass": "A",
+      "board": "kilter",
+      "region": "nordics-baltics",
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "da", "sv", "no", "fi", "is", "et", "lv", "lt"],
+      "queries": [
+        "(\"Kilter Board\" OR Kilterboard OR \"Original Kilter Board\" OR \"Kilter Homewall\") (\"climbing gym\" OR \"bouldering gym\" OR facilities OR \"training area\") (Denmark OR Sweden OR Norway OR Finland OR Iceland OR Estonia OR Latvia OR Lithuania)",
+        "(\"Kilter Board\" OR Kilterboard) (klatrehal OR klatrecenter OR boulderingcenter OR træningsområde) Danmark",
+        "(\"Kilter Board\" OR Kilterboard) (klätterhall OR boulderhall OR träningsområde OR träningsvägg) Sverige",
+        "(\"Kilter Board\" OR Kilterboard) (klatresenter OR buldresenter OR treningsområde OR treningsvegg) Norge",
+        "(\"Kilter Board\" OR Kilterboard) (kiipeilykeskus OR boulderhalli OR kiipeilyhalli OR harjoittelualue OR harjoitteluseinä) Suomi Finland",
+        "(\"Kilter Board\" OR Kilterboard) (klifurhús OR klifursalur OR æfingasvæði OR klifurveggur) Ísland Iceland",
+        "(\"Kilter Board\" OR Kilterboard) (ronimiskeskus OR ronimissaal OR treeningala OR treeningsein) Eesti Estonia",
+        "(\"Kilter Board\" OR Kilterboard) (kāpšanas zāle OR treniņu zona OR laipiojimo salė OR treniruočių zona) (Latvija OR Lietuva OR Latvia OR Lithuania)",
+        "site:projectkonepaja.com Kilter board address",
+        "site:projectkonepaja.com yhteystiedot osoite",
+        "\"Project Konepaja\" Helsinki address",
+        "site:projectkonepaja.com Moonboard Tension Kilter",
+        "site:klatterlabbet.se (Kilter OR Kilterboard)",
+        "site:aalborgklatreklub.dk (Kilter OR Kilterboard)",
+        "(\"Kilter Board\" OR Kilterboard) (Stockholm OR Göteborg OR Gothenburg OR Malmö OR Uppsala OR Umeå OR Luleå)",
+        "(\"Kilter Board\" OR Kilterboard) (Copenhagen OR København OR Aarhus OR Aalborg OR Odense)",
+        "(\"Kilter Board\" OR Kilterboard) (Helsinki OR Tampere OR Turku OR Oulu OR Jyväskylä OR Kuopio)",
+        "(\"Kilter Board\" OR Kilterboard) (Oslo OR Bergen OR Trondheim OR Stavanger OR Tromsø OR Bodø)",
+        "(\"Kilter Board\" OR Kilterboard) (Tallinn OR Tartu OR Riga OR Daugavpils OR Vilnius OR Kaunas OR Klaipėda)",
+        "(\"Kilter Board\" OR Kilterboard) (Reykjavík OR Reykjavik OR Akureyri OR Iceland OR Ísland)",
+        "site:.dk (\"Kilter Board\" OR Kilterboard) (klatring OR bouldering OR træning OR faciliteter)",
+        "site:.se (\"Kilter Board\" OR Kilterboard) (klättring OR bouldering OR träning OR faciliteter)",
+        "site:.no (\"Kilter Board\" OR Kilterboard) (klatring OR buldring OR trening OR fasiliteter)",
+        "site:.fi (\"Kilter Board\" OR Kilterboard) (kiipeily OR boulderointi OR harjoittelu OR palvelut)",
+        "site:.is (\"Kilter Board\" OR Kilterboard) (klifur OR klifurhús OR æfing)",
+        "site:.ee (\"Kilter Board\" OR Kilterboard) (ronimine OR bouldering OR treening)",
+        "site:.lv (\"Kilter Board\" OR Kilterboard) (kāpšana OR boulderings OR treniņš)",
+        "site:.lt (\"Kilter Board\" OR Kilterboard) (laipiojimas OR boulderingas OR treniruotė)",
+        "site:boulders.dk \"Kilter Board\"",
+        "site:betaboulders.dk \"Kilter Board\"",
+        "site:bison-boulders.com \"Kilter Board\"",
+        "site:aarhusklatreklub.dk \"Kilter Board\"",
+        "site:klatterverket.se \"Kilter\"",
+        "site:klattercentret.se \"Kilter\"",
+        "site:moumo.se \"Kilter\"",
+        "site:klatterdomen.se \"Kilter\"",
+        "\"Klätterlabbet\" \"Kilter Board\"",
+        "\"Klatterlabbet\" Kilterboard Göteborg",
+        "site:klatterlabbet.se (träning OR faciliteter OR gym OR hall)",
+        "site:instagram.com/klatterlabbet Kilter",
+        "site:klatreverket.no (\"Kilter Board\" OR Kilterboard)",
+        "site:hoytunderlaget.no (\"Kilter Board\" OR Kilterboard)",
+        "site:bergenklatresenter.no (\"Kilter Board\" OR Kilterboard)",
+        "site:buldreterminalen.no (\"Kilter Board\" OR Kilterboard)",
+        "site:boulderkeskus.com (\"Kilter Board\" OR Kilterboard)",
+        "site:kiipeilyareena.fi (\"Kilter Board\" OR Kilterboard)",
+        "site:kaamosclimbing.fi (\"Kilter Board\" OR Kilterboard)",
+        "site:oulunkiipeilykeskus.fi (\"Kilter Board\" OR Kilterboard)",
+        "\"Kilter Board\" Estonia climbing gym",
+        "\"Kilter Board\" Latvia climbing gym",
+        "\"Kilter Board\" Lithuania climbing gym",
+        "\"Kilter Board\" Baltics bouldering gym",
+        "Kilterboard klätterhall träningsvägg Sverige",
+        "Kilterboard klatrehal treningsvegg Norge",
+        "Kilterboard kiipeilyhalli harjoitteluseinä Suomi",
+        "Kilterboard klatrehal træningsvæg Danmark",
+        "site:rkhr.no Haugland Kilterboard gjest medlemskap pris",
+        "site:rkhr.no \"Gymsal og klatrevegg\" adgang",
+        "\"Haugland Rehabiliteringssenter\" Kilterboard offentlig",
+        "site:rkhr.no aktivitet klatrevegg besøk",
+        "site:boulderkeskus.com Turku Kilterboard opening current",
+        "site:betaboulders.se Malmö Kilter Board opening date",
+        "site:betaboulders.se Göteborg Kilter Board address opening",
+        "site:aalborgklatreklub.dk Kilterboard 2024 2025 2026",
+        "site:betaboulders.se/malmo (hours OR opening OR open OR öppettider OR öppnar)",
+        "site:betaboulders.se \"Beta Boulders Malmö\" \"Opening hours\"",
+        "\"Beta Boulders Malmö\" opened September 2026",
+        "\"Beta Boulders Malmö\" \"open\" Spångatan 3B",
+        "\"Spångatan 3B\" Malmö fastighet",
+        "\"Spångatan 3 B\" Malmö",
+        "\"Spångatan 3B\" \"211 44\"",
+        "site:malmo.se \"Spångatan 3B\""
+      ],
+      "results_reviewed": 354,
+      "candidates_found": 7,
+      "note": "Independent multilingual regional, country, capital/city, ccTLD, official chain, facility, training-area and operator-domain searches found two current public venues absent from all known structured board sources. Project Konepaja adds Kilter, Tension II and MoonBoard 2024 in Helsinki with an official complete visitor-access week; Beta Boulders Malmö adds an adjustable 15-70 degree Kilter Board after current branch, price and terms pages proved the branch had opened despite stale future wording on the group homepage. Both were integrated with independently matched geodata. BK Turku and Beta Göteborg remain announced; Haugland is rehabilitation-program access rather than ordinary public access; Aalborg's proposal failed; and the apparent Klätterlabbet hit was a secondary-text misreading contradicted by the current operator facility list. Existing Danish, Swedish, Norwegian, Finnish and Lithuanian results were reconciled only after independent discovery. Because this cell yielded new production data, Kilter Pass A must be repeated after the first complete pass."
     }
   ],
   "candidates": [
@@ -1046,6 +1131,85 @@
         "https://www.entrecieletterre.be/jamais-grimpe/"
       ],
       "note": "An indexed April 2026 operator notice described Kilter installation as still being finalized, while current operator pages confirm the public Blocry hall but do not explicitly state the board's present state. The structured source still publishes it. This ambiguity is retained for a targeted current-state retry rather than inferred from elapsed time."
+    },
+    {
+      "board": "kilter",
+      "name": "Project Konepaja",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A Finnish facility, training-area, Helsinki city and operator-domain searches",
+      "status": "published",
+      "official_sources": [
+        "https://projectkonepaja.com/",
+        "https://projectkonepaja.com/frontpage-english/"
+      ],
+      "note": "The current operator pages establish a public Helsinki bouldering venue at Konepajanpasaasi with Kilter Board, Tension Board 2, MoonBoard 2024, online single tickets and daily 06:00-24:00 visitor access. OSM's exact named venue point independently matches the address. All three supported systems, the official site and the complete regular week were added to production without inferring angle or LED details."
+    },
+    {
+      "board": "kilter",
+      "name": "Beta Boulders Malmö",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A Swedish city, operator-chain, facility and current-status searches",
+      "status": "published",
+      "official_sources": [
+        "https://betaboulders.se/malmo/",
+        "https://betaboulders.se/prices/",
+        "https://betaboulders.se/terms-conditions/"
+      ],
+      "note": "Current branch, price and terms pages establish the now-operating public Malmö branch at Spångatan 3B, day-pass access and its adjustable 15-70 degree Kilter Board. An independent exact-address point falls inside the matching OSM commercial building, whose centroid supplies the marker. The older group homepage's generic opening-in-2026 wording is stale relative to these live branch surfaces. The venue, board details and official link were added; hours remain withheld because no current operator page states them."
+    },
+    {
+      "board": "kilter",
+      "name": "Beta Boulders Göteborg",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A Swedish city and operator-chain searches",
+      "status": "announced",
+      "official_sources": ["https://betaboulders.se/"],
+      "note": "The operator announces a Göteborg venue and an adjustable 15-70 degree Kilter Board but still asks visitors to guess its location and supplies neither an address nor evidence of opening. It remains an announced retry rather than a production marker."
+    },
+    {
+      "board": "kilter",
+      "name": "Boulderkeskus Turku",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A Finnish city, federation-directory and operator-news searches",
+      "status": "announced",
+      "official_sources": [
+        "https://www.boulderkeskus.com/en/blog/news/newsletter-from-bk-178",
+        "https://www.boulderkeskus.com/en/blog/news/newsletter-from-bk-38"
+      ],
+      "note": "The operator says the Halinen venue will open in October 2026 and will contain a 12x12 Kilter Board and MoonBoard 2024. Founding memberships remain explicitly pre-opening on the check date, so neither board is published before current installation and public opening can be verified."
+    },
+    {
+      "board": "kilter",
+      "name": "Røde Kors Haugland Rehabiliteringssenter",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A Norwegian training-wall search with operator access follow-through",
+      "status": "restricted-access",
+      "official_sources": [
+        "https://www.rkhr.no/aktivitet/gymsal-og-klatrevegg/",
+        "https://www.rkhr.no/"
+      ],
+      "note": "The institution's current page proves an adjustable Kilter Board at Hauglandsvegen 308, but the facility is part of specialist residential rehabilitation and its activity material describes use by patients with staff support. Only the pool has an advertised general-public session. No ordinary independent public access to the board is established, so it remains research only."
+    },
+    {
+      "board": "kilter",
+      "name": "Aalborg Klatreklub",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A Danish city, club-domain and current-facility searches",
+      "status": "rejected-proposal",
+      "official_sources": [
+        "https://aalborgklatreklub.dk/cms/clubnjklatreklub/ClubImages/Generalforsamlinger/2022/Ordinaer_generalforsamling_referat_2022.pdf",
+        "https://www.aalborgklatreklub.dk/om-klubben"
+      ],
+      "note": "The club's 2022 minutes show that a 12x12 Kilter Board purchase proposal failed 12-13. Current operator facilities list MoonBoard and chaos wall, including for the 2026 expansion, but no Kilter Board. The historical proposal is rejected as production evidence."
+    },
+    {
+      "board": "kilter",
+      "name": "Fysiken Klätterlabbet",
+      "region": "nordics-baltics",
+      "discovered_by": "Pass A Swedish city and facility-name searches",
+      "status": "rejected-no-primary-evidence",
+      "official_sources": ["https://fysiken.nu/sv/klatterlabbet/engangsentre/"],
+      "note": "A secondary discussion was initially read as attributing a Kilter Board to Klätterlabbet, but its wording refers to Klätterdomen. The current Klätterlabbet operator page lists its facilities and explicitly names only a MoonBoard. No primary Kilter evidence exists, so nothing is published."
     }
   ]
 }

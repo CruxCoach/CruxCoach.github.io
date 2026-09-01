@@ -32783,5 +32783,21 @@
     },
     "evidence": "Horarios Área de Escalada | Lunes a Viernes: De 14h00 a 22h00 | Sábados: De 8h00 a 18h00 | Domingos: De 8h00 a 18h00",
     "note": "The current operator homepage explicitly scopes this complete regular week to the climbing area; the broader sports centre has different hours."
+  },
+  {
+    "lat": 60.1940603,
+    "lon": 24.9457109,
+    "name": "Project Konepaja",
+    "country": "FI",
+    "source": "https://projectkonepaja.com/frontpage-english/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "06:00-24:00", "tue": "06:00-24:00", "wed": "06:00-24:00",
+      "thu": "06:00-24:00", "fri": "06:00-24:00", "sat": "06:00-24:00", "sun": "06:00-24:00"
+    },
+    "evidence": "Opening hours: Open every day from 06-24 with a single ticket (webshop), serial card or membership. Normalized: 06:00-24:00.",
+    "note": "The current operator page states a complete regular visitor-access week. Its shorter customer-service hours describe staffing, not access to the venue."
   }
 ]

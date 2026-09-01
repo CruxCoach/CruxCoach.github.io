@@ -27767,5 +27767,27 @@
     "provenance": "official-site",
     "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
     "note": "The current operator facilities, climbing and contact pages identify the public Tumbaco venue, its Kilter Board and MoonBoard, public day products and Lateral Ruta Viva address. The architect's project page supplies the exact venue point, independently corroborated by OSM's sports-centre parcel on De los Condores."
+  },
+  {
+    "lat": 60.1940603,
+    "lon": 24.9457109,
+    "name": "Project Konepaja",
+    "country": "FI",
+    "website": "https://projectkonepaja.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator pages identify the public Helsinki venue, Kilter Board, Tension Board 2, MoonBoard 2024, visitor access and Konepajanpasaasi address. OSM's independently maintained exact named venue point supplies the coordinate."
+  },
+  {
+    "lat": 55.5958063,
+    "lon": 13.0040046,
+    "name": "Beta Boulders Malmö",
+    "country": "SE",
+    "website": "https://betaboulders.se/malmo/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator location, prices and terms pages establish an operating public Malmö branch at Spångatan 3B with day passes, memberships and an adjustable 15-70 degree Kilter Board. An independent exact-address point lands inside the same OSM commercial building whose centroid supplies the marker. The operator's older group homepage still saying opening in 2026 is stale relative to these live branch surfaces."
   }
 ]

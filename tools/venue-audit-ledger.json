@@ -39328,6 +39328,18 @@
     "pass": "2026-09-01", "result": "seasonal",
     "channels": ["venue-link", "path-probe", "web-search"]
    }
+  },
+  {
+   "lat": 55.5958063,
+   "lon": 13.0040046,
+   "name": "Beta Boulders Malmö",
+   "country": "SE",
+   "needs": ["hours"],
+   "hours": {
+    "pass": "2026-09-01", "result": "no-hours-on-official-site",
+    "channels": ["venue-link", "path-probe", "web-search"],
+    "note": "The current operator branch, prices and terms pages prove public operation but state no regular week. A generic organization schema block says 09:00-17:00 daily while the public-facing price page defines peak periods beyond 17:00, so it is not branch opening evidence. Directory schedules are deliberately not substituted."
+   }
   }
  ]
 }

@@ -102,6 +102,10 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Chletterai', 'moonboard'],
     ['Epsilon Sport Zone', 'kilter'],
     ['Epsilon Sport Zone', 'moonboard'],
+    ['Beta Boulders Malmö', 'kilter'],
+    ['Project Konepaja', 'kilter'],
+    ['Project Konepaja', 'tension'],
+    ['Project Konepaja', 'moonboard'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -879,6 +883,23 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(skLucky[0].properties.name, 's.k.lucky');
   assert.equal(skLucky[0].properties.boards[0].walls[0].min_angle, 30);
   assert.equal(skLucky[0].properties.boards[0].walls[0].max_angle, 70);
+
+  const projectKonepaja = at(features, 60.1940603, 24.9457109);
+  assert.equal(projectKonepaja.length, 1);
+  assert.equal(projectKonepaja[0].properties.name, 'Project Konepaja');
+  assert.deepEqual(new Set(boardIds(projectKonepaja[0])), new Set(['kilter', 'tension', 'moonboard']));
+  assert.equal(projectKonepaja[0].properties.website, 'https://projectkonepaja.com/');
+  assert.deepEqual(projectKonepaja[0].properties.hours, Array(7).fill('06:00-24:00'));
+  assert.equal(projectKonepaja[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2024');
+
+  const betaMalmo = at(features, 55.5958063, 13.0040046);
+  assert.equal(betaMalmo.length, 1);
+  assert.equal(betaMalmo[0].properties.name, 'Beta Boulders Malmö');
+  assert.deepEqual(boardIds(betaMalmo[0]), ['kilter']);
+  assert.equal(betaMalmo[0].properties.website, 'https://betaboulders.se/malmo/');
+  assert.equal(betaMalmo[0].properties.hours, undefined);
+  assert.equal(betaMalmo[0].properties.boards[0].walls[0].min_angle, 15);
+  assert.equal(betaMalmo[0].properties.boards[0].walls[0].max_angle, 70);
 
   const climbUsMisa = at(features, 37.5627864, 127.1933404);
   assert.equal(climbUsMisa.length, 1);

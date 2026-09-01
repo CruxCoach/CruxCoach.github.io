@@ -8643,5 +8643,15 @@
     "checked": "2026-09-01",
     "source": "https://www.das-kraftwerk.at/bereiche/boulderhalle",
     "reason": "The current official page labels its only displayed schedule 'Sommerferien' and states daily 13:00-18:00 for that holiday period. Other current pages on the same operator domain retain different older weeks, so no undated regular seven-day schedule can be published safely."
+  },
+  {
+    "lat": 55.5958063,
+    "lon": 13.0040046,
+    "name": "Beta Boulders Malmö",
+    "country": "SE",
+    "status": "no-hours-on-official-site",
+    "checked": "2026-09-01",
+    "source": "https://betaboulders.se/malmo/",
+    "reason": "The current operator branch, prices and terms pages prove public operation but state no regular week. A generic organization schema block says 09:00-17:00 daily while the public-facing price page defines peak periods beyond 17:00, so it is not branch opening evidence. Directory schedules are deliberately not substituted."
   }
 ]
