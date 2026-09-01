@@ -572,3 +572,18 @@ decisions and 54 production venues / MoonBoard rows: 35 current, 12 unverified,
 seven private, three mislocated and one closed. The whole dataset contains 2,858
 venues and 3,146 board rows, including 1,536 MoonBoards at 1,412 venues, 1,817
 official websites and 1,331 complete regular weeks.
+
+The following restart used Japanese wall-builder portfolios and additional
+operator phrasing (`ムーンボードがあります`, `ムーンボード完備`, and exact
+2019 wording). Installer results for Sarukichi and TO-DO resolve to already
+reviewed venues; every other named installation found there explicitly describes
+a private home. CAL-COLO, BolBol, Monolithe Kawagoe, RIOT and Colorful Rock also
+resolve to existing reviewed production rows. The apparent Climbing Bum Yokohama
+gap was an identity/geometry defect rather than a missing row: production called
+it only `ClimbingBUM`, derived the nearby city Azamino, and placed it about 120 m
+south of the address on its current branch page. The same page explicitly names
+the illuminated MoonBoard, while Japan's official GSI address service resolves
+the exact Nakagawachuo 1-25-1 point. This pass therefore corrects the existing
+row to the branch name, Yokohama, exact address and official point without adding
+a duplicate. Because this restart still yielded verifiable information, it is
+not a zero-yield exhaustion pass and Japan must be searched again.

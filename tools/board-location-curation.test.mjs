@@ -171,6 +171,14 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(canyon[0].properties.boards[0].variant, 'mb2019-masters');
   assert.equal(canyon[0].properties.boards[0].angle, 40);
 
+  const climbingBum = at(features, 35.553181, 139.579468);
+  assert.equal(climbingBum.length, 1);
+  assert.equal(climbingBum[0].properties.name, 'Climbing Bum Yokohama');
+  assert.equal(climbingBum[0].properties.city, 'Yokohama');
+  assert.equal(climbingBum[0].properties.boards[0].address,
+    '神奈川県横浜市都筑区中川中央1-25-1 ノースポート・モールB1F');
+  assert.equal(at(features, 35.55209809999999, 139.5794141).length, 0);
+
   const calgaryOutdoor = at(features, 51.07767, -114.13419);
   assert.equal(calgaryOutdoor.length, 1);
   assert.deepEqual(new Set(boardIds(calgaryOutdoor[0])), new Set(['kilter', 'moonboard']));
