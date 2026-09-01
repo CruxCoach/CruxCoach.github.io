@@ -20786,6 +20786,32 @@
   "note": "The operator states which outlets each line covers."
  },
  {
+  "lat": 1.30508,
+  "lon": 103.85142,
+  "name": "Boulder Movement Rochor",
+  "country": "SG",
+  "source": "https://www.boulderm.com/locations/our-gyms/rochor",
+  "checked": "2026-09-01",
+  "provenance": "official-chain-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "11:00-22:00",
+   "tue": "11:00-22:00",
+   "wed": "11:00-22:00",
+   "thu": "11:00-22:00",
+   "fri": "11:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "Rochor 2 Serangoon Road #02-12, Tekka Place Singapore 218227 operating hours Sun, Sat, PH 10:00am - 21:00pm Mon to Fri 11:00am - 22:00pm",
+  "note": "The current branch page prints one weekday window and one Saturday/Sunday/public-holiday window beside Rochor's exact address."
+ },
+ {
   "lat": 1.27917,
   "lon": 103.84651,
   "name": "fit • bloc Telok Ayer",
@@ -31368,32 +31394,6 @@
   },
   "evidence": "Hours Monday - Friday: 10am-10pm Saturday-Sunday: 9am-10pm Address 2 Ng. 76 An Dương, Yên Phụ, Tây Hồ, Hà Nội",
   "note": "Stated directly above the gym's address."
- },
- {
-  "lat": 21.0556469,
-  "lon": 105.8415127,
-  "name": "VietClimb MoonBoard",
-  "country": "VN",
-  "source": "https://vietclimb.vn/",
-  "checked": "2026-08-24",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "co-located",
-   "city",
-   "hours-scope"
-  ],
-  "hours": {
-   "mon": "10:00-22:00",
-   "tue": "10:00-22:00",
-   "wed": "10:00-22:00",
-   "thu": "10:00-22:00",
-   "fri": "10:00-22:00",
-   "sat": "09:00-22:00",
-   "sun": "09:00-22:00"
-  },
-  "evidence": "Hours Monday - Friday: 10am-10pm Saturday-Sunday: 9am-10pm Address 2 Ng. 76 An Dương, Yên Phụ, Tây Hồ, Hà Nội",
-  "note": "Stated directly above the gym's address, and the same week as the row 177 m away, because it is the same hall."
  },
  {
   "lat": -33.910389,

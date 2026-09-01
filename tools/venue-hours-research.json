@@ -6434,16 +6434,6 @@
   "reason": "No official site has been established for this venue, so there is no page to read a schedule from."
  },
  {
-  "lat": 1.30508,
-  "lon": 103.85142,
-  "name": "Boulder Movement Rochor",
-  "country": "SG",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.boulderm.com/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 2,004 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
- },
- {
   "lat": 46.0682733,
   "lon": 14.5194972,
   "name": "BALVANIJA MOONBOARD",
@@ -8607,5 +8597,15 @@
     "checked": "2026-09-01",
     "source": "https://totem.ch/meyrin",
     "reason": "The current official branch page says its opening hours are updated automatically at the top of the page, but the complete readable page content exposes no weekday/time pairs. No schedule is inferred from search snippets or directories."
+  },
+  {
+    "lat": 21.0556469,
+    "lon": 105.8415127,
+    "name": "VietClimb MoonBoard",
+    "country": "VN",
+    "status": "duplicate",
+    "checked": "2026-09-01",
+    "source": "https://vietclimb.vn/bouldering-gym",
+    "reason": "The current venue-authored facility page places the Kilter Board and MoonBoard at the one public Hanoi address. This displaced registry row is excluded as a duplicate; the verified week already attached to the address-bearing VietClimb venue therefore remains the single published schedule."
   }
 ]

@@ -2012,6 +2012,24 @@ const ENTRIES = [
     variant: null,
     angle: null,
   },
+  {
+    // The current venue-authored facility page places its Kilter Board and
+    // MoonBoard together at the one public Hanoi gym and prints its exact
+    // address. Replace the displaced legacy MoonBoard marker at the existing
+    // address-bearing Kilter venue: https://vietclimb.vn/bouldering-gym
+    source: 'curated',
+    board: 'moonboard',
+    name: 'VietClimb',
+    lat: 21.05562,
+    lon: 105.83981,
+    address: '2 Ng. 76 An Dương, Yên Phụ, Tây Hồ, Hà Nội 100000, Vietnam',
+    city: 'Hanoi',
+    country: 'VN',
+    commercial: true,
+    led: true,
+    variant: null,
+    angle: null,
+  },
 ];
 
 export async function load() {

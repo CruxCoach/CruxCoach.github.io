@@ -28573,11 +28573,12 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -39231,27 +39232,31 @@
   {
    "lat": 21.0556469,
    "lon": 105.8415127,
-   "name": "VietClimb MoonBoard",
+   "name": "Retired displaced MoonBoard registry point",
    "country": "VN",
    "needs": [
     "website",
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
-    "result": "accepted",
+    "pass": "2026-09-01",
+    "result": "duplicate",
     "channels": [
      "co-located",
-     "venue-link"
-    ]
+     "venue-link",
+     "previous-record"
+    ],
+    "note": "The current venue-authored facility page places both boards at the one address-bearing VietClimb venue; this displaced row now follows the backed duplicate exclusion."
    },
    "hours": {
-    "pass": "2026-08-24",
-    "result": "accepted",
+    "pass": "2026-09-01",
+    "result": "duplicate",
     "channels": [
      "venue-link",
-     "path-probe"
-    ]
+     "path-probe",
+     "previous-record"
+    ],
+    "note": "The current venue-authored facility page places both boards at the one address-bearing VietClimb venue; this displaced row now follows the backed duplicate exclusion."
    }
   },
   {
