@@ -3068,6 +3068,45 @@
       "candidates_found": 10,
       "production_changes": 3,
       "note": "The third independent DACH Pass A used current admission, facility-map, relocation, smaller-city, rural-club and chain-domain formulations in German, French, Italian and English. Discovery preceded inventory reconciliation. Kletterhalle Zwettl was absent from every structured source: the current Alpenverein hall page proves paid public access, its official magazine documents the adjustable Kilter completed in 2024, the national Alpenverein finder independently labels the facility public, and OSM identifies the exact named school building, so the venue and official link are published; its seasonal and incomplete week remains a research outcome. Current operator pages also add Projekt Eins' 20-70-degree and Bad Tölz's 30-70-degree ranges. Rainbow Rocket, ELYS, Wasserburg, Basislager Austria, Bayreuth, Kaiserslautern, Center of Gravity and the boulderbar branches reconciled to existing production only afterward. Center of Gravity's 16x8 wording is not forced onto a differently labelled registry size, Wasserburg's site-wide office hours remain excluded, and no Swiss-Italian public gap survived reconciliation. This productive cell requires iteration 4 across every Kilter Pass A region."
+    },
+    {
+      "pass": "A",
+      "board": "kilter",
+      "region": "oceania",
+      "iteration": 3,
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["en", "fr"],
+      "queries": [
+        "\"Kilter Board\" \"casual visit\" bouldering Australia",
+        "\"Kilter Board\" \"book a session\" climbing Australia",
+        "\"Kilterboard\" \"first time\" bouldering Australia",
+        "\"Kilter Board\" \"day entry\" climbing New Zealand",
+        "\"Kilter Board\" bouldering (Mackay OR Rockhampton OR Gladstone OR Bundaberg OR Hervey Bay)",
+        "\"Kilter Board\" bouldering (Wagga Wagga OR Dubbo OR Orange OR Tamworth OR Coffs Harbour)",
+        "\"Kilter Board\" bouldering (Bunbury OR Albany OR Geraldton OR Kalgoorlie OR Mandurah)",
+        "\"Kilter Board\" bouldering (Ballarat OR Bendigo OR Shepparton OR Mildura OR Warrnambool)",
+        "\"Kilter Board\" climbing (Whangarei OR New Plymouth OR Palmerston North OR Napier OR Hastings)",
+        "\"Kilter Board\" climbing (Nelson OR Blenheim OR Timaru OR Oamaru OR Invercargill)",
+        "\"Kilterboard\" (casual entry OR day pass OR first visit) New Zealand",
+        "\"Kilter Board\" (moved OR relocation OR replaced OR removed) climbing New Zealand",
+        "\"Kilter Board\" climbing (Fiji OR Samoa OR Tonga OR Vanuatu OR Kiribati OR Nauru)",
+        "\"Kilterboard\" bouldering (Guam OR Saipan OR Palau OR Micronesia OR Marshall Islands)",
+        "\"Kilter Board\" escalade (Nouméa OR Nouvelle-Calédonie OR Papeete OR Tahiti OR Polynésie)",
+        "\"Kilter Board\" climbing (Papua New Guinea OR Port Moresby OR Solomon Islands)",
+        "site:urbanclimb.com.au \"Kilter Board\"",
+        "site:9degrees.com.au \"Kilter Board\"",
+        "site:portsideboulders.com.au \"Kilter Board\"",
+        "site:beyondbouldering.com.au \"Kilter Board\"",
+        "site:rockyclimb.com (Kilter OR Moon Board OR hours OR pricing OR address)",
+        "site:flowbouldering.com.au (Kilter OR training OR hours OR address)",
+        "site:bouldmove.com.au (Kilter OR facilities OR hours OR address)",
+        "site:crankclimbing.com.au (Kilter OR facilities OR hours OR address)"
+      ],
+      "results_reviewed": 148,
+      "candidates_found": 8,
+      "production_changes": 3,
+      "note": "The third independent Oceania Pass A used current casual-access, booking, first-visit, smaller-city, relocation, operator-domain and Pacific-island formulations distinct from the first two cells. Discovery preceded inventory reconciliation. No unknown public venue survived reconciliation, including the Pacific searches. Rocky Climb's current canonical operator homepage nevertheless corrected three production facts: its embedded exact coordinate and one training-zone description consolidate the 31-m-separated Kilter and Moon markers; the former .com.au link now redirects to the canonical .com site; and matching visible plus structured data update Tuesday and Sunday climbing hours. Flow, Bould Move, Crank, Portside Osborne Park, Beyond Keswick/Thebarton and Gravity Well reconfirmed existing public Kilter rows and venue details. Because this cell changed verified production information, Oceania requires iteration 4 after all Kilter Pass A regions reach iteration 3."
     }
   ],
   "candidates": [
@@ -5080,6 +5119,78 @@
       "status": "reconciled-existing-live-state-not-static-detail",
       "official_sources": ["https://www.kletterzentrum-innsbruck.at/kilter/"],
       "note": "The operator page exposes the board's live currently selected angle, which changes and is explicitly qualified as potentially differing from the physical wall. It reconfirms current presence but is not used as a static angle or range override."
+    },
+    {
+      "board": "kilter",
+      "name": "Rocky Climb",
+      "region": "oceania",
+      "discovered_by": "Pass A iteration 3 Australian regional-city and operator-domain searches",
+      "status": "published-coordinate-duplicate-link-hours-correction",
+      "official_sources": ["https://www.rockyclimb.com/"],
+      "note": "The current canonical homepage proves public day access and identifies Kilter and Moon boards inside one training zone at 100 Bolsover Street. Its own structured venue data supplies exact coordinates, so the two registry markers 31 metres apart are consolidated. The visible week and structured hours agree on a newly open Tuesday and earlier Sunday close, replacing the stale published week; the obsolete .com.au URL redirects to this canonical site."
+    },
+    {
+      "board": "kilter",
+      "name": "Flow Bouldering",
+      "region": "oceania",
+      "discovered_by": "Pass A iteration 3 Australian casual-access and operator-domain searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://flowbouldering.com.au/"],
+      "note": "The current operator homepage reconfirms the Kilter Board, public first-visit access and exact Forest Glen address. The Kilter row, official site and regular week were already published; the nearby Tension marker remains a separate source-coordinate grouping issue outside this Kilter finding."
+    },
+    {
+      "board": "kilter",
+      "name": "Bould Move",
+      "region": "oceania",
+      "discovered_by": "Pass A iteration 3 Australian first-visit and operator-domain searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://bouldmove.com.au/first-time-visit-offer/", "https://bouldmove.com.au/memberships/"],
+      "note": "Current operator access pages explicitly include Kilter Board use for first-time and member visits. Reconciliation found the public Kilter venue, official site and regular week already represented."
+    },
+    {
+      "board": "kilter",
+      "name": "Crank Indoor Climbing",
+      "region": "oceania",
+      "discovered_by": "Pass A iteration 3 Australian casual-access and operator-domain searches",
+      "status": "reconciled-existing-hours-withheld",
+      "official_sources": ["https://www.crankclimbing.com.au/", "https://www.crankclimbing.com.au/crankpricing/"],
+      "note": "The current operator pages reconfirm casual access, a full-size Kilter Board and the exact Macgregor branch. The row and official site were already published. Hours remain withheld because the operator explicitly directs visitors elsewhere for current times, so the printed week is not treated as authoritative regular hours."
+    },
+    {
+      "board": "kilter",
+      "name": "Portside Boulders Osborne Park",
+      "region": "oceania",
+      "discovered_by": "Pass A iteration 3 Australian chain-domain search",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://www.portsideboulders.com.au/post/kilter-board", "https://www.portsideboulders.com.au/locations/osborne-park"],
+      "note": "The new operator how-to assigns its adjustable Kilter Board specifically to Osborne Park, and the current branch page confirms the facility and complete week. The same branch-specific row, link and hours were already published."
+    },
+    {
+      "board": "kilter",
+      "name": "Beyond Bouldering Keswick",
+      "region": "oceania",
+      "discovered_by": "Pass A iteration 3 Australian chain-domain search",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://beyondbouldering.com.au/about__trashed/keswick/"],
+      "note": "The current branch page reconfirms its fixed 40-degree Kilter Homewall and complete regular week. The existing Keswick Kilter row already carries the matching board detail and hours."
+    },
+    {
+      "board": "kilter",
+      "name": "Beyond Bouldering Thebarton",
+      "region": "oceania",
+      "discovered_by": "Pass A iteration 3 Australian chain-domain search",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://beyondbouldering.com.au/about__trashed/thebarton/", "https://beyondbouldering.com.au/board-wars/"],
+      "note": "Current branch and event pages reconfirm the adjustable Kilter Board with MoonBoard and Tension Board at Thebarton. All three systems and the current regular week were already grouped on the existing venue."
+    },
+    {
+      "board": "kilter",
+      "name": "The Gravity Well",
+      "region": "oceania",
+      "discovered_by": "Pass A iteration 3 New Zealand smaller-city search",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": ["https://www.gravitywell.co.nz/"],
+      "note": "The current operator homepage reconfirms the public Nelson venue, complete week and full-size 12x12 Kilter Board adjustable from 5 to 70 degrees. Reconciliation found the venue, site, hours and range already published."
     }
   ]
 }

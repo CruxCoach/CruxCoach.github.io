@@ -1686,5 +1686,28 @@
         }
       ]
     }
+  },
+  {
+    "board": "kilter",
+    "lat": -23.37473390979055,
+    "lon": 150.50910055119093,
+    "name": "Rocky Climb",
+    "note": "The current official homepage embeds exact coordinates for the one public venue at 100 Bolsover Street and identifies both Kilter and Moon boards in its training zone. Normalize the nearby registry points onto that venue coordinate.",
+    "set": {
+      "lat": -23.3750836,
+      "lon": 150.5090362
+    }
+  },
+  {
+    "board": "moonboard",
+    "lat": -23.3750142,
+    "lon": 150.5090838,
+    "name": "Rocky Climb Moon",
+    "note": "The current official homepage embeds exact coordinates for the one public venue at 100 Bolsover Street and identifies both Kilter and Moon boards in its training zone. Normalize the separate registry row and board-specific name onto the same venue.",
+    "set": {
+      "lat": -23.3750836,
+      "lon": 150.5090362,
+      "name": "Rocky Climb"
+    }
   }
 ]

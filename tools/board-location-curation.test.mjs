@@ -173,6 +173,18 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(zwettl[0].properties.website, 'https://www.alpenverein.at/waldviertel/klettern/020_Kletterhalle-zwettl.php');
   assert.equal(zwettl[0].properties.hours, undefined);
 
+  const rockyClimb = at(features, -23.3750836, 150.5090362);
+  assert.equal(rockyClimb.length, 1);
+  assert.equal(rockyClimb[0].properties.name, 'Rocky Climb');
+  assert.deepEqual(new Set(boardIds(rockyClimb[0])), new Set(['kilter', 'moonboard']));
+  assert.equal(rockyClimb[0].properties.website, 'https://www.rockyclimb.com/');
+  assert.deepEqual(rockyClimb[0].properties.hours, [
+    '', '15:00-20:00', '12:00-20:00', '12:00-20:00',
+    '12:00-20:00', '08:00-20:00', '08:00-17:00',
+  ]);
+  assert.equal(at(features, -23.37473390979055, 150.50910055119093).length, 0);
+  assert.equal(at(features, -23.3750142, 150.5090838).length, 0);
+
   const newsroom = at(features, 55.8504352, -4.281947);
   assert.equal(newsroom.length, 1);
   assert.equal(newsroom[0].properties.name, 'The Newsroom - The Climbing Academy');

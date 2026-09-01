@@ -1687,33 +1687,22 @@
     "note": "Same hall as the venue a metre away — the Tension entry beside the MoonBoard one — and the same site."
   },
   {
-    "lat": -23.37473390979055,
-    "lon": 150.50910055119093,
+    "lat": -23.3750836,
+    "lon": 150.5090362,
     "name": "Rocky Climb",
     "country": "AU",
-    "website": "https://rockyclimb.com.au/",
-    "verified": "2026-08-22",
+    "website": "https://www.rockyclimb.com/",
+    "verified": "2026-09-01",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "city"
-    ]
-  },
-  {
-    "lat": -23.3750142,
-    "lon": 150.5090838,
-    "name": "Rocky Climb Moon",
-    "country": "AU",
-    "website": "https://rockyclimb.com.au/",
-    "verified": "2026-08-22",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address"
+      "city",
+      "coordinates",
+      "board-mention"
     ],
-    "note": "Upstream lists this MoonBoard separately, 31 m from its Kilter entry."
+    "note": "The former .com.au URL now redirects to this canonical operator homepage. Its current facility copy identifies both Kilter and Moon boards in one public training zone, and its structured venue block supplies the exact 100 Bolsover Street coordinates used to consolidate the two nearby registry markers."
   },
   {
     "lat": -33.83541,

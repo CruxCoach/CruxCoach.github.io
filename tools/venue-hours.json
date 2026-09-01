@@ -2206,12 +2206,12 @@
   "note": "Same page as its twin."
  },
  {
-  "lat": -23.37473390979055,
-  "lon": 150.50910055119093,
+  "lat": -23.3750836,
+  "lon": 150.5090362,
   "name": "Rocky Climb",
   "country": "AU",
-  "source": "https://rockyclimb.com.au/",
-  "checked": "2026-08-23",
+  "source": "https://www.rockyclimb.com/",
+  "checked": "2026-09-01",
   "provenance": "official-site",
   "signals": [
    "venue-link",
@@ -2220,40 +2220,15 @@
   ],
   "hours": {
    "mon": "closed",
-   "tue": "closed",
+   "tue": "15:00-20:00",
    "wed": "12:00-20:00",
    "thu": "12:00-20:00",
    "fri": "12:00-20:00",
    "sat": "08:00-20:00",
-   "sun": "08:00-20:00"
+   "sun": "08:00-17:00"
   },
-  "evidence": "Open to members and the public. Rope climbing wall remains closed. | Monday Closed | Tuesday Closed | Wednesday 12:00 PM – 8:00 PM | Thursday 12:00 PM – 8:00 PM | Friday 12:00 PM – 8:00 PM | Saturday 8:00 AM – 8:00 PM | Sunday 8:00 AM – 8:00 PM",
-  "note": "The café next door keeps its own longer week (Wed–Fri from 6:30 AM, weekends 6:30 AM–2 PM) and is listed separately; the page’s two schema.org blocks match the two facilities."
- },
- {
-  "lat": -23.3750142,
-  "lon": 150.5090838,
-  "name": "Rocky Climb Moon",
-  "country": "AU",
-  "source": "https://rockyclimb.com.au/",
-  "checked": "2026-08-23",
-  "provenance": "official-site",
-  "signals": [
-   "venue-link",
-   "name",
-   "city"
-  ],
-  "hours": {
-   "mon": "closed",
-   "tue": "closed",
-   "wed": "12:00-20:00",
-   "thu": "12:00-20:00",
-   "fri": "12:00-20:00",
-   "sat": "08:00-20:00",
-   "sun": "08:00-20:00"
-  },
-  "evidence": "Open to members and the public. Rope climbing wall remains closed. | Monday Closed | Tuesday Closed | Wednesday 12:00 PM – 8:00 PM | Thursday 12:00 PM – 8:00 PM | Friday 12:00 PM – 8:00 PM | Saturday 8:00 AM – 8:00 PM | Sunday 8:00 AM – 8:00 PM",
-  "note": "The café next door keeps its own longer week (Wed–Fri from 6:30 AM, weekends 6:30 AM–2 PM) and is listed separately; the page’s two schema.org blocks match the two facilities."
+  "evidence": "Open to members and the public. Rope climbing 3:30 – 7:00 PM, Tuesday to Friday. | Monday Closed | Tuesday 3:00 PM – 8:00 PM | Wednesday 12:00 PM – 8:00 PM | Thursday 12:00 PM – 8:00 PM | Friday 12:00 PM – 8:00 PM | Saturday 8:00 AM – 8:00 PM | Sunday 8:00 AM – 5:00 PM",
+  "note": "The visible current climbing week and the venue's own structured data agree. The café has a separate longer week and is not used. This one record now covers the co-located Kilter and Moon boards after their official-coordinate consolidation."
  },
  {
   "lat": -33.8791418,
