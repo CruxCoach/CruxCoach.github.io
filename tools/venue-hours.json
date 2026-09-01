@@ -32904,5 +32904,21 @@
     },
     "evidence": "Når restauranten Tindestua er åpen er det mulig for drop in i klatrehallen. … åpningstider tindestua: MANDAG - SØNDAG: 10.00 - 21.00",
     "note": "The current venue opening page expressly ties climbing-hall drop-in access to the restaurant's stated daily week. Its linked current climbing page identifies the Kilter Board and exact Havnegata 2 venue."
+  },
+  {
+    "lat": 44.4485,
+    "lon": 26.15137,
+    "name": "Vertical Spirit",
+    "country": "RO",
+    "source": "https://verticalspirit.ro/contact/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "09:00-22:00", "tue": "09:00-22:00", "wed": "09:00-22:00",
+      "thu": "09:00-22:00", "fri": "09:00-22:00", "sat": "09:00-17:00", "sun": "closed"
+    },
+    "evidence": "PROGRAM — Luni–vineri: 09.00–22.00 — Sâmbăta: 09.00–17.00 — Duminica: ÎNCHIS",
+    "note": "The current Romanian contact page identifies the Baicului 80 hall and states one complete regular public-access week. Separately listed appointment-only weekend events are not public access; named Easter, Christmas and New Year closures are ordinary exceptions."
   }
 ]

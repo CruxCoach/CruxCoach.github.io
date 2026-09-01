@@ -1340,5 +1340,51 @@
       "address": "Carrer de Murillo 18, 08224 Terrassa, Spain",
       "city": "Terrassa"
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 47.12658,
+    "lon": 27.62568,
+    "name": "Climb Again Iasi",
+    "note": "The current official Iași branch page identifies its Kilter Board as adjustable from 15 to 60 degrees; retain the upstream Original 12x12 layout while filling the missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 15,
+          "max_angle": 60,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 46.0497,
+    "lon": 14.54866,
+    "name": "Plezalni Center Ljubljana",
+    "note": "The current official venue-specific Kilter Board page identifies the existing Homewall 10x12 Full Ride and states that its adjustable range is 22.5-70 degrees.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Homewall",
+          "size_id": 25,
+          "size_label": "Homewall 10x12 — Full Ride",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 22.5,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 15
+        }
+      ]
+    }
   }
 ]

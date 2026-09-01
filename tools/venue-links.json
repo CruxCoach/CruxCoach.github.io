@@ -17575,14 +17575,17 @@
     "lon": 27.62568,
     "name": "Climb Again Iasi",
     "country": "RO",
-    "website": "https://climbagain.ro/",
-    "verified": "2026-08-23",
-    "provenance": "official-chain-page",
+    "website": "https://climbagain.ro/climb-again-iasi/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
-      "city"
+      "street-address",
+      "city",
+      "location-page",
+      "board-mention"
     ],
-    "note": "The same association's site, which names its Iasi hall and the town upstream records for it. Its Bucharest hall is described separately on the same site."
+    "note": "The current Iași branch page identifies the public climbing hall, its Kilter Board with a 15-60 degree range, and Stradela Plopii fără Soț 18-22, refining the abbreviated upstream street address."
   },
   {
     "lat": 47.046159,
