@@ -9143,6 +9143,22 @@
     ]
   },
   {
+    "lat": 41.7962914,
+    "lon": 0.8100862,
+    "name": "Boulder Balaguer",
+    "country": "ES",
+    "website": "https://cebalaguer.cat/boulder-balaguer/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "city",
+      "board-mention",
+      "coordinates"
+    ],
+    "note": "The club's current Boulder Balaguer page identifies its public day-access facility and both KilterBoard and MoonBoard. OSM node 10856004907 independently names the exact climbing sports centre Rocòdrom Boulder Balaguer at Avinguda del Comte Jaume d'Urgell 28, matching the operator's venue name and Balaguer identity."
+  },
+  {
     "lat": 41.61267,
     "lon": 0.66268,
     "name": "Boulder Indoor",
@@ -9683,48 +9699,54 @@
     "lon": 2.18593,
     "name": "Monobloc La Sagrera",
     "country": "ES",
-    "website": "https://monobloc.es/",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
+    "website": "https://www.monobloc.es/la-sagrera",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "city"
+      "city",
+      "location-page",
+      "board-mention"
     ],
-    "note": "The operator's three halls share one site; it lists this one by street address."
+    "note": "The current branch page identifies MONOBLOC LA SAGRERA at Carrer d'Olesa 71, 08027 Barcelona and explicitly lists its KilterBoard, matching the structured row."
   },
   {
     "lat": 41.15835,
     "lon": 1.12149,
     "name": "Monobloc Reus",
     "country": "ES",
-    "website": "https://monobloc.es/",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
+    "website": "https://www.monobloc.es/reus",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "city"
+      "city",
+      "location-page",
+      "board-mention"
     ],
-    "note": "The operator's three halls share one site; it lists this one by street address."
+    "note": "The current branch page identifies MONOBLOC REUS at Carrer de Sabadell 24, 43204 Reus and explicitly lists its KilterBoard, matching the structured row."
   },
   {
     "lat": 41.3666,
     "lon": 2.13958,
     "name": "Monobloc Sants",
     "country": "ES",
-    "website": "https://monobloc.es/",
-    "verified": "2026-08-22",
-    "provenance": "official-chain-page",
+    "website": "https://www.monobloc.es/sants",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
       "street-address",
       "postal-code",
-      "city"
+      "city",
+      "location-page",
+      "board-mention"
     ],
-    "note": "The operator's three halls share one site; it lists MONOBLOC SANTS at Carrer de la Mineria, 51 — 08038 Barcelona, the address upstream carries."
+    "note": "The current branch page identifies MONOBLOC SANTS at Carrer de la Mineria 51, 08038 Barcelona and explicitly lists its KilterBoard XXL, matching the structured row."
   },
   {
     "lat": 38.34201590000001,
@@ -13089,6 +13111,22 @@
       "geocoded-address"
     ],
     "note": "משה שוואלב 7, אזה\"ת סגולה, פתח תקווה geocodes 118 m from the row, and the row itself reverse-geocodes onto משה שוואלב in the Segula industrial zone. Upstream holds no address for this venue."
+  },
+  {
+    "lat": 45.673384290029745,
+    "lon": 9.231829044179566,
+    "name": "AKIRA Climbing",
+    "country": "IT",
+    "website": "https://www.akiraclimbing.it/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": [
+      "name",
+      "street-address",
+      "city",
+      "board-mention"
+    ],
+    "note": "The current operator site states that Akira Climbing Center opened on 27 August 2026 at Piazza Risorgimento 1, Carate Brianza and identifies its variable-angle Kilter Board. The name, full address and board match the existing structured row."
   },
   {
     "lat": 43.87544219999999,

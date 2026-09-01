@@ -2030,6 +2030,39 @@ const ENTRIES = [
     variant: null,
     angle: null,
   },
+  {
+    // The club's current facility page proves public day access and both
+    // training boards: https://cebalaguer.cat/boulder-balaguer/
+    // OSM node 10856004907 is named Rocòdrom Boulder Balaguer and supplies
+    // the exact sports-centre point and address independently of the operator.
+    source: 'curated',
+    board: 'kilter',
+    name: 'Boulder Balaguer',
+    lat: 41.7962914,
+    lon: 0.8100862,
+    address: "Avinguda del Comte Jaume d'Urgell 28, 25600 Balaguer, Spain",
+    city: 'Balaguer',
+    country: 'ES',
+    commercial: true,
+    walls: [],
+  },
+  {
+    // Same current official facility page and exact named OSM venue as the
+    // co-located Kilter entry. The page does not state generation, LEDs or
+    // angle, so those fields remain unknown.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Boulder Balaguer',
+    lat: 41.7962914,
+    lon: 0.8100862,
+    address: "Avinguda del Comte Jaume d'Urgell 28, 25600 Balaguer, Spain",
+    city: 'Balaguer',
+    country: 'ES',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
 ];
 
 export async function load() {

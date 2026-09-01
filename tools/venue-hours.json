@@ -11797,6 +11797,84 @@
   "note": "Stated identically in the footer of every page; the weekday split is stored as the page states it."
  },
  {
+  "lat": 41.42486,
+  "lon": 2.18593,
+  "name": "Monobloc La Sagrera",
+  "country": "ES",
+  "source": "https://www.monobloc.es/la-sagrera",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "MONOBLOC LA SAGRERA. Carrer d'Olesa, 71 — 08027 Barcelona. Horario: Lunes a viernes: 9:00 - 22:00. Fines de semana: 10:00 - 20:00.",
+  "note": "The current visible branch page resolves the old chain-level structured-data ambiguity and states the complete week beside this branch's exact address."
+ },
+ {
+  "lat": 41.15835,
+  "lon": 1.12149,
+  "name": "Monobloc Reus",
+  "country": "ES",
+  "source": "https://www.monobloc.es/reus",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "MONOBLOC REUS. Carrer de Sabadell, 24 — 43204 Reus. Horario: Lunes a viernes: 9:00 - 22:00. Fines de semana: 10:00 - 20:00.",
+  "note": "The current visible branch page resolves the old chain-level structured-data ambiguity and states the complete week beside this branch's exact address."
+ },
+ {
+  "lat": 41.3666,
+  "lon": 2.13958,
+  "name": "Monobloc Sants",
+  "country": "ES",
+  "source": "https://www.monobloc.es/sants",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "postal-code",
+   "location-page"
+  ],
+  "hours": {
+   "mon": "09:00-22:00",
+   "tue": "09:00-22:00",
+   "wed": "09:00-22:00",
+   "thu": "09:00-22:00",
+   "fri": "09:00-22:00",
+   "sat": "10:00-21:00",
+   "sun": "10:00-21:00"
+  },
+  "evidence": "MONOBLOC SANTS. Carrer de la Mineria, 51 — 08038 Barcelona. Horario: Lunes a viernes: 9:00 - 22:00. Fines de semana: 10:00 - 21:00.",
+  "note": "The current visible branch page resolves the old chain-level structured-data ambiguity and states the complete week beside this branch's exact address."
+ },
+ {
   "lat": 38.34201590000001,
   "lon": -0.5246663,
   "name": "Moon board",
@@ -15685,6 +15763,32 @@
   },
   "evidence": "שעות פעילות א'-ה' 15:00-23:00 שישי 10:00-18:00 שבת 12:00-22:00",
   "note": "Sunday through Thursday share one window, and Friday and Saturday each get their own — the ordinary shape of an Israeli week, and all seven days are covered by it."
+ },
+ {
+  "lat": 45.673384290029745,
+  "lon": 9.231829044179566,
+  "name": "AKIRA Climbing",
+  "country": "IT",
+  "source": "https://www.akiraclimbing.it/",
+  "checked": "2026-09-01",
+  "provenance": "official-site",
+  "signals": [
+   "venue-link",
+   "street-address",
+   "city",
+   "board-mention"
+  ],
+  "hours": {
+   "mon": "10:00-23:00",
+   "tue": "10:00-23:00",
+   "wed": "10:00-23:00",
+   "thu": "10:00-23:00",
+   "fri": "10:00-23:00",
+   "sat": "10:00-19:30",
+   "sun": "10:00-19:30"
+  },
+  "evidence": "Orari di apertura. Lunedì – venerdì · 10.00 – 23.00. Sabato – domenica · 10.00 – 19.30. Piazza Risorgimento 1, Carate Brianza. Aperto da agosto 2026.",
+  "note": "The current operator homepage gives the ordinary seven-day week, exact address and open-since-August status; its separate September Open Day slots are events, not the venue schedule."
  },
  {
   "lat": 45.5452,

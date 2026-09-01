@@ -1594,5 +1594,51 @@
         }
       ]
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 40.33956,
+    "lon": -3.84857,
+    "name": "Climbat X-Madrid",
+    "note": "The current official Kilter article identifies the existing Original 12x12 wall as adjustable from 0 to 70 degrees. Retain the registry layout and fill the missing limits.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 0,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
+    "lat": 45.69573,
+    "lon": 9.61979,
+    "name": "Orobia Climbing",
+    "note": "The current official training-area page identifies the existing motorized Kilter Board as adjustable up to 70 degrees. It states no minimum, so only the missing maximum is filled.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": null,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
   }
 ]

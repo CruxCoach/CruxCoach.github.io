@@ -11712,6 +11712,23 @@
    }
   },
   {
+   "lat": 41.7962914,
+   "lon": 0.8100862,
+   "name": "Boulder Balaguer",
+   "country": "ES",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "appointment-only",
+    "channels": [
+     "venue-link",
+     "web-search"
+    ]
+   }
+  },
+  {
    "lat": 41.42486,
    "lon": 2.18593,
    "name": "Monobloc La Sagrera",
@@ -11720,11 +11737,12 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -11737,11 +11755,12 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -11754,11 +11773,12 @@
     "hours"
    ],
    "hours": {
-    "pass": "2026-08-23",
-    "result": "ambiguous",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "web-search"
     ]
    }
   },
@@ -16461,12 +16481,23 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "name-guess",
+     "apex",
+     "www",
+     "web-search"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ]
    }
   },
   {

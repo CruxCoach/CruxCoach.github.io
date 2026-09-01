@@ -2599,34 +2599,14 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 41.42486,
-  "lon": 2.18593,
-  "name": "Monobloc La Sagrera",
+  "lat": 41.7962914,
+  "lon": 0.8100862,
+  "name": "Boulder Balaguer",
   "country": "ES",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The site publishes two schema.org openingHoursSpecification blocks that disagree about the weekend (Saturday and Sunday closing at 20:00 in one and 21:00 in the other), and no schedule a reader can see.",
-  "source": "https://monobloc.es/"
- },
- {
-  "lat": 41.15835,
-  "lon": 1.12149,
-  "name": "Monobloc Reus",
-  "country": "ES",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The site publishes two schema.org openingHoursSpecification blocks that disagree about the weekend (Saturday and Sunday closing at 20:00 in one and 21:00 in the other), and no schedule a reader can see.",
-  "source": "https://monobloc.es/"
- },
- {
-  "lat": 41.3666,
-  "lon": 2.13958,
-  "name": "Monobloc Sants",
-  "country": "ES",
-  "status": "ambiguous",
-  "checked": "2026-08-23",
-  "reason": "Re-read 2026-08-23: unchanged. The site publishes two schema.org openingHoursSpecification blocks that disagree about the weekend (Saturday and Sunday closing at 20:00 in one and 21:00 in the other), and no schedule a reader can see.",
-  "source": "https://monobloc.es/"
+  "status": "appointment-only",
+  "checked": "2026-09-01",
+  "reason": "The operator states two access regimes: card-holding members may enter 09:00-23:00 weekdays and 09:00-21:00 weekends, while members without a card may enter only 17:00-23:00 weekdays and the same weekend window. Day tickets are available only after a prior access request and all users need the specified federation licence. No one regular walk-in week truthfully represents those conditions, so hours remain unpublished.",
+  "source": "https://cebalaguer.cat/boulder-balaguer/"
  },
  {
   "lat": 42.1757535,
