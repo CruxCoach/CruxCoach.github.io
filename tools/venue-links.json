@@ -27445,5 +27445,60 @@
       "board-mention"
     ],
     "note": "Colorful Rock's current site identifies the Nagoya gym, exact 須成町3丁目14 address and permanent 2016 MoonBoard. Its own JSON-LD and MLIT's 2025 block-level location-reference file 23_2025.csv independently give the same coordinate."
+  },
+  {
+    "lat": 34.821599,
+    "lon": 137.236109,
+    "name": "ボルダTO9蒲郡店",
+    "country": "JP",
+    "website": "https://bto9-ga.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage identifies the active Gamagori gym, its MoonBoard and current 府相町一丁目110 address. The operator's historical 端廻796 address, the municipality's 2021 old/new-address table and MLIT's 2018 lot record establish the same parcel without importing commercial-map coordinates."
+  },
+  {
+    "lat": 38.001454,
+    "lon": 140.624956,
+    "name": "ROCONESS",
+    "country": "JP",
+    "website": "https://roconess.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator site identifies the reservation-based public Shiroishi gym, its 2019 Masters LED MoonBoard and 字兎作3-1 address. MLIT's 2025 block-level location-reference file 04_2025.csv supplies the representative point for the exact lot."
+  },
+  {
+    "lat": 33.861438,
+    "lon": 132.742492,
+    "name": "愛媛クライミングジム iTTE",
+    "country": "JP",
+    "website": "https://itte-climbing.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The operator's current facility and access pages identify iTTE, its public MoonBoard and 久万ノ台639-1 address. MLIT's 2025 block-level location-reference file 38_2025.csv supplies the exact lot's representative point."
+  },
+  {
+    "lat": 35.983114,
+    "lon": 140.642811,
+    "name": "アオロク ao_roc.climbing",
+    "country": "JP",
+    "website": "https://aoroc.jp/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The operator's current facility page identifies the public Kashima gym, MoonBoard and 宮津台4752-10 address. MLIT's 2025 block-level location-reference file 08_2025.csv supplies the representative point for the exact lot."
+  },
+  {
+    "lat": 35.9461485,
+    "lon": 139.4770721,
+    "name": "モノリス川越店 Monolithe",
+    "country": "JP",
+    "website": "https://www.boulderinggym.jp/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The operator's current wall page explicitly identifies an LED MoonBoard and the same site labels the branch at 山田1430-1 as 川越店. The legacy registry point is retained because it identifies that branch; no coordinate is taken from a commercial map."
   }
 ]

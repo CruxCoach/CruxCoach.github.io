@@ -32469,6 +32469,70 @@
    "thu": "10:00-22:30", "fri": "10:00-22:30", "sat": "10:00-21:00", "sun": "10:00-21:00"
   },
   "evidence": "Opening hours | Weekdays 10:00–22:30 | Weekends & public holidays 10:00–21:00",
-  "note": "The operator's current English guide states the complete ordinary week; its Japanese schedule page carries temporary closure notices separately."
- }
+    "note": "The operator's current English guide states the complete ordinary week; its Japanese schedule page carries temporary closure notices separately."
+  },
+  {
+    "lat": 38.001454,
+    "lon": 140.624956,
+    "name": "ROCONESS",
+    "country": "JP",
+    "source": "https://roconess.com/%E6%96%BD%E8%A8%AD%E6%A1%88%E5%86%85/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "closed", "wed": "10:00-22:00",
+      "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "10:00-22:00", "sun": "10:00-22:00"
+    },
+    "evidence": "営業時間 10：00～22：00 | 休業日 火曜日・その他店舗カレンダーによる",
+    "note": "The current facility, climbing-area and use-guide pages repeat the same ordinary schedule; additional calendar closures are temporary exceptions."
+  },
+  {
+    "lat": 33.861438,
+    "lon": 132.742492,
+    "name": "愛媛クライミングジム iTTE",
+    "country": "JP",
+    "source": "https://itte-climbing.com/price-and-hours.html",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+    "hours": {
+      "mon": "closed", "tue": "17:00-23:00", "wed": "17:00-23:00",
+      "thu": "17:00-23:00", "fri": "17:00-23:00", "sat": "13:00-23:00", "sun": "13:00-21:00"
+    },
+    "evidence": "定休日 ※月曜日が祝日の場合は営業 →翌日火曜日振替休日 | 火～木曜 17:00~23:00 | 金曜 17:00~23:00 | 土曜 13:00~23:00 | 日曜・祝日 13:00~21:00",
+    "note": "The current official hours page states every ordinary day. Holiday substitutions and earlier openings during school holidays are exceptions to the regular week."
+  },
+  {
+    "lat": 35.983114,
+    "lon": 140.642811,
+    "name": "アオロク ao_roc.climbing",
+    "country": "JP",
+    "source": "https://aoroc.jp/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "17:00-22:00", "wed": "10:00-22:00",
+      "thu": "17:00-22:00", "fri": "17:00-22:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "月/水 10:00-22:00 | 火/木/金 17:00-22:00 | 土日祝 10:00-20:00",
+    "note": "The current homepage, facility page and access page all repeat the same complete ordinary week."
+  },
+  {
+    "lat": 35.9461485,
+    "lon": 139.4770721,
+    "name": "モノリス川越店 Monolithe",
+    "country": "JP",
+    "source": "https://www.boulderinggym.jp/%E3%81%94%E4%BA%88%E7%B4%84",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+    "hours": {
+      "mon": "13:30-22:30", "tue": "13:30-22:30", "wed": "13:30-22:30",
+      "thu": "13:30-22:30", "fri": "13:30-22:30", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "川越店 | 平日：13：30 [13:30]～22：30 [22:30] | 土日祝：10：00 [10:00]～20：00 [20:00] | TEL：049-299-7188 | 川越店 1430-1 Yamada, Kawagoe",
+    "note": "The current branch block distinguishes Kawagoe from the operator's separate Sakado schedule and supplies the complete ordinary week."
+  }
 ]

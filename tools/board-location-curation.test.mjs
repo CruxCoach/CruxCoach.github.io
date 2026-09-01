@@ -44,6 +44,10 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['WEST ROCK Fuchu', 'moonboard'],
     ['桜ヶ池クライミングセンター', 'moonboard'],
     ['カラフルロック Colorful Rock', 'moonboard'],
+    ['ボルダTO9蒲郡店', 'moonboard'],
+    ['ROCONESS', 'moonboard'],
+    ['愛媛クライミングジム iTTE', 'moonboard'],
+    ['アオロク ao_roc.climbing', 'moonboard'],
     ['カルコロ CAL-COLO', 'moonboard'],
     ['하나클라이밍짐 Hana Climbing Gym', 'kilter'],
     ['디스커버리 클라임스퀘어 Climbsquare ICN', 'moonboard'],
@@ -281,6 +285,30 @@ test('committed map data includes the missing boards and merges the corrected ve
   }
   assert.equal(at(features, 36.50025, 136.872064)[0].properties.boards[0].angle, 40);
   assert.equal(at(features, 35.115149, 136.872711)[0].properties.boards[0].variant, 'mb2016');
+
+  for (const [name, lat, lon, address, hasHours] of [
+    ['ボルダTO9蒲郡店', 34.821599, 137.236109, '愛知県蒲郡市府相町一丁目110番地', false],
+    ['ROCONESS', 38.001454, 140.624956, '宮城県白石市字兎作3-1', true],
+    ['愛媛クライミングジム iTTE', 33.861438, 132.742492, '愛媛県松山市久万ノ台639-1', true],
+    ['アオロク ao_roc.climbing', 35.983114, 140.642811, '茨城県鹿嶋市宮津台4752-10', true],
+  ]) {
+    const venue = at(features, lat, lon);
+    assert.equal(venue.length, 1, name);
+    assert.equal(venue[0].properties.name, name);
+    assert.equal(venue[0].properties.boards[0].address, address);
+    assert.equal(venue[0].properties.website.startsWith('https://'), true);
+    assert.equal(Boolean(venue[0].properties.hours), hasHours);
+  }
+  const roconess = at(features, 38.001454, 140.624956)[0].properties.boards[0];
+  assert.equal(roconess.variant, 'mb2019-masters');
+  assert.equal(roconess.led, true);
+
+  const monolithe = at(features, 35.9461485, 139.4770721);
+  assert.equal(monolithe.length, 1);
+  assert.equal(monolithe[0].properties.name, 'モノリス川越店 Monolithe');
+  assert.equal(monolithe[0].properties.boards[0].led, true);
+  assert.equal(monolithe[0].properties.website, 'https://www.boulderinggym.jp/');
+  assert.equal(monolithe[0].properties.hours.length, 7);
 
   const calColo = at(features, 34.78667, 135.81206);
   assert.equal(calColo.length, 1);

@@ -407,6 +407,82 @@ const ENTRIES = [
     angle: null,
   },
   {
+    // Current public venue and MoonBoard:
+    // https://bto9-ga.com/
+    // The operator's current address replaced 府相町端廻796 after the 2021
+    // land readjustment. The municipal old/new-address table links that parcel
+    // to 府相町一丁目, and MLIT's 2018 lot record supplies its representative
+    // point. Generation, LEDs and angle are not stated on the current page.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'ボルダTO9蒲郡店',
+    lat: 34.821599,
+    lon: 137.236109,
+    address: '愛知県蒲郡市府相町一丁目110番地',
+    city: 'Gamagori',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current reservation-based public venue, 2019 Masters LED MoonBoard and
+    // exact address: https://roconess.com/climbing%E3%82%A8%E3%83%AA%E3%82%A2/
+    // MLIT's 2025 block-level location-reference file 04_2025.csv supplies the
+    // representative point for 白石市字兎作3.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'ROCONESS',
+    lat: 38.001454,
+    lon: 140.624956,
+    address: '宮城県白石市字兎作3-1',
+    city: 'Shiroishi',
+    country: 'JP',
+    commercial: true,
+    led: true,
+    variant: 'mb2019-masters',
+    angle: null,
+  },
+  {
+    // Current public venue and MoonBoard:
+    // https://itte-climbing.com/wall-and-facilities.html
+    // The exact 久万ノ台639 lot in MLIT's 2025 block-level
+    // location-reference file 38_2025.csv supplies this point. The operator
+    // does not state generation, LEDs or angle.
+    source: 'curated',
+    board: 'moonboard',
+    name: '愛媛クライミングジム iTTE',
+    lat: 33.861438,
+    lon: 132.742492,
+    address: '愛媛県松山市久万ノ台639-1',
+    city: 'Matsuyama',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current public venue, MoonBoard and exact address:
+    // https://aoroc.jp/facility/
+    // MLIT's 2025 block-level location-reference file 08_2025.csv supplies the
+    // representative point for 鹿嶋市宮津台4752. The operator does not state
+    // generation, LEDs or angle.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'アオロク ao_roc.climbing',
+    lat: 35.983114,
+    lon: 140.642811,
+    address: '茨城県鹿嶋市宮津台4752-10',
+    city: 'Kashima',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
     // Current public venue, exact address and LED MoonBoard:
     // https://cal-colo.com/
     // Co-locate with its existing exact-address Kilter venue. The operator

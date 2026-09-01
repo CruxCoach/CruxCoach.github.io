@@ -4419,15 +4419,6 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": 35.9461485,
-  "lon": 139.4770721,
-  "name": "Monolithe",
-  "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
- },
- {
   "lat": 37.40047759999999,
   "lon": 140.3596822,
   "name": "MOVEMENT Climbing Space",
@@ -8624,5 +8615,15 @@
     "checked": "2026-09-01",
     "source": "https://www.daangn.com/kr/local-profile/%EC%98%A4%ED%84%B0%ED%81%B4%EB%9D%BC%EC%9D%B4%EB%B0%8D-7hmm4gijbo8u/",
     "reason": "No standalone official website was found. The operator-written marketplace profile shows a generic 12:00-22:00 field, while current directories separately report shorter weekend hours; marketplace, directory and social-profile schedules are discovery hints only under the hours policy, so no regular week is published."
+  },
+  {
+    "lat": 34.821599,
+    "lon": 137.236109,
+    "name": "ボルダTO9蒲郡店",
+    "country": "JP",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://bto9-ga.com/",
+    "reason": "The current operator page splits access by staffing and age: Monday and Wednesday are 08:00-22:00 unmanned for adults after adding the official LINE account; Tuesday, Thursday and Friday are unmanned 08:00-17:00 and staffed 17:00-22:00; Saturday and Sunday are staffed 10:00-18:00. A single regular public week would hide the adult-only and account-gated conditions, so no hours are published."
   }
 ]

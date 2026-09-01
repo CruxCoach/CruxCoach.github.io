@@ -155,6 +155,35 @@ MLIT Location Reference Information in both language versions. The wider
 Asia-Pacific and multilingual pass remains in progress; this is not an
 exhaustion claim.
 
+The next Japanese-language pass searched current operator pages by generation,
+facility terminology and the eight geographic region groups. It raised the
+Japanese production inventory from 41 to 46 MoonBoard rows and resolved one
+legacy identity. Four previously absent current venues are now published:
+ROCONESS Shiroishi (operator-stated 2019 Masters with LEDs), iTTE Matsuyama,
+ao_roc Kashima and ボルダTO9蒲郡店. MLIT's current exact-lot records establish
+ROCONESS, iTTE and ao_roc; TO9 uses MLIT's pre-readjustment 2018 lot point plus
+Gamagori's official 2021 old/new-address table. The current Monolithe operator
+site identifies the legacy Kawagoe row, its LED MoonBoard, exact branch address
+and complete week, so its prior no-site outcomes are withdrawn.
+
+The discovery balance for this pass is explicit and remains open:
+
+| Candidate | Outcome | Reason / next retry |
+| --- | --- | --- |
+| ボルダTO9蒲郡店 | published | Current operator board/address evidence and authority geodata; hours withheld because adult-only LINE-gated unmanned access differs from staffed access. |
+| ROCONESS | published | Current operator facility page states 2019 Masters, LEDs, address and complete week. |
+| 愛媛クライミングジム iTTE | published | Current operator facility/access/hours pages and exact MLIT lot. |
+| アオロク ao_roc.climbing | published | Current operator facility/address/week and exact MLIT lot. |
+| モノリス川越店 | reconciled | Existing row; current operator branch and wall pages restore identity, site, hours and LED detail. |
+| TO-DO クライミング | coordinate retry | Current board/address evidence is sufficient, but neither the 2025 MLIT file nor OSM exposes the exact 石川22 point; neighborhood points are not published. |
+| FUNNY BONE | currency retry | Venue is active in 2026, but accessible operator MoonBoard evidence is from 2020; do not infer that the board remains. |
+
+Searches also rediscovered CRUX Osaka, Climbing BUM Yokohama, QRiMo,
+Sakuragaike, Colorful Rock, Kurayoshi and other already-published rows. A new
+venue in this pass means Japan is not exhausted; subsequent passes must retry
+the two withheld candidates and audit the remaining legacy production rows for
+current identity, closure and board service.
+
 CAL-COLO's current operator page explicitly identifies both its Kilter Board
 and an LED-guided MoonBoard at the same Kizugawa address. Because the Kilter
 venue already carries a precise independently corroborated point, the missing

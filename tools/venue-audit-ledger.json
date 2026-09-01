@@ -18861,24 +18861,21 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
      "apex",
-     "www",
      "web-search",
-     "previous-record"
+     "path-probe",
+     "map-block"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -39178,6 +39175,66 @@
    "lat": 35.115149,
    "lon": 136.872711,
    "name": "カラフルロック Colorful Rock",
+   "country": "JP",
+   "needs": ["website", "hours"],
+   "website": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["web-search", "apex", "path-probe", "map-block"]
+   },
+   "hours": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["venue-link", "path-probe"]
+   }
+  },
+  {
+   "lat": 34.821599,
+   "lon": 137.236109,
+   "name": "ボルダTO9蒲郡店",
+   "country": "JP",
+   "needs": ["website", "hours"],
+   "website": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["web-search", "apex", "path-probe", "map-block"]
+   },
+   "hours": {
+    "pass": "2026-09-01", "result": "ambiguous",
+    "channels": ["venue-link", "path-probe"]
+   }
+  },
+  {
+   "lat": 38.001454,
+   "lon": 140.624956,
+   "name": "ROCONESS",
+   "country": "JP",
+   "needs": ["website", "hours"],
+   "website": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["web-search", "apex", "path-probe", "map-block"]
+   },
+   "hours": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["venue-link", "path-probe"]
+   }
+  },
+  {
+   "lat": 33.861438,
+   "lon": 132.742492,
+   "name": "愛媛クライミングジム iTTE",
+   "country": "JP",
+   "needs": ["website", "hours"],
+   "website": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["web-search", "apex", "path-probe", "map-block"]
+   },
+   "hours": {
+    "pass": "2026-09-01", "result": "accepted",
+    "channels": ["venue-link", "path-probe"]
+   }
+  },
+  {
+   "lat": 35.983114,
+   "lon": 140.642811,
+   "name": "アオロク ao_roc.climbing",
    "country": "JP",
    "needs": ["website", "hours"],
    "website": {
