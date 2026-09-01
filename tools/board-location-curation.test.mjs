@@ -354,6 +354,7 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(rainbowRocket.length, 1);
   assert.deepEqual(new Set(boardIds(rainbowRocket[0])), new Set(['kilter', 'moonboard']));
   assert.equal(rainbowRocket[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2024');
+  assert.equal(rainbowRocket[0].properties.wellpass, true);
 
   const soloToulouse = at(features, 43.62005, 1.42052);
   assert.equal(soloToulouse.length, 1);
