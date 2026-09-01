@@ -1744,6 +1744,34 @@ const ENTRIES = [
     variant: 'mb2024',
     angle: null,
   },
+  {
+    // Current branch-primary board page and public venue/contact details:
+    // https://www.theclimbingacademy.com/locations/the-newsroom/adults/socials/board-social/
+    // https://www.theclimbingacademy.com/contact/
+    // OSM's independently maintained exact named sports-centre node matches
+    // the operator's 124 Portman Street address and supplies the point.
+    source: 'curated',
+    board: 'kilter',
+    name: 'The Newsroom - The Climbing Academy',
+    lat: 55.8504352,
+    lon: -4.281947,
+    address: '124 Portman Street, Kinning Park, Glasgow G41 1EJ, United Kingdom',
+    city: 'Glasgow',
+    country: 'GB',
+    commercial: true,
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: null,
+      size_id: null,
+      size_label: null,
+      adjustable: null,
+      angle: null,
+      min_angle: null,
+      max_angle: null,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
 ];
 
 export async function load() {

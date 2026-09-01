@@ -27856,5 +27856,16 @@
     "provenance": "official-site",
     "signals": ["name", "street-address", "city", "coordinates", "board-mention"],
     "note": "The current operator site identifies El Muro Escalada in Cumbayá, on Vía Lumbisí at El Potrero San Luis, and its operator-controlled waiver names the Kilterboard, angle controls and app. OSM's independently maintained exact named climbing-centre node is 106 m from the upstream point on the same road, making the venue identity unambiguous."
+  },
+  {
+    "lat": 55.8504352,
+    "lon": -4.281947,
+    "name": "The Newsroom - The Climbing Academy",
+    "country": "GB",
+    "website": "https://www.theclimbingacademy.com/locations/the-newsroom/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current branch-primary board-social page explicitly assigns a Kilter Board to The Newsroom and says its boards are open to everyone whenever the venue is open. The operator contact page identifies the branch at 124 Portman Street, while OSM's independently maintained exact named sports-centre node supplies the matching point."
   }
 ]

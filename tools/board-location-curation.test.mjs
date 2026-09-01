@@ -114,6 +114,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Gecko Climb', 'kilter'],
     ['Project Konepaja', 'tension'],
     ['Project Konepaja', 'moonboard'],
+    ['The Newsroom - The Climbing Academy', 'kilter'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -145,6 +146,16 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.deepEqual(actionPark[0].properties.hours, [
     '15:00-22:00', '15:00-22:00', '15:00-22:00', '15:00-22:00',
     '15:00-22:00', '10:00-20:00', '10:00-20:00',
+  ]);
+
+  const newsroom = at(features, 55.8504352, -4.281947);
+  assert.equal(newsroom.length, 1);
+  assert.equal(newsroom[0].properties.name, 'The Newsroom - The Climbing Academy');
+  assert.deepEqual(boardIds(newsroom[0]), ['kilter']);
+  assert.equal(newsroom[0].properties.website, 'https://www.theclimbingacademy.com/locations/the-newsroom/');
+  assert.deepEqual(newsroom[0].properties.hours, [
+    '07:00-22:00', '07:00-22:00', '07:00-22:00', '07:00-22:00',
+    '07:00-22:00', '08:00-20:00', '08:00-20:00',
   ]);
 
   const mito = at(features, 47.38077156036091, 8.50559518406294);
