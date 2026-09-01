@@ -27845,5 +27845,16 @@
     "provenance": "official-location-page",
     "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
     "note": "The municipal operator's current venue and bouldering pages identify the open public Munich Action Park, visitor tickets and adjustable Kilter Board; current municipal records supply Spiridon-Louis-Ring 3. OSM's independently maintained named building supplies the point."
+  },
+  {
+    "lat": -0.21926596177731264,
+    "lon": -78.44734262883618,
+    "name": "El Muro",
+    "country": "EC",
+    "website": "https://www.elmuroescalada.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "city", "coordinates", "board-mention"],
+    "note": "The current operator site identifies El Muro Escalada in Cumbayá, on Vía Lumbisí at El Potrero San Luis, and its operator-controlled waiver names the Kilterboard, angle controls and app. OSM's independently maintained exact named climbing-centre node is 106 m from the upstream point on the same road, making the venue identity unambiguous."
   }
 ]

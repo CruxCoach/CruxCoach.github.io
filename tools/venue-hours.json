@@ -32856,5 +32856,21 @@
     },
     "evidence": "Öffnungszeiten Munich Action Park — Mo - Fr 15:00 - 22:00 — Sa 10:00 - 20:00",
     "note": "The current municipal operator page states one complete regular venue week. A dated summer-holiday notice merely confirms Monday access and does not replace the displayed regular schedule."
+  },
+  {
+    "lat": -0.21926596177731264,
+    "lon": -78.44734262883618,
+    "name": "El Muro",
+    "country": "EC",
+    "source": "https://www.elmuroescalada.com/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "street-address", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+      "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "10:00-19:00", "sun": "10:00-19:00"
+    },
+    "evidence": "El Muro Escalada … Cumbayá, en El Potrero San Luis, en la vía Lumbisí … Horarios de Atención — Lunes a Viernes 10 AM - 10 PM — Sábados y Domingos 10 AM - 7 PM",
+    "note": "The current operator homepage states one complete regular week directly below the Cumbayá venue identity and location."
   }
 ]
