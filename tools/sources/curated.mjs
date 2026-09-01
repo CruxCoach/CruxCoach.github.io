@@ -1819,6 +1819,97 @@ const ENTRIES = [
       hold_set: null,
     }],
   },
+  {
+    // Current public venue, Kilter Board, exact address and complete week:
+    // https://www.rebelrockclimbing.com/
+    // OSM node 4621645591 is the independently maintained exact named venue
+    // at the operator's 194/6 Moo 7 Srisoonthorn address and supplies the point.
+    source: 'curated',
+    board: 'kilter',
+    name: 'REBEL Rock Climbing',
+    lat: 7.9752039,
+    lon: 98.3404014,
+    address: '194/6 Moo 7 Srisoonthorn, Thalang, Phuket 83110, Thailand',
+    city: 'Phuket',
+    country: 'TH',
+    commercial: true,
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: null,
+      size_id: null,
+      size_label: null,
+      adjustable: null,
+      angle: null,
+      min_angle: null,
+      max_angle: null,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
+    // Current branch-primary membership page explicitly lists hydraulic
+    // Kilter, Moon and Tension training walls at this public Eco City branch:
+    // https://www.camp5.com/product/membership-ecocity/
+    // The coordinate is its existing exact address-bearing Kilter venue.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Camp5 Eco City',
+    lat: 3.12019,
+    lon: 101.67444,
+    address: 'Lot L4-07 & 08, 4th Floor, KL Eco City Mall, 3 Jalan Bangsar, Kuala Lumpur 59200, Malaysia',
+    city: 'Kuala Lumpur',
+    country: 'MY',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
+    // The same current branch-primary page proves the Tension wall. Replace
+    // the duplicate manufacturer marker 35 m away at the one branch point.
+    source: 'curated',
+    board: 'tension',
+    name: 'Camp5 Eco City',
+    lat: 3.12019,
+    lon: 101.67444,
+    city: 'Kuala Lumpur',
+    country: 'MY',
+  },
+  {
+    // The current operator page lists Kilter, Moon and Tension Board apps for
+    // this public 24/7 member/day-pass gym. The existing "Capybara board"
+    // MoonBoard marker 35 m away is the same capybara-branded venue and is
+    // replaced at the address-bearing Kilter/Tension point:
+    // https://www.magnusthecapybara.com/
+    source: 'curated',
+    board: 'moonboard',
+    name: "Magnus' Climbing Gym",
+    lat: 13.72308,
+    lon: 100.53072,
+    address: '2nd Floor, Glowfish, Sathorn Thani, Silom, Bang Rak, Bangkok 10500, Thailand',
+    city: 'Bangkok',
+    country: 'TH',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current dedicated venue page proves a LED-connected 2016 MoonBoard at
+    // the same exact public address as the existing Kilter/Tension venue:
+    // https://www.lighthouseclimbing.com/moonboard
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Lighthouse Climbing PTE',
+    lat: 1.27571,
+    lon: 103.79443,
+    address: '44 Pasir Panjang Road, Block B-02, Singapore 118504',
+    country: 'SG',
+    commercial: true,
+    led: true,
+    variant: 'mb2016',
+    angle: null,
+  },
 ];
 
 export async function load() {

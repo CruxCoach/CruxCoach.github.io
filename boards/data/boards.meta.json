@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-09-01T08:53:44.008Z",
-  "venue_features": 2869,
-  "raw_entries": 3165,
-  "venues_with_multiple_boards": 147,
-  "country_from_coder": 2869,
+  "generated_at": "2026-09-01T09:10:39.366Z",
+  "venue_features": 2868,
+  "raw_entries": 3168,
+  "venues_with_multiple_boards": 148,
+  "country_from_coder": 2868,
   "country_from_fallback": 0,
   "country_missing": 0,
-  "city_from_upstream": 1156,
-  "city_from_nearest": 1590,
+  "city_from_upstream": 1157,
+  "city_from_nearest": 1588,
   "city_missing": 123,
   "nearest_city_max_km": 25,
   "exclusions": {
-    "defined": 95,
-    "matched_venues": 29,
-    "excluded_entries": 30,
+    "defined": 97,
+    "matched_venues": 31,
+    "excluded_entries": 32,
     "unmatched": 66
   },
   "overrides": {
-    "defined": 117,
-    "applied": 117,
+    "defined": 118,
+    "applied": 118,
     "unmatched": 0,
-    "conflicts": 200
+    "conflicts": 201
   },
   "wellpass": {
     "defined": 87,
@@ -28,8 +28,8 @@
     "unmatched": 0
   },
   "venue_links": {
-    "defined": 1833,
-    "applied": 1833,
+    "defined": 1834,
+    "applied": 1834,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -37,42 +37,42 @@
     "rejected": 0,
     "countries": 64,
     "by_provenance": {
-      "official-chain-page": 127,
-      "official-location-page": 656,
-      "official-site": 1050
+      "official-chain-page": 125,
+      "official-location-page": 658,
+      "official-site": 1051
     }
   },
   "venue_hours": {
-    "defined": 1344,
-    "applied": 1344,
+    "defined": 1347,
+    "applied": 1347,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
     "private_refused": 0,
     "rejected": 0,
     "countries": 60,
-    "open_24h_days": 36,
+    "open_24h_days": 43,
     "by_provenance": {
       "official-chain-page": 109,
-      "official-location-page": 520,
-      "official-site": 715
+      "official-location-page": 522,
+      "official-site": 716
     }
   },
   "per_board": {
-    "kilter": 1150,
+    "kilter": 1151,
     "tension": 371,
     "grasshopper": 42,
     "decoy": 24,
     "soill": 12,
     "touchstone": 5,
     "aurora": 3,
-    "moonboard": 1540,
+    "moonboard": 1542,
     "12climb": 6,
     "quantum": 12
   },
   "per_source": {
-    "hangtime": 3056,
-    "curated": 97,
+    "hangtime": 3054,
+    "curated": 102,
     "quantum": 12
   },
   "sources": {
@@ -119,7 +119,7 @@
       }
     },
     "curated": {
-      "entries": 97,
+      "entries": 102,
       "verified_on": "2026-09-01",
       "policy": "official-venue-pages"
     },

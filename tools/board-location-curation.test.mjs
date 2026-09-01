@@ -117,6 +117,11 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Project Konepaja', 'moonboard'],
     ['The Newsroom - The Climbing Academy', 'kilter'],
     ['Varhaughallen - Varhaug IL Klatring', 'kilter'],
+    ['REBEL Rock Climbing', 'kilter'],
+    ['Camp5 Eco City', 'moonboard'],
+    ['Camp5 Eco City', 'tension'],
+    ["Magnus' Climbing Gym", 'moonboard'],
+    ['Lighthouse Climbing PTE', 'moonboard'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -1075,6 +1080,59 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(climbUsMisa[0].properties.name, '클라임어스 미사점 Climb Us Hanam Misa');
   assert.equal(climbUsMisa[0].properties.city, 'Hanam');
   assert.deepEqual(boardIds(climbUsMisa[0]), ['kilter']);
+
+  const rebelPhuket = at(features, 7.9752039, 98.3404014);
+  assert.equal(rebelPhuket.length, 1);
+  assert.equal(rebelPhuket[0].properties.name, 'REBEL Rock Climbing');
+  assert.equal(rebelPhuket[0].properties.city, 'Phuket');
+  assert.deepEqual(boardIds(rebelPhuket[0]), ['kilter']);
+  assert.equal(rebelPhuket[0].properties.website, 'https://www.rebelrockclimbing.com/');
+  assert.deepEqual(rebelPhuket[0].properties.hours, [
+    '',
+    '10:00-20:00',
+    '10:00-20:00',
+    '10:00-20:00',
+    '10:00-20:00',
+    '10:00-20:00',
+    '10:00-20:00',
+  ]);
+
+  const camp5EcoCity = at(features, 3.12019, 101.67444);
+  assert.equal(camp5EcoCity.length, 1);
+  assert.equal(camp5EcoCity[0].properties.name, 'Camp5 Eco City');
+  assert.deepEqual(new Set(boardIds(camp5EcoCity[0])), new Set(['kilter', 'moonboard', 'tension']));
+  assert.equal(camp5EcoCity[0].properties.website, 'https://www.camp5.com/ecocity/');
+  assert.deepEqual(camp5EcoCity[0].properties.hours, [
+    '10:00-22:00',
+    '10:00-22:00',
+    '10:00-22:00',
+    '10:00-22:00',
+    '10:00-22:00',
+    '10:00-20:00',
+    '10:00-20:00',
+  ]);
+  assert.equal(at(features, 3.12049, 101.67436).length, 0);
+
+  const lighthouseSingapore = at(features, 1.27571, 103.79443);
+  assert.equal(lighthouseSingapore.length, 1);
+  assert.equal(lighthouseSingapore[0].properties.name, 'Lighthouse Climbing PTE');
+  assert.deepEqual(new Set(boardIds(lighthouseSingapore[0])), new Set(['kilter', 'moonboard', 'tension']));
+  const lighthouseKilter = lighthouseSingapore[0].properties.boards.find(board => board.board === 'kilter');
+  assert.equal(lighthouseKilter.walls[0].size_label, '12x12, with Kickboard');
+  assert.equal(lighthouseKilter.walls[0].adjustable, true);
+  assert.equal(lighthouseKilter.walls[0].min_angle, 0);
+  assert.equal(lighthouseKilter.walls[0].max_angle, 70);
+  const lighthouseMoon = lighthouseSingapore[0].properties.boards.find(board => board.board === 'moonboard');
+  assert.equal(lighthouseMoon.variant, 'mb2016');
+  assert.equal(lighthouseMoon.led, true);
+
+  const magnusBangkok = at(features, 13.72308, 100.53072);
+  assert.equal(magnusBangkok.length, 1);
+  assert.equal(magnusBangkok[0].properties.name, "Magnus' Climbing Gym");
+  assert.deepEqual(new Set(boardIds(magnusBangkok[0])), new Set(['kilter', 'moonboard', 'tension']));
+  assert.equal(magnusBangkok[0].properties.website, 'https://www.magnusthecapybara.com/');
+  assert.deepEqual(magnusBangkok[0].properties.hours, Array(7).fill('00:00-24:00'));
+  assert.equal(at(features, 13.723358, 100.530565).length, 0);
 
   for (const [lat, lon] of [
     [31.9543786, 35.9105776],

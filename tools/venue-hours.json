@@ -32936,5 +32936,53 @@
     },
     "evidence": "Адрес: г. Одинцово, ул. Транспортная 2, стр. 19 — Время работы: ежедневно с 10:00 до 23:00",
     "note": "The current operator homepage states one complete daily schedule in its contact block for the same Odintsovo venue whose facility section identifies the Kilter Board."
+  },
+  {
+    "lat": 7.9752039,
+    "lon": 98.3404014,
+    "name": "REBEL Rock Climbing",
+    "country": "TH",
+    "source": "https://www.rebelrockclimbing.com/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "closed", "tue": "10:00-20:00", "wed": "10:00-20:00",
+      "thu": "10:00-20:00", "fri": "10:00-20:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "Opening hours: Tuesday - Sunday, 10am - 8pm (last check-in before 6.30 pm) (Closed on Monday)",
+    "note": "The current operator homepage states a complete ordinary week for the same exact Phuket venue whose facilities list the Kilter Board. The earlier last-check-in time is not represented as an opening boundary."
+  },
+  {
+    "lat": 3.12019,
+    "lon": 101.67444,
+    "name": "Camp5 Eco City",
+    "country": "MY",
+    "source": "https://www.camp5.com/ecocity/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+      "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "OPEN HOURS — Mon – Fri 10AM – 10PM — Weekends 10AM – 8PM — Public Holidays 10AM – 8PM",
+    "note": "The current Eco City branch page states one complete regular branch week. Its separate warning that temporary or public-holiday changes may be announced on Facebook is an exception and is not folded into the ordinary week."
+  },
+  {
+    "lat": 13.72308,
+    "lon": 100.53072,
+    "name": "Magnus' Climbing Gym",
+    "country": "TH",
+    "source": "https://www.magnusthecapybara.com/",
+    "checked": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["venue-link", "name", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "00:00-24:00", "tue": "00:00-24:00", "wed": "00:00-24:00",
+      "thu": "00:00-24:00", "fri": "00:00-24:00", "sat": "00:00-24:00", "sun": "00:00-24:00"
+    },
+    "evidence": "Register: Create an account by signing up with your details. This registers you as a member of the gym, granting 24/7 access. … 24/7 Access & Self Payment: With your membership active, enjoy round-the-clock gym access.",
+    "note": "The current operator page offers registration and a self-service day pass to the public, then explicitly states round-the-clock access for registered members. This is a regular access week, not an inferred listing claim."
   }
 ]

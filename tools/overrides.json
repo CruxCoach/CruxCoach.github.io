@@ -1421,5 +1421,28 @@
         }
       ]
     }
+  },
+  {
+    "board": "kilter",
+    "lat": 1.27571,
+    "lon": 103.79443,
+    "name": "Lighthouse Climbing PTE",
+    "note": "Lighthouse Climbing's current dedicated Kilter page confirms its 12x12 Original board is fully adjustable from 0 to 70 degrees. Retain the matching registry layout and fill its missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 0,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
   }
 ]

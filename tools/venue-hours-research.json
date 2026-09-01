@@ -5009,24 +5009,14 @@
   "reason": "Read on the two dozen paths a venue usually puts its week on, each through the site's own platform routes. The pages yield 86,507 characters carrying 300 clock times, and no day of the week is stated beside any of them — they are prices, class times and phone-line hours rather than an opening schedule."
  },
  {
-  "lat": 3.12019,
-  "lon": 101.67444,
-  "name": "Camp5 Eco City",
-  "country": "MY",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.camp5.com/",
-  "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
- },
- {
   "lat": 3.12049,
   "lon": 101.67436,
   "name": "Camp5 Eco City",
   "country": "MY",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://www.camp5.com/",
-  "reason": "The same hall as the Camp5 Eco City entry 33 m away, whose read this repeats: the operator's site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time."
+  "status": "duplicate",
+  "checked": "2026-09-01",
+  "source": "https://www.camp5.com/ecocity/",
+  "reason": "The branch page now states a complete week for the one Eco City venue. This isolated Tension marker is a duplicate 35 m from the address-bearing Kilter point and is replaced by a curated row at the composite venue, where the verified schedule is published once."
  },
  {
   "lat": 3.09145,
@@ -6614,18 +6604,10 @@
   "lon": 100.530565,
   "name": "Capybara board",
   "country": "TH",
-  "status": "no-hours-on-official-site",
-  "reason": "Same venue, same problem: the domain serves a title and the Carrd page states no schedule.",
-  "checked": "2026-08-25"
- },
- {
-  "lat": 13.72308,
-  "lon": 100.53072,
-  "name": "Magnus' Climbing Gym",
-  "country": "TH",
-  "status": "no-hours-on-official-site",
-  "reason": "Nothing but a title is served on the venue's own domain, and the Carrd page states no schedule. Third-party listings describe the gym as open 24 hours, which is exactly the kind of claim this file requires the venue itself to make.",
-  "checked": "2026-08-25"
+  "status": "duplicate",
+  "source": "https://www.magnusthecapybara.com/",
+  "reason": "The current operator page now states 24/7 member access for the one Magnus gym and lists its three board apps. The capybara-named MoonBoard marker is a duplicate 35 m from the address-bearing Magnus Kilter/Tension point and is replaced there; the verified schedule is published once on the composite venue.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 18.7880135,

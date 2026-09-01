@@ -3139,20 +3139,10 @@
     "lon": 100.530565,
     "name": "Capybara board",
     "country": "TH",
-    "status": "unverified",
+    "status": "duplicate",
     "candidate": "https://www.magnusthecapybara.com/",
-    "reason": "This row sits 15 m from the Magnus' Climbing Gym row and is almost certainly the same hall: it is called \"Capybara board\", Magnus is capybara-themed and named after one, and the gym is described as holding a Kilter, a MoonBoard 2024 and the first Tension Board 2 in Southeast Asia — the MoonBoard being what this row is registered for. What stops it being filed as a duplicate is that neither of the venue's own pages serves an address to check either row against.",
-    "checked": "2026-08-25"
-  },
-  {
-    "lat": 13.72308,
-    "lon": 100.53072,
-    "name": "Magnus' Climbing Gym",
-    "country": "TH",
-    "status": "unverified",
-    "candidate": "https://www.magnusthecapybara.com/",
-    "reason": "Magnus' Climbing Gym has a domain of its own, magnusthecapybara.com, and it serves 57 characters: the title, and nothing else. Its Carrd micro-site, magnusclimbinggym.carrd.co, serves marketing copy with Location and Phone rendered as icons rather than as text. Between the two, the venue name is the only signal either page offers, and one signal is not two. Upstream's address — 2nd Fl, inside glowfish, Sathorn — appears on neither.",
-    "checked": "2026-08-25"
+    "reason": "The operator domain now serves the complete Magnus' Climbing Gym member/day-pass page and lists Kilter, Moon and Tension Board apps plus the same magnusclimbinggym social handle carried by the Tension row. The MoonBoard-only \"Capybara board\" marker is 35 m from the address-bearing Magnus Kilter/Tension point; the shared capybara identity, current three-board operator page and co-location establish one venue, so the stray marker is replaced by a curated MoonBoard at the composite point.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 18.7880135,
@@ -4887,5 +4877,15 @@
     "checked": "2026-09-01",
     "candidate": "https://www.beaconclimbing.com/training/",
     "reason": "Beacon's current official training page confirms its fixed 45-degree Kilter Board, while its current homepage identifies the sole venue as Zone 5 Cibyn Estate, Caernarfon LL55 2BD in North Wales. The address-bearing production row already represents that hall at 53.13859,-4.25283. This second source row has the longitude sign reversed, is consequently country-coded as Netherlands despite carrying the Caernarfon address, and must be excluded as a materially mislocated duplicate."
+  },
+  {
+    "lat": 3.12049,
+    "lon": 101.67436,
+    "name": "Camp5 Eco City",
+    "country": "MY",
+    "status": "duplicate",
+    "checked": "2026-09-01",
+    "candidate": "https://www.camp5.com/ecocity/",
+    "reason": "Camp5's current branch page and contact page identify one Eco City venue at Lot L4-07 & 08 in KL Eco City Mall. The branch-primary membership page explicitly places Kilter, Moon and Tension training walls together there. The isolated Tension marker 35 m from the address-bearing Kilter point is therefore excluded and replaced by a curated Tension row at the one physical venue."
   }
 ]

@@ -14806,30 +14806,17 @@
     "lon": 101.67444,
     "name": "Camp5 Eco City",
     "country": "MY",
-    "website": "https://www.camp5.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-chain-page",
-    "signals": [
-      "brand",
-      "postal-code",
-      "city"
-    ],
-    "note": "Camp5 publishes its KL Eco City gym on its own site, with the 59200 postal code and the city upstream records. The operator runs several gyms, so this is a chain page."
-  },
-  {
-    "lat": 3.12049,
-    "lon": 101.67436,
-    "name": "Camp5 Eco City",
-    "country": "MY",
-    "website": "https://www.camp5.com/",
-    "verified": "2026-08-23",
-    "provenance": "official-chain-page",
+    "website": "https://www.camp5.com/ecocity/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
       "name",
+      "street-address",
+      "postal-code",
       "city",
-      "coordinates"
+      "board-mention"
     ],
-    "note": "The same hall as the Camp5 Eco City entry 33 m away at Lot 07 & 08, 4th Floor, KL Eco City, which carries this link already — the dataset registers this gym twice under one name. The operator's site lists Eco City among its gyms with the same Bangsar address, and is the only page either entry has."
+    "note": "Camp5's current Eco City branch page identifies the public venue, its exact KL Eco City Mall address, day access and Kilter, Moon and Tension training walls."
   },
   {
     "lat": 3.09145,
@@ -27908,5 +27895,27 @@
     "provenance": "official-location-page",
     "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
     "note": "The current operator homepage identifies the Odintsovo climbing centre, public self-guided visits, its Kilter Board and exact Transportnaya 2 building 19 address. OSM independently places the existing point on the named industrial parcel at that address."
+  },
+  {
+    "lat": 7.9752039,
+    "lon": 98.3404014,
+    "name": "REBEL Rock Climbing",
+    "country": "TH",
+    "website": "https://www.rebelrockclimbing.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage identifies the public Phuket climbing venue, its Kilter Board and exact 194/6 Moo 7 Srisoonthorn address. OSM independently maps the exact named sport-centre node at that address."
+  },
+  {
+    "lat": 13.72308,
+    "lon": 100.53072,
+    "name": "Magnus' Climbing Gym",
+    "country": "TH",
+    "website": "https://www.magnusthecapybara.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "social-handle", "board-mention", "coordinates"],
+    "note": "Magnus' current operator page names the gym, links the same magnusclimbinggym social handle carried by its Tension registry row, offers public member/day-pass access and lists Kilter, Moon and Tension Board apps. The capybara-named MoonBoard registry marker 35 m away is consolidated with the address-bearing Kilter/Tension point."
   }
 ]

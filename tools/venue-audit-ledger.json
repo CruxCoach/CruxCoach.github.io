@@ -22195,39 +22195,12 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
-   "lat": 3.12049,
-   "lon": 101.67436,
-   "name": "Camp5 Eco City",
-   "country": "MY",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
-     "co-located",
-     "previous-record",
-     "apex",
-     "www"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
-    "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "operator-index"
     ]
    }
   },
@@ -29415,8 +29388,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
@@ -29428,11 +29401,12 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
-     "path-probe"
+     "path-probe",
+     "operator-index"
     ]
    }
   },
