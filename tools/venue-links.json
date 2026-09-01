@@ -27678,5 +27678,27 @@
     "provenance": "official-location-page",
     "signals": ["name", "brand", "street-address", "postal-code", "city", "coordinates", "board-mention"],
     "note": "The current operator branch and facility pages identify the public Namba venue, its 130-degree MoonBoard and 大阪市中央区難波千日前12-35 address. MLIT's 2025 location-reference file supplies the representative point for the exact 難波千日前12 block."
+  },
+  {
+    "lat": 35.551848,
+    "lon": 140.388894,
+    "name": "クライミングジム猿吉 Sarukichi",
+    "country": "JP",
+    "website": "https://sarukichi-jp.jimdofree.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The accessible operator homepage and facility page identify the public Togane venue, its LED MoonBoard on a 130-degree wall and 千葉県東金市家徳288-1 address. Togane's 2025 merchant list confirms the current venue identity, and MLIT's 2025 file supplies the representative point for exact lot 288."
+  },
+  {
+    "lat": 35.14829,
+    "lon": 136.866307,
+    "name": "Climbing Gym GANBA",
+    "country": "JP",
+    "website": "https://ganba-climbing.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The accessible operator homepage and facility page identify the public Nagoya gym, installed LED MoonBoard and 名古屋市中川区南脇町2-3 address. MLIT's 2025 file supplies the representative point for the exact block and lot."
   }
 ]

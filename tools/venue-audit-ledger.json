@@ -39291,6 +39291,28 @@
     "pass": "2026-09-01", "result": "ambiguous",
     "channels": ["venue-link", "path-probe", "previous-record"]
    }
+  },
+  {
+   "lat": 35.551848,
+   "lon": 140.388894,
+   "name": "クライミングジム猿吉 Sarukichi",
+   "country": "JP",
+   "needs": ["hours"],
+   "hours": {
+    "pass": "2026-09-01", "result": "ambiguous",
+    "channels": ["venue-link", "path-probe", "web-search"]
+   }
+  },
+  {
+   "lat": 35.14829,
+   "lon": 136.866307,
+   "name": "Climbing Gym GANBA",
+   "country": "JP",
+   "needs": ["hours"],
+   "hours": {
+    "pass": "2026-09-01", "result": "ambiguous",
+    "channels": ["venue-link", "path-probe", "web-search"]
+   }
   }
  ]
 }

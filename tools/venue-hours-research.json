@@ -8622,5 +8622,25 @@
     "checked": "2026-09-01",
     "source": "https://www.dersteinbock-linz.at/",
     "reason": "Two current official pages disagree. The homepage announces adjusted hours and states 09:00-23:00 for every weekday, while the operator's current address/opening-hours page still states 07:00-23:00 on Tuesday and Thursday and 09:00-23:00 on the other weekdays. Both state 09:00-22:00 on weekends; no complete week is published until the operator resolves the weekday conflict."
+  },
+  {
+    "lat": 35.551848,
+    "lon": 140.388894,
+    "name": "クライミングジム猿吉 Sarukichi",
+    "country": "JP",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://sarukichi-jp.jimdofree.com/",
+    "reason": "The accessible operator page still states weekdays 16:00-22:00, weekends and holidays 12:00-20:00 and every Tuesday closed, while multiple current venue surfaces report materially longer hours and only first/third Tuesday closures. The operator surface has no recent dated update that resolves the drift, so publishing its apparent legacy week as current would be unsafe."
+  },
+  {
+    "lat": 35.14829,
+    "lon": 136.866307,
+    "name": "Climbing Gym GANBA",
+    "country": "JP",
+    "status": "ambiguous",
+    "checked": "2026-09-01",
+    "source": "https://ganba-climbing.com/index.html",
+    "reason": "The accessible operator page states weekday opening at 18:00, weekends at 10:00 and treats holidays like weekdays, while several current venue surfaces report 13:00 weekday opening and apply weekend hours to holidays. The static operator page carries no recent dated update that resolves the drift, so no regular week is published."
   }
 ]

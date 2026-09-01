@@ -484,3 +484,33 @@ zero pending or unknown map rows. The whole dataset contains 2,854 venues and
 websites and 1,329 complete regular weeks. Because this tranche again yielded
 two current venues, the nationwide Japanese discovery pass must restart; this
 is not an exhaustion claim.
+
+The restarted pass immediately corrects one discovery mistake and finds another
+missing venue. Sarukichi's old custom domain is unavailable, but the operator's
+actual current Jimdo site remains accessible. Its facility page explicitly
+identifies an LED MoonBoard on a 130-degree wall, and its homepage binds that
+equipment to the public Togane gym at 家徳288-1. Togane's 2025 merchant list
+independently confirms the current venue identity; MLIT's 2025 Chiba file
+supplies the representative point for exact lot 288. The wall angle is normalized
+to 40 degrees from vertical; generation is not inferred.
+
+GANBA was found through a fresh facility-page wording search rather than an old
+location list. Its accessible operator homepage and facility page identify the
+public Nagoya gym, exact 南脇町2-3 address and installed LED MoonBoard. MLIT's
+2025 Aichi file supplies the representative point for the exact lot. The operator
+does not state a supported generation or angle, so both remain unknown.
+
+Both sites expose apparently old schedules that materially disagree with
+multiple current venue surfaces: Sarukichi differs on opening times and Tuesday
+closures, while GANBA differs on weekday and holiday opening. Those current
+secondary surfaces are used only as conflict signals, never as replacement
+hours. Both weeks therefore remain explicit `ambiguous` research outcomes until
+the operators publish a clearly current schedule.
+
+Japan now has 56 reviewed decisions and 52 production venues / MoonBoard rows:
+33 current, 12 unverified, seven private, three mislocated and one closed, with
+zero pending or unknown map rows. The whole dataset contains 2,856 venues and
+3,144 board rows, including 1,534 MoonBoards at 1,410 venues, with 1,815 official
+websites and 1,329 complete regular weeks. Because this restarted pass again
+yielded two current venues, it must restart once more; this is still not an
+exhaustion claim.

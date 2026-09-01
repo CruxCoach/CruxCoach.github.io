@@ -1342,6 +1342,44 @@ const ENTRIES = [
     variant: null,
     angle: 40,
   },
+  {
+    // Current public venue and LED MoonBoard at a 130-degree wall:
+    // https://sarukichi-jp.jimdofree.com/施設紹介/
+    // https://sarukichi-jp.jimdofree.com/
+    // MLIT's 2025 block-level location-reference file 12_2025.csv supplies the
+    // representative point for the exact 家徳288 lot.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'クライミングジム猿吉 Sarukichi',
+    lat: 35.551848,
+    lon: 140.388894,
+    address: '千葉県東金市家徳288-1',
+    city: 'Togane',
+    country: 'JP',
+    commercial: true,
+    led: true,
+    variant: null,
+    angle: 40,
+  },
+  {
+    // Current public venue and LED MoonBoard:
+    // https://ganba-climbing.com/index.html
+    // https://ganba-climbing.com/navi.html
+    // MLIT's 2025 block-level location-reference file 23_2025.csv supplies the
+    // representative point for the exact 南脇町2丁目3 lot.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Climbing Gym GANBA',
+    lat: 35.14829,
+    lon: 136.866307,
+    address: '愛知県名古屋市中川区南脇町2-3',
+    city: 'Nagoya',
+    country: 'JP',
+    commercial: true,
+    led: true,
+    variant: null,
+    angle: null,
+  },
 ];
 
 export async function load() {
