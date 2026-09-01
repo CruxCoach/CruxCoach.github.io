@@ -92,16 +92,6 @@
     "checked": "2026-08-25"
   },
   {
-    "lat": -33.89914,
-    "lon": 151.0434,
-    "name": "1UP Bouldering",
-    "country": "AU",
-    "status": "unavailable",
-    "candidate": "https://www.oneupbouldering.com.au/",
-    "reason": "oneupbouldering.com.au is certainly the gym — its contact page is indexed and the directories give upstream's address, Unit 1/4 Brunker Road, Chullora NSW 2190 — but every path on it, front page and contact page alike, returns 55 bytes and assembles itself in the browser. There is nothing on the wire to match. Retry if it ever serves its text.",
-    "checked": "2026-08-25"
-  },
-  {
     "lat": -25.215260569377044,
     "lon": 153.1519274200911,
     "name": "7x10 HW NK",
@@ -4887,5 +4877,25 @@
     "checked": "2026-09-01",
     "candidate": "https://www.camp5.com/ecocity/",
     "reason": "Camp5's current branch page and contact page identify one Eco City venue at Lot L4-07 & 08 in KL Eco City Mall. The branch-primary membership page explicitly places Kilter, Moon and Tension training walls together there. The isolated Tension marker 35 m from the address-bearing Kilter point is therefore excluded and replaced by a curated Tension row at the one physical venue."
+  },
+  {
+    "lat": -33.83547,
+    "lon": 151.05313,
+    "name": "Sandbox Bouldering",
+    "country": "AU",
+    "status": "duplicate",
+    "checked": "2026-09-01",
+    "candidate": "https://sandboxbouldering.com.au/",
+    "reason": "Sandbox's current operator homepage identifies one Silverwater venue at Unit A2, 27-29 Fariola Street and explicitly places its Grasshopper, Tension, Kilter and Moon boards together. The Grasshopper-only marker 7 m from the address-bearing Kilter/Tension point is excluded and replaced by a curated row at the one physical venue."
+  },
+  {
+    "lat": -37.7870301,
+    "lon": 144.885586,
+    "name": "Rocket",
+    "country": "AU",
+    "status": "duplicate",
+    "checked": "2026-09-01",
+    "candidate": "https://www.rocket-climbing.com.au/about-us",
+    "reason": "Rocket's current operator page identifies one 21 Mephan Street Footscray venue with a 45-degree Kilter Board and both 2016 and 2024 MoonBoards. The MoonBoard-only marker 12 m from the address-bearing Kilter point is excluded and replaced by a curated MoonBoard row at the one physical venue; its obsolete 2019 Masters variant is not retained."
   }
 ]

@@ -1910,6 +1910,53 @@ const ENTRIES = [
     variant: 'mb2016',
     angle: null,
   },
+  {
+    // The current operator homepage names four public system boards at its
+    // one Silverwater training venue, including a 2016 MoonBoard fixed at 40°:
+    // https://sandboxbouldering.com.au/
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Sandbox Bouldering',
+    lat: -33.83541,
+    lon: 151.05309,
+    address: 'Unit A2, 27-29 Fariola Street, Silverwater, NSW 2128, Australia',
+    city: 'Silverwater',
+    country: 'AU',
+    commercial: true,
+    led: true,
+    variant: 'mb2016',
+    angle: 40,
+  },
+  {
+    // The same current operator page proves its full-size 12x12 adjustable
+    // Grasshopper Board. Replace the duplicate manufacturer marker 7 m away.
+    source: 'curated',
+    board: 'grasshopper',
+    name: 'Sandbox Bouldering',
+    lat: -33.83541,
+    lon: 151.05309,
+    city: 'Silverwater',
+    country: 'AU',
+  },
+  {
+    // The current operator page identifies one Footscray venue with its 45°
+    // Kilter Board and both 2016 and 2024 MoonBoards:
+    // https://www.rocket-climbing.com.au/about-us
+    // The public schema has one MoonBoard row per venue, so retain truthful
+    // system presence without selecting one generation over the other.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Rocket Climbing',
+    lat: -37.78692,
+    lon: 144.88556,
+    address: '21 Mephan Street, Footscray VIC 3011, Australia',
+    city: 'Footscray',
+    country: 'AU',
+    commercial: true,
+    led: true,
+    variant: null,
+    angle: null,
+  },
 ];
 
 export async function load() {

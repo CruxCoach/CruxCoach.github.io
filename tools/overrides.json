@@ -1444,5 +1444,28 @@
         }
       ]
     }
+  },
+  {
+    "board": "kilter",
+    "lat": -33.83541,
+    "lon": 151.05309,
+    "name": "Sandbox Bouldering",
+    "note": "Sandbox's current operator homepage confirms its full-size 12x12 Kilter Board is adjustable from 35 to 65 degrees. Retain the matching registry layout and fill its missing range.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 35,
+          "max_angle": 65,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
   }
 ]

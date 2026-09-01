@@ -230,16 +230,6 @@
   "reason": "Re-read: unchanged. No schedule appears on the homepage or on any page linked from it."
  },
  {
-  "lat": -33.89914,
-  "lon": 151.0434,
-  "name": "1UP Bouldering",
-  "country": "AU",
-  "status": "inaccessible",
-  "source": "https://www.oneupbouldering.com.au/",
-  "reason": "The venue's site serves no text to a reader that does not run its scripts, so there is no schedule to read.",
-  "checked": "2026-08-25"
- },
- {
   "lat": -25.215260569377044,
   "lon": 153.1519274200911,
   "name": "7x10 HW NK",
@@ -344,24 +334,14 @@
   "checked": "2026-08-25"
  },
  {
-  "lat": -33.83547,
-  "lon": 151.05313,
-  "name": "Sandbox Bouldering",
-  "country": "AU",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
-  "source": "https://sandboxbouldering.com.au/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,262 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
- },
- {
   "lat": -33.83541,
   "lon": 151.05309,
   "name": "Sandbox Bouldering",
   "country": "AU",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-23",
+  "status": "ambiguous",
+  "checked": "2026-09-01",
   "source": "https://sandboxbouldering.com.au/",
-  "reason": "Re-read through the routes the platform publishes for itself — Squarespace's JSON, WordPress's REST API, the warmup blob a Wix page ships, the JSON-LD in the document — the site comes back with 6,262 characters of content across 7 of its paths, and none of it pairs a day with a time. It was recorded inaccessible when only the rendered HTML could be read; it is not inaccessible, it publishes no hours."
+  "reason": "The current operator site now states staffed onboarding windows on Monday, Wednesday, Friday and Saturday and offers full-day passes plus unlimited memberships, but never states the venue's complete access week. Staffed hours are not necessarily opening hours, Tuesday, Thursday and Sunday remain unstated, and one youth page even differs on Monday's staffed closing time. No regular week can be inferred."
  },
  {
   "lat": -38.1617913,
@@ -372,16 +352,6 @@
   "source": "https://rockadventures.com.au/",
   "reason": "Both weeks on the page carry a label and neither is the standing one: \"Opening Hours School Term Times: Monday – Friday 4pm-9:30pm, Saturday 10:00am-5:00pm, Sunday 1:00pm-5:00pm, Public Holidays 12:00pm-5:00pm\" and \"School Holiday Times: Monday, Wednesday, Friday, Saturday, Sunday 12:00pm-6:00pm, Tuesday and Thursday 12:00pm-9:30pm\". Term and holiday between them cover the year, and which applies depends on the Victorian school calendar rather than on the page.",
   "checked": "2026-08-25"
- },
- {
-  "lat": -27.45127,
-  "lon": 153.0454,
-  "name": "TotalFusion Platinum Newstead",
-  "country": "AU",
-  "status": "no-hours-on-official-site",
-  "checked": "2026-08-24",
-  "source": "https://totalfusion.com.au/",
-  "reason": "The site does hold a week, and only in machine-readable markup: a schema.org openingHours block reading \"Monday,Tuesday,Wednesday,Thursday,Friday 05:00-20:00 Saturday 06:00-17:00 Sunday 07:30-17:00\". No page states any of it in words. This audit publishes what a venue tells its visitors and not what its settings hold, so the week is recorded here and not published — the same call as Island Rock Climbing Gym."
  },
  {
   "lat": -27.5146928,

@@ -1631,34 +1631,19 @@
     "note": "The site is Rock It Derwent Park and prints \"4-6 Elmsleigh Road, Derwent Park, TAS 7009\", exactly the address upstream records."
   },
   {
-    "lat": -37.7870301,
-    "lon": 144.885586,
-    "name": "Rocket",
-    "country": "AU",
-    "website": "https://rocket-climbing.com.au/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "postal-code"
-    ],
-    "note": "Same hall as the venue a few metres away — the MoonBoard entry beside the Kilter one — and the same site and address."
-  },
-  {
     "lat": -37.78692,
     "lon": 144.88556,
     "name": "Rocket Climbing",
     "country": "AU",
     "website": "https://rocket-climbing.com.au/",
-    "verified": "2026-08-23",
+    "verified": "2026-09-01",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "postal-code"
     ],
-    "note": "The site prints \"21 MEPHAN STREET, FOOTSCRAY VIC 3011\", exactly the address upstream records, and names a Kilter Board. The Rainbow Rocket halls the chain matcher offered are in Germany and England."
+    "note": "The current operator page prints 21 Mephan Street, Footscray VIC 3011 and identifies one public venue with a 45-degree Kilter Board plus 2016 and 2024 MoonBoards. The displaced MoonBoard-only marker is consolidated here."
   },
   {
     "lat": -26.7275358,
@@ -1748,34 +1733,19 @@
     "note": "Upstream lists this MoonBoard separately, 31 m from its Kilter entry."
   },
   {
-    "lat": -33.83547,
-    "lon": 151.05313,
-    "name": "Sandbox Bouldering",
-    "country": "AU",
-    "website": "https://sandboxbouldering.com.au/",
-    "verified": "2026-08-23",
-    "provenance": "official-site",
-    "signals": [
-      "name",
-      "street-address",
-      "city"
-    ],
-    "note": "Same hall as the venue a metre away — the Grasshopper entry beside the Kilter and Tension one — and the same site."
-  },
-  {
     "lat": -33.83541,
     "lon": 151.05309,
     "name": "Sandbox Bouldering",
     "country": "AU",
     "website": "https://sandboxbouldering.com.au/",
-    "verified": "2026-08-23",
+    "verified": "2026-09-01",
     "provenance": "official-site",
     "signals": [
       "name",
       "street-address",
       "city"
     ],
-    "note": "The site prints \"Unit A2, 27-29 Fariola Street, Silverwater\", exactly the address upstream records, and names every board system the pair of entries here is listed for."
+    "note": "The current operator homepage prints Unit A2, 27-29 Fariola Street, Silverwater and names its full-size adjustable Grasshopper, Tension 2 and Kilter boards plus a fixed 2016 MoonBoard. The displaced Grasshopper-only marker is consolidated here."
   },
   {
     "lat": -33.8791418,
@@ -1856,14 +1826,17 @@
     "lon": 153.0454,
     "name": "TotalFusion Platinum Newstead",
     "country": "AU",
-    "website": "https://totalfusion.com.au/",
-    "verified": "2026-08-23",
-    "provenance": "official-chain-page",
+    "website": "https://totalfusion.com.au/tfp-newstead/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
     "signals": [
-      "brand",
-      "city"
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "board-mention"
     ],
-    "note": "TotalFusion lists Newstead among its clubs, and this venue is the Newstead entry; the operator publishes no per-location page a fetch can read."
+    "note": "The current Newstead branch page identifies TotalFusion Platinum, its 1 Gasworks Lane address and complete club week; its linked gym-floor page explicitly lists the inclined Kilter climbing wall. The older registry point is within the same Gasworks/Longland complex."
   },
   {
     "lat": -37.86987,
@@ -27917,5 +27890,27 @@
     "provenance": "official-site",
     "signals": ["name", "social-handle", "board-mention", "coordinates"],
     "note": "Magnus' current operator page names the gym, links the same magnusclimbinggym social handle carried by its Tension registry row, offers public member/day-pass access and lists Kilter, Moon and Tension Board apps. The capybara-named MoonBoard registry marker 35 m away is consolidated with the address-bearing Kilter/Tension point."
+  },
+  {
+    "lat": -33.89914,
+    "lon": 151.0434,
+    "name": "1UP Bouldering",
+    "country": "AU",
+    "website": "https://www.oneupbouldering.com.au/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "board-mention"],
+    "note": "The current operator homepage identifies the public Chullora gym and exact Unit 1/4 Brunker Road address, while its facilities page carries the venue's Kilter Board image and training area. The site now serves readable first-party text, resolving the former unavailable outcome."
+  },
+  {
+    "lat": -27.565676,
+    "lon": 151.947208,
+    "name": "Climb Toowoomba",
+    "country": "AU",
+    "website": "https://climb-australia.com.au/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city"],
+    "note": "The current operator homepage identifies the open public Toowoomba bouldering gym, exact 25 Prescott Street address, walk-in access and complete regular week. The Kilter row itself is retained from the registry rather than inferred from a search snippet."
   }
 ]

@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-09-01T09:10:39.366Z",
-  "venue_features": 2868,
-  "raw_entries": 3168,
-  "venues_with_multiple_boards": 148,
-  "country_from_coder": 2868,
+  "generated_at": "2026-09-01T09:29:57.997Z",
+  "venue_features": 2866,
+  "raw_entries": 3169,
+  "venues_with_multiple_boards": 149,
+  "country_from_coder": 2866,
   "country_from_fallback": 0,
   "country_missing": 0,
   "city_from_upstream": 1157,
-  "city_from_nearest": 1588,
+  "city_from_nearest": 1586,
   "city_missing": 123,
   "nearest_city_max_km": 25,
   "exclusions": {
-    "defined": 97,
-    "matched_venues": 31,
-    "excluded_entries": 32,
+    "defined": 99,
+    "matched_venues": 33,
+    "excluded_entries": 34,
     "unmatched": 66
   },
   "overrides": {
-    "defined": 118,
-    "applied": 118,
+    "defined": 119,
+    "applied": 119,
     "unmatched": 0,
-    "conflicts": 201
+    "conflicts": 202
   },
   "wellpass": {
     "defined": 87,
@@ -37,14 +37,14 @@
     "rejected": 0,
     "countries": 64,
     "by_provenance": {
-      "official-chain-page": 125,
-      "official-location-page": 658,
-      "official-site": 1051
+      "official-chain-page": 124,
+      "official-location-page": 661,
+      "official-site": 1049
     }
   },
   "venue_hours": {
-    "defined": 1347,
-    "applied": 1347,
+    "defined": 1349,
+    "applied": 1349,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -54,8 +54,8 @@
     "open_24h_days": 43,
     "by_provenance": {
       "official-chain-page": 109,
-      "official-location-page": 522,
-      "official-site": 716
+      "official-location-page": 525,
+      "official-site": 715
     }
   },
   "per_board": {
@@ -66,13 +66,13 @@
     "soill": 12,
     "touchstone": 5,
     "aurora": 3,
-    "moonboard": 1542,
+    "moonboard": 1543,
     "12climb": 6,
     "quantum": 12
   },
   "per_source": {
-    "hangtime": 3054,
-    "curated": 102,
+    "hangtime": 3052,
+    "curated": 105,
     "quantum": 12
   },
   "sources": {
@@ -119,7 +119,7 @@
       }
     },
     "curated": {
-      "entries": 102,
+      "entries": 105,
       "verified_on": "2026-09-01",
       "policy": "official-venue-pages"
     },

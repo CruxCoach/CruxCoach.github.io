@@ -122,6 +122,9 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Camp5 Eco City', 'tension'],
     ["Magnus' Climbing Gym", 'moonboard'],
     ['Lighthouse Climbing PTE', 'moonboard'],
+    ['Sandbox Bouldering', 'moonboard'],
+    ['Sandbox Bouldering', 'grasshopper'],
+    ['Rocket Climbing', 'moonboard'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -1133,6 +1136,58 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(magnusBangkok[0].properties.website, 'https://www.magnusthecapybara.com/');
   assert.deepEqual(magnusBangkok[0].properties.hours, Array(7).fill('00:00-24:00'));
   assert.equal(at(features, 13.723358, 100.530565).length, 0);
+
+  const sandbox = at(features, -33.83541, 151.05309);
+  assert.equal(sandbox.length, 1);
+  assert.equal(sandbox[0].properties.name, 'Sandbox Bouldering');
+  assert.deepEqual(new Set(boardIds(sandbox[0])), new Set(['kilter', 'tension', 'moonboard', 'grasshopper']));
+  assert.equal(at(features, -33.83547, 151.05313).length, 0);
+  const sandboxKilter = sandbox[0].properties.boards.find(board => board.board === 'kilter');
+  assert.equal(sandboxKilter.walls[0].size_label, '12x12, with Kickboard');
+  assert.equal(sandboxKilter.walls[0].adjustable, true);
+  assert.equal(sandboxKilter.walls[0].min_angle, 35);
+  assert.equal(sandboxKilter.walls[0].max_angle, 65);
+  const sandboxMoon = sandbox[0].properties.boards.find(board => board.board === 'moonboard');
+  assert.equal(sandboxMoon.variant, 'mb2016');
+  assert.equal(sandboxMoon.angle, 40);
+  assert.equal(sandbox[0].properties.website, 'https://sandboxbouldering.com.au/');
+  assert.equal(sandbox[0].properties.hours, undefined);
+
+  const rocket = at(features, -37.78692, 144.88556);
+  assert.equal(rocket.length, 1);
+  assert.equal(rocket[0].properties.name, 'Rocket Climbing');
+  assert.deepEqual(new Set(boardIds(rocket[0])), new Set(['kilter', 'moonboard']));
+  assert.equal(at(features, -37.7870301, 144.885586).length, 0);
+  assert.equal(rocket[0].properties.boards.find(board => board.board === 'moonboard').variant, null);
+  assert.equal(rocket[0].properties.website, 'https://rocket-climbing.com.au/');
+  assert.deepEqual(rocket[0].properties.hours, [
+    '06:30-22:00', '11:00-22:00', '06:30-22:00', '11:00-22:00',
+    '11:00-22:00', '09:00-21:00', '09:00-21:00',
+  ]);
+
+  const oneUp = at(features, -33.89914, 151.0434);
+  assert.equal(oneUp.length, 1);
+  assert.equal(oneUp[0].properties.website, 'https://www.oneupbouldering.com.au/');
+  assert.deepEqual(oneUp[0].properties.hours, [
+    '10:00-22:00', '10:00-22:00', '10:00-22:00', '10:00-22:00',
+    '10:00-22:00', '08:00-22:00', '08:00-22:00',
+  ]);
+
+  const climbToowoomba = at(features, -27.565676, 151.947208);
+  assert.equal(climbToowoomba.length, 1);
+  assert.equal(climbToowoomba[0].properties.website, 'https://climb-australia.com.au/');
+  assert.deepEqual(climbToowoomba[0].properties.hours, [
+    '14:00-21:00', '14:00-21:00', '14:00-21:00', '15:00-21:00',
+    '14:00-21:00', '08:00-20:00', '10:00-16:00',
+  ]);
+
+  const totalFusion = at(features, -27.45127, 153.0454);
+  assert.equal(totalFusion.length, 1);
+  assert.equal(totalFusion[0].properties.website, 'https://totalfusion.com.au/tfp-newstead/');
+  assert.deepEqual(totalFusion[0].properties.hours, [
+    '04:30-22:00', '04:30-22:00', '04:30-22:00', '04:30-22:00',
+    '04:30-21:00', '05:00-19:00', '06:00-19:00',
+  ]);
 
   for (const [lat, lon] of [
     [31.9543786, 35.9105776],

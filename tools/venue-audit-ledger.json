@@ -862,20 +862,18 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unavailable",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
      "web-search",
      "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "inaccessible",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
+     "venue-link",
      "path-probe"
     ]
    }
@@ -1274,12 +1272,20 @@
     "hours"
    ],
    "website": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "path-probe"
+    ]
    },
    "hours": {
-    "pass": null,
-    "result": "pending"
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ]
    }
   },
   {
@@ -1857,35 +1863,6 @@
    }
   },
   {
-   "lat": -37.7870301,
-   "lon": 144.885586,
-   "name": "Rocket",
-   "country": "AU",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
    "lat": -37.78692,
    "lon": 144.88556,
    "name": "Rocket Climbing",
@@ -2022,35 +1999,6 @@
    }
   },
   {
-   "lat": -33.83547,
-   "lon": 151.05313,
-   "name": "Sandbox Bouldering",
-   "country": "AU",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-08-23",
-    "result": "accepted",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "osm-website-tag",
-     "co-located"
-    ]
-   },
-   "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ]
-   }
-  },
-  {
    "lat": -33.83541,
    "lon": 151.05309,
    "name": "Sandbox Bouldering",
@@ -2071,8 +2019,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-23",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "ambiguous",
     "channels": [
      "venue-link",
      "path-probe"
@@ -2233,8 +2181,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-24",
-    "result": "no-hours-on-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "venue-link",
      "path-probe"
