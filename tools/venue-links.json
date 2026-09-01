@@ -27623,5 +27623,38 @@
     "provenance": "official-site",
     "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
     "note": "The current operator facility and programming pages identify the public Thunder Bay gym at 319 Victoria Ave E and explicitly name both its Kilter Board and Moon Board. The newly refreshed structured source supplies the same exact address and coordinate."
+  },
+  {
+    "lat": 43.051019,
+    "lon": 141.384596,
+    "name": "Rainbow Cliff",
+    "country": "JP",
+    "website": "https://www.rainbow-cliff.co.jp/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage identifies Rainbow Cliff, its public MoonBoard and 北海道札幌市白石区東札幌2条2丁目3-26 address. MLIT's 2025 location-reference file supplies the representative point for the exact 東札幌二条二丁目3 lot."
+  },
+  {
+    "lat": 35.7035691,
+    "lon": 139.7517476,
+    "name": "スポドリ！ Spo-Dori!",
+    "country": "JP",
+    "website": "https://www.tokyo-dome.co.jp/spo-dori/bouldering/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
+    "note": "Tokyo Dome's current bouldering and access pages identify Spo-Dori!, its LED MoonBoard and 後楽1-3-61 黄色いビル3F address. The exact named Yellow Building in OSM (way 45977419) independently supplies the point."
+  },
+  {
+    "lat": 35.847428,
+    "lon": 139.626441,
+    "name": "Climbing Gym Penguin",
+    "country": "JP",
+    "website": "https://penguin-climb.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "city", "coordinates", "board-mention"],
+    "note": "The current operator homepage identifies Climbing Gym Penguin, its public MoonBoard and 埼玉県さいたま市桜区田島4-40-16 address. MLIT's 2025 location-reference file supplies the representative point for the exact 田島四丁目40 lot."
   }
 ]

@@ -1251,6 +1251,60 @@ const ENTRIES = [
     country: 'CA',
     walls: [],
   },
+  {
+    // Current public venue, MoonBoard, exact address and regular week:
+    // https://www.rainbow-cliff.co.jp/
+    // MLIT's 2025 block-level location-reference file 01_2025.csv supplies the
+    // representative point for the exact 東札幌2条2丁目3 lot.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Rainbow Cliff',
+    lat: 43.051019,
+    lon: 141.384596,
+    address: '北海道札幌市白石区東札幌2条2丁目3-26',
+    city: 'Sapporo',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current public venue, LED MoonBoard, exact address and regular week:
+    // https://www.tokyo-dome.co.jp/spo-dori/bouldering/
+    // https://www.tokyo-dome.co.jp/spo-dori/access/
+    // The exact named Yellow Building is independently corroborated by OSM.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'スポドリ！ Spo-Dori!',
+    lat: 35.7035691,
+    lon: 139.7517476,
+    address: '東京都文京区後楽1-3-61 黄色いビル3F',
+    city: 'Tokyo',
+    country: 'JP',
+    commercial: true,
+    led: true,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current public venue, MoonBoard, exact address and regular week:
+    // https://penguin-climb.com/
+    // MLIT's 2025 block-level location-reference file 11_2025.csv supplies the
+    // representative point for the exact 田島4丁目40 lot.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Climbing Gym Penguin',
+    lat: 35.847428,
+    lon: 139.626441,
+    address: '埼玉県さいたま市桜区田島4-40-16',
+    city: 'Saitama',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
 ];
 
 export async function load() {

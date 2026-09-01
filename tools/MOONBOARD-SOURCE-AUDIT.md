@@ -403,6 +403,43 @@ mislocated and one closed, with zero pending or unknown map rows. Because this
 retry yielded two venues, a fresh nationwide Japanese discovery pass is still
 required before any regional exhaustion claim.
 
+The fresh nationwide pass has itself produced three further current venues, so
+Japan is still not exhausted. Rainbow Cliff's current operator homepage names
+its public MoonBoard, exact Sapporo address and complete week; the exact
+東札幌二条二丁目3 block comes from MLIT's 2025 Hokkaido file. Tokyo Dome's
+current Spo-Dori! bouldering page explicitly names its LED MoonBoard, and its
+access and information pages bind the public all-day facility and seven-day week
+to 後楽1-3-61 黄色いビル3F; the exact named building is independently present
+in OpenStreetMap. Climbing Gym Penguin's current homepage likewise names its
+MoonBoard, complete week and 田島4-40-16 address, whose exact block is in MLIT's
+2025 Saitama file. No generation or angle is inferred, and Penguin/Rainbow Cliff
+retain unknown LED status because their operators do not state it.
+
+The older nationwide discovery lists were re-opened rather than treated as
+truth. Their current balance is:
+
+| Candidate | Outcome | Current primary-source result |
+| --- | --- | --- |
+| Rainbow Cliff | published | Current operator board/address/week plus exact MLIT block. |
+| スポドリ！ Spo-Dori! | published | Current operator LED board/address/week plus exact named OSM building. |
+| Climbing Gym Penguin | published | Current operator board/address/week plus exact MLIT block. |
+| UNDERGROUND | removed installation | Current operator says its MoonBoard was dismantled in January 2023. |
+| THREE PEAKS | closed | Current operator closure page states the gym closed 31 May 2026. |
+| BOLD Osaka | closed fixed venue | Current operator channel describes the Osaka gym as former and now offers only mobile event walls. |
+| HEADROCK | currency retry | Current operator domain is access-blocked here; current independent venue material is not substituted for a branch-primary board statement. |
+| RISE Yokohama | currency retry | Operator site is active in September 2026 but its current facility surface does not name a MoonBoard. |
+| OVERGROUND | availability retry | Former operator domain returns 502; only non-primary current-looking directory material names the board. |
+| BAD WALL | access/geodata retry | Operator names its MoonBoard but restricts use to members and publishes no exact street address; no public-access or coordinate assumption is made. |
+| 深谷クライミングヴィレッジ | currency retry | Current operator facility page names the public hall and week but no MoonBoard. |
+| ZERO 宇都宮下栗 | identity/currency retry | Accessible operator archive mentions MoonBoard use but does not currently bind it to the old 下栗 branch; current search results point to a different 宇都宮 address. |
+| RISE/OVERGROUND-era closed rows | rejected | 3RD WALLY, VERT and Lotus already have explicit historical closure signals and are not revived. |
+
+ClimbingBUM Yokohama, BolBol, WEST ROCK, D.Bouldering branches, Blue Bird and
+the other current hits from these lists resolve to already reviewed production
+rows. The audit now accounts for 52 decisions and 48 Japanese production venues
+/ MoonBoard rows: 29 current, 12 unverified, seven private, three mislocated and
+one closed, with zero pending or unknown map rows.
+
 The same full rebuild advanced Hangtime from 1.0.92 to 1.0.93, so its delta was
 audited rather than accepted as opaque churn. Dreamstone Boulders Kelapa Gading
 is a new address-bearing structured Kilter row; only operator social/Linktree
