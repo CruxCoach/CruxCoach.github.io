@@ -1992,6 +1992,26 @@ const ENTRIES = [
     commercial: true,
     walls: [],
   },
+  {
+    // The current operator home and training-area pages repeatedly identify a
+    // public MoonBoard alongside the existing Kilter venue and exact address:
+    // https://baldport.pl/
+    // https://baldport.pl/strefa-treningu/
+    // Neither page states a hold generation or fixed angle, so leave both
+    // unknown. The coordinate is the existing address-bearing Kilter venue.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Bald Port',
+    lat: 53.40676,
+    lon: 14.51759,
+    address: 'Milczańska 31F, 70-117 Szczecin, Poland',
+    city: 'Szczecin',
+    country: 'PL',
+    commercial: true,
+    led: true,
+    variant: null,
+    angle: null,
+  },
 ];
 
 export async function load() {
