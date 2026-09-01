@@ -150,6 +150,29 @@
     }
   },
   {
+    "board": "kilter",
+    "lat": 45.65702,
+    "lon": 13.81049,
+    "name": "Gravità Zero",
+    "note": "The operator's current Sala Boulder page identifies its standard 12x12 Kilter Board as adjustable from 25 to 70 degrees.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 25,
+          "max_angle": 70,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
     "board": "moonboard",
     "lat": 45.6570925,
     "lon": 13.8102992,
