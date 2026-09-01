@@ -32711,5 +32711,21 @@
     },
     "evidence": "ディーボルダリングプラスリード なんば | 〒542-0075 大阪府大阪市中央区難波千日前12−35 | 平日：10:00～23:00 | 土日祝：10:00～21:00 | 休業日：年中無休",
     "note": "The current branch page states the exact venue address and complete ordinary week. Public holidays follow the weekend hours and do not change the regular Monday-to-Friday schedule."
+  },
+  {
+    "lat": 33.571178,
+    "lon": 133.561081,
+    "name": "クライミングジム＆ショップ ストーンラブ",
+    "country": "JP",
+    "source": "https://www.stone0-0729.com/cont5/main.html",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "11:00-22:00", "tue": "11:00-22:00", "wed": "15:00-22:00",
+      "thu": "11:00-22:00", "fri": "closed", "sat": "10:00-20:00", "sun": "10:00-20:00"
+    },
+    "evidence": "営業時間 | 月、火、木 11：00～22：00 | 水曜日 15：00～22：00 | 土日祝 10：00～20：00 | 定休日 金曜日（金曜日が祝日の場合は営業）",
+    "note": "The current operator hours page states every ordinary weekday and the weekend schedule. Holiday Friday opening is an exception and does not change the regular Friday closure."
   }
 ]

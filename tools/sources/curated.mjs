@@ -1380,6 +1380,25 @@ const ENTRIES = [
     variant: null,
     angle: null,
   },
+  {
+    // Current public venue, LED MoonBoard, exact address and regular week:
+    // https://www.stone0-0729.com/cont4/main.html
+    // https://www.stone0-0729.com/map.html
+    // GSI's official address search resolves the operator's compactly written
+    // 南川添1205 address as 南川添12-5 at this exact point.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'クライミングジム＆ショップ ストーンラブ',
+    lat: 33.571178,
+    lon: 133.561081,
+    address: '高知県高知市南川添12-5',
+    city: 'Kochi',
+    country: 'JP',
+    commercial: true,
+    led: true,
+    variant: null,
+    angle: null,
+  },
 ];
 
 export async function load() {

@@ -514,3 +514,38 @@ zero pending or unknown map rows. The whole dataset contains 2,856 venues and
 websites and 1,329 complete regular weeks. Because this restarted pass again
 yielded two current venues, it must restart once more; this is still not an
 exhaustion claim.
+
+The next restart adds a reproducible Japanese directory cross-check instead of
+depending on free-form search ranking. Clatsuku's public gym filter currently
+labels 20 Japanese venues as having a MoonBoard. It is used only as a discovery
+index: its records are self-submitted/stale in places and no board, address,
+hours or coordinate is imported from it. Eight entries resolve to already
+reviewed production rows (Blue Bird, Vortex, GANBA, Monolithe, HUT WALL,
+goodbouldering, Penguin and Colorful Rock). The remaining dispositions are:
+
+| Candidate | Outcome | Primary-source boundary |
+| --- | --- | --- |
+| クライミングジム＆ショップ ストーンラブ | published | Current operator venue page explicitly names its LED MoonBoard; operator address/week plus exact official GSI address point. |
+| Luvrock bouldering spot | currency retry | Active operator site and 2026 notices, but its current pages and WordPress search expose no MoonBoard statement. |
+| HEADROCK CLIMBING GYM | access/currency retry | Operator domain returns 403 here; no directory statement substitutes for current operator evidence. |
+| Climbing gym CLapple | closed | The operator's sister-gym archive states that CLapple closed on 31 May 2023; stale current-looking directories are rejected. |
+| CRAGER'S奥州水沢 | currency retry | Current 2026 retail-event evidence establishes the venue, but the operator uses a social-only channel and no current primary board statement is accessible. |
+| Climbing park HOME | primary-board retry | Current operator identity/address/week remains available, but no operator MoonBoard statement was found. |
+| Be born climbing gym | currency retry | Active operator site and 2026 notices, but its current site contains no MoonBoard statement. |
+| bouldering gym OWL | currency retry | Active operator site publishes the venue and week, but no current MoonBoard statement. |
+| CAMP&CLIMBING FREAKY | currency retry | Active operator site publishes current public use, but no current MoonBoard statement. |
+| ROCKTIME CLIMBING GYM | primary-availability retry | Current independent material names the board; the former operator domain does not resolve, so it is not promoted. |
+| クライミングスポットまっくす | renamed/currency retry | Current operator says it became VOLNY Sagamihara and describes its walls without naming a MoonBoard; the 2019 installer page is historical only. |
+| cactus2 | currency retry | Current operator Wix site establishes the venue but contains no MoonBoard statement; directory claims conflict on generation and are not imported. |
+
+Stone Love's operator writes its address compactly as `南川添1205`; Japan's
+official GSI address service resolves the normalized `南川添12-5` form to an
+exact point without a Google or Apple map dependency. Its current operator
+pages also publish the complete regular week. Generation and angle remain
+unknown because the operator states neither. Since this independently restarted
+pass again found a publishable venue, Japan is still not exhausted and the next
+pass must restart from different discovery channels. Japan now has 57 reviewed
+decisions and 53 production venues / MoonBoard rows: 34 current, 12 unverified,
+seven private, three mislocated and one closed. The whole dataset contains 2,857
+venues and 3,145 board rows, including 1,535 MoonBoards at 1,411 venues, 1,816
+official websites and 1,330 complete regular weeks.

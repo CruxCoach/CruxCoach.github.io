@@ -97,6 +97,7 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['D.Bouldering pluslead namba', 'moonboard'],
     ['クライミングジム猿吉 Sarukichi', 'moonboard'],
     ['Climbing Gym GANBA', 'moonboard'],
+    ['クライミングジム＆ショップ ストーンラブ', 'moonboard'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');
@@ -145,6 +146,18 @@ test('committed map data includes the missing boards and merges the corrected ve
   assert.equal(frontOgden[0].properties.city, 'Ogden');
   assert.equal(frontOgden[0].properties.boards.find(board => board.board === 'moonboard').variant, 'mb2024');
   assert.equal(frontOgden[0].properties.boards.find(board => board.board === 'moonboard').angle, 40);
+
+  const stoneLove = at(features, 33.571178, 133.561081);
+  assert.equal(stoneLove.length, 1);
+  assert.equal(stoneLove[0].properties.name, 'クライミングジム＆ショップ ストーンラブ');
+  assert.equal(stoneLove[0].properties.website, 'https://www.stone0-0729.com/');
+  assert.deepEqual(stoneLove[0].properties.hours, [
+    '11:00-22:00', '11:00-22:00', '15:00-22:00', '11:00-22:00',
+    '', '10:00-20:00', '10:00-20:00',
+  ]);
+  assert.equal(stoneLove[0].properties.boards[0].led, true);
+  assert.equal(stoneLove[0].properties.boards[0].variant, null);
+  assert.equal(stoneLove[0].properties.boards[0].angle, null);
 
   const calgaryOutdoor = at(features, 51.07767, -114.13419);
   assert.equal(calgaryOutdoor.length, 1);
