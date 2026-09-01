@@ -16725,13 +16725,13 @@
   "note": "The gym states that general visitors may use it only during staff hours, so those are the public opening; Monday is excluded from the weekday band in so many words — 平日の月曜日を除く — and is recorded closed. The last-entry times an hour or two before closing are an admission cutoff, not a shorter opening, and the 営業カレンダー beside them is a calendar of dated exceptions."
  },
  {
-  "lat": 35.18145060000001,
-  "lon": 136.9065571,
+  "lat": 35.205871,
+  "lon": 136.94425,
   "name": "RIOT CLIMBING",
   "country": "JP",
   "source": "https://riot-climbing.com/",
-  "checked": "2026-08-24",
-  "provenance": "official-site",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
   "signals": [
    "venue-link",
    "street-address",
@@ -16749,6 +16749,62 @@
   },
   "evidence": "営業時間 平日 13:00 〜 22:00 土日祝 10:00 〜 19:00 定休日 火曜日",
   "note": "Weekdays against weekends-and-public-holidays, with Tuesday named as the closing day, printed beneath the gym's address. Tuesday is the weekday the 定休日 line removes from the 平日 band."
+ },
+ {
+  "lat": 34.511873,
+  "lon": 136.64258,
+  "name": "SunnyDipper Climbing",
+  "country": "JP",
+  "source": "https://sunnydipper.com/%e3%81%94%e5%88%a9%e7%94%a8%e6%96%99%e9%87%91%e3%83%bb%e5%96%b6%e6%a5%ad%e6%99%82%e9%96%93/",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "closed",
+   "tue": "14:00-22:30",
+   "wed": "14:00-22:30",
+   "thu": "14:00-22:30",
+   "fri": "14:00-22:30",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "営業時間 月曜日 定休日 火～金 14:00～22:30 土・日 10:00～20:00 ムーンボードのみの利用",
+  "note": "The operator's current price-and-hours page states a complete ordinary week and explicitly covers MoonBoard-only visits."
+ },
+ {
+  "lat": 36.3479482,
+  "lon": 140.3030609,
+  "name": "vortex",
+  "country": "JP",
+  "source": "https://climbinggym-vortex.shopinfo.jp/pages/5751139/profile",
+  "checked": "2026-09-01",
+  "provenance": "official-location-page",
+  "signals": [
+   "venue-link",
+   "name",
+   "street-address",
+   "postal-code",
+   "city",
+   "hours-scope"
+  ],
+  "hours": {
+   "mon": "16:00-22:30",
+   "tue": "16:00-22:30",
+   "wed": "16:00-22:30",
+   "thu": "16:00-22:30",
+   "fri": "closed",
+   "sat": "10:00-20:00",
+   "sun": "10:00-20:00"
+  },
+  "evidence": "営業時間 金曜定休（祝日は営業） 平日 16:00-22:30 土日祝 10:00-20:00",
+  "note": "The current operator location page states the ordinary weekday and weekend bands and Friday closure. The public-holiday exception does not change the regular Friday week."
  },
  {
   "lat": 35.699996,
@@ -32576,5 +32632,21 @@
     },
     "evidence": "CRUX 大阪 | 定休日：月（月が祝祭日の場合は翌火曜日） | 火―金 14:00 ~ 22:30 | 土 10:00 ~ 19:00 | 日 ＆ 祝 10:00 ~ 19:00 | 〒564-0052 大阪府吹田市広芝町16-9",
     "note": "The current official homepage scopes the complete ordinary week and exact address to CRUX Osaka. Holiday substitution is an exception and does not alter the regular Monday closure."
+  },
+  {
+    "lat": 37.7445357,
+    "lon": 139.1825675,
+    "name": "little forest",
+    "country": "JP",
+    "source": "https://bouldering-littleforest.simdif.com/%E5%96%B6%E6%A5%AD%E6%99%82%E9%96%93.html",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+    "hours": {
+      "mon": "closed", "tue": "closed", "wed": "18:00-22:00",
+      "thu": "18:00-22:00", "fri": "18:00-22:00", "sat": "10:00-18:00", "sun": "10:00-18:00"
+    },
+    "evidence": "水木金曜日 午後6時 [18:00]～午後10時 [22:00] 土日祭日 午前10時 [10:00]～午後6時 [18:00] 定休日 月曜・火曜日 閉店の1時間前が最終入店時刻です。",
+    "note": "The current operator hours page states all seven ordinary days in one schedule; holiday opening is an exception and does not change the regular Monday and Tuesday closures."
   }
 ]

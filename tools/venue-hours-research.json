@@ -4377,9 +4377,10 @@
   "lon": 136.2596226,
   "name": "goodboulderingMOONBOARD",
   "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
+  "status": "ambiguous",
+  "source": "https://goodbouldering.com/",
+  "reason": "The current operator homepage says weekdays and public holidays 16:00-23:00, weekends 11:00-21:00 and Monday closed, while the operator's current official LINE account says Tuesday-Friday 14:00-23:00. The two first-party surfaces conflict on weekday opening time, so no week is published.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 35.8364848,
@@ -4389,7 +4390,7 @@
   "status": "ambiguous",
   "source": "http://granny.attack-climb.jp/",
   "reason": "The gym publishes two weeks side by side and labels them 有人営業 and 無人営業 — staffed and unstaffed. Staffed: 月曜日 定休日（祝日は休日時間帯で営業）, 火曜日〜金曜日 13:00〜22:00, 土日・祝日 10:00〜20:00. Unstaffed adds 8:00〜13:00 and 22:00〜23:00 on weekdays for people who have already been shown round in staffed hours. No site is established for the row, and the staffed week has a Monday rule that depends on whether the day is a public holiday.",
-  "checked": "2026-08-25"
+  "checked": "2026-09-01"
  },
  {
   "lat": 38.04837089999999,
@@ -4400,15 +4401,6 @@
   "source": "https://hutwall.shopinfo.jp/",
   "reason": "The current operator site identifies the venue and carries dated monthly schedule posts through August 2026, but does not state a complete regular week in text. Its older notice says future schedule announcements move to Instagram, so image/social calendars are not converted into recurring public hours.",
   "checked": "2026-09-01"
- },
- {
-  "lat": 37.7445357,
-  "lon": 139.1825675,
-  "name": "little forest",
-  "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
  },
  {
   "lat": 37.40047759999999,
@@ -4440,15 +4432,6 @@
   "reason": "The site was read in full — its root and its hours, contact, contact-us, location, hours-and-location, info, prices, tarifs and about paths — and no page on it pairs a day with a time. It publishes what the venue offers and what it costs, and not when it is open."
  },
  {
-  "lat": 34.4875144,
-  "lon": 136.7093359,
-  "name": "SunnyDipperMoonBoard",
-  "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
-  "checked": "2026-08-25"
- },
- {
   "lat": 39.11843,
   "lon": 141.13801,
   "name": "Take Wall",
@@ -4462,9 +4445,10 @@
   "lon": 130.7078911,
   "name": "The Ranch",
   "country": "JP",
-  "status": "no-official-site",
-  "reason": "No storable site is established for this venue — its own domain is http-only — so no schedule is recorded from it.",
-  "checked": "2026-08-25"
+  "status": "ambiguous",
+  "source": "http://www.theranchgym.com/intro.html",
+  "reason": "The live operator pages conflict: intro.html states Tuesday-Friday 12:00-22:00, weekends and holidays 12:00-19:00 and irregular closures announced monthly, while access.html still states weekdays 11:00-22:00, weekends 12:00-19:00 and Monday plus irregular closures. With differing opening times and no fixed weekly closure pattern, no regular week is published.",
+  "checked": "2026-09-01"
  },
  {
   "lat": 35.6894875,
@@ -4474,15 +4458,6 @@
   "status": "ambiguous",
   "source": "https://volny.net/",
   "reason": "VOLNY publishes a week — 月～木 14:00～23:00, 金 10:00～23:00, 土 13:00～22:00, 日・祝 11:00～21:00 — for a hall 11 km from this coordinate. The venue at this point is not established.",
-  "checked": "2026-08-25"
- },
- {
-  "lat": 36.3479482,
-  "lon": 140.3030609,
-  "name": "vortex",
-  "country": "JP",
-  "status": "no-official-site",
-  "reason": "No official site has been established for this venue, so there is no page to read a schedule from.",
   "checked": "2026-08-25"
  },
  {

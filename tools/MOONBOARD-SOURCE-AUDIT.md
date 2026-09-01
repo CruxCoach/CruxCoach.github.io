@@ -251,6 +251,27 @@ TRAILROCK board is guessed. The Japanese ledger now accounts for 44 published
 venues and 44 MoonBoard rows: 20 current, nine unverified and 15 pending, plus
 the excluded DAIBU closure.
 
+The remaining fifteen-row legacy pass closes that inventory without turning
+weak discovery evidence into production facts. RIOT and SunnyDipper both had
+real current MoonBoards but frozen city-level points: current operator pages
+give exact Nagoya-Moriyama and Tamaki addresses, and MLIT's 2025 block-level
+files supply their replacement points. VORTEX's current operator site and
+official account explicitly identify its MoonBoard and exact Kasama address;
+The Ranch's live operator facility page likewise labels its MOON BOARD and
+Kumamoto address. Their unstated generation, LED and angle details remain
+unknown. VOLNY's point is the generic Tokyo centre rather than either current
+branch, and neither complete branch page names a MoonBoard, so the bad marker is
+removed without guessing a replacement. Goodbouldering, GRANNY and Little
+Forest are active public gyms but lack current branch-primary board statements;
+they remain `unverified`, although safe official websites and Little Forest's
+complete week are independently published. Seven explicitly non-commercial,
+account-style rows have no public operator identity and remain private without
+venue enrichment. The fail-closed ledger is now fully decided: 24 current, 12
+unverified, seven private, three mislocated and one closed, with zero pending.
+Production contains 43 Japanese MoonBoard venues / rows. This exhausts the
+legacy inventory, not Japanese discovery: the withheld TO-DO and FUNNY BONE
+candidates and another nationwide operator/manufacturer search still remain.
+
 CAL-COLO's current operator page explicitly identifies both its Kilter Board
 and an LED-guided MoonBoard at the same Kizugawa address. Because the Kilter
 venue already carries a precise independently corroborated point, the missing

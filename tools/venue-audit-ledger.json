@@ -18681,24 +18681,24 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
-     "previous-record"
+     "previous-record",
+     "operator-index"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "ambiguous",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "operator-index",
+     "previous-record"
     ]
    }
   },
@@ -18828,24 +18828,24 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
-     "previous-record"
+     "previous-record",
+     "operator-index",
+     "path-probe"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "path-probe"
     ]
    }
   },
@@ -18945,15 +18945,16 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "closed",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
      "redirect",
-     "previous-record"
+     "previous-record",
+     "social-profile"
     ]
    },
    "hours": {
@@ -19053,8 +19054,8 @@
    }
   },
   {
-   "lat": 35.18145060000001,
-   "lon": 136.9065571,
+   "lat": 35.205871,
+   "lon": 136.94425,
    "name": "RIOT CLIMBING",
    "country": "JP",
    "needs": [
@@ -19062,17 +19063,19 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-24",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
+     "web-search",
+     "operator-index",
      "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-24",
+    "pass": "2026-09-01",
     "result": "accepted",
     "channels": [
      "venue-link",
@@ -19109,33 +19112,33 @@
    }
   },
   {
-   "lat": 34.4875144,
-   "lon": 136.7093359,
-   "name": "SunnyDipperMoonBoard",
+   "lat": 34.511873,
+   "lon": 136.64258,
+   "name": "SunnyDipper Climbing",
    "country": "JP",
    "needs": [
     "website",
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
+     "operator-index",
      "previous-record"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search"
+     "venue-link",
+     "path-probe",
+     "operator-index"
     ]
    }
   },
@@ -19180,21 +19183,24 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "http-only",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
      "www",
      "web-search",
-     "path-probe"
+     "path-probe",
+     "operator-index"
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "ambiguous",
     "channels": [
-     "path-probe"
+     "venue-link",
+     "path-probe",
+     "operator-index"
     ]
    }
   },
@@ -19208,8 +19214,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "mislocated",
     "channels": [
      "name-guess",
      "apex",
@@ -19219,10 +19225,11 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
+    "pass": "2026-09-01",
     "result": "ambiguous",
     "channels": [
-     "web-search"
+     "web-search",
+     "operator-index"
     ]
    }
   },
@@ -19236,8 +19243,8 @@
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unverified",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",
@@ -19247,8 +19254,8 @@
     ]
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "no-official-site",
+    "pass": "2026-09-01",
+    "result": "accepted",
     "channels": [
      "name-guess",
      "apex",

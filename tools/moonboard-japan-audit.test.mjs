@@ -34,17 +34,17 @@ test('the committed ledger accounts for every Japanese MoonBoard venue and setup
   const decisions = JSON.parse(readFileSync(join(ROOT, 'tools/moonboard-japan-decisions.json'), 'utf8'));
   const exclusions = JSON.parse(readFileSync(join(ROOT, 'tools/location-exclusions.json'), 'utf8'));
   const audit = auditInventory(mapInventory(geojson), decisions, exclusions);
-  assert.equal(decisions.length, 45);
-  assert.equal(audit.venues, 44);
-  assert.equal(audit.rawBoardRows, 44);
+  assert.equal(decisions.length, 47);
+  assert.equal(audit.venues, 43);
+  assert.equal(audit.rawBoardRows, 43);
   assert.deepEqual(audit.counts, {
-    pending: 15,
-    current: 20,
-    unverified: 9,
+    pending: 0,
+    current: 24,
+    unverified: 12,
     closed: 1,
-    private: 0,
+    private: 7,
     ambiguous: 0,
-    mislocated: 0,
+    mislocated: 3,
   });
   assert.deepEqual(audit.malformed, []);
   assert.deepEqual(audit.stale, []);

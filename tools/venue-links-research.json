@@ -1943,32 +1943,14 @@
     "candidate": "https://www.crux-jp.com/crux-osaka/"
   },
   {
-    "lat": 35.274461,
-    "lon": 136.2596226,
-    "name": "goodboulderingMOONBOARD",
-    "country": "JP",
-    "status": "unverified",
-    "reason": "No official site could be established: goodbouldering.jp does not resolve and nothing published around Hikone carries the name. The row reads as a MoonBoard somebody named after their gym rather than a venue.",
-    "checked": "2026-08-25"
-  },
-  {
     "lat": 35.8364848,
     "lon": 139.8972751,
     "name": "GRANNY Minaminagareyama",
     "country": "JP",
     "status": "http-only",
-    "candidate": "http://granny.attack-climb.jp/",
-    "reason": "Bouldering Granny is at 千葉県流山市南流山6-8-7, nine minutes from 南流山 station, and its 130-degree wall is the ムーンボード upstream records. Its site is on attack-climb.jp and answers nothing over https, so the identification is recorded here rather than linked.",
-    "checked": "2026-08-25"
-  },
-  {
-    "lat": 37.7445357,
-    "lon": 139.1825675,
-    "name": "little forest",
-    "country": "JP",
-    "status": "unverified",
-    "reason": "No official site could be established: littleforest.jp resolves and is a frameset site of that name with nothing about climbing on it; nothing published around Gosen carries the name as a venue.",
-    "checked": "2026-08-25"
+    "candidate": "https://granny-bouldering.com/",
+    "reason": "Current authority and climbing-industry sources identify the active GRANNY venue at 南流山6-8-7, but its old granny.attack-climb.jp operator site remains HTTP-only and the newly advertised granny-bouldering.com now redirects through a chain of unrelated domains. No safe current official HTTPS destination can be published.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 37.40047759999999,
@@ -1991,13 +1973,24 @@
     "checked": "2026-09-01"
   },
   {
+    "lat": 35.18145060000001,
+    "lon": 136.9065571,
+    "name": "RIOT CLIMBING",
+    "country": "JP",
+    "status": "mislocated",
+    "candidate": "https://riot-climbing.com/",
+    "reason": "The operator gives the exact Moriyama address 幸心1-113, whose 2025 MLIT address point is 35.205871,136.944250. This frozen coordinate is instead central Nagoya, about five kilometres away, so it is excluded and replaced at the legitimate address point.",
+    "checked": "2026-09-01"
+  },
+  {
     "lat": 34.4875144,
     "lon": 136.7093359,
     "name": "SunnyDipperMoonBoard",
     "country": "JP",
-    "status": "unverified",
-    "reason": "No official site could be established: sunnydipper.jp does not resolve and nothing published in Ise carries this name. The gazetteer object at the coordinate is the city hall.",
-    "checked": "2026-08-25"
+    "status": "mislocated",
+    "candidate": "https://sunnydipper.com/%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9/",
+    "reason": "The current operator gives the exact Tamaki address 井倉115-2, whose 2025 MLIT address point is 34.511873,136.642580. This frozen coordinate is instead in Ise, about seven kilometres away, so it is excluded and replaced at the legitimate address point.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 39.11843,
@@ -2009,33 +2002,14 @@
     "checked": "2026-08-25"
   },
   {
-    "lat": 32.8031004,
-    "lon": 130.7078911,
-    "name": "The Ranch",
-    "country": "JP",
-    "status": "http-only",
-    "candidate": "http://theranchgym.com/",
-    "reason": "ザ・ランチ is \"熊本市ボルダリングジム 熊本市のボルダリング用品専門店\" at 〒860-0826 熊本市南区平田町1-8-12 — Kumamoto, the city upstream records — and theranchgym.com answers nothing over https. The identification is recorded here because this file keeps https URLs only.",
-    "checked": "2026-08-25"
-  },
-  {
     "lat": 35.6894875,
     "lon": 139.6917064,
     "name": "VOLNY",
     "country": "JP",
-    "status": "unverified",
+    "status": "mislocated",
     "candidate": "https://volny.net/",
-    "reason": "VOLNY is a real Tokyo gym — 東京都武蔵野市吉祥寺北町1-18-3, eight minutes from 吉祥寺 station — and it is 11 km from this row, which sits at 35.6895,139.6917: the value gazetteers return for Tokyo itself. Upstream files the row under Tokyo and holds no street line, so the coordinate is all there is and it points at the city rather than the gym.",
-    "checked": "2026-08-25"
-  },
-  {
-    "lat": 36.3479482,
-    "lon": 140.3030609,
-    "name": "vortex",
-    "country": "JP",
-    "status": "unverified",
-    "reason": "No official site could be established: vortex.jp resolves and redirects to 有限会社ボーテックス, a Suginami web-development and property company 100 km away; nothing published around Tomobe carries the name as a climbing venue.",
-    "checked": "2026-08-25"
+    "reason": "VOLNY's current operator pages identify only the Kichijoji branch at 吉祥寺北町1-18-3 and the Sagamihara branch at 小山2-3-15; neither page mentions a MoonBoard. This frozen coordinate is the generic Tokyo city-centre point and is not either branch, so it is excluded without guessing a replacement.",
+    "checked": "2026-09-01"
   },
   {
     "lat": 35.15172,

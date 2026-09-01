@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-09-01T02:44:30.820Z",
-  "venue_features": 2847,
-  "raw_entries": 3134,
+  "generated_at": "2026-09-01T03:04:11.179Z",
+  "venue_features": 2846,
+  "raw_entries": 3133,
   "venues_with_multiple_boards": 139,
-  "country_from_coder": 2847,
+  "country_from_coder": 2846,
   "country_from_fallback": 0,
   "country_missing": 0,
-  "city_from_upstream": 1125,
-  "city_from_nearest": 1599,
+  "city_from_upstream": 1127,
+  "city_from_nearest": 1596,
   "city_missing": 123,
   "nearest_city_max_km": 25,
   "exclusions": {
-    "defined": 90,
-    "matched_venues": 23,
-    "excluded_entries": 24,
+    "defined": 93,
+    "matched_venues": 26,
+    "excluded_entries": 27,
     "unmatched": 67
   },
   "overrides": {
-    "defined": 95,
-    "applied": 95,
+    "defined": 107,
+    "applied": 107,
     "unmatched": 0,
-    "conflicts": 167
+    "conflicts": 180
   },
   "wellpass": {
     "defined": 87,
@@ -28,8 +28,8 @@
     "unmatched": 0
   },
   "venue_links": {
-    "defined": 1801,
-    "applied": 1801,
+    "defined": 1806,
+    "applied": 1806,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -38,13 +38,13 @@
     "countries": 63,
     "by_provenance": {
       "official-chain-page": 128,
-      "official-location-page": 633,
+      "official-location-page": 638,
       "official-site": 1040
     }
   },
   "venue_hours": {
-    "defined": 1322,
-    "applied": 1322,
+    "defined": 1325,
+    "applied": 1325,
     "matched_by_proximity": 0,
     "unmatched": 0,
     "ambiguous": 0,
@@ -54,8 +54,8 @@
     "open_24h_days": 36,
     "by_provenance": {
       "official-chain-page": 108,
-      "official-location-page": 502,
-      "official-site": 712
+      "official-location-page": 506,
+      "official-site": 711
     }
   },
   "per_board": {
@@ -66,13 +66,13 @@
     "soill": 12,
     "touchstone": 5,
     "aurora": 3,
-    "moonboard": 1526,
+    "moonboard": 1525,
     "12climb": 6,
     "quantum": 9
   },
   "per_source": {
-    "hangtime": 3058,
-    "curated": 67,
+    "hangtime": 3055,
+    "curated": 69,
     "quantum": 9
   },
   "sources": {
@@ -119,7 +119,7 @@
       }
     },
     "curated": {
-      "entries": 67,
+      "entries": 69,
       "verified_on": "2026-09-01",
       "policy": "official-venue-pages"
     },

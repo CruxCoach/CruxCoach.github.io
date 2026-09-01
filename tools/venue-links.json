@@ -14242,19 +14242,75 @@
     "note": "Rhythm Japan's own site for its Niseko operation, giving Hokkaido — the region upstream records for Yamada, Kutchan."
   },
   {
-    "lat": 35.18145060000001,
-    "lon": 136.9065571,
+    "lat": 35.205871,
+    "lon": 136.94425,
     "name": "RIOT CLIMBING",
     "country": "JP",
     "website": "https://riot-climbing.com/",
-    "verified": "2026-08-24",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The current operator homepage identifies RIOT CLIMBING, its installed MoonBoard and 〒463-0079 愛知県名古屋市守山区幸心1-113. The published marker is the matching representative point for 幸心一丁目113 in MLIT's 2025 block-level location-reference file 23_2025.csv; the old central-Nagoya registry point is excluded."
+  },
+  {
+    "lat": 34.511873,
+    "lon": 136.64258,
+    "name": "SunnyDipper Climbing",
+    "country": "JP",
+    "website": "https://sunnydipper.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "Current operator pages identify SunnyDipper Climbing, explicitly offer MoonBoard-only use and give 〒519-0403 三重県度会郡玉城町井倉115-2 第5倉庫. The published marker is the matching representative point for 井倉115 in MLIT's 2025 block-level location-reference file 24_2025.csv; the old Ise registry point is excluded."
+  },
+  {
+    "lat": 32.8031004,
+    "lon": 130.7078911,
+    "name": "The Ranch",
+    "country": "JP",
+    "website": "https://theranch.shop/about",
+    "verified": "2026-09-01",
     "provenance": "official-site",
     "signals": [
       "name",
+      "street-address",
+      "postal-code",
       "city",
       "board-mention"
     ],
-    "note": "riot-climbing.com is titled 名古屋市守山区のボルダリングジム｜ライオットクライミング and its footer gives 〒463-0079 愛知県名古屋市守山区幸心1-113. It also says the hall has a ムーンボード, which is the board upstream records for this row. The coordinate is not the gym: it falls in 中区, the centre of Nagoya, about seven kilometres from Moriyama-ku — a city point, not a hall."
+    "note": "The current operator shop identifies The Ranch climbing gym in Kumamoto and links the live gym site. That official facility page gives 〒860-0826 熊本市南区平田町1-8-12 and labels its MOON BOARD, matching the legacy point and board identity; the stable HTTPS shop page is published because the linked gym site serves HTTP only."
+  },
+  {
+    "lat": 36.3479482,
+    "lon": 140.3030609,
+    "name": "vortex",
+    "country": "JP",
+    "website": "https://climbinggym-vortex.shopinfo.jp/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The current operator site identifies VORTEX at 〒309-1736 茨城県笠間市八雲2-6-2, while its current official account explicitly lists the MoonBoard. The legacy point lies inside the same 八雲二丁目6 address block represented by MLIT's 2025 point."
   },
   {
     "lat": 35.699996,
@@ -27530,5 +27586,27 @@
     "provenance": "official-location-page",
     "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
     "note": "The operator's current wall page explicitly identifies an LED MoonBoard and the same site labels the branch at 山田1430-1 as 川越店. The legacy registry point is retained because it identifies that branch; no coordinate is taken from a commercial map."
+  },
+  {
+    "lat": 35.274461,
+    "lon": 136.2596226,
+    "name": "goodboulderingMOONBOARD",
+    "country": "JP",
+    "website": "https://goodbouldering.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates"],
+    "note": "The current operator homepage identifies グッぼる彦根 at 522-0043 滋賀県彦根市小泉町34-8, matching the legacy venue name and point. The link is venue identity only; its current text does not establish the MoonBoard."
+  },
+  {
+    "lat": 37.7445357,
+    "lon": 139.1825675,
+    "name": "little forest",
+    "country": "JP",
+    "website": "https://bouldering-littleforest.simdif.com/",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "coordinates"],
+    "note": "The operator's current site identifies クライミング＆ボルダリング リトルフォレスト at 新潟県五泉市寺沢3-5-37, matching the legacy venue point and identity."
   }
 ]

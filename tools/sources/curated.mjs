@@ -334,6 +334,44 @@ const ENTRIES = [
   },
   {
     // Current public venue, MoonBoard, exact address and regular access:
+    // https://riot-climbing.com/index.html
+    // 幸心一丁目113 in MLIT's 2025 block-level location-reference file
+    // 23_2025.csv supplies this representative address point. The frozen
+    // registry row used central Nagoya and is excluded as mislocated.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'RIOT CLIMBING',
+    lat: 35.205871,
+    lon: 136.94425,
+    address: '愛知県名古屋市守山区幸心1-113',
+    city: 'Nagoya',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current public venue, MoonBoard, exact address and regular access:
+    // https://sunnydipper.com/
+    // 井倉115 in MLIT's 2025 block-level location-reference file 24_2025.csv
+    // supplies this representative address point. The frozen registry row is
+    // an unrelated Ise city point and is excluded as mislocated.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'SunnyDipper Climbing',
+    lat: 34.511873,
+    lon: 136.64258,
+    address: '三重県度会郡玉城町井倉115-2 第5倉庫',
+    city: 'Tamaki',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current public venue, MoonBoard, exact address and regular access:
     // https://park.hyoutanjima.jp/
     // 東町4丁目1 in MLIT's 2025 block-level location-reference file
     // 21_2025.csv supplies this representative address point.

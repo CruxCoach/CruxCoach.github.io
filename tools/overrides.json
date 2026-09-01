@@ -1154,5 +1154,101 @@
     "name": "OKKUROCK",
     "note": "The current operator facility surface does not establish the inherited non-LED detail.",
     "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.274461,
+    "lon": 136.2596226,
+    "name": "goodboulderingMOONBOARD",
+    "note": "The current operator site does not identify a MoonBoard or light equipment; clear the inherited non-LED claim.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.8364848,
+    "lon": 139.8972751,
+    "name": "GRANNY Minaminagareyama",
+    "note": "No accessible current operator source supports the inherited non-LED or 40-degree details; clear both pending branch-primary evidence.",
+    "set": { "led": null, "angle": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 37.7445357,
+    "lon": 139.1825675,
+    "name": "little forest",
+    "note": "The current operator site does not identify a MoonBoard or light equipment; clear the inherited non-LED claim.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 32.8031004,
+    "lon": 130.7078911,
+    "name": "The Ranch",
+    "note": "The current operator facility page confirms the exact Kumamoto address and MoonBoard but does not state LED equipment; publish the address and clear the inherited non-LED claim.",
+    "set": { "address": "熊本県熊本市南区平田町1-8-12", "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 36.3479482,
+    "lon": 140.3030609,
+    "name": "vortex",
+    "note": "The current operator site and account confirm the exact Kasama address and MoonBoard but do not state LED equipment; publish the address and clear the inherited non-LED claim.",
+    "set": { "address": "茨城県笠間市八雲2-6-2", "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.6452443,
+    "lon": 136.0554408,
+    "name": "First moon board in Hokuriku",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.3697747,
+    "lon": 140.1007046,
+    "name": "mariyatsu board",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 32.9794831,
+    "lon": 130.8133329,
+    "name": "N-mura Board",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 32.9351492,
+    "lon": 130.5627537,
+    "name": "RobertBug",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 34.2682843,
+    "lon": 134.1342933,
+    "name": "TJRwall",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 35.7453849,
+    "lon": 139.42665,
+    "name": "Tokyo Powder",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited LED detail without adding venue context.",
+    "set": { "led": null }
+  },
+  {
+    "board": "moonboard",
+    "lat": 36.3894816,
+    "lon": 139.0634281,
+    "name": "WALLSTREET",
+    "note": "Private non-commercial setup with no public operator evidence; clear the inherited non-LED detail without adding venue context.",
+    "set": { "led": null }
   }
 ]
