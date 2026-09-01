@@ -586,6 +586,11 @@ test('the evidence cross-check finds a mistyped time and forgives spelling', () 
   ]) {
     assert.deepEqual(timesMissingFromEvidence(record({ evidence })), [], evidence);
   }
+
+  assert.deepEqual(timesMissingFromEvidence(record({
+    hours: Object.fromEntries(DAY_KEYS.map(d => [d, '06:00-26:00'])),
+    evidence: '平日・土日祝 6：00～26：00',
+  })), [], 'full-width Japanese times and an extended closing clock');
   // A range may carry one meridiem for both ends — "2-8 pm" is a Canadian
   // co-op's whole afternoon, not two o'clock in the morning. The opening time
   // borrows the closing marker, but only when the pair does not cross noon.

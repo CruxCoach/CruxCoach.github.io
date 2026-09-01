@@ -93,6 +93,8 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Rainbow Cliff', 'moonboard'],
     ['スポドリ！ Spo-Dori!', 'moonboard'],
     ['Climbing Gym Penguin', 'moonboard'],
+    ['Mono Climbing Studio Hakata', 'moonboard'],
+    ['D.Bouldering pluslead namba', 'moonboard'],
   ]);
   for (const entry of entries) {
     assert.equal(entry.source, 'curated');

@@ -253,7 +253,12 @@ export function formatWeeklyHours(week, lang = 'en') {
 // and 12-hour forms are matched against the same 24-hour value, which is the
 // step where a transcription actually goes wrong.
 function evidenceMentionsTime(evidence, minutes) {
-  const h24 = Math.floor(minutes / 60) % 24;
+  // Japanese pages commonly use full-width punctuation, and late-night venues
+  // may state the same extended clock that the schema stores (for example
+  // 26：00). Normalize only punctuation; the quoted evidence remains untouched.
+  const normalizedEvidence = String(evidence).replaceAll('：', ':').replaceAll('．', '.');
+  const exactHour = Math.floor(minutes / 60);
+  const h24 = exactHour % 24;
   const m = minutes % 60;
   const mm = String(m).padStart(2, '0');
   // `h` and `u` are separators too, so a curator quoting a French page does not
@@ -266,6 +271,9 @@ function evidenceMentionsTime(evidence, minutes) {
       ? new RegExp(`(^|[^0-9])0?${h24}([^0-9:.hu]|${sep}00([^0-9]|$)|[hu]([^0-9]|$)|$)`, 'i')
       : new RegExp(`(^|[^0-9])0?${h24}${sep}${mm}([^0-9]|$)`, 'i'),
   ];
+  if (exactHour >= 24) {
+    patterns.push(new RegExp(`(^|[^0-9])${exactHour}${sep}${mm}([^0-9]|$)`, 'i'));
+  }
   const h12 = h24 % 12 === 0 ? 12 : h24 % 12;
   const meridiem = h24 < 12 ? 'a' : 'p';
   // The `m` is optional because US gyms shorten it away — "M-F: 10A-11P" (The
@@ -316,7 +324,7 @@ function evidenceMentionsTime(evidence, minutes) {
   // Words, for the two times that have them.
   if (minutes === 0 || minutes === 24 * 60) patterns.push(/midnight/i);
   if (minutes === 12 * 60) patterns.push(/noon|midday/i);
-  return patterns.some(re => re.test(evidence));
+  return patterns.some(re => re.test(normalizedEvidence));
 }
 
 export function timesMissingFromEvidence(entry) {

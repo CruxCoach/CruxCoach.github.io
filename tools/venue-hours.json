@@ -32679,5 +32679,37 @@
     },
     "evidence": "営業時間 | 火曜～金曜 13：00～23：00 | 土曜 11：00～21：00 | 日曜・祝日 10：00～20：00 | 定休日 毎週月曜日（祝日の場合は営業。振り替え休日無し）",
     "note": "The current operator homepage states the complete ordinary week. Holiday Monday opening is an exception and does not change the regular Monday closure."
+  },
+  {
+    "lat": 33.56772,
+    "lon": 130.442022,
+    "name": "Mono Climbing Studio Hakata",
+    "country": "JP",
+    "source": "https://mono-climbing.com/shopinfo/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "city", "hours-scope"],
+    "hours": {
+      "mon": "06:00-26:00", "tue": "06:00-26:00", "wed": "06:00-26:00",
+      "thu": "06:00-26:00", "fri": "06:00-26:00", "sat": "06:00-26:00", "sun": "06:00-26:00"
+    },
+    "evidence": "モノクライミング博多 | 営業時間 | 平日・土日祝 6：00～26：00 | 住所 福岡市博多区那珂３丁目２７−２７",
+    "note": "The current operator page scopes the all-day schedule and exact address to the Hakata branch. The closing time is stored as 26:00 so the public renderer correctly labels 02:00 as the next day."
+  },
+  {
+    "lat": 34.664854,
+    "lon": 135.502672,
+    "name": "D.Bouldering pluslead namba",
+    "country": "JP",
+    "source": "https://www.d-b-c.jp/top/namba/",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "hours-scope"],
+    "hours": {
+      "mon": "10:00-23:00", "tue": "10:00-23:00", "wed": "10:00-23:00",
+      "thu": "10:00-23:00", "fri": "10:00-23:00", "sat": "10:00-21:00", "sun": "10:00-21:00"
+    },
+    "evidence": "ディーボルダリングプラスリード なんば | 〒542-0075 大阪府大阪市中央区難波千日前12−35 | 平日：10:00～23:00 | 土日祝：10:00～21:00 | 休業日：年中無休",
+    "note": "The current branch page states the exact venue address and complete ordinary week. Public holidays follow the weekend hours and do not change the regular Monday-to-Friday schedule."
   }
 ]

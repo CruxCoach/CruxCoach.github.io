@@ -1305,6 +1305,43 @@ const ENTRIES = [
     variant: null,
     angle: null,
   },
+  {
+    // Current public Hakata branch, MoonBoard, exact address and regular week:
+    // https://mono-climbing.com/shopinfo/
+    // MLIT's 2025 block-level location-reference file 40_2025.csv supplies the
+    // representative point for the exact 那珂3丁目27 block.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'Mono Climbing Studio Hakata',
+    lat: 33.56772,
+    lon: 130.442022,
+    address: '福岡県福岡市博多区那珂3丁目27-27',
+    city: 'Fukuoka',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: null,
+  },
+  {
+    // Current public Namba branch, MoonBoard, exact address and regular week:
+    // https://www.d-b-c.jp/top/namba/facility/
+    // https://www.d-b-c.jp/top/namba/
+    // MLIT's 2025 block-level location-reference file 27_2025.csv supplies the
+    // representative point for the exact 難波千日前12 block.
+    source: 'curated',
+    board: 'moonboard',
+    name: 'D.Bouldering pluslead namba',
+    lat: 34.664854,
+    lon: 135.502672,
+    address: '大阪府大阪市中央区難波千日前12-35 スイングよしもとビル3・4階',
+    city: 'Osaka',
+    country: 'JP',
+    commercial: true,
+    led: null,
+    variant: null,
+    angle: 40,
+  },
 ];
 
 export async function load() {

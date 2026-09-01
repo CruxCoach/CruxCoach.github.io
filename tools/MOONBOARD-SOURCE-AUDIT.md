@@ -451,3 +451,36 @@ inherited 2016/LED claims. Salmisaari's now-upstream Tension row replaces the
 former curated duplicate. This source refresh and the two Japanese additions
 produce 2,849 venues / 3,137 board rows, including 1,527 MoonBoards at 1,403
 venues, without publishing a duplicate Rock Room marker.
+
+The next nationwide tranche adds two more branch-primary installations.
+Mono Climbing Studio's current location page binds a public MoonBoard, exact
+那珂3-27-27 address and complete 06:00–26:00 week specifically to its Hakata
+branch; the representative point for exact block 27 comes from MLIT's 2025
+Fukuoka Location Reference Information. The same chain page was checked across
+the Omura and Sasebo sections and makes no MoonBoard claim for either, so the
+Hakata finding is not projected chain-wide. D.Bouldering's current Namba
+facility page explicitly names its 130-degree MoonBoard, while the branch page
+supplies the exact 難波千日前12-35 address and complete week. The angle is
+normalized to 40 degrees from vertical and the exact block point comes from
+MLIT's 2025 Osaka file. Neither operator states a supported generation or LED
+state, so those fields remain unknown.
+
+The D.Bouldering sitemap, current branch pages and WordPress search/API surfaces
+were checked chain-wide; Hachioji, Tsunashima, Okinawa and Sengen-cho resolve to
+already reviewed production rows, and no other direct branch-primary MoonBoard
+claim surfaced. Three additional Japanese candidates remain fail-closed:
+Climbing Gym 壁屋's current operator page explicitly names its public MoonBoard,
+address and week, but MLIT omits lot 1191 and no exact named map object was found;
+Climbing Park HOME has a current operator identity/address/week but no operator
+MoonBoard statement; Climbing Gym Sarukichi has current municipal identity and
+secondary MoonBoard evidence, but its operator domain does not resolve. They
+remain coordinate, primary-board and primary-availability retries respectively,
+not production rows.
+
+Japan now has 54 reviewed decisions and 50 production venues / MoonBoard rows:
+31 current, 12 unverified, seven private, three mislocated and one closed, with
+zero pending or unknown map rows. The whole dataset contains 2,854 venues and
+3,142 board rows, including 1,532 MoonBoards at 1,408 venues, with 1,813 official
+websites and 1,329 complete regular weeks. Because this tranche again yielded
+two current venues, the nationwide Japanese discovery pass must restart; this
+is not an exhaustion claim.
