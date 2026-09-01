@@ -106,6 +106,8 @@ test('curated source contains only the explicitly reviewed primary-source gaps',
     ['Project Konepaja', 'kilter'],
     ['Vertikale', 'kilter'],
     ['Bigwall Sport Динамо', 'kilter'],
+    ['BHub Bouldering', 'kilter'],
+    ['BUMP Bouldering Pavilion Bukit Jalil', 'kilter'],
     ['Project Konepaja', 'tension'],
     ['Project Konepaja', 'moonboard'],
   ]);
@@ -948,6 +950,33 @@ test('committed map data includes the missing boards and merges the corrected ve
     angle_increments: null,
     hold_set: null,
   });
+
+  const bhub = at(features, 3.1006116, 101.6320434);
+  assert.equal(bhub.length, 1);
+  assert.equal(bhub[0].properties.name, 'BHub Bouldering');
+  assert.equal(bhub[0].properties.city, 'Petaling Jaya');
+  assert.deepEqual(new Set(boardIds(bhub[0])), new Set(['moonboard', 'kilter']));
+  assert.equal(bhub[0].properties.website, 'https://bhubbouldering.com/');
+  assert.deepEqual(bhub[0].properties.hours, [
+    '11:00-23:00',
+    '11:00-23:00',
+    '11:00-23:00',
+    '11:00-23:00',
+    '11:00-23:00',
+    '09:00-20:00',
+    '09:00-20:00',
+  ]);
+
+  const bumpBukitJalil = at(features, 3.051063, 101.6705112);
+  assert.equal(bumpBukitJalil.length, 1);
+  assert.equal(bumpBukitJalil[0].properties.name, 'BUMP Bouldering Pavilion Bukit Jalil');
+  assert.equal(bumpBukitJalil[0].properties.city, 'Kuala Lumpur');
+  assert.deepEqual(boardIds(bumpBukitJalil[0]), ['kilter']);
+  assert.equal(bumpBukitJalil[0].properties.website, 'https://www.bumpbouldering.com/pavilion-bukit-jalil');
+  assert.deepEqual(bumpBukitJalil[0].properties.hours, Array(7).fill('10:00-22:00'));
+  assert.equal(bumpBukitJalil[0].properties.boards[0].walls[0].adjustable, true);
+  assert.equal(bumpBukitJalil[0].properties.boards[0].walls[0].min_angle, 20);
+  assert.equal(bumpBukitJalil[0].properties.boards[0].walls[0].max_angle, 70);
 
   const climbUsMisa = at(features, 37.5627864, 127.1933404);
   assert.equal(climbUsMisa.length, 1);

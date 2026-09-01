@@ -1569,6 +1569,51 @@ const ENTRIES = [
     }],
   },
   {
+    // Current public venue, Kilter Board, exact address and regular week:
+    // https://bhubbouldering.com/
+    // The coordinate is its existing address-bearing MoonBoard venue and lies
+    // on the exact Lorong 51A/227C street segment independently mapped by OSM.
+    source: 'curated',
+    board: 'kilter',
+    name: 'BHub Bouldering',
+    lat: 3.1006116,
+    lon: 101.6320434,
+    address: '4, Lorong 51A/227C, Seksyen 51A, 46100 Petaling Jaya, Selangor, Malaysia',
+    city: 'Petaling Jaya',
+    country: 'MY',
+    commercial: true,
+    walls: [],
+  },
+  {
+    // Current public branch, exact mall unit, adjustable 20-70 degree Kilter
+    // Board and complete regular week:
+    // https://www.bumpbouldering.com/pavilion-bukit-jalil
+    // Pavilion Bukit Jalil's current first-party tenant page independently
+    // establishes that the branch is open; OSM's named mall centroid supplies
+    // the point for the operator's exact Level 5 unit address.
+    source: 'curated',
+    board: 'kilter',
+    name: 'BUMP Bouldering Pavilion Bukit Jalil',
+    lat: 3.051063,
+    lon: 101.6705112,
+    address: 'Lot 5.84-01, Level 5, Pavilion Bukit Jalil, 2 Persiaran Jalil 8, 57000 Kuala Lumpur, Malaysia',
+    city: 'Kuala Lumpur',
+    country: 'MY',
+    commercial: true,
+    walls: [{
+      wall_name: 'Kilter Board',
+      layout: null,
+      size_id: null,
+      size_label: null,
+      adjustable: true,
+      angle: null,
+      min_angle: 20,
+      max_angle: 70,
+      angle_increments: null,
+      hold_set: null,
+    }],
+  },
+  {
     // The same current operator page explicitly identifies Tension Board 2.
     // The public schema has no Tension model-detail field.
     source: 'curated',

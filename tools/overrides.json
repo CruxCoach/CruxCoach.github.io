@@ -1304,5 +1304,15 @@
         }
       ]
     }
+  },
+  {
+    "board": "moonboard",
+    "lat": 3.1006116,
+    "lon": 101.6320434,
+    "name": "BHub Bouldering 2024 Moonboard",
+    "note": "The current operator consistently names the venue BHub Bouldering; remove the upstream board-generation suffix from the public venue identity before grouping it with the independently verified Kilter row.",
+    "set": {
+      "name": "BHub Bouldering"
+    }
   }
 ]

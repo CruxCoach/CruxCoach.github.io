@@ -17217,7 +17217,7 @@
  {
   "lat": 3.1006116,
   "lon": 101.6320434,
-  "name": "BHub Bouldering 2024 Moonboard",
+  "name": "BHub Bouldering",
   "country": "MY",
   "source": "https://bhubbouldering.com/",
   "checked": "2026-08-23",
@@ -32831,5 +32831,21 @@
     },
     "evidence": "Динамо (г. Москва, Ленинградский проспект, дом 36): понедельник - пятница с 7:00 до 23:30, выходные и праздники с 8:00 до 23:00",
     "note": "The operator's current terms explicitly scope one complete ordinary week to the Динамо branch. Holiday weekend hours are an exception and do not alter the regular Monday-Friday schedule."
+  },
+  {
+    "lat": 3.051063,
+    "lon": 101.6705112,
+    "name": "BUMP Bouldering Pavilion Bukit Jalil",
+    "country": "MY",
+    "source": "https://www.bumpbouldering.com/pavilion-bukit-jalil",
+    "checked": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": ["venue-link", "name", "street-address", "postal-code", "city", "board-mention", "hours-scope"],
+    "hours": {
+      "mon": "10:00-22:00", "tue": "10:00-22:00", "wed": "10:00-22:00",
+      "thu": "10:00-22:00", "fri": "10:00-22:00", "sat": "10:00-22:00", "sun": "10:00-22:00"
+    },
+    "evidence": "Opening Hours — Weekdays, Weekends & Public Holidays — 10:00 AM - 10:00 PM",
+    "note": "The current operator branch page states one daily schedule covering weekdays and weekends. Public holidays are included as the same exceptional schedule."
   }
 ]

@@ -14779,7 +14779,7 @@
   {
     "lat": 3.1006116,
     "lon": 101.6320434,
-    "name": "BHub Bouldering 2024 Moonboard",
+    "name": "BHub Bouldering",
     "country": "MY",
     "website": "https://bhubbouldering.com/",
     "verified": "2026-08-23",
@@ -27811,5 +27811,23 @@
     "provenance": "official-location-page",
     "signals": ["name", "street-address", "city", "coordinates", "board-mention"],
     "note": "The current operator homepage, contacts and board guide identify the public Bigwall Sport Динамо branch, its 16x12 Original adjustable Kilter Board and Ленинградский проспект 36 address. OSM's independently maintained Arena Plaza building-part centroid supplies the point."
+  },
+  {
+    "lat": 3.051063,
+    "lon": 101.6705112,
+    "name": "BUMP Bouldering Pavilion Bukit Jalil",
+    "country": "MY",
+    "website": "https://www.bumpbouldering.com/pavilion-bukit-jalil",
+    "verified": "2026-09-01",
+    "provenance": "official-location-page",
+    "signals": [
+      "name",
+      "street-address",
+      "postal-code",
+      "city",
+      "coordinates",
+      "board-mention"
+    ],
+    "note": "The operator's current branch page identifies the Kilter Board, exact Level 5 Pavilion Bukit Jalil unit, public hours and 20-70 degree adjustable range. The mall's current first-party tenant page independently establishes the operating branch, while OSM's named mall centroid supplies the point."
   }
 ]
