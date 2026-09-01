@@ -690,6 +690,29 @@
   },
   {
     "board": "kilter",
+    "lat": 47.84818,
+    "lon": 12.82114,
+    "name": "DAV Boulderhalle Teisendorf",
+    "note": "The venue's current official Kilterboard page identifies its installed 12x12 Original Standard Layout and states an adjustable range from 0 to 50 degrees. Preserve the structured wall identity while filling the missing verified limits.",
+    "set": {
+      "walls": [
+        {
+          "wall_name": "Kilter Board",
+          "layout": "Original",
+          "size_id": 10,
+          "size_label": "12x12, with Kickboard",
+          "adjustable": true,
+          "angle": 40,
+          "min_angle": 0,
+          "max_angle": 50,
+          "angle_increments": null,
+          "hold_set": 3
+        }
+      ]
+    }
+  },
+  {
+    "board": "kilter",
     "lat": 51.01574,
     "lon": 13.8046,
     "name": "XXL Klettern Dresden",

@@ -3146,9 +3146,106 @@
       "candidates_found": 8,
       "production_changes": 3,
       "note": "The third independent Oceania Pass A used current casual-access, booking, first-visit, smaller-city, relocation, operator-domain and Pacific-island formulations distinct from the first two cells. Discovery preceded inventory reconciliation. No unknown public venue survived reconciliation, including the Pacific searches. Rocky Climb's current canonical operator homepage nevertheless corrected three production facts: its embedded exact coordinate and one training-zone description consolidate the 31-m-separated Kilter and Moon markers; the former .com.au link now redirects to the canonical .com site; and matching visible plus structured data update Tuesday and Sunday climbing hours. Flow, Bould Move, Crank, Portside Osborne Park, Beyond Keswick/Thebarton and Gravity Well reconfirmed existing public Kilter rows and venue details. Because this cell changed verified production information, Oceania requires iteration 4 after all Kilter Pass A regions reach iteration 3."
+    },
+    {
+      "pass": "A",
+      "board": "kilter",
+      "region": "dach",
+      "iteration": 4,
+      "status": "complete",
+      "checked": "2026-09-01",
+      "languages": ["de", "fr", "it", "en"],
+      "queries": [
+        "\"Kilterboard\" (Nutzungsregeln OR Einweisung OR Buchung OR reservieren) Boulderhalle Deutschland",
+        "\"Kilter Board\" (Mitgliedschaft OR Gastklettern OR öffentlich OR ohne Anmeldung) Kletterhalle Deutschland",
+        "\"Kilterboard\" (Förderung OR Zuschuss OR Gemeinderat OR Vereinsheft) Klettern Deutschland 2024 2025 2026",
+        "\"Kilter Board\" (Baustelle OR Baufortschritt OR Eröffnungstermin OR Hallenumbau) Boulder Deutschland 2026",
+        "\"Kilterboard\" (Benutzungsordnung OR Hallenordnung OR Sicherheitsregeln OR Mindestalter) (Österreich OR Schweiz)",
+        "\"Kilter Board\" (Vereinsmitglied OR Gast OR Tagesgast OR Zutritt) (Österreich OR Schweiz) Klettern",
+        "\"Kilterboard\" (Förderbeitrag OR Gemeinde OR Vereinszeitung OR Jahresbericht) Klettern Österreich 2024 2025 2026",
+        "\"mur Kilter\" (règlement OR réservation OR accès OR membres OR visiteurs) escalade Suisse",
+        "\"Kilterboard\" (Hallenrundgang OR virtuelle Tour OR Sektoren OR Wandübersicht) (Deutschland OR Österreich OR Schweiz)",
+        "\"Kilter Board\" (Kursplan OR Trainingstermin OR Boardtraining OR Einführungskurs) (Deutschland OR Österreich OR Schweiz)",
+        "\"Kilterboard\" (Dorfzentrum OR Sporthalle OR Vereinsheim OR Jugendzentrum) (Deutschland OR Österreich OR Schweiz)",
+        "\"Kilter Board\" (Landkreis OR Gemeinde OR Stadtverwaltung OR Sportamt) Kletterhalle Deutschland",
+        "\"Kilterboard\" (Betriebsanleitung OR Einweihung OR in Betrieb OR angeschafft) (Bayern OR Sachsen OR Thüringen OR Hessen) 2026",
+        "\"Kilter Board\" (eröffnet OR verfügbar OR Nutzung OR Tageskarte) (Siegen OR Garmisch-Partenkirchen OR Saarbrücken OR Landshut) 2026",
+        "\"Kilterboard\" (Dorfzentrum OR Gemeindezentrum OR Sportzentrum) Österreich Öffnungszeiten",
+        "\"Kilter Board\" (Mühlviertel OR Waldviertel OR Mostviertel OR Pinzgau OR Pongau OR Lungau) Bouldern",
+        "\"Kilter Board\" (conditions d'accès OR règlement OR réservation OR cours d'initiation) (Vaud OR Valais OR Fribourg OR Jura)",
+        "\"Kilterboard\" (inauguré OR mis en service OR subvention OR travaux) escalade Suisse 2025 2026",
+        "\"Kilter Board\" (regolamento OR prenotazione OR accesso giornaliero OR corso) arrampicata Ticino",
+        "\"Kilterboard\" (inaugurata OR installata OR finanziamento OR lavori) arrampicata Svizzera 2025 2026",
+        "site:dav-siegerland.de (Kilterboard OR \"Kilter Board\") (Kletterzentrum OR Öffnungszeiten OR Preise OR Adresse)",
+        "site:dorfzentrum.st-martin.eu/boulderoase (Kilterboard OR Öffnungszeiten OR Preise OR \"erster Besuch\")",
+        "site:cityboulder.ch (Kilterboard OR Ausbau OR Ü16 OR Öffnungszeiten)",
+        "site:bimano.ch/boulder (Kilterboard OR Öffnungszeiten OR Preise OR Adresse)"
+      ],
+      "results_reviewed": 134,
+      "candidates_found": 15,
+      "production_changes": 1,
+      "note": "This already-started DACH batch was completed once after the workflow changed to primary-cell-only coverage. It used access rules, booking, induction, facility tours, local-government and club records, smaller-region terms, French/Italian formulations and exact operator-domain searches. Discovery preceded inventory reconciliation. Current official pages reconfirmed DAV Kletterzentrum Siegerland, Boulderoase St. Martin, Bimano Bern, City Boulder Kriens, DAV Boulderzentrum Erlangen, PEAK7, Südbloc, Boulderwerk Saarbrücken, XXL Dresden, Garmisch-Partenkirchen, Fingerfood and Alpenverein Leibnitz as existing production venues. DAV Teisendorf's current venue-controlled Kilterboard page newly verifies that its existing 12x12 Original adjusts from 0 to 50 degrees, so those missing wall limits are published. Its nominal week remains withheld because the venue page qualifies access through school-use exclusions, mandatory reservations and a full August closure. No unknown public venue survived reconciliation. Per the user's revised completion rule, this checkpoint causes no regional or pass-wide repetition."
     }
   ],
   "candidates": [
+    {
+      "board": "kilter",
+      "name": "DAV Boulderhalle Teisendorf",
+      "region": "dach",
+      "discovered_by": "Pass A iteration 4 access-rule, installation and exact-operator searches",
+      "status": "corrected-existing-structured-source",
+      "official_sources": [
+        "https://www.dav-teisendorf.de/Kletteranlagen/Boulderhalle-Teisendorf/Kilterboard",
+        "https://www.dav-teisendorf.de/Kletteranlagen/Boulderhalle-Teisendorf"
+      ],
+      "note": "The current venue-controlled board page identifies the installed 12x12 Original Standard Layout and its 0-50-degree adjustment range. The existing structured production row is enriched rather than duplicated. The nominal daily week remains a research outcome because the operator qualifies it with school-use exclusions, compulsory reservations and a full August closure."
+    },
+    {
+      "board": "kilter",
+      "name": "DAV Kletterzentrum Siegerland",
+      "region": "dach",
+      "discovered_by": "Pass A iteration 4 commissioning and exact-operator searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": [
+        "https://www.dav-siegerland.de/artikel/Eroffnung-des-Kilterboards-im-Kletterzentrum-Siegerland/148267",
+        "https://www.kletterzentrum-siegerland.de/"
+      ],
+      "note": "The current section article confirms the board entered service and was used by visitors at the public Kletterzentrum. Reconciliation found the exact venue, full 0-70-degree profile, official site and regular week already published."
+    },
+    {
+      "board": "kilter",
+      "name": "Boulderoase St. Martin",
+      "region": "dach",
+      "discovered_by": "Pass A iteration 4 municipal-facility and exact-operator searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": [
+        "https://dorfzentrum.st-martin.eu/boulderoase/"
+      ],
+      "note": "The current municipal venue page reconfirms the exact public facility, address and hydraulic 20-70-degree Kilter Board. The corrected production row and official website already represent it; one-off closures are not folded into the regular week."
+    },
+    {
+      "board": "kilter",
+      "name": "Bimano Bern",
+      "region": "dach",
+      "discovered_by": "Pass A iteration 4 access and exact-operator searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": [
+        "https://www.bimano.ch/boulder"
+      ],
+      "note": "The current branch-primary page reconfirms public admission, the Kilter training area, exact Bern address and room-specific regular week. The production venue, official link and hours were already published."
+    },
+    {
+      "board": "kilter",
+      "name": "City Boulder AG",
+      "region": "dach",
+      "discovered_by": "Pass A iteration 4 facility-tour and exact-operator searches",
+      "status": "reconciled-existing-structured-source",
+      "official_sources": [
+        "https://www.cityboulder.ch/",
+        "https://www.cityboulder.ch/index.php?catid=88&id=178%3Awir-gehen-raus&view=article"
+      ],
+      "note": "The current operator pages reconfirm the Kilter Board in Hall 2's age-16-plus area and public venue access. The exact Kriens production row, full adjustable profile, official link and regular week were already present."
+    },
     {
       "board": "kilter",
       "name": "UWL REC Climbing Gym",
