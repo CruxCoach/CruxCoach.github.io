@@ -181,6 +181,24 @@ export function releaseMetadataUrl(href) {
 }
 
 /**
+ * The same release on GitHub, derived from the Codeberg link's tag.
+ *
+ * GitHub has been the primary forge since 0.2.2 and carries the identical
+ * signed bytes under the identical file name, so it can stand in for Codeberg
+ * without the mirror's hash-named file. Metadata, never the attachment, is what
+ * gets probed — for the same download-count reason as on Codeberg.
+ */
+export function githubRelease(href) {
+  const match = CODEBERG_APK_RE.exec(String(href || ''));
+  if (!match) return null;
+  const tag = match[1];
+  return {
+    apk: `https://github.com/CruxCoach/CruxCoach/releases/download/${tag}/CruxCoach-${tag}.apk`,
+    metadata: `https://api.github.com/repos/CruxCoach/CruxCoach/releases/tags/${tag}`,
+  };
+}
+
+/**
  * Ask a host whether it is answering. Three outcomes, not two.
  *
  * 'up'      it answered
@@ -230,9 +248,10 @@ function plainClick(event) {
 /**
  * Decide where a direct-APK click actually goes, at the moment it happens.
  *
- * The button's targets are all in the markup, so this only ever picks between
- * them: our selector, the versioned Codeberg link, the content-addressed
- * mirror. It walks them in that order and takes the first that answers.
+ * The button's targets all follow from the markup, so this only ever picks
+ * between them: our selector, the versioned Codeberg link, the same release on
+ * GitHub, the content-addressed mirror. It walks them in that order and takes
+ * the first that answers — no single host, ours included, can stop a download.
  *
  * Nothing is asked before a click. Our own server is asked only about itself,
  * and the two third parties only once a click is already on its way to them —
@@ -256,17 +275,32 @@ export function apkClickHandler(options = {}) {
       || (href === data.apkSelector ? null : href);
     const mirror = data.apkMirror;
     const metadataUrl = releaseMetadataUrl(direct);
+    const github = githubRelease(direct);
     // Both remaining targets must be recognisable, or there is nothing to fall
     // back to and the browser should just follow the link.
     if (!metadataUrl || !mirror || !MIRROR_RE.test(mirror)) return false;
 
     event.preventDefault();
     const go = (url) => { win.location.href = url; };
-    // Only a Codeberg that positively answered badly sends anyone to the
-    // mirror. The mirror works, but it is content-addressed, so the file
-    // arrives named after its hash — a last resort, not a coin flip.
+    // Codeberg first, then GitHub: both serve the release under its own name.
+    // GitHub is asked only once Codeberg failed to answer, so a healthy
+    // Codeberg keeps a second third party out of the click entirely.
+    //
+    // Only forges that BOTH positively answered badly send anyone to the
+    // mirror. It works, but it is content-addressed, so the file arrives named
+    // after its hash — a last resort, not a coin flip. A check that could not
+    // run is no evidence either way and falls back to a properly named file.
     const thirdParty = () => probe(fetchImpl, win, metadataUrl, mirrorTimeout, 'GET')
-      .then((state) => go(state === 'down' ? mirror : direct));
+      .then((codeberg) => {
+        if (codeberg === 'up') return go(direct);
+        return probe(fetchImpl, win, github.metadata, mirrorTimeout, 'GET')
+          .then((gh) => {
+            if (gh === 'up') return go(github.apk);
+            if (codeberg !== 'down') return go(direct);
+            if (gh !== 'down') return go(github.apk);
+            return go(mirror);
+          });
+      });
 
     // Ask our own server first, whether or not the button was upgraded.
     //

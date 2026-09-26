@@ -7,6 +7,7 @@ import {
   FALLBACK_WINDOW_MS,
   consumeZapstoreFallback,
   apkClickHandler,
+  githubRelease,
   initAnonymousAnalytics,
   releaseMetadataUrl,
   upgradeApkButtons,
@@ -375,7 +376,7 @@ test('privacy notices distinguish private analytics operations from public app s
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v35';/);
+  assert.match(source, /var VERSION = 'cc-v36';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
   // The share QR names this page and nothing else, so a visitor who scans it
@@ -547,6 +548,48 @@ test('a check that could not run never argues for the hash-named mirror', async 
   const notUpgraded = clickWith(blocked, apkButton());
   await settle();
   assert.equal(notUpgraded.win.location.href, CODEBERG_APK);
+});
+
+const GITHUB_APK =
+  'https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk';
+const GITHUB_METADATA =
+  'https://api.github.com/repos/CruxCoach/CruxCoach/releases/tags/v0.2.1';
+
+test('the GitHub release is derived from the Codeberg link, never probed as an asset', () => {
+  assert.deepEqual(githubRelease(CODEBERG_APK), { apk: GITHUB_APK, metadata: GITHUB_METADATA });
+  assert.equal(githubRelease('https://evil.example/CruxCoach-v0.2.1.apk'), null);
+});
+
+test('with our server and Codeberg both down, GitHub delivers the named file', async () => {
+  // Neither our server nor Codeberg may be the one host a download depends on.
+  const onlyGitHub = (url, init) => (url === GITHUB_METADATA ? up() : hanging(url, init));
+  const { win, asked } = clickWith(onlyGitHub, apkButton({ upgraded: true }));
+  await settle();
+  assert.equal(win.location.href, GITHUB_APK);
+  assert.deepEqual(asked.map((a) => a[0]), [SELECTOR, METADATA, GITHUB_METADATA]);
+});
+
+test('GitHub is not asked while Codeberg answers', async () => {
+  const { asked } = clickWith(onlyCodeberg, apkButton({ upgraded: true }));
+  await settle();
+  assert.ok(!asked.some(([url]) => url.includes('github')), 'no second third party');
+});
+
+test('a forge that could not be asked is still preferred to the hash-named mirror', async () => {
+  // Codeberg positively down, the GitHub check blocked: no evidence against
+  // GitHub, so the visitor gets its properly named file.
+  const codebergDownGitHubBlocked = (url, init) =>
+    (url === GITHUB_METADATA ? blocked() : hanging(url, init));
+  const first = clickWith(codebergDownGitHubBlocked, apkButton({ upgraded: true }));
+  await settle();
+  assert.equal(first.win.location.href, GITHUB_APK);
+
+  // Codeberg's check blocked, GitHub positively down: back to Codeberg.
+  const codebergBlockedGitHubDown = (url, init) =>
+    (url === METADATA ? blocked() : hanging(url, init));
+  const second = clickWith(codebergBlockedGitHubDown, apkButton({ upgraded: true }));
+  await settle();
+  assert.equal(second.win.location.href, CODEBERG_APK);
 });
 
 test('a slow host does not hold the download hostage', async () => {

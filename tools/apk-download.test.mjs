@@ -266,7 +266,7 @@ test('every tracked file that names a release download is kept current by the up
   const tracked = execFileSync('git', ['ls-files'], { cwd: repoRoot, encoding: 'utf8' })
     .trim().split('\n')
     .filter((file) => /\.(html|txt|json|mjs)$/.test(file) && !file.includes('.test.'));
-  const release = /https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/v\d+\.\d+\.\d+\//;
+  const release = /https:\/\/(?:codeberg\.org|github\.com)\/CruxCoach\/CruxCoach\/releases\/download\/v\d+\.\d+\.\d+\//;
   const missing = tracked.filter((file) => !listed.has(file)
     && release.test(fs.readFileSync(path.join(repoRoot, file), 'utf8')));
   assert.deepEqual(missing, []);

@@ -729,8 +729,8 @@
     </p>
     <ul class="privacy-list">
       <li><strong>No Google Play Services.</strong> CruxCoach calls no GMS APIs and runs fully on GrapheneOS, CalyxOS, /e/OS and LineageOS without GApps.</li>
-      <li><strong>Install without the Play Store.</strong> Get it from Zapstore or use the one-click APK download, which automatically selects the available verified Codeberg or Zapstore copy. CruxCoach is not on Google Play and never requires it.</li>
-      <li><strong>Updates without Google.</strong> The optional in-app updater pulls signed APK releases straight from Codeberg with TOFU certificate pinning — no Play Store and no Play Integrity check. On Zapstore installs it disables itself and lets the store update.</li>
+      <li><strong>Install without the Play Store.</strong> Get it from Zapstore or use the one-click APK download, which automatically picks an available verified copy: our own, Codeberg's, GitHub's or Zapstore's. CruxCoach is not on Google Play and never requires it.</li>
+      <li><strong>Updates without Google.</strong> The optional in-app updater pulls signed APK releases from GitHub, Codeberg, Zapstore or Blossom mirrors, whichever answers, with TOFU certificate pinning — no Play Store and no Play Integrity check. On Zapstore installs it disables itself and lets the store update.</li>
     </ul>
   </div>
 </section>
@@ -747,14 +747,15 @@
       </div>
       <div class="install-card">
         <h3>Direct APK</h3>
-        <p>One button downloads the signed APK from whichever verified source is currently available: Codeberg or its identical, content-addressed Zapstore mirror.</p>
+        <p>One button downloads the signed APK from whichever verified source is currently available: our own copy, Codeberg, GitHub or the identical, content-addressed Zapstore mirror.</p>
         <div class="cta-row">
           <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.3/CruxCoach-v0.2.3.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/home-en/install" data-apk-mirror="https://cdn.zapstore.dev/04aaa4a563c38d8352c685c7dc2da98d84953d6f4815ca856e89cbd178770c55.apk">Download APK</a>
         </div>
+        <p class="install-alternatives">Or pick a source yourself: <a href="https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.3/CruxCoach-v0.2.3.apk" rel="nofollow" referrerpolicy="no-referrer">GitHub</a> · <a href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.3/CruxCoach-v0.2.3.apk" rel="nofollow" referrerpolicy="no-referrer">Codeberg</a> · <a href="https://cdn.zapstore.dev/04aaa4a563c38d8352c685c7dc2da98d84953d6f4815ca856e89cbd178770c55.apk" rel="nofollow" referrerpolicy="no-referrer">Zapstore mirror</a></p>
       </div>
       <div class="install-card">
         <h3><a href="https://github.com/ImranR98/Obtainium" rel="noopener">Obtainium</a></h3>
-        <p>Open-source installer that tracks a project's own releases and keeps them updated — no store in between. The button below opens Obtainium with CruxCoach prefilled; if it is not installed yet, add the source by hand with <code>https://codeberg.org/CruxCoach/CruxCoach</code>.</p>
+        <p>Open-source installer that tracks a project's own releases and keeps them updated — no store in between. The button below opens Obtainium with CruxCoach prefilled; if it is not installed yet, add the source by hand with <code>https://codeberg.org/CruxCoach/CruxCoach</code> or <code>https://github.com/CruxCoach/CruxCoach</code>.</p>
         <a class="btn btn-secondary" href="obtainium://add/https://codeberg.org/CruxCoach/CruxCoach">Add to Obtainium</a>
       </div>
     </div>

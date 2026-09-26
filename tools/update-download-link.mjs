@@ -65,6 +65,11 @@ const API = 'https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/late
 const CODEBERG_LINK_RE =
   /https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/[^"'\s)]+\.apk(\.sha256)?/g;
 const ZAPSTORE_LINK_RE = /https:\/\/cdn\.zapstore\.dev\/[0-9a-fA-F]{64}/g;
+// Direct GitHub links (the no-JS alternatives and llms.txt). The protected
+// release workflow publishes GitHub before it mirrors to Codeberg, so a release
+// that is complete on Codeberg is complete on GitHub under the same name.
+const GITHUB_LINK_RE =
+  /https:\/\/github\.com\/CruxCoach\/CruxCoach\/releases\/download\/v[0-9]+\.[0-9]+\.[0-9]+\/CruxCoach-v[0-9]+\.[0-9]+\.[0-9]+\.apk(\.sha256)?/g;
 // Version statements that name the current release outside a download URL:
 // the JSON-LD `softwareVersion` and llms.txt's "Current version". Rewritten
 // with the links, or crawlers and AI answers keep quoting an old release.
@@ -164,6 +169,9 @@ for (const file of FILES) {
   const after = before
     .replace(CODEBERG_LINK_RE, (_m, sidecarSuffix) => apkUrl + (sidecarSuffix ?? ''))
     .replace(ZAPSTORE_LINK_RE, zapstoreUrl)
+    .replace(GITHUB_LINK_RE, (_m, sidecarSuffix) =>
+      `https://github.com/CruxCoach/CruxCoach/releases/download/v${version}/CruxCoach-v${version}.apk`
+        + (sidecarSuffix ?? ''))
     .replace(SOFTWARE_VERSION_RE, `$1${version}$2`)
     .replace(CURRENT_VERSION_RE, `$1${version}$2`);
   if (after === before) {

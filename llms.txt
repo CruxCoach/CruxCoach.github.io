@@ -33,9 +33,10 @@ CruxCoach is a non-commercial, community-developed Android application. It is no
 - [Zapstore](https://zapstore.dev/apps/com.cruxcoach.android) — recommended, auto-updates, Nostr-native verifiable builds
 - The website's single direct-APK button uses a first-party, no-log server-side health selector. It redirects only after the click to the available verified source and records one coarse daily click bucket without an identifier.
 - [Direct APK download from Codeberg](https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.3/CruxCoach-v0.2.3.apk) — direct link to the current release, kept up to date automatically; manual sideload, `.apk.sha256` integrity sidecar at the same URL + `.sha256`
-- [Direct APK fallback on Zapstore CDN](https://cdn.zapstore.dev/04aaa4a563c38d8352c685c7dc2da98d84953d6f4815ca856e89cbd178770c55) — content-addressed mirror of the exact same APK, kept in lockstep with the Codeberg link
+- [Direct APK download from GitHub](https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.3/CruxCoach-v0.2.3.apk) — the same signed release on the primary forge, kept up to date automatically; `.apk.sha256` sidecar at the same URL + `.sha256`
+- [Direct APK fallback on Zapstore CDN](https://cdn.zapstore.dev/04aaa4a563c38d8352c685c7dc2da98d84953d6f4815ca856e89cbd178770c55) — content-addressed mirror of the exact same APK, kept in lockstep with the Codeberg and GitHub links
 - Source build — clone the Codeberg repo and run `./gradlew :androidApp:assembleDebug`
-- [Obtainium](https://github.com/ImranR98/Obtainium) — open-source installer that tracks the Codeberg releases directly; add `https://codeberg.org/CruxCoach/CruxCoach` as a Codeberg source. No listing process, works today.
+- [Obtainium](https://github.com/ImranR98/Obtainium) — open-source installer that tracks the Codeberg releases directly; add `https://codeberg.org/CruxCoach/CruxCoach` as a Codeberg source or `https://github.com/CruxCoach/CruxCoach` as a GitHub source. No listing process, works today.
 - Planned future channel (no specific timeline): F-Droid main. IzzyOnDroid is ruled out — its inclusion policy rejects apps created in whole or in part by generative AI tools.
 - Not on Google Play
 
