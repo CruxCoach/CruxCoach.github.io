@@ -23,6 +23,7 @@
 // 1 = error (API/CDN unreachable, no asset, …) — callers keep the old links.
 
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
@@ -42,6 +43,12 @@ const FILES = [
   'support.html', 'de/support.html',
   'boards/index.html', 'de/boards/index.html',
   'boards/list.html', 'de/boards/list.html',
+  // The competition pages carry their own header download link. They were
+  // missing here, so they kept offering 0.2.1 through two later releases.
+  'competitions/index.html', 'de/competitions/index.html',
+  'competitions/join.html', 'de/competitions/join.html',
+  'competitions/live.html', 'de/competitions/live.html',
+  'competitions/organizer.html', 'de/competitions/organizer.html',
   'tools/render-static.mjs',
 ];
 const MANIFEST = path.join(ROOT, 'apk-target.json');
@@ -58,6 +65,11 @@ const API = 'https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/late
 const CODEBERG_LINK_RE =
   /https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/[^"'\s)]+\.apk(\.sha256)?/g;
 const ZAPSTORE_LINK_RE = /https:\/\/cdn\.zapstore\.dev\/[0-9a-fA-F]{64}/g;
+// Version statements that name the current release outside a download URL:
+// the JSON-LD `softwareVersion` and llms.txt's "Current version". Rewritten
+// with the links, or crawlers and AI answers keep quoting an old release.
+const SOFTWARE_VERSION_RE = /("softwareVersion":\s*")[0-9]+\.[0-9]+\.[0-9]+(")/g;
+const CURRENT_VERSION_RE = /(- Current version: )[0-9]+\.[0-9]+\.[0-9]+(\.)/g;
 const CODEBERG_DOWNLOAD_PREFIX =
   'https://codeberg.org/CruxCoach/CruxCoach/releases/download/';
 const ZAPSTORE_CDN_PREFIX = 'https://cdn.zapstore.dev/';
@@ -151,7 +163,9 @@ for (const file of FILES) {
   const before = fs.readFileSync(abs, 'utf8');
   const after = before
     .replace(CODEBERG_LINK_RE, (_m, sidecarSuffix) => apkUrl + (sidecarSuffix ?? ''))
-    .replace(ZAPSTORE_LINK_RE, zapstoreUrl);
+    .replace(ZAPSTORE_LINK_RE, zapstoreUrl)
+    .replace(SOFTWARE_VERSION_RE, `$1${version}$2`)
+    .replace(CURRENT_VERSION_RE, `$1${version}$2`);
   if (after === before) {
     console.log(`${file}: unchanged`);
     continue;
@@ -190,8 +204,12 @@ if (beforeManifest === manifest) {
 // Failure is NOT fatal on purpose. A missing or unreadable copy costs the
 // local stage, not the download: Codeberg and Zapstore remain, and the
 // selector's digest check refuses to serve anything it cannot vouch for.
+// The selector reads ~/cruxcoach-dlstats/apk. This used to be derived from the
+// checkout (ROOT/..), which is only right for ~/cruxcoach-pages: the nightly
+// cron runs from ~/worktrees/cruxcoach-pages-refresh, so its self-healing copy
+// went to ~/worktrees/cruxcoach-dlstats/apk, where nothing ever read it.
 const LOCAL_APK_DIR = process.env.CRUXCOACH_APK_LOCAL_DIR
-  ?? path.join(ROOT, '..', 'cruxcoach-dlstats', 'apk');
+  ?? path.join(os.homedir(), 'cruxcoach-dlstats', 'apk');
 const localApk = path.join(LOCAL_APK_DIR, `CruxCoach-v${version}.apk`);
 
 function digestOf(file) {

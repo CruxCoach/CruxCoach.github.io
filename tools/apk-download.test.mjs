@@ -253,3 +253,21 @@ test('the brand keeps a discernible name at every width', () => {
     assert.match(rule[1], /clip:/, filename);
   }
 });
+
+test('every tracked file that names a release download is kept current by the updater', async () => {
+  // A page missing from update-download-link.mjs keeps offering the release it
+  // was written with. The competition pages sat in that state from 0.2.1 until
+  // 0.2.3 shipped, invisible because nothing compared the two lists.
+  const { execFileSync } = await import('node:child_process');
+  const listed = new Set(execFileSync(
+    process.execPath, [path.join(repoRoot, 'tools/update-download-link.mjs'), '--print-files'],
+    { encoding: 'utf8' },
+  ).trim().split('\n'));
+  const tracked = execFileSync('git', ['ls-files'], { cwd: repoRoot, encoding: 'utf8' })
+    .trim().split('\n')
+    .filter((file) => /\.(html|txt|json|mjs)$/.test(file) && !file.includes('.test.'));
+  const release = /https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/v\d+\.\d+\.\d+\//;
+  const missing = tracked.filter((file) => !listed.has(file)
+    && release.test(fs.readFileSync(path.join(repoRoot, file), 'utf8')));
+  assert.deepEqual(missing, []);
+});

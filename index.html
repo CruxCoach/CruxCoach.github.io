@@ -36,14 +36,14 @@
   "name": "CruxCoach",
   "alternateName": ["CruxCoach for Kilter Board", "CruxCoach for MoonBoard", "CruxCoach for Tension Board", "CruxCoach for Grasshopper", "CruxCoach for Decoy", "CruxCoach for So iLL", "CruxCoach for Touchstone"],
   "url": "https://cruxcoach.org/",
-  "operatingSystem": "Android 8.0+",
+  "operatingSystem": "Android 9+",
   "applicationCategory": "SportsApplication",
   "applicationSubCategory": "Climbing training",
   "description": "Open-source Android app for the Kilter Board, MoonBoard and five more training boards (Tension, Grasshopper, Decoy, So iLL, Touchstone). Browse climbs, light up holds, log ascents — without an account, without Google services, without user tracking.",
   "disambiguatingDescription": "The open-source, GPL-3.0 Android app for the Kilter Board, MoonBoard and other standardised training boards, published at cruxcoach.org. Distinct from and not affiliated with the unrelated products at cruxcoach.app, cruxcoach.com or cruxcoach.vercel.app.",
   "image": "https://cruxcoach.org/assets/icon-512.png",
   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
-  "softwareVersion": "0.2.1",
+  "softwareVersion": "0.2.3",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -64,7 +64,7 @@
     "https://cruxcoach.org/assets/screenshots/logbook.png"
   ],
   "isAccessibleForFree": true,
-  "softwareRequirements": "Android 8.0 or later, Bluetooth LE",
+  "softwareRequirements": "Android 9 or later, Bluetooth LE",
   "featureList": [
     "Browse climbs for Kilter, MoonBoard, Tension, Grasshopper, Decoy, So iLL and Touchstone boards",
     "Light up holds on the physical board over Bluetooth LE",
@@ -109,7 +109,7 @@
       "name": "Does it work without a Google account or Google services?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. CruxCoach needs no account and no Google Mobile Services. Your identity is a Nostr keypair generated on first launch and stored in the Android Keystore. It runs on de-Googled phones such as GrapheneOS, /e/OS and LineageOS without GApps, on Android 8.0 or later with Bluetooth LE. There is no user tracking or third-party analytics SDK. Current release 0.2.1 sends no app-analytics event. The upcoming 0.2.2 release will add one identifier-free aggregate event, sent only after the optional in-app updater has fully downloaded an APK and verified its SHA-256 and signing certificate."
+        "text": "Yes. CruxCoach needs no account and no Google Mobile Services. Your identity is a Nostr keypair generated on first launch and stored in the Android Keystore. It runs on de-Googled phones such as GrapheneOS, /e/OS and LineageOS without GApps, on Android 9 or later with Bluetooth LE. There is no user tracking or third-party analytics SDK. Since release 0.2.2, the app sends one identifier-free aggregate event, and only after the optional in-app updater has fully downloaded an APK and verified its SHA-256 and signing certificate. It can be switched off in Settings → Updates."
       }
     },
     {
@@ -117,7 +117,7 @@
       "name": "Which boards and Android versions does CruxCoach support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CruxCoach drives seven board systems interactively on Android 8.0 or later with Bluetooth LE: the Kilter Board (all sizes and adjustable angles), the MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 and 2024), and the Tension, Grasshopper, Decoy, So iLL and Touchstone boards. Browse each board's catalogue, filter by grade, angle, quality, move count and setter, then light it up over Bluetooth. The separate board map is broader still: it also plots Aurora and 12 Climb installations as location-only layers."
+        "text": "CruxCoach drives seven board systems interactively on Android 9 or later with Bluetooth LE: the Kilter Board (all sizes and adjustable angles), the MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 and 2024), and the Tension, Grasshopper, Decoy, So iLL and Touchstone boards. Browse each board's catalogue, filter by grade, angle, quality, move count and setter, then light it up over Bluetooth. The separate board map is broader still: it also plots Aurora and 12 Climb installations as location-only layers."
       }
     },
     {
@@ -566,7 +566,7 @@
       <div class="cta-row">
         <a class="btn btn-primary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.3/CruxCoach-v0.2.3.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/home-en/hero" data-apk-mirror="https://cdn.zapstore.dev/04aaa4a563c38d8352c685c7dc2da98d84953d6f4815ca856e89cbd178770c55.apk">Download CruxCoach</a>
       </div>
-      <p class="cta-foot">Free. No account. Verifiable signed builds. Android 8.0+.</p>
+      <p class="cta-foot">Free. No account. Verifiable signed builds. Android 9+.</p>
     </div>
     <div class="hero-shot">
       <img src="/assets/screenshots/board-browser.png" alt="Browse climbs in CruxCoach — list of climbs filterable by grade, angle, and quality" width="1080" height="2280">
@@ -713,7 +713,7 @@
       <li><strong>No accounts, no signup.</strong> Your identity is a Nostr keypair generated on first launch, stored in the Android Keystore.</li>
       <li><strong>No Google Play Services.</strong> Works on de-Googled phones — GrapheneOS, /e/OS, LineageOS without GApps.</li>
       <li><strong>Encrypted local storage.</strong> Personal data lives in an SQLCipher database. Encryption key never leaves your device.</li>
-      <li><strong>No user tracking, ads, or third-party analytics SDKs.</strong> Personal and training data is never sent to analytics. Current release 0.2.1 sends no app-analytics event. The upcoming 0.2.2 release will add a first-party count only after an updater download passes its SHA-256 and signer checks; it contains only target version and source, never a device, installation, account, Nostr, or user identifier.</li>
+      <li><strong>No user tracking, ads, or third-party analytics SDKs.</strong> Personal and training data is never sent to analytics. Since release 0.2.2, the app sends a first-party count only after an updater download passes its SHA-256 and signer checks; it contains only target version and source, never a device, installation, account, Nostr, or user identifier, and it can be switched off in Settings → Updates.</li>
       <li><strong>No central account or training-data server.</strong> The app uses public Nostr relays and Blossom servers run by independent operators. The website's separate first-party counter stores only daily page-view, install-click, and same-tab Zapstore→APK fallback aggregates.</li>
       <li><strong>Verifiable open-source builds.</strong> Code on Codeberg, releases signed, auto-updater pins the developer key on first install.</li>
     </ul>
@@ -776,11 +776,11 @@
       </details>
       <details class="faq-item">
         <summary>Does it work without a Google account or Google services?</summary>
-        <p>Yes. CruxCoach needs no account and no Google Mobile Services. Your identity is a Nostr keypair generated on first launch and stored in the Android Keystore. It runs on de-Googled phones such as GrapheneOS, /e/OS and LineageOS without GApps, on Android 8.0 or later with Bluetooth LE. There is no user tracking or third-party analytics SDK. Current release 0.2.1 sends no app-analytics event. The upcoming 0.2.2 release will add one identifier-free aggregate event, sent only after the optional in-app updater has fully downloaded an APK and verified its SHA-256 and signing certificate.</p>
+        <p>Yes. CruxCoach needs no account and no Google Mobile Services. Your identity is a Nostr keypair generated on first launch and stored in the Android Keystore. It runs on de-Googled phones such as GrapheneOS, /e/OS and LineageOS without GApps, on Android 9 or later with Bluetooth LE. There is no user tracking or third-party analytics SDK. Since release 0.2.2, the app sends one identifier-free aggregate event, and only after the optional in-app updater has fully downloaded an APK and verified its SHA-256 and signing certificate. It can be switched off in Settings → Updates.</p>
       </details>
       <details class="faq-item">
         <summary>Which boards and Android versions does CruxCoach support?</summary>
-        <p>CruxCoach drives seven board systems interactively on Android 8.0 or later with Bluetooth LE: the Kilter Board (all sizes and adjustable angles), the MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 and 2024), and the Tension, Grasshopper, Decoy, So iLL and Touchstone boards. Browse each board's catalogue, filter by grade, angle, quality, move count and setter, then light it up over Bluetooth. The separate <a href="/boards/">board map</a> is broader still: it also plots Aurora and 12 Climb installations as location-only layers.</p>
+        <p>CruxCoach drives seven board systems interactively on Android 9 or later with Bluetooth LE: the Kilter Board (all sizes and adjustable angles), the MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 and 2024), and the Tension, Grasshopper, Decoy, So iLL and Touchstone boards. Browse each board's catalogue, filter by grade, angle, quality, move count and setter, then light it up over Bluetooth. The separate <a href="/boards/">board map</a> is broader still: it also plots Aurora and 12 Climb installations as location-only layers.</p>
       </details>
       <details class="faq-item">
         <summary>Does CruxCoach work with the MoonBoard?</summary>

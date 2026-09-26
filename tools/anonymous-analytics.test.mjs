@@ -331,15 +331,19 @@ test('Zapstore is offered in the install section and nowhere else', () => {
   }
 });
 
-test('website copy distinguishes current app behavior from the 0.2.2 plan', () => {
+test('website copy describes the verified-update counter as shipped since 0.2.2', () => {
+  // The counter shipped in 0.2.2. Copy that still called it "upcoming" and
+  // said the current release sends nothing was wrong from that day on.
   for (const page of ['index.html', 'privacy.html', 'de/index.html', 'de/privacy.html']) {
     const html = fs.readFileSync(path.join(repoRoot, page), 'utf8');
-    assert.match(html, /0\.2\.1/, `${page}: current release`);
-    assert.match(html, /0\.2\.2/, `${page}: upcoming release`);
+    assert.match(html, /Since (?:app )?release 0\.2\.2|Seit (?:App-)?Version 0\.2\.2/, `${page}: shipped since`);
+    assert.match(html, /Settings → Updates|Einstellungen → Updates/, `${page}: how to switch it off`);
+    assert.doesNotMatch(html, /upcoming 0\.2\.2|planned app release 0\.2\.2|geplanten App-Version 0\.2\.2|Für Version 0\.2\.2 ist/, `${page}: no stale plan`);
+    assert.doesNotMatch(html, /release 0\.2\.1 sends no|Version 0\.2\.1 sendet kein/, `${page}: no stale current release`);
   }
   const llms = fs.readFileSync(path.join(repoRoot, 'llms.txt'), 'utf8');
-  assert.match(llms, /Current app release 0\.2\.1 sends no analytics event/);
-  assert.match(llms, /upcoming 0\.2\.2 release/);
+  assert.match(llms, /Since app release 0\.2\.2/);
+  assert.doesNotMatch(llms, /upcoming 0\.2\.2 release|Current app release 0\.2\.1/);
 });
 
 test('privacy notices disclose the collector host and current Codeberg policy', () => {
