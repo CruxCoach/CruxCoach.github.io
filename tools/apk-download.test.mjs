@@ -143,6 +143,22 @@ test('release publication never sends non-indexed pages to the sitemap updater',
   );
 });
 
+test('a release reaches the apex even when Codeberg is down, and never skips quietly', () => {
+  // GitHub Pages serves cruxcoach.org. Pushing Codeberg first and stopping on
+  // its failure kept the apex on the old release; a checkout on a feature
+  // branch answering exit 0 is how the 0.2.3 release left the site on 0.2.2.
+  const publisher = fs.readFileSync(
+    path.join(repoRoot, 'tools/publish-release.sh'), 'utf8');
+  const github = publisher.indexOf('git push github main');
+  const codeberg = publisher.indexOf('git push origin main');
+  assert.ok(github > 0 && codeberg > github, 'apex push comes first');
+  assert.doesNotMatch(publisher, /\|\| exit 3\n[^]*git push github main/,
+    'no exit between the Codeberg push and the apex push');
+  const notOnMain = /if \[ "\$branch" != "main" \]; then([^]*?)\nfi/.exec(publisher);
+  assert.ok(notOnMain, 'branch guard present');
+  assert.match(notOnMain[1], /exit 1/);
+});
+
 test('every direct-APK button carries the content-addressed mirror', () => {
   // The click-time last resort can only redirect to a target the markup names,
   // and it refuses anything that is not the Zapstore CDN blob for this release.
