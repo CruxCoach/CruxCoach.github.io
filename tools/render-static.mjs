@@ -81,7 +81,7 @@ const STRINGS = {
     hoursVenues: (n) => `<strong>${n}</strong> also list opening hours as published by the venue itself.
       Public holidays and short-notice changes may differ — the venue's own page is the authority.`,
     backToMap: '← Back to the interactive map',
-    footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Data CC-BY-4.0. Hosted by Codeberg e.V.',
+    footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Data CC-BY-4.0. Hosted on GitHub Pages.',
     footerLinks: '<a href="/support.html">Support</a> · <a href="/imprint.html">Imprint</a> · <a href="/privacy.html">Privacy</a>',
   },
   de: {
@@ -122,7 +122,7 @@ const STRINGS = {
       sie selbst veröffentlicht. Feiertage und kurzfristige Änderungen können abweichen — verbindlich
       ist die Seite der Halle.`,
     backToMap: '← Zurück zur interaktiven Karte',
-    footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Daten CC-BY-4.0. Gehostet bei Codeberg e.V.',
+    footerCopyright: '© 2026 CruxCoach Contributors. Site CC-BY-4.0. Daten CC-BY-4.0. Gehostet auf GitHub Pages.',
     footerLinks: '<a href="/de/support.html">Unterstützen</a> · <a href="/de/imprint.html">Impressum</a> · <a href="/de/privacy.html">Datenschutz</a>',
   },
 };

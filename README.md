@@ -3,15 +3,17 @@
 Source for **https://cruxcoach.org** — the public landing page for the
 CruxCoach open-source Android Kilter Board app.
 
-Published via Codeberg Pages. Repo contents are served directly: edit
-`index.html`, push, page is live within minutes.
+Published via GitHub Pages since 2026-08-06 (Codeberg Pages before that, and
+still on standby). Repo contents are served directly: edit `index.html`, push
+to both remotes, page is live within minutes.
 
 ## Layout
 
 ```
 cruxcoach-pages/
 ├── index.html         single-file landing page (HTML + embedded CSS; local JS only)
-├── .domains           Codeberg Pages custom-domain config
+├── CNAME              GitHub Pages custom-domain config (serves the apex)
+├── .domains           Codeberg Pages custom-domain config (standby)
 ├── assets/            screenshots, logos, og-image, vendored Leaflet (/boards/ only)
 ├── boards/            interactive map of climbing-board locations worldwide
 │   ├── index.html     map page (Leaflet + markercluster, see JS exception #2)
@@ -57,14 +59,24 @@ cruxcoach-pages/
 
 ## Deployment
 
-Codeberg Pages serves the default branch of this repo at:
-- `https://CruxCoach.codeberg.page/cruxcoach-pages/` (built-in URL)
-- `https://cruxcoach.org/` (custom domain, configured via `.domains` + DNS)
+GitHub Pages serves the default branch of `CruxCoach/CruxCoach.github.io`
+(remote `github`) at `https://cruxcoach.org/`, configured via `CNAME` + DNS.
+`https://cruxcoach.github.io` 301s to the apex.
 
 DNS at Njalla:
-- A `cruxcoach.org` → `217.197.91.145`
-- AAAA `cruxcoach.org` → `2a02:6ea0:c813::145`
-- (TLS handled automatically by Codeberg via Let's Encrypt)
+- A `cruxcoach.org` → GitHub Pages (`185.199.108.153` … `185.199.111.153`)
+- AAAA `cruxcoach.org` → GitHub Pages (`2606:50c0:8000::153` … `2606:50c0:8003::153`)
+- CNAME `www` → `cruxcoach.github.io`
+- A `mirror` → our own server, which serves the `main` checkout
+  `~/worktrees/cruxcoach-pages-refresh` (Caddy block in
+  `cruxcoach-dlstats/deploy/caddy/Caddyfile`)
+- TXT `main.cruxcoach-pages.cruxcoach.codeberg.page` stays, together with
+  `.domains`, so moving the apex back to Codeberg Pages is one DNS change
+- (TLS handled automatically by GitHub Pages via Let's Encrypt)
+
+A release reaches the site through `tools/publish-release.sh`, which the app's
+release workflow runs in the mirror checkout: it rewrites every versioned link,
+commits, and pushes to GitHub (the apex) and Codeberg independently.
 
 ## Roadmap
 

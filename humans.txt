@@ -7,7 +7,7 @@
   Nostr: npub1uadpshqpn5ysf82lev8zngkvn07szmkq7mvf9lyc7ml7qxq6fqxsmrqt2s
 
 # THANKS
-  Codeberg e.V.       — hosting this site for free
+  Codeberg e.V.       — hosting this site for free until August 2026
   Vitor Pamplona      — Quartz Nostr library
   Hzrd149 et al.      — Blossom + nsite specs
   The Kilter Board    — for the climbing hardware
@@ -22,7 +22,7 @@
 
 # TECHNOLOGY COLOPHON
   Site:           plain HTML5 + embedded CSS; minimal JS (board map, service worker, /c/ landing), no external dependencies, no build step
-  Hosted on:      Codeberg Pages (Codeberg e.V., Berlin)
+  Hosted on:      GitHub Pages; mirror on our own server (Hetzner, Helsinki); Codeberg Pages on standby
   Domain:         registered via Njalla (1337 Services LLC trustee)
   Email:          forwarded via mailfwd.njal.la
   App:            Kotlin Multiplatform (Compose UI), GPL-3.0
