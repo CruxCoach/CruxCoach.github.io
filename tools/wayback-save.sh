@@ -6,7 +6,7 @@
 #
 # Usage: tools/wayback-save.sh [expected-string]
 # If expected-string is given (e.g. the new release tag "v0.3.0"), the
-# script first waits until the live homepage contains it — Codeberg Pages
+# script first waits until the live homepage contains it — GitHub Pages
 # deploys minutes after the push, and archiving too early would freeze the
 # pre-release state. After 15 minutes it proceeds anyway with a warning.
 #

@@ -20,6 +20,7 @@ LOG_DIR="$HOME/.cache/cruxcoach-pages-cron"
 LOG_FILE="$LOG_DIR/refresh-$(date +%Y-%m-%d).log"
 LOCK_FILE="$LOG_DIR/refresh.lock"
 INDEXNOW_STATE_FILE="$LOG_DIR/indexnow-main-head"
+WAYBACK_STATE_FILE="$LOG_DIR/wayback-archived-tag"
 
 mkdir -p "$LOG_DIR"
 
@@ -29,8 +30,6 @@ if ! flock -n 200; then
   echo "[$(date -Is)] another refresh already running, skipping" >> "$LOG_FILE"
   exit 0
 fi
-
-RELEASE_TAG=""
 
 try_push() {
   # Codeberg occasionally drops SSH on the first attempt. Three tries with
@@ -76,18 +75,12 @@ run() {
   # Shared with the workflow rather than reimplemented: the file list used to
   # live here as a hand-written array, and it silently lost both
   # tension-board pages — the updater rewrote them, this never staged them.
-  local before after
-  before="$(git rev-parse HEAD)"
   tools/publish-release.sh
   case "$?" in
     0) ;;
     3) return 4 ;;               # commit exists, push failed — same as before
     *) echo "-- download-link publish failed; continuing with boards" ;;
   esac
-  after="$(git rev-parse HEAD)"
-  if [ "$before" != "$after" ]; then
-    RELEASE_TAG="$(grep -oE 'releases/download/[^/]+/' index.html | head -1 | cut -d/ -f3)"
-  fi
 
   echo "-- running build-boards-data.mjs"
   /usr/bin/node tools/build-boards-data.mjs || { echo "build failed"; return 2; }
@@ -191,12 +184,27 @@ sync_mirror >> "$LOG_FILE" 2>&1
 # merged outside this cron process. Non-fatal; failures retry on the next run.
 notify_indexnow >> "$LOG_FILE" 2>&1 || true
 
-# A new app release moved the download links → archive the whole site in
-# the Wayback Machine, once per release only (anonymous SPN is rate-limited
-# and the site barely changes in between). The script waits until the new
-# tag is actually live on Pages before capturing. Non-fatal.
-if [ -n "$RELEASE_TAG" ]; then
-  "$REPO_ROOT/tools/wayback-save.sh" "$RELEASE_TAG" >> "$LOG_FILE" 2>&1 || true
+# A new app release → archive the whole site in the Wayback Machine, once per
+# release only (anonymous SPN is rate-limited and the site barely changes in
+# between). The script waits until the new tag is actually live on Pages
+# before capturing. Non-fatal.
+#
+# Keyed on the release the site now offers, not on whether THIS run made the
+# link commit: since the release workflow publishes the website itself, the
+# nightly run never makes that commit any more, and 0.2.2 and 0.2.3 went
+# unarchived. Recorded after one attempt either way — a partial capture is
+# repeated by hand, never nightly.
+wayback_once_per_release() {
+  local current archived=""
+  current="$(grep -oE 'releases/download/[^/]+/' "$REPO_ROOT/index.html" | head -1 | cut -d/ -f3)"
+  [ -n "$current" ] || return 0
+  [ -f "$WAYBACK_STATE_FILE" ] && IFS= read -r archived < "$WAYBACK_STATE_FILE"
+  [ "$current" != "$archived" ] || return 0
+  "$REPO_ROOT/tools/wayback-save.sh" "$current" || true
+  printf '%s\n' "$current" > "$WAYBACK_STATE_FILE"
+}
+if [ "$rc" -eq 0 ]; then
+  wayback_once_per_release >> "$LOG_FILE" 2>&1
 fi
 
 echo "[exit rc=$rc]" >> "$LOG_FILE"

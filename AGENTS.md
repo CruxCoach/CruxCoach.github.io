@@ -277,8 +277,10 @@ co. re-crawl promptly. IndexNow needs no account: ownership is proven by the
 32-hex key file at the repo root (currently `31ad8e39….txt`; the script locates
 it by pattern, so rotating the key means replacing that file, nothing else).
 Run the script manually after hand-pushed content changes.
-On a release (i.e. the download-link commit fired), it additionally runs
-`tools/wayback-save.sh <tag>` (non-fatal): waits until the new tag is live on
-Pages, then archives every sitemap URL + llms.txt via the Wayback Machine's
-anonymous Save Page Now. Once per release only — do NOT wire it into the
-nightly path; anonymous SPN is tightly rate-limited.
+Once per release it additionally runs `tools/wayback-save.sh <tag>`
+(non-fatal): waits until the new tag is live on Pages, then archives every
+sitemap URL + llms.txt via the Wayback Machine's anonymous Save Page Now. The
+trigger is the release the site offers compared with the last archived tag in
+`~/.cache/cruxcoach-pages-cron/wayback-archived-tag` — not this run's own link
+commit, which the release workflow now makes. Never more than once per
+release; anonymous SPN is tightly rate-limited.
