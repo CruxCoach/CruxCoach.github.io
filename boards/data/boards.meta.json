@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-08T03:30:18.116Z",
-  "venue_features": 2906,
-  "raw_entries": 3218,
+  "generated_at": "2026-10-09T03:30:17.895Z",
+  "venue_features": 2907,
+  "raw_entries": 3219,
   "venues_with_multiple_boards": 157,
-  "country_from_coder": 2906,
+  "country_from_coder": 2907,
   "country_from_fallback": 0,
   "country_missing": 0,
-  "city_from_upstream": 1180,
+  "city_from_upstream": 1181,
   "city_from_nearest": 1602,
   "city_missing": 124,
   "nearest_city_max_km": 25,
@@ -59,7 +59,7 @@
     }
   },
   "per_board": {
-    "kilter": 1173,
+    "kilter": 1174,
     "tension": 393,
     "grasshopper": 43,
     "decoy": 24,
@@ -71,17 +71,17 @@
     "quantum": 12
   },
   "per_source": {
-    "hangtime": 3092,
+    "hangtime": 3093,
     "curated": 114,
     "quantum": 12
   },
   "sources": {
     "hangtime": {
       "package": "@hangtime/climbing-boards",
-      "version": "1.0.116",
+      "version": "1.0.117",
       "counts": {
         "kilter": {
-          "kept": 1145,
+          "kept": 1146,
           "dropped": 0
         },
         "tension": {
