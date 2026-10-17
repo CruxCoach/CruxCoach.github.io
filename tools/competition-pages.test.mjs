@@ -1760,14 +1760,32 @@ test('every participant state a person can act on has the control to leave it', 
   assert.ok(join.includes('entrant.requestCheckIn()'), 'no way to ask to be checked in');
 });
 
-test('the two clients offer the same participant actions', () => {
+// The Android side of the competitions feature lives in a separate checkout of
+// the app (branch feat/0.2.3-competitions). It used to sit next to this repo;
+// since the 2026-09-06 server split, worktrees live under ../worktrees/.
+// CRUXCOACH_COMPETITIONS_APP points at it explicitly.
+const COMPETITION_VIEW_MODEL = 'androidApp/src/main/java/com/cruxcoach/android/ui/competition/CompetitionDetailViewModel.kt';
+function competitionAppViewModel() {
+  const roots = [
+    process.env.CRUXCOACH_COMPETITIONS_APP,
+    path.join(root, '../cruxcoach-0.2.3-competitions'),
+    path.join(root, '../worktrees/cruxcoach-0.2.3-competitions'),
+  ].filter(Boolean);
+  return roots.map(r => path.join(r, COMPETITION_VIEW_MODEL)).find(f => fs.existsSync(f)) ?? null;
+}
+
+test('the two clients offer the same participant actions', (t) => {
   // Not a style rule: a capability the browser has and the phone does not is
   // the exact gap that shipped twice. Each entry is (web call, Android method).
   const join = fs.readFileSync(path.join(root, 'competitions/app/pages/join.mjs'), 'utf8');
-  const androidViewModel = fs.readFileSync(
-    path.join(root, '../cruxcoach-0.2.3-competitions/androidApp/src/main/java/com/cruxcoach/android/ui/competition/CompetitionDetailViewModel.kt'),
-    'utf8',
-  );
+  const viewModelFile = competitionAppViewModel();
+  if (!viewModelFile) {
+    // A website checkout without the app beside it cannot compare the two;
+    // say so instead of failing on a path that only exists on some machines.
+    t.skip('no app checkout found: set CRUXCOACH_COMPETITIONS_APP to a feat/0.2.3-competitions checkout');
+    return;
+  }
+  const androidViewModel = fs.readFileSync(viewModelFile, 'utf8');
   const pairs = [
     ['entrant.register(', 'fun register('],
     ['entrant.withdraw()', 'fun withdraw()'],

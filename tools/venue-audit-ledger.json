@@ -500,6 +500,24 @@
    }
   },
   {
+   "lat": 47.825552,
+   "lon": 16.249033,
+   "name": "Bigwall Bouldering",
+   "country": "AT",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 47.05068,
    "lon": 15.43472,
    "name": "BLOC house Graz",
@@ -725,6 +743,35 @@
    }
   },
   {
+   "lat": 48.60642,
+   "lon": 15.16941,
+   "name": "Kletterhalle Zwettl",
+   "country": "AT",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "path-probe",
+     "osm-website-tag"
+    ]
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "seasonal",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ],
+    "note": "The current official page has a season-limited Tuesday session and leaves two weekdays unstated; the precise outcome is backed by venue-hours-research.json."
+   }
+  },
+  {
    "lat": 47.4435946,
    "lon": 12.3996585,
    "name": "KLETTERKITZ",
@@ -850,6 +897,42 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 47.26366841808934,
+   "lon": 11.38090826697463,
+   "name": "STEINBLOCK Innsbruck",
+   "country": "AT",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
+   "lat": 48.203628411158775,
+   "lon": 16.317320100000003,
+   "name": "USI Wien",
+   "country": "AT",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -1508,6 +1591,24 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": -12.430213777134737,
+   "lon": 130.85672425580464,
+   "name": "Gecko Climb",
+   "country": "AU",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -2514,6 +2615,25 @@
    }
   },
   {
+   "lat": 51.03327,
+   "lon": 3.75706,
+   "name": "Klimzaal Arsenaal",
+   "country": "BE",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "web-search"
+    ],
+    "note": "A fresh Web-only recheck found two conflicting visible weekend closing times on the current official homepage; the previously accepted schedule was withdrawn and the precise conflict is backed by venue-hours-research.json."
+   }
+  },
+  {
    "lat": 50.41619,
    "lon": 4.43898,
    "name": "Maniak Charleroi",
@@ -3066,6 +3186,24 @@
    }
   },
   {
+   "lat": -22.924352281159845,
+   "lon": -43.17972167683,
+   "name": "Colmeia",
+   "country": "BR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": -19.3367336,
    "lon": -43.6297332,
    "name": "CT Iapó",
@@ -3570,6 +3708,24 @@
     "channels": [
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": -25.39503228898311,
+   "lon": -49.25640054232978,
+   "name": "UBT Escalada",
+   "country": "BR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -5484,6 +5640,24 @@
    }
   },
   {
+   "lat": 49.875207,
+   "lon": -97.118414,
+   "name": "The Kal Climbing Gym",
+   "country": "CA",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 49.2193226,
    "lon": -122.5983981,
    "name": "The Rock Wall Climbing Gym",
@@ -6002,6 +6176,60 @@
    }
   },
   {
+   "lat": 46.75816957856231,
+   "lon": 7.632552419659467,
+   "name": "boulderkino",
+   "country": "CH",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
+   "lat": 47.54639618944464,
+   "lon": 7.593046415342683,
+   "name": "Caya Boardroom",
+   "country": "CH",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
+   "lat": 47.546904,
+   "lon": 7.593514,
+   "name": "CAYA Climb",
+   "country": "CH",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 46.62682,
    "lon": 7.0669939,
    "name": "L'Entrepôt",
@@ -6281,8 +6509,8 @@
    }
   },
   {
-   "lat": -33.44107,
-   "lon": -70.6072,
+   "lat": -33.44094,
+   "lon": -70.60718,
    "name": "Bloclab Climbing",
    "country": "CL",
    "needs": [
@@ -6309,31 +6537,21 @@
    }
   },
   {
-   "lat": -33.44094,
-   "lon": -70.60718,
-   "name": "Bloclab Climbing",
+   "lat": -33.4432432,
+   "lon": -70.6068339,
+   "name": "Bloclab Underground",
    "country": "CL",
    "needs": [
     "website",
     "hours"
    ],
    "website": {
-    "pass": "2026-08-25",
-    "result": "unavailable",
-    "channels": [
-     "name-guess",
-     "apex",
-     "www",
-     "web-search",
-     "path-probe"
-    ]
+    "pass": null,
+    "result": "pending"
    },
    "hours": {
-    "pass": "2026-08-25",
-    "result": "inaccessible",
-    "channels": [
-     "path-probe"
-    ]
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -6652,6 +6870,42 @@
      "www",
      "web-search"
     ]
+   }
+  },
+  {
+   "lat": 22.516616,
+   "lon": 113.93764,
+   "name": "Banana Climbing Joyful Ave",
+   "country": "CN",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
+   "lat": 22.270477,
+   "lon": 113.525203,
+   "name": "Banana Climbing Xiangzhou Wangjiaohui",
+   "country": "CN",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -7019,6 +7273,24 @@
      "www",
      "web-search"
     ]
+   }
+  },
+  {
+   "lat": 36.614112362742375,
+   "lon": 116.97760072863393,
+   "name": "FLOW心流攀岩（旗舰店）",
+   "country": "CN",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -7516,6 +7788,24 @@
    }
   },
   {
+   "lat": 39.13126609194788,
+   "lon": 117.1456758270123,
+   "name": "Tension Lab",
+   "country": "CN",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 22.27708,
    "lon": 114.17568,
    "name": "The Board Room",
@@ -7779,6 +8069,42 @@
      "www",
      "web-search"
     ]
+   }
+  },
+  {
+   "lat": 45.77372957,
+   "lon": 126.622612912103,
+   "name": "哈万攀岩馆haone Climbing Gym",
+   "country": "CN",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
+   "lat": 32.0951,
+   "lon": 118.8123,
+   "name": "大象标准 Greatform Rock Climbing",
+   "country": "CN",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -8164,6 +8490,24 @@
      "path-probe",
      "previous-record"
     ]
+   }
+  },
+  {
+   "lat": 9.937098,
+   "lon": -84.135926,
+   "name": "Casa Altú",
+   "country": "CR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -8744,6 +9088,24 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 49.87973,
+   "lon": 8.636101,
+   "name": "Boulderhaus Darmstadt",
+   "country": "DE",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -10264,6 +10626,24 @@
    }
   },
   {
+   "lat": 55.786141,
+   "lon": 12.525896,
+   "name": "DTU Climbing",
+   "country": "DK",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 55.7203436012916,
    "lon": 11.712128911084726,
    "name": "Holbæk Klatreklub",
@@ -10739,6 +11119,23 @@
    }
   },
   {
+   "lat": 41.7962914,
+   "lon": 0.8100862,
+   "name": "Boulder Balaguer",
+   "country": "ES",
+   "needs": [
+    "hours"
+   ],
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "appointment-only",
+    "channels": [
+     "venue-link",
+     "web-search"
+    ]
+   }
+  },
+  {
    "lat": 41.61267,
    "lon": 0.66268,
    "name": "Boulder Indoor",
@@ -10808,6 +11205,24 @@
     "channels": [
      "venue-link"
     ]
+   }
+  },
+  {
+   "lat": 41.655175,
+   "lon": -0.903182,
+   "name": "Bulderland Delicias",
+   "country": "ES",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -11121,6 +11536,24 @@
      "www",
      "web-search"
     ]
+   }
+  },
+  {
+   "lat": 42.56298998133958,
+   "lon": -0.5699394779126595,
+   "name": "DERROCA",
+   "country": "ES",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -11560,6 +11993,24 @@
    }
   },
   {
+   "lat": 41.350442760205716,
+   "lon": 1.7106191355821418,
+   "name": "La Bauma",
+   "country": "ES",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 40.94711,
    "lon": -5.65646,
    "name": "La Ola Escalada",
@@ -11712,23 +12163,6 @@
    }
   },
   {
-   "lat": 41.7962914,
-   "lon": 0.8100862,
-   "name": "Boulder Balaguer",
-   "country": "ES",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-09-01",
-    "result": "appointment-only",
-    "channels": [
-     "venue-link",
-     "web-search"
-    ]
-   }
-  },
-  {
    "lat": 41.42486,
    "lon": 2.18593,
    "name": "Monobloc La Sagrera",
@@ -11828,6 +12262,24 @@
      "www",
      "web-search"
     ]
+   }
+  },
+  {
+   "lat": 37.369435,
+   "lon": -5.961214,
+   "name": "Move Climbing Hytasa",
+   "country": "ES",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -12810,6 +13262,42 @@
    }
   },
   {
+   "lat": 60.194069,
+   "lon": 24.945903,
+   "name": "Project Konepaja",
+   "country": "FI",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
+   "lat": 60.19417112336972,
+   "lon": 24.945886706746425,
+   "name": "Project Konepaja",
+   "country": "FI",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 60.739042,
    "lon": 24.8000213,
    "name": "Riihimäen Rocklands",
@@ -13039,6 +13527,24 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 47.974791,
+   "lon": -4.07653,
+   "name": "B'wall Quimper",
+   "country": "FR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -13571,6 +14077,24 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 48.01310729531032,
+   "lon": 6.608401649077723,
+   "name": "Hop’n Bloc",
+   "country": "FR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -14727,6 +15251,24 @@
    }
   },
   {
+   "lat": 55.851057397215804,
+   "lon": -4.281798971163652,
+   "name": "TCA The Newsroom",
+   "country": "GB",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 53.34023200000001,
    "lon": -1.693494,
    "name": "The Adventure Hub",
@@ -15000,6 +15542,42 @@
      "www",
      "web-search"
     ]
+   }
+  },
+  {
+   "lat": 57.209813,
+   "lon": -3.817993,
+   "name": "The Nook",
+   "country": "GB",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
+   "lat": 57.209509,
+   "lon": -3.818056,
+   "name": "The Nook Climbing",
+   "country": "GB",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -15776,6 +16354,24 @@
    }
   },
   {
+   "lat": -6.244698038100013,
+   "lon": 106.6500564932524,
+   "name": "Bleaumont Indonesia",
+   "country": "ID",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": -6.168997632532928,
    "lon": 106.92485794232918,
    "name": "Dreamstone Boulders Kelapa Gading",
@@ -16037,6 +16633,24 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 32.77819890961042,
+   "lon": 35.03671661842832,
+   "name": "Boulder - the climber’s home בולדר- הבית של המטפסות",
+   "country": "IL",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -17211,6 +17825,24 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 45.998364,
+   "lon": 11.124859,
+   "name": "Infinity Boulder",
+   "country": "IT",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -20031,6 +20663,24 @@
    }
   },
   {
+   "lat": 35.860514,
+   "lon": 127.121722,
+   "name": "Boulder Den",
+   "country": "KR",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 35.82364,
    "lon": 128.5275,
    "name": "Chalk Up Climbing Center Wolseong 초크업 클라이밍",
@@ -21196,6 +21846,24 @@
      "co-located",
      "web-search"
     ]
+   }
+  },
+  {
+   "lat": 49.568031467421335,
+   "lon": 6.076590879757212,
+   "name": "BoulderForest",
+   "country": "LU",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -23129,6 +23797,24 @@
    }
   },
   {
+   "lat": 62.91943741104987,
+   "lon": 7.447405442329973,
+   "name": "Eide Klatreklubb",
+   "country": "NO",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 61.004296,
    "lon": 6.412174,
    "name": "Fjordaveggen",
@@ -24906,6 +25592,24 @@
    }
   },
   {
+   "lat": 14.607518460075061,
+   "lon": 121.08249040185048,
+   "name": "Boulder Space Ph",
+   "country": "PH",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 14.57759,
    "lon": 121.12206,
    "name": "Mango House",
@@ -26165,6 +26869,24 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 52.192365,
+   "lon": 20.935005,
+   "name": "WEST Bouldering",
+   "country": "PL",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -27737,6 +28459,24 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 57.72017,
+   "lon": 11.951579,
+   "name": "Backa Boulder",
+   "country": "SE",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -30184,6 +30924,35 @@
    }
   },
   {
+   "lat": 49.8313774,
+   "lon": 23.9967892,
+   "name": "The Wall Lviv",
+   "country": "UA",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "accepted",
+    "channels": [
+     "web-search",
+     "path-probe",
+     "map-block"
+    ],
+    "note": "The current operator page confirms the public venue, 12Climb wall, exact street address and first-party business-location coordinate; the accepted link is backed by venue-links.json."
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "ambiguous",
+    "channels": [
+     "venue-link",
+     "path-probe"
+    ],
+    "note": "The current operator page prints two contradictory full-week schedules in one contact area; neither is selected, and the exact conflict is backed by venue-hours-research.json."
+   }
+  },
+  {
    "lat": 39.9658623,
    "lon": -105.1168505,
    "name": "2019 Masters",
@@ -32165,6 +32934,24 @@
    }
   },
   {
+   "lat": 29.753367,
+   "lon": -95.34022,
+   "name": "Crux Climbing Center Houston",
+   "country": "US",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 30.17515,
    "lon": -97.79041,
    "name": "Crux Climbing Center South",
@@ -32972,6 +33759,24 @@
     "channels": [
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 37.5639572596054,
+   "lon": -77.44774354232841,
+   "name": "Foundation Climbing",
+   "country": "US",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -34124,6 +34929,24 @@
      "apex",
      "www"
     ]
+   }
+  },
+  {
+   "lat": 37.356683,
+   "lon": -79.173846,
+   "name": "LaHaye Rec & Fit Rock Wall",
+   "country": "US",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -36153,6 +36976,24 @@
    }
   },
   {
+   "lat": 33.848399,
+   "lon": -118.14347,
+   "name": "Sender One Lakewood",
+   "country": "US",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 33.73223,
    "lon": -117.83726,
    "name": "Sender One Training Center SA",
@@ -37088,6 +37929,24 @@
    }
   },
   {
+   "lat": 42.724113,
+   "lon": -84.448638,
+   "name": "Terra Firma Bouldering Co - East Lansing",
+   "country": "US",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 43.7222436,
    "lon": -111.11193,
    "name": "Teton Rock Gym",
@@ -37664,6 +38523,24 @@
      "venue-link",
      "path-probe"
     ]
+   }
+  },
+  {
+   "lat": 41.64363480218823,
+   "lon": -73.92486519325358,
+   "name": "The Gravity Vault Poughkeepsie",
+   "country": "US",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -38474,6 +39351,24 @@
    }
   },
   {
+   "lat": 40.762918,
+   "lon": -111.836382,
+   "name": "University of Utah",
+   "country": "US",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
+   }
+  },
+  {
    "lat": 27.6648274,
    "lon": -81.5157535,
    "name": "University of West Florida",
@@ -38621,6 +39516,24 @@
      "apex",
      "www"
     ]
+   }
+  },
+  {
+   "lat": 30.544773,
+   "lon": -87.221831,
+   "name": "UWF Climbing Center",
+   "country": "US",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": null,
+    "result": "pending"
+   },
+   "hours": {
+    "pass": null,
+    "result": "pending"
    }
   },
   {
@@ -39176,6 +40089,36 @@
    }
   },
   {
+   "lat": 21.0556469,
+   "lon": 105.8415127,
+   "name": "Retired displaced MoonBoard registry point",
+   "country": "VN",
+   "needs": [
+    "website",
+    "hours"
+   ],
+   "website": {
+    "pass": "2026-09-01",
+    "result": "duplicate",
+    "channels": [
+     "co-located",
+     "venue-link",
+     "previous-record"
+    ],
+    "note": "The current venue-authored facility page places both boards at the one address-bearing VietClimb venue; this displaced row now follows the backed duplicate exclusion."
+   },
+   "hours": {
+    "pass": "2026-09-01",
+    "result": "duplicate",
+    "channels": [
+     "venue-link",
+     "path-probe",
+     "previous-record"
+    ],
+    "note": "The current venue-authored facility page places both boards at the one address-bearing VietClimb venue; this displaced row now follows the backed duplicate exclusion."
+   }
+  },
+  {
    "lat": 10.8230989,
    "lon": 106.6296638,
    "name": "Skywalk Climbing",
@@ -39255,36 +40198,6 @@
      "venue-link",
      "path-probe"
     ]
-   }
-  },
-  {
-   "lat": 21.0556469,
-   "lon": 105.8415127,
-   "name": "Retired displaced MoonBoard registry point",
-   "country": "VN",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-09-01",
-    "result": "duplicate",
-    "channels": [
-     "co-located",
-     "venue-link",
-     "previous-record"
-    ],
-    "note": "The current venue-authored facility page places both boards at the one address-bearing VietClimb venue; this displaced row now follows the backed duplicate exclusion."
-   },
-   "hours": {
-    "pass": "2026-09-01",
-    "result": "duplicate",
-    "channels": [
-     "venue-link",
-     "path-probe",
-     "previous-record"
-    ],
-    "note": "The current venue-authored facility page places both boards at the one address-bearing VietClimb venue; this displaced row now follows the backed duplicate exclusion."
    }
   },
   {
@@ -39517,83 +40430,6 @@
      "venue-link",
      "path-probe"
     ]
-   }
-  },
-  {
-   "lat": 51.03327,
-   "lon": 3.75706,
-   "name": "Klimzaal Arsenaal",
-   "country": "BE",
-   "needs": [
-    "hours"
-   ],
-   "hours": {
-    "pass": "2026-09-01",
-    "result": "ambiguous",
-    "channels": [
-     "venue-link",
-     "path-probe",
-     "web-search"
-    ],
-    "note": "A fresh Web-only recheck found two conflicting visible weekend closing times on the current official homepage; the previously accepted schedule was withdrawn and the precise conflict is backed by venue-hours-research.json."
-    }
-  },
-  {
-   "lat": 48.60642,
-   "lon": 15.16941,
-   "name": "Kletterhalle Zwettl",
-   "country": "AT",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-09-01",
-    "result": "accepted",
-    "channels": [
-     "web-search",
-     "path-probe",
-     "osm-website-tag"
-    ]
-   },
-   "hours": {
-    "pass": "2026-09-01",
-    "result": "seasonal",
-    "channels": [
-     "venue-link",
-     "path-probe",
-     "web-search"
-    ],
-    "note": "The current official page has a season-limited Tuesday session and leaves two weekdays unstated; the precise outcome is backed by venue-hours-research.json."
-   }
-  },
-  {
-   "lat": 49.8313774,
-   "lon": 23.9967892,
-   "name": "The Wall Lviv",
-   "country": "UA",
-   "needs": [
-    "website",
-    "hours"
-   ],
-   "website": {
-    "pass": "2026-09-01",
-    "result": "accepted",
-    "channels": [
-     "web-search",
-     "path-probe",
-     "map-block"
-    ],
-    "note": "The current operator page confirms the public venue, 12Climb wall, exact street address and first-party business-location coordinate; the accepted link is backed by venue-links.json."
-   },
-   "hours": {
-    "pass": "2026-09-01",
-    "result": "ambiguous",
-    "channels": [
-     "venue-link",
-     "path-probe"
-    ],
-    "note": "The current operator page prints two contradictory full-week schedules in one contact area; neither is selected, and the exact conflict is backed by venue-hours-research.json."
    }
   }
  ]
