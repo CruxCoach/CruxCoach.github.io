@@ -1,0 +1,502 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-25",
+  "locations": [
+    {
+      "id": "the-boulder-room-munich",
+      "name": "The Boulder Room",
+      "address": "Pineapple Park München, Arnulfstraße 195–199, 80634 München, Germany",
+      "city": "Munich",
+      "country": "DE",
+      "lat": 48.1474345,
+      "lon": 11.5228155,
+      "coordinate": {
+        "source": "map-venue",
+        "ref": "existing Quantum Board venue"
+      },
+      "models": [
+        "Shiny Wall Standard Max Full"
+      ],
+      "website": "https://www.theboulderroom.com/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.theboulderroom.com/",
+          "claim": "The official site offers 'Bouldern auf zwei Trainingswänden von Shiny Wall & Walltopia (Quantum Board)', the Shiny Wall measuring 3.6 × 4 m with 608 LED-guided holds.",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "url": "https://www.shinywall.com/en/",
+          "claim": "The manufacturer lists The Boulder Room, Munich among its gym projects.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "ciudad-deportiva-santa-maria-alcaniz",
+      "name": "Ciudad Deportiva Santa María",
+      "address": "Ciudad Deportiva Santa María, 44600 Alcañiz, Spain",
+      "city": "Alcañiz",
+      "country": "ES",
+      "lat": 41.05047,
+      "lon": -0.12545,
+      "coordinate": {
+        "source": "osm",
+        "ref": "way/858335644"
+      },
+      "models": [
+        "Shiny Wall Standard"
+      ],
+      "website": "https://www.alcaniz.es/es/home/deportes/servicio-municipal-de-deportes/instalaciones",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.alcaniz.es/es/home/deportes/servicio-municipal-de-deportes/instalaciones",
+          "claim": "The town's sports-facility page lists 'rocódromo y shiny wall' at its municipal facilities (federation licence required) and links Shiny Wall instructions.",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "url": "https://www.alcaniz.es/Noticias/deportes/2352-nuevo-rocodromo-en-el-fronton-municipal",
+          "claim": "The town's news page places the climbing wall in a corner of the frontón at the Ciudad Deportiva de Santa María (presented 14 March 2024).",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "climbbox-almeria",
+      "name": "Climbbox",
+      "address": "Calle Benitagla 28, 04007 Almería, Spain",
+      "city": "Almería",
+      "country": "ES",
+      "lat": 36.836785,
+      "lon": -2.443658,
+      "coordinate": {
+        "source": "cartociudad",
+        "ref": "01.04.MUN_040130241810"
+      },
+      "models": [
+        "Shiny Wall Standard"
+      ],
+      "website": "https://climbbox.es/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.shinywall.com/en/",
+          "claim": "The manufacturer lists Climbbox, Almería among its gym projects.",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "url": "https://www.lavozdealmeria.com/pequealmeria/382504/escalar-jugando-ninos-climbox-almeria.html",
+          "claim": "Local press places the Climbbox climbing gym at Calle Benitagla 28, open to the public without club membership.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "blokaceres-caceres",
+      "name": "Blokáceres",
+      "address": "Calle Juan de la Cierva 21, 10004 Cáceres, Spain",
+      "city": "Cáceres",
+      "country": "ES",
+      "lat": 39.503777,
+      "lon": -6.366461,
+      "coordinate": {
+        "source": "cartociudad",
+        "ref": "11.10.037_100370001065"
+      },
+      "models": [
+        "Shiny Wall Standard Max"
+      ],
+      "website": "https://blokaceres.com/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://blokaceres.com/rocodromo/",
+          "claim": "The gym's official page gives its address as Calle Juan de la Cierva 21, 10004 Cáceres, with passes and registration.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "boulder-up-gijon",
+      "name": "Boulder Up",
+      "address": "Calle Alexander Graham Bell 245, 33211 Gijón, Spain",
+      "city": "Gijón",
+      "country": "ES",
+      "lat": 43.507543,
+      "lon": -5.683368,
+      "coordinate": {
+        "source": "osm",
+        "ref": "node/14054816401"
+      },
+      "models": [
+        "Shiny Wall Standard Max Full"
+      ],
+      "website": "https://boulderup.es/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://boulderup.es/",
+          "claim": "The official site names its 'muro Shinywall' and gives Calle Alexander Graham Bell 245, 33211 Gijón.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "iclimb-jaen",
+      "name": "iCLIMB Jaén",
+      "address": "Calle Concejal Rosario Ramírez Mora 1, 23009 Jaén, Spain",
+      "city": "Jaén",
+      "country": "ES",
+      "lat": 37.787441,
+      "lon": -3.784311,
+      "coordinate": {
+        "source": "osm",
+        "ref": "way/931095021"
+      },
+      "models": [
+        "Shiny Wall Standard"
+      ],
+      "website": "https://iclimbjaen.com/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.shinywall.com/en/",
+          "claim": "The manufacturer quotes the owner of iClimb, Jaén in its customer testimonials.",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "url": "https://www.openstreetmap.org/way/931095021",
+          "claim": "OpenStreetMap maps iCLIMB Jaén as a fee-charging climbing centre at Calle Concejal Rosario Ramírez Mora 1.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "rawindoor-logrono",
+      "name": "Rocódromo Rawindoor",
+      "address": "Calle Serón 9, 26006 Logroño, Spain",
+      "city": "Logroño",
+      "country": "ES",
+      "lat": 42.45613,
+      "lon": -2.4121,
+      "coordinate": {
+        "source": "map-venue",
+        "ref": "existing Kilter Board venue"
+      },
+      "models": [
+        "Shiny Wall Standard"
+      ],
+      "website": "https://www.rawindoor.com/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.rawindoor.com/",
+          "claim": "Official site of the Rawindoor climbing gym in Logroño (its Kilter Board venue record already links it; the site answered HTTP 500 on 2026-10-25).",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "can-bombo-olot",
+      "name": "Can Bombo",
+      "address": "Avinguda del Perú 14, 17800 Olot, Spain",
+      "city": "Olot",
+      "country": "ES",
+      "lat": 42.173423,
+      "lon": 2.481393,
+      "coordinate": {
+        "source": "osm",
+        "ref": "node/6558072102"
+      },
+      "models": [
+        "Shiny Wall Standard Full"
+      ],
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.openstreetmap.org/node/6558072102",
+          "claim": "OpenStreetMap maps Can Bombo as a fee-charging climbing sports centre at Avinguda del Perú 14, Olot.",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "url": "https://www.picuco.com/de-es/activities/indoor-klettern-im-kletterzentrum-can-bombo-olot",
+          "claim": "Activity listing describes the Can Bombo climbing centre in Olot with two indoor bouldering zones and bookable sessions.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "can-codol-solsona",
+      "name": "Can Còdol",
+      "address": "Carrer de Sant Pere de Graudescales 2, 25280 Solsona, Spain",
+      "city": "Solsona",
+      "country": "ES",
+      "lat": 41.997145,
+      "lon": 1.509959,
+      "coordinate": {
+        "source": "catastro",
+        "ref": "6607512CG7560N"
+      },
+      "models": [
+        "Shiny Wall Standard"
+      ],
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.ajsolsona.cat/la-ciutat/noticies/solsona-organitza-un-taller-gratuit-de-rocodrom-per-a-l2019alumnat-de-primaria",
+          "claim": "Solsona town council (23 January 2026) describes the Can Còdol climbing gym, opened in 2025, at Carrer de Sant Pere de Graudescales 2.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "gravetat-zero-terrassa",
+      "name": "Gravetat Zero",
+      "address": "Carrer de l'Anoia / Carrer del Llobregat, naus 12–13, 08223 Terrassa, Spain",
+      "city": "Terrassa",
+      "country": "ES",
+      "lat": 41.54682,
+      "lon": 2.02887,
+      "coordinate": {
+        "source": "map-venue",
+        "ref": "existing Kilter Board venue"
+      },
+      "models": [
+        "Shiny Wall Standard Max Full"
+      ],
+      "website": "https://gravetat-zero.net/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://gravetat-zero.net/instal%c2%b7lacions",
+          "claim": "The official facilities page lists 'KILTER BOARD, SHINY WALL I MOONBOARD (ZONA CLIMATITZADA)'.",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "url": "https://gravetat-zero.net/contacto",
+          "claim": "The official contact page gives the address between Carrer de l'Anoia and Carrer del Llobregat, naus 12 i 13, 08223 Terrassa.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "indoorwall-vic",
+      "name": "Indoorwall Vic",
+      "address": "Calle Santiago Ramón y Cajal 87, 08500 Vic, Spain",
+      "city": "Vic",
+      "country": "ES",
+      "lat": 41.944429,
+      "lon": 2.261032,
+      "coordinate": {
+        "source": "cartociudad",
+        "ref": "09.08.MUN_082980964337"
+      },
+      "models": [
+        "Shiny Wall Standard Max Full"
+      ],
+      "website": "https://www.indoorwall.com/centros-indoorwall-rocodromos/indoorwall-vic/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.shinywall.com/en/",
+          "claim": "The manufacturer lists Indoorwall Vic among its gym projects and quotes the gym's owner.",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "url": "https://www.indoorwall.com/centros-indoorwall-rocodromos/indoorwall-vic/",
+          "claim": "The operator's location page gives Calle Santiago Ramón y Cajal 87, 08500 Vic.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "upzone-360-rodez",
+      "name": "Upzone 360",
+      "address": "19 Avenue Amans Rodat, 12000 Rodez, France",
+      "city": "Rodez",
+      "country": "FR",
+      "lat": 44.349371,
+      "lon": 2.568841,
+      "coordinate": {
+        "source": "ban",
+        "ref": "12202_0040_00019"
+      },
+      "models": [
+        "Shiny Wall Standard Max Full"
+      ],
+      "website": "https://upzone360.com/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://upzone360.com/",
+          "claim": "The official site has a 'TECHNOLOGIE SHINY WALL' section and gives 19 avenue Amans Rodat, 12000 Rodez.",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "url": "https://www.shinywall.com/en/",
+          "claim": "The manufacturer lists Upzone 360, Rodez among its gym projects.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "bloc-a-bleau-samoreau",
+      "name": "Bloc à Bleau",
+      "address": "10 Rue du Bois Gasseau, 77210 Samoreau, France",
+      "city": "Samoreau",
+      "country": "FR",
+      "lat": 48.425137,
+      "lon": 2.765529,
+      "coordinate": {
+        "source": "ban",
+        "ref": "77442_0150_00010"
+      },
+      "models": [
+        "Shiny Wall Standard Max Full"
+      ],
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.lefrenchguide.com/escalade/samoreau-77210/bloc-a-bleau",
+          "claim": "Directory listing names Bloc A Bleau at 10 Rue du Bois Gasseau, 77210 Samoreau, with public opening hours seven days a week.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "vertix-calice-ligure",
+      "name": "Vertix Climbing Gym",
+      "address": "Piazza Cesio 5, 17020 Calice Ligure (SV), Italy",
+      "city": "Calice Ligure",
+      "country": "IT",
+      "lat": 44.205533,
+      "lon": 8.293083,
+      "coordinate": {
+        "source": "osm",
+        "ref": "node/13243377237"
+      },
+      "models": [
+        "Shiny Wall Standard Max Full"
+      ],
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://liguriashopping.it/attivita/climbing-gym-arrampicata-sportiva-indoor-finale-ligure/",
+          "claim": "Local business directory lists Vertix Climbing Gym at Piazza Cesio 5, 17020 Calice Ligure, with public opening hours.",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "url": "https://www.openstreetmap.org/node/13243377237",
+          "claim": "OpenStreetMap maps Vertix Climbing Gym at Piazza Cesio, Calice Ligure.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "koren-cazzano-sant-andrea",
+      "name": "Palestra di arrampicata Koren",
+      "address": "Via Angelo Tacchini 38, 24026 Cazzano Sant'Andrea (BG), Italy",
+      "city": "Cazzano Sant'Andrea",
+      "country": "IT",
+      "lat": 45.810617,
+      "lon": 9.891875,
+      "coordinate": {
+        "source": "osm",
+        "ref": "node/13395238441"
+      },
+      "models": [
+        "Shiny Wall Standard Max"
+      ],
+      "website": "https://www.korenclimb.it/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.korenclimb.it/",
+          "claim": "The official site gives 'Struttura Koren Via Angelo Tacchini, 38, 24026 Cazzano Sant'Andrea' and publishes public opening hours.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "escape-climbing-garden-collegno",
+      "name": "Escape Climbing Garden",
+      "address": "Via Torino 168, 10093 Collegno (TO), Italy",
+      "city": "Collegno",
+      "country": "IT",
+      "lat": 45.072383,
+      "lon": 7.592575,
+      "coordinate": {
+        "source": "osm",
+        "ref": "node/6590329982"
+      },
+      "models": [
+        "Shiny Wall Standard Max Full"
+      ],
+      "website": "https://www.escapearrampicata.com/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.openstreetmap.org/node/6590329982",
+          "claim": "OpenStreetMap maps Escape Climbing Garden as a climbing centre at Via Torino 168, Collegno, with public opening hours and the escapearrampicata.com website.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "rockmadness-sassari",
+      "name": "ASD Rockmadness",
+      "address": "Zona industriale Predda Niedda, Strada 28, 07100 Sassari, Italy",
+      "city": "Sassari",
+      "country": "IT",
+      "lat": 40.738823,
+      "lon": 8.525311,
+      "coordinate": {
+        "source": "osm",
+        "ref": "node/10095363695"
+      },
+      "models": [
+        "Shiny Wall Standard Max"
+      ],
+      "website": "https://www.rockmadness.it/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.rockmadness.it/dove.html",
+          "claim": "The official location page gives Z.I. Predda Niedda Strada 28, 07100 Sassari.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "hangout-targu-mures",
+      "name": "Hangout",
+      "address": "Strada Livezeni 69, 540566 Târgu Mureș, Romania",
+      "city": "Târgu Mureș",
+      "country": "RO",
+      "lat": 46.5382673,
+      "lon": 24.5981647,
+      "coordinate": {
+        "source": "map-venue",
+        "ref": "existing MoonBoard venue"
+      },
+      "models": [
+        "Shiny Wall Standard Max Full"
+      ],
+      "website": "https://www.hang-out.ro/",
+      "public": true,
+      "evidence": [
+        {
+          "url": "https://www.shinywall.com/en/",
+          "claim": "The manufacturer lists Hang Out, Romania among its gym projects.",
+          "checked_at": "2026-10-25"
+        },
+        {
+          "url": "https://www.hang-out.ro/",
+          "claim": "The gym's official site gives str Livezeni nr 69, Targu Mures, and lists training panels.",
+          "checked_at": "2026-10-25"
+        }
+      ]
+    }
+  ]
+}

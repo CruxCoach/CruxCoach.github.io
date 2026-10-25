@@ -62,7 +62,7 @@ function summarizeBoard(id, rows) {
       commercial_false: rows.filter(({ board }) => board.commercial === false).length,
       led_true: rows.filter(({ board }) => board.led === true).length,
     };
-  } else if (id === 'quantum') {
+  } else if (id === 'quantum' || id === 'shinywall') {
     out.board_fields = {
       address_missing: rows.filter(({ board }) => missing(board.address)).length,
       models_missing: rows.filter(({ board }) => missing(board.models)).length,

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kletterboard-Karte: Kilter-, Tension- &amp; MoonBoard-Standorte — CruxCoach</title>
-<meta name="description" content="Interaktive Weltkarte der Kletterboards — Kilter, Tension, MoonBoard, Quantum und sechs weitere Systeme, 2.700+ Standorte. Filterbar nach Typ, Land und Wand-Details.">
+<meta name="description" content="Interaktive Weltkarte der Kletterboards — Kilter, Tension, MoonBoard, Quantum, Shiny Wall und sechs weitere Systeme, 2.700+ Standorte. Filterbar nach Typ, Land und Wand-Details.">
 <meta name="theme-color" content="#141312">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://cruxcoach.org/de/boards/">
@@ -12,13 +12,13 @@
 <link rel="alternate" hreflang="de" href="https://cruxcoach.org/de/boards/">
 <link rel="alternate" hreflang="x-default" href="https://cruxcoach.org/boards/">
 <meta property="og:title" content="Kletterboard-Standorte weltweit — CruxCoach">
-<meta property="og:description" content="Finde Kletter-Trainingsboards weltweit — Kilter, Tension, MoonBoard und sechs weitere Systeme — auf einer interaktiven, filterbaren Karte.">
+<meta property="og:description" content="Finde Kletter-Trainingsboards weltweit — Kilter, Tension, MoonBoard und acht weitere Systeme — auf einer interaktiven, filterbaren Karte.">
 <meta property="og:url" content="https://cruxcoach.org/de/boards/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://cruxcoach.org/assets/icon-512.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kletterboard-Standorte weltweit — CruxCoach">
-<meta name="twitter:description" content="Finde Kletter-Trainingsboards weltweit — Kilter, Tension, MoonBoard und sechs weitere Systeme — auf einer interaktiven, filterbaren Karte.">
+<meta name="twitter:description" content="Finde Kletter-Trainingsboards weltweit — Kilter, Tension, MoonBoard und acht weitere Systeme — auf einer interaktiven, filterbaren Karte.">
 <meta name="twitter:image" content="https://cruxcoach.org/assets/icon-512.png">
 <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
 <link rel="alternate icon" type="image/png" href="/assets/icon-512.png">
@@ -34,7 +34,7 @@
       "name": "Kletterboard-Karte",
       "url": "https://cruxcoach.org/de/boards/",
       "inLanguage": "de",
-      "description": "Interaktive Weltkarte der Kletter-Trainingsboards — Kilter Board, Tension Board, MoonBoard und sechs weitere Systeme — filterbar nach Board-Typ, Land, MoonBoard-Variante und Kilter-Wandgröße.",
+      "description": "Interaktive Weltkarte der Kletter-Trainingsboards — Kilter Board, Tension Board, MoonBoard und acht weitere Systeme — filterbar nach Board-Typ, Land, MoonBoard-Variante und Kilter-Wandgröße.",
       "applicationCategory": "Sports",
       "operatingSystem": "All",
       "browserRequirements": "Requires JavaScript",
@@ -84,7 +84,7 @@
           "name": "Warum fehlt das Board meiner Halle auf der Karte?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Die Karte zeigt öffentliche Upstream-Einträge plus kuratierte MoonBoard- und Quantum-Board-Ergänzungen mit offiziellen Belegen der Halle oder des Herstellers. Private, versteckte und ungeprüfte Einträge bleiben ausgeschlossen."
+            "text": "Die Karte zeigt öffentliche Upstream-Einträge plus kuratierte MoonBoard-, Quantum-Board- und Shiny-Wall-Ergänzungen mit offiziellen Belegen der Halle oder des Herstellers oder mit öffentlichen Karten- und Adressdaten. Private, versteckte und ungeprüfte Einträge bleiben ausgeschlossen."
           }
         },
         {
@@ -127,7 +127,7 @@
 <link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
 <link rel="stylesheet" href="/assets/vendor/leaflet/MarkerCluster.css">
 <link rel="stylesheet" href="/assets/vendor/leaflet/MarkerCluster.Default.css">
-<link rel="preload" href="/boards/data/boards.geojson?v=20260831-quantum9" as="fetch" type="application/geo+json" crossorigin>
+<link rel="preload" href="/boards/data/boards.geojson?v=20261025-shinywall1" as="fetch" type="application/geo+json" crossorigin>
 
 <style>
   :root {
@@ -698,9 +698,9 @@
       Dies ist eine interaktive Weltkarte der <strong>Kletter-Trainingsboards</strong>
       — der standardisierten, app-gesteuerten Boulderwände für Krafttraining
       und weltweit geteilte Benchmark-Boulder. Sie verzeichnet mehr als 2.700
-      Standorte über zehn Board-Systeme: das <strong>Kilter Board</strong>,
+      Standorte über elf Board-Systeme: das <strong>Kilter Board</strong>,
       <strong>Tension Board</strong> und <strong>MoonBoard</strong>, dazu
-      Grasshopper, Decoy, So iLL, Touchstone, Aurora, 12climb und Quantum Board. Die meisten
+      Grasshopper, Decoy, So iLL, Touchstone, Aurora, 12climb, Quantum Board und Shiny Wall. Die meisten
       sind kommerzielle Kletter- und Boulderhallen; einige sind private
       Homewall- oder Garagen-Setups, deren Besitzer den Standort öffentlich
       gelistet haben.
@@ -708,8 +708,8 @@
 
     <!-- GENERATED:board-stats START — produced by tools/build-boards-data.mjs; do not hand-edit between these markers, rebuild instead -->
     <p>
-      Die Karte verzeichnet derzeit <strong>2.919 Standorte</strong>
-      über <strong>zehn Board-Systeme</strong> in <strong>85 Ländern</strong>.
+      Die Karte verzeichnet derzeit <strong>2.933 Standorte</strong>
+      über <strong>elf Board-Systeme</strong> in <strong>85 Ländern</strong>.
       Zähler pro System (eine Halle mit zwei Boards zählt einmal pro System):
     </p>
     <table class="board-counts">
@@ -720,21 +720,22 @@
       <tr><td>Tension Board</td><td>398</td></tr>
       <tr><td>Grasshopper</td><td>43</td></tr>
       <tr><td>Decoy</td><td>24</td></tr>
+      <tr><td>Shiny Wall</td><td>18</td></tr>
       <tr><td>So iLL</td><td>12</td></tr>
       <tr><td>Quantum Board</td><td>12</td></tr>
       <tr><td>12climb</td><td>7</td></tr>
       <tr><td>Touchstone</td><td>5</td></tr>
       <tr><td>Aurora</td><td>3</td></tr>
     </tbody>
-    <tfoot><tr><td>Standorte gesamt</td><td>2.919</td></tr></tfoot>
+    <tfoot><tr><td>Standorte gesamt</td><td>2.933</td></tr></tfoot>
   </table>
-    <p>Bei <strong>1.836</strong> davon ist eine manuell geprüfte offizielle Website verlinkt.</p>
+    <p>Bei <strong>1.844</strong> davon ist eine manuell geprüfte offizielle Website verlinkt.</p>
     <p>Bei <strong>1.351</strong> davon stehen zusätzlich die Öffnungszeiten, wie die Halle
       sie selbst veröffentlicht. Feiertage und kurzfristige Änderungen können abweichen — verbindlich
       ist die Seite der Halle.</p>
     <p>
       Lieber eine einfache Liste? <a href="/de/boards/list.html">Zum vollständigen Verzeichnis
-      aller 2.919 Standorte, nach Land gruppiert →</a>
+      aller 2.933 Standorte, nach Land gruppiert →</a>
     </p>
     <!-- GENERATED:board-stats END -->
 
@@ -769,7 +770,7 @@
       Die kostenlose, quelloffene <a href="/de/">CruxCoach-Android-App</a>
       steuert sieben dieser Systeme direkt — durchstöbere den Katalog und lass
       die Griffe per Bluetooth aufleuchten: auf dem Kilter Board, MoonBoard,
-      Tension, Grasshopper, Decoy, So iLL und Touchstone. Aurora, 12climb und Quantum
+      Tension, Grasshopper, Decoy, So iLL und Touchstone. Aurora, 12climb, Quantum und Shiny Wall
       erscheinen nur als Standort-Ebenen.
     </p>
 
@@ -785,6 +786,20 @@
         Quantum-Board-Standorte stammen aus einer manuell geprüften Positivliste. Jeder Eintrag
         braucht eine öffentliche Primärquelle der Halle oder des Herstellers, eine vollständige
         Adresse und gültige Koordinaten; private und Test-Einträge aus eWalls bleiben ausgeschlossen.
+      </li>
+      <li>
+        Shiny-Wall-Standorte stammen aus einer manuell geprüften Positivliste öffentlicher Hallen
+        mit einem Board der Standard-Familie (Standard, Standard Max und deren Full-Versionen).
+        Die App des Herstellers nennt die Hallen; angezeigt wird eine Halle erst, wenn eine
+        öffentliche Seite der Halle, ein Karteneintrag oder ein amtliches Adressregister sie einem
+        realen, öffentlich zugänglichen Ort zuordnet. Heimwände, Test-Einträge,
+        Messe-Vorführwände und reine Vereinsräume bleiben ausgeschlossen.
+      </li>
+      <li>
+        Einige geprüfte spanische und französische Adresspunkte stammen aus
+        <a href="https://www.cartociudad.es/">CartoCiudad</a> (© Instituto Geográfico Nacional,
+        CC BY 4.0), dem spanischen Kataster (Dirección General del Catastro) und der
+        <a href="https://adresse.data.gouv.fr/">Base Adresse Nationale</a> (Licence Ouverte 2.0).
       </li>
       <li>
         Einige geprüfte japanische Adresspunkte wurden aus den 2025 veröffentlichten
@@ -815,7 +830,7 @@
       <dd>Kilter Board und Tension Board nutzen das Aurora-Climbing-System: LED-beleuchtete Griffe und meist ein verstellbarer Wandwinkel. Das MoonBoard setzt auf ein festes Griffraster in festem Winkel, mit eigener App und eigenen Benchmark-Bouldern. Die Systeme sind nicht kompatibel — ein Boulder von einem Board lässt sich nicht auf ein anderes übertragen.</dd>
 
       <dt>Warum fehlt das Board meiner Halle auf der Karte?</dt>
-      <dd>Die Karte zeigt öffentliche Upstream-Einträge plus kuratierte MoonBoard- und Quantum-Board-Ergänzungen mit offiziellen Belegen der Halle oder des Herstellers. Private, versteckte und ungeprüfte Einträge bleiben ausgeschlossen.</dd>
+      <dd>Die Karte zeigt öffentliche Upstream-Einträge plus kuratierte MoonBoard-, Quantum-Board- und Shiny-Wall-Ergänzungen mit offiziellen Belegen der Halle oder des Herstellers oder mit öffentlichen Karten- und Adressdaten. Private, versteckte und ungeprüfte Einträge bleiben ausgeschlossen.</dd>
 
       <dt>Wie genau sind die Board-Standorte und -Details?</dt>
       <dd>Koordinaten und Board-Metadaten stammen aus dem öffentlichen Datensatz, ergänzt um eine kleine Zahl handverifizierter Korrekturen wie das MoonBoard-Hardware-Jahr. Angaben wie der Wandwinkel geben wieder, was Betreiber eingetragen haben, und können der Realität hinterherhinken.</dd>
@@ -838,7 +853,7 @@
 
 <script src="/assets/vendor/leaflet/leaflet.js"></script>
 <script src="/assets/vendor/leaflet/leaflet.markercluster.js"></script>
-<script src="/boards/map.js?v=20260831-3"></script>
+<script src="/boards/map.js?v=20261025-1"></script>
 <script type="module" src="/assets/anonymous-analytics.js"></script>
 
 <script>

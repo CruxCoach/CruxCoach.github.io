@@ -194,6 +194,7 @@
     { id: 'aurora',      label: 'Aurora',        color: '#b93655' },
     { id: '12climb',     label: '12climb',       color: '#ed1667' },
     { id: 'quantum',     label: 'Quantum Board', color: '#665cff' },
+    { id: 'shinywall',   label: 'Shiny Wall',    color: '#ef6c00' },
   ];
   var COLOR = Object.fromEntries(BOARDS.map(function (b) { return [b.id, b.color]; }));
   var LABEL = Object.fromEntries(BOARDS.map(function (b) { return [b.id, b.label]; }));
@@ -206,8 +207,9 @@
   // Storage is best-effort: any failure (private mode, quota, disabled) is
   // swallowed and the map simply falls back to its defaults.
   // Bump when the taxonomy changes so a previously saved "all boards"
-  // selection cannot silently hide the newly introduced Quantum Board.
-  var STORE_KEY = 'cc-boards-map-v2';
+  // selection cannot silently hide a newly introduced board type (v2: Quantum
+  // Board, v3: Shiny Wall).
+  var STORE_KEY = 'cc-boards-map-v3';
 
   function loadState() {
     try {
@@ -444,7 +446,9 @@
       if (typeof boardObj.angle === 'number') tags.push(boardObj.angle + '°');
       return tags.length ? '<div class="popup-wall">' + tags.join(' · ') + '</div>' : '';
     }
-    if (b === 'quantum') {
+    // Curated allowlists (Quantum Board, Shiny Wall) carry the installed
+    // board models and the venue's address.
+    if (b === 'quantum' || b === 'shinywall') {
       var quantumBits = [];
       if (Array.isArray(boardObj.models) && boardObj.models.length) {
         quantumBits.push(boardObj.models.map(escapeHtml).join(' · '));
@@ -905,7 +909,7 @@
   // A venue is visible iff Country gate passes AND at least one active
   // board at the venue passes its own per-board constraints. Boards
   // without per-board filters (Tension, Aurora, Decoy, Grasshopper, So
-  // iLL, Touchstone, 12climb) pass-through.
+  // iLL, Touchstone, 12climb, Quantum, Shiny Wall) pass-through.
   var KILTER_LAYOUTS = [
     { key: 'Original', label: 'Original' },
     { key: 'Homewall', label: 'Homewall' },
@@ -1730,9 +1734,10 @@
   }
 
   // ── Data load ─────────────────────────────────────────────────────
-  // A versioned URL bypasses venue data cached by a pre-Quantum service
-  // worker, while retaining stale-while-revalidate resilience for this release.
-  fetch('/boards/data/boards.geojson?v=20260831-quantum9')
+  // A versioned URL bypasses venue data cached by a service worker from
+  // before the newest board type (Shiny Wall), while retaining
+  // stale-while-revalidate resilience for this release.
+  fetch('/boards/data/boards.geojson?v=20261025-shinywall1')
     .then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
       return res.json();

@@ -1282,13 +1282,13 @@ test('committed map data includes the missing boards and merges the corrected ve
   ]) assert.equal(at(features, lat, lon).length, 0);
 });
 
-test('the map bypasses pre-Quantum service-worker cache entries', () => {
+test('the map bypasses service-worker cache entries from before Shiny Wall', () => {
   const map = readFileSync(MAP_JS, 'utf8');
-  assert.match(map, /fetch\('\/boards\/data\/boards\.geojson\?v=20260831-quantum9'\)/);
+  assert.match(map, /fetch\('\/boards\/data\/boards\.geojson\?v=20261025-shinywall1'\)/);
 
   for (const page of ['boards/index.html', 'de/boards/index.html']) {
     const html = readFileSync(join(REPO_ROOT, page), 'utf8');
-    assert.match(html, /rel="preload" href="\/boards\/data\/boards\.geojson\?v=20260831-quantum9"/);
-    assert.match(html, /map\.js\?v=20260831-3/);
+    assert.match(html, /rel="preload" href="\/boards\/data\/boards\.geojson\?v=20261025-shinywall1"/);
+    assert.match(html, /map\.js\?v=20261025-1/);
   }
 });
