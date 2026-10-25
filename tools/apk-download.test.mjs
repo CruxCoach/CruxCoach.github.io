@@ -159,6 +159,34 @@ test('release publication never sends non-indexed pages to the sitemap updater',
   );
 });
 
+test('every rewritten page is either in the sitemap or skipped by the publisher', async () => {
+  // The strict sitemap updater fails on a page it has no entry for, AFTER the
+  // links were rewritten. That is how the competition pages, once added to the
+  // updater's list, broke the 0.2.4 website bump.
+  const { pageFileForUrl } = await import('./update-sitemap-lastmod.mjs');
+  const { execFileSync } = await import('node:child_process');
+  const sitemap = fs.readFileSync(path.join(repoRoot, 'sitemap.xml'), 'utf8');
+  const indexed = new Set(
+    [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => pageFileForUrl(m[1])));
+  const publisher = fs.readFileSync(
+    path.join(repoRoot, 'tools/publish-release.sh'), 'utf8');
+  const caseBlock = /case "\$file" in([^]*?)\n\s*esac/.exec(publisher);
+  assert.ok(caseBlock, 'publisher filters pages with a case block');
+  const skipped = [...caseBlock[1].matchAll(/^\s*([^#\s][^)\n]*)\) ;;$/gm)]
+    .flatMap((m) => m[1].split('|'))
+    .map((glob) => new RegExp(`^${glob.replaceAll('.', '\\.').replaceAll('*', '.*')}$`));
+  const files = execFileSync(
+    process.execPath, [path.join(repoRoot, 'tools/update-download-link.mjs'), '--print-files'],
+    { encoding: 'utf8' },
+  ).trim().split('\n').filter((file) => file.endsWith('.html'));
+  for (const file of files) {
+    assert.ok(
+      indexed.has(file) || skipped.some((re) => re.test(file)),
+      `${file} has no sitemap entry and is not skipped by publish-release.sh`,
+    );
+  }
+});
+
 test('a release reaches the apex even when Codeberg is down, and never skips quietly', () => {
   // GitHub Pages serves cruxcoach.org. Pushing Codeberg first and stopping on
   // its failure kept the apex on the old release; a checkout on a feature

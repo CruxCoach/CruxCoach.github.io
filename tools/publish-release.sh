@@ -101,6 +101,10 @@ for file in "${LINK_FILES[@]}"; do
     # the strict sitemap updater to find them turns a valid release bump into
     # a hard failure after all download links have already been rewritten.
     404.html|privacy.html|de/privacy.html|imprint.html|de/imprint.html) ;;
+    # The competition application pages are noindex and out of the sitemap
+    # too. Adding them to the updater's file list without this line made the
+    # 0.2.4 bump fail here after all 30 files had already been rewritten.
+    competitions/*|de/competitions/*) ;;
     *.html) sitemap_pages+=("$file") ;;
   esac
 done
