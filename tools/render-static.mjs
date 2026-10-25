@@ -40,8 +40,8 @@ export const BOARD_LABELS = {
 // words (Wellpass, OpenStreetMap) stay untranslated by design.
 // Kept in step by tools/update-download-link.mjs, which rewrites every
 // codeberg.org release URL and every cdn.zapstore.dev digest in this file.
-const APK_URL = 'https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.3/CruxCoach-v0.2.3.apk';
-const APK_MIRROR = 'https://cdn.zapstore.dev/04aaa4a563c38d8352c685c7dc2da98d84953d6f4815ca856e89cbd178770c55.apk';
+const APK_URL = 'https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk';
+const APK_MIRROR = 'https://cdn.zapstore.dev/7c7e2076dd127a704876d13adb3575ff863f0026868b9aba25fb31fe45dd2872.apk';
 
 const STRINGS = {
   en: {
