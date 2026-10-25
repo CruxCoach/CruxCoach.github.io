@@ -204,6 +204,16 @@ not reliably map boards to public venues, only records backed by primary
 venue/manufacturer evidence are admitted; the audit and exclusions live in
 `QUANTUM-LOCATIONS.md`.
 
+`sources/shinywall.mjs` loads the reviewed public Shiny Wall gyms in
+`shinywall-locations.json`. Shiny Wall publishes no location feed; the gyms the
+manufacturer's app lists as having a public Standard-family wall are only the
+starting point. A record is admitted once a public venue page, an OpenStreetMap
+object or an official address register (CartoCiudad, the Spanish cadastre,
+Base Adresse Nationale)
+pins it to a real, publicly accessible venue. Model labels come from a closed
+list, so a gym's own wall names never reach the map. Selection rules and
+exclusions live in `SHINYWALL-LOCATIONS.md`.
+
 ## Manual overrides
 
 `tools/overrides.json` hand-corrects fields the upstream sources leave blank

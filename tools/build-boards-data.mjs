@@ -26,6 +26,7 @@ import { dirname, join } from 'node:path';
 import * as hangtime from './sources/hangtime.mjs';
 import * as curated from './sources/curated.mjs';
 import * as quantum from './sources/quantum.mjs';
+import * as shinywall from './sources/shinywall.mjs';
 import { renderListPage, renderStatsBlock, injectBetweenMarkers } from './render-static.mjs';
 import { findNearestCity, loadCityIndex } from './nearest-city.mjs';
 import { applyVenueLinks, loadVenueLinks } from './venue-links.mjs';
@@ -53,11 +54,13 @@ const SOURCES = [
   { id: 'hangtime', mod: hangtime },
   { id: 'curated', mod: curated },
   { id: 'quantum', mod: quantum },
+  { id: 'shinywall', mod: shinywall },
 ];
 
 const BOARDS = [
   'kilter', 'tension', 'grasshopper', 'decoy', 'soill',
   'touchstone', 'aurora', 'moonboard', '12climb', 'quantum',
+  'shinywall',
 ];
 
 // Priority when picking the venue's canonical name + city/country from
@@ -66,7 +69,7 @@ const BOARDS = [
 const NAME_PRIORITY = {
   kilter: 100, moonboard: 50, tension: 40, grasshopper: 30,
   decoy: 30, soill: 30, touchstone: 30, aurora: 30, quantum: 60,
-  '12climb': 10,
+  shinywall: 20, '12climb': 10,
 };
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');

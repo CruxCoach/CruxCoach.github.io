@@ -34,6 +34,7 @@ export const BOARD_LABELS = {
   aurora: 'Aurora',
   '12climb': '12climb',
   quantum: 'Quantum Board',
+  shinywall: 'Shiny Wall',
 };
 
 // All user-facing text per language. Board names, layout names and brand
@@ -50,7 +51,7 @@ const STRINGS = {
     thVenues: 'Venues',
     tfootDistinct: 'Distinct venues',
     statsIntro: (total, countries) => `The map currently plots <strong>${total} venues</strong>
-      across <strong>ten board systems</strong> in <strong>${countries} countries</strong>.
+      across <strong>eleven board systems</strong> in <strong>${countries} countries</strong>.
       Counts per system (a gym with two boards is counted once per system):`,
     listTeaser: (listHref, total) => `Prefer a plain list? <a href="${listHref}">Browse the full directory of
       all ${total} venues, grouped by country →</a>`,
@@ -68,7 +69,7 @@ const STRINGS = {
     h1: 'All climbing board locations worldwide',
     lede: (mapHref, total, countries, perBoardSentence) => `A complete, text-based directory of every venue on the
       <a href="${mapHref}">CruxCoach climbing board map</a>: <strong>${total} venues</strong>
-      across <strong>${countries} countries</strong> and ten board systems
+      across <strong>${countries} countries</strong> and eleven board systems
       (${perBoardSentence}). Use the <a href="${mapHref}">interactive map</a> to
       search by location and filter; this page lists everything as plain text.`,
     jumpToCountry: 'Jump to a country',
@@ -90,7 +91,7 @@ const STRINGS = {
     thVenues: 'Standorte',
     tfootDistinct: 'Standorte gesamt',
     statsIntro: (total, countries) => `Die Karte verzeichnet derzeit <strong>${total} Standorte</strong>
-      über <strong>zehn Board-Systeme</strong> in <strong>${countries} Ländern</strong>.
+      über <strong>elf Board-Systeme</strong> in <strong>${countries} Ländern</strong>.
       Zähler pro System (eine Halle mit zwei Boards zählt einmal pro System):`,
     listTeaser: (listHref, total) => `Lieber eine einfache Liste? <a href="${listHref}">Zum vollständigen Verzeichnis
       aller ${total} Standorte, nach Land gruppiert →</a>`,
@@ -108,7 +109,7 @@ const STRINGS = {
     h1: 'Alle Kletterboard-Standorte weltweit',
     lede: (mapHref, total, countries, perBoardSentence) => `Ein vollständiges, textbasiertes Verzeichnis aller Standorte auf der
       <a href="${mapHref}">CruxCoach-Kletterboard-Karte</a>: <strong>${total} Standorte</strong>
-      in <strong>${countries} Ländern</strong> und zehn Board-Systemen
+      in <strong>${countries} Ländern</strong> und elf Board-Systemen
       (${perBoardSentence}). Nutze die <a href="${mapHref}">interaktive Karte</a>, um
       nach Ort zu suchen und zu filtern; diese Seite listet alles als reinen Text.`,
     jumpToCountry: 'Zum Land springen',

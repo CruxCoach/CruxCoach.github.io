@@ -27963,5 +27963,93 @@
     "provenance": "official-location-page",
     "signals": ["name", "street-address", "postal-code", "city", "coordinates", "board-mention"],
     "note": "The current Alpenverein hall page proves paid public access and registration at Kletterhalle Zwettl; the section's official 2025 magazine documents the adjustable Kilter Board completed in 2024 inside the Sportmittelschule hall. The official Austrian climbing-facility finder independently labels use as public, and OSM way 29474116 identifies the exact named school building at Schulgasse 24."
+  },
+  {
+    "lat": 41.05047,
+    "lon": -0.12545,
+    "name": "Ciudad Deportiva Santa María",
+    "country": "ES",
+    "website": "https://www.alcaniz.es/es/home/deportes/servicio-municipal-de-deportes/instalaciones",
+    "verified": "2026-10-25",
+    "provenance": "official-location-page",
+    "signals": ["name", "city", "board-mention"],
+    "note": "Alcañiz town council's sports-facility page: the municipal sports service is based at the Ciudad Deportiva Sta. María and lists its 'rocódromo y shiny wall' (federation licence required)."
+  },
+  {
+    "lat": 39.503777,
+    "lon": -6.366461,
+    "name": "Blokáceres",
+    "country": "ES",
+    "website": "https://blokaceres.com/",
+    "verified": "2026-10-25",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "city"],
+    "note": "The gym's own site (title 'Rocódromo Blokaceres – Rocódromo en Cáceres') prints Calle Juan de la Cierva, 21."
+  },
+  {
+    "lat": 43.507543,
+    "lon": -5.683368,
+    "name": "Boulder Up",
+    "country": "ES",
+    "website": "https://boulderup.es/",
+    "verified": "2026-10-25",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "board-mention"],
+    "note": "Boulder Up Climbing Café's own site prints Calle Alexander Graham Bell 245, (33211) Gijón and names its Shinywall wall."
+  },
+  {
+    "lat": 37.787441,
+    "lon": -3.784311,
+    "name": "iCLIMB Jaén",
+    "country": "ES",
+    "website": "https://iclimbjaen.com/",
+    "verified": "2026-10-25",
+    "provenance": "official-site",
+    "signals": ["name", "city"],
+    "note": "The gym's own site is titled 'iCLIMB | Rocódromo en Jaén'; OSM way 931095021 maps iCLIMB Jaén at this point."
+  },
+  {
+    "lat": 41.944429,
+    "lon": 2.261032,
+    "name": "Indoorwall Vic",
+    "country": "ES",
+    "website": "https://www.indoorwall.com/centros-indoorwall-rocodromos/indoorwall-vic/",
+    "verified": "2026-10-25",
+    "provenance": "official-location-page",
+    "signals": ["name", "street-address", "postal-code", "city", "location-page"],
+    "note": "Indoorwall's per-centre page for Vic prints Calle Santiago Ramón y Cajal, 87, 08500 Vic (Barcelona)."
+  },
+  {
+    "lat": 44.349371,
+    "lon": 2.568841,
+    "name": "Upzone 360",
+    "country": "FR",
+    "website": "https://upzone360.com/",
+    "verified": "2026-10-25",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city", "board-mention"],
+    "note": "Upzone 360's own site gives 19 avenue Amans Rodat, 12000 Rodez and has a 'Technologie Shiny Wall' section."
+  },
+  {
+    "lat": 45.810617,
+    "lon": 9.891875,
+    "name": "Palestra di arrampicata Koren",
+    "country": "IT",
+    "website": "https://www.korenclimb.it/",
+    "verified": "2026-10-25",
+    "provenance": "official-site",
+    "signals": ["name", "street-address", "postal-code", "city"],
+    "note": "Koren Climb's own site prints 'Struttura Koren Via Angelo Tacchini, 38, 24026 Cazzano Sant'Andrea' and its public opening hours."
+  },
+  {
+    "lat": 40.738823,
+    "lon": 8.525311,
+    "name": "ASD Rockmadness",
+    "country": "IT",
+    "website": "https://www.rockmadness.it/",
+    "verified": "2026-10-25",
+    "provenance": "official-site",
+    "signals": ["name", "postal-code", "city"],
+    "note": "ASD RockMadness's own site (07100 Sassari, Predda Niedda); its location page dove.html gives Strada 28, matching OSM node 10095363695."
   }
 ]
