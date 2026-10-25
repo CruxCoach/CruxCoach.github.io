@@ -11,16 +11,24 @@
 // half-published release without an uploaded APK leaves the links alone.
 //
 // The same APK is also published content-addressed on Zapstore's Blossom CDN.
-// We derive that fallback URL from the release's SHA-256 sidecar, then require
-// the CDN object to have the same byte size and SHA-256 before changing either
-// set of links. It also atomically publishes the verified tuple to
-// /apk-target.json for the selector's server-side health cache. Keep this at
-// the public root: Codeberg Pages does not publish newly added dot-directory
-// files reliably.
+// We derive that fallback URL from the release's SHA-256 sidecar and check
+// that the CDN object has the same byte size and SHA-256. It also atomically
+// publishes the tuple to /apk-target.json for the selector's server-side
+// health cache. Keep this at the public root: Codeberg Pages does not publish
+// newly added dot-directory files reliably.
+//
+// Zapstore is a fallback, never a gate. The 0.2.4 release sat on GitHub and
+// Codeberg while Zapstore acknowledged and then dropped every upload, and
+// requiring the CDN copy kept the whole site — buttons, JSON-LD, llms.txt and
+// the selector manifest — on 0.2.3. The site always moves to the newest full
+// release; an unverified CDN copy only costs a warning. Its URL is fixed by
+// the digest, so the links already name the right blob for when it appears,
+// the selector and the app probe it before use, and the click-time last
+// resort reaches it only after our host, Codeberg and GitHub all failed.
 //
 // Sidecar URLs (….apk.sha256) are rewritten alongside if a page ever links
 // one. Exit code 0 = links are current (whether or not files were rewritten),
-// 1 = error (API/CDN unreachable, no asset, …) — callers keep the old links.
+// 1 = error (forge API unreachable, no asset, …) — callers keep the old links.
 
 import fs from 'node:fs';
 import os from 'node:os';
@@ -131,36 +139,45 @@ if (!apkSha256) {
 }
 
 const zapstoreUrl = ZAPSTORE_CDN_PREFIX + apkSha256;
-const zapstoreRes = await fetch(zapstoreUrl);
-if (!zapstoreRes.ok) {
-  console.error(`Zapstore CDN fallback returned ${zapstoreRes.status}`);
-  process.exit(1);
-}
-if (!zapstoreRes.body) {
-  console.error('Zapstore CDN fallback returned no response body');
-  process.exit(1);
-}
-const zapstoreHash = createHash('sha256');
-let zapstoreSize = 0;
-for await (const chunk of zapstoreRes.body) {
-  zapstoreHash.update(chunk);
-  zapstoreSize += chunk.byteLength;
-  if (zapstoreSize > apk.size) {
-    console.error(`Zapstore CDN size exceeds expected ${apk.size} bytes`);
-    process.exit(1);
+// Returns null when the CDN serves exactly these bytes, else why not.
+async function zapstoreProblem() {
+  let zapstoreRes;
+  try {
+    zapstoreRes = await fetch(zapstoreUrl);
+  } catch (error) {
+    return `unreachable: ${error.message}`;
   }
+  if (!zapstoreRes.ok) return `HTTP ${zapstoreRes.status}`;
+  if (!zapstoreRes.body) return 'no response body';
+  const zapstoreHash = createHash('sha256');
+  let zapstoreSize = 0;
+  try {
+    for await (const chunk of zapstoreRes.body) {
+      zapstoreHash.update(chunk);
+      zapstoreSize += chunk.byteLength;
+      if (zapstoreSize > apk.size) return `more than the expected ${apk.size} bytes`;
+    }
+  } catch (error) {
+    return `read failed: ${error.message}`;
+  }
+  const zapstoreSha256 = zapstoreHash.digest('hex');
+  if (zapstoreSize !== apk.size || zapstoreSha256 !== apkSha256) {
+    return `mismatch: expected ${apk.size} bytes / ${apkSha256}, `
+      + `received ${zapstoreSize} bytes / ${zapstoreSha256}`;
+  }
+  return null;
 }
-const zapstoreSha256 = zapstoreHash.digest('hex');
-if (zapstoreSize !== apk.size || zapstoreSha256 !== apkSha256) {
-  console.error(
-    `Zapstore CDN mismatch: expected ${apk.size} bytes / ${apkSha256}, ` +
-      `received ${zapstoreSize} bytes / ${zapstoreSha256}`,
-  );
-  process.exit(1);
-}
+const zapstoreIssue = await zapstoreProblem();
 
 console.log(`latest release: ${release.tag_name} → ${apkUrl}`);
-console.log(`Zapstore fallback: sha256=${apkSha256} size=${zapstoreSize}`);
+if (zapstoreIssue) {
+  console.warn(
+    `Zapstore fallback NOT verified (${zapstoreIssue}) — publishing ${release.tag_name} `
+      + 'anyway; the next run checks the CDN copy again',
+  );
+} else {
+  console.log(`Zapstore fallback: sha256=${apkSha256} size=${apk.size}`);
+}
 
 let rewritten = 0;
 for (const file of FILES) {
@@ -231,6 +248,10 @@ function digestOf(file) {
 try {
   if (digestOf(localApk) === apkSha256) {
     console.log('local APK copy: already current');
+  } else if (zapstoreIssue) {
+    // The release workflow installs this copy itself from the bytes it just
+    // verified; only the nightly self-repair depends on the CDN.
+    console.warn('local APK copy: missing, and the Zapstore CDN cannot supply it yet');
   } else {
     fs.mkdirSync(LOCAL_APK_DIR, { recursive: true });
     // Deliberately the Zapstore CDN, never Codeberg: a nightly pull from a

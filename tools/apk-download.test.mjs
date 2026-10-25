@@ -134,6 +134,22 @@ test('the nightly updater never downloads the Codeberg APK for validation', () =
   assert.ok(!fetchTargets.includes('apkUrl'), 'never fetch the Codeberg asset');
 });
 
+test('a missing Zapstore copy never holds the site on an older release', () => {
+  // 0.2.4: GitHub and Codeberg carried the release while Zapstore dropped every
+  // upload, and the updater's hard CDN check kept every link on 0.2.3.
+  const updater = fs.readFileSync(
+    path.join(repoRoot, 'tools/update-download-link.mjs'), 'utf8');
+  const start = updater.indexOf('const zapstoreUrl = ');
+  const end = updater.indexOf('let rewritten = 0;');
+  assert.ok(start > 0 && end > start, 'Zapstore check precedes the rewrite');
+  const check = updater.slice(start, end);
+  assert.doesNotMatch(check, /process\.exit/, 'the Zapstore check must not abort the update');
+  assert.match(check, /Zapstore fallback NOT verified/);
+  // The link rewrite and the manifest do not depend on the check's outcome.
+  assert.match(updater, /\.replace\(ZAPSTORE_LINK_RE, zapstoreUrl\)/);
+  assert.match(updater, /zapstore_url: zapstoreUrl,/);
+});
+
 test('release publication never sends non-indexed pages to the sitemap updater', () => {
   const publisher = fs.readFileSync(
     path.join(repoRoot, 'tools/publish-release.sh'), 'utf8');
