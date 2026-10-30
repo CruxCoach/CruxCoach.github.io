@@ -7,9 +7,9 @@ import {
   FALLBACK_WINDOW_MS,
   consumeZapstoreFallback,
   apkClickHandler,
+  codebergRelease,
   githubRelease,
   initAnonymousAnalytics,
-  releaseMetadataUrl,
   upgradeApkButtons,
   markZapstoreClick,
   normalizePagePath,
@@ -138,14 +138,22 @@ test('Zapstore then direct APK emits one combined canonical-page fallback', () =
   ]);
 });
 
+// What the markup ships: the release on GitHub, the primary forge.
+const GITHUB_APK =
+  'https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk';
+const GITHUB_METADATA =
+  'https://api.github.com/repos/CruxCoach/CruxCoach/releases/tags/v0.2.1';
+// The same release on Codeberg, the secondary forge.
 const CODEBERG_APK =
   'https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk';
+const CODEBERG_METADATA =
+  'https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/tags/v0.2.1';
 const SELECTOR = 'https://stats.cruxcoach.org/download/apk/home-en/hero';
 
 /** A single direct-APK button plus the bits of the DOM the client touches. */
 function pageWithApkButton() {
   const button = {
-    href: CODEBERG_APK,
+    href: GITHUB_APK,
     dataset: { apkSelector: SELECTOR },
     getAttribute: () => button.href,
   };
@@ -178,7 +186,7 @@ test('the button is upgraded to our selector only once the beacon comes back', a
     fetchImpl: async () => ({ ok: true }),
   };
   initAnonymousAnalytics(root, options);
-  assert.equal(root.button.href, CODEBERG_APK, 'not before the answer arrives');
+  assert.equal(root.button.href, GITHUB_APK, 'not before the answer arrives');
   await new Promise((resolve) => { setTimeout(resolve, 0); });
   assert.equal(root.button.href, SELECTOR);
 });
@@ -203,11 +211,11 @@ test('an event the server refused is not a delivered one', async () => {
       fetchImpl: async () => response,
     });
     await new Promise((resolve) => { setTimeout(resolve, 0); });
-    assert.equal(root.button.href, CODEBERG_APK, `HTTP ${response.status}`);
+    assert.equal(root.button.href, GITHUB_APK, `HTTP ${response.status}`);
   }
 });
 
-test('an unreachable server leaves the button on its working Codeberg link', async () => {
+test('an unreachable server leaves the button on its working GitHub link', async () => {
   // The failure this whole design exists for: stats.cruxcoach.org is down. The
   // click must still deliver an APK, so nothing may be rewritten.
   const root = pageWithApkButton();
@@ -218,7 +226,7 @@ test('an unreachable server leaves the button on its working Codeberg link', asy
     fetchImpl: async () => { throw new Error('connection refused'); },
   });
   await new Promise((resolve) => { setTimeout(resolve, 0); });
-  assert.equal(root.button.href, CODEBERG_APK);
+  assert.equal(root.button.href, GITHUB_APK);
 });
 
 test('a privacy signal leaves the button alone and sends nothing at all', async () => {
@@ -230,7 +238,7 @@ test('a privacy signal leaves the button alone and sends nothing at all', async 
     fetchImpl: async () => { calls += 1; },
   });
   await new Promise((resolve) => { setTimeout(resolve, 0); });
-  assert.equal(root.button.href, CODEBERG_APK);
+  assert.equal(root.button.href, GITHUB_APK);
   assert.equal(calls, 0);
 });
 
@@ -247,7 +255,7 @@ test('each direct-APK click is counted exactly once, whoever serves it', async (
   });
 
   // A click that beats the upgrade — a real race on a warm cache. The server is
-  // up but never sees this one, because it went straight to Codeberg, so the
+  // up but never sees this one, because it went straight to GitHub, so the
   // client is the only place it can be recorded.
   //
   // Note what this does NOT rescue: if our server is genuinely down, this
@@ -365,10 +373,10 @@ test('privacy notices distinguish private analytics operations from public app s
     const html = fs.readFileSync(path.join(repoRoot, page), 'utf8');
     assert.match(html, /private operational repository|privaten Betriebs-Repository/, page);
     assert.match(html, /source remains publicly available|Quellcode bleibt[\s\S]*?öffentlich verfügbar/, page);
-    assert.match(html, /codeberg\.org\/CruxCoach\/CruxCoach/, `${page}: public app source`);
+    assert.match(html, /github\.com\/CruxCoach\/CruxCoach"/, `${page}: public app source`);
     assert.doesNotMatch(
       html,
-      /codeberg\.org\/CruxCoach\/cruxcoach-dlstats/,
+      /(?:codeberg\.org|github\.com)\/CruxCoach\/cruxcoach-dlstats/,
       `${page}: private analytics repository`,
     );
   }
@@ -376,7 +384,7 @@ test('privacy notices distinguish private analytics operations from public app s
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v36';/);
+  assert.match(source, /var VERSION = 'cc-v37';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
   // The share QR names this page and nothing else, so a visitor who scans it
@@ -391,6 +399,9 @@ test('the share-QR resolver carries the same fallback chain as the button', () =
   // Then the two key-free sources, read from the nightly manifest rather than
   // written into the page — this file outlives the release it was added in.
   assert.match(source, /apk-target\.json/);
+  // The forge is GitHub, the primary one; the manifest's Codeberg URL is kept
+  // as the answer when no clean version can be read.
+  assert.match(source, /https:\/\/github\.com\/CruxCoach\/CruxCoach\/releases\/download\//);
   assert.match(source, /codeberg_url/);
   assert.match(source, /zapstore_url/);
   // A hardcoded version here would pin every future scan to today's release,
@@ -423,24 +434,34 @@ test('the share-QR resolver counts its own arrival, not just its click', () => {
 
 const MIRROR =
   'https://cdn.zapstore.dev/fb1334ce0113ed821549b35e7480ab800d8c76d9a691b7d58da38a2a780078e4.apk';
-const METADATA =
-  'https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/tags/v0.2.1';
 
 test('release metadata is derived from the link, never the attachment itself', () => {
-  assert.equal(releaseMetadataUrl(CODEBERG_APK), METADATA);
-  // A GET on the attachment would count as a Codeberg download.
-  assert.ok(!releaseMetadataUrl(CODEBERG_APK).endsWith('.apk'));
-  assert.equal(releaseMetadataUrl('https://evil.example/CruxCoach-v0.2.1.apk'), null);
-  assert.equal(releaseMetadataUrl(''), null);
+  assert.deepEqual(githubRelease(GITHUB_APK), { apk: GITHUB_APK, metadata: GITHUB_METADATA });
+  assert.deepEqual(codebergRelease(GITHUB_APK), { apk: CODEBERG_APK, metadata: CODEBERG_METADATA });
+  // A GET on the attachment would count as a download on that forge.
+  assert.ok(!githubRelease(GITHUB_APK).metadata.endsWith('.apk'));
+  assert.ok(!codebergRelease(GITHUB_APK).metadata.endsWith('.apk'));
+  for (const derive of [githubRelease, codebergRelease]) {
+    assert.equal(derive('https://evil.example/CruxCoach-v0.2.1.apk'), null);
+    assert.equal(derive('https://github.com.evil.example/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk'), null);
+    assert.equal(derive(''), null);
+  }
+});
+
+test('a page cached with the old Codeberg link keeps the same chain', () => {
+  // Buttons carried a Codeberg link until GitHub became the default. A cached
+  // copy of such a page names the same release and must not lose its fallback.
+  assert.deepEqual(githubRelease(CODEBERG_APK), { apk: GITHUB_APK, metadata: GITHUB_METADATA });
+  assert.deepEqual(codebergRelease(CODEBERG_APK), { apk: CODEBERG_APK, metadata: CODEBERG_METADATA });
 });
 const settle = () => new Promise((resolve) => { setTimeout(resolve, 40); });
 
 /** A button as the markup ships it, optionally already upgraded. */
-function apkButton({ upgraded = false, mirror = MIRROR } = {}) {
+function apkButton({ upgraded = false, mirror = MIRROR, direct = GITHUB_APK } = {}) {
   const dataset = { apkSelector: SELECTOR, apkMirror: mirror };
-  if (upgraded) dataset.apkDirect = CODEBERG_APK;
+  if (upgraded) dataset.apkDirect = direct;
   return {
-    href: upgraded ? SELECTOR : CODEBERG_APK,
+    href: upgraded ? SELECTOR : direct,
     dataset,
     getAttribute() { return this.href; },
   };
@@ -482,8 +503,10 @@ const hanging = (_url, init) => new Promise((_resolve, reject) => {
 // A content blocker, a missing CORS header, no network: the request never
 // happens, and the failure says nothing at all about the host.
 const blocked = async () => { throw new TypeError('Failed to fetch'); };
+const onlyGitHub = (url, init) =>
+  (url.startsWith(GITHUB_METADATA) ? up() : hanging(url, init));
 const onlyCodeberg = (url, init) =>
-  (url.startsWith(METADATA) ? up() : hanging(url, init));
+  (url.startsWith(CODEBERG_METADATA) ? up() : hanging(url, init));
 
 test('a healthy server keeps the click on our own route, asking nobody else', async () => {
   const { win, asked } = clickWith(up, apkButton({ upgraded: true }));
@@ -495,13 +518,13 @@ test('a healthy server keeps the click on our own route, asking nobody else', as
 test('a server that died since page load no longer strands the click', async () => {
   // The beacon proved it was up minutes ago and the button was pointed at it.
   // Without this check the click would land on a dead host with no way back.
-  const { win, asked } = clickWith(onlyCodeberg, apkButton({ upgraded: true }));
+  const { win, asked } = clickWith(onlyGitHub, apkButton({ upgraded: true }));
   await settle();
-  assert.equal(win.location.href, CODEBERG_APK);
-  assert.deepEqual(asked.map((a) => a[0]), [SELECTOR, METADATA]);
+  assert.equal(win.location.href, GITHUB_APK);
+  assert.deepEqual(asked.map((a) => a[0]), [SELECTOR, GITHUB_METADATA]);
 });
 
-test('with our server and Codeberg both silent, the mirror still delivers', async () => {
+test('with our server and both forges silent, the mirror still delivers', async () => {
   const { win } = clickWith(hanging, apkButton({ upgraded: true }));
   await settle();
   assert.equal(win.location.href, MIRROR);
@@ -518,10 +541,10 @@ test('a button that was never upgraded still gets offered our own copy', async (
   assert.deepEqual(healthy.asked, [[SELECTOR, 'HEAD']]);
 
   // With us out of reach it walks on, and never touches the APK attachment.
-  const noServer = clickWith(onlyCodeberg, apkButton());
+  const noServer = clickWith(onlyGitHub, apkButton());
   await settle();
-  assert.equal(noServer.win.location.href, CODEBERG_APK);
-  assert.deepEqual(noServer.asked, [[SELECTOR, 'HEAD'], [METADATA, 'GET']]);
+  assert.equal(noServer.win.location.href, GITHUB_APK);
+  assert.deepEqual(noServer.asked, [[SELECTOR, 'HEAD'], [GITHUB_METADATA, 'GET']]);
 
   const silent = clickWith(hanging, apkButton());
   await settle();
@@ -535,7 +558,7 @@ test('a button that was never upgraded still gets offered our own copy', async (
 test('a check that could not run never argues for the hash-named mirror', async () => {
   // The bug this exists for. Our own download route sent no CORS header, so
   // the liveness fetch failed on every click no matter how healthy the server
-  // was; the Codeberg check was then blocked by a tracking blocker, and the
+  // was; the forge check was then blocked by a tracking blocker, and the
   // visitor was handed a file named after its SHA-256 while all three sources
   // were up.
   //
@@ -543,53 +566,52 @@ test('a check that could not run never argues for the hash-named mirror', async 
   // better source, but it must never cost them a legible file name.
   const { win } = clickWith(blocked, apkButton({ upgraded: true }));
   await settle();
-  assert.equal(win.location.href, CODEBERG_APK, 'the canonical, properly named file');
+  assert.equal(win.location.href, GITHUB_APK, 'the canonical, properly named file');
 
   const notUpgraded = clickWith(blocked, apkButton());
   await settle();
-  assert.equal(notUpgraded.win.location.href, CODEBERG_APK);
+  assert.equal(notUpgraded.win.location.href, GITHUB_APK);
 });
 
-const GITHUB_APK =
-  'https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.1/CruxCoach-v0.2.1.apk';
-const GITHUB_METADATA =
-  'https://api.github.com/repos/CruxCoach/CruxCoach/releases/tags/v0.2.1';
-
-test('the GitHub release is derived from the Codeberg link, never probed as an asset', () => {
-  assert.deepEqual(githubRelease(CODEBERG_APK), { apk: GITHUB_APK, metadata: GITHUB_METADATA });
-  assert.equal(githubRelease('https://evil.example/CruxCoach-v0.2.1.apk'), null);
-});
-
-test('with our server and Codeberg both down, GitHub delivers the named file', async () => {
-  // Neither our server nor Codeberg may be the one host a download depends on.
-  const onlyGitHub = (url, init) => (url === GITHUB_METADATA ? up() : hanging(url, init));
-  const { win, asked } = clickWith(onlyGitHub, apkButton({ upgraded: true }));
+test('with our server and GitHub both down, Codeberg delivers the named file', async () => {
+  // Neither our server nor GitHub may be the one host a download depends on.
+  const { win, asked } = clickWith(onlyCodeberg, apkButton({ upgraded: true }));
   await settle();
-  assert.equal(win.location.href, GITHUB_APK);
-  assert.deepEqual(asked.map((a) => a[0]), [SELECTOR, METADATA, GITHUB_METADATA]);
+  assert.equal(win.location.href, CODEBERG_APK);
+  assert.deepEqual(asked.map((a) => a[0]), [SELECTOR, GITHUB_METADATA, CODEBERG_METADATA]);
 });
 
-test('GitHub is not asked while Codeberg answers', async () => {
-  const { asked } = clickWith(onlyCodeberg, apkButton({ upgraded: true }));
+test('Codeberg is not asked while GitHub answers', async () => {
+  const { asked } = clickWith(onlyGitHub, apkButton({ upgraded: true }));
   await settle();
-  assert.ok(!asked.some(([url]) => url.includes('github')), 'no second third party');
+  assert.ok(!asked.some(([url]) => url.includes('codeberg')), 'no second third party');
+});
+
+test('a cached page with the old Codeberg link walks the same chain', async () => {
+  const cached = { direct: CODEBERG_APK };
+  const viaGitHub = clickWith(onlyGitHub, apkButton({ upgraded: true, ...cached }));
+  await settle();
+  assert.equal(viaGitHub.win.location.href, GITHUB_APK);
+  const viaCodeberg = clickWith(onlyCodeberg, apkButton(cached));
+  await settle();
+  assert.equal(viaCodeberg.win.location.href, CODEBERG_APK);
 });
 
 test('a forge that could not be asked is still preferred to the hash-named mirror', async () => {
-  // Codeberg positively down, the GitHub check blocked: no evidence against
-  // GitHub, so the visitor gets its properly named file.
-  const codebergDownGitHubBlocked = (url, init) =>
-    (url === GITHUB_METADATA ? blocked() : hanging(url, init));
-  const first = clickWith(codebergDownGitHubBlocked, apkButton({ upgraded: true }));
+  // GitHub positively down, the Codeberg check blocked: no evidence against
+  // Codeberg, so the visitor gets its properly named file.
+  const gitHubDownCodebergBlocked = (url, init) =>
+    (url === CODEBERG_METADATA ? blocked() : hanging(url, init));
+  const first = clickWith(gitHubDownCodebergBlocked, apkButton({ upgraded: true }));
   await settle();
-  assert.equal(first.win.location.href, GITHUB_APK);
+  assert.equal(first.win.location.href, CODEBERG_APK);
 
-  // Codeberg's check blocked, GitHub positively down: back to Codeberg.
-  const codebergBlockedGitHubDown = (url, init) =>
-    (url === METADATA ? blocked() : hanging(url, init));
-  const second = clickWith(codebergBlockedGitHubDown, apkButton({ upgraded: true }));
+  // GitHub's check blocked, Codeberg positively down: back to GitHub.
+  const gitHubBlockedCodebergDown = (url, init) =>
+    (url === GITHUB_METADATA ? blocked() : hanging(url, init));
+  const second = clickWith(gitHubBlockedCodebergDown, apkButton({ upgraded: true }));
   await settle();
-  assert.equal(second.win.location.href, CODEBERG_APK);
+  assert.equal(second.win.location.href, GITHUB_APK);
 });
 
 test('a slow host does not hold the download hostage', async () => {

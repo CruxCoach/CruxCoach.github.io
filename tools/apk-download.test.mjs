@@ -37,7 +37,7 @@ const selectorSurfaces = [
   ['de/boards/list.html', 'boards-de', 'topbar'],
 ];
 
-test('keeps Codeberg as the canonical JSON-LD download URL', () => {
+test('keeps GitHub, the primary forge, as the canonical JSON-LD download URL', () => {
   for (const filename of ['index.html', 'de/index.html']) {
     const html = fs.readFileSync(path.join(repoRoot, filename), 'utf8');
     const match = /<script type="application\/ld\+json">\s*([\s\S]*?)<\/script>/.exec(html);
@@ -45,7 +45,7 @@ test('keeps Codeberg as the canonical JSON-LD download URL', () => {
     const application = JSON.parse(match[1]);
     assert.match(
       application.downloadUrl,
-      /^https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\//,
+      /^https:\/\/github\.com\/CruxCoach\/CruxCoach\/releases\/download\//,
       filename,
     );
   }
@@ -69,6 +69,9 @@ test('the published selector manifest binds the two byte-identical sources', () 
   assert.equal(manifest.zapstore_url, `https://cdn.zapstore.dev/${manifest.sha256}`);
 
   const llms = fs.readFileSync(path.join(repoRoot, 'llms.txt'), 'utf8');
+  assert.ok(llms.includes(
+    `https://github.com/CruxCoach/CruxCoach/releases/download/v${manifest.version}/CruxCoach-v${manifest.version}.apk`,
+  ));
   assert.ok(llms.includes(manifest.codeberg_url));
   assert.ok(llms.includes(manifest.zapstore_url));
 });
@@ -85,8 +88,9 @@ test('every direct APK surface exposes exactly one first-party selector button',
 });
 
 test('the button works before any script runs, and needs no second button', () => {
-  // The whole point of the arrangement: `href` is a plain versioned Codeberg
-  // link. With JS off, with DNT set, or while stats.cruxcoach.org is down, one
+  // The whole point of the arrangement: `href` is a plain versioned GitHub
+  // link (the primary forge; Codeberg mirrors the same bytes). With JS off,
+  // with DNT set, or while stats.cruxcoach.org is down, one
   // click still yields CruxCoach-vX.Y.Z.apk. Our selector is an upgrade applied
   // on top, never a precondition — and the UI stays a single button either way.
   for (const [filename, pageKey, surface] of selectorSurfaces) {
@@ -95,7 +99,7 @@ test('the button works before any script runs, and needs no second button', () =
     assert.match(
       html,
       new RegExp(
-        `href="https://codeberg\\.org/CruxCoach/CruxCoach/releases/download/`
+        `href="https://github\\.com/CruxCoach/CruxCoach/releases/download/`
         + `v\\d+\\.\\d+\\.\\d+/CruxCoach-v\\d+\\.\\d+\\.\\d+\\.apk"`
         + `[^>]*rel="nofollow"[^>]*referrerpolicy="no-referrer"`
         + `[^>]*data-apk-selector="${url.replaceAll('.', '\\.')}"`),

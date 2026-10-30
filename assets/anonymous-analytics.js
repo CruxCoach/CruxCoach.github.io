@@ -124,7 +124,7 @@ function sessionStorageFor(win, options) {
 /**
  * Point the direct-APK buttons at our own selector.
  *
- * The markup ships with the versioned Codeberg URL in `href`, so the button
+ * The markup ships with the versioned GitHub URL in `href`, so the button
  * works with JavaScript switched off, with a privacy signal set, and while our
  * server is down. This upgrade runs only once the page_view beacon has come
  * back — that answer already proves the server is reachable, so no probe of
@@ -163,38 +163,47 @@ export const MIRROR_CHECK_TIMEOUT_MS = 1500;
 // sits between a click and a download that has not started yet.
 export const SELECTOR_CHECK_TIMEOUT_MS = 800;
 
-const CODEBERG_APK_RE =
-  /^https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/(v\d+\.\d+\.\d+)\/CruxCoach-v\d+\.\d+\.\d+\.apk$/;
+// The markup ships a GitHub link. A Codeberg link is still recognised: a page
+// cached before GitHub became the default carries one, and it names the same
+// release, so it must keep its full fallback chain.
+const FORGE_APK_RE =
+  /^https:\/\/(?:github\.com|codeberg\.org)\/CruxCoach\/CruxCoach\/releases\/download\/(v\d+\.\d+\.\d+)\/CruxCoach-v\d+\.\d+\.\d+\.apk$/;
 const MIRROR_RE = /^https:\/\/cdn\.zapstore\.dev\/[0-9a-f]{64}\.apk$/i;
 
-/**
- * Read metadata URL for the release a Codeberg APK link belongs to.
- *
- * Never the APK attachment itself: a HEAD or GET there would register as a
- * download on Codeberg and inflate a counter other people read.
- */
-export function releaseMetadataUrl(href) {
-  const match = CODEBERG_APK_RE.exec(String(href || ''));
-  return match
-    ? `https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/tags/${match[1]}`
-    : null;
+function releaseTag(href) {
+  const match = FORGE_APK_RE.exec(String(href || ''));
+  return match ? match[1] : null;
 }
 
 /**
- * The same release on GitHub, derived from the Codeberg link's tag.
+ * The release a direct-APK link names, on GitHub — the primary forge.
  *
- * GitHub has been the primary forge since 0.2.2 and carries the identical
- * signed bytes under the identical file name, so it can stand in for Codeberg
- * without the mirror's hash-named file. Metadata, never the attachment, is what
- * gets probed — for the same download-count reason as on Codeberg.
+ * Metadata, never the attachment, is what gets probed: a HEAD or GET on the
+ * APK would register as a download there and inflate a counter other people
+ * read.
  */
 export function githubRelease(href) {
-  const match = CODEBERG_APK_RE.exec(String(href || ''));
-  if (!match) return null;
-  const tag = match[1];
+  const tag = releaseTag(href);
+  if (!tag) return null;
   return {
     apk: `https://github.com/CruxCoach/CruxCoach/releases/download/${tag}/CruxCoach-${tag}.apk`,
     metadata: `https://api.github.com/repos/CruxCoach/CruxCoach/releases/tags/${tag}`,
+  };
+}
+
+/**
+ * The same release on Codeberg, the secondary forge.
+ *
+ * The release workflow mirrors the identical signed bytes there under the
+ * identical file name, so it can stand in for GitHub without the mirror's
+ * hash-named file. Probed the same way: metadata only.
+ */
+export function codebergRelease(href) {
+  const tag = releaseTag(href);
+  if (!tag) return null;
+  return {
+    apk: `https://codeberg.org/CruxCoach/CruxCoach/releases/download/${tag}/CruxCoach-${tag}.apk`,
+    metadata: `https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/tags/${tag}`,
   };
 }
 
@@ -249,8 +258,8 @@ function plainClick(event) {
  * Decide where a direct-APK click actually goes, at the moment it happens.
  *
  * The button's targets all follow from the markup, so this only ever picks
- * between them: our selector, the versioned Codeberg link, the same release on
- * GitHub, the content-addressed mirror. It walks them in that order and takes
+ * between them: our selector, the versioned GitHub link, the same release on
+ * Codeberg, the content-addressed mirror. It walks them in that order and takes
  * the first that answers — no single host, ours included, can stop a download.
  *
  * Nothing is asked before a click. Our own server is asked only about itself,
@@ -274,30 +283,30 @@ export function apkClickHandler(options = {}) {
     const direct = data.apkDirect
       || (href === data.apkSelector ? null : href);
     const mirror = data.apkMirror;
-    const metadataUrl = releaseMetadataUrl(direct);
     const github = githubRelease(direct);
+    const codeberg = codebergRelease(direct);
     // Both remaining targets must be recognisable, or there is nothing to fall
     // back to and the browser should just follow the link.
-    if (!metadataUrl || !mirror || !MIRROR_RE.test(mirror)) return false;
+    if (!github || !codeberg || !mirror || !MIRROR_RE.test(mirror)) return false;
 
     event.preventDefault();
     const go = (url) => { win.location.href = url; };
-    // Codeberg first, then GitHub: both serve the release under its own name.
-    // GitHub is asked only once Codeberg failed to answer, so a healthy
-    // Codeberg keeps a second third party out of the click entirely.
+    // GitHub first, then Codeberg: both serve the release under its own name.
+    // Codeberg is asked only once GitHub failed to answer, so a healthy
+    // GitHub keeps a second third party out of the click entirely.
     //
     // Only forges that BOTH positively answered badly send anyone to the
     // mirror. It works, but it is content-addressed, so the file arrives named
     // after its hash — a last resort, not a coin flip. A check that could not
     // run is no evidence either way and falls back to a properly named file.
-    const thirdParty = () => probe(fetchImpl, win, metadataUrl, mirrorTimeout, 'GET')
-      .then((codeberg) => {
-        if (codeberg === 'up') return go(direct);
-        return probe(fetchImpl, win, github.metadata, mirrorTimeout, 'GET')
-          .then((gh) => {
-            if (gh === 'up') return go(github.apk);
-            if (codeberg !== 'down') return go(direct);
+    const thirdParty = () => probe(fetchImpl, win, github.metadata, mirrorTimeout, 'GET')
+      .then((gh) => {
+        if (gh === 'up') return go(github.apk);
+        return probe(fetchImpl, win, codeberg.metadata, mirrorTimeout, 'GET')
+          .then((cb) => {
+            if (cb === 'up') return go(codeberg.apk);
             if (gh !== 'down') return go(github.apk);
+            if (cb !== 'down') return go(codeberg.apk);
             return go(mirror);
           });
       });
@@ -313,7 +322,7 @@ export function apkClickHandler(options = {}) {
     // copy, which nobody else sees, sat right here. That was backwards.
     //
     // 'unknown' counts against us: a blocker that stops this request almost
-    // certainly stops the download too, and the way out leads to Codeberg's
+    // certainly stops the download too, and the way out leads to GitHub's
     // properly named file rather than to a hash.
     if (!data.apkSelector) {
       thirdParty();
@@ -365,7 +374,7 @@ export function initAnonymousAnalytics(root = document, options = {}) {
           }, { ...options, navigatorImpl: nav, windowImpl: win });
         }
         // An upgraded button is counted by the selector that serves it. A
-        // button still on its Codeberg default never reaches us, so count it
+        // button still on its GitHub default never reaches us, so count it
         // here. This rescues the click that beat the upgrade, not an outage:
         // if our server is down, this request cannot arrive either.
         const surface = surfaceOf(selectorUrl);

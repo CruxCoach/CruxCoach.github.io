@@ -1,6 +1,6 @@
 #!/bin/bash
-# Bring the website in step with the newest Codeberg release, and commit+push
-# if that moved anything.
+# Bring the website in step with the newest release, and commit+push if that
+# moved anything. GitHub is the source of truth; Codeberg only gets a mirror.
 #
 # Two callers, deliberately the same code path:
 #
@@ -19,11 +19,13 @@
 #
 # Run it from the checkout mirror.cruxcoach.org serves
 # (~/worktrees/cruxcoach-pages-refresh): the local commit is then the mirror's
-# update, and the pushes below carry it to the apex and to Codeberg.
+# update, and the pushes below carry it to the apex and then to the Codeberg
+# mirror.
 #
 # Usage: tools/publish-release.sh
 # Exit:  0 nothing to do or published; 1 update failed or not on main;
-#        2 commit failed; 3 a push failed (the commit exists; retried nightly).
+#        2 commit failed; 3 the GitHub push failed (the commit exists; retried
+#        nightly). A failed Codeberg mirror push is reported but not an error.
 
 set -uo pipefail
 umask 022
@@ -39,6 +41,17 @@ NODE_BIN="${NODE_BIN:-/usr/bin/node}"
 if [ -z "${GIT_SSH_COMMAND:-}" ] && [ -f "$HOME/.ssh/id_ed25519_codeberg" ]; then
   export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_ed25519_codeberg -o StrictHostKeyChecking=accept-new -o BatchMode=yes"
 fi
+
+GITHUB_KEY="$HOME/.ssh/id_ed25519_github_pages"
+github_git() {
+  # Every operation against GitHub, the source of truth, with its deploy key
+  # when this host has one.
+  if [ -f "$GITHUB_KEY" ]; then
+    GIT_SSH_COMMAND="ssh -i $GITHUB_KEY -o StrictHostKeyChecking=accept-new -o BatchMode=yes" git "$@"
+  else
+    git "$@"
+  fi
+}
 
 push_with_retries() {
   # <label> <command...>. Codeberg occasionally drops SSH on the first attempt.
@@ -64,8 +77,9 @@ fi
 # Sync before touching anything. The release workflow calls this straight out
 # of its own checkout and has no idea what state this working copy is in; a
 # stale main would only reveal itself as a rejected push after the commit.
-git fetch --quiet origin main || { echo "git fetch failed"; exit 1; }
-git merge --ff-only origin/main \
+# Only ever from GitHub: nothing is fetched or merged from the Codeberg mirror.
+github_git fetch --quiet github main || { echo "git fetch failed"; exit 1; }
+git merge --ff-only github/main \
   || { echo "main is not fast-forward — refusing to rewrite it"; exit 1; }
 
 # The single source of truth for what the updater may rewrite.
@@ -116,22 +130,22 @@ git -c user.name=CruxCoach -c user.email=dev@cruxcoach.de \
     commit -m "chore(download): bump direct APK link to ${apk_tag}" \
   || { echo "link commit failed"; exit 2; }
 
-# Two remotes, pushed independently, apex first. GitHub Pages has served
-# cruxcoach.org since 2026-08-06, so the github push is the one visitors see;
-# Codeberg is the rollback host and the remote the nightly run syncs from. The
-# old order pushed Codeberg first and stopped when that failed, so a Codeberg
-# outage kept the apex on the previous release. mirror.cruxcoach.org needs no
+# GitHub first: GitHub Pages has served cruxcoach.org since 2026-08-06 and
+# GitHub is the source of truth, so that push is the one that must succeed.
+# Codeberg then receives a mirror of the same commit; a failure there is only
+# reported, and the nightly run mirrors again. mirror.cruxcoach.org needs no
 # push: it serves this checkout, and the commit above already updated it.
 push_failed=0
-if [ -f "$HOME/.ssh/id_ed25519_github_pages" ]; then
+if [ -f "$GITHUB_KEY" ]; then
   push_with_retries "GitHub (apex)" env \
-    GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_ed25519_github_pages -o StrictHostKeyChecking=accept-new -o BatchMode=yes" \
+    GIT_SSH_COMMAND="ssh -i $GITHUB_KEY -o StrictHostKeyChecking=accept-new -o BatchMode=yes" \
     git push github main || push_failed=1
 else
   echo "-- no GitHub deploy key here; the apex still serves the previous release"
   push_failed=1
 fi
-push_with_retries "Codeberg" git push origin main || push_failed=1
 [ "$push_failed" -eq 0 ] || exit 3
+push_with_retries "Codeberg mirror" git push origin main \
+  || echo "-- Codeberg mirror is behind; the nightly run mirrors it again"
 
 echo "-- published ${apk_tag}"

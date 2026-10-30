@@ -40,8 +40,9 @@ export const BOARD_LABELS = {
 // All user-facing text per language. Board names, layout names and brand
 // words (Wellpass, OpenStreetMap) stay untranslated by design.
 // Kept in step by tools/update-download-link.mjs, which rewrites every
-// codeberg.org release URL and every cdn.zapstore.dev digest in this file.
-const APK_URL = 'https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk';
+// github.com (and codeberg.org) release URL and every cdn.zapstore.dev digest
+// in this file. The header button carries the GitHub release, the primary forge.
+const APK_URL = 'https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk';
 const APK_MIRROR = 'https://cdn.zapstore.dev/7c7e2076dd127a704876d13adb3575ff863f0026868b9aba25fb31fe45dd2872.apk';
 
 const STRINGS = {

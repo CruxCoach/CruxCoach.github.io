@@ -13,16 +13,16 @@ Every interactive APK button points to a closed first-party route
 `https://stats.cruxcoach.org/download/apk/<page-key>/<surface>`. The page key
 maps to one canonical analytics path without transmitting a full URL, query,
 or identifier. The server-side
-selector checks availability without visitor data and redirects the one button
-to the current Codeberg APK or its byte-identical, content-addressed Zapstore
-mirror. It works without JavaScript and avoids both pre-click provider
+selector checks availability without visitor data and serves our own copy or
+redirects the one button to the current GitHub APK, the same release on
+Codeberg, or its byte-identical, content-addressed Zapstore mirror. It works without JavaScript and avoids both pre-click provider
 connections and Forgejo counting an APK availability `HEAD` as a download.
 
 Codeberg offers no stable "always newest" URL for versioned asset names, so
 this script asks its API for the latest full release (prereleases/drafts
 excluded), takes the URL of the actual `.apk` asset, and reads its SHA-256
 sidecar. It streams the corresponding Zapstore object and requires matching
-size and SHA-256 before updating canonical Codeberg/Zapstore URLs and atomically
+size and SHA-256 before updating canonical GitHub/Codeberg/Zapstore URLs and atomically
 publishing `apk-target.json`. That closed-schema manifest binds the
 version, digest, byte size, and both exact hosts for the selector. The script is
 a no-op when all targets are current, and it never publishes a half-mirrored
@@ -49,10 +49,11 @@ mappings make the command fail rather than write a misleading sitemap.
 
 The nightly `cron-refresh.sh` refreshes and commits the relevant `lastmod`
 entries whenever it changes APK links or generated board pages. It also records
-the last successfully submitted deployed `origin/main` commit in
+the last successfully submitted deployed `github/main` commit in
 `~/.cache/cruxcoach-pages-cron/indexnow-main-head`. Comparing that state after
-every run catches deployments merged through the Codeberg UI as well as commits
-pushed by the cron itself. A failed IndexNow request does not advance the state,
+every run catches pull requests merged on GitHub as well as commits pushed by
+the cron itself. The cron only ever syncs from GitHub; Codeberg receives a
+mirror of `github/main` and nothing flows back from it. A failed IndexNow request does not advance the state,
 so the next run retries it.
 
 Submit the full sitemap after a broad deployment, or pass only the canonical

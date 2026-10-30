@@ -140,7 +140,7 @@ them current when site facts change (especially on app releases; that includes
 `softwareVersion` in both homepages' JSON-LD):
 
 - **Direct APK download links**: every interactive download surface is **one**
-  button whose `href` is the versioned Codeberg APK, carrying the closed
+  button whose `href` is the versioned GitHub APK (the primary forge), carrying the closed
   first-party route `https://stats.cruxcoach.org/download/apk/<page-key>/<surface>`
   in `data-apk-selector`. `anonymous-analytics.js` swaps the two once the
   `page_view` beacon has come back — that answer already proves the host is up, so
@@ -150,16 +150,21 @@ them current when site facts change (especially on app releases; that includes
   `CruxCoach-vX.Y.Z.apk`. Never bind a surface to the selector URL alone
   (`404.html` did, and was the one page that stayed broken) and never add a second
   visible button — robustness belongs behind the single button, not in the UI.
-  The selector serves our own verified copy, else redirects to Codeberg, else
-  relays Zapstore; it performs its background checks without visitor data. A click
+  The selector serves our own verified copy, else redirects to GitHub, then to
+  Codeberg, else relays Zapstore; it performs its background checks without
+  visitor data. With our host unreachable, the click-time fallback in
+  `anonymous-analytics.js` walks the same order: GitHub, Codeberg, the mirror. A click
   is counted exactly once: by the selector when it serves, by the beacon when the
-  button was never upgraded. JSON-LD and `llms.txt` retain the versioned Codeberg URL as the
-  canonical machine-readable target. `tools/update-download-link.mjs` reads the
-  Codeberg release metadata and SHA-256 sidecar without downloading the Codeberg
-  APK, fully verifies the content-addressed Zapstore payload against that size
-  and digest, updates the canonical URLs, and atomically publishes
+  button was never upgraded. JSON-LD and `llms.txt` carry the versioned GitHub URL as the
+  canonical machine-readable target (`llms.txt` also names the Codeberg mirror).
+  `tools/update-download-link.mjs` reads the Codeberg release metadata and
+  SHA-256 sidecar without downloading the Codeberg APK — the release workflow
+  publishes GitHub before it mirrors to Codeberg, so a release complete there is
+  complete on GitHub — fully verifies the content-addressed Zapstore payload
+  against that size and digest, updates the canonical URLs, and atomically publishes
   `/apk-target.json` for the selector whenever a new full release
-  appears.
+  appears. That manifest's schema is closed and the selector checks it field for
+  field: keep `codeberg_url`, and add no field without changing the selector first.
   A new interactive surface needs one of the closed `page-key`/`surface`
   redirect paths; a new canonical source file still belongs in that script's
   `FILES` list.
@@ -240,19 +245,23 @@ for the full contract; the essentials:
 
 ## Daily refresh automation
 
-`tools/cron-refresh.sh` runs nightly (crontab ~03:30). It first runs
-`update-download-link.mjs` and commits `chore(download): bump direct APK link …`
+`tools/cron-refresh.sh` runs nightly (crontab ~03:30). **GitHub is the source of
+truth in both directions that matter: the job syncs only from GitHub and pushes
+there first; Codeberg only ever receives a mirror, and nothing is fetched or
+merged from it.** The job first fast-forwards `main` to `github/main` (deploy key
+`~/.ssh/id_ed25519_github_pages`), runs `update-download-link.mjs` (via
+`tools/publish-release.sh`) and commits `chore(download): bump direct APK link …`
 if a new app release moved the APK URL, then runs `build-boards-data.mjs` and
-commits + pushes to Codeberg only when `boards/data/boards.geojson` actually changes
+commits + pushes to GitHub only when `boards/data/boards.geojson` actually changes
 (it deliberately ignores `boards.meta.json`, whose `generated_at` changes every
 build, to avoid daily no-op commits). It is `flock`-guarded, fast-forward-only on
-`main`, and retries the push 3× because Codeberg occasionally drops SSH. The
+`main`, and retries the GitHub push 3×; a failed GitHub push fails the run. The
 `data(boards): daily refresh — …` commits on `main` come from this script.
-After the refresh it also pushes to GitHub (`git push github main`, deploy key
-`~/.ssh/id_ed25519_github_pages`, non-fatal on failure). Since 2026-08-06 that
-is the CANONICAL host, not a mirror: with the `CNAME` file in the repo, GitHub
-301s cruxcoach.github.io to the apex, so it can no longer serve as a failover
-target and is disabled in `mirrors.json`.
+Afterwards it mirrors exactly `github/main` to Codeberg (`origin`), non-fatal on
+failure, so Codeberg can never be ahead of GitHub. Since 2026-08-06 GitHub is the
+CANONICAL host: with the `CNAME` file in the repo, GitHub 301s
+cruxcoach.github.io to the apex, so it can no longer serve as a failover target
+and is disabled in `mirrors.json`.
 
 The mirror is now **https://mirror.cruxcoach.org** — our own machine, a Caddy
 site block in `cruxcoach-dlstats/deploy/caddy/Caddyfile` serving THIS checkout
@@ -271,7 +280,7 @@ way. Visitors on such a host are counted nowhere and handed to a third party for
 the download. `mirror.cruxcoach.org` sat in exactly that state from publication
 until 2026-08-08, i.e. during the outage it exists to absorb; a test now reads
 `mirrors.json` and asserts the two lists agree.
-If anything was pushed to origin, it finally runs `tools/indexnow-ping.sh`
+If GitHub's `main` (what Pages deploys) moved since the last submission, it finally runs `tools/indexnow-ping.sh`
 (non-fatal), which submits every sitemap URL to api.indexnow.org so Bing/Yandex &
 co. re-crawl promptly. IndexNow needs no account: ownership is proven by the
 32-hex key file at the repo root (currently `31ad8e39….txt`; the script locates

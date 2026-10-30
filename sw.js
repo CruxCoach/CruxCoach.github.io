@@ -2,7 +2,7 @@
  * cruxcoach.org resilience service worker
  *
  * Goal: the site keeps working for any visitor who has loaded it at
- * least once, even if the canonical origin (Codeberg Pages) is fully
+ * least once, even if the canonical origin (GitHub Pages) is fully
  * down — independent of DNS-level failover.
  *
  * Strategy:
@@ -26,7 +26,7 @@
 
 'use strict';
 
-var VERSION = 'cc-v36';
+var VERSION = 'cc-v37';
 var CACHE = 'cruxcoach-' + VERSION;
 var MIRRORS_KEY = '/__mirrors__';
 

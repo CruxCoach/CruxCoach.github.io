@@ -1,6 +1,6 @@
 #!/bin/bash
 # Daily refresh of (1) the site's direct APK download links against the
-# newest Codeberg release (tools/update-download-link.mjs) and (2)
+# newest release (tools/update-download-link.mjs) and (2)
 # boards/data/boards.geojson from the upstream @hangtime/climbing-boards
 # npm package. Commits + pushes each change independently; logs to
 # $HOME/.cache/cruxcoach-pages-cron/. Designed to be idempotent —
@@ -22,6 +22,12 @@ LOCK_FILE="$LOG_DIR/refresh.lock"
 INDEXNOW_STATE_FILE="$LOG_DIR/indexnow-main-head"
 WAYBACK_STATE_FILE="$LOG_DIR/wayback-archived-tag"
 
+# GitHub is the source of truth: GitHub Pages serves cruxcoach.org from its
+# main. Codeberg ("origin") only receives a mirror of what GitHub already has;
+# nothing is ever fetched or merged from it.
+GITHUB_SSH="ssh -i $HOME/.ssh/id_ed25519_github_pages -o StrictHostKeyChecking=accept-new -o BatchMode=yes"
+CODEBERG_SSH="ssh -i $HOME/.ssh/id_ed25519_codeberg -o StrictHostKeyChecking=accept-new -o BatchMode=yes"
+
 mkdir -p "$LOG_DIR"
 
 # Prevent overlapping runs (cron skew, manual re-trigger).
@@ -32,11 +38,11 @@ if ! flock -n 200; then
 fi
 
 try_push() {
-  # Codeberg occasionally drops SSH on the first attempt. Three tries with
-  # backoff smooths over that without blocking the cron slot for too long.
+  # Push to GitHub, the host visitors see. Three tries with backoff smooth
+  # over a dropped SSH connection without blocking the cron slot for long.
   local attempt
   for attempt in 1 2 3; do
-    if git push origin main; then return 0; fi
+    if GIT_SSH_COMMAND="$GITHUB_SSH" git push github main; then return 0; fi
     echo "-- push attempt $attempt failed; sleeping then retrying"
     sleep $((attempt * 10))
   done
@@ -48,22 +54,21 @@ run() {
   echo "=== boards.geojson refresh $(date -Is) ==="
   cd "$REPO_ROOT" || { echo "repo missing: $REPO_ROOT"; return 1; }
 
-  export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_ed25519_codeberg -o StrictHostKeyChecking=accept-new -o BatchMode=yes"
-
-  echo "-- syncing main with origin"
-  git fetch --quiet origin main || { echo "git fetch failed"; return 1; }
+  echo "-- syncing main with GitHub"
+  GIT_SSH_COMMAND="$GITHUB_SSH" git fetch --quiet github main \
+    || { echo "git fetch failed"; return 1; }
   local current_branch
   current_branch="$(git rev-parse --abbrev-ref HEAD)"
   if [ "$current_branch" != "main" ]; then
     echo "not on main (on $current_branch); skipping"
     return 0
   fi
-  git merge --ff-only origin/main || { echo "main is not fast-forward — refusing to rebase"; return 1; }
+  git merge --ff-only github/main || { echo "main is not fast-forward — refusing to rebase"; return 1; }
 
   # Catch up: if a previous run committed locally but failed to push,
   # try pushing again before doing more work.
-  if [ "$(git rev-list origin/main..HEAD --count)" -gt 0 ]; then
-    echo "-- local is ahead of origin/main; attempting push"
+  if [ "$(git rev-list github/main..HEAD --count)" -gt 0 ]; then
+    echo "-- local is ahead of github/main; attempting push"
     if ! try_push; then return 4; fi
   fi
 
@@ -78,7 +83,7 @@ run() {
   tools/publish-release.sh
   case "$?" in
     0) ;;
-    3) return 4 ;;               # commit exists, push failed — same as before
+    3) return 4 ;;               # commit exists, GitHub push failed — same as before
     *) echo "-- download-link publish failed; continuing with boards" ;;
   esac
 
@@ -117,17 +122,16 @@ run() {
 }
 
 sync_mirror() {
-  # Keep the GitHub Pages mirror (CruxCoach/CruxCoach.github.io →
-  # https://cruxcoach.github.io, listed in mirrors.json) in sync.
+  # Mirror GitHub's main to Codeberg. Exactly what GitHub has, never a local
+  # commit GitHub refused, so Codeberg can never be ahead of the source.
   # Non-fatal by design: a dead mirror must never block the main refresh.
   cd "$REPO_ROOT" || return 0
-  echo "-- syncing GitHub Pages mirror"
-  # run() exports GIT_SSH_COMMAND with the Codeberg key — override with
-  # the GitHub deploy key for this push.
-  export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_ed25519_github_pages -o StrictHostKeyChecking=accept-new -o BatchMode=yes"
+  echo "-- mirroring GitHub main to Codeberg"
   local attempt
   for attempt in 1 2 3; do
-    if git push github main; then return 0; fi
+    if GIT_SSH_COMMAND="$CODEBERG_SSH" git push origin refs/remotes/github/main:refs/heads/main; then
+      return 0
+    fi
     echo "-- mirror push attempt $attempt failed; retrying"
     sleep $((attempt * 10))
   done
@@ -136,16 +140,16 @@ sync_mirror() {
 
 notify_indexnow() {
   # Track the deployed main commit independently from this process's pushes.
-  # This catches Codeberg UI merges and other external deployments on the next
-  # nightly run, while a failed submission remains pending for retry.
+  # GitHub Pages deploys GitHub's main, so this also catches pull requests
+  # merged on GitHub, while a failed submission remains pending for retry.
   cd "$REPO_ROOT" || return 1
   local deployed_head local_head recorded_head state_tmp
-  deployed_head="$(git rev-parse --verify refs/remotes/origin/main 2>/dev/null)" \
-    || { echo "-- indexnow: origin/main unavailable; deferring"; return 1; }
+  deployed_head="$(git rev-parse --verify refs/remotes/github/main 2>/dev/null)" \
+    || { echo "-- indexnow: github/main unavailable; deferring"; return 1; }
   local_head="$(git rev-parse --verify HEAD 2>/dev/null)" \
     || { echo "-- indexnow: local HEAD unavailable; deferring"; return 1; }
   if [ "$local_head" != "$deployed_head" ]; then
-    echo "-- indexnow: local main does not match origin/main; deferring"
+    echo "-- indexnow: local main does not match github/main; deferring"
     return 1
   fi
   if ! git diff --quiet HEAD -- sitemap.xml; then
