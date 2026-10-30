@@ -53,9 +53,9 @@
   "creator": {
     "@type": "Organization",
     "name": "CruxCoach Contributors",
-    "url": "https://codeberg.org/CruxCoach/CruxCoach"
+    "url": "https://github.com/CruxCoach/CruxCoach"
   },
-  "downloadUrl": "https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk",
+  "downloadUrl": "https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk",
   "installUrl": "https://zapstore.dev/apps/com.cruxcoach.android",
   "inLanguage": ["en", "de"],
   "screenshot": [
@@ -76,8 +76,8 @@
     "No account, no Google services, no user tracking"
   ],
   "sameAs": [
-    "https://codeberg.org/CruxCoach/CruxCoach",
-    "https://github.com/CruxCoach/CruxCoach"
+    "https://github.com/CruxCoach/CruxCoach",
+    "https://codeberg.org/CruxCoach/CruxCoach"
   ]
 }
 </script>
@@ -542,7 +542,7 @@
       <a href="#faq">FAQ</a>
       <a href="#contribute">Contribute</a>
       <a href="/boards/" class="nav-cta">Board Map</a>
-      <a class="hdr-dl" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/home-en/topbar" data-apk-mirror="https://cdn.zapstore.dev/7c7e2076dd127a704876d13adb3575ff863f0026868b9aba25fb31fe45dd2872.apk"><span class="long">Download CruxCoach</span><span class="short">Download</span></a>
+      <a class="hdr-dl" href="https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/home-en/topbar" data-apk-mirror="https://cdn.zapstore.dev/7c7e2076dd127a704876d13adb3575ff863f0026868b9aba25fb31fe45dd2872.apk"><span class="long">Download CruxCoach</span><span class="short">Download</span></a>
       <span class="lang"><span aria-current="true">EN</span><span class="lang-sep"> · </span><a href="/de/">DE</a></span>
     </nav>
   </div>
@@ -564,7 +564,7 @@
         <li>German &amp; English UI</li>
       </ul>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/home-en/hero" data-apk-mirror="https://cdn.zapstore.dev/7c7e2076dd127a704876d13adb3575ff863f0026868b9aba25fb31fe45dd2872.apk">Download CruxCoach</a>
+        <a class="btn btn-primary" href="https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/home-en/hero" data-apk-mirror="https://cdn.zapstore.dev/7c7e2076dd127a704876d13adb3575ff863f0026868b9aba25fb31fe45dd2872.apk">Download CruxCoach</a>
       </div>
       <p class="cta-foot">Free. No account. Verifiable signed builds. Android 9+.</p>
     </div>
@@ -715,7 +715,7 @@
       <li><strong>Encrypted local storage.</strong> Personal data lives in an SQLCipher database. Encryption key never leaves your device.</li>
       <li><strong>No user tracking, ads, or third-party analytics SDKs.</strong> Personal and training data is never sent to analytics. Since release 0.2.2, the app sends a first-party count only after an updater download passes its SHA-256 and signer checks; it contains only target version and source, never a device, installation, account, Nostr, or user identifier, and it can be switched off in Settings → Updates.</li>
       <li><strong>No central account or training-data server.</strong> The app uses public Nostr relays and Blossom servers run by independent operators. The website's separate first-party counter stores only daily page-view, install-click, and same-tab Zapstore→APK fallback aggregates.</li>
-      <li><strong>Verifiable open-source builds.</strong> Code on Codeberg, releases signed, auto-updater pins the developer key on first install.</li>
+      <li><strong>Verifiable open-source builds.</strong> Code on GitHub, mirrored to Codeberg, releases signed, auto-updater pins the developer key on first install.</li>
     </ul>
   </div>
 </section>
@@ -729,7 +729,7 @@
     </p>
     <ul class="privacy-list">
       <li><strong>No Google Play Services.</strong> CruxCoach calls no GMS APIs and runs fully on GrapheneOS, CalyxOS, /e/OS and LineageOS without GApps.</li>
-      <li><strong>Install without the Play Store.</strong> Get it from Zapstore or use the one-click APK download, which automatically picks an available verified copy: our own, Codeberg's, GitHub's or Zapstore's. CruxCoach is not on Google Play and never requires it.</li>
+      <li><strong>Install without the Play Store.</strong> Get it from Zapstore or use the one-click APK download, which automatically picks an available verified copy: our own, GitHub's, Codeberg's or Zapstore's. CruxCoach is not on Google Play and never requires it.</li>
       <li><strong>Updates without Google.</strong> The optional in-app updater pulls signed APK releases from GitHub, Codeberg, Zapstore or Blossom mirrors, whichever answers, with TOFU certificate pinning — no Play Store and no Play Integrity check. On Zapstore installs it disables itself and lets the store update.</li>
     </ul>
   </div>
@@ -747,16 +747,16 @@
       </div>
       <div class="install-card">
         <h3>Direct APK</h3>
-        <p>One button downloads the signed APK from whichever verified source is currently available: our own copy, Codeberg, GitHub or the identical, content-addressed Zapstore mirror.</p>
+        <p>One button downloads the signed APK from whichever verified source is currently available: our own copy, GitHub, Codeberg or the identical, content-addressed Zapstore mirror.</p>
         <div class="cta-row">
-          <a class="btn btn-secondary" href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/home-en/install" data-apk-mirror="https://cdn.zapstore.dev/7c7e2076dd127a704876d13adb3575ff863f0026868b9aba25fb31fe45dd2872.apk">Download APK</a>
+          <a class="btn btn-secondary" href="https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/home-en/install" data-apk-mirror="https://cdn.zapstore.dev/7c7e2076dd127a704876d13adb3575ff863f0026868b9aba25fb31fe45dd2872.apk">Download APK</a>
         </div>
         <p class="install-alternatives">Or pick a source yourself: <a href="https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk" rel="nofollow" referrerpolicy="no-referrer">GitHub</a> · <a href="https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk" rel="nofollow" referrerpolicy="no-referrer">Codeberg</a> · <a href="https://cdn.zapstore.dev/7c7e2076dd127a704876d13adb3575ff863f0026868b9aba25fb31fe45dd2872.apk" rel="nofollow" referrerpolicy="no-referrer">Zapstore mirror</a></p>
       </div>
       <div class="install-card">
         <h3><a href="https://github.com/ImranR98/Obtainium" rel="noopener">Obtainium</a></h3>
-        <p>Open-source installer that tracks a project's own releases and keeps them updated — no store in between. The button below opens Obtainium with CruxCoach prefilled; if it is not installed yet, add the source by hand with <code>https://codeberg.org/CruxCoach/CruxCoach</code> or <code>https://github.com/CruxCoach/CruxCoach</code>.</p>
-        <a class="btn btn-secondary" href="obtainium://add/https://codeberg.org/CruxCoach/CruxCoach">Add to Obtainium</a>
+        <p>Open-source installer that tracks a project's own releases and keeps them updated — no store in between. The button below opens Obtainium with CruxCoach prefilled; if it is not installed yet, add the source by hand with <code>https://github.com/CruxCoach/CruxCoach</code> or <code>https://codeberg.org/CruxCoach/CruxCoach</code>.</p>
+        <a class="btn btn-secondary" href="obtainium://add/https://github.com/CruxCoach/CruxCoach">Add to Obtainium</a>
       </div>
     </div>
   </div>
@@ -798,16 +798,16 @@
 <section id="contribute" class="dev">
   <div class="container">
     <h2>For developers</h2>
-    <p class="section-lede">CruxCoach is GPLv3, written in Kotlin Multiplatform with a Jetpack Compose Android frontend. Issues and PRs live on Codeberg.</p>
-    <pre>git clone https://codeberg.org/CruxCoach/CruxCoach.git
+    <p class="section-lede">CruxCoach is GPLv3, written in Kotlin Multiplatform with a Jetpack Compose Android frontend. Issues and PRs live on GitHub; Codeberg carries a mirror.</p>
+    <pre>git clone https://github.com/CruxCoach/CruxCoach.git
 cd CruxCoach
 bash scripts/setup_dev_env.sh
 ./gradlew :androidApp:assembleDebug</pre>
     <div class="dev-links">
-      <a href="https://codeberg.org/CruxCoach/CruxCoach">Source code</a>
-      <a href="https://codeberg.org/CruxCoach/CruxCoach/issues">Issue tracker</a>
-      <a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/CONTRIBUTING.md">Contributing guide</a>
-      <a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/SECURITY.md">Security policy</a>
+      <a href="https://github.com/CruxCoach/CruxCoach">Source code</a>
+      <a href="https://github.com/CruxCoach/CruxCoach/issues">Issue tracker</a>
+      <a href="https://github.com/CruxCoach/CruxCoach/blob/main/CONTRIBUTING.md">Contributing guide</a>
+      <a href="https://github.com/CruxCoach/CruxCoach/blob/main/SECURITY.md">Security policy</a>
     </div>
   </div>
 </section>
@@ -830,11 +830,11 @@ bash scripts/setup_dev_env.sh
           <li><a href="/tension-board-app.html">Tension Board app</a></li>
           <li><a href="/boards/">Board Map</a></li>
           <li><a href="/boards/list.html">All board locations</a></li>
-          <li><a href="https://codeberg.org/CruxCoach/CruxCoach">Codeberg</a></li>
-          <li><a href="https://github.com/CruxCoach/CruxCoach">GitHub mirror</a></li>
-          <li><a href="https://codeberg.org/CruxCoach/CruxCoach/releases">Releases</a></li>
-          <li><a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/CHANGELOG.md">Changelog</a></li>
-          <li><a href="https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/SECURITY.md">Security</a></li>
+          <li><a href="https://github.com/CruxCoach/CruxCoach">GitHub</a></li>
+          <li><a href="https://codeberg.org/CruxCoach/CruxCoach">Codeberg mirror</a></li>
+          <li><a href="https://github.com/CruxCoach/CruxCoach/releases">Releases</a></li>
+          <li><a href="https://github.com/CruxCoach/CruxCoach/blob/main/CHANGELOG.md">Changelog</a></li>
+          <li><a href="https://github.com/CruxCoach/CruxCoach/blob/main/SECURITY.md">Security</a></li>
         </ul>
       </div>
       <div>

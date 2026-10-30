@@ -140,7 +140,7 @@ them current when site facts change (especially on app releases; that includes
 `softwareVersion` in both homepages' JSON-LD):
 
 - **Direct APK download links**: every interactive download surface is **one**
-  button whose `href` is the versioned Codeberg APK, carrying the closed
+  button whose `href` is the versioned GitHub APK (the primary forge), carrying the closed
   first-party route `https://stats.cruxcoach.org/download/apk/<page-key>/<surface>`
   in `data-apk-selector`. `anonymous-analytics.js` swaps the two once the
   `page_view` beacon has come back — that answer already proves the host is up, so
@@ -150,16 +150,21 @@ them current when site facts change (especially on app releases; that includes
   `CruxCoach-vX.Y.Z.apk`. Never bind a surface to the selector URL alone
   (`404.html` did, and was the one page that stayed broken) and never add a second
   visible button — robustness belongs behind the single button, not in the UI.
-  The selector serves our own verified copy, else redirects to Codeberg, else
-  relays Zapstore; it performs its background checks without visitor data. A click
+  The selector serves our own verified copy, else redirects to GitHub, then to
+  Codeberg, else relays Zapstore; it performs its background checks without
+  visitor data. With our host unreachable, the click-time fallback in
+  `anonymous-analytics.js` walks the same order: GitHub, Codeberg, the mirror. A click
   is counted exactly once: by the selector when it serves, by the beacon when the
-  button was never upgraded. JSON-LD and `llms.txt` retain the versioned Codeberg URL as the
-  canonical machine-readable target. `tools/update-download-link.mjs` reads the
-  Codeberg release metadata and SHA-256 sidecar without downloading the Codeberg
-  APK, fully verifies the content-addressed Zapstore payload against that size
-  and digest, updates the canonical URLs, and atomically publishes
+  button was never upgraded. JSON-LD and `llms.txt` carry the versioned GitHub URL as the
+  canonical machine-readable target (`llms.txt` also names the Codeberg mirror).
+  `tools/update-download-link.mjs` reads the Codeberg release metadata and
+  SHA-256 sidecar without downloading the Codeberg APK — the release workflow
+  publishes GitHub before it mirrors to Codeberg, so a release complete there is
+  complete on GitHub — fully verifies the content-addressed Zapstore payload
+  against that size and digest, updates the canonical URLs, and atomically publishes
   `/apk-target.json` for the selector whenever a new full release
-  appears.
+  appears. That manifest's schema is closed and the selector checks it field for
+  field: keep `codeberg_url`, and add no field without changing the selector first.
   A new interactive surface needs one of the closed `page-key`/`surface`
   redirect paths; a new canonical source file still belongs in that script's
   `FILES` list.

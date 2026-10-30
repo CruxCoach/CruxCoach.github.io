@@ -24,7 +24,7 @@
 // release; an unverified CDN copy only costs a warning. Its URL is fixed by
 // the digest, so the links already name the right blob for when it appears,
 // the selector and the app probe it before use, and the click-time last
-// resort reaches it only after our host, Codeberg and GitHub all failed.
+// resort reaches it only after our host, GitHub and Codeberg all failed.
 //
 // Sidecar URLs (….apk.sha256) are rewritten alongside if a page ever links
 // one. Exit code 0 = links are current (whether or not files were rewritten),
@@ -73,9 +73,13 @@ const API = 'https://codeberg.org/api/v1/repos/CruxCoach/CruxCoach/releases/late
 const CODEBERG_LINK_RE =
   /https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/[^"'\s)]+\.apk(\.sha256)?/g;
 const ZAPSTORE_LINK_RE = /https:\/\/cdn\.zapstore\.dev\/[0-9a-fA-F]{64}/g;
-// Direct GitHub links (the no-JS alternatives and llms.txt). The protected
+// Direct GitHub links: the static href of every direct-APK button, the no-JS
+// alternatives, the JSON-LD downloadUrl and llms.txt. GitHub is the primary
+// forge, so that is what visitors and crawlers are given. The protected
 // release workflow publishes GitHub before it mirrors to Codeberg, so a release
-// that is complete on Codeberg is complete on GitHub under the same name.
+// that is complete on Codeberg is complete on GitHub under the same name —
+// which is why the Codeberg metadata above stays the gate for both, and why
+// apk-target.json still carries the codeberg_url the selector validates.
 const GITHUB_LINK_RE =
   /https:\/\/github\.com\/CruxCoach\/CruxCoach\/releases\/download\/v[0-9]+\.[0-9]+\.[0-9]+\/CruxCoach-v[0-9]+\.[0-9]+\.[0-9]+\.apk(\.sha256)?/g;
 // Version statements that name the current release outside a download URL:
@@ -221,13 +225,13 @@ if (beforeManifest === manifest) {
 // Keep our own copy of the release in step with the manifest we just wrote.
 //
 // The selector serves that copy first, so it must never lag behind a release:
-// a stale file fails the digest check, the selector silently drops to Codeberg,
+// a stale file fails the digest check, the selector silently drops to a forge,
 // and nobody notices that the local stage stopped working. Doing it here makes
 // it self-healing — the copy is re-fetched on the first nightly run after a
 // release, with no step for a human to forget.
 //
 // Failure is NOT fatal on purpose. A missing or unreadable copy costs the
-// local stage, not the download: Codeberg and Zapstore remain, and the
+// local stage, not the download: GitHub, Codeberg and Zapstore remain, and the
 // selector's digest check refuses to serve anything it cannot vouch for.
 // The selector reads ~/cruxcoach-dlstats/apk. This used to be derived from the
 // checkout (ROOT/..), which is only right for ~/cruxcoach-pages: the nightly

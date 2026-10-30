@@ -1,8 +1,8 @@
 # CruxCoach
 
-> Open-source Android app for the Kilter Board, MoonBoard and five more training boards (Tension, Grasshopper, Decoy, So iLL, Touchstone). Browse climbs, light up holds via Bluetooth LE, log ascents, and import your Kilter logbook — without an account, without Google services, without user tracking. Licensed GPL-3.0, distributed via Zapstore and a one-click direct APK selector backed by Codeberg and a verified Zapstore mirror.
+> Open-source Android app for the Kilter Board, MoonBoard and five more training boards (Tension, Grasshopper, Decoy, So iLL, Touchstone). Browse climbs, light up holds via Bluetooth LE, log ascents, and import your Kilter logbook — without an account, without Google services, without user tracking. Licensed GPL-3.0, distributed via Zapstore and a one-click direct APK selector backed by GitHub, Codeberg and a verified Zapstore mirror.
 
-CruxCoach is a non-commercial, community-developed Android application. It is not affiliated with, endorsed by, or sponsored by Kilter, LLC, Moon Climbing, Tension Climbing or Aurora Climbing — board names are used descriptively to indicate hardware compatibility (nominative fair use). The project's primary source repository is hosted on Codeberg, with a read-only mirror on GitHub for discoverability. The website at cruxcoach.org is served via Codeberg Pages.
+CruxCoach is a non-commercial, community-developed Android application. It is not affiliated with, endorsed by, or sponsored by Kilter, LLC, Moon Climbing, Tension Climbing or Aurora Climbing — board names are used descriptively to indicate hardware compatibility (nominative fair use). The project's primary source repository is hosted on GitHub, with a mirror on Codeberg. The website at cruxcoach.org is served via GitHub Pages.
 
 ## Site
 
@@ -15,28 +15,28 @@ CruxCoach is a non-commercial, community-developed Android application. It is no
 - [Imprint](https://cruxcoach.org/imprint.html): legal information, hosting details, trademark notice
 - [Privacy](https://cruxcoach.org/privacy.html): data handling and contact-form policy
 - [Support the project](https://cruxcoach.org/support.html): donation options and ways to contribute
-- [Mirror (GitHub Pages)](https://cruxcoach.github.io/): byte-identical fallback mirror if cruxcoach.org is unreachable
+- [Mirror](https://mirror.cruxcoach.org/): byte-identical fallback mirror on our own server if cruxcoach.org is unreachable
 
 ## Source code and releases
 
-- [Codeberg — primary repository](https://codeberg.org/CruxCoach/CruxCoach)
-- [GitHub — read-only mirror](https://github.com/CruxCoach/CruxCoach)
-- [Releases (APK + SHA-256 sidecar)](https://codeberg.org/CruxCoach/CruxCoach/releases)
-- [Issue tracker](https://codeberg.org/CruxCoach/CruxCoach/issues)
-- [Changelog](https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/CHANGELOG.md)
-- [Security policy](https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/SECURITY.md)
-- [Contributing guidelines](https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/CONTRIBUTING.md)
-- [Trademark policy](https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/TRADEMARK.md)
+- [GitHub — primary repository](https://github.com/CruxCoach/CruxCoach)
+- [Codeberg — mirror](https://codeberg.org/CruxCoach/CruxCoach)
+- [Releases (APK + SHA-256 sidecar)](https://github.com/CruxCoach/CruxCoach/releases)
+- [Issue tracker](https://github.com/CruxCoach/CruxCoach/issues)
+- [Changelog](https://github.com/CruxCoach/CruxCoach/blob/main/CHANGELOG.md)
+- [Security policy](https://github.com/CruxCoach/CruxCoach/blob/main/SECURITY.md)
+- [Contributing guidelines](https://github.com/CruxCoach/CruxCoach/blob/main/CONTRIBUTING.md)
+- [Trademark policy](https://github.com/CruxCoach/CruxCoach/blob/main/TRADEMARK.md)
 
 ## Distribution channels
 
 - [Zapstore](https://zapstore.dev/apps/com.cruxcoach.android) — recommended, auto-updates, Nostr-native verifiable builds
 - The website's single direct-APK button uses a first-party, no-log server-side health selector. It redirects only after the click to the available verified source and records one coarse daily click bucket without an identifier.
-- [Direct APK download from Codeberg](https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk) — direct link to the current release, kept up to date automatically; manual sideload, `.apk.sha256` integrity sidecar at the same URL + `.sha256`
-- [Direct APK download from GitHub](https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk) — the same signed release on the primary forge, kept up to date automatically; `.apk.sha256` sidecar at the same URL + `.sha256`
-- [Direct APK fallback on Zapstore CDN](https://cdn.zapstore.dev/7c7e2076dd127a704876d13adb3575ff863f0026868b9aba25fb31fe45dd2872) — content-addressed mirror of the exact same APK, kept in lockstep with the Codeberg and GitHub links
-- Source build — clone the Codeberg repo and run `./gradlew :androidApp:assembleDebug`
-- [Obtainium](https://github.com/ImranR98/Obtainium) — open-source installer that tracks the Codeberg releases directly; add `https://codeberg.org/CruxCoach/CruxCoach` as a Codeberg source or `https://github.com/CruxCoach/CruxCoach` as a GitHub source. No listing process, works today.
+- [Direct APK download from GitHub](https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk) — direct link to the current release on the primary forge, kept up to date automatically; manual sideload, `.apk.sha256` integrity sidecar at the same URL + `.sha256`
+- [Direct APK download from Codeberg](https://codeberg.org/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk) — the same signed release on the Codeberg mirror, kept up to date automatically; `.apk.sha256` sidecar at the same URL + `.sha256`
+- [Direct APK fallback on Zapstore CDN](https://cdn.zapstore.dev/7c7e2076dd127a704876d13adb3575ff863f0026868b9aba25fb31fe45dd2872) — content-addressed mirror of the exact same APK, kept in lockstep with the GitHub and Codeberg links
+- Source build — clone the GitHub repo and run `./gradlew :androidApp:assembleDebug`
+- [Obtainium](https://github.com/ImranR98/Obtainium) — open-source installer that tracks the GitHub releases directly; add `https://github.com/CruxCoach/CruxCoach` as a GitHub source or `https://codeberg.org/CruxCoach/CruxCoach` as a Codeberg source. No listing process, works today.
 - Planned future channel (no specific timeline): F-Droid main. IzzyOnDroid is ruled out — its inclusion policy rejects apps created in whole or in part by generative AI tools.
 - Not on Google Play
 
@@ -59,9 +59,9 @@ CruxCoach is a non-commercial, community-developed Android application. It is no
 
 ## Contact
 
-- Issue tracker (preferred): https://codeberg.org/CruxCoach/CruxCoach/issues
+- Issue tracker (preferred): https://github.com/CruxCoach/CruxCoach/issues
 - Press: press@cruxcoach.org (forwarded to maintainer)
-- Security: encrypted Nostr DM per [SECURITY.md](https://codeberg.org/CruxCoach/CruxCoach/src/branch/main/SECURITY.md)
+- Security: encrypted Nostr DM per [SECURITY.md](https://github.com/CruxCoach/CruxCoach/blob/main/SECURITY.md)
 - Mastodon: https://mastodon.social/@cruxcoach
 - Nostr: npub1uadpshqpn5ysf82lev8zngkvn07szmkq7mvf9lyc7ml7qxq6fqxsmrqt2s
 

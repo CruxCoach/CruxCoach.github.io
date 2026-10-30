@@ -315,7 +315,7 @@ test('every competition header links home and offers an untracked app download',
       assert.match(page, new RegExp('<a class="site-brand" href="' + home + '"'),
         lang + '/' + name + ' has no linked brand');
       assert.match(page,
-        /<a class="header-download" href="https:\/\/codeberg\.org\/CruxCoach\/CruxCoach\/releases\/download\/[^"]+\.apk"/,
+        /<a class="header-download" href="https:\/\/github\.com\/CruxCoach\/CruxCoach\/releases\/download\/[^"]+\.apk"/,
         lang + '/' + name + ' has no direct app download');
       assert.equal(page.includes('data-apk-selector'), false,
         lang + '/' + name + ' tracks its download');

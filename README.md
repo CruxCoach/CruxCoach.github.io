@@ -37,7 +37,7 @@ cruxcoach-pages/
   Board Map map/list views share one logical page label while language remains
   separate. DNT/GPC is honoured. The fallback uses only a 30-minute timestamp
   in the tab's `sessionStorage`, never an identifier. Direct APK buttons use one
-  closed first-party redirect whose server-side health cache selects Codeberg
+  closed first-party redirect whose server-side health cache selects GitHub, Codeberg
   or the verified Zapstore mirror without any visitor-side availability probe.
 - Prefer plain semantic HTML over div soup.
 - Light + dark mode via `prefers-color-scheme` — no JS toggle.
@@ -131,4 +131,5 @@ optipng -o5 assets/screenshots/*.png
 ## License
 
 Site content (this repo): CC-BY-4.0.
-Underlying CruxCoach app: GPL-3.0, separate repo at codeberg.org/CruxCoach/CruxCoach.
+Underlying CruxCoach app: GPL-3.0, separate repo at github.com/CruxCoach/CruxCoach
+(mirrored to codeberg.org/CruxCoach/CruxCoach).
