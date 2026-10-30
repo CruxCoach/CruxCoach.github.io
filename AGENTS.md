@@ -245,19 +245,23 @@ for the full contract; the essentials:
 
 ## Daily refresh automation
 
-`tools/cron-refresh.sh` runs nightly (crontab ~03:30). It first runs
-`update-download-link.mjs` and commits `chore(download): bump direct APK link …`
+`tools/cron-refresh.sh` runs nightly (crontab ~03:30). **GitHub is the source of
+truth in both directions that matter: the job syncs only from GitHub and pushes
+there first; Codeberg only ever receives a mirror, and nothing is fetched or
+merged from it.** The job first fast-forwards `main` to `github/main` (deploy key
+`~/.ssh/id_ed25519_github_pages`), runs `update-download-link.mjs` (via
+`tools/publish-release.sh`) and commits `chore(download): bump direct APK link …`
 if a new app release moved the APK URL, then runs `build-boards-data.mjs` and
-commits + pushes to Codeberg only when `boards/data/boards.geojson` actually changes
+commits + pushes to GitHub only when `boards/data/boards.geojson` actually changes
 (it deliberately ignores `boards.meta.json`, whose `generated_at` changes every
 build, to avoid daily no-op commits). It is `flock`-guarded, fast-forward-only on
-`main`, and retries the push 3× because Codeberg occasionally drops SSH. The
+`main`, and retries the GitHub push 3×; a failed GitHub push fails the run. The
 `data(boards): daily refresh — …` commits on `main` come from this script.
-After the refresh it also pushes to GitHub (`git push github main`, deploy key
-`~/.ssh/id_ed25519_github_pages`, non-fatal on failure). Since 2026-08-06 that
-is the CANONICAL host, not a mirror: with the `CNAME` file in the repo, GitHub
-301s cruxcoach.github.io to the apex, so it can no longer serve as a failover
-target and is disabled in `mirrors.json`.
+Afterwards it mirrors exactly `github/main` to Codeberg (`origin`), non-fatal on
+failure, so Codeberg can never be ahead of GitHub. Since 2026-08-06 GitHub is the
+CANONICAL host: with the `CNAME` file in the repo, GitHub 301s
+cruxcoach.github.io to the apex, so it can no longer serve as a failover target
+and is disabled in `mirrors.json`.
 
 The mirror is now **https://mirror.cruxcoach.org** — our own machine, a Caddy
 site block in `cruxcoach-dlstats/deploy/caddy/Caddyfile` serving THIS checkout
@@ -276,7 +280,7 @@ way. Visitors on such a host are counted nowhere and handed to a third party for
 the download. `mirror.cruxcoach.org` sat in exactly that state from publication
 until 2026-08-08, i.e. during the outage it exists to absorb; a test now reads
 `mirrors.json` and asserts the two lists agree.
-If anything was pushed to origin, it finally runs `tools/indexnow-ping.sh`
+If GitHub's `main` (what Pages deploys) moved since the last submission, it finally runs `tools/indexnow-ping.sh`
 (non-fatal), which submits every sitemap URL to api.indexnow.org so Bing/Yandex &
 co. re-crawl promptly. IndexNow needs no account: ownership is proven by the
 32-hex key file at the repo root (currently `31ad8e39….txt`; the script locates

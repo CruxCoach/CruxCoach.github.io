@@ -49,10 +49,11 @@ mappings make the command fail rather than write a misleading sitemap.
 
 The nightly `cron-refresh.sh` refreshes and commits the relevant `lastmod`
 entries whenever it changes APK links or generated board pages. It also records
-the last successfully submitted deployed `origin/main` commit in
+the last successfully submitted deployed `github/main` commit in
 `~/.cache/cruxcoach-pages-cron/indexnow-main-head`. Comparing that state after
-every run catches deployments merged through the Codeberg UI as well as commits
-pushed by the cron itself. A failed IndexNow request does not advance the state,
+every run catches pull requests merged on GitHub as well as commits pushed by
+the cron itself. The cron only ever syncs from GitHub; Codeberg receives a
+mirror of `github/main` and nothing flows back from it. A failed IndexNow request does not advance the state,
 so the next run retries it.
 
 Submit the full sitemap after a broad deployment, or pass only the canonical
