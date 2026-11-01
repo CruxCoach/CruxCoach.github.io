@@ -25,6 +25,8 @@ const CANONICAL_PATHS = new Map([
   ['/de/tension-board-app.html', '/de/tension-board-app.html'],
   ['/support.html', '/support.html'],
   ['/de/support.html', '/de/support.html'],
+  ['/community.html', '/community.html'],
+  ['/de/community.html', '/de/community.html'],
   ['/privacy.html', '/privacy.html'],
   ['/de/privacy.html', '/de/privacy.html'],
   ['/imprint.html', '/imprint.html'],

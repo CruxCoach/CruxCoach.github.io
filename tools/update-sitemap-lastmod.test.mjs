@@ -22,7 +22,7 @@ test('every sitemap entry has one valid lastmod and a real source file', () => {
   const entries = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)];
   // The competition beta is deliberately isolated from the public site graph.
   // Its landing pages and application surfaces therefore stay out together.
-  assert.equal(entries.length, 14);
+  assert.equal(entries.length, 16);
   for (const [, block] of entries) {
     const loc = /<loc>([^<]+)<\/loc>/.exec(block)?.[1];
     assert.ok(loc, 'entry has a loc');

@@ -288,6 +288,7 @@ test('every static page loads the local aggregate client', () => {
     'moonboard-app.html', 'de/moonboard-app.html',
     'tension-board-app.html', 'de/tension-board-app.html',
     'support.html', 'de/support.html',
+    'community.html', 'de/community.html',
     'privacy.html', 'de/privacy.html',
     'imprint.html', 'de/imprint.html',
   ];

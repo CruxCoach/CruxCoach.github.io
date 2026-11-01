@@ -382,6 +382,11 @@
     font-size: 0.85rem;
   }
   .dev-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; font-size: 0.95rem; }
+  #community .section-lede { margin-bottom: 1rem; }
+  .community-points { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 0.75rem 2rem; color: var(--fg-soft); }
+  .community-points li::before { content: "›  "; color: var(--accent); font-weight: 700; }
+  .community-note { font-size: 0.9rem; color: var(--fg-mute); margin: 0 0 3rem; }
+  .dev h3 { margin-top: 0; }
 
   /* FAQ */
   .faq-list {
@@ -530,7 +535,7 @@
       <a href="#features">Funktionen</a>
       <a href="#install">Installieren</a>
       <a href="#faq">FAQ</a>
-      <a href="#contribute">Mitmachen</a>
+      <a href="/de/community.html">Community</a>
       <a href="/de/boards/" class="nav-cta">Board Map</a>
       <a class="hdr-dl" href="https://github.com/CruxCoach/CruxCoach/releases/download/v0.2.4/CruxCoach-v0.2.4.apk" rel="nofollow" referrerpolicy="no-referrer" data-apk-selector="https://stats.cruxcoach.org/download/apk/home-de/topbar" data-apk-mirror="https://cdn.zapstore.dev/7c7e2076dd127a704876d13adb3575ff863f0026868b9aba25fb31fe45dd2872.apk"><span class="long">CruxCoach laden</span><span class="short">App laden</span></a>
       <span class="lang"><a href="/">EN</a><span class="lang-sep"> · </span><span aria-current="true">DE</span></span>
@@ -787,10 +792,22 @@
   </div>
 </section>
 
-<section id="contribute" class="dev">
+<section id="community" class="dev">
   <div class="container">
-    <h2>Für Entwickler:innen</h2>
-    <p class="section-lede">CruxCoach ist GPLv3, geschrieben in Kotlin Multiplatform mit Jetpack-Compose-Android-Frontend. Issues und PRs leben auf GitHub; Codeberg hält einen Mirror.</p>
+    <h2>Community</h2>
+    <p class="section-lede">CruxCoach entsteht offen, in der CruxCoach-Community auf Buzz. Komm dazu und:</p>
+    <ul class="community-points">
+      <li>Sprich mit den Entwicklern</li>
+      <li>Teste neue Versionen zuerst</li>
+      <li>Bestimme mit, was als Nächstes kommt</li>
+    </ul>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://community.cruxcoach.org/join">Auf Buzz beitreten</a>
+      <a class="btn btn-secondary" href="/de/community.html">So funktioniert’s</a>
+    </div>
+    <p class="community-note">Buzz ist eine eigene App mit eigenem Konto, für Android, iPhone und Computer. In der Community wird Englisch gesprochen.</p>
+    <h3 id="contribute">Code beitragen</h3>
+    <p>CruxCoach ist GPLv3, geschrieben in Kotlin Multiplatform mit Jetpack-Compose-Android-Frontend. Issues und PRs leben auf GitHub; Codeberg hält einen Mirror.</p>
     <pre>git clone https://github.com/CruxCoach/CruxCoach.git
 cd CruxCoach
 bash scripts/setup_dev_env.sh
@@ -834,6 +851,7 @@ bash scripts/setup_dev_env.sh
         <ul>
           <li><a href="https://zapstore.dev/apps/com.cruxcoach.android">Zapstore</a></li>
           <li><a href="https://primal.net/p/npub1uadpshqpn5ysf82lev8zngkvn07szmkq7mvf9lyc7ml7qxq6fqxsmrqt2s">Nostr</a></li>
+          <li><a href="/de/community.html">Community auf Buzz</a></li>
           <li><a href="https://mastodon.social/@cruxcoach">Mastodon</a></li>
           <li><a href="mailto:press@cruxcoach.org">press@cruxcoach.org</a></li>
         </ul>
