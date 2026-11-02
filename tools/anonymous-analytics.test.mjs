@@ -10,6 +10,7 @@ import {
   codebergRelease,
   githubRelease,
   initAnonymousAnalytics,
+  isCommunityJoinLink,
   upgradeApkButtons,
   markZapstoreClick,
   normalizePagePath,
@@ -385,7 +386,7 @@ test('privacy notices distinguish private analytics operations from public app s
 
 test('service worker uses a fresh cache and precaches the analytics client once', () => {
   const source = fs.readFileSync(path.join(repoRoot, 'sw.js'), 'utf8');
-  assert.match(source, /var VERSION = 'cc-v37';/);
+  assert.match(source, /var VERSION = 'cc-v38';/);
   assert.equal((source.match(/'\/assets\/anonymous-analytics\.js'/g) || []).length, 1);
   assert.doesNotMatch(source, /apk-download\.js/);
   // The share QR names this page and nothing else, so a visitor who scans it
@@ -666,4 +667,106 @@ test('a privacy signal keeps the download working while counting nothing', async
   // The click handler is still registered: robustness is not a reward for
   // agreeing to be counted.
   assert.ok(root.handler, 'fallback handler must be registered');
+});
+
+const JOIN_URL = 'https://community.cruxcoach.org/join';
+
+test('only our own community join address counts as a join link', () => {
+  assert.equal(isCommunityJoinLink(JOIN_URL), true);
+  assert.equal(isCommunityJoinLink(`${JOIN_URL}/`), true);
+  for (const href of [
+    'https://community.cruxcoach.org/invite/v2.abc',
+    'http://community.cruxcoach.org/join',
+    'https://community.cruxcoach.org.evil.example/join',
+    'https://evil.example/join',
+    '/join',
+    '/community.html',
+    '',
+    undefined,
+  ]) {
+    assert.equal(isCommunityJoinLink(href), false, String(href));
+  }
+});
+
+/** A page with one "Join on Buzz" link, as the click handler sees it. */
+function clickJoin(options, pathname = '/moonboard-app.html') {
+  let handler;
+  const root = {
+    documentElement: { lang: 'en' },
+    querySelectorAll: () => [],
+    addEventListener(type, fn) { if (type === 'click') handler = fn; },
+  };
+  initAnonymousAnalytics(root, {
+    windowImpl: { location: { pathname } },
+    sessionStorageImpl: memoryStorage(),
+    ...options,
+  });
+  const link = { getAttribute: (name) => (name === 'href' ? JOIN_URL : null) };
+  handler({
+    button: 0,
+    preventDefault: () => assert.fail('the join link must never be held back'),
+    target: { closest: (selector) => (selector === 'a[href]' ? link : null) },
+  });
+}
+
+test('a "Join on Buzz" click sends one counter with only the canonical page', async () => {
+  const payloads = [];
+  clickJoin({
+    navigatorImpl: {},
+    fetchImpl: async (_url, request) => {
+      payloads.push(JSON.parse(request.body));
+      return { ok: true };
+    },
+  }, '/de/moonboard-app.html');
+  await settle();
+  assert.deepEqual(payloads, [
+    { metric: 'page_view', path: '/de/moonboard-app.html' },
+    { metric: 'community_join_click', path: '/de/moonboard-app.html' },
+  ]);
+});
+
+test('a join click with a privacy signal or a dead counter still just follows the link', async () => {
+  let calls = 0;
+  clickJoin({
+    navigatorImpl: { globalPrivacyControl: true },
+    fetchImpl: async () => { calls += 1; return { ok: true }; },
+  });
+  await settle();
+  assert.equal(calls, 0, 'nothing is counted with GPC');
+
+  clickJoin({
+    navigatorImpl: {},
+    fetchImpl: async () => { throw new TypeError('offline'); },
+  });
+  await settle();
+});
+
+test('every "Join on Buzz" button points at the join address and its guide', () => {
+  const pages = [
+    ['index.html', '/community.html'], ['de/index.html', '/de/community.html'],
+    ['community.html', null], ['de/community.html', null],
+    ['kilter-board-app-alternative.html', '/community.html'],
+    ['de/kilter-board-app-alternative.html', '/de/community.html'],
+    ['moonboard-app.html', '/community.html'],
+    ['de/moonboard-app.html', '/de/community.html'],
+    ['tension-board-app.html', '/community.html'],
+    ['de/tension-board-app.html', '/de/community.html'],
+  ];
+  for (const [page, guide] of pages) {
+    const html = fs.readFileSync(path.join(repoRoot, page), 'utf8');
+    const joins = html.match(/<a [^>]*href="https:\/\/community\.cruxcoach\.org\/[^"]*"/g) || [];
+    assert.ok(joins.length >= 1, `${page}: has a join button`);
+    for (const tag of joins) {
+      assert.match(tag, /href="https:\/\/community\.cruxcoach\.org\/join"/, `${page}: ${tag}`);
+    }
+    if (guide) assert.ok(html.includes(`href="${guide}"`), `${page}: links ${guide}`);
+  }
+});
+
+test('privacy notices disclose the join counter and that Buzz gets nothing from the site', () => {
+  for (const page of ['privacy.html', 'de/privacy.html']) {
+    const html = fs.readFileSync(path.join(repoRoot, page), 'utf8');
+    assert.match(html, /Join on Buzz|Auf Buzz beitreten/, page);
+    assert.match(html, /community\.cruxcoach\.org/, page);
+  }
 });

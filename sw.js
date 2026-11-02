@@ -26,7 +26,7 @@
 
 'use strict';
 
-var VERSION = 'cc-v37';
+var VERSION = 'cc-v38';
 var CACHE = 'cruxcoach-' + VERSION;
 var MIRRORS_KEY = '/__mirrors__';
 
@@ -40,12 +40,14 @@ var CORE = [
   '/imprint.html',
   '/privacy.html',
   '/support.html',
+  '/community.html',
   '/kilter-board-app-alternative.html',
   '/moonboard-app.html',
   '/tension-board-app.html',
   '/de/imprint.html',
   '/de/privacy.html',
   '/de/support.html',
+  '/de/community.html',
   '/de/kilter-board-app-alternative.html',
   '/de/moonboard-app.html',
   '/de/tension-board-app.html',

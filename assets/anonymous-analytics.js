@@ -85,6 +85,21 @@ export function sendAnonymousEvent(payload, options = {}) {
   })).then((response) => Boolean(response && response.ok), () => false);
 }
 
+/**
+ * True for a link to the CruxCoach community on Buzz. Only our own join
+ * address counts; the invite it forwards to is never read or sent.
+ */
+export function isCommunityJoinLink(href) {
+  if (typeof href !== 'string' || href === '') return false;
+  try {
+    const url = new URL(href, 'https://cruxcoach.org/');
+    return url.origin === 'https://community.cruxcoach.org'
+      && (url.pathname === '/join' || url.pathname === '/join/');
+  } catch {
+    return false;
+  }
+}
+
 /** Store only a local timestamp, never an analytics/session identifier. */
 export function markZapstoreClick(storage, now = Date.now()) {
   if (!storage || !Number.isFinite(now)) return false;
@@ -395,6 +410,21 @@ export function initAnonymousAnalytics(root = document, options = {}) {
       return;
     }
     if (analyticsOff) return;
+
+    // "Join on Buzz": count the activation with only the canonical page, and
+    // leave the navigation itself entirely to the browser. A lost request
+    // costs one count, never the link.
+    const link = event.target && typeof event.target.closest === 'function'
+      ? event.target.closest('a[href]')
+      : null;
+    if (link && isCommunityJoinLink(typeof link.getAttribute === 'function'
+      ? link.getAttribute('href') : link.href)) {
+      sendAnonymousEvent({
+        metric: 'community_join_click',
+        path: canonicalPath,
+      }, { ...options, navigatorImpl: nav, windowImpl: win });
+      return;
+    }
 
     const target = event.target && typeof event.target.closest === 'function'
       ? event.target.closest('[data-analytics-install-target]')
