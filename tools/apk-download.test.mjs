@@ -31,6 +31,8 @@ const selectorSurfaces = [
   ['de/imprint.html', 'imprint-de', 'topbar'],
   ['support.html', 'support-en', 'topbar'],
   ['de/support.html', 'support-de', 'topbar'],
+  ['community.html', 'community-en', 'topbar'],
+  ['de/community.html', 'community-de', 'topbar'],
   ['boards/index.html', 'boards-en', 'topbar'],
   ['de/boards/index.html', 'boards-de', 'topbar'],
   ['boards/list.html', 'boards-en', 'topbar'],
@@ -250,7 +252,7 @@ test('every page with a header offers the download, generated ones included', ()
   // nightly build without a word.
   const pages = fs.readdirSync(repoRoot)
     .filter((name) => name.endsWith('.html'))
-    .concat(['de/index.html', 'de/privacy.html', 'de/imprint.html', 'de/support.html',
+    .concat(['de/index.html', 'de/privacy.html', 'de/imprint.html', 'de/support.html', 'de/community.html',
              'boards/index.html', 'boards/list.html',
              'de/boards/index.html', 'de/boards/list.html']);
   for (const page of pages) {

@@ -49,6 +49,7 @@ const FILES = [
   'privacy.html', 'de/privacy.html',
   'imprint.html', 'de/imprint.html',
   'support.html', 'de/support.html',
+  'community.html', 'de/community.html',
   'boards/index.html', 'de/boards/index.html',
   'boards/list.html', 'de/boards/list.html',
   // The competition pages carry their own header download link. They were
