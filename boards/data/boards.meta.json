@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-04T03:30:07.931Z",
-  "venue_features": 2944,
-  "raw_entries": 3261,
+  "generated_at": "2026-11-05T03:30:08.081Z",
+  "venue_features": 2947,
+  "raw_entries": 3264,
   "venues_with_multiple_boards": 161,
-  "country_from_coder": 2944,
+  "country_from_coder": 2947,
   "country_from_fallback": 0,
   "country_missing": 0,
   "city_from_upstream": 1209,
-  "city_from_nearest": 1609,
+  "city_from_nearest": 1612,
   "city_missing": 126,
   "nearest_city_max_km": 25,
   "exclusions": {
@@ -30,7 +30,7 @@
   "venue_links": {
     "defined": 1844,
     "applied": 1844,
-    "matched_by_proximity": 0,
+    "matched_by_proximity": 1,
     "unmatched": 0,
     "ambiguous": 0,
     "private_refused": 0,
@@ -45,7 +45,7 @@
   "venue_hours": {
     "defined": 1351,
     "applied": 1351,
-    "matched_by_proximity": 0,
+    "matched_by_proximity": 1,
     "unmatched": 0,
     "ambiguous": 0,
     "private_refused": 0,
@@ -60,7 +60,7 @@
   },
   "per_board": {
     "kilter": 1187,
-    "tension": 404,
+    "tension": 407,
     "grasshopper": 43,
     "decoy": 24,
     "soill": 12,
@@ -72,7 +72,7 @@
     "shinywall": 18
   },
   "per_source": {
-    "hangtime": 3117,
+    "hangtime": 3120,
     "curated": 114,
     "quantum": 12,
     "shinywall": 18
@@ -80,14 +80,14 @@
   "sources": {
     "hangtime": {
       "package": "@hangtime/climbing-boards",
-      "version": "1.0.136",
+      "version": "1.0.137",
       "counts": {
         "kilter": {
           "kept": 1159,
           "dropped": 0
         },
         "tension": {
-          "kept": 401,
+          "kept": 404,
           "dropped": 0
         },
         "grasshopper": {
