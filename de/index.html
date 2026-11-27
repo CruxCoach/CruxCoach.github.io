@@ -31,12 +31,12 @@
   "@type": "SoftwareApplication",
   "@id": "https://cruxcoach.org/#app",
   "name": "CruxCoach",
-  "alternateName": ["CruxCoach für das Kilter Board", "CruxCoach für das MoonBoard", "CruxCoach für das Tension Board", "CruxCoach für Grasshopper", "CruxCoach für Decoy", "CruxCoach für So iLL", "CruxCoach für Touchstone"],
+  "alternateName": ["CruxCoach für das Kilter Board", "CruxCoach für das MoonBoard", "CruxCoach für das Tension Board", "CruxCoach für Grasshopper", "CruxCoach für Decoy", "CruxCoach für So iLL", "CruxCoach für Touchstone", "CruxCoach für Shiny Wall"],
   "url": "https://cruxcoach.org/de/",
   "operatingSystem": "Android 9+",
   "applicationCategory": "SportsApplication",
   "applicationSubCategory": "Climbing training",
-  "description": "Open-Source-Android-App für das Kilter Board, MoonBoard und fünf weitere Trainingsboards (Tension, Grasshopper, Decoy, So iLL, Touchstone). Boulder durchstöbern, Griffe beleuchten, Sessions loggen — ohne Account, ohne Google-Dienste, ohne Nutzer-Tracking.",
+  "description": "Open-Source-Android-App für das Kilter Board, MoonBoard und sechs weitere Trainingsboards (Tension, Grasshopper, Decoy, So iLL, Touchstone, Shiny Wall). Boulder durchstöbern, Griffe beleuchten, Sessions loggen — ohne Account, ohne Google-Dienste, ohne Nutzer-Tracking.",
   "disambiguatingDescription": "Die quelloffene, GPL-3.0-lizenzierte Android-App für das Kilter Board, MoonBoard und weitere standardisierte Trainingsboards, veröffentlicht auf cruxcoach.org. Eigenständig und nicht verbunden mit den unabhängigen Produkten auf cruxcoach.app, cruxcoach.com oder cruxcoach.vercel.app.",
   "image": "https://cruxcoach.org/assets/icon-512.png",
   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
@@ -63,12 +63,14 @@
   "isAccessibleForFree": true,
   "softwareRequirements": "Android 9 oder neuer, Bluetooth LE",
   "featureList": [
-    "Boulder für Kilter, MoonBoard, Tension, Grasshopper, Decoy, So iLL und Touchstone durchstöbern",
+    "Boulder für Kilter, MoonBoard, Tension, Grasshopper, Decoy, So iLL, Touchstone und Shiny Wall durchstöbern",
     "Griffe am physischen Board per Bluetooth LE aufleuchten lassen",
     "Filtern nach Grad, Winkel, Qualität, Zuganzahl und Setter",
     "Boulder nach Griff-Kombination suchen",
     "Verschlüsseltes lokales Logbuch (SQLCipher)",
     "Eigene Boulder setzen und über Nostr mit der Community teilen",
+    "Training & Ernährung (Beta): Vorschlag fürs Training heute, über 200 Übungen, Trainings-Logger und Ernährungsziele, die deinen Trainingstagen folgen",
+    "Statistiken, die deine Boards vergleichen, und ein Jahresrückblick",
     "Offline-Board-Standortkarte mit Hallensuche",
     "Kein Account, keine Google-Dienste, kein Nutzer-Tracking"
   ],
@@ -115,7 +117,7 @@
       "name": "Welche Boards und Android-Versionen unterstützt CruxCoach?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CruxCoach steuert sieben Board-Systeme interaktiv, ab Android 9 mit Bluetooth LE: das Kilter Board (alle Größen und verstellbaren Winkel), das MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 und 2024) sowie die Boards Tension, Grasshopper, Decoy, So iLL und Touchstone. Durchstöbere den Katalog jedes Boards, filtere nach Grad, Winkel, Qualität, Zuganzahl und Setter und beleuchte es per Bluetooth. Die separate Board-Karte ist noch breiter: Sie zeigt zusätzlich Aurora- und 12-Climb-Standorte als reine Standort-Ebenen."
+        "text": "CruxCoach steuert acht Board-Systeme interaktiv, ab Android 9 mit Bluetooth LE: das Kilter Board (alle Größen und verstellbaren Winkel), das MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 und 2024), die Boards Tension, Grasshopper, Decoy, So iLL und Touchstone sowie die Shiny Wall (Mini, Standard, Max, Full und Max Full). Durchstöbere den Katalog jedes Boards, filtere nach Grad, Winkel, Qualität, Zuganzahl und Setter und beleuchte es per Bluetooth. Die separate Board-Karte ist noch breiter: Sie zeigt zusätzlich Aurora- und 12-Climb-Standorte als reine Standort-Ebenen."
       }
     },
     {
@@ -131,7 +133,7 @@
       "name": "Wo finde ich ein Kilter Board oder MoonBoard in meiner Nähe?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CruxCoach veröffentlicht eine kostenlose interaktive Board-Karte mit über 2.700 Standorten über neun Board-Systeme in über 80 Ländern — Kilter Board, Tension Board, MoonBoard und sechs weitere — filterbar nach Board-Typ, Land und Wand-Details."
+        "text": "CruxCoach veröffentlicht eine kostenlose interaktive Board-Karte mit über 2.700 Standorten über elf Board-Systeme in über 80 Ländern — Kilter Board, Tension Board, MoonBoard und acht weitere — filterbar nach Board-Typ, Land und Wand-Details."
       }
     }
   ]
@@ -553,7 +555,7 @@
         Google-Dienste, ohne dass jemand dein Training mitschreibt.
       </p>
       <ul class="hero-bullets">
-        <li>7 Boards, eine App</li>
+        <li>8 Boards, eine App</li>
         <li>Eigene Griff-Farben</li>
         <li>Verschlüsseltes Logbuch</li>
         <li>Deutsche &amp; englische UI</li>
@@ -571,7 +573,7 @@
 
 <section class="boards-band" aria-label="Unterstützte Boards">
   <div class="container">
-    <p class="boards-band-label">Vorhandener Katalog und Griff-Beleuchtung per Bluetooth auf allen sieben Boards:</p>
+    <p class="boards-band-label">Vorhandener Katalog und Griff-Beleuchtung per Bluetooth auf allen acht Boards:</p>
     <ul class="board-list">
       <li>Kilter Board</li>
       <li>MoonBoard</li>
@@ -580,6 +582,7 @@
       <li>Decoy</li>
       <li>So iLL</li>
       <li>Touchstone</li>
+      <li>Shiny Wall</li>
     </ul>
     <p class="boards-band-note">Aurora und 12 Climb erscheinen außerdem auf der <a href="/de/boards/">Board-Karte</a> als reine Standort-Ebenen.</p>
   </div>
@@ -602,7 +605,7 @@
           </svg>
         </span>
         <h3>Den Katalog jedes Boards durchstöbern</h3>
-        <p>Kilter, MoonBoard und fünf weitere Boards — über 650.000 Boulder insgesamt. Filtern nach Grad, Winkel, Qualität, Zuganzahl, Setter. Funktioniert offline, sobald die Board-Datenbank synchronisiert ist.</p>
+        <p>Kilter, MoonBoard und sechs weitere Boards — über 650.000 Boulder insgesamt. Filtern nach Grad, Winkel, Qualität, Zuganzahl, Setter. Funktioniert offline, sobald die Board-Datenbank synchronisiert ist.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -611,7 +614,7 @@
           </svg>
         </span>
         <h3>Griffe per Bluetooth aufleuchten lassen</h3>
-        <p>Direkte BLE-Verbindung zu Kilter Board, MoonBoard, Tension Board und mehr. Eigene Farben pro Rolle — Start, Hand, Fuß, Top — auf allen Boards außer dem MoonBoard, dessen LED-Kit feste Farben hat.</p>
+        <p>Direkte BLE-Verbindung zu Kilter Board, MoonBoard, Tension Board und mehr. Eigene Farben pro Rolle — Start, Hand, Fuß, Top — auf Kilter und den anderen Aurora-Boards. Das LED-Kit des MoonBoards hat feste Farben.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -621,7 +624,7 @@
           </svg>
         </span>
         <h3>Eigene Boulder setzen und teilen</h3>
-        <p>Erstelle eigene Boulder auf jedem der sieben Boards und teile sie über Nostr mit der CruxCoach-Community — kein zentraler Server, keine Freigabe-Instanz.</p>
+        <p>Erstelle eigene Boulder auf Kilter, MoonBoard, Tension, Grasshopper, Decoy, So iLL und Touchstone und teile sie über Nostr mit der CruxCoach-Community — kein zentraler Server, keine Freigabe-Instanz.</p>
       </div>
       <div class="feature">
         <span class="feature-icon" aria-hidden="true">
@@ -654,6 +657,31 @@
         </span>
         <h3>Deine Trainingshistorie, portabel</h3>
         <p>Bring deine Historie mit — für die alte Aurora-App vor ihrer Abschaltung im März 2026 importierst du den bei Aurora angeforderten JSON-Export; für die aktuelle offizielle App verbindest du dein Kilter-Konto direkt in CruxCoach. Ab da bleiben deine Daten portabel: JSON-Export oder automatisches verschlüsseltes Backup, das nur du wiederherstellen kannst.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="6" y1="7" x2="6" y2="17"/>
+            <line x1="18" y1="7" x2="18" y2="17"/>
+            <line x1="3" y1="10" x2="3" y2="14"/>
+            <line x1="21" y1="10" x2="21" y2="14"/>
+            <line x1="6" y1="12" x2="18" y2="12"/>
+          </svg>
+        </span>
+        <h3>Training &amp; Ernährung <span class="badge badge-soft">Beta</span></h3>
+        <p>Ein Vorschlag fürs Training heute, über 200 Übungen, ein Trainings-Logger, ein Verletzungsmodus und ein Comeback-Plan (eine Trainingshilfe, kein Medizinprodukt). Ernährungsziele folgen deinen Trainingstagen. Essen erfasst du aus Offline-Tabellen, per Barcode, als getippte Mahlzeit oder optional per Foto-Erkennung auf dem Handy.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="20" x2="21" y2="20"/>
+            <line x1="7" y1="16" x2="7" y2="11"/>
+            <line x1="12" y1="16" x2="12" y2="5"/>
+            <line x1="17" y1="16" x2="17" y2="9"/>
+          </svg>
+        </span>
+        <h3>Statistiken und Jahresrückblick</h3>
+        <p>Kletterst du an mehreren Boards, vergleichen die Statistiken sie: wie viele Versuche du pro Grad brauchst und wie sich jedes Board für dich anfühlt. Jeder Logbuch-Tag hat einen Session-Rückblick zum Teilen als Bild. Der Jahresrückblick zeigt dein Kletterjahr als Seiten zum Durchtippen, berechnet auf deinem Handy.</p>
       </div>
     </div>
 
@@ -691,7 +719,7 @@
     <p>
       Es begann bewusst schmal: nur Kilter, nur Android. Mit 0.2.0 spricht es die ganze
       Familie — Kilter, MoonBoard, Tension, Grasshopper, Decoy, So iLL und Touchstone.
-      Weiterhin nur Android, weiterhin deins.
+      Mit 0.2.5 kommt die Shiny Wall dazu. Weiterhin nur Android, weiterhin deins.
     </p>
     <p>
       Du kommst von der alten App? Die <a href="/de/kilter-board-app-alternative.html">Kilter-App-Alternative
@@ -722,10 +750,10 @@
     <h2>Läuft auf entgoogeltem Android — ohne Play Store, ohne Play Integrity</h2>
     <p class="section-lede">
       Wenn dein Handy ohne Google-Dienste kommt, ist CruxCoach für dich gebaut:
-      Nichts daran hängt von Google ab.
+      Alles, was du brauchst, läuft ohne Google.
     </p>
     <ul class="privacy-list">
-      <li><strong>Keine Google Play Services.</strong> CruxCoach ruft keine GMS-APIs auf und läuft voll auf GrapheneOS, CalyxOS, /e/OS und LineageOS ohne GApps.</li>
+      <li><strong>Keine Google Play Services.</strong> CruxCoach ruft keine GMS-APIs auf und läuft voll auf GrapheneOS, CalyxOS, /e/OS und LineageOS ohne GApps. Nur optionale Extras berühren Google: Die Anmeldung für den Shiny-Wall-Import läuft über Shiny Wall auf Google Firebase.</li>
       <li><strong>Installation ohne Play Store.</strong> Hol es dir über Zapstore oder nutze den Ein-Klick-APK-Download, der automatisch eine verfügbare verifizierte Kopie wählt: unsere eigene, die von GitHub, Codeberg oder Zapstore. CruxCoach ist nicht bei Google Play und braucht es auch nie.</li>
       <li><strong>Updates ohne Google.</strong> Der optionale In-App-Updater zieht signierte APK-Releases von GitHub, Codeberg, Zapstore oder Blossom-Spiegeln, je nachdem, wer antwortet, mit TOFU-Zertifikats-Pinning — ohne Play Store und ohne Play-Integrity-Prüfung. Bei Zapstore-Installationen schaltet er sich ab und überlässt das Update dem Store.</li>
     </ul>
@@ -778,7 +806,7 @@
       </details>
       <details class="faq-item">
         <summary>Welche Boards und Android-Versionen unterstützt CruxCoach?</summary>
-        <p>CruxCoach steuert sieben Board-Systeme interaktiv, ab Android 9 mit Bluetooth LE: das Kilter Board (alle Größen und verstellbaren Winkel), das MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 und 2024) sowie die Boards Tension, Grasshopper, Decoy, So iLL und Touchstone. Durchstöbere den Katalog jedes Boards, filtere nach Grad, Winkel, Qualität, Zuganzahl und Setter und beleuchte es per Bluetooth. Die separate <a href="/de/boards/">Board-Karte</a> ist noch breiter: Sie zeigt zusätzlich Aurora- und 12-Climb-Standorte als reine Standort-Ebenen.</p>
+        <p>CruxCoach steuert acht Board-Systeme interaktiv, ab Android 9 mit Bluetooth LE: das Kilter Board (alle Größen und verstellbaren Winkel), das MoonBoard (2016, Masters 2017, Masters 2019, Mini 2020 und 2024), die Boards Tension, Grasshopper, Decoy, So iLL und Touchstone sowie die Shiny Wall (Mini, Standard, Max, Full und Max Full). Durchstöbere den Katalog jedes Boards, filtere nach Grad, Winkel, Qualität, Zuganzahl und Setter und beleuchte es per Bluetooth. Die separate <a href="/de/boards/">Board-Karte</a> ist noch breiter: Sie zeigt zusätzlich Aurora- und 12-Climb-Standorte als reine Standort-Ebenen.</p>
       </details>
       <details class="faq-item">
         <summary>Funktioniert CruxCoach mit dem MoonBoard?</summary>
@@ -786,7 +814,7 @@
       </details>
       <details class="faq-item">
         <summary>Wo finde ich ein Kilter Board oder MoonBoard in meiner Nähe?</summary>
-        <p>CruxCoach veröffentlicht eine kostenlose interaktive <a href="/de/boards/">Board-Karte</a> mit über 2.700 Standorten über neun Board-Systeme in über 80 Ländern — Kilter Board, Tension Board, MoonBoard und sechs weitere — filterbar nach Board-Typ, Land und Wand-Details.</p>
+        <p>CruxCoach veröffentlicht eine kostenlose interaktive <a href="/de/boards/">Board-Karte</a> mit über 2.700 Standorten über elf Board-Systeme in über 80 Ländern — Kilter Board, Tension Board, MoonBoard und acht weitere — filterbar nach Board-Typ, Land und Wand-Details.</p>
       </details>
     </div>
   </div>
